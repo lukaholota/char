@@ -433,9 +433,9 @@ exports.Prisma.RaceChoiceOptionScalarFieldEnum = {
   description: 'description',
   selectMultiple: 'selectMultiple',
   maxSelection: 'maxSelection',
-  grantsASI: 'grantsASI',
-  grantsSkillProficiencies: 'grantsSkillProficiencies',
-  grantsLanguages: 'grantsLanguages',
+  ASI: 'ASI',
+  skillProficiencies: 'skillProficiencies',
+  languages: 'languages',
   languagesToChooseCount: 'languagesToChooseCount',
   modifiesSpeed: 'modifiesSpeed'
 };
@@ -806,27 +806,6 @@ exports.Size = exports.$Enums.Size = {
   GARGANTUAN: 'GARGANTUAN'
 };
 
-exports.Skills = exports.$Enums.Skills = {
-  ATHLETICS: 'ATHLETICS',
-  ACROBATICS: 'ACROBATICS',
-  SLEIGHT_OF_HAND: 'SLEIGHT_OF_HAND',
-  STEALTH: 'STEALTH',
-  ARCANA: 'ARCANA',
-  HISTORY: 'HISTORY',
-  INVESTIGATION: 'INVESTIGATION',
-  NATURE: 'NATURE',
-  RELIGION: 'RELIGION',
-  ANIMAL_HANDLING: 'ANIMAL_HANDLING',
-  INSIGHT: 'INSIGHT',
-  MEDICINE: 'MEDICINE',
-  PERCEPTION: 'PERCEPTION',
-  SURVIVAL: 'SURVIVAL',
-  DECEPTION: 'DECEPTION',
-  INTIMIDATION: 'INTIMIDATION',
-  PERFORMANCE: 'PERFORMANCE',
-  PERSUASION: 'PERSUASION'
-};
-
 exports.WeaponCategory = exports.$Enums.WeaponCategory = {
   CLUB: 'CLUB',
   DAGGER: 'DAGGER',
@@ -1105,6 +1084,27 @@ exports.SkillProficiencyType = exports.$Enums.SkillProficiencyType = {
   HALF: 'HALF',
   PROFICIENT: 'PROFICIENT',
   EXPERTISE: 'EXPERTISE'
+};
+
+exports.Skills = exports.$Enums.Skills = {
+  ATHLETICS: 'ATHLETICS',
+  ACROBATICS: 'ACROBATICS',
+  SLEIGHT_OF_HAND: 'SLEIGHT_OF_HAND',
+  STEALTH: 'STEALTH',
+  ARCANA: 'ARCANA',
+  HISTORY: 'HISTORY',
+  INVESTIGATION: 'INVESTIGATION',
+  NATURE: 'NATURE',
+  RELIGION: 'RELIGION',
+  ANIMAL_HANDLING: 'ANIMAL_HANDLING',
+  INSIGHT: 'INSIGHT',
+  MEDICINE: 'MEDICINE',
+  PERCEPTION: 'PERCEPTION',
+  SURVIVAL: 'SURVIVAL',
+  DECEPTION: 'DECEPTION',
+  INTIMIDATION: 'INTIMIDATION',
+  PERFORMANCE: 'PERFORMANCE',
+  PERSUASION: 'PERSUASION'
 };
 
 exports.EquipmentPackCategory = exports.$Enums.EquipmentPackCategory = {

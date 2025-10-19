@@ -5918,12 +5918,12 @@ export namespace Prisma {
    */
 
   export type RaceChoiceOptionCountOutputType = {
-    grantsTraits: number
+    traits: number
     perses: number
   }
 
   export type RaceChoiceOptionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    grantsTraits?: boolean | RaceChoiceOptionCountOutputTypeCountGrantsTraitsArgs
+    traits?: boolean | RaceChoiceOptionCountOutputTypeCountTraitsArgs
     perses?: boolean | RaceChoiceOptionCountOutputTypeCountPersesArgs
   }
 
@@ -5941,7 +5941,7 @@ export namespace Prisma {
   /**
    * RaceChoiceOptionCountOutputType without action
    */
-  export type RaceChoiceOptionCountOutputTypeCountGrantsTraitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RaceChoiceOptionCountOutputTypeCountTraitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: RaceChoiceOptionTraitWhereInput
   }
 
@@ -17021,7 +17021,7 @@ export namespace Prisma {
     armorProficiencies: $Enums.ArmorType[]
     weaponProficiencies: $Enums.WeaponType[]
     savingThrows: $Enums.Ability[]
-    skillProficiencies: $Enums.Ability[]
+    skillProficiencies: JsonValue | null
     toolProficiencies: $Enums.ToolCategory[]
     languagesToChooseCount: number
     languages: $Enums.Language[]
@@ -17197,7 +17197,7 @@ export namespace Prisma {
       armorProficiencies: $Enums.ArmorType[]
       weaponProficiencies: $Enums.WeaponType[]
       savingThrows: $Enums.Ability[]
-      skillProficiencies: $Enums.Ability[]
+      skillProficiencies: Prisma.JsonValue | null
       toolProficiencies: $Enums.ToolCategory[]
       languagesToChooseCount: number
       languages: $Enums.Language[]
@@ -17648,7 +17648,7 @@ export namespace Prisma {
     readonly armorProficiencies: FieldRef<"Class", 'ArmorType[]'>
     readonly weaponProficiencies: FieldRef<"Class", 'WeaponType[]'>
     readonly savingThrows: FieldRef<"Class", 'Ability[]'>
-    readonly skillProficiencies: FieldRef<"Class", 'Ability[]'>
+    readonly skillProficiencies: FieldRef<"Class", 'Json'>
     readonly toolProficiencies: FieldRef<"Class", 'ToolCategory[]'>
     readonly languagesToChooseCount: FieldRef<"Class", 'Int'>
     readonly languages: FieldRef<"Class", 'Language[]'>
@@ -34141,7 +34141,7 @@ export namespace Prisma {
     languagesToChooseCount: number
     ASI: JsonValue
     toolProficiencies: $Enums.ToolCategory[]
-    skillProficiencies: $Enums.Skills[]
+    skillProficiencies: JsonValue | null
     weaponProficiencies: $Enums.WeaponCategory[]
     armorProficiencies: $Enums.ArmorType[]
     _count: RaceCountAggregateOutputType | null
@@ -34287,7 +34287,7 @@ export namespace Prisma {
       languagesToChooseCount: number
       ASI: Prisma.JsonValue
       toolProficiencies: $Enums.ToolCategory[]
-      skillProficiencies: $Enums.Skills[]
+      skillProficiencies: Prisma.JsonValue | null
       weaponProficiencies: $Enums.WeaponCategory[]
       armorProficiencies: $Enums.ArmorType[]
     }, ExtArgs["result"]["race"]>
@@ -34732,7 +34732,7 @@ export namespace Prisma {
     readonly languagesToChooseCount: FieldRef<"Race", 'Int'>
     readonly ASI: FieldRef<"Race", 'Json'>
     readonly toolProficiencies: FieldRef<"Race", 'ToolCategory[]'>
-    readonly skillProficiencies: FieldRef<"Race", 'Skills[]'>
+    readonly skillProficiencies: FieldRef<"Race", 'Json'>
     readonly weaponProficiencies: FieldRef<"Race", 'WeaponCategory[]'>
     readonly armorProficiencies: FieldRef<"Race", 'ArmorType[]'>
   }
@@ -37849,9 +37849,9 @@ export namespace Prisma {
     description: number
     selectMultiple: number
     maxSelection: number
-    grantsASI: number
-    grantsSkillProficiencies: number
-    grantsLanguages: number
+    ASI: number
+    skillProficiencies: number
+    languages: number
     languagesToChooseCount: number
     modifiesSpeed: number
     _all: number
@@ -37911,9 +37911,9 @@ export namespace Prisma {
     description?: true
     selectMultiple?: true
     maxSelection?: true
-    grantsASI?: true
-    grantsSkillProficiencies?: true
-    grantsLanguages?: true
+    ASI?: true
+    skillProficiencies?: true
+    languages?: true
     languagesToChooseCount?: true
     modifiesSpeed?: true
     _all?: true
@@ -38014,9 +38014,9 @@ export namespace Prisma {
     description: string | null
     selectMultiple: boolean
     maxSelection: number
-    grantsASI: JsonValue | null
-    grantsSkillProficiencies: $Enums.Skills[]
-    grantsLanguages: $Enums.Language[]
+    ASI: JsonValue | null
+    skillProficiencies: JsonValue | null
+    languages: $Enums.Language[]
     languagesToChooseCount: number
     modifiesSpeed: number | null
     _count: RaceChoiceOptionCountAggregateOutputType | null
@@ -38049,12 +38049,12 @@ export namespace Prisma {
     description?: boolean
     selectMultiple?: boolean
     maxSelection?: boolean
-    grantsASI?: boolean
-    grantsSkillProficiencies?: boolean
-    grantsLanguages?: boolean
+    ASI?: boolean
+    skillProficiencies?: boolean
+    languages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
-    grantsTraits?: boolean | RaceChoiceOption$grantsTraitsArgs<ExtArgs>
+    traits?: boolean | RaceChoiceOption$traitsArgs<ExtArgs>
     race?: boolean | RaceDefaultArgs<ExtArgs>
     subrace?: boolean | RaceChoiceOption$subraceArgs<ExtArgs>
     perses?: boolean | RaceChoiceOption$persesArgs<ExtArgs>
@@ -38070,9 +38070,9 @@ export namespace Prisma {
     description?: boolean
     selectMultiple?: boolean
     maxSelection?: boolean
-    grantsASI?: boolean
-    grantsSkillProficiencies?: boolean
-    grantsLanguages?: boolean
+    ASI?: boolean
+    skillProficiencies?: boolean
+    languages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
     race?: boolean | RaceDefaultArgs<ExtArgs>
@@ -38088,9 +38088,9 @@ export namespace Prisma {
     description?: boolean
     selectMultiple?: boolean
     maxSelection?: boolean
-    grantsASI?: boolean
-    grantsSkillProficiencies?: boolean
-    grantsLanguages?: boolean
+    ASI?: boolean
+    skillProficiencies?: boolean
+    languages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
     race?: boolean | RaceDefaultArgs<ExtArgs>
@@ -38106,16 +38106,16 @@ export namespace Prisma {
     description?: boolean
     selectMultiple?: boolean
     maxSelection?: boolean
-    grantsASI?: boolean
-    grantsSkillProficiencies?: boolean
-    grantsLanguages?: boolean
+    ASI?: boolean
+    skillProficiencies?: boolean
+    languages?: boolean
     languagesToChooseCount?: boolean
     modifiesSpeed?: boolean
   }
 
-  export type RaceChoiceOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"optionId" | "raceId" | "subraceId" | "choiceGroupName" | "optionName" | "description" | "selectMultiple" | "maxSelection" | "grantsASI" | "grantsSkillProficiencies" | "grantsLanguages" | "languagesToChooseCount" | "modifiesSpeed", ExtArgs["result"]["raceChoiceOption"]>
+  export type RaceChoiceOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"optionId" | "raceId" | "subraceId" | "choiceGroupName" | "optionName" | "description" | "selectMultiple" | "maxSelection" | "ASI" | "skillProficiencies" | "languages" | "languagesToChooseCount" | "modifiesSpeed", ExtArgs["result"]["raceChoiceOption"]>
   export type RaceChoiceOptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    grantsTraits?: boolean | RaceChoiceOption$grantsTraitsArgs<ExtArgs>
+    traits?: boolean | RaceChoiceOption$traitsArgs<ExtArgs>
     race?: boolean | RaceDefaultArgs<ExtArgs>
     subrace?: boolean | RaceChoiceOption$subraceArgs<ExtArgs>
     perses?: boolean | RaceChoiceOption$persesArgs<ExtArgs>
@@ -38133,7 +38133,7 @@ export namespace Prisma {
   export type $RaceChoiceOptionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RaceChoiceOption"
     objects: {
-      grantsTraits: Prisma.$RaceChoiceOptionTraitPayload<ExtArgs>[]
+      traits: Prisma.$RaceChoiceOptionTraitPayload<ExtArgs>[]
       race: Prisma.$RacePayload<ExtArgs>
       subrace: Prisma.$SubracePayload<ExtArgs> | null
       perses: Prisma.$PersPayload<ExtArgs>[]
@@ -38147,9 +38147,9 @@ export namespace Prisma {
       description: string | null
       selectMultiple: boolean
       maxSelection: number
-      grantsASI: Prisma.JsonValue | null
-      grantsSkillProficiencies: $Enums.Skills[]
-      grantsLanguages: $Enums.Language[]
+      ASI: Prisma.JsonValue | null
+      skillProficiencies: Prisma.JsonValue | null
+      languages: $Enums.Language[]
       languagesToChooseCount: number
       modifiesSpeed: number | null
     }, ExtArgs["result"]["raceChoiceOption"]>
@@ -38546,7 +38546,7 @@ export namespace Prisma {
    */
   export interface Prisma__RaceChoiceOptionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    grantsTraits<T extends RaceChoiceOption$grantsTraitsArgs<ExtArgs> = {}>(args?: Subset<T, RaceChoiceOption$grantsTraitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RaceChoiceOptionTraitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    traits<T extends RaceChoiceOption$traitsArgs<ExtArgs> = {}>(args?: Subset<T, RaceChoiceOption$traitsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RaceChoiceOptionTraitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     race<T extends RaceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RaceDefaultArgs<ExtArgs>>): Prisma__RaceClient<$Result.GetResult<Prisma.$RacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     subrace<T extends RaceChoiceOption$subraceArgs<ExtArgs> = {}>(args?: Subset<T, RaceChoiceOption$subraceArgs<ExtArgs>>): Prisma__SubraceClient<$Result.GetResult<Prisma.$SubracePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     perses<T extends RaceChoiceOption$persesArgs<ExtArgs> = {}>(args?: Subset<T, RaceChoiceOption$persesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -38587,9 +38587,9 @@ export namespace Prisma {
     readonly description: FieldRef<"RaceChoiceOption", 'String'>
     readonly selectMultiple: FieldRef<"RaceChoiceOption", 'Boolean'>
     readonly maxSelection: FieldRef<"RaceChoiceOption", 'Int'>
-    readonly grantsASI: FieldRef<"RaceChoiceOption", 'Json'>
-    readonly grantsSkillProficiencies: FieldRef<"RaceChoiceOption", 'Skills[]'>
-    readonly grantsLanguages: FieldRef<"RaceChoiceOption", 'Language[]'>
+    readonly ASI: FieldRef<"RaceChoiceOption", 'Json'>
+    readonly skillProficiencies: FieldRef<"RaceChoiceOption", 'Json'>
+    readonly languages: FieldRef<"RaceChoiceOption", 'Language[]'>
     readonly languagesToChooseCount: FieldRef<"RaceChoiceOption", 'Int'>
     readonly modifiesSpeed: FieldRef<"RaceChoiceOption", 'Int'>
   }
@@ -38988,9 +38988,9 @@ export namespace Prisma {
   }
 
   /**
-   * RaceChoiceOption.grantsTraits
+   * RaceChoiceOption.traits
    */
-  export type RaceChoiceOption$grantsTraitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RaceChoiceOption$traitsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the RaceChoiceOptionTrait
      */
@@ -39259,7 +39259,7 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory
     source: $Enums.Source
     toolProficiencies: $Enums.ToolCategory[]
-    skillProficiencies: $Enums.Skills[]
+    skillProficiencies: JsonValue | null
     languagesToChooseCount: number
     items: JsonValue | null
     specialAbilityName: string | null
@@ -39353,7 +39353,7 @@ export namespace Prisma {
       name: $Enums.BackgroundCategory
       source: $Enums.Source
       toolProficiencies: $Enums.ToolCategory[]
-      skillProficiencies: $Enums.Skills[]
+      skillProficiencies: Prisma.JsonValue | null
       languagesToChooseCount: number
       items: Prisma.JsonValue | null
       specialAbilityName: string | null
@@ -39786,7 +39786,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Background", 'BackgroundCategory'>
     readonly source: FieldRef<"Background", 'Source'>
     readonly toolProficiencies: FieldRef<"Background", 'ToolCategory[]'>
-    readonly skillProficiencies: FieldRef<"Background", 'Skills[]'>
+    readonly skillProficiencies: FieldRef<"Background", 'Json'>
     readonly languagesToChooseCount: FieldRef<"Background", 'Int'>
     readonly items: FieldRef<"Background", 'Json'>
     readonly specialAbilityName: FieldRef<"Background", 'String'>
@@ -54479,9 +54479,9 @@ export namespace Prisma {
     description: 'description',
     selectMultiple: 'selectMultiple',
     maxSelection: 'maxSelection',
-    grantsASI: 'grantsASI',
-    grantsSkillProficiencies: 'grantsSkillProficiencies',
-    grantsLanguages: 'grantsLanguages',
+    ASI: 'ASI',
+    skillProficiencies: 'skillProficiencies',
+    languages: 'languages',
     languagesToChooseCount: 'languagesToChooseCount',
     modifiesSpeed: 'modifiesSpeed'
   };
@@ -54813,6 +54813,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
    * Reference to a field of type 'ToolCategory[]'
    */
   export type ListEnumToolCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ToolCategory[]'>
@@ -54837,20 +54851,6 @@ export namespace Prisma {
    * Reference to a field of type 'Language'
    */
   export type EnumLanguageFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Language'>
-    
-
-
-  /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-  /**
-   * Reference to a field of type 'QueryMode'
-   */
-  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -54928,20 +54928,6 @@ export namespace Prisma {
    * Reference to a field of type 'Size'
    */
   export type EnumSizeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Size'>
-    
-
-
-  /**
-   * Reference to a field of type 'Skills[]'
-   */
-  export type ListEnumSkillsFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Skills[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Skills'
-   */
-  export type EnumSkillsFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Skills'>
     
 
 
@@ -55096,6 +55082,20 @@ export namespace Prisma {
    * Reference to a field of type 'SkillProficiencyType[]'
    */
   export type ListEnumSkillProficiencyTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SkillProficiencyType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Skills'
+   */
+  export type EnumSkillsFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Skills'>
+    
+
+
+  /**
+   * Reference to a field of type 'Skills[]'
+   */
+  export type ListEnumSkillsFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Skills[]'>
     
 
 
@@ -55806,7 +55806,7 @@ export namespace Prisma {
     armorProficiencies?: EnumArmorTypeNullableListFilter<"Class">
     weaponProficiencies?: EnumWeaponTypeNullableListFilter<"Class">
     savingThrows?: EnumAbilityNullableListFilter<"Class">
-    skillProficiencies?: EnumAbilityNullableListFilter<"Class">
+    skillProficiencies?: JsonNullableFilter<"Class">
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Class">
     languagesToChooseCount?: IntFilter<"Class"> | number
     languages?: EnumLanguageNullableListFilter<"Class">
@@ -55837,7 +55837,7 @@ export namespace Prisma {
     armorProficiencies?: SortOrder
     weaponProficiencies?: SortOrder
     savingThrows?: SortOrder
-    skillProficiencies?: SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
     toolProficiencies?: SortOrder
     languagesToChooseCount?: SortOrder
     languages?: SortOrder
@@ -55871,7 +55871,7 @@ export namespace Prisma {
     armorProficiencies?: EnumArmorTypeNullableListFilter<"Class">
     weaponProficiencies?: EnumWeaponTypeNullableListFilter<"Class">
     savingThrows?: EnumAbilityNullableListFilter<"Class">
-    skillProficiencies?: EnumAbilityNullableListFilter<"Class">
+    skillProficiencies?: JsonNullableFilter<"Class">
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Class">
     languagesToChooseCount?: IntFilter<"Class"> | number
     languages?: EnumLanguageNullableListFilter<"Class">
@@ -55902,7 +55902,7 @@ export namespace Prisma {
     armorProficiencies?: SortOrder
     weaponProficiencies?: SortOrder
     savingThrows?: SortOrder
-    skillProficiencies?: SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
     toolProficiencies?: SortOrder
     languagesToChooseCount?: SortOrder
     languages?: SortOrder
@@ -55936,7 +55936,7 @@ export namespace Prisma {
     armorProficiencies?: EnumArmorTypeNullableListFilter<"Class">
     weaponProficiencies?: EnumWeaponTypeNullableListFilter<"Class">
     savingThrows?: EnumAbilityNullableListFilter<"Class">
-    skillProficiencies?: EnumAbilityNullableListFilter<"Class">
+    skillProficiencies?: JsonNullableWithAggregatesFilter<"Class">
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Class">
     languagesToChooseCount?: IntWithAggregatesFilter<"Class"> | number
     languages?: EnumLanguageNullableListFilter<"Class">
@@ -56996,7 +56996,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFilter<"Race"> | number
     ASI?: JsonFilter<"Race">
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Race">
-    skillProficiencies?: EnumSkillsNullableListFilter<"Race">
+    skillProficiencies?: JsonNullableFilter<"Race">
     weaponProficiencies?: EnumWeaponCategoryNullableListFilter<"Race">
     armorProficiencies?: EnumArmorTypeNullableListFilter<"Race">
     subraces?: SubraceListRelationFilter
@@ -57021,7 +57021,7 @@ export namespace Prisma {
     languagesToChooseCount?: SortOrder
     ASI?: SortOrder
     toolProficiencies?: SortOrder
-    skillProficiencies?: SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
     weaponProficiencies?: SortOrder
     armorProficiencies?: SortOrder
     subraces?: SubraceOrderByRelationAggregateInput
@@ -57049,7 +57049,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFilter<"Race"> | number
     ASI?: JsonFilter<"Race">
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Race">
-    skillProficiencies?: EnumSkillsNullableListFilter<"Race">
+    skillProficiencies?: JsonNullableFilter<"Race">
     weaponProficiencies?: EnumWeaponCategoryNullableListFilter<"Race">
     armorProficiencies?: EnumArmorTypeNullableListFilter<"Race">
     subraces?: SubraceListRelationFilter
@@ -57074,7 +57074,7 @@ export namespace Prisma {
     languagesToChooseCount?: SortOrder
     ASI?: SortOrder
     toolProficiencies?: SortOrder
-    skillProficiencies?: SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
     weaponProficiencies?: SortOrder
     armorProficiencies?: SortOrder
     _count?: RaceCountOrderByAggregateInput
@@ -57102,7 +57102,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntWithAggregatesFilter<"Race"> | number
     ASI?: JsonWithAggregatesFilter<"Race">
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Race">
-    skillProficiencies?: EnumSkillsNullableListFilter<"Race">
+    skillProficiencies?: JsonNullableWithAggregatesFilter<"Race">
     weaponProficiencies?: EnumWeaponCategoryNullableListFilter<"Race">
     armorProficiencies?: EnumArmorTypeNullableListFilter<"Race">
   }
@@ -57309,12 +57309,12 @@ export namespace Prisma {
     description?: StringNullableFilter<"RaceChoiceOption"> | string | null
     selectMultiple?: BoolFilter<"RaceChoiceOption"> | boolean
     maxSelection?: IntFilter<"RaceChoiceOption"> | number
-    grantsASI?: JsonNullableFilter<"RaceChoiceOption">
-    grantsSkillProficiencies?: EnumSkillsNullableListFilter<"RaceChoiceOption">
-    grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
+    ASI?: JsonNullableFilter<"RaceChoiceOption">
+    skillProficiencies?: JsonNullableFilter<"RaceChoiceOption">
+    languages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableFilter<"RaceChoiceOption"> | number | null
-    grantsTraits?: RaceChoiceOptionTraitListRelationFilter
+    traits?: RaceChoiceOptionTraitListRelationFilter
     race?: XOR<RaceScalarRelationFilter, RaceWhereInput>
     subrace?: XOR<SubraceNullableScalarRelationFilter, SubraceWhereInput> | null
     perses?: PersListRelationFilter
@@ -57329,12 +57329,12 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     selectMultiple?: SortOrder
     maxSelection?: SortOrder
-    grantsASI?: SortOrderInput | SortOrder
-    grantsSkillProficiencies?: SortOrder
-    grantsLanguages?: SortOrder
+    ASI?: SortOrderInput | SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
+    languages?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrderInput | SortOrder
-    grantsTraits?: RaceChoiceOptionTraitOrderByRelationAggregateInput
+    traits?: RaceChoiceOptionTraitOrderByRelationAggregateInput
     race?: RaceOrderByWithRelationInput
     subrace?: SubraceOrderByWithRelationInput
     perses?: PersOrderByRelationAggregateInput
@@ -57353,12 +57353,12 @@ export namespace Prisma {
     description?: StringNullableFilter<"RaceChoiceOption"> | string | null
     selectMultiple?: BoolFilter<"RaceChoiceOption"> | boolean
     maxSelection?: IntFilter<"RaceChoiceOption"> | number
-    grantsASI?: JsonNullableFilter<"RaceChoiceOption">
-    grantsSkillProficiencies?: EnumSkillsNullableListFilter<"RaceChoiceOption">
-    grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
+    ASI?: JsonNullableFilter<"RaceChoiceOption">
+    skillProficiencies?: JsonNullableFilter<"RaceChoiceOption">
+    languages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableFilter<"RaceChoiceOption"> | number | null
-    grantsTraits?: RaceChoiceOptionTraitListRelationFilter
+    traits?: RaceChoiceOptionTraitListRelationFilter
     race?: XOR<RaceScalarRelationFilter, RaceWhereInput>
     subrace?: XOR<SubraceNullableScalarRelationFilter, SubraceWhereInput> | null
     perses?: PersListRelationFilter
@@ -57373,9 +57373,9 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     selectMultiple?: SortOrder
     maxSelection?: SortOrder
-    grantsASI?: SortOrderInput | SortOrder
-    grantsSkillProficiencies?: SortOrder
-    grantsLanguages?: SortOrder
+    ASI?: SortOrderInput | SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
+    languages?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrderInput | SortOrder
     _count?: RaceChoiceOptionCountOrderByAggregateInput
@@ -57397,9 +57397,9 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"RaceChoiceOption"> | string | null
     selectMultiple?: BoolWithAggregatesFilter<"RaceChoiceOption"> | boolean
     maxSelection?: IntWithAggregatesFilter<"RaceChoiceOption"> | number
-    grantsASI?: JsonNullableWithAggregatesFilter<"RaceChoiceOption">
-    grantsSkillProficiencies?: EnumSkillsNullableListFilter<"RaceChoiceOption">
-    grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
+    ASI?: JsonNullableWithAggregatesFilter<"RaceChoiceOption">
+    skillProficiencies?: JsonNullableWithAggregatesFilter<"RaceChoiceOption">
+    languages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntWithAggregatesFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableWithAggregatesFilter<"RaceChoiceOption"> | number | null
   }
@@ -57412,7 +57412,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryFilter<"Background"> | $Enums.BackgroundCategory
     source?: EnumSourceFilter<"Background"> | $Enums.Source
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Background">
-    skillProficiencies?: EnumSkillsNullableListFilter<"Background">
+    skillProficiencies?: JsonNullableFilter<"Background">
     languagesToChooseCount?: IntFilter<"Background"> | number
     items?: JsonNullableFilter<"Background">
     specialAbilityName?: StringNullableFilter<"Background"> | string | null
@@ -57425,7 +57425,7 @@ export namespace Prisma {
     name?: SortOrder
     source?: SortOrder
     toolProficiencies?: SortOrder
-    skillProficiencies?: SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
     languagesToChooseCount?: SortOrder
     items?: SortOrderInput | SortOrder
     specialAbilityName?: SortOrderInput | SortOrder
@@ -57441,7 +57441,7 @@ export namespace Prisma {
     NOT?: BackgroundWhereInput | BackgroundWhereInput[]
     source?: EnumSourceFilter<"Background"> | $Enums.Source
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Background">
-    skillProficiencies?: EnumSkillsNullableListFilter<"Background">
+    skillProficiencies?: JsonNullableFilter<"Background">
     languagesToChooseCount?: IntFilter<"Background"> | number
     items?: JsonNullableFilter<"Background">
     specialAbilityName?: StringNullableFilter<"Background"> | string | null
@@ -57454,7 +57454,7 @@ export namespace Prisma {
     name?: SortOrder
     source?: SortOrder
     toolProficiencies?: SortOrder
-    skillProficiencies?: SortOrder
+    skillProficiencies?: SortOrderInput | SortOrder
     languagesToChooseCount?: SortOrder
     items?: SortOrderInput | SortOrder
     specialAbilityName?: SortOrderInput | SortOrder
@@ -57474,7 +57474,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryWithAggregatesFilter<"Background"> | $Enums.BackgroundCategory
     source?: EnumSourceWithAggregatesFilter<"Background"> | $Enums.Source
     toolProficiencies?: EnumToolCategoryNullableListFilter<"Background">
-    skillProficiencies?: EnumSkillsNullableListFilter<"Background">
+    skillProficiencies?: JsonNullableWithAggregatesFilter<"Background">
     languagesToChooseCount?: IntWithAggregatesFilter<"Background"> | number
     items?: JsonNullableWithAggregatesFilter<"Background">
     specialAbilityName?: StringNullableWithAggregatesFilter<"Background"> | string | null
@@ -59018,7 +59018,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -59049,7 +59049,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -59079,7 +59079,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -59110,7 +59110,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -59141,7 +59141,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -59166,7 +59166,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -59192,7 +59192,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -60091,7 +60091,7 @@ export namespace Prisma {
 
   export type RaceChoiceOptionTraitCreateInput = {
     feature: FeatureCreateNestedOneWithoutRaceChoiceOptionsTraitsInput
-    raceChoiceOption: RaceChoiceOptionCreateNestedOneWithoutGrantsTraitsInput
+    raceChoiceOption: RaceChoiceOptionCreateNestedOneWithoutTraitsInput
   }
 
   export type RaceChoiceOptionTraitUncheckedCreateInput = {
@@ -60102,7 +60102,7 @@ export namespace Prisma {
 
   export type RaceChoiceOptionTraitUpdateInput = {
     feature?: FeatureUpdateOneRequiredWithoutRaceChoiceOptionsTraitsNestedInput
-    raceChoiceOption?: RaceChoiceOptionUpdateOneRequiredWithoutGrantsTraitsNestedInput
+    raceChoiceOption?: RaceChoiceOptionUpdateOneRequiredWithoutTraitsNestedInput
   }
 
   export type RaceChoiceOptionTraitUncheckedUpdateInput = {
@@ -60217,7 +60217,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceCreateNestedManyWithoutRaceInput
@@ -60242,7 +60242,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedCreateNestedManyWithoutRaceInput
@@ -60266,7 +60266,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUpdateManyWithoutRaceNestedInput
@@ -60291,7 +60291,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedUpdateManyWithoutRaceNestedInput
@@ -60316,7 +60316,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
   }
@@ -60335,7 +60335,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
   }
@@ -60355,7 +60355,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
   }
@@ -60575,12 +60575,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
     subrace?: SubraceCreateNestedOneWithoutRaceChoiceOptionsInput
     perses?: PersCreateNestedManyWithoutRaceChoiceOptionsInput
@@ -60595,12 +60595,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
 
@@ -60610,12 +60610,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
     subrace?: SubraceUpdateOneWithoutRaceChoiceOptionsNestedInput
     perses?: PersUpdateManyWithoutRaceChoiceOptionsNestedInput
@@ -60630,12 +60630,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
 
@@ -60648,9 +60648,9 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
   }
@@ -60661,9 +60661,9 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -60677,9 +60677,9 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -60688,7 +60688,7 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory
     source?: $Enums.Source
     toolProficiencies?: BackgroundCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: string | null
@@ -60701,7 +60701,7 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory
     source?: $Enums.Source
     toolProficiencies?: BackgroundCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: string | null
@@ -60713,7 +60713,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryFieldUpdateOperationsInput | $Enums.BackgroundCategory
     source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
     toolProficiencies?: BackgroundUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -60726,7 +60726,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryFieldUpdateOperationsInput | $Enums.BackgroundCategory
     source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
     toolProficiencies?: BackgroundUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -60739,7 +60739,7 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory
     source?: $Enums.Source
     toolProficiencies?: BackgroundCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: string | null
@@ -60750,7 +60750,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryFieldUpdateOperationsInput | $Enums.BackgroundCategory
     source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
     toolProficiencies?: BackgroundUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -60762,7 +60762,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryFieldUpdateOperationsInput | $Enums.BackgroundCategory
     source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
     toolProficiencies?: BackgroundUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -62282,22 +62282,6 @@ export namespace Prisma {
     hasSome?: $Enums.Ability[] | ListEnumAbilityFieldRefInput<$PrismaModel>
     isEmpty?: boolean
   }
-
-  export type EnumToolCategoryNullableListFilter<$PrismaModel = never> = {
-    equals?: $Enums.ToolCategory[] | ListEnumToolCategoryFieldRefInput<$PrismaModel> | null
-    has?: $Enums.ToolCategory | EnumToolCategoryFieldRefInput<$PrismaModel> | null
-    hasEvery?: $Enums.ToolCategory[] | ListEnumToolCategoryFieldRefInput<$PrismaModel>
-    hasSome?: $Enums.ToolCategory[] | ListEnumToolCategoryFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
-  }
-
-  export type EnumLanguageNullableListFilter<$PrismaModel = never> = {
-    equals?: $Enums.Language[] | ListEnumLanguageFieldRefInput<$PrismaModel> | null
-    has?: $Enums.Language | EnumLanguageFieldRefInput<$PrismaModel> | null
-    hasEvery?: $Enums.Language[] | ListEnumLanguageFieldRefInput<$PrismaModel>
-    hasSome?: $Enums.Language[] | ListEnumLanguageFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
-  }
   export type JsonNullableFilter<$PrismaModel = never> =
     | PatchUndefined<
         Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -62320,6 +62304,22 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type EnumToolCategoryNullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.ToolCategory[] | ListEnumToolCategoryFieldRefInput<$PrismaModel> | null
+    has?: $Enums.ToolCategory | EnumToolCategoryFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.ToolCategory[] | ListEnumToolCategoryFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.ToolCategory[] | ListEnumToolCategoryFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type EnumLanguageNullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.Language[] | ListEnumLanguageFieldRefInput<$PrismaModel> | null
+    has?: $Enums.Language | EnumLanguageFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.Language[] | ListEnumLanguageFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.Language[] | ListEnumLanguageFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -63463,14 +63463,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type EnumSkillsNullableListFilter<$PrismaModel = never> = {
-    equals?: $Enums.Skills[] | ListEnumSkillsFieldRefInput<$PrismaModel> | null
-    has?: $Enums.Skills | EnumSkillsFieldRefInput<$PrismaModel> | null
-    hasEvery?: $Enums.Skills[] | ListEnumSkillsFieldRefInput<$PrismaModel>
-    hasSome?: $Enums.Skills[] | ListEnumSkillsFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
-  }
-
   export type EnumWeaponCategoryNullableListFilter<$PrismaModel = never> = {
     equals?: $Enums.WeaponCategory[] | ListEnumWeaponCategoryFieldRefInput<$PrismaModel> | null
     has?: $Enums.WeaponCategory | EnumWeaponCategoryFieldRefInput<$PrismaModel> | null
@@ -63728,9 +63720,9 @@ export namespace Prisma {
     description?: SortOrder
     selectMultiple?: SortOrder
     maxSelection?: SortOrder
-    grantsASI?: SortOrder
-    grantsSkillProficiencies?: SortOrder
-    grantsLanguages?: SortOrder
+    ASI?: SortOrder
+    skillProficiencies?: SortOrder
+    languages?: SortOrder
     languagesToChooseCount?: SortOrder
     modifiesSpeed?: SortOrder
   }
@@ -65301,10 +65293,6 @@ export namespace Prisma {
     set: $Enums.Ability[]
   }
 
-  export type ClassCreateskillProficienciesInput = {
-    set: $Enums.Ability[]
-  }
-
   export type ClassCreatetoolProficienciesInput = {
     set: $Enums.ToolCategory[]
   }
@@ -65407,11 +65395,6 @@ export namespace Prisma {
   }
 
   export type ClassUpdatesavingThrowsInput = {
-    set?: $Enums.Ability[]
-    push?: $Enums.Ability | $Enums.Ability[]
-  }
-
-  export type ClassUpdateskillProficienciesInput = {
     set?: $Enums.Ability[]
     push?: $Enums.Ability | $Enums.Ability[]
   }
@@ -67002,9 +66985,9 @@ export namespace Prisma {
     connect?: FeatureWhereUniqueInput
   }
 
-  export type RaceChoiceOptionCreateNestedOneWithoutGrantsTraitsInput = {
-    create?: XOR<RaceChoiceOptionCreateWithoutGrantsTraitsInput, RaceChoiceOptionUncheckedCreateWithoutGrantsTraitsInput>
-    connectOrCreate?: RaceChoiceOptionCreateOrConnectWithoutGrantsTraitsInput
+  export type RaceChoiceOptionCreateNestedOneWithoutTraitsInput = {
+    create?: XOR<RaceChoiceOptionCreateWithoutTraitsInput, RaceChoiceOptionUncheckedCreateWithoutTraitsInput>
+    connectOrCreate?: RaceChoiceOptionCreateOrConnectWithoutTraitsInput
     connect?: RaceChoiceOptionWhereUniqueInput
   }
 
@@ -67016,12 +66999,12 @@ export namespace Prisma {
     update?: XOR<XOR<FeatureUpdateToOneWithWhereWithoutRaceChoiceOptionsTraitsInput, FeatureUpdateWithoutRaceChoiceOptionsTraitsInput>, FeatureUncheckedUpdateWithoutRaceChoiceOptionsTraitsInput>
   }
 
-  export type RaceChoiceOptionUpdateOneRequiredWithoutGrantsTraitsNestedInput = {
-    create?: XOR<RaceChoiceOptionCreateWithoutGrantsTraitsInput, RaceChoiceOptionUncheckedCreateWithoutGrantsTraitsInput>
-    connectOrCreate?: RaceChoiceOptionCreateOrConnectWithoutGrantsTraitsInput
-    upsert?: RaceChoiceOptionUpsertWithoutGrantsTraitsInput
+  export type RaceChoiceOptionUpdateOneRequiredWithoutTraitsNestedInput = {
+    create?: XOR<RaceChoiceOptionCreateWithoutTraitsInput, RaceChoiceOptionUncheckedCreateWithoutTraitsInput>
+    connectOrCreate?: RaceChoiceOptionCreateOrConnectWithoutTraitsInput
+    upsert?: RaceChoiceOptionUpsertWithoutTraitsInput
     connect?: RaceChoiceOptionWhereUniqueInput
-    update?: XOR<XOR<RaceChoiceOptionUpdateToOneWithWhereWithoutGrantsTraitsInput, RaceChoiceOptionUpdateWithoutGrantsTraitsInput>, RaceChoiceOptionUncheckedUpdateWithoutGrantsTraitsInput>
+    update?: XOR<XOR<RaceChoiceOptionUpdateToOneWithWhereWithoutTraitsInput, RaceChoiceOptionUpdateWithoutTraitsInput>, RaceChoiceOptionUncheckedUpdateWithoutTraitsInput>
   }
 
   export type FeatureCreateNestedOneWithoutFeatFeaturesInput = {
@@ -67090,10 +67073,6 @@ export namespace Prisma {
 
   export type RaceCreatetoolProficienciesInput = {
     set: $Enums.ToolCategory[]
-  }
-
-  export type RaceCreateskillProficienciesInput = {
-    set: $Enums.Skills[]
   }
 
   export type RaceCreateweaponProficienciesInput = {
@@ -67191,11 +67170,6 @@ export namespace Prisma {
   export type RaceUpdatetoolProficienciesInput = {
     set?: $Enums.ToolCategory[]
     push?: $Enums.ToolCategory | $Enums.ToolCategory[]
-  }
-
-  export type RaceUpdateskillProficienciesInput = {
-    set?: $Enums.Skills[]
-    push?: $Enums.Skills | $Enums.Skills[]
   }
 
   export type RaceUpdateweaponProficienciesInput = {
@@ -67702,11 +67676,7 @@ export namespace Prisma {
     deleteMany?: PersScalarWhereInput | PersScalarWhereInput[]
   }
 
-  export type RaceChoiceOptionCreategrantsSkillProficienciesInput = {
-    set: $Enums.Skills[]
-  }
-
-  export type RaceChoiceOptionCreategrantsLanguagesInput = {
+  export type RaceChoiceOptionCreatelanguagesInput = {
     set: $Enums.Language[]
   }
 
@@ -67748,12 +67718,7 @@ export namespace Prisma {
     connect?: PersWhereUniqueInput | PersWhereUniqueInput[]
   }
 
-  export type RaceChoiceOptionUpdategrantsSkillProficienciesInput = {
-    set?: $Enums.Skills[]
-    push?: $Enums.Skills | $Enums.Skills[]
-  }
-
-  export type RaceChoiceOptionUpdategrantsLanguagesInput = {
+  export type RaceChoiceOptionUpdatelanguagesInput = {
     set?: $Enums.Language[]
     push?: $Enums.Language | $Enums.Language[]
   }
@@ -67834,10 +67799,6 @@ export namespace Prisma {
     set: $Enums.ToolCategory[]
   }
 
-  export type BackgroundCreateskillProficienciesInput = {
-    set: $Enums.Skills[]
-  }
-
   export type PersCreateNestedManyWithoutBackgroundInput = {
     create?: XOR<PersCreateWithoutBackgroundInput, PersUncheckedCreateWithoutBackgroundInput> | PersCreateWithoutBackgroundInput[] | PersUncheckedCreateWithoutBackgroundInput[]
     connectOrCreate?: PersCreateOrConnectWithoutBackgroundInput | PersCreateOrConnectWithoutBackgroundInput[]
@@ -67859,11 +67820,6 @@ export namespace Prisma {
   export type BackgroundUpdatetoolProficienciesInput = {
     set?: $Enums.ToolCategory[]
     push?: $Enums.ToolCategory | $Enums.ToolCategory[]
-  }
-
-  export type BackgroundUpdateskillProficienciesInput = {
-    set?: $Enums.Skills[]
-    push?: $Enums.Skills | $Enums.Skills[]
   }
 
   export type PersUpdateManyWithoutBackgroundNestedInput = {
@@ -70990,7 +70946,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -71020,7 +70976,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -71263,7 +71219,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -71293,7 +71249,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -71401,7 +71357,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -71431,7 +71387,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -71495,7 +71451,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceCreateNestedManyWithoutRaceInput
@@ -71519,7 +71475,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedCreateNestedManyWithoutRaceInput
@@ -71579,7 +71535,7 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory
     source?: $Enums.Source
     toolProficiencies?: BackgroundCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: string | null
@@ -71591,7 +71547,7 @@ export namespace Prisma {
     name: $Enums.BackgroundCategory
     source?: $Enums.Source
     toolProficiencies?: BackgroundCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: string | null
@@ -71856,12 +71812,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
     subrace?: SubraceCreateNestedOneWithoutRaceChoiceOptionsInput
   }
@@ -71875,12 +71831,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
   }
 
   export type RaceChoiceOptionCreateOrConnectWithoutPersesInput = {
@@ -71941,7 +71897,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -71971,7 +71927,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -72047,7 +72003,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUpdateManyWithoutRaceNestedInput
@@ -72071,7 +72027,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedUpdateManyWithoutRaceNestedInput
@@ -72143,7 +72099,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryFieldUpdateOperationsInput | $Enums.BackgroundCategory
     source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
     toolProficiencies?: BackgroundUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72155,7 +72111,7 @@ export namespace Prisma {
     name?: EnumBackgroundCategoryFieldUpdateOperationsInput | $Enums.BackgroundCategory
     source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
     toolProficiencies?: BackgroundUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: BackgroundUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     items?: NullableJsonNullValueInput | InputJsonValue
     specialAbilityName?: NullableStringFieldUpdateOperationsInput | string | null
@@ -72418,9 +72374,9 @@ export namespace Prisma {
     description?: StringNullableFilter<"RaceChoiceOption"> | string | null
     selectMultiple?: BoolFilter<"RaceChoiceOption"> | boolean
     maxSelection?: IntFilter<"RaceChoiceOption"> | number
-    grantsASI?: JsonNullableFilter<"RaceChoiceOption">
-    grantsSkillProficiencies?: EnumSkillsNullableListFilter<"RaceChoiceOption">
-    grantsLanguages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
+    ASI?: JsonNullableFilter<"RaceChoiceOption">
+    skillProficiencies?: JsonNullableFilter<"RaceChoiceOption">
+    languages?: EnumLanguageNullableListFilter<"RaceChoiceOption">
     languagesToChooseCount?: IntFilter<"RaceChoiceOption"> | number
     modifiesSpeed?: IntNullableFilter<"RaceChoiceOption"> | number | null
   }
@@ -72553,7 +72509,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -72583,7 +72539,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -72778,7 +72734,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -72808,7 +72764,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -73351,7 +73307,7 @@ export namespace Prisma {
   }
 
   export type RaceChoiceOptionTraitCreateWithoutFeatureInput = {
-    raceChoiceOption: RaceChoiceOptionCreateNestedOneWithoutGrantsTraitsInput
+    raceChoiceOption: RaceChoiceOptionCreateNestedOneWithoutTraitsInput
   }
 
   export type RaceChoiceOptionTraitUncheckedCreateWithoutFeatureInput = {
@@ -73708,7 +73664,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -73738,7 +73694,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -73839,7 +73795,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -73869,7 +73825,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -74122,7 +74078,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceCreateNestedManyWithoutRaceInput
@@ -74146,7 +74102,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedCreateNestedManyWithoutRaceInput
@@ -74313,7 +74269,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUpdateManyWithoutRaceNestedInput
@@ -74337,7 +74293,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedUpdateManyWithoutRaceNestedInput
@@ -74815,15 +74771,15 @@ export namespace Prisma {
     create: XOR<FeatureCreateWithoutRaceChoiceOptionsTraitsInput, FeatureUncheckedCreateWithoutRaceChoiceOptionsTraitsInput>
   }
 
-  export type RaceChoiceOptionCreateWithoutGrantsTraitsInput = {
+  export type RaceChoiceOptionCreateWithoutTraitsInput = {
     choiceGroupName: string
     optionName: string
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
@@ -74831,7 +74787,7 @@ export namespace Prisma {
     perses?: PersCreateNestedManyWithoutRaceChoiceOptionsInput
   }
 
-  export type RaceChoiceOptionUncheckedCreateWithoutGrantsTraitsInput = {
+  export type RaceChoiceOptionUncheckedCreateWithoutTraitsInput = {
     optionId?: number
     raceId: number
     subraceId?: number | null
@@ -74840,17 +74796,17 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
 
-  export type RaceChoiceOptionCreateOrConnectWithoutGrantsTraitsInput = {
+  export type RaceChoiceOptionCreateOrConnectWithoutTraitsInput = {
     where: RaceChoiceOptionWhereUniqueInput
-    create: XOR<RaceChoiceOptionCreateWithoutGrantsTraitsInput, RaceChoiceOptionUncheckedCreateWithoutGrantsTraitsInput>
+    create: XOR<RaceChoiceOptionCreateWithoutTraitsInput, RaceChoiceOptionUncheckedCreateWithoutTraitsInput>
   }
 
   export type FeatureUpsertWithoutRaceChoiceOptionsTraitsInput = {
@@ -74909,26 +74865,26 @@ export namespace Prisma {
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
-  export type RaceChoiceOptionUpsertWithoutGrantsTraitsInput = {
-    update: XOR<RaceChoiceOptionUpdateWithoutGrantsTraitsInput, RaceChoiceOptionUncheckedUpdateWithoutGrantsTraitsInput>
-    create: XOR<RaceChoiceOptionCreateWithoutGrantsTraitsInput, RaceChoiceOptionUncheckedCreateWithoutGrantsTraitsInput>
+  export type RaceChoiceOptionUpsertWithoutTraitsInput = {
+    update: XOR<RaceChoiceOptionUpdateWithoutTraitsInput, RaceChoiceOptionUncheckedUpdateWithoutTraitsInput>
+    create: XOR<RaceChoiceOptionCreateWithoutTraitsInput, RaceChoiceOptionUncheckedCreateWithoutTraitsInput>
     where?: RaceChoiceOptionWhereInput
   }
 
-  export type RaceChoiceOptionUpdateToOneWithWhereWithoutGrantsTraitsInput = {
+  export type RaceChoiceOptionUpdateToOneWithWhereWithoutTraitsInput = {
     where?: RaceChoiceOptionWhereInput
-    data: XOR<RaceChoiceOptionUpdateWithoutGrantsTraitsInput, RaceChoiceOptionUncheckedUpdateWithoutGrantsTraitsInput>
+    data: XOR<RaceChoiceOptionUpdateWithoutTraitsInput, RaceChoiceOptionUncheckedUpdateWithoutTraitsInput>
   }
 
-  export type RaceChoiceOptionUpdateWithoutGrantsTraitsInput = {
+  export type RaceChoiceOptionUpdateWithoutTraitsInput = {
     choiceGroupName?: StringFieldUpdateOperationsInput | string
     optionName?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
@@ -74936,7 +74892,7 @@ export namespace Prisma {
     perses?: PersUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
 
-  export type RaceChoiceOptionUncheckedUpdateWithoutGrantsTraitsInput = {
+  export type RaceChoiceOptionUncheckedUpdateWithoutTraitsInput = {
     optionId?: IntFieldUpdateOperationsInput | number
     raceId?: IntFieldUpdateOperationsInput | number
     subraceId?: NullableIntFieldUpdateOperationsInput | number | null
@@ -74945,9 +74901,9 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
@@ -75463,12 +75419,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     subrace?: SubraceCreateNestedOneWithoutRaceChoiceOptionsInput
     perses?: PersCreateNestedManyWithoutRaceChoiceOptionsInput
   }
@@ -75481,12 +75437,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
 
@@ -75670,7 +75626,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     perses?: PersCreateNestedManyWithoutRaceInput
@@ -75694,7 +75650,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     perses?: PersUncheckedCreateNestedManyWithoutRaceInput
@@ -75831,12 +75787,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitCreateNestedManyWithoutRaceChoiceOptionInput
     race: RaceCreateNestedOneWithoutRaceChoiceOptionsInput
     perses?: PersCreateNestedManyWithoutRaceChoiceOptionsInput
   }
@@ -75849,12 +75805,12 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
+    traits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutRaceChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutRaceChoiceOptionsInput
   }
 
@@ -75928,7 +75884,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     perses?: PersUpdateManyWithoutRaceNestedInput
@@ -75952,7 +75908,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     perses?: PersUncheckedUpdateManyWithoutRaceNestedInput
@@ -76060,7 +76016,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceCreateNestedManyWithoutRaceInput
@@ -76084,7 +76040,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedCreateNestedManyWithoutRaceInput
@@ -76267,7 +76223,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUpdateManyWithoutRaceNestedInput
@@ -76291,7 +76247,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedUpdateManyWithoutRaceNestedInput
@@ -76349,7 +76305,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceCreateNestedManyWithoutRaceInput
@@ -76373,7 +76329,7 @@ export namespace Prisma {
     languagesToChooseCount?: number
     ASI: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceCreatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceCreateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceCreateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceCreatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedCreateNestedManyWithoutRaceInput
@@ -76582,7 +76538,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUpdateManyWithoutRaceNestedInput
@@ -76606,7 +76562,7 @@ export namespace Prisma {
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     ASI?: JsonNullValueInput | InputJsonValue
     toolProficiencies?: RaceUpdatetoolProficienciesInput | $Enums.ToolCategory[]
-    skillProficiencies?: RaceUpdateskillProficienciesInput | $Enums.Skills[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     weaponProficiencies?: RaceUpdateweaponProficienciesInput | $Enums.WeaponCategory[]
     armorProficiencies?: RaceUpdatearmorProficienciesInput | $Enums.ArmorType[]
     subraces?: SubraceUncheckedUpdateManyWithoutRaceNestedInput
@@ -78743,7 +78699,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -78773,7 +78729,7 @@ export namespace Prisma {
     armorProficiencies?: ClassCreatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassCreateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassCreatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassCreateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassCreatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: number
     languages?: ClassCreatelanguagesInput | $Enums.Language[]
@@ -78890,7 +78846,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -78920,7 +78876,7 @@ export namespace Prisma {
     armorProficiencies?: ClassUpdatearmorProficienciesInput | $Enums.ArmorType[]
     weaponProficiencies?: ClassUpdateweaponProficienciesInput | $Enums.WeaponType[]
     savingThrows?: ClassUpdatesavingThrowsInput | $Enums.Ability[]
-    skillProficiencies?: ClassUpdateskillProficienciesInput | $Enums.Ability[]
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     toolProficiencies?: ClassUpdatetoolProficienciesInput | $Enums.ToolCategory[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     languages?: ClassUpdatelanguagesInput | $Enums.Language[]
@@ -80592,12 +80548,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
     subrace?: SubraceUpdateOneWithoutRaceChoiceOptionsNestedInput
   }
@@ -80611,12 +80567,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
   }
 
   export type RaceChoiceOptionUncheckedUpdateManyWithoutPersesInput = {
@@ -80628,9 +80584,9 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -80831,7 +80787,7 @@ export namespace Prisma {
   }
 
   export type RaceChoiceOptionTraitUpdateWithoutFeatureInput = {
-    raceChoiceOption?: RaceChoiceOptionUpdateOneRequiredWithoutGrantsTraitsNestedInput
+    raceChoiceOption?: RaceChoiceOptionUpdateOneRequiredWithoutTraitsNestedInput
   }
 
   export type RaceChoiceOptionTraitUncheckedUpdateWithoutFeatureInput = {
@@ -81045,9 +81001,9 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
   }
@@ -81276,12 +81232,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     subrace?: SubraceUpdateOneWithoutRaceChoiceOptionsNestedInput
     perses?: PersUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
@@ -81294,12 +81250,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
 
@@ -81311,9 +81267,9 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -81423,9 +81379,9 @@ export namespace Prisma {
     description?: string | null
     selectMultiple?: boolean
     maxSelection?: number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionCreategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionCreategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionCreatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: number
     modifiesSpeed?: number | null
   }
@@ -81611,12 +81567,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUpdateManyWithoutRaceChoiceOptionNestedInput
     race?: RaceUpdateOneRequiredWithoutRaceChoiceOptionsNestedInput
     perses?: PersUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
@@ -81629,12 +81585,12 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
-    grantsTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
+    traits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutRaceChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutRaceChoiceOptionsNestedInput
   }
 
@@ -81646,9 +81602,9 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     selectMultiple?: BoolFieldUpdateOperationsInput | boolean
     maxSelection?: IntFieldUpdateOperationsInput | number
-    grantsASI?: NullableJsonNullValueInput | InputJsonValue
-    grantsSkillProficiencies?: RaceChoiceOptionUpdategrantsSkillProficienciesInput | $Enums.Skills[]
-    grantsLanguages?: RaceChoiceOptionUpdategrantsLanguagesInput | $Enums.Language[]
+    ASI?: NullableJsonNullValueInput | InputJsonValue
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    languages?: RaceChoiceOptionUpdatelanguagesInput | $Enums.Language[]
     languagesToChooseCount?: IntFieldUpdateOperationsInput | number
     modifiesSpeed?: NullableIntFieldUpdateOperationsInput | number | null
   }

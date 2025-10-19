@@ -730,7 +730,7 @@ model Class {
   armorProficiencies     ArmorType[]    @default([]) @map("armor_proficiencies")
   weaponProficiencies    WeaponType[]   @map("weapon_proficiencies")
   savingThrows           Ability[]      @map("saving_throws")
-  skillProficiencies     Ability[]      @map("skill_proficiencies")
+  skillProficiencies     Json?          @map("skill_proficiencies")
   toolProficiencies      ToolCategory[] @default([]) @map("tool_proficiencies")
   languagesToChooseCount Int            @default(0) @map("languages_to_choose_count")
   languages              Language[]     @default([])
@@ -1027,7 +1027,7 @@ model Race {
 
   ASI                 Json // {WIS: 2, ANY: 1}
   toolProficiencies   ToolCategory[]   @default([]) @map("tool_proficiencies")
-  skillProficiencies  Skills[]         @map("skill_proficiencies")
+  skillProficiencies  Json?            @map("skill_proficiencies")
   weaponProficiencies WeaponCategory[] @default([]) @map("weapon_proficiencies")
   armorProficiencies  ArmorType[]      @default([]) @map("armor_proficiencies")
 
@@ -1101,12 +1101,12 @@ model RaceChoiceOption {
   selectMultiple Boolean @default(false) @map("select_multiple")
   maxSelection   Int     @default(1) @map("max_selection")
 
-  grantsTraits             RaceChoiceOptionTrait[]
-  grantsASI                Json?                   @map("grants_asi")
-  grantsSkillProficiencies Skills[]                @default([]) @map("grants_skill_proficiencies")
-  grantsLanguages          Language[]              @default([]) @map("grants_languages")
-  languagesToChooseCount   Int                     @default(0) @map("languages_to_choose_count")
-  modifiesSpeed            Int?                    @map("modifies_speed")
+  traits                 RaceChoiceOptionTrait[]
+  ASI                    Json?                   @map("asi")
+  skillProficiencies     Json?                   @map("skill_proficiencies")
+  languages              Language[]              @default([]) @map("languages")
+  languagesToChooseCount Int                     @default(0) @map("languages_to_choose_count")
+  modifiesSpeed          Int?                    @map("modifies_speed")
 
   race    Race     @relation(fields: [raceId], references: [raceId])
   subrace Subrace? @relation(fields: [subraceId], references: [subraceId])
@@ -1122,7 +1122,7 @@ model Background {
 
   source                 Source         @default(PHB)
   toolProficiencies      ToolCategory[] @default([]) @map("tool_proficiencies")
-  skillProficiencies     Skills[]       @map("skill_proficiencies")
+  skillProficiencies     Json?          @map("skill_proficiencies")
   languagesToChooseCount Int            @default(0) @map("languages_to_choose_count")
   items                  Json?
   specialAbilityName     String?

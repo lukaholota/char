@@ -212,7 +212,7 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             },
             traits: {
                 create: [
-                    // Дихальна зброя та опір залежать від підраси (ancestry choice)
+                    { feature: { connect: { engName: 'Draconic Resistance' } } },
                 ]
             }
         },
@@ -406,7 +406,9 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             },
             traits: {
                 create: [
-                    { feature: { connect: { engName: 'Flight' } } }
+                    { feature: { connect: { engName: 'Flight' } } },
+                    { feature: { connect: { engName: 'Talons' } } },
+                    { feature: { connect: { engName: 'Wind Caller' } } },
                 ]
             }
         },
@@ -443,11 +445,13 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             ASI: {
                 MPMMBaseASI
             },
+            skillProficiencies: [Skills.STEALTH],
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Darkvision' } } },
                     { feature: { connect: { engName: 'Long-Limbed' } } },
                     { feature: { connect: { engName: 'Powerful Build' } } },
+                    { feature: { connect: { engName: 'Sneaky' } } },
                     { feature: { connect: { engName: 'Surprise Attack' } } }
                 ]
             }
@@ -463,6 +467,10 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             languagesToChooseCount: 1,
             ASI: {
                 MPMMBaseASI
+            },
+            skillProficiencies: {
+                options: [Skills.ANIMAL_HANDLING, Skills.MEDICINE, Skills.NATURE, Skills.SURVIVAL],
+                choiceCount: 1
             },
             traits: {
                 create: [
@@ -480,9 +488,13 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             speed: 30,
             source: Source.MPMM,
             languages: [Language.COMMON],
-            languagesToChooseCount: 2,
+            languagesToChooseCount: 1,
             ASI: {
                 MPMMBaseASI
+            },
+            skillProficiencies: {
+                options: [Skills.DECEPTION, Skills.INTIMIDATION, Skills.PERSUASION, Skills.PERFORMANCE, Skills.INSIGHT],
+                choiceCount: 2
             },
             traits: {
                 create: [
@@ -497,16 +509,17 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             size: [Size.SMALL],
             speed: 30,
             source: Source.MPMM,
-            languages: [Language.COMMON, Language.GNOMISH, Language.UNDERCOMMON],
-            languagesToChooseCount: 0,
+            languages: [Language.COMMON],
+            languagesToChooseCount: 1,
             ASI: {
                 MPMMBaseASI
             },
             traits: {
                 create: [
-                    { feature: { connect: { engName: 'Darkvision' } } },
-                    { feature: { connect: { engName: 'Gnome Cunning' } } },
-                    { feature: { connect: { engName: 'Stone Camouflage' } } }
+                    { feature: { connect: { engName: 'Superior Darkvision' } } },
+                    { feature: { connect: { engName: 'Gift of the Svirfneblin' } } },
+                    { feature: { connect: { engName: 'Gnomish Magic Resistance' } } },
+                    { feature: { connect: { engName: 'Svirfneblin Camouflage' } } },
                 ]
             }
         },
@@ -517,8 +530,8 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.MPMM,
-            languages: [Language.COMMON, Language.DWARVISH],
-            languagesToChooseCount: 0,
+            languages: [Language.COMMON],
+            languagesToChooseCount: 1,
             ASI: {
                 MPMMBaseASI
             },
@@ -527,6 +540,7 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
                     { feature: { connect: { engName: 'Superior Darkvision' } } },
                     { feature: { connect: { engName: 'Dwarven Resilience' } } },
                     { feature: { connect: { engName: 'Duergar Resilience' } } },
+                    { feature: { connect: { engName: 'Psionic Fortitude' } } },
                     { feature: { connect: { engName: 'Duergar Magic' } } }
                 ]
             }
@@ -538,16 +552,18 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.MPMM,
-            languages: [Language.COMMON, Language.ELVISH],
-            languagesToChooseCount: 0,
+            languages: [Language.COMMON],
+            languagesToChooseCount: 1,
             ASI: {
                 MPMMBaseASI
             },
+            skillProficiencies: [Skills.PERCEPTION],
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Darkvision' } } },
                     { feature: { connect: { engName: 'Fey Ancestry' } } },
                     { feature: { connect: { engName: 'Fey Step' } } },
+                    { feature: { connect: { engName: 'Keen Senses' } } },
                     { feature: { connect: { engName: 'Trance' } } }
                 ]
             }
@@ -588,6 +604,7 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
                 create: [
                     { feature: { connect: { engName: 'Powerful Build' } } },
                     { feature: { connect: { engName: 'Hidden Step' } } },
+                    { feature: { connect: { engName: 'Speech of Beast and Leaf' } } },
                     { feature: { connect: { engName: 'Firbolg Magic' } } }
                 ]
             }
@@ -607,7 +624,9 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Unending Breath' } } },
-                    { feature: { connect: { engName: 'Mingle with the Wind' } } }
+                    { feature: { connect: { engName: 'Darkvision' } } },
+                    { feature: { connect: { engName: 'Mingle with the Wind' } } },
+                    { feature: { connect: { engName: 'Lightning Resistance' } } }
                 ]
             }
         },
@@ -626,6 +645,7 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Earth Walk' } } },
+                    { feature: { connect: { engName: 'Darkvision' } } },
                     { feature: { connect: { engName: 'Merge with Stone' } } }
                 ]
             }
@@ -665,6 +685,8 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             },
             traits: {
                 create: [
+                    { feature: { connect: { engName: 'Darkvision' } } },
+                    { feature: { connect: { engName: 'Acid Resistance' } } },
                     { feature: { connect: { engName: 'Amphibious' } } },
                     { feature: { connect: { engName: 'Call to the Wave' } } }
                 ]
@@ -685,6 +707,7 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Astral Knowledge' } } },
+                    { feature: { connect: { engName: 'Psychic Resilience' } } },
                     { feature: { connect: { engName: 'Githyanki Psionics' } } }
                 ]
             }
@@ -704,6 +727,7 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Mental Discipline' } } },
+                    { feature: { connect: { engName: 'Psychic Resilience' } } },
                     { feature: { connect: { engName: 'Githzerai Psionics' } } }
                 ]
             }
@@ -724,6 +748,7 @@ export const seedPHB2014Races = async (prisma: PrismaClient) => {
                 create: [
                     { feature: { connect: { engName: 'Darkvision' } } },
                     { feature: { connect: { engName: 'Fury of the Small' } } },
+                    { feature: { connect: { engName: 'Fey Ancestry' } } },
                     { feature: { connect: { engName: 'Nimble Escape' } } }
                 ]
             }
