@@ -652,53 +652,82 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         },
 
 
-// ARTIFICER
+// ===== ARTIFICER (Винахідник) STARTING EQUIPMENT =====
 
-        // Choice 1: Weapon choice
+        // ГРУПА 1: Дві прості зброї
         {
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
             choiceGroup: 1,
             option: 'a',
             chooseAnyWeapon: true,
             weaponType: WeaponType.SIMPLE_WEAPON,
             weaponCount: 2,
-            description: 'будь-які дві прості зброї'
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            quantity: 1,
+            description: 'Будь-які дві прості зброї на вибір'
         },
 
-// Choice 2: Crossbow
+        // ГРУПА 2: Легкий арбалет і 20 болтів АБО будь-яка проста зброя
         {
-            class: { connect: { name: Classes.ARTIFICER_2014 } },
             choiceGroup: 2,
             option: 'a',
-            weaponId: lightCrossbowId,
+            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
             quantity: 1,
-            item: '20 болтів',
-            description: 'легкий арбалет і 20 болтів'
+            description: 'Легкий арбалет (1к8)'
+        },
+        {
+            choiceGroup: 2,
+            option: 'a',
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            quantity: 20,
+            item: 'Болти',
+            description: '20 болтів'
+        },
+        {
+            choiceGroup: 2,
+            option: 'b',
+            chooseAnyWeapon: true,
+            weaponType: WeaponType.SIMPLE_WEAPON,
+            weaponCount: 1,
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            quantity: 1,
+            description: 'Будь-яка проста зброя на вибір'
         },
 
-// Choice 3: Armor
+        // ГРУПА 3: Броня — клепана шкіряна або лускова
         {
-            classId: artificerClassId,
             choiceGroup: 3,
             option: 'a',
-            armorId: studdedLeatherId,
-            description: 'клепана шкіряна броня'
+            armor: { connect: { name: ArmorCategory.STUDDED_LEATHER } },
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            quantity: 1,
+            description: 'Клепана шкіряна броня (12 + СПР КБ)'
         },
         {
-            classId: artificerClassId,
             choiceGroup: 3,
             option: 'b',
-            armorId: scaleMailId,
-            description: 'лускова кольчуга'
+            armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            quantity: 1,
+            description: 'Лускова броня (14 + СПР [макс 2] КБ)'
         },
 
-// Always get: Thieves' tools + dungeoneer's pack
+        // ГРУПА 4: Фіксоване спорядження — інструменти злодія та набір дослідника підземель
         {
-            classId: artificerClassId,
             choiceGroup: 4,
             option: 'a',
-            item: "інструменти злодія та сумка дослідника печер",
-            description: "інструменти злодія та сумка дослідника печер"
+            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            quantity: 1,
+            description: 'Набір дослідника підземель'
+        },
+        {
+            choiceGroup: 4,
+            option: 'a',
+            class: { connect: { name: Classes.ARTIFICER_2014 } },
+            quantity: 1,
+            item: 'Інструменти злодія',
+            description: 'Інструменти злодія'
         }
 
 

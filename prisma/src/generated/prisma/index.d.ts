@@ -199,6 +199,16 @@ export type PersFeat = $Result.DefaultSelection<Prisma.$PersFeatPayload>
  */
 export type MagicItem = $Result.DefaultSelection<Prisma.$MagicItemPayload>
 /**
+ * Model Infusion
+ * 
+ */
+export type Infusion = $Result.DefaultSelection<Prisma.$InfusionPayload>
+/**
+ * Model PersInfusion
+ * 
+ */
+export type PersInfusion = $Result.DefaultSelection<Prisma.$PersInfusionPayload>
+/**
  * Model Weapon
  * 
  */
@@ -917,6 +927,22 @@ export const AOEShapes: {
 
 export type AOEShapes = (typeof AOEShapes)[keyof typeof AOEShapes]
 
+
+export const InfusionTargetType: {
+  ARMOR: 'ARMOR',
+  SHIELD: 'SHIELD',
+  WEAPON: 'WEAPON',
+  WAND_ROD_STAFF: 'WAND_ROD_STAFF',
+  BOOTS: 'BOOTS',
+  HELMET: 'HELMET',
+  RING: 'RING',
+  AMMO: 'AMMO',
+  GEM_CRYSTAL: 'GEM_CRYSTAL',
+  ANY: 'ANY'
+};
+
+export type InfusionTargetType = (typeof InfusionTargetType)[keyof typeof InfusionTargetType]
+
 }
 
 export type Ability = $Enums.Ability
@@ -1030,6 +1056,10 @@ export const DragonbornTypes: typeof $Enums.DragonbornTypes
 export type AOEShapes = $Enums.AOEShapes
 
 export const AOEShapes: typeof $Enums.AOEShapes
+
+export type InfusionTargetType = $Enums.InfusionTargetType
+
+export const InfusionTargetType: typeof $Enums.InfusionTargetType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -1518,6 +1548,26 @@ export class PrismaClient<
     * ```
     */
   get magicItem(): Prisma.MagicItemDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.infusion`: Exposes CRUD operations for the **Infusion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Infusions
+    * const infusions = await prisma.infusion.findMany()
+    * ```
+    */
+  get infusion(): Prisma.InfusionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.persInfusion`: Exposes CRUD operations for the **PersInfusion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PersInfusions
+    * const persInfusions = await prisma.persInfusion.findMany()
+    * ```
+    */
+  get persInfusion(): Prisma.PersInfusionDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.weapon`: Exposes CRUD operations for the **Weapon** model.
@@ -2075,6 +2125,8 @@ export namespace Prisma {
     FeatAbilityBoost: 'FeatAbilityBoost',
     PersFeat: 'PersFeat',
     MagicItem: 'MagicItem',
+    Infusion: 'Infusion',
+    PersInfusion: 'PersInfusion',
     Weapon: 'Weapon',
     Armor: 'Armor',
     PersSkill: 'PersSkill',
@@ -2101,7 +2153,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "character" | "characterSpells" | "creature" | "spell" | "spellClasses" | "spellRaces" | "spellbook" | "spellbookSpells" | "user" | "class" | "subclass" | "choiceOption" | "classChoiceOption" | "pers" | "persMulticlass" | "persFeature" | "feature" | "classFeature" | "subclassFeature" | "choiceOptionFeature" | "classOptionalFeature" | "classOptionalFeatureReplacesFeature" | "raceTrait" | "subraceTrait" | "raceVariantTrait" | "raceChoiceOptionTrait" | "featFeature" | "magicItemFeature" | "race" | "subrace" | "raceVariant" | "raceChoiceOption" | "background" | "feat" | "featAbilityBoost" | "persFeat" | "magicItem" | "weapon" | "armor" | "persSkill" | "persWeapon" | "persArmor" | "persMagicItem" | "equipmentPack" | "classStartingEquipmentOption"
+      modelProps: "character" | "characterSpells" | "creature" | "spell" | "spellClasses" | "spellRaces" | "spellbook" | "spellbookSpells" | "user" | "class" | "subclass" | "choiceOption" | "classChoiceOption" | "pers" | "persMulticlass" | "persFeature" | "feature" | "classFeature" | "subclassFeature" | "choiceOptionFeature" | "classOptionalFeature" | "classOptionalFeatureReplacesFeature" | "raceTrait" | "subraceTrait" | "raceVariantTrait" | "raceChoiceOptionTrait" | "featFeature" | "magicItemFeature" | "race" | "subrace" | "raceVariant" | "raceChoiceOption" | "background" | "feat" | "featAbilityBoost" | "persFeat" | "magicItem" | "infusion" | "persInfusion" | "weapon" | "armor" | "persSkill" | "persWeapon" | "persArmor" | "persMagicItem" | "equipmentPack" | "classStartingEquipmentOption"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4843,6 +4895,154 @@ export namespace Prisma {
           }
         }
       }
+      Infusion: {
+        payload: Prisma.$InfusionPayload<ExtArgs>
+        fields: Prisma.InfusionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.InfusionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.InfusionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>
+          }
+          findFirst: {
+            args: Prisma.InfusionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.InfusionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>
+          }
+          findMany: {
+            args: Prisma.InfusionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>[]
+          }
+          create: {
+            args: Prisma.InfusionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>
+          }
+          createMany: {
+            args: Prisma.InfusionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.InfusionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>[]
+          }
+          delete: {
+            args: Prisma.InfusionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>
+          }
+          update: {
+            args: Prisma.InfusionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>
+          }
+          deleteMany: {
+            args: Prisma.InfusionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.InfusionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.InfusionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>[]
+          }
+          upsert: {
+            args: Prisma.InfusionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InfusionPayload>
+          }
+          aggregate: {
+            args: Prisma.InfusionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateInfusion>
+          }
+          groupBy: {
+            args: Prisma.InfusionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<InfusionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.InfusionCountArgs<ExtArgs>
+            result: $Utils.Optional<InfusionCountAggregateOutputType> | number
+          }
+        }
+      }
+      PersInfusion: {
+        payload: Prisma.$PersInfusionPayload<ExtArgs>
+        fields: Prisma.PersInfusionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PersInfusionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PersInfusionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>
+          }
+          findFirst: {
+            args: Prisma.PersInfusionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PersInfusionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>
+          }
+          findMany: {
+            args: Prisma.PersInfusionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>[]
+          }
+          create: {
+            args: Prisma.PersInfusionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>
+          }
+          createMany: {
+            args: Prisma.PersInfusionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PersInfusionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>[]
+          }
+          delete: {
+            args: Prisma.PersInfusionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>
+          }
+          update: {
+            args: Prisma.PersInfusionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>
+          }
+          deleteMany: {
+            args: Prisma.PersInfusionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PersInfusionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PersInfusionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>[]
+          }
+          upsert: {
+            args: Prisma.PersInfusionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersInfusionPayload>
+          }
+          aggregate: {
+            args: Prisma.PersInfusionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePersInfusion>
+          }
+          groupBy: {
+            args: Prisma.PersInfusionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PersInfusionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PersInfusionCountArgs<ExtArgs>
+            result: $Utils.Optional<PersInfusionCountAggregateOutputType> | number
+          }
+        }
+      }
       Weapon: {
         payload: Prisma.$WeaponPayload<ExtArgs>
         fields: Prisma.WeaponFieldRefs
@@ -5568,6 +5768,8 @@ export namespace Prisma {
     featAbilityBoost?: FeatAbilityBoostOmit
     persFeat?: PersFeatOmit
     magicItem?: MagicItemOmit
+    infusion?: InfusionOmit
+    persInfusion?: PersInfusionOmit
     weapon?: WeaponOmit
     armor?: ArmorOmit
     persSkill?: PersSkillOmit
@@ -6065,6 +6267,7 @@ export namespace Prisma {
     raceChoiceOptions: number
     choiceOptions: number
     classOptionalFeatures: number
+    persInfusions: number
   }
 
   export type PersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6080,6 +6283,7 @@ export namespace Prisma {
     raceChoiceOptions?: boolean | PersCountOutputTypeCountRaceChoiceOptionsArgs
     choiceOptions?: boolean | PersCountOutputTypeCountChoiceOptionsArgs
     classOptionalFeatures?: boolean | PersCountOutputTypeCountClassOptionalFeaturesArgs
+    persInfusions?: boolean | PersCountOutputTypeCountPersInfusionsArgs
   }
 
   // Custom InputTypes
@@ -6175,6 +6379,13 @@ export namespace Prisma {
    */
   export type PersCountOutputTypeCountClassOptionalFeaturesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ClassOptionalFeatureWhereInput
+  }
+
+  /**
+   * PersCountOutputType without action
+   */
+  export type PersCountOutputTypeCountPersInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersInfusionWhereInput
   }
 
 
@@ -6676,11 +6887,13 @@ export namespace Prisma {
   export type MagicItemCountOutputType = {
     features: number
     persMagicItems: number
+    replicatedByInfusions: number
   }
 
   export type MagicItemCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     features?: boolean | MagicItemCountOutputTypeCountFeaturesArgs
     persMagicItems?: boolean | MagicItemCountOutputTypeCountPersMagicItemsArgs
+    replicatedByInfusions?: boolean | MagicItemCountOutputTypeCountReplicatedByInfusionsArgs
   }
 
   // Custom InputTypes
@@ -6706,6 +6919,44 @@ export namespace Prisma {
    */
   export type MagicItemCountOutputTypeCountPersMagicItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PersMagicItemWhereInput
+  }
+
+  /**
+   * MagicItemCountOutputType without action
+   */
+  export type MagicItemCountOutputTypeCountReplicatedByInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InfusionWhereInput
+  }
+
+
+  /**
+   * Count Type InfusionCountOutputType
+   */
+
+  export type InfusionCountOutputType = {
+    persInfusions: number
+  }
+
+  export type InfusionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    persInfusions?: boolean | InfusionCountOutputTypeCountPersInfusionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * InfusionCountOutputType without action
+   */
+  export type InfusionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InfusionCountOutputType
+     */
+    select?: InfusionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * InfusionCountOutputType without action
+   */
+  export type InfusionCountOutputTypeCountPersInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersInfusionWhereInput
   }
 
 
@@ -6786,6 +7037,99 @@ export namespace Prisma {
    */
   export type ArmorCountOutputTypeCountClassStartingEquipmentOptionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ClassStartingEquipmentOptionWhereInput
+  }
+
+
+  /**
+   * Count Type PersWeaponCountOutputType
+   */
+
+  export type PersWeaponCountOutputType = {
+    infusions: number
+  }
+
+  export type PersWeaponCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    infusions?: boolean | PersWeaponCountOutputTypeCountInfusionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PersWeaponCountOutputType without action
+   */
+  export type PersWeaponCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersWeaponCountOutputType
+     */
+    select?: PersWeaponCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PersWeaponCountOutputType without action
+   */
+  export type PersWeaponCountOutputTypeCountInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersInfusionWhereInput
+  }
+
+
+  /**
+   * Count Type PersArmorCountOutputType
+   */
+
+  export type PersArmorCountOutputType = {
+    infusions: number
+  }
+
+  export type PersArmorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    infusions?: boolean | PersArmorCountOutputTypeCountInfusionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PersArmorCountOutputType without action
+   */
+  export type PersArmorCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersArmorCountOutputType
+     */
+    select?: PersArmorCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PersArmorCountOutputType without action
+   */
+  export type PersArmorCountOutputTypeCountInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersInfusionWhereInput
+  }
+
+
+  /**
+   * Count Type PersMagicItemCountOutputType
+   */
+
+  export type PersMagicItemCountOutputType = {
+    infusions: number
+  }
+
+  export type PersMagicItemCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    infusions?: boolean | PersMagicItemCountOutputTypeCountInfusionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PersMagicItemCountOutputType without action
+   */
+  export type PersMagicItemCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersMagicItemCountOutputType
+     */
+    select?: PersMagicItemCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PersMagicItemCountOutputType without action
+   */
+  export type PersMagicItemCountOutputTypeCountInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersInfusionWhereInput
   }
 
 
@@ -23135,6 +23479,7 @@ export namespace Prisma {
     raceChoiceOptions?: boolean | Pers$raceChoiceOptionsArgs<ExtArgs>
     choiceOptions?: boolean | Pers$choiceOptionsArgs<ExtArgs>
     classOptionalFeatures?: boolean | Pers$classOptionalFeaturesArgs<ExtArgs>
+    persInfusions?: boolean | Pers$persInfusionsArgs<ExtArgs>
     _count?: boolean | PersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pers"]>
 
@@ -23317,6 +23662,7 @@ export namespace Prisma {
     raceChoiceOptions?: boolean | Pers$raceChoiceOptionsArgs<ExtArgs>
     choiceOptions?: boolean | Pers$choiceOptionsArgs<ExtArgs>
     classOptionalFeatures?: boolean | Pers$classOptionalFeaturesArgs<ExtArgs>
+    persInfusions?: boolean | Pers$persInfusionsArgs<ExtArgs>
     _count?: boolean | PersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -23357,6 +23703,7 @@ export namespace Prisma {
       raceChoiceOptions: Prisma.$RaceChoiceOptionPayload<ExtArgs>[]
       choiceOptions: Prisma.$ChoiceOptionPayload<ExtArgs>[]
       classOptionalFeatures: Prisma.$ClassOptionalFeaturePayload<ExtArgs>[]
+      persInfusions: Prisma.$PersInfusionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       persId: number
@@ -23817,6 +24164,7 @@ export namespace Prisma {
     raceChoiceOptions<T extends Pers$raceChoiceOptionsArgs<ExtArgs> = {}>(args?: Subset<T, Pers$raceChoiceOptionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RaceChoiceOptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     choiceOptions<T extends Pers$choiceOptionsArgs<ExtArgs> = {}>(args?: Subset<T, Pers$choiceOptionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChoiceOptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     classOptionalFeatures<T extends Pers$classOptionalFeaturesArgs<ExtArgs> = {}>(args?: Subset<T, Pers$classOptionalFeaturesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClassOptionalFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    persInfusions<T extends Pers$persInfusionsArgs<ExtArgs> = {}>(args?: Subset<T, Pers$persInfusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -24611,6 +24959,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ClassOptionalFeatureScalarFieldEnum | ClassOptionalFeatureScalarFieldEnum[]
+  }
+
+  /**
+   * Pers.persInfusions
+   */
+  export type Pers$persInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    where?: PersInfusionWhereInput
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    cursor?: PersInfusionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
   }
 
   /**
@@ -50435,6 +50807,7 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType | null
     rarity: $Enums.ItemRarity | null
     description: string | null
+    requiresAttunement: boolean | null
     bonusToAC: number | null
     bonusToAttackRoll: number | null
     bonusToDamage: number | null
@@ -50446,6 +50819,7 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType | null
     rarity: $Enums.ItemRarity | null
     description: string | null
+    requiresAttunement: boolean | null
     bonusToAC: number | null
     bonusToAttackRoll: number | null
     bonusToDamage: number | null
@@ -50457,6 +50831,7 @@ export namespace Prisma {
     itemType: number
     rarity: number
     description: number
+    requiresAttunement: number
     bonusToAC: number
     bonusToAttackRoll: number
     bonusToDamage: number
@@ -50484,6 +50859,7 @@ export namespace Prisma {
     itemType?: true
     rarity?: true
     description?: true
+    requiresAttunement?: true
     bonusToAC?: true
     bonusToAttackRoll?: true
     bonusToDamage?: true
@@ -50495,6 +50871,7 @@ export namespace Prisma {
     itemType?: true
     rarity?: true
     description?: true
+    requiresAttunement?: true
     bonusToAC?: true
     bonusToAttackRoll?: true
     bonusToDamage?: true
@@ -50506,6 +50883,7 @@ export namespace Prisma {
     itemType?: true
     rarity?: true
     description?: true
+    requiresAttunement?: true
     bonusToAC?: true
     bonusToAttackRoll?: true
     bonusToDamage?: true
@@ -50604,6 +50982,7 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement: boolean
     bonusToAC: number | null
     bonusToAttackRoll: number | null
     bonusToDamage: number | null
@@ -50634,11 +51013,13 @@ export namespace Prisma {
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    requiresAttunement?: boolean
     bonusToAC?: boolean
     bonusToAttackRoll?: boolean
     bonusToDamage?: boolean
     features?: boolean | MagicItem$featuresArgs<ExtArgs>
     persMagicItems?: boolean | MagicItem$persMagicItemsArgs<ExtArgs>
+    replicatedByInfusions?: boolean | MagicItem$replicatedByInfusionsArgs<ExtArgs>
     _count?: boolean | MagicItemCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["magicItem"]>
 
@@ -50648,6 +51029,7 @@ export namespace Prisma {
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    requiresAttunement?: boolean
     bonusToAC?: boolean
     bonusToAttackRoll?: boolean
     bonusToDamage?: boolean
@@ -50659,6 +51041,7 @@ export namespace Prisma {
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    requiresAttunement?: boolean
     bonusToAC?: boolean
     bonusToAttackRoll?: boolean
     bonusToDamage?: boolean
@@ -50670,15 +51053,17 @@ export namespace Prisma {
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    requiresAttunement?: boolean
     bonusToAC?: boolean
     bonusToAttackRoll?: boolean
     bonusToDamage?: boolean
   }
 
-  export type MagicItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"magicItemId" | "name" | "itemType" | "rarity" | "description" | "bonusToAC" | "bonusToAttackRoll" | "bonusToDamage", ExtArgs["result"]["magicItem"]>
+  export type MagicItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"magicItemId" | "name" | "itemType" | "rarity" | "description" | "requiresAttunement" | "bonusToAC" | "bonusToAttackRoll" | "bonusToDamage", ExtArgs["result"]["magicItem"]>
   export type MagicItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     features?: boolean | MagicItem$featuresArgs<ExtArgs>
     persMagicItems?: boolean | MagicItem$persMagicItemsArgs<ExtArgs>
+    replicatedByInfusions?: boolean | MagicItem$replicatedByInfusionsArgs<ExtArgs>
     _count?: boolean | MagicItemCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type MagicItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -50689,6 +51074,7 @@ export namespace Prisma {
     objects: {
       features: Prisma.$MagicItemFeaturePayload<ExtArgs>[]
       persMagicItems: Prisma.$PersMagicItemPayload<ExtArgs>[]
+      replicatedByInfusions: Prisma.$InfusionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       magicItemId: number
@@ -50696,6 +51082,7 @@ export namespace Prisma {
       itemType: $Enums.MagicItemType
       rarity: $Enums.ItemRarity
       description: string
+      requiresAttunement: boolean
       bonusToAC: number | null
       bonusToAttackRoll: number | null
       bonusToDamage: number | null
@@ -51095,6 +51482,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     features<T extends MagicItem$featuresArgs<ExtArgs> = {}>(args?: Subset<T, MagicItem$featuresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     persMagicItems<T extends MagicItem$persMagicItemsArgs<ExtArgs> = {}>(args?: Subset<T, MagicItem$persMagicItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersMagicItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    replicatedByInfusions<T extends MagicItem$replicatedByInfusionsArgs<ExtArgs> = {}>(args?: Subset<T, MagicItem$replicatedByInfusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -51129,6 +51517,7 @@ export namespace Prisma {
     readonly itemType: FieldRef<"MagicItem", 'MagicItemType'>
     readonly rarity: FieldRef<"MagicItem", 'ItemRarity'>
     readonly description: FieldRef<"MagicItem", 'String'>
+    readonly requiresAttunement: FieldRef<"MagicItem", 'Boolean'>
     readonly bonusToAC: FieldRef<"MagicItem", 'Int'>
     readonly bonusToAttackRoll: FieldRef<"MagicItem", 'Int'>
     readonly bonusToDamage: FieldRef<"MagicItem", 'Int'>
@@ -51568,6 +51957,30 @@ export namespace Prisma {
   }
 
   /**
+   * MagicItem.replicatedByInfusions
+   */
+  export type MagicItem$replicatedByInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    where?: InfusionWhereInput
+    orderBy?: InfusionOrderByWithRelationInput | InfusionOrderByWithRelationInput[]
+    cursor?: InfusionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InfusionScalarFieldEnum | InfusionScalarFieldEnum[]
+  }
+
+  /**
    * MagicItem without action
    */
   export type MagicItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -51583,6 +51996,2583 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: MagicItemInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Infusion
+   */
+
+  export type AggregateInfusion = {
+    _count: InfusionCountAggregateOutputType | null
+    _avg: InfusionAvgAggregateOutputType | null
+    _sum: InfusionSumAggregateOutputType | null
+    _min: InfusionMinAggregateOutputType | null
+    _max: InfusionMaxAggregateOutputType | null
+  }
+
+  export type InfusionAvgAggregateOutputType = {
+    infusionId: number | null
+    minArtificerLevel: number | null
+    bonusToAC: number | null
+    bonusToAttackRoll: number | null
+    bonusToDamage: number | null
+    spellAttackBonus: number | null
+    speedBonus: number | null
+    charges: number | null
+    restoresSpellSlotUpToLevel: number | null
+    increasesAtLevel10By: number | null
+    replicatedMagicItemId: number | null
+  }
+
+  export type InfusionSumAggregateOutputType = {
+    infusionId: number | null
+    minArtificerLevel: number | null
+    bonusToAC: number | null
+    bonusToAttackRoll: number | null
+    bonusToDamage: number | null
+    spellAttackBonus: number | null
+    speedBonus: number | null
+    charges: number | null
+    restoresSpellSlotUpToLevel: number | null
+    increasesAtLevel10By: number | null
+    replicatedMagicItemId: number | null
+  }
+
+  export type InfusionMinAggregateOutputType = {
+    infusionId: number | null
+    name: string | null
+    engName: string | null
+    minArtificerLevel: number | null
+    targetType: $Enums.InfusionTargetType | null
+    requiresAttunement: boolean | null
+    bonusToAC: number | null
+    bonusToAttackRoll: number | null
+    bonusToDamage: number | null
+    spellAttackBonus: number | null
+    speedBonus: number | null
+    charges: number | null
+    rechargeDice: string | null
+    restoresSpellSlotUpToLevel: number | null
+    increasesAtLevel10By: number | null
+    replicatedMagicItemId: number | null
+    createsHomunculus: boolean | null
+  }
+
+  export type InfusionMaxAggregateOutputType = {
+    infusionId: number | null
+    name: string | null
+    engName: string | null
+    minArtificerLevel: number | null
+    targetType: $Enums.InfusionTargetType | null
+    requiresAttunement: boolean | null
+    bonusToAC: number | null
+    bonusToAttackRoll: number | null
+    bonusToDamage: number | null
+    spellAttackBonus: number | null
+    speedBonus: number | null
+    charges: number | null
+    rechargeDice: string | null
+    restoresSpellSlotUpToLevel: number | null
+    increasesAtLevel10By: number | null
+    replicatedMagicItemId: number | null
+    createsHomunculus: boolean | null
+  }
+
+  export type InfusionCountAggregateOutputType = {
+    infusionId: number
+    name: number
+    engName: number
+    minArtificerLevel: number
+    targetType: number
+    requiresAttunement: number
+    bonusToAC: number
+    bonusToAttackRoll: number
+    bonusToDamage: number
+    spellAttackBonus: number
+    speedBonus: number
+    charges: number
+    rechargeDice: number
+    restoresSpellSlotUpToLevel: number
+    increasesAtLevel10By: number
+    replicatedMagicItemId: number
+    createsHomunculus: number
+    _all: number
+  }
+
+
+  export type InfusionAvgAggregateInputType = {
+    infusionId?: true
+    minArtificerLevel?: true
+    bonusToAC?: true
+    bonusToAttackRoll?: true
+    bonusToDamage?: true
+    spellAttackBonus?: true
+    speedBonus?: true
+    charges?: true
+    restoresSpellSlotUpToLevel?: true
+    increasesAtLevel10By?: true
+    replicatedMagicItemId?: true
+  }
+
+  export type InfusionSumAggregateInputType = {
+    infusionId?: true
+    minArtificerLevel?: true
+    bonusToAC?: true
+    bonusToAttackRoll?: true
+    bonusToDamage?: true
+    spellAttackBonus?: true
+    speedBonus?: true
+    charges?: true
+    restoresSpellSlotUpToLevel?: true
+    increasesAtLevel10By?: true
+    replicatedMagicItemId?: true
+  }
+
+  export type InfusionMinAggregateInputType = {
+    infusionId?: true
+    name?: true
+    engName?: true
+    minArtificerLevel?: true
+    targetType?: true
+    requiresAttunement?: true
+    bonusToAC?: true
+    bonusToAttackRoll?: true
+    bonusToDamage?: true
+    spellAttackBonus?: true
+    speedBonus?: true
+    charges?: true
+    rechargeDice?: true
+    restoresSpellSlotUpToLevel?: true
+    increasesAtLevel10By?: true
+    replicatedMagicItemId?: true
+    createsHomunculus?: true
+  }
+
+  export type InfusionMaxAggregateInputType = {
+    infusionId?: true
+    name?: true
+    engName?: true
+    minArtificerLevel?: true
+    targetType?: true
+    requiresAttunement?: true
+    bonusToAC?: true
+    bonusToAttackRoll?: true
+    bonusToDamage?: true
+    spellAttackBonus?: true
+    speedBonus?: true
+    charges?: true
+    rechargeDice?: true
+    restoresSpellSlotUpToLevel?: true
+    increasesAtLevel10By?: true
+    replicatedMagicItemId?: true
+    createsHomunculus?: true
+  }
+
+  export type InfusionCountAggregateInputType = {
+    infusionId?: true
+    name?: true
+    engName?: true
+    minArtificerLevel?: true
+    targetType?: true
+    requiresAttunement?: true
+    bonusToAC?: true
+    bonusToAttackRoll?: true
+    bonusToDamage?: true
+    spellAttackBonus?: true
+    speedBonus?: true
+    charges?: true
+    rechargeDice?: true
+    restoresSpellSlotUpToLevel?: true
+    increasesAtLevel10By?: true
+    replicatedMagicItemId?: true
+    createsHomunculus?: true
+    _all?: true
+  }
+
+  export type InfusionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Infusion to aggregate.
+     */
+    where?: InfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Infusions to fetch.
+     */
+    orderBy?: InfusionOrderByWithRelationInput | InfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: InfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Infusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Infusions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Infusions
+    **/
+    _count?: true | InfusionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: InfusionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: InfusionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: InfusionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: InfusionMaxAggregateInputType
+  }
+
+  export type GetInfusionAggregateType<T extends InfusionAggregateArgs> = {
+        [P in keyof T & keyof AggregateInfusion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateInfusion[P]>
+      : GetScalarType<T[P], AggregateInfusion[P]>
+  }
+
+
+
+
+  export type InfusionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InfusionWhereInput
+    orderBy?: InfusionOrderByWithAggregationInput | InfusionOrderByWithAggregationInput[]
+    by: InfusionScalarFieldEnum[] | InfusionScalarFieldEnum
+    having?: InfusionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: InfusionCountAggregateInputType | true
+    _avg?: InfusionAvgAggregateInputType
+    _sum?: InfusionSumAggregateInputType
+    _min?: InfusionMinAggregateInputType
+    _max?: InfusionMaxAggregateInputType
+  }
+
+  export type InfusionGroupByOutputType = {
+    infusionId: number
+    name: string
+    engName: string
+    minArtificerLevel: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement: boolean
+    bonusToAC: number | null
+    bonusToAttackRoll: number | null
+    bonusToDamage: number | null
+    spellAttackBonus: number | null
+    speedBonus: number | null
+    charges: number | null
+    rechargeDice: string | null
+    restoresSpellSlotUpToLevel: number | null
+    increasesAtLevel10By: number | null
+    replicatedMagicItemId: number | null
+    createsHomunculus: boolean | null
+    _count: InfusionCountAggregateOutputType | null
+    _avg: InfusionAvgAggregateOutputType | null
+    _sum: InfusionSumAggregateOutputType | null
+    _min: InfusionMinAggregateOutputType | null
+    _max: InfusionMaxAggregateOutputType | null
+  }
+
+  type GetInfusionGroupByPayload<T extends InfusionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<InfusionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof InfusionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], InfusionGroupByOutputType[P]>
+            : GetScalarType<T[P], InfusionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type InfusionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    infusionId?: boolean
+    name?: boolean
+    engName?: boolean
+    minArtificerLevel?: boolean
+    targetType?: boolean
+    requiresAttunement?: boolean
+    bonusToAC?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToDamage?: boolean
+    spellAttackBonus?: boolean
+    speedBonus?: boolean
+    charges?: boolean
+    rechargeDice?: boolean
+    restoresSpellSlotUpToLevel?: boolean
+    increasesAtLevel10By?: boolean
+    replicatedMagicItemId?: boolean
+    createsHomunculus?: boolean
+    replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    persInfusions?: boolean | Infusion$persInfusionsArgs<ExtArgs>
+    _count?: boolean | InfusionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["infusion"]>
+
+  export type InfusionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    infusionId?: boolean
+    name?: boolean
+    engName?: boolean
+    minArtificerLevel?: boolean
+    targetType?: boolean
+    requiresAttunement?: boolean
+    bonusToAC?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToDamage?: boolean
+    spellAttackBonus?: boolean
+    speedBonus?: boolean
+    charges?: boolean
+    rechargeDice?: boolean
+    restoresSpellSlotUpToLevel?: boolean
+    increasesAtLevel10By?: boolean
+    replicatedMagicItemId?: boolean
+    createsHomunculus?: boolean
+    replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+  }, ExtArgs["result"]["infusion"]>
+
+  export type InfusionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    infusionId?: boolean
+    name?: boolean
+    engName?: boolean
+    minArtificerLevel?: boolean
+    targetType?: boolean
+    requiresAttunement?: boolean
+    bonusToAC?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToDamage?: boolean
+    spellAttackBonus?: boolean
+    speedBonus?: boolean
+    charges?: boolean
+    rechargeDice?: boolean
+    restoresSpellSlotUpToLevel?: boolean
+    increasesAtLevel10By?: boolean
+    replicatedMagicItemId?: boolean
+    createsHomunculus?: boolean
+    replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+  }, ExtArgs["result"]["infusion"]>
+
+  export type InfusionSelectScalar = {
+    infusionId?: boolean
+    name?: boolean
+    engName?: boolean
+    minArtificerLevel?: boolean
+    targetType?: boolean
+    requiresAttunement?: boolean
+    bonusToAC?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToDamage?: boolean
+    spellAttackBonus?: boolean
+    speedBonus?: boolean
+    charges?: boolean
+    rechargeDice?: boolean
+    restoresSpellSlotUpToLevel?: boolean
+    increasesAtLevel10By?: boolean
+    replicatedMagicItemId?: boolean
+    createsHomunculus?: boolean
+  }
+
+  export type InfusionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"infusionId" | "name" | "engName" | "minArtificerLevel" | "targetType" | "requiresAttunement" | "bonusToAC" | "bonusToAttackRoll" | "bonusToDamage" | "spellAttackBonus" | "speedBonus" | "charges" | "rechargeDice" | "restoresSpellSlotUpToLevel" | "increasesAtLevel10By" | "replicatedMagicItemId" | "createsHomunculus", ExtArgs["result"]["infusion"]>
+  export type InfusionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    persInfusions?: boolean | Infusion$persInfusionsArgs<ExtArgs>
+    _count?: boolean | InfusionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type InfusionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+  }
+  export type InfusionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+  }
+
+  export type $InfusionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Infusion"
+    objects: {
+      replicatedMagicItem: Prisma.$MagicItemPayload<ExtArgs> | null
+      persInfusions: Prisma.$PersInfusionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      infusionId: number
+      name: string
+      engName: string
+      minArtificerLevel: number
+      targetType: $Enums.InfusionTargetType
+      requiresAttunement: boolean
+      bonusToAC: number | null
+      bonusToAttackRoll: number | null
+      bonusToDamage: number | null
+      spellAttackBonus: number | null
+      speedBonus: number | null
+      charges: number | null
+      rechargeDice: string | null
+      restoresSpellSlotUpToLevel: number | null
+      increasesAtLevel10By: number | null
+      replicatedMagicItemId: number | null
+      createsHomunculus: boolean | null
+    }, ExtArgs["result"]["infusion"]>
+    composites: {}
+  }
+
+  type InfusionGetPayload<S extends boolean | null | undefined | InfusionDefaultArgs> = $Result.GetResult<Prisma.$InfusionPayload, S>
+
+  type InfusionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<InfusionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: InfusionCountAggregateInputType | true
+    }
+
+  export interface InfusionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Infusion'], meta: { name: 'Infusion' } }
+    /**
+     * Find zero or one Infusion that matches the filter.
+     * @param {InfusionFindUniqueArgs} args - Arguments to find a Infusion
+     * @example
+     * // Get one Infusion
+     * const infusion = await prisma.infusion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends InfusionFindUniqueArgs>(args: SelectSubset<T, InfusionFindUniqueArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Infusion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {InfusionFindUniqueOrThrowArgs} args - Arguments to find a Infusion
+     * @example
+     * // Get one Infusion
+     * const infusion = await prisma.infusion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends InfusionFindUniqueOrThrowArgs>(args: SelectSubset<T, InfusionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Infusion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InfusionFindFirstArgs} args - Arguments to find a Infusion
+     * @example
+     * // Get one Infusion
+     * const infusion = await prisma.infusion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends InfusionFindFirstArgs>(args?: SelectSubset<T, InfusionFindFirstArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Infusion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InfusionFindFirstOrThrowArgs} args - Arguments to find a Infusion
+     * @example
+     * // Get one Infusion
+     * const infusion = await prisma.infusion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends InfusionFindFirstOrThrowArgs>(args?: SelectSubset<T, InfusionFindFirstOrThrowArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Infusions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InfusionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Infusions
+     * const infusions = await prisma.infusion.findMany()
+     * 
+     * // Get first 10 Infusions
+     * const infusions = await prisma.infusion.findMany({ take: 10 })
+     * 
+     * // Only select the `infusionId`
+     * const infusionWithInfusionIdOnly = await prisma.infusion.findMany({ select: { infusionId: true } })
+     * 
+     */
+    findMany<T extends InfusionFindManyArgs>(args?: SelectSubset<T, InfusionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Infusion.
+     * @param {InfusionCreateArgs} args - Arguments to create a Infusion.
+     * @example
+     * // Create one Infusion
+     * const Infusion = await prisma.infusion.create({
+     *   data: {
+     *     // ... data to create a Infusion
+     *   }
+     * })
+     * 
+     */
+    create<T extends InfusionCreateArgs>(args: SelectSubset<T, InfusionCreateArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Infusions.
+     * @param {InfusionCreateManyArgs} args - Arguments to create many Infusions.
+     * @example
+     * // Create many Infusions
+     * const infusion = await prisma.infusion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends InfusionCreateManyArgs>(args?: SelectSubset<T, InfusionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Infusions and returns the data saved in the database.
+     * @param {InfusionCreateManyAndReturnArgs} args - Arguments to create many Infusions.
+     * @example
+     * // Create many Infusions
+     * const infusion = await prisma.infusion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Infusions and only return the `infusionId`
+     * const infusionWithInfusionIdOnly = await prisma.infusion.createManyAndReturn({
+     *   select: { infusionId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends InfusionCreateManyAndReturnArgs>(args?: SelectSubset<T, InfusionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Infusion.
+     * @param {InfusionDeleteArgs} args - Arguments to delete one Infusion.
+     * @example
+     * // Delete one Infusion
+     * const Infusion = await prisma.infusion.delete({
+     *   where: {
+     *     // ... filter to delete one Infusion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends InfusionDeleteArgs>(args: SelectSubset<T, InfusionDeleteArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Infusion.
+     * @param {InfusionUpdateArgs} args - Arguments to update one Infusion.
+     * @example
+     * // Update one Infusion
+     * const infusion = await prisma.infusion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends InfusionUpdateArgs>(args: SelectSubset<T, InfusionUpdateArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Infusions.
+     * @param {InfusionDeleteManyArgs} args - Arguments to filter Infusions to delete.
+     * @example
+     * // Delete a few Infusions
+     * const { count } = await prisma.infusion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends InfusionDeleteManyArgs>(args?: SelectSubset<T, InfusionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Infusions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InfusionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Infusions
+     * const infusion = await prisma.infusion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends InfusionUpdateManyArgs>(args: SelectSubset<T, InfusionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Infusions and returns the data updated in the database.
+     * @param {InfusionUpdateManyAndReturnArgs} args - Arguments to update many Infusions.
+     * @example
+     * // Update many Infusions
+     * const infusion = await prisma.infusion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Infusions and only return the `infusionId`
+     * const infusionWithInfusionIdOnly = await prisma.infusion.updateManyAndReturn({
+     *   select: { infusionId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends InfusionUpdateManyAndReturnArgs>(args: SelectSubset<T, InfusionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Infusion.
+     * @param {InfusionUpsertArgs} args - Arguments to update or create a Infusion.
+     * @example
+     * // Update or create a Infusion
+     * const infusion = await prisma.infusion.upsert({
+     *   create: {
+     *     // ... data to create a Infusion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Infusion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends InfusionUpsertArgs>(args: SelectSubset<T, InfusionUpsertArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Infusions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InfusionCountArgs} args - Arguments to filter Infusions to count.
+     * @example
+     * // Count the number of Infusions
+     * const count = await prisma.infusion.count({
+     *   where: {
+     *     // ... the filter for the Infusions we want to count
+     *   }
+     * })
+    **/
+    count<T extends InfusionCountArgs>(
+      args?: Subset<T, InfusionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], InfusionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Infusion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InfusionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends InfusionAggregateArgs>(args: Subset<T, InfusionAggregateArgs>): Prisma.PrismaPromise<GetInfusionAggregateType<T>>
+
+    /**
+     * Group by Infusion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InfusionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends InfusionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: InfusionGroupByArgs['orderBy'] }
+        : { orderBy?: InfusionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, InfusionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInfusionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Infusion model
+   */
+  readonly fields: InfusionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Infusion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__InfusionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    replicatedMagicItem<T extends Infusion$replicatedMagicItemArgs<ExtArgs> = {}>(args?: Subset<T, Infusion$replicatedMagicItemArgs<ExtArgs>>): Prisma__MagicItemClient<$Result.GetResult<Prisma.$MagicItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    persInfusions<T extends Infusion$persInfusionsArgs<ExtArgs> = {}>(args?: Subset<T, Infusion$persInfusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Infusion model
+   */
+  interface InfusionFieldRefs {
+    readonly infusionId: FieldRef<"Infusion", 'Int'>
+    readonly name: FieldRef<"Infusion", 'String'>
+    readonly engName: FieldRef<"Infusion", 'String'>
+    readonly minArtificerLevel: FieldRef<"Infusion", 'Int'>
+    readonly targetType: FieldRef<"Infusion", 'InfusionTargetType'>
+    readonly requiresAttunement: FieldRef<"Infusion", 'Boolean'>
+    readonly bonusToAC: FieldRef<"Infusion", 'Int'>
+    readonly bonusToAttackRoll: FieldRef<"Infusion", 'Int'>
+    readonly bonusToDamage: FieldRef<"Infusion", 'Int'>
+    readonly spellAttackBonus: FieldRef<"Infusion", 'Int'>
+    readonly speedBonus: FieldRef<"Infusion", 'Int'>
+    readonly charges: FieldRef<"Infusion", 'Int'>
+    readonly rechargeDice: FieldRef<"Infusion", 'String'>
+    readonly restoresSpellSlotUpToLevel: FieldRef<"Infusion", 'Int'>
+    readonly increasesAtLevel10By: FieldRef<"Infusion", 'Int'>
+    readonly replicatedMagicItemId: FieldRef<"Infusion", 'Int'>
+    readonly createsHomunculus: FieldRef<"Infusion", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Infusion findUnique
+   */
+  export type InfusionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which Infusion to fetch.
+     */
+    where: InfusionWhereUniqueInput
+  }
+
+  /**
+   * Infusion findUniqueOrThrow
+   */
+  export type InfusionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which Infusion to fetch.
+     */
+    where: InfusionWhereUniqueInput
+  }
+
+  /**
+   * Infusion findFirst
+   */
+  export type InfusionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which Infusion to fetch.
+     */
+    where?: InfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Infusions to fetch.
+     */
+    orderBy?: InfusionOrderByWithRelationInput | InfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Infusions.
+     */
+    cursor?: InfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Infusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Infusions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Infusions.
+     */
+    distinct?: InfusionScalarFieldEnum | InfusionScalarFieldEnum[]
+  }
+
+  /**
+   * Infusion findFirstOrThrow
+   */
+  export type InfusionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which Infusion to fetch.
+     */
+    where?: InfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Infusions to fetch.
+     */
+    orderBy?: InfusionOrderByWithRelationInput | InfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Infusions.
+     */
+    cursor?: InfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Infusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Infusions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Infusions.
+     */
+    distinct?: InfusionScalarFieldEnum | InfusionScalarFieldEnum[]
+  }
+
+  /**
+   * Infusion findMany
+   */
+  export type InfusionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which Infusions to fetch.
+     */
+    where?: InfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Infusions to fetch.
+     */
+    orderBy?: InfusionOrderByWithRelationInput | InfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Infusions.
+     */
+    cursor?: InfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Infusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Infusions.
+     */
+    skip?: number
+    distinct?: InfusionScalarFieldEnum | InfusionScalarFieldEnum[]
+  }
+
+  /**
+   * Infusion create
+   */
+  export type InfusionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Infusion.
+     */
+    data: XOR<InfusionCreateInput, InfusionUncheckedCreateInput>
+  }
+
+  /**
+   * Infusion createMany
+   */
+  export type InfusionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Infusions.
+     */
+    data: InfusionCreateManyInput | InfusionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Infusion createManyAndReturn
+   */
+  export type InfusionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Infusions.
+     */
+    data: InfusionCreateManyInput | InfusionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Infusion update
+   */
+  export type InfusionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Infusion.
+     */
+    data: XOR<InfusionUpdateInput, InfusionUncheckedUpdateInput>
+    /**
+     * Choose, which Infusion to update.
+     */
+    where: InfusionWhereUniqueInput
+  }
+
+  /**
+   * Infusion updateMany
+   */
+  export type InfusionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Infusions.
+     */
+    data: XOR<InfusionUpdateManyMutationInput, InfusionUncheckedUpdateManyInput>
+    /**
+     * Filter which Infusions to update
+     */
+    where?: InfusionWhereInput
+    /**
+     * Limit how many Infusions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Infusion updateManyAndReturn
+   */
+  export type InfusionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * The data used to update Infusions.
+     */
+    data: XOR<InfusionUpdateManyMutationInput, InfusionUncheckedUpdateManyInput>
+    /**
+     * Filter which Infusions to update
+     */
+    where?: InfusionWhereInput
+    /**
+     * Limit how many Infusions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Infusion upsert
+   */
+  export type InfusionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Infusion to update in case it exists.
+     */
+    where: InfusionWhereUniqueInput
+    /**
+     * In case the Infusion found by the `where` argument doesn't exist, create a new Infusion with this data.
+     */
+    create: XOR<InfusionCreateInput, InfusionUncheckedCreateInput>
+    /**
+     * In case the Infusion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<InfusionUpdateInput, InfusionUncheckedUpdateInput>
+  }
+
+  /**
+   * Infusion delete
+   */
+  export type InfusionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+    /**
+     * Filter which Infusion to delete.
+     */
+    where: InfusionWhereUniqueInput
+  }
+
+  /**
+   * Infusion deleteMany
+   */
+  export type InfusionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Infusions to delete
+     */
+    where?: InfusionWhereInput
+    /**
+     * Limit how many Infusions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Infusion.replicatedMagicItem
+   */
+  export type Infusion$replicatedMagicItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MagicItem
+     */
+    select?: MagicItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MagicItem
+     */
+    omit?: MagicItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MagicItemInclude<ExtArgs> | null
+    where?: MagicItemWhereInput
+  }
+
+  /**
+   * Infusion.persInfusions
+   */
+  export type Infusion$persInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    where?: PersInfusionWhereInput
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    cursor?: PersInfusionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
+  }
+
+  /**
+   * Infusion without action
+   */
+  export type InfusionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Infusion
+     */
+    select?: InfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Infusion
+     */
+    omit?: InfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InfusionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PersInfusion
+   */
+
+  export type AggregatePersInfusion = {
+    _count: PersInfusionCountAggregateOutputType | null
+    _avg: PersInfusionAvgAggregateOutputType | null
+    _sum: PersInfusionSumAggregateOutputType | null
+    _min: PersInfusionMinAggregateOutputType | null
+    _max: PersInfusionMaxAggregateOutputType | null
+  }
+
+  export type PersInfusionAvgAggregateOutputType = {
+    persInfusionId: number | null
+    persId: number | null
+    infusionId: number | null
+    persWeaponId: number | null
+    persArmorId: number | null
+    persMagicItemId: number | null
+  }
+
+  export type PersInfusionSumAggregateOutputType = {
+    persInfusionId: number | null
+    persId: number | null
+    infusionId: number | null
+    persWeaponId: number | null
+    persArmorId: number | null
+    persMagicItemId: number | null
+  }
+
+  export type PersInfusionMinAggregateOutputType = {
+    persInfusionId: number | null
+    persId: number | null
+    infusionId: number | null
+    persWeaponId: number | null
+    persArmorId: number | null
+    persMagicItemId: number | null
+    createdAt: Date | null
+    expiresAt: Date | null
+  }
+
+  export type PersInfusionMaxAggregateOutputType = {
+    persInfusionId: number | null
+    persId: number | null
+    infusionId: number | null
+    persWeaponId: number | null
+    persArmorId: number | null
+    persMagicItemId: number | null
+    createdAt: Date | null
+    expiresAt: Date | null
+  }
+
+  export type PersInfusionCountAggregateOutputType = {
+    persInfusionId: number
+    persId: number
+    infusionId: number
+    persWeaponId: number
+    persArmorId: number
+    persMagicItemId: number
+    createdAt: number
+    expiresAt: number
+    _all: number
+  }
+
+
+  export type PersInfusionAvgAggregateInputType = {
+    persInfusionId?: true
+    persId?: true
+    infusionId?: true
+    persWeaponId?: true
+    persArmorId?: true
+    persMagicItemId?: true
+  }
+
+  export type PersInfusionSumAggregateInputType = {
+    persInfusionId?: true
+    persId?: true
+    infusionId?: true
+    persWeaponId?: true
+    persArmorId?: true
+    persMagicItemId?: true
+  }
+
+  export type PersInfusionMinAggregateInputType = {
+    persInfusionId?: true
+    persId?: true
+    infusionId?: true
+    persWeaponId?: true
+    persArmorId?: true
+    persMagicItemId?: true
+    createdAt?: true
+    expiresAt?: true
+  }
+
+  export type PersInfusionMaxAggregateInputType = {
+    persInfusionId?: true
+    persId?: true
+    infusionId?: true
+    persWeaponId?: true
+    persArmorId?: true
+    persMagicItemId?: true
+    createdAt?: true
+    expiresAt?: true
+  }
+
+  export type PersInfusionCountAggregateInputType = {
+    persInfusionId?: true
+    persId?: true
+    infusionId?: true
+    persWeaponId?: true
+    persArmorId?: true
+    persMagicItemId?: true
+    createdAt?: true
+    expiresAt?: true
+    _all?: true
+  }
+
+  export type PersInfusionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PersInfusion to aggregate.
+     */
+    where?: PersInfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersInfusions to fetch.
+     */
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PersInfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersInfusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersInfusions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PersInfusions
+    **/
+    _count?: true | PersInfusionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PersInfusionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PersInfusionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PersInfusionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PersInfusionMaxAggregateInputType
+  }
+
+  export type GetPersInfusionAggregateType<T extends PersInfusionAggregateArgs> = {
+        [P in keyof T & keyof AggregatePersInfusion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePersInfusion[P]>
+      : GetScalarType<T[P], AggregatePersInfusion[P]>
+  }
+
+
+
+
+  export type PersInfusionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersInfusionWhereInput
+    orderBy?: PersInfusionOrderByWithAggregationInput | PersInfusionOrderByWithAggregationInput[]
+    by: PersInfusionScalarFieldEnum[] | PersInfusionScalarFieldEnum
+    having?: PersInfusionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PersInfusionCountAggregateInputType | true
+    _avg?: PersInfusionAvgAggregateInputType
+    _sum?: PersInfusionSumAggregateInputType
+    _min?: PersInfusionMinAggregateInputType
+    _max?: PersInfusionMaxAggregateInputType
+  }
+
+  export type PersInfusionGroupByOutputType = {
+    persInfusionId: number
+    persId: number
+    infusionId: number
+    persWeaponId: number | null
+    persArmorId: number | null
+    persMagicItemId: number | null
+    createdAt: Date
+    expiresAt: Date | null
+    _count: PersInfusionCountAggregateOutputType | null
+    _avg: PersInfusionAvgAggregateOutputType | null
+    _sum: PersInfusionSumAggregateOutputType | null
+    _min: PersInfusionMinAggregateOutputType | null
+    _max: PersInfusionMaxAggregateOutputType | null
+  }
+
+  type GetPersInfusionGroupByPayload<T extends PersInfusionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PersInfusionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PersInfusionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PersInfusionGroupByOutputType[P]>
+            : GetScalarType<T[P], PersInfusionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PersInfusionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    persInfusionId?: boolean
+    persId?: boolean
+    infusionId?: boolean
+    persWeaponId?: boolean
+    persArmorId?: boolean
+    persMagicItemId?: boolean
+    createdAt?: boolean
+    expiresAt?: boolean
+    pers?: boolean | PersDefaultArgs<ExtArgs>
+    infusion?: boolean | InfusionDefaultArgs<ExtArgs>
+    weapon?: boolean | PersInfusion$weaponArgs<ExtArgs>
+    armor?: boolean | PersInfusion$armorArgs<ExtArgs>
+    magicItem?: boolean | PersInfusion$magicItemArgs<ExtArgs>
+  }, ExtArgs["result"]["persInfusion"]>
+
+  export type PersInfusionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    persInfusionId?: boolean
+    persId?: boolean
+    infusionId?: boolean
+    persWeaponId?: boolean
+    persArmorId?: boolean
+    persMagicItemId?: boolean
+    createdAt?: boolean
+    expiresAt?: boolean
+    pers?: boolean | PersDefaultArgs<ExtArgs>
+    infusion?: boolean | InfusionDefaultArgs<ExtArgs>
+    weapon?: boolean | PersInfusion$weaponArgs<ExtArgs>
+    armor?: boolean | PersInfusion$armorArgs<ExtArgs>
+    magicItem?: boolean | PersInfusion$magicItemArgs<ExtArgs>
+  }, ExtArgs["result"]["persInfusion"]>
+
+  export type PersInfusionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    persInfusionId?: boolean
+    persId?: boolean
+    infusionId?: boolean
+    persWeaponId?: boolean
+    persArmorId?: boolean
+    persMagicItemId?: boolean
+    createdAt?: boolean
+    expiresAt?: boolean
+    pers?: boolean | PersDefaultArgs<ExtArgs>
+    infusion?: boolean | InfusionDefaultArgs<ExtArgs>
+    weapon?: boolean | PersInfusion$weaponArgs<ExtArgs>
+    armor?: boolean | PersInfusion$armorArgs<ExtArgs>
+    magicItem?: boolean | PersInfusion$magicItemArgs<ExtArgs>
+  }, ExtArgs["result"]["persInfusion"]>
+
+  export type PersInfusionSelectScalar = {
+    persInfusionId?: boolean
+    persId?: boolean
+    infusionId?: boolean
+    persWeaponId?: boolean
+    persArmorId?: boolean
+    persMagicItemId?: boolean
+    createdAt?: boolean
+    expiresAt?: boolean
+  }
+
+  export type PersInfusionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"persInfusionId" | "persId" | "infusionId" | "persWeaponId" | "persArmorId" | "persMagicItemId" | "createdAt" | "expiresAt", ExtArgs["result"]["persInfusion"]>
+  export type PersInfusionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pers?: boolean | PersDefaultArgs<ExtArgs>
+    infusion?: boolean | InfusionDefaultArgs<ExtArgs>
+    weapon?: boolean | PersInfusion$weaponArgs<ExtArgs>
+    armor?: boolean | PersInfusion$armorArgs<ExtArgs>
+    magicItem?: boolean | PersInfusion$magicItemArgs<ExtArgs>
+  }
+  export type PersInfusionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pers?: boolean | PersDefaultArgs<ExtArgs>
+    infusion?: boolean | InfusionDefaultArgs<ExtArgs>
+    weapon?: boolean | PersInfusion$weaponArgs<ExtArgs>
+    armor?: boolean | PersInfusion$armorArgs<ExtArgs>
+    magicItem?: boolean | PersInfusion$magicItemArgs<ExtArgs>
+  }
+  export type PersInfusionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pers?: boolean | PersDefaultArgs<ExtArgs>
+    infusion?: boolean | InfusionDefaultArgs<ExtArgs>
+    weapon?: boolean | PersInfusion$weaponArgs<ExtArgs>
+    armor?: boolean | PersInfusion$armorArgs<ExtArgs>
+    magicItem?: boolean | PersInfusion$magicItemArgs<ExtArgs>
+  }
+
+  export type $PersInfusionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PersInfusion"
+    objects: {
+      pers: Prisma.$PersPayload<ExtArgs>
+      infusion: Prisma.$InfusionPayload<ExtArgs>
+      weapon: Prisma.$PersWeaponPayload<ExtArgs> | null
+      armor: Prisma.$PersArmorPayload<ExtArgs> | null
+      magicItem: Prisma.$PersMagicItemPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      persInfusionId: number
+      persId: number
+      infusionId: number
+      persWeaponId: number | null
+      persArmorId: number | null
+      persMagicItemId: number | null
+      createdAt: Date
+      expiresAt: Date | null
+    }, ExtArgs["result"]["persInfusion"]>
+    composites: {}
+  }
+
+  type PersInfusionGetPayload<S extends boolean | null | undefined | PersInfusionDefaultArgs> = $Result.GetResult<Prisma.$PersInfusionPayload, S>
+
+  type PersInfusionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PersInfusionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PersInfusionCountAggregateInputType | true
+    }
+
+  export interface PersInfusionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PersInfusion'], meta: { name: 'PersInfusion' } }
+    /**
+     * Find zero or one PersInfusion that matches the filter.
+     * @param {PersInfusionFindUniqueArgs} args - Arguments to find a PersInfusion
+     * @example
+     * // Get one PersInfusion
+     * const persInfusion = await prisma.persInfusion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PersInfusionFindUniqueArgs>(args: SelectSubset<T, PersInfusionFindUniqueArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PersInfusion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PersInfusionFindUniqueOrThrowArgs} args - Arguments to find a PersInfusion
+     * @example
+     * // Get one PersInfusion
+     * const persInfusion = await prisma.persInfusion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PersInfusionFindUniqueOrThrowArgs>(args: SelectSubset<T, PersInfusionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PersInfusion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersInfusionFindFirstArgs} args - Arguments to find a PersInfusion
+     * @example
+     * // Get one PersInfusion
+     * const persInfusion = await prisma.persInfusion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PersInfusionFindFirstArgs>(args?: SelectSubset<T, PersInfusionFindFirstArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PersInfusion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersInfusionFindFirstOrThrowArgs} args - Arguments to find a PersInfusion
+     * @example
+     * // Get one PersInfusion
+     * const persInfusion = await prisma.persInfusion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PersInfusionFindFirstOrThrowArgs>(args?: SelectSubset<T, PersInfusionFindFirstOrThrowArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PersInfusions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersInfusionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PersInfusions
+     * const persInfusions = await prisma.persInfusion.findMany()
+     * 
+     * // Get first 10 PersInfusions
+     * const persInfusions = await prisma.persInfusion.findMany({ take: 10 })
+     * 
+     * // Only select the `persInfusionId`
+     * const persInfusionWithPersInfusionIdOnly = await prisma.persInfusion.findMany({ select: { persInfusionId: true } })
+     * 
+     */
+    findMany<T extends PersInfusionFindManyArgs>(args?: SelectSubset<T, PersInfusionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PersInfusion.
+     * @param {PersInfusionCreateArgs} args - Arguments to create a PersInfusion.
+     * @example
+     * // Create one PersInfusion
+     * const PersInfusion = await prisma.persInfusion.create({
+     *   data: {
+     *     // ... data to create a PersInfusion
+     *   }
+     * })
+     * 
+     */
+    create<T extends PersInfusionCreateArgs>(args: SelectSubset<T, PersInfusionCreateArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PersInfusions.
+     * @param {PersInfusionCreateManyArgs} args - Arguments to create many PersInfusions.
+     * @example
+     * // Create many PersInfusions
+     * const persInfusion = await prisma.persInfusion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PersInfusionCreateManyArgs>(args?: SelectSubset<T, PersInfusionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PersInfusions and returns the data saved in the database.
+     * @param {PersInfusionCreateManyAndReturnArgs} args - Arguments to create many PersInfusions.
+     * @example
+     * // Create many PersInfusions
+     * const persInfusion = await prisma.persInfusion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PersInfusions and only return the `persInfusionId`
+     * const persInfusionWithPersInfusionIdOnly = await prisma.persInfusion.createManyAndReturn({
+     *   select: { persInfusionId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PersInfusionCreateManyAndReturnArgs>(args?: SelectSubset<T, PersInfusionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PersInfusion.
+     * @param {PersInfusionDeleteArgs} args - Arguments to delete one PersInfusion.
+     * @example
+     * // Delete one PersInfusion
+     * const PersInfusion = await prisma.persInfusion.delete({
+     *   where: {
+     *     // ... filter to delete one PersInfusion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PersInfusionDeleteArgs>(args: SelectSubset<T, PersInfusionDeleteArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PersInfusion.
+     * @param {PersInfusionUpdateArgs} args - Arguments to update one PersInfusion.
+     * @example
+     * // Update one PersInfusion
+     * const persInfusion = await prisma.persInfusion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PersInfusionUpdateArgs>(args: SelectSubset<T, PersInfusionUpdateArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PersInfusions.
+     * @param {PersInfusionDeleteManyArgs} args - Arguments to filter PersInfusions to delete.
+     * @example
+     * // Delete a few PersInfusions
+     * const { count } = await prisma.persInfusion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PersInfusionDeleteManyArgs>(args?: SelectSubset<T, PersInfusionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PersInfusions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersInfusionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PersInfusions
+     * const persInfusion = await prisma.persInfusion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PersInfusionUpdateManyArgs>(args: SelectSubset<T, PersInfusionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PersInfusions and returns the data updated in the database.
+     * @param {PersInfusionUpdateManyAndReturnArgs} args - Arguments to update many PersInfusions.
+     * @example
+     * // Update many PersInfusions
+     * const persInfusion = await prisma.persInfusion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PersInfusions and only return the `persInfusionId`
+     * const persInfusionWithPersInfusionIdOnly = await prisma.persInfusion.updateManyAndReturn({
+     *   select: { persInfusionId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PersInfusionUpdateManyAndReturnArgs>(args: SelectSubset<T, PersInfusionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PersInfusion.
+     * @param {PersInfusionUpsertArgs} args - Arguments to update or create a PersInfusion.
+     * @example
+     * // Update or create a PersInfusion
+     * const persInfusion = await prisma.persInfusion.upsert({
+     *   create: {
+     *     // ... data to create a PersInfusion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PersInfusion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PersInfusionUpsertArgs>(args: SelectSubset<T, PersInfusionUpsertArgs<ExtArgs>>): Prisma__PersInfusionClient<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PersInfusions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersInfusionCountArgs} args - Arguments to filter PersInfusions to count.
+     * @example
+     * // Count the number of PersInfusions
+     * const count = await prisma.persInfusion.count({
+     *   where: {
+     *     // ... the filter for the PersInfusions we want to count
+     *   }
+     * })
+    **/
+    count<T extends PersInfusionCountArgs>(
+      args?: Subset<T, PersInfusionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PersInfusionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PersInfusion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersInfusionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PersInfusionAggregateArgs>(args: Subset<T, PersInfusionAggregateArgs>): Prisma.PrismaPromise<GetPersInfusionAggregateType<T>>
+
+    /**
+     * Group by PersInfusion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PersInfusionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PersInfusionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PersInfusionGroupByArgs['orderBy'] }
+        : { orderBy?: PersInfusionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PersInfusionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPersInfusionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PersInfusion model
+   */
+  readonly fields: PersInfusionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PersInfusion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PersInfusionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    pers<T extends PersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersDefaultArgs<ExtArgs>>): Prisma__PersClient<$Result.GetResult<Prisma.$PersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    infusion<T extends InfusionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InfusionDefaultArgs<ExtArgs>>): Prisma__InfusionClient<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    weapon<T extends PersInfusion$weaponArgs<ExtArgs> = {}>(args?: Subset<T, PersInfusion$weaponArgs<ExtArgs>>): Prisma__PersWeaponClient<$Result.GetResult<Prisma.$PersWeaponPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    armor<T extends PersInfusion$armorArgs<ExtArgs> = {}>(args?: Subset<T, PersInfusion$armorArgs<ExtArgs>>): Prisma__PersArmorClient<$Result.GetResult<Prisma.$PersArmorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    magicItem<T extends PersInfusion$magicItemArgs<ExtArgs> = {}>(args?: Subset<T, PersInfusion$magicItemArgs<ExtArgs>>): Prisma__PersMagicItemClient<$Result.GetResult<Prisma.$PersMagicItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PersInfusion model
+   */
+  interface PersInfusionFieldRefs {
+    readonly persInfusionId: FieldRef<"PersInfusion", 'Int'>
+    readonly persId: FieldRef<"PersInfusion", 'Int'>
+    readonly infusionId: FieldRef<"PersInfusion", 'Int'>
+    readonly persWeaponId: FieldRef<"PersInfusion", 'Int'>
+    readonly persArmorId: FieldRef<"PersInfusion", 'Int'>
+    readonly persMagicItemId: FieldRef<"PersInfusion", 'Int'>
+    readonly createdAt: FieldRef<"PersInfusion", 'DateTime'>
+    readonly expiresAt: FieldRef<"PersInfusion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PersInfusion findUnique
+   */
+  export type PersInfusionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which PersInfusion to fetch.
+     */
+    where: PersInfusionWhereUniqueInput
+  }
+
+  /**
+   * PersInfusion findUniqueOrThrow
+   */
+  export type PersInfusionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which PersInfusion to fetch.
+     */
+    where: PersInfusionWhereUniqueInput
+  }
+
+  /**
+   * PersInfusion findFirst
+   */
+  export type PersInfusionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which PersInfusion to fetch.
+     */
+    where?: PersInfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersInfusions to fetch.
+     */
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PersInfusions.
+     */
+    cursor?: PersInfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersInfusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersInfusions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PersInfusions.
+     */
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
+  }
+
+  /**
+   * PersInfusion findFirstOrThrow
+   */
+  export type PersInfusionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which PersInfusion to fetch.
+     */
+    where?: PersInfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersInfusions to fetch.
+     */
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PersInfusions.
+     */
+    cursor?: PersInfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersInfusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersInfusions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PersInfusions.
+     */
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
+  }
+
+  /**
+   * PersInfusion findMany
+   */
+  export type PersInfusionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * Filter, which PersInfusions to fetch.
+     */
+    where?: PersInfusionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PersInfusions to fetch.
+     */
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PersInfusions.
+     */
+    cursor?: PersInfusionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PersInfusions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PersInfusions.
+     */
+    skip?: number
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
+  }
+
+  /**
+   * PersInfusion create
+   */
+  export type PersInfusionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PersInfusion.
+     */
+    data: XOR<PersInfusionCreateInput, PersInfusionUncheckedCreateInput>
+  }
+
+  /**
+   * PersInfusion createMany
+   */
+  export type PersInfusionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PersInfusions.
+     */
+    data: PersInfusionCreateManyInput | PersInfusionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PersInfusion createManyAndReturn
+   */
+  export type PersInfusionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * The data used to create many PersInfusions.
+     */
+    data: PersInfusionCreateManyInput | PersInfusionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PersInfusion update
+   */
+  export type PersInfusionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PersInfusion.
+     */
+    data: XOR<PersInfusionUpdateInput, PersInfusionUncheckedUpdateInput>
+    /**
+     * Choose, which PersInfusion to update.
+     */
+    where: PersInfusionWhereUniqueInput
+  }
+
+  /**
+   * PersInfusion updateMany
+   */
+  export type PersInfusionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PersInfusions.
+     */
+    data: XOR<PersInfusionUpdateManyMutationInput, PersInfusionUncheckedUpdateManyInput>
+    /**
+     * Filter which PersInfusions to update
+     */
+    where?: PersInfusionWhereInput
+    /**
+     * Limit how many PersInfusions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PersInfusion updateManyAndReturn
+   */
+  export type PersInfusionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * The data used to update PersInfusions.
+     */
+    data: XOR<PersInfusionUpdateManyMutationInput, PersInfusionUncheckedUpdateManyInput>
+    /**
+     * Filter which PersInfusions to update
+     */
+    where?: PersInfusionWhereInput
+    /**
+     * Limit how many PersInfusions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PersInfusion upsert
+   */
+  export type PersInfusionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PersInfusion to update in case it exists.
+     */
+    where: PersInfusionWhereUniqueInput
+    /**
+     * In case the PersInfusion found by the `where` argument doesn't exist, create a new PersInfusion with this data.
+     */
+    create: XOR<PersInfusionCreateInput, PersInfusionUncheckedCreateInput>
+    /**
+     * In case the PersInfusion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PersInfusionUpdateInput, PersInfusionUncheckedUpdateInput>
+  }
+
+  /**
+   * PersInfusion delete
+   */
+  export type PersInfusionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    /**
+     * Filter which PersInfusion to delete.
+     */
+    where: PersInfusionWhereUniqueInput
+  }
+
+  /**
+   * PersInfusion deleteMany
+   */
+  export type PersInfusionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PersInfusions to delete
+     */
+    where?: PersInfusionWhereInput
+    /**
+     * Limit how many PersInfusions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PersInfusion.weapon
+   */
+  export type PersInfusion$weaponArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersWeapon
+     */
+    select?: PersWeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersWeapon
+     */
+    omit?: PersWeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersWeaponInclude<ExtArgs> | null
+    where?: PersWeaponWhereInput
+  }
+
+  /**
+   * PersInfusion.armor
+   */
+  export type PersInfusion$armorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersArmor
+     */
+    select?: PersArmorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersArmor
+     */
+    omit?: PersArmorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersArmorInclude<ExtArgs> | null
+    where?: PersArmorWhereInput
+  }
+
+  /**
+   * PersInfusion.magicItem
+   */
+  export type PersInfusion$magicItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersMagicItem
+     */
+    select?: PersMagicItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersMagicItem
+     */
+    omit?: PersMagicItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersMagicItemInclude<ExtArgs> | null
+    where?: PersMagicItemWhereInput
+  }
+
+  /**
+   * PersInfusion without action
+   */
+  export type PersInfusionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
   }
 
 
@@ -55312,6 +58302,8 @@ export namespace Prisma {
     isProficient?: boolean
     pers?: boolean | PersDefaultArgs<ExtArgs>
     weapon?: boolean | WeaponDefaultArgs<ExtArgs>
+    infusions?: boolean | PersWeapon$infusionsArgs<ExtArgs>
+    _count?: boolean | PersWeaponCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["persWeapon"]>
 
   export type PersWeaponSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -55364,6 +58356,8 @@ export namespace Prisma {
   export type PersWeaponInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pers?: boolean | PersDefaultArgs<ExtArgs>
     weapon?: boolean | WeaponDefaultArgs<ExtArgs>
+    infusions?: boolean | PersWeapon$infusionsArgs<ExtArgs>
+    _count?: boolean | PersWeaponCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PersWeaponIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pers?: boolean | PersDefaultArgs<ExtArgs>
@@ -55379,6 +58373,7 @@ export namespace Prisma {
     objects: {
       pers: Prisma.$PersPayload<ExtArgs>
       weapon: Prisma.$WeaponPayload<ExtArgs>
+      infusions: Prisma.$PersInfusionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       persWeaponId: number
@@ -55788,6 +58783,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     pers<T extends PersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersDefaultArgs<ExtArgs>>): Prisma__PersClient<$Result.GetResult<Prisma.$PersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     weapon<T extends WeaponDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WeaponDefaultArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    infusions<T extends PersWeapon$infusionsArgs<ExtArgs> = {}>(args?: Subset<T, PersWeapon$infusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -56224,6 +59220,30 @@ export namespace Prisma {
   }
 
   /**
+   * PersWeapon.infusions
+   */
+  export type PersWeapon$infusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    where?: PersInfusionWhereInput
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    cursor?: PersInfusionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
+  }
+
+  /**
    * PersWeapon without action
    */
   export type PersWeaponDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -56474,6 +59494,8 @@ export namespace Prisma {
     equipped?: boolean
     pers?: boolean | PersDefaultArgs<ExtArgs>
     armor?: boolean | ArmorDefaultArgs<ExtArgs>
+    infusions?: boolean | PersArmor$infusionsArgs<ExtArgs>
+    _count?: boolean | PersArmorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["persArmor"]>
 
   export type PersArmorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -56514,6 +59536,8 @@ export namespace Prisma {
   export type PersArmorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pers?: boolean | PersDefaultArgs<ExtArgs>
     armor?: boolean | ArmorDefaultArgs<ExtArgs>
+    infusions?: boolean | PersArmor$infusionsArgs<ExtArgs>
+    _count?: boolean | PersArmorCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PersArmorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pers?: boolean | PersDefaultArgs<ExtArgs>
@@ -56529,6 +59553,7 @@ export namespace Prisma {
     objects: {
       pers: Prisma.$PersPayload<ExtArgs>
       armor: Prisma.$ArmorPayload<ExtArgs>
+      infusions: Prisma.$PersInfusionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       persArmorId: number
@@ -56934,6 +59959,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     pers<T extends PersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersDefaultArgs<ExtArgs>>): Prisma__PersClient<$Result.GetResult<Prisma.$PersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     armor<T extends ArmorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ArmorDefaultArgs<ExtArgs>>): Prisma__ArmorClient<$Result.GetResult<Prisma.$ArmorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    infusions<T extends PersArmor$infusionsArgs<ExtArgs> = {}>(args?: Subset<T, PersArmor$infusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -57366,6 +60392,30 @@ export namespace Prisma {
   }
 
   /**
+   * PersArmor.infusions
+   */
+  export type PersArmor$infusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    where?: PersInfusionWhereInput
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    cursor?: PersInfusionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
+  }
+
+  /**
    * PersArmor without action
    */
   export type PersArmorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -57576,6 +60626,8 @@ export namespace Prisma {
     magicItemId?: boolean
     pers?: boolean | PersDefaultArgs<ExtArgs>
     magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
+    infusions?: boolean | PersMagicItem$infusionsArgs<ExtArgs>
+    _count?: boolean | PersMagicItemCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["persMagicItem"]>
 
   export type PersMagicItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -57604,6 +60656,8 @@ export namespace Prisma {
   export type PersMagicItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pers?: boolean | PersDefaultArgs<ExtArgs>
     magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
+    infusions?: boolean | PersMagicItem$infusionsArgs<ExtArgs>
+    _count?: boolean | PersMagicItemCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PersMagicItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pers?: boolean | PersDefaultArgs<ExtArgs>
@@ -57619,6 +60673,7 @@ export namespace Prisma {
     objects: {
       pers: Prisma.$PersPayload<ExtArgs>
       magicItem: Prisma.$MagicItemPayload<ExtArgs>
+      infusions: Prisma.$PersInfusionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       persMagicItemId: number
@@ -58020,6 +61075,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     pers<T extends PersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersDefaultArgs<ExtArgs>>): Prisma__PersClient<$Result.GetResult<Prisma.$PersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     magicItem<T extends MagicItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MagicItemDefaultArgs<ExtArgs>>): Prisma__MagicItemClient<$Result.GetResult<Prisma.$MagicItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    infusions<T extends PersMagicItem$infusionsArgs<ExtArgs> = {}>(args?: Subset<T, PersMagicItem$infusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -58445,6 +61501,30 @@ export namespace Prisma {
      * Limit how many PersMagicItems to delete.
      */
     limit?: number
+  }
+
+  /**
+   * PersMagicItem.infusions
+   */
+  export type PersMagicItem$infusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PersInfusion
+     */
+    select?: PersInfusionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PersInfusion
+     */
+    omit?: PersInfusionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersInfusionInclude<ExtArgs> | null
+    where?: PersInfusionWhereInput
+    orderBy?: PersInfusionOrderByWithRelationInput | PersInfusionOrderByWithRelationInput[]
+    cursor?: PersInfusionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersInfusionScalarFieldEnum | PersInfusionScalarFieldEnum[]
   }
 
   /**
@@ -61431,12 +64511,50 @@ export namespace Prisma {
     itemType: 'itemType',
     rarity: 'rarity',
     description: 'description',
+    requiresAttunement: 'requiresAttunement',
     bonusToAC: 'bonusToAC',
     bonusToAttackRoll: 'bonusToAttackRoll',
     bonusToDamage: 'bonusToDamage'
   };
 
   export type MagicItemScalarFieldEnum = (typeof MagicItemScalarFieldEnum)[keyof typeof MagicItemScalarFieldEnum]
+
+
+  export const InfusionScalarFieldEnum: {
+    infusionId: 'infusionId',
+    name: 'name',
+    engName: 'engName',
+    minArtificerLevel: 'minArtificerLevel',
+    targetType: 'targetType',
+    requiresAttunement: 'requiresAttunement',
+    bonusToAC: 'bonusToAC',
+    bonusToAttackRoll: 'bonusToAttackRoll',
+    bonusToDamage: 'bonusToDamage',
+    spellAttackBonus: 'spellAttackBonus',
+    speedBonus: 'speedBonus',
+    charges: 'charges',
+    rechargeDice: 'rechargeDice',
+    restoresSpellSlotUpToLevel: 'restoresSpellSlotUpToLevel',
+    increasesAtLevel10By: 'increasesAtLevel10By',
+    replicatedMagicItemId: 'replicatedMagicItemId',
+    createsHomunculus: 'createsHomunculus'
+  };
+
+  export type InfusionScalarFieldEnum = (typeof InfusionScalarFieldEnum)[keyof typeof InfusionScalarFieldEnum]
+
+
+  export const PersInfusionScalarFieldEnum: {
+    persInfusionId: 'persInfusionId',
+    persId: 'persId',
+    infusionId: 'infusionId',
+    persWeaponId: 'persWeaponId',
+    persArmorId: 'persArmorId',
+    persMagicItemId: 'persMagicItemId',
+    createdAt: 'createdAt',
+    expiresAt: 'expiresAt'
+  };
+
+  export type PersInfusionScalarFieldEnum = (typeof PersInfusionScalarFieldEnum)[keyof typeof PersInfusionScalarFieldEnum]
 
 
   export const WeaponScalarFieldEnum: {
@@ -61899,6 +65017,20 @@ export namespace Prisma {
    * Reference to a field of type 'ItemRarity[]'
    */
   export type ListEnumItemRarityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ItemRarity[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'InfusionTargetType'
+   */
+  export type EnumInfusionTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InfusionTargetType'>
+    
+
+
+  /**
+   * Reference to a field of type 'InfusionTargetType[]'
+   */
+  export type ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InfusionTargetType[]'>
     
 
 
@@ -63171,6 +66303,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionListRelationFilter
     choiceOptions?: ChoiceOptionListRelationFilter
     classOptionalFeatures?: ClassOptionalFeatureListRelationFilter
+    persInfusions?: PersInfusionListRelationFilter
   }
 
   export type PersOrderByWithRelationInput = {
@@ -63238,6 +66371,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionOrderByRelationAggregateInput
     choiceOptions?: ChoiceOptionOrderByRelationAggregateInput
     classOptionalFeatures?: ClassOptionalFeatureOrderByRelationAggregateInput
+    persInfusions?: PersInfusionOrderByRelationAggregateInput
   }
 
   export type PersWhereUniqueInput = Prisma.AtLeast<{
@@ -63308,6 +66442,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionListRelationFilter
     choiceOptions?: ChoiceOptionListRelationFilter
     classOptionalFeatures?: ClassOptionalFeatureListRelationFilter
+    persInfusions?: PersInfusionListRelationFilter
   }, "persId">
 
   export type PersOrderByWithAggregationInput = {
@@ -65024,11 +68159,13 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFilter<"MagicItem"> | $Enums.MagicItemType
     rarity?: EnumItemRarityFilter<"MagicItem"> | $Enums.ItemRarity
     description?: StringFilter<"MagicItem"> | string
+    requiresAttunement?: BoolFilter<"MagicItem"> | boolean
     bonusToAC?: IntNullableFilter<"MagicItem"> | number | null
     bonusToAttackRoll?: IntNullableFilter<"MagicItem"> | number | null
     bonusToDamage?: IntNullableFilter<"MagicItem"> | number | null
     features?: MagicItemFeatureListRelationFilter
     persMagicItems?: PersMagicItemListRelationFilter
+    replicatedByInfusions?: InfusionListRelationFilter
   }
 
   export type MagicItemOrderByWithRelationInput = {
@@ -65037,11 +68174,13 @@ export namespace Prisma {
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    requiresAttunement?: SortOrder
     bonusToAC?: SortOrderInput | SortOrder
     bonusToAttackRoll?: SortOrderInput | SortOrder
     bonusToDamage?: SortOrderInput | SortOrder
     features?: MagicItemFeatureOrderByRelationAggregateInput
     persMagicItems?: PersMagicItemOrderByRelationAggregateInput
+    replicatedByInfusions?: InfusionOrderByRelationAggregateInput
   }
 
   export type MagicItemWhereUniqueInput = Prisma.AtLeast<{
@@ -65053,11 +68192,13 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFilter<"MagicItem"> | $Enums.MagicItemType
     rarity?: EnumItemRarityFilter<"MagicItem"> | $Enums.ItemRarity
     description?: StringFilter<"MagicItem"> | string
+    requiresAttunement?: BoolFilter<"MagicItem"> | boolean
     bonusToAC?: IntNullableFilter<"MagicItem"> | number | null
     bonusToAttackRoll?: IntNullableFilter<"MagicItem"> | number | null
     bonusToDamage?: IntNullableFilter<"MagicItem"> | number | null
     features?: MagicItemFeatureListRelationFilter
     persMagicItems?: PersMagicItemListRelationFilter
+    replicatedByInfusions?: InfusionListRelationFilter
   }, "magicItemId" | "name">
 
   export type MagicItemOrderByWithAggregationInput = {
@@ -65066,6 +68207,7 @@ export namespace Prisma {
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    requiresAttunement?: SortOrder
     bonusToAC?: SortOrderInput | SortOrder
     bonusToAttackRoll?: SortOrderInput | SortOrder
     bonusToDamage?: SortOrderInput | SortOrder
@@ -65085,9 +68227,214 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeWithAggregatesFilter<"MagicItem"> | $Enums.MagicItemType
     rarity?: EnumItemRarityWithAggregatesFilter<"MagicItem"> | $Enums.ItemRarity
     description?: StringWithAggregatesFilter<"MagicItem"> | string
+    requiresAttunement?: BoolWithAggregatesFilter<"MagicItem"> | boolean
     bonusToAC?: IntNullableWithAggregatesFilter<"MagicItem"> | number | null
     bonusToAttackRoll?: IntNullableWithAggregatesFilter<"MagicItem"> | number | null
     bonusToDamage?: IntNullableWithAggregatesFilter<"MagicItem"> | number | null
+  }
+
+  export type InfusionWhereInput = {
+    AND?: InfusionWhereInput | InfusionWhereInput[]
+    OR?: InfusionWhereInput[]
+    NOT?: InfusionWhereInput | InfusionWhereInput[]
+    infusionId?: IntFilter<"Infusion"> | number
+    name?: StringFilter<"Infusion"> | string
+    engName?: StringFilter<"Infusion"> | string
+    minArtificerLevel?: IntFilter<"Infusion"> | number
+    targetType?: EnumInfusionTargetTypeFilter<"Infusion"> | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFilter<"Infusion"> | boolean
+    bonusToAC?: IntNullableFilter<"Infusion"> | number | null
+    bonusToAttackRoll?: IntNullableFilter<"Infusion"> | number | null
+    bonusToDamage?: IntNullableFilter<"Infusion"> | number | null
+    spellAttackBonus?: IntNullableFilter<"Infusion"> | number | null
+    speedBonus?: IntNullableFilter<"Infusion"> | number | null
+    charges?: IntNullableFilter<"Infusion"> | number | null
+    rechargeDice?: StringNullableFilter<"Infusion"> | string | null
+    restoresSpellSlotUpToLevel?: IntNullableFilter<"Infusion"> | number | null
+    increasesAtLevel10By?: IntNullableFilter<"Infusion"> | number | null
+    replicatedMagicItemId?: IntNullableFilter<"Infusion"> | number | null
+    createsHomunculus?: BoolNullableFilter<"Infusion"> | boolean | null
+    replicatedMagicItem?: XOR<MagicItemNullableScalarRelationFilter, MagicItemWhereInput> | null
+    persInfusions?: PersInfusionListRelationFilter
+  }
+
+  export type InfusionOrderByWithRelationInput = {
+    infusionId?: SortOrder
+    name?: SortOrder
+    engName?: SortOrder
+    minArtificerLevel?: SortOrder
+    targetType?: SortOrder
+    requiresAttunement?: SortOrder
+    bonusToAC?: SortOrderInput | SortOrder
+    bonusToAttackRoll?: SortOrderInput | SortOrder
+    bonusToDamage?: SortOrderInput | SortOrder
+    spellAttackBonus?: SortOrderInput | SortOrder
+    speedBonus?: SortOrderInput | SortOrder
+    charges?: SortOrderInput | SortOrder
+    rechargeDice?: SortOrderInput | SortOrder
+    restoresSpellSlotUpToLevel?: SortOrderInput | SortOrder
+    increasesAtLevel10By?: SortOrderInput | SortOrder
+    replicatedMagicItemId?: SortOrderInput | SortOrder
+    createsHomunculus?: SortOrderInput | SortOrder
+    replicatedMagicItem?: MagicItemOrderByWithRelationInput
+    persInfusions?: PersInfusionOrderByRelationAggregateInput
+  }
+
+  export type InfusionWhereUniqueInput = Prisma.AtLeast<{
+    infusionId?: number
+    engName?: string
+    AND?: InfusionWhereInput | InfusionWhereInput[]
+    OR?: InfusionWhereInput[]
+    NOT?: InfusionWhereInput | InfusionWhereInput[]
+    name?: StringFilter<"Infusion"> | string
+    minArtificerLevel?: IntFilter<"Infusion"> | number
+    targetType?: EnumInfusionTargetTypeFilter<"Infusion"> | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFilter<"Infusion"> | boolean
+    bonusToAC?: IntNullableFilter<"Infusion"> | number | null
+    bonusToAttackRoll?: IntNullableFilter<"Infusion"> | number | null
+    bonusToDamage?: IntNullableFilter<"Infusion"> | number | null
+    spellAttackBonus?: IntNullableFilter<"Infusion"> | number | null
+    speedBonus?: IntNullableFilter<"Infusion"> | number | null
+    charges?: IntNullableFilter<"Infusion"> | number | null
+    rechargeDice?: StringNullableFilter<"Infusion"> | string | null
+    restoresSpellSlotUpToLevel?: IntNullableFilter<"Infusion"> | number | null
+    increasesAtLevel10By?: IntNullableFilter<"Infusion"> | number | null
+    replicatedMagicItemId?: IntNullableFilter<"Infusion"> | number | null
+    createsHomunculus?: BoolNullableFilter<"Infusion"> | boolean | null
+    replicatedMagicItem?: XOR<MagicItemNullableScalarRelationFilter, MagicItemWhereInput> | null
+    persInfusions?: PersInfusionListRelationFilter
+  }, "infusionId" | "engName">
+
+  export type InfusionOrderByWithAggregationInput = {
+    infusionId?: SortOrder
+    name?: SortOrder
+    engName?: SortOrder
+    minArtificerLevel?: SortOrder
+    targetType?: SortOrder
+    requiresAttunement?: SortOrder
+    bonusToAC?: SortOrderInput | SortOrder
+    bonusToAttackRoll?: SortOrderInput | SortOrder
+    bonusToDamage?: SortOrderInput | SortOrder
+    spellAttackBonus?: SortOrderInput | SortOrder
+    speedBonus?: SortOrderInput | SortOrder
+    charges?: SortOrderInput | SortOrder
+    rechargeDice?: SortOrderInput | SortOrder
+    restoresSpellSlotUpToLevel?: SortOrderInput | SortOrder
+    increasesAtLevel10By?: SortOrderInput | SortOrder
+    replicatedMagicItemId?: SortOrderInput | SortOrder
+    createsHomunculus?: SortOrderInput | SortOrder
+    _count?: InfusionCountOrderByAggregateInput
+    _avg?: InfusionAvgOrderByAggregateInput
+    _max?: InfusionMaxOrderByAggregateInput
+    _min?: InfusionMinOrderByAggregateInput
+    _sum?: InfusionSumOrderByAggregateInput
+  }
+
+  export type InfusionScalarWhereWithAggregatesInput = {
+    AND?: InfusionScalarWhereWithAggregatesInput | InfusionScalarWhereWithAggregatesInput[]
+    OR?: InfusionScalarWhereWithAggregatesInput[]
+    NOT?: InfusionScalarWhereWithAggregatesInput | InfusionScalarWhereWithAggregatesInput[]
+    infusionId?: IntWithAggregatesFilter<"Infusion"> | number
+    name?: StringWithAggregatesFilter<"Infusion"> | string
+    engName?: StringWithAggregatesFilter<"Infusion"> | string
+    minArtificerLevel?: IntWithAggregatesFilter<"Infusion"> | number
+    targetType?: EnumInfusionTargetTypeWithAggregatesFilter<"Infusion"> | $Enums.InfusionTargetType
+    requiresAttunement?: BoolWithAggregatesFilter<"Infusion"> | boolean
+    bonusToAC?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    bonusToAttackRoll?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    bonusToDamage?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    spellAttackBonus?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    speedBonus?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    charges?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    rechargeDice?: StringNullableWithAggregatesFilter<"Infusion"> | string | null
+    restoresSpellSlotUpToLevel?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    increasesAtLevel10By?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    replicatedMagicItemId?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
+    createsHomunculus?: BoolNullableWithAggregatesFilter<"Infusion"> | boolean | null
+  }
+
+  export type PersInfusionWhereInput = {
+    AND?: PersInfusionWhereInput | PersInfusionWhereInput[]
+    OR?: PersInfusionWhereInput[]
+    NOT?: PersInfusionWhereInput | PersInfusionWhereInput[]
+    persInfusionId?: IntFilter<"PersInfusion"> | number
+    persId?: IntFilter<"PersInfusion"> | number
+    infusionId?: IntFilter<"PersInfusion"> | number
+    persWeaponId?: IntNullableFilter<"PersInfusion"> | number | null
+    persArmorId?: IntNullableFilter<"PersInfusion"> | number | null
+    persMagicItemId?: IntNullableFilter<"PersInfusion"> | number | null
+    createdAt?: DateTimeFilter<"PersInfusion"> | Date | string
+    expiresAt?: DateTimeNullableFilter<"PersInfusion"> | Date | string | null
+    pers?: XOR<PersScalarRelationFilter, PersWhereInput>
+    infusion?: XOR<InfusionScalarRelationFilter, InfusionWhereInput>
+    weapon?: XOR<PersWeaponNullableScalarRelationFilter, PersWeaponWhereInput> | null
+    armor?: XOR<PersArmorNullableScalarRelationFilter, PersArmorWhereInput> | null
+    magicItem?: XOR<PersMagicItemNullableScalarRelationFilter, PersMagicItemWhereInput> | null
+  }
+
+  export type PersInfusionOrderByWithRelationInput = {
+    persInfusionId?: SortOrder
+    persId?: SortOrder
+    infusionId?: SortOrder
+    persWeaponId?: SortOrderInput | SortOrder
+    persArmorId?: SortOrderInput | SortOrder
+    persMagicItemId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    expiresAt?: SortOrderInput | SortOrder
+    pers?: PersOrderByWithRelationInput
+    infusion?: InfusionOrderByWithRelationInput
+    weapon?: PersWeaponOrderByWithRelationInput
+    armor?: PersArmorOrderByWithRelationInput
+    magicItem?: PersMagicItemOrderByWithRelationInput
+  }
+
+  export type PersInfusionWhereUniqueInput = Prisma.AtLeast<{
+    persInfusionId?: number
+    AND?: PersInfusionWhereInput | PersInfusionWhereInput[]
+    OR?: PersInfusionWhereInput[]
+    NOT?: PersInfusionWhereInput | PersInfusionWhereInput[]
+    persId?: IntFilter<"PersInfusion"> | number
+    infusionId?: IntFilter<"PersInfusion"> | number
+    persWeaponId?: IntNullableFilter<"PersInfusion"> | number | null
+    persArmorId?: IntNullableFilter<"PersInfusion"> | number | null
+    persMagicItemId?: IntNullableFilter<"PersInfusion"> | number | null
+    createdAt?: DateTimeFilter<"PersInfusion"> | Date | string
+    expiresAt?: DateTimeNullableFilter<"PersInfusion"> | Date | string | null
+    pers?: XOR<PersScalarRelationFilter, PersWhereInput>
+    infusion?: XOR<InfusionScalarRelationFilter, InfusionWhereInput>
+    weapon?: XOR<PersWeaponNullableScalarRelationFilter, PersWeaponWhereInput> | null
+    armor?: XOR<PersArmorNullableScalarRelationFilter, PersArmorWhereInput> | null
+    magicItem?: XOR<PersMagicItemNullableScalarRelationFilter, PersMagicItemWhereInput> | null
+  }, "persInfusionId">
+
+  export type PersInfusionOrderByWithAggregationInput = {
+    persInfusionId?: SortOrder
+    persId?: SortOrder
+    infusionId?: SortOrder
+    persWeaponId?: SortOrderInput | SortOrder
+    persArmorId?: SortOrderInput | SortOrder
+    persMagicItemId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    expiresAt?: SortOrderInput | SortOrder
+    _count?: PersInfusionCountOrderByAggregateInput
+    _avg?: PersInfusionAvgOrderByAggregateInput
+    _max?: PersInfusionMaxOrderByAggregateInput
+    _min?: PersInfusionMinOrderByAggregateInput
+    _sum?: PersInfusionSumOrderByAggregateInput
+  }
+
+  export type PersInfusionScalarWhereWithAggregatesInput = {
+    AND?: PersInfusionScalarWhereWithAggregatesInput | PersInfusionScalarWhereWithAggregatesInput[]
+    OR?: PersInfusionScalarWhereWithAggregatesInput[]
+    NOT?: PersInfusionScalarWhereWithAggregatesInput | PersInfusionScalarWhereWithAggregatesInput[]
+    persInfusionId?: IntWithAggregatesFilter<"PersInfusion"> | number
+    persId?: IntWithAggregatesFilter<"PersInfusion"> | number
+    infusionId?: IntWithAggregatesFilter<"PersInfusion"> | number
+    persWeaponId?: IntNullableWithAggregatesFilter<"PersInfusion"> | number | null
+    persArmorId?: IntNullableWithAggregatesFilter<"PersInfusion"> | number | null
+    persMagicItemId?: IntNullableWithAggregatesFilter<"PersInfusion"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"PersInfusion"> | Date | string
+    expiresAt?: DateTimeNullableWithAggregatesFilter<"PersInfusion"> | Date | string | null
   }
 
   export type WeaponWhereInput = {
@@ -65315,6 +68662,7 @@ export namespace Prisma {
     isProficient?: BoolFilter<"PersWeapon"> | boolean
     pers?: XOR<PersScalarRelationFilter, PersWhereInput>
     weapon?: XOR<WeaponScalarRelationFilter, WeaponWhereInput>
+    infusions?: PersInfusionListRelationFilter
   }
 
   export type PersWeaponOrderByWithRelationInput = {
@@ -65331,6 +68679,7 @@ export namespace Prisma {
     isProficient?: SortOrder
     pers?: PersOrderByWithRelationInput
     weapon?: WeaponOrderByWithRelationInput
+    infusions?: PersInfusionOrderByRelationAggregateInput
   }
 
   export type PersWeaponWhereUniqueInput = Prisma.AtLeast<{
@@ -65350,6 +68699,7 @@ export namespace Prisma {
     isProficient?: BoolFilter<"PersWeapon"> | boolean
     pers?: XOR<PersScalarRelationFilter, PersWhereInput>
     weapon?: XOR<WeaponScalarRelationFilter, WeaponWhereInput>
+    infusions?: PersInfusionListRelationFilter
   }, "persWeaponId">
 
   export type PersWeaponOrderByWithAggregationInput = {
@@ -65401,6 +68751,7 @@ export namespace Prisma {
     equipped?: BoolFilter<"PersArmor"> | boolean
     pers?: XOR<PersScalarRelationFilter, PersWhereInput>
     armor?: XOR<ArmorScalarRelationFilter, ArmorWhereInput>
+    infusions?: PersInfusionListRelationFilter
   }
 
   export type PersArmorOrderByWithRelationInput = {
@@ -65413,6 +68764,7 @@ export namespace Prisma {
     equipped?: SortOrder
     pers?: PersOrderByWithRelationInput
     armor?: ArmorOrderByWithRelationInput
+    infusions?: PersInfusionOrderByRelationAggregateInput
   }
 
   export type PersArmorWhereUniqueInput = Prisma.AtLeast<{
@@ -65428,6 +68780,7 @@ export namespace Prisma {
     equipped?: BoolFilter<"PersArmor"> | boolean
     pers?: XOR<PersScalarRelationFilter, PersWhereInput>
     armor?: XOR<ArmorScalarRelationFilter, ArmorWhereInput>
+    infusions?: PersInfusionListRelationFilter
   }, "persArmorId">
 
   export type PersArmorOrderByWithAggregationInput = {
@@ -65467,6 +68820,7 @@ export namespace Prisma {
     magicItemId?: IntFilter<"PersMagicItem"> | number
     pers?: XOR<PersScalarRelationFilter, PersWhereInput>
     magicItem?: XOR<MagicItemScalarRelationFilter, MagicItemWhereInput>
+    infusions?: PersInfusionListRelationFilter
   }
 
   export type PersMagicItemOrderByWithRelationInput = {
@@ -65475,6 +68829,7 @@ export namespace Prisma {
     magicItemId?: SortOrder
     pers?: PersOrderByWithRelationInput
     magicItem?: MagicItemOrderByWithRelationInput
+    infusions?: PersInfusionOrderByRelationAggregateInput
   }
 
   export type PersMagicItemWhereUniqueInput = Prisma.AtLeast<{
@@ -65486,6 +68841,7 @@ export namespace Prisma {
     magicItemId?: IntFilter<"PersMagicItem"> | number
     pers?: XOR<PersScalarRelationFilter, PersWhereInput>
     magicItem?: XOR<MagicItemScalarRelationFilter, MagicItemWhereInput>
+    infusions?: PersInfusionListRelationFilter
   }, "persMagicItemId">
 
   export type PersMagicItemOrderByWithAggregationInput = {
@@ -66880,6 +70236,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateInput = {
@@ -66941,6 +70298,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersUpdateInput = {
@@ -67001,6 +70359,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateInput = {
@@ -67062,6 +70421,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersCreateManyInput = {
@@ -68770,11 +72130,13 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement?: boolean
     bonusToAC?: number | null
     bonusToAttackRoll?: number | null
     bonusToDamage?: number | null
     features?: MagicItemFeatureCreateNestedManyWithoutMagicItemInput
     persMagicItems?: PersMagicItemCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionCreateNestedManyWithoutReplicatedMagicItemInput
   }
 
   export type MagicItemUncheckedCreateInput = {
@@ -68783,11 +72145,13 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement?: boolean
     bonusToAC?: number | null
     bonusToAttackRoll?: number | null
     bonusToDamage?: number | null
     features?: MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput
     persMagicItems?: PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput
   }
 
   export type MagicItemUpdateInput = {
@@ -68795,11 +72159,13 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
     features?: MagicItemFeatureUpdateManyWithoutMagicItemNestedInput
     persMagicItems?: PersMagicItemUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUpdateManyWithoutReplicatedMagicItemNestedInput
   }
 
   export type MagicItemUncheckedUpdateInput = {
@@ -68808,11 +72174,13 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
     features?: MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput
     persMagicItems?: PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput
   }
 
   export type MagicItemCreateManyInput = {
@@ -68821,6 +72189,7 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement?: boolean
     bonusToAC?: number | null
     bonusToAttackRoll?: number | null
     bonusToDamage?: number | null
@@ -68831,6 +72200,7 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -68842,9 +72212,219 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type InfusionCreateInput = {
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    createsHomunculus?: boolean | null
+    replicatedMagicItem?: MagicItemCreateNestedOneWithoutReplicatedByInfusionsInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutInfusionInput
+  }
+
+  export type InfusionUncheckedCreateInput = {
+    infusionId?: number
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    replicatedMagicItemId?: number | null
+    createsHomunculus?: boolean | null
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutInfusionInput
+  }
+
+  export type InfusionUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    replicatedMagicItem?: MagicItemUpdateOneWithoutReplicatedByInfusionsNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutInfusionNestedInput
+  }
+
+  export type InfusionUncheckedUpdateInput = {
+    infusionId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutInfusionNestedInput
+  }
+
+  export type InfusionCreateManyInput = {
+    infusionId?: number
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    replicatedMagicItemId?: number | null
+    createsHomunculus?: boolean | null
+  }
+
+  export type InfusionUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type InfusionUncheckedUpdateManyInput = {
+    infusionId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PersInfusionCreateInput = {
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+    pers: PersCreateNestedOneWithoutPersInfusionsInput
+    infusion: InfusionCreateNestedOneWithoutPersInfusionsInput
+    weapon?: PersWeaponCreateNestedOneWithoutInfusionsInput
+    armor?: PersArmorCreateNestedOneWithoutInfusionsInput
+    magicItem?: PersMagicItemCreateNestedOneWithoutInfusionsInput
+  }
+
+  export type PersInfusionUncheckedCreateInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pers?: PersUpdateOneRequiredWithoutPersInfusionsNestedInput
+    infusion?: InfusionUpdateOneRequiredWithoutPersInfusionsNestedInput
+    weapon?: PersWeaponUpdateOneWithoutInfusionsNestedInput
+    armor?: PersArmorUpdateOneWithoutInfusionsNestedInput
+    magicItem?: PersMagicItemUpdateOneWithoutInfusionsNestedInput
+  }
+
+  export type PersInfusionUncheckedUpdateInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionCreateManyInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionUncheckedUpdateManyInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type WeaponCreateInput = {
@@ -69074,6 +72654,7 @@ export namespace Prisma {
     isProficient?: boolean
     pers: PersCreateNestedOneWithoutWeaponsInput
     weapon: WeaponCreateNestedOneWithoutPersWeaponsInput
+    infusions?: PersInfusionCreateNestedManyWithoutWeaponInput
   }
 
   export type PersWeaponUncheckedCreateInput = {
@@ -69088,6 +72669,7 @@ export namespace Prisma {
     overrideDamageType?: $Enums.DamageType | null
     overrideAttackAbility?: $Enums.Ability | null
     isProficient?: boolean
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutWeaponInput
   }
 
   export type PersWeaponUpdateInput = {
@@ -69101,6 +72683,7 @@ export namespace Prisma {
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     pers?: PersUpdateOneRequiredWithoutWeaponsNestedInput
     weapon?: WeaponUpdateOneRequiredWithoutPersWeaponsNestedInput
+    infusions?: PersInfusionUpdateManyWithoutWeaponNestedInput
   }
 
   export type PersWeaponUncheckedUpdateInput = {
@@ -69115,6 +72698,7 @@ export namespace Prisma {
     overrideDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
     overrideAttackAbility?: NullableEnumAbilityFieldUpdateOperationsInput | $Enums.Ability | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
+    infusions?: PersInfusionUncheckedUpdateManyWithoutWeaponNestedInput
   }
 
   export type PersWeaponCreateManyInput = {
@@ -69163,6 +72747,7 @@ export namespace Prisma {
     equipped?: boolean
     pers: PersCreateNestedOneWithoutArmorsInput
     armor: ArmorCreateNestedOneWithoutPersArmorInput
+    infusions?: PersInfusionCreateNestedManyWithoutArmorInput
   }
 
   export type PersArmorUncheckedCreateInput = {
@@ -69173,6 +72758,7 @@ export namespace Prisma {
     miscACBonus?: number | null
     isProficient?: boolean
     equipped?: boolean
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutArmorInput
   }
 
   export type PersArmorUpdateInput = {
@@ -69182,6 +72768,7 @@ export namespace Prisma {
     equipped?: BoolFieldUpdateOperationsInput | boolean
     pers?: PersUpdateOneRequiredWithoutArmorsNestedInput
     armor?: ArmorUpdateOneRequiredWithoutPersArmorNestedInput
+    infusions?: PersInfusionUpdateManyWithoutArmorNestedInput
   }
 
   export type PersArmorUncheckedUpdateInput = {
@@ -69192,6 +72779,7 @@ export namespace Prisma {
     miscACBonus?: NullableIntFieldUpdateOperationsInput | number | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     equipped?: BoolFieldUpdateOperationsInput | boolean
+    infusions?: PersInfusionUncheckedUpdateManyWithoutArmorNestedInput
   }
 
   export type PersArmorCreateManyInput = {
@@ -69224,23 +72812,27 @@ export namespace Prisma {
   export type PersMagicItemCreateInput = {
     pers: PersCreateNestedOneWithoutMagicItemsInput
     magicItem: MagicItemCreateNestedOneWithoutPersMagicItemsInput
+    infusions?: PersInfusionCreateNestedManyWithoutMagicItemInput
   }
 
   export type PersMagicItemUncheckedCreateInput = {
     persMagicItemId?: number
     persId: number
     magicItemId: number
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutMagicItemInput
   }
 
   export type PersMagicItemUpdateInput = {
     pers?: PersUpdateOneRequiredWithoutMagicItemsNestedInput
     magicItem?: MagicItemUpdateOneRequiredWithoutPersMagicItemsNestedInput
+    infusions?: PersInfusionUpdateManyWithoutMagicItemNestedInput
   }
 
   export type PersMagicItemUncheckedUpdateInput = {
     persMagicItemId?: IntFieldUpdateOperationsInput | number
     persId?: IntFieldUpdateOperationsInput | number
     magicItemId?: IntFieldUpdateOperationsInput | number
+    infusions?: PersInfusionUncheckedUpdateManyWithoutMagicItemNestedInput
   }
 
   export type PersMagicItemCreateManyInput = {
@@ -70692,6 +74284,12 @@ export namespace Prisma {
     none?: ChoiceOptionWhereInput
   }
 
+  export type PersInfusionListRelationFilter = {
+    every?: PersInfusionWhereInput
+    some?: PersInfusionWhereInput
+    none?: PersInfusionWhereInput
+  }
+
   export type PersSkillOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -70725,6 +74323,10 @@ export namespace Prisma {
   }
 
   export type ChoiceOptionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PersInfusionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -72091,12 +75693,23 @@ export namespace Prisma {
     not?: NestedEnumItemRarityFilter<$PrismaModel> | $Enums.ItemRarity
   }
 
+  export type InfusionListRelationFilter = {
+    every?: InfusionWhereInput
+    some?: InfusionWhereInput
+    none?: InfusionWhereInput
+  }
+
+  export type InfusionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type MagicItemCountOrderByAggregateInput = {
     magicItemId?: SortOrder
     name?: SortOrder
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    requiresAttunement?: SortOrder
     bonusToAC?: SortOrder
     bonusToAttackRoll?: SortOrder
     bonusToDamage?: SortOrder
@@ -72115,6 +75728,7 @@ export namespace Prisma {
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    requiresAttunement?: SortOrder
     bonusToAC?: SortOrder
     bonusToAttackRoll?: SortOrder
     bonusToDamage?: SortOrder
@@ -72126,6 +75740,7 @@ export namespace Prisma {
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    requiresAttunement?: SortOrder
     bonusToAC?: SortOrder
     bonusToAttackRoll?: SortOrder
     bonusToDamage?: SortOrder
@@ -72156,6 +75771,212 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumItemRarityFilter<$PrismaModel>
     _max?: NestedEnumItemRarityFilter<$PrismaModel>
+  }
+
+  export type EnumInfusionTargetTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.InfusionTargetType | EnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumInfusionTargetTypeFilter<$PrismaModel> | $Enums.InfusionTargetType
+  }
+
+  export type MagicItemNullableScalarRelationFilter = {
+    is?: MagicItemWhereInput | null
+    isNot?: MagicItemWhereInput | null
+  }
+
+  export type InfusionCountOrderByAggregateInput = {
+    infusionId?: SortOrder
+    name?: SortOrder
+    engName?: SortOrder
+    minArtificerLevel?: SortOrder
+    targetType?: SortOrder
+    requiresAttunement?: SortOrder
+    bonusToAC?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToDamage?: SortOrder
+    spellAttackBonus?: SortOrder
+    speedBonus?: SortOrder
+    charges?: SortOrder
+    rechargeDice?: SortOrder
+    restoresSpellSlotUpToLevel?: SortOrder
+    increasesAtLevel10By?: SortOrder
+    replicatedMagicItemId?: SortOrder
+    createsHomunculus?: SortOrder
+  }
+
+  export type InfusionAvgOrderByAggregateInput = {
+    infusionId?: SortOrder
+    minArtificerLevel?: SortOrder
+    bonusToAC?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToDamage?: SortOrder
+    spellAttackBonus?: SortOrder
+    speedBonus?: SortOrder
+    charges?: SortOrder
+    restoresSpellSlotUpToLevel?: SortOrder
+    increasesAtLevel10By?: SortOrder
+    replicatedMagicItemId?: SortOrder
+  }
+
+  export type InfusionMaxOrderByAggregateInput = {
+    infusionId?: SortOrder
+    name?: SortOrder
+    engName?: SortOrder
+    minArtificerLevel?: SortOrder
+    targetType?: SortOrder
+    requiresAttunement?: SortOrder
+    bonusToAC?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToDamage?: SortOrder
+    spellAttackBonus?: SortOrder
+    speedBonus?: SortOrder
+    charges?: SortOrder
+    rechargeDice?: SortOrder
+    restoresSpellSlotUpToLevel?: SortOrder
+    increasesAtLevel10By?: SortOrder
+    replicatedMagicItemId?: SortOrder
+    createsHomunculus?: SortOrder
+  }
+
+  export type InfusionMinOrderByAggregateInput = {
+    infusionId?: SortOrder
+    name?: SortOrder
+    engName?: SortOrder
+    minArtificerLevel?: SortOrder
+    targetType?: SortOrder
+    requiresAttunement?: SortOrder
+    bonusToAC?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToDamage?: SortOrder
+    spellAttackBonus?: SortOrder
+    speedBonus?: SortOrder
+    charges?: SortOrder
+    rechargeDice?: SortOrder
+    restoresSpellSlotUpToLevel?: SortOrder
+    increasesAtLevel10By?: SortOrder
+    replicatedMagicItemId?: SortOrder
+    createsHomunculus?: SortOrder
+  }
+
+  export type InfusionSumOrderByAggregateInput = {
+    infusionId?: SortOrder
+    minArtificerLevel?: SortOrder
+    bonusToAC?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToDamage?: SortOrder
+    spellAttackBonus?: SortOrder
+    speedBonus?: SortOrder
+    charges?: SortOrder
+    restoresSpellSlotUpToLevel?: SortOrder
+    increasesAtLevel10By?: SortOrder
+    replicatedMagicItemId?: SortOrder
+  }
+
+  export type EnumInfusionTargetTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InfusionTargetType | EnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumInfusionTargetTypeWithAggregatesFilter<$PrismaModel> | $Enums.InfusionTargetType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInfusionTargetTypeFilter<$PrismaModel>
+    _max?: NestedEnumInfusionTargetTypeFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type InfusionScalarRelationFilter = {
+    is?: InfusionWhereInput
+    isNot?: InfusionWhereInput
+  }
+
+  export type PersWeaponNullableScalarRelationFilter = {
+    is?: PersWeaponWhereInput | null
+    isNot?: PersWeaponWhereInput | null
+  }
+
+  export type PersArmorNullableScalarRelationFilter = {
+    is?: PersArmorWhereInput | null
+    isNot?: PersArmorWhereInput | null
+  }
+
+  export type PersMagicItemNullableScalarRelationFilter = {
+    is?: PersMagicItemWhereInput | null
+    isNot?: PersMagicItemWhereInput | null
+  }
+
+  export type PersInfusionCountOrderByAggregateInput = {
+    persInfusionId?: SortOrder
+    persId?: SortOrder
+    infusionId?: SortOrder
+    persWeaponId?: SortOrder
+    persArmorId?: SortOrder
+    persMagicItemId?: SortOrder
+    createdAt?: SortOrder
+    expiresAt?: SortOrder
+  }
+
+  export type PersInfusionAvgOrderByAggregateInput = {
+    persInfusionId?: SortOrder
+    persId?: SortOrder
+    infusionId?: SortOrder
+    persWeaponId?: SortOrder
+    persArmorId?: SortOrder
+    persMagicItemId?: SortOrder
+  }
+
+  export type PersInfusionMaxOrderByAggregateInput = {
+    persInfusionId?: SortOrder
+    persId?: SortOrder
+    infusionId?: SortOrder
+    persWeaponId?: SortOrder
+    persArmorId?: SortOrder
+    persMagicItemId?: SortOrder
+    createdAt?: SortOrder
+    expiresAt?: SortOrder
+  }
+
+  export type PersInfusionMinOrderByAggregateInput = {
+    persInfusionId?: SortOrder
+    persId?: SortOrder
+    infusionId?: SortOrder
+    persWeaponId?: SortOrder
+    persArmorId?: SortOrder
+    persMagicItemId?: SortOrder
+    createdAt?: SortOrder
+    expiresAt?: SortOrder
+  }
+
+  export type PersInfusionSumOrderByAggregateInput = {
+    persInfusionId?: SortOrder
+    persId?: SortOrder
+    infusionId?: SortOrder
+    persWeaponId?: SortOrder
+    persArmorId?: SortOrder
+    persMagicItemId?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type EnumWeaponCategoryFilter<$PrismaModel = never> = {
@@ -74273,6 +78094,13 @@ export namespace Prisma {
     connect?: ClassOptionalFeatureWhereUniqueInput | ClassOptionalFeatureWhereUniqueInput[]
   }
 
+  export type PersInfusionCreateNestedManyWithoutPersInput = {
+    create?: XOR<PersInfusionCreateWithoutPersInput, PersInfusionUncheckedCreateWithoutPersInput> | PersInfusionCreateWithoutPersInput[] | PersInfusionUncheckedCreateWithoutPersInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutPersInput | PersInfusionCreateOrConnectWithoutPersInput[]
+    createMany?: PersInfusionCreateManyPersInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+  }
+
   export type PersSkillUncheckedCreateNestedManyWithoutPersInput = {
     create?: XOR<PersSkillCreateWithoutPersInput, PersSkillUncheckedCreateWithoutPersInput> | PersSkillCreateWithoutPersInput[] | PersSkillUncheckedCreateWithoutPersInput[]
     connectOrCreate?: PersSkillCreateOrConnectWithoutPersInput | PersSkillCreateOrConnectWithoutPersInput[]
@@ -74350,6 +78178,13 @@ export namespace Prisma {
     create?: XOR<ClassOptionalFeatureCreateWithoutPersesInput, ClassOptionalFeatureUncheckedCreateWithoutPersesInput> | ClassOptionalFeatureCreateWithoutPersesInput[] | ClassOptionalFeatureUncheckedCreateWithoutPersesInput[]
     connectOrCreate?: ClassOptionalFeatureCreateOrConnectWithoutPersesInput | ClassOptionalFeatureCreateOrConnectWithoutPersesInput[]
     connect?: ClassOptionalFeatureWhereUniqueInput | ClassOptionalFeatureWhereUniqueInput[]
+  }
+
+  export type PersInfusionUncheckedCreateNestedManyWithoutPersInput = {
+    create?: XOR<PersInfusionCreateWithoutPersInput, PersInfusionUncheckedCreateWithoutPersInput> | PersInfusionCreateWithoutPersInput[] | PersInfusionUncheckedCreateWithoutPersInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutPersInput | PersInfusionCreateOrConnectWithoutPersInput[]
+    createMany?: PersInfusionCreateManyPersInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
   }
 
   export type PersUpdatecurrentSpellSlotsInput = {
@@ -74577,6 +78412,20 @@ export namespace Prisma {
     deleteMany?: ClassOptionalFeatureScalarWhereInput | ClassOptionalFeatureScalarWhereInput[]
   }
 
+  export type PersInfusionUpdateManyWithoutPersNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutPersInput, PersInfusionUncheckedCreateWithoutPersInput> | PersInfusionCreateWithoutPersInput[] | PersInfusionUncheckedCreateWithoutPersInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutPersInput | PersInfusionCreateOrConnectWithoutPersInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutPersInput | PersInfusionUpsertWithWhereUniqueWithoutPersInput[]
+    createMany?: PersInfusionCreateManyPersInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutPersInput | PersInfusionUpdateWithWhereUniqueWithoutPersInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutPersInput | PersInfusionUpdateManyWithWhereWithoutPersInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
   export type PersSkillUncheckedUpdateManyWithoutPersNestedInput = {
     create?: XOR<PersSkillCreateWithoutPersInput, PersSkillUncheckedCreateWithoutPersInput> | PersSkillCreateWithoutPersInput[] | PersSkillUncheckedCreateWithoutPersInput[]
     connectOrCreate?: PersSkillCreateOrConnectWithoutPersInput | PersSkillCreateOrConnectWithoutPersInput[]
@@ -74738,6 +78587,20 @@ export namespace Prisma {
     update?: ClassOptionalFeatureUpdateWithWhereUniqueWithoutPersesInput | ClassOptionalFeatureUpdateWithWhereUniqueWithoutPersesInput[]
     updateMany?: ClassOptionalFeatureUpdateManyWithWhereWithoutPersesInput | ClassOptionalFeatureUpdateManyWithWhereWithoutPersesInput[]
     deleteMany?: ClassOptionalFeatureScalarWhereInput | ClassOptionalFeatureScalarWhereInput[]
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutPersNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutPersInput, PersInfusionUncheckedCreateWithoutPersInput> | PersInfusionCreateWithoutPersInput[] | PersInfusionUncheckedCreateWithoutPersInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutPersInput | PersInfusionCreateOrConnectWithoutPersInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutPersInput | PersInfusionUpsertWithWhereUniqueWithoutPersInput[]
+    createMany?: PersInfusionCreateManyPersInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutPersInput | PersInfusionUpdateWithWhereUniqueWithoutPersInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutPersInput | PersInfusionUpdateManyWithWhereWithoutPersInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
   }
 
   export type PersCreateNestedOneWithoutMulticlassesInput = {
@@ -76834,6 +80697,13 @@ export namespace Prisma {
     connect?: PersMagicItemWhereUniqueInput | PersMagicItemWhereUniqueInput[]
   }
 
+  export type InfusionCreateNestedManyWithoutReplicatedMagicItemInput = {
+    create?: XOR<InfusionCreateWithoutReplicatedMagicItemInput, InfusionUncheckedCreateWithoutReplicatedMagicItemInput> | InfusionCreateWithoutReplicatedMagicItemInput[] | InfusionUncheckedCreateWithoutReplicatedMagicItemInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutReplicatedMagicItemInput | InfusionCreateOrConnectWithoutReplicatedMagicItemInput[]
+    createMany?: InfusionCreateManyReplicatedMagicItemInputEnvelope
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+  }
+
   export type MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput = {
     create?: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput> | MagicItemFeatureCreateWithoutMagicItemInput[] | MagicItemFeatureUncheckedCreateWithoutMagicItemInput[]
     connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutMagicItemInput | MagicItemFeatureCreateOrConnectWithoutMagicItemInput[]
@@ -76846,6 +80716,13 @@ export namespace Prisma {
     connectOrCreate?: PersMagicItemCreateOrConnectWithoutMagicItemInput | PersMagicItemCreateOrConnectWithoutMagicItemInput[]
     createMany?: PersMagicItemCreateManyMagicItemInputEnvelope
     connect?: PersMagicItemWhereUniqueInput | PersMagicItemWhereUniqueInput[]
+  }
+
+  export type InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput = {
+    create?: XOR<InfusionCreateWithoutReplicatedMagicItemInput, InfusionUncheckedCreateWithoutReplicatedMagicItemInput> | InfusionCreateWithoutReplicatedMagicItemInput[] | InfusionUncheckedCreateWithoutReplicatedMagicItemInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutReplicatedMagicItemInput | InfusionCreateOrConnectWithoutReplicatedMagicItemInput[]
+    createMany?: InfusionCreateManyReplicatedMagicItemInputEnvelope
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
   }
 
   export type EnumMagicItemTypeFieldUpdateOperationsInput = {
@@ -76884,6 +80761,20 @@ export namespace Prisma {
     deleteMany?: PersMagicItemScalarWhereInput | PersMagicItemScalarWhereInput[]
   }
 
+  export type InfusionUpdateManyWithoutReplicatedMagicItemNestedInput = {
+    create?: XOR<InfusionCreateWithoutReplicatedMagicItemInput, InfusionUncheckedCreateWithoutReplicatedMagicItemInput> | InfusionCreateWithoutReplicatedMagicItemInput[] | InfusionUncheckedCreateWithoutReplicatedMagicItemInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutReplicatedMagicItemInput | InfusionCreateOrConnectWithoutReplicatedMagicItemInput[]
+    upsert?: InfusionUpsertWithWhereUniqueWithoutReplicatedMagicItemInput | InfusionUpsertWithWhereUniqueWithoutReplicatedMagicItemInput[]
+    createMany?: InfusionCreateManyReplicatedMagicItemInputEnvelope
+    set?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    disconnect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    delete?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    update?: InfusionUpdateWithWhereUniqueWithoutReplicatedMagicItemInput | InfusionUpdateWithWhereUniqueWithoutReplicatedMagicItemInput[]
+    updateMany?: InfusionUpdateManyWithWhereWithoutReplicatedMagicItemInput | InfusionUpdateManyWithWhereWithoutReplicatedMagicItemInput[]
+    deleteMany?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
+  }
+
   export type MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput = {
     create?: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput> | MagicItemFeatureCreateWithoutMagicItemInput[] | MagicItemFeatureUncheckedCreateWithoutMagicItemInput[]
     connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutMagicItemInput | MagicItemFeatureCreateOrConnectWithoutMagicItemInput[]
@@ -76910,6 +80801,162 @@ export namespace Prisma {
     update?: PersMagicItemUpdateWithWhereUniqueWithoutMagicItemInput | PersMagicItemUpdateWithWhereUniqueWithoutMagicItemInput[]
     updateMany?: PersMagicItemUpdateManyWithWhereWithoutMagicItemInput | PersMagicItemUpdateManyWithWhereWithoutMagicItemInput[]
     deleteMany?: PersMagicItemScalarWhereInput | PersMagicItemScalarWhereInput[]
+  }
+
+  export type InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput = {
+    create?: XOR<InfusionCreateWithoutReplicatedMagicItemInput, InfusionUncheckedCreateWithoutReplicatedMagicItemInput> | InfusionCreateWithoutReplicatedMagicItemInput[] | InfusionUncheckedCreateWithoutReplicatedMagicItemInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutReplicatedMagicItemInput | InfusionCreateOrConnectWithoutReplicatedMagicItemInput[]
+    upsert?: InfusionUpsertWithWhereUniqueWithoutReplicatedMagicItemInput | InfusionUpsertWithWhereUniqueWithoutReplicatedMagicItemInput[]
+    createMany?: InfusionCreateManyReplicatedMagicItemInputEnvelope
+    set?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    disconnect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    delete?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    update?: InfusionUpdateWithWhereUniqueWithoutReplicatedMagicItemInput | InfusionUpdateWithWhereUniqueWithoutReplicatedMagicItemInput[]
+    updateMany?: InfusionUpdateManyWithWhereWithoutReplicatedMagicItemInput | InfusionUpdateManyWithWhereWithoutReplicatedMagicItemInput[]
+    deleteMany?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
+  }
+
+  export type MagicItemCreateNestedOneWithoutReplicatedByInfusionsInput = {
+    create?: XOR<MagicItemCreateWithoutReplicatedByInfusionsInput, MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput>
+    connectOrCreate?: MagicItemCreateOrConnectWithoutReplicatedByInfusionsInput
+    connect?: MagicItemWhereUniqueInput
+  }
+
+  export type PersInfusionCreateNestedManyWithoutInfusionInput = {
+    create?: XOR<PersInfusionCreateWithoutInfusionInput, PersInfusionUncheckedCreateWithoutInfusionInput> | PersInfusionCreateWithoutInfusionInput[] | PersInfusionUncheckedCreateWithoutInfusionInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutInfusionInput | PersInfusionCreateOrConnectWithoutInfusionInput[]
+    createMany?: PersInfusionCreateManyInfusionInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+  }
+
+  export type PersInfusionUncheckedCreateNestedManyWithoutInfusionInput = {
+    create?: XOR<PersInfusionCreateWithoutInfusionInput, PersInfusionUncheckedCreateWithoutInfusionInput> | PersInfusionCreateWithoutInfusionInput[] | PersInfusionUncheckedCreateWithoutInfusionInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutInfusionInput | PersInfusionCreateOrConnectWithoutInfusionInput[]
+    createMany?: PersInfusionCreateManyInfusionInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+  }
+
+  export type EnumInfusionTargetTypeFieldUpdateOperationsInput = {
+    set?: $Enums.InfusionTargetType
+  }
+
+  export type MagicItemUpdateOneWithoutReplicatedByInfusionsNestedInput = {
+    create?: XOR<MagicItemCreateWithoutReplicatedByInfusionsInput, MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput>
+    connectOrCreate?: MagicItemCreateOrConnectWithoutReplicatedByInfusionsInput
+    upsert?: MagicItemUpsertWithoutReplicatedByInfusionsInput
+    disconnect?: MagicItemWhereInput | boolean
+    delete?: MagicItemWhereInput | boolean
+    connect?: MagicItemWhereUniqueInput
+    update?: XOR<XOR<MagicItemUpdateToOneWithWhereWithoutReplicatedByInfusionsInput, MagicItemUpdateWithoutReplicatedByInfusionsInput>, MagicItemUncheckedUpdateWithoutReplicatedByInfusionsInput>
+  }
+
+  export type PersInfusionUpdateManyWithoutInfusionNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutInfusionInput, PersInfusionUncheckedCreateWithoutInfusionInput> | PersInfusionCreateWithoutInfusionInput[] | PersInfusionUncheckedCreateWithoutInfusionInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutInfusionInput | PersInfusionCreateOrConnectWithoutInfusionInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutInfusionInput | PersInfusionUpsertWithWhereUniqueWithoutInfusionInput[]
+    createMany?: PersInfusionCreateManyInfusionInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutInfusionInput | PersInfusionUpdateWithWhereUniqueWithoutInfusionInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutInfusionInput | PersInfusionUpdateManyWithWhereWithoutInfusionInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutInfusionNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutInfusionInput, PersInfusionUncheckedCreateWithoutInfusionInput> | PersInfusionCreateWithoutInfusionInput[] | PersInfusionUncheckedCreateWithoutInfusionInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutInfusionInput | PersInfusionCreateOrConnectWithoutInfusionInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutInfusionInput | PersInfusionUpsertWithWhereUniqueWithoutInfusionInput[]
+    createMany?: PersInfusionCreateManyInfusionInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutInfusionInput | PersInfusionUpdateWithWhereUniqueWithoutInfusionInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutInfusionInput | PersInfusionUpdateManyWithWhereWithoutInfusionInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
+  export type PersCreateNestedOneWithoutPersInfusionsInput = {
+    create?: XOR<PersCreateWithoutPersInfusionsInput, PersUncheckedCreateWithoutPersInfusionsInput>
+    connectOrCreate?: PersCreateOrConnectWithoutPersInfusionsInput
+    connect?: PersWhereUniqueInput
+  }
+
+  export type InfusionCreateNestedOneWithoutPersInfusionsInput = {
+    create?: XOR<InfusionCreateWithoutPersInfusionsInput, InfusionUncheckedCreateWithoutPersInfusionsInput>
+    connectOrCreate?: InfusionCreateOrConnectWithoutPersInfusionsInput
+    connect?: InfusionWhereUniqueInput
+  }
+
+  export type PersWeaponCreateNestedOneWithoutInfusionsInput = {
+    create?: XOR<PersWeaponCreateWithoutInfusionsInput, PersWeaponUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: PersWeaponCreateOrConnectWithoutInfusionsInput
+    connect?: PersWeaponWhereUniqueInput
+  }
+
+  export type PersArmorCreateNestedOneWithoutInfusionsInput = {
+    create?: XOR<PersArmorCreateWithoutInfusionsInput, PersArmorUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: PersArmorCreateOrConnectWithoutInfusionsInput
+    connect?: PersArmorWhereUniqueInput
+  }
+
+  export type PersMagicItemCreateNestedOneWithoutInfusionsInput = {
+    create?: XOR<PersMagicItemCreateWithoutInfusionsInput, PersMagicItemUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: PersMagicItemCreateOrConnectWithoutInfusionsInput
+    connect?: PersMagicItemWhereUniqueInput
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type PersUpdateOneRequiredWithoutPersInfusionsNestedInput = {
+    create?: XOR<PersCreateWithoutPersInfusionsInput, PersUncheckedCreateWithoutPersInfusionsInput>
+    connectOrCreate?: PersCreateOrConnectWithoutPersInfusionsInput
+    upsert?: PersUpsertWithoutPersInfusionsInput
+    connect?: PersWhereUniqueInput
+    update?: XOR<XOR<PersUpdateToOneWithWhereWithoutPersInfusionsInput, PersUpdateWithoutPersInfusionsInput>, PersUncheckedUpdateWithoutPersInfusionsInput>
+  }
+
+  export type InfusionUpdateOneRequiredWithoutPersInfusionsNestedInput = {
+    create?: XOR<InfusionCreateWithoutPersInfusionsInput, InfusionUncheckedCreateWithoutPersInfusionsInput>
+    connectOrCreate?: InfusionCreateOrConnectWithoutPersInfusionsInput
+    upsert?: InfusionUpsertWithoutPersInfusionsInput
+    connect?: InfusionWhereUniqueInput
+    update?: XOR<XOR<InfusionUpdateToOneWithWhereWithoutPersInfusionsInput, InfusionUpdateWithoutPersInfusionsInput>, InfusionUncheckedUpdateWithoutPersInfusionsInput>
+  }
+
+  export type PersWeaponUpdateOneWithoutInfusionsNestedInput = {
+    create?: XOR<PersWeaponCreateWithoutInfusionsInput, PersWeaponUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: PersWeaponCreateOrConnectWithoutInfusionsInput
+    upsert?: PersWeaponUpsertWithoutInfusionsInput
+    disconnect?: PersWeaponWhereInput | boolean
+    delete?: PersWeaponWhereInput | boolean
+    connect?: PersWeaponWhereUniqueInput
+    update?: XOR<XOR<PersWeaponUpdateToOneWithWhereWithoutInfusionsInput, PersWeaponUpdateWithoutInfusionsInput>, PersWeaponUncheckedUpdateWithoutInfusionsInput>
+  }
+
+  export type PersArmorUpdateOneWithoutInfusionsNestedInput = {
+    create?: XOR<PersArmorCreateWithoutInfusionsInput, PersArmorUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: PersArmorCreateOrConnectWithoutInfusionsInput
+    upsert?: PersArmorUpsertWithoutInfusionsInput
+    disconnect?: PersArmorWhereInput | boolean
+    delete?: PersArmorWhereInput | boolean
+    connect?: PersArmorWhereUniqueInput
+    update?: XOR<XOR<PersArmorUpdateToOneWithWhereWithoutInfusionsInput, PersArmorUpdateWithoutInfusionsInput>, PersArmorUncheckedUpdateWithoutInfusionsInput>
+  }
+
+  export type PersMagicItemUpdateOneWithoutInfusionsNestedInput = {
+    create?: XOR<PersMagicItemCreateWithoutInfusionsInput, PersMagicItemUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: PersMagicItemCreateOrConnectWithoutInfusionsInput
+    upsert?: PersMagicItemUpsertWithoutInfusionsInput
+    disconnect?: PersMagicItemWhereInput | boolean
+    delete?: PersMagicItemWhereInput | boolean
+    connect?: PersMagicItemWhereUniqueInput
+    update?: XOR<XOR<PersMagicItemUpdateToOneWithWhereWithoutInfusionsInput, PersMagicItemUpdateWithoutInfusionsInput>, PersMagicItemUncheckedUpdateWithoutInfusionsInput>
   }
 
   export type WeaponCreatepropertiesInput = {
@@ -77143,6 +81190,20 @@ export namespace Prisma {
     connect?: WeaponWhereUniqueInput
   }
 
+  export type PersInfusionCreateNestedManyWithoutWeaponInput = {
+    create?: XOR<PersInfusionCreateWithoutWeaponInput, PersInfusionUncheckedCreateWithoutWeaponInput> | PersInfusionCreateWithoutWeaponInput[] | PersInfusionUncheckedCreateWithoutWeaponInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutWeaponInput | PersInfusionCreateOrConnectWithoutWeaponInput[]
+    createMany?: PersInfusionCreateManyWeaponInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+  }
+
+  export type PersInfusionUncheckedCreateNestedManyWithoutWeaponInput = {
+    create?: XOR<PersInfusionCreateWithoutWeaponInput, PersInfusionUncheckedCreateWithoutWeaponInput> | PersInfusionCreateWithoutWeaponInput[] | PersInfusionUncheckedCreateWithoutWeaponInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutWeaponInput | PersInfusionCreateOrConnectWithoutWeaponInput[]
+    createMany?: PersInfusionCreateManyWeaponInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+  }
+
   export type NullableEnumDamageTypeFieldUpdateOperationsInput = {
     set?: $Enums.DamageType | null
   }
@@ -77163,6 +81224,34 @@ export namespace Prisma {
     update?: XOR<XOR<WeaponUpdateToOneWithWhereWithoutPersWeaponsInput, WeaponUpdateWithoutPersWeaponsInput>, WeaponUncheckedUpdateWithoutPersWeaponsInput>
   }
 
+  export type PersInfusionUpdateManyWithoutWeaponNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutWeaponInput, PersInfusionUncheckedCreateWithoutWeaponInput> | PersInfusionCreateWithoutWeaponInput[] | PersInfusionUncheckedCreateWithoutWeaponInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutWeaponInput | PersInfusionCreateOrConnectWithoutWeaponInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutWeaponInput | PersInfusionUpsertWithWhereUniqueWithoutWeaponInput[]
+    createMany?: PersInfusionCreateManyWeaponInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutWeaponInput | PersInfusionUpdateWithWhereUniqueWithoutWeaponInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutWeaponInput | PersInfusionUpdateManyWithWhereWithoutWeaponInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutWeaponNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutWeaponInput, PersInfusionUncheckedCreateWithoutWeaponInput> | PersInfusionCreateWithoutWeaponInput[] | PersInfusionUncheckedCreateWithoutWeaponInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutWeaponInput | PersInfusionCreateOrConnectWithoutWeaponInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutWeaponInput | PersInfusionUpsertWithWhereUniqueWithoutWeaponInput[]
+    createMany?: PersInfusionCreateManyWeaponInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutWeaponInput | PersInfusionUpdateWithWhereUniqueWithoutWeaponInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutWeaponInput | PersInfusionUpdateManyWithWhereWithoutWeaponInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
   export type PersCreateNestedOneWithoutArmorsInput = {
     create?: XOR<PersCreateWithoutArmorsInput, PersUncheckedCreateWithoutArmorsInput>
     connectOrCreate?: PersCreateOrConnectWithoutArmorsInput
@@ -77173,6 +81262,20 @@ export namespace Prisma {
     create?: XOR<ArmorCreateWithoutPersArmorInput, ArmorUncheckedCreateWithoutPersArmorInput>
     connectOrCreate?: ArmorCreateOrConnectWithoutPersArmorInput
     connect?: ArmorWhereUniqueInput
+  }
+
+  export type PersInfusionCreateNestedManyWithoutArmorInput = {
+    create?: XOR<PersInfusionCreateWithoutArmorInput, PersInfusionUncheckedCreateWithoutArmorInput> | PersInfusionCreateWithoutArmorInput[] | PersInfusionUncheckedCreateWithoutArmorInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutArmorInput | PersInfusionCreateOrConnectWithoutArmorInput[]
+    createMany?: PersInfusionCreateManyArmorInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+  }
+
+  export type PersInfusionUncheckedCreateNestedManyWithoutArmorInput = {
+    create?: XOR<PersInfusionCreateWithoutArmorInput, PersInfusionUncheckedCreateWithoutArmorInput> | PersInfusionCreateWithoutArmorInput[] | PersInfusionUncheckedCreateWithoutArmorInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutArmorInput | PersInfusionCreateOrConnectWithoutArmorInput[]
+    createMany?: PersInfusionCreateManyArmorInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
   }
 
   export type PersUpdateOneRequiredWithoutArmorsNestedInput = {
@@ -77191,6 +81294,34 @@ export namespace Prisma {
     update?: XOR<XOR<ArmorUpdateToOneWithWhereWithoutPersArmorInput, ArmorUpdateWithoutPersArmorInput>, ArmorUncheckedUpdateWithoutPersArmorInput>
   }
 
+  export type PersInfusionUpdateManyWithoutArmorNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutArmorInput, PersInfusionUncheckedCreateWithoutArmorInput> | PersInfusionCreateWithoutArmorInput[] | PersInfusionUncheckedCreateWithoutArmorInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutArmorInput | PersInfusionCreateOrConnectWithoutArmorInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutArmorInput | PersInfusionUpsertWithWhereUniqueWithoutArmorInput[]
+    createMany?: PersInfusionCreateManyArmorInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutArmorInput | PersInfusionUpdateWithWhereUniqueWithoutArmorInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutArmorInput | PersInfusionUpdateManyWithWhereWithoutArmorInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutArmorNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutArmorInput, PersInfusionUncheckedCreateWithoutArmorInput> | PersInfusionCreateWithoutArmorInput[] | PersInfusionUncheckedCreateWithoutArmorInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutArmorInput | PersInfusionCreateOrConnectWithoutArmorInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutArmorInput | PersInfusionUpsertWithWhereUniqueWithoutArmorInput[]
+    createMany?: PersInfusionCreateManyArmorInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutArmorInput | PersInfusionUpdateWithWhereUniqueWithoutArmorInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutArmorInput | PersInfusionUpdateManyWithWhereWithoutArmorInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
   export type PersCreateNestedOneWithoutMagicItemsInput = {
     create?: XOR<PersCreateWithoutMagicItemsInput, PersUncheckedCreateWithoutMagicItemsInput>
     connectOrCreate?: PersCreateOrConnectWithoutMagicItemsInput
@@ -77201,6 +81332,20 @@ export namespace Prisma {
     create?: XOR<MagicItemCreateWithoutPersMagicItemsInput, MagicItemUncheckedCreateWithoutPersMagicItemsInput>
     connectOrCreate?: MagicItemCreateOrConnectWithoutPersMagicItemsInput
     connect?: MagicItemWhereUniqueInput
+  }
+
+  export type PersInfusionCreateNestedManyWithoutMagicItemInput = {
+    create?: XOR<PersInfusionCreateWithoutMagicItemInput, PersInfusionUncheckedCreateWithoutMagicItemInput> | PersInfusionCreateWithoutMagicItemInput[] | PersInfusionUncheckedCreateWithoutMagicItemInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutMagicItemInput | PersInfusionCreateOrConnectWithoutMagicItemInput[]
+    createMany?: PersInfusionCreateManyMagicItemInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+  }
+
+  export type PersInfusionUncheckedCreateNestedManyWithoutMagicItemInput = {
+    create?: XOR<PersInfusionCreateWithoutMagicItemInput, PersInfusionUncheckedCreateWithoutMagicItemInput> | PersInfusionCreateWithoutMagicItemInput[] | PersInfusionUncheckedCreateWithoutMagicItemInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutMagicItemInput | PersInfusionCreateOrConnectWithoutMagicItemInput[]
+    createMany?: PersInfusionCreateManyMagicItemInputEnvelope
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
   }
 
   export type PersUpdateOneRequiredWithoutMagicItemsNestedInput = {
@@ -77217,6 +81362,34 @@ export namespace Prisma {
     upsert?: MagicItemUpsertWithoutPersMagicItemsInput
     connect?: MagicItemWhereUniqueInput
     update?: XOR<XOR<MagicItemUpdateToOneWithWhereWithoutPersMagicItemsInput, MagicItemUpdateWithoutPersMagicItemsInput>, MagicItemUncheckedUpdateWithoutPersMagicItemsInput>
+  }
+
+  export type PersInfusionUpdateManyWithoutMagicItemNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutMagicItemInput, PersInfusionUncheckedCreateWithoutMagicItemInput> | PersInfusionCreateWithoutMagicItemInput[] | PersInfusionUncheckedCreateWithoutMagicItemInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutMagicItemInput | PersInfusionCreateOrConnectWithoutMagicItemInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutMagicItemInput | PersInfusionUpsertWithWhereUniqueWithoutMagicItemInput[]
+    createMany?: PersInfusionCreateManyMagicItemInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutMagicItemInput | PersInfusionUpdateWithWhereUniqueWithoutMagicItemInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutMagicItemInput | PersInfusionUpdateManyWithWhereWithoutMagicItemInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutMagicItemNestedInput = {
+    create?: XOR<PersInfusionCreateWithoutMagicItemInput, PersInfusionUncheckedCreateWithoutMagicItemInput> | PersInfusionCreateWithoutMagicItemInput[] | PersInfusionUncheckedCreateWithoutMagicItemInput[]
+    connectOrCreate?: PersInfusionCreateOrConnectWithoutMagicItemInput | PersInfusionCreateOrConnectWithoutMagicItemInput[]
+    upsert?: PersInfusionUpsertWithWhereUniqueWithoutMagicItemInput | PersInfusionUpsertWithWhereUniqueWithoutMagicItemInput[]
+    createMany?: PersInfusionCreateManyMagicItemInputEnvelope
+    set?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    disconnect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    delete?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    connect?: PersInfusionWhereUniqueInput | PersInfusionWhereUniqueInput[]
+    update?: PersInfusionUpdateWithWhereUniqueWithoutMagicItemInput | PersInfusionUpdateWithWhereUniqueWithoutMagicItemInput[]
+    updateMany?: PersInfusionUpdateManyWithWhereWithoutMagicItemInput | PersInfusionUpdateManyWithWhereWithoutMagicItemInput[]
+    deleteMany?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
   }
 
   export type ClassStartingEquipmentOptionCreateNestedManyWithoutEquipmentPackInput = {
@@ -77772,6 +81945,48 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumItemRarityFilter<$PrismaModel>
     _max?: NestedEnumItemRarityFilter<$PrismaModel>
+  }
+
+  export type NestedEnumInfusionTargetTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.InfusionTargetType | EnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumInfusionTargetTypeFilter<$PrismaModel> | $Enums.InfusionTargetType
+  }
+
+  export type NestedEnumInfusionTargetTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InfusionTargetType | EnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InfusionTargetType[] | ListEnumInfusionTargetTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumInfusionTargetTypeWithAggregatesFilter<$PrismaModel> | $Enums.InfusionTargetType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInfusionTargetTypeFilter<$PrismaModel>
+    _max?: NestedEnumInfusionTargetTypeFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumWeaponCategoryFilter<$PrismaModel = never> = {
@@ -78362,6 +82577,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutSpellsInput = {
@@ -78422,6 +82638,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutSpellsInput = {
@@ -79256,6 +83473,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutUserInput = {
@@ -79316,6 +83534,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutUserInput = {
@@ -79516,6 +83735,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutClassInput = {
@@ -79576,6 +83796,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutClassInput = {
@@ -80082,6 +84303,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutSubclassInput = {
@@ -80142,6 +84364,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutSubclassInput = {
@@ -80436,6 +84659,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantCreateNestedManyWithoutPersesInput
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutChoiceOptionsInput = {
@@ -80496,6 +84720,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUncheckedCreateNestedManyWithoutPersesInput
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutChoiceOptionsInput = {
@@ -81220,6 +85445,7 @@ export namespace Prisma {
     isProficient?: boolean
     equipped?: boolean
     armor: ArmorCreateNestedOneWithoutPersArmorInput
+    infusions?: PersInfusionCreateNestedManyWithoutArmorInput
   }
 
   export type PersArmorUncheckedCreateWithoutPersInput = {
@@ -81229,6 +85455,7 @@ export namespace Prisma {
     miscACBonus?: number | null
     isProficient?: boolean
     equipped?: boolean
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutArmorInput
   }
 
   export type PersArmorCreateOrConnectWithoutPersInput = {
@@ -81251,6 +85478,7 @@ export namespace Prisma {
     overrideAttackAbility?: $Enums.Ability | null
     isProficient?: boolean
     weapon: WeaponCreateNestedOneWithoutPersWeaponsInput
+    infusions?: PersInfusionCreateNestedManyWithoutWeaponInput
   }
 
   export type PersWeaponUncheckedCreateWithoutPersInput = {
@@ -81264,6 +85492,7 @@ export namespace Prisma {
     overrideDamageType?: $Enums.DamageType | null
     overrideAttackAbility?: $Enums.Ability | null
     isProficient?: boolean
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutWeaponInput
   }
 
   export type PersWeaponCreateOrConnectWithoutPersInput = {
@@ -81278,11 +85507,13 @@ export namespace Prisma {
 
   export type PersMagicItemCreateWithoutPersInput = {
     magicItem: MagicItemCreateNestedOneWithoutPersMagicItemsInput
+    infusions?: PersInfusionCreateNestedManyWithoutMagicItemInput
   }
 
   export type PersMagicItemUncheckedCreateWithoutPersInput = {
     persMagicItemId?: number
     magicItemId: number
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutMagicItemInput
   }
 
   export type PersMagicItemCreateOrConnectWithoutPersInput = {
@@ -81437,6 +85668,35 @@ export namespace Prisma {
   export type ClassOptionalFeatureCreateOrConnectWithoutPersesInput = {
     where: ClassOptionalFeatureWhereUniqueInput
     create: XOR<ClassOptionalFeatureCreateWithoutPersesInput, ClassOptionalFeatureUncheckedCreateWithoutPersesInput>
+  }
+
+  export type PersInfusionCreateWithoutPersInput = {
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+    infusion: InfusionCreateNestedOneWithoutPersInfusionsInput
+    weapon?: PersWeaponCreateNestedOneWithoutInfusionsInput
+    armor?: PersArmorCreateNestedOneWithoutInfusionsInput
+    magicItem?: PersMagicItemCreateNestedOneWithoutInfusionsInput
+  }
+
+  export type PersInfusionUncheckedCreateWithoutPersInput = {
+    persInfusionId?: number
+    infusionId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionCreateOrConnectWithoutPersInput = {
+    where: PersInfusionWhereUniqueInput
+    create: XOR<PersInfusionCreateWithoutPersInput, PersInfusionUncheckedCreateWithoutPersInput>
+  }
+
+  export type PersInfusionCreateManyPersInputEnvelope = {
+    data: PersInfusionCreateManyPersInput | PersInfusionCreateManyPersInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutPersInput = {
@@ -82036,6 +86296,36 @@ export namespace Prisma {
     data: XOR<ClassOptionalFeatureUpdateManyMutationInput, ClassOptionalFeatureUncheckedUpdateManyWithoutPersesInput>
   }
 
+  export type PersInfusionUpsertWithWhereUniqueWithoutPersInput = {
+    where: PersInfusionWhereUniqueInput
+    update: XOR<PersInfusionUpdateWithoutPersInput, PersInfusionUncheckedUpdateWithoutPersInput>
+    create: XOR<PersInfusionCreateWithoutPersInput, PersInfusionUncheckedCreateWithoutPersInput>
+  }
+
+  export type PersInfusionUpdateWithWhereUniqueWithoutPersInput = {
+    where: PersInfusionWhereUniqueInput
+    data: XOR<PersInfusionUpdateWithoutPersInput, PersInfusionUncheckedUpdateWithoutPersInput>
+  }
+
+  export type PersInfusionUpdateManyWithWhereWithoutPersInput = {
+    where: PersInfusionScalarWhereInput
+    data: XOR<PersInfusionUpdateManyMutationInput, PersInfusionUncheckedUpdateManyWithoutPersInput>
+  }
+
+  export type PersInfusionScalarWhereInput = {
+    AND?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+    OR?: PersInfusionScalarWhereInput[]
+    NOT?: PersInfusionScalarWhereInput | PersInfusionScalarWhereInput[]
+    persInfusionId?: IntFilter<"PersInfusion"> | number
+    persId?: IntFilter<"PersInfusion"> | number
+    infusionId?: IntFilter<"PersInfusion"> | number
+    persWeaponId?: IntNullableFilter<"PersInfusion"> | number | null
+    persArmorId?: IntNullableFilter<"PersInfusion"> | number | null
+    persMagicItemId?: IntNullableFilter<"PersInfusion"> | number | null
+    createdAt?: DateTimeFilter<"PersInfusion"> | Date | string
+    expiresAt?: DateTimeNullableFilter<"PersInfusion"> | Date | string | null
+  }
+
   export type PersCreateWithoutMulticlassesInput = {
     name: string
     level?: number
@@ -82093,6 +86383,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutMulticlassesInput = {
@@ -82153,6 +86444,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutMulticlassesInput = {
@@ -82328,6 +86620,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutMulticlassesInput = {
@@ -82388,6 +86681,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type ClassUpsertWithoutPersMulticlassesInput = {
@@ -82635,6 +86929,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutFeaturesInput = {
@@ -82695,6 +86990,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutFeaturesInput = {
@@ -82852,6 +87148,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutFeaturesInput = {
@@ -82912,6 +87209,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type SpellCreateWithoutFeaturesInput = {
@@ -84450,6 +88748,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantCreateNestedManyWithoutPersesInput
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutClassOptionalFeaturesInput = {
@@ -84510,6 +88809,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUncheckedCreateNestedManyWithoutPersesInput
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutClassOptionalFeaturesInput = {
@@ -86436,10 +90736,12 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement?: boolean
     bonusToAC?: number | null
     bonusToAttackRoll?: number | null
     bonusToDamage?: number | null
     persMagicItems?: PersMagicItemCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionCreateNestedManyWithoutReplicatedMagicItemInput
   }
 
   export type MagicItemUncheckedCreateWithoutFeaturesInput = {
@@ -86448,10 +90750,12 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement?: boolean
     bonusToAC?: number | null
     bonusToAttackRoll?: number | null
     bonusToDamage?: number | null
     persMagicItems?: PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput
   }
 
   export type MagicItemCreateOrConnectWithoutFeaturesInput = {
@@ -86557,10 +90861,12 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
     persMagicItems?: PersMagicItemUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUpdateManyWithoutReplicatedMagicItemNestedInput
   }
 
   export type MagicItemUncheckedUpdateWithoutFeaturesInput = {
@@ -86569,10 +90875,12 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
     persMagicItems?: PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput
   }
 
   export type SubraceCreateWithoutRaceInput = {
@@ -86681,6 +90989,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutRaceInput = {
@@ -86741,6 +91050,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutRaceInput = {
@@ -87117,6 +91427,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutSubraceInput = {
@@ -87177,6 +91488,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutSubraceInput = {
@@ -87581,6 +91893,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutRaceVariantsInput = {
@@ -87641,6 +91954,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutRaceVariantsInput = {
@@ -87930,6 +92244,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutRaceChoiceOptionsInput = {
@@ -87990,6 +92305,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutRaceChoiceOptionsInput = {
@@ -88196,6 +92512,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutBackgroundInput = {
@@ -88256,6 +92573,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutBackgroundInput = {
@@ -88553,6 +92871,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutFeatsInput = {
@@ -88613,6 +92932,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutFeatsInput = {
@@ -88724,6 +93044,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutFeatsInput = {
@@ -88784,6 +93105,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type MagicItemFeatureCreateWithoutMagicItemInput = {
@@ -88807,11 +93129,13 @@ export namespace Prisma {
 
   export type PersMagicItemCreateWithoutMagicItemInput = {
     pers: PersCreateNestedOneWithoutMagicItemsInput
+    infusions?: PersInfusionCreateNestedManyWithoutMagicItemInput
   }
 
   export type PersMagicItemUncheckedCreateWithoutMagicItemInput = {
     persMagicItemId?: number
     persId: number
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutMagicItemInput
   }
 
   export type PersMagicItemCreateOrConnectWithoutMagicItemInput = {
@@ -88821,6 +93145,55 @@ export namespace Prisma {
 
   export type PersMagicItemCreateManyMagicItemInputEnvelope = {
     data: PersMagicItemCreateManyMagicItemInput | PersMagicItemCreateManyMagicItemInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InfusionCreateWithoutReplicatedMagicItemInput = {
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    createsHomunculus?: boolean | null
+    persInfusions?: PersInfusionCreateNestedManyWithoutInfusionInput
+  }
+
+  export type InfusionUncheckedCreateWithoutReplicatedMagicItemInput = {
+    infusionId?: number
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    createsHomunculus?: boolean | null
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutInfusionInput
+  }
+
+  export type InfusionCreateOrConnectWithoutReplicatedMagicItemInput = {
+    where: InfusionWhereUniqueInput
+    create: XOR<InfusionCreateWithoutReplicatedMagicItemInput, InfusionUncheckedCreateWithoutReplicatedMagicItemInput>
+  }
+
+  export type InfusionCreateManyReplicatedMagicItemInputEnvelope = {
+    data: InfusionCreateManyReplicatedMagicItemInput | InfusionCreateManyReplicatedMagicItemInput[]
     skipDuplicates?: boolean
   }
 
@@ -88856,6 +93229,674 @@ export namespace Prisma {
     data: XOR<PersMagicItemUpdateManyMutationInput, PersMagicItemUncheckedUpdateManyWithoutMagicItemInput>
   }
 
+  export type InfusionUpsertWithWhereUniqueWithoutReplicatedMagicItemInput = {
+    where: InfusionWhereUniqueInput
+    update: XOR<InfusionUpdateWithoutReplicatedMagicItemInput, InfusionUncheckedUpdateWithoutReplicatedMagicItemInput>
+    create: XOR<InfusionCreateWithoutReplicatedMagicItemInput, InfusionUncheckedCreateWithoutReplicatedMagicItemInput>
+  }
+
+  export type InfusionUpdateWithWhereUniqueWithoutReplicatedMagicItemInput = {
+    where: InfusionWhereUniqueInput
+    data: XOR<InfusionUpdateWithoutReplicatedMagicItemInput, InfusionUncheckedUpdateWithoutReplicatedMagicItemInput>
+  }
+
+  export type InfusionUpdateManyWithWhereWithoutReplicatedMagicItemInput = {
+    where: InfusionScalarWhereInput
+    data: XOR<InfusionUpdateManyMutationInput, InfusionUncheckedUpdateManyWithoutReplicatedMagicItemInput>
+  }
+
+  export type InfusionScalarWhereInput = {
+    AND?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
+    OR?: InfusionScalarWhereInput[]
+    NOT?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
+    infusionId?: IntFilter<"Infusion"> | number
+    name?: StringFilter<"Infusion"> | string
+    engName?: StringFilter<"Infusion"> | string
+    minArtificerLevel?: IntFilter<"Infusion"> | number
+    targetType?: EnumInfusionTargetTypeFilter<"Infusion"> | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFilter<"Infusion"> | boolean
+    bonusToAC?: IntNullableFilter<"Infusion"> | number | null
+    bonusToAttackRoll?: IntNullableFilter<"Infusion"> | number | null
+    bonusToDamage?: IntNullableFilter<"Infusion"> | number | null
+    spellAttackBonus?: IntNullableFilter<"Infusion"> | number | null
+    speedBonus?: IntNullableFilter<"Infusion"> | number | null
+    charges?: IntNullableFilter<"Infusion"> | number | null
+    rechargeDice?: StringNullableFilter<"Infusion"> | string | null
+    restoresSpellSlotUpToLevel?: IntNullableFilter<"Infusion"> | number | null
+    increasesAtLevel10By?: IntNullableFilter<"Infusion"> | number | null
+    replicatedMagicItemId?: IntNullableFilter<"Infusion"> | number | null
+    createsHomunculus?: BoolNullableFilter<"Infusion"> | boolean | null
+  }
+
+  export type MagicItemCreateWithoutReplicatedByInfusionsInput = {
+    name: string
+    itemType: $Enums.MagicItemType
+    rarity: $Enums.ItemRarity
+    description: string
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    features?: MagicItemFeatureCreateNestedManyWithoutMagicItemInput
+    persMagicItems?: PersMagicItemCreateNestedManyWithoutMagicItemInput
+  }
+
+  export type MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput = {
+    magicItemId?: number
+    name: string
+    itemType: $Enums.MagicItemType
+    rarity: $Enums.ItemRarity
+    description: string
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    features?: MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput
+    persMagicItems?: PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput
+  }
+
+  export type MagicItemCreateOrConnectWithoutReplicatedByInfusionsInput = {
+    where: MagicItemWhereUniqueInput
+    create: XOR<MagicItemCreateWithoutReplicatedByInfusionsInput, MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput>
+  }
+
+  export type PersInfusionCreateWithoutInfusionInput = {
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+    pers: PersCreateNestedOneWithoutPersInfusionsInput
+    weapon?: PersWeaponCreateNestedOneWithoutInfusionsInput
+    armor?: PersArmorCreateNestedOneWithoutInfusionsInput
+    magicItem?: PersMagicItemCreateNestedOneWithoutInfusionsInput
+  }
+
+  export type PersInfusionUncheckedCreateWithoutInfusionInput = {
+    persInfusionId?: number
+    persId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionCreateOrConnectWithoutInfusionInput = {
+    where: PersInfusionWhereUniqueInput
+    create: XOR<PersInfusionCreateWithoutInfusionInput, PersInfusionUncheckedCreateWithoutInfusionInput>
+  }
+
+  export type PersInfusionCreateManyInfusionInputEnvelope = {
+    data: PersInfusionCreateManyInfusionInput | PersInfusionCreateManyInfusionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MagicItemUpsertWithoutReplicatedByInfusionsInput = {
+    update: XOR<MagicItemUpdateWithoutReplicatedByInfusionsInput, MagicItemUncheckedUpdateWithoutReplicatedByInfusionsInput>
+    create: XOR<MagicItemCreateWithoutReplicatedByInfusionsInput, MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput>
+    where?: MagicItemWhereInput
+  }
+
+  export type MagicItemUpdateToOneWithWhereWithoutReplicatedByInfusionsInput = {
+    where?: MagicItemWhereInput
+    data: XOR<MagicItemUpdateWithoutReplicatedByInfusionsInput, MagicItemUncheckedUpdateWithoutReplicatedByInfusionsInput>
+  }
+
+  export type MagicItemUpdateWithoutReplicatedByInfusionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
+    rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
+    description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    features?: MagicItemFeatureUpdateManyWithoutMagicItemNestedInput
+    persMagicItems?: PersMagicItemUpdateManyWithoutMagicItemNestedInput
+  }
+
+  export type MagicItemUncheckedUpdateWithoutReplicatedByInfusionsInput = {
+    magicItemId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
+    rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
+    description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    features?: MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput
+    persMagicItems?: PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput
+  }
+
+  export type PersInfusionUpsertWithWhereUniqueWithoutInfusionInput = {
+    where: PersInfusionWhereUniqueInput
+    update: XOR<PersInfusionUpdateWithoutInfusionInput, PersInfusionUncheckedUpdateWithoutInfusionInput>
+    create: XOR<PersInfusionCreateWithoutInfusionInput, PersInfusionUncheckedCreateWithoutInfusionInput>
+  }
+
+  export type PersInfusionUpdateWithWhereUniqueWithoutInfusionInput = {
+    where: PersInfusionWhereUniqueInput
+    data: XOR<PersInfusionUpdateWithoutInfusionInput, PersInfusionUncheckedUpdateWithoutInfusionInput>
+  }
+
+  export type PersInfusionUpdateManyWithWhereWithoutInfusionInput = {
+    where: PersInfusionScalarWhereInput
+    data: XOR<PersInfusionUpdateManyMutationInput, PersInfusionUncheckedUpdateManyWithoutInfusionInput>
+  }
+
+  export type PersCreateWithoutPersInfusionsInput = {
+    name: string
+    level?: number
+    currentSpellSlots?: PersCreatecurrentSpellSlotsInput | number[]
+    currentHp: number
+    maxHp: number
+    tempHp?: number
+    raceCustom?: string
+    classCustom?: string
+    alignment?: string
+    xp?: number
+    customBackground?: string
+    customFeatures?: string
+    customLanguagesKnown?: string
+    customEquipment?: string
+    personalityTraits?: string
+    ideals?: string
+    bonds?: string
+    flaws?: string
+    backstory?: string
+    notes?: string
+    str: number
+    dex: number
+    con: number
+    int: number
+    wis: number
+    cha: number
+    cp?: string
+    ep?: string
+    sp?: string
+    gp?: string
+    pp?: string
+    additionalSaveProficiencies?: PersCreateadditionalSaveProficienciesInput | $Enums.Ability[]
+    miscSaveBonuses?: NullableJsonNullValueInput | InputJsonValue
+    wearsShield?: boolean
+    additionalShieldBonus?: number
+    armorBonus?: number
+    wearsNaturalArmor?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPersInput
+    class: ClassCreateNestedOneWithoutPersesInput
+    subclass?: SubclassCreateNestedOneWithoutPersesInput
+    race: RaceCreateNestedOneWithoutPersesInput
+    subrace?: SubraceCreateNestedOneWithoutPersesInput
+    background: BackgroundCreateNestedOneWithoutPersesInput
+    skills?: PersSkillCreateNestedManyWithoutPersInput
+    multiclasses?: PersMulticlassCreateNestedManyWithoutPersInput
+    features?: PersFeatureCreateNestedManyWithoutPersInput
+    spells?: SpellCreateNestedManyWithoutPersesInput
+    feats?: PersFeatCreateNestedManyWithoutPersInput
+    armors?: PersArmorCreateNestedManyWithoutPersInput
+    weapons?: PersWeaponCreateNestedManyWithoutPersInput
+    magicItems?: PersMagicItemCreateNestedManyWithoutPersInput
+    raceVariants?: RaceVariantCreateNestedManyWithoutPersesInput
+    raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
+    choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
+    classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+  }
+
+  export type PersUncheckedCreateWithoutPersInfusionsInput = {
+    persId?: number
+    userId: number
+    name: string
+    level?: number
+    currentSpellSlots?: PersCreatecurrentSpellSlotsInput | number[]
+    classId: number
+    subclassId?: number | null
+    backgroundId: number
+    raceId: number
+    subraceId?: number | null
+    currentHp: number
+    maxHp: number
+    tempHp?: number
+    raceCustom?: string
+    classCustom?: string
+    alignment?: string
+    xp?: number
+    customBackground?: string
+    customFeatures?: string
+    customLanguagesKnown?: string
+    customEquipment?: string
+    personalityTraits?: string
+    ideals?: string
+    bonds?: string
+    flaws?: string
+    backstory?: string
+    notes?: string
+    str: number
+    dex: number
+    con: number
+    int: number
+    wis: number
+    cha: number
+    cp?: string
+    ep?: string
+    sp?: string
+    gp?: string
+    pp?: string
+    additionalSaveProficiencies?: PersCreateadditionalSaveProficienciesInput | $Enums.Ability[]
+    miscSaveBonuses?: NullableJsonNullValueInput | InputJsonValue
+    wearsShield?: boolean
+    additionalShieldBonus?: number
+    armorBonus?: number
+    wearsNaturalArmor?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    skills?: PersSkillUncheckedCreateNestedManyWithoutPersInput
+    multiclasses?: PersMulticlassUncheckedCreateNestedManyWithoutPersInput
+    features?: PersFeatureUncheckedCreateNestedManyWithoutPersInput
+    spells?: SpellUncheckedCreateNestedManyWithoutPersesInput
+    feats?: PersFeatUncheckedCreateNestedManyWithoutPersInput
+    armors?: PersArmorUncheckedCreateNestedManyWithoutPersInput
+    weapons?: PersWeaponUncheckedCreateNestedManyWithoutPersInput
+    magicItems?: PersMagicItemUncheckedCreateNestedManyWithoutPersInput
+    raceVariants?: RaceVariantUncheckedCreateNestedManyWithoutPersesInput
+    raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
+    choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
+    classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+  }
+
+  export type PersCreateOrConnectWithoutPersInfusionsInput = {
+    where: PersWhereUniqueInput
+    create: XOR<PersCreateWithoutPersInfusionsInput, PersUncheckedCreateWithoutPersInfusionsInput>
+  }
+
+  export type InfusionCreateWithoutPersInfusionsInput = {
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    createsHomunculus?: boolean | null
+    replicatedMagicItem?: MagicItemCreateNestedOneWithoutReplicatedByInfusionsInput
+  }
+
+  export type InfusionUncheckedCreateWithoutPersInfusionsInput = {
+    infusionId?: number
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    replicatedMagicItemId?: number | null
+    createsHomunculus?: boolean | null
+  }
+
+  export type InfusionCreateOrConnectWithoutPersInfusionsInput = {
+    where: InfusionWhereUniqueInput
+    create: XOR<InfusionCreateWithoutPersInfusionsInput, InfusionUncheckedCreateWithoutPersInfusionsInput>
+  }
+
+  export type PersWeaponCreateWithoutInfusionsInput = {
+    overrideDamage?: string | null
+    attackBonus?: number | null
+    overrideName?: string | null
+    overrideNormalRange?: number | null
+    overrideLongRange?: number | null
+    overrideDamageType?: $Enums.DamageType | null
+    overrideAttackAbility?: $Enums.Ability | null
+    isProficient?: boolean
+    pers: PersCreateNestedOneWithoutWeaponsInput
+    weapon: WeaponCreateNestedOneWithoutPersWeaponsInput
+  }
+
+  export type PersWeaponUncheckedCreateWithoutInfusionsInput = {
+    persWeaponId?: number
+    persId: number
+    weaponId: number
+    overrideDamage?: string | null
+    attackBonus?: number | null
+    overrideName?: string | null
+    overrideNormalRange?: number | null
+    overrideLongRange?: number | null
+    overrideDamageType?: $Enums.DamageType | null
+    overrideAttackAbility?: $Enums.Ability | null
+    isProficient?: boolean
+  }
+
+  export type PersWeaponCreateOrConnectWithoutInfusionsInput = {
+    where: PersWeaponWhereUniqueInput
+    create: XOR<PersWeaponCreateWithoutInfusionsInput, PersWeaponUncheckedCreateWithoutInfusionsInput>
+  }
+
+  export type PersArmorCreateWithoutInfusionsInput = {
+    overrideBaseAC?: number | null
+    miscACBonus?: number | null
+    isProficient?: boolean
+    equipped?: boolean
+    pers: PersCreateNestedOneWithoutArmorsInput
+    armor: ArmorCreateNestedOneWithoutPersArmorInput
+  }
+
+  export type PersArmorUncheckedCreateWithoutInfusionsInput = {
+    persArmorId?: number
+    armorId: number
+    persId: number
+    overrideBaseAC?: number | null
+    miscACBonus?: number | null
+    isProficient?: boolean
+    equipped?: boolean
+  }
+
+  export type PersArmorCreateOrConnectWithoutInfusionsInput = {
+    where: PersArmorWhereUniqueInput
+    create: XOR<PersArmorCreateWithoutInfusionsInput, PersArmorUncheckedCreateWithoutInfusionsInput>
+  }
+
+  export type PersMagicItemCreateWithoutInfusionsInput = {
+    pers: PersCreateNestedOneWithoutMagicItemsInput
+    magicItem: MagicItemCreateNestedOneWithoutPersMagicItemsInput
+  }
+
+  export type PersMagicItemUncheckedCreateWithoutInfusionsInput = {
+    persMagicItemId?: number
+    persId: number
+    magicItemId: number
+  }
+
+  export type PersMagicItemCreateOrConnectWithoutInfusionsInput = {
+    where: PersMagicItemWhereUniqueInput
+    create: XOR<PersMagicItemCreateWithoutInfusionsInput, PersMagicItemUncheckedCreateWithoutInfusionsInput>
+  }
+
+  export type PersUpsertWithoutPersInfusionsInput = {
+    update: XOR<PersUpdateWithoutPersInfusionsInput, PersUncheckedUpdateWithoutPersInfusionsInput>
+    create: XOR<PersCreateWithoutPersInfusionsInput, PersUncheckedCreateWithoutPersInfusionsInput>
+    where?: PersWhereInput
+  }
+
+  export type PersUpdateToOneWithWhereWithoutPersInfusionsInput = {
+    where?: PersWhereInput
+    data: XOR<PersUpdateWithoutPersInfusionsInput, PersUncheckedUpdateWithoutPersInfusionsInput>
+  }
+
+  export type PersUpdateWithoutPersInfusionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    currentSpellSlots?: PersUpdatecurrentSpellSlotsInput | number[]
+    currentHp?: IntFieldUpdateOperationsInput | number
+    maxHp?: IntFieldUpdateOperationsInput | number
+    tempHp?: IntFieldUpdateOperationsInput | number
+    raceCustom?: StringFieldUpdateOperationsInput | string
+    classCustom?: StringFieldUpdateOperationsInput | string
+    alignment?: StringFieldUpdateOperationsInput | string
+    xp?: IntFieldUpdateOperationsInput | number
+    customBackground?: StringFieldUpdateOperationsInput | string
+    customFeatures?: StringFieldUpdateOperationsInput | string
+    customLanguagesKnown?: StringFieldUpdateOperationsInput | string
+    customEquipment?: StringFieldUpdateOperationsInput | string
+    personalityTraits?: StringFieldUpdateOperationsInput | string
+    ideals?: StringFieldUpdateOperationsInput | string
+    bonds?: StringFieldUpdateOperationsInput | string
+    flaws?: StringFieldUpdateOperationsInput | string
+    backstory?: StringFieldUpdateOperationsInput | string
+    notes?: StringFieldUpdateOperationsInput | string
+    str?: IntFieldUpdateOperationsInput | number
+    dex?: IntFieldUpdateOperationsInput | number
+    con?: IntFieldUpdateOperationsInput | number
+    int?: IntFieldUpdateOperationsInput | number
+    wis?: IntFieldUpdateOperationsInput | number
+    cha?: IntFieldUpdateOperationsInput | number
+    cp?: StringFieldUpdateOperationsInput | string
+    ep?: StringFieldUpdateOperationsInput | string
+    sp?: StringFieldUpdateOperationsInput | string
+    gp?: StringFieldUpdateOperationsInput | string
+    pp?: StringFieldUpdateOperationsInput | string
+    additionalSaveProficiencies?: PersUpdateadditionalSaveProficienciesInput | $Enums.Ability[]
+    miscSaveBonuses?: NullableJsonNullValueInput | InputJsonValue
+    wearsShield?: BoolFieldUpdateOperationsInput | boolean
+    additionalShieldBonus?: IntFieldUpdateOperationsInput | number
+    armorBonus?: IntFieldUpdateOperationsInput | number
+    wearsNaturalArmor?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPersNestedInput
+    class?: ClassUpdateOneRequiredWithoutPersesNestedInput
+    subclass?: SubclassUpdateOneWithoutPersesNestedInput
+    race?: RaceUpdateOneRequiredWithoutPersesNestedInput
+    subrace?: SubraceUpdateOneWithoutPersesNestedInput
+    background?: BackgroundUpdateOneRequiredWithoutPersesNestedInput
+    skills?: PersSkillUpdateManyWithoutPersNestedInput
+    multiclasses?: PersMulticlassUpdateManyWithoutPersNestedInput
+    features?: PersFeatureUpdateManyWithoutPersNestedInput
+    spells?: SpellUpdateManyWithoutPersesNestedInput
+    feats?: PersFeatUpdateManyWithoutPersNestedInput
+    armors?: PersArmorUpdateManyWithoutPersNestedInput
+    weapons?: PersWeaponUpdateManyWithoutPersNestedInput
+    magicItems?: PersMagicItemUpdateManyWithoutPersNestedInput
+    raceVariants?: RaceVariantUpdateManyWithoutPersesNestedInput
+    raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
+    choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
+    classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+  }
+
+  export type PersUncheckedUpdateWithoutPersInfusionsInput = {
+    persId?: IntFieldUpdateOperationsInput | number
+    userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    currentSpellSlots?: PersUpdatecurrentSpellSlotsInput | number[]
+    classId?: IntFieldUpdateOperationsInput | number
+    subclassId?: NullableIntFieldUpdateOperationsInput | number | null
+    backgroundId?: IntFieldUpdateOperationsInput | number
+    raceId?: IntFieldUpdateOperationsInput | number
+    subraceId?: NullableIntFieldUpdateOperationsInput | number | null
+    currentHp?: IntFieldUpdateOperationsInput | number
+    maxHp?: IntFieldUpdateOperationsInput | number
+    tempHp?: IntFieldUpdateOperationsInput | number
+    raceCustom?: StringFieldUpdateOperationsInput | string
+    classCustom?: StringFieldUpdateOperationsInput | string
+    alignment?: StringFieldUpdateOperationsInput | string
+    xp?: IntFieldUpdateOperationsInput | number
+    customBackground?: StringFieldUpdateOperationsInput | string
+    customFeatures?: StringFieldUpdateOperationsInput | string
+    customLanguagesKnown?: StringFieldUpdateOperationsInput | string
+    customEquipment?: StringFieldUpdateOperationsInput | string
+    personalityTraits?: StringFieldUpdateOperationsInput | string
+    ideals?: StringFieldUpdateOperationsInput | string
+    bonds?: StringFieldUpdateOperationsInput | string
+    flaws?: StringFieldUpdateOperationsInput | string
+    backstory?: StringFieldUpdateOperationsInput | string
+    notes?: StringFieldUpdateOperationsInput | string
+    str?: IntFieldUpdateOperationsInput | number
+    dex?: IntFieldUpdateOperationsInput | number
+    con?: IntFieldUpdateOperationsInput | number
+    int?: IntFieldUpdateOperationsInput | number
+    wis?: IntFieldUpdateOperationsInput | number
+    cha?: IntFieldUpdateOperationsInput | number
+    cp?: StringFieldUpdateOperationsInput | string
+    ep?: StringFieldUpdateOperationsInput | string
+    sp?: StringFieldUpdateOperationsInput | string
+    gp?: StringFieldUpdateOperationsInput | string
+    pp?: StringFieldUpdateOperationsInput | string
+    additionalSaveProficiencies?: PersUpdateadditionalSaveProficienciesInput | $Enums.Ability[]
+    miscSaveBonuses?: NullableJsonNullValueInput | InputJsonValue
+    wearsShield?: BoolFieldUpdateOperationsInput | boolean
+    additionalShieldBonus?: IntFieldUpdateOperationsInput | number
+    armorBonus?: IntFieldUpdateOperationsInput | number
+    wearsNaturalArmor?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    skills?: PersSkillUncheckedUpdateManyWithoutPersNestedInput
+    multiclasses?: PersMulticlassUncheckedUpdateManyWithoutPersNestedInput
+    features?: PersFeatureUncheckedUpdateManyWithoutPersNestedInput
+    spells?: SpellUncheckedUpdateManyWithoutPersesNestedInput
+    feats?: PersFeatUncheckedUpdateManyWithoutPersNestedInput
+    armors?: PersArmorUncheckedUpdateManyWithoutPersNestedInput
+    weapons?: PersWeaponUncheckedUpdateManyWithoutPersNestedInput
+    magicItems?: PersMagicItemUncheckedUpdateManyWithoutPersNestedInput
+    raceVariants?: RaceVariantUncheckedUpdateManyWithoutPersesNestedInput
+    raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
+    choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
+    classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+  }
+
+  export type InfusionUpsertWithoutPersInfusionsInput = {
+    update: XOR<InfusionUpdateWithoutPersInfusionsInput, InfusionUncheckedUpdateWithoutPersInfusionsInput>
+    create: XOR<InfusionCreateWithoutPersInfusionsInput, InfusionUncheckedCreateWithoutPersInfusionsInput>
+    where?: InfusionWhereInput
+  }
+
+  export type InfusionUpdateToOneWithWhereWithoutPersInfusionsInput = {
+    where?: InfusionWhereInput
+    data: XOR<InfusionUpdateWithoutPersInfusionsInput, InfusionUncheckedUpdateWithoutPersInfusionsInput>
+  }
+
+  export type InfusionUpdateWithoutPersInfusionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    replicatedMagicItem?: MagicItemUpdateOneWithoutReplicatedByInfusionsNestedInput
+  }
+
+  export type InfusionUncheckedUpdateWithoutPersInfusionsInput = {
+    infusionId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PersWeaponUpsertWithoutInfusionsInput = {
+    update: XOR<PersWeaponUpdateWithoutInfusionsInput, PersWeaponUncheckedUpdateWithoutInfusionsInput>
+    create: XOR<PersWeaponCreateWithoutInfusionsInput, PersWeaponUncheckedCreateWithoutInfusionsInput>
+    where?: PersWeaponWhereInput
+  }
+
+  export type PersWeaponUpdateToOneWithWhereWithoutInfusionsInput = {
+    where?: PersWeaponWhereInput
+    data: XOR<PersWeaponUpdateWithoutInfusionsInput, PersWeaponUncheckedUpdateWithoutInfusionsInput>
+  }
+
+  export type PersWeaponUpdateWithoutInfusionsInput = {
+    overrideDamage?: NullableStringFieldUpdateOperationsInput | string | null
+    attackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    overrideName?: NullableStringFieldUpdateOperationsInput | string | null
+    overrideNormalRange?: NullableIntFieldUpdateOperationsInput | number | null
+    overrideLongRange?: NullableIntFieldUpdateOperationsInput | number | null
+    overrideDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
+    overrideAttackAbility?: NullableEnumAbilityFieldUpdateOperationsInput | $Enums.Ability | null
+    isProficient?: BoolFieldUpdateOperationsInput | boolean
+    pers?: PersUpdateOneRequiredWithoutWeaponsNestedInput
+    weapon?: WeaponUpdateOneRequiredWithoutPersWeaponsNestedInput
+  }
+
+  export type PersWeaponUncheckedUpdateWithoutInfusionsInput = {
+    persWeaponId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    weaponId?: IntFieldUpdateOperationsInput | number
+    overrideDamage?: NullableStringFieldUpdateOperationsInput | string | null
+    attackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    overrideName?: NullableStringFieldUpdateOperationsInput | string | null
+    overrideNormalRange?: NullableIntFieldUpdateOperationsInput | number | null
+    overrideLongRange?: NullableIntFieldUpdateOperationsInput | number | null
+    overrideDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
+    overrideAttackAbility?: NullableEnumAbilityFieldUpdateOperationsInput | $Enums.Ability | null
+    isProficient?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type PersArmorUpsertWithoutInfusionsInput = {
+    update: XOR<PersArmorUpdateWithoutInfusionsInput, PersArmorUncheckedUpdateWithoutInfusionsInput>
+    create: XOR<PersArmorCreateWithoutInfusionsInput, PersArmorUncheckedCreateWithoutInfusionsInput>
+    where?: PersArmorWhereInput
+  }
+
+  export type PersArmorUpdateToOneWithWhereWithoutInfusionsInput = {
+    where?: PersArmorWhereInput
+    data: XOR<PersArmorUpdateWithoutInfusionsInput, PersArmorUncheckedUpdateWithoutInfusionsInput>
+  }
+
+  export type PersArmorUpdateWithoutInfusionsInput = {
+    overrideBaseAC?: NullableIntFieldUpdateOperationsInput | number | null
+    miscACBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    isProficient?: BoolFieldUpdateOperationsInput | boolean
+    equipped?: BoolFieldUpdateOperationsInput | boolean
+    pers?: PersUpdateOneRequiredWithoutArmorsNestedInput
+    armor?: ArmorUpdateOneRequiredWithoutPersArmorNestedInput
+  }
+
+  export type PersArmorUncheckedUpdateWithoutInfusionsInput = {
+    persArmorId?: IntFieldUpdateOperationsInput | number
+    armorId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    overrideBaseAC?: NullableIntFieldUpdateOperationsInput | number | null
+    miscACBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    isProficient?: BoolFieldUpdateOperationsInput | boolean
+    equipped?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type PersMagicItemUpsertWithoutInfusionsInput = {
+    update: XOR<PersMagicItemUpdateWithoutInfusionsInput, PersMagicItemUncheckedUpdateWithoutInfusionsInput>
+    create: XOR<PersMagicItemCreateWithoutInfusionsInput, PersMagicItemUncheckedCreateWithoutInfusionsInput>
+    where?: PersMagicItemWhereInput
+  }
+
+  export type PersMagicItemUpdateToOneWithWhereWithoutInfusionsInput = {
+    where?: PersMagicItemWhereInput
+    data: XOR<PersMagicItemUpdateWithoutInfusionsInput, PersMagicItemUncheckedUpdateWithoutInfusionsInput>
+  }
+
+  export type PersMagicItemUpdateWithoutInfusionsInput = {
+    pers?: PersUpdateOneRequiredWithoutMagicItemsNestedInput
+    magicItem?: MagicItemUpdateOneRequiredWithoutPersMagicItemsNestedInput
+  }
+
+  export type PersMagicItemUncheckedUpdateWithoutInfusionsInput = {
+    persMagicItemId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    magicItemId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type PersWeaponCreateWithoutWeaponInput = {
     overrideDamage?: string | null
     attackBonus?: number | null
@@ -88866,6 +93907,7 @@ export namespace Prisma {
     overrideAttackAbility?: $Enums.Ability | null
     isProficient?: boolean
     pers: PersCreateNestedOneWithoutWeaponsInput
+    infusions?: PersInfusionCreateNestedManyWithoutWeaponInput
   }
 
   export type PersWeaponUncheckedCreateWithoutWeaponInput = {
@@ -88879,6 +93921,7 @@ export namespace Prisma {
     overrideDamageType?: $Enums.DamageType | null
     overrideAttackAbility?: $Enums.Ability | null
     isProficient?: boolean
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutWeaponInput
   }
 
   export type PersWeaponCreateOrConnectWithoutWeaponInput = {
@@ -88972,6 +94015,7 @@ export namespace Prisma {
     isProficient?: boolean
     equipped?: boolean
     pers: PersCreateNestedOneWithoutArmorsInput
+    infusions?: PersInfusionCreateNestedManyWithoutArmorInput
   }
 
   export type PersArmorUncheckedCreateWithoutArmorInput = {
@@ -88981,6 +94025,7 @@ export namespace Prisma {
     miscACBonus?: number | null
     isProficient?: boolean
     equipped?: boolean
+    infusions?: PersInfusionUncheckedCreateNestedManyWithoutArmorInput
   }
 
   export type PersArmorCreateOrConnectWithoutArmorInput = {
@@ -89125,6 +94170,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutSkillsInput = {
@@ -89185,6 +94231,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutSkillsInput = {
@@ -89260,6 +94307,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutSkillsInput = {
@@ -89320,6 +94368,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersCreateWithoutWeaponsInput = {
@@ -89379,6 +94428,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutWeaponsInput = {
@@ -89439,6 +94489,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutWeaponsInput = {
@@ -89474,6 +94525,35 @@ export namespace Prisma {
   export type WeaponCreateOrConnectWithoutPersWeaponsInput = {
     where: WeaponWhereUniqueInput
     create: XOR<WeaponCreateWithoutPersWeaponsInput, WeaponUncheckedCreateWithoutPersWeaponsInput>
+  }
+
+  export type PersInfusionCreateWithoutWeaponInput = {
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+    pers: PersCreateNestedOneWithoutPersInfusionsInput
+    infusion: InfusionCreateNestedOneWithoutPersInfusionsInput
+    armor?: PersArmorCreateNestedOneWithoutInfusionsInput
+    magicItem?: PersMagicItemCreateNestedOneWithoutInfusionsInput
+  }
+
+  export type PersInfusionUncheckedCreateWithoutWeaponInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionCreateOrConnectWithoutWeaponInput = {
+    where: PersInfusionWhereUniqueInput
+    create: XOR<PersInfusionCreateWithoutWeaponInput, PersInfusionUncheckedCreateWithoutWeaponInput>
+  }
+
+  export type PersInfusionCreateManyWeaponInputEnvelope = {
+    data: PersInfusionCreateManyWeaponInput | PersInfusionCreateManyWeaponInput[]
+    skipDuplicates?: boolean
   }
 
   export type PersUpsertWithoutWeaponsInput = {
@@ -89544,6 +94624,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutWeaponsInput = {
@@ -89604,6 +94685,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type WeaponUpsertWithoutPersWeaponsInput = {
@@ -89640,6 +94722,22 @@ export namespace Prisma {
     normalRange?: NullableIntFieldUpdateOperationsInput | number | null
     longRange?: NullableIntFieldUpdateOperationsInput | number | null
     classStartingEquipmentOption?: ClassStartingEquipmentOptionUncheckedUpdateManyWithoutWeaponNestedInput
+  }
+
+  export type PersInfusionUpsertWithWhereUniqueWithoutWeaponInput = {
+    where: PersInfusionWhereUniqueInput
+    update: XOR<PersInfusionUpdateWithoutWeaponInput, PersInfusionUncheckedUpdateWithoutWeaponInput>
+    create: XOR<PersInfusionCreateWithoutWeaponInput, PersInfusionUncheckedCreateWithoutWeaponInput>
+  }
+
+  export type PersInfusionUpdateWithWhereUniqueWithoutWeaponInput = {
+    where: PersInfusionWhereUniqueInput
+    data: XOR<PersInfusionUpdateWithoutWeaponInput, PersInfusionUncheckedUpdateWithoutWeaponInput>
+  }
+
+  export type PersInfusionUpdateManyWithWhereWithoutWeaponInput = {
+    where: PersInfusionScalarWhereInput
+    data: XOR<PersInfusionUpdateManyMutationInput, PersInfusionUncheckedUpdateManyWithoutWeaponInput>
   }
 
   export type PersCreateWithoutArmorsInput = {
@@ -89699,6 +94797,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutArmorsInput = {
@@ -89759,6 +94858,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutArmorsInput = {
@@ -89788,6 +94888,35 @@ export namespace Prisma {
   export type ArmorCreateOrConnectWithoutPersArmorInput = {
     where: ArmorWhereUniqueInput
     create: XOR<ArmorCreateWithoutPersArmorInput, ArmorUncheckedCreateWithoutPersArmorInput>
+  }
+
+  export type PersInfusionCreateWithoutArmorInput = {
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+    pers: PersCreateNestedOneWithoutPersInfusionsInput
+    infusion: InfusionCreateNestedOneWithoutPersInfusionsInput
+    weapon?: PersWeaponCreateNestedOneWithoutInfusionsInput
+    magicItem?: PersMagicItemCreateNestedOneWithoutInfusionsInput
+  }
+
+  export type PersInfusionUncheckedCreateWithoutArmorInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persWeaponId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionCreateOrConnectWithoutArmorInput = {
+    where: PersInfusionWhereUniqueInput
+    create: XOR<PersInfusionCreateWithoutArmorInput, PersInfusionUncheckedCreateWithoutArmorInput>
+  }
+
+  export type PersInfusionCreateManyArmorInputEnvelope = {
+    data: PersInfusionCreateManyArmorInput | PersInfusionCreateManyArmorInput[]
+    skipDuplicates?: boolean
   }
 
   export type PersUpsertWithoutArmorsInput = {
@@ -89858,6 +94987,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutArmorsInput = {
@@ -89918,6 +95048,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type ArmorUpsertWithoutPersArmorInput = {
@@ -89948,6 +95079,22 @@ export namespace Prisma {
     strengthReq?: NullableIntFieldUpdateOperationsInput | number | null
     stealthDisadvantage?: BoolFieldUpdateOperationsInput | boolean
     classStartingEquipmentOption?: ClassStartingEquipmentOptionUncheckedUpdateManyWithoutArmorNestedInput
+  }
+
+  export type PersInfusionUpsertWithWhereUniqueWithoutArmorInput = {
+    where: PersInfusionWhereUniqueInput
+    update: XOR<PersInfusionUpdateWithoutArmorInput, PersInfusionUncheckedUpdateWithoutArmorInput>
+    create: XOR<PersInfusionCreateWithoutArmorInput, PersInfusionUncheckedCreateWithoutArmorInput>
+  }
+
+  export type PersInfusionUpdateWithWhereUniqueWithoutArmorInput = {
+    where: PersInfusionWhereUniqueInput
+    data: XOR<PersInfusionUpdateWithoutArmorInput, PersInfusionUncheckedUpdateWithoutArmorInput>
+  }
+
+  export type PersInfusionUpdateManyWithWhereWithoutArmorInput = {
+    where: PersInfusionScalarWhereInput
+    data: XOR<PersInfusionUpdateManyMutationInput, PersInfusionUncheckedUpdateManyWithoutArmorInput>
   }
 
   export type PersCreateWithoutMagicItemsInput = {
@@ -90007,6 +95154,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutPersInput
   }
 
   export type PersUncheckedCreateWithoutMagicItemsInput = {
@@ -90067,6 +95215,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     choiceOptions?: ChoiceOptionUncheckedCreateNestedManyWithoutPersesInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutPersesInput
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutPersInput
   }
 
   export type PersCreateOrConnectWithoutMagicItemsInput = {
@@ -90079,10 +95228,12 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement?: boolean
     bonusToAC?: number | null
     bonusToAttackRoll?: number | null
     bonusToDamage?: number | null
     features?: MagicItemFeatureCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionCreateNestedManyWithoutReplicatedMagicItemInput
   }
 
   export type MagicItemUncheckedCreateWithoutPersMagicItemsInput = {
@@ -90091,15 +95242,46 @@ export namespace Prisma {
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    requiresAttunement?: boolean
     bonusToAC?: number | null
     bonusToAttackRoll?: number | null
     bonusToDamage?: number | null
     features?: MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput
   }
 
   export type MagicItemCreateOrConnectWithoutPersMagicItemsInput = {
     where: MagicItemWhereUniqueInput
     create: XOR<MagicItemCreateWithoutPersMagicItemsInput, MagicItemUncheckedCreateWithoutPersMagicItemsInput>
+  }
+
+  export type PersInfusionCreateWithoutMagicItemInput = {
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+    pers: PersCreateNestedOneWithoutPersInfusionsInput
+    infusion: InfusionCreateNestedOneWithoutPersInfusionsInput
+    weapon?: PersWeaponCreateNestedOneWithoutInfusionsInput
+    armor?: PersArmorCreateNestedOneWithoutInfusionsInput
+  }
+
+  export type PersInfusionUncheckedCreateWithoutMagicItemInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionCreateOrConnectWithoutMagicItemInput = {
+    where: PersInfusionWhereUniqueInput
+    create: XOR<PersInfusionCreateWithoutMagicItemInput, PersInfusionUncheckedCreateWithoutMagicItemInput>
+  }
+
+  export type PersInfusionCreateManyMagicItemInputEnvelope = {
+    data: PersInfusionCreateManyMagicItemInput | PersInfusionCreateManyMagicItemInput[]
+    skipDuplicates?: boolean
   }
 
   export type PersUpsertWithoutMagicItemsInput = {
@@ -90170,6 +95352,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutMagicItemsInput = {
@@ -90230,6 +95413,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type MagicItemUpsertWithoutPersMagicItemsInput = {
@@ -90248,10 +95432,12 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
     features?: MagicItemFeatureUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUpdateManyWithoutReplicatedMagicItemNestedInput
   }
 
   export type MagicItemUncheckedUpdateWithoutPersMagicItemsInput = {
@@ -90260,10 +95446,28 @@ export namespace Prisma {
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
     bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
     bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
     features?: MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput
+  }
+
+  export type PersInfusionUpsertWithWhereUniqueWithoutMagicItemInput = {
+    where: PersInfusionWhereUniqueInput
+    update: XOR<PersInfusionUpdateWithoutMagicItemInput, PersInfusionUncheckedUpdateWithoutMagicItemInput>
+    create: XOR<PersInfusionCreateWithoutMagicItemInput, PersInfusionUncheckedCreateWithoutMagicItemInput>
+  }
+
+  export type PersInfusionUpdateWithWhereUniqueWithoutMagicItemInput = {
+    where: PersInfusionWhereUniqueInput
+    data: XOR<PersInfusionUpdateWithoutMagicItemInput, PersInfusionUncheckedUpdateWithoutMagicItemInput>
+  }
+
+  export type PersInfusionUpdateManyWithWhereWithoutMagicItemInput = {
+    where: PersInfusionScalarWhereInput
+    data: XOR<PersInfusionUpdateManyMutationInput, PersInfusionUncheckedUpdateManyWithoutMagicItemInput>
   }
 
   export type ClassStartingEquipmentOptionCreateWithoutEquipmentPackInput = {
@@ -90816,6 +96020,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutSpellsInput = {
@@ -90876,6 +96081,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutSpellsInput = {
@@ -91182,6 +96388,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutUserInput = {
@@ -91242,6 +96449,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutUserInput = {
@@ -91524,6 +96732,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutClassInput = {
@@ -91584,6 +96793,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutClassInput = {
@@ -91957,6 +97167,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutSubclassInput = {
@@ -92017,6 +97228,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutSubclassInput = {
@@ -92186,6 +97398,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUpdateManyWithoutPersesNestedInput
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutChoiceOptionsInput = {
@@ -92246,6 +97459,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUncheckedUpdateManyWithoutPersesNestedInput
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutChoiceOptionsInput = {
@@ -92389,6 +97603,16 @@ export namespace Prisma {
     magicItemId: number
   }
 
+  export type PersInfusionCreateManyPersInput = {
+    persInfusionId?: number
+    infusionId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
   export type PersSkillUpdateWithoutPersInput = {
     skillId?: IntFieldUpdateOperationsInput | number
     proficiencyType?: EnumSkillProficiencyTypeFieldUpdateOperationsInput | $Enums.SkillProficiencyType
@@ -92528,6 +97752,7 @@ export namespace Prisma {
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     equipped?: BoolFieldUpdateOperationsInput | boolean
     armor?: ArmorUpdateOneRequiredWithoutPersArmorNestedInput
+    infusions?: PersInfusionUpdateManyWithoutArmorNestedInput
   }
 
   export type PersArmorUncheckedUpdateWithoutPersInput = {
@@ -92537,6 +97762,7 @@ export namespace Prisma {
     miscACBonus?: NullableIntFieldUpdateOperationsInput | number | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     equipped?: BoolFieldUpdateOperationsInput | boolean
+    infusions?: PersInfusionUncheckedUpdateManyWithoutArmorNestedInput
   }
 
   export type PersArmorUncheckedUpdateManyWithoutPersInput = {
@@ -92558,6 +97784,7 @@ export namespace Prisma {
     overrideAttackAbility?: NullableEnumAbilityFieldUpdateOperationsInput | $Enums.Ability | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     weapon?: WeaponUpdateOneRequiredWithoutPersWeaponsNestedInput
+    infusions?: PersInfusionUpdateManyWithoutWeaponNestedInput
   }
 
   export type PersWeaponUncheckedUpdateWithoutPersInput = {
@@ -92571,6 +97798,7 @@ export namespace Prisma {
     overrideDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
     overrideAttackAbility?: NullableEnumAbilityFieldUpdateOperationsInput | $Enums.Ability | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
+    infusions?: PersInfusionUncheckedUpdateManyWithoutWeaponNestedInput
   }
 
   export type PersWeaponUncheckedUpdateManyWithoutPersInput = {
@@ -92588,11 +97816,13 @@ export namespace Prisma {
 
   export type PersMagicItemUpdateWithoutPersInput = {
     magicItem?: MagicItemUpdateOneRequiredWithoutPersMagicItemsNestedInput
+    infusions?: PersInfusionUpdateManyWithoutMagicItemNestedInput
   }
 
   export type PersMagicItemUncheckedUpdateWithoutPersInput = {
     persMagicItemId?: IntFieldUpdateOperationsInput | number
     magicItemId?: IntFieldUpdateOperationsInput | number
+    infusions?: PersInfusionUncheckedUpdateManyWithoutMagicItemNestedInput
   }
 
   export type PersMagicItemUncheckedUpdateManyWithoutPersInput = {
@@ -92778,6 +98008,35 @@ export namespace Prisma {
     replacesInvocation?: NullableBoolFieldUpdateOperationsInput | boolean | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type PersInfusionUpdateWithoutPersInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    infusion?: InfusionUpdateOneRequiredWithoutPersInfusionsNestedInput
+    weapon?: PersWeaponUpdateOneWithoutInfusionsNestedInput
+    armor?: PersArmorUpdateOneWithoutInfusionsNestedInput
+    magicItem?: PersMagicItemUpdateOneWithoutInfusionsNestedInput
+  }
+
+  export type PersInfusionUncheckedUpdateWithoutPersInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutPersInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ClassFeatureCreateManyFeatureInput = {
@@ -93267,6 +98526,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUpdateManyWithoutPersesNestedInput
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutClassOptionalFeaturesInput = {
@@ -93327,6 +98587,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUncheckedUpdateManyWithoutPersesNestedInput
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutClassOptionalFeaturesInput = {
@@ -93652,6 +98913,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutRaceInput = {
@@ -93712,6 +98974,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutRaceInput = {
@@ -94077,6 +99340,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutSubraceInput = {
@@ -94137,6 +99401,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutSubraceInput = {
@@ -94418,6 +99683,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutRaceVariantsInput = {
@@ -94478,6 +99744,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutRaceVariantsInput = {
@@ -94605,6 +99872,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutRaceChoiceOptionsInput = {
@@ -94665,6 +99933,7 @@ export namespace Prisma {
     raceVariants?: RaceVariantUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutRaceChoiceOptionsInput = {
@@ -94821,6 +100090,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateWithoutBackgroundInput = {
@@ -94881,6 +100151,7 @@ export namespace Prisma {
     raceChoiceOptions?: RaceChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     choiceOptions?: ChoiceOptionUncheckedUpdateManyWithoutPersesNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutPersesNestedInput
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
   export type PersUncheckedUpdateManyWithoutBackgroundInput = {
@@ -94979,6 +100250,25 @@ export namespace Prisma {
     persId: number
   }
 
+  export type InfusionCreateManyReplicatedMagicItemInput = {
+    infusionId?: number
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    createsHomunculus?: boolean | null
+  }
+
   export type MagicItemFeatureUpdateWithoutMagicItemInput = {
     feature?: FeatureUpdateOneRequiredWithoutMagicItemFeaturesNestedInput
   }
@@ -94995,16 +100285,115 @@ export namespace Prisma {
 
   export type PersMagicItemUpdateWithoutMagicItemInput = {
     pers?: PersUpdateOneRequiredWithoutMagicItemsNestedInput
+    infusions?: PersInfusionUpdateManyWithoutMagicItemNestedInput
   }
 
   export type PersMagicItemUncheckedUpdateWithoutMagicItemInput = {
     persMagicItemId?: IntFieldUpdateOperationsInput | number
     persId?: IntFieldUpdateOperationsInput | number
+    infusions?: PersInfusionUncheckedUpdateManyWithoutMagicItemNestedInput
   }
 
   export type PersMagicItemUncheckedUpdateManyWithoutMagicItemInput = {
     persMagicItemId?: IntFieldUpdateOperationsInput | number
     persId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type InfusionUpdateWithoutReplicatedMagicItemInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    persInfusions?: PersInfusionUpdateManyWithoutInfusionNestedInput
+  }
+
+  export type InfusionUncheckedUpdateWithoutReplicatedMagicItemInput = {
+    infusionId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutInfusionNestedInput
+  }
+
+  export type InfusionUncheckedUpdateManyWithoutReplicatedMagicItemInput = {
+    infusionId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type PersInfusionCreateManyInfusionInput = {
+    persInfusionId?: number
+    persId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionUpdateWithoutInfusionInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pers?: PersUpdateOneRequiredWithoutPersInfusionsNestedInput
+    weapon?: PersWeaponUpdateOneWithoutInfusionsNestedInput
+    armor?: PersArmorUpdateOneWithoutInfusionsNestedInput
+    magicItem?: PersMagicItemUpdateOneWithoutInfusionsNestedInput
+  }
+
+  export type PersInfusionUncheckedUpdateWithoutInfusionInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutInfusionInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PersWeaponCreateManyWeaponInput = {
@@ -95047,6 +100436,7 @@ export namespace Prisma {
     overrideAttackAbility?: NullableEnumAbilityFieldUpdateOperationsInput | $Enums.Ability | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     pers?: PersUpdateOneRequiredWithoutWeaponsNestedInput
+    infusions?: PersInfusionUpdateManyWithoutWeaponNestedInput
   }
 
   export type PersWeaponUncheckedUpdateWithoutWeaponInput = {
@@ -95060,6 +100450,7 @@ export namespace Prisma {
     overrideDamageType?: NullableEnumDamageTypeFieldUpdateOperationsInput | $Enums.DamageType | null
     overrideAttackAbility?: NullableEnumAbilityFieldUpdateOperationsInput | $Enums.Ability | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
+    infusions?: PersInfusionUncheckedUpdateManyWithoutWeaponNestedInput
   }
 
   export type PersWeaponUncheckedUpdateManyWithoutWeaponInput = {
@@ -95157,6 +100548,7 @@ export namespace Prisma {
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     equipped?: BoolFieldUpdateOperationsInput | boolean
     pers?: PersUpdateOneRequiredWithoutArmorsNestedInput
+    infusions?: PersInfusionUpdateManyWithoutArmorNestedInput
   }
 
   export type PersArmorUncheckedUpdateWithoutArmorInput = {
@@ -95166,6 +100558,7 @@ export namespace Prisma {
     miscACBonus?: NullableIntFieldUpdateOperationsInput | number | null
     isProficient?: BoolFieldUpdateOperationsInput | boolean
     equipped?: BoolFieldUpdateOperationsInput | boolean
+    infusions?: PersInfusionUncheckedUpdateManyWithoutArmorNestedInput
   }
 
   export type PersArmorUncheckedUpdateManyWithoutArmorInput = {
@@ -95225,6 +100618,123 @@ export namespace Prisma {
     weaponType?: NullableEnumWeaponTypeFieldUpdateOperationsInput | $Enums.WeaponType | null
     weaponCount?: IntFieldUpdateOperationsInput | number
     description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PersInfusionCreateManyWeaponInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persArmorId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionUpdateWithoutWeaponInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pers?: PersUpdateOneRequiredWithoutPersInfusionsNestedInput
+    infusion?: InfusionUpdateOneRequiredWithoutPersInfusionsNestedInput
+    armor?: PersArmorUpdateOneWithoutInfusionsNestedInput
+    magicItem?: PersMagicItemUpdateOneWithoutInfusionsNestedInput
+  }
+
+  export type PersInfusionUncheckedUpdateWithoutWeaponInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutWeaponInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionCreateManyArmorInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persWeaponId?: number | null
+    persMagicItemId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionUpdateWithoutArmorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pers?: PersUpdateOneRequiredWithoutPersInfusionsNestedInput
+    infusion?: InfusionUpdateOneRequiredWithoutPersInfusionsNestedInput
+    weapon?: PersWeaponUpdateOneWithoutInfusionsNestedInput
+    magicItem?: PersMagicItemUpdateOneWithoutInfusionsNestedInput
+  }
+
+  export type PersInfusionUncheckedUpdateWithoutArmorInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutArmorInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionCreateManyMagicItemInput = {
+    persInfusionId?: number
+    persId: number
+    infusionId: number
+    persWeaponId?: number | null
+    persArmorId?: number | null
+    createdAt?: Date | string
+    expiresAt?: Date | string | null
+  }
+
+  export type PersInfusionUpdateWithoutMagicItemInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    pers?: PersUpdateOneRequiredWithoutPersInfusionsNestedInput
+    infusion?: InfusionUpdateOneRequiredWithoutPersInfusionsNestedInput
+    weapon?: PersWeaponUpdateOneWithoutInfusionsNestedInput
+    armor?: PersArmorUpdateOneWithoutInfusionsNestedInput
+  }
+
+  export type PersInfusionUncheckedUpdateWithoutMagicItemInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PersInfusionUncheckedUpdateManyWithoutMagicItemInput = {
+    persInfusionId?: IntFieldUpdateOperationsInput | number
+    persId?: IntFieldUpdateOperationsInput | number
+    infusionId?: IntFieldUpdateOperationsInput | number
+    persWeaponId?: NullableIntFieldUpdateOperationsInput | number | null
+    persArmorId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ClassStartingEquipmentOptionCreateManyEquipmentPackInput = {

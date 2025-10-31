@@ -545,9 +545,41 @@ exports.Prisma.MagicItemScalarFieldEnum = {
   itemType: 'itemType',
   rarity: 'rarity',
   description: 'description',
+  requiresAttunement: 'requiresAttunement',
   bonusToAC: 'bonusToAC',
   bonusToAttackRoll: 'bonusToAttackRoll',
   bonusToDamage: 'bonusToDamage'
+};
+
+exports.Prisma.InfusionScalarFieldEnum = {
+  infusionId: 'infusionId',
+  name: 'name',
+  engName: 'engName',
+  minArtificerLevel: 'minArtificerLevel',
+  targetType: 'targetType',
+  requiresAttunement: 'requiresAttunement',
+  bonusToAC: 'bonusToAC',
+  bonusToAttackRoll: 'bonusToAttackRoll',
+  bonusToDamage: 'bonusToDamage',
+  spellAttackBonus: 'spellAttackBonus',
+  speedBonus: 'speedBonus',
+  charges: 'charges',
+  rechargeDice: 'rechargeDice',
+  restoresSpellSlotUpToLevel: 'restoresSpellSlotUpToLevel',
+  increasesAtLevel10By: 'increasesAtLevel10By',
+  replicatedMagicItemId: 'replicatedMagicItemId',
+  createsHomunculus: 'createsHomunculus'
+};
+
+exports.Prisma.PersInfusionScalarFieldEnum = {
+  persInfusionId: 'persInfusionId',
+  persId: 'persId',
+  infusionId: 'infusionId',
+  persWeaponId: 'persWeaponId',
+  persArmorId: 'persArmorId',
+  persMagicItemId: 'persMagicItemId',
+  createdAt: 'createdAt',
+  expiresAt: 'expiresAt'
 };
 
 exports.Prisma.WeaponScalarFieldEnum = {
@@ -1069,6 +1101,19 @@ exports.ItemRarity = exports.$Enums.ItemRarity = {
   ARTIFACT: 'ARTIFACT'
 };
 
+exports.InfusionTargetType = exports.$Enums.InfusionTargetType = {
+  ARMOR: 'ARMOR',
+  SHIELD: 'SHIELD',
+  WEAPON: 'WEAPON',
+  WAND_ROD_STAFF: 'WAND_ROD_STAFF',
+  BOOTS: 'BOOTS',
+  HELMET: 'HELMET',
+  RING: 'RING',
+  AMMO: 'AMMO',
+  GEM_CRYSTAL: 'GEM_CRYSTAL',
+  ANY: 'ANY'
+};
+
 exports.WeaponCategory = exports.$Enums.WeaponCategory = {
   CLUB: 'CLUB',
   DAGGER: 'DAGGER',
@@ -1255,6 +1300,8 @@ exports.Prisma.ModelName = {
   FeatAbilityBoost: 'FeatAbilityBoost',
   PersFeat: 'PersFeat',
   MagicItem: 'MagicItem',
+  Infusion: 'Infusion',
+  PersInfusion: 'PersInfusion',
   Weapon: 'Weapon',
   Armor: 'Armor',
   PersSkill: 'PersSkill',

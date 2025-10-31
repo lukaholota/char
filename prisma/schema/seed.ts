@@ -5,6 +5,9 @@ import { seedEquipmentPacks } from "./seed/equipmentPackSeed";
 import { seedBackground } from "./seed/backgroundSeed";
 import { seedRaceFeatures } from "./seed/raceFeatureSeed";
 import { seedRaces } from "./seed/raceSeed";
+import { seedMagicItems } from "./seed/magicItemSeed";
+import { seedInfusions } from "./seed/infusionSeed";
+import { seedInfusionFeatures } from "./seed/infusionFeaturesSeed";
 const prisma = new PrismaClient()
 
 async function main() {
@@ -16,6 +19,9 @@ async function main() {
     await seedBackground(prisma)
     await seedRaceFeatures(prisma)
     await seedRaces(prisma)
+    await seedMagicItems(prisma)
+    await seedInfusions(prisma)
+    await seedInfusionFeatures(prisma)
 }
 
 main()

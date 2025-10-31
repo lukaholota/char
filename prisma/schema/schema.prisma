@@ -930,6 +930,9 @@ model Pers {
   choiceOptions     ChoiceOption[]
   classOptionalFeatures ClassOptionalFeature[]
 
+  // Opposite side of PersInfusion.pers
+  persInfusions PersInfusion[]
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
@@ -1336,6 +1339,7 @@ model MagicItem {
   rarity   ItemRarity
 
   description String @db.Text
+  requiresAttunement Boolean @default(false) @map("requires_attunement")
 
   bonusToAC         Int? @map("bonus_to_ac")
   bonusToAttackRoll Int? @map("bonus_to_attack_roll")
@@ -1345,7 +1349,85 @@ model MagicItem {
 
   persMagicItems PersMagicItem[]
 
+  // Opposite side of Infusion.replicatedMagicItem
+  replicatedByInfusions Infusion[]
+
   @@map("magic_item")
+}
+
+// ===== Infusions =====
+
+enum InfusionTargetType {
+  ARMOR
+  SHIELD
+  WEAPON
+  WAND_ROD_STAFF
+  BOOTS
+  HELMET
+  RING
+  AMMO
+  GEM_CRYSTAL
+  ANY
+}
+
+model Infusion {
+  infusionId Int    @id @default(autoincrement()) @map("infusion_id")
+  name       String @db.VarChar(120)
+  engName    String @unique @db.VarChar(120) @map("eng_name")
+
+  minArtificerLevel Int  @default(1) @map("min_artificer_level")
+  targetType        InfusionTargetType @map("target_type")
+  requiresAttunement Boolean @default(false) @map("requires_attunement")
+
+  // Explicit effect fields (без JSON)
+  bonusToAC           Int?    @map("bonus_to_ac")
+  bonusToAttackRoll   Int?    @map("bonus_to_attack_roll")
+  bonusToDamage       Int?    @map("bonus_to_damage")
+  spellAttackBonus    Int?    @map("spell_attack_bonus")
+  speedBonus          Int?     @map("speed_bonus")
+  charges             Int?     @map("charges")
+  rechargeDice        String?  @map("recharge_dice")
+  restoresSpellSlotUpToLevel Int? @map("restores_spell_slot_upto_level")
+
+  // Scaling (+2 at level 10 for some infusions)
+  increasesAtLevel10By Int? @map("increases_at_level10_by")
+
+  // Replicate Magic Item
+  replicatedMagicItemId Int? @map("replicated_magic_item_id")
+  replicatedMagicItem   MagicItem? @relation(fields: [replicatedMagicItemId], references: [magicItemId])
+
+  // Special flags
+  createsHomunculus Boolean? @map("creates_homunculus")
+
+  // Link to Feature for static description
+  featureId Int? @map("feature_id")
+  feature   Feature? @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+
+  persInfusions PersInfusion[]
+
+  @@map("infusion")
+}
+
+model PersInfusion {
+  persInfusionId Int @id @default(autoincrement()) @map("pers_infusion_id")
+  persId         Int @map("pers_id")
+  infusionId     Int @map("infusion_id")
+
+  // Прив'язка до конкретного предмета персонажа
+  persWeaponId    Int? @map("pers_weapon_id")
+  persArmorId     Int? @map("pers_armor_id")
+  persMagicItemId Int? @map("pers_magic_item_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  expiresAt DateTime? @map("expires_at")
+
+  pers     Pers        @relation(fields: [persId], references: [persId])
+  infusion Infusion    @relation(fields: [infusionId], references: [infusionId])
+  weapon   PersWeapon? @relation(fields: [persWeaponId], references: [persWeaponId])
+  armor    PersArmor?  @relation(fields: [persArmorId], references: [persArmorId])
+  magicItem PersMagicItem? @relation(fields: [persMagicItemId], references: [persMagicItemId])
+
+  @@map("pers_infusion")
 }
 
 model Weapon {
@@ -1417,6 +1499,9 @@ model PersWeapon {
   pers   Pers   @relation(fields: [persId], references: [persId])
   weapon Weapon @relation(fields: [weaponId], references: [weaponId])
 
+  // Opposite side of PersInfusion.weapon
+  infusions PersInfusion[]
+
   @@map("pers_weapon")
 }
 
@@ -1434,6 +1519,9 @@ model PersArmor {
   pers  Pers  @relation(fields: [persId], references: [persId])
   armor Armor @relation(fields: [armorId], references: [armorId])
 
+  // Opposite side of PersInfusion.armor
+  infusions PersInfusion[]
+
   @@map("pers_armor")
 }
 
@@ -1444,6 +1532,9 @@ model PersMagicItem {
 
   pers      Pers      @relation(fields: [persId], references: [persId])
   magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId])
+
+  // Opposite side of PersInfusion.magicItem
+  infusions PersInfusion[]
 
   @@map("pers_magic_item")
 }

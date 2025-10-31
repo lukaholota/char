@@ -1,7 +1,7 @@
 import { Ability, FeatureDisplayType, Prisma, PrismaClient, RestType, Skills } from '../../src/generated/prisma'
 
-export const seedClassFeatures = async (prisma: PrismaClient) => {
-    console.log('🌟 Додаємо класові фічі...')
+export const seedClassFeatures = async ( prisma: PrismaClient ) => {
+    console.log( '🌟 Додаємо класові фічі...' )
     const features: Prisma.FeatureCreateInput[] = [
         {
             name: 'Стрільба з лука',
@@ -536,7 +536,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
 
         // ===== RANGER FEATURES =====
 
-// 1 РІВЕНЬ
+        // 1 РІВЕНЬ
         {
             name: 'Улюблений ворог',
             engName: 'Favored Enemy',
@@ -560,7 +560,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 3 РІВЕНЬ
+        // 3 РІВЕНЬ
         {
             name: 'Первісне усвідомлення',
             engName: 'Primeval Awareness',
@@ -569,7 +569,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
         },
 
-// 5 РІВЕНЬ
+        // 5 РІВЕНЬ
         {
             name: 'Додаткова атака',
             engName: 'Extra Attack (Ranger)',
@@ -578,7 +578,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 8 РІВЕНЬ
+        // 8 РІВЕНЬ
         {
             name: 'Хода землею',
             engName: 'Land\'s Stride',
@@ -587,7 +587,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 10 РІВЕНЬ
+        // 10 РІВЕНЬ
         {
             name: 'Сховатися на видноті',
             engName: 'Hide in Plain Sight',
@@ -596,7 +596,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 14 РІВЕНЬ
+        // 14 РІВЕНЬ
         {
             name: 'Зникнення',
             engName: 'Vanish',
@@ -605,7 +605,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.BONUSACTION, FeatureDisplayType.PASSIVE],
         },
 
-// 18 РІВЕНЬ
+        // 18 РІВЕНЬ
         {
             name: 'Дикі почуття',
             engName: 'Feral Senses',
@@ -614,7 +614,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 20 РІВЕНЬ
+        // 20 РІВЕНЬ
         {
             name: 'Убивця ворогів',
             engName: 'Foe Slayer',
@@ -634,7 +634,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             usesCountDependsOnProficiencyBonus: true,
         },
 
-// Deft Explorer - Canny
+        // Deft Explorer - Canny
         {
             name: 'Спритний дослідник - Кмітливий',
             engName: 'Deft Explorer - Canny',
@@ -648,7 +648,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             }
         },
 
-// Deft Explorer - Roving
+        // Deft Explorer - Roving
         {
             name: 'Спритний дослідник - Мандрівний',
             engName: 'Deft Explorer - Roving',
@@ -657,7 +657,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// Deft Explorer - Tireless
+        // Deft Explorer - Tireless
         {
             name: 'Спритний дослідник - Невтомний',
             engName: 'Deft Explorer - Tireless',
@@ -668,7 +668,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             usesCountDependsOnProficiencyBonus: true,
         },
 
-// Primal Awareness (Optional)
+        // Primal Awareness (Optional)
         {
             name: 'Первородне усвідомлення',
             engName: 'Primal Awareness',
@@ -687,7 +687,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             }
         },
 
-// Spellcasting Focus (Optional)
+        // Spellcasting Focus (Optional)
         {
             name: 'Чаротворчий Фокус (опційна)',
             engName: 'Spellcasting Focus (Ranger)',
@@ -696,7 +696,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// Nature's Veil (Optional)
+        // Nature's Veil (Optional)
         {
             name: 'Вуаль природи',
             engName: 'Nature\'s Veil',
@@ -710,7 +710,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
 
         // ===== PALADIN FEATURES =====
 
-// 1 РІВЕНЬ
+        // 1 РІВЕНЬ
         {
             name: 'Божественне відчуття',
             engName: 'Divine Sense',
@@ -741,7 +741,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             }
         },
 
-// 2 РІВЕНЬ
+        // 2 РІВЕНЬ
         {
             name: 'Чаротворство (Паладин)',
             engName: 'Spellcasting (Paladin)',
@@ -757,7 +757,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 3 РІВЕНЬ
+        // 3 РІВЕНЬ
         {
             name: 'Божественне здоров\'я',
             engName: 'Divine Health',
@@ -788,7 +788,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             shortDescription: 'Додаткові завжди підготовлені заклинання від вашої клятви',
             displayType: [FeatureDisplayType.PASSIVE],
         },
-// 5 РІВЕНЬ
+        // 5 РІВЕНЬ
         {
             name: 'Додаткова атака',
             engName: 'Extra Attack (Paladin)',
@@ -797,7 +797,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 6 РІВЕНЬ
+        // 6 РІВЕНЬ
         {
             name: 'Аура захисту',
             engName: 'Aura of Protection',
@@ -806,7 +806,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 10 РІВЕНЬ
+        // 10 РІВЕНЬ
         {
             name: 'Аура мужності',
             engName: 'Aura of Courage',
@@ -815,7 +815,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 11 РІВЕНЬ
+        // 11 РІВЕНЬ
         {
             name: 'Покращене божественна кара',
             engName: 'Improved Divine Smite',
@@ -824,7 +824,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 14 РІВЕНЬ
+        // 14 РІВЕНЬ
         {
             name: 'Очищувальний дотик',
             engName: 'Cleansing Touch',
@@ -838,7 +838,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             }
         },
 
-// ОПЦІЙНІ ФІЧІ (Tasha's)
+        // ОПЦІЙНІ ФІЧІ (Tasha's)
         {
             name: 'Спрямування божественної сили',
             engName: 'Harness Divine Power',
@@ -856,7 +856,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
 
         // ===== ROGUE FEATURES =====
 
-// 1 РІВЕНЬ
+        // 1 РІВЕНЬ
         {
             name: 'Експертиза',
             engName: 'Expertise',
@@ -883,7 +883,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 2 РІВЕНЬ
+        // 2 РІВЕНЬ
         {
             name: 'Хитра дія',
             engName: 'Cunning Action',
@@ -892,7 +892,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.BONUSACTION],
         },
 
-// 3 РІВЕНЬ
+        // 3 РІВЕНЬ
         {
             name: 'Пройдисвітський архетип',
             engName: 'Roguish Archetype',
@@ -901,7 +901,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 5 РІВЕНЬ
+        // 5 РІВЕНЬ
         {
             name: 'Надприродне ухилення',
             engName: 'Uncanny Dodge',
@@ -910,7 +910,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.REACTION],
         },
 
-// 6 рівень
+        // 6 рівень
 
         {
             name: 'Експертиза 2 ',
@@ -924,7 +924,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             }
         },
 
-// 7 РІВЕНЬ
+        // 7 РІВЕНЬ
         {
             name: 'Ухилення',
             engName: 'Evasion',
@@ -933,7 +933,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 11 РІВЕНЬ
+        // 11 РІВЕНЬ
         {
             name: 'Надійний талант',
             engName: 'Reliable Talent',
@@ -942,7 +942,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 14 РІВЕНЬ
+        // 14 РІВЕНЬ
         {
             name: 'Сліповідчуття',
             engName: 'Blindsense',
@@ -951,7 +951,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 15 РІВЕНЬ
+        // 15 РІВЕНЬ
         {
             name: 'Слизький розум',
             engName: 'Slippery Mind',
@@ -961,7 +961,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             savingThrows: [Ability.WIS],
         },
 
-// 18 РІВЕНЬ
+        // 18 РІВЕНЬ
         {
             name: 'Невловимий',
             engName: 'Elusive',
@@ -970,7 +970,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 20 РІВЕНЬ
+        // 20 РІВЕНЬ
         {
             name: 'Шанс удачі',
             engName: 'Stroke of Luck',
@@ -981,7 +981,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             usesCount: 1,
         },
 
-// ОПЦІЙНА ФІЧА (Tasha's)
+        // ОПЦІЙНА ФІЧА (Tasha's)
         {
             name: 'Стійке прицілювання',
             engName: 'Steady Aim',
@@ -994,7 +994,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
 
         // ===== WARLOCK FEATURES =====
 
-// 1 РІВЕНЬ
+        // 1 РІВЕНЬ
         {
             name: 'Магія пакту',
             engName: 'Pact Magic',
@@ -1003,7 +1003,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 2 РІВЕНЬ
+        // 2 РІВЕНЬ
         {
             name: 'Потойбічні виклики',
             engName: 'Eldritch Invocations',
@@ -1012,7 +1012,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 3 РІВЕНЬ
+        // 3 РІВЕНЬ
         {
             name: 'Дар пакту',
             engName: 'Pact Boon',
@@ -1021,7 +1021,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.HIDDEN],
         },
 
-// 11, 13, 15, 17 РІВНІ
+        // 11, 13, 15, 17 РІВНІ
         {
             name: 'Містичний арканум (6 рівень)',
             engName: 'Mystic Arcanum (6th level)',
@@ -1062,7 +1062,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             usesCount: 1,
         },
 
-// 20 РІВЕНЬ
+        // 20 РІВЕНЬ
         {
             name: 'Містичний майстер',
             engName: 'Eldritch Master',
@@ -1115,7 +1115,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
 
         // ===== ELDRITCH INVOCATIONS - ПОВНИЙ СПИСОК =====
 
-// 1. Agonizing Blast
+        // 1. Agonizing Blast
         {
             name: 'Мучливий вибух',
             engName: 'Agonizing Blast',
@@ -1124,7 +1124,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 2. Armor of Shadows
+        // 2. Armor of Shadows
         {
             name: 'Обладунок тіней',
             engName: 'Armor of Shadows',
@@ -1136,7 +1136,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 3. Ascendant Step
+        // 3. Ascendant Step
         {
             name: 'Висхідний крок',
             engName: 'Ascendant Step',
@@ -1148,7 +1148,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 4. Beguiling Influence
+        // 4. Beguiling Influence
         {
             name: 'Спокусливий вплив',
             engName: 'Beguiling Influence',
@@ -1160,7 +1160,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 5. Beast Speech
+        // 5. Beast Speech
         {
             name: 'Мова звірів',
             engName: 'Beast Speech',
@@ -1172,7 +1172,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 6. Devil's Sight
+        // 6. Devil's Sight
         {
             name: 'Зір диявола',
             engName: 'Devil\'s Sight',
@@ -1181,7 +1181,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 7. Eldritch Sight
+        // 7. Eldritch Sight
         {
             name: 'Потойбічний зір',
             engName: 'Eldritch Sight',
@@ -1193,7 +1193,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 8. Eldritch Mind
+        // 8. Eldritch Mind
         {
             name: 'Потойбічний розум',
             engName: 'Eldritch Mind',
@@ -1202,7 +1202,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 9. Eldritch Spear
+        // 9. Eldritch Spear
         {
             name: 'Потойбічний спис',
             engName: 'Eldritch Spear',
@@ -1211,7 +1211,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 10. Eyes of the Rune Keeper
+        // 10. Eyes of the Rune Keeper
         {
             name: 'Очі хранителя рун',
             engName: 'Eyes of the Rune Keeper',
@@ -1220,7 +1220,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 11. Gaze of Two Minds
+        // 11. Gaze of Two Minds
         {
             name: 'Погляд двох розумів',
             engName: 'Gaze of Two Minds',
@@ -1229,7 +1229,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION, FeatureDisplayType.BONUSACTION],
         },
 
-// 12. Mask of Many Faces
+        // 12. Mask of Many Faces
         {
             name: 'Маска багатьох облич',
             engName: 'Mask of Many Faces',
@@ -1241,7 +1241,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 13. Misty Visions
+        // 13. Misty Visions
         {
             name: 'Туманні видіння',
             engName: 'Misty Visions',
@@ -1253,7 +1253,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 14. Repelling Blast
+        // 14. Repelling Blast
         {
             name: 'Відштовхувальний вибух',
             engName: 'Repelling Blast',
@@ -1262,7 +1262,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 15. Sculptor of Flesh
+        // 15. Sculptor of Flesh
         {
             name: 'Скульптор плоті',
             engName: 'Sculptor of Flesh',
@@ -1276,7 +1276,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 16. Sign of Ill Omen
+        // 16. Sign of Ill Omen
         {
             name: 'Знак лихого знамення',
             engName: 'Sign of Ill Omen',
@@ -1290,7 +1290,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 17. Thirsting Blade
+        // 17. Thirsting Blade
         {
             name: 'Спрагле лезо',
             engName: 'Thirsting Blade',
@@ -1299,7 +1299,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 18. Visions of Distant Realms
+        // 18. Visions of Distant Realms
         {
             name: 'Видіння далеких царств',
             engName: 'Visions of Distant Realms',
@@ -1311,7 +1311,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 19. Voice of the Chain Master
+        // 19. Voice of the Chain Master
         {
             name: 'Голос майстра ланцюгів',
             engName: 'Voice of the Chain Master',
@@ -1320,7 +1320,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 20. Whispers of the Grave
+        // 20. Whispers of the Grave
         {
             name: 'Шепіт могили',
             engName: 'Whispers of the Grave',
@@ -1332,7 +1332,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 21. Book of Ancient Secrets
+        // 21. Book of Ancient Secrets
         {
             name: 'Книга давніх секретів',
             engName: 'Book of Ancient Secrets',
@@ -1341,7 +1341,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 22. Otherworldly Leap
+        // 22. Otherworldly Leap
         {
             name: 'Потойбічний стрибок',
             engName: 'Otherworldly Leap',
@@ -1353,7 +1353,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 23. Gift of the Depths
+        // 23. Gift of the Depths
         {
             name: 'Дари глибин',
             engName: 'Gift of the Depths',
@@ -1367,7 +1367,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 24. Gift of the Ever-Living Ones
+        // 24. Gift of the Ever-Living Ones
         {
             name: 'Дари вічних',
             engName: 'Gift of the Ever-Living Ones',
@@ -1376,7 +1376,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 25. Grasp of Hadar
+        // 25. Grasp of Hadar
         {
             name: 'Хватка Хадара',
             engName: 'Grasp of Hadar',
@@ -1385,7 +1385,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 26. Lance of Lethargy
+        // 26. Lance of Lethargy
         {
             name: 'Спис млявості',
             engName: 'Lance of Lethargy',
@@ -1394,7 +1394,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 27. Fiendish Vigor
+        // 27. Fiendish Vigor
         {
             name: 'Вогняна енергійність',
             engName: 'Fiendish Vigor',
@@ -1406,7 +1406,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 28. Improved Pact Weapon
+        // 28. Improved Pact Weapon
         {
             name: 'Покращена пактова зброя',
             engName: 'Improved Pact Weapon',
@@ -1415,7 +1415,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 29. Eldritch Smite
+        // 29. Eldritch Smite
         {
             name: 'Містична кара',
             engName: 'Eldritch Smite',
@@ -1424,7 +1424,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 30. Shrouded in Shadow
+        // 30. Shrouded in Shadow
         {
             name: 'Вкритий тінню',
             engName: 'Shrouded in Shadow',
@@ -1436,7 +1436,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 31. Master of Myriad Forms
+        // 31. Master of Myriad Forms
         {
             name: 'Майстер численних форм',
             engName: 'Master of Myriad Forms',
@@ -1448,7 +1448,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 32. Witch Sight
+        // 32. Witch Sight
         {
             name: 'Відьомський зір',
             engName: 'Witch Sight',
@@ -1457,7 +1457,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 33. Lifedrinker
+        // 33. Lifedrinker
         {
             name: 'Життєпийця',
             engName: 'Lifedrinker',
@@ -1466,7 +1466,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 35. Minions of Chaos
+        // 35. Minions of Chaos
         {
             name: 'Слуги хаосу',
             engName: 'Minions of Chaos',
@@ -1480,7 +1480,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 36. One with Shadows
+        // 36. One with Shadows
         {
             name: 'Один з тінями',
             engName: 'One with Shadows',
@@ -1489,7 +1489,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
         },
 
-// 37. Chains of Carceri
+        // 37. Chains of Carceri
         {
             name: 'Ланцюги Каркері',
             engName: 'Chains of Carceri',
@@ -1501,7 +1501,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 38. Tomb of Levistus
+        // 38. Tomb of Levistus
         {
             name: 'Гробниця Левістуса',
             engName: 'Tomb of Levistus',
@@ -1512,7 +1512,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             usesCount: 1,
         },
 
-// 39. Trickster's Escape
+        // 39. Trickster's Escape
         {
             name: 'Відьомська втеча',
             engName: 'Trickster\'s Escape',
@@ -1526,7 +1526,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 40. Bewitching Whispers
+        // 40. Bewitching Whispers
         {
             name: 'Чарівливий шепіт',
             engName: 'Bewitching Whispers',
@@ -1540,7 +1540,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 41. Dreadful Word
+        // 41. Dreadful Word
         {
             name: 'Жахливе слово',
             engName: 'Dreadful Word',
@@ -1554,7 +1554,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 42. Mire the Mind
+        // 42. Mire the Mind
         {
             name: 'Загрузнути в розумі',
             engName: 'Mire the Mind',
@@ -1568,7 +1568,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 43. Thief of Five Fates
+        // 43. Thief of Five Fates
         {
             name: 'Злодій п\'яти доль',
             engName: 'Thief of Five Fates',
@@ -1591,7 +1591,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.ACTION],
         },
 
-// 45. Cloak of Flies
+        // 45. Cloak of Flies
         {
             name: 'Плащ мух',
             engName: 'Cloak of Flies',
@@ -1600,7 +1600,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.BONUSACTION],
         },
 
-// 46. Ghostly Gaze
+        // 46. Ghostly Gaze
         {
             name: 'Примарний погляд',
             engName: 'Ghostly Gaze',
@@ -1611,7 +1611,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             usesCount: 1,
         },
 
-// 47. Maddening Hex
+        // 47. Maddening Hex
         {
             name: 'Божевільне прокляття',
             engName: 'Maddening Hex',
@@ -1620,7 +1620,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.BONUSACTION],
         },
 
-// 48. Relentless Hex
+        // 48. Relentless Hex
         {
             name: 'Невблаганне прокляття',
             engName: 'Relentless Hex',
@@ -1642,7 +1642,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         },
 
 
-// 50. Gift of the Protectors (ПРАВИЛЬНА ВЕРСІЯ)
+        // 50. Gift of the Protectors (ПРАВИЛЬНА ВЕРСІЯ)
         {
             name: 'Дар захисників',
             engName: 'Gift of the Protectors',
@@ -1652,7 +1652,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
         },
 
 
-// 51. Investment of the Chain Master
+        // 51. Investment of the Chain Master
         {
             name: 'Інвестиція майстра ланцюгів',
             engName: 'Investment of the Chain Master',
@@ -1661,7 +1661,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
 
-// 52. Undying Servitude
+        // 52. Undying Servitude
         {
             name: 'Невмируще рабство',
             engName: 'Undying Servitude',
@@ -1675,7 +1675,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             },
         },
 
-// 53. Rebuke of the Talisman
+        // 53. Rebuke of the Talisman
         {
             name: 'Відплата талісмана',
             engName: 'Rebuke of the Talisman',
@@ -1684,7 +1684,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.REACTION],
         },
 
-// 54. Protection of the Talisman
+        // 54. Protection of the Talisman
         {
             name: 'Захист талісмана',
             engName: 'Protection of the Talisman',
@@ -1695,7 +1695,7 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             usesCountDependsOnProficiencyBonus: true,
         },
 
-// 55. Bond of the Talisman
+        // 55. Bond of the Talisman
         {
             name: 'Узи талісмана',
             engName: 'Bond of the Talisman',
@@ -1705,5 +1705,87 @@ export const seedClassFeatures = async (prisma: PrismaClient) => {
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,
         },
+
+
+        // ===== ARTIFICER (Винахідник) =====
+        {
+            name: 'Магічне майстрування',
+            engName: 'Magical Tinkering',
+            description: 'Ви можете вливати дрібні магічні властивості у неживі предмети. Дією торкніться крихітного неживого предмета і надайте йому один з дрібних магічних ефектів (світіння, запис звуку, запах чи повідомлення). Ви можете підтримувати одночасно кілька таких ефектів, рівних вашому Бонусу Майстерності; якщо перевищуєте ліміт, найстаріший ефект зникає.',
+            shortDescription: 'Влийте дрібний магічний ефект у предмет (до БМ предметів)',
+            displayType: [FeatureDisplayType.ACTION],
+        },
+        {
+            name: 'Чаротворення (Винахідник)',
+            engName: 'Spellcasting (Artificer)',
+            description: 'Ви вчитеся творити заклинання як напівкастер, використовуючи Інтелект як характеристику заклинань. Ви Володієте чаротворчим фокусом: інструментами ремісника. Підготовка заклинань та осередки заклять визначаються таблицею Винахідника.',
+            shortDescription: 'Напівкастер, Інт, фокус — інструменти ремісника',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
+        {
+            name: 'Вливання предмета',
+            engName: 'Infuse Item',
+            description: 'Ви вмієте вливати магічні властивості у немагічні предмети, обираючи відомі Вливання. Після довгого відпочинку ви можете влити певну кількість предметів; якщо перевищуєте ліміт, попереднє Вливання зникає. Деякі Вливання імітують магічні предмети. Предмети мають залишатися у вашій близькості, інакше вливання згасає через 24 години.',
+            shortDescription: 'Вливайте магію у предмети (ліміт за рівнем)',
+            displayType: [FeatureDisplayType.CLASS_RESOURCE],
+        },
+        {
+            name: 'Потрібний інструмент для роботи',
+            engName: 'The Right Tool for the Job',
+            description: 'За допомогою інструментів ремісника ви можете за 1 годину роботи створити набір інструментів ремісника на вибір. Створені інструменти існують, поки ви працюєте з ними.',
+            shortDescription: 'За 1 год — створіть інструменти ремісника',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
+        {
+            name: 'Експертиза інструментів',
+            engName: 'Tool Expertise',
+            description: 'Починаючи з 6 рівня, коли ви робите перевірку характеристики з інструментами, якими ви Володієте, ви додаєте подвоєний Бонус Майстерності.',
+            shortDescription: 'Подвоєний Бонус Майстерності з інструментами',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
+        {
+            name: 'Спалах геніальності',
+            engName: 'Flash of Genius',
+            description: 'Починаючи з 7 рівня, коли ви або створіння у 30 футах провалює перевірку або ряткидок, ви можете реакцією додати свій модифікатор Інтелекту до кидка. Ви можете робити це кількість разів, рівну вашому модифікатору Інтелекту (мін. 1), відновлюючи використання після тривалого відпочинку.',
+            shortDescription: 'Реакцією додайте Інт до перевірки/ряткидка (x ІНТ/день)',
+            displayType: [FeatureDisplayType.REACTION],
+            limitedUsesPer: RestType.DAY,
+        },
+        {
+            name: 'Адепт магічних предметів',
+            engName: 'Magic Item Adept',
+            description: 'Починаючи з 10 рівня, ви створюєте та використовуєте магічні предмети ефективніше: час і вартість створення знижуються, і ви можете носити більше одягнених предметів одночасно (як правило, +1 до лімітів носіння).',
+            shortDescription: 'Краща робота з магічними предметами (+носіння)',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
+        {
+            name: 'Предмет-осередок заклять',
+            engName: 'Spell-Storing Item',
+            description: 'На 11 рівні ви можете зберігати одне заклинання 1–2 рівня у предметі. Власник предмета може витрачати дію, щоб творити заклинання з нього без витрати осередків; кількість використань дорівнює вашому 2 × модифікатор Інтелекту (мін. 2).',
+            shortDescription: 'Зберігайте заклинання 1–2 р. в предметі (x використань)',
+            displayType: [FeatureDisplayType.CLASS_RESOURCE],
+        },
+        {
+            name: 'Знавець магічних предметів',
+            engName: 'Magic Item Savant',
+            description: 'На 14 рівні ви ігноруєте вимоги класу, раси, рівня до більшості магічних предметів, а також можете носити більше з них одночасно.',
+            shortDescription: 'Ігноруєте вимоги до більшості магічних предметів',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
+        {
+            name: 'Майстер магічних предметів',
+            engName: 'Magic Item Master',
+            description: 'На 18 рівні ви можете носити ще більше магічних предметів одночасно, ніж зазвичай (+2 до лімітів носіння).',
+            shortDescription: 'Ще більше одягнених магічних предметів',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
+        {
+            name: 'Душа винахідництва',
+            engName: 'Soul of Artifice',
+            description: 'На 20 рівні, поки ви маєте одягнені магічні предмети з вашими Вливаннями, ви отримуєте +1 до КБ та всіх ряткидків за кожен такий предмет. Якщо вас зводять до 0 ХП, ви можете скинути вливання, щоб залишитися на 1 ХП (реакцією).',
+            shortDescription: '+1 до КБ і ряткидків за кожен влитий предмет; тримайтесь на 1 ХП',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
+
     ]
 }
