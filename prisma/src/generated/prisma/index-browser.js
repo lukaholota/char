@@ -222,17 +222,14 @@ exports.Prisma.ClassScalarFieldEnum = {
   spellcastingType: 'spellcastingType',
   abilityScoreUpLevels: 'abilityScoreUpLevels',
   subclassLevel: 'subclassLevel',
-  multiclassStrReq: 'multiclassStrReq',
-  multiclassDexReq: 'multiclassDexReq',
-  multiclassConReq: 'multiclassConReq',
-  multiclassIntReq: 'multiclassIntReq',
-  multiclassWisReq: 'multiclassWisReq',
-  multiclassChaReq: 'multiclassChaReq',
+  multiclassReqs: 'multiclassReqs',
   armorProficiencies: 'armorProficiencies',
   weaponProficiencies: 'weaponProficiencies',
+  weaponProficienciesSpecial: 'weaponProficienciesSpecial',
   savingThrows: 'savingThrows',
   skillProficiencies: 'skillProficiencies',
   toolProficiencies: 'toolProficiencies',
+  toolToChooseCount: 'toolToChooseCount',
   languagesToChooseCount: 'languagesToChooseCount',
   languages: 'languages',
   specialSpellSlotProgression: 'specialSpellSlotProgression',
@@ -245,10 +242,37 @@ exports.Prisma.SubclassScalarFieldEnum = {
   classId: 'classId',
   name: 'name',
   description: 'description',
+  primaryCastingStat: 'primaryCastingStat',
+  spellcastingType: 'spellcastingType',
   grantsSpells: 'grantsSpells',
   languagesToChooseCount: 'languagesToChooseCount',
   languages: 'languages',
-  toolProficiencies: 'toolProficiencies'
+  toolProficiencies: 'toolProficiencies',
+  toolToChooseCount: 'toolToChooseCount'
+};
+
+exports.Prisma.ChoiceOptionScalarFieldEnum = {
+  choiceOptionId: 'choiceOptionId',
+  groupName: 'groupName',
+  optionName: 'optionName',
+  optionNameEng: 'optionNameEng',
+  prerequisites: 'prerequisites',
+  givesAC: 'givesAC',
+  meleeAttackBonus: 'meleeAttackBonus',
+  rangedAttackBonus: 'rangedAttackBonus',
+  meleeDamageBoost: 'meleeDamageBoost',
+  thrownDamageBoost: 'thrownDamageBoost',
+  givesManeuvres: 'givesManeuvres',
+  superiorityDiceCount: 'superiorityDiceCount',
+  modifiesUnarmed: 'modifiesUnarmed',
+  unarmedDamage: 'unarmedDamage'
+};
+
+exports.Prisma.ClassChoiceOptionScalarFieldEnum = {
+  optionId: 'optionId',
+  classId: 'classId',
+  choiceOptionId: 'choiceOptionId',
+  levelsGranted: 'levelsGranted'
 };
 
 exports.Prisma.PersScalarFieldEnum = {
@@ -286,12 +310,16 @@ exports.Prisma.PersScalarFieldEnum = {
   wis: 'wis',
   cha: 'cha',
   cp: 'cp',
-  sp: 'sp',
   ep: 'ep',
+  sp: 'sp',
   gp: 'gp',
   pp: 'pp',
   additionalSaveProficiencies: 'additionalSaveProficiencies',
   miscSaveBonuses: 'miscSaveBonuses',
+  wearsShield: 'wearsShield',
+  additionalShieldBonus: 'additionalShieldBonus',
+  armorBonus: 'armorBonus',
+  wearsNaturalArmor: 'wearsNaturalArmor',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -318,8 +346,16 @@ exports.Prisma.FeatureScalarFieldEnum = {
   description: 'description',
   shortDescription: 'shortDescription',
   modifiesStats: 'modifiesStats',
+  modifiesAC: 'modifiesAC',
+  skillProficiencies: 'skillProficiencies',
+  savingThrows: 'savingThrows',
+  skillExpertises: 'skillExpertises',
   limitedUsesPer: 'limitedUsesPer',
   usesCount: 'usesCount',
+  usesCountSpecial: 'usesCountSpecial',
+  usesCountDependsOnProficiencyBonus: 'usesCountDependsOnProficiencyBonus',
+  invocationsCount: 'invocationsCount',
+  languagesToChooseCount: 'languagesToChooseCount',
   displayType: 'displayType',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -339,6 +375,29 @@ exports.Prisma.SubclassFeatureScalarFieldEnum = {
   featureId: 'featureId',
   levelGranted: 'levelGranted',
   grantsSpellSlots: 'grantsSpellSlots'
+};
+
+exports.Prisma.ChoiceOptionFeatureScalarFieldEnum = {
+  optionFeatureId: 'optionFeatureId',
+  choiceOptionId: 'choiceOptionId',
+  featureId: 'featureId'
+};
+
+exports.Prisma.ClassOptionalFeatureScalarFieldEnum = {
+  optionalFeatureId: 'optionalFeatureId',
+  featureId: 'featureId',
+  classId: 'classId',
+  grantedOnLevels: 'grantedOnLevels',
+  replacesFightingStyle: 'replacesFightingStyle',
+  replacesManeuver: 'replacesManeuver',
+  replacesInvocation: 'replacesInvocation',
+  title: 'title',
+  prerequisites: 'prerequisites'
+};
+
+exports.Prisma.ClassOptionalFeatureReplacesFeatureScalarFieldEnum = {
+  classOptionalFeatureId: 'classOptionalFeatureId',
+  replacedFeatureId: 'replacedFeatureId'
 };
 
 exports.Prisma.RaceTraitScalarFieldEnum = {
@@ -392,6 +451,7 @@ exports.Prisma.RaceScalarFieldEnum = {
   languagesToChooseCount: 'languagesToChooseCount',
   ASI: 'ASI',
   toolProficiencies: 'toolProficiencies',
+  toolToChooseCount: 'toolToChooseCount',
   skillProficiencies: 'skillProficiencies',
   weaponProficiencies: 'weaponProficiencies',
   armorProficiencies: 'armorProficiencies'
@@ -408,6 +468,7 @@ exports.Prisma.SubraceScalarFieldEnum = {
   additionalLanguages: 'additionalLanguages',
   languagesToChooseCount: 'languagesToChooseCount',
   toolProficiencies: 'toolProficiencies',
+  toolToChooseCount: 'toolToChooseCount',
   skillProficiencies: 'skillProficiencies',
   weaponProficiencies: 'weaponProficiencies',
   armorProficiencies: 'armorProficiencies'
@@ -564,6 +625,7 @@ exports.Prisma.ClassStartingEquipmentOptionScalarFieldEnum = {
   weaponId: 'weaponId',
   armorId: 'armorId',
   equipmentPackId: 'equipmentPackId',
+  item: 'item',
   quantity: 'quantity',
   chooseAnyArmor: 'chooseAnyArmor',
   armorType: 'armorType',
@@ -578,12 +640,12 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.NullableJsonNullValueInput = {
-  DbNull: Prisma.DbNull,
+exports.Prisma.JsonNullValueInput = {
   JsonNull: Prisma.JsonNull
 };
 
-exports.Prisma.JsonNullValueInput = {
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull
 };
 
@@ -629,7 +691,25 @@ exports.Source = exports.$Enums.Source = {
   DRAGONLANCE: 'DRAGONLANCE',
   PHB_2024: 'PHB_2024',
   DMG_2024: 'DMG_2024',
-  MM_2024: 'MM_2024'
+  MM_2024: 'MM_2024',
+  OGA: 'OGA',
+  LR: 'LR'
+};
+
+exports.Classes = exports.$Enums.Classes = {
+  ARTIFICER_2014: 'ARTIFICER_2014',
+  BARBARIAN_2014: 'BARBARIAN_2014',
+  BARD_2014: 'BARD_2014',
+  CLERIC_2014: 'CLERIC_2014',
+  DRUID_2014: 'DRUID_2014',
+  FIGHTER_2014: 'FIGHTER_2014',
+  MONK_2014: 'MONK_2014',
+  PALADIN_2014: 'PALADIN_2014',
+  RANGER_2014: 'RANGER_2014',
+  ROGUE_2014: 'ROGUE_2014',
+  SORCERER_2014: 'SORCERER_2014',
+  WARLOCK_2014: 'WARLOCK_2014',
+  WIZARD_2014: 'WIZARD_2014'
 };
 
 exports.Ability = exports.$Enums.Ability = {
@@ -654,12 +734,6 @@ exports.ArmorType = exports.$Enums.ArmorType = {
   MEDIUM: 'MEDIUM',
   HEAVY: 'HEAVY',
   SHIELD: 'SHIELD'
-};
-
-exports.WeaponType = exports.$Enums.WeaponType = {
-  SIMPLE_WEAPON: 'SIMPLE_WEAPON',
-  MARTIAL_WEAPON: 'MARTIAL_WEAPON',
-  FIREARMS: 'FIREARMS'
 };
 
 exports.ToolCategory = exports.$Enums.ToolCategory = {
@@ -702,7 +776,13 @@ exports.Language = exports.$Enums.Language = {
   UNDERCOMMON: 'UNDERCOMMON',
   DRUIDIC: 'DRUIDIC',
   THIEVES_CANT: 'THIEVES_CANT',
-  COMMON_SIGN_LANGUAGE: 'COMMON_SIGN_LANGUAGE'
+  COMMON_SIGN_LANGUAGE: 'COMMON_SIGN_LANGUAGE',
+  GRUNG: 'GRUNG',
+  AQUAN: 'AQUAN',
+  LOXODON: 'LOXODON',
+  VEDALKEN: 'VEDALKEN',
+  QUORI: 'QUORI',
+  LEONIN: 'LEONIN'
 };
 
 exports.RestType = exports.$Enums.RestType = {
@@ -715,8 +795,13 @@ exports.FeatureDisplayType = exports.$Enums.FeatureDisplayType = {
   STANDARD: 'STANDARD',
   RESOURCE: 'RESOURCE',
   ACTION: 'ACTION',
+  BONUSACTION: 'BONUSACTION',
   PASSIVE: 'PASSIVE',
-  TOGGLE: 'TOGGLE'
+  TOGGLE: 'TOGGLE',
+  FREE: 'FREE',
+  REACTION: 'REACTION',
+  CLASS_RESOURCE: 'CLASS_RESOURCE',
+  HIDDEN: 'HIDDEN'
 };
 
 exports.Races = exports.$Enums.Races = {
@@ -745,8 +830,8 @@ exports.Races = exports.$Enums.Races = {
   SIMIC_HYBRID_GGTR: 'SIMIC_HYBRID_GGTR',
   VEDALKEN_GGTR: 'VEDALKEN_GGTR',
   VERDAN_AI: 'VERDAN_AI',
-  KALASHTAR_AI: 'KALASHTAR_AI',
-  WARFORGED_AI: 'WARFORGED_AI',
+  KALASHTAR_EBERRON: 'KALASHTAR_EBERRON',
+  WARFORGED_EBERRON: 'WARFORGED_EBERRON',
   LEONIN_MOOT: 'LEONIN_MOOT',
   SATYR_MOOT: 'SATYR_MOOT',
   DHAMPIR_VRGTR: 'DHAMPIR_VRGTR',
@@ -793,8 +878,8 @@ exports.Races = exports.$Enums.Races = {
   PLASMOID_SPELLJAMMER: 'PLASMOID_SPELLJAMMER',
   THRI_KREEN_SPELLJAMMER: 'THRI_KREEN_SPELLJAMMER',
   KENDER_DRAGONLANCE: 'KENDER_DRAGONLANCE',
-  GRUNG: 'GRUNG',
-  LOCATHAH: 'LOCATHAH'
+  GRUNG_OGA: 'GRUNG_OGA',
+  LOCATHAH_LR: 'LOCATHAH_LR'
 };
 
 exports.Size = exports.$Enums.Size = {
@@ -804,48 +889,6 @@ exports.Size = exports.$Enums.Size = {
   LARGE: 'LARGE',
   HUGE: 'HUGE',
   GARGANTUAN: 'GARGANTUAN'
-};
-
-exports.WeaponCategory = exports.$Enums.WeaponCategory = {
-  CLUB: 'CLUB',
-  DAGGER: 'DAGGER',
-  GREATCLUB: 'GREATCLUB',
-  HANDAXE: 'HANDAXE',
-  JAVELIN: 'JAVELIN',
-  LIGHT_HAMMER: 'LIGHT_HAMMER',
-  MACE: 'MACE',
-  QUARTERSTAFF: 'QUARTERSTAFF',
-  SICKLE: 'SICKLE',
-  SPEAR: 'SPEAR',
-  UNARMED_STRIKE: 'UNARMED_STRIKE',
-  LIGHT_CROSSBOW: 'LIGHT_CROSSBOW',
-  DART: 'DART',
-  SHORTBOW: 'SHORTBOW',
-  SLING: 'SLING',
-  BATTLEAXE: 'BATTLEAXE',
-  FLAIL: 'FLAIL',
-  GLAIVE: 'GLAIVE',
-  GREATAXE: 'GREATAXE',
-  GREATSWORD: 'GREATSWORD',
-  HALBERD: 'HALBERD',
-  LANCE: 'LANCE',
-  LONGSWORD: 'LONGSWORD',
-  MAUL: 'MAUL',
-  MORNINGSTAR: 'MORNINGSTAR',
-  PIKE: 'PIKE',
-  RAPIER: 'RAPIER',
-  SCIMITAR: 'SCIMITAR',
-  SHORTSWORD: 'SHORTSWORD',
-  TRIDENT: 'TRIDENT',
-  WAR_PICK: 'WAR_PICK',
-  WARHAMMER: 'WARHAMMER',
-  WHIP: 'WHIP',
-  BLOWGUN: 'BLOWGUN',
-  HAND_CROSSBOW: 'HAND_CROSSBOW',
-  HEAVY_CROSSBOW: 'HEAVY_CROSSBOW',
-  LONGBOW: 'LONGBOW',
-  NET: 'NET',
-  HOMEBREW: 'HOMEBREW'
 };
 
 exports.Subraces = exports.$Enums.Subraces = {
@@ -890,15 +933,9 @@ exports.Subraces = exports.$Enums.Subraces = {
   DRAGONBORN_GEM: 'DRAGONBORN_GEM',
   DRAGONBORN_DRACONBLOOD: 'DRAGONBORN_DRACONBLOOD',
   DRAGONBORN_RAVENITE: 'DRAGONBORN_RAVENITE',
-  GENASI_AIR: 'GENASI_AIR',
-  GENASI_EARTH: 'GENASI_EARTH',
-  GENASI_FIRE: 'GENASI_FIRE',
-  GENASI_WATER: 'GENASI_WATER',
   AASIMAR_PROTECTOR: 'AASIMAR_PROTECTOR',
   AASIMAR_SCOURGE: 'AASIMAR_SCOURGE',
   AASIMAR_FALLEN: 'AASIMAR_FALLEN',
-  GITH_GITHYANKI: 'GITH_GITHYANKI',
-  GITH_GITHZERAI: 'GITH_GITHZERAI',
   SHIFTER_BEASTHIDE: 'SHIFTER_BEASTHIDE',
   SHIFTER_LONGTOOTH: 'SHIFTER_LONGTOOTH',
   SHIFTER_SWIFTSTRIDE: 'SHIFTER_SWIFTSTRIDE',
@@ -1032,6 +1069,58 @@ exports.ItemRarity = exports.$Enums.ItemRarity = {
   ARTIFACT: 'ARTIFACT'
 };
 
+exports.WeaponCategory = exports.$Enums.WeaponCategory = {
+  CLUB: 'CLUB',
+  DAGGER: 'DAGGER',
+  GREATCLUB: 'GREATCLUB',
+  HANDAXE: 'HANDAXE',
+  JAVELIN: 'JAVELIN',
+  LIGHT_HAMMER: 'LIGHT_HAMMER',
+  MACE: 'MACE',
+  QUARTERSTAFF: 'QUARTERSTAFF',
+  SICKLE: 'SICKLE',
+  SPEAR: 'SPEAR',
+  UNARMED_STRIKE: 'UNARMED_STRIKE',
+  LIGHT_CROSSBOW: 'LIGHT_CROSSBOW',
+  DART: 'DART',
+  SHORTBOW: 'SHORTBOW',
+  SLING: 'SLING',
+  BATTLEAXE: 'BATTLEAXE',
+  FLAIL: 'FLAIL',
+  GLAIVE: 'GLAIVE',
+  GREATAXE: 'GREATAXE',
+  GREATSWORD: 'GREATSWORD',
+  HALBERD: 'HALBERD',
+  LANCE: 'LANCE',
+  LONGSWORD: 'LONGSWORD',
+  MAUL: 'MAUL',
+  MORNINGSTAR: 'MORNINGSTAR',
+  PIKE: 'PIKE',
+  RAPIER: 'RAPIER',
+  SCIMITAR: 'SCIMITAR',
+  SHORTSWORD: 'SHORTSWORD',
+  TRIDENT: 'TRIDENT',
+  WAR_PICK: 'WAR_PICK',
+  WARHAMMER: 'WARHAMMER',
+  WHIP: 'WHIP',
+  BLOWGUN: 'BLOWGUN',
+  HAND_CROSSBOW: 'HAND_CROSSBOW',
+  HEAVY_CROSSBOW: 'HEAVY_CROSSBOW',
+  LONGBOW: 'LONGBOW',
+  NET: 'NET',
+  HOMEBREW: 'HOMEBREW',
+  PISTOL_RENAISSANCE: 'PISTOL_RENAISSANCE',
+  MUSKET: 'MUSKET',
+  PISTOL_AUTOMATIC: 'PISTOL_AUTOMATIC',
+  REVOLVER: 'REVOLVER',
+  RIFLE_HUNTING: 'RIFLE_HUNTING',
+  RIFLE_AUTOMATIC: 'RIFLE_AUTOMATIC',
+  SHOTGUN: 'SHOTGUN',
+  LASER_PISTOL: 'LASER_PISTOL',
+  ANTIMATTER_RIFLE: 'ANTIMATTER_RIFLE',
+  LASER_RIFLE: 'LASER_RIFLE'
+};
+
 exports.DamageType = exports.$Enums.DamageType = {
   BLUDGEONING: 'BLUDGEONING',
   PIERCING: 'PIERCING',
@@ -1048,6 +1137,12 @@ exports.DamageType = exports.$Enums.DamageType = {
   RADIANT: 'RADIANT'
 };
 
+exports.WeaponType = exports.$Enums.WeaponType = {
+  SIMPLE_WEAPON: 'SIMPLE_WEAPON',
+  MARTIAL_WEAPON: 'MARTIAL_WEAPON',
+  FIREARMS: 'FIREARMS'
+};
+
 exports.WeaponProperty = exports.$Enums.WeaponProperty = {
   FINESSE: 'FINESSE',
   VERSATILE: 'VERSATILE',
@@ -1059,7 +1154,9 @@ exports.WeaponProperty = exports.$Enums.WeaponProperty = {
   AMMUNITION: 'AMMUNITION',
   LOADING: 'LOADING',
   SPECIAL: 'SPECIAL',
-  MAGIC_WEAPON: 'MAGIC_WEAPON'
+  MAGIC_WEAPON: 'MAGIC_WEAPON',
+  RELOAD: 'RELOAD',
+  BURST_FIRE: 'BURST_FIRE'
 };
 
 exports.ArmorCategory = exports.$Enums.ArmorCategory = {
@@ -1132,12 +1229,17 @@ exports.Prisma.ModelName = {
   User: 'User',
   Class: 'Class',
   Subclass: 'Subclass',
+  ChoiceOption: 'ChoiceOption',
+  ClassChoiceOption: 'ClassChoiceOption',
   Pers: 'Pers',
   PersMulticlass: 'PersMulticlass',
   PersFeature: 'PersFeature',
   Feature: 'Feature',
   ClassFeature: 'ClassFeature',
   SubclassFeature: 'SubclassFeature',
+  ChoiceOptionFeature: 'ChoiceOptionFeature',
+  ClassOptionalFeature: 'ClassOptionalFeature',
+  ClassOptionalFeatureReplacesFeature: 'ClassOptionalFeatureReplacesFeature',
   RaceTrait: 'RaceTrait',
   SubraceTrait: 'SubraceTrait',
   RaceVariantTrait: 'RaceVariantTrait',

@@ -312,12 +312,107 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             normalRange: 5,
             longRange: 15
         },
+        // ==================== RENAISSANCE FIREARMS ====================
+        {
+            name: WeaponCategory.PISTOL_RENAISSANCE,
+            damage: '1к10',
+            damageType: DamageType.PIERCING,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING],
+            normalRange: 30,
+            longRange: 90
+        },
+        {
+            name: WeaponCategory.MUSKET,
+            damage: '1к12',
+            damageType: DamageType.PIERCING,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING, WeaponProperty.TWO_HANDED],
+            normalRange: 40,
+            longRange: 120
+        },
+
+        // ==================== MODERN FIREARMS ====================
+        {
+            name: WeaponCategory.PISTOL_AUTOMATIC,
+            damage: '2к6',
+            damageType: DamageType.PIERCING,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD],
+            normalRange: 50,
+            longRange: 150
+        },
+        {
+            name: WeaponCategory.REVOLVER,
+            damage: '2к8',
+            damageType: DamageType.PIERCING,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD],
+            normalRange: 40,
+            longRange: 120
+        },
+        {
+            name: WeaponCategory.RIFLE_HUNTING,
+            damage: '2к10',
+            damageType: DamageType.PIERCING,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
+            normalRange: 80,
+            longRange: 240
+        },
+        {
+            name: WeaponCategory.RIFLE_AUTOMATIC,
+            damage: '2к8',
+            damageType: DamageType.PIERCING,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.BURST_FIRE, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
+            normalRange: 80,
+            longRange: 240
+        },
+        {
+            name: WeaponCategory.SHOTGUN,
+            damage: '2к8',
+            damageType: DamageType.PIERCING,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
+            normalRange: 30,
+            longRange: 90
+        },
+
+        // ==================== FUTURISTIC FIREARMS ====================
+        {
+            name: WeaponCategory.LASER_PISTOL,
+            damage: '3к6',
+            damageType: DamageType.RADIANT,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD],
+            normalRange: 40,
+            longRange: 120
+        },
+        {
+            name: WeaponCategory.ANTIMATTER_RIFLE,
+            damage: '6к8',
+            damageType: DamageType.NECROTIC,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
+            normalRange: 120,
+            longRange: 360
+        },
+        {
+            name: WeaponCategory.LASER_RIFLE,
+            damage: '3к8',
+            damageType: DamageType.RADIANT,
+            weaponType: WeaponType.FIREARMS,
+            properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
+            normalRange: 100,
+            longRange: 300
+        },
     ]
 
     for (const weapon of weapons) {
         await prisma.weapon.upsert({
             where: {name: weapon.name},
-            update: {},
+            update: weapon,
             create: weapon
         })
     }
