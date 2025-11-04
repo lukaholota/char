@@ -283,10 +283,6 @@ export const seedClasses = async (prisma: PrismaClient) => {
             features: {
                 create: [
                     {
-                        feature: { connect: { engName: "Fighting Style (Ranger)" } },
-                        levelGranted: 2,
-                    },
-                    {
                         feature: { connect: { engName: "Spellcasting (Ranger)" } },
                         levelGranted: 2,
                     },
@@ -295,7 +291,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
                         levelGranted: 5,
                     },
                     {
-                        feature: { connect: { engName: "Land's Stride" } },
+                        feature: { connect: { engName: "Land\'s Stride" } },
                         levelGranted: 8,
                     },
                     {
@@ -360,10 +356,6 @@ export const seedClasses = async (prisma: PrismaClient) => {
                     {
                         feature: { connect: { engName: "Lay on Hands" } },
                         levelGranted: 1,
-                    },
-                    {
-                        feature: { connect: { engName: "Fighting Style (Paladin)" } },
-                        levelGranted: 2,
                     },
                     {
                         feature: { connect: { engName: "Spellcasting (Paladin)" } },
@@ -626,10 +618,6 @@ export const seedClasses = async (prisma: PrismaClient) => {
                         levelGranted: 2,
                     },
                     {
-                        feature: { connect: { engName: "Artificer Specialist" } },
-                        levelGranted: 3,
-                    },
-                    {
                         feature: { connect: { engName: "The Right Tool for the Job" } },
                         levelGranted: 3,
                     },
@@ -668,4 +656,32 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
 
     ]
+
+    for (const class_ of classes) {
+        try {
+            await prisma.class.upsert({
+                where: { name: class_.name },
+                update: class_,
+                create: class_
+            });
+        } catch (error) {
+            console.error('💀 ПОМИЛКА на класі:', class_.name);
+            console.error('📝 Class дані:', JSON.stringify(class_, null, 2));
+            console.error('⚠️ Error:', error);
+
+            // Перевіряємо чи це Prisma помилка
+            if (error instanceof Prisma.PrismaClientKnownRequestError) {
+                console.error('🔍 Prisma Error Code:', error.code);
+                console.error('🔍 Meta:', error.meta);
+
+                // Тепер можна безпечно юзати error.code і error.meta 🎯
+                if (error.code === 'P2025') {
+                    console.error('❌ Не знайдено record(s) для connect:', error.meta?.cause);
+                }
+            }
+        }
+    }
+
+
+    console.log(`✅ додано ${classes.length} класів!`)
 }

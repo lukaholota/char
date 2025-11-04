@@ -6,7 +6,7 @@ import {
 
 export const seedClassEquipment = async (prisma: PrismaClient) => {
     console.log('🌟 Додаємо класове спорядження...')
-    const features: Prisma.ClassStartingEquipmentOptionCreateInput[] = [
+    const equipment: Prisma.ClassStartingEquipmentOptionCreateInput[] = [
         // GROUP 1: Armor choice
         // Option A: Chain mail
         {
@@ -729,7 +729,13 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             item: 'Інструменти злодія',
             description: 'Інструменти злодія'
         }
-
-
     ];
+
+    for (const equipmentPiece of equipment) {
+        await prisma.classStartingEquipmentOption.create({
+            data: equipmentPiece
+        })
+    }
+
+    console.log(`✅ додано ${equipment.length} класових фіч!`)
 }

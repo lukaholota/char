@@ -371,6 +371,7 @@ enum FeatureDisplayType {
   FREE
   REACTION
   CLASS_RESOURCE
+  MAGIC_ITEM
   HIDDEN
 }
 
@@ -690,6 +691,7 @@ model Spell {
   subclasses      Subclass[]        @relation("SubclassExpandedSpells")
   perses          Pers[]
   features        Feature[]
+  magicItems      MagicItem[]
 
   @@map("spell")
 }
@@ -823,35 +825,26 @@ model ChoiceOption {
   optionNameEng String @unique @db.VarChar(100) @map("option_name_eng")
   prerequisites Json? // {pact: 'pact'}
 
-  givesAC Int? @map("gives_AC")
-
-  meleeAttackBonus Int? @map("melee_attack_bonus")
-  rangedAttackBonus Int? @map("ranged_attack_bonus")
-  meleeDamageBoost Int? @map("melee_damage_boost")
-  thrownDamageBoost Int? @map("thrown_damage_boost")
-
-  givesManeuvres Boolean? @default(false) @map("gives_maneuvres")
-  superiorityDiceCount Int? @map("superiority_dice_count")
-
-  modifiesUnarmed Boolean? @map("modified_unarmed")
-  unarmedDamage String? @map("unarmed_damage") // '1к6 / 1к8'
-
   features ChoiceOptionFeature[]
   classChoiceOptions ClassChoiceOption[]
   perses Pers[]
 
   classOptionalFeatures ClassOptionalFeature[]
+
+  @@map("choice_option")
 }
 
 model ClassChoiceOption {
   optionId Int @id @default(autoincrement()) @map("option_id")
-  classId Int
-  choiceOptionId Int
+  classId Int @map("class_id")
+  choiceOptionId Int @map("choice_option_id")
 
-  levelsGranted Int[]
+  levelsGranted Int[] @map("levels_granted")
 
   choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
   class Class @relation(fields: [classId], references: [classId])
+
+  @@map("class_choice_option")
 }
 
 model Pers {
@@ -976,8 +969,31 @@ model Feature {
   description      String  @db.Text
   shortDescription String? @map("short_description") @db.Text
 
-  modifiesStats  Json?     @map("modifies_stats")
   modifiesAC Json? @map("modifies_ac")
+  givesAC Int? @map("gives_ac")  // simple +1 +2
+
+  requiresArmorForACBonus Boolean? @map("requires_armor_for_ac_bonus")
+  noArmorOrShieldForACBonus Boolean? @map("no_armor_or_shield_for_ac_bonus")
+
+  givesSTR Int? @map("gives_str")
+  givesCON Int? @map("gives_con")
+
+  bonusToAttackRoll Int? @map("bonus_to_attack_roll")
+  bonusToRangedAttackRoll Int? @map("bonus_to_ranged_attack_roll")
+  bonusToRangedDamage     Int? @map("bonus_to_ranged_damage")
+  bonusToMeleeDamage     Int? @map("bonus_to_melee_damage")
+  bonusToMeleeOneHandedWeaponDamage Int?  @map("bonus_to_melee_one_handed_weapon_damage")
+  bonusToThrownDamage Int? @map("thrown_damage_boost")
+
+  bonusToSavingThrows Json? @map("bonus_to_saving_throws")
+
+  givesManeuvres Boolean? @default(false) @map("gives_maneuvres")
+  superiorityDiceCount Int? @map("superiority_dice_count")
+
+  modifiesUnarmed Boolean? @map("modified_unarmed")
+  unarmedDamage String? @map("unarmed_damage") // '1к6 / 1к8'
+
+
   skillProficiencies     Json?          @map("skill_proficiencies")
   savingThrows Ability[] @map("saving_throws")
   skillExpertises Json? @map("skill_expertises")
@@ -1009,7 +1025,8 @@ model Feature {
   raceVariantsReplacingFeatures RaceVariant[] @relation("RaceVariantReplacingFeature")
 
   featFeatures      FeatFeature[]
-  magicItemFeatures MagicItemFeature[]
+
+  infusions Infusion[]
 
   persFeatures PersFeature[]
 
@@ -1055,6 +1072,8 @@ model ChoiceOptionFeature {
 
   option ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+
+  @@map("choice_option_feature")
 }
 
 model ClassOptionalFeature {
@@ -1078,6 +1097,8 @@ model ClassOptionalFeature {
 
   replacesFeatures ClassOptionalFeatureReplacesFeature[]
   appearsOnlyIfChoicesTaken ChoiceOption[]
+
+  @@map("class_optional_feature")
 }
 
 model ClassOptionalFeatureReplacesFeature {
@@ -1147,17 +1168,6 @@ model FeatFeature {
   @@index([featId])
   @@index([featureId])
   @@map("feat_feature")
-}
-
-model MagicItemFeature {
-  magicItemFeatureId Int @id @default(autoincrement()) @map("magic_item_feature_id")
-  magicItemId        Int @map("magic_item_id")
-  featureId          Int @map("feature_id")
-
-  feature   Feature   @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId])
-
-  @@map("magic_item_feature")
 }
 
 model Race {
@@ -1333,24 +1343,26 @@ model PersFeat {
 
 model MagicItem {
   magicItemId Int    @id @default(autoincrement()) @map("magic_item_id")
-  name        String @unique @db.VarChar(100)
+  name        String  @db.VarChar(100)
 
+  engName String @unique @db.VarChar(100) @map("eng_name")
   itemType MagicItemType @map("item_type")
   rarity   ItemRarity
 
   description String @db.Text
+  shortDescription String? @db.Text @map("short_description")
+
   requiresAttunement Boolean @default(false) @map("requires_attunement")
 
-  bonusToAC         Int? @map("bonus_to_ac")
-  bonusToAttackRoll Int? @map("bonus_to_attack_roll")
-  bonusToDamage     Int? @map("bonus_to_damage")
-
-  features MagicItemFeature[]
+  weaponProficiencies Json? @map("weapon_proficiencies")
+  weaponProficienciesSpecial    Json?   @map("weapon_proficiencies_special")
 
   persMagicItems PersMagicItem[]
 
   // Opposite side of Infusion.replicatedMagicItem
   replicatedByInfusions Infusion[]
+
+  givesSpells Spell[]
 
   @@map("magic_item")
 }

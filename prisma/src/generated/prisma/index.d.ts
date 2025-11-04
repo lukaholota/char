@@ -149,11 +149,6 @@ export type RaceChoiceOptionTrait = $Result.DefaultSelection<Prisma.$RaceChoiceO
  */
 export type FeatFeature = $Result.DefaultSelection<Prisma.$FeatFeaturePayload>
 /**
- * Model MagicItemFeature
- * 
- */
-export type MagicItemFeature = $Result.DefaultSelection<Prisma.$MagicItemFeaturePayload>
-/**
  * Model Race
  * 
  */
@@ -659,6 +654,7 @@ export const FeatureDisplayType: {
   FREE: 'FREE',
   REACTION: 'REACTION',
   CLASS_RESOURCE: 'CLASS_RESOURCE',
+  MAGIC_ITEM: 'MAGIC_ITEM',
   HIDDEN: 'HIDDEN'
 };
 
@@ -1450,16 +1446,6 @@ export class PrismaClient<
   get featFeature(): Prisma.FeatFeatureDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.magicItemFeature`: Exposes CRUD operations for the **MagicItemFeature** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more MagicItemFeatures
-    * const magicItemFeatures = await prisma.magicItemFeature.findMany()
-    * ```
-    */
-  get magicItemFeature(): Prisma.MagicItemFeatureDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.race`: Exposes CRUD operations for the **Race** model.
     * Example usage:
     * ```ts
@@ -2115,7 +2101,6 @@ export namespace Prisma {
     RaceVariantTrait: 'RaceVariantTrait',
     RaceChoiceOptionTrait: 'RaceChoiceOptionTrait',
     FeatFeature: 'FeatFeature',
-    MagicItemFeature: 'MagicItemFeature',
     Race: 'Race',
     Subrace: 'Subrace',
     RaceVariant: 'RaceVariant',
@@ -2153,7 +2138,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "character" | "characterSpells" | "creature" | "spell" | "spellClasses" | "spellRaces" | "spellbook" | "spellbookSpells" | "user" | "class" | "subclass" | "choiceOption" | "classChoiceOption" | "pers" | "persMulticlass" | "persFeature" | "feature" | "classFeature" | "subclassFeature" | "choiceOptionFeature" | "classOptionalFeature" | "classOptionalFeatureReplacesFeature" | "raceTrait" | "subraceTrait" | "raceVariantTrait" | "raceChoiceOptionTrait" | "featFeature" | "magicItemFeature" | "race" | "subrace" | "raceVariant" | "raceChoiceOption" | "background" | "feat" | "featAbilityBoost" | "persFeat" | "magicItem" | "infusion" | "persInfusion" | "weapon" | "armor" | "persSkill" | "persWeapon" | "persArmor" | "persMagicItem" | "equipmentPack" | "classStartingEquipmentOption"
+      modelProps: "character" | "characterSpells" | "creature" | "spell" | "spellClasses" | "spellRaces" | "spellbook" | "spellbookSpells" | "user" | "class" | "subclass" | "choiceOption" | "classChoiceOption" | "pers" | "persMulticlass" | "persFeature" | "feature" | "classFeature" | "subclassFeature" | "choiceOptionFeature" | "classOptionalFeature" | "classOptionalFeatureReplacesFeature" | "raceTrait" | "subraceTrait" | "raceVariantTrait" | "raceChoiceOptionTrait" | "featFeature" | "race" | "subrace" | "raceVariant" | "raceChoiceOption" | "background" | "feat" | "featAbilityBoost" | "persFeat" | "magicItem" | "infusion" | "persInfusion" | "weapon" | "armor" | "persSkill" | "persWeapon" | "persArmor" | "persMagicItem" | "equipmentPack" | "classStartingEquipmentOption"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4155,80 +4140,6 @@ export namespace Prisma {
           }
         }
       }
-      MagicItemFeature: {
-        payload: Prisma.$MagicItemFeaturePayload<ExtArgs>
-        fields: Prisma.MagicItemFeatureFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.MagicItemFeatureFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.MagicItemFeatureFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>
-          }
-          findFirst: {
-            args: Prisma.MagicItemFeatureFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.MagicItemFeatureFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>
-          }
-          findMany: {
-            args: Prisma.MagicItemFeatureFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>[]
-          }
-          create: {
-            args: Prisma.MagicItemFeatureCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>
-          }
-          createMany: {
-            args: Prisma.MagicItemFeatureCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.MagicItemFeatureCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>[]
-          }
-          delete: {
-            args: Prisma.MagicItemFeatureDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>
-          }
-          update: {
-            args: Prisma.MagicItemFeatureUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>
-          }
-          deleteMany: {
-            args: Prisma.MagicItemFeatureDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.MagicItemFeatureUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.MagicItemFeatureUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>[]
-          }
-          upsert: {
-            args: Prisma.MagicItemFeatureUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MagicItemFeaturePayload>
-          }
-          aggregate: {
-            args: Prisma.MagicItemFeatureAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMagicItemFeature>
-          }
-          groupBy: {
-            args: Prisma.MagicItemFeatureGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MagicItemFeatureGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.MagicItemFeatureCountArgs<ExtArgs>
-            result: $Utils.Optional<MagicItemFeatureCountAggregateOutputType> | number
-          }
-        }
-      }
       Race: {
         payload: Prisma.$RacePayload<ExtArgs>
         fields: Prisma.RaceFieldRefs
@@ -5758,7 +5669,6 @@ export namespace Prisma {
     raceVariantTrait?: RaceVariantTraitOmit
     raceChoiceOptionTrait?: RaceChoiceOptionTraitOmit
     featFeature?: FeatFeatureOmit
-    magicItemFeature?: MagicItemFeatureOmit
     race?: RaceOmit
     subrace?: SubraceOmit
     raceVariant?: RaceVariantOmit
@@ -5896,6 +5806,7 @@ export namespace Prisma {
     subclasses: number
     perses: number
     features: number
+    magicItems: number
   }
 
   export type SpellCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5906,6 +5817,7 @@ export namespace Prisma {
     subclasses?: boolean | SpellCountOutputTypeCountSubclassesArgs
     perses?: boolean | SpellCountOutputTypeCountPersesArgs
     features?: boolean | SpellCountOutputTypeCountFeaturesArgs
+    magicItems?: boolean | SpellCountOutputTypeCountMagicItemsArgs
   }
 
   // Custom InputTypes
@@ -5966,6 +5878,13 @@ export namespace Prisma {
    */
   export type SpellCountOutputTypeCountFeaturesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FeatureWhereInput
+  }
+
+  /**
+   * SpellCountOutputType without action
+   */
+  export type SpellCountOutputTypeCountMagicItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MagicItemWhereInput
   }
 
 
@@ -6407,7 +6326,7 @@ export namespace Prisma {
     subracesReplacingFeatures: number
     raceVariantsReplacingFeatures: number
     featFeatures: number
-    magicItemFeatures: number
+    infusions: number
     persFeatures: number
   }
 
@@ -6425,7 +6344,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: boolean | FeatureCountOutputTypeCountSubracesReplacingFeaturesArgs
     raceVariantsReplacingFeatures?: boolean | FeatureCountOutputTypeCountRaceVariantsReplacingFeaturesArgs
     featFeatures?: boolean | FeatureCountOutputTypeCountFeatFeaturesArgs
-    magicItemFeatures?: boolean | FeatureCountOutputTypeCountMagicItemFeaturesArgs
+    infusions?: boolean | FeatureCountOutputTypeCountInfusionsArgs
     persFeatures?: boolean | FeatureCountOutputTypeCountPersFeaturesArgs
   }
 
@@ -6534,8 +6453,8 @@ export namespace Prisma {
   /**
    * FeatureCountOutputType without action
    */
-  export type FeatureCountOutputTypeCountMagicItemFeaturesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MagicItemFeatureWhereInput
+  export type FeatureCountOutputTypeCountInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InfusionWhereInput
   }
 
   /**
@@ -6885,15 +6804,15 @@ export namespace Prisma {
    */
 
   export type MagicItemCountOutputType = {
-    features: number
     persMagicItems: number
     replicatedByInfusions: number
+    givesSpells: number
   }
 
   export type MagicItemCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    features?: boolean | MagicItemCountOutputTypeCountFeaturesArgs
     persMagicItems?: boolean | MagicItemCountOutputTypeCountPersMagicItemsArgs
     replicatedByInfusions?: boolean | MagicItemCountOutputTypeCountReplicatedByInfusionsArgs
+    givesSpells?: boolean | MagicItemCountOutputTypeCountGivesSpellsArgs
   }
 
   // Custom InputTypes
@@ -6910,13 +6829,6 @@ export namespace Prisma {
   /**
    * MagicItemCountOutputType without action
    */
-  export type MagicItemCountOutputTypeCountFeaturesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MagicItemFeatureWhereInput
-  }
-
-  /**
-   * MagicItemCountOutputType without action
-   */
   export type MagicItemCountOutputTypeCountPersMagicItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PersMagicItemWhereInput
   }
@@ -6926,6 +6838,13 @@ export namespace Prisma {
    */
   export type MagicItemCountOutputTypeCountReplicatedByInfusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InfusionWhereInput
+  }
+
+  /**
+   * MagicItemCountOutputType without action
+   */
+  export type MagicItemCountOutputTypeCountGivesSpellsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SpellWhereInput
   }
 
 
@@ -11086,6 +11005,7 @@ export namespace Prisma {
     subclasses?: boolean | Spell$subclassesArgs<ExtArgs>
     perses?: boolean | Spell$persesArgs<ExtArgs>
     features?: boolean | Spell$featuresArgs<ExtArgs>
+    magicItems?: boolean | Spell$magicItemsArgs<ExtArgs>
     _count?: boolean | SpellCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["spell"]>
 
@@ -11146,6 +11066,7 @@ export namespace Prisma {
     subclasses?: boolean | Spell$subclassesArgs<ExtArgs>
     perses?: boolean | Spell$persesArgs<ExtArgs>
     features?: boolean | Spell$featuresArgs<ExtArgs>
+    magicItems?: boolean | Spell$magicItemsArgs<ExtArgs>
     _count?: boolean | SpellCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SpellIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -11161,6 +11082,7 @@ export namespace Prisma {
       subclasses: Prisma.$SubclassPayload<ExtArgs>[]
       perses: Prisma.$PersPayload<ExtArgs>[]
       features: Prisma.$FeaturePayload<ExtArgs>[]
+      magicItems: Prisma.$MagicItemPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       spellId: number
@@ -11577,6 +11499,7 @@ export namespace Prisma {
     subclasses<T extends Spell$subclassesArgs<ExtArgs> = {}>(args?: Subset<T, Spell$subclassesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubclassPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     perses<T extends Spell$persesArgs<ExtArgs> = {}>(args?: Subset<T, Spell$persesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     features<T extends Spell$featuresArgs<ExtArgs> = {}>(args?: Subset<T, Spell$featuresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    magicItems<T extends Spell$magicItemsArgs<ExtArgs> = {}>(args?: Subset<T, Spell$magicItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MagicItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12172,6 +12095,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: FeatureScalarFieldEnum | FeatureScalarFieldEnum[]
+  }
+
+  /**
+   * Spell.magicItems
+   */
+  export type Spell$magicItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MagicItem
+     */
+    select?: MagicItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MagicItem
+     */
+    omit?: MagicItemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MagicItemInclude<ExtArgs> | null
+    where?: MagicItemWhereInput
+    orderBy?: MagicItemOrderByWithRelationInput | MagicItemOrderByWithRelationInput[]
+    cursor?: MagicItemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MagicItemScalarFieldEnum | MagicItemScalarFieldEnum[]
   }
 
   /**
@@ -20461,22 +20408,10 @@ export namespace Prisma {
 
   export type ChoiceOptionAvgAggregateOutputType = {
     choiceOptionId: number | null
-    givesAC: number | null
-    meleeAttackBonus: number | null
-    rangedAttackBonus: number | null
-    meleeDamageBoost: number | null
-    thrownDamageBoost: number | null
-    superiorityDiceCount: number | null
   }
 
   export type ChoiceOptionSumAggregateOutputType = {
     choiceOptionId: number | null
-    givesAC: number | null
-    meleeAttackBonus: number | null
-    rangedAttackBonus: number | null
-    meleeDamageBoost: number | null
-    thrownDamageBoost: number | null
-    superiorityDiceCount: number | null
   }
 
   export type ChoiceOptionMinAggregateOutputType = {
@@ -20484,15 +20419,6 @@ export namespace Prisma {
     groupName: string | null
     optionName: string | null
     optionNameEng: string | null
-    givesAC: number | null
-    meleeAttackBonus: number | null
-    rangedAttackBonus: number | null
-    meleeDamageBoost: number | null
-    thrownDamageBoost: number | null
-    givesManeuvres: boolean | null
-    superiorityDiceCount: number | null
-    modifiesUnarmed: boolean | null
-    unarmedDamage: string | null
   }
 
   export type ChoiceOptionMaxAggregateOutputType = {
@@ -20500,15 +20426,6 @@ export namespace Prisma {
     groupName: string | null
     optionName: string | null
     optionNameEng: string | null
-    givesAC: number | null
-    meleeAttackBonus: number | null
-    rangedAttackBonus: number | null
-    meleeDamageBoost: number | null
-    thrownDamageBoost: number | null
-    givesManeuvres: boolean | null
-    superiorityDiceCount: number | null
-    modifiesUnarmed: boolean | null
-    unarmedDamage: string | null
   }
 
   export type ChoiceOptionCountAggregateOutputType = {
@@ -20517,37 +20434,16 @@ export namespace Prisma {
     optionName: number
     optionNameEng: number
     prerequisites: number
-    givesAC: number
-    meleeAttackBonus: number
-    rangedAttackBonus: number
-    meleeDamageBoost: number
-    thrownDamageBoost: number
-    givesManeuvres: number
-    superiorityDiceCount: number
-    modifiesUnarmed: number
-    unarmedDamage: number
     _all: number
   }
 
 
   export type ChoiceOptionAvgAggregateInputType = {
     choiceOptionId?: true
-    givesAC?: true
-    meleeAttackBonus?: true
-    rangedAttackBonus?: true
-    meleeDamageBoost?: true
-    thrownDamageBoost?: true
-    superiorityDiceCount?: true
   }
 
   export type ChoiceOptionSumAggregateInputType = {
     choiceOptionId?: true
-    givesAC?: true
-    meleeAttackBonus?: true
-    rangedAttackBonus?: true
-    meleeDamageBoost?: true
-    thrownDamageBoost?: true
-    superiorityDiceCount?: true
   }
 
   export type ChoiceOptionMinAggregateInputType = {
@@ -20555,15 +20451,6 @@ export namespace Prisma {
     groupName?: true
     optionName?: true
     optionNameEng?: true
-    givesAC?: true
-    meleeAttackBonus?: true
-    rangedAttackBonus?: true
-    meleeDamageBoost?: true
-    thrownDamageBoost?: true
-    givesManeuvres?: true
-    superiorityDiceCount?: true
-    modifiesUnarmed?: true
-    unarmedDamage?: true
   }
 
   export type ChoiceOptionMaxAggregateInputType = {
@@ -20571,15 +20458,6 @@ export namespace Prisma {
     groupName?: true
     optionName?: true
     optionNameEng?: true
-    givesAC?: true
-    meleeAttackBonus?: true
-    rangedAttackBonus?: true
-    meleeDamageBoost?: true
-    thrownDamageBoost?: true
-    givesManeuvres?: true
-    superiorityDiceCount?: true
-    modifiesUnarmed?: true
-    unarmedDamage?: true
   }
 
   export type ChoiceOptionCountAggregateInputType = {
@@ -20588,15 +20466,6 @@ export namespace Prisma {
     optionName?: true
     optionNameEng?: true
     prerequisites?: true
-    givesAC?: true
-    meleeAttackBonus?: true
-    rangedAttackBonus?: true
-    meleeDamageBoost?: true
-    thrownDamageBoost?: true
-    givesManeuvres?: true
-    superiorityDiceCount?: true
-    modifiesUnarmed?: true
-    unarmedDamage?: true
     _all?: true
   }
 
@@ -20692,15 +20561,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites: JsonValue | null
-    givesAC: number | null
-    meleeAttackBonus: number | null
-    rangedAttackBonus: number | null
-    meleeDamageBoost: number | null
-    thrownDamageBoost: number | null
-    givesManeuvres: boolean | null
-    superiorityDiceCount: number | null
-    modifiesUnarmed: boolean | null
-    unarmedDamage: string | null
     _count: ChoiceOptionCountAggregateOutputType | null
     _avg: ChoiceOptionAvgAggregateOutputType | null
     _sum: ChoiceOptionSumAggregateOutputType | null
@@ -20728,15 +20588,6 @@ export namespace Prisma {
     optionName?: boolean
     optionNameEng?: boolean
     prerequisites?: boolean
-    givesAC?: boolean
-    meleeAttackBonus?: boolean
-    rangedAttackBonus?: boolean
-    meleeDamageBoost?: boolean
-    thrownDamageBoost?: boolean
-    givesManeuvres?: boolean
-    superiorityDiceCount?: boolean
-    modifiesUnarmed?: boolean
-    unarmedDamage?: boolean
     features?: boolean | ChoiceOption$featuresArgs<ExtArgs>
     classChoiceOptions?: boolean | ChoiceOption$classChoiceOptionsArgs<ExtArgs>
     perses?: boolean | ChoiceOption$persesArgs<ExtArgs>
@@ -20750,15 +20601,6 @@ export namespace Prisma {
     optionName?: boolean
     optionNameEng?: boolean
     prerequisites?: boolean
-    givesAC?: boolean
-    meleeAttackBonus?: boolean
-    rangedAttackBonus?: boolean
-    meleeDamageBoost?: boolean
-    thrownDamageBoost?: boolean
-    givesManeuvres?: boolean
-    superiorityDiceCount?: boolean
-    modifiesUnarmed?: boolean
-    unarmedDamage?: boolean
   }, ExtArgs["result"]["choiceOption"]>
 
   export type ChoiceOptionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -20767,15 +20609,6 @@ export namespace Prisma {
     optionName?: boolean
     optionNameEng?: boolean
     prerequisites?: boolean
-    givesAC?: boolean
-    meleeAttackBonus?: boolean
-    rangedAttackBonus?: boolean
-    meleeDamageBoost?: boolean
-    thrownDamageBoost?: boolean
-    givesManeuvres?: boolean
-    superiorityDiceCount?: boolean
-    modifiesUnarmed?: boolean
-    unarmedDamage?: boolean
   }, ExtArgs["result"]["choiceOption"]>
 
   export type ChoiceOptionSelectScalar = {
@@ -20784,18 +20617,9 @@ export namespace Prisma {
     optionName?: boolean
     optionNameEng?: boolean
     prerequisites?: boolean
-    givesAC?: boolean
-    meleeAttackBonus?: boolean
-    rangedAttackBonus?: boolean
-    meleeDamageBoost?: boolean
-    thrownDamageBoost?: boolean
-    givesManeuvres?: boolean
-    superiorityDiceCount?: boolean
-    modifiesUnarmed?: boolean
-    unarmedDamage?: boolean
   }
 
-  export type ChoiceOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"choiceOptionId" | "groupName" | "optionName" | "optionNameEng" | "prerequisites" | "givesAC" | "meleeAttackBonus" | "rangedAttackBonus" | "meleeDamageBoost" | "thrownDamageBoost" | "givesManeuvres" | "superiorityDiceCount" | "modifiesUnarmed" | "unarmedDamage", ExtArgs["result"]["choiceOption"]>
+  export type ChoiceOptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"choiceOptionId" | "groupName" | "optionName" | "optionNameEng" | "prerequisites", ExtArgs["result"]["choiceOption"]>
   export type ChoiceOptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     features?: boolean | ChoiceOption$featuresArgs<ExtArgs>
     classChoiceOptions?: boolean | ChoiceOption$classChoiceOptionsArgs<ExtArgs>
@@ -20820,15 +20644,6 @@ export namespace Prisma {
       optionName: string
       optionNameEng: string
       prerequisites: Prisma.JsonValue | null
-      givesAC: number | null
-      meleeAttackBonus: number | null
-      rangedAttackBonus: number | null
-      meleeDamageBoost: number | null
-      thrownDamageBoost: number | null
-      givesManeuvres: boolean | null
-      superiorityDiceCount: number | null
-      modifiesUnarmed: boolean | null
-      unarmedDamage: string | null
     }, ExtArgs["result"]["choiceOption"]>
     composites: {}
   }
@@ -21261,15 +21076,6 @@ export namespace Prisma {
     readonly optionName: FieldRef<"ChoiceOption", 'String'>
     readonly optionNameEng: FieldRef<"ChoiceOption", 'String'>
     readonly prerequisites: FieldRef<"ChoiceOption", 'Json'>
-    readonly givesAC: FieldRef<"ChoiceOption", 'Int'>
-    readonly meleeAttackBonus: FieldRef<"ChoiceOption", 'Int'>
-    readonly rangedAttackBonus: FieldRef<"ChoiceOption", 'Int'>
-    readonly meleeDamageBoost: FieldRef<"ChoiceOption", 'Int'>
-    readonly thrownDamageBoost: FieldRef<"ChoiceOption", 'Int'>
-    readonly givesManeuvres: FieldRef<"ChoiceOption", 'Boolean'>
-    readonly superiorityDiceCount: FieldRef<"ChoiceOption", 'Int'>
-    readonly modifiesUnarmed: FieldRef<"ChoiceOption", 'Boolean'>
-    readonly unarmedDamage: FieldRef<"ChoiceOption", 'String'>
   }
     
 
@@ -27260,6 +27066,16 @@ export namespace Prisma {
 
   export type FeatureAvgAggregateOutputType = {
     featureId: number | null
+    givesAC: number | null
+    givesSTR: number | null
+    givesCON: number | null
+    bonusToAttackRoll: number | null
+    bonusToRangedAttackRoll: number | null
+    bonusToRangedDamage: number | null
+    bonusToMeleeDamage: number | null
+    bonusToMeleeOneHandedWeaponDamage: number | null
+    bonusToThrownDamage: number | null
+    superiorityDiceCount: number | null
     usesCount: number | null
     invocationsCount: number | null
     languagesToChooseCount: number | null
@@ -27267,6 +27083,16 @@ export namespace Prisma {
 
   export type FeatureSumAggregateOutputType = {
     featureId: number | null
+    givesAC: number | null
+    givesSTR: number | null
+    givesCON: number | null
+    bonusToAttackRoll: number | null
+    bonusToRangedAttackRoll: number | null
+    bonusToRangedDamage: number | null
+    bonusToMeleeDamage: number | null
+    bonusToMeleeOneHandedWeaponDamage: number | null
+    bonusToThrownDamage: number | null
+    superiorityDiceCount: number | null
     usesCount: number | null
     invocationsCount: number | null
     languagesToChooseCount: number | null
@@ -27278,6 +27104,21 @@ export namespace Prisma {
     engName: string | null
     description: string | null
     shortDescription: string | null
+    givesAC: number | null
+    requiresArmorForACBonus: boolean | null
+    noArmorOrShieldForACBonus: boolean | null
+    givesSTR: number | null
+    givesCON: number | null
+    bonusToAttackRoll: number | null
+    bonusToRangedAttackRoll: number | null
+    bonusToRangedDamage: number | null
+    bonusToMeleeDamage: number | null
+    bonusToMeleeOneHandedWeaponDamage: number | null
+    bonusToThrownDamage: number | null
+    givesManeuvres: boolean | null
+    superiorityDiceCount: number | null
+    modifiesUnarmed: boolean | null
+    unarmedDamage: string | null
     limitedUsesPer: $Enums.RestType | null
     usesCount: number | null
     usesCountDependsOnProficiencyBonus: boolean | null
@@ -27293,6 +27134,21 @@ export namespace Prisma {
     engName: string | null
     description: string | null
     shortDescription: string | null
+    givesAC: number | null
+    requiresArmorForACBonus: boolean | null
+    noArmorOrShieldForACBonus: boolean | null
+    givesSTR: number | null
+    givesCON: number | null
+    bonusToAttackRoll: number | null
+    bonusToRangedAttackRoll: number | null
+    bonusToRangedDamage: number | null
+    bonusToMeleeDamage: number | null
+    bonusToMeleeOneHandedWeaponDamage: number | null
+    bonusToThrownDamage: number | null
+    givesManeuvres: boolean | null
+    superiorityDiceCount: number | null
+    modifiesUnarmed: boolean | null
+    unarmedDamage: string | null
     limitedUsesPer: $Enums.RestType | null
     usesCount: number | null
     usesCountDependsOnProficiencyBonus: boolean | null
@@ -27308,8 +27164,23 @@ export namespace Prisma {
     engName: number
     description: number
     shortDescription: number
-    modifiesStats: number
     modifiesAC: number
+    givesAC: number
+    requiresArmorForACBonus: number
+    noArmorOrShieldForACBonus: number
+    givesSTR: number
+    givesCON: number
+    bonusToAttackRoll: number
+    bonusToRangedAttackRoll: number
+    bonusToRangedDamage: number
+    bonusToMeleeDamage: number
+    bonusToMeleeOneHandedWeaponDamage: number
+    bonusToThrownDamage: number
+    bonusToSavingThrows: number
+    givesManeuvres: number
+    superiorityDiceCount: number
+    modifiesUnarmed: number
+    unarmedDamage: number
     skillProficiencies: number
     savingThrows: number
     skillExpertises: number
@@ -27328,6 +27199,16 @@ export namespace Prisma {
 
   export type FeatureAvgAggregateInputType = {
     featureId?: true
+    givesAC?: true
+    givesSTR?: true
+    givesCON?: true
+    bonusToAttackRoll?: true
+    bonusToRangedAttackRoll?: true
+    bonusToRangedDamage?: true
+    bonusToMeleeDamage?: true
+    bonusToMeleeOneHandedWeaponDamage?: true
+    bonusToThrownDamage?: true
+    superiorityDiceCount?: true
     usesCount?: true
     invocationsCount?: true
     languagesToChooseCount?: true
@@ -27335,6 +27216,16 @@ export namespace Prisma {
 
   export type FeatureSumAggregateInputType = {
     featureId?: true
+    givesAC?: true
+    givesSTR?: true
+    givesCON?: true
+    bonusToAttackRoll?: true
+    bonusToRangedAttackRoll?: true
+    bonusToRangedDamage?: true
+    bonusToMeleeDamage?: true
+    bonusToMeleeOneHandedWeaponDamage?: true
+    bonusToThrownDamage?: true
+    superiorityDiceCount?: true
     usesCount?: true
     invocationsCount?: true
     languagesToChooseCount?: true
@@ -27346,6 +27237,21 @@ export namespace Prisma {
     engName?: true
     description?: true
     shortDescription?: true
+    givesAC?: true
+    requiresArmorForACBonus?: true
+    noArmorOrShieldForACBonus?: true
+    givesSTR?: true
+    givesCON?: true
+    bonusToAttackRoll?: true
+    bonusToRangedAttackRoll?: true
+    bonusToRangedDamage?: true
+    bonusToMeleeDamage?: true
+    bonusToMeleeOneHandedWeaponDamage?: true
+    bonusToThrownDamage?: true
+    givesManeuvres?: true
+    superiorityDiceCount?: true
+    modifiesUnarmed?: true
+    unarmedDamage?: true
     limitedUsesPer?: true
     usesCount?: true
     usesCountDependsOnProficiencyBonus?: true
@@ -27361,6 +27267,21 @@ export namespace Prisma {
     engName?: true
     description?: true
     shortDescription?: true
+    givesAC?: true
+    requiresArmorForACBonus?: true
+    noArmorOrShieldForACBonus?: true
+    givesSTR?: true
+    givesCON?: true
+    bonusToAttackRoll?: true
+    bonusToRangedAttackRoll?: true
+    bonusToRangedDamage?: true
+    bonusToMeleeDamage?: true
+    bonusToMeleeOneHandedWeaponDamage?: true
+    bonusToThrownDamage?: true
+    givesManeuvres?: true
+    superiorityDiceCount?: true
+    modifiesUnarmed?: true
+    unarmedDamage?: true
     limitedUsesPer?: true
     usesCount?: true
     usesCountDependsOnProficiencyBonus?: true
@@ -27376,8 +27297,23 @@ export namespace Prisma {
     engName?: true
     description?: true
     shortDescription?: true
-    modifiesStats?: true
     modifiesAC?: true
+    givesAC?: true
+    requiresArmorForACBonus?: true
+    noArmorOrShieldForACBonus?: true
+    givesSTR?: true
+    givesCON?: true
+    bonusToAttackRoll?: true
+    bonusToRangedAttackRoll?: true
+    bonusToRangedDamage?: true
+    bonusToMeleeDamage?: true
+    bonusToMeleeOneHandedWeaponDamage?: true
+    bonusToThrownDamage?: true
+    bonusToSavingThrows?: true
+    givesManeuvres?: true
+    superiorityDiceCount?: true
+    modifiesUnarmed?: true
+    unarmedDamage?: true
     skillProficiencies?: true
     savingThrows?: true
     skillExpertises?: true
@@ -27485,8 +27421,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription: string | null
-    modifiesStats: JsonValue | null
     modifiesAC: JsonValue | null
+    givesAC: number | null
+    requiresArmorForACBonus: boolean | null
+    noArmorOrShieldForACBonus: boolean | null
+    givesSTR: number | null
+    givesCON: number | null
+    bonusToAttackRoll: number | null
+    bonusToRangedAttackRoll: number | null
+    bonusToRangedDamage: number | null
+    bonusToMeleeDamage: number | null
+    bonusToMeleeOneHandedWeaponDamage: number | null
+    bonusToThrownDamage: number | null
+    bonusToSavingThrows: JsonValue | null
+    givesManeuvres: boolean | null
+    superiorityDiceCount: number | null
+    modifiesUnarmed: boolean | null
+    unarmedDamage: string | null
     skillProficiencies: JsonValue | null
     savingThrows: $Enums.Ability[]
     skillExpertises: JsonValue | null
@@ -27526,8 +27477,23 @@ export namespace Prisma {
     engName?: boolean
     description?: boolean
     shortDescription?: boolean
-    modifiesStats?: boolean
     modifiesAC?: boolean
+    givesAC?: boolean
+    requiresArmorForACBonus?: boolean
+    noArmorOrShieldForACBonus?: boolean
+    givesSTR?: boolean
+    givesCON?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToRangedAttackRoll?: boolean
+    bonusToRangedDamage?: boolean
+    bonusToMeleeDamage?: boolean
+    bonusToMeleeOneHandedWeaponDamage?: boolean
+    bonusToThrownDamage?: boolean
+    bonusToSavingThrows?: boolean
+    givesManeuvres?: boolean
+    superiorityDiceCount?: boolean
+    modifiesUnarmed?: boolean
+    unarmedDamage?: boolean
     skillProficiencies?: boolean
     savingThrows?: boolean
     skillExpertises?: boolean
@@ -27553,7 +27519,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: boolean | Feature$subracesReplacingFeaturesArgs<ExtArgs>
     raceVariantsReplacingFeatures?: boolean | Feature$raceVariantsReplacingFeaturesArgs<ExtArgs>
     featFeatures?: boolean | Feature$featFeaturesArgs<ExtArgs>
-    magicItemFeatures?: boolean | Feature$magicItemFeaturesArgs<ExtArgs>
+    infusions?: boolean | Feature$infusionsArgs<ExtArgs>
     persFeatures?: boolean | Feature$persFeaturesArgs<ExtArgs>
     _count?: boolean | FeatureCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["feature"]>
@@ -27564,8 +27530,23 @@ export namespace Prisma {
     engName?: boolean
     description?: boolean
     shortDescription?: boolean
-    modifiesStats?: boolean
     modifiesAC?: boolean
+    givesAC?: boolean
+    requiresArmorForACBonus?: boolean
+    noArmorOrShieldForACBonus?: boolean
+    givesSTR?: boolean
+    givesCON?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToRangedAttackRoll?: boolean
+    bonusToRangedDamage?: boolean
+    bonusToMeleeDamage?: boolean
+    bonusToMeleeOneHandedWeaponDamage?: boolean
+    bonusToThrownDamage?: boolean
+    bonusToSavingThrows?: boolean
+    givesManeuvres?: boolean
+    superiorityDiceCount?: boolean
+    modifiesUnarmed?: boolean
+    unarmedDamage?: boolean
     skillProficiencies?: boolean
     savingThrows?: boolean
     skillExpertises?: boolean
@@ -27586,8 +27567,23 @@ export namespace Prisma {
     engName?: boolean
     description?: boolean
     shortDescription?: boolean
-    modifiesStats?: boolean
     modifiesAC?: boolean
+    givesAC?: boolean
+    requiresArmorForACBonus?: boolean
+    noArmorOrShieldForACBonus?: boolean
+    givesSTR?: boolean
+    givesCON?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToRangedAttackRoll?: boolean
+    bonusToRangedDamage?: boolean
+    bonusToMeleeDamage?: boolean
+    bonusToMeleeOneHandedWeaponDamage?: boolean
+    bonusToThrownDamage?: boolean
+    bonusToSavingThrows?: boolean
+    givesManeuvres?: boolean
+    superiorityDiceCount?: boolean
+    modifiesUnarmed?: boolean
+    unarmedDamage?: boolean
     skillProficiencies?: boolean
     savingThrows?: boolean
     skillExpertises?: boolean
@@ -27608,8 +27604,23 @@ export namespace Prisma {
     engName?: boolean
     description?: boolean
     shortDescription?: boolean
-    modifiesStats?: boolean
     modifiesAC?: boolean
+    givesAC?: boolean
+    requiresArmorForACBonus?: boolean
+    noArmorOrShieldForACBonus?: boolean
+    givesSTR?: boolean
+    givesCON?: boolean
+    bonusToAttackRoll?: boolean
+    bonusToRangedAttackRoll?: boolean
+    bonusToRangedDamage?: boolean
+    bonusToMeleeDamage?: boolean
+    bonusToMeleeOneHandedWeaponDamage?: boolean
+    bonusToThrownDamage?: boolean
+    bonusToSavingThrows?: boolean
+    givesManeuvres?: boolean
+    superiorityDiceCount?: boolean
+    modifiesUnarmed?: boolean
+    unarmedDamage?: boolean
     skillProficiencies?: boolean
     savingThrows?: boolean
     skillExpertises?: boolean
@@ -27624,7 +27635,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type FeatureOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"featureId" | "name" | "engName" | "description" | "shortDescription" | "modifiesStats" | "modifiesAC" | "skillProficiencies" | "savingThrows" | "skillExpertises" | "limitedUsesPer" | "usesCount" | "usesCountSpecial" | "usesCountDependsOnProficiencyBonus" | "invocationsCount" | "languagesToChooseCount" | "displayType" | "createdAt" | "updatedAt", ExtArgs["result"]["feature"]>
+  export type FeatureOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"featureId" | "name" | "engName" | "description" | "shortDescription" | "modifiesAC" | "givesAC" | "requiresArmorForACBonus" | "noArmorOrShieldForACBonus" | "givesSTR" | "givesCON" | "bonusToAttackRoll" | "bonusToRangedAttackRoll" | "bonusToRangedDamage" | "bonusToMeleeDamage" | "bonusToMeleeOneHandedWeaponDamage" | "bonusToThrownDamage" | "bonusToSavingThrows" | "givesManeuvres" | "superiorityDiceCount" | "modifiesUnarmed" | "unarmedDamage" | "skillProficiencies" | "savingThrows" | "skillExpertises" | "limitedUsesPer" | "usesCount" | "usesCountSpecial" | "usesCountDependsOnProficiencyBonus" | "invocationsCount" | "languagesToChooseCount" | "displayType" | "createdAt" | "updatedAt", ExtArgs["result"]["feature"]>
   export type FeatureInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     givesSpells?: boolean | Feature$givesSpellsArgs<ExtArgs>
     classFeatures?: boolean | Feature$classFeaturesArgs<ExtArgs>
@@ -27639,7 +27650,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: boolean | Feature$subracesReplacingFeaturesArgs<ExtArgs>
     raceVariantsReplacingFeatures?: boolean | Feature$raceVariantsReplacingFeaturesArgs<ExtArgs>
     featFeatures?: boolean | Feature$featFeaturesArgs<ExtArgs>
-    magicItemFeatures?: boolean | Feature$magicItemFeaturesArgs<ExtArgs>
+    infusions?: boolean | Feature$infusionsArgs<ExtArgs>
     persFeatures?: boolean | Feature$persFeaturesArgs<ExtArgs>
     _count?: boolean | FeatureCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -27662,7 +27673,7 @@ export namespace Prisma {
       subracesReplacingFeatures: Prisma.$SubracePayload<ExtArgs>[]
       raceVariantsReplacingFeatures: Prisma.$RaceVariantPayload<ExtArgs>[]
       featFeatures: Prisma.$FeatFeaturePayload<ExtArgs>[]
-      magicItemFeatures: Prisma.$MagicItemFeaturePayload<ExtArgs>[]
+      infusions: Prisma.$InfusionPayload<ExtArgs>[]
       persFeatures: Prisma.$PersFeaturePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -27671,8 +27682,23 @@ export namespace Prisma {
       engName: string
       description: string
       shortDescription: string | null
-      modifiesStats: Prisma.JsonValue | null
       modifiesAC: Prisma.JsonValue | null
+      givesAC: number | null
+      requiresArmorForACBonus: boolean | null
+      noArmorOrShieldForACBonus: boolean | null
+      givesSTR: number | null
+      givesCON: number | null
+      bonusToAttackRoll: number | null
+      bonusToRangedAttackRoll: number | null
+      bonusToRangedDamage: number | null
+      bonusToMeleeDamage: number | null
+      bonusToMeleeOneHandedWeaponDamage: number | null
+      bonusToThrownDamage: number | null
+      bonusToSavingThrows: Prisma.JsonValue | null
+      givesManeuvres: boolean | null
+      superiorityDiceCount: number | null
+      modifiesUnarmed: boolean | null
+      unarmedDamage: string | null
       skillProficiencies: Prisma.JsonValue | null
       savingThrows: $Enums.Ability[]
       skillExpertises: Prisma.JsonValue | null
@@ -28092,7 +28118,7 @@ export namespace Prisma {
     subracesReplacingFeatures<T extends Feature$subracesReplacingFeaturesArgs<ExtArgs> = {}>(args?: Subset<T, Feature$subracesReplacingFeaturesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubracePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     raceVariantsReplacingFeatures<T extends Feature$raceVariantsReplacingFeaturesArgs<ExtArgs> = {}>(args?: Subset<T, Feature$raceVariantsReplacingFeaturesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RaceVariantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     featFeatures<T extends Feature$featFeaturesArgs<ExtArgs> = {}>(args?: Subset<T, Feature$featFeaturesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeatFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    magicItemFeatures<T extends Feature$magicItemFeaturesArgs<ExtArgs> = {}>(args?: Subset<T, Feature$magicItemFeaturesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    infusions<T extends Feature$infusionsArgs<ExtArgs> = {}>(args?: Subset<T, Feature$infusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     persFeatures<T extends Feature$persFeaturesArgs<ExtArgs> = {}>(args?: Subset<T, Feature$persFeaturesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -28128,8 +28154,23 @@ export namespace Prisma {
     readonly engName: FieldRef<"Feature", 'String'>
     readonly description: FieldRef<"Feature", 'String'>
     readonly shortDescription: FieldRef<"Feature", 'String'>
-    readonly modifiesStats: FieldRef<"Feature", 'Json'>
     readonly modifiesAC: FieldRef<"Feature", 'Json'>
+    readonly givesAC: FieldRef<"Feature", 'Int'>
+    readonly requiresArmorForACBonus: FieldRef<"Feature", 'Boolean'>
+    readonly noArmorOrShieldForACBonus: FieldRef<"Feature", 'Boolean'>
+    readonly givesSTR: FieldRef<"Feature", 'Int'>
+    readonly givesCON: FieldRef<"Feature", 'Int'>
+    readonly bonusToAttackRoll: FieldRef<"Feature", 'Int'>
+    readonly bonusToRangedAttackRoll: FieldRef<"Feature", 'Int'>
+    readonly bonusToRangedDamage: FieldRef<"Feature", 'Int'>
+    readonly bonusToMeleeDamage: FieldRef<"Feature", 'Int'>
+    readonly bonusToMeleeOneHandedWeaponDamage: FieldRef<"Feature", 'Int'>
+    readonly bonusToThrownDamage: FieldRef<"Feature", 'Int'>
+    readonly bonusToSavingThrows: FieldRef<"Feature", 'Json'>
+    readonly givesManeuvres: FieldRef<"Feature", 'Boolean'>
+    readonly superiorityDiceCount: FieldRef<"Feature", 'Int'>
+    readonly modifiesUnarmed: FieldRef<"Feature", 'Boolean'>
+    readonly unarmedDamage: FieldRef<"Feature", 'String'>
     readonly skillProficiencies: FieldRef<"Feature", 'Json'>
     readonly savingThrows: FieldRef<"Feature", 'Ability[]'>
     readonly skillExpertises: FieldRef<"Feature", 'Json'>
@@ -28842,27 +28883,27 @@ export namespace Prisma {
   }
 
   /**
-   * Feature.magicItemFeatures
+   * Feature.infusions
    */
-  export type Feature$magicItemFeaturesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Feature$infusionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MagicItemFeature
+     * Select specific fields to fetch from the Infusion
      */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
+    select?: InfusionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MagicItemFeature
+     * Omit specific fields from the Infusion
      */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
+    omit?: InfusionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    where?: MagicItemFeatureWhereInput
-    orderBy?: MagicItemFeatureOrderByWithRelationInput | MagicItemFeatureOrderByWithRelationInput[]
-    cursor?: MagicItemFeatureWhereUniqueInput
+    include?: InfusionInclude<ExtArgs> | null
+    where?: InfusionWhereInput
+    orderBy?: InfusionOrderByWithRelationInput | InfusionOrderByWithRelationInput[]
+    cursor?: InfusionWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: MagicItemFeatureScalarFieldEnum | MagicItemFeatureScalarFieldEnum[]
+    distinct?: InfusionScalarFieldEnum | InfusionScalarFieldEnum[]
   }
 
   /**
@@ -39951,1088 +39992,6 @@ export namespace Prisma {
 
 
   /**
-   * Model MagicItemFeature
-   */
-
-  export type AggregateMagicItemFeature = {
-    _count: MagicItemFeatureCountAggregateOutputType | null
-    _avg: MagicItemFeatureAvgAggregateOutputType | null
-    _sum: MagicItemFeatureSumAggregateOutputType | null
-    _min: MagicItemFeatureMinAggregateOutputType | null
-    _max: MagicItemFeatureMaxAggregateOutputType | null
-  }
-
-  export type MagicItemFeatureAvgAggregateOutputType = {
-    magicItemFeatureId: number | null
-    magicItemId: number | null
-    featureId: number | null
-  }
-
-  export type MagicItemFeatureSumAggregateOutputType = {
-    magicItemFeatureId: number | null
-    magicItemId: number | null
-    featureId: number | null
-  }
-
-  export type MagicItemFeatureMinAggregateOutputType = {
-    magicItemFeatureId: number | null
-    magicItemId: number | null
-    featureId: number | null
-  }
-
-  export type MagicItemFeatureMaxAggregateOutputType = {
-    magicItemFeatureId: number | null
-    magicItemId: number | null
-    featureId: number | null
-  }
-
-  export type MagicItemFeatureCountAggregateOutputType = {
-    magicItemFeatureId: number
-    magicItemId: number
-    featureId: number
-    _all: number
-  }
-
-
-  export type MagicItemFeatureAvgAggregateInputType = {
-    magicItemFeatureId?: true
-    magicItemId?: true
-    featureId?: true
-  }
-
-  export type MagicItemFeatureSumAggregateInputType = {
-    magicItemFeatureId?: true
-    magicItemId?: true
-    featureId?: true
-  }
-
-  export type MagicItemFeatureMinAggregateInputType = {
-    magicItemFeatureId?: true
-    magicItemId?: true
-    featureId?: true
-  }
-
-  export type MagicItemFeatureMaxAggregateInputType = {
-    magicItemFeatureId?: true
-    magicItemId?: true
-    featureId?: true
-  }
-
-  export type MagicItemFeatureCountAggregateInputType = {
-    magicItemFeatureId?: true
-    magicItemId?: true
-    featureId?: true
-    _all?: true
-  }
-
-  export type MagicItemFeatureAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which MagicItemFeature to aggregate.
-     */
-    where?: MagicItemFeatureWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MagicItemFeatures to fetch.
-     */
-    orderBy?: MagicItemFeatureOrderByWithRelationInput | MagicItemFeatureOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: MagicItemFeatureWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MagicItemFeatures from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MagicItemFeatures.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned MagicItemFeatures
-    **/
-    _count?: true | MagicItemFeatureCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: MagicItemFeatureAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: MagicItemFeatureSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: MagicItemFeatureMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: MagicItemFeatureMaxAggregateInputType
-  }
-
-  export type GetMagicItemFeatureAggregateType<T extends MagicItemFeatureAggregateArgs> = {
-        [P in keyof T & keyof AggregateMagicItemFeature]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateMagicItemFeature[P]>
-      : GetScalarType<T[P], AggregateMagicItemFeature[P]>
-  }
-
-
-
-
-  export type MagicItemFeatureGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MagicItemFeatureWhereInput
-    orderBy?: MagicItemFeatureOrderByWithAggregationInput | MagicItemFeatureOrderByWithAggregationInput[]
-    by: MagicItemFeatureScalarFieldEnum[] | MagicItemFeatureScalarFieldEnum
-    having?: MagicItemFeatureScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: MagicItemFeatureCountAggregateInputType | true
-    _avg?: MagicItemFeatureAvgAggregateInputType
-    _sum?: MagicItemFeatureSumAggregateInputType
-    _min?: MagicItemFeatureMinAggregateInputType
-    _max?: MagicItemFeatureMaxAggregateInputType
-  }
-
-  export type MagicItemFeatureGroupByOutputType = {
-    magicItemFeatureId: number
-    magicItemId: number
-    featureId: number
-    _count: MagicItemFeatureCountAggregateOutputType | null
-    _avg: MagicItemFeatureAvgAggregateOutputType | null
-    _sum: MagicItemFeatureSumAggregateOutputType | null
-    _min: MagicItemFeatureMinAggregateOutputType | null
-    _max: MagicItemFeatureMaxAggregateOutputType | null
-  }
-
-  type GetMagicItemFeatureGroupByPayload<T extends MagicItemFeatureGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<MagicItemFeatureGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof MagicItemFeatureGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], MagicItemFeatureGroupByOutputType[P]>
-            : GetScalarType<T[P], MagicItemFeatureGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type MagicItemFeatureSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    magicItemFeatureId?: boolean
-    magicItemId?: boolean
-    featureId?: boolean
-    feature?: boolean | FeatureDefaultArgs<ExtArgs>
-    magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["magicItemFeature"]>
-
-  export type MagicItemFeatureSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    magicItemFeatureId?: boolean
-    magicItemId?: boolean
-    featureId?: boolean
-    feature?: boolean | FeatureDefaultArgs<ExtArgs>
-    magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["magicItemFeature"]>
-
-  export type MagicItemFeatureSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    magicItemFeatureId?: boolean
-    magicItemId?: boolean
-    featureId?: boolean
-    feature?: boolean | FeatureDefaultArgs<ExtArgs>
-    magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["magicItemFeature"]>
-
-  export type MagicItemFeatureSelectScalar = {
-    magicItemFeatureId?: boolean
-    magicItemId?: boolean
-    featureId?: boolean
-  }
-
-  export type MagicItemFeatureOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"magicItemFeatureId" | "magicItemId" | "featureId", ExtArgs["result"]["magicItemFeature"]>
-  export type MagicItemFeatureInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    feature?: boolean | FeatureDefaultArgs<ExtArgs>
-    magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
-  }
-  export type MagicItemFeatureIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    feature?: boolean | FeatureDefaultArgs<ExtArgs>
-    magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
-  }
-  export type MagicItemFeatureIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    feature?: boolean | FeatureDefaultArgs<ExtArgs>
-    magicItem?: boolean | MagicItemDefaultArgs<ExtArgs>
-  }
-
-  export type $MagicItemFeaturePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "MagicItemFeature"
-    objects: {
-      feature: Prisma.$FeaturePayload<ExtArgs>
-      magicItem: Prisma.$MagicItemPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      magicItemFeatureId: number
-      magicItemId: number
-      featureId: number
-    }, ExtArgs["result"]["magicItemFeature"]>
-    composites: {}
-  }
-
-  type MagicItemFeatureGetPayload<S extends boolean | null | undefined | MagicItemFeatureDefaultArgs> = $Result.GetResult<Prisma.$MagicItemFeaturePayload, S>
-
-  type MagicItemFeatureCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MagicItemFeatureFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MagicItemFeatureCountAggregateInputType | true
-    }
-
-  export interface MagicItemFeatureDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MagicItemFeature'], meta: { name: 'MagicItemFeature' } }
-    /**
-     * Find zero or one MagicItemFeature that matches the filter.
-     * @param {MagicItemFeatureFindUniqueArgs} args - Arguments to find a MagicItemFeature
-     * @example
-     * // Get one MagicItemFeature
-     * const magicItemFeature = await prisma.magicItemFeature.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends MagicItemFeatureFindUniqueArgs>(args: SelectSubset<T, MagicItemFeatureFindUniqueArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one MagicItemFeature that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {MagicItemFeatureFindUniqueOrThrowArgs} args - Arguments to find a MagicItemFeature
-     * @example
-     * // Get one MagicItemFeature
-     * const magicItemFeature = await prisma.magicItemFeature.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends MagicItemFeatureFindUniqueOrThrowArgs>(args: SelectSubset<T, MagicItemFeatureFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first MagicItemFeature that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MagicItemFeatureFindFirstArgs} args - Arguments to find a MagicItemFeature
-     * @example
-     * // Get one MagicItemFeature
-     * const magicItemFeature = await prisma.magicItemFeature.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends MagicItemFeatureFindFirstArgs>(args?: SelectSubset<T, MagicItemFeatureFindFirstArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first MagicItemFeature that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MagicItemFeatureFindFirstOrThrowArgs} args - Arguments to find a MagicItemFeature
-     * @example
-     * // Get one MagicItemFeature
-     * const magicItemFeature = await prisma.magicItemFeature.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends MagicItemFeatureFindFirstOrThrowArgs>(args?: SelectSubset<T, MagicItemFeatureFindFirstOrThrowArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more MagicItemFeatures that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MagicItemFeatureFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all MagicItemFeatures
-     * const magicItemFeatures = await prisma.magicItemFeature.findMany()
-     * 
-     * // Get first 10 MagicItemFeatures
-     * const magicItemFeatures = await prisma.magicItemFeature.findMany({ take: 10 })
-     * 
-     * // Only select the `magicItemFeatureId`
-     * const magicItemFeatureWithMagicItemFeatureIdOnly = await prisma.magicItemFeature.findMany({ select: { magicItemFeatureId: true } })
-     * 
-     */
-    findMany<T extends MagicItemFeatureFindManyArgs>(args?: SelectSubset<T, MagicItemFeatureFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a MagicItemFeature.
-     * @param {MagicItemFeatureCreateArgs} args - Arguments to create a MagicItemFeature.
-     * @example
-     * // Create one MagicItemFeature
-     * const MagicItemFeature = await prisma.magicItemFeature.create({
-     *   data: {
-     *     // ... data to create a MagicItemFeature
-     *   }
-     * })
-     * 
-     */
-    create<T extends MagicItemFeatureCreateArgs>(args: SelectSubset<T, MagicItemFeatureCreateArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many MagicItemFeatures.
-     * @param {MagicItemFeatureCreateManyArgs} args - Arguments to create many MagicItemFeatures.
-     * @example
-     * // Create many MagicItemFeatures
-     * const magicItemFeature = await prisma.magicItemFeature.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends MagicItemFeatureCreateManyArgs>(args?: SelectSubset<T, MagicItemFeatureCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many MagicItemFeatures and returns the data saved in the database.
-     * @param {MagicItemFeatureCreateManyAndReturnArgs} args - Arguments to create many MagicItemFeatures.
-     * @example
-     * // Create many MagicItemFeatures
-     * const magicItemFeature = await prisma.magicItemFeature.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many MagicItemFeatures and only return the `magicItemFeatureId`
-     * const magicItemFeatureWithMagicItemFeatureIdOnly = await prisma.magicItemFeature.createManyAndReturn({
-     *   select: { magicItemFeatureId: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends MagicItemFeatureCreateManyAndReturnArgs>(args?: SelectSubset<T, MagicItemFeatureCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a MagicItemFeature.
-     * @param {MagicItemFeatureDeleteArgs} args - Arguments to delete one MagicItemFeature.
-     * @example
-     * // Delete one MagicItemFeature
-     * const MagicItemFeature = await prisma.magicItemFeature.delete({
-     *   where: {
-     *     // ... filter to delete one MagicItemFeature
-     *   }
-     * })
-     * 
-     */
-    delete<T extends MagicItemFeatureDeleteArgs>(args: SelectSubset<T, MagicItemFeatureDeleteArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one MagicItemFeature.
-     * @param {MagicItemFeatureUpdateArgs} args - Arguments to update one MagicItemFeature.
-     * @example
-     * // Update one MagicItemFeature
-     * const magicItemFeature = await prisma.magicItemFeature.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends MagicItemFeatureUpdateArgs>(args: SelectSubset<T, MagicItemFeatureUpdateArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more MagicItemFeatures.
-     * @param {MagicItemFeatureDeleteManyArgs} args - Arguments to filter MagicItemFeatures to delete.
-     * @example
-     * // Delete a few MagicItemFeatures
-     * const { count } = await prisma.magicItemFeature.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends MagicItemFeatureDeleteManyArgs>(args?: SelectSubset<T, MagicItemFeatureDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more MagicItemFeatures.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MagicItemFeatureUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many MagicItemFeatures
-     * const magicItemFeature = await prisma.magicItemFeature.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends MagicItemFeatureUpdateManyArgs>(args: SelectSubset<T, MagicItemFeatureUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more MagicItemFeatures and returns the data updated in the database.
-     * @param {MagicItemFeatureUpdateManyAndReturnArgs} args - Arguments to update many MagicItemFeatures.
-     * @example
-     * // Update many MagicItemFeatures
-     * const magicItemFeature = await prisma.magicItemFeature.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more MagicItemFeatures and only return the `magicItemFeatureId`
-     * const magicItemFeatureWithMagicItemFeatureIdOnly = await prisma.magicItemFeature.updateManyAndReturn({
-     *   select: { magicItemFeatureId: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends MagicItemFeatureUpdateManyAndReturnArgs>(args: SelectSubset<T, MagicItemFeatureUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one MagicItemFeature.
-     * @param {MagicItemFeatureUpsertArgs} args - Arguments to update or create a MagicItemFeature.
-     * @example
-     * // Update or create a MagicItemFeature
-     * const magicItemFeature = await prisma.magicItemFeature.upsert({
-     *   create: {
-     *     // ... data to create a MagicItemFeature
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the MagicItemFeature we want to update
-     *   }
-     * })
-     */
-    upsert<T extends MagicItemFeatureUpsertArgs>(args: SelectSubset<T, MagicItemFeatureUpsertArgs<ExtArgs>>): Prisma__MagicItemFeatureClient<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of MagicItemFeatures.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MagicItemFeatureCountArgs} args - Arguments to filter MagicItemFeatures to count.
-     * @example
-     * // Count the number of MagicItemFeatures
-     * const count = await prisma.magicItemFeature.count({
-     *   where: {
-     *     // ... the filter for the MagicItemFeatures we want to count
-     *   }
-     * })
-    **/
-    count<T extends MagicItemFeatureCountArgs>(
-      args?: Subset<T, MagicItemFeatureCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], MagicItemFeatureCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a MagicItemFeature.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MagicItemFeatureAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends MagicItemFeatureAggregateArgs>(args: Subset<T, MagicItemFeatureAggregateArgs>): Prisma.PrismaPromise<GetMagicItemFeatureAggregateType<T>>
-
-    /**
-     * Group by MagicItemFeature.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MagicItemFeatureGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends MagicItemFeatureGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MagicItemFeatureGroupByArgs['orderBy'] }
-        : { orderBy?: MagicItemFeatureGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, MagicItemFeatureGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMagicItemFeatureGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the MagicItemFeature model
-   */
-  readonly fields: MagicItemFeatureFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for MagicItemFeature.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__MagicItemFeatureClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    feature<T extends FeatureDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FeatureDefaultArgs<ExtArgs>>): Prisma__FeatureClient<$Result.GetResult<Prisma.$FeaturePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    magicItem<T extends MagicItemDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MagicItemDefaultArgs<ExtArgs>>): Prisma__MagicItemClient<$Result.GetResult<Prisma.$MagicItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the MagicItemFeature model
-   */
-  interface MagicItemFeatureFieldRefs {
-    readonly magicItemFeatureId: FieldRef<"MagicItemFeature", 'Int'>
-    readonly magicItemId: FieldRef<"MagicItemFeature", 'Int'>
-    readonly featureId: FieldRef<"MagicItemFeature", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * MagicItemFeature findUnique
-   */
-  export type MagicItemFeatureFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * Filter, which MagicItemFeature to fetch.
-     */
-    where: MagicItemFeatureWhereUniqueInput
-  }
-
-  /**
-   * MagicItemFeature findUniqueOrThrow
-   */
-  export type MagicItemFeatureFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * Filter, which MagicItemFeature to fetch.
-     */
-    where: MagicItemFeatureWhereUniqueInput
-  }
-
-  /**
-   * MagicItemFeature findFirst
-   */
-  export type MagicItemFeatureFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * Filter, which MagicItemFeature to fetch.
-     */
-    where?: MagicItemFeatureWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MagicItemFeatures to fetch.
-     */
-    orderBy?: MagicItemFeatureOrderByWithRelationInput | MagicItemFeatureOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for MagicItemFeatures.
-     */
-    cursor?: MagicItemFeatureWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MagicItemFeatures from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MagicItemFeatures.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of MagicItemFeatures.
-     */
-    distinct?: MagicItemFeatureScalarFieldEnum | MagicItemFeatureScalarFieldEnum[]
-  }
-
-  /**
-   * MagicItemFeature findFirstOrThrow
-   */
-  export type MagicItemFeatureFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * Filter, which MagicItemFeature to fetch.
-     */
-    where?: MagicItemFeatureWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MagicItemFeatures to fetch.
-     */
-    orderBy?: MagicItemFeatureOrderByWithRelationInput | MagicItemFeatureOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for MagicItemFeatures.
-     */
-    cursor?: MagicItemFeatureWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MagicItemFeatures from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MagicItemFeatures.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of MagicItemFeatures.
-     */
-    distinct?: MagicItemFeatureScalarFieldEnum | MagicItemFeatureScalarFieldEnum[]
-  }
-
-  /**
-   * MagicItemFeature findMany
-   */
-  export type MagicItemFeatureFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * Filter, which MagicItemFeatures to fetch.
-     */
-    where?: MagicItemFeatureWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MagicItemFeatures to fetch.
-     */
-    orderBy?: MagicItemFeatureOrderByWithRelationInput | MagicItemFeatureOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing MagicItemFeatures.
-     */
-    cursor?: MagicItemFeatureWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MagicItemFeatures from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MagicItemFeatures.
-     */
-    skip?: number
-    distinct?: MagicItemFeatureScalarFieldEnum | MagicItemFeatureScalarFieldEnum[]
-  }
-
-  /**
-   * MagicItemFeature create
-   */
-  export type MagicItemFeatureCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * The data needed to create a MagicItemFeature.
-     */
-    data: XOR<MagicItemFeatureCreateInput, MagicItemFeatureUncheckedCreateInput>
-  }
-
-  /**
-   * MagicItemFeature createMany
-   */
-  export type MagicItemFeatureCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many MagicItemFeatures.
-     */
-    data: MagicItemFeatureCreateManyInput | MagicItemFeatureCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * MagicItemFeature createManyAndReturn
-   */
-  export type MagicItemFeatureCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * The data used to create many MagicItemFeatures.
-     */
-    data: MagicItemFeatureCreateManyInput | MagicItemFeatureCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * MagicItemFeature update
-   */
-  export type MagicItemFeatureUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * The data needed to update a MagicItemFeature.
-     */
-    data: XOR<MagicItemFeatureUpdateInput, MagicItemFeatureUncheckedUpdateInput>
-    /**
-     * Choose, which MagicItemFeature to update.
-     */
-    where: MagicItemFeatureWhereUniqueInput
-  }
-
-  /**
-   * MagicItemFeature updateMany
-   */
-  export type MagicItemFeatureUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update MagicItemFeatures.
-     */
-    data: XOR<MagicItemFeatureUpdateManyMutationInput, MagicItemFeatureUncheckedUpdateManyInput>
-    /**
-     * Filter which MagicItemFeatures to update
-     */
-    where?: MagicItemFeatureWhereInput
-    /**
-     * Limit how many MagicItemFeatures to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * MagicItemFeature updateManyAndReturn
-   */
-  export type MagicItemFeatureUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * The data used to update MagicItemFeatures.
-     */
-    data: XOR<MagicItemFeatureUpdateManyMutationInput, MagicItemFeatureUncheckedUpdateManyInput>
-    /**
-     * Filter which MagicItemFeatures to update
-     */
-    where?: MagicItemFeatureWhereInput
-    /**
-     * Limit how many MagicItemFeatures to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * MagicItemFeature upsert
-   */
-  export type MagicItemFeatureUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * The filter to search for the MagicItemFeature to update in case it exists.
-     */
-    where: MagicItemFeatureWhereUniqueInput
-    /**
-     * In case the MagicItemFeature found by the `where` argument doesn't exist, create a new MagicItemFeature with this data.
-     */
-    create: XOR<MagicItemFeatureCreateInput, MagicItemFeatureUncheckedCreateInput>
-    /**
-     * In case the MagicItemFeature was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<MagicItemFeatureUpdateInput, MagicItemFeatureUncheckedUpdateInput>
-  }
-
-  /**
-   * MagicItemFeature delete
-   */
-  export type MagicItemFeatureDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    /**
-     * Filter which MagicItemFeature to delete.
-     */
-    where: MagicItemFeatureWhereUniqueInput
-  }
-
-  /**
-   * MagicItemFeature deleteMany
-   */
-  export type MagicItemFeatureDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which MagicItemFeatures to delete
-     */
-    where?: MagicItemFeatureWhereInput
-    /**
-     * Limit how many MagicItemFeatures to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * MagicItemFeature without action
-   */
-  export type MagicItemFeatureDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model Race
    */
 
@@ -50789,104 +49748,90 @@ export namespace Prisma {
 
   export type MagicItemAvgAggregateOutputType = {
     magicItemId: number | null
-    bonusToAC: number | null
-    bonusToAttackRoll: number | null
-    bonusToDamage: number | null
   }
 
   export type MagicItemSumAggregateOutputType = {
     magicItemId: number | null
-    bonusToAC: number | null
-    bonusToAttackRoll: number | null
-    bonusToDamage: number | null
   }
 
   export type MagicItemMinAggregateOutputType = {
     magicItemId: number | null
     name: string | null
+    engName: string | null
     itemType: $Enums.MagicItemType | null
     rarity: $Enums.ItemRarity | null
     description: string | null
+    shortDescription: string | null
     requiresAttunement: boolean | null
-    bonusToAC: number | null
-    bonusToAttackRoll: number | null
-    bonusToDamage: number | null
   }
 
   export type MagicItemMaxAggregateOutputType = {
     magicItemId: number | null
     name: string | null
+    engName: string | null
     itemType: $Enums.MagicItemType | null
     rarity: $Enums.ItemRarity | null
     description: string | null
+    shortDescription: string | null
     requiresAttunement: boolean | null
-    bonusToAC: number | null
-    bonusToAttackRoll: number | null
-    bonusToDamage: number | null
   }
 
   export type MagicItemCountAggregateOutputType = {
     magicItemId: number
     name: number
+    engName: number
     itemType: number
     rarity: number
     description: number
+    shortDescription: number
     requiresAttunement: number
-    bonusToAC: number
-    bonusToAttackRoll: number
-    bonusToDamage: number
+    weaponProficiencies: number
+    weaponProficienciesSpecial: number
     _all: number
   }
 
 
   export type MagicItemAvgAggregateInputType = {
     magicItemId?: true
-    bonusToAC?: true
-    bonusToAttackRoll?: true
-    bonusToDamage?: true
   }
 
   export type MagicItemSumAggregateInputType = {
     magicItemId?: true
-    bonusToAC?: true
-    bonusToAttackRoll?: true
-    bonusToDamage?: true
   }
 
   export type MagicItemMinAggregateInputType = {
     magicItemId?: true
     name?: true
+    engName?: true
     itemType?: true
     rarity?: true
     description?: true
+    shortDescription?: true
     requiresAttunement?: true
-    bonusToAC?: true
-    bonusToAttackRoll?: true
-    bonusToDamage?: true
   }
 
   export type MagicItemMaxAggregateInputType = {
     magicItemId?: true
     name?: true
+    engName?: true
     itemType?: true
     rarity?: true
     description?: true
+    shortDescription?: true
     requiresAttunement?: true
-    bonusToAC?: true
-    bonusToAttackRoll?: true
-    bonusToDamage?: true
   }
 
   export type MagicItemCountAggregateInputType = {
     magicItemId?: true
     name?: true
+    engName?: true
     itemType?: true
     rarity?: true
     description?: true
+    shortDescription?: true
     requiresAttunement?: true
-    bonusToAC?: true
-    bonusToAttackRoll?: true
-    bonusToDamage?: true
+    weaponProficiencies?: true
+    weaponProficienciesSpecial?: true
     _all?: true
   }
 
@@ -50979,13 +49924,14 @@ export namespace Prisma {
   export type MagicItemGroupByOutputType = {
     magicItemId: number
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription: string | null
     requiresAttunement: boolean
-    bonusToAC: number | null
-    bonusToAttackRoll: number | null
-    bonusToDamage: number | null
+    weaponProficiencies: JsonValue | null
+    weaponProficienciesSpecial: JsonValue | null
     _count: MagicItemCountAggregateOutputType | null
     _avg: MagicItemAvgAggregateOutputType | null
     _sum: MagicItemSumAggregateOutputType | null
@@ -51010,60 +49956,64 @@ export namespace Prisma {
   export type MagicItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     magicItemId?: boolean
     name?: boolean
+    engName?: boolean
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    shortDescription?: boolean
     requiresAttunement?: boolean
-    bonusToAC?: boolean
-    bonusToAttackRoll?: boolean
-    bonusToDamage?: boolean
-    features?: boolean | MagicItem$featuresArgs<ExtArgs>
+    weaponProficiencies?: boolean
+    weaponProficienciesSpecial?: boolean
     persMagicItems?: boolean | MagicItem$persMagicItemsArgs<ExtArgs>
     replicatedByInfusions?: boolean | MagicItem$replicatedByInfusionsArgs<ExtArgs>
+    givesSpells?: boolean | MagicItem$givesSpellsArgs<ExtArgs>
     _count?: boolean | MagicItemCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["magicItem"]>
 
   export type MagicItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     magicItemId?: boolean
     name?: boolean
+    engName?: boolean
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    shortDescription?: boolean
     requiresAttunement?: boolean
-    bonusToAC?: boolean
-    bonusToAttackRoll?: boolean
-    bonusToDamage?: boolean
+    weaponProficiencies?: boolean
+    weaponProficienciesSpecial?: boolean
   }, ExtArgs["result"]["magicItem"]>
 
   export type MagicItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     magicItemId?: boolean
     name?: boolean
+    engName?: boolean
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    shortDescription?: boolean
     requiresAttunement?: boolean
-    bonusToAC?: boolean
-    bonusToAttackRoll?: boolean
-    bonusToDamage?: boolean
+    weaponProficiencies?: boolean
+    weaponProficienciesSpecial?: boolean
   }, ExtArgs["result"]["magicItem"]>
 
   export type MagicItemSelectScalar = {
     magicItemId?: boolean
     name?: boolean
+    engName?: boolean
     itemType?: boolean
     rarity?: boolean
     description?: boolean
+    shortDescription?: boolean
     requiresAttunement?: boolean
-    bonusToAC?: boolean
-    bonusToAttackRoll?: boolean
-    bonusToDamage?: boolean
+    weaponProficiencies?: boolean
+    weaponProficienciesSpecial?: boolean
   }
 
-  export type MagicItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"magicItemId" | "name" | "itemType" | "rarity" | "description" | "requiresAttunement" | "bonusToAC" | "bonusToAttackRoll" | "bonusToDamage", ExtArgs["result"]["magicItem"]>
+  export type MagicItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"magicItemId" | "name" | "engName" | "itemType" | "rarity" | "description" | "shortDescription" | "requiresAttunement" | "weaponProficiencies" | "weaponProficienciesSpecial", ExtArgs["result"]["magicItem"]>
   export type MagicItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    features?: boolean | MagicItem$featuresArgs<ExtArgs>
     persMagicItems?: boolean | MagicItem$persMagicItemsArgs<ExtArgs>
     replicatedByInfusions?: boolean | MagicItem$replicatedByInfusionsArgs<ExtArgs>
+    givesSpells?: boolean | MagicItem$givesSpellsArgs<ExtArgs>
     _count?: boolean | MagicItemCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type MagicItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -51072,20 +50022,21 @@ export namespace Prisma {
   export type $MagicItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "MagicItem"
     objects: {
-      features: Prisma.$MagicItemFeaturePayload<ExtArgs>[]
       persMagicItems: Prisma.$PersMagicItemPayload<ExtArgs>[]
       replicatedByInfusions: Prisma.$InfusionPayload<ExtArgs>[]
+      givesSpells: Prisma.$SpellPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       magicItemId: number
       name: string
+      engName: string
       itemType: $Enums.MagicItemType
       rarity: $Enums.ItemRarity
       description: string
+      shortDescription: string | null
       requiresAttunement: boolean
-      bonusToAC: number | null
-      bonusToAttackRoll: number | null
-      bonusToDamage: number | null
+      weaponProficiencies: Prisma.JsonValue | null
+      weaponProficienciesSpecial: Prisma.JsonValue | null
     }, ExtArgs["result"]["magicItem"]>
     composites: {}
   }
@@ -51480,9 +50431,9 @@ export namespace Prisma {
    */
   export interface Prisma__MagicItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    features<T extends MagicItem$featuresArgs<ExtArgs> = {}>(args?: Subset<T, MagicItem$featuresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MagicItemFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     persMagicItems<T extends MagicItem$persMagicItemsArgs<ExtArgs> = {}>(args?: Subset<T, MagicItem$persMagicItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersMagicItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     replicatedByInfusions<T extends MagicItem$replicatedByInfusionsArgs<ExtArgs> = {}>(args?: Subset<T, MagicItem$replicatedByInfusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    givesSpells<T extends MagicItem$givesSpellsArgs<ExtArgs> = {}>(args?: Subset<T, MagicItem$givesSpellsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SpellPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -51514,13 +50465,14 @@ export namespace Prisma {
   interface MagicItemFieldRefs {
     readonly magicItemId: FieldRef<"MagicItem", 'Int'>
     readonly name: FieldRef<"MagicItem", 'String'>
+    readonly engName: FieldRef<"MagicItem", 'String'>
     readonly itemType: FieldRef<"MagicItem", 'MagicItemType'>
     readonly rarity: FieldRef<"MagicItem", 'ItemRarity'>
     readonly description: FieldRef<"MagicItem", 'String'>
+    readonly shortDescription: FieldRef<"MagicItem", 'String'>
     readonly requiresAttunement: FieldRef<"MagicItem", 'Boolean'>
-    readonly bonusToAC: FieldRef<"MagicItem", 'Int'>
-    readonly bonusToAttackRoll: FieldRef<"MagicItem", 'Int'>
-    readonly bonusToDamage: FieldRef<"MagicItem", 'Int'>
+    readonly weaponProficiencies: FieldRef<"MagicItem", 'Json'>
+    readonly weaponProficienciesSpecial: FieldRef<"MagicItem", 'Json'>
   }
     
 
@@ -51909,30 +50861,6 @@ export namespace Prisma {
   }
 
   /**
-   * MagicItem.features
-   */
-  export type MagicItem$featuresArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MagicItemFeature
-     */
-    select?: MagicItemFeatureSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MagicItemFeature
-     */
-    omit?: MagicItemFeatureOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MagicItemFeatureInclude<ExtArgs> | null
-    where?: MagicItemFeatureWhereInput
-    orderBy?: MagicItemFeatureOrderByWithRelationInput | MagicItemFeatureOrderByWithRelationInput[]
-    cursor?: MagicItemFeatureWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: MagicItemFeatureScalarFieldEnum | MagicItemFeatureScalarFieldEnum[]
-  }
-
-  /**
    * MagicItem.persMagicItems
    */
   export type MagicItem$persMagicItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -51981,6 +50909,30 @@ export namespace Prisma {
   }
 
   /**
+   * MagicItem.givesSpells
+   */
+  export type MagicItem$givesSpellsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Spell
+     */
+    select?: SpellSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Spell
+     */
+    omit?: SpellOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SpellInclude<ExtArgs> | null
+    where?: SpellWhereInput
+    orderBy?: SpellOrderByWithRelationInput | SpellOrderByWithRelationInput[]
+    cursor?: SpellWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SpellScalarFieldEnum | SpellScalarFieldEnum[]
+  }
+
+  /**
    * MagicItem without action
    */
   export type MagicItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -52023,6 +50975,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel: number | null
     increasesAtLevel10By: number | null
     replicatedMagicItemId: number | null
+    featureId: number | null
   }
 
   export type InfusionSumAggregateOutputType = {
@@ -52037,6 +50990,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel: number | null
     increasesAtLevel10By: number | null
     replicatedMagicItemId: number | null
+    featureId: number | null
   }
 
   export type InfusionMinAggregateOutputType = {
@@ -52057,6 +51011,7 @@ export namespace Prisma {
     increasesAtLevel10By: number | null
     replicatedMagicItemId: number | null
     createsHomunculus: boolean | null
+    featureId: number | null
   }
 
   export type InfusionMaxAggregateOutputType = {
@@ -52077,6 +51032,7 @@ export namespace Prisma {
     increasesAtLevel10By: number | null
     replicatedMagicItemId: number | null
     createsHomunculus: boolean | null
+    featureId: number | null
   }
 
   export type InfusionCountAggregateOutputType = {
@@ -52097,6 +51053,7 @@ export namespace Prisma {
     increasesAtLevel10By: number
     replicatedMagicItemId: number
     createsHomunculus: number
+    featureId: number
     _all: number
   }
 
@@ -52113,6 +51070,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: true
     increasesAtLevel10By?: true
     replicatedMagicItemId?: true
+    featureId?: true
   }
 
   export type InfusionSumAggregateInputType = {
@@ -52127,6 +51085,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: true
     increasesAtLevel10By?: true
     replicatedMagicItemId?: true
+    featureId?: true
   }
 
   export type InfusionMinAggregateInputType = {
@@ -52147,6 +51106,7 @@ export namespace Prisma {
     increasesAtLevel10By?: true
     replicatedMagicItemId?: true
     createsHomunculus?: true
+    featureId?: true
   }
 
   export type InfusionMaxAggregateInputType = {
@@ -52167,6 +51127,7 @@ export namespace Prisma {
     increasesAtLevel10By?: true
     replicatedMagicItemId?: true
     createsHomunculus?: true
+    featureId?: true
   }
 
   export type InfusionCountAggregateInputType = {
@@ -52187,6 +51148,7 @@ export namespace Prisma {
     increasesAtLevel10By?: true
     replicatedMagicItemId?: true
     createsHomunculus?: true
+    featureId?: true
     _all?: true
   }
 
@@ -52294,6 +51256,7 @@ export namespace Prisma {
     increasesAtLevel10By: number | null
     replicatedMagicItemId: number | null
     createsHomunculus: boolean | null
+    featureId: number | null
     _count: InfusionCountAggregateOutputType | null
     _avg: InfusionAvgAggregateOutputType | null
     _sum: InfusionSumAggregateOutputType | null
@@ -52333,7 +51296,9 @@ export namespace Prisma {
     increasesAtLevel10By?: boolean
     replicatedMagicItemId?: boolean
     createsHomunculus?: boolean
+    featureId?: boolean
     replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    feature?: boolean | Infusion$featureArgs<ExtArgs>
     persInfusions?: boolean | Infusion$persInfusionsArgs<ExtArgs>
     _count?: boolean | InfusionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["infusion"]>
@@ -52356,7 +51321,9 @@ export namespace Prisma {
     increasesAtLevel10By?: boolean
     replicatedMagicItemId?: boolean
     createsHomunculus?: boolean
+    featureId?: boolean
     replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    feature?: boolean | Infusion$featureArgs<ExtArgs>
   }, ExtArgs["result"]["infusion"]>
 
   export type InfusionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -52377,7 +51344,9 @@ export namespace Prisma {
     increasesAtLevel10By?: boolean
     replicatedMagicItemId?: boolean
     createsHomunculus?: boolean
+    featureId?: boolean
     replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    feature?: boolean | Infusion$featureArgs<ExtArgs>
   }, ExtArgs["result"]["infusion"]>
 
   export type InfusionSelectScalar = {
@@ -52398,25 +51367,30 @@ export namespace Prisma {
     increasesAtLevel10By?: boolean
     replicatedMagicItemId?: boolean
     createsHomunculus?: boolean
+    featureId?: boolean
   }
 
-  export type InfusionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"infusionId" | "name" | "engName" | "minArtificerLevel" | "targetType" | "requiresAttunement" | "bonusToAC" | "bonusToAttackRoll" | "bonusToDamage" | "spellAttackBonus" | "speedBonus" | "charges" | "rechargeDice" | "restoresSpellSlotUpToLevel" | "increasesAtLevel10By" | "replicatedMagicItemId" | "createsHomunculus", ExtArgs["result"]["infusion"]>
+  export type InfusionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"infusionId" | "name" | "engName" | "minArtificerLevel" | "targetType" | "requiresAttunement" | "bonusToAC" | "bonusToAttackRoll" | "bonusToDamage" | "spellAttackBonus" | "speedBonus" | "charges" | "rechargeDice" | "restoresSpellSlotUpToLevel" | "increasesAtLevel10By" | "replicatedMagicItemId" | "createsHomunculus" | "featureId", ExtArgs["result"]["infusion"]>
   export type InfusionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    feature?: boolean | Infusion$featureArgs<ExtArgs>
     persInfusions?: boolean | Infusion$persInfusionsArgs<ExtArgs>
     _count?: boolean | InfusionCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type InfusionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    feature?: boolean | Infusion$featureArgs<ExtArgs>
   }
   export type InfusionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     replicatedMagicItem?: boolean | Infusion$replicatedMagicItemArgs<ExtArgs>
+    feature?: boolean | Infusion$featureArgs<ExtArgs>
   }
 
   export type $InfusionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Infusion"
     objects: {
       replicatedMagicItem: Prisma.$MagicItemPayload<ExtArgs> | null
+      feature: Prisma.$FeaturePayload<ExtArgs> | null
       persInfusions: Prisma.$PersInfusionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -52437,6 +51411,7 @@ export namespace Prisma {
       increasesAtLevel10By: number | null
       replicatedMagicItemId: number | null
       createsHomunculus: boolean | null
+      featureId: number | null
     }, ExtArgs["result"]["infusion"]>
     composites: {}
   }
@@ -52832,6 +51807,7 @@ export namespace Prisma {
   export interface Prisma__InfusionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     replicatedMagicItem<T extends Infusion$replicatedMagicItemArgs<ExtArgs> = {}>(args?: Subset<T, Infusion$replicatedMagicItemArgs<ExtArgs>>): Prisma__MagicItemClient<$Result.GetResult<Prisma.$MagicItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    feature<T extends Infusion$featureArgs<ExtArgs> = {}>(args?: Subset<T, Infusion$featureArgs<ExtArgs>>): Prisma__FeatureClient<$Result.GetResult<Prisma.$FeaturePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     persInfusions<T extends Infusion$persInfusionsArgs<ExtArgs> = {}>(args?: Subset<T, Infusion$persInfusionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersInfusionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -52879,6 +51855,7 @@ export namespace Prisma {
     readonly increasesAtLevel10By: FieldRef<"Infusion", 'Int'>
     readonly replicatedMagicItemId: FieldRef<"Infusion", 'Int'>
     readonly createsHomunculus: FieldRef<"Infusion", 'Boolean'>
+    readonly featureId: FieldRef<"Infusion", 'Int'>
   }
     
 
@@ -53291,6 +52268,25 @@ export namespace Prisma {
      */
     include?: MagicItemInclude<ExtArgs> | null
     where?: MagicItemWhereInput
+  }
+
+  /**
+   * Infusion.feature
+   */
+  export type Infusion$featureArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Feature
+     */
+    select?: FeatureSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Feature
+     */
+    omit?: FeatureOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeatureInclude<ExtArgs> | null
+    where?: FeatureWhereInput
   }
 
   /**
@@ -64147,16 +63143,7 @@ export namespace Prisma {
     groupName: 'groupName',
     optionName: 'optionName',
     optionNameEng: 'optionNameEng',
-    prerequisites: 'prerequisites',
-    givesAC: 'givesAC',
-    meleeAttackBonus: 'meleeAttackBonus',
-    rangedAttackBonus: 'rangedAttackBonus',
-    meleeDamageBoost: 'meleeDamageBoost',
-    thrownDamageBoost: 'thrownDamageBoost',
-    givesManeuvres: 'givesManeuvres',
-    superiorityDiceCount: 'superiorityDiceCount',
-    modifiesUnarmed: 'modifiesUnarmed',
-    unarmedDamage: 'unarmedDamage'
+    prerequisites: 'prerequisites'
   };
 
   export type ChoiceOptionScalarFieldEnum = (typeof ChoiceOptionScalarFieldEnum)[keyof typeof ChoiceOptionScalarFieldEnum]
@@ -64251,8 +63238,23 @@ export namespace Prisma {
     engName: 'engName',
     description: 'description',
     shortDescription: 'shortDescription',
-    modifiesStats: 'modifiesStats',
     modifiesAC: 'modifiesAC',
+    givesAC: 'givesAC',
+    requiresArmorForACBonus: 'requiresArmorForACBonus',
+    noArmorOrShieldForACBonus: 'noArmorOrShieldForACBonus',
+    givesSTR: 'givesSTR',
+    givesCON: 'givesCON',
+    bonusToAttackRoll: 'bonusToAttackRoll',
+    bonusToRangedAttackRoll: 'bonusToRangedAttackRoll',
+    bonusToRangedDamage: 'bonusToRangedDamage',
+    bonusToMeleeDamage: 'bonusToMeleeDamage',
+    bonusToMeleeOneHandedWeaponDamage: 'bonusToMeleeOneHandedWeaponDamage',
+    bonusToThrownDamage: 'bonusToThrownDamage',
+    bonusToSavingThrows: 'bonusToSavingThrows',
+    givesManeuvres: 'givesManeuvres',
+    superiorityDiceCount: 'superiorityDiceCount',
+    modifiesUnarmed: 'modifiesUnarmed',
+    unarmedDamage: 'unarmedDamage',
     skillProficiencies: 'skillProficiencies',
     savingThrows: 'savingThrows',
     skillExpertises: 'skillExpertises',
@@ -64367,15 +63369,6 @@ export namespace Prisma {
   };
 
   export type FeatFeatureScalarFieldEnum = (typeof FeatFeatureScalarFieldEnum)[keyof typeof FeatFeatureScalarFieldEnum]
-
-
-  export const MagicItemFeatureScalarFieldEnum: {
-    magicItemFeatureId: 'magicItemFeatureId',
-    magicItemId: 'magicItemId',
-    featureId: 'featureId'
-  };
-
-  export type MagicItemFeatureScalarFieldEnum = (typeof MagicItemFeatureScalarFieldEnum)[keyof typeof MagicItemFeatureScalarFieldEnum]
 
 
   export const RaceScalarFieldEnum: {
@@ -64508,13 +63501,14 @@ export namespace Prisma {
   export const MagicItemScalarFieldEnum: {
     magicItemId: 'magicItemId',
     name: 'name',
+    engName: 'engName',
     itemType: 'itemType',
     rarity: 'rarity',
     description: 'description',
+    shortDescription: 'shortDescription',
     requiresAttunement: 'requiresAttunement',
-    bonusToAC: 'bonusToAC',
-    bonusToAttackRoll: 'bonusToAttackRoll',
-    bonusToDamage: 'bonusToDamage'
+    weaponProficiencies: 'weaponProficiencies',
+    weaponProficienciesSpecial: 'weaponProficienciesSpecial'
   };
 
   export type MagicItemScalarFieldEnum = (typeof MagicItemScalarFieldEnum)[keyof typeof MagicItemScalarFieldEnum]
@@ -64537,7 +63531,8 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel: 'restoresSpellSlotUpToLevel',
     increasesAtLevel10By: 'increasesAtLevel10By',
     replicatedMagicItemId: 'replicatedMagicItemId',
-    createsHomunculus: 'createsHomunculus'
+    createsHomunculus: 'createsHomunculus',
+    featureId: 'featureId'
   };
 
   export type InfusionScalarFieldEnum = (typeof InfusionScalarFieldEnum)[keyof typeof InfusionScalarFieldEnum]
@@ -65486,6 +64481,7 @@ export namespace Prisma {
     subclasses?: SubclassListRelationFilter
     perses?: PersListRelationFilter
     features?: FeatureListRelationFilter
+    magicItems?: MagicItemListRelationFilter
   }
 
   export type SpellOrderByWithRelationInput = {
@@ -65509,6 +64505,7 @@ export namespace Prisma {
     subclasses?: SubclassOrderByRelationAggregateInput
     perses?: PersOrderByRelationAggregateInput
     features?: FeatureOrderByRelationAggregateInput
+    magicItems?: MagicItemOrderByRelationAggregateInput
   }
 
   export type SpellWhereUniqueInput = Prisma.AtLeast<{
@@ -65535,6 +64532,7 @@ export namespace Prisma {
     subclasses?: SubclassListRelationFilter
     perses?: PersListRelationFilter
     features?: FeatureListRelationFilter
+    magicItems?: MagicItemListRelationFilter
   }, "spellId" | "name" | "engName">
 
   export type SpellOrderByWithAggregationInput = {
@@ -66078,15 +65076,6 @@ export namespace Prisma {
     optionName?: StringFilter<"ChoiceOption"> | string
     optionNameEng?: StringFilter<"ChoiceOption"> | string
     prerequisites?: JsonNullableFilter<"ChoiceOption">
-    givesAC?: IntNullableFilter<"ChoiceOption"> | number | null
-    meleeAttackBonus?: IntNullableFilter<"ChoiceOption"> | number | null
-    rangedAttackBonus?: IntNullableFilter<"ChoiceOption"> | number | null
-    meleeDamageBoost?: IntNullableFilter<"ChoiceOption"> | number | null
-    thrownDamageBoost?: IntNullableFilter<"ChoiceOption"> | number | null
-    givesManeuvres?: BoolNullableFilter<"ChoiceOption"> | boolean | null
-    superiorityDiceCount?: IntNullableFilter<"ChoiceOption"> | number | null
-    modifiesUnarmed?: BoolNullableFilter<"ChoiceOption"> | boolean | null
-    unarmedDamage?: StringNullableFilter<"ChoiceOption"> | string | null
     features?: ChoiceOptionFeatureListRelationFilter
     classChoiceOptions?: ClassChoiceOptionListRelationFilter
     perses?: PersListRelationFilter
@@ -66099,15 +65088,6 @@ export namespace Prisma {
     optionName?: SortOrder
     optionNameEng?: SortOrder
     prerequisites?: SortOrderInput | SortOrder
-    givesAC?: SortOrderInput | SortOrder
-    meleeAttackBonus?: SortOrderInput | SortOrder
-    rangedAttackBonus?: SortOrderInput | SortOrder
-    meleeDamageBoost?: SortOrderInput | SortOrder
-    thrownDamageBoost?: SortOrderInput | SortOrder
-    givesManeuvres?: SortOrderInput | SortOrder
-    superiorityDiceCount?: SortOrderInput | SortOrder
-    modifiesUnarmed?: SortOrderInput | SortOrder
-    unarmedDamage?: SortOrderInput | SortOrder
     features?: ChoiceOptionFeatureOrderByRelationAggregateInput
     classChoiceOptions?: ClassChoiceOptionOrderByRelationAggregateInput
     perses?: PersOrderByRelationAggregateInput
@@ -66123,15 +65103,6 @@ export namespace Prisma {
     groupName?: StringFilter<"ChoiceOption"> | string
     optionName?: StringFilter<"ChoiceOption"> | string
     prerequisites?: JsonNullableFilter<"ChoiceOption">
-    givesAC?: IntNullableFilter<"ChoiceOption"> | number | null
-    meleeAttackBonus?: IntNullableFilter<"ChoiceOption"> | number | null
-    rangedAttackBonus?: IntNullableFilter<"ChoiceOption"> | number | null
-    meleeDamageBoost?: IntNullableFilter<"ChoiceOption"> | number | null
-    thrownDamageBoost?: IntNullableFilter<"ChoiceOption"> | number | null
-    givesManeuvres?: BoolNullableFilter<"ChoiceOption"> | boolean | null
-    superiorityDiceCount?: IntNullableFilter<"ChoiceOption"> | number | null
-    modifiesUnarmed?: BoolNullableFilter<"ChoiceOption"> | boolean | null
-    unarmedDamage?: StringNullableFilter<"ChoiceOption"> | string | null
     features?: ChoiceOptionFeatureListRelationFilter
     classChoiceOptions?: ClassChoiceOptionListRelationFilter
     perses?: PersListRelationFilter
@@ -66144,15 +65115,6 @@ export namespace Prisma {
     optionName?: SortOrder
     optionNameEng?: SortOrder
     prerequisites?: SortOrderInput | SortOrder
-    givesAC?: SortOrderInput | SortOrder
-    meleeAttackBonus?: SortOrderInput | SortOrder
-    rangedAttackBonus?: SortOrderInput | SortOrder
-    meleeDamageBoost?: SortOrderInput | SortOrder
-    thrownDamageBoost?: SortOrderInput | SortOrder
-    givesManeuvres?: SortOrderInput | SortOrder
-    superiorityDiceCount?: SortOrderInput | SortOrder
-    modifiesUnarmed?: SortOrderInput | SortOrder
-    unarmedDamage?: SortOrderInput | SortOrder
     _count?: ChoiceOptionCountOrderByAggregateInput
     _avg?: ChoiceOptionAvgOrderByAggregateInput
     _max?: ChoiceOptionMaxOrderByAggregateInput
@@ -66169,15 +65131,6 @@ export namespace Prisma {
     optionName?: StringWithAggregatesFilter<"ChoiceOption"> | string
     optionNameEng?: StringWithAggregatesFilter<"ChoiceOption"> | string
     prerequisites?: JsonNullableWithAggregatesFilter<"ChoiceOption">
-    givesAC?: IntNullableWithAggregatesFilter<"ChoiceOption"> | number | null
-    meleeAttackBonus?: IntNullableWithAggregatesFilter<"ChoiceOption"> | number | null
-    rangedAttackBonus?: IntNullableWithAggregatesFilter<"ChoiceOption"> | number | null
-    meleeDamageBoost?: IntNullableWithAggregatesFilter<"ChoiceOption"> | number | null
-    thrownDamageBoost?: IntNullableWithAggregatesFilter<"ChoiceOption"> | number | null
-    givesManeuvres?: BoolNullableWithAggregatesFilter<"ChoiceOption"> | boolean | null
-    superiorityDiceCount?: IntNullableWithAggregatesFilter<"ChoiceOption"> | number | null
-    modifiesUnarmed?: BoolNullableWithAggregatesFilter<"ChoiceOption"> | boolean | null
-    unarmedDamage?: StringNullableWithAggregatesFilter<"ChoiceOption"> | string | null
   }
 
   export type ClassChoiceOptionWhereInput = {
@@ -66680,8 +65633,23 @@ export namespace Prisma {
     engName?: StringFilter<"Feature"> | string
     description?: StringFilter<"Feature"> | string
     shortDescription?: StringNullableFilter<"Feature"> | string | null
-    modifiesStats?: JsonNullableFilter<"Feature">
     modifiesAC?: JsonNullableFilter<"Feature">
+    givesAC?: IntNullableFilter<"Feature"> | number | null
+    requiresArmorForACBonus?: BoolNullableFilter<"Feature"> | boolean | null
+    noArmorOrShieldForACBonus?: BoolNullableFilter<"Feature"> | boolean | null
+    givesSTR?: IntNullableFilter<"Feature"> | number | null
+    givesCON?: IntNullableFilter<"Feature"> | number | null
+    bonusToAttackRoll?: IntNullableFilter<"Feature"> | number | null
+    bonusToRangedAttackRoll?: IntNullableFilter<"Feature"> | number | null
+    bonusToRangedDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToMeleeDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToMeleeOneHandedWeaponDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToThrownDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToSavingThrows?: JsonNullableFilter<"Feature">
+    givesManeuvres?: BoolNullableFilter<"Feature"> | boolean | null
+    superiorityDiceCount?: IntNullableFilter<"Feature"> | number | null
+    modifiesUnarmed?: BoolNullableFilter<"Feature"> | boolean | null
+    unarmedDamage?: StringNullableFilter<"Feature"> | string | null
     skillProficiencies?: JsonNullableFilter<"Feature">
     savingThrows?: EnumAbilityNullableListFilter<"Feature">
     skillExpertises?: JsonNullableFilter<"Feature">
@@ -66707,7 +65675,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceListRelationFilter
     raceVariantsReplacingFeatures?: RaceVariantListRelationFilter
     featFeatures?: FeatFeatureListRelationFilter
-    magicItemFeatures?: MagicItemFeatureListRelationFilter
+    infusions?: InfusionListRelationFilter
     persFeatures?: PersFeatureListRelationFilter
   }
 
@@ -66717,8 +65685,23 @@ export namespace Prisma {
     engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrderInput | SortOrder
-    modifiesStats?: SortOrderInput | SortOrder
     modifiesAC?: SortOrderInput | SortOrder
+    givesAC?: SortOrderInput | SortOrder
+    requiresArmorForACBonus?: SortOrderInput | SortOrder
+    noArmorOrShieldForACBonus?: SortOrderInput | SortOrder
+    givesSTR?: SortOrderInput | SortOrder
+    givesCON?: SortOrderInput | SortOrder
+    bonusToAttackRoll?: SortOrderInput | SortOrder
+    bonusToRangedAttackRoll?: SortOrderInput | SortOrder
+    bonusToRangedDamage?: SortOrderInput | SortOrder
+    bonusToMeleeDamage?: SortOrderInput | SortOrder
+    bonusToMeleeOneHandedWeaponDamage?: SortOrderInput | SortOrder
+    bonusToThrownDamage?: SortOrderInput | SortOrder
+    bonusToSavingThrows?: SortOrderInput | SortOrder
+    givesManeuvres?: SortOrderInput | SortOrder
+    superiorityDiceCount?: SortOrderInput | SortOrder
+    modifiesUnarmed?: SortOrderInput | SortOrder
+    unarmedDamage?: SortOrderInput | SortOrder
     skillProficiencies?: SortOrderInput | SortOrder
     savingThrows?: SortOrder
     skillExpertises?: SortOrderInput | SortOrder
@@ -66744,7 +65727,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceOrderByRelationAggregateInput
     raceVariantsReplacingFeatures?: RaceVariantOrderByRelationAggregateInput
     featFeatures?: FeatFeatureOrderByRelationAggregateInput
-    magicItemFeatures?: MagicItemFeatureOrderByRelationAggregateInput
+    infusions?: InfusionOrderByRelationAggregateInput
     persFeatures?: PersFeatureOrderByRelationAggregateInput
   }
 
@@ -66757,8 +65740,23 @@ export namespace Prisma {
     name?: StringFilter<"Feature"> | string
     description?: StringFilter<"Feature"> | string
     shortDescription?: StringNullableFilter<"Feature"> | string | null
-    modifiesStats?: JsonNullableFilter<"Feature">
     modifiesAC?: JsonNullableFilter<"Feature">
+    givesAC?: IntNullableFilter<"Feature"> | number | null
+    requiresArmorForACBonus?: BoolNullableFilter<"Feature"> | boolean | null
+    noArmorOrShieldForACBonus?: BoolNullableFilter<"Feature"> | boolean | null
+    givesSTR?: IntNullableFilter<"Feature"> | number | null
+    givesCON?: IntNullableFilter<"Feature"> | number | null
+    bonusToAttackRoll?: IntNullableFilter<"Feature"> | number | null
+    bonusToRangedAttackRoll?: IntNullableFilter<"Feature"> | number | null
+    bonusToRangedDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToMeleeDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToMeleeOneHandedWeaponDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToThrownDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToSavingThrows?: JsonNullableFilter<"Feature">
+    givesManeuvres?: BoolNullableFilter<"Feature"> | boolean | null
+    superiorityDiceCount?: IntNullableFilter<"Feature"> | number | null
+    modifiesUnarmed?: BoolNullableFilter<"Feature"> | boolean | null
+    unarmedDamage?: StringNullableFilter<"Feature"> | string | null
     skillProficiencies?: JsonNullableFilter<"Feature">
     savingThrows?: EnumAbilityNullableListFilter<"Feature">
     skillExpertises?: JsonNullableFilter<"Feature">
@@ -66784,7 +65782,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceListRelationFilter
     raceVariantsReplacingFeatures?: RaceVariantListRelationFilter
     featFeatures?: FeatFeatureListRelationFilter
-    magicItemFeatures?: MagicItemFeatureListRelationFilter
+    infusions?: InfusionListRelationFilter
     persFeatures?: PersFeatureListRelationFilter
   }, "featureId" | "featureId" | "engName">
 
@@ -66794,8 +65792,23 @@ export namespace Prisma {
     engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrderInput | SortOrder
-    modifiesStats?: SortOrderInput | SortOrder
     modifiesAC?: SortOrderInput | SortOrder
+    givesAC?: SortOrderInput | SortOrder
+    requiresArmorForACBonus?: SortOrderInput | SortOrder
+    noArmorOrShieldForACBonus?: SortOrderInput | SortOrder
+    givesSTR?: SortOrderInput | SortOrder
+    givesCON?: SortOrderInput | SortOrder
+    bonusToAttackRoll?: SortOrderInput | SortOrder
+    bonusToRangedAttackRoll?: SortOrderInput | SortOrder
+    bonusToRangedDamage?: SortOrderInput | SortOrder
+    bonusToMeleeDamage?: SortOrderInput | SortOrder
+    bonusToMeleeOneHandedWeaponDamage?: SortOrderInput | SortOrder
+    bonusToThrownDamage?: SortOrderInput | SortOrder
+    bonusToSavingThrows?: SortOrderInput | SortOrder
+    givesManeuvres?: SortOrderInput | SortOrder
+    superiorityDiceCount?: SortOrderInput | SortOrder
+    modifiesUnarmed?: SortOrderInput | SortOrder
+    unarmedDamage?: SortOrderInput | SortOrder
     skillProficiencies?: SortOrderInput | SortOrder
     savingThrows?: SortOrder
     skillExpertises?: SortOrderInput | SortOrder
@@ -66824,8 +65837,23 @@ export namespace Prisma {
     engName?: StringWithAggregatesFilter<"Feature"> | string
     description?: StringWithAggregatesFilter<"Feature"> | string
     shortDescription?: StringNullableWithAggregatesFilter<"Feature"> | string | null
-    modifiesStats?: JsonNullableWithAggregatesFilter<"Feature">
     modifiesAC?: JsonNullableWithAggregatesFilter<"Feature">
+    givesAC?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    requiresArmorForACBonus?: BoolNullableWithAggregatesFilter<"Feature"> | boolean | null
+    noArmorOrShieldForACBonus?: BoolNullableWithAggregatesFilter<"Feature"> | boolean | null
+    givesSTR?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    givesCON?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    bonusToAttackRoll?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    bonusToRangedAttackRoll?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    bonusToRangedDamage?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    bonusToMeleeDamage?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    bonusToMeleeOneHandedWeaponDamage?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    bonusToThrownDamage?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    bonusToSavingThrows?: JsonNullableWithAggregatesFilter<"Feature">
+    givesManeuvres?: BoolNullableWithAggregatesFilter<"Feature"> | boolean | null
+    superiorityDiceCount?: IntNullableWithAggregatesFilter<"Feature"> | number | null
+    modifiesUnarmed?: BoolNullableWithAggregatesFilter<"Feature"> | boolean | null
+    unarmedDamage?: StringNullableWithAggregatesFilter<"Feature"> | string | null
     skillProficiencies?: JsonNullableWithAggregatesFilter<"Feature">
     savingThrows?: EnumAbilityNullableListFilter<"Feature">
     skillExpertises?: JsonNullableWithAggregatesFilter<"Feature">
@@ -67394,56 +66422,6 @@ export namespace Prisma {
     featFeatureId?: IntWithAggregatesFilter<"FeatFeature"> | number
     featId?: IntWithAggregatesFilter<"FeatFeature"> | number
     featureId?: IntWithAggregatesFilter<"FeatFeature"> | number
-  }
-
-  export type MagicItemFeatureWhereInput = {
-    AND?: MagicItemFeatureWhereInput | MagicItemFeatureWhereInput[]
-    OR?: MagicItemFeatureWhereInput[]
-    NOT?: MagicItemFeatureWhereInput | MagicItemFeatureWhereInput[]
-    magicItemFeatureId?: IntFilter<"MagicItemFeature"> | number
-    magicItemId?: IntFilter<"MagicItemFeature"> | number
-    featureId?: IntFilter<"MagicItemFeature"> | number
-    feature?: XOR<FeatureScalarRelationFilter, FeatureWhereInput>
-    magicItem?: XOR<MagicItemScalarRelationFilter, MagicItemWhereInput>
-  }
-
-  export type MagicItemFeatureOrderByWithRelationInput = {
-    magicItemFeatureId?: SortOrder
-    magicItemId?: SortOrder
-    featureId?: SortOrder
-    feature?: FeatureOrderByWithRelationInput
-    magicItem?: MagicItemOrderByWithRelationInput
-  }
-
-  export type MagicItemFeatureWhereUniqueInput = Prisma.AtLeast<{
-    magicItemFeatureId?: number
-    AND?: MagicItemFeatureWhereInput | MagicItemFeatureWhereInput[]
-    OR?: MagicItemFeatureWhereInput[]
-    NOT?: MagicItemFeatureWhereInput | MagicItemFeatureWhereInput[]
-    magicItemId?: IntFilter<"MagicItemFeature"> | number
-    featureId?: IntFilter<"MagicItemFeature"> | number
-    feature?: XOR<FeatureScalarRelationFilter, FeatureWhereInput>
-    magicItem?: XOR<MagicItemScalarRelationFilter, MagicItemWhereInput>
-  }, "magicItemFeatureId">
-
-  export type MagicItemFeatureOrderByWithAggregationInput = {
-    magicItemFeatureId?: SortOrder
-    magicItemId?: SortOrder
-    featureId?: SortOrder
-    _count?: MagicItemFeatureCountOrderByAggregateInput
-    _avg?: MagicItemFeatureAvgOrderByAggregateInput
-    _max?: MagicItemFeatureMaxOrderByAggregateInput
-    _min?: MagicItemFeatureMinOrderByAggregateInput
-    _sum?: MagicItemFeatureSumOrderByAggregateInput
-  }
-
-  export type MagicItemFeatureScalarWhereWithAggregatesInput = {
-    AND?: MagicItemFeatureScalarWhereWithAggregatesInput | MagicItemFeatureScalarWhereWithAggregatesInput[]
-    OR?: MagicItemFeatureScalarWhereWithAggregatesInput[]
-    NOT?: MagicItemFeatureScalarWhereWithAggregatesInput | MagicItemFeatureScalarWhereWithAggregatesInput[]
-    magicItemFeatureId?: IntWithAggregatesFilter<"MagicItemFeature"> | number
-    magicItemId?: IntWithAggregatesFilter<"MagicItemFeature"> | number
-    featureId?: IntWithAggregatesFilter<"MagicItemFeature"> | number
   }
 
   export type RaceWhereInput = {
@@ -68156,61 +67134,65 @@ export namespace Prisma {
     NOT?: MagicItemWhereInput | MagicItemWhereInput[]
     magicItemId?: IntFilter<"MagicItem"> | number
     name?: StringFilter<"MagicItem"> | string
+    engName?: StringFilter<"MagicItem"> | string
     itemType?: EnumMagicItemTypeFilter<"MagicItem"> | $Enums.MagicItemType
     rarity?: EnumItemRarityFilter<"MagicItem"> | $Enums.ItemRarity
     description?: StringFilter<"MagicItem"> | string
+    shortDescription?: StringNullableFilter<"MagicItem"> | string | null
     requiresAttunement?: BoolFilter<"MagicItem"> | boolean
-    bonusToAC?: IntNullableFilter<"MagicItem"> | number | null
-    bonusToAttackRoll?: IntNullableFilter<"MagicItem"> | number | null
-    bonusToDamage?: IntNullableFilter<"MagicItem"> | number | null
-    features?: MagicItemFeatureListRelationFilter
+    weaponProficiencies?: JsonNullableFilter<"MagicItem">
+    weaponProficienciesSpecial?: JsonNullableFilter<"MagicItem">
     persMagicItems?: PersMagicItemListRelationFilter
     replicatedByInfusions?: InfusionListRelationFilter
+    givesSpells?: SpellListRelationFilter
   }
 
   export type MagicItemOrderByWithRelationInput = {
     magicItemId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    shortDescription?: SortOrderInput | SortOrder
     requiresAttunement?: SortOrder
-    bonusToAC?: SortOrderInput | SortOrder
-    bonusToAttackRoll?: SortOrderInput | SortOrder
-    bonusToDamage?: SortOrderInput | SortOrder
-    features?: MagicItemFeatureOrderByRelationAggregateInput
+    weaponProficiencies?: SortOrderInput | SortOrder
+    weaponProficienciesSpecial?: SortOrderInput | SortOrder
     persMagicItems?: PersMagicItemOrderByRelationAggregateInput
     replicatedByInfusions?: InfusionOrderByRelationAggregateInput
+    givesSpells?: SpellOrderByRelationAggregateInput
   }
 
   export type MagicItemWhereUniqueInput = Prisma.AtLeast<{
     magicItemId?: number
-    name?: string
+    engName?: string
     AND?: MagicItemWhereInput | MagicItemWhereInput[]
     OR?: MagicItemWhereInput[]
     NOT?: MagicItemWhereInput | MagicItemWhereInput[]
+    name?: StringFilter<"MagicItem"> | string
     itemType?: EnumMagicItemTypeFilter<"MagicItem"> | $Enums.MagicItemType
     rarity?: EnumItemRarityFilter<"MagicItem"> | $Enums.ItemRarity
     description?: StringFilter<"MagicItem"> | string
+    shortDescription?: StringNullableFilter<"MagicItem"> | string | null
     requiresAttunement?: BoolFilter<"MagicItem"> | boolean
-    bonusToAC?: IntNullableFilter<"MagicItem"> | number | null
-    bonusToAttackRoll?: IntNullableFilter<"MagicItem"> | number | null
-    bonusToDamage?: IntNullableFilter<"MagicItem"> | number | null
-    features?: MagicItemFeatureListRelationFilter
+    weaponProficiencies?: JsonNullableFilter<"MagicItem">
+    weaponProficienciesSpecial?: JsonNullableFilter<"MagicItem">
     persMagicItems?: PersMagicItemListRelationFilter
     replicatedByInfusions?: InfusionListRelationFilter
-  }, "magicItemId" | "name">
+    givesSpells?: SpellListRelationFilter
+  }, "magicItemId" | "engName">
 
   export type MagicItemOrderByWithAggregationInput = {
     magicItemId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    shortDescription?: SortOrderInput | SortOrder
     requiresAttunement?: SortOrder
-    bonusToAC?: SortOrderInput | SortOrder
-    bonusToAttackRoll?: SortOrderInput | SortOrder
-    bonusToDamage?: SortOrderInput | SortOrder
+    weaponProficiencies?: SortOrderInput | SortOrder
+    weaponProficienciesSpecial?: SortOrderInput | SortOrder
     _count?: MagicItemCountOrderByAggregateInput
     _avg?: MagicItemAvgOrderByAggregateInput
     _max?: MagicItemMaxOrderByAggregateInput
@@ -68224,13 +67206,14 @@ export namespace Prisma {
     NOT?: MagicItemScalarWhereWithAggregatesInput | MagicItemScalarWhereWithAggregatesInput[]
     magicItemId?: IntWithAggregatesFilter<"MagicItem"> | number
     name?: StringWithAggregatesFilter<"MagicItem"> | string
+    engName?: StringWithAggregatesFilter<"MagicItem"> | string
     itemType?: EnumMagicItemTypeWithAggregatesFilter<"MagicItem"> | $Enums.MagicItemType
     rarity?: EnumItemRarityWithAggregatesFilter<"MagicItem"> | $Enums.ItemRarity
     description?: StringWithAggregatesFilter<"MagicItem"> | string
+    shortDescription?: StringNullableWithAggregatesFilter<"MagicItem"> | string | null
     requiresAttunement?: BoolWithAggregatesFilter<"MagicItem"> | boolean
-    bonusToAC?: IntNullableWithAggregatesFilter<"MagicItem"> | number | null
-    bonusToAttackRoll?: IntNullableWithAggregatesFilter<"MagicItem"> | number | null
-    bonusToDamage?: IntNullableWithAggregatesFilter<"MagicItem"> | number | null
+    weaponProficiencies?: JsonNullableWithAggregatesFilter<"MagicItem">
+    weaponProficienciesSpecial?: JsonNullableWithAggregatesFilter<"MagicItem">
   }
 
   export type InfusionWhereInput = {
@@ -68254,7 +67237,9 @@ export namespace Prisma {
     increasesAtLevel10By?: IntNullableFilter<"Infusion"> | number | null
     replicatedMagicItemId?: IntNullableFilter<"Infusion"> | number | null
     createsHomunculus?: BoolNullableFilter<"Infusion"> | boolean | null
+    featureId?: IntNullableFilter<"Infusion"> | number | null
     replicatedMagicItem?: XOR<MagicItemNullableScalarRelationFilter, MagicItemWhereInput> | null
+    feature?: XOR<FeatureNullableScalarRelationFilter, FeatureWhereInput> | null
     persInfusions?: PersInfusionListRelationFilter
   }
 
@@ -68276,7 +67261,9 @@ export namespace Prisma {
     increasesAtLevel10By?: SortOrderInput | SortOrder
     replicatedMagicItemId?: SortOrderInput | SortOrder
     createsHomunculus?: SortOrderInput | SortOrder
+    featureId?: SortOrderInput | SortOrder
     replicatedMagicItem?: MagicItemOrderByWithRelationInput
+    feature?: FeatureOrderByWithRelationInput
     persInfusions?: PersInfusionOrderByRelationAggregateInput
   }
 
@@ -68301,7 +67288,9 @@ export namespace Prisma {
     increasesAtLevel10By?: IntNullableFilter<"Infusion"> | number | null
     replicatedMagicItemId?: IntNullableFilter<"Infusion"> | number | null
     createsHomunculus?: BoolNullableFilter<"Infusion"> | boolean | null
+    featureId?: IntNullableFilter<"Infusion"> | number | null
     replicatedMagicItem?: XOR<MagicItemNullableScalarRelationFilter, MagicItemWhereInput> | null
+    feature?: XOR<FeatureNullableScalarRelationFilter, FeatureWhereInput> | null
     persInfusions?: PersInfusionListRelationFilter
   }, "infusionId" | "engName">
 
@@ -68323,6 +67312,7 @@ export namespace Prisma {
     increasesAtLevel10By?: SortOrderInput | SortOrder
     replicatedMagicItemId?: SortOrderInput | SortOrder
     createsHomunculus?: SortOrderInput | SortOrder
+    featureId?: SortOrderInput | SortOrder
     _count?: InfusionCountOrderByAggregateInput
     _avg?: InfusionAvgOrderByAggregateInput
     _max?: InfusionMaxOrderByAggregateInput
@@ -68351,6 +67341,7 @@ export namespace Prisma {
     increasesAtLevel10By?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
     replicatedMagicItemId?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
     createsHomunculus?: BoolNullableWithAggregatesFilter<"Infusion"> | boolean | null
+    featureId?: IntNullableWithAggregatesFilter<"Infusion"> | number | null
   }
 
   export type PersInfusionWhereInput = {
@@ -69388,6 +68379,7 @@ export namespace Prisma {
     subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersCreateNestedManyWithoutSpellsInput
     features?: FeatureCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateInput = {
@@ -69411,6 +68403,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
     features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUpdateInput = {
@@ -69433,6 +68426,7 @@ export namespace Prisma {
     subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUpdateManyWithoutSpellsNestedInput
     features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateInput = {
@@ -69456,6 +68450,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
     features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellCreateManyInput = {
@@ -70007,15 +69002,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureCreateNestedManyWithoutOptionInput
     classChoiceOptions?: ClassChoiceOptionCreateNestedManyWithoutChoiceOptionInput
     perses?: PersCreateNestedManyWithoutChoiceOptionsInput
@@ -70028,15 +69014,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureUncheckedCreateNestedManyWithoutOptionInput
     classChoiceOptions?: ClassChoiceOptionUncheckedCreateNestedManyWithoutChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutChoiceOptionsInput
@@ -70048,15 +69025,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUpdateManyWithoutOptionNestedInput
     classChoiceOptions?: ClassChoiceOptionUpdateManyWithoutChoiceOptionNestedInput
     perses?: PersUpdateManyWithoutChoiceOptionsNestedInput
@@ -70069,15 +69037,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUncheckedUpdateManyWithoutOptionNestedInput
     classChoiceOptions?: ClassChoiceOptionUncheckedUpdateManyWithoutChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutChoiceOptionsNestedInput
@@ -70090,15 +69049,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
   }
 
   export type ChoiceOptionUpdateManyMutationInput = {
@@ -70106,15 +69056,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ChoiceOptionUncheckedUpdateManyInput = {
@@ -70123,15 +69064,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClassChoiceOptionCreateInput = {
@@ -70663,8 +69595,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -70690,7 +69637,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -70700,8 +69647,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -70727,7 +69689,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -70736,8 +69698,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -70763,7 +69740,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -70773,8 +69750,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -70800,7 +69792,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -70810,8 +69802,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -70831,8 +69838,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -70853,8 +69875,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -71321,44 +70358,6 @@ export namespace Prisma {
   export type FeatFeatureUncheckedUpdateManyInput = {
     featFeatureId?: IntFieldUpdateOperationsInput | number
     featId?: IntFieldUpdateOperationsInput | number
-    featureId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type MagicItemFeatureCreateInput = {
-    feature: FeatureCreateNestedOneWithoutMagicItemFeaturesInput
-    magicItem: MagicItemCreateNestedOneWithoutFeaturesInput
-  }
-
-  export type MagicItemFeatureUncheckedCreateInput = {
-    magicItemFeatureId?: number
-    magicItemId: number
-    featureId: number
-  }
-
-  export type MagicItemFeatureUpdateInput = {
-    feature?: FeatureUpdateOneRequiredWithoutMagicItemFeaturesNestedInput
-    magicItem?: MagicItemUpdateOneRequiredWithoutFeaturesNestedInput
-  }
-
-  export type MagicItemFeatureUncheckedUpdateInput = {
-    magicItemFeatureId?: IntFieldUpdateOperationsInput | number
-    magicItemId?: IntFieldUpdateOperationsInput | number
-    featureId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type MagicItemFeatureCreateManyInput = {
-    magicItemFeatureId?: number
-    magicItemId: number
-    featureId: number
-  }
-
-  export type MagicItemFeatureUpdateManyMutationInput = {
-
-  }
-
-  export type MagicItemFeatureUncheckedUpdateManyInput = {
-    magicItemFeatureId?: IntFieldUpdateOperationsInput | number
-    magicItemId?: IntFieldUpdateOperationsInput | number
     featureId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -72127,95 +71126,102 @@ export namespace Prisma {
 
   export type MagicItemCreateInput = {
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription?: string | null
     requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    features?: MagicItemFeatureCreateNestedManyWithoutMagicItemInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemCreateNestedManyWithoutMagicItemInput
     replicatedByInfusions?: InfusionCreateNestedManyWithoutReplicatedMagicItemInput
+    givesSpells?: SpellCreateNestedManyWithoutMagicItemsInput
   }
 
   export type MagicItemUncheckedCreateInput = {
     magicItemId?: number
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription?: string | null
     requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    features?: MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput
     replicatedByInfusions?: InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput
+    givesSpells?: SpellUncheckedCreateNestedManyWithoutMagicItemsInput
   }
 
   export type MagicItemUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: MagicItemFeatureUpdateManyWithoutMagicItemNestedInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemUpdateManyWithoutMagicItemNestedInput
     replicatedByInfusions?: InfusionUpdateManyWithoutReplicatedMagicItemNestedInput
+    givesSpells?: SpellUpdateManyWithoutMagicItemsNestedInput
   }
 
   export type MagicItemUncheckedUpdateInput = {
     magicItemId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput
     replicatedByInfusions?: InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput
+    givesSpells?: SpellUncheckedUpdateManyWithoutMagicItemsNestedInput
   }
 
   export type MagicItemCreateManyInput = {
     magicItemId?: number
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription?: string | null
     requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type MagicItemUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type MagicItemUncheckedUpdateManyInput = {
     magicItemId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type InfusionCreateInput = {
@@ -72235,6 +71241,7 @@ export namespace Prisma {
     increasesAtLevel10By?: number | null
     createsHomunculus?: boolean | null
     replicatedMagicItem?: MagicItemCreateNestedOneWithoutReplicatedByInfusionsInput
+    feature?: FeatureCreateNestedOneWithoutInfusionsInput
     persInfusions?: PersInfusionCreateNestedManyWithoutInfusionInput
   }
 
@@ -72256,6 +71263,7 @@ export namespace Prisma {
     increasesAtLevel10By?: number | null
     replicatedMagicItemId?: number | null
     createsHomunculus?: boolean | null
+    featureId?: number | null
     persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutInfusionInput
   }
 
@@ -72276,6 +71284,7 @@ export namespace Prisma {
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
     replicatedMagicItem?: MagicItemUpdateOneWithoutReplicatedByInfusionsNestedInput
+    feature?: FeatureUpdateOneWithoutInfusionsNestedInput
     persInfusions?: PersInfusionUpdateManyWithoutInfusionNestedInput
   }
 
@@ -72297,6 +71306,7 @@ export namespace Prisma {
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    featureId?: NullableIntFieldUpdateOperationsInput | number | null
     persInfusions?: PersInfusionUncheckedUpdateManyWithoutInfusionNestedInput
   }
 
@@ -72318,6 +71328,7 @@ export namespace Prisma {
     increasesAtLevel10By?: number | null
     replicatedMagicItemId?: number | null
     createsHomunculus?: boolean | null
+    featureId?: number | null
   }
 
   export type InfusionUpdateManyMutationInput = {
@@ -72356,6 +71367,7 @@ export namespace Prisma {
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    featureId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type PersInfusionCreateInput = {
@@ -73382,6 +72394,12 @@ export namespace Prisma {
     none?: FeatureWhereInput
   }
 
+  export type MagicItemListRelationFilter = {
+    every?: MagicItemWhereInput
+    some?: MagicItemWhereInput
+    none?: MagicItemWhereInput
+  }
+
   export type SpellClassesOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -73403,6 +72421,10 @@ export namespace Prisma {
   }
 
   export type FeatureOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MagicItemOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -74075,11 +73097,6 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type BoolNullableFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
-  }
-
   export type ChoiceOptionFeatureListRelationFilter = {
     every?: ChoiceOptionFeatureWhereInput
     some?: ChoiceOptionFeatureWhereInput
@@ -74096,25 +73113,10 @@ export namespace Prisma {
     optionName?: SortOrder
     optionNameEng?: SortOrder
     prerequisites?: SortOrder
-    givesAC?: SortOrder
-    meleeAttackBonus?: SortOrder
-    rangedAttackBonus?: SortOrder
-    meleeDamageBoost?: SortOrder
-    thrownDamageBoost?: SortOrder
-    givesManeuvres?: SortOrder
-    superiorityDiceCount?: SortOrder
-    modifiesUnarmed?: SortOrder
-    unarmedDamage?: SortOrder
   }
 
   export type ChoiceOptionAvgOrderByAggregateInput = {
     choiceOptionId?: SortOrder
-    givesAC?: SortOrder
-    meleeAttackBonus?: SortOrder
-    rangedAttackBonus?: SortOrder
-    meleeDamageBoost?: SortOrder
-    thrownDamageBoost?: SortOrder
-    superiorityDiceCount?: SortOrder
   }
 
   export type ChoiceOptionMaxOrderByAggregateInput = {
@@ -74122,15 +73124,6 @@ export namespace Prisma {
     groupName?: SortOrder
     optionName?: SortOrder
     optionNameEng?: SortOrder
-    givesAC?: SortOrder
-    meleeAttackBonus?: SortOrder
-    rangedAttackBonus?: SortOrder
-    meleeDamageBoost?: SortOrder
-    thrownDamageBoost?: SortOrder
-    givesManeuvres?: SortOrder
-    superiorityDiceCount?: SortOrder
-    modifiesUnarmed?: SortOrder
-    unarmedDamage?: SortOrder
   }
 
   export type ChoiceOptionMinOrderByAggregateInput = {
@@ -74138,33 +73131,10 @@ export namespace Prisma {
     groupName?: SortOrder
     optionName?: SortOrder
     optionNameEng?: SortOrder
-    givesAC?: SortOrder
-    meleeAttackBonus?: SortOrder
-    rangedAttackBonus?: SortOrder
-    meleeDamageBoost?: SortOrder
-    thrownDamageBoost?: SortOrder
-    givesManeuvres?: SortOrder
-    superiorityDiceCount?: SortOrder
-    modifiesUnarmed?: SortOrder
-    unarmedDamage?: SortOrder
   }
 
   export type ChoiceOptionSumOrderByAggregateInput = {
     choiceOptionId?: SortOrder
-    givesAC?: SortOrder
-    meleeAttackBonus?: SortOrder
-    rangedAttackBonus?: SortOrder
-    meleeDamageBoost?: SortOrder
-    thrownDamageBoost?: SortOrder
-    superiorityDiceCount?: SortOrder
-  }
-
-  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBoolNullableFilter<$PrismaModel>
-    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type ChoiceOptionScalarRelationFilter = {
@@ -74614,6 +73584,11 @@ export namespace Prisma {
     usesRemaining?: SortOrder
   }
 
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
   export type EnumRestTypeNullableFilter<$PrismaModel = never> = {
     equals?: $Enums.RestType | EnumRestTypeFieldRefInput<$PrismaModel> | null
     in?: $Enums.RestType[] | ListEnumRestTypeFieldRefInput<$PrismaModel> | null
@@ -74671,10 +73646,10 @@ export namespace Prisma {
     none?: FeatFeatureWhereInput
   }
 
-  export type MagicItemFeatureListRelationFilter = {
-    every?: MagicItemFeatureWhereInput
-    some?: MagicItemFeatureWhereInput
-    none?: MagicItemFeatureWhereInput
+  export type InfusionListRelationFilter = {
+    every?: InfusionWhereInput
+    some?: InfusionWhereInput
+    none?: InfusionWhereInput
   }
 
   export type RaceTraitOrderByRelationAggregateInput = {
@@ -74705,7 +73680,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type MagicItemFeatureOrderByRelationAggregateInput = {
+  export type InfusionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -74715,8 +73690,23 @@ export namespace Prisma {
     engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrder
-    modifiesStats?: SortOrder
     modifiesAC?: SortOrder
+    givesAC?: SortOrder
+    requiresArmorForACBonus?: SortOrder
+    noArmorOrShieldForACBonus?: SortOrder
+    givesSTR?: SortOrder
+    givesCON?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToRangedAttackRoll?: SortOrder
+    bonusToRangedDamage?: SortOrder
+    bonusToMeleeDamage?: SortOrder
+    bonusToMeleeOneHandedWeaponDamage?: SortOrder
+    bonusToThrownDamage?: SortOrder
+    bonusToSavingThrows?: SortOrder
+    givesManeuvres?: SortOrder
+    superiorityDiceCount?: SortOrder
+    modifiesUnarmed?: SortOrder
+    unarmedDamage?: SortOrder
     skillProficiencies?: SortOrder
     savingThrows?: SortOrder
     skillExpertises?: SortOrder
@@ -74733,6 +73723,16 @@ export namespace Prisma {
 
   export type FeatureAvgOrderByAggregateInput = {
     featureId?: SortOrder
+    givesAC?: SortOrder
+    givesSTR?: SortOrder
+    givesCON?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToRangedAttackRoll?: SortOrder
+    bonusToRangedDamage?: SortOrder
+    bonusToMeleeDamage?: SortOrder
+    bonusToMeleeOneHandedWeaponDamage?: SortOrder
+    bonusToThrownDamage?: SortOrder
+    superiorityDiceCount?: SortOrder
     usesCount?: SortOrder
     invocationsCount?: SortOrder
     languagesToChooseCount?: SortOrder
@@ -74744,6 +73744,21 @@ export namespace Prisma {
     engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrder
+    givesAC?: SortOrder
+    requiresArmorForACBonus?: SortOrder
+    noArmorOrShieldForACBonus?: SortOrder
+    givesSTR?: SortOrder
+    givesCON?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToRangedAttackRoll?: SortOrder
+    bonusToRangedDamage?: SortOrder
+    bonusToMeleeDamage?: SortOrder
+    bonusToMeleeOneHandedWeaponDamage?: SortOrder
+    bonusToThrownDamage?: SortOrder
+    givesManeuvres?: SortOrder
+    superiorityDiceCount?: SortOrder
+    modifiesUnarmed?: SortOrder
+    unarmedDamage?: SortOrder
     limitedUsesPer?: SortOrder
     usesCount?: SortOrder
     usesCountDependsOnProficiencyBonus?: SortOrder
@@ -74759,6 +73774,21 @@ export namespace Prisma {
     engName?: SortOrder
     description?: SortOrder
     shortDescription?: SortOrder
+    givesAC?: SortOrder
+    requiresArmorForACBonus?: SortOrder
+    noArmorOrShieldForACBonus?: SortOrder
+    givesSTR?: SortOrder
+    givesCON?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToRangedAttackRoll?: SortOrder
+    bonusToRangedDamage?: SortOrder
+    bonusToMeleeDamage?: SortOrder
+    bonusToMeleeOneHandedWeaponDamage?: SortOrder
+    bonusToThrownDamage?: SortOrder
+    givesManeuvres?: SortOrder
+    superiorityDiceCount?: SortOrder
+    modifiesUnarmed?: SortOrder
+    unarmedDamage?: SortOrder
     limitedUsesPer?: SortOrder
     usesCount?: SortOrder
     usesCountDependsOnProficiencyBonus?: SortOrder
@@ -74770,9 +73800,27 @@ export namespace Prisma {
 
   export type FeatureSumOrderByAggregateInput = {
     featureId?: SortOrder
+    givesAC?: SortOrder
+    givesSTR?: SortOrder
+    givesCON?: SortOrder
+    bonusToAttackRoll?: SortOrder
+    bonusToRangedAttackRoll?: SortOrder
+    bonusToRangedDamage?: SortOrder
+    bonusToMeleeDamage?: SortOrder
+    bonusToMeleeOneHandedWeaponDamage?: SortOrder
+    bonusToThrownDamage?: SortOrder
+    superiorityDiceCount?: SortOrder
     usesCount?: SortOrder
     invocationsCount?: SortOrder
     languagesToChooseCount?: SortOrder
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type EnumRestTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -75154,41 +74202,6 @@ export namespace Prisma {
   export type FeatFeatureSumOrderByAggregateInput = {
     featFeatureId?: SortOrder
     featId?: SortOrder
-    featureId?: SortOrder
-  }
-
-  export type MagicItemScalarRelationFilter = {
-    is?: MagicItemWhereInput
-    isNot?: MagicItemWhereInput
-  }
-
-  export type MagicItemFeatureCountOrderByAggregateInput = {
-    magicItemFeatureId?: SortOrder
-    magicItemId?: SortOrder
-    featureId?: SortOrder
-  }
-
-  export type MagicItemFeatureAvgOrderByAggregateInput = {
-    magicItemFeatureId?: SortOrder
-    magicItemId?: SortOrder
-    featureId?: SortOrder
-  }
-
-  export type MagicItemFeatureMaxOrderByAggregateInput = {
-    magicItemFeatureId?: SortOrder
-    magicItemId?: SortOrder
-    featureId?: SortOrder
-  }
-
-  export type MagicItemFeatureMinOrderByAggregateInput = {
-    magicItemFeatureId?: SortOrder
-    magicItemId?: SortOrder
-    featureId?: SortOrder
-  }
-
-  export type MagicItemFeatureSumOrderByAggregateInput = {
-    magicItemFeatureId?: SortOrder
-    magicItemId?: SortOrder
     featureId?: SortOrder
   }
 
@@ -75693,64 +74706,47 @@ export namespace Prisma {
     not?: NestedEnumItemRarityFilter<$PrismaModel> | $Enums.ItemRarity
   }
 
-  export type InfusionListRelationFilter = {
-    every?: InfusionWhereInput
-    some?: InfusionWhereInput
-    none?: InfusionWhereInput
-  }
-
-  export type InfusionOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type MagicItemCountOrderByAggregateInput = {
     magicItemId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    shortDescription?: SortOrder
     requiresAttunement?: SortOrder
-    bonusToAC?: SortOrder
-    bonusToAttackRoll?: SortOrder
-    bonusToDamage?: SortOrder
+    weaponProficiencies?: SortOrder
+    weaponProficienciesSpecial?: SortOrder
   }
 
   export type MagicItemAvgOrderByAggregateInput = {
     magicItemId?: SortOrder
-    bonusToAC?: SortOrder
-    bonusToAttackRoll?: SortOrder
-    bonusToDamage?: SortOrder
   }
 
   export type MagicItemMaxOrderByAggregateInput = {
     magicItemId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    shortDescription?: SortOrder
     requiresAttunement?: SortOrder
-    bonusToAC?: SortOrder
-    bonusToAttackRoll?: SortOrder
-    bonusToDamage?: SortOrder
   }
 
   export type MagicItemMinOrderByAggregateInput = {
     magicItemId?: SortOrder
     name?: SortOrder
+    engName?: SortOrder
     itemType?: SortOrder
     rarity?: SortOrder
     description?: SortOrder
+    shortDescription?: SortOrder
     requiresAttunement?: SortOrder
-    bonusToAC?: SortOrder
-    bonusToAttackRoll?: SortOrder
-    bonusToDamage?: SortOrder
   }
 
   export type MagicItemSumOrderByAggregateInput = {
     magicItemId?: SortOrder
-    bonusToAC?: SortOrder
-    bonusToAttackRoll?: SortOrder
-    bonusToDamage?: SortOrder
   }
 
   export type EnumMagicItemTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -75803,6 +74799,7 @@ export namespace Prisma {
     increasesAtLevel10By?: SortOrder
     replicatedMagicItemId?: SortOrder
     createsHomunculus?: SortOrder
+    featureId?: SortOrder
   }
 
   export type InfusionAvgOrderByAggregateInput = {
@@ -75817,6 +74814,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: SortOrder
     increasesAtLevel10By?: SortOrder
     replicatedMagicItemId?: SortOrder
+    featureId?: SortOrder
   }
 
   export type InfusionMaxOrderByAggregateInput = {
@@ -75837,6 +74835,7 @@ export namespace Prisma {
     increasesAtLevel10By?: SortOrder
     replicatedMagicItemId?: SortOrder
     createsHomunculus?: SortOrder
+    featureId?: SortOrder
   }
 
   export type InfusionMinOrderByAggregateInput = {
@@ -75857,6 +74856,7 @@ export namespace Prisma {
     increasesAtLevel10By?: SortOrder
     replicatedMagicItemId?: SortOrder
     createsHomunculus?: SortOrder
+    featureId?: SortOrder
   }
 
   export type InfusionSumOrderByAggregateInput = {
@@ -75871,6 +74871,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: SortOrder
     increasesAtLevel10By?: SortOrder
     replicatedMagicItemId?: SortOrder
+    featureId?: SortOrder
   }
 
   export type EnumInfusionTargetTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -76370,6 +75371,11 @@ export namespace Prisma {
     miscACBonus?: SortOrder
   }
 
+  export type MagicItemScalarRelationFilter = {
+    is?: MagicItemWhereInput
+    isNot?: MagicItemWhereInput
+  }
+
   export type PersMagicItemCountOrderByAggregateInput = {
     persMagicItemId?: SortOrder
     persId?: SortOrder
@@ -76729,6 +75735,12 @@ export namespace Prisma {
     connect?: FeatureWhereUniqueInput | FeatureWhereUniqueInput[]
   }
 
+  export type MagicItemCreateNestedManyWithoutGivesSpellsInput = {
+    create?: XOR<MagicItemCreateWithoutGivesSpellsInput, MagicItemUncheckedCreateWithoutGivesSpellsInput> | MagicItemCreateWithoutGivesSpellsInput[] | MagicItemUncheckedCreateWithoutGivesSpellsInput[]
+    connectOrCreate?: MagicItemCreateOrConnectWithoutGivesSpellsInput | MagicItemCreateOrConnectWithoutGivesSpellsInput[]
+    connect?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+  }
+
   export type CharacterSpellsUncheckedCreateNestedManyWithoutSpellInput = {
     create?: XOR<CharacterSpellsCreateWithoutSpellInput, CharacterSpellsUncheckedCreateWithoutSpellInput> | CharacterSpellsCreateWithoutSpellInput[] | CharacterSpellsUncheckedCreateWithoutSpellInput[]
     connectOrCreate?: CharacterSpellsCreateOrConnectWithoutSpellInput | CharacterSpellsCreateOrConnectWithoutSpellInput[]
@@ -76773,6 +75785,12 @@ export namespace Prisma {
     create?: XOR<FeatureCreateWithoutGivesSpellsInput, FeatureUncheckedCreateWithoutGivesSpellsInput> | FeatureCreateWithoutGivesSpellsInput[] | FeatureUncheckedCreateWithoutGivesSpellsInput[]
     connectOrCreate?: FeatureCreateOrConnectWithoutGivesSpellsInput | FeatureCreateOrConnectWithoutGivesSpellsInput[]
     connect?: FeatureWhereUniqueInput | FeatureWhereUniqueInput[]
+  }
+
+  export type MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput = {
+    create?: XOR<MagicItemCreateWithoutGivesSpellsInput, MagicItemUncheckedCreateWithoutGivesSpellsInput> | MagicItemCreateWithoutGivesSpellsInput[] | MagicItemUncheckedCreateWithoutGivesSpellsInput[]
+    connectOrCreate?: MagicItemCreateOrConnectWithoutGivesSpellsInput | MagicItemCreateOrConnectWithoutGivesSpellsInput[]
+    connect?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -76874,6 +75892,19 @@ export namespace Prisma {
     deleteMany?: FeatureScalarWhereInput | FeatureScalarWhereInput[]
   }
 
+  export type MagicItemUpdateManyWithoutGivesSpellsNestedInput = {
+    create?: XOR<MagicItemCreateWithoutGivesSpellsInput, MagicItemUncheckedCreateWithoutGivesSpellsInput> | MagicItemCreateWithoutGivesSpellsInput[] | MagicItemUncheckedCreateWithoutGivesSpellsInput[]
+    connectOrCreate?: MagicItemCreateOrConnectWithoutGivesSpellsInput | MagicItemCreateOrConnectWithoutGivesSpellsInput[]
+    upsert?: MagicItemUpsertWithWhereUniqueWithoutGivesSpellsInput | MagicItemUpsertWithWhereUniqueWithoutGivesSpellsInput[]
+    set?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    disconnect?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    delete?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    connect?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    update?: MagicItemUpdateWithWhereUniqueWithoutGivesSpellsInput | MagicItemUpdateWithWhereUniqueWithoutGivesSpellsInput[]
+    updateMany?: MagicItemUpdateManyWithWhereWithoutGivesSpellsInput | MagicItemUpdateManyWithWhereWithoutGivesSpellsInput[]
+    deleteMany?: MagicItemScalarWhereInput | MagicItemScalarWhereInput[]
+  }
+
   export type CharacterSpellsUncheckedUpdateManyWithoutSpellNestedInput = {
     create?: XOR<CharacterSpellsCreateWithoutSpellInput, CharacterSpellsUncheckedCreateWithoutSpellInput> | CharacterSpellsCreateWithoutSpellInput[] | CharacterSpellsUncheckedCreateWithoutSpellInput[]
     connectOrCreate?: CharacterSpellsCreateOrConnectWithoutSpellInput | CharacterSpellsCreateOrConnectWithoutSpellInput[]
@@ -76967,6 +75998,19 @@ export namespace Prisma {
     update?: FeatureUpdateWithWhereUniqueWithoutGivesSpellsInput | FeatureUpdateWithWhereUniqueWithoutGivesSpellsInput[]
     updateMany?: FeatureUpdateManyWithWhereWithoutGivesSpellsInput | FeatureUpdateManyWithWhereWithoutGivesSpellsInput[]
     deleteMany?: FeatureScalarWhereInput | FeatureScalarWhereInput[]
+  }
+
+  export type MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput = {
+    create?: XOR<MagicItemCreateWithoutGivesSpellsInput, MagicItemUncheckedCreateWithoutGivesSpellsInput> | MagicItemCreateWithoutGivesSpellsInput[] | MagicItemUncheckedCreateWithoutGivesSpellsInput[]
+    connectOrCreate?: MagicItemCreateOrConnectWithoutGivesSpellsInput | MagicItemCreateOrConnectWithoutGivesSpellsInput[]
+    upsert?: MagicItemUpsertWithWhereUniqueWithoutGivesSpellsInput | MagicItemUpsertWithWhereUniqueWithoutGivesSpellsInput[]
+    set?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    disconnect?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    delete?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    connect?: MagicItemWhereUniqueInput | MagicItemWhereUniqueInput[]
+    update?: MagicItemUpdateWithWhereUniqueWithoutGivesSpellsInput | MagicItemUpdateWithWhereUniqueWithoutGivesSpellsInput[]
+    updateMany?: MagicItemUpdateManyWithWhereWithoutGivesSpellsInput | MagicItemUpdateManyWithWhereWithoutGivesSpellsInput[]
+    deleteMany?: MagicItemScalarWhereInput | MagicItemScalarWhereInput[]
   }
 
   export type SpellCreateNestedOneWithoutSpellClassesInput = {
@@ -77820,10 +76864,6 @@ export namespace Prisma {
     create?: XOR<ClassOptionalFeatureCreateWithoutAppearsOnlyIfChoicesTakenInput, ClassOptionalFeatureUncheckedCreateWithoutAppearsOnlyIfChoicesTakenInput> | ClassOptionalFeatureCreateWithoutAppearsOnlyIfChoicesTakenInput[] | ClassOptionalFeatureUncheckedCreateWithoutAppearsOnlyIfChoicesTakenInput[]
     connectOrCreate?: ClassOptionalFeatureCreateOrConnectWithoutAppearsOnlyIfChoicesTakenInput | ClassOptionalFeatureCreateOrConnectWithoutAppearsOnlyIfChoicesTakenInput[]
     connect?: ClassOptionalFeatureWhereUniqueInput | ClassOptionalFeatureWhereUniqueInput[]
-  }
-
-  export type NullableBoolFieldUpdateOperationsInput = {
-    set?: boolean | null
   }
 
   export type ChoiceOptionFeatureUpdateManyWithoutOptionNestedInput = {
@@ -78771,11 +77811,11 @@ export namespace Prisma {
     connect?: FeatFeatureWhereUniqueInput | FeatFeatureWhereUniqueInput[]
   }
 
-  export type MagicItemFeatureCreateNestedManyWithoutFeatureInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutFeatureInput, MagicItemFeatureUncheckedCreateWithoutFeatureInput> | MagicItemFeatureCreateWithoutFeatureInput[] | MagicItemFeatureUncheckedCreateWithoutFeatureInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutFeatureInput | MagicItemFeatureCreateOrConnectWithoutFeatureInput[]
-    createMany?: MagicItemFeatureCreateManyFeatureInputEnvelope
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
+  export type InfusionCreateNestedManyWithoutFeatureInput = {
+    create?: XOR<InfusionCreateWithoutFeatureInput, InfusionUncheckedCreateWithoutFeatureInput> | InfusionCreateWithoutFeatureInput[] | InfusionUncheckedCreateWithoutFeatureInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutFeatureInput | InfusionCreateOrConnectWithoutFeatureInput[]
+    createMany?: InfusionCreateManyFeatureInputEnvelope
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
   }
 
   export type PersFeatureCreateNestedManyWithoutFeatureInput = {
@@ -78873,11 +77913,11 @@ export namespace Prisma {
     connect?: FeatFeatureWhereUniqueInput | FeatFeatureWhereUniqueInput[]
   }
 
-  export type MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutFeatureInput, MagicItemFeatureUncheckedCreateWithoutFeatureInput> | MagicItemFeatureCreateWithoutFeatureInput[] | MagicItemFeatureUncheckedCreateWithoutFeatureInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutFeatureInput | MagicItemFeatureCreateOrConnectWithoutFeatureInput[]
-    createMany?: MagicItemFeatureCreateManyFeatureInputEnvelope
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
+  export type InfusionUncheckedCreateNestedManyWithoutFeatureInput = {
+    create?: XOR<InfusionCreateWithoutFeatureInput, InfusionUncheckedCreateWithoutFeatureInput> | InfusionCreateWithoutFeatureInput[] | InfusionUncheckedCreateWithoutFeatureInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutFeatureInput | InfusionCreateOrConnectWithoutFeatureInput[]
+    createMany?: InfusionCreateManyFeatureInputEnvelope
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
   }
 
   export type PersFeatureUncheckedCreateNestedManyWithoutFeatureInput = {
@@ -78885,6 +77925,10 @@ export namespace Prisma {
     connectOrCreate?: PersFeatureCreateOrConnectWithoutFeatureInput | PersFeatureCreateOrConnectWithoutFeatureInput[]
     createMany?: PersFeatureCreateManyFeatureInputEnvelope
     connect?: PersFeatureWhereUniqueInput | PersFeatureWhereUniqueInput[]
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
   }
 
   export type FeatureUpdatesavingThrowsInput = {
@@ -79080,18 +78124,18 @@ export namespace Prisma {
     deleteMany?: FeatFeatureScalarWhereInput | FeatFeatureScalarWhereInput[]
   }
 
-  export type MagicItemFeatureUpdateManyWithoutFeatureNestedInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutFeatureInput, MagicItemFeatureUncheckedCreateWithoutFeatureInput> | MagicItemFeatureCreateWithoutFeatureInput[] | MagicItemFeatureUncheckedCreateWithoutFeatureInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutFeatureInput | MagicItemFeatureCreateOrConnectWithoutFeatureInput[]
-    upsert?: MagicItemFeatureUpsertWithWhereUniqueWithoutFeatureInput | MagicItemFeatureUpsertWithWhereUniqueWithoutFeatureInput[]
-    createMany?: MagicItemFeatureCreateManyFeatureInputEnvelope
-    set?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    disconnect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    delete?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    update?: MagicItemFeatureUpdateWithWhereUniqueWithoutFeatureInput | MagicItemFeatureUpdateWithWhereUniqueWithoutFeatureInput[]
-    updateMany?: MagicItemFeatureUpdateManyWithWhereWithoutFeatureInput | MagicItemFeatureUpdateManyWithWhereWithoutFeatureInput[]
-    deleteMany?: MagicItemFeatureScalarWhereInput | MagicItemFeatureScalarWhereInput[]
+  export type InfusionUpdateManyWithoutFeatureNestedInput = {
+    create?: XOR<InfusionCreateWithoutFeatureInput, InfusionUncheckedCreateWithoutFeatureInput> | InfusionCreateWithoutFeatureInput[] | InfusionUncheckedCreateWithoutFeatureInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutFeatureInput | InfusionCreateOrConnectWithoutFeatureInput[]
+    upsert?: InfusionUpsertWithWhereUniqueWithoutFeatureInput | InfusionUpsertWithWhereUniqueWithoutFeatureInput[]
+    createMany?: InfusionCreateManyFeatureInputEnvelope
+    set?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    disconnect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    delete?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    update?: InfusionUpdateWithWhereUniqueWithoutFeatureInput | InfusionUpdateWithWhereUniqueWithoutFeatureInput[]
+    updateMany?: InfusionUpdateManyWithWhereWithoutFeatureInput | InfusionUpdateManyWithWhereWithoutFeatureInput[]
+    deleteMany?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
   }
 
   export type PersFeatureUpdateManyWithoutFeatureNestedInput = {
@@ -79287,18 +78331,18 @@ export namespace Prisma {
     deleteMany?: FeatFeatureScalarWhereInput | FeatFeatureScalarWhereInput[]
   }
 
-  export type MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutFeatureInput, MagicItemFeatureUncheckedCreateWithoutFeatureInput> | MagicItemFeatureCreateWithoutFeatureInput[] | MagicItemFeatureUncheckedCreateWithoutFeatureInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutFeatureInput | MagicItemFeatureCreateOrConnectWithoutFeatureInput[]
-    upsert?: MagicItemFeatureUpsertWithWhereUniqueWithoutFeatureInput | MagicItemFeatureUpsertWithWhereUniqueWithoutFeatureInput[]
-    createMany?: MagicItemFeatureCreateManyFeatureInputEnvelope
-    set?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    disconnect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    delete?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    update?: MagicItemFeatureUpdateWithWhereUniqueWithoutFeatureInput | MagicItemFeatureUpdateWithWhereUniqueWithoutFeatureInput[]
-    updateMany?: MagicItemFeatureUpdateManyWithWhereWithoutFeatureInput | MagicItemFeatureUpdateManyWithWhereWithoutFeatureInput[]
-    deleteMany?: MagicItemFeatureScalarWhereInput | MagicItemFeatureScalarWhereInput[]
+  export type InfusionUncheckedUpdateManyWithoutFeatureNestedInput = {
+    create?: XOR<InfusionCreateWithoutFeatureInput, InfusionUncheckedCreateWithoutFeatureInput> | InfusionCreateWithoutFeatureInput[] | InfusionUncheckedCreateWithoutFeatureInput[]
+    connectOrCreate?: InfusionCreateOrConnectWithoutFeatureInput | InfusionCreateOrConnectWithoutFeatureInput[]
+    upsert?: InfusionUpsertWithWhereUniqueWithoutFeatureInput | InfusionUpsertWithWhereUniqueWithoutFeatureInput[]
+    createMany?: InfusionCreateManyFeatureInputEnvelope
+    set?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    disconnect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    delete?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
+    update?: InfusionUpdateWithWhereUniqueWithoutFeatureInput | InfusionUpdateWithWhereUniqueWithoutFeatureInput[]
+    updateMany?: InfusionUpdateManyWithWhereWithoutFeatureInput | InfusionUpdateManyWithWhereWithoutFeatureInput[]
+    deleteMany?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
   }
 
   export type PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput = {
@@ -79722,34 +78766,6 @@ export namespace Prisma {
     upsert?: FeatUpsertWithoutFeatFeaturesInput
     connect?: FeatWhereUniqueInput
     update?: XOR<XOR<FeatUpdateToOneWithWhereWithoutFeatFeaturesInput, FeatUpdateWithoutFeatFeaturesInput>, FeatUncheckedUpdateWithoutFeatFeaturesInput>
-  }
-
-  export type FeatureCreateNestedOneWithoutMagicItemFeaturesInput = {
-    create?: XOR<FeatureCreateWithoutMagicItemFeaturesInput, FeatureUncheckedCreateWithoutMagicItemFeaturesInput>
-    connectOrCreate?: FeatureCreateOrConnectWithoutMagicItemFeaturesInput
-    connect?: FeatureWhereUniqueInput
-  }
-
-  export type MagicItemCreateNestedOneWithoutFeaturesInput = {
-    create?: XOR<MagicItemCreateWithoutFeaturesInput, MagicItemUncheckedCreateWithoutFeaturesInput>
-    connectOrCreate?: MagicItemCreateOrConnectWithoutFeaturesInput
-    connect?: MagicItemWhereUniqueInput
-  }
-
-  export type FeatureUpdateOneRequiredWithoutMagicItemFeaturesNestedInput = {
-    create?: XOR<FeatureCreateWithoutMagicItemFeaturesInput, FeatureUncheckedCreateWithoutMagicItemFeaturesInput>
-    connectOrCreate?: FeatureCreateOrConnectWithoutMagicItemFeaturesInput
-    upsert?: FeatureUpsertWithoutMagicItemFeaturesInput
-    connect?: FeatureWhereUniqueInput
-    update?: XOR<XOR<FeatureUpdateToOneWithWhereWithoutMagicItemFeaturesInput, FeatureUpdateWithoutMagicItemFeaturesInput>, FeatureUncheckedUpdateWithoutMagicItemFeaturesInput>
-  }
-
-  export type MagicItemUpdateOneRequiredWithoutFeaturesNestedInput = {
-    create?: XOR<MagicItemCreateWithoutFeaturesInput, MagicItemUncheckedCreateWithoutFeaturesInput>
-    connectOrCreate?: MagicItemCreateOrConnectWithoutFeaturesInput
-    upsert?: MagicItemUpsertWithoutFeaturesInput
-    connect?: MagicItemWhereUniqueInput
-    update?: XOR<XOR<MagicItemUpdateToOneWithWhereWithoutFeaturesInput, MagicItemUpdateWithoutFeaturesInput>, MagicItemUncheckedUpdateWithoutFeaturesInput>
   }
 
   export type RaceCreatesizeInput = {
@@ -80683,13 +79699,6 @@ export namespace Prisma {
     update?: XOR<XOR<PersUpdateToOneWithWhereWithoutFeatsInput, PersUpdateWithoutFeatsInput>, PersUncheckedUpdateWithoutFeatsInput>
   }
 
-  export type MagicItemFeatureCreateNestedManyWithoutMagicItemInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput> | MagicItemFeatureCreateWithoutMagicItemInput[] | MagicItemFeatureUncheckedCreateWithoutMagicItemInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutMagicItemInput | MagicItemFeatureCreateOrConnectWithoutMagicItemInput[]
-    createMany?: MagicItemFeatureCreateManyMagicItemInputEnvelope
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-  }
-
   export type PersMagicItemCreateNestedManyWithoutMagicItemInput = {
     create?: XOR<PersMagicItemCreateWithoutMagicItemInput, PersMagicItemUncheckedCreateWithoutMagicItemInput> | PersMagicItemCreateWithoutMagicItemInput[] | PersMagicItemUncheckedCreateWithoutMagicItemInput[]
     connectOrCreate?: PersMagicItemCreateOrConnectWithoutMagicItemInput | PersMagicItemCreateOrConnectWithoutMagicItemInput[]
@@ -80704,11 +79713,10 @@ export namespace Prisma {
     connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
   }
 
-  export type MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput> | MagicItemFeatureCreateWithoutMagicItemInput[] | MagicItemFeatureUncheckedCreateWithoutMagicItemInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutMagicItemInput | MagicItemFeatureCreateOrConnectWithoutMagicItemInput[]
-    createMany?: MagicItemFeatureCreateManyMagicItemInputEnvelope
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
+  export type SpellCreateNestedManyWithoutMagicItemsInput = {
+    create?: XOR<SpellCreateWithoutMagicItemsInput, SpellUncheckedCreateWithoutMagicItemsInput> | SpellCreateWithoutMagicItemsInput[] | SpellUncheckedCreateWithoutMagicItemsInput[]
+    connectOrCreate?: SpellCreateOrConnectWithoutMagicItemsInput | SpellCreateOrConnectWithoutMagicItemsInput[]
+    connect?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
   }
 
   export type PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput = {
@@ -80725,26 +79733,18 @@ export namespace Prisma {
     connect?: InfusionWhereUniqueInput | InfusionWhereUniqueInput[]
   }
 
+  export type SpellUncheckedCreateNestedManyWithoutMagicItemsInput = {
+    create?: XOR<SpellCreateWithoutMagicItemsInput, SpellUncheckedCreateWithoutMagicItemsInput> | SpellCreateWithoutMagicItemsInput[] | SpellUncheckedCreateWithoutMagicItemsInput[]
+    connectOrCreate?: SpellCreateOrConnectWithoutMagicItemsInput | SpellCreateOrConnectWithoutMagicItemsInput[]
+    connect?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+  }
+
   export type EnumMagicItemTypeFieldUpdateOperationsInput = {
     set?: $Enums.MagicItemType
   }
 
   export type EnumItemRarityFieldUpdateOperationsInput = {
     set?: $Enums.ItemRarity
-  }
-
-  export type MagicItemFeatureUpdateManyWithoutMagicItemNestedInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput> | MagicItemFeatureCreateWithoutMagicItemInput[] | MagicItemFeatureUncheckedCreateWithoutMagicItemInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutMagicItemInput | MagicItemFeatureCreateOrConnectWithoutMagicItemInput[]
-    upsert?: MagicItemFeatureUpsertWithWhereUniqueWithoutMagicItemInput | MagicItemFeatureUpsertWithWhereUniqueWithoutMagicItemInput[]
-    createMany?: MagicItemFeatureCreateManyMagicItemInputEnvelope
-    set?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    disconnect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    delete?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    update?: MagicItemFeatureUpdateWithWhereUniqueWithoutMagicItemInput | MagicItemFeatureUpdateWithWhereUniqueWithoutMagicItemInput[]
-    updateMany?: MagicItemFeatureUpdateManyWithWhereWithoutMagicItemInput | MagicItemFeatureUpdateManyWithWhereWithoutMagicItemInput[]
-    deleteMany?: MagicItemFeatureScalarWhereInput | MagicItemFeatureScalarWhereInput[]
   }
 
   export type PersMagicItemUpdateManyWithoutMagicItemNestedInput = {
@@ -80775,18 +79775,17 @@ export namespace Prisma {
     deleteMany?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
   }
 
-  export type MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput = {
-    create?: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput> | MagicItemFeatureCreateWithoutMagicItemInput[] | MagicItemFeatureUncheckedCreateWithoutMagicItemInput[]
-    connectOrCreate?: MagicItemFeatureCreateOrConnectWithoutMagicItemInput | MagicItemFeatureCreateOrConnectWithoutMagicItemInput[]
-    upsert?: MagicItemFeatureUpsertWithWhereUniqueWithoutMagicItemInput | MagicItemFeatureUpsertWithWhereUniqueWithoutMagicItemInput[]
-    createMany?: MagicItemFeatureCreateManyMagicItemInputEnvelope
-    set?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    disconnect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    delete?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    connect?: MagicItemFeatureWhereUniqueInput | MagicItemFeatureWhereUniqueInput[]
-    update?: MagicItemFeatureUpdateWithWhereUniqueWithoutMagicItemInput | MagicItemFeatureUpdateWithWhereUniqueWithoutMagicItemInput[]
-    updateMany?: MagicItemFeatureUpdateManyWithWhereWithoutMagicItemInput | MagicItemFeatureUpdateManyWithWhereWithoutMagicItemInput[]
-    deleteMany?: MagicItemFeatureScalarWhereInput | MagicItemFeatureScalarWhereInput[]
+  export type SpellUpdateManyWithoutMagicItemsNestedInput = {
+    create?: XOR<SpellCreateWithoutMagicItemsInput, SpellUncheckedCreateWithoutMagicItemsInput> | SpellCreateWithoutMagicItemsInput[] | SpellUncheckedCreateWithoutMagicItemsInput[]
+    connectOrCreate?: SpellCreateOrConnectWithoutMagicItemsInput | SpellCreateOrConnectWithoutMagicItemsInput[]
+    upsert?: SpellUpsertWithWhereUniqueWithoutMagicItemsInput | SpellUpsertWithWhereUniqueWithoutMagicItemsInput[]
+    set?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    disconnect?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    delete?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    connect?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    update?: SpellUpdateWithWhereUniqueWithoutMagicItemsInput | SpellUpdateWithWhereUniqueWithoutMagicItemsInput[]
+    updateMany?: SpellUpdateManyWithWhereWithoutMagicItemsInput | SpellUpdateManyWithWhereWithoutMagicItemsInput[]
+    deleteMany?: SpellScalarWhereInput | SpellScalarWhereInput[]
   }
 
   export type PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput = {
@@ -80817,10 +79816,29 @@ export namespace Prisma {
     deleteMany?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
   }
 
+  export type SpellUncheckedUpdateManyWithoutMagicItemsNestedInput = {
+    create?: XOR<SpellCreateWithoutMagicItemsInput, SpellUncheckedCreateWithoutMagicItemsInput> | SpellCreateWithoutMagicItemsInput[] | SpellUncheckedCreateWithoutMagicItemsInput[]
+    connectOrCreate?: SpellCreateOrConnectWithoutMagicItemsInput | SpellCreateOrConnectWithoutMagicItemsInput[]
+    upsert?: SpellUpsertWithWhereUniqueWithoutMagicItemsInput | SpellUpsertWithWhereUniqueWithoutMagicItemsInput[]
+    set?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    disconnect?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    delete?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    connect?: SpellWhereUniqueInput | SpellWhereUniqueInput[]
+    update?: SpellUpdateWithWhereUniqueWithoutMagicItemsInput | SpellUpdateWithWhereUniqueWithoutMagicItemsInput[]
+    updateMany?: SpellUpdateManyWithWhereWithoutMagicItemsInput | SpellUpdateManyWithWhereWithoutMagicItemsInput[]
+    deleteMany?: SpellScalarWhereInput | SpellScalarWhereInput[]
+  }
+
   export type MagicItemCreateNestedOneWithoutReplicatedByInfusionsInput = {
     create?: XOR<MagicItemCreateWithoutReplicatedByInfusionsInput, MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput>
     connectOrCreate?: MagicItemCreateOrConnectWithoutReplicatedByInfusionsInput
     connect?: MagicItemWhereUniqueInput
+  }
+
+  export type FeatureCreateNestedOneWithoutInfusionsInput = {
+    create?: XOR<FeatureCreateWithoutInfusionsInput, FeatureUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: FeatureCreateOrConnectWithoutInfusionsInput
+    connect?: FeatureWhereUniqueInput
   }
 
   export type PersInfusionCreateNestedManyWithoutInfusionInput = {
@@ -80849,6 +79867,16 @@ export namespace Prisma {
     delete?: MagicItemWhereInput | boolean
     connect?: MagicItemWhereUniqueInput
     update?: XOR<XOR<MagicItemUpdateToOneWithWhereWithoutReplicatedByInfusionsInput, MagicItemUpdateWithoutReplicatedByInfusionsInput>, MagicItemUncheckedUpdateWithoutReplicatedByInfusionsInput>
+  }
+
+  export type FeatureUpdateOneWithoutInfusionsNestedInput = {
+    create?: XOR<FeatureCreateWithoutInfusionsInput, FeatureUncheckedCreateWithoutInfusionsInput>
+    connectOrCreate?: FeatureCreateOrConnectWithoutInfusionsInput
+    upsert?: FeatureUpsertWithoutInfusionsInput
+    disconnect?: FeatureWhereInput | boolean
+    delete?: FeatureWhereInput | boolean
+    connect?: FeatureWhereUniqueInput
+    update?: XOR<XOR<FeatureUpdateToOneWithWhereWithoutInfusionsInput, FeatureUpdateWithoutInfusionsInput>, FeatureUncheckedUpdateWithoutInfusionsInput>
   }
 
   export type PersInfusionUpdateManyWithoutInfusionNestedInput = {
@@ -81803,19 +80831,19 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type NestedEnumRestTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.RestType | EnumRestTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.RestType[] | ListEnumRestTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.RestType[] | ListEnumRestTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumRestTypeNullableFilter<$PrismaModel> | $Enums.RestType | null
+  }
+
   export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
     not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
-  }
-
-  export type NestedEnumRestTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.RestType | EnumRestTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.RestType[] | ListEnumRestTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.RestType[] | ListEnumRestTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumRestTypeNullableFilter<$PrismaModel> | $Enums.RestType | null
   }
 
   export type NestedEnumRestTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -82301,6 +81329,7 @@ export namespace Prisma {
     subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersCreateNestedManyWithoutSpellsInput
     features?: FeatureCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateWithoutCharacterSpellsInput = {
@@ -82323,6 +81352,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
     features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellCreateOrConnectWithoutCharacterSpellsInput = {
@@ -82382,6 +81412,7 @@ export namespace Prisma {
     subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUpdateManyWithoutSpellsNestedInput
     features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateWithoutCharacterSpellsInput = {
@@ -82404,6 +81435,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
     features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type CharacterSpellsCreateWithoutSpellInput = {
@@ -82651,8 +81683,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -82677,7 +81724,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -82687,8 +81734,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -82713,13 +81775,47 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
   export type FeatureCreateOrConnectWithoutGivesSpellsInput = {
     where: FeatureWhereUniqueInput
     create: XOR<FeatureCreateWithoutGivesSpellsInput, FeatureUncheckedCreateWithoutGivesSpellsInput>
+  }
+
+  export type MagicItemCreateWithoutGivesSpellsInput = {
+    name: string
+    engName: string
+    itemType: $Enums.MagicItemType
+    rarity: $Enums.ItemRarity
+    description: string
+    shortDescription?: string | null
+    requiresAttunement?: boolean
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
+    persMagicItems?: PersMagicItemCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionCreateNestedManyWithoutReplicatedMagicItemInput
+  }
+
+  export type MagicItemUncheckedCreateWithoutGivesSpellsInput = {
+    magicItemId?: number
+    name: string
+    engName: string
+    itemType: $Enums.MagicItemType
+    rarity: $Enums.ItemRarity
+    description: string
+    shortDescription?: string | null
+    requiresAttunement?: boolean
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
+    persMagicItems?: PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput
+    replicatedByInfusions?: InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput
+  }
+
+  export type MagicItemCreateOrConnectWithoutGivesSpellsInput = {
+    where: MagicItemWhereUniqueInput
+    create: XOR<MagicItemCreateWithoutGivesSpellsInput, MagicItemUncheckedCreateWithoutGivesSpellsInput>
   }
 
   export type CharacterSpellsUpsertWithWhereUniqueWithoutSpellInput = {
@@ -82939,8 +82035,23 @@ export namespace Prisma {
     engName?: StringFilter<"Feature"> | string
     description?: StringFilter<"Feature"> | string
     shortDescription?: StringNullableFilter<"Feature"> | string | null
-    modifiesStats?: JsonNullableFilter<"Feature">
     modifiesAC?: JsonNullableFilter<"Feature">
+    givesAC?: IntNullableFilter<"Feature"> | number | null
+    requiresArmorForACBonus?: BoolNullableFilter<"Feature"> | boolean | null
+    noArmorOrShieldForACBonus?: BoolNullableFilter<"Feature"> | boolean | null
+    givesSTR?: IntNullableFilter<"Feature"> | number | null
+    givesCON?: IntNullableFilter<"Feature"> | number | null
+    bonusToAttackRoll?: IntNullableFilter<"Feature"> | number | null
+    bonusToRangedAttackRoll?: IntNullableFilter<"Feature"> | number | null
+    bonusToRangedDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToMeleeDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToMeleeOneHandedWeaponDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToThrownDamage?: IntNullableFilter<"Feature"> | number | null
+    bonusToSavingThrows?: JsonNullableFilter<"Feature">
+    givesManeuvres?: BoolNullableFilter<"Feature"> | boolean | null
+    superiorityDiceCount?: IntNullableFilter<"Feature"> | number | null
+    modifiesUnarmed?: BoolNullableFilter<"Feature"> | boolean | null
+    unarmedDamage?: StringNullableFilter<"Feature"> | string | null
     skillProficiencies?: JsonNullableFilter<"Feature">
     savingThrows?: EnumAbilityNullableListFilter<"Feature">
     skillExpertises?: JsonNullableFilter<"Feature">
@@ -82953,6 +82064,38 @@ export namespace Prisma {
     displayType?: EnumFeatureDisplayTypeNullableListFilter<"Feature">
     createdAt?: DateTimeFilter<"Feature"> | Date | string
     updatedAt?: DateTimeFilter<"Feature"> | Date | string
+  }
+
+  export type MagicItemUpsertWithWhereUniqueWithoutGivesSpellsInput = {
+    where: MagicItemWhereUniqueInput
+    update: XOR<MagicItemUpdateWithoutGivesSpellsInput, MagicItemUncheckedUpdateWithoutGivesSpellsInput>
+    create: XOR<MagicItemCreateWithoutGivesSpellsInput, MagicItemUncheckedCreateWithoutGivesSpellsInput>
+  }
+
+  export type MagicItemUpdateWithWhereUniqueWithoutGivesSpellsInput = {
+    where: MagicItemWhereUniqueInput
+    data: XOR<MagicItemUpdateWithoutGivesSpellsInput, MagicItemUncheckedUpdateWithoutGivesSpellsInput>
+  }
+
+  export type MagicItemUpdateManyWithWhereWithoutGivesSpellsInput = {
+    where: MagicItemScalarWhereInput
+    data: XOR<MagicItemUpdateManyMutationInput, MagicItemUncheckedUpdateManyWithoutGivesSpellsInput>
+  }
+
+  export type MagicItemScalarWhereInput = {
+    AND?: MagicItemScalarWhereInput | MagicItemScalarWhereInput[]
+    OR?: MagicItemScalarWhereInput[]
+    NOT?: MagicItemScalarWhereInput | MagicItemScalarWhereInput[]
+    magicItemId?: IntFilter<"MagicItem"> | number
+    name?: StringFilter<"MagicItem"> | string
+    engName?: StringFilter<"MagicItem"> | string
+    itemType?: EnumMagicItemTypeFilter<"MagicItem"> | $Enums.MagicItemType
+    rarity?: EnumItemRarityFilter<"MagicItem"> | $Enums.ItemRarity
+    description?: StringFilter<"MagicItem"> | string
+    shortDescription?: StringNullableFilter<"MagicItem"> | string | null
+    requiresAttunement?: BoolFilter<"MagicItem"> | boolean
+    weaponProficiencies?: JsonNullableFilter<"MagicItem">
+    weaponProficienciesSpecial?: JsonNullableFilter<"MagicItem">
   }
 
   export type SpellCreateWithoutSpellClassesInput = {
@@ -82974,6 +82117,7 @@ export namespace Prisma {
     subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersCreateNestedManyWithoutSpellsInput
     features?: FeatureCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateWithoutSpellClassesInput = {
@@ -82996,6 +82140,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
     features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellCreateOrConnectWithoutSpellClassesInput = {
@@ -83033,6 +82178,7 @@ export namespace Prisma {
     subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUpdateManyWithoutSpellsNestedInput
     features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateWithoutSpellClassesInput = {
@@ -83055,6 +82201,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
     features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellCreateWithoutSpellRacesInput = {
@@ -83076,6 +82223,7 @@ export namespace Prisma {
     subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersCreateNestedManyWithoutSpellsInput
     features?: FeatureCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateWithoutSpellRacesInput = {
@@ -83098,6 +82246,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
     features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellCreateOrConnectWithoutSpellRacesInput = {
@@ -83135,6 +82284,7 @@ export namespace Prisma {
     subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUpdateManyWithoutSpellsNestedInput
     features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateWithoutSpellRacesInput = {
@@ -83157,6 +82307,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
     features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type UserCreateWithoutSpellbookInput = {
@@ -83259,6 +82410,7 @@ export namespace Prisma {
     subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersCreateNestedManyWithoutSpellsInput
     features?: FeatureCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateWithoutSpellbookSpellsInput = {
@@ -83281,6 +82433,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
     features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellCreateOrConnectWithoutSpellbookSpellsInput = {
@@ -83332,6 +82485,7 @@ export namespace Prisma {
     subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUpdateManyWithoutSpellsNestedInput
     features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateWithoutSpellbookSpellsInput = {
@@ -83354,6 +82508,7 @@ export namespace Prisma {
     subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
     features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellbookUpsertWithoutSpellbookSpellsInput = {
@@ -84132,6 +83287,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsCreateNestedManyWithoutSpellInput
     perses?: PersCreateNestedManyWithoutSpellsInput
     features?: FeatureCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateWithoutSubclassesInput = {
@@ -84154,6 +83310,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUncheckedCreateNestedManyWithoutSpellInput
     perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
     features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellCreateOrConnectWithoutSubclassesInput = {
@@ -84838,15 +83995,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureCreateNestedManyWithoutOptionInput
     perses?: PersCreateNestedManyWithoutChoiceOptionsInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutAppearsOnlyIfChoicesTakenInput
@@ -84858,15 +84006,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureUncheckedCreateNestedManyWithoutOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutChoiceOptionsInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutAppearsOnlyIfChoicesTakenInput
@@ -84955,15 +84094,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUpdateManyWithoutOptionNestedInput
     perses?: PersUpdateManyWithoutChoiceOptionsNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutAppearsOnlyIfChoicesTakenNestedInput
@@ -84975,15 +84105,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUncheckedUpdateManyWithoutOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutChoiceOptionsNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutAppearsOnlyIfChoicesTakenNestedInput
@@ -85391,6 +84512,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsCreateNestedManyWithoutSpellInput
     subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
     features?: FeatureCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateWithoutPersesInput = {
@@ -85413,6 +84535,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUncheckedCreateNestedManyWithoutSpellInput
     subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
     features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellCreateOrConnectWithoutPersesInput = {
@@ -85599,15 +84722,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureCreateNestedManyWithoutOptionInput
     classChoiceOptions?: ClassChoiceOptionCreateNestedManyWithoutChoiceOptionInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutAppearsOnlyIfChoicesTakenInput
@@ -85619,15 +84733,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureUncheckedCreateNestedManyWithoutOptionInput
     classChoiceOptions?: ClassChoiceOptionUncheckedCreateNestedManyWithoutChoiceOptionInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutAppearsOnlyIfChoicesTakenInput
@@ -86269,15 +85374,6 @@ export namespace Prisma {
     optionName?: StringFilter<"ChoiceOption"> | string
     optionNameEng?: StringFilter<"ChoiceOption"> | string
     prerequisites?: JsonNullableFilter<"ChoiceOption">
-    givesAC?: IntNullableFilter<"ChoiceOption"> | number | null
-    meleeAttackBonus?: IntNullableFilter<"ChoiceOption"> | number | null
-    rangedAttackBonus?: IntNullableFilter<"ChoiceOption"> | number | null
-    meleeDamageBoost?: IntNullableFilter<"ChoiceOption"> | number | null
-    thrownDamageBoost?: IntNullableFilter<"ChoiceOption"> | number | null
-    givesManeuvres?: BoolNullableFilter<"ChoiceOption"> | boolean | null
-    superiorityDiceCount?: IntNullableFilter<"ChoiceOption"> | number | null
-    modifiesUnarmed?: BoolNullableFilter<"ChoiceOption"> | boolean | null
-    unarmedDamage?: StringNullableFilter<"ChoiceOption"> | string | null
   }
 
   export type ClassOptionalFeatureUpsertWithWhereUniqueWithoutPersesInput = {
@@ -86801,8 +85897,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -86828,7 +85939,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
   }
 
   export type FeatureUncheckedCreateWithoutPersFeaturesInput = {
@@ -86837,8 +85948,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -86864,7 +85990,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
   }
 
   export type FeatureCreateOrConnectWithoutPersFeaturesInput = {
@@ -87014,8 +86140,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -87041,7 +86182,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
   }
 
   export type FeatureUncheckedUpdateWithoutPersFeaturesInput = {
@@ -87050,8 +86191,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -87077,7 +86233,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
   export type PersUpsertWithoutFeaturesInput = {
@@ -87231,6 +86387,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsCreateNestedManyWithoutSpellInput
     subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersCreateNestedManyWithoutSpellsInput
+    magicItems?: MagicItemCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellUncheckedCreateWithoutFeaturesInput = {
@@ -87253,6 +86410,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUncheckedCreateNestedManyWithoutSpellInput
     subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
     perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
+    magicItems?: MagicItemUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
   export type SpellCreateOrConnectWithoutFeaturesInput = {
@@ -87549,22 +86707,54 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type MagicItemFeatureCreateWithoutFeatureInput = {
-    magicItem: MagicItemCreateNestedOneWithoutFeaturesInput
+  export type InfusionCreateWithoutFeatureInput = {
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    createsHomunculus?: boolean | null
+    replicatedMagicItem?: MagicItemCreateNestedOneWithoutReplicatedByInfusionsInput
+    persInfusions?: PersInfusionCreateNestedManyWithoutInfusionInput
   }
 
-  export type MagicItemFeatureUncheckedCreateWithoutFeatureInput = {
-    magicItemFeatureId?: number
-    magicItemId: number
+  export type InfusionUncheckedCreateWithoutFeatureInput = {
+    infusionId?: number
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    replicatedMagicItemId?: number | null
+    createsHomunculus?: boolean | null
+    persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutInfusionInput
   }
 
-  export type MagicItemFeatureCreateOrConnectWithoutFeatureInput = {
-    where: MagicItemFeatureWhereUniqueInput
-    create: XOR<MagicItemFeatureCreateWithoutFeatureInput, MagicItemFeatureUncheckedCreateWithoutFeatureInput>
+  export type InfusionCreateOrConnectWithoutFeatureInput = {
+    where: InfusionWhereUniqueInput
+    create: XOR<InfusionCreateWithoutFeatureInput, InfusionUncheckedCreateWithoutFeatureInput>
   }
 
-  export type MagicItemFeatureCreateManyFeatureInputEnvelope = {
-    data: MagicItemFeatureCreateManyFeatureInput | MagicItemFeatureCreateManyFeatureInput[]
+  export type InfusionCreateManyFeatureInputEnvelope = {
+    data: InfusionCreateManyFeatureInput | InfusionCreateManyFeatureInput[]
     skipDuplicates?: boolean
   }
 
@@ -87870,29 +87060,44 @@ export namespace Prisma {
     featureId?: IntFilter<"FeatFeature"> | number
   }
 
-  export type MagicItemFeatureUpsertWithWhereUniqueWithoutFeatureInput = {
-    where: MagicItemFeatureWhereUniqueInput
-    update: XOR<MagicItemFeatureUpdateWithoutFeatureInput, MagicItemFeatureUncheckedUpdateWithoutFeatureInput>
-    create: XOR<MagicItemFeatureCreateWithoutFeatureInput, MagicItemFeatureUncheckedCreateWithoutFeatureInput>
+  export type InfusionUpsertWithWhereUniqueWithoutFeatureInput = {
+    where: InfusionWhereUniqueInput
+    update: XOR<InfusionUpdateWithoutFeatureInput, InfusionUncheckedUpdateWithoutFeatureInput>
+    create: XOR<InfusionCreateWithoutFeatureInput, InfusionUncheckedCreateWithoutFeatureInput>
   }
 
-  export type MagicItemFeatureUpdateWithWhereUniqueWithoutFeatureInput = {
-    where: MagicItemFeatureWhereUniqueInput
-    data: XOR<MagicItemFeatureUpdateWithoutFeatureInput, MagicItemFeatureUncheckedUpdateWithoutFeatureInput>
+  export type InfusionUpdateWithWhereUniqueWithoutFeatureInput = {
+    where: InfusionWhereUniqueInput
+    data: XOR<InfusionUpdateWithoutFeatureInput, InfusionUncheckedUpdateWithoutFeatureInput>
   }
 
-  export type MagicItemFeatureUpdateManyWithWhereWithoutFeatureInput = {
-    where: MagicItemFeatureScalarWhereInput
-    data: XOR<MagicItemFeatureUpdateManyMutationInput, MagicItemFeatureUncheckedUpdateManyWithoutFeatureInput>
+  export type InfusionUpdateManyWithWhereWithoutFeatureInput = {
+    where: InfusionScalarWhereInput
+    data: XOR<InfusionUpdateManyMutationInput, InfusionUncheckedUpdateManyWithoutFeatureInput>
   }
 
-  export type MagicItemFeatureScalarWhereInput = {
-    AND?: MagicItemFeatureScalarWhereInput | MagicItemFeatureScalarWhereInput[]
-    OR?: MagicItemFeatureScalarWhereInput[]
-    NOT?: MagicItemFeatureScalarWhereInput | MagicItemFeatureScalarWhereInput[]
-    magicItemFeatureId?: IntFilter<"MagicItemFeature"> | number
-    magicItemId?: IntFilter<"MagicItemFeature"> | number
-    featureId?: IntFilter<"MagicItemFeature"> | number
+  export type InfusionScalarWhereInput = {
+    AND?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
+    OR?: InfusionScalarWhereInput[]
+    NOT?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
+    infusionId?: IntFilter<"Infusion"> | number
+    name?: StringFilter<"Infusion"> | string
+    engName?: StringFilter<"Infusion"> | string
+    minArtificerLevel?: IntFilter<"Infusion"> | number
+    targetType?: EnumInfusionTargetTypeFilter<"Infusion"> | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFilter<"Infusion"> | boolean
+    bonusToAC?: IntNullableFilter<"Infusion"> | number | null
+    bonusToAttackRoll?: IntNullableFilter<"Infusion"> | number | null
+    bonusToDamage?: IntNullableFilter<"Infusion"> | number | null
+    spellAttackBonus?: IntNullableFilter<"Infusion"> | number | null
+    speedBonus?: IntNullableFilter<"Infusion"> | number | null
+    charges?: IntNullableFilter<"Infusion"> | number | null
+    rechargeDice?: StringNullableFilter<"Infusion"> | string | null
+    restoresSpellSlotUpToLevel?: IntNullableFilter<"Infusion"> | number | null
+    increasesAtLevel10By?: IntNullableFilter<"Infusion"> | number | null
+    replicatedMagicItemId?: IntNullableFilter<"Infusion"> | number | null
+    createsHomunculus?: BoolNullableFilter<"Infusion"> | boolean | null
+    featureId?: IntNullableFilter<"Infusion"> | number | null
   }
 
   export type PersFeatureUpsertWithWhereUniqueWithoutFeatureInput = {
@@ -87916,8 +87121,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -87942,7 +87162,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -87952,8 +87172,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -87978,7 +87213,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -88065,8 +87300,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88091,7 +87341,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -88101,8 +87351,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88127,7 +87392,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -88204,8 +87469,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88230,7 +87510,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -88240,8 +87520,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88266,7 +87561,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -88329,8 +87624,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88355,7 +87665,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -88365,8 +87675,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88391,7 +87716,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -88444,15 +87769,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     classChoiceOptions?: ClassChoiceOptionCreateNestedManyWithoutChoiceOptionInput
     perses?: PersCreateNestedManyWithoutChoiceOptionsInput
     classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutAppearsOnlyIfChoicesTakenInput
@@ -88464,15 +87780,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     classChoiceOptions?: ClassChoiceOptionUncheckedCreateNestedManyWithoutChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutChoiceOptionsInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutAppearsOnlyIfChoicesTakenInput
@@ -88488,8 +87795,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88514,7 +87836,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -88524,8 +87846,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88550,7 +87887,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -88575,15 +87912,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     classChoiceOptions?: ClassChoiceOptionUpdateManyWithoutChoiceOptionNestedInput
     perses?: PersUpdateManyWithoutChoiceOptionsNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutAppearsOnlyIfChoicesTakenNestedInput
@@ -88595,15 +87923,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     classChoiceOptions?: ClassChoiceOptionUncheckedUpdateManyWithoutChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutChoiceOptionsNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutAppearsOnlyIfChoicesTakenNestedInput
@@ -88625,8 +87944,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88651,7 +87985,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -88661,8 +87995,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88687,7 +88036,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -88884,8 +88233,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88910,7 +88274,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -88920,8 +88284,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -88946,7 +88325,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -88978,15 +88357,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureCreateNestedManyWithoutOptionInput
     classChoiceOptions?: ClassChoiceOptionCreateNestedManyWithoutChoiceOptionInput
     perses?: PersCreateNestedManyWithoutChoiceOptionsInput
@@ -88998,15 +88368,6 @@ export namespace Prisma {
     optionName: string
     optionNameEng: string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: number | null
-    meleeAttackBonus?: number | null
-    rangedAttackBonus?: number | null
-    meleeDamageBoost?: number | null
-    thrownDamageBoost?: number | null
-    givesManeuvres?: boolean | null
-    superiorityDiceCount?: number | null
-    modifiesUnarmed?: boolean | null
-    unarmedDamage?: string | null
     features?: ChoiceOptionFeatureUncheckedCreateNestedManyWithoutOptionInput
     classChoiceOptions?: ClassChoiceOptionUncheckedCreateNestedManyWithoutChoiceOptionInput
     perses?: PersUncheckedCreateNestedManyWithoutChoiceOptionsInput
@@ -89117,8 +88478,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89143,7 +88519,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89153,8 +88529,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89179,7 +88570,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89252,8 +88643,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89278,7 +88684,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -89288,8 +88694,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89314,7 +88735,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -89377,8 +88798,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89403,7 +88839,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89413,8 +88849,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89439,7 +88890,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89448,8 +88899,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89474,7 +88940,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -89484,8 +88950,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89510,7 +88991,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -89589,8 +89070,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89615,7 +89111,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89625,8 +89121,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89651,7 +89162,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89720,8 +89231,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89746,7 +89272,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -89756,8 +89282,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89782,7 +89323,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -89851,8 +89392,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89877,7 +89433,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89887,8 +89443,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89913,7 +89484,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -89972,8 +89543,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -89998,7 +89584,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -90008,8 +89594,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90034,7 +89635,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -90089,8 +89690,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90115,7 +89731,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -90125,8 +89741,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90151,7 +89782,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -90196,8 +89827,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90222,7 +89868,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -90232,8 +89878,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90258,7 +89919,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -90321,8 +89982,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90347,7 +90023,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -90357,8 +90033,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90383,7 +90074,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -90436,8 +90127,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90462,7 +90168,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureCreateNestedManyWithoutReplacedFeatureInput
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -90472,8 +90178,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90498,7 +90219,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedCreateNestedManyWithoutReplacedFeatureInput
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -90553,8 +90274,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90579,7 +90315,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUpdateManyWithoutReplacedFeatureNestedInput
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -90589,8 +90325,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -90615,7 +90366,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedUpdateManyWithoutReplacedFeatureNestedInput
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -90653,234 +90404,6 @@ export namespace Prisma {
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
     featAbilityBoost?: FeatAbilityBoostUncheckedUpdateOneWithoutFeatNestedInput
     persFeats?: PersFeatUncheckedUpdateManyWithoutFeatNestedInput
-  }
-
-  export type FeatureCreateWithoutMagicItemFeaturesInput = {
-    name: string
-    engName: string
-    description: string
-    shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
-    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
-    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
-    savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
-    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
-    limitedUsesPer?: $Enums.RestType | null
-    usesCount?: number | null
-    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
-    usesCountDependsOnProficiencyBonus?: boolean
-    invocationsCount?: number | null
-    languagesToChooseCount?: number
-    displayType?: FeatureCreatedisplayTypeInput | $Enums.FeatureDisplayType[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    givesSpells?: SpellCreateNestedManyWithoutFeaturesInput
-    classFeatures?: ClassFeatureCreateNestedManyWithoutFeatureInput
-    subclassFeatures?: SubclassFeatureCreateNestedManyWithoutFeatureInput
-    raceTraits?: RaceTraitCreateNestedManyWithoutFeatureInput
-    subraceTraits?: SubraceTraitCreateNestedManyWithoutFeatureInput
-    raceVariantTraits?: RaceVariantTraitCreateNestedManyWithoutFeatureInput
-    raceChoiceOptionTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutFeatureInput
-    choiceOptionFeatures?: ChoiceOptionFeatureCreateNestedManyWithoutFeatureInput
-    classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutFeatureInput
-    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureCreateNestedManyWithoutReplacedFeatureInput
-    subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
-    raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
-    featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
-  }
-
-  export type FeatureUncheckedCreateWithoutMagicItemFeaturesInput = {
-    featureId?: number
-    name: string
-    engName: string
-    description: string
-    shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
-    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
-    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
-    savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
-    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
-    limitedUsesPer?: $Enums.RestType | null
-    usesCount?: number | null
-    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
-    usesCountDependsOnProficiencyBonus?: boolean
-    invocationsCount?: number | null
-    languagesToChooseCount?: number
-    displayType?: FeatureCreatedisplayTypeInput | $Enums.FeatureDisplayType[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    givesSpells?: SpellUncheckedCreateNestedManyWithoutFeaturesInput
-    classFeatures?: ClassFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    subclassFeatures?: SubclassFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    raceTraits?: RaceTraitUncheckedCreateNestedManyWithoutFeatureInput
-    subraceTraits?: SubraceTraitUncheckedCreateNestedManyWithoutFeatureInput
-    raceVariantTraits?: RaceVariantTraitUncheckedCreateNestedManyWithoutFeatureInput
-    raceChoiceOptionTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutFeatureInput
-    choiceOptionFeatures?: ChoiceOptionFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedCreateNestedManyWithoutReplacedFeatureInput
-    subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
-    raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
-    featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
-  }
-
-  export type FeatureCreateOrConnectWithoutMagicItemFeaturesInput = {
-    where: FeatureWhereUniqueInput
-    create: XOR<FeatureCreateWithoutMagicItemFeaturesInput, FeatureUncheckedCreateWithoutMagicItemFeaturesInput>
-  }
-
-  export type MagicItemCreateWithoutFeaturesInput = {
-    name: string
-    itemType: $Enums.MagicItemType
-    rarity: $Enums.ItemRarity
-    description: string
-    requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    persMagicItems?: PersMagicItemCreateNestedManyWithoutMagicItemInput
-    replicatedByInfusions?: InfusionCreateNestedManyWithoutReplicatedMagicItemInput
-  }
-
-  export type MagicItemUncheckedCreateWithoutFeaturesInput = {
-    magicItemId?: number
-    name: string
-    itemType: $Enums.MagicItemType
-    rarity: $Enums.ItemRarity
-    description: string
-    requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    persMagicItems?: PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput
-    replicatedByInfusions?: InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput
-  }
-
-  export type MagicItemCreateOrConnectWithoutFeaturesInput = {
-    where: MagicItemWhereUniqueInput
-    create: XOR<MagicItemCreateWithoutFeaturesInput, MagicItemUncheckedCreateWithoutFeaturesInput>
-  }
-
-  export type FeatureUpsertWithoutMagicItemFeaturesInput = {
-    update: XOR<FeatureUpdateWithoutMagicItemFeaturesInput, FeatureUncheckedUpdateWithoutMagicItemFeaturesInput>
-    create: XOR<FeatureCreateWithoutMagicItemFeaturesInput, FeatureUncheckedCreateWithoutMagicItemFeaturesInput>
-    where?: FeatureWhereInput
-  }
-
-  export type FeatureUpdateToOneWithWhereWithoutMagicItemFeaturesInput = {
-    where?: FeatureWhereInput
-    data: XOR<FeatureUpdateWithoutMagicItemFeaturesInput, FeatureUncheckedUpdateWithoutMagicItemFeaturesInput>
-  }
-
-  export type FeatureUpdateWithoutMagicItemFeaturesInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    engName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
-    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
-    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
-    savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
-    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
-    limitedUsesPer?: NullableEnumRestTypeFieldUpdateOperationsInput | $Enums.RestType | null
-    usesCount?: NullableIntFieldUpdateOperationsInput | number | null
-    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
-    usesCountDependsOnProficiencyBonus?: BoolFieldUpdateOperationsInput | boolean
-    invocationsCount?: NullableIntFieldUpdateOperationsInput | number | null
-    languagesToChooseCount?: IntFieldUpdateOperationsInput | number
-    displayType?: FeatureUpdatedisplayTypeInput | $Enums.FeatureDisplayType[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    givesSpells?: SpellUpdateManyWithoutFeaturesNestedInput
-    classFeatures?: ClassFeatureUpdateManyWithoutFeatureNestedInput
-    subclassFeatures?: SubclassFeatureUpdateManyWithoutFeatureNestedInput
-    raceTraits?: RaceTraitUpdateManyWithoutFeatureNestedInput
-    subraceTraits?: SubraceTraitUpdateManyWithoutFeatureNestedInput
-    raceVariantTraits?: RaceVariantTraitUpdateManyWithoutFeatureNestedInput
-    raceChoiceOptionTraits?: RaceChoiceOptionTraitUpdateManyWithoutFeatureNestedInput
-    choiceOptionFeatures?: ChoiceOptionFeatureUpdateManyWithoutFeatureNestedInput
-    classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutFeatureNestedInput
-    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUpdateManyWithoutReplacedFeatureNestedInput
-    subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
-    raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
-    featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
-  }
-
-  export type FeatureUncheckedUpdateWithoutMagicItemFeaturesInput = {
-    featureId?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    engName?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
-    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
-    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
-    savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
-    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
-    limitedUsesPer?: NullableEnumRestTypeFieldUpdateOperationsInput | $Enums.RestType | null
-    usesCount?: NullableIntFieldUpdateOperationsInput | number | null
-    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
-    usesCountDependsOnProficiencyBonus?: BoolFieldUpdateOperationsInput | boolean
-    invocationsCount?: NullableIntFieldUpdateOperationsInput | number | null
-    languagesToChooseCount?: IntFieldUpdateOperationsInput | number
-    displayType?: FeatureUpdatedisplayTypeInput | $Enums.FeatureDisplayType[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    givesSpells?: SpellUncheckedUpdateManyWithoutFeaturesNestedInput
-    classFeatures?: ClassFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    subclassFeatures?: SubclassFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    raceTraits?: RaceTraitUncheckedUpdateManyWithoutFeatureNestedInput
-    subraceTraits?: SubraceTraitUncheckedUpdateManyWithoutFeatureNestedInput
-    raceVariantTraits?: RaceVariantTraitUncheckedUpdateManyWithoutFeatureNestedInput
-    raceChoiceOptionTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutFeatureNestedInput
-    choiceOptionFeatures?: ChoiceOptionFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedUpdateManyWithoutReplacedFeatureNestedInput
-    subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
-    raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
-    featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-  }
-
-  export type MagicItemUpsertWithoutFeaturesInput = {
-    update: XOR<MagicItemUpdateWithoutFeaturesInput, MagicItemUncheckedUpdateWithoutFeaturesInput>
-    create: XOR<MagicItemCreateWithoutFeaturesInput, MagicItemUncheckedCreateWithoutFeaturesInput>
-    where?: MagicItemWhereInput
-  }
-
-  export type MagicItemUpdateToOneWithWhereWithoutFeaturesInput = {
-    where?: MagicItemWhereInput
-    data: XOR<MagicItemUpdateWithoutFeaturesInput, MagicItemUncheckedUpdateWithoutFeaturesInput>
-  }
-
-  export type MagicItemUpdateWithoutFeaturesInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
-    rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
-    description?: StringFieldUpdateOperationsInput | string
-    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    persMagicItems?: PersMagicItemUpdateManyWithoutMagicItemNestedInput
-    replicatedByInfusions?: InfusionUpdateManyWithoutReplicatedMagicItemNestedInput
-  }
-
-  export type MagicItemUncheckedUpdateWithoutFeaturesInput = {
-    magicItemId?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
-    rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
-    description?: StringFieldUpdateOperationsInput | string
-    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    persMagicItems?: PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput
-    replicatedByInfusions?: InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput
   }
 
   export type SubraceCreateWithoutRaceInput = {
@@ -91245,8 +90768,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -91271,7 +90809,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureCreateNestedManyWithoutReplacedFeatureInput
     raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -91281,8 +90819,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -91307,7 +90860,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedCreateNestedManyWithoutReplacedFeatureInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -91692,8 +91245,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -91718,7 +91286,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureCreateNestedManyWithoutReplacedFeatureInput
     subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
   }
 
@@ -91728,8 +91296,23 @@ export namespace Prisma {
     engName: string
     description: string
     shortDescription?: string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -91754,7 +91337,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedCreateNestedManyWithoutReplacedFeatureInput
     subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
     featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
-    magicItemFeatures?: MagicItemFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    infusions?: InfusionUncheckedCreateNestedManyWithoutFeatureInput
     persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
   }
 
@@ -93108,25 +92691,6 @@ export namespace Prisma {
     persInfusions?: PersInfusionUncheckedUpdateManyWithoutPersNestedInput
   }
 
-  export type MagicItemFeatureCreateWithoutMagicItemInput = {
-    feature: FeatureCreateNestedOneWithoutMagicItemFeaturesInput
-  }
-
-  export type MagicItemFeatureUncheckedCreateWithoutMagicItemInput = {
-    magicItemFeatureId?: number
-    featureId: number
-  }
-
-  export type MagicItemFeatureCreateOrConnectWithoutMagicItemInput = {
-    where: MagicItemFeatureWhereUniqueInput
-    create: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput>
-  }
-
-  export type MagicItemFeatureCreateManyMagicItemInputEnvelope = {
-    data: MagicItemFeatureCreateManyMagicItemInput | MagicItemFeatureCreateManyMagicItemInput[]
-    skipDuplicates?: boolean
-  }
-
   export type PersMagicItemCreateWithoutMagicItemInput = {
     pers: PersCreateNestedOneWithoutMagicItemsInput
     infusions?: PersInfusionCreateNestedManyWithoutMagicItemInput
@@ -93164,6 +92728,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: number | null
     increasesAtLevel10By?: number | null
     createsHomunculus?: boolean | null
+    feature?: FeatureCreateNestedOneWithoutInfusionsInput
     persInfusions?: PersInfusionCreateNestedManyWithoutInfusionInput
   }
 
@@ -93184,6 +92749,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: number | null
     increasesAtLevel10By?: number | null
     createsHomunculus?: boolean | null
+    featureId?: number | null
     persInfusions?: PersInfusionUncheckedCreateNestedManyWithoutInfusionInput
   }
 
@@ -93197,20 +92763,54 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type MagicItemFeatureUpsertWithWhereUniqueWithoutMagicItemInput = {
-    where: MagicItemFeatureWhereUniqueInput
-    update: XOR<MagicItemFeatureUpdateWithoutMagicItemInput, MagicItemFeatureUncheckedUpdateWithoutMagicItemInput>
-    create: XOR<MagicItemFeatureCreateWithoutMagicItemInput, MagicItemFeatureUncheckedCreateWithoutMagicItemInput>
+  export type SpellCreateWithoutMagicItemsInput = {
+    name: string
+    engName: string
+    level: number
+    school?: string | null
+    castingTime: string
+    range: string
+    components?: string | null
+    duration: string
+    description: string
+    hasRitual?: string | null
+    hasConcentration?: string | null
+    source?: $Enums.Source
+    characterSpells?: CharacterSpellsCreateNestedManyWithoutSpellInput
+    spellClasses?: SpellClassesCreateNestedManyWithoutSpellInput
+    spellRaces?: SpellRacesCreateNestedManyWithoutSpellInput
+    spellbookSpells?: SpellbookSpellsCreateNestedManyWithoutSpellInput
+    subclasses?: SubclassCreateNestedManyWithoutExpandedSpellsInput
+    perses?: PersCreateNestedManyWithoutSpellsInput
+    features?: FeatureCreateNestedManyWithoutGivesSpellsInput
   }
 
-  export type MagicItemFeatureUpdateWithWhereUniqueWithoutMagicItemInput = {
-    where: MagicItemFeatureWhereUniqueInput
-    data: XOR<MagicItemFeatureUpdateWithoutMagicItemInput, MagicItemFeatureUncheckedUpdateWithoutMagicItemInput>
+  export type SpellUncheckedCreateWithoutMagicItemsInput = {
+    spellId?: number
+    name: string
+    engName: string
+    level: number
+    school?: string | null
+    castingTime: string
+    range: string
+    components?: string | null
+    duration: string
+    description: string
+    hasRitual?: string | null
+    hasConcentration?: string | null
+    source?: $Enums.Source
+    characterSpells?: CharacterSpellsUncheckedCreateNestedManyWithoutSpellInput
+    spellClasses?: SpellClassesUncheckedCreateNestedManyWithoutSpellInput
+    spellRaces?: SpellRacesUncheckedCreateNestedManyWithoutSpellInput
+    spellbookSpells?: SpellbookSpellsUncheckedCreateNestedManyWithoutSpellInput
+    subclasses?: SubclassUncheckedCreateNestedManyWithoutExpandedSpellsInput
+    perses?: PersUncheckedCreateNestedManyWithoutSpellsInput
+    features?: FeatureUncheckedCreateNestedManyWithoutGivesSpellsInput
   }
 
-  export type MagicItemFeatureUpdateManyWithWhereWithoutMagicItemInput = {
-    where: MagicItemFeatureScalarWhereInput
-    data: XOR<MagicItemFeatureUpdateManyMutationInput, MagicItemFeatureUncheckedUpdateManyWithoutMagicItemInput>
+  export type SpellCreateOrConnectWithoutMagicItemsInput = {
+    where: SpellWhereUniqueInput
+    create: XOR<SpellCreateWithoutMagicItemsInput, SpellUncheckedCreateWithoutMagicItemsInput>
   }
 
   export type PersMagicItemUpsertWithWhereUniqueWithoutMagicItemInput = {
@@ -93245,59 +92845,160 @@ export namespace Prisma {
     data: XOR<InfusionUpdateManyMutationInput, InfusionUncheckedUpdateManyWithoutReplicatedMagicItemInput>
   }
 
-  export type InfusionScalarWhereInput = {
-    AND?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
-    OR?: InfusionScalarWhereInput[]
-    NOT?: InfusionScalarWhereInput | InfusionScalarWhereInput[]
-    infusionId?: IntFilter<"Infusion"> | number
-    name?: StringFilter<"Infusion"> | string
-    engName?: StringFilter<"Infusion"> | string
-    minArtificerLevel?: IntFilter<"Infusion"> | number
-    targetType?: EnumInfusionTargetTypeFilter<"Infusion"> | $Enums.InfusionTargetType
-    requiresAttunement?: BoolFilter<"Infusion"> | boolean
-    bonusToAC?: IntNullableFilter<"Infusion"> | number | null
-    bonusToAttackRoll?: IntNullableFilter<"Infusion"> | number | null
-    bonusToDamage?: IntNullableFilter<"Infusion"> | number | null
-    spellAttackBonus?: IntNullableFilter<"Infusion"> | number | null
-    speedBonus?: IntNullableFilter<"Infusion"> | number | null
-    charges?: IntNullableFilter<"Infusion"> | number | null
-    rechargeDice?: StringNullableFilter<"Infusion"> | string | null
-    restoresSpellSlotUpToLevel?: IntNullableFilter<"Infusion"> | number | null
-    increasesAtLevel10By?: IntNullableFilter<"Infusion"> | number | null
-    replicatedMagicItemId?: IntNullableFilter<"Infusion"> | number | null
-    createsHomunculus?: BoolNullableFilter<"Infusion"> | boolean | null
+  export type SpellUpsertWithWhereUniqueWithoutMagicItemsInput = {
+    where: SpellWhereUniqueInput
+    update: XOR<SpellUpdateWithoutMagicItemsInput, SpellUncheckedUpdateWithoutMagicItemsInput>
+    create: XOR<SpellCreateWithoutMagicItemsInput, SpellUncheckedCreateWithoutMagicItemsInput>
+  }
+
+  export type SpellUpdateWithWhereUniqueWithoutMagicItemsInput = {
+    where: SpellWhereUniqueInput
+    data: XOR<SpellUpdateWithoutMagicItemsInput, SpellUncheckedUpdateWithoutMagicItemsInput>
+  }
+
+  export type SpellUpdateManyWithWhereWithoutMagicItemsInput = {
+    where: SpellScalarWhereInput
+    data: XOR<SpellUpdateManyMutationInput, SpellUncheckedUpdateManyWithoutMagicItemsInput>
   }
 
   export type MagicItemCreateWithoutReplicatedByInfusionsInput = {
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription?: string | null
     requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    features?: MagicItemFeatureCreateNestedManyWithoutMagicItemInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemCreateNestedManyWithoutMagicItemInput
+    givesSpells?: SpellCreateNestedManyWithoutMagicItemsInput
   }
 
   export type MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput = {
     magicItemId?: number
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription?: string | null
     requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    features?: MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemUncheckedCreateNestedManyWithoutMagicItemInput
+    givesSpells?: SpellUncheckedCreateNestedManyWithoutMagicItemsInput
   }
 
   export type MagicItemCreateOrConnectWithoutReplicatedByInfusionsInput = {
     where: MagicItemWhereUniqueInput
     create: XOR<MagicItemCreateWithoutReplicatedByInfusionsInput, MagicItemUncheckedCreateWithoutReplicatedByInfusionsInput>
+  }
+
+  export type FeatureCreateWithoutInfusionsInput = {
+    name: string
+    engName: string
+    description: string
+    shortDescription?: string | null
+    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
+    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
+    limitedUsesPer?: $Enums.RestType | null
+    usesCount?: number | null
+    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
+    usesCountDependsOnProficiencyBonus?: boolean
+    invocationsCount?: number | null
+    languagesToChooseCount?: number
+    displayType?: FeatureCreatedisplayTypeInput | $Enums.FeatureDisplayType[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    givesSpells?: SpellCreateNestedManyWithoutFeaturesInput
+    classFeatures?: ClassFeatureCreateNestedManyWithoutFeatureInput
+    subclassFeatures?: SubclassFeatureCreateNestedManyWithoutFeatureInput
+    raceTraits?: RaceTraitCreateNestedManyWithoutFeatureInput
+    subraceTraits?: SubraceTraitCreateNestedManyWithoutFeatureInput
+    raceVariantTraits?: RaceVariantTraitCreateNestedManyWithoutFeatureInput
+    raceChoiceOptionTraits?: RaceChoiceOptionTraitCreateNestedManyWithoutFeatureInput
+    choiceOptionFeatures?: ChoiceOptionFeatureCreateNestedManyWithoutFeatureInput
+    classOptionalFeatures?: ClassOptionalFeatureCreateNestedManyWithoutFeatureInput
+    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureCreateNestedManyWithoutReplacedFeatureInput
+    subracesReplacingFeatures?: SubraceCreateNestedManyWithoutReplacesFeaturesInput
+    raceVariantsReplacingFeatures?: RaceVariantCreateNestedManyWithoutReplacesFeaturesInput
+    featFeatures?: FeatFeatureCreateNestedManyWithoutFeatureInput
+    persFeatures?: PersFeatureCreateNestedManyWithoutFeatureInput
+  }
+
+  export type FeatureUncheckedCreateWithoutInfusionsInput = {
+    featureId?: number
+    name: string
+    engName: string
+    description: string
+    shortDescription?: string | null
+    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: number | null
+    requiresArmorForACBonus?: boolean | null
+    noArmorOrShieldForACBonus?: boolean | null
+    givesSTR?: number | null
+    givesCON?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToRangedAttackRoll?: number | null
+    bonusToRangedDamage?: number | null
+    bonusToMeleeDamage?: number | null
+    bonusToMeleeOneHandedWeaponDamage?: number | null
+    bonusToThrownDamage?: number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: boolean | null
+    superiorityDiceCount?: number | null
+    modifiesUnarmed?: boolean | null
+    unarmedDamage?: string | null
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    savingThrows?: FeatureCreatesavingThrowsInput | $Enums.Ability[]
+    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
+    limitedUsesPer?: $Enums.RestType | null
+    usesCount?: number | null
+    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
+    usesCountDependsOnProficiencyBonus?: boolean
+    invocationsCount?: number | null
+    languagesToChooseCount?: number
+    displayType?: FeatureCreatedisplayTypeInput | $Enums.FeatureDisplayType[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    givesSpells?: SpellUncheckedCreateNestedManyWithoutFeaturesInput
+    classFeatures?: ClassFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    subclassFeatures?: SubclassFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    raceTraits?: RaceTraitUncheckedCreateNestedManyWithoutFeatureInput
+    subraceTraits?: SubraceTraitUncheckedCreateNestedManyWithoutFeatureInput
+    raceVariantTraits?: RaceVariantTraitUncheckedCreateNestedManyWithoutFeatureInput
+    raceChoiceOptionTraits?: RaceChoiceOptionTraitUncheckedCreateNestedManyWithoutFeatureInput
+    choiceOptionFeatures?: ChoiceOptionFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    classOptionalFeatures?: ClassOptionalFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedCreateNestedManyWithoutReplacedFeatureInput
+    subracesReplacingFeatures?: SubraceUncheckedCreateNestedManyWithoutReplacesFeaturesInput
+    raceVariantsReplacingFeatures?: RaceVariantUncheckedCreateNestedManyWithoutReplacesFeaturesInput
+    featFeatures?: FeatFeatureUncheckedCreateNestedManyWithoutFeatureInput
+    persFeatures?: PersFeatureUncheckedCreateNestedManyWithoutFeatureInput
+  }
+
+  export type FeatureCreateOrConnectWithoutInfusionsInput = {
+    where: FeatureWhereUniqueInput
+    create: XOR<FeatureCreateWithoutInfusionsInput, FeatureUncheckedCreateWithoutInfusionsInput>
   }
 
   export type PersInfusionCreateWithoutInfusionInput = {
@@ -93342,29 +93043,143 @@ export namespace Prisma {
 
   export type MagicItemUpdateWithoutReplicatedByInfusionsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: MagicItemFeatureUpdateManyWithoutMagicItemNestedInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemUpdateManyWithoutMagicItemNestedInput
+    givesSpells?: SpellUpdateManyWithoutMagicItemsNestedInput
   }
 
   export type MagicItemUncheckedUpdateWithoutReplicatedByInfusionsInput = {
     magicItemId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     persMagicItems?: PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput
+    givesSpells?: SpellUncheckedUpdateManyWithoutMagicItemsNestedInput
+  }
+
+  export type FeatureUpsertWithoutInfusionsInput = {
+    update: XOR<FeatureUpdateWithoutInfusionsInput, FeatureUncheckedUpdateWithoutInfusionsInput>
+    create: XOR<FeatureCreateWithoutInfusionsInput, FeatureUncheckedCreateWithoutInfusionsInput>
+    where?: FeatureWhereInput
+  }
+
+  export type FeatureUpdateToOneWithWhereWithoutInfusionsInput = {
+    where?: FeatureWhereInput
+    data: XOR<FeatureUpdateWithoutInfusionsInput, FeatureUncheckedUpdateWithoutInfusionsInput>
+  }
+
+  export type FeatureUpdateWithoutInfusionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
+    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
+    limitedUsesPer?: NullableEnumRestTypeFieldUpdateOperationsInput | $Enums.RestType | null
+    usesCount?: NullableIntFieldUpdateOperationsInput | number | null
+    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
+    usesCountDependsOnProficiencyBonus?: BoolFieldUpdateOperationsInput | boolean
+    invocationsCount?: NullableIntFieldUpdateOperationsInput | number | null
+    languagesToChooseCount?: IntFieldUpdateOperationsInput | number
+    displayType?: FeatureUpdatedisplayTypeInput | $Enums.FeatureDisplayType[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    givesSpells?: SpellUpdateManyWithoutFeaturesNestedInput
+    classFeatures?: ClassFeatureUpdateManyWithoutFeatureNestedInput
+    subclassFeatures?: SubclassFeatureUpdateManyWithoutFeatureNestedInput
+    raceTraits?: RaceTraitUpdateManyWithoutFeatureNestedInput
+    subraceTraits?: SubraceTraitUpdateManyWithoutFeatureNestedInput
+    raceVariantTraits?: RaceVariantTraitUpdateManyWithoutFeatureNestedInput
+    raceChoiceOptionTraits?: RaceChoiceOptionTraitUpdateManyWithoutFeatureNestedInput
+    choiceOptionFeatures?: ChoiceOptionFeatureUpdateManyWithoutFeatureNestedInput
+    classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutFeatureNestedInput
+    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUpdateManyWithoutReplacedFeatureNestedInput
+    subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
+    raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
+    featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
+    persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
+  }
+
+  export type FeatureUncheckedUpdateWithoutInfusionsInput = {
+    featureId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
+    skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
+    skillExpertises?: NullableJsonNullValueInput | InputJsonValue
+    limitedUsesPer?: NullableEnumRestTypeFieldUpdateOperationsInput | $Enums.RestType | null
+    usesCount?: NullableIntFieldUpdateOperationsInput | number | null
+    usesCountSpecial?: NullableJsonNullValueInput | InputJsonValue
+    usesCountDependsOnProficiencyBonus?: BoolFieldUpdateOperationsInput | boolean
+    invocationsCount?: NullableIntFieldUpdateOperationsInput | number | null
+    languagesToChooseCount?: IntFieldUpdateOperationsInput | number
+    displayType?: FeatureUpdatedisplayTypeInput | $Enums.FeatureDisplayType[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    givesSpells?: SpellUncheckedUpdateManyWithoutFeaturesNestedInput
+    classFeatures?: ClassFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    subclassFeatures?: SubclassFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    raceTraits?: RaceTraitUncheckedUpdateManyWithoutFeatureNestedInput
+    subraceTraits?: SubraceTraitUncheckedUpdateManyWithoutFeatureNestedInput
+    raceVariantTraits?: RaceVariantTraitUncheckedUpdateManyWithoutFeatureNestedInput
+    raceChoiceOptionTraits?: RaceChoiceOptionTraitUncheckedUpdateManyWithoutFeatureNestedInput
+    choiceOptionFeatures?: ChoiceOptionFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedUpdateManyWithoutReplacedFeatureNestedInput
+    subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
+    raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
+    featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
   export type PersInfusionUpsertWithWhereUniqueWithoutInfusionInput = {
@@ -93526,6 +93341,7 @@ export namespace Prisma {
     increasesAtLevel10By?: number | null
     createsHomunculus?: boolean | null
     replicatedMagicItem?: MagicItemCreateNestedOneWithoutReplicatedByInfusionsInput
+    feature?: FeatureCreateNestedOneWithoutInfusionsInput
   }
 
   export type InfusionUncheckedCreateWithoutPersInfusionsInput = {
@@ -93546,6 +93362,7 @@ export namespace Prisma {
     increasesAtLevel10By?: number | null
     replicatedMagicItemId?: number | null
     createsHomunculus?: boolean | null
+    featureId?: number | null
   }
 
   export type InfusionCreateOrConnectWithoutPersInfusionsInput = {
@@ -93785,6 +93602,7 @@ export namespace Prisma {
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
     replicatedMagicItem?: MagicItemUpdateOneWithoutReplicatedByInfusionsNestedInput
+    feature?: FeatureUpdateOneWithoutInfusionsNestedInput
   }
 
   export type InfusionUncheckedUpdateWithoutPersInfusionsInput = {
@@ -93805,6 +93623,7 @@ export namespace Prisma {
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    featureId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type PersWeaponUpsertWithoutInfusionsInput = {
@@ -95225,29 +95044,31 @@ export namespace Prisma {
 
   export type MagicItemCreateWithoutPersMagicItemsInput = {
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription?: string | null
     requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    features?: MagicItemFeatureCreateNestedManyWithoutMagicItemInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     replicatedByInfusions?: InfusionCreateNestedManyWithoutReplicatedMagicItemInput
+    givesSpells?: SpellCreateNestedManyWithoutMagicItemsInput
   }
 
   export type MagicItemUncheckedCreateWithoutPersMagicItemsInput = {
     magicItemId?: number
     name: string
+    engName: string
     itemType: $Enums.MagicItemType
     rarity: $Enums.ItemRarity
     description: string
+    shortDescription?: string | null
     requiresAttunement?: boolean
-    bonusToAC?: number | null
-    bonusToAttackRoll?: number | null
-    bonusToDamage?: number | null
-    features?: MagicItemFeatureUncheckedCreateNestedManyWithoutMagicItemInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     replicatedByInfusions?: InfusionUncheckedCreateNestedManyWithoutReplicatedMagicItemInput
+    givesSpells?: SpellUncheckedCreateNestedManyWithoutMagicItemsInput
   }
 
   export type MagicItemCreateOrConnectWithoutPersMagicItemsInput = {
@@ -95429,29 +95250,31 @@ export namespace Prisma {
 
   export type MagicItemUpdateWithoutPersMagicItemsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: MagicItemFeatureUpdateManyWithoutMagicItemNestedInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     replicatedByInfusions?: InfusionUpdateManyWithoutReplicatedMagicItemNestedInput
+    givesSpells?: SpellUpdateManyWithoutMagicItemsNestedInput
   }
 
   export type MagicItemUncheckedUpdateWithoutPersMagicItemsInput = {
     magicItemId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
     itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
     rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
     description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
     requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
-    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
-    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: MagicItemFeatureUncheckedUpdateManyWithoutMagicItemNestedInput
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
     replicatedByInfusions?: InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput
+    givesSpells?: SpellUncheckedUpdateManyWithoutMagicItemsNestedInput
   }
 
   export type PersInfusionUpsertWithWhereUniqueWithoutMagicItemInput = {
@@ -96138,8 +95961,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -96164,7 +96002,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -96174,8 +96012,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -96200,7 +96053,7 @@ export namespace Prisma {
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -96210,8 +96063,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -96224,6 +96092,48 @@ export namespace Prisma {
     displayType?: FeatureUpdatedisplayTypeInput | $Enums.FeatureDisplayType[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MagicItemUpdateWithoutGivesSpellsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
+    rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
+    description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
+    persMagicItems?: PersMagicItemUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUpdateManyWithoutReplicatedMagicItemNestedInput
+  }
+
+  export type MagicItemUncheckedUpdateWithoutGivesSpellsInput = {
+    magicItemId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
+    rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
+    description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
+    persMagicItems?: PersMagicItemUncheckedUpdateManyWithoutMagicItemNestedInput
+    replicatedByInfusions?: InfusionUncheckedUpdateManyWithoutReplicatedMagicItemNestedInput
+  }
+
+  export type MagicItemUncheckedUpdateManyWithoutGivesSpellsInput = {
+    magicItemId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    itemType?: EnumMagicItemTypeFieldUpdateOperationsInput | $Enums.MagicItemType
+    rarity?: EnumItemRarityFieldUpdateOperationsInput | $Enums.ItemRarity
+    description?: StringFieldUpdateOperationsInput | string
+    shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    weaponProficiencies?: NullableJsonNullValueInput | InputJsonValue
+    weaponProficienciesSpecial?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type SpellbookSpellsCreateManySpellbookInput = {
@@ -97050,6 +96960,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUpdateManyWithoutSpellNestedInput
     perses?: PersUpdateManyWithoutSpellsNestedInput
     features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateWithoutSubclassesInput = {
@@ -97072,6 +96983,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUncheckedUpdateManyWithoutSpellNestedInput
     perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
     features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateManyWithoutSubclassesInput = {
@@ -97692,6 +97604,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUpdateManyWithoutSpellNestedInput
     subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
     features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateWithoutPersesInput = {
@@ -97714,6 +97627,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUncheckedUpdateManyWithoutSpellNestedInput
     subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
     features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateManyWithoutPersesInput = {
@@ -97920,15 +97834,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUpdateManyWithoutOptionNestedInput
     classChoiceOptions?: ClassChoiceOptionUpdateManyWithoutChoiceOptionNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUpdateManyWithoutAppearsOnlyIfChoicesTakenNestedInput
@@ -97940,15 +97845,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUncheckedUpdateManyWithoutOptionNestedInput
     classChoiceOptions?: ClassChoiceOptionUncheckedUpdateManyWithoutChoiceOptionNestedInput
     classOptionalFeatures?: ClassOptionalFeatureUncheckedUpdateManyWithoutAppearsOnlyIfChoicesTakenNestedInput
@@ -97960,15 +97856,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClassOptionalFeatureUpdateWithoutPersesInput = {
@@ -98098,9 +97985,24 @@ export namespace Prisma {
     featId: number
   }
 
-  export type MagicItemFeatureCreateManyFeatureInput = {
-    magicItemFeatureId?: number
-    magicItemId: number
+  export type InfusionCreateManyFeatureInput = {
+    infusionId?: number
+    name: string
+    engName: string
+    minArtificerLevel?: number
+    targetType: $Enums.InfusionTargetType
+    requiresAttunement?: boolean
+    bonusToAC?: number | null
+    bonusToAttackRoll?: number | null
+    bonusToDamage?: number | null
+    spellAttackBonus?: number | null
+    speedBonus?: number | null
+    charges?: number | null
+    rechargeDice?: string | null
+    restoresSpellSlotUpToLevel?: number | null
+    increasesAtLevel10By?: number | null
+    replicatedMagicItemId?: number | null
+    createsHomunculus?: boolean | null
   }
 
   export type PersFeatureCreateManyFeatureInput = {
@@ -98128,6 +98030,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUpdateManyWithoutSpellNestedInput
     subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUpdateManyWithoutSpellsNestedInput
+    magicItems?: MagicItemUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateWithoutFeaturesInput = {
@@ -98150,6 +98053,7 @@ export namespace Prisma {
     spellbookSpells?: SpellbookSpellsUncheckedUpdateManyWithoutSpellNestedInput
     subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
     perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
+    magicItems?: MagicItemUncheckedUpdateManyWithoutGivesSpellsNestedInput
   }
 
   export type SpellUncheckedUpdateManyWithoutFeaturesInput = {
@@ -98434,18 +98338,65 @@ export namespace Prisma {
     featId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type MagicItemFeatureUpdateWithoutFeatureInput = {
-    magicItem?: MagicItemUpdateOneRequiredWithoutFeaturesNestedInput
+  export type InfusionUpdateWithoutFeatureInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    replicatedMagicItem?: MagicItemUpdateOneWithoutReplicatedByInfusionsNestedInput
+    persInfusions?: PersInfusionUpdateManyWithoutInfusionNestedInput
   }
 
-  export type MagicItemFeatureUncheckedUpdateWithoutFeatureInput = {
-    magicItemFeatureId?: IntFieldUpdateOperationsInput | number
-    magicItemId?: IntFieldUpdateOperationsInput | number
+  export type InfusionUncheckedUpdateWithoutFeatureInput = {
+    infusionId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    persInfusions?: PersInfusionUncheckedUpdateManyWithoutInfusionNestedInput
   }
 
-  export type MagicItemFeatureUncheckedUpdateManyWithoutFeatureInput = {
-    magicItemFeatureId?: IntFieldUpdateOperationsInput | number
-    magicItemId?: IntFieldUpdateOperationsInput | number
+  export type InfusionUncheckedUpdateManyWithoutFeatureInput = {
+    infusionId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    minArtificerLevel?: IntFieldUpdateOperationsInput | number
+    targetType?: EnumInfusionTargetTypeFieldUpdateOperationsInput | $Enums.InfusionTargetType
+    requiresAttunement?: BoolFieldUpdateOperationsInput | boolean
+    bonusToAC?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    spellAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    speedBonus?: NullableIntFieldUpdateOperationsInput | number | null
+    charges?: NullableIntFieldUpdateOperationsInput | number | null
+    rechargeDice?: NullableStringFieldUpdateOperationsInput | string | null
+    restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
+    increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
+    replicatedMagicItemId?: NullableIntFieldUpdateOperationsInput | number | null
+    createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type PersFeatureUpdateWithoutFeatureInput = {
@@ -98656,15 +98607,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUpdateManyWithoutOptionNestedInput
     classChoiceOptions?: ClassChoiceOptionUpdateManyWithoutChoiceOptionNestedInput
     perses?: PersUpdateManyWithoutChoiceOptionsNestedInput
@@ -98676,15 +98618,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     features?: ChoiceOptionFeatureUncheckedUpdateManyWithoutOptionNestedInput
     classChoiceOptions?: ClassChoiceOptionUncheckedUpdateManyWithoutChoiceOptionNestedInput
     perses?: PersUncheckedUpdateManyWithoutChoiceOptionsNestedInput
@@ -98696,15 +98629,6 @@ export namespace Prisma {
     optionName?: StringFieldUpdateOperationsInput | string
     optionNameEng?: StringFieldUpdateOperationsInput | string
     prerequisites?: NullableJsonNullValueInput | InputJsonValue
-    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    rangedAttackBonus?: NullableIntFieldUpdateOperationsInput | number | null
-    meleeDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    thrownDamageBoost?: NullableIntFieldUpdateOperationsInput | number | null
-    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
-    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubraceCreateManyRaceInput = {
@@ -99195,8 +99119,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -99221,7 +99160,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUpdateManyWithoutReplacedFeatureNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -99231,8 +99170,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -99257,7 +99211,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedUpdateManyWithoutReplacedFeatureNestedInput
     raceVariantsReplacingFeatures?: RaceVariantUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -99267,8 +99221,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -99524,8 +99493,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -99550,7 +99534,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUpdateManyWithoutReplacedFeatureNestedInput
     subracesReplacingFeatures?: SubraceUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUpdateManyWithoutFeatureNestedInput
   }
 
@@ -99560,8 +99544,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -99586,7 +99585,7 @@ export namespace Prisma {
     replacedByOptionalFeatures?: ClassOptionalFeatureReplacesFeatureUncheckedUpdateManyWithoutReplacedFeatureNestedInput
     subracesReplacingFeatures?: SubraceUncheckedUpdateManyWithoutReplacesFeaturesNestedInput
     featFeatures?: FeatFeatureUncheckedUpdateManyWithoutFeatureNestedInput
-    magicItemFeatures?: MagicItemFeatureUncheckedUpdateManyWithoutFeatureNestedInput
+    infusions?: InfusionUncheckedUpdateManyWithoutFeatureNestedInput
     persFeatures?: PersFeatureUncheckedUpdateManyWithoutFeatureNestedInput
   }
 
@@ -99596,8 +99595,23 @@ export namespace Prisma {
     engName?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     shortDescription?: NullableStringFieldUpdateOperationsInput | string | null
-    modifiesStats?: NullableJsonNullValueInput | InputJsonValue
     modifiesAC?: NullableJsonNullValueInput | InputJsonValue
+    givesAC?: NullableIntFieldUpdateOperationsInput | number | null
+    requiresArmorForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    noArmorOrShieldForACBonus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    givesSTR?: NullableIntFieldUpdateOperationsInput | number | null
+    givesCON?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedAttackRoll?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToRangedDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToMeleeOneHandedWeaponDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToThrownDamage?: NullableIntFieldUpdateOperationsInput | number | null
+    bonusToSavingThrows?: NullableJsonNullValueInput | InputJsonValue
+    givesManeuvres?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    superiorityDiceCount?: NullableIntFieldUpdateOperationsInput | number | null
+    modifiesUnarmed?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    unarmedDamage?: NullableStringFieldUpdateOperationsInput | string | null
     skillProficiencies?: NullableJsonNullValueInput | InputJsonValue
     savingThrows?: FeatureUpdatesavingThrowsInput | $Enums.Ability[]
     skillExpertises?: NullableJsonNullValueInput | InputJsonValue
@@ -100240,11 +100254,6 @@ export namespace Prisma {
     persId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type MagicItemFeatureCreateManyMagicItemInput = {
-    magicItemFeatureId?: number
-    featureId: number
-  }
-
   export type PersMagicItemCreateManyMagicItemInput = {
     persMagicItemId?: number
     persId: number
@@ -100267,20 +100276,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: number | null
     increasesAtLevel10By?: number | null
     createsHomunculus?: boolean | null
-  }
-
-  export type MagicItemFeatureUpdateWithoutMagicItemInput = {
-    feature?: FeatureUpdateOneRequiredWithoutMagicItemFeaturesNestedInput
-  }
-
-  export type MagicItemFeatureUncheckedUpdateWithoutMagicItemInput = {
-    magicItemFeatureId?: IntFieldUpdateOperationsInput | number
-    featureId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type MagicItemFeatureUncheckedUpdateManyWithoutMagicItemInput = {
-    magicItemFeatureId?: IntFieldUpdateOperationsInput | number
-    featureId?: IntFieldUpdateOperationsInput | number
+    featureId?: number | null
   }
 
   export type PersMagicItemUpdateWithoutMagicItemInput = {
@@ -100315,6 +100311,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    feature?: FeatureUpdateOneWithoutInfusionsNestedInput
     persInfusions?: PersInfusionUpdateManyWithoutInfusionNestedInput
   }
 
@@ -100335,6 +100332,7 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    featureId?: NullableIntFieldUpdateOperationsInput | number | null
     persInfusions?: PersInfusionUncheckedUpdateManyWithoutInfusionNestedInput
   }
 
@@ -100355,6 +100353,68 @@ export namespace Prisma {
     restoresSpellSlotUpToLevel?: NullableIntFieldUpdateOperationsInput | number | null
     increasesAtLevel10By?: NullableIntFieldUpdateOperationsInput | number | null
     createsHomunculus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    featureId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type SpellUpdateWithoutMagicItemsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    castingTime?: StringFieldUpdateOperationsInput | string
+    range?: StringFieldUpdateOperationsInput | string
+    components?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    hasRitual?: NullableStringFieldUpdateOperationsInput | string | null
+    hasConcentration?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
+    characterSpells?: CharacterSpellsUpdateManyWithoutSpellNestedInput
+    spellClasses?: SpellClassesUpdateManyWithoutSpellNestedInput
+    spellRaces?: SpellRacesUpdateManyWithoutSpellNestedInput
+    spellbookSpells?: SpellbookSpellsUpdateManyWithoutSpellNestedInput
+    subclasses?: SubclassUpdateManyWithoutExpandedSpellsNestedInput
+    perses?: PersUpdateManyWithoutSpellsNestedInput
+    features?: FeatureUpdateManyWithoutGivesSpellsNestedInput
+  }
+
+  export type SpellUncheckedUpdateWithoutMagicItemsInput = {
+    spellId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    castingTime?: StringFieldUpdateOperationsInput | string
+    range?: StringFieldUpdateOperationsInput | string
+    components?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    hasRitual?: NullableStringFieldUpdateOperationsInput | string | null
+    hasConcentration?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
+    characterSpells?: CharacterSpellsUncheckedUpdateManyWithoutSpellNestedInput
+    spellClasses?: SpellClassesUncheckedUpdateManyWithoutSpellNestedInput
+    spellRaces?: SpellRacesUncheckedUpdateManyWithoutSpellNestedInput
+    spellbookSpells?: SpellbookSpellsUncheckedUpdateManyWithoutSpellNestedInput
+    subclasses?: SubclassUncheckedUpdateManyWithoutExpandedSpellsNestedInput
+    perses?: PersUncheckedUpdateManyWithoutSpellsNestedInput
+    features?: FeatureUncheckedUpdateManyWithoutGivesSpellsNestedInput
+  }
+
+  export type SpellUncheckedUpdateManyWithoutMagicItemsInput = {
+    spellId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    engName?: StringFieldUpdateOperationsInput | string
+    level?: IntFieldUpdateOperationsInput | number
+    school?: NullableStringFieldUpdateOperationsInput | string | null
+    castingTime?: StringFieldUpdateOperationsInput | string
+    range?: StringFieldUpdateOperationsInput | string
+    components?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    hasRitual?: NullableStringFieldUpdateOperationsInput | string | null
+    hasConcentration?: NullableStringFieldUpdateOperationsInput | string | null
+    source?: EnumSourceFieldUpdateOperationsInput | $Enums.Source
   }
 
   export type PersInfusionCreateManyInfusionInput = {

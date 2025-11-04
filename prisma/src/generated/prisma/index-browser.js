@@ -256,16 +256,7 @@ exports.Prisma.ChoiceOptionScalarFieldEnum = {
   groupName: 'groupName',
   optionName: 'optionName',
   optionNameEng: 'optionNameEng',
-  prerequisites: 'prerequisites',
-  givesAC: 'givesAC',
-  meleeAttackBonus: 'meleeAttackBonus',
-  rangedAttackBonus: 'rangedAttackBonus',
-  meleeDamageBoost: 'meleeDamageBoost',
-  thrownDamageBoost: 'thrownDamageBoost',
-  givesManeuvres: 'givesManeuvres',
-  superiorityDiceCount: 'superiorityDiceCount',
-  modifiesUnarmed: 'modifiesUnarmed',
-  unarmedDamage: 'unarmedDamage'
+  prerequisites: 'prerequisites'
 };
 
 exports.Prisma.ClassChoiceOptionScalarFieldEnum = {
@@ -345,8 +336,23 @@ exports.Prisma.FeatureScalarFieldEnum = {
   engName: 'engName',
   description: 'description',
   shortDescription: 'shortDescription',
-  modifiesStats: 'modifiesStats',
   modifiesAC: 'modifiesAC',
+  givesAC: 'givesAC',
+  requiresArmorForACBonus: 'requiresArmorForACBonus',
+  noArmorOrShieldForACBonus: 'noArmorOrShieldForACBonus',
+  givesSTR: 'givesSTR',
+  givesCON: 'givesCON',
+  bonusToAttackRoll: 'bonusToAttackRoll',
+  bonusToRangedAttackRoll: 'bonusToRangedAttackRoll',
+  bonusToRangedDamage: 'bonusToRangedDamage',
+  bonusToMeleeDamage: 'bonusToMeleeDamage',
+  bonusToMeleeOneHandedWeaponDamage: 'bonusToMeleeOneHandedWeaponDamage',
+  bonusToThrownDamage: 'bonusToThrownDamage',
+  bonusToSavingThrows: 'bonusToSavingThrows',
+  givesManeuvres: 'givesManeuvres',
+  superiorityDiceCount: 'superiorityDiceCount',
+  modifiesUnarmed: 'modifiesUnarmed',
+  unarmedDamage: 'unarmedDamage',
   skillProficiencies: 'skillProficiencies',
   savingThrows: 'savingThrows',
   skillExpertises: 'skillExpertises',
@@ -427,12 +433,6 @@ exports.Prisma.RaceChoiceOptionTraitScalarFieldEnum = {
 exports.Prisma.FeatFeatureScalarFieldEnum = {
   featFeatureId: 'featFeatureId',
   featId: 'featId',
-  featureId: 'featureId'
-};
-
-exports.Prisma.MagicItemFeatureScalarFieldEnum = {
-  magicItemFeatureId: 'magicItemFeatureId',
-  magicItemId: 'magicItemId',
   featureId: 'featureId'
 };
 
@@ -542,13 +542,14 @@ exports.Prisma.PersFeatScalarFieldEnum = {
 exports.Prisma.MagicItemScalarFieldEnum = {
   magicItemId: 'magicItemId',
   name: 'name',
+  engName: 'engName',
   itemType: 'itemType',
   rarity: 'rarity',
   description: 'description',
+  shortDescription: 'shortDescription',
   requiresAttunement: 'requiresAttunement',
-  bonusToAC: 'bonusToAC',
-  bonusToAttackRoll: 'bonusToAttackRoll',
-  bonusToDamage: 'bonusToDamage'
+  weaponProficiencies: 'weaponProficiencies',
+  weaponProficienciesSpecial: 'weaponProficienciesSpecial'
 };
 
 exports.Prisma.InfusionScalarFieldEnum = {
@@ -568,7 +569,8 @@ exports.Prisma.InfusionScalarFieldEnum = {
   restoresSpellSlotUpToLevel: 'restoresSpellSlotUpToLevel',
   increasesAtLevel10By: 'increasesAtLevel10By',
   replicatedMagicItemId: 'replicatedMagicItemId',
-  createsHomunculus: 'createsHomunculus'
+  createsHomunculus: 'createsHomunculus',
+  featureId: 'featureId'
 };
 
 exports.Prisma.PersInfusionScalarFieldEnum = {
@@ -833,6 +835,7 @@ exports.FeatureDisplayType = exports.$Enums.FeatureDisplayType = {
   FREE: 'FREE',
   REACTION: 'REACTION',
   CLASS_RESOURCE: 'CLASS_RESOURCE',
+  MAGIC_ITEM: 'MAGIC_ITEM',
   HIDDEN: 'HIDDEN'
 };
 
@@ -1290,7 +1293,6 @@ exports.Prisma.ModelName = {
   RaceVariantTrait: 'RaceVariantTrait',
   RaceChoiceOptionTrait: 'RaceChoiceOptionTrait',
   FeatFeature: 'FeatFeature',
-  MagicItemFeature: 'MagicItemFeature',
   Race: 'Race',
   Subrace: 'Subrace',
   RaceVariant: 'RaceVariant',

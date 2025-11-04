@@ -11,9 +11,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви можете бачити в тьмяному світлі на відстані 60 футів так, ніби це яскраве світло, і в темряві так, ніби це тьмяне світло. Ви не можете розрізняти кольори в темряві, лише відтінки сірого.',
             shortDescription: 'Бачення в темряві на 60 футів',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                senses: { darkvision: 60 }
-            }
         },
         {
             name: 'Вищий темнозір',
@@ -21,9 +18,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви можете бачити в тьмяному світлі на відстані 120 футів так, ніби це яскраве світло, і в темряві так, ніби це тьмяне світло. Ви не можете розрізняти кольори в темряві, лише відтінки сірого.',
             shortDescription: 'Бачення в темряві на 120 футів',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                senses: { darkvision: 120 }
-            }
         },
         {
             name: 'Гострі чуття',
@@ -31,9 +25,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння навичкою Уважність.',
             shortDescription: 'Володіння навичкою Уважність',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['PERCEPTION']
-            }
         },
 
         // ============ ФЕЙ/МАГІЧНА СТІЙКІСТЬ ============
@@ -43,12 +34,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу при ряткидках проти зачарування, і вас неможливо магічно приспати.',
             shortDescription: 'Перевага на ряткидки проти Зачарування та імунітет до Сну',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    condition: 'CHARMED'
-                },
-                conditionImmunities: ['MAGICAL_SLEEP']
-            }
         },
         {
             name: 'Хитрість гномів',
@@ -65,12 +50,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на ряткидки проти отрути та опір до отруйної шкоди.',
             shortDescription: 'Перевага проти отрути + опір',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['POISON'],
-                savingThrowAdvantages: {
-                    damageType: 'POISON'
-                }
-            }
         },
         {
             name: 'Невгамовна витривалість',
@@ -95,9 +74,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви володієте бойовою сокирою, ручною сокирою, легким молотом і бойовим молотом.',
             shortDescription: 'Володіння дворфською зброєю',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                weaponProficiencies: ['BATTLEAXE', 'HANDAXE', 'LIGHT_HAMMER', 'WARHAMMER']
-            }
         },
         {
             name: 'Дворфське володіння інструментами',
@@ -105,9 +81,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви отримуєте володіння ремісничими інструментами на ваш вибір: ковальські інструменти, пивоварні приладдя або каменярські інструменти.',
             shortDescription: 'Володіння ремісничими інструментами на вибір',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                toolProficiencies: [ToolCategory.ARTISAN_TOOLS]
-            }
         },
 
         // ============ ЩАСТЯ Й ХОРОБРІСТЬ ============
@@ -124,11 +97,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на ряткидки проти страху.',
             shortDescription: 'Перевага проти страху',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    condition: 'FRIGHTENED'
-                }
-            }
         },
 
         // ============ ПЕКЕЛЬНА/СТИХІЙНА СТІЙКІСТЬ ============
@@ -138,9 +106,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до вогняної шкоди.',
             shortDescription: 'Опір до вогню',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['FIRE']
-            }
         },
         {
             name: 'Небесний опір',
@@ -148,9 +113,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до променевої та некротичної шкоди.',
             shortDescription: 'Опір до променевої та некротичної шкоди',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['RADIANT', 'NECROTIC']
-            }
         },
 
         // ============ ТРАНС І СОН ============
@@ -171,14 +133,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
-            modifiesStats: {
-                breathWeapon: {
-                    damageType: 'ACID',
-                    shape: 'LINE',
-                    aoe: '5×30',
-                    savingThrow: 'DEX'
-                }
-            }
         },
         {
             name: 'Дихальна зброя (блискавка)',
@@ -188,14 +142,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
-            modifiesStats: {
-                breathWeapon: {
-                    damageType: 'LIGHTNING',
-                    shape: 'LINE',
-                    aoe: '5×30',
-                    savingThrow: 'DEX'
-                }
-            }
         },
         {
             name: 'Дихальна зброя (вогонь, конус)',
@@ -205,14 +151,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
-            modifiesStats: {
-                breathWeapon: {
-                    damageType: 'FIRE',
-                    shape: 'CONE',
-                    aoe: '15',
-                    savingThrow: 'DEX'
-                }
-            }
         },
         {
             name: 'Дихальна зброя (вогонь, лінія)',
@@ -222,14 +160,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
-            modifiesStats: {
-                breathWeapon: {
-                    damageType: 'FIRE',
-                    shape: 'LINE',
-                    aoe: '5x30.',
-                    savingThrow: 'DEX'
-                }
-            }
         },
         {
             name: 'Дихальна зброя (отрута)',
@@ -239,14 +169,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
-            modifiesStats: {
-                breathWeapon: {
-                    damageType: 'POISON',
-                    shape: 'CONE',
-                    aoe: '15',
-                    savingThrow: 'CON'
-                }
-            }
         },
         {
             name: 'Дихальна зброя (холод)',
@@ -256,14 +178,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
-            modifiesStats: {
-                breathWeapon: {
-                    damageType: 'COLD',
-                    shape: 'CONE',
-                    aoe: '15',
-                    savingThrow: 'CON'
-                }
-            }
         },
 
         {
@@ -283,7 +197,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ваша шкура має грубу, лускоподібну текстуру. Коли ви не носите обладунки, ваш Клас Броні дорівнює 13 + ваш модифікатор Спритності. Ви можете використовувати свою природну броню для визначення вашого КБ, якщо обладунок, який ви носите, залишить вас з нижчим КБ. Переваги щита застосовуються як звичайно.',
             shortDescription: 'КБ = 13 + Спритність',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
+            modifiesAC: {
                 naturalArmor: {
                     baseAC: 13,
                     addsDex: true
@@ -296,7 +210,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ваша шкура вкрита дрібною лускою. Коли ви не носите обладунки, ваш КБ дорівнює 13 + ваш модифікатор Спритності. Ви можете використовувати щит і все одно отримувати цю перевагу.',
             shortDescription: 'КБ = 13 + Спритність',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
+            modifiesAC: {
                 naturalArmor: {
                     baseAC: 13,
                     addsDex: true
@@ -351,9 +265,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ваш максимум хіт-поінтів збільшується на 1, і він збільшується на 1 кожного разу, коли ви отримуєте рівень.',
             shortDescription: '+1 HP на рівень',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                hpPerLevel: 1
-            }
         },
         {
             name: 'Каменярство',
@@ -368,9 +279,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння легким і середнім обладунком.',
             shortDescription: 'Володіння легким та середнім обладунком',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                armorProficiencies: ['LIGHT', 'MEDIUM']
-            }
         },
         {
             name: 'Ельфійська зброя',
@@ -378,9 +286,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви володієте довгим мечем, коротким мечем, коротким луком і довгим луком.',
             shortDescription: 'Володіння ельфійською зброєю',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                weaponProficiencies: ['LONGSWORD', 'SHORTSWORD', 'SHORTBOW', 'LONGBOW']
-            }
         },
         {
             name: 'Майстерність загрози',
@@ -388,9 +293,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви володієте навичкою Залякування.',
             shortDescription: 'Володіння Залякуванням',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['INTIMIDATION']
-            }
         },
         {
             name: 'Дикий інстинкт',
@@ -398,9 +300,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви володієте навичками Виживання та Поводження з тваринами.',
             shortDescription: 'Володіння Виживанням та Поводженням з тваринами',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['SURVIVAL', 'ANIMAL_HANDLING']
-            }
         },
 
         // ============ РАСОВІ БОНУСИ 2024 ============
@@ -710,9 +609,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до блискавичної шкоди.',
             shortDescription: 'Опір до блискавичної шкоди',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['LIGHTNING']
-            }
         },
         {
             name: 'Нескінченне дихання',
@@ -785,10 +681,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Acid Resistance',
             description: 'Ви маєте опір до кислотної шкоди.',
             shortDescription: 'Опір до кислоти',
-            displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['ACID']
-            }
+            displayType: [FeatureDisplayType.PASSIVE]
         },
         {
             name: 'Амфібія',
@@ -821,9 +714,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до психічної шкоди.',
             shortDescription: 'Опір до психічної шкоди',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['PSYCHIC']
-            }
         },
 
 
@@ -885,9 +775,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви володієте навичкою Атлетика, і ви вважаєтесь на один розмір більшим при визначенні вашої вантажопідйомності та ваги, яку ви можете штовхати, тягнути або піднімати.',
             shortDescription: 'Володіння Атлетикою + на один розмір більший для вантажопідйомності',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['ATHLETICS']
-            }
         },
         {
             name: 'Народжений горами',
@@ -895,9 +782,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до шкоди Холодом. Ви також природно акліматизуєтесь до високих місцевостей, навіть якщо ви ніколи не були на них. Це включає висоти понад 20,000 футів.',
             shortDescription: 'Опір до холоду + акліматизація до висот',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['COLD']
-            }
         },
 
 // ============ HARENGON ============
@@ -914,7 +798,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння навичкою Уважність.',
             shortDescription: 'Володіння Уважністю',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: { skillProficiencies: ['PERCEPTION'] }
         },
         {
             name: 'Заячий стрибок',
@@ -1077,7 +960,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння навичками Виступ та Переконання, а також одним музичним інструментом на ваш вибір.',
             shortDescription: 'Володіння Виступом та Переконанням + володіння інструментом',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: { skillProficiencies: ['PERFORMANCE', 'PERSUASION'] }
         },
         {
             name: 'Таран',
@@ -1094,7 +976,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви володієте списом, тризубом, легким арбалетом та сіткою.',
             shortDescription: 'Володіння зброєю морських ельфів',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: { weaponProficiencies: ['SPEAR', 'TRIDENT', 'LIGHT_CROSSBOW', 'NET'] }
         },
         {
             name: 'Дитя моря',
@@ -1102,7 +983,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте швидкість плавання 30 футів, можете дихати під водою, і маєте опір до Холодної шкоди',
             shortDescription: 'Плавання 30 футів, дихання під водою + опір Холоду',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: { swimSpeed: 30, damageResistances: ['COLD'] }
         },
         {
             name: 'Друг моря',
@@ -1127,7 +1007,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до некротичної шкоди.',
             shortDescription: 'Опір до некротичної шкоди',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: { damageResistances: ['NECROTIC'] }
         },
 
 // ============ SHIFTER ============
@@ -1162,7 +1041,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння навичками Уважність та Непомітність.',
             shortDescription: 'Володіння Уважністю та Непомітністю',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: { skillProficiencies: ['PERCEPTION', 'STEALTH'] }
         },
         {
             name: 'Котяча спритність',
@@ -1193,7 +1071,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ваш панцир забезпечує вам базовий КБ 17 (ваш модифікатор Спритності не впливає на це число). Ви не можете носити легкий, середній або важкий обладунок, але якщо ви використовуєте щит, ви можете застосувати бонус щита як зазвичай.',
             shortDescription: 'КБ = 17 (без СПР), не можна носити броню',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
+            modifiesAC: {
                 naturalArmor: {
                     baseAC: 17,
                     addsDex: false
@@ -1238,7 +1116,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Адаптовані до крижаних океанських глибин, ви маєте стійкість до пошкоджень від холоду.',
             shortDescription: 'Опір до холоду',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: { damageResistances: ['COLD'] }
         },
 
 // ============ YUAN-TI ============
@@ -1248,12 +1125,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на ряткидки, які ви робите, щоб уникнути або завершити стан отруєння на собі. Ви також маєте опір до отруйної шкоди.',
             shortDescription: 'Перевага проти отруєння + опір до отруйної шкоди',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['POISON'],
-                savingThrowAdvantages: {
-                    condition: 'POISONED'
-                }
-            }
         },
         {
             name: 'Змійне чаклунство',
@@ -1304,7 +1175,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви укладені в тонкий метал або інший міцний матеріал. Поки ви не носите обладунки, ваш базовий Клас Броні дорівнює 13 + ваш модифікатор Спритності.',
             shortDescription: 'КБ 13 + СПР (якщо без обладунків)',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
+            modifiesAC: {
                 naturalArmor: { baseAC: 13, addsDex: true }
             }
         },
@@ -1329,11 +1200,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до отруйної шкоди та імунітет до хвороб, маєте перевагу на ряткидки проти Паралічу та Отруєння. Вам не потрібно їсти, пити або дихати.',
             shortDescription: 'Опір до отрути, імунітет до хвороб, перевага на ряткидки проти Отруєння та Паралічу, не треба їсти, пити та дихати',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['POISON'],
-                conditionImmunities: ['DISEASE'],
-                savingThrowAdvantages: { condition: ['PARALYZED', 'POISONED'] }
-            }
         },
         {
             name: 'Відпочинок Вартового',
@@ -1372,15 +1238,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на перевірки характеристик, що базуються на Силі, та ряткидки Сили. Крім того, ви вважаєтесь на один розмір більшим при визначенні вашої вантажопідйомності та ваги, яку ви можете штовхати, тягнути або піднімати.',
             shortDescription: 'Перевага на перевірки Сили та ряткидки + подвійна вантажопідйомність',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                abilityCheckAdvantages: {
-                    ability: 'STR'
-                },
-                savingThrowAdvantages: {
-                    ability: 'STR'
-                },
-                carryingCapacity: 'DOUBLE'
-            }
         },
 
 // HADOZEE
@@ -1422,11 +1279,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви можете протиснутися через простір завширшки лише 2.5 см, за умови, що ви нічого не носите і не несете. Ви також маєте перевагу на перевірки характеристик, які ви робите, щоб ініціювати або втекти із захоплення.',
             shortDescription: 'Протискання через 2.5 см + перевага на перевірки захоплення',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                abilityCheckAdvantages: {
-                    type: 'GRAPPLE'
-                }
-            }
         },
         {
             name: 'Природна стійкість',
@@ -1434,12 +1286,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до шкоди кислотою та отрутою, і ви маєте перевагу на ряткидки проти отруєння.',
             shortDescription: 'Опір до кислоти та отрути + перевага на ряткидки проти отруєння',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['ACID', 'POISON'],
-                savingThrowAdvantages: {
-                    condition: 'POISONED'
-                }
-            }
         },
 
 
@@ -1450,7 +1296,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Поки не носите обладунки, ваш панцир дає базовий Клас Броні 13 + модифікатор Спритності. Дією можете змінити колір панциру, отримуючи перевагу на перевірки Спритності (Непомітність) для переховування у відповідному середовищі.',
             shortDescription: 'КБ 13 + СПР + камуфляж',
             displayType: [FeatureDisplayType.ACTION],
-            modifiesStats: {
+            modifiesAC: {
                 naturalArmor: { baseAC: 13, addsDex: true }
             }
         },
@@ -1484,11 +1330,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1,
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    condition: 'FRIGHTENED'
-                }
-            }
         },
         {
             name: 'Кендерська майстерність',
@@ -1513,9 +1354,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння навичкою Уважність.',
             shortDescription: 'Володіння Уважністю',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['PERCEPTION']
-            }
         },
         {
             name: 'Імунітет до отрути',
@@ -1523,10 +1361,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте імунітет до отруйної шкоди та стану Отруєння.',
             shortDescription: 'імунітет до отруйної шкоди та стану Отруєння',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageImmunities: ['POISON'],
-                conditionImmunities: ['POISONED']
-            }
         },
         {
             name: 'Отруйна шкіра',
@@ -1559,7 +1393,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте міцну, лускату шкіру. Коли ви не носите обладунки, ваш Клас Броні дорівнює 12 + ваш модифікатор Спритності. Ви можете використовувати свою природну броню для визначення вашого КБ, якщо обладунок, який ви носите, залишить вас з нижчим КБ. Переваги щита застосовуються як звичайно.',
             shortDescription: 'КБ = 12 + Спритність',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
+            modifiesAC: {
                 naturalArmor: {
                     baseAC: 12,
                     addsDex: true
@@ -1572,9 +1406,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння навичками Атлетика та Уважність.',
             shortDescription: 'Володіння Атлетикою та Уважністю',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['ATHLETICS', 'PERCEPTION']
-            }
         },
         {
             name: 'Воля левіафана',
@@ -1582,11 +1413,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на ряткидки проти того, щоб бути Зачарованим, Переляканим, Паралізованим, Отруєним, Приголомшеним або Приспаним.',
             shortDescription: 'Перевага на ряткидки проти 6 станів',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    condition: ['CHARMED', 'FRIGHTENED', 'PARALYZED', 'POISONED', 'STUNNED', 'SLEEP']
-                }
-            }
         },
         {
             name: 'Обмежена амфібійність',
@@ -1608,7 +1434,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте товсту, шкірясту шкіру. Коли ви не носите обладунки, ваш Клас Броні дорівнює 12 + ваш модифікатор Статури. Ви можете використовувати свою природну броню для визначення вашого КБ, якщо обладунок, який ви носите, залишить вас з нижчим КБ. Переваги щита застосовуються як звичайно.',
             shortDescription: 'КБ = 12 + Статура',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
+            modifiesAC: {
                 naturalArmor: {
                     baseAC: 12,
                     addsCon: true
@@ -1621,11 +1447,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на ряткидки проти того, щоб бути Зачарованим або Переляканим.',
             shortDescription: 'Перевага проти Зачарування і Переляку',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    condition: ['CHARMED', 'FRIGHTENED']
-                }
-            }
         },
         {
             name: 'Гострий нюх',
@@ -1662,11 +1483,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на всі ряткидки Інтелекту, Мудрості та Харизми.',
             shortDescription: 'Перевага на всі INT/WIS/CHA ряткидки',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    ability: ['INT', 'WIS', 'CHA']
-                }
-            }
         },
         {
             name: 'Невтомна точність',
@@ -1706,9 +1522,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Відсутність історії вашого народу робить вас гідним довіри та скромним. Ви маєте володіння навичкою Переконання.',
             shortDescription: 'Володіння навичкою Переконання',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['PERSUASION']
-            }
         },
         {
             name: 'Телепатична проникливість',
@@ -1716,11 +1529,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Зв\'язок вашого розуму зі світом навколо вас зміцнює вашу волю. Ви маєте перевагу на всі ряткидки Мудрості та Харизми.',
             shortDescription: 'Перевага на ряткидки Мудрості та Харизми',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    abilities: ['WISDOM', 'CHARISMA']
-                }
-            }
         },
 
 // ============ KALASHTAR (EBERRON) ============
@@ -1730,11 +1538,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте перевагу на всі ряткидки Мудрості.',
             shortDescription: 'Перевага на всі WIS ряткидки',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                savingThrowAdvantages: {
-                    ability: 'WIS'
-                }
-            }
         },
         {
             name: 'Ментальна дисципліна Калаштарів',
@@ -1742,9 +1545,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте опір до психічної шкоди.',
             shortDescription: 'Опір до психічної шкоди',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['PSYCHIC']
-            }
         },
         {
             name: 'Ментальний зв\'язок',
@@ -1759,9 +1559,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Калаштари сплять, але вони не з\'єднуються з планом снів, як це роблять інші істоти. Замість цього їхні розуми черпають зі спогадів їхнього потойбічного духа під час сну. Таким чином, ви імунні до магічних заклинань та ефектів, що вимагають від вас бачити сни, як-от заклинання Сновидіння [Dream], але не до заклинань та ефектів, що присипляють вас, як-от заклинання Сон [Sleep].',
             shortDescription: 'Імунітет до магії снів, але не сну',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                conditionImmunities: ['DREAM_EFFECTS']
-            }
         },
 
 
@@ -1772,13 +1569,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви були створені, щоб мати чудову витривалість. Ви маєте перевагу на ряткидки проти того, щоб бути Отруєним, і ви маєте опір до отруйної шкоди. Ви маєте імунітет до хвороб. Вам не потрібно їсти, пити або дихати. Вам не потрібно спати, і магія не може приспати вас.',
             shortDescription: 'Перевага проти Отруєння + опір до poison + імунітет до хвороб + без їжі/питва/дихання/сну',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['POISON'],
-                conditionImmunities: ['DISEASE', 'MAGICAL_SLEEP'],
-                savingThrowAdvantages: {
-                    condition: 'POISONED'
-                }
-            }
         },
         {
             name: 'Інтегрований захист',
@@ -1786,9 +1576,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ваше тіло має вбудовані захисні шари, які визначають ваш Клас Броні. Ви отримуєте бонус +1 до Класу Броні. Ви можете носити лише обладунок, для якого маєте Володіння. Щоб надягнути обладунок, ви повинні інтегрувати його в своє тіло протягом 1 години, впродовж якої ви залишаєтеся в контакті з обладунком. Щоб зняти обладунок, ви повинні провести 1 годину, знімаючи його. Ви можете відпочивати, поки надягаєте або знімаєте обладунок таким чином. Поки ви живі, ваш обладунок не можна зняти з вашого тіла проти вашої волі.',
             shortDescription: '+1 КБ + 1 год для надягання/зняття обладунку',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                acBonus: 1
-            }
+            givesAC: 1,
         },
         {
             name: 'Спеціалізований дизайн',
@@ -1845,14 +1633,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             shortDescription: 'Укус з модифікатором СТА (1к4) + самозцілення або бонус',
             displayType: [FeatureDisplayType.RESOURCE],
             limitedUsesPer: RestType.LONG_REST,
-            modifiesStats: {
-                naturalWeapons: {
-                    name: 'Вампірський укус',
-                    damageType: 'PIERCING',
-                    damageDice: '1d4',
-                    abilityModifier: 'CON'
-                }
-            }
         },
 
 
@@ -1888,14 +1668,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви уникли смерті, факт, представлений наступними перевагами:\n\n• Ви маєте перевагу на ряткидки проти хвороби та отруєння, і ви маєте опір до отруйної шкоди.\n\n• Ви маєте перевагу на ряткидки від смерті.\n\n• Вам не потрібно їсти, пити або дихати.\n\n• Вам не потрібно спати, і магія не може приспати вас. Ви можете завершити довгий відпочинок за 4 години, якщо ви проводите ці години в неактивному, нерухомому стані, під час якого ви зберігаєте свідомість.',
             shortDescription: 'Перевага проти отрути та хвороб + не потребує їжі/сну/дихання',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                damageResistances: ['POISON'],
-                savingThrowAdvantages: {
-                    conditions: ['POISONED', 'DISEASED']
-                },
-                deathSaveAdvantage: true,
-                conditionImmunities: ['MAGICAL_SLEEP']
-            }
         },
         {
             name: 'Знання з минулого життя',
@@ -1915,9 +1687,6 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви маєте володіння навичкою Непомітність.',
             shortDescription: 'Володіння Непомітністю',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                skillProficiencies: ['STEALTH']
-            }
         },
     ]
 

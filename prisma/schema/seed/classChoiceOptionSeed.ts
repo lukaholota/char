@@ -417,11 +417,6 @@ export const seedClassChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             levelsGranted: [2, 5, 7, 9, 12, 15, 18],
-            choiceOption: { connect: { optionNameEng: 'Otherworldly Step' } },
-            class: { connect: { name: Classes.WARLOCK_2014 } }
-        },
-        {
-            levelsGranted: [2, 5, 7, 9, 12, 15, 18],
             choiceOption: { connect: { optionNameEng: 'Improved Pact Weapon' } },
             class: { connect: { name: Classes.WARLOCK_2014 } }
         },

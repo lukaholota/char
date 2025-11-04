@@ -1,4 +1,4 @@
-import { FeatureDisplayType, Prisma, PrismaClient, RestType } from "../../src/generated/prisma"
+import { FeatureDisplayType, Prisma, PrismaClient, RestType } from "../../../src/generated/prisma"
 
 export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 	console.log( '🧪 Додаємо Feature для Вливань...' )
@@ -51,6 +51,13 @@ export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 			description: 'Броня допомагає зосередженню на закляттях (перевизначення провалу).',
 			shortDescription: 'Полегшує підтримку концентрації',
 			displayType: [FeatureDisplayType.PASSIVE],
+		},
+		{
+			name: 'Броня магічної сили',
+			engName: 'Infusion: Armor of Magical Strength',
+			description: 'Використовуйте модифікатор Інтелекту для перевірок і кидків Сили. Бонусною дією: отримайте тимчасові ОЗ = ваш модифікатор Інтелекту (кількість разів = БМ, відновлюється після довгого відпочинку).',
+			shortDescription: 'Інт для перевірок Сили; бонус. дією темп. ОЗ',
+			displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.BONUSACTION],
 		},
 		{
 			name: 'Кільце підживлення заклять',

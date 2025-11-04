@@ -9,6 +9,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Ви отримуєте бонус +2 до кидків атаки, які ви робите зброєю дальнього бою.',
             shortDescription: '+2 на кидки атаки дальньобійною зброєю',
             displayType: [FeatureDisplayType.PASSIVE],
+
+            bonusToRangedAttackRoll: 2,
         },
         {
             name: 'Бій наосліп',
@@ -23,6 +25,9 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Поки ви носите броню, ви отримуєте бонус +1 до КБ.',
             shortDescription: '+1 до КБ коли в броні',
             displayType: [FeatureDisplayType.PASSIVE],
+
+            givesAC: 1,
+            requiresArmorForACBonus: true,
         },
         {
             name: 'Дуель',
@@ -30,6 +35,9 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Коли ви тримаєте рукопашну зброю в одній руці і не тримаєте іншої зброї, ви отримуєте бонус +2 до кидків шкоди цією зброєю.',
             shortDescription: '+2 до шкоди однією зброєю',
             displayType: [FeatureDisplayType.PASSIVE],
+
+            bonusToMeleeOneHandedWeaponDamage: 2,
+
         },
         {
             name: 'Бій великою зброєю',
@@ -60,13 +68,18 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             displayType: [FeatureDisplayType.RESOURCE],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
+
+            givesManeuvres: true,
+            superiorityDiceCount: 1,
         },
         {
             name: 'Бій метальною зброєю',
             engName: 'Thrown Weapon Fighting',
             description: 'Ви можете витягнути зброю з властивістю метальна як частину атаки, яку ви робите цією зброєю. Крім того, коли ви влучаєте атакою дальнього бою метальною зброєю, ви отримуєте бонус +2 до кидка шкоди.',
-            shortDescription: '+2 до шкоди кидальною зброєю',
+            shortDescription: '+2 до шкоди метальною зброєю',
             displayType: [FeatureDisplayType.PASSIVE],
+
+            bonusToThrownDamage: 2,
         },
         {
             name: 'Бій двома зброями',
@@ -81,6 +94,9 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'Ваші безозброєні удари можуть завдавати дробильної шкоди, що дорівнює 1к6 + ваш модифікатор Сили при влучанні. Якщо ви не тримаєте жодної зброї або щита, коли робите кидок атаки, к6 стає к8. На початку кожного вашого ходу ви можете завдавати 1к4 дробильної шкоди одному створінню, схопленому вами.',
             shortDescription: '1к6 (1к8) шкоди безозброєними ударами',
             displayType: [FeatureDisplayType.PASSIVE],
+
+            modifiesUnarmed: true,
+            unarmedDamage: '1к6 / 1к8',
         },
         {
             name: 'Друїдичний воїн',
@@ -307,10 +323,8 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             description: 'На 20 рівні ви втілюєте силу дикої природи. Ваші показники Сили та Статури збільшуються на 4. Ваш максимум для цих показників тепер становить 24.',
             shortDescription: '+4 до СИЛ і СТА, максимум 24',
             displayType: [FeatureDisplayType.PASSIVE],
-            modifiesStats: {
-                STR: 4,
-                CON: 4,
-            }
+            givesSTR: 4,
+            givesCON: 4,
         },
 
 
@@ -1786,6 +1800,33 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             shortDescription: '+1 до КБ і ряткидків за кожен влитий предмет; тримайтесь на 1 ХП',
             displayType: [FeatureDisplayType.PASSIVE],
         },
-
     ]
+
+    for (const feature of features) {
+        try {
+            await prisma.feature.upsert({
+                where: { engName: feature.engName },
+                update: feature,
+                create: feature,
+            });
+        } catch (error) {
+            console.error('💀 ПОМИЛКА на фічі:', feature.name);
+            console.error('📝 Feature дані:', JSON.stringify(feature, null, 2));
+            console.error('⚠️ Error:', error);
+
+            // Перевіряємо чи це Prisma помилка
+            if (error instanceof Prisma.PrismaClientKnownRequestError) {
+                console.error('🔍 Prisma Error Code:', error.code);
+                console.error('🔍 Meta:', error.meta);
+
+                // Тепер можна безпечно юзати error.code і error.meta 🎯
+                if (error.code === 'P2025') {
+                    console.error('❌ Не знайдено record(s) для connect:', error.meta?.cause);
+                }
+            }
+        }
+    }
+
+
+    console.log(`✅ додано ${features.length} класових фіч!`)
 }

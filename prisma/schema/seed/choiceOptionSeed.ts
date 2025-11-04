@@ -1,4 +1,4 @@
-import { Classes, FeatureDisplayType, Prisma, PrismaClient } from '../../src/generated/prisma'
+import { Prisma, PrismaClient } from '../../src/generated/prisma'
 
 export const seedChoiceOptions = async (prisma: PrismaClient) => {
     console.log('⚔️ Додаємо опції вибору (Бойові стилі)...')
@@ -10,7 +10,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             optionName: 'Стрільба з лука',
             optionNameEng: 'Archery',
 
-            rangedAttackBonus: 2,
             features: {
                 create: [
                     { feature: { connect: { engName: 'Archery' } } }
@@ -37,7 +36,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             optionName: 'Оборона',
             optionNameEng: 'Defense',
 
-            givesAC: 1,
             features: {
                 create: [
                     { feature: { connect: { engName: 'Defense' } } }
@@ -51,7 +49,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             optionName: 'Дуель',
             optionNameEng: 'Dueling',
 
-            meleeDamageBoost: 2,
             features: {
                 create: [
                     { feature: { connect: { engName: 'Dueling' } } }
@@ -104,8 +101,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             optionName: 'Вища техніка',
             optionNameEng: 'Superior Technique',
 
-            givesManeuvres: true,
-            superiorityDiceCount: 1,
             features: {
                 create: [
                     { feature: { connect: { engName: 'Superior Technique' } } }
@@ -119,7 +114,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             optionName: 'Бій метальною зброєю',
             optionNameEng: 'Thrown Weapon Fighting',
 
-            thrownDamageBoost: 2,
             features: {
                 create: [
                     { feature: { connect: { engName: 'Thrown Weapon Fighting' } } }
@@ -146,8 +140,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             optionName: 'Рукопашний бій',
             optionNameEng: 'Unarmed Fighting',
 
-            modifiesUnarmed: true,
-            unarmedDamage: '1к6 / 1к8',
             features: {
                 create: [
                     { feature: { connect: { engName: 'Unarmed Fighting' } } }
@@ -279,9 +271,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
 
 
-
-
-
         // ===== ДАРИ ПАКТУ (PACT BOONS) =====
 
         {
@@ -331,8 +320,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
                 ]
             },
         },
-
-
 
 
         // ===== ELDRITCH INVOCATIONS =====
@@ -488,15 +475,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Mist Step необмежено',
-            optionNameEng: 'Otherworldly Step',
-            prerequisites: { level: 5 },
-            features: {
-                create: [{ feature: { connect: { engName: 'Otherworldly Step' } } }]
-            },
-        },
-        {
-            groupName: 'Потойбічні виклики',
             optionName: '+1 до пактової зброї, можна лук',
             optionNameEng: 'Improved Pact Weapon',
             prerequisites: { level: 5, pact: 'Pact of the Blade' },
@@ -553,7 +531,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Freedom of Movement 1/день',
+            optionName: 'Свобода Рухів 1/день',
             optionNameEng: 'Trickster\'s Escape',
             prerequisites: { level: 7 },
             features: {
@@ -562,7 +540,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Eldritch Smite - шкода пактовою зброєю',
+            optionName: 'шкода слотами заклинання пактовою зброєю',
             optionNameEng: 'Eldritch Smite',
             prerequisites: { level: 5, pact: 'Pact of the Blade' },
             features: {
@@ -573,7 +551,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
 // 9+ РІВЕНЬ
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Levitate необмежено на себе',
+            optionName: 'Левітація необмежено на себе',
             optionNameEng: 'Ascendant Step',
             prerequisites: { level: 9 },
             features: {
@@ -582,7 +560,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Speak with Dead необмежено',
+            optionName: 'Розмова з Мертвими необмежено',
             optionNameEng: 'Whispers of the Grave',
             prerequisites: { level: 9 },
             features: {
@@ -591,7 +569,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Jump необмежено на себе',
+            optionName: 'Стрибок [Jump] необмежено на себе',
             optionNameEng: 'Otherworldly Leap',
             prerequisites: { level: 9 },
             features: {
@@ -600,7 +578,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Conjure Elemental 1/день',
+            optionName: 'З\'ява стихійника [Conjure Elemental] 1/день',
             optionNameEng: 'Minions of Chaos',
             prerequisites: { level: 9 },
             features: {
@@ -823,8 +801,31 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
 
     // Створюємо всі опції
     for (const option of options) {
-        await prisma.choiceOption.create({ data: option })
+        try {
+            await prisma.choiceOption.upsert({
+                    where: { optionNameEng: option.optionNameEng },
+                    update: option,
+                    create: option
+                }
+            );
+        } catch (error) {
+            console.error('💀 ПОМИЛКА на опції:', option.optionName);
+            console.error('📝 Option дані:', JSON.stringify(option, null, 2));
+            console.error('⚠️ Error:', error);
+
+            // Перевіряємо чи це Prisma помилка
+            if (error instanceof Prisma.PrismaClientKnownRequestError) {
+                console.error('🔍 Prisma Error Code:', error.code);
+                console.error('🔍 Meta:', error.meta);
+
+                // Тепер можна безпечно юзати error.code і error.meta 🎯
+                if (error.code === 'P2025') {
+                    console.error('❌ Не знайдено record(s) для connect:', error.meta?.cause);
+                }
+            }
+        }
     }
+
 
     console.log('✅ Додано опцій вибору:', options.length)
 }
