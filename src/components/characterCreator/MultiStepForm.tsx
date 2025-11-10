@@ -77,6 +77,8 @@ export const MultiStepForm = (
     <div className="max-w-3xl mx-auto p-6">
       <CharacterCreateHeader/>
 
+      <button onClick={() => resetForm()}>Ресет</button>
+
       <div className="mb-8">
         <div className="flex justify-between mb-2">
           {STEPS.map(step => (

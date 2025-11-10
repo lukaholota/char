@@ -1,49 +1,48 @@
 import {z} from "zod";
+import {Ability} from "@prisma/client";
 
 export const raceSchema = z.object({
-    raceId: z.number().min(1, "Треба обрати расу 😈")
+  raceId: z.number().min(1, "Треба обрати расу 😈")
 })
 
 export const classSchema = z.object({
-    classId: z.number().min(1, "Клас теж треба обрати, мандрівнику!")
-})
+  classId: z.number().min(1, "Клас теж треба обрати, мандрівнику!"),
+});
 
 export const backgroundSchema = z.object({
-    backgroundId: z.number().min(1, "Передісторію не обрано... ти хто взагалі?")
-})
+  backgroundId: z.number().min(1, "Передісторію не обрано... ти хто взагалі?"),
+});
 
 export const asiSchema = z.object({
-    isDefaultASI: z.boolean().default(false),
+  isDefaultASI: z.boolean().default(false), // ТОБТО НЕ ТАША
 
-    isSimpleASI: z.boolean().default(false),
-    isCustomASI: z.boolean().default(false),
-    isPointBuyASI: z.boolean().default(true),
-    asi: z.array(z.object({
-        ability: z.string(),
-        value: z.number()
-    }))
+  asiSystem: z.string().default('POINT_BUY'),
+  points: z.number().min(0).default(0),
+  asi: z.array(z.object({
+    ability: z.string(),
+    value: z.number(), // коерсимо
+  }))
 })
 export const equipmentSchema = z.object({
-    equipment: z.array(z.number())
+  equipment: z.array(z.number()), // коерсимо
 })
 
 export const nameSchema = z.object({
-    name: z.string()
-        .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
+  name: z.string()
+    .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
 })
 
 export const fullCharacterSchema = z.object({
-    raceId: z.number(),
-    classId: z.number(),
-    backgroundId: z.number(),
-    isDefaultASI: z.boolean(),
-    isSimpleASI: z.boolean(),
-    isCustomASI: z.boolean(),
-    isPointBuyASI: z.boolean(),
-    asi: z.array(z.object({ ability: z.string(), value: z.number() })),
-    skills: z.array(z.string()),
-    equipment: z.array(z.number()),
-    name: z.string(),
+  raceId: z.number(),
+  classId: z.number(),
+  backgroundId: z.number(),
+  isDefaultASI: z.boolean(),
+  asiSystem: z.string().default('POINT_BUY'),
+  points: z.number().int().min(0).default(27),
+  asi: z.array(z.object({ability: z.string(), value: z.number()})),
+  skills: z.array(z.string()),
+  equipment: z.array(z.number()),
+  name: z.string(),
 })
 
 export type PersFormData = z.infer<typeof fullCharacterSchema>
