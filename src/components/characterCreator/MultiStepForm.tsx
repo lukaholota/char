@@ -1,33 +1,24 @@
 "use client";
 
-import React, { JSX, useState } from "react";
-import type { Armor, Background, Class, EquipmentPack, Race, Weapon } from "@prisma/client"
+import React from "react";
+import type {Armor, Background, Class, EquipmentPack, Race, Weapon} from "@prisma/client"
 import RacesForm from "@/components/characterCreator/RacesForm";
-import { CharacterCreateHeader } from "@/components/characterCreator/CharacterCreateHeader";
-import { Button } from "@/components/ui/Button";
+import {CharacterCreateHeader} from "@/components/characterCreator/CharacterCreateHeader";
+import {Button} from "@/components/ui/Button";
+import {usePersFormStore} from "@/stores/persFormStore";
+import clsx from "clsx";
+import ClassesForm from "@/components/characterCreator/ClassesForm";
+import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
 
-const STEPS_TO_COMPONENTS = {
-  1: 'races',
-  2: 'class',
-  3: 'background',
-  4: 'asi',
-  5: 'skills',
-  6: 'equipment',
-  7: 'name'
-} as const;
-
-type StepKey = keyof typeof STEPS_TO_COMPONENTS;
-type ComponentName = typeof STEPS_TO_COMPONENTS[StepKey]
-
-interface Form {
-  race?: string,
-  class?: string,
-  background?: string,
-  asi?: [],
-  skills?: string[],
-  equipment?: [],
-  name?: string,
-}
+const STEPS = [
+  {id: 1, name: 'Раса', component: 'races'},
+  {id: 2, name: 'Клас', component: 'class'},
+  {id: 3, name: 'Передісторія', component: 'background'},
+  {id: 4, name: 'Стати', component: 'asi'},
+  {id: 5, name: 'Навички', component: 'skills'},
+  {id: 6, name: 'Спорядження', component: 'equipment'},
+  {id: 7, name: "Ім'я", component: 'name'},
+] as const
 
 interface Props {
   races: Race[]
@@ -48,47 +39,77 @@ export const MultiStepForm = (
     equipmentPacks
   }: Props
 ) => {
-  const [currentStep, setCurrentStep] = useState<StepKey>(1);
-  const [formData, setFormData] = useState<Form>({});
+  const {currentStep, prevStep, resetForm, formData} = usePersFormStore()
 
-  const nextStep = () => setCurrentStep(prev => {
-    const nextStep = (prev as number) + 1;
-    return nextStep as StepKey;
-  })
-  const prevStep = () => setCurrentStep(prev => {
-    const nextStep = (prev as number) - 1;
-    return nextStep as StepKey;
-  })
+  const handleFinalSubmit = async () => {
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const steps: Record<ComponentName, JSX.Element> = {
-    races: <RacesForm races={races} />,
-    class: <></>,
-    background: <></>,
-    asi: <></>,
-    skills: <></>,
-    equipment: <></>,
-    name: <></>,
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1:
+        return <RacesForm races={races}/>
+      case 2:
+        return <ClassesForm classes={classes}/>
+      case 3:
+        return <BackgroundsForm backgrounds={backgrounds}/>
+      case 4:
+        return <ASIForm/>
+      // case 5:
+      //   return <SkillsForm/>
+      // case 6:
+      //   return <EquipmentForm
+      //     weapons={weapons}
+      //     armor={armor}
+      //     packs={equipmentPacks}
+      //   />
+      // case 7:
+      //   return <NameForm onFinalSubmit={handleFinalSubmit}/>
+      default:
+        return null
+    }
   }
 
   return (
-    <div>
-      <CharacterCreateHeader />
+    <div className="max-w-3xl mx-auto p-6">
+      <CharacterCreateHeader/>
 
-      { steps[STEPS_TO_COMPONENTS[currentStep]] }
+      <div className="mb-8">
+        <div className="flex justify-between mb-2">
+          {STEPS.map(step => (
+            <div key={step.id} className={clsx(
+              "text-sm mr-1",
+              step.id === currentStep && "font-bold text-violet-400",
+              step.id < currentStep && "text-green-500",
+              step.id > currentStep && "text-slate-600"
+            )}>
+              {`${step.name}`}
+            </div>
+          ))}
+        </div>
+        <div className="w-full bg-slate-800 h-2 rounded-full">
+          <div
+            className="bg-violet-600 h-2 rounded-full transition-all duration-300"
+            style={{width: `${(currentStep / STEPS.length) * 100}`}}
+          />
+        </div>
+      </div>
 
+      <div className="min-h-[400px]">
+        {renderStep()}
+      </div>
 
-      <div>
-        {
-          currentStep as number !== 1 && (
-            <Button title="назад" onClick={prevStep} />
-          )
-        }
+      <div className="flex justify-between mt-8">
+        {currentStep > 1 && (
+          <Button
+            title="← Назад"
+            onClick={prevStep}
+            variant="secondary"
+          />
+        )}
 
-        <Button title="далі" onClick={nextStep} />
+        {/* Кнопка "Далі" рендериться всередині кожного степ-компонента
+            як submit button, окрім останнього кроку */}
       </div>
 
     </div>
