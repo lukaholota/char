@@ -1,11 +1,13 @@
 "use client";
 
 import {useStepForm} from "@/hooks/useStepForm";
-import {Race} from "@prisma/client";
+import { Class, Race } from "@prisma/client";
 import {asiSchema} from "@/zod/schemas/persCreateSchema";
+import { useFieldArray } from "react-hook-form";
 
 interface Props {
-  race: Race
+  race?: Race
+  selectedClass?: Class
 }
 
 const attributes = [
@@ -19,15 +21,24 @@ const attributes = [
 
 
 export const ASIForm = (
-  {race}: Props
+  {race, selectedClass}: Props
 ) => {
   const {form, onSubmit} = useStepForm(asiSchema)
 
-  const chosenASI = form.watch('asi') || 0
+  const { fields, replace } = useFieldArray({
+    control: form.control,
+    name: "asi",
+  });
+
   const isDefaultASI = form.watch('isDefaultASI') || false
   const isSimpleASI = form.watch('isSimpleASI') || false
   const isCustomASI = form.watch('isCustomASI') || false
   const isPointBuyASI = form.watch('isPointBuyASI') || true
+
+  const incrementValue = (index: number) => {
+    const currentValue = (form.getValues(`asi.${index}.value`) || 0)   as number;
+    form.setValue(`asi.${index}.value`, currentValue + 1)
+  }
 
   return (
     <form onSubmit={onSubmit}>

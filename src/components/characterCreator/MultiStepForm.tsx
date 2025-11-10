@@ -9,6 +9,7 @@ import {usePersFormStore} from "@/stores/persFormStore";
 import clsx from "clsx";
 import ClassesForm from "@/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
+import ASIForm from "@/components/characterCreator/ASIForm";
 
 const STEPS = [
   {id: 1, name: 'Раса', component: 'races'},
@@ -54,7 +55,9 @@ export const MultiStepForm = (
       case 3:
         return <BackgroundsForm backgrounds={backgrounds}/>
       case 4:
-        return <ASIForm/>
+        return <ASIForm
+                  race={races.find(r => r.raceId === formData.raceId)}
+                  selectedClass={classes.find(c => c.classId === formData.classId)}/>
       // case 5:
       //   return <SkillsForm/>
       // case 6:
