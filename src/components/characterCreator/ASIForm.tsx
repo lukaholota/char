@@ -4,7 +4,7 @@ import {useStepForm} from "@/hooks/useStepForm";
 import {Class, Classes, Race} from "@prisma/client";
 import {asiSchema} from "@/zod/schemas/persCreateSchema";
 import {useFieldArray} from "react-hook-form";
-import React, {useEffect} from "react";
+import React, {useEffect, useMemo} from "react";
 import {classAbilityScores} from "@/refs/classesBaseASI";
 
 interface Props {
@@ -37,16 +37,34 @@ export const ASIForm = (
     control: form.control,
     name: "asi",
   });
-  const {fields: simpleAsiFields, replace: replaceSimpleAsi} = useFieldArray({
+  const {fields: simpleAsiFields, replace: replaceSimpleAsi, swap: simpleAsiSwap} = useFieldArray({
     control: form.control,
     name: "simpleAsi",
   });
+  const watchedSimpleAsi = form.watch('simpleAsi');
 
   const isDefaultASI = form.watch('isDefaultASI') || false
   const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
   const points = form.watch('points') || 0
 
-  const sortedSimpleAsi = simpleAsiFields.sort((a, b) => b.value - a.value)
+  const simpleAsiIndexMap = new Map(
+    simpleAsiFields.map((field, index) => [field.id, index])
+  )
+
+  const sortedSimpleAsi = useMemo(() => {
+    if (!watchedSimpleAsi || watchedSimpleAsi.length === 0) {
+      return [...simpleAsiFields].sort((a, b) => b.value - a.value);
+    }
+
+    const enrichedFields = simpleAsiFields.map((field, index) => ({
+      ...field,
+      value: watchedSimpleAsi[index]?.value
+    }));
+
+    return enrichedFields.sort((a, b) => b.value - a.value);
+  }, [watchedSimpleAsi, simpleAsiFields])
+
+  console.log(sortedSimpleAsi)
 
   useEffect(() => {
     if (selectedClass && asiFields.length === 0) {
@@ -77,6 +95,40 @@ export const ASIForm = (
     }
   }
 
+  const swapUp = ({sortedIndexA}: {sortedIndexA: number}) => { // index == 0-5
+    if (sortedIndexA < 5) {
+      const sortedIndexB = sortedIndexA + 1
+
+      const itemA = sortedSimpleAsi[sortedIndexA]
+      const itemB = sortedSimpleAsi[sortedIndexB]
+
+      const originalIndexA = simpleAsiFields.findIndex(field => field.id === itemA.id);
+      const originalIndexB = simpleAsiFields.findIndex(field => field.id === itemB.id);
+
+      if (originalIndexA === -1 || originalIndexB === -1) return;
+
+      simpleAsiSwap(originalIndexA, originalIndexB)
+
+      // form.setValue(`simpleAsi.${originalIndex}.value`, searchedObject.value, {
+      //   shouldTouch: true,
+      //   shouldDirty: true,
+      //   shouldValidate: true
+      // });
+      // form.setValue(`simpleAsi.${searchedOriginalIndex}.value`, originalObject.value, {
+      //   shouldTouch: true,
+      //   shouldDirty: true,
+      //   shouldValidate: true
+      // });
+      //
+      // form.trigger('simpleAsi')
+    }
+  }
+  const swapDown = (index: number) => { // index == 0-5
+    if (index > 0) {
+      simpleAsiSwap(index, index - 1)
+    }
+  }
+
   const handleChangeAsiSystem = (e: React.ChangeEvent<HTMLInputElement>) => {
     form.setValue('asiSystem', e.target.value)
   }
@@ -91,6 +143,10 @@ export const ASIForm = (
         </p>
       )}
       <div className="flex justify-evenly">
+        <input
+          type="hidden"
+          {...form.register(`asiSystem`)}
+        />
         <label>
           <input type="radio" name="ASI_SYSTEM" value={asiSystems.POINT_BUY}
                  checked={asiSystem === asiSystems.POINT_BUY} onChange={handleChangeAsiSystem}/>
@@ -161,10 +217,49 @@ export const ASIForm = (
 
         {
           asiSystem === asiSystems.SIMPLE && (
-            <div>
+            <div className="flex flex-row">
+              <div className="">
+                {
+                    sortedSimpleAsi.map((field, sortedIndex) => {
+                    const attr = attributes.find(a => a.eng === field.ability);
+                    const originalIndex = simpleAsiFields.findIndex(f => f.id === field.id);
+                    const currentValue = field.value
+
+                    return (
+                      <div key={field.id} className="flex items-center gap-4 bg-slate-800 p-3 rounded">
+                        <span className="w-12 text-center text-xl font-bold">{currentValue}</span>
+
+                        <button
+                          type="button"
+                          onClick={() => swapUp({sortedIndexA: sortedIndex})}
+                          className="px-3 py-1 bg-red-600 rounded hover:bg-red-700"
+                          disabled={currentValue >= 15}>
+                          ↑
+                        </button>
+
+                        <span className="w-24 font-semibold">{attr?.urk || field.ability}</span>
+
+                        <button
+                          type="button"
+                          onClick={() => swapDown(originalIndex)}
+                          className="px-3 py-1 bg-green-600 rounded hover:bg-green-700"
+                          disabled={currentValue <= 8}>
+                          ↓
+                        </button>
+                      </div>
+                    );
+                  })
+                }
+              </div>
               {
-                simpleAsiFields.map(field, index)
+                asiSystem === asiSystems.POINT_BUY && (
+                  <div
+                    className={`text-3xl text-center flex justify-center items-center ml-5 ${points < 0 && 'text-red-600'}`}>
+                    {points}
+                  </div>
+                )
               }
+
             </div>
           )
         }
