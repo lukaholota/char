@@ -33,26 +33,36 @@ export const ASIForm = (
 ) => {
   const {form, onSubmit} = useStepForm(asiSchema)
 
-  const {fields, replace} = useFieldArray({
+  const {fields: asiFields, replace: replaceAsi} = useFieldArray({
     control: form.control,
     name: "asi",
+  });
+  const {fields: simpleAsiFields, replace: replaceSimpleAsi} = useFieldArray({
+    control: form.control,
+    name: "simpleAsi",
   });
 
   const isDefaultASI = form.watch('isDefaultASI') || false
   const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
   const points = form.watch('points') || 0
 
+  const sortedSimpleAsi = simpleAsiFields.sort((a, b) => b.value - a.value)
+
   useEffect(() => {
-    if (selectedClass && fields.length === 0) {
+    if (selectedClass && asiFields.length === 0) {
       const defaultClassASI = classAbilityScores[selectedClass.name as Classes]
       if (defaultClassASI) {
-        replace(defaultClassASI.map(asi => ({
+        replaceAsi(defaultClassASI.map(asi => ({
+          ability: asi.ability,
+          value: asi.value,
+        })));
+        replaceSimpleAsi(defaultClassASI.map(asi => ({
           ability: asi.ability,
           value: asi.value,
         })));
       }
     }
-  }, [selectedClass, fields.length, replace])
+  }, [selectedClass, asiFields.length, replaceAsi, replaceSimpleAsi, simpleAsiFields.length])
 
   const incrementValue = (index: number) => {
     const currentValue = (form.getValues(`asi.${index}.value`) || 0) as number;
@@ -104,7 +114,7 @@ export const ASIForm = (
             <div className="flex flex-row">
               <div className="">
                 {
-                  fields.map((field, index) => {
+                  asiFields.map((field, index) => {
                     const attr = attributes.find(a => a.eng === field.ability)
                     const currentValue = form.watch(`asi.${index}.value`) || field.value;
 
@@ -151,7 +161,11 @@ export const ASIForm = (
 
         {
           asiSystem === asiSystems.SIMPLE && (
-
+            <div>
+              {
+                simpleAsiFields.map(field, index)
+              }
+            </div>
           )
         }
       </div>

@@ -18,6 +18,10 @@ export const asiSchema = z.object({
 
   asiSystem: z.string().default('POINT_BUY'),
   points: z.number().min(0).default(0),
+  simpleAsi: z.array(z.object({
+    ability: z.string(),
+    value: z.number(), // коерсимо
+  })),
   asi: z.array(z.object({
     ability: z.string(),
     value: z.number(), // коерсимо
@@ -39,6 +43,7 @@ export const fullCharacterSchema = z.object({
   isDefaultASI: z.boolean(),
   asiSystem: z.string().default('POINT_BUY'),
   points: z.number().int().min(0).default(27),
+  simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})),
   asi: z.array(z.object({ability: z.string(), value: z.number()})),
   skills: z.array(z.string()),
   equipment: z.array(z.number()),
