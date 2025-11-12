@@ -17,16 +17,33 @@ export const asiSchema = z.object({
   isDefaultASI: z.boolean().default(false), // ТОБТО НЕ ТАША
 
   asiSystem: z.string().default('POINT_BUY'),
-  points: z.number().min(0).default(0),
+  points: z.coerce.number().default(0),
   simpleAsi: z.array(z.object({
     ability: z.string(),
     value: z.number(), // коерсимо
-  })),
+  })).optional(),
   asi: z.array(z.object({
     ability: z.string(),
     value: z.number(), // коерсимо
-  }))
+  })).optional()
 })
+  .refine((data) => {
+  if (data.asiSystem === 'POINT_BUY') {
+    return data.asi && data.asi.length === 6 && data.points >= 0;
+  }
+  return true
+}, {
+  message: "Очків не має бути менше за 0",
+  path: ['points']
+}).refine((data) => {
+    if (data.asiSystem === 'SIMPLE') {
+      return data.simpleAsi && data.simpleAsi.length === 6;
+    }
+    return true;
+  }, {
+  message: "Помилка... Спробуйте перезавантажити сторінку 🙏",
+    path: ['simpleAsi']
+  })
 export const equipmentSchema = z.object({
   equipment: z.array(z.number()), // коерсимо
 })

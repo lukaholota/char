@@ -3,7 +3,7 @@
 import {useStepForm} from "@/hooks/useStepForm";
 import {Class, Classes, Race} from "@prisma/client";
 import {asiSchema} from "@/zod/schemas/persCreateSchema";
-import {useFieldArray} from "react-hook-form";
+import {useFieldArray, useWatch} from "react-hook-form";
 import React, {useEffect, useMemo} from "react";
 import {classAbilityScores} from "@/refs/classesBaseASI";
 
@@ -41,15 +41,14 @@ export const ASIForm = (
     control: form.control,
     name: "simpleAsi",
   });
-  const watchedSimpleAsi = form.watch('simpleAsi');
+  const watchedSimpleAsi = useWatch({
+    control: form.control,
+    name: 'simpleAsi'
+  })
 
   const isDefaultASI = form.watch('isDefaultASI') || false
   const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
   const points = form.watch('points') || 0
-
-  const simpleAsiIndexMap = new Map(
-    simpleAsiFields.map((field, index) => [field.id, index])
-  )
 
   const sortedSimpleAsi = useMemo(() => {
     if (!watchedSimpleAsi || watchedSimpleAsi.length === 0) {
@@ -58,13 +57,12 @@ export const ASIForm = (
 
     const enrichedFields = simpleAsiFields.map((field, index) => ({
       ...field,
-      value: watchedSimpleAsi[index]?.value
+      ability: field.ability,
+      value: watchedSimpleAsi[index]?.value ?? field.value
     }));
 
     return enrichedFields.sort((a, b) => b.value - a.value);
   }, [watchedSimpleAsi, simpleAsiFields])
-
-  console.log(sortedSimpleAsi)
 
   useEffect(() => {
     if (selectedClass && asiFields.length === 0) {
@@ -83,21 +81,22 @@ export const ASIForm = (
   }, [selectedClass, asiFields.length, replaceAsi, replaceSimpleAsi, simpleAsiFields.length])
 
   const incrementValue = (index: number) => {
-    const currentValue = (form.getValues(`asi.${index}.value`) || 0) as number;
+    const currentValue = form.getValues(`asi.${index}.value`) || 0;
     form.setValue('points', currentValue >= 13 ? points - 2 : points - 1)
     form.setValue(`asi.${index}.value`, currentValue + 1)
   }
   const decrementValue = (index: number) => {
-    const currentValue = (form.getValues(`asi.${index}.value`) || 0) as number;
+    const currentValue = form.getValues(`asi.${index}.value`) || 0;
+    console.log(currentValue)
     if (currentValue > 8) {
       form.setValue('points', currentValue >= 14 ? points + 2 : points + 1)
       form.setValue(`asi.${index}.value`, currentValue - 1)
     }
   }
 
-  const swapUp = ({sortedIndexA}: {sortedIndexA: number}) => { // index == 0-5
-    if (sortedIndexA < 5) {
-      const sortedIndexB = sortedIndexA + 1
+  const swapValues = ({sortedIndexA, isDirectionUp}: { sortedIndexA: number, isDirectionUp: boolean }) => { // index == 0-5
+    if (isDirectionUp ? sortedIndexA > 0 : sortedIndexA < 5) {
+      const sortedIndexB = isDirectionUp ? sortedIndexA - 1 : sortedIndexA + 1
 
       const itemA = sortedSimpleAsi[sortedIndexA]
       const itemB = sortedSimpleAsi[sortedIndexB]
@@ -107,25 +106,17 @@ export const ASIForm = (
 
       if (originalIndexA === -1 || originalIndexB === -1) return;
 
-      simpleAsiSwap(originalIndexA, originalIndexB)
+      form.setValue(`simpleAsi.${originalIndexA}.value`, itemB.value, {
+        shouldTouch: true,
+        shouldDirty: true,
+        shouldValidate: true
+      });
 
-      // form.setValue(`simpleAsi.${originalIndex}.value`, searchedObject.value, {
-      //   shouldTouch: true,
-      //   shouldDirty: true,
-      //   shouldValidate: true
-      // });
-      // form.setValue(`simpleAsi.${searchedOriginalIndex}.value`, originalObject.value, {
-      //   shouldTouch: true,
-      //   shouldDirty: true,
-      //   shouldValidate: true
-      // });
-      //
-      // form.trigger('simpleAsi')
-    }
-  }
-  const swapDown = (index: number) => { // index == 0-5
-    if (index > 0) {
-      simpleAsiSwap(index, index - 1)
+      form.setValue(`simpleAsi.${originalIndexB}.value`, itemA.value, {
+        shouldTouch: true,
+        shouldDirty: true,
+        shouldValidate: true
+      });
     }
   }
 
@@ -137,16 +128,54 @@ export const ASIForm = (
     <form onSubmit={onSubmit}>
       <h2 className="my-5">Оберіть Стати</h2>
 
-      {form.formState.errors.asi && (
-        <p className="text-red-500 text-sm">
-          {form.formState.errors.asi.message}
+      {/* ✅ Показуємо помилки з refine */}
+      {form.formState.errors.root && (
+        <p className="text-red-500 text-sm mb-3">
+          ❌ root {form.formState.errors.root.message}
         </p>
       )}
+
+      {/* Або якщо помилка на полі asi */}
+      {form.formState.errors.asi && (
+        <p className="text-red-500 text-sm mb-3">
+          ❌ asi {form.formState.errors.asi.message}
+        </p>
+      )}
+
+      {/* Або якщо на simpleAsi */}
+      {form.formState.errors.simpleAsi && (
+        <p className="text-red-500 text-sm mb-3">
+          ❌ simpleAsi {form.formState.errors.simpleAsi.message}
+        </p>
+      )}
+
+      {form.formState.errors.points && (
+        <p className="text-red-500 text-sm mb-3">
+          ❌ point {form.formState.errors.points.message}
+        </p>
+      )}
+      
       <div className="flex justify-evenly">
-        <input
-          type="hidden"
-          {...form.register(`asiSystem`)}
-        />
+        <input type="hidden" {...form.register('asiSystem')} />
+        <input type="hidden" {...form.register('points', {valueAsNumber: true})} />
+        <input type="hidden" {...form.register('isDefaultASI')} />
+
+        {/* Реєструємо всі asi поля */}
+        {asiFields.map((field, index) => (
+          <React.Fragment key={field.id}>
+            <input type="hidden" {...form.register(`asi.${index}.ability`)} />
+            <input type="hidden" {...form.register(`asi.${index}.value`, {valueAsNumber: true})} />
+          </React.Fragment>
+        ))}
+
+        {/* Реєструємо всі simpleAsi поля */}
+        {simpleAsiFields.map((field, index) => (
+          <React.Fragment key={field.id}>
+            <input type="hidden" {...form.register(`simpleAsi.${index}.ability`)} />
+            <input type="hidden" {...form.register(`simpleAsi.${index}.value`, {valueAsNumber: true})} />
+          </React.Fragment>
+        ))}
+
         <label>
           <input type="radio" name="ASI_SYSTEM" value={asiSystems.POINT_BUY}
                  checked={asiSystem === asiSystems.POINT_BUY} onChange={handleChangeAsiSystem}/>
@@ -196,14 +225,6 @@ export const ASIForm = (
                           ➕
                         </button>
 
-                        <input
-                          type="hidden"
-                          {...form.register(`asi.${index}.ability`)}
-                        />
-                        <input
-                          type="hidden"
-                          {...form.register(`asi.${index}.value`, {valueAsNumber: true})}
-                        />
                       </div>
                     );
                   })
@@ -220,9 +241,8 @@ export const ASIForm = (
             <div className="flex flex-row">
               <div className="">
                 {
-                    sortedSimpleAsi.map((field, sortedIndex) => {
+                  sortedSimpleAsi.map((field, sortedIndex) => {
                     const attr = attributes.find(a => a.eng === field.ability);
-                    const originalIndex = simpleAsiFields.findIndex(f => f.id === field.id);
                     const currentValue = field.value
 
                     return (
@@ -231,8 +251,8 @@ export const ASIForm = (
 
                         <button
                           type="button"
-                          onClick={() => swapUp({sortedIndexA: sortedIndex})}
-                          className="px-3 py-1 bg-red-600 rounded hover:bg-red-700"
+                          onClick={() => swapValues({sortedIndexA: sortedIndex, isDirectionUp: true})}
+                          className="px-3 py-1 bg-cyan-600 rounded hover:bg-cyan-500"
                           disabled={currentValue >= 15}>
                           ↑
                         </button>
@@ -241,8 +261,8 @@ export const ASIForm = (
 
                         <button
                           type="button"
-                          onClick={() => swapDown(originalIndex)}
-                          className="px-3 py-1 bg-green-600 rounded hover:bg-green-700"
+                          onClick={() => swapValues({sortedIndexA: sortedIndex, isDirectionUp: false})}
+                          className="px-3 py-1 bg-green-600 rounded hover:bg-green-500"
                           disabled={currentValue <= 8}>
                           ↓
                         </button>
@@ -269,13 +289,12 @@ export const ASIForm = (
       <label className="flex items-center gap-2 mb-4">
         <input
           type="checkbox"
-          {...form.register("isDefaultASI")}
           className="w-4 h-4"
         />
         <span>Не використовувати правила Таші &#34;вільного розподілу&#34;?</span>
       </label>
 
-      <button type="submit" className="mt-4 px-6 py-2 bg-violet-600 rounded">
+      <button type="submit" className="mt-4 px-6 py-2 bg-violet-600 rounded" disabled={asiSystem===asiSystems.POINT_BUY && points < 0}>
         Далі →
       </button>
     </form>
