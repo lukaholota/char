@@ -32,6 +32,7 @@ export const ASIForm = (
   {race, selectedClass}: Props
 ) => {
   const {form, onSubmit} = useStepForm(asiSchema)
+  console.log(form)
 
   const {fields: asiFields, replace: replaceAsi} = useFieldArray({
     control: form.control,
@@ -63,22 +64,6 @@ export const ASIForm = (
 
     return enrichedFields.sort((a, b) => b.value - a.value);
   }, [watchedSimpleAsi, simpleAsiFields])
-
-  useEffect(() => {
-    if (selectedClass && asiFields.length === 0) {
-      const defaultClassASI = classAbilityScores[selectedClass.name as Classes]
-      if (defaultClassASI) {
-        replaceAsi(defaultClassASI.map(asi => ({
-          ability: asi.ability,
-          value: asi.value,
-        })));
-        replaceSimpleAsi(defaultClassASI.map(asi => ({
-          ability: asi.ability,
-          value: asi.value,
-        })));
-      }
-    }
-  }, [selectedClass, asiFields.length, replaceAsi, replaceSimpleAsi, simpleAsiFields.length])
 
   const incrementValue = (index: number) => {
     const currentValue = form.getValues(`asi.${index}.value`) || 0;
@@ -124,8 +109,33 @@ export const ASIForm = (
     form.setValue('asiSystem', e.target.value)
   }
 
+  useEffect(() => {
+    if (selectedClass && asiFields.length === 0) {
+      const defaultClassASI = classAbilityScores[selectedClass.name as Classes]
+      if (defaultClassASI) {
+        replaceAsi(defaultClassASI.map(asi => ({
+          ability: asi.ability,
+          value: asi.value,
+        })));
+        replaceSimpleAsi(defaultClassASI.map(asi => ({
+          ability: asi.ability,
+          value: asi.value,
+        })));
+      }
+    }
+  }, [selectedClass, asiFields.length, replaceAsi, replaceSimpleAsi, simpleAsiFields.length])
+
+  useEffect(() => {
+    form.register('points')
+
+    const p = form.getValues('points');
+    if (typeof p !== 'number') {
+      form.setValue('points', 0, { shouldDirty: false, shouldTouch: false })
+    }
+  }, [form])
+
   return (
-    <form onSubmit={onSubmit}>
+    <form  onSubmit={onSubmit}>
       <h2 className="my-5">Оберіть Стати</h2>
 
       {/* ✅ Показуємо помилки з refine */}
@@ -157,7 +167,7 @@ export const ASIForm = (
       
       <div className="flex justify-evenly">
         <input type="hidden" {...form.register('asiSystem')} />
-        <input type="hidden" {...form.register('points', {valueAsNumber: true})} />
+        {/*<input type="hidden" {...form.register('points', {valueAsNumber: true})} />*/}
         <input type="hidden" {...form.register('isDefaultASI')} />
 
         {/* Реєструємо всі asi поля */}

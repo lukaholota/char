@@ -17,15 +17,15 @@ export const asiSchema = z.object({
   isDefaultASI: z.boolean().default(false), // ТОБТО НЕ ТАША
 
   asiSystem: z.string().default('POINT_BUY'),
-  points: z.coerce.number().default(0),
+  points: z.number().default(0),
   simpleAsi: z.array(z.object({
     ability: z.string(),
     value: z.number(), // коерсимо
-  })).optional(),
+  })).default([]).optional(),
   asi: z.array(z.object({
     ability: z.string(),
     value: z.number(), // коерсимо
-  })).optional()
+  })).default([]).optional()
 })
   .refine((data) => {
   if (data.asiSystem === 'POINT_BUY') {
@@ -57,14 +57,15 @@ export const fullCharacterSchema = z.object({
   raceId: z.number(),
   classId: z.number(),
   backgroundId: z.number(),
-  isDefaultASI: z.boolean(),
+  isDefaultASI: z.boolean().default(false),
   asiSystem: z.string().default('POINT_BUY'),
-  points: z.number().int().min(0).default(27),
-  simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})),
-  asi: z.array(z.object({ability: z.string(), value: z.number()})),
+  points: z.number().min(0).default(0),
+  simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
+  asi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
   skills: z.array(z.string()),
   equipment: z.array(z.number()),
   name: z.string(),
 })
+
 
 export type PersFormData = z.infer<typeof fullCharacterSchema>
