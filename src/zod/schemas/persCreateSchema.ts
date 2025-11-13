@@ -13,6 +13,12 @@ export const backgroundSchema = z.object({
   backgroundId: z.number().min(1, "Передісторію не обрано... ти хто взагалі?"),
 });
 
+const choices = z.object({
+  groupIndex: z.number(),
+  choiceCount: z.number(),
+  selectedAbilities: z.array(z.enum(Ability))
+})
+
 export const asiSchema = z.object({
   isDefaultASI: z.boolean().default(false), // ТОБТО НЕ ТАША
 
@@ -25,7 +31,17 @@ export const asiSchema = z.object({
   asi: z.array(z.object({
     ability: z.string(),
     value: z.number(), // коерсимо
-  })).default([]).optional()
+  })).default([]).optional(),
+  customAsi: z.array(z.object({
+    ability: z.string(),
+    value: z.string().optional()
+      // .min(0, 'замало! Має бути більше за 0').max(99, 'Забагато! має бути менше за 100'), // коерсимо
+  })).default([]).optional(),
+
+  racialBonusChoiceSchema: z.object({
+    basicChoices: z.array(choices).optional(),
+    tashaChoices: z.array(choices).optional()
+  })
 })
   .refine((data) => {
   if (data.asiSystem === 'POINT_BUY') {
@@ -43,6 +59,39 @@ export const asiSchema = z.object({
   }, {
   message: "Помилка... Спробуйте перезавантажити сторінку 🙏",
     path: ['simpleAsi']
+  }).refine((data) => {
+    if (data.asiSystem === 'CUSTOM') {
+      return data.customAsi
+        && data.customAsi.length === 6
+        && data.customAsi.every((entry) => {
+          try {
+            const num = Number(entry.value)
+            return !isNaN(num) && entry.value != '';
+          } catch {
+            return false;
+          }
+        })
+    }
+    return true;
+  }, {
+    message: "Введіть саме числа, будь ласка!",
+    path: ['customAsi', 'root']
+  }).refine((data) => {
+    if (data.racialBonusChoiceSchema) {
+      const check = (c) => {
+        return c.selectedAbilities.length === c.choiceCount
+      }
+      if (data.isDefaultASI && data.racialBonusChoiceSchema.basicChoices) {
+        return check(data.racialBonusChoiceSchema.basicChoices)
+      }
+      else if (!data.isDefaultASI && data.racialBonusChoiceSchema.tashaChoices) {
+        return check(data.racialBonusChoiceSchema.tashaChoices)
+      }
+    }
+    return true;
+  }, {
+    message: "Не можна обрати більше, ніж зазначено!",
+    path: ['racialBonusChoiceSchema', 'root']
   })
 export const equipmentSchema = z.object({
   equipment: z.array(z.number()), // коерсимо
@@ -61,10 +110,15 @@ export const fullCharacterSchema = z.object({
   asiSystem: z.string().default('POINT_BUY'),
   points: z.number().min(0).default(0),
   simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
+  customAsi: z.array(z.object({ ability: z.string(), value: z.string().transform((val) => (val === '' ? 10 : Number(val)))})).default([]).optional(),
   asi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
   skills: z.array(z.string()),
   equipment: z.array(z.number()),
   name: z.string(),
+  racialBonusChoiceSchema: z.object({
+    basicChoices: z.array(choices).optional(),
+    tashaChoices: z.array(choices).optional()
+  })
 })
 
 

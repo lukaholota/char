@@ -100,7 +100,7 @@ export const MultiStepForm = (
         </div>
       </div>
 
-      <div className="min-h-[400px]">
+      <div className="min-h-screen flex items-center justify-center p-4">
         {renderStep()}
       </div>
 
