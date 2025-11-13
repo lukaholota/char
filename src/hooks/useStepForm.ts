@@ -18,12 +18,15 @@ export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape
     const relevantFormData = useMemo(() => {
         const schemaKeys = Object.keys(schema.shape);
         return Object.keys(formData)
-          .filter(key => schemaKeys.includes(key))
-    })
+          .filter(key => schemaKeys.includes(key)).reduce((acc, key) => {
+              acc[key] = formData[key]
+              return acc;
+          }, {} as Record<string, any>)
+    }, [formData, schema])
 
     const mergedDefaults = useMemo(() => ({
         ...schemaDefaults,
-        ...formData,
+        ...relevantFormData,
     }), [schemaDefaults, formData])
 
     const form = useForm<Input, unknown, Output>({

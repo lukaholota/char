@@ -110,20 +110,28 @@ export const ASIForm = (
   }
 
   useEffect(() => {
-    if (selectedClass && asiFields.length === 0) {
+    if (selectedClass) {
       const defaultClassASI = classAbilityScores[selectedClass.name as Classes]
       if (defaultClassASI) {
-        replaceAsi(defaultClassASI.map(asi => ({
-          ability: asi.ability,
-          value: asi.value,
-        })));
-        replaceSimpleAsi(defaultClassASI.map(asi => ({
-          ability: asi.ability,
-          value: asi.value,
-        })));
+        const currentAsi = form.getValues('asi')
+        const currentSimpleAsi = form.getValues('simpleAsi')
+
+        if (!currentAsi || currentAsi.length === 0) {
+          replaceAsi(defaultClassASI.map(asi => ({
+            ability: asi.ability,
+            value: asi.value,
+          })));
+        }
+        if (!currentSimpleAsi || currentSimpleAsi.length === 0) {
+          replaceSimpleAsi(defaultClassASI.map(asi => ({
+            ability: asi.ability,
+            value: asi.value,
+          })));
+        }
+
       }
     }
-  }, [selectedClass, asiFields.length, replaceAsi, replaceSimpleAsi, simpleAsiFields.length])
+  }, [selectedClass, replaceAsi, replaceSimpleAsi])
 
   useEffect(() => {
     form.register('points')
@@ -167,8 +175,7 @@ export const ASIForm = (
       
       <div className="flex justify-evenly">
         <input type="hidden" {...form.register('asiSystem')} />
-        {/*<input type="hidden" {...form.register('points', {valueAsNumber: true})} />*/}
-        <input type="hidden" {...form.register('isDefaultASI')} />
+        <input type="hidden" />
 
         {/* Реєструємо всі asi поля */}
         {asiFields.map((field, index) => (
@@ -281,15 +288,34 @@ export const ASIForm = (
                   })
                 }
               </div>
-              {
-                asiSystem === asiSystems.POINT_BUY && (
-                  <div
-                    className={`text-3xl text-center flex justify-center items-center ml-5 ${points < 0 && 'text-red-600'}`}>
-                    {points}
-                  </div>
-                )
-              }
+            </div>
+          )
+        }
+        {
+          asiSystem === asiSystems.CUSTOM && (
+            <div className="flex flex-row">
+              <div className="">
+                {
+                  sortedSimpleAsi.map((field, sortedIndex) => {
+                    const attr = attributes.find(a => a.eng === field.ability);
+                    const currentValue = field.value
 
+                    return (
+                      <div key={field.id} className="flex items-center gap-4 bg-slate-800 p-3 rounded">
+                        <span className="w-24 font-semibold">{attr?.urk || field.ability}</span>
+
+                        <input
+                          type="text"
+                          placeholder="Введіть число"
+                          value={currentValue}
+                          // onChange={() => }
+                          className="px-3 py-1 bg-green-600 rounded hover:bg-green-500 w-4 h-4"
+                        />
+                      </div>
+                    );
+                  })
+                }
+              </div>
             </div>
           )
         }
@@ -300,6 +326,7 @@ export const ASIForm = (
         <input
           type="checkbox"
           className="w-4 h-4"
+          {...form.register('isDefaultASI')}
         />
         <span>Не використовувати правила Таші &#34;вільного розподілу&#34;?</span>
       </label>
