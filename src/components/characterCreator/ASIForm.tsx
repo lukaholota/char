@@ -35,21 +35,21 @@ type RaceASI = {
 }
 
 const attributes = [
-  { eng: 'STR', urk: 'Сила' },
-  { eng: 'DEX', urk: 'Спритність' },
-  { eng: 'CON', urk: 'Статура' },
-  { eng: 'INT', urk: 'Інтелект' },
-  { eng: 'WIS', urk: 'Мудрість' },
-  { eng: 'CHA', urk: 'Харизма' }
+  { eng: 'STR', ukr: 'Сила' },
+  { eng: 'DEX', ukr: 'Спритність' },
+  { eng: 'CON', ukr: 'Статура' },
+  { eng: 'INT', ukr: 'Інтелект' },
+  { eng: 'WIS', ukr: 'Мудрість' },
+  { eng: 'CHA', ukr: 'Харизма' }
 ];
 
 const attributesUrkShort = [
-  { eng: 'STR', urk: 'СИЛ' }, // Strength — Сила
-  { eng: 'DEX', urk: 'СПР' }, // Dexterity — Спритність
-  { eng: 'CON', urk: 'СТА' }, // Constitution — Статура
-  { eng: 'INT', urk: 'ІНТ' }, // Intelligence — Інтелект
-  { eng: 'WIS', urk: 'МУД' }, // Wisdom — Мудрість
-  { eng: 'CHA', urk: 'ХАР' }, // Charisma — Харизма
+  { eng: 'STR', ukr: 'СИЛ' }, // Strength — Сила
+  { eng: 'DEX', ukr: 'СПР' }, // Dexterity — Спритність
+  { eng: 'CON', ukr: 'СТА' }, // Constitution — Статура
+  { eng: 'INT', ukr: 'ІНТ' }, // Intelligence — Інтелект
+  { eng: 'WIS', ukr: 'МУД' }, // Wisdom — Мудрість
+  { eng: 'CHA', ukr: 'ХАР' }, // Charisma — Харизма
 ];
 
 const asiSystems = {
@@ -63,6 +63,7 @@ export const ASIForm = (
   { race, selectedClass }: Props
 ) => {
   const raceAsi = race?.ASI as RaceASI
+
   const { form, onSubmit } = useStepForm(asiSchema)
 
   const { fields: asiFields, replace: replaceAsi } = useFieldArray({
@@ -85,6 +86,8 @@ export const ASIForm = (
   const isDefaultASI = form.watch('isDefaultASI') || false
   const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
   const points = form.watch('points') || 0
+
+  const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
 
   const sortedSimpleAsi = useMemo(() => {
     if (!watchedSimpleAsi || watchedSimpleAsi.length === 0) {
@@ -143,6 +146,55 @@ export const ASIForm = (
     form.setValue('asiSystem', e.target.value)
   }
 
+  const handleToggleRacialBonus = ({ groupIndex, choiceCount, ability }: {
+    groupIndex: number,
+    choiceCount: number,
+    ability: Ability
+  }) => {
+    const schemaPath = racialBonusSchemaPath;
+
+    const groups = form.getValues(schemaPath) || []
+
+    const arrayIndex = groups.findIndex(g => g.groupIndex === groupIndex);
+
+    if (arrayIndex !== -1) {
+      const currentAbilities = groups[arrayIndex].selectedAbilities;
+      const hasAbility = currentAbilities.includes(ability);
+
+      if (!hasAbility && currentAbilities.length === groups[arrayIndex].choiceCount) return null;
+
+      const newAbilities = hasAbility
+        ? currentAbilities.filter(a => a !== ability)
+        : [...currentAbilities, ability]
+
+      form.setValue(
+        `${ schemaPath }.${ arrayIndex }.selectedAbilities`,
+        newAbilities
+      )
+    } else {
+      const newGroup = {
+        groupIndex: groupIndex,
+        choiceCount: choiceCount,
+        selectedAbilities: [ability]
+      }
+      const newGroups = [...groups, newGroup]
+
+      form.setValue(`${ schemaPath }`, newGroups)
+    }
+  }
+
+  const isRacialBonusSelected = (index: number, attr: { eng: string, ukr: string }) => {
+    const abilities = form.getValues(`${ racialBonusSchemaPath }.${ index }.selectedAbilities`) || [];
+
+    return abilities.includes(Ability[attr.eng])
+  }
+
+  const getCurrentSelectedCount = (index: number) => {
+    const abilities = form.getValues(`${ racialBonusSchemaPath }.${ index }.selectedAbilities`) || [];
+
+    return abilities.length;
+  }
+
   useEffect(() => {
     if (selectedClass) {
       const defaultClassASI = classAbilityScores[selectedClass.name as Classes]
@@ -181,6 +233,12 @@ export const ASIForm = (
       form.setValue('points', 0, { shouldDirty: false, shouldTouch: false })
     }
   }, [form])
+
+  const racialBonusGroups = useMemo(() => {
+    return isDefaultASI
+      ? raceAsi.basic?.flexible?.groups
+      : raceAsi.tasha?.flexible.groups
+  }, [isDefaultASI, raceAsi])
 
   return (
     <form onSubmit={ onSubmit } className="w-full max-w-2xl mx-auto">
@@ -221,7 +279,7 @@ export const ASIForm = (
 
       <div className="flex justify-evenly">
         <input type="hidden" { ...form.register('asiSystem') } />
-        <input type="hidden"/>
+        <input type="hidden" { ...form.register('racialBonusChoiceSchema') } />
 
         {/* Реєструємо всі asi поля */ }
         { asiFields.map((field, index) => (
@@ -275,7 +333,7 @@ export const ASIForm = (
 
                     return (
                       <div key={ field.id } className="flex items-center gap-4 bg-slate-800 p-3 rounded">
-                        <span className="w-24 font-semibold">{ attr?.urk || field.ability }</span>
+                        <span className="w-24 font-semibold">{ attr?.ukr || field.ability }</span>
 
                         <button
                           type="button"
@@ -327,7 +385,7 @@ export const ASIForm = (
                           ↑
                         </button>
 
-                        <span className="w-24 font-semibold">{ attr?.urk || field.ability }</span>
+                        <span className="w-24 font-semibold">{ attr?.ukr || field.ability }</span>
 
                         <button
                           type="button"
@@ -355,7 +413,7 @@ export const ASIForm = (
 
                     return (
                       <div key={ field.id } className="flex items-center gap-4 bg-slate-800 p-3 rounded">
-                        <span className="w-24 font-semibold">{ attr?.urk || field.ability }</span>
+                        <span className="w-24 font-semibold">{ attr?.ukr || field.ability }</span>
 
                         <input
                           type="text"
@@ -377,30 +435,72 @@ export const ASIForm = (
       </div>
 
       <h2 className="my-3 text-center text-xl">Расові бонуси</h2>
-      {
-        isDefaultASI === false && (
-          <>
-            {
-              raceAsi?.tasha?.flexible.groups.map((group, index) => (
-                <div key={ index } className="mb-6">
-                  <h2 className="my-3 text-center text-blue-300">{ group.groupName }</h2>
 
-                  <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
-                    {
-                      attributesUrkShort.map((attr, i) => (
-                        <label key={ i } className="flex justify-center items-center cursor-pointer">
-                          <input type="checkbox" className="mr-2 w-4 h-4"/>
-                          <span>{ attr.urk }</span>
-                        </label>
-                      ))
-                    }
-                  </div>
+      { form.formState.errors.racialBonusChoiceSchema && (
+        <p className="text-red-500 text-sm my-3">
+          ❌ { form.formState.errors.racialBonusChoiceSchema.message }
+        </p>
+      ) }
+
+      {
+          racialBonusGroups?.map((group, index) => (
+          <div key={ index } className="mb-6">
+            <h2 className="my-3 text-center text-blue-300">{ group.groupName }</h2>
+
+            <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
+              {
+                attributesUrkShort.map((attr, i) => {
+                  const isSelected = isRacialBonusSelected(index, attr)
+                  const currentCount = getCurrentSelectedCount(index);
+                  const isMaxReached = currentCount >= group.choiceCount
+                  const isDisabled = !isSelected && isMaxReached;
+
+                  const baseDisabled = isDefaultASI && raceAsi.basic?.simple.
+
+                  return (
+                    <label key={ i }
+                           className={ `flex justify-center items-center cursor-pointer ${ isDisabled && 'opacity-50 cursor-not-allowed' }` }>
+                      <input type="checkbox" className="mr-2 w-4 h-4" onChange={
+                        () => handleToggleRacialBonus({
+                          groupIndex: index,
+                          choiceCount: group.choiceCount,
+                          ability: Ability[attr.eng]
+                        })
+                      } checked={ isSelected }
+                             disabled={ isDisabled }/>
+                      <span>{ attr.ukr }</span>
+                    </label>
+                  )
+                })
+              }
+            </div>
+          </div>
+        ))
+      }
+      {
+        isDefaultASI && (
+          <>
+            {Object.entries(raceAsi.basic?.simple || {}).length > 0
+              ? Object.entries(raceAsi.basic?.simple || {}).map(([attrEng, value], index) => {
+              const attr = attributes.find(a => a.eng === attrEng)
+
+              return (
+                <div
+                  key={ index }
+                  className="bg-slate-700 px-4 py-2 rounded-lg"
+                >
+                  <span className="font-semibold">{ attr?.ukr }</span>
+                  <span className="ml-2 text-blue-300">{value}</span>
+
                 </div>
-              ))
+              )
+              })
+              : <>Порожньо!</>
             }
           </>
         )
       }
+
 
       <div className="flex justify-center my-6">
         <label className="flex items-center gap-2 mb-4 cursor-pointer">

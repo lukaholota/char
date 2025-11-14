@@ -78,8 +78,8 @@ export const asiSchema = z.object({
     path: ['customAsi', 'root']
   }).refine((data) => {
     if (data.racialBonusChoiceSchema) {
-      const check = (c) => {
-        return c.selectedAbilities.length === c.choiceCount
+      const check = (groups: any[]) => {
+        return groups.every(g => g.selectedAbilities.length === g.choiceCount)
       }
       if (data.isDefaultASI && data.racialBonusChoiceSchema.basicChoices) {
         return check(data.racialBonusChoiceSchema.basicChoices)
@@ -90,8 +90,8 @@ export const asiSchema = z.object({
     }
     return true;
   }, {
-    message: "Не можна обрати більше, ніж зазначено!",
-    path: ['racialBonusChoiceSchema', 'root']
+    message: "Дооберіть, будь ласка",
+    path: ['racialBonusChoiceSchema']
   })
 export const equipmentSchema = z.object({
   equipment: z.array(z.number()), // коерсимо
