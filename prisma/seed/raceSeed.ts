@@ -1701,7 +1701,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
                 ]
             }
         },
-
+// TODO: custom race
 // ============ VAN RICHTEN'S GUIDE TO RAVENLOFT ============
 
 // ============ DHAMPIR ============

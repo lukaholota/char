@@ -10,6 +10,7 @@ import clsx from "clsx";
 import ClassesForm from "@/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/components/characterCreator/ASIForm";
+import SkillsForm from "@/components/characterCreator/SkillsForm";
 
 const STEPS = [
   {id: 1, name: 'Раса', component: 'races'},
@@ -58,8 +59,8 @@ export const MultiStepForm = (
         return <ASIForm
                   race={races.find(r => r.raceId === formData.raceId)}
                   selectedClass={classes.find(c => c.classId === formData.classId)}/>
-      // case 5:
-      //   return <SkillsForm/>
+      case 5:
+        return <SkillsForm/>
       // case 6:
       //   return <EquipmentForm
       //     weapons={weapons}

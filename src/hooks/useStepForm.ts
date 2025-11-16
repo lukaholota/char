@@ -50,4 +50,4 @@ export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape
     }, (errors) => console.error('❌ Validation errors:', errors));
 
     return { form, onSubmit };
-};
+}

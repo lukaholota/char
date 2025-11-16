@@ -234,6 +234,11 @@ export const ASIForm = (
     }
   }, [form])
 
+  useEffect(() => {
+    form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
+    form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
+  }, [race, raceAsi])
+
   const racialBonusGroups = useMemo(() => {
     return isDefaultASI
       ? raceAsi.basic?.flexible?.groups
@@ -443,7 +448,7 @@ export const ASIForm = (
       ) }
 
       {
-          racialBonusGroups?.map((group, index) => (
+        racialBonusGroups?.map((group, index) => (
           <div key={ index } className="mb-6">
             <h2 className="my-3 text-center text-blue-300">{ group.groupName }</h2>
 
@@ -453,9 +458,30 @@ export const ASIForm = (
                   const isSelected = isRacialBonusSelected(index, attr)
                   const currentCount = getCurrentSelectedCount(index);
                   const isMaxReached = currentCount >= group.choiceCount
-                  const isDisabled = !isSelected && isMaxReached;
+                  const formGroups: {
+                    groupIndex: number;
+                    choiceCount: number;
+                    selectedAbilities: ("STR" | "DEX" | "CON" | "INT" | "WIS" | "CHA")[];
+                  }[]  = form.getValues(racialBonusSchemaPath) || []
 
-                  const baseDisabled = isDefaultASI && raceAsi.basic?.simple.
+                  const currentGroupIndex = formGroups.findIndex(g => g.groupIndex === index);
+
+                  const uniqueDisabled = isDefaultASI
+                    ? (
+                      raceAsi.basic?.simple
+                      && (raceAsi.basic?.flexible?.groups?.length ?? 0) > 0
+                      && (raceAsi.basic?.flexible?.groups?.every((group) => group.unique))
+                      && (Object.keys(raceAsi.basic?.simple ?? {}).includes(Ability[attr.eng]))
+                    )
+                    : (
+                      (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
+                      && (raceAsi.tasha?.flexible?.groups?.every((group) => group.unique))
+                      && (formGroups?.some((group) =>
+                          (group.groupIndex !== currentGroupIndex) &&
+                          (group.selectedAbilities.includes(Ability[attr.eng]))
+                      ))
+                    )
+                  const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
 
                   return (
                     <label key={ i }
@@ -480,20 +506,20 @@ export const ASIForm = (
       {
         isDefaultASI && (
           <>
-            {Object.entries(raceAsi.basic?.simple || {}).length > 0
+            { Object.entries(raceAsi.basic?.simple || {}).length > 0
               ? Object.entries(raceAsi.basic?.simple || {}).map(([attrEng, value], index) => {
-              const attr = attributes.find(a => a.eng === attrEng)
+                const attr = attributes.find(a => a.eng === attrEng)
 
-              return (
-                <div
-                  key={ index }
-                  className="bg-slate-700 px-4 py-2 rounded-lg"
-                >
-                  <span className="font-semibold">{ attr?.ukr }</span>
-                  <span className="ml-2 text-blue-300">{value}</span>
+                return (
+                  <div
+                    key={ index }
+                    className="bg-slate-700 px-4 py-2 rounded-lg"
+                  >
+                    <span className="font-semibold">{ attr?.ukr }</span>
+                    <span className="ml-2 text-blue-300">{ value }</span>
 
-                </div>
-              )
+                  </div>
+                )
               })
               : <>Порожньо!</>
             }

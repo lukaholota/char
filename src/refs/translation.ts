@@ -370,3 +370,24 @@ export const attributesUrkFull = {
   WIS: "Мудрість",
   CHA: "Харизма"
 };
+
+export const skills = [
+  { eng: 'Acrobatics', ukr: 'Акробатика' },
+  { eng: 'Animal Handling', ukr: 'Поводження з тваринами' },
+  { eng: 'Arcana', ukr: 'Магія' },
+  { eng: 'Athletics', ukr: 'Атлетика' },
+  { eng: 'Deception', ukr: 'Обман' },
+  { eng: 'History', ukr: 'Історія' },
+  { eng: 'Insight', ukr: 'Аналіз поведінки' },
+  { eng: 'Intimidation', ukr: 'Залякування' },
+  { eng: 'Investigation', ukr: 'Розслідування' },
+  { eng: 'Medicine', ukr: 'Медицина' },
+  { eng: 'Nature', ukr: 'Природа' },
+  { eng: 'Perception', ukr: 'Уважність' },
+  { eng: 'Performance', ukr: 'Виступ' },
+  { eng: 'Persuasion', ukr: 'Переконання' },
+  { eng: 'Religion', ukr: 'Релігія' },
+  { eng: 'Sleight of Hand', ukr: 'Спритність рук' },
+  { eng: 'Stealth', ukr: 'Непомітність' },
+  { eng: 'Survival', ukr: 'Виживання' }
+];

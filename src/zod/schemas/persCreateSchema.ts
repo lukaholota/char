@@ -1,5 +1,5 @@
 import {z} from "zod";
-import {Ability} from "@prisma/client";
+import { Ability, Skills } from "@prisma/client";
 
 export const raceSchema = z.object({
   raceId: z.number().min(1, "Треба обрати расу 😈")
@@ -102,6 +102,19 @@ export const nameSchema = z.object({
     .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
 })
 
+const skills = z.enum(Skills)
+
+export const skillsSchema  = z.object({
+  isTasha: z.boolean(),
+  tashaChoices: z.array(skills).optional(),
+
+  basicChoices: z.object({
+    background: z.array(skills),
+    selectedClass: z.array(skills),
+    race: z.array(skills)
+  }).optional()
+})
+
 export const fullCharacterSchema = z.object({
   raceId: z.number(),
   classId: z.number(),
@@ -118,7 +131,8 @@ export const fullCharacterSchema = z.object({
   racialBonusChoiceSchema: z.object({
     basicChoices: z.array(choices).optional(),
     tashaChoices: z.array(choices).optional()
-  })
+  }),
+  skillsSchema,
 })
 
 
