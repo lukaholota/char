@@ -199,6 +199,108 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             },
         },
 
+        // ===== METAMAGIC OPTIONS (SORCERER) =====
+        {
+            groupName: 'Метамагія',
+            optionName: 'Обережне заклинання',
+            optionNameEng: 'Careful Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Careful Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Віддалене заклинання',
+            optionNameEng: 'Distant Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Distant Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Посилене заклинання',
+            optionNameEng: 'Empowered Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Empowered Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Подовжене заклинання',
+            optionNameEng: 'Extended Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Extended Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Посилене закляття',
+            optionNameEng: 'Heightened Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Heightened Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Пришвидшене заклинання',
+            optionNameEng: 'Quickened Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Quickened Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Приховане заклинання',
+            optionNameEng: 'Subtle Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Subtle Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Спарене заклинання',
+            optionNameEng: 'Twinned Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Twinned Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Спрямоване заклинання',
+            optionNameEng: 'Seeking Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Seeking Spell' } } }
+                ]
+            },
+        },
+        {
+            groupName: 'Метамагія',
+            optionName: 'Перетворене заклинання',
+            optionNameEng: 'Transmuted Spell',
+            features: {
+                create: [
+                    { feature: { connect: { engName: 'Transmuted Spell' } } }
+                ]
+            },
+        },
+
         {
             groupName: 'Налаштування Слідопита: місцевість',
             optionName: '2 мови + експертиза',

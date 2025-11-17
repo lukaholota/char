@@ -48,7 +48,7 @@ const DND_DICTIONARY = {
         elf: "Ельф",
         gnome: "Гном",
         "half-elf": "Напівельф",
-        "half-orc": "Напівок",
+        "half-orc": "Напіворк",
         halfling: "Напіврослик",
         human: "Людина",
         tiefling: "Тифлінг"

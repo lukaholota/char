@@ -728,6 +728,155 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             quantity: 1,
             item: 'Інструменти злодія',
             description: 'Інструменти злодія'
+        },
+
+
+        // ===== SORCERER STARTING EQUIPMENT =====
+        // ГРУПА 1: Основна зброя
+        {
+            choiceGroup: 1,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 1,
+            description: 'Легкий арбалет (1к8)'
+        },
+        {
+            choiceGroup: 1,
+            option: 'a',
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 20,
+            item: 'Арбалетні болти',
+            description: '20 арбалетних болтів'
+        },
+        {
+            choiceGroup: 1,
+            option: 'b',
+            chooseAnyWeapon: true,
+            weaponType: WeaponType.SIMPLE_WEAPON,
+            weaponCount: 1,
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 1,
+            description: 'Одна проста зброя на вибір'
+        },
+
+        // ГРУПА 2: Фокус чи компоненти
+        {
+            choiceGroup: 2,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.COMPONENT_POUCH } },
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 1,
+            description: 'Сумка з компонентами'
+        },
+        {
+            choiceGroup: 2,
+            option: 'b',
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 1,
+            item: 'Арканний фокус',
+            description: 'Арканний фокус на вибір'
+        },
+
+        // ГРУПА 3: Набори спорядження
+        {
+            choiceGroup: 3,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 1,
+            description: 'Набір дослідника підземель'
+        },
+        {
+            choiceGroup: 3,
+            option: 'b',
+            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 1,
+            description: 'Набір мандрівника'
+        },
+
+        // ГРУПА 4: Фіксовані предмети
+        {
+            choiceGroup: 4,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.DAGGER } },
+            class: { connect: { name: Classes.SORCERER_2014 } },
+            quantity: 2,
+            description: 'Два кинджали'
+        },
+
+        // ===== WIZARD STARTING EQUIPMENT =====
+        // ГРУПА 1: Зброя
+        {
+            choiceGroup: 1,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.QUARTERSTAFF } },
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            description: 'Палиця (квартиршток) (1к6)'
+        },
+        {
+            choiceGroup: 1,
+            option: 'b',
+            weapon: { connect: { name: WeaponCategory.DAGGER } },
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            description: 'Кинджал (1к4)'
+        },
+
+        // ГРУПА 2: Фокус чи компоненти
+        {
+            choiceGroup: 2,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.COMPONENT_POUCH } },
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            description: 'Сумка з компонентами'
+        },
+        {
+            choiceGroup: 2,
+            option: 'b',
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            item: 'Арканний фокус',
+            description: 'Арканний фокус на вибір'
+        },
+
+        // ГРУПА 3: Набори спорядження
+        {
+            choiceGroup: 3,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.SCHOLARS_PACK } },
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            description: 'Набір ученого'
+        },
+        {
+            choiceGroup: 3,
+            option: 'b',
+            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            description: 'Набір мандрівника'
+        },
+
+        // ГРУПА 4: Фіксовані предмети
+        {
+            choiceGroup: 4,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.SPELLBOOK } },
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            description: 'Заклинальна книга чарівника'
+        },
+        {
+            choiceGroup: 4,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.DAGGER } },
+            class: { connect: { name: Classes.WIZARD_2014 } },
+            quantity: 1,
+            description: 'Кинджал (1к4)'
         }
     ];
 
