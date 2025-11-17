@@ -42,7 +42,7 @@ export const MultiStepForm = (
     equipmentPacks
   }: Props
 ) => {
-  const {currentStep, prevStep, resetForm, formData} = usePersFormStore()
+  const {currentStep, prevStep, resetForm, formData, prevRaceId, setPrevRaceId } = usePersFormStore()
 
 
 
@@ -61,7 +61,9 @@ export const MultiStepForm = (
       case 4:
         return <ASIForm
                   race={races.find(r => r.raceId === formData.raceId) as RaceI}
-                  selectedClass={classes.find(c => c.classId === formData.classId) as ClassI}/>
+                  selectedClass={classes.find(c => c.classId === formData.classId) as ClassI}
+                  prevRaceId={prevRaceId} setPrevRaceId={setPrevRaceId}
+        />
       case 5:
         return <SkillsForm/>
       // case 6:

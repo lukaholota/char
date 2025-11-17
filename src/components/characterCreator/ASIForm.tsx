@@ -12,6 +12,8 @@ import { ClassI, RaceI } from "@/types/model-types";
 interface Props {
   race: RaceI
   selectedClass: ClassI
+  prevRaceId: number | null
+  setPrevRaceId: (id: number) => void;
 }
 
 const attributes = [
@@ -40,7 +42,7 @@ const asiSystems = {
 
 
 export const ASIForm = (
-  { race, selectedClass }: Props
+  { race, selectedClass, prevRaceId, setPrevRaceId }: Props
 ) => {
   const raceAsi = race.ASI
 
@@ -216,16 +218,21 @@ export const ASIForm = (
     }
   }, [form])
 
-  const prevRaceId = useRef<number | null>(null);
-
   useEffect(() => {
-    if (prevRaceId.current !== null && prevRaceId.current !== race.raceId) {
+    if (prevRaceId !== null && prevRaceId !== race.raceId) {
+      console.log('resetting racialBonusChoiceSchema', form.getValues());
       form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
       form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
+      // form.reset({
+      //   ...form.getValues(),
+      //   racialBonusChoiceSchema: {
+      //     basicChoices: [],
+      //     tashaChoices: [],
+      //   }
+      // })
     }
 
-    prevRaceId.current  = race.raceId
-
+    setPrevRaceId(race.raceId)
   }, [race.raceId])
 
   const racialBonusGroups = useMemo(() => {

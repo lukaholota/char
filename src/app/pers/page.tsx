@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import MultiStepForm from "@/components/characterCreator/MultiStepForm";
 import { prisma } from "@/prisma";
-import { ClassI, RaceI } from "@/types/model-types";
+import {BackgroundI, ClassI, RaceI} from "@/types/model-types";
 
 
 export default async function Page() {
@@ -28,7 +28,7 @@ export default async function Page() {
         classOptionalFeatures: true
       }
     }) as Promise<ClassI[]>,
-    prisma.background.findMany(),
+    prisma.background.findMany() as Promise<BackgroundI[]>,
     prisma.weapon.findMany(),
     prisma.armor.findMany(),
     prisma.equipmentPack.findMany(),
