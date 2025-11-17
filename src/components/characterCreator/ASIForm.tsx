@@ -1,35 +1,35 @@
 "use client";
 
 import { useStepForm } from "@/hooks/useStepForm";
-import { Ability, Class, Classes, Race } from "@prisma/client";
+import { Ability, Classes,  } from "@prisma/client";
 import { asiSchema } from "@/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { classAbilityScores } from "@/refs/classesBaseASI";
-import {RaceASI} from "@/types/enhanced-models";
+import { ClassI, RaceI } from "@/types/model-types";
 
 
 interface Props {
-  race?: Race
-  selectedClass?: Class
+  race: RaceI
+  selectedClass: ClassI
 }
 
 const attributes = [
-  { eng: 'STR', ukr: 'Сила' },
-  { eng: 'DEX', ukr: 'Спритність' },
-  { eng: 'CON', ukr: 'Статура' },
-  { eng: 'INT', ukr: 'Інтелект' },
-  { eng: 'WIS', ukr: 'Мудрість' },
-  { eng: 'CHA', ukr: 'Харизма' }
+  { eng: Ability.STR, ukr: 'Сила' },
+  { eng: Ability.DEX, ukr: 'Спритність' },
+  { eng: Ability.CON, ukr: 'Статура' },
+  { eng: Ability.INT, ukr: 'Інтелект' },
+  { eng: Ability.WIS, ukr: 'Мудрість' },
+  { eng: Ability.CHA, ukr: 'Харизма' }
 ];
 
 const attributesUrkShort = [
-  { eng: 'STR', ukr: 'СИЛ' }, // Strength — Сила
-  { eng: 'DEX', ukr: 'СПР' }, // Dexterity — Спритність
-  { eng: 'CON', ukr: 'СТА' }, // Constitution — Статура
-  { eng: 'INT', ukr: 'ІНТ' }, // Intelligence — Інтелект
-  { eng: 'WIS', ukr: 'МУД' }, // Wisdom — Мудрість
-  { eng: 'CHA', ukr: 'ХАР' }, // Charisma — Харизма
+  { eng: Ability.STR, ukr: 'СИЛ' }, // Strength — Сила
+  { eng: Ability.DEX, ukr: 'СПР' }, // Dexterity — Спритність
+  { eng: Ability.CON, ukr: 'СТА' }, // Constitution — Статура
+  { eng: Ability.INT, ukr: 'ІНТ' }, // Intelligence — Інтелект
+  { eng: Ability.WIS, ukr: 'МУД' }, // Wisdom — Мудрість
+  { eng: Ability.CHA, ukr: 'ХАР' }, // Charisma — Харизма
 ];
 
 const asiSystems = {
@@ -42,9 +42,11 @@ const asiSystems = {
 export const ASIForm = (
   { race, selectedClass }: Props
 ) => {
-  const raceAsi = race?.ASI as RaceASI
+  const raceAsi = race.ASI
 
   const { form, onSubmit } = useStepForm(asiSchema)
+
+  console.log(form.getValues('racialBonusChoiceSchema'))
 
   const { fields: asiFields, replace: replaceAsi } = useFieldArray({
     control: form.control,
@@ -163,10 +165,10 @@ export const ASIForm = (
     }
   }
 
-  const isRacialBonusSelected = (index: number, attr: { eng: string, ukr: string }) => {
+  const isRacialBonusSelected = (index: number, attr: Ability) => {
     const abilities = form.getValues(`${ racialBonusSchemaPath }.${ index }.selectedAbilities`) || [];
 
-    return abilities.includes(Ability[attr.eng])
+    return abilities.includes(attr)
   }
 
   const getCurrentSelectedCount = (index: number) => {
@@ -214,10 +216,17 @@ export const ASIForm = (
     }
   }, [form])
 
+  const prevRaceId = useRef<number | null>(null);
+
   useEffect(() => {
-    form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
-    form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
-  }, [race, raceAsi])
+    if (prevRaceId.current !== null && prevRaceId.current !== race.raceId) {
+      form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
+      form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
+    }
+
+    prevRaceId.current  = race.raceId
+
+  }, [race.raceId])
 
   const racialBonusGroups = useMemo(() => {
     return isDefaultASI
@@ -435,13 +444,13 @@ export const ASIForm = (
             <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
               {
                 attributesUrkShort.map((attr, i) => {
-                  const isSelected = isRacialBonusSelected(index, attr)
+                  const isSelected = isRacialBonusSelected(index, attr.eng)
                   const currentCount = getCurrentSelectedCount(index);
                   const isMaxReached = currentCount >= group.choiceCount
                   const formGroups: {
                     groupIndex: number;
                     choiceCount: number;
-                    selectedAbilities: ("STR" | "DEX" | "CON" | "INT" | "WIS" | "CHA")[];
+                    selectedAbilities: Ability[];
                   }[]  = form.getValues(racialBonusSchemaPath) || []
 
                   const currentGroupIndex = formGroups.findIndex(g => g.groupIndex === index);
@@ -451,14 +460,14 @@ export const ASIForm = (
                       raceAsi.basic?.simple
                       && (raceAsi.basic?.flexible?.groups?.length ?? 0) > 0
                       && (raceAsi.basic?.flexible?.groups?.every((group) => group.unique))
-                      && (Object.keys(raceAsi.basic?.simple ?? {}).includes(Ability[attr.eng]))
+                      && (Object.keys(raceAsi.basic?.simple ?? {}).includes(attr.eng))
                     )
                     : (
                       (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
                       && (raceAsi.tasha?.flexible?.groups?.every((group) => group.unique))
                       && (formGroups?.some((group) =>
                           (group.groupIndex !== currentGroupIndex) &&
-                          (group.selectedAbilities.includes(Ability[attr.eng]))
+                          (group.selectedAbilities.includes(attr.eng))
                       ))
                     )
                   const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
@@ -470,7 +479,7 @@ export const ASIForm = (
                         () => handleToggleRacialBonus({
                           groupIndex: index,
                           choiceCount: group.choiceCount,
-                          ability: Ability[attr.eng]
+                          ability: attr.eng
                         })
                       } checked={ isSelected }
                              disabled={ isDisabled }/>

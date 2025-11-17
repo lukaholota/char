@@ -5,9 +5,10 @@ import {classTranslations, classTranslationsEng} from "@/refs/translation";
 import clsx from "clsx";
 import {useStepForm} from "@/hooks/useStepForm";
 import {classSchema} from "@/zod/schemas/persCreateSchema";
+import { ClassI } from "@/types/model-types";
 
 interface Props {
-  classes: Class[]
+  classes: ClassI[]
 }
 
 export const ClassesForm = (

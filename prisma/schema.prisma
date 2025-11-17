@@ -2,6 +2,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator json {
+  provider = "prisma-json-types-generator"
+}
+
 datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
@@ -783,13 +787,17 @@ model Class {
 
   subclassLevel Int @default(3) @map("subclass_level")
 
+  /// [MulticlassReqs]
   multiclassReqs Json // {choice: ['STR', 'DEX'], score: 13}}
 
   armorProficiencies     ArmorType[]    @default([]) @map("armor_proficiencies")
+  /// [WeaponProficiencies]
   weaponProficiencies    Json?   @map("weapon_proficiencies")
+  /// [WeaponProficienciesSpecial]
   weaponProficienciesSpecial    Json?   @map("weapon_proficiencies_special")
 
   savingThrows           Ability[]      @map("saving_throws")
+  /// [SkillProficiencies]
   skillProficiencies     Json?          @map("skill_proficiencies")
   toolProficiencies      ToolCategory[] @default([]) @map("tool_proficiencies")
   toolToChooseCount Int? @map("tool_to_choose_count")
@@ -1012,7 +1020,7 @@ model Feature {
   modifiesUnarmed Boolean? @map("modified_unarmed")
   unarmedDamage String? @map("unarmed_damage") // '1к6 / 1к8'
 
-
+  /// [SkillProficiencies]
   skillProficiencies     Json?          @map("skill_proficiencies")
   savingThrows Ability[] @map("saving_throws")
   skillExpertises Json? @map("skill_expertises")
@@ -1205,10 +1213,14 @@ model Race {
   languages              Language[] @default([COMMON])
   languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
 
+  /// [RaceASI]
   ASI                 Json             @map("asi") // {WIS: 2, ANY: 1}
+  /// [ToolProficiencies]
   toolProficiencies   Json?            @map("tool_proficiencies")
   toolToChooseCount Int? @map("tool_to_choose_count")
+  /// [SkillProficiencies]
   skillProficiencies  Json?            @map("skill_proficiencies")
+  /// [WeaponProficiencies]
   weaponProficiencies Json?  @map("weapon_proficiencies")
   armorProficiencies  ArmorType[]      @default([]) @map("armor_proficiencies")
 
@@ -1236,9 +1248,12 @@ model Subrace {
   additionalLanguages    Language[] @default([]) @map("additional_languages")
   languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
 
+  /// [ToolProficiencies]
   toolProficiencies   Json?    @map("tool_proficiencies")
   toolToChooseCount Int? @map("tool_to_choose_count")
+  /// [SkillProficiencies]
   skillProficiencies  Json?            @map("skill_proficiencies")
+  /// [WeaponProficiencies]
   weaponProficiencies Json? @map("weapon_proficiencies")
   armorProficiencies  ArmorType[]      @default([]) @map("armor_proficiencies")
 
@@ -1261,6 +1276,7 @@ model RaceVariant {
   traits         RaceVariantTrait[]
 
   exclusivityGroup     String? @map("exclusivity_group")
+  /// [RaceASI]
   overridesRaceASI     Json    @map("overrides_race_asi")
   overridesRaceSpeed   Int?    @map("overrides_race_speed")
   overridesFlightSpeed Int?    @map("overrides_flight_speed")
@@ -1284,7 +1300,9 @@ model RaceChoiceOption {
   maxSelection   Int     @default(1) @map("max_selection")
 
   traits                 RaceChoiceOptionTrait[]
+  /// [RaceASI]
   ASI                    Json?                   @map("asi")
+  /// [SkillProficiencies]
   skillProficiencies     Json?                   @map("skill_proficiencies")
   languages              Language[]              @default([]) @map("languages")
   languagesToChooseCount Int                     @default(0) @map("languages_to_choose_count")
@@ -1304,6 +1322,7 @@ model Background {
 
   source                 Source         @default(PHB)
   toolProficiencies      ToolCategory[] @default([]) @map("tool_proficiencies")
+  /// [SkillProficiencies]
   skillProficiencies     Json?          @map("skill_proficiencies")
   languagesToChooseCount Int            @default(0) @map("languages_to_choose_count")
   items                  Json?
@@ -1373,7 +1392,9 @@ model MagicItem {
 
   requiresAttunement Boolean @default(false) @map("requires_attunement")
 
+  /// [WeaponProficiencies]
   weaponProficiencies Json? @map("weapon_proficiencies")
+  /// [WeaponProficienciesSpecial]
   weaponProficienciesSpecial    Json?   @map("weapon_proficiencies_special")
 
   persMagicItems PersMagicItem[]

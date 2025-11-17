@@ -156,7 +156,9 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
             armorProficiencies: [], // Ніякої броні! 💪
             weaponProficiencies: [WeaponType.SIMPLE_WEAPON], // + shortswords окремо
-            weaponProficienciesSpecial: [WeaponCategory.SHORTSWORD], // Додай спеціальне поле
+            weaponProficienciesSpecial: {
+                specific: [WeaponCategory.SHORTSWORD]
+            }, // Додай спеціальне поле
             savingThrows: [Ability.STR, Ability.DEX],
             skillProficiencies: {
                 options: [

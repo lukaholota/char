@@ -5,9 +5,10 @@ import {raceTranslations, raceTranslationsEng} from "@/refs/translation";
 import clsx from "clsx";
 import {useStepForm} from "@/hooks/useStepForm";
 import {raceSchema} from "@/zod/schemas/persCreateSchema";
+import { RaceI } from "@/types/model-types";
 
 interface Props {
-  races: Race[]
+  races: RaceI[]
 }
 
 export const RacesForm = (

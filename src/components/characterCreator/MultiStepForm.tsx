@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import type {Armor, Background, Class, EquipmentPack, Race, Weapon} from "@prisma/client"
+import type {Armor, Background, EquipmentPack, Weapon} from "@prisma/client"
 import RacesForm from "@/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/components/characterCreator/CharacterCreateHeader";
 import {Button} from "@/components/ui/Button";
@@ -11,6 +11,7 @@ import ClassesForm from "@/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/components/characterCreator/ASIForm";
 import SkillsForm from "@/components/characterCreator/SkillsForm";
+import { ClassI, RaceI } from "@/types/model-types";
 
 const STEPS = [
   {id: 1, name: 'Раса', component: 'races'},
@@ -23,8 +24,8 @@ const STEPS = [
 ] as const
 
 interface Props {
-  races: Race[]
-  classes: Class[],
+  races: RaceI[]
+  classes: ClassI[],
   backgrounds: Background[],
   weapon: Weapon[],
   armor: Armor[],
@@ -43,6 +44,8 @@ export const MultiStepForm = (
 ) => {
   const {currentStep, prevStep, resetForm, formData} = usePersFormStore()
 
+
+
   const handleFinalSubmit = async () => {
 
   }
@@ -57,8 +60,8 @@ export const MultiStepForm = (
         return <BackgroundsForm backgrounds={backgrounds}/>
       case 4:
         return <ASIForm
-                  race={races.find(r => r.raceId === formData.raceId)}
-                  selectedClass={classes.find(c => c.classId === formData.classId)}/>
+                  race={races.find(r => r.raceId === formData.raceId) as RaceI}
+                  selectedClass={classes.find(c => c.classId === formData.classId) as ClassI}/>
       case 5:
         return <SkillsForm/>
       // case 6:
