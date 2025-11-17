@@ -33,7 +33,7 @@ export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape
         resolver: zodResolver(schema),
         defaultValues: mergedDefaults as DefaultValues<Input>,
         mode: "onChange",
-        shouldUnregister: true
+        shouldUnregister: false
     });
 
 

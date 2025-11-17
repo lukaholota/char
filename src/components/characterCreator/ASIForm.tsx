@@ -6,32 +6,12 @@ import { asiSchema } from "@/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
 import React, { useEffect, useMemo } from "react";
 import { classAbilityScores } from "@/refs/classesBaseASI";
+import {RaceASI} from "@/types/enhanced-models";
 
 
 interface Props {
   race?: Race
   selectedClass?: Class
-}
-
-type Group = {
-  groupName: string;
-  value: number;
-  choiceCount: number;
-  unique: boolean;
-}
-
-type Flexible = {
-  groups: Group[]
-}
-
-type RaceASI = {
-  basic?: {
-    simple: Partial<Record<Ability, number>>,
-    flexible?: Flexible,
-  },
-  tasha?: {
-    flexible: Flexible
-  },
 }
 
 const attributes = [
@@ -70,7 +50,7 @@ export const ASIForm = (
     control: form.control,
     name: "asi",
   });
-  const { fields: simpleAsiFields, replace: replaceSimpleAsi, swap: simpleAsiSwap } = useFieldArray({
+  const { fields: simpleAsiFields, replace: replaceSimpleAsi } = useFieldArray({
     control: form.control,
     name: "simpleAsi",
   });
