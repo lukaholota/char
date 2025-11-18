@@ -1791,7 +1791,7 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
         {
-            name: 'Посилене заклинання',
+            name: 'Підсилене заклинання',
             engName: 'Empowered Spell',
             description: 'Коли ви кидаєте кубики шкоди для заклинання, ви можете витратити 1 очко магії, щоб перекинути до кількості кубиків, що не перевищує ваш модифікатор Харизми (мінімум один). Ви повинні використати нові результати. Ви можете застосувати цю опцію навіть якщо вже використали іншу метамагію.',
             shortDescription: 'Перекиньте кубики шкоди (до модифікатора Харизми)',
@@ -1805,7 +1805,7 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             displayType: [FeatureDisplayType.PASSIVE],
         },
         {
-            name: 'Посилене закляття',
+            name: 'Підвищене заклинання',
             engName: 'Heightened Spell',
             description: 'Коли ви накладаєте заклинання, яке змушує ціль робити ряткидок, ви можете витратити 3 очки магії, щоб надати першому ряткидку цієї цілі перешкоду.',
             shortDescription: 'За 3 очки надайте перешкоду першому ряткидку проти заклинання',

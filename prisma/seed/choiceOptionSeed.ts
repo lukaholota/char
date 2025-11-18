@@ -222,7 +222,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Метамагія',
-            optionName: 'Посилене заклинання',
+            optionName: 'Підсилене заклинання',
             optionNameEng: 'Empowered Spell',
             features: {
                 create: [
@@ -242,7 +242,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Метамагія',
-            optionName: 'Посилене закляття',
+            optionName: 'Підвищене заклинання',
             optionNameEng: 'Heightened Spell',
             features: {
                 create: [
