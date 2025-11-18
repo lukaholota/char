@@ -1,3 +1,5 @@
+import { Skills } from "@prisma/client";
+
 export const raceTranslations = {
   AASIMAR_2024: "Аазимар",
   DRAGONBORN_2024: "Дракононароджений",
@@ -390,4 +392,25 @@ export const skills = [
   { eng: 'Sleight of Hand', ukr: 'Спритність рук' },
   { eng: 'Stealth', ukr: 'Непомітність' },
   { eng: 'Survival', ukr: 'Виживання' }
+];
+
+export const engEnumSkills = [
+  { eng: Skills.ACROBATICS, ukr: 'Акробатика' },
+  { eng: Skills.ANIMAL_HANDLING, ukr: 'Поводження з тваринами' },
+  { eng: Skills.ARCANA, ukr: 'Магія' },
+  { eng: Skills.ATHLETICS, ukr: 'Атлетика' },
+  { eng: Skills.DECEPTION, ukr: 'Обман' },
+  { eng: Skills.HISTORY, ukr: 'Історія' },
+  { eng: Skills.INSIGHT, ukr: 'Аналіз поведінки' },
+  { eng: Skills.INTIMIDATION, ukr: 'Залякування' },
+  { eng: Skills.INVESTIGATION, ukr: 'Розслідування' },
+  { eng: Skills.MEDICINE, ukr: 'Медицина' },
+  { eng: Skills.NATURE, ukr: 'Природа' },
+  { eng: Skills.PERCEPTION, ukr: 'Уважність' },
+  { eng: Skills.PERFORMANCE, ukr: 'Виступ' },
+  { eng: Skills.PERSUASION, ukr: 'Переконання' },
+  { eng: Skills.RELIGION, ukr: 'Релігія' },
+  { eng: Skills.SLEIGHT_OF_HAND, ukr: 'Спритність рук' },
+  { eng: Skills.STEALTH, ukr: 'Непомітність' },
+  { eng: Skills.SURVIVAL, ukr: 'Виживання' }
 ];

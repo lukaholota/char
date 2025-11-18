@@ -1,4 +1,4 @@
-import { InfusionTargetType, Prisma, PrismaClient } from "../../../src/generated/prisma";
+import { InfusionTargetType, Prisma, PrismaClient } from "@prisma/client"
 
 export const seedInfusions = async ( prisma: PrismaClient ) => {
     console.log( "🧪 Додаємо Вливання (Infusions)..." );

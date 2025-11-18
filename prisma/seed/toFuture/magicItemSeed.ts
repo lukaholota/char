@@ -1,4 +1,4 @@
-import { ItemRarity, MagicItemType, Prisma, PrismaClient, WeaponCategory } from "../../../src/generated/prisma"
+import { ItemRarity, MagicItemType, Prisma, PrismaClient, WeaponCategory } from "@prisma/client"
 
 export const seedMagicItems = async ( prisma: PrismaClient ) => {
     console.log( '🧪 Додаємо магічні предмети для Replicate Magic Item...' )

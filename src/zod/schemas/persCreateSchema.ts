@@ -39,8 +39,8 @@ export const asiSchema = z.object({
   })).default([]).optional(),
 
   racialBonusChoiceSchema: z.object({
-    basicChoices: z.array(choices).optional(),
-    tashaChoices: z.array(choices).optional()
+    basicChoices: z.array(choices).default([]),
+    tashaChoices: z.array(choices).default([])
   })
 })
   .refine((data) => {
@@ -105,15 +105,19 @@ export const nameSchema = z.object({
 const skills = z.enum(Skills)
 
 export const skillsSchema  = z.object({
-  isTasha: z.boolean(),
-  tashaChoices: z.array(skills).optional(),
+  isTasha: z.boolean().default(true),
+  tashaChoices: z.array(skills).default([]),
 
   basicChoices: z.object({
-    background: z.array(skills),
-    selectedClass: z.array(skills),
-    race: z.array(skills)
-  }).optional()
-})
+    background: z.array(skills).default([]),
+    selectedClass: z.array(skills).default([]),
+    race: z.array(skills).default([])
+  }).default({
+    background: [],
+    selectedClass: [],
+    race: []
+  })
+}).strict()
 
 export const fullCharacterSchema = z.object({
   raceId: z.number(),
@@ -129,8 +133,8 @@ export const fullCharacterSchema = z.object({
   equipment: z.array(z.number()),
   name: z.string(),
   racialBonusChoiceSchema: z.object({
-    basicChoices: z.array(choices).optional(),
-    tashaChoices: z.array(choices).optional()
+    basicChoices: z.array(choices).default([]),
+    tashaChoices: z.array(choices).default([])
   }),
   skillsSchema,
 })

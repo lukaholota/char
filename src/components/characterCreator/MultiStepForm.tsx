@@ -11,7 +11,7 @@ import ClassesForm from "@/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/components/characterCreator/ASIForm";
 import SkillsForm from "@/components/characterCreator/SkillsForm";
-import { ClassI, RaceI } from "@/types/model-types";
+import { BackgroundI, ClassI, RaceI } from "@/types/model-types";
 
 const STEPS = [
   {id: 1, name: 'Раса', component: 'races'},
@@ -65,7 +65,14 @@ export const MultiStepForm = (
                   prevRaceId={prevRaceId} setPrevRaceId={setPrevRaceId}
         />
       case 5:
-        return <SkillsForm/>
+        const race = races.find(r => r.raceId === formData.raceId) as RaceI
+        const cls = classes.find(c => c.classId === formData.classId) as ClassI
+        const bg = backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI
+        return <SkillsForm
+            race={race}
+            selectedClass={cls}
+            background={bg}
+          />
       // case 6:
       //   return <EquipmentForm
       //     weapons={weapons}

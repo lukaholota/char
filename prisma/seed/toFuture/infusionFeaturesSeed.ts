@@ -1,4 +1,4 @@
-import { FeatureDisplayType, Prisma, PrismaClient, RestType } from "../../../src/generated/prisma"
+import { FeatureDisplayType, Prisma, PrismaClient, RestType } from "@prisma/client"
 
 export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 	console.log( '🧪 Додаємо Feature для Вливань...' )
