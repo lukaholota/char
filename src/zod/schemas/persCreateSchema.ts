@@ -1,5 +1,6 @@
 import {z} from "zod";
 import { Ability, Skills } from "@prisma/client";
+import {SkillsEnum} from "@/types/enums";
 
 export const raceSchema = z.object({
   raceId: z.number().min(1, "Треба обрати расу 😈")
@@ -102,20 +103,20 @@ export const nameSchema = z.object({
     .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
 })
 
-const skills = z.enum(Skills)
+const skills = z.enum(SkillsEnum)
 
 export const skillsSchema  = z.object({
   isTasha: z.boolean().default(true),
   tashaChoices: z.array(skills).default([]),
 
   basicChoices: z.object({
-    background: z.array(skills).default([]),
+    race: z.array(skills).default([]),
     selectedClass: z.array(skills).default([]),
-    race: z.array(skills).default([])
+    background: z.array(skills).default([]),
   }).default({
-    background: [],
+    race: [],
     selectedClass: [],
-    race: []
+    background: [],
   })
 }).strict()
 

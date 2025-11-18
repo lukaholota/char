@@ -1,8 +1,9 @@
 import {Ability, Background, Class, Race, Skills, ToolCategory, WeaponCategory, WeaponType} from "@prisma/client";
+import {Skill} from './enums'
 
 export type SkillProficienciesArray = Skills[]
 export type SkillProficienciesChoice = {
-  options: Skills[],
+  options: Skill[],
   choiceCount: number,
   chooseAny?: boolean
 };
