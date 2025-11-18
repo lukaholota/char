@@ -146,6 +146,25 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
             grantedOnLevels: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
             replacesInvocation: true,
         },
+
+        // ===== SORCERER OPTIONALS =====
+        {
+            feature: { connect: { engName: "Magical Guidance" } },
+            grantedOnLevels: [5],
+            class: { connect: { name: Classes.SORCERER_2014 } },
+        },
+        {
+            feature: { connect: { engName: "Sorcerous Versatility" } },
+            grantedOnLevels: [4, 8, 12, 16, 19],
+            class: { connect: { name: Classes.SORCERER_2014 } },
+        },
+
+        // ===== WIZARD OPTIONALS =====
+        {
+            feature: { connect: { engName: "Cantrip Formulas" } },
+            grantedOnLevels: [3],
+            class: { connect: { name: Classes.WIZARD_2014 } },
+        },
     ]
 
     for (const feature of features) {

@@ -48,7 +48,7 @@ const DND_DICTIONARY = {
         elf: "Ельф",
         gnome: "Гном",
         "half-elf": "Напівельф",
-        "half-orc": "Напівок",
+        "half-orc": "Напіворк",
         halfling: "Напіврослик",
         human: "Людина",
         tiefling: "Тифлінг"
@@ -192,7 +192,20 @@ const DND_DICTIONARY = {
         tradition: "Традиція",
         oath: "Клятва",
         conclave: "Орден",
-        college: "Колегія"
+        college: "Колегія",
+        metamagic: "Метамагія",
+        fontOfMagic: "Джерело магії",
+        sorcerousRestoration: "Відновлення чарівництва",
+        sorcerousVersatility: "Гнучкість чародія",
+        magicalGuidance: "Магічне наставництво",
+        carefulSpell: "Обережне заклинання",
+        distantSpell: "Віддалене заклинання",
+        empoweredSpell: "Підсилене заклинання",
+        extendedSpell: "Подовжене заклинання",
+        heightenedSpell: "Підвищене заклинання",
+        quickenedSpell: "Пришвидшене заклинання",
+        subtleSpell: "Приховане заклинання",
+        twinnedSpell: "Спарене заклинання"
     },
 
     additionalRaces: {

@@ -509,6 +509,131 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
 
         {
+            name: Classes.SORCERER_2014,
+            hitDie: 6,
+            primaryCastingStat: Ability.CHA,
+            spellcastingType: SpellcastingType.FULL,
+            abilityScoreUpLevels: [4, 8, 12, 16, 19],
+            subclassLevel: 1,
+            multiclassReqs: {
+                required: ['CHA'],
+                score: 13,
+            },
+
+            armorProficiencies: [],
+            weaponProficiencies: [],
+            weaponProficienciesSpecial: {
+                specific: [
+                    WeaponCategory.DAGGER,
+                    WeaponCategory.DART,
+                    WeaponCategory.SLING,
+                    WeaponCategory.QUARTERSTAFF,
+                    WeaponCategory.LIGHT_CROSSBOW,
+                ]
+            },
+            savingThrows: [Ability.CON, Ability.CHA],
+            skillProficiencies: {
+                options: [
+                    Skills.ARCANA,
+                    Skills.DECEPTION,
+                    Skills.INSIGHT,
+                    Skills.INTIMIDATION,
+                    Skills.PERSUASION,
+                    Skills.RELIGION,
+                ],
+                choiceCount: 2
+            },
+
+            features: {
+                create: [
+                    {
+                        feature: { connect: { engName: "Spellcasting (Sorcerer)" } },
+                        levelGranted: 1,
+                    },
+                    {
+                        feature: { connect: { engName: "Sorcerous Origin" } },
+                        levelGranted: 1,
+                    },
+                    {
+                        feature: { connect: { engName: "Font of Magic" } },
+                        levelGranted: 2,
+                    },
+                    {
+                        feature: { connect: { engName: "Metamagic" } },
+                        levelGranted: 3,
+                    },
+                    {
+                        feature: { connect: { engName: "Sorcerous Restoration" } },
+                        levelGranted: 20,
+                    },
+                ],
+            }
+        },
+
+        {
+            name: Classes.WIZARD_2014,
+            hitDie: 6,
+            primaryCastingStat: Ability.INT,
+            spellcastingType: SpellcastingType.FULL,
+            abilityScoreUpLevels: [4, 8, 12, 16, 19],
+            subclassLevel: 2,
+            multiclassReqs: {
+                required: ['INT'],
+                score: 13,
+            },
+
+            armorProficiencies: [],
+            weaponProficiencies: [],
+            weaponProficienciesSpecial: {
+                specific: [
+                    WeaponCategory.DAGGER,
+                    WeaponCategory.DART,
+                    WeaponCategory.SLING,
+                    WeaponCategory.QUARTERSTAFF,
+                    WeaponCategory.LIGHT_CROSSBOW,
+                ]
+            },
+            savingThrows: [Ability.INT, Ability.WIS],
+            skillProficiencies: {
+                options: [
+                    Skills.ARCANA,
+                    Skills.HISTORY,
+                    Skills.INSIGHT,
+                    Skills.INVESTIGATION,
+                    Skills.MEDICINE,
+                    Skills.RELIGION,
+                ],
+                choiceCount: 2
+            },
+
+            features: {
+                create: [
+                    {
+                        feature: { connect: { engName: "Spellcasting (Wizard)" } },
+                        levelGranted: 1,
+                    },
+                    {
+                        feature: { connect: { engName: "Arcane Recovery" } },
+                        levelGranted: 1,
+                    },
+                    {
+                        feature: { connect: { engName: "Arcane Tradition" } },
+                        levelGranted: 2,
+                    },
+                    {
+                        feature: { connect: { engName: "Spell Mastery" } },
+                        levelGranted: 18,
+                    },
+                    {
+                        feature: { connect: { engName: "Signature Spells" } },
+                        levelGranted: 20,
+                    },
+                ],
+            }
+        },
+
+
+        {
             name: Classes.WARLOCK_2014,
             hitDie: 8,
             primaryCastingStat: Ability.CHA,

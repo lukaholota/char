@@ -514,6 +514,58 @@ export const seedClassChoiceOptions = async (prisma: PrismaClient) => {
             class: { connect: { name: Classes.WARLOCK_2014 } }
         },
 
+        // ===== SORCERER METAMAGIC =====
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Careful Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Distant Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Empowered Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Extended Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Heightened Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Quickened Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Subtle Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Twinned Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Seeking Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+        {
+            levelsGranted: [3, 10, 17],
+            choiceOption: { connect: { optionNameEng: 'Transmuted Spell' } },
+            class: { connect: { name: Classes.SORCERER_2014 } }
+        },
+
     ]
 
     // Створюємо всі зв'язки
