@@ -1,6 +1,6 @@
 import {skillsSchema} from "@/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
-import {BackgroundI, ClassI, RaceI, SkillProficiencies} from "@/types/model-types";
+import {BackgroundI, ClassI, RaceI, SkillProficiencies, SkillProficienciesChoice} from "@/types/model-types";
 import {useEffect} from "react";
 import {engEnumSkills} from "@/refs/translation";
 import {Skills} from "@prisma/client";
@@ -12,7 +12,7 @@ interface Props {
   background: BackgroundI
 }
 
-type GroupName = 'race' | 'selectedClass' | 'background';
+type GroupName = 'race' | 'selectedClass';
 
 function getSkillProficienciesCount(skillProfs: SkillProficiencies | null): number {
   if (!skillProfs) return 0;
@@ -29,7 +29,7 @@ function getTotalSkillProficienciesCount(
 }
 
 interface hasSkills {
-  skillProficiencies: SkillProficiencies
+  skillProficiencies: SkillProficiencies | null
 }
 
 function populateSkills<T extends hasSkills>(model: T) {
@@ -41,10 +41,11 @@ function populateSkills<T extends hasSkills>(model: T) {
 export const SkillsForm = ({race, selectedClass, background}: Props) => {
   const {form, onSubmit} = useStepForm(skillsSchema);
 
+  populateSkills<typeof race>(race)
+
   useEffect(() => {
     form.register('basicChoices')
     form.register('basicChoices.race')
-    form.register('basicChoices.background')
     form.register('basicChoices.selectedClass')
     form.register('tashaChoices')
     form.register('isTasha')
@@ -55,7 +56,6 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
   const basicChoices = form.watch('basicChoices') ?? {
     race: [],
     selectedClass: [],
-    background: [],
   }
 
   const raceCount = getSkillProficienciesCount(race.skillProficiencies)
@@ -70,25 +70,39 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
   const tashaChoiceCountCurrent = tashaChoiceCountTotal - (tashaChoices?.length ?? 0)
 
   const basicCounts = {
-    background: backgroundCount - (basicChoices?.background?.length ?? 0),
     race: raceCount - (basicChoices?.race?.length ?? 0),
     selectedClass: classCount - (basicChoices?.selectedClass?.length ?? 0)
   }
-  
-  const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
-  console.log('entries', entries)
-  const h2s = {
-    race: <h2 key={0}>Навички за расу</h2>,
-    selectedClass: <h2 key={1}>Навички за клас</h2>,
-    background: <h2 key={2}>Навички за передісторію</h2>
-}
 
-  const skillsByGroup = {
-    race: race.skillProficiencies,
-    selectedClass: selectedClass.skillProficiencies,
-    background: background.skillProficiencies
+  const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
+  const staticSkillGroups = [race, background].filter(e => Array.isArray(e.skillProficiencies))
+
+  const introductions = {
+    race: <span key={0} className="text-xl">Навички за расу</span>,
+    selectedClass: <span key={1} className="text-xl">Навички за клас</span>,
   }
 
+  const skillsByGroup = {
+    race: race.skillProficiencies as SkillProficienciesChoice,
+    selectedClass: selectedClass.skillProficiencies as SkillProficienciesChoice,
+  }
+
+  const checkIfSelectedByOthers = (groupName: GroupName, skill: Skill) => {
+    const allSkillGroups = {
+      background: background.skillProficiencies,
+      race: Array.isArray(race.skillProficiencies)
+        ? race.skillProficiencies
+        : basicChoices.race,
+      selectedClass: basicChoices.selectedClass
+    }
+    delete allSkillGroups[groupName]
+
+    return Object.values(allSkillGroups).some(value =>
+      Array.isArray(value)
+        ? value.includes(skill)
+        : value?.options?.includes(skill)
+    )
+  }
 
   const handleToggleTashaSkill = (skill: Skill) => {
     const has = tashaChoices.includes(skill)
@@ -102,11 +116,11 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
     form.setValue('tashaChoices', updated)
   }
 
-  const handleToggleBasicSkill = ({skill, groupName}: {skill: Skill, groupName: GroupName}) => {
+  const handleToggleBasicSkill = ({skill, groupName}: { skill: Skill, groupName: GroupName }) => {
     const current = basicChoices[groupName] ?? []
-    const has  = current.includes(skill)
+    const has = current.includes(skill)
 
-    if (!has && current.length < 1) return;
+    if (!has && basicCounts[groupName] < 1) return;
 
     const updated = has
       ? current.filter(c => c !== skill)
@@ -114,9 +128,6 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
 
     form.setValue(`basicChoices.${groupName}`, updated)
   }
-
-  console.log(isTasha)
-
 
   return (
     <form onSubmit={onSubmit}>
@@ -173,34 +184,46 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
             <div>
               <div>
                 {
-                  entries.map(([groupName, choices], index) => {
-                    if (groupName === 'race' && race.skillProficiencies && Array.isArray(race.skillProficiencies)) {
-                      console.log('race')
-                      return (
-                        <div key={index}>
-                          <h2>Расові навички</h2>
-                          {
-                              race.skillProficiencies.map((skill, index) => {
-                                const skillGroup = engEnumSkills.find((s) => s.eng === skill)
-                                return (
-                                  <span key={index}>
-                                    {skillGroup?.ukr}
-                                  </span>
-                                )}
-                            )
-                          }
-                        </div>
-                      )
-                    }
+                  staticSkillGroups.map((group, index) => {
                     return (
-                      <div key={index}>
-                        {(skillsByGroup[groupName].options ?? []).map((skill, skillIndex) => {
+                      <div key={index} className="mb-5">
+                        <h2 className="text-xl">{group === race ? 'Навички за расу' : 'Навички за передісторію'}</h2>
+                        {
+                          (group.skillProficiencies as Skill[]).map((skill, index) => {
+                              const skillGroup = engEnumSkills.find((s) => s.eng === skill)
+                              return (
+                                <span key={index} className="pr-2 text-violet-400">
+                                    {skillGroup?.ukr}
+                              </span>
+                              )
+                            }
+                          )
+                        }
+                      </div>
+                    )
+                  })
+                }
+
+                {
+                  entries.map(([groupName, choices], index) => {
+                    return (
+                      <div key={index} className="mb-5">
+                        {
+                          skillsByGroup[groupName]?.options &&
+                          <div>
+                            {introductions[groupName]}.
+                            <span className="text-xl ml-2">Залишок:
+                              <span className="text-violet-500 ml-2">{basicCounts[groupName]}</span>
+                              </span>
+                          </div>
+                        }
+                        {(skillsByGroup[groupName]?.options ?? []).map((skill, skillIndex) => {
                           const skillGroup = engEnumSkills.find((s) => s.eng === skill)
-                          console.log('here', skillGroup)
                           if (!skillGroup) return;
-                          const isSelected = (basicChoices[groupName] ?? []).includes(skill)
-                          const isMaxReached = basicCounts[groupName] < 1
-                          const isDisabled = !isSelected && isMaxReached
+                          const isSelected = (choices ?? []).includes(skill)
+                          const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
+                          const isMaxReached = basicCounts[groupName] < 1;
+                          const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
                           return (
                             <div key={skillIndex}>
                               <div key={index} className="my-2">
@@ -212,7 +235,7 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
                                       skill: Skills[skillGroup.eng],
                                       groupName: groupName
                                     })}
-                                    checked={isSelected}
+                                    checked={isSelected || isSelectedByOthers}
                                     disabled={isDisabled}
                                   />
                                   <span className="ml-2">{skillGroup.ukr}</span>

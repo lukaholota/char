@@ -112,11 +112,9 @@ export const skillsSchema  = z.object({
   basicChoices: z.object({
     race: z.array(skills).default([]),
     selectedClass: z.array(skills).default([]),
-    background: z.array(skills).default([]),
   }).default({
     race: [],
     selectedClass: [],
-    background: [],
   })
 }).strict()
 
