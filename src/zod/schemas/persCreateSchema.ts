@@ -27,7 +27,7 @@ export const asiSchema = z.object({
   points: z.number().default(0),
   simpleAsi: z.array(z.object({
     ability: z.string(),
-    value: z.number(), // коерсимо
+    value: z.number(),
   })).default([]).optional(),
   asi: z.array(z.object({
     ability: z.string(),
@@ -94,14 +94,6 @@ export const asiSchema = z.object({
     message: "Дооберіть, будь ласка",
     path: ['racialBonusChoiceSchema']
   })
-export const equipmentSchema = z.object({
-  equipment: z.array(z.number()), // коерсимо
-})
-
-export const nameSchema = z.object({
-  name: z.string()
-    .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
-})
 
 const skills = z.enum(SkillsEnum)
 
@@ -117,6 +109,15 @@ export const skillsSchema  = z.object({
     selectedClass: [],
   })
 }).strict()
+
+export const equipmentSchema = z.object({
+  equipmentOptionIds: z.array(z.number())
+})
+
+export const nameSchema = z.object({
+  name: z.string()
+    .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
+})
 
 export const fullCharacterSchema = z.object({
   raceId: z.number(),
@@ -136,6 +137,8 @@ export const fullCharacterSchema = z.object({
     tashaChoices: z.array(choices).default([])
   }),
   skillsSchema,
+  equipmentSchema,
+  nameSchema
 })
 
 

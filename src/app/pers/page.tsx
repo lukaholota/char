@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/Button";
 import MultiStepForm from "@/components/characterCreator/MultiStepForm";
 import { prisma } from "@/prisma";
 import {BackgroundI, ClassI, RaceI} from "@/types/model-types";
@@ -9,9 +8,9 @@ export default async function Page() {
     races,
     classes,
     backgrounds,
-    weapon,
-    armor,
-    equipmentPacks] = await Promise.all([
+    weapons,
+    armors,
+  ] = await Promise.all([
     prisma.race.findMany({
       include: {
         subraces: true,
@@ -23,7 +22,11 @@ export default async function Page() {
     prisma.class.findMany({
       include: {
         subclasses: true,
-        startingEquipmentOption: true,
+        startingEquipmentOption: {
+          include: {
+            equipmentPack: true
+          }
+        },
         classChoiceOptions: true,
         classOptionalFeatures: true
       }
@@ -31,7 +34,6 @@ export default async function Page() {
     prisma.background.findMany() as Promise<BackgroundI[]>,
     prisma.weapon.findMany(),
     prisma.armor.findMany(),
-    prisma.equipmentPack.findMany(),
   ])
 
   return (
@@ -40,9 +42,8 @@ export default async function Page() {
         races={races}
         classes={classes}
         backgrounds={backgrounds}
-        armor={armor}
-        weapon={weapon}
-        equipmentPacks={equipmentPacks}
+        armors={armors}
+        weapons={weapons}
       />
     </>
   );

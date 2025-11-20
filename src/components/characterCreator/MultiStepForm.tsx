@@ -26,10 +26,9 @@ const STEPS = [
 interface Props {
   races: RaceI[]
   classes: ClassI[],
-  backgrounds: Background[],
-  weapon: Weapon[],
-  armor: Armor[],
-  equipmentPacks: EquipmentPack[],
+  backgrounds: BackgroundI[],
+  weapons: Weapon[],
+  armors: Armor[],
 }
 
 export const MultiStepForm = (
@@ -37,9 +36,8 @@ export const MultiStepForm = (
     races,
     classes,
     backgrounds,
-    weapon,
-    armor,
-    equipmentPacks
+    weapons,
+    armors,
   }: Props
 ) => {
   const {currentStep, prevStep, resetForm, formData, prevRaceId, setPrevRaceId } = usePersFormStore()
