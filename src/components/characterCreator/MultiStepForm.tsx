@@ -12,6 +12,7 @@ import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/components/characterCreator/ASIForm";
 import SkillsForm from "@/components/characterCreator/SkillsForm";
 import { BackgroundI, ClassI, RaceI } from "@/types/model-types";
+import EquipmentForm from "@/components/characterCreator/EquipmentForm";
 
 const STEPS = [
   {id: 1, name: 'Раса', component: 'races'},
@@ -49,6 +50,10 @@ export const MultiStepForm = (
   }
 
   const renderStep = () => {
+    const race = races.find(r => r.raceId === formData.raceId) as RaceI
+    const cls = classes.find(c => c.classId === formData.classId) as ClassI
+    const bg = backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI
+
     switch (currentStep) {
       case 1:
         return <RacesForm races={races}/>
@@ -58,25 +63,23 @@ export const MultiStepForm = (
         return <BackgroundsForm backgrounds={backgrounds}/>
       case 4:
         return <ASIForm
-                  race={races.find(r => r.raceId === formData.raceId) as RaceI}
-                  selectedClass={classes.find(c => c.classId === formData.classId) as ClassI}
+                  race={race}
+                  selectedClass={cls}
                   prevRaceId={prevRaceId} setPrevRaceId={setPrevRaceId}
         />
       case 5:
-        const race = races.find(r => r.raceId === formData.raceId) as RaceI
-        const cls = classes.find(c => c.classId === formData.classId) as ClassI
-        const bg = backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI
         return <SkillsForm
             race={race}
             selectedClass={cls}
             background={bg}
           />
-      // case 6:
-      //   return <EquipmentForm
-      //     weapons={weapons}
-      //     armor={armor}
-      //     packs={equipmentPacks}
-      //   />
+      case 6:
+        return <EquipmentForm
+          weapons={weapons}
+          armors={armors}
+          selectedClass={cls}
+          race={race}
+        />
       // case 7:
       //   return <NameForm onFinalSubmit={handleFinalSubmit}/>
       default:

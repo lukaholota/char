@@ -16,49 +16,63 @@ interface Props {
 export const EquipmentForm = ({race, selectedClass, weapons, armors}: Props) => {
   const {form, onSubmit} = useStepForm(equipmentSchema);
 
-  const equipmentOptionIds = form.watch('equipmentOptionIds')
-
-  useEffect(() => {
-    form.register('equipmentOptionIds')
-  }, [])
+  const optionToId = form.watch('optionToId')
 
   const weaponByTypes = useMemo(() => groupBy(weapons, weapon => weapon.weaponType), [weapons])
   const choiceGroups = selectedClass.startingEquipmentOption
   const choiceGroupsGrouped = groupBy(choiceGroups, group => group.choiceGroup)
+  console.log('choiceGroupsGrouped', choiceGroupsGrouped)
 
-  const choooseOption = (optionId: number) => {
-    form.setValue()
+  const chooseFromOption = (option: string, optionId: number) => {
+    form.setValue(`optionToId.${option}`, optionId)
   }
+
+  useEffect(() => {
+    form.register('optionToId')
+  }, [])
+
+  useEffect(() => {
+    if (Object.keys(optionToId).length === 0) {
+      const initValues = Object.entries(choiceGroupsGrouped).reduce(
+        (acc, [option, group]) => {
+          acc[option] = group[0].optionId;
+          return acc
+        }, {} as Record<string, number>
+      )
+      form.setValue('optionToId', initValues)
+    }
+  }, [])
 
   return (
     <form onSubmit={onSubmit}>
       <h2 className="my-5">Навички</h2>
 
-      {form.formState.errors.equipmentOptionIds && (
-        <p className="text-red-500 text-sm">
-          {form.formState.errors.equipmentOptionIds.message}
-        </p>
-      )}
-
       <div>
         {
-          Object.entries(choiceGroupsGrouped).map(([choiceGroup, group], index) => {
+          Object.entries(choiceGroupsGrouped).map(([option, group], index) => {
             return (
-              <div key={index}>
+              <div key={index} className="flex flex-row">
+                <span>{option}: </span>
                 <div>
                   {
-                    group.map((option, index) => {
+                    group.map((entry, index) => {
                       return (
                         <div key={index}>
                           {
                             group.length > 1
                               ? (
                                 <>
-                                  <input
-                                    type="radio"
-                                    name={choiceGroup}
-                                    value={option.optionId}
-                                    onChange={() => chooseOption(optionId)} />
+                                  <label>
+                                    <input
+                                      type="radio"
+                                      name={ option }
+                                      value={ entry.optionId }
+                                      onChange={ () => chooseFromOption(option, entry.optionId) }
+                                      checked={ optionToId[option] === entry.optionId }
+                                    />
+                                    <span className="px-2">{}</span>
+                                  </label>
+
                                 </>
                               ) : (
                                 <>

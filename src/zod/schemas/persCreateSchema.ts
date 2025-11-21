@@ -111,7 +111,10 @@ export const skillsSchema  = z.object({
 }).strict()
 
 export const equipmentSchema = z.object({
-  equipmentOptionIds: z.array(z.number())
+    optionToId: z.record(
+      z.string().max(1),
+      z.number()
+    )
 })
 
 export const nameSchema = z.object({
