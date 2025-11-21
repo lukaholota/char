@@ -16,12 +16,19 @@ interface Props {
 export const EquipmentForm = ({race, selectedClass, weapons, armors}: Props) => {
   const {form, onSubmit} = useStepForm(equipmentSchema);
 
+  const equipmentOptionIds = form.watch('equipmentOptionIds')
+
   useEffect(() => {
     form.register('equipmentOptionIds')
   }, [])
 
   const weaponByTypes = useMemo(() => groupBy(weapons, weapon => weapon.weaponType), [weapons])
   const choiceGroups = selectedClass.startingEquipmentOption
+  const choiceGroupsGrouped = groupBy(choiceGroups, group => group.choiceGroup)
+
+  const choooseOption = (optionId: number) => {
+    form.setValue()
+  }
 
   return (
     <form onSubmit={onSubmit}>
@@ -35,7 +42,37 @@ export const EquipmentForm = ({race, selectedClass, weapons, armors}: Props) => 
 
       <div>
         {
-
+          Object.entries(choiceGroupsGrouped).map(([choiceGroup, group], index) => {
+            return (
+              <div key={index}>
+                <div>
+                  {
+                    group.map((option, index) => {
+                      return (
+                        <div key={index}>
+                          {
+                            group.length > 1
+                              ? (
+                                <>
+                                  <input
+                                    type="radio"
+                                    name={choiceGroup}
+                                    value={option.optionId}
+                                    onChange={() => chooseOption(optionId)} />
+                                </>
+                              ) : (
+                                <>
+                                </>
+                              )
+                          }
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+              </div>
+            )
+          })
         }
       </div>
 
