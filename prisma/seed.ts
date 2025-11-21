@@ -14,20 +14,20 @@ import { seedClassOptionalFeatures } from "./seed/optionalFeatureSeed";
 
 async function main() {
     console.log('Starting seed...')
-
-    await seedWeapons(prisma)
-    await seedArmor(prisma)
-    await seedEquipmentPacks(prisma)
-    await seedBackground(prisma)
-    await seedRaceFeatures(prisma)
-    await seedRaces(prisma)
-
+    //
+    // await seedWeapons(prisma)
+    // await seedArmor(prisma)
+    // await seedEquipmentPacks(prisma)
+    // await seedBackground(prisma)
+    // await seedRaceFeatures(prisma)
+    // await seedRaces(prisma)
+    //
     await seedClassFeatures(prisma)
     await seedClasses(prisma)
     await seedClassEquipment(prisma)
     await seedChoiceOptions(prisma)
     await seedClassChoiceOptions(prisma)
-    await seedClassOptionalFeatures(prisma)
+    // await seedClassOptionalFeatures(prisma)
 }
 
 main()

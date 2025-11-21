@@ -868,7 +868,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             equipmentPack: { connect: { name: EquipmentPackCategory.SPELLBOOK } },
             class: { connect: { name: Classes.WIZARD_2014 } },
             quantity: 1,
-            description: 'Заклинальна книга чарівника'
+            description: 'Книга Чарів чарівника'
         },
         {
             choiceGroup: 4,
@@ -880,10 +880,16 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         }
     ];
 
-    for (const equipmentPiece of equipment) {
+    let id = 1;
+
+    for (const piece of equipment) {
         await prisma.classStartingEquipmentOption.create({
-            data: equipmentPiece
+            data: {
+                optionId: id,
+                ...piece
+            } as Prisma.ClassStartingEquipmentOptionUncheckedCreateInput
         })
+        id++;
     }
 
     console.log(`✅ додано ${equipment.length} класових фіч!`)

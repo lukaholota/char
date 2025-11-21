@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useMemo} from "react";
 import type {Armor, Background, EquipmentPack, Weapon} from "@prisma/client"
 import RacesForm from "@/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/components/characterCreator/CharacterCreateHeader";
@@ -49,11 +49,11 @@ export const MultiStepForm = (
 
   }
 
-  const renderStep = () => {
-    const race = races.find(r => r.raceId === formData.raceId) as RaceI
-    const cls = classes.find(c => c.classId === formData.classId) as ClassI
-    const bg = backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI
+  const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
+  const cls = useMemo(() => classes.find(c => c.classId === formData.classId) as ClassI, [classes, formData.classId])
+  const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
 
+  const renderStep = () => {
     switch (currentStep) {
       case 1:
         return <RacesForm races={races}/>

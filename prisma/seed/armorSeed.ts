@@ -107,7 +107,7 @@ export const seedArmor = async (prisma: PrismaClient) => {
     for (const armor of armors) {
         await prisma.armor.upsert({
             where: {name: armor.name},
-            update: {},
+            update: armor,
             create: armor
         })
     }

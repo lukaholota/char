@@ -16,32 +16,27 @@ interface Props {
 export const EquipmentForm = ({race, selectedClass, weapons, armors}: Props) => {
   const {form, onSubmit} = useStepForm(equipmentSchema);
 
-  const optionToId = form.watch('optionToId')
+  const choiceGroupToId = form.watch('choiceGroupToId') ?? {} as Record<string, number>
 
   const weaponByTypes = useMemo(() => groupBy(weapons, weapon => weapon.weaponType), [weapons])
   const choiceGroups = selectedClass.startingEquipmentOption
   const choiceGroupsGrouped = groupBy(choiceGroups, group => group.choiceGroup)
-  console.log('choiceGroupsGrouped', choiceGroupsGrouped)
 
-  const chooseFromOption = (option: string, optionId: number) => {
-    form.setValue(`optionToId.${option}`, optionId)
+  const chooseOption = (choiceGroup: string, optionId: number) => {
+    form.setValue(`choiceGroupToId.${choiceGroup}`, optionId)
   }
 
   useEffect(() => {
-    form.register('optionToId')
-  }, [])
-
-  useEffect(() => {
-    if (Object.keys(optionToId).length === 0) {
+    if (Object.keys(choiceGroupToId).length === 0) {
       const initValues = Object.entries(choiceGroupsGrouped).reduce(
-        (acc, [option, group]) => {
-          acc[option] = group[0].optionId;
+        (acc, [choiceGroup, group]) => {
+          acc[choiceGroup] = group[0].optionId;
           return acc
         }, {} as Record<string, number>
       )
-      form.setValue('optionToId', initValues)
+      form.setValue('choiceGroupToId', initValues)
     }
-  }, [])
+  }, [choiceGroupsGrouped])
 
   return (
     <form onSubmit={onSubmit}>
@@ -49,10 +44,10 @@ export const EquipmentForm = ({race, selectedClass, weapons, armors}: Props) => 
 
       <div>
         {
-          Object.entries(choiceGroupsGrouped).map(([option, group], index) => {
+          Object.entries(choiceGroupsGrouped).map(([choiceGroup, group], index) => {
             return (
               <div key={index} className="flex flex-row">
-                <span>{option}: </span>
+                <span>{choiceGroup}: </span>
                 <div>
                   {
                     group.map((entry, index) => {
@@ -65,12 +60,12 @@ export const EquipmentForm = ({race, selectedClass, weapons, armors}: Props) => 
                                   <label>
                                     <input
                                       type="radio"
-                                      name={ option }
+                                      name={ choiceGroup }
                                       value={ entry.optionId }
-                                      onChange={ () => chooseFromOption(option, entry.optionId) }
-                                      checked={ optionToId[option] === entry.optionId }
+                                      onChange={ () => chooseOption(choiceGroup, entry.optionId) }
+                                      checked={ choiceGroupToId[choiceGroup] === entry.optionId }
                                     />
-                                    <span className="px-2">{}</span>
+                                    <span className="px-2">{entry.description};</span>
                                   </label>
 
                                 </>

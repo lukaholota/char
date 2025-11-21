@@ -111,10 +111,10 @@ export const skillsSchema  = z.object({
 }).strict()
 
 export const equipmentSchema = z.object({
-    optionToId: z.record(
-      z.string().max(1),
+    choiceGroupToId: z.record(
+      z.string(), // js has no numeric keys
       z.number()
-    )
+    ).default({})
 })
 
 export const nameSchema = z.object({

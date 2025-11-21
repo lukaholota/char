@@ -566,11 +566,48 @@ export const seedClassChoiceOptions = async (prisma: PrismaClient) => {
             class: { connect: { name: Classes.SORCERER_2014 } }
         },
 
-    ]
+    ];
 
-    // Створюємо всі зв'язки
-    for (const option of options) {
-        await prisma.classChoiceOption.create({ data: option })
+    const classes = await prisma.class.findMany();
+    const choiceOptions = await prisma.choiceOption.findMany();
+
+    const classMap = Object.fromEntries(classes.map(c => [c.name, c.classId]));
+    const optionMap = Object.fromEntries(choiceOptions.map(o => [o.optionNameEng, o.choiceOptionId]));
+
+    for (const opt of options) {
+        const className = opt.class?.connect?.name;
+        const optionNameEng = opt.choiceOption?.connect?.optionNameEng;
+
+        if (!className) {
+            throw new Error("Seed option is missing class.connect.name");
+        }
+        if (!optionNameEng) {
+            throw new Error("Seed option is missing choiceOption.connect.optionNameEng");
+        }
+
+        const classId = classMap[className];
+        const choiceOptionId = optionMap[optionNameEng];
+
+        if (!classId) {
+            throw new Error(`Class not found for name=${className}`);
+        }
+        if (!choiceOptionId) {
+            throw new Error(`ChoiceOption not found for optionNameEng=${optionNameEng}`);
+        }
+
+        await prisma.classChoiceOption.upsert({
+            where: {
+                unique_class_choice: { classId, choiceOptionId },
+            },
+            update: {
+                levelsGranted: opt.levelsGranted,
+            },
+            create: {
+                classId,
+                choiceOptionId,
+                levelsGranted: opt.levelsGranted,
+            },
+        });
     }
 
     console.log('✅ Додано зв\'язків класів з опціями:', options.length)
