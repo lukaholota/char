@@ -42,7 +42,7 @@ export const asiSchema = z.object({
   racialBonusChoiceSchema: z.object({
     basicChoices: z.array(choices).default([]),
     tashaChoices: z.array(choices).default([])
-  })
+  }).optional()
 })
   .refine((data) => {
   if (data.asiSystem === 'POINT_BUY') {
@@ -113,7 +113,7 @@ export const skillsSchema  = z.object({
 export const equipmentSchema = z.object({
     choiceGroupToId: z.record(
       z.string(), // js has no numeric keys
-      z.number()
+      z.array(z.number())
     ).default({})
 })
 
@@ -138,7 +138,7 @@ export const fullCharacterSchema = z.object({
   racialBonusChoiceSchema: z.object({
     basicChoices: z.array(choices).default([]),
     tashaChoices: z.array(choices).default([])
-  }),
+  }).optional(),
   skillsSchema,
   equipmentSchema,
   nameSchema

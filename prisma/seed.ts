@@ -14,20 +14,21 @@ import { seedClassOptionalFeatures } from "./seed/optionalFeatureSeed";
 
 async function main() {
     console.log('Starting seed...')
-    //
-    // await seedWeapons(prisma)
-    // await seedArmor(prisma)
-    // await seedEquipmentPacks(prisma)
-    // await seedBackground(prisma)
-    // await seedRaceFeatures(prisma)
-    // await seedRaces(prisma)
-    //
+    console.log('ВАЖЛИВО‼️‼️‼️‼️‼️ ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД!')
+    // ВАЖЛИВО! ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД! поки стосується лише classEquipment та classOptionalFeature
+    await seedWeapons(prisma)
+    await seedArmor(prisma)
+    await seedEquipmentPacks(prisma)
+    await seedBackground(prisma)
+    await seedRaceFeatures(prisma)
+    await seedRaces(prisma)
+
     await seedClassFeatures(prisma)
     await seedClasses(prisma)
     await seedClassEquipment(prisma)
     await seedChoiceOptions(prisma)
     await seedClassChoiceOptions(prisma)
-    // await seedClassOptionalFeatures(prisma)
+    await seedClassOptionalFeatures(prisma)
 }
 
 main()

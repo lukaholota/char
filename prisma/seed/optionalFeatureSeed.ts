@@ -167,8 +167,19 @@ export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
         },
     ]
 
+    let seedIndex = 1;
+
     for (const feature of features) {
-        await prisma.classOptionalFeature.create({ data: feature })
+        await prisma.classOptionalFeature.upsert({
+            where: { seedIndex },
+            update: feature,
+            create: {
+                seedIndex,
+                ...feature
+            }
+        })
+
+        seedIndex++;
     }
 
     console.log('✅ Додано опційних фіч:', features.length)

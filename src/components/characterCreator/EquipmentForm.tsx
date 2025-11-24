@@ -1,9 +1,8 @@
-import {equipmentSchema, skillsSchema} from "@/zod/schemas/persCreateSchema";
+import {equipmentSchema} from "@/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
-import {BackgroundI, ClassI, RaceI} from "@/types/model-types";
+import {ClassI, RaceI} from "@/types/model-types";
 import {useEffect, useMemo} from "react";
-import {Armor, Weapon} from "@prisma/client";
-import {getWeaponsByType} from "@/server/formatters/weaponFormatter";
+import { Armor, ClassStartingEquipmentOption, Weapon } from "@prisma/client";
 import {groupBy} from "@/server/formatters/generalFormatters";
 
 interface Props {
@@ -16,70 +15,99 @@ interface Props {
 export const EquipmentForm = ({race, selectedClass, weapons, armors}: Props) => {
   const {form, onSubmit} = useStepForm(equipmentSchema);
 
-  const choiceGroupToId = form.watch('choiceGroupToId') ?? {} as Record<string, number>
+  const choiceGroupToId = form.watch('choiceGroupToId') as Record<string, number[]>
 
   const weaponByTypes = useMemo(() => groupBy(weapons, weapon => weapon.weaponType), [weapons])
   const choiceGroups = selectedClass.startingEquipmentOption
-  const choiceGroupsGrouped = groupBy(choiceGroups, group => group.choiceGroup)
+  const choiceGroupsGroupedRaw = groupBy(choiceGroups, group => group.choiceGroup)
+  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = {};
 
-  const chooseOption = (choiceGroup: string, optionId: number) => {
-    form.setValue(`choiceGroupToId.${choiceGroup}`, optionId)
+  for (const [choiceGroup, group] of Object.entries(choiceGroupsGroupedRaw)) {
+      choiceGroupsGrouped[choiceGroup] = groupBy(group, g => g.option)
+  }
+
+  console.log(choiceGroupToId)
+
+  const chooseOption = (optionGroup) => {
+    const choiceGroup = optionGroup[0].choiceGroup
+    const newOptions = optionGroup.map(g => g.optionId)
+
+    form.setValue(`choiceGroupToId.${choiceGroup}`, newOptions)
   }
 
   useEffect(() => {
-    if (Object.keys(choiceGroupToId).length === 0) {
-      const initValues = Object.entries(choiceGroupsGrouped).reduce(
-        (acc, [choiceGroup, group]) => {
-          acc[choiceGroup] = group[0].optionId;
-          return acc
-        }, {} as Record<string, number>
-      )
-      form.setValue('choiceGroupToId', initValues)
-    }
+    form.register("choiceGroupToId");
+  }, []);
+
+  useEffect(() => {
+    const current = form.getValues('choiceGroupToId')
+
+    if (!current) return
+
+    if (Object.keys(current).length > 0) return
+
+    const initValues = Object.entries(choiceGroupsGrouped).reduce(
+      (acc, [choiceGroup, choiceGroupToOptionGroup]) => {
+        const optionA = choiceGroupToOptionGroup['a']
+        acc[choiceGroup] = [optionA[0].optionId]
+        return acc
+      }, {} as Record<string, number[]>
+    )
+
+    form.setValue('choiceGroupToId', initValues)
   }, [choiceGroupsGrouped])
 
+
   return (
-    <form onSubmit={onSubmit}>
-      <h2 className="my-5">Навички</h2>
+    <form onSubmit={onSubmit} className="bg-slate-800 rounded-xl p-4">
+      <h2 className="my-5">Спорядження</h2>
 
       <div>
         {
-          Object.entries(choiceGroupsGrouped).map(([choiceGroup, group], index) => {
+          Object.entries(choiceGroupsGrouped).map(([choiceGroup, choiceGroupToOptionGroup], index) => {
             return (
-              <div key={index} className="flex flex-row">
-                <span>{choiceGroup}: </span>
-                <div>
+              <ul key={index} className="flex flex-row mb-8">
+                <span className="mr-2">{choiceGroup}: </span>
+                <ul className="space-y-3">
                   {
-                    group.map((entry, index) => {
+                    Object.values(choiceGroupToOptionGroup).map((optionGroup, index) => {
+                      const entry = optionGroup[0]
+                      const output = optionGroup.map(g => g.description).join(', ')
                       return (
-                        <div key={index}>
+                        <li key={index}>
                           {
-                            group.length > 1
+                            Object.keys(choiceGroupToOptionGroup).length > 1
                               ? (
                                 <>
-                                  <label>
+                                  <label className="cursor-pointer">
                                     <input
                                       type="radio"
                                       name={ choiceGroup }
-                                      value={ entry.optionId }
-                                      onChange={ () => chooseOption(choiceGroup, entry.optionId) }
-                                      checked={ choiceGroupToId[choiceGroup] === entry.optionId }
+                                      onChange={ () => chooseOption(optionGroup) }
+                                      checked={!!choiceGroupToId[choiceGroup]?.includes(entry.optionId) }
                                     />
-                                    <span className="px-2">{entry.description};</span>
+                                    <span className="px-2">
+                                      {output}
+                                    </span>
                                   </label>
-
+                                  {
+                                    optionGroup.some(g => g.chooseAnyWeapon) && (
+                                      <>
+                                        
+                                      </>
+                                    )
+                                  }
                                 </>
                               ) : (
-                                <>
-                                </>
+                                  <div className="text-blue-300 ml-1">{output}</div>
                               )
                           }
-                        </div>
+                        </li>
                       )
                     })
                   }
-                </div>
-              </div>
+                </ul>
+              </ul>
             )
           })
         }

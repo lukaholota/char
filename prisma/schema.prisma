@@ -1104,6 +1104,8 @@ model ClassOptionalFeature {
   featureId         Int? @map("feature_id")
   classId           Int  @map("class_id")
 
+  seedIndex Int @map("seed_index") @default(0)
+
   grantedOnLevels Int[]
 
   replacesFightingStyle Boolean?
@@ -1121,6 +1123,7 @@ model ClassOptionalFeature {
   replacesFeatures          ClassOptionalFeatureReplacesFeature[]
   appearsOnlyIfChoicesTaken ChoiceOption[]
 
+  @@unique([seedIndex])
   @@map("class_optional_feature")
 }
 
@@ -1600,8 +1603,9 @@ model EquipmentPack {
 }
 
 model ClassStartingEquipmentOption {
-  optionId Int @id @default(autoincrement()) @map("option_id") // ЦЕ НЕПРАВДА ВІН РОБИТЬСЯ В РАНТАЙМІ
+  optionId Int @id @default(autoincrement()) @map("option_id")
   classId  Int @map("class_id")
+  seedIndex Int @map("seed_index") @default(0)
 
   choiceGroup Int    @map("choice_group")
   option      String @db.Char(1)
@@ -1627,6 +1631,7 @@ model ClassStartingEquipmentOption {
   armor         Armor?         @relation(fields: [armorId], references: [armorId])
   equipmentPack EquipmentPack? @relation(fields: [equipmentPackId], references: [equipmentPackId])
 
+  @@unique([seedIndex])
   @@index([classId, choiceGroup, option])
   @@map("class_starting_equipment_option")
 }

@@ -218,18 +218,14 @@ export const ASIForm = (
     }
   }, [form])
 
+  useEffect(() => {form.register('racialBonusChoiceSchema')},
+    [])
+
   useEffect(() => {
     if (prevRaceId !== null && prevRaceId !== race.raceId) {
       console.log('resetting racialBonusChoiceSchema', form.getValues());
       form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
       form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
-      // form.reset({
-      //   ...form.getValues(),
-      //   racialBonusChoiceSchema: {
-      //     basicChoices: [],
-      //     tashaChoices: [],
-      //   }
-      // })
     }
 
     setPrevRaceId(race.raceId)
@@ -280,7 +276,6 @@ export const ASIForm = (
 
       <div className="flex justify-evenly">
         <input type="hidden" { ...form.register('asiSystem') } />
-        <input type="hidden" { ...form.register('racialBonusChoiceSchema') } />
 
         {/* Реєструємо всі asi поля */ }
         { asiFields.map((field, index) => (

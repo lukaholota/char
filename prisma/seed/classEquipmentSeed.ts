@@ -880,16 +880,19 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         }
     ];
 
-    let id = 1;
+    let seedIndex = 1;
 
     for (const piece of equipment) {
-        await prisma.classStartingEquipmentOption.create({
-            data: {
-                optionId: id,
+        await prisma.classStartingEquipmentOption.upsert({
+            where: { seedIndex },
+            update: piece,
+            create: {
+                seedIndex,
                 ...piece
-            } as Prisma.ClassStartingEquipmentOptionUncheckedCreateInput
+            }
         })
-        id++;
+
+        seedIndex++;
     }
 
     console.log(`✅ додано ${equipment.length} класових фіч!`)
