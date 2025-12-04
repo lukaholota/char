@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/lib/components/ui/Button";
 import {
   Dialog,
   DialogContent,
@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/lib/components/ui/dialog";
 import { Loader2, LogIn, ShieldCheck } from "lucide-react";
 
 interface Props {
@@ -94,7 +94,7 @@ const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }:
             {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                З'єднання...
+                З&apos;єднання...
               </>
             ) : session ? (
               "Ви вже авторизовані"
@@ -107,11 +107,6 @@ const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }:
               </>
             )}
           </Button>
-
-          <p className="text-[11px] leading-relaxed text-slate-500">
-            Продовжуючи, ви приймаєте нашу політику приватності. Ми не зберігаємо паролів і не публікуємо
-            нічого без вашої згоди.
-          </p>
         </div>
       </DialogContent>
     </Dialog>

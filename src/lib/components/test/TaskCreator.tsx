@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { TaskType } from "@/components/test/Tasks";
+import { TaskType } from "@/lib/components/test/Tasks";
 
 export const TaskCreator = ({ onAddTask }: { onAddTask: ({ name, description }: TaskType ) => void}) => {
   const [taskName, setTaskName] = useState('')

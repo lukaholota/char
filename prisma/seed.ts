@@ -1,4 +1,4 @@
-import { prisma } from "@/prisma";
+import { prisma } from "@/lib/prisma";
 import { seedWeapons } from "./seed/weaponSeed";
 import { seedArmor } from "./seed/armorSeed";
 import { seedEquipmentPacks } from "./seed/equipmentPackSeed";

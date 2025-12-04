@@ -1,6 +1,6 @@
 "use client";
 
-import { TaskCreator } from "@/components/test/TaskCreator";
+import { TaskCreator } from "@/lib/components/test/TaskCreator";
 import { useState } from "react";
 import Task from "./Task";
 

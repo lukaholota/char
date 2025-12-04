@@ -28,7 +28,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/types/prisma-json.d.ts"
+    "src/lib/types/prisma-json.d.ts"
   ],
-  "exclude": ["node_modules", "prisma/seed/toFuture"]
+  "exclude": [
+    "node_modules", 
+    "prisma/seed/toFuture",
+    "node_modules/.prisma/**"
+  ]
 }

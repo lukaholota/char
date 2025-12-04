@@ -1,14 +1,14 @@
-import {equipmentSchema} from "@/zod/schemas/persCreateSchema";
+import {equipmentSchema} from "@/lib/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
-import {ClassI, RaceI} from "@/types/model-types";
+import {ClassI, RaceI} from "@/lib/types/model-types";
 import {useEffect, useMemo, useState} from "react";
 import { ClassStartingEquipmentOption, Weapon } from "@prisma/client";
-import {groupBy} from "@/server/formatters/generalFormatters";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/Button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {groupBy} from "@/lib/server/formatters/generalFormatters";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { Badge } from "@/lib/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/lib/components/ui/dialog";
+import { Button } from "@/lib/components/ui/Button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
 
 interface Props {
   race: RaceI
@@ -21,12 +21,12 @@ interface Props {
 export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisabledChange}: Props) => {
   const {form, onSubmit} = useStepForm(equipmentSchema);
 
-  const choiceGroupToId = form.watch('choiceGroupToId') as Record<string, number[]>
+  const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
   const anyWeaponSelection = form.watch('anyWeaponSelection') as Record<string, number>
 
   const choiceGroups = selectedClass.startingEquipmentOption
   const choiceGroupsGroupedRaw = groupBy(choiceGroups, group => group.choiceGroup)
-  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = {};
+  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = useMemo(() => ({}), []); // HERE
 
   for (const [choiceGroup, group] of Object.entries(choiceGroupsGroupedRaw)) {
       choiceGroupsGrouped[choiceGroup] = groupBy(group, g => g.option)
@@ -183,7 +183,7 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
                 {Object.values(choiceGroupToOptionGroup).map((optionGroup, idx) => {
                   const entry = optionGroup[0]
                   const output = optionGroup.map(g => g.description).join(', ')
-                  const checked = !!choiceGroupToId[choiceGroup]?.includes(entry.optionId)
+                  const checked = !!(choiceGroupToId[choiceGroup]?.includes?.(entry.optionId))
                   const hasAnyWeapon = optionGroup.some(g => g.chooseAnyWeapon)
                   const selectedWeaponName = weaponNameById(anyWeaponSelection?.[choiceGroup]);
 

@@ -3,13 +3,13 @@
 import type {Background} from "@prisma/client"
 import {
   backgroundTranslations, backgroundTranslationsEng,
-} from "@/refs/translation";
+} from "@/lib/refs/translation";
 import clsx from "clsx";
 import {useStepForm} from "@/hooks/useStepForm";
-import {backgroundSchema} from "@/zod/schemas/persCreateSchema";
+import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
 import { useEffect, useMemo } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/lib/components/ui/card";
+import { Badge } from "@/lib/components/ui/badge";
 
 interface Props {
   backgrounds: Background[]

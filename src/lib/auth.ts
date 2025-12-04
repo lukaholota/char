@@ -1,9 +1,9 @@
-import NextAuth, { NextAuthConfig, type User } from "next-auth"
+import NextAuth, { NextAuthConfig } from "next-auth"
 import { OAuth2Client } from "google-auth-library";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import Google from "@auth/core/providers/google";
-import Credentials, { CredentialInput } from "@auth/core/providers/credentials";
-import { prisma } from "@/prisma";
+import Credentials from "@auth/core/providers/credentials";
+import { prisma } from "@/lib/prisma";
 
 const googleClient = new OAuth2Client();
 
@@ -15,7 +15,7 @@ export const config = {
       clientId: process.env.AUTH_GOOGLE_ID,
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
     }),
-    Credentials<{ id_token: CredentialInput }>({
+    Credentials({
       id: "google-onetap",
       name: "Google One Tap",
       credentials: {
@@ -45,33 +45,54 @@ export const config = {
           const name = payload.name ?? "";
           const picture = payload.picture ?? "";
 
-          if (!sub || !email || email_verified !== true ) {
+          if (!sub || !email || email_verified !== true) {
             console.error("Invalid payload data", { sub, email, email_verified });
             return null;
           }
+          let user = await prisma.account.findUnique({
+            where: {
+              provider_providerAccountId: {
+                provider: "google",
+                providerAccountId: sub,
+              }
+            },
+            include: { user: true }
+          }).then(acc => acc?.user);
+          if (!user) {
+            user = await prisma.user.findUnique({
+              where: { email }
+            });
 
-          const user = await prisma.user.upsert({
-            where: { email },
-            update: { name: name ?? "", image: picture ?? null},
-            create: {
-              email,
-              name: name ?? "",
-              image: picture ?? null,
+            if (!user) {
+              user = await prisma.user.create({
+                data: {
+                  email,
+                  name,
+                  image: picture || null,
+                  emailVerified: new Date(), 
+                }
+              });
             }
-          });
+            await prisma.account.create({
+              data: {
+                userId: user.id,
+                type: "oauth", 
+                provider: "google",
+                providerAccountId: sub,
+              }
+            });
+          }
 
-          const authUser: User = {
-            id: String(user.id),              // <- cast до string
+          return {
+            id: String(user.id),
             email: user.email,
             name: user.name,
-            image: user.image ?? null,        // <- null, не undefined
+            image: user.image,
           };
-          return authUser;
         } catch (error) {
           console.error("Authorization error:", error);
           return null;
         }
-
       },
     }),
   ],
@@ -90,4 +111,4 @@ export const config = {
   debug: process.env.NODE_ENV === "development",
 } satisfies NextAuthConfig;
 
-export const { auth, handlers, signIn, signOut,  } = NextAuth(config)
+export const { auth, handlers, signIn, signOut } = NextAuth(config);

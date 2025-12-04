@@ -1,11 +1,11 @@
 "use client";
 
-import { classTranslations, classTranslationsEng } from "@/refs/translation";
+import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
-import { classSchema } from "@/zod/schemas/persCreateSchema";
-import { ClassI } from "@/types/model-types";
-import { Card, CardContent } from "@/components/ui/card";
+import { classSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { ClassI } from "@/lib/types/model-types";
+import { Card, CardContent } from "@/lib/components/ui/card";
 import { useEffect } from "react";
 
 interface Props {

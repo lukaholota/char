@@ -4,7 +4,7 @@ model Account {
   userId            Int    @map("user_id")
   type              String
   provider          String
-  providerAccountId Int    @map("provider_account_id")
+  providerAccountId String    @map("provider_account_id")
 
   refreshToken String? @map("refresh_token") @db.Text
   accessToken  String? @map("access_token") @db.Text

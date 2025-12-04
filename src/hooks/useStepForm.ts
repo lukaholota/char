@@ -1,5 +1,5 @@
 import {z, ZodObject, ZodRawShape} from "zod";
-import { usePersFormStore } from "@/stores/persFormStore";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {DefaultValues, useForm} from "react-hook-form";
 import { useEffect, useMemo } from "react";

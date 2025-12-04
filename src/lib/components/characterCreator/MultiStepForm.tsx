@@ -2,22 +2,22 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import type {Background, Weapon} from "@prisma/client"
-import RacesForm from "@/components/characterCreator/RacesForm";
-import {CharacterCreateHeader} from "@/components/characterCreator/CharacterCreateHeader";
-import {usePersFormStore} from "@/stores/persFormStore";
-import ClassesForm from "@/components/characterCreator/ClassesForm";
-import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
-import ASIForm from "@/components/characterCreator/ASIForm";
-import SkillsForm from "@/components/characterCreator/SkillsForm";
-import { BackgroundI, ClassI, RaceI } from "@/types/model-types";
-import EquipmentForm from "@/components/characterCreator/EquipmentForm";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/Button";
+import RacesForm from "@/lib/components/characterCreator/RacesForm";
+import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
+import {usePersFormStore} from "@/lib/stores/persFormStore";
+import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
+import BackgroundsForm from "@/lib/components/characterCreator/BackgroundsForm";
+import ASIForm from "@/lib/components/characterCreator/ASIForm";
+import SkillsForm from "@/lib/components/characterCreator/SkillsForm";
+import { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
+import EquipmentForm from "@/lib/components/characterCreator/EquipmentForm";
+import { Badge } from "@/lib/components/ui/badge";
+import { Card, CardContent } from "@/lib/components/ui/card";
+import { Button } from "@/lib/components/ui/Button";
 import { Check, ChevronLeft, Circle } from "lucide-react";
-import GoogleAuthDialog from "@/components/auth/GoogleAuthDialog";
+import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
 import clsx from "clsx";
-import NameForm from "@/components/characterCreator/NameForm";
+import NameForm from "@/lib/components/characterCreator/NameForm";
 
 const STEPS = [
   {id: 1, name: 'Раса', component: 'races'},

@@ -1,12 +1,12 @@
 "use client";
 
-import { raceTranslations, raceTranslationsEng } from "@/refs/translation";
+import { raceTranslations, raceTranslationsEng } from "@/lib/refs/translation";
 import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
-import { raceSchema } from "@/zod/schemas/persCreateSchema";
-import { RaceI } from "@/types/model-types";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { raceSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { RaceI } from "@/lib/types/model-types";
+import { Card, CardContent } from "@/lib/components/ui/card";
+import { Badge } from "@/lib/components/ui/badge";
 import { useEffect, useMemo } from "react";
 
 interface Props {

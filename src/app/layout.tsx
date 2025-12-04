@@ -2,11 +2,11 @@ import React from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Metadata } from "next";
 import './globals.css'
-import { Navigation } from "@/components/ui/Navigation";
-import { App } from "@/components/ui/App";
+import { Navigation } from "@/lib/components/ui/Navigation";
+import { App } from "@/lib/components/ui/App";
 import { SessionProvider } from "next-auth/react";
-import GoogleOneTap from "@/components/auth/GoogleOneTap";
-import { Toaster } from "@/components/ui/sonner";
+import GoogleOneTap from "@/lib/components/auth/GoogleOneTap";
+import { Toaster } from "@/lib/components/ui/sonner";
 
 const inter = Inter({
   subsets: ['latin'],

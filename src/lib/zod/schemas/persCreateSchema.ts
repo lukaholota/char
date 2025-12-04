@@ -1,6 +1,6 @@
 import {z} from "zod";
 import { Ability, Skills } from "@prisma/client";
-import {SkillsEnum} from "@/types/enums";
+import {SkillsEnum} from "@/lib/types/enums";
 
 export const raceSchema = z.object({
   raceId: z.number().min(1, "Треба обрати расу 😈")

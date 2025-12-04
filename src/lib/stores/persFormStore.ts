@@ -1,4 +1,4 @@
-import {PersFormData} from "@/zod/schemas/persCreateSchema";
+import {PersFormData} from "@/lib/zod/schemas/persCreateSchema";
 import {create} from "zustand";
 import {createJSONStorage, persist} from "zustand/middleware";
 

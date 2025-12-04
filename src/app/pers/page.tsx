@@ -1,6 +1,6 @@
-import MultiStepForm from "@/components/characterCreator/MultiStepForm";
-import { prisma } from "@/prisma";
-import {BackgroundI, ClassI, RaceI} from "@/types/model-types";
+import MultiStepForm from "@/lib/components/characterCreator/MultiStepForm";
+import { prisma } from "@/lib/prisma";
+import {BackgroundI, ClassI, RaceI} from "@/lib/types/model-types";
 
 
 export default async function Page() {

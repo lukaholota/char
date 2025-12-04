@@ -1,15 +1,15 @@
-import {skillsSchema} from "@/zod/schemas/persCreateSchema";
+import {skillsSchema} from "@/lib/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
-import {BackgroundI, ClassI, RaceI, SkillProficiencies, SkillProficienciesChoice} from "@/types/model-types";
+import {BackgroundI, ClassI, RaceI, SkillProficiencies, SkillProficienciesChoice} from "@/lib/types/model-types";
 import {useEffect} from "react";
-import {engEnumSkills} from "@/refs/translation";
+import {engEnumSkills} from "@/lib/refs/translation";
 import {Skills} from "@prisma/client";
-import {Skill, SkillsEnum} from "@/types/enums";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/Button";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import {Skill, SkillsEnum} from "@/lib/types/enums";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { Badge } from "@/lib/components/ui/badge";
+import { Button } from "@/lib/components/ui/Button";
+import { Switch } from "@/lib/components/ui/switch";
+import { Label } from "@/lib/components/ui/label";
 import { Check } from "lucide-react";
 
 interface Props {

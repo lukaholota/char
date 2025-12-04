@@ -1,4 +1,4 @@
-import { Logo } from "@/components/icons/Logo";
+import { Logo } from "@/lib/components/icons/Logo";
 
 export const Navigation = () => {
   return (

@@ -2,19 +2,19 @@
 
 import { useStepForm } from "@/hooks/useStepForm";
 import { Ability, Classes,  } from "@prisma/client";
-import { asiSchema } from "@/zod/schemas/persCreateSchema";
+import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
 import React, { useEffect, useMemo } from "react";
-import { classAbilityScores } from "@/refs/classesBaseASI";
-import { ClassI, RaceI } from "@/types/model-types";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/Button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
+import { classAbilityScores } from "@/lib/refs/classesBaseASI";
+import { ClassI, RaceI } from "@/lib/types/model-types";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { Button } from "@/lib/components/ui/Button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
+import { Badge } from "@/lib/components/ui/badge";
 import { Minus, Plus, ArrowUp, ArrowDown, Check, Sparkles, AlertCircle } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import { Input } from "@/lib/components/ui/input";
+import { Switch } from "@/lib/components/ui/switch";
+import { Label } from "@/lib/components/ui/label";
 
 
 interface Props {

@@ -1,10 +1,10 @@
-import { nameSchema } from "@/zod/schemas/persCreateSchema";
+import { nameSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useStepForm } from "@/hooks/useStepForm";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { raceTranslations, classTranslations, backgroundTranslations } from "@/refs/translation";
-import { BackgroundI, ClassI, RaceI } from "@/types/model-types";
+import { Input } from "@/lib/components/ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { Badge } from "@/lib/components/ui/badge";
+import { raceTranslations, classTranslations, backgroundTranslations } from "@/lib/refs/translation";
+import { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
 
 interface Props {
   formId: string;
