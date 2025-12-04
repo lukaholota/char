@@ -1,0 +1,14 @@
+
+model PersSkill {
+  persSkillId     Int                  @id @default(autoincrement()) @map("pers_skill_id")
+  skillId         Int                  @map("skill_id")
+  persId          Int                  @map("pers_id")
+  proficiencyType SkillProficiencyType @default(NONE) @map("proficiency_type")
+  customModifier  Int?                 @map("custom_modifier")
+  name            Skills
+
+  pers Pers @relation(fields: [persId], references: [persId])
+
+  @@unique([persId, name])
+  @@map("pers_skill")
+}

@@ -114,7 +114,8 @@ export const equipmentSchema = z.object({
     choiceGroupToId: z.record(
       z.string(), // js has no numeric keys
       z.array(z.number())
-    ).default({})
+    ).default({}),
+    anyWeaponSelection: z.record(z.string(), z.number()).default({})
 })
 
 export const nameSchema = z.object({

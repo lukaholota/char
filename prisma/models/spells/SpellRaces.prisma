@@ -1,0 +1,10 @@
+
+model SpellRaces {
+  spellId  Int?    @map("spell_id")
+  raceId   Int     @id @default(autoincrement()) @map("race_id") // OLDDDDDDD
+  raceName String? @map("race_name") @db.VarChar
+
+  spell Spell? @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("spell_races")
+}

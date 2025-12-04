@@ -1,0 +1,28 @@
+
+model MagicItem {
+  magicItemId Int    @id @default(autoincrement()) @map("magic_item_id")
+  name        String @db.VarChar(100)
+
+  engName  String        @unique @map("eng_name") @db.VarChar(100)
+  itemType MagicItemType @map("item_type")
+  rarity   ItemRarity
+
+  description      String  @db.Text
+  shortDescription String? @map("short_description") @db.Text
+
+  requiresAttunement Boolean @default(false) @map("requires_attunement")
+
+  /// [WeaponProficiencies]
+  weaponProficiencies        Json? @map("weapon_proficiencies")
+  /// [WeaponProficienciesSpecial]
+  weaponProficienciesSpecial Json? @map("weapon_proficiencies_special")
+
+  persMagicItems PersMagicItem[]
+
+  // Opposite side of Infusion.replicatedMagicItem
+  replicatedByInfusions Infusion[]
+
+  givesSpells Spell[]
+
+  @@map("magic_item")
+}

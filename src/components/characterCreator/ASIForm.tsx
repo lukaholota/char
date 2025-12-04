@@ -4,9 +4,17 @@ import { useStepForm } from "@/hooks/useStepForm";
 import { Ability, Classes,  } from "@prisma/client";
 import { asiSchema } from "@/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo } from "react";
 import { classAbilityScores } from "@/refs/classesBaseASI";
 import { ClassI, RaceI } from "@/types/model-types";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/Button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Minus, Plus, ArrowUp, ArrowDown, Check, Sparkles, AlertCircle } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 
 interface Props {
@@ -14,6 +22,8 @@ interface Props {
   selectedClass: ClassI
   prevRaceId: number | null
   setPrevRaceId: (id: number) => void;
+  formId: string
+  onNextDisabledChange?: (disabled: boolean) => void
 }
 
 const attributes = [
@@ -42,13 +52,11 @@ const asiSystems = {
 
 
 export const ASIForm = (
-  { race, selectedClass, prevRaceId, setPrevRaceId }: Props
+  { race, selectedClass, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
 ) => {
   const raceAsi = race.ASI
 
   const { form, onSubmit } = useStepForm(asiSchema)
-
-  console.log(form.getValues('racialBonusChoiceSchema'))
 
   const { fields: asiFields, replace: replaceAsi } = useFieldArray({
     control: form.control,
@@ -70,6 +78,10 @@ export const ASIForm = (
   const isDefaultASI = form.watch('isDefaultASI') || false
   const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
   const points = form.watch('points') || 0
+
+  useEffect(() => {
+    onNextDisabledChange?.(asiSystem === asiSystems.POINT_BUY && points < 0);
+  }, [asiSystem, points, onNextDisabledChange])
 
   const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
 
@@ -124,10 +136,6 @@ export const ASIForm = (
         shouldValidate: true
       });
     }
-  }
-
-  const handleChangeAsiSystem = (e: React.ChangeEvent<HTMLInputElement>) => {
-    form.setValue('asiSystem', e.target.value)
   }
 
   const handleToggleRacialBonus = ({ groupIndex, choiceCount, ability }: {
@@ -207,7 +215,7 @@ export const ASIForm = (
         }
       }
     }
-  }, [selectedClass, replaceAsi, replaceSimpleAsi])
+  }, [selectedClass, replaceAsi, replaceSimpleAsi, replaceCustomAsi])
 
   useEffect(() => {
     form.register('points')
@@ -219,17 +227,16 @@ export const ASIForm = (
   }, [form])
 
   useEffect(() => {form.register('racialBonusChoiceSchema')},
-    [])
+    [form])
 
   useEffect(() => {
     if (prevRaceId !== null && prevRaceId !== race.raceId) {
-      console.log('resetting racialBonusChoiceSchema', form.getValues());
       form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
       form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
     }
 
     setPrevRaceId(race.raceId)
-  }, [race.raceId])
+  }, [form, prevRaceId, race.raceId, setPrevRaceId])
 
   const racialBonusGroups = useMemo(() => {
     return isDefaultASI
@@ -237,303 +244,369 @@ export const ASIForm = (
       : raceAsi.tasha?.flexible.groups
   }, [isDefaultASI, raceAsi])
 
+  const systemCopy: Record<string, string> = {
+    [asiSystems.POINT_BUY]: 'Розподіляйте бюджет очок і отримайте контроль над кожною характеристикою.',
+    [asiSystems.SIMPLE]: 'Швидкий старт — пересувайте значення вгору та вниз без калькулятора.',
+    [asiSystems.CUSTOM]: 'Повна свобода: введіть будь-які значення вручну, якщо ви знаєте що робите.',
+  }
+
   return (
-    <form onSubmit={ onSubmit } className="w-full max-w-2xl mx-auto">
-      <h2 className="my-5 text-center text-2xl">Оберіть Стати</h2>
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-6">
+      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+        <CardHeader className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-1">
+            <CardTitle className="text-xl text-white md:text-2xl">Розподіл характеристик</CardTitle>
+            <CardDescription className="text-slate-400">
+              Чистий, мінімалістичний контроль над силами персонажа. Оберіть систему, яка підходить вам.
+            </CardDescription>
+          </div>
+          <div className="flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-xs uppercase tracking-[0.18em] text-slate-300">
+            <Sparkles className="h-4 w-4 text-indigo-400" />
+            мінімалістичний режим
+          </div>
+        </CardHeader>
 
-      {/* ✅ Показуємо помилки з refine */ }
-      { form.formState.errors.root && (
-        <p className="text-red-500 text-sm mb-3">
-          ❌ root { form.formState.errors.root.message }
-        </p>
-      ) }
+        <CardContent className="space-y-4">
+          <input type="hidden" {...form.register('asiSystem')} value={asiSystem} />
 
-      {/* Або якщо помилка на полі asi */ }
-      { form.formState.errors.asi && (
-        <p className="text-red-500 text-sm mb-3">
-          ❌ asi { form.formState.errors.asi.message }
-        </p>
-      ) }
+          {asiFields.map((field, index) => (
+            <React.Fragment key={field.id}>
+              <input type="hidden" {...form.register(`asi.${index}.ability`)} />
+              <input type="hidden" {...form.register(`asi.${index}.value`, { valueAsNumber: true })} />
+            </React.Fragment>
+          ))}
 
-      {/* Або якщо на simpleAsi */ }
-      { form.formState.errors.simpleAsi && (
-        <p className="text-red-500 text-sm mb-3">
-          ❌ simpleAsi { form.formState.errors.simpleAsi.message }
-        </p>
-      ) }
+          {simpleAsiFields.map((field, index) => (
+            <React.Fragment key={field.id}>
+              <input type="hidden" {...form.register(`simpleAsi.${index}.ability`)} />
+              <input type="hidden" {...form.register(`simpleAsi.${index}.value`, { valueAsNumber: true })} />
+            </React.Fragment>
+          ))}
 
-      { form.formState.errors.points && (
-        <p className="text-red-500 text-sm mb-3">
-          ❌ point { form.formState.errors.points.message }
-        </p>
-      ) }
+          {customAsiFields.map((field, index) => (
+            <React.Fragment key={field.id}>
+              <input type="hidden" {...form.register(`customAsi.${index}.ability`)} />
+              <input type="hidden" {...form.register(`customAsi.${index}.value`)} />
+            </React.Fragment>
+          ))}
 
-      { form.formState.errors.customAsi && (
-        <p className="text-red-500 text-sm mb-3">
-          { `❌ customAsi: ${ form.formState.errors.customAsi?.root?.message }` }
-        </p>
-      ) }
+          <Tabs
+            value={asiSystem}
+            onValueChange={(value) => form.setValue('asiSystem', value)}
+            className="w-full"
+          >
+            <TabsList className="grid w-full grid-cols-3 bg-slate-900/70 text-slate-300">
+              <TabsTrigger
+                value={asiSystems.POINT_BUY}
+                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
+              >
+                За очками
+              </TabsTrigger>
+              <TabsTrigger
+                value={asiSystems.SIMPLE}
+                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
+              >
+                Просто
+              </TabsTrigger>
+              <TabsTrigger
+                value={asiSystems.CUSTOM}
+                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
+              >
+                Вільно
+              </TabsTrigger>
+            </TabsList>
 
-      <div className="flex justify-evenly">
-        <input type="hidden" { ...form.register('asiSystem') } />
+            <p className="mt-3 text-sm text-slate-400">{systemCopy[asiSystem]}</p>
 
-        {/* Реєструємо всі asi поля */ }
-        { asiFields.map((field, index) => (
-          <React.Fragment key={ field.id }>
-            <input type="hidden" { ...form.register(`asi.${ index }.ability`) } />
-            <input type="hidden" { ...form.register(`asi.${ index }.value`, { valueAsNumber: true }) } />
-          </React.Fragment>
-        )) }
-
-        {/* Реєструємо всі simpleAsi поля */ }
-        { simpleAsiFields.map((field, index) => (
-          <React.Fragment key={ field.id }>
-            <input type="hidden" { ...form.register(`simpleAsi.${ index }.ability`) } />
-            <input type="hidden" { ...form.register(`simpleAsi.${ index }.value`, { valueAsNumber: true }) } />
-          </React.Fragment>
-        )) }
-
-        { customAsiFields.map((field, index) => (
-          <React.Fragment key={ field.id }>
-            <input type="hidden" { ...form.register(`customAsi.${ index }.ability`) } />
-            <input type="hidden" { ...form.register(`customAsi.${ index }.value`) } />
-          </React.Fragment>
-        )) }
-
-        <label>
-          <input type="radio" name="ASI_SYSTEM" value={ asiSystems.POINT_BUY }
-                 checked={ asiSystem === asiSystems.POINT_BUY } onChange={ handleChangeAsiSystem }/>
-          За очками
-        </label>
-        <label>
-          <input type="radio" name="ASI_SYSTEM" value={ asiSystems.SIMPLE }
-                 checked={ asiSystem === asiSystems.SIMPLE } onChange={ handleChangeAsiSystem }/>
-          Просто
-        </label>
-        <label>
-          <input type="radio" name="ASI_SYSTEM" value={ asiSystems.CUSTOM }
-                 checked={ asiSystem === asiSystems.CUSTOM } onChange={ handleChangeAsiSystem }/>
-          Вільно
-        </label>
-      </div>
-
-      <div className="flex flex-col items-center justify-center gap-4 my-6">
-        {
-          asiSystem === asiSystems.POINT_BUY && (
-            <div className="flex flex-row">
-              <div className="">
-                {
-                  asiFields.map((field, index) => {
-                    const attr = attributes.find(a => a.eng === field.ability)
-                    const currentValue = form.watch(`asi.${ index }.value`) || field.value;
-
-                    return (
-                      <div key={ field.id } className="flex items-center gap-4 bg-slate-800 p-3 rounded">
-                        <span className="w-24 font-semibold">{ attr?.ukr || field.ability }</span>
-
-                        <button
-                          type="button"
-                          onClick={ () => decrementValue(index) }
-                          className="px-3 py-1 bg-red-600 rounded hover:bg-red-700"
-                          disabled={ currentValue as number <= 8 }>
-                          ➖
-                        </button>
-
-                        <span className="w-12 text-center text-xl font-bold">{ currentValue as number }</span>
-
-                        <button
-                          type="button"
-                          onClick={ () => incrementValue(index) }
-                          className="px-3 py-1 bg-green-600 rounded hover:bg-green-700"
-                          disabled={ currentValue as number > 14 }>
-                          ➕
-                        </button>
-
-                      </div>
-                    );
-                  })
-                }
-              </div>
-              <div
-                className={ `text-3xl text-center flex justify-center items-center ml-5 ${ points < 0 && 'text-red-600' }` }>{ points }</div>
-            </div>
-          )
-        }
-
-        {
-          asiSystem === asiSystems.SIMPLE && (
-            <div className="flex flex-row">
-              <div className="">
-                {
-                  sortedSimpleAsi.map((field, sortedIndex) => {
-                    const attr = attributes.find(a => a.eng === field.ability);
-                    const currentValue = field.value
-
-                    return (
-                      <div key={ field.id } className="flex items-center gap-4 bg-slate-800 p-3 rounded">
-                        <span className="w-12 text-center text-xl font-bold">{ currentValue }</span>
-
-                        <button
-                          type="button"
-                          onClick={ () => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: true }) }
-                          className="px-3 py-1 bg-cyan-600 rounded hover:bg-cyan-500"
-                          disabled={ currentValue >= 15 }>
-                          ↑
-                        </button>
-
-                        <span className="w-24 font-semibold">{ attr?.ukr || field.ability }</span>
-
-                        <button
-                          type="button"
-                          onClick={ () => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: false }) }
-                          className="px-3 py-1 bg-green-600 rounded hover:bg-green-500"
-                          disabled={ currentValue <= 8 }>
-                          ↓
-                        </button>
-                      </div>
-                    );
-                  })
-                }
-              </div>
-            </div>
-          )
-        }
-        {
-          asiSystem === asiSystems.CUSTOM && (
-            <div className="flex flex-row">
-              <div className="">
-                {
-                  customAsiFields.map((field, index) => {
-                    const attr = attributes.find(a => a.eng === field.ability);
-                    const currentValue = form.watch(`customAsi.${ index }.value`)
-
-                    return (
-                      <div key={ field.id } className="flex items-center gap-4 bg-slate-800 p-3 rounded">
-                        <span className="w-24 font-semibold">{ attr?.ukr || field.ability }</span>
-
-                        <input
-                          type="text"
-                          placeholder="Введіть число"
-                          value={ currentValue ?? '' }
-                          onChange={ (e) => {
-                            form.setValue(`customAsi.${ index }.value`, e.target.value)
-                          } }
-                          className="px-3 py-1 bg-slate-600 rounded hover:bg-slate-500 h-6"
-                        />
-                      </div>
-                    );
-                  })
-                }
-              </div>
-            </div>
-          )
-        }
-      </div>
-
-      <h2 className="my-3 text-center text-xl">Расові бонуси</h2>
-
-      { form.formState.errors.racialBonusChoiceSchema && (
-        <p className="text-red-500 text-sm my-3">
-          ❌ { form.formState.errors.racialBonusChoiceSchema.message }
-        </p>
-      ) }
-
-      {
-        racialBonusGroups?.map((group, index) => (
-          <div key={ index } className="mb-6">
-            <h2 className="my-3 text-center text-blue-300">{ group.groupName }</h2>
-
-            <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
-              {
-                attributesUrkShort.map((attr, i) => {
-                  const isSelected = isRacialBonusSelected(index, attr.eng)
-                  const currentCount = getCurrentSelectedCount(index);
-                  const isMaxReached = currentCount >= group.choiceCount
-                  const formGroups: {
-                    groupIndex: number;
-                    choiceCount: number;
-                    selectedAbilities: Ability[];
-                  }[]  = form.getValues(racialBonusSchemaPath) || []
-
-                  const currentGroupIndex = formGroups.findIndex(g => g.groupIndex === index);
-
-                  const uniqueDisabled = isDefaultASI
-                    ? (
-                      raceAsi.basic?.simple
-                      && (raceAsi.basic?.flexible?.groups?.length ?? 0) > 0
-                      && (raceAsi.basic?.flexible?.groups?.every((group) => group.unique))
-                      && (Object.keys(raceAsi.basic?.simple ?? {}).includes(attr.eng))
-                    )
-                    : (
-                      (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
-                      && (raceAsi.tasha?.flexible?.groups?.every((group) => group.unique))
-                      && (formGroups?.some((group) =>
-                          (group.groupIndex !== currentGroupIndex) &&
-                          (group.selectedAbilities.includes(attr.eng))
-                      ))
-                    )
-                  const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
+            <TabsContent value={asiSystems.POINT_BUY} className="space-y-4">
+              <div className="grid gap-3 md:grid-cols-2">
+                {asiFields.map((field, index) => {
+                  const attr = attributes.find((a) => a.eng === field.ability);
+                  const currentValue = form.watch(`asi.${index}.value`) || field.value;
+                  const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
 
                   return (
-                    <label key={ i }
-                           className={ `flex justify-center items-center cursor-pointer ${ isDisabled && 'opacity-50 cursor-not-allowed' }` }>
-                      <input type="checkbox" className="mr-2 w-4 h-4" onChange={
-                        () => handleToggleRacialBonus({
-                          groupIndex: index,
-                          choiceCount: group.choiceCount,
-                          ability: attr.eng
-                        })
-                      } checked={ isSelected }
-                             disabled={ isDisabled }/>
-                      <span>{ attr.ukr }</span>
-                    </label>
-                  )
-                })
-              }
+                    <Card
+                      key={field.id}
+                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
+                    >
+                      <CardHeader className="flex flex-row items-center justify-between pb-2">
+                        <div>
+                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
+                          <p className="text-3xl font-semibold text-white">{currentValue as number}</p>
+                        </div>
+                        <Badge variant="outline" className="border-slate-700 text-slate-200">
+                          {shortName}
+                        </Badge>
+                      </CardHeader>
+                      <CardContent className="flex items-center justify-between pt-0">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={() => decrementValue(index)}
+                          disabled={(currentValue as number) <= 8}
+                          className="border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <div className="rounded-lg border border-slate-800/70 bg-slate-900/80 px-4 py-2 text-lg font-semibold text-white">
+                          {currentValue as number}
+                        </div>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={() => incrementValue(index)}
+                          disabled={(currentValue as number) > 14}
+                          className="border-emerald-400/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+              <div className="flex items-center justify-between rounded-lg border border-slate-800/70 bg-slate-900/80 px-4 py-3 text-sm">
+                <span className="text-slate-300">Залишок очок</span>
+                <Badge
+                  variant="outline"
+                  className={`px-3 text-base ${points < 0 ? 'border-red-500/60 text-red-200' : 'border-emerald-500/50 text-emerald-200'}`}
+                >
+                  {points}
+                </Badge>
+              </div>
+            </TabsContent>
+
+            <TabsContent value={asiSystems.SIMPLE} className="space-y-3">
+              <div className="flex flex-col gap-2">
+                {sortedSimpleAsi.map((field, sortedIndex) => {
+                  const attr = attributes.find((a) => a.eng === field.ability);
+                  const currentValue = field.value;
+                  const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
+
+                  return (
+                    <Card
+                      key={field.id}
+                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
+                    >
+                      <CardHeader className="flex items-center justify-between pb-1">
+                        <div>
+                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
+                          <p className="text-xl font-semibold text-white">{currentValue}</p>
+                        </div>
+                        <Badge variant="outline" className="border-slate-700 text-slate-200">
+                          {shortName}
+                        </Badge>
+                      </CardHeader>
+                      <CardContent className="flex items-center justify-between gap-3 pt-0">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          className="border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
+                          onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: true })}
+                          disabled={sortedIndex === 0 || currentValue >= 15}
+                        >
+                          <ArrowUp className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          className="border-emerald-500/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
+                          onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: false })}
+                          disabled={sortedIndex === sortedSimpleAsi.length - 1 || currentValue <= 8}
+                        >
+                          <ArrowDown className="h-4 w-4" />
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </TabsContent>
+
+            <TabsContent value={asiSystems.CUSTOM} className="space-y-3">
+              <div className="grid gap-3 md:grid-cols-2">
+                {customAsiFields.map((field, index) => {
+                  const attr = attributes.find((a) => a.eng === field.ability);
+                  const currentValue = form.watch(`customAsi.${index}.value`);
+                  const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
+
+                  return (
+                    <Card
+                      key={field.id}
+                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
+                    >
+                      <CardHeader className="flex items-center justify-between pb-2">
+                        <div>
+                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
+                          <p className="text-sm text-slate-400">Введіть будь-яке значення</p>
+                        </div>
+                        <Badge variant="outline" className="border-slate-700 text-slate-200">
+                          {shortName}
+                        </Badge>
+                      </CardHeader>
+                      <CardContent className="pt-0">
+                        <Input
+                          type="number"
+                          inputMode="numeric"
+                          placeholder="14"
+                          value={currentValue ?? ''}
+                          onChange={(e) => form.setValue(`customAsi.${index}.value`, e.target.value)}
+                          className="border-slate-800/80 bg-slate-900/70 text-white"
+                        />
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+
+      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-white">Расові бонуси</CardTitle>
+          <CardDescription className="text-slate-400">
+            Додайте акценти раси до характеристик. Вибирайте інтуїтивно — кнопки підкажуть доступні варіанти.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {form.formState.errors.racialBonusChoiceSchema && (
+            <div className="flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">
+              <AlertCircle className="h-4 w-4" />
+              <span>{form.formState.errors.racialBonusChoiceSchema.message}</span>
             </div>
-          </div>
-        ))
-      }
-      {
-        isDefaultASI && (
-          <>
-            { Object.entries(raceAsi.basic?.simple || {}).length > 0
-              ? Object.entries(raceAsi.basic?.simple || {}).map(([attrEng, value], index) => {
-                const attr = attributes.find(a => a.eng === attrEng)
+          )}
+
+          {racialBonusGroups?.length ? (
+            racialBonusGroups.map((group, index) => (
+              <div
+                key={index}
+                className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 shadow-inner"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-semibold text-white">{group.groupName}</p>
+                    <p className="text-xs text-slate-400">Оберіть {group.choiceCount}</p>
+                  </div>
+                  <Badge variant="secondary" className="bg-white/5 text-white">
+                    +{group.choiceCount}
+                  </Badge>
+                </div>
+
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                  {attributesUrkShort.map((attr, i) => {
+                    const isSelected = isRacialBonusSelected(index, attr.eng);
+                    const currentCount = getCurrentSelectedCount(index);
+                    const isMaxReached = currentCount >= group.choiceCount;
+                    const formGroups: {
+                      groupIndex: number;
+                      choiceCount: number;
+                      selectedAbilities: Ability[];
+                    }[] = form.getValues(racialBonusSchemaPath) || [];
+
+                    const currentGroupIndex = formGroups.findIndex((g) => g.groupIndex === index);
+
+                    const uniqueDisabled = isDefaultASI
+                      ? (
+                        raceAsi.basic?.simple
+                        && (raceAsi.basic?.flexible?.groups?.length ?? 0) > 0
+                        && (raceAsi.basic?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
+                        && (Object.keys(raceAsi.basic?.simple ?? {}).includes(attr.eng))
+                      )
+                      : (
+                        (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
+                        && (raceAsi.tasha?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
+                        && (formGroups?.some((flexGroup) =>
+                          (flexGroup.groupIndex !== currentGroupIndex)
+                          && (flexGroup.selectedAbilities.includes(attr.eng))
+                        ))
+                      );
+
+                    const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
+
+                    return (
+                      <Button
+                        key={i}
+                        type="button"
+                        variant={isSelected ? 'secondary' : 'outline'}
+                        className={`justify-between ${isDisabled ? 'opacity-60' : ''}`}
+                        disabled={isDisabled}
+                        onClick={() =>
+                          handleToggleRacialBonus({
+                            groupIndex: index,
+                            choiceCount: group.choiceCount,
+                            ability: attr.eng,
+                          })
+                        }
+                      >
+                        <span className="text-sm">{attr.ukr}</span>
+                        {isSelected && <Check className="h-4 w-4" />}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-sm text-slate-400">Для цієї раси немає гнучких бонусів.</p>
+          )}
+
+          {isDefaultASI && Object.entries(raceAsi.basic?.simple || {}).length > 0 && (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {Object.entries(raceAsi.basic?.simple || {}).map(([attrEng, value], index) => {
+                const attr = attributes.find((a) => a.eng === attrEng);
 
                 return (
                   <div
-                    key={ index }
-                    className="bg-slate-700 px-4 py-2 rounded-lg"
+                    key={index}
+                    className="flex items-center justify-between rounded-lg border border-slate-800/80 bg-slate-900/70 px-4 py-3"
                   >
-                    <span className="font-semibold">{ attr?.ukr }</span>
-                    <span className="ml-2 text-blue-300">{ value }</span>
-
+                    <span className="font-semibold text-white">{attr?.ukr}</span>
+                    <Badge variant="outline" className="border-slate-700 text-indigo-200">
+                      +{value}
+                    </Badge>
                   </div>
-                )
-              })
-              : <>Порожньо!</>
-            }
-          </>
-        )
-      }
+                );
+              })}
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
-
-      <div className="flex justify-center my-6">
-        <label className="flex items-center gap-2 mb-4 cursor-pointer">
-          <input
-            type="checkbox"
-            className="w-4 h-4"
-            { ...form.register('isDefaultASI') }
-          />
-          <span>Не використовувати правила Таші &#34;вільного розподілу&#34;?</span>
-        </label>
+      <div className="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/70 p-4 shadow-xl">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold text-white">Базові расові бонуси</p>
+            <p className="text-xs text-slate-400">Вимкніть, щоб перейти на правила Таші з вільним розподілом.</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <input
+              type="checkbox"
+              className="sr-only"
+              {...form.register('isDefaultASI')}
+              checked={isDefaultASI}
+              onChange={(event) => form.setValue('isDefaultASI', event.target.checked)}
+            />
+            <Switch
+              id="isDefaultASI"
+              checked={isDefaultASI}
+              onCheckedChange={(checked) => form.setValue('isDefaultASI', checked)}
+            />
+            <Label htmlFor="isDefaultASI" className="text-slate-200">
+              Базові
+            </Label>
+          </div>
+        </div>
+        <p className="text-xs text-right text-slate-500">
+          Кнопки навігації завжди внизу екрана.
+        </p>
       </div>
-
-      <button type="submit" className="mt-4 px-6 py-2 bg-violet-600 rounded"
-              disabled={ asiSystem === asiSystems.POINT_BUY && points < 0 }>
-        Далі →
-      </button>
     </form>
   )
 };

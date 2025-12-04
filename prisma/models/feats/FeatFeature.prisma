@@ -1,0 +1,14 @@
+
+model FeatFeature {
+  featFeatureId Int @id @default(autoincrement()) @map("feat_feature_id")
+  featId        Int @map("feat_id")
+  featureId     Int @map("feature_id")
+
+  feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  feat    Feat    @relation(fields: [featId], references: [featId])
+
+  @@unique([featId, featureId])
+  @@index([featId])
+  @@index([featureId])
+  @@map("feat_feature")
+}

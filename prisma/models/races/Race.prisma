@@ -1,0 +1,37 @@
+
+model Race {
+  raceId      Int    @id @default(autoincrement()) @map("race_id")
+  name        Races  @unique
+  size        Size[] @default([MEDIUM])
+  speed       Int    @default(30)
+  burrowSpeed Int    @default(0) @map("burrow_speed")
+  flightSpeed Int    @default(0) @map("flight_speed")
+  swimSpeed   Int    @default(0) @map("swim_speed")
+  climbSpeed  Int    @default(0) @map("climb_speed")
+  ac          Json?
+
+  source Source @default(PHB)
+
+  languages              Language[] @default([COMMON])
+  languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
+
+  /// [RaceASI]
+  ASI                 Json        @map("asi") // {WIS: 2, ANY: 1}
+  /// [ToolProficiencies]
+  toolProficiencies   Json?       @map("tool_proficiencies")
+  toolToChooseCount   Int?        @map("tool_to_choose_count")
+  /// [SkillProficiencies]
+  skillProficiencies  Json?       @map("skill_proficiencies")
+  /// [WeaponProficiencies]
+  weaponProficiencies Json?       @map("weapon_proficiencies")
+  armorProficiencies  ArmorType[] @default([]) @map("armor_proficiencies")
+
+  subraces          Subrace[]
+  perses            Pers[]
+  raceChoiceOptions RaceChoiceOption[]
+  raceVariants      RaceVariant[]
+
+  traits RaceTrait[]
+
+  @@map("race")
+}

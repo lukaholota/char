@@ -1,0 +1,14 @@
+
+model ClassFeature {
+  classFeatureId Int @id @default(autoincrement()) @map("class_feature_id")
+  classId        Int @map("class_id")
+  featureId      Int @map("feature_id")
+
+  levelGranted     Int     @map("level_granted")
+  grantsSpellSlots Boolean @default(false) @map("grants_spell_slots")
+
+  feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  class   Class   @relation(fields: [classId], references: [classId])
+
+  @@map("class_feature")
+}

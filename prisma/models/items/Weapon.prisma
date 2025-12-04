@@ -1,0 +1,21 @@
+
+model Weapon {
+  weaponId Int            @id @default(autoincrement()) @map("weapon_id")
+  name     WeaponCategory @unique
+
+  damage     String
+  damageType DamageType @map("damage_type")
+  weaponType WeaponType @map("weapon_type")
+
+  properties WeaponProperty[]
+
+  versatileDamage String? @map("versatile_damage")
+
+  normalRange Int? @map("normal_range")
+  longRange   Int? @map("long_range")
+
+  persWeapons                  PersWeapon[]
+  classStartingEquipmentOption ClassStartingEquipmentOption[]
+
+  @@map("weapon")
+}

@@ -1,0 +1,27 @@
+
+model Spell {
+  spellId          Int     @id @default(autoincrement()) @map("spell_id")
+  name             String  @unique(map: "unique_names") @db.VarChar(255)
+  engName          String  @unique @map("eng_name") @db.VarChar(255)
+  level            Int
+  school           String? @db.VarChar(255)
+  castingTime      String  @map("casting_time") @db.VarChar(255)
+  range            String  @db.VarChar(255)
+  components       String? @db.VarChar(500)
+  duration         String  @db.VarChar(255)
+  description      String  @db.Text
+  hasRitual        String? @map("has_ritual") @db.VarChar
+  hasConcentration String? @map("has_concentration") @db.VarChar
+  source           Source  @default(PHB)
+
+  characterSpells CharacterSpells[]
+  spellClasses    SpellClasses[]
+  spellRaces      SpellRaces[]
+  spellbookSpells SpellbookSpells[]
+  subclasses      Subclass[]        @relation("SubclassExpandedSpells")
+  perses          Pers[]
+  features        Feature[]
+  magicItems      MagicItem[]
+
+  @@map("spell")
+}

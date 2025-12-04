@@ -1,0 +1,22 @@
+
+model PersInfusion {
+  persInfusionId Int @id @default(autoincrement()) @map("pers_infusion_id")
+  persId         Int @map("pers_id")
+  infusionId     Int @map("infusion_id")
+
+  // Прив'язка до конкретного предмета персонажа
+  persWeaponId    Int? @map("pers_weapon_id")
+  persArmorId     Int? @map("pers_armor_id")
+  persMagicItemId Int? @map("pers_magic_item_id")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  expiresAt DateTime? @map("expires_at")
+
+  pers      Pers           @relation(fields: [persId], references: [persId])
+  infusion  Infusion       @relation(fields: [infusionId], references: [infusionId])
+  weapon    PersWeapon?    @relation(fields: [persWeaponId], references: [persWeaponId])
+  armor     PersArmor?     @relation(fields: [persArmorId], references: [persArmorId])
+  magicItem PersMagicItem? @relation(fields: [persMagicItemId], references: [persMagicItemId])
+
+  @@map("pers_infusion")
+}

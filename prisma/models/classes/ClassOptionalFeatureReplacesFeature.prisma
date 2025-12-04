@@ -1,0 +1,11 @@
+
+model ClassOptionalFeatureReplacesFeature {
+  classOptionalFeatureId Int @map("class_optional_feature_id")
+  replacedFeatureId      Int @map("replaced_feature_id")
+
+  classOptionalFeature ClassOptionalFeature @relation(fields: [classOptionalFeatureId], references: [optionalFeatureId], onDelete: Cascade)
+  replacedFeature      Feature              @relation("ReplacedByOptionalFeatures", fields: [replacedFeatureId], references: [featureId], onDelete: Cascade)
+
+  @@id([classOptionalFeatureId, replacedFeatureId])
+  @@map("class_optional_feature_replaces_feature")
+}

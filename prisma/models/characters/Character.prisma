@@ -1,0 +1,10 @@
+
+model Character {
+  characterId Int     @id @default(autoincrement()) @map("character_id")
+  name        String? @db.VarChar
+  userId      Int?    @map("user_id")
+
+  characterSpells CharacterSpells[]
+
+  @@map("character")
+}

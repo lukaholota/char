@@ -1,18 +1,23 @@
 "use client";
 
-import React, {useMemo} from "react";
-import type {Armor, Background, EquipmentPack, Weapon} from "@prisma/client"
+import React, { useEffect, useMemo, useState } from "react";
+import type {Background, Weapon} from "@prisma/client"
 import RacesForm from "@/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/components/characterCreator/CharacterCreateHeader";
-import {Button} from "@/components/ui/Button";
 import {usePersFormStore} from "@/stores/persFormStore";
-import clsx from "clsx";
 import ClassesForm from "@/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/components/characterCreator/ASIForm";
 import SkillsForm from "@/components/characterCreator/SkillsForm";
 import { BackgroundI, ClassI, RaceI } from "@/types/model-types";
 import EquipmentForm from "@/components/characterCreator/EquipmentForm";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/Button";
+import { Check, ChevronLeft, Circle } from "lucide-react";
+import GoogleAuthDialog from "@/components/auth/GoogleAuthDialog";
+import clsx from "clsx";
+import NameForm from "@/components/characterCreator/NameForm";
 
 const STEPS = [
   {id: 1, name: 'Раса', component: 'races'},
@@ -29,7 +34,6 @@ interface Props {
   classes: ClassI[],
   backgrounds: BackgroundI[],
   weapons: Weapon[],
-  armors: Armor[],
 }
 
 export const MultiStepForm = (
@@ -38,12 +42,11 @@ export const MultiStepForm = (
     classes,
     backgrounds,
     weapons,
-    armors,
   }: Props
 ) => {
-  const {currentStep, prevStep, resetForm, formData, prevRaceId, setPrevRaceId } = usePersFormStore()
-
-
+  const {currentStep, prevStep, resetForm, formData, prevRaceId, setPrevRaceId, setCurrentStep } = usePersFormStore()
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
+  const [nextDisabled, setNextDisabled] = useState(false);
 
   const handleFinalSubmit = async () => {
 
@@ -56,30 +59,77 @@ export const MultiStepForm = (
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <RacesForm races={races}/>
+        return <RacesForm
+          races={races}
+          formId={activeFormId}
+          onNextDisabledChange={setNextDisabled}
+        />
       case 2:
-        return <ClassesForm classes={classes}/>
+        return <ClassesForm
+          classes={classes}
+          formId={activeFormId}
+          onNextDisabledChange={setNextDisabled}
+        />
       case 3:
-        return <BackgroundsForm backgrounds={backgrounds}/>
+        return <BackgroundsForm
+          backgrounds={backgrounds}
+          formId={activeFormId}
+          onNextDisabledChange={setNextDisabled}
+        />
       case 4:
+        if (!race || !cls) {
+          return (
+            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+              Спершу оберіть расу та клас.
+            </Card>
+          );
+        }
         return <ASIForm
                   race={race}
                   selectedClass={cls}
                   prevRaceId={prevRaceId} setPrevRaceId={setPrevRaceId}
+                  formId={activeFormId}
+                  onNextDisabledChange={setNextDisabled}
         />
       case 5:
+        if (!race || !cls || !bg) {
+          return (
+            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+              Спершу завершіть расу, клас та передісторію.
+            </Card>
+          );
+        }
         return <SkillsForm
             race={race}
             selectedClass={cls}
             background={bg}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
           />
       case 6:
+        if (!race || !cls) {
+          return (
+            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+              Спершу заповніть попередні кроки.
+            </Card>
+          );
+        }
         return <EquipmentForm
           weapons={weapons}
-          armors={armors}
           selectedClass={cls}
           race={race}
+          formId={activeFormId}
+          onNextDisabledChange={setNextDisabled}
         />
+      case 7:
+        return (
+          <NameForm
+            formId={activeFormId}
+            race={race}
+            selectedClass={cls}
+            background={bg}
+          />
+        )
       // case 7:
       //   return <NameForm onFinalSubmit={handleFinalSubmit}/>
       default:
@@ -87,50 +137,118 @@ export const MultiStepForm = (
     }
   }
 
+  const progress = Math.round((currentStep / STEPS.length) * 100);
+  const activeFormId = `character-step-form-${currentStep}`;
+
+  useEffect(() => {
+    setNextDisabled(false);
+  }, [currentStep]);
+
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <CharacterCreateHeader/>
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 pb-20 md:px-0">
+      <CharacterCreateHeader
+        onReset={resetForm}
+        onOpenAuth={() => setAuthDialogOpen(true)}
+      />
 
-      <button onClick={() => resetForm()}>Ресет</button>
+      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-2xl">
+        <CardContent className="grid gap-4 p-4 md:grid-cols-[1fr,300px] md:p-6">
+          <div className="space-y-4 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner md:p-5">
+            {renderStep()}
+          </div>
 
-      <div className="mb-8">
-        <div className="flex justify-between mb-2">
-          {STEPS.map(step => (
-            <div key={step.id} className={clsx(
-              "text-sm mr-1",
-              step.id === currentStep && "font-bold text-violet-400",
-              step.id < currentStep && "text-green-500",
-              step.id > currentStep && "text-slate-600"
-            )}>
-              {`${step.name}`}
+          <aside className="rounded-xl border border-slate-800/70 bg-slate-900/60 p-4 shadow-inner">
+            <div className="flex items-center justify-between text-sm text-slate-400">
+              <span className="font-medium text-slate-200">Ваш прогрес</span>
+              <Badge variant="outline" className="border-slate-800/80 text-slate-300">
+                {progress}% готово
+              </Badge>
             </div>
-          ))}
+
+            <div className="mt-4 space-y-2">
+              {STEPS.map((step) => {
+                const isDone = step.id < currentStep;
+                const isActive = step.id === currentStep;
+
+                return (
+                  <div
+                    key={step.id}
+                    className={clsx(
+                      "flex w-full items-center justify-between rounded-lg border px-3 py-2 text-left",
+                      isActive
+                        ? "border-indigo-400/60 bg-indigo-500/10 text-white"
+                        : "border-slate-800/80 bg-slate-900/60 text-slate-300"
+                    )}
+                  >
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.16em] text-slate-400">
+                        Крок {step.id}
+                      </p>
+                      <p className="text-sm font-semibold">{step.name}</p>
+                    </div>
+                    {isDone ? (
+                      <Badge variant="secondary" className="bg-emerald-500/20 text-emerald-200">
+                        <Check className="h-4 w-4" />
+                      </Badge>
+                    ) : (
+                      <Badge
+                        variant="outline"
+                        className={`border-slate-800/80 ${
+                          isActive ? "text-indigo-200" : "text-slate-400"
+                        }`}
+                      >
+                        <Circle className="h-3 w-3" />
+                      </Badge>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-5 h-2 rounded-full bg-slate-800/80">
+              <div
+                className="h-2 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </aside>
+        </CardContent>
+      </Card>
+
+      <div className="sticky bottom-0 left-0 right-0 z-30 w-full max-w-6xl px-1 pb-2">
+        <div className="flex items-center justify-between rounded-2xl border border-slate-800/80 bg-slate-950/90 px-3 py-3 shadow-xl backdrop-blur">
+          <div className="flex items-center gap-3 text-sm text-slate-300">
+            <Badge variant="secondary" className="bg-white/5 text-white">
+              Крок {currentStep} / {STEPS.length}
+            </Badge>
+            <span className="hidden text-slate-400 sm:inline">Прогрес {progress}%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            {currentStep > 1 && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="border border-slate-800/70 text-slate-200 hover:bg-slate-800"
+                onClick={prevStep}
+              >
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                Назад
+              </Button>
+            )}
+            <Button
+              type="submit"
+              form={activeFormId}
+              disabled={nextDisabled}
+              className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
+            >
+              Далі →
+            </Button>
+          </div>
         </div>
-        <div className="w-full bg-slate-800 h-2 rounded-full">
-          <div
-            className="bg-violet-600 h-2 rounded-full transition-all duration-300"
-            style={{width: `${(currentStep / STEPS.length) * 100}`}}
-          />
-        </div>
       </div>
 
-      <div className="min-h-screen flex items-center justify-center p-4">
-        {renderStep()}
-      </div>
-
-      <div className="flex justify-between mt-8">
-        {currentStep > 1 && (
-          <Button
-            title="← Назад"
-            onClick={prevStep}
-            variant="secondary"
-          />
-        )}
-
-        {/* Кнопка "Далі" рендериться всередині кожного степ-компонента
-            як submit button, окрім останнього кроку */}
-      </div>
-
+      <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
     </div>
   )
 }

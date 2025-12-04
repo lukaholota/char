@@ -1,0 +1,25 @@
+
+model Subclass {
+  subclassId  Int     @id @default(autoincrement()) @map("subclass_id")
+  classId     Int     @map("class_id")
+  name        String  @db.VarChar(100)
+  description String? @db.Text
+
+  primaryCastingStat Ability?         @map("primary_casting_stat")
+  spellcastingType   SpellcastingType @default(NONE) @map("spellcasting_type")
+  grantsSpells       Boolean          @default(false) @map("grants_spells")
+  expandedSpells     Spell[]          @relation("SubclassExpandedSpells")
+
+  languagesToChooseCount Int            @default(0) @map("languages_to_choose_count")
+  languages              Language[]     @default([])
+  toolProficiencies      ToolCategory[] @default([]) @map("tool_proficiencies")
+  toolToChooseCount      Int?           @map("tool_to_choose_count")
+
+  class            Class             @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  features         SubclassFeature[]
+  perses           Pers[]
+  persMulticlasses PersMulticlass[]
+
+  @@unique([classId, name])
+  @@map("subclass")
+}

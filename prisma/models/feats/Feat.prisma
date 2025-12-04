@@ -1,0 +1,19 @@
+
+model Feat {
+  featId           Int          @id @default(autoincrement()) @map("feat_id")
+  name             String       @db.VarChar(100)
+  category         FeatCategory
+  shortDescription String       @map("short_description") @db.Text
+  longDescription  String       @map("long_description") @db.Text
+
+  languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
+  languages              Language[] @default([])
+
+  prerequisites Json?
+
+  featFeatures     FeatFeature[]
+  featAbilityBoost FeatAbilityBoost?
+  persFeats        PersFeat[]
+
+  @@map("feat")
+}

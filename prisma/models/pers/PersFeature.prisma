@@ -1,0 +1,14 @@
+
+model PersFeature {
+  persFeatureId Int @id @default(autoincrement()) @map("pers_feature_id")
+  persId        Int @map("pers_id")
+  featureId     Int @map("feature_id")
+
+  usesRemaining Int? @map("uses_remaining")
+
+  feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  pers    Pers    @relation(fields: [persId], references: [persId])
+
+  @@unique([persId, featureId])
+  @@map("pers_feature")
+}

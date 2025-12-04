@@ -5,11 +5,19 @@ import {useEffect} from "react";
 import {engEnumSkills} from "@/refs/translation";
 import {Skills} from "@prisma/client";
 import {Skill, SkillsEnum} from "@/types/enums";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/Button";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Check } from "lucide-react";
 
 interface Props {
   race: RaceI
   selectedClass: ClassI
   background: BackgroundI
+  formId: string
+  onNextDisabledChange?: (disabled: boolean) => void
 }
 
 type GroupName = 'race' | 'selectedClass';
@@ -38,7 +46,7 @@ function populateSkills<T extends hasSkills>(model: T) {
   }
 }
 
-export const SkillsForm = ({race, selectedClass, background}: Props) => {
+export const SkillsForm = ({race, selectedClass, background, formId, onNextDisabledChange}: Props) => {
   const {form, onSubmit} = useStepForm(skillsSchema);
 
   populateSkills<typeof race>(race)
@@ -50,6 +58,10 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
     form.register('tashaChoices')
     form.register('isTasha')
   }, [])
+
+  useEffect(() => {
+    onNextDisabledChange?.(false);
+  }, [onNextDisabledChange])
 
   const isTasha = form.watch('isTasha') ?? true
   const tashaChoices = form.watch('tashaChoices') || [] // просто watch
@@ -76,11 +88,6 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
 
   const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
   const staticSkillGroups = [race, background].filter(e => Array.isArray(e.skillProficiencies))
-
-  const introductions = {
-    race: <span key={0} className="text-xl">Навички за расу</span>,
-    selectedClass: <span key={1} className="text-xl">Навички за клас</span>,
-  }
 
   const skillsByGroup = {
     race: race.skillProficiencies as SkillProficienciesChoice,
@@ -130,135 +137,120 @@ export const SkillsForm = ({race, selectedClass, background}: Props) => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2 className="my-5">Навички</h2>
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+        <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <CardTitle className="text-white">Навички</CardTitle>
+            <CardDescription className="text-slate-400">
+              Оберіть профіцієнції. Мінімалістичні кнопки замість чекбоксів.
+            </CardDescription>
+          </div>
+          <div className="flex items-center gap-3">
+            <Switch
+              id="isTasha"
+              checked={isTasha}
+              onCheckedChange={(checked) => form.setValue('isTasha', checked)}
+            />
+            <Label htmlFor="isTasha" className="text-slate-200">Правила Таші</Label>
+            <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700">Гнучкий режим</Badge>
+          </div>
+        </CardHeader>
 
-      <label>
-        <input type="checkbox" onChange={() => {
-          form.setValue('isTasha', !isTasha)
-        }} checked={!isTasha}/>
-        <span className="ml-2">Не використовувати правила Таші &#34;вільного розподілу&#34;?</span>
-      </label>
-
-      {form.formState.errors.basicChoices && (
-        <p className="text-red-500 text-sm">
-          {form.formState.errors.basicChoices.message}
-        </p>
-      )}
-      <div className="p-4 bg-slate-800">
-        {
-          isTasha && (
-            <div className="flex flex-row">
-              <div>
-                {
-                  engEnumSkills.map((skill, index) => {
-                    const isSelected = tashaChoices.includes(skill.eng)
-                    const isReachedLimit = tashaChoiceCountCurrent < 1
-                    const isDisabled = !isSelected && isReachedLimit;
-                    return (
-                      <div key={index} className="my-2">
-                        <label className="flex items-center gap-1">
-                          <input
-                            type="checkbox"
-                            className={`h-6 w-6 ${isDisabled && 'opacity-40 cursor-not-allowed'}`}
-                            onChange={() => handleToggleTashaSkill(skill.eng)}
-                            checked={isSelected}
-                            disabled={isDisabled}
-                          />
-                          <span className="ml-2">{skill.ukr}</span>
-                        </label>
-                      </div>
-                    )
-                  })
-                }
+        <CardContent className="space-y-4">
+          {isTasha ? (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between rounded-lg border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
+                <span>Залишилось обрати</span>
+                <Badge variant="outline" className="border-slate-700 bg-slate-800/80 text-white">
+                  {tashaChoiceCountCurrent}
+                </Badge>
               </div>
-              <div className="text-2xl ml-2 font-bold flex justify-center items-center">
-                {tashaChoiceCountCurrent}
-              </div>
-            </div>
-
-          )
-        }
-        {
-          !isTasha && (
-            <div>
-              <div>
-                {
-                  staticSkillGroups.map((group, index) => {
-                    return (
-                      <div key={index} className="mb-5">
-                        <h2 className="text-xl">{group === race ? 'Навички за расу' : 'Навички за передісторію'}</h2>
-                        {
-                          (group.skillProficiencies as Skill[]).map((skill, index) => {
-                              const skillGroup = engEnumSkills.find((s) => s.eng === skill)
-                              return (
-                                <span key={index} className="pr-2 text-violet-400">
-                                    {skillGroup?.ukr}
-                              </span>
-                              )
-                            }
-                          )
-                        }
-                      </div>
-                    )
-                  })
-                }
-
-                {
-                  entries.map(([groupName, choices], index) => {
-                    return (
-                      <div key={index} className="mb-5">
-                        {
-                          skillsByGroup[groupName]?.options &&
-                          <div>
-                            {introductions[groupName]}.
-                            <span className="text-xl ml-2">Залишок:
-                              <span className="text-violet-500 ml-2">{basicCounts[groupName]}</span>
-                              </span>
-                          </div>
-                        }
-                        {(skillsByGroup[groupName]?.options ?? []).map((skill, skillIndex) => {
-                          const skillGroup = engEnumSkills.find((s) => s.eng === skill)
-                          if (!skillGroup) return;
-                          const isSelected = (choices ?? []).includes(skill)
-                          const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
-                          const isMaxReached = basicCounts[groupName] < 1;
-                          const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
-                          return (
-                            <div key={skillIndex}>
-                              <div key={index} className="my-2">
-                                <label className="flex items-center gap-1">
-                                  <input
-                                    type="checkbox"
-                                    className={`h-6 w-6 ${isDisabled && 'opacity-40 cursor-not-allowed'}`}
-                                    onChange={() => handleToggleBasicSkill({
-                                      skill: Skills[skillGroup.eng],
-                                      groupName: groupName
-                                    })}
-                                    checked={isSelected || isSelectedByOthers}
-                                    disabled={isDisabled}
-                                  />
-                                  <span className="ml-2">{skillGroup.ukr}</span>
-                                </label>
-                              </div>
-                            </div>
-                          )
-                        })}
-                      </div>
-                    )
-                  })
-                }
+              <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+                {engEnumSkills.map((skill, index) => {
+                  const isSelected = tashaChoices.includes(skill.eng)
+                  const isReachedLimit = tashaChoiceCountCurrent < 1
+                  const isDisabled = !isSelected && isReachedLimit;
+                  const active = isSelected;
+                  return (
+                    <Button
+                      key={index}
+                      type="button"
+                      variant={active ? "secondary" : "outline"}
+                      disabled={isDisabled}
+                      className={`justify-between ${active ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" : "bg-slate-900/60 border-slate-800/80 text-slate-200"} ${isDisabled ? "opacity-60" : ""}`}
+                      onClick={() => handleToggleTashaSkill(skill.eng)}
+                    >
+                      <span>{skill.ukr}</span>
+                      {active && <Check className="h-4 w-4" />}
+                    </Button>
+                  )
+                })}
               </div>
             </div>
+          ) : (
+            <div className="space-y-5">
+              {staticSkillGroups.map((group, index) => (
+                <div key={index} className="rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
+                  <h3 className="text-sm font-semibold text-white">
+                    {group === race ? 'Навички за расу' : 'Навички за передісторію'}
+                  </h3>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {(group.skillProficiencies as Skill[]).map((skill, idx) => {
+                      const skillGroup = engEnumSkills.find((s) => s.eng === skill)
+                      return (
+                        <Badge key={idx} className="bg-slate-800/80 text-slate-200 border border-slate-700">
+                          {skillGroup?.ukr}
+                        </Badge>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
 
-          )
-        }
-      </div>
-
-
-      <button type="submit" className="mt-4 px-6 py-2 bg-violet-600 rounded">
-        Далі →
-      </button>
+              {entries.map(([groupName, choices], index) => (
+                <div key={index} className="space-y-2 rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
+                  {skillsByGroup[groupName]?.options && (
+                    <div className="flex items-center justify-between text-sm text-slate-300">
+                      <div className="font-semibold text-white">
+                        {groupName === 'race' ? 'Навички за расу' : 'Навички за клас'}
+                      </div>
+                      <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
+                    </div>
+                  )}
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {(skillsByGroup[groupName]?.options ?? []).map((skill, skillIndex) => {
+                      const skillGroup = engEnumSkills.find((s) => s.eng === skill)
+                      if (!skillGroup) return null;
+                      const isSelected = (choices ?? []).includes(skill)
+                      const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
+                      const isMaxReached = basicCounts[groupName] < 1;
+                      const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
+                      const active = isSelected || isSelectedByOthers;
+                      return (
+                        <Button
+                          key={skillIndex}
+                          type="button"
+                          variant={active ? "secondary" : "outline"}
+                          disabled={isDisabled}
+                          className={`justify-between ${active ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" : "bg-slate-900/60 border-slate-800/80 text-slate-200"} ${isDisabled ? "opacity-60" : ""}`}
+                          onClick={() => handleToggleBasicSkill({
+                            skill: Skills[skillGroup.eng],
+                            groupName: groupName
+                          })}
+                        >
+                          <span>{skillGroup.ukr}</span>
+                          {active && <Check className="h-4 w-4" />}
+                        </Button>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </form>
   )
 };

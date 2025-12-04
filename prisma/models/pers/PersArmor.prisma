@@ -1,0 +1,20 @@
+
+model PersArmor {
+  persArmorId Int @id @default(autoincrement()) @map("pers_armor_id")
+  armorId     Int @map("armor_id")
+  persId      Int @map("pers_id")
+
+  overrideBaseAC Int?    @map("override_base_ac")
+  miscACBonus    Int?    @map("misc_ac_bonus")
+  isProficient   Boolean @default(true) @map("is_proficient")
+
+  equipped Boolean @default(false)
+
+  pers  Pers  @relation(fields: [persId], references: [persId])
+  armor Armor @relation(fields: [armorId], references: [armorId])
+
+  // Opposite side of PersInfusion.armor
+  infusions PersInfusion[]
+
+  @@map("pers_armor")
+}

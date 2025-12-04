@@ -1,0 +1,24 @@
+
+model PersWeapon {
+  persWeaponId Int @id @default(autoincrement()) @map("pers_weapon_id")
+  persId       Int @map("pers_id")
+  weaponId     Int @map("weapon_id")
+
+  overrideDamage        String?     @map("override_damage")
+  attackBonus           Int?        @map("attack_bonus")
+  overrideName          String?     @map("override_name")
+  overrideNormalRange   Int?        @map("override_normal_range")
+  overrideLongRange     Int?        @map("override_long_range")
+  overrideDamageType    DamageType? @map("override_damage_type")
+  overrideAttackAbility Ability?    @map("override_attack_ability")
+
+  isProficient Boolean @default(true) @map("is_proficient")
+
+  pers   Pers   @relation(fields: [persId], references: [persId])
+  weapon Weapon @relation(fields: [weaponId], references: [weaponId])
+
+  // Opposite side of PersInfusion.weapon
+  infusions PersInfusion[]
+
+  @@map("pers_weapon")
+}

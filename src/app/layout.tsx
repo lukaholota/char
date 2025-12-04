@@ -6,6 +6,7 @@ import { Navigation } from "@/components/ui/Navigation";
 import { App } from "@/components/ui/App";
 import { SessionProvider } from "next-auth/react";
 import GoogleOneTap from "@/components/auth/GoogleOneTap";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -54,10 +55,11 @@ export default function RootLayout(
       className={ `${ jetBrainsMono.variable } ${ inter.variable } bg-slate-900 text-slate-200 h-full w-full` }>
     <SessionProvider>
       <GoogleOneTap/>
-      <div className="flex flex-col md:flex-row h-full w-full">
+      <div className="grid min-h-screen w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">
         <Navigation/>
         <App>{ children }</App>
       </div>
+      <Toaster position="top-right" richColors closeButton />
     </SessionProvider>
     </body>
     </html>

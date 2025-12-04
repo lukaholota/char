@@ -1,0 +1,14 @@
+
+model PersMagicItem {
+  persMagicItemId Int @id @default(autoincrement()) @map("pers_magic_item_id")
+  persId          Int @map("pers_id")
+  magicItemId     Int @map("magic_item_id")
+
+  pers      Pers      @relation(fields: [persId], references: [persId])
+  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId])
+
+  // Opposite side of PersInfusion.magicItem
+  infusions PersInfusion[]
+
+  @@map("pers_magic_item")
+}

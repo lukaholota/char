@@ -1,0 +1,47 @@
+// Enums залишаються без змін - вони вже в правильному форматі
+
+
+model Class {
+  classId Int     @id @default(autoincrement()) @map("class_id")
+  name    Classes @unique @map("eng_name")
+
+  hitDie Int @map("hit_die")
+
+  primaryCastingStat Ability?         @map("primary_casting_stat")
+  spellcastingType   SpellcastingType @default(NONE) @map("spellcasting_type")
+
+  abilityScoreUpLevels Int[] @default([4, 8, 12, 16, 19]) @map("ability_score_up_levels")
+
+  subclassLevel Int @default(3) @map("subclass_level")
+
+  /// [MulticlassReqs]
+  multiclassReqs Json // {choice: ['STR', 'DEX'], score: 13}}
+
+  armorProficiencies         ArmorType[] @default([]) @map("armor_proficiencies")
+  /// [WeaponProficiencies]
+  weaponProficiencies        Json?       @map("weapon_proficiencies")
+  /// [WeaponProficienciesSpecial]
+  weaponProficienciesSpecial Json?       @map("weapon_proficiencies_special")
+
+  savingThrows           Ability[]      @map("saving_throws")
+  /// [SkillProficiencies]
+  skillProficiencies     Json?          @map("skill_proficiencies")
+  toolProficiencies      ToolCategory[] @default([]) @map("tool_proficiencies")
+  toolToChooseCount      Int?           @map("tool_to_choose_count")
+  languagesToChooseCount Int            @default(0) @map("languages_to_choose_count")
+  languages              Language[]     @default([])
+
+  subclasses                  Subclass[]
+  features                    ClassFeature[]
+  specialSpellSlotProgression Json?                          @map("special_spell_slot_progression")
+  perses                      Pers[]
+  persMulticlasses            PersMulticlass[]
+  startingEquipmentOption     ClassStartingEquipmentOption[]
+  classChoiceOptions          ClassChoiceOption[]
+  classOptionalFeatures       ClassOptionalFeature[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("class")
+}

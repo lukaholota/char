@@ -1,0 +1,39 @@
+
+model Creature {
+  creatureId        Int     @id @default(autoincrement()) @map("creature_id")
+  name              String? @db.VarChar
+  nameEng           String? @map("name_eng") @db.VarChar
+  size              String? @db.VarChar
+  type              String? @db.VarChar
+  alignment         String? @db.VarChar
+  source            Source  @default(MM)
+  ac                String? @db.VarChar
+  hp                String? @db.VarChar
+  speed             String? @db.VarChar
+  strength          String? @db.VarChar
+  dexterity         String? @db.VarChar
+  constitution      String? @db.VarChar
+  intelligence      String? @db.VarChar
+  wisdom            String? @db.VarChar
+  charisma          String? @db.VarChar
+  skills            String? @db.VarChar
+  senses            String? @db.VarChar
+  languages         String? @db.VarChar
+  challenge         String? @db.VarChar
+  damageImmunity    String? @map("damage_immunity") @db.VarChar
+  damageResistance  String? @map("damage_resistance") @db.VarChar
+  conditionImmunity String? @map("condition_immunity") @db.VarChar
+  savingThrows      String? @map("saving_throws") @db.VarChar
+  specialAbilities  String? @map("special_abilities") @db.VarChar
+  actions           String? @db.VarChar
+  reactions         String? @db.VarChar
+  legendaryActions  String? @map("legendary_actions") @db.VarChar
+  proficiencyBonus  String? @map("proficiency_bonus") @db.VarChar
+  description       String? @db.VarChar
+  lairActions       String? @map("lair_actions") @db.VarChar
+  lairInfo          String? @map("lair_info") @db.VarChar
+  regionEffects     String? @map("region_effects") @db.VarChar
+  xp                String? @db.VarChar
+
+  @@map("creature")
+}

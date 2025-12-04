@@ -42,7 +42,6 @@ export default async function Page() {
         races={races}
         classes={classes}
         backgrounds={backgrounds}
-        armors={armors}
         weapons={weapons}
       />
     </>

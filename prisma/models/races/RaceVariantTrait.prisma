@@ -1,0 +1,11 @@
+
+model RaceVariantTrait {
+  raceVariantTraitId Int @id @default(autoincrement()) @map("race_variant_trait_id")
+  raceVariantId      Int @map("race_variant_id")
+  featureId          Int @map("feature_id")
+
+  feature     Feature     @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  raceVariant RaceVariant @relation(fields: [raceVariantId], references: [raceVariantId])
+
+  @@map("race_variant_trait")
+}

@@ -1,0 +1,15 @@
+
+model PersMulticlass {
+  persMulticlassId Int  @id @default(autoincrement()) @map("pers_multiclass_id")
+  persId           Int  @map("pers_id")
+  classId          Int  @map("class_id")
+  subclassId       Int? @map("subclass_id")
+  classLevel       Int  @map("class_level")
+
+  pers     Pers      @relation(fields: [persId], references: [persId])
+  class    Class     @relation(fields: [classId], references: [classId])
+  subclass Subclass? @relation(fields: [subclassId], references: [subclassId])
+
+  @@unique([persId, classId])
+  @@map("pers_multiclass")
+}

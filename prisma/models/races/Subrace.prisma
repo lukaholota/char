@@ -1,0 +1,32 @@
+
+model Subrace {
+  subraceId     Int      @id @default(autoincrement()) @map("subrace_id")
+  raceId        Int      @map("race_id")
+  name          Subraces @unique
+  speedModifier Int?     @map("speed_modifier")
+  source        Source   @default(PHB)
+
+  replacesASI      Boolean   @default(false) @map("replaces_asi")
+  replacesFeatures Feature[] @relation("SubraceReplacingFeature")
+
+  additionalASI          Json?      @map("additional_asi")
+  additionalLanguages    Language[] @default([]) @map("additional_languages")
+  languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
+
+  /// [ToolProficiencies]
+  toolProficiencies   Json?       @map("tool_proficiencies")
+  toolToChooseCount   Int?        @map("tool_to_choose_count")
+  /// [SkillProficiencies]
+  skillProficiencies  Json?       @map("skill_proficiencies")
+  /// [WeaponProficiencies]
+  weaponProficiencies Json?       @map("weapon_proficiencies")
+  armorProficiencies  ArmorType[] @default([]) @map("armor_proficiencies")
+
+  race              Race               @relation(fields: [raceId], references: [raceId])
+  perses            Pers[]
+  raceChoiceOptions RaceChoiceOption[]
+
+  traits SubraceTrait[]
+
+  @@map("subrace")
+}

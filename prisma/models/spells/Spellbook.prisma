@@ -1,0 +1,9 @@
+
+model Spellbook {
+  spellbookId Int  @id @default(autoincrement()) @map("spellbook_id")
+  userId      Int? @map("user_id")
+
+  spellbookSpells SpellbookSpells[]
+
+  @@map("spellbook")
+}

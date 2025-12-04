@@ -1,0 +1,11 @@
+
+model RaceChoiceOptionTrait {
+  raceChoiceOptionTraitId Int @id @default(autoincrement()) @map("race_choice_option_trait_id")
+  optionId                Int @map("option_id")
+  featureId               Int @map("feature_id")
+
+  feature          Feature          @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  raceChoiceOption RaceChoiceOption @relation(fields: [optionId], references: [optionId])
+
+  @@map("race_choice_option_trait")
+}
