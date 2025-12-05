@@ -21,9 +21,13 @@ export const ClassesForm = (
 
   const chosenClassId = form.watch('classId') || 0
 
-  useEffect(() => {
+    useEffect(() => {
+    if (!chosenClassId) {
+      onNextDisabledChange?.(true);
+      return;
+    }
     onNextDisabledChange?.(false);
-  }, [onNextDisabledChange]);
+  }, [onNextDisabledChange, chosenClassId]);
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">

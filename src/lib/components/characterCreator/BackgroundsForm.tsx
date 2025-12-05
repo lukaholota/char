@@ -53,9 +53,14 @@ export const BackgroundsForm = (
 
   const chosenBackgroundId = form.watch('backgroundId') || 0
 
-  useEffect(() => {
+      useEffect(() => {
+    if (!chosenBackgroundId) {
+      onNextDisabledChange?.(true);
+      return;
+    }
     onNextDisabledChange?.(false);
-  }, [onNextDisabledChange]);
+  }, [onNextDisabledChange, chosenBackgroundId]);
+
 
   const primaryBackgrounds = useMemo(
     () => backgrounds.filter(b => PHB_BACKGROUNDS.has(b.name)),

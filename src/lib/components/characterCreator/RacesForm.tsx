@@ -23,8 +23,12 @@ export const RacesForm = (
   const chosenRaceId = form.watch('raceId') || 0
 
   useEffect(() => {
+    if (!chosenRaceId) {
+      onNextDisabledChange?.(true);
+      return;
+    }
     onNextDisabledChange?.(false);
-  }, [onNextDisabledChange]);
+  }, [onNextDisabledChange, chosenRaceId]);
 
   const SOURCE_LABELS: Record<string, string> = {
     MPMM: "Monsters of the Multiverse",

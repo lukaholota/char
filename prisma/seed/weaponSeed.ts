@@ -102,7 +102,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.SIMPLE_WEAPON,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING, WeaponProperty.TWO_HANDED],
             normalRange: 80,
-            longRange: 320
+            longRange: 320,
+            isRanged: true,
         },
         {
             name: WeaponCategory.DART,
@@ -111,7 +112,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.SIMPLE_WEAPON,
             properties: [WeaponProperty.FINESSE, WeaponProperty.THROWN],
             normalRange: 20,
-            longRange: 60
+            longRange: 60,
+            isRanged: true
         },
         {
             name: WeaponCategory.SHORTBOW,
@@ -120,7 +122,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.SIMPLE_WEAPON,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.TWO_HANDED],
             normalRange: 80,
-            longRange: 320
+            longRange: 320,
+            isRanged: true
         },
         {
             name: WeaponCategory.SLING,
@@ -129,7 +132,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.SIMPLE_WEAPON,
             properties: [WeaponProperty.AMMUNITION],
             normalRange: 30,
-            longRange: 120
+            longRange: 120,
+            isRanged: true
         },
 
         // ==================== MARTIAL MELEE WEAPONS ====================
@@ -274,7 +278,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.MARTIAL_WEAPON,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING],
             normalRange: 25,
-            longRange: 100
+            longRange: 100,
+            isRanged: true
         },
         {
             name: WeaponCategory.HAND_CROSSBOW,
@@ -283,7 +288,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.MARTIAL_WEAPON,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LIGHT, WeaponProperty.LOADING],
             normalRange: 30,
-            longRange: 120
+            longRange: 120,
+            isRanged: true
         },
         {
             name: WeaponCategory.HEAVY_CROSSBOW,
@@ -292,7 +298,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.MARTIAL_WEAPON,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.HEAVY, WeaponProperty.LOADING, WeaponProperty.TWO_HANDED],
             normalRange: 100,
-            longRange: 400
+            longRange: 400,
+            isRanged: true
         },
         {
             name: WeaponCategory.LONGBOW,
@@ -301,7 +308,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.MARTIAL_WEAPON,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.HEAVY, WeaponProperty.TWO_HANDED],
             normalRange: 150,
-            longRange: 600
+            longRange: 600,
+            isRanged: true
         },
         {
             name: WeaponCategory.NET,
@@ -310,7 +318,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.MARTIAL_WEAPON,
             properties: [WeaponProperty.SPECIAL, WeaponProperty.THROWN],
             normalRange: 5,
-            longRange: 15
+            longRange: 15,
+            isRanged: true
         },
         // ==================== RENAISSANCE FIREARMS ====================
         {
@@ -320,7 +329,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING],
             normalRange: 30,
-            longRange: 90
+            longRange: 90,
+            isRanged: true
         },
         {
             name: WeaponCategory.MUSKET,
@@ -329,7 +339,8 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING, WeaponProperty.TWO_HANDED],
             normalRange: 40,
-            longRange: 120
+            longRange: 120,
+            isRanged: true
         },
 
         // ==================== MODERN FIREARMS ====================
@@ -340,7 +351,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD],
             normalRange: 50,
-            longRange: 150
+            longRange: 150,
+            isRanged: true,
+            isAdditional: true,
         },
         {
             name: WeaponCategory.REVOLVER,
@@ -349,7 +362,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD],
             normalRange: 40,
-            longRange: 120
+            longRange: 120,
+            isRanged: true,
+            isAdditional: true,
         },
         {
             name: WeaponCategory.RIFLE_HUNTING,
@@ -358,7 +373,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
             normalRange: 80,
-            longRange: 240
+            longRange: 240,
+            isRanged: true,
+            isAdditional: true,
         },
         {
             name: WeaponCategory.RIFLE_AUTOMATIC,
@@ -367,7 +384,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.BURST_FIRE, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
             normalRange: 80,
-            longRange: 240
+            longRange: 240,
+            isRanged: true,
+            isAdditional: true,
         },
         {
             name: WeaponCategory.SHOTGUN,
@@ -376,7 +395,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
             normalRange: 30,
-            longRange: 90
+            longRange: 90,
+            isRanged: true,
+            isAdditional: true,
         },
 
         // ==================== FUTURISTIC FIREARMS ====================
@@ -387,7 +408,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD],
             normalRange: 40,
-            longRange: 120
+            longRange: 120,
+            isRanged: true,
+            isAdditional: true,
         },
         {
             name: WeaponCategory.ANTIMATTER_RIFLE,
@@ -396,7 +419,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
             normalRange: 120,
-            longRange: 360
+            longRange: 360,
+            isRanged: true,
+            isAdditional: true,
         },
         {
             name: WeaponCategory.LASER_RIFLE,
@@ -405,7 +430,9 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             weaponType: WeaponType.FIREARMS,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.RELOAD, WeaponProperty.TWO_HANDED],
             normalRange: 100,
-            longRange: 300
+            longRange: 300,
+            isRanged: true,
+            isAdditional: true,
         },
     ]
 

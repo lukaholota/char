@@ -2,7 +2,7 @@ import {equipmentSchema} from "@/lib/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
 import {ClassI, RaceI} from "@/lib/types/model-types";
 import {useEffect, useMemo, useState} from "react";
-import { ClassStartingEquipmentOption, Weapon } from "@prisma/client";
+import { ClassStartingEquipmentOption, Weapon, WeaponType } from "@prisma/client";
 import {groupBy} from "@/lib/server/formatters/generalFormatters";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
 import { Badge } from "@/lib/components/ui/badge";
@@ -32,8 +32,11 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
       choiceGroupsGrouped[choiceGroup] = groupBy(group, g => g.option)
   }
 
-  const meleeWeapons = useMemo(() => weapons.filter(w => w.normalRange === null && w.longRange === null), [weapons]);
-  const rangedWeapons = useMemo(() => weapons.filter(w => w.normalRange !== null || w.longRange !== null), [weapons]);
+  const meleeSimple = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON), [weapons]);
+  const meleeMartial = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON), [weapons]);
+  
+  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON), [weapons]);
+  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON), [weapons]);
 
   const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
   const [weaponDialogGroup, setWeaponDialogGroup] = useState<string | null>(null);
