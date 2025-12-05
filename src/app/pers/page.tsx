@@ -15,9 +15,10 @@ export default async function Page() {
       include: {
         subraces: true,
       },
-      orderBy: {
-        raceId: 'asc'
-      }
+      orderBy: [
+        { sortOrder: 'asc' },
+        { raceId: 'asc' }
+      ]
     }) as Promise<RaceI[]>,
     prisma.class.findMany({
       include: {
@@ -29,10 +30,19 @@ export default async function Page() {
         },
         classChoiceOptions: true,
         classOptionalFeatures: true
-      }
+      },
+      orderBy: [
+        { sortOrder: 'asc' },
+        { classId: 'asc' }
+      ]
     }) as Promise<ClassI[]>,
     prisma.background.findMany() as Promise<BackgroundI[]>,
-    prisma.weapon.findMany(),
+    prisma.weapon.findMany({
+      orderBy: [
+        { sortOrder: 'asc' },
+        { weaponId: 'asc' }
+      ]
+    }),
     prisma.armor.findMany(),
   ])
 

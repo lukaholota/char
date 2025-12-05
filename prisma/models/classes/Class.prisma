@@ -4,6 +4,7 @@
 model Class {
   classId Int     @id @default(autoincrement()) @map("class_id")
   name    Classes @unique @map("eng_name")
+  sortOrder Int   @default(999) @map("sort_order")
 
   hitDie Int @map("hit_die")
 

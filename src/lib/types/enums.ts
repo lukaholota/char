@@ -20,3 +20,13 @@ export const SkillsEnum = [
 ] as const
 
 export type Skill = typeof SkillsEnum[number]
+
+export const WeaponKinds = [
+  "meleeSimple",
+  "meleeMartial",
+  "rangedSimple",
+  "rangedMartial",
+  "firearmsAdditional"
+] as const;
+
+export type WeaponKindType = typeof WeaponKinds[number];

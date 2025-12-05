@@ -814,7 +814,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             weapon: { connect: { name: WeaponCategory.QUARTERSTAFF } },
             class: { connect: { name: Classes.WIZARD_2014 } },
             quantity: 1,
-            description: 'Палиця (квартиршток) (1к6)'
+            description: 'Бойовий посох (1к6/1к8)'
         },
         {
             choiceGroup: 1,
@@ -895,5 +895,5 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         seedIndex++;
     }
 
-    console.log(`✅ додано ${equipment.length} класових фіч!`)
+    console.log(`✅ додано ${equipment.length} класового спорядження!`)
 }

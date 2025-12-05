@@ -9,6 +9,7 @@ model Race {
   swimSpeed   Int    @default(0) @map("swim_speed")
   climbSpeed  Int    @default(0) @map("climb_speed")
   ac          Json?
+  sortOrder   Int    @default(999) @map("sort_order")
 
   source Source @default(PHB)
 

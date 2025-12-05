@@ -18,6 +18,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
     const classes: ClassCreateInput[] = [
         {
             name: Classes.FIGHTER_2014,
+            sortOrder: 5,
             hitDie: 10,
             spellcastingType: SpellcastingType.NONE,
             abilityScoreUpLevels: [4, 6, 8, 12, 14, 16, 19],
@@ -67,6 +68,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
         },
         {
             name: Classes.BARBARIAN_2014,
+            sortOrder: 1,
             hitDie: 12,
             abilityScoreUpLevels: [4, 8, 12, 16, 19],
             subclassLevel: 3,
@@ -146,6 +148,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
         // КЛАС МОНАХА
         {
             name: Classes.MONK_2014,
+            sortOrder: 6,
             hitDie: 8,
             abilityScoreUpLevels: [4, 8, 12, 16, 19],
             subclassLevel: 3,
@@ -255,6 +258,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
         // RANGER CLASS
         {
             name: Classes.RANGER_2014,
+            sortOrder: 8,
             hitDie: 10,
             primaryCastingStat: 'WIS',
             spellcastingType: SpellcastingType.HALF, // половинний кастер
@@ -316,6 +320,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
         {
             name: Classes.PALADIN_2014,
+            sortOrder: 7,
             hitDie: 10,
             primaryCastingStat: 'CHA',
             spellcastingType: SpellcastingType.HALF, // півкастер з підготовкою
@@ -411,6 +416,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
         {
             name: Classes.ROGUE_2014,
+            sortOrder: 9,
             hitDie: 8,
             spellcastingType: SpellcastingType.NONE,
             abilityScoreUpLevels: [4, 8, 10, 12, 16, 19], // ☝️ УВАГА: Rogue має ASI на 10 рівні!
@@ -510,6 +516,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
         {
             name: Classes.SORCERER_2014,
+            sortOrder: 10,
             hitDie: 6,
             primaryCastingStat: Ability.CHA,
             spellcastingType: SpellcastingType.FULL,
@@ -572,6 +579,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
         {
             name: Classes.WIZARD_2014,
+            sortOrder: 12,
             hitDie: 6,
             primaryCastingStat: Ability.INT,
             spellcastingType: SpellcastingType.FULL,
@@ -635,6 +643,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
         {
             name: Classes.WARLOCK_2014,
+            sortOrder: 11,
             hitDie: 8,
             primaryCastingStat: Ability.CHA,
             spellcastingType: SpellcastingType.PACT, // ☝️ Унікальна Pact Magic система!

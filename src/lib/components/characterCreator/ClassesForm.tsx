@@ -6,7 +6,7 @@ import { useStepForm } from "@/hooks/useStepForm";
 import { classSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { ClassI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/lib/components/ui/card";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 interface Props {
   classes: ClassI[]
@@ -20,6 +20,10 @@ export const ClassesForm = (
   const {form, onSubmit} = useStepForm(classSchema)
 
   const chosenClassId = form.watch('classId') || 0
+  const sortedClasses = useMemo(
+    () => [...classes].sort((a, b) => (a.sortOrder - b.sortOrder) || (a.classId - b.classId)),
+    [classes]
+  );
 
     useEffect(() => {
     if (!chosenClassId) {
@@ -38,7 +42,7 @@ export const ClassesForm = (
 
       <div className="grid gap-3 md:grid-cols-2">
         {
-          classes.map(c =>  (
+          sortedClasses.map(c =>  (
             <Card
               key={c.classId}
               className={clsx(

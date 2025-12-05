@@ -6,6 +6,7 @@ model Weapon {
   damage     String
   damageType DamageType @map("damage_type")
   weaponType WeaponType @map("weapon_type")
+  sortOrder  Int        @default(999) @map("sort_order")
 
   isRanged Boolean @map("is_ranged") @default(false)
   isAdditional Boolean @map("is_additional") @default(false)

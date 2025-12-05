@@ -9,6 +9,8 @@ import { Badge } from "@/lib/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/lib/components/ui/dialog";
 import { Button } from "@/lib/components/ui/Button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
+import { WeaponKindType } from "@/lib/types/enums";
+import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
 
 interface Props {
   race: RaceI
@@ -18,11 +20,16 @@ interface Props {
   onNextDisabledChange?: (disabled: boolean) => void
 }
 
+const constToCamel: Record<string, WeaponKindType> = {
+  SIMPLE_WEAPON: "meleeSimple", 
+  MARTIAL_WEAPON: "meleeMartial",  
+}
+
 export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisabledChange}: Props) => {
   const {form, onSubmit} = useStepForm(equipmentSchema);
 
   const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
-  const anyWeaponSelection = form.watch('anyWeaponSelection') as Record<string, number>
+  const anyWeaponSelection = form.watch('anyWeaponSelection') as Record<string, number[]>
 
   const choiceGroups = selectedClass.startingEquipmentOption
   const choiceGroupsGroupedRaw = groupBy(choiceGroups, group => group.choiceGroup)
@@ -32,15 +39,31 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
       choiceGroupsGrouped[choiceGroup] = groupBy(group, g => g.option)
   }
 
-  const meleeSimple = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON), [weapons]);
-  const meleeMartial = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON), [weapons]);
+  const meleeSimple = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const meleeMartial = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
   
-  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON), [weapons]);
-  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON), [weapons]);
+  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const rangedMartial= useMemo(() => weapons.filter(w => w.isRanged && (w.weaponType === WeaponType.MARTIAL_WEAPON || (w.weaponType === WeaponType.FIREARMS && !w.isAdditional))).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const firearmsAdditional = useMemo(() => weapons.filter(w => w.isRanged && w.isAdditional).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const weaponsByKind = useMemo(() => ({
+    'meleeSimple': meleeSimple,
+    'meleeMartial': meleeMartial,
+    'rangedSimple': rangedSimple,
+    'rangedMartial': rangedMartial,
+    'firearmsAdditional': firearmsAdditional
+  }), 
+  [meleeSimple, meleeMartial, rangedSimple, rangedMartial, firearmsAdditional])
 
   const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
+  const [weaponDialogIsMartial, setWeaponDialogIsMartial] = useState(false);
   const [weaponDialogGroup, setWeaponDialogGroup] = useState<string | null>(null);
-  const [weaponFilter, setWeaponFilter] = useState<'melee' | 'ranged'>('melee');
+  const [weaponDialogIndex, setWeaponDialogIndex] = useState<number>(0);
+  const [weaponFilter, setWeaponFilter] = useState<WeaponKindType | undefined>(() => {
+    const weaponType = choiceGroups.find(g => g.chooseAnyWeapon)?.weaponType;
+    return weaponType 
+      ? constToCamel[weaponType]
+      : undefined;
+  });
   const [selectedWeaponId, setSelectedWeaponId] = useState<number | null>(null);
 
   const chooseOption = (optionGroup: ClassStartingEquipmentOption[]) => {
@@ -49,36 +72,48 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
 
     form.setValue(`choiceGroupToId.${choiceGroup}`, newOptions, { shouldDirty: true });
 
-    if (optionGroup.some(g => g.chooseAnyWeapon)) {
-      const existing = form.getValues(`anyWeaponSelection.${choiceGroup}`) as number | undefined;
-      const defaultWeapon = (weaponFilter === 'melee' ? meleeWeapons[0] : rangedWeapons[0]) ?? weapons[0];
-      form.setValue(`anyWeaponSelection.${choiceGroup}`, existing ?? defaultWeapon?.weaponId, { shouldDirty: true });
+    if (weaponFilter) {
+      const weaponCount = optionGroup[0]?.weaponCount ?? 1;
+      const existing = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
+      const defaults = weaponsByKind[weaponFilter]
+        .slice(0, weaponCount)
+        .map(w => w.weaponId);
+      const fallback = weaponsByKind[weaponFilter][0]?.weaponId ?? weapons[0]?.weaponId;
+      const selection = Array.from({ length: weaponCount }, (_, idx) => existing[idx] ?? defaults[idx] ?? fallback).filter((id): id is number => typeof id === 'number');
+      form.setValue(`anyWeaponSelection.${choiceGroup}`, selection, { shouldDirty: true });
     }
   }
 
-  const openWeaponDialog = (choiceGroup: string) => {
+  const openWeaponDialog = (choiceGroup: string, isMartial: boolean, weaponIndex: number) => {
+    if (!weaponFilter) return;
+    setWeaponDialogIndex(weaponIndex);
     setWeaponDialogGroup(choiceGroup);
-    const currentId = form.getValues(`anyWeaponSelection.${choiceGroup}`) as number | undefined;
-    const fallback = meleeWeapons[0]?.weaponId ?? rangedWeapons[0]?.weaponId ?? null;
-    setSelectedWeaponId(currentId ?? fallback);
+    const currentWeapons = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
+    const fallback = weaponsByKind[weaponFilter][weaponIndex]?.weaponId ?? weaponsByKind[weaponFilter][0]?.weaponId ?? null;
+    setSelectedWeaponId(currentWeapons[weaponIndex] ?? fallback);
     setWeaponDialogOpen(true);
+    setWeaponDialogIsMartial(isMartial);
   }
 
   const saveWeaponSelection = () => {
-    if (!weaponDialogGroup || !selectedWeaponId) {
+    if (!weaponDialogGroup || selectedWeaponId == null) {
       setWeaponDialogOpen(false);
       return;
     }
-    form.setValue(`anyWeaponSelection.${weaponDialogGroup}`, selectedWeaponId, { shouldDirty: true });
+    const currentWeapons = (form.getValues(`anyWeaponSelection.${weaponDialogGroup}`) as number[] | undefined) ?? [];
+    const updatedWeapons = [...currentWeapons];
+    updatedWeapons[weaponDialogIndex] = selectedWeaponId;
+    form.setValue(`anyWeaponSelection.${weaponDialogGroup}`, updatedWeapons, { shouldDirty: true });
     setWeaponDialogOpen(false);
   }
 
   useEffect(() => {
-    const list = weaponFilter === 'melee' ? meleeWeapons : rangedWeapons;
-    if (selectedWeaponId && list.some(w => w.weaponId === selectedWeaponId)) return;
+    if (!weaponFilter) return;
+    const list = weaponsByKind[weaponFilter]
+    if (selectedWeaponId != null && list?.some(w => w.weaponId === selectedWeaponId)) return;
     const fallback = list[0]?.weaponId ?? weapons[0]?.weaponId ?? null;
     setSelectedWeaponId(fallback);
-  }, [weaponFilter, meleeWeapons, rangedWeapons, weapons, selectedWeaponId]);
+  }, [weaponFilter, weaponsByKind, selectedWeaponId, weapons]);
 
   useEffect(() => {
     form.register("choiceGroupToId");
@@ -96,60 +131,63 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
 
     if (Object.keys(current).length > 0) return
 
-    const initValues = Object.entries(choiceGroupsGrouped).reduce(
+    const { initialChoiceGroupToId, initialAnyWeaponSelection } = Object.entries(choiceGroupsGrouped).reduce(
       (acc, [choiceGroup, choiceGroupToOptionGroup]) => {
         const optionA = choiceGroupToOptionGroup['a']
-        acc[choiceGroup] = [optionA[0].optionId]
+        acc.initialChoiceGroupToId[choiceGroup] = [optionA[0].optionId]
         const hasAny = optionA.some(o => o.chooseAnyWeapon);
-        if (hasAny) {
-          const defaultWeapon = meleeWeapons[0]?.weaponId ?? rangedWeapons[0]?.weaponId ?? weapons[0]?.weaponId;
-          if (defaultWeapon) {
-            form.setValue(`anyWeaponSelection.${choiceGroup}`, defaultWeapon, { shouldDirty: false });
-          }
+        if (hasAny && weaponFilter) {
+          const weaponCount = optionA[0].weaponCount ?? 1;
+          const defaults = weaponsByKind[weaponFilter].slice(0, weaponCount).map(w => w.weaponId);
+          const fallback = weaponsByKind[weaponFilter][0]?.weaponId ?? weapons[0]?.weaponId;
+          acc.initialAnyWeaponSelection[choiceGroup] = Array.from({ length: weaponCount }, (_, idx) => defaults[idx] ?? fallback).filter((id): id is number => typeof id === 'number');
         }
         return acc
-      }, {} as Record<string, number[]>
+      }, { initialChoiceGroupToId: {} as Record<string, number[]>, initialAnyWeaponSelection: {} as Record<string, number[]> }
     )
 
-    form.setValue('choiceGroupToId', initValues)
-  }, [choiceGroupsGrouped, form, meleeWeapons, rangedWeapons, weapons])
+    form.setValue('choiceGroupToId', initialChoiceGroupToId)
+    form.setValue('anyWeaponSelection', initialAnyWeaponSelection, { shouldDirty: false })
+  }, [choiceGroupsGrouped, form, weaponsByKind, weaponFilter, weapons])
 
 
   const renderWeaponDialog = () => {
-    const list = weaponFilter === 'melee' ? meleeWeapons : rangedWeapons;
+    if (!weaponFilter) return;
+    const isMartial = weaponDialogIsMartial;
+    const list = weaponsByKind[weaponFilter];
     return (
       <Dialog open={weaponDialogOpen} onOpenChange={setWeaponDialogOpen}>
         <DialogContent className="sm:max-w-[520px] border border-slate-800 bg-slate-950/90">
           <DialogHeader>
-            <DialogTitle className="text-white">Оберіть зброю</DialogTitle>
+            <DialogTitle className="text-white">Оберіть {isMartial && 'бойову'} зброю</DialogTitle>
             <DialogDescription className="text-slate-400">
               Виберіть тип та конкретну зброю.
             </DialogDescription>
           </DialogHeader>
 
-          <Tabs value={weaponFilter} onValueChange={(val) => setWeaponFilter(val as 'melee' | 'ranged')}>
+          <Tabs value={weaponFilter} onValueChange={(val: string) => setWeaponFilter(val as WeaponKindType)}>
             <TabsList className="grid grid-cols-2 bg-slate-900/70">
-              <TabsTrigger value="melee" className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
+              <TabsTrigger value={isMartial ? 'meleeMartial' : 'meleeSimple'} className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
                 Ближній бій
               </TabsTrigger>
-              <TabsTrigger value="ranged" className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
+              <TabsTrigger value={isMartial ? 'rangedMartial' : 'rangedSimple'} className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
                 Дальній бій
               </TabsTrigger>
             </TabsList>
-            <TabsContent value="melee" />
-            <TabsContent value="ranged" />
+            {/* <TabsContent value={isMartial ? 'meleeMartial' : 'meleeSimple'} />
+            <TabsContent value={isMartial ? 'rangedMartial' : 'rangedSimple'} /> */} {/* No need for content, we just filter the list above based on selected tab */}
           </Tabs>
 
           <div className="space-y-2">
-            <label className="text-sm text-slate-200">Зброя</label>
+            <label className="text-sm text-slate-200">{isMartial ? 'Бойова ' : 'Проста '}Зброя</label>
             <select
               className="w-full rounded-md border border-slate-800 bg-slate-900/80 px-3 py-2 text-white"
               value={selectedWeaponId ?? ''}
               onChange={(e) => setSelectedWeaponId(Number(e.target.value))}
             >
               {list.map((w) => (
-                <option key={w.weaponId} value={w.weaponId}>
-                  {w.name.replaceAll('_', ' ')}
+                <option key={w.weaponId} value={w.weaponId} title={weaponTranslationsEng[w.name]}>
+                  {weaponTranslations[w.name]}
                 </option>
               ))}
             </select>
@@ -166,21 +204,20 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
     )
   }
 
-  const weaponNameById = (id?: number) => weapons.find(w => w.weaponId === id)?.name.replaceAll('_', ' ');
+  const weaponNameById = (id?: number) => weapons.find(w => w.weaponId === id);
 
   return (
     <form id={formId} onSubmit={onSubmit} className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 shadow-inner space-y-4">
       <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
         <CardHeader>
           <CardTitle className="text-white">Спорядження</CardTitle>
-          <CardDescription className="text-slate-400">Обирайте варіанти спорядження або підберіть зброю вручну.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           {Object.entries(choiceGroupsGrouped).map(([choiceGroup, choiceGroupToOptionGroup], index) => (
             <div key={index} className="rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-white">Опція {choiceGroup}</p>
-                <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700">Виберіть один</Badge>
+                <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700">Оберіть одну</Badge>
               </div>
               <div className="mt-3 space-y-2">
                 {Object.values(choiceGroupToOptionGroup).map((optionGroup, idx) => {
@@ -188,7 +225,7 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
                   const output = optionGroup.map(g => g.description).join(', ')
                   const checked = !!(choiceGroupToId[choiceGroup]?.includes?.(entry.optionId))
                   const hasAnyWeapon = optionGroup.some(g => g.chooseAnyWeapon)
-                  const selectedWeaponName = weaponNameById(anyWeaponSelection?.[choiceGroup]);
+                  const selectedWeapons = anyWeaponSelection?.[choiceGroup] ?? [];
 
                   return (
                     <div
@@ -206,20 +243,27 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
                         <span>{output}</span>
                       </label>
                       {hasAnyWeapon && checked && (
-                        <div className="mt-2 flex items-center justify-between rounded-md border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-200">
-                          <div>
-                            <p className="text-xs text-slate-400">Вибрана зброя</p>
-                            <p>{selectedWeaponName ?? "Не обрано"}</p>
-                          </div>
-                          <Button
-                            type="button"
-                            size="sm"
-                            variant="secondary"
-                            className="bg-indigo-500/20 text-indigo-50 border border-indigo-400/60"
-                            onClick={() => openWeaponDialog(choiceGroup)}
-                          >
-                            Обрати зброю
-                          </Button>
+                        <div className="mt-2 space-y-2">
+                          {Array.from({ length: entry.weaponCount || 1 }).map((_, weaponIdx) => {
+                            const selectedWeaponName = weaponTranslations[weaponNameById(selectedWeapons?.[weaponIdx])?.name ?? ''] ?? 'Не обрано';
+                            return (
+                              <div key={weaponIdx} className="flex items-center justify-between rounded-md border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-200">
+                                <div>
+                                  <p className="text-xs text-slate-400">Зброя #{weaponIdx + 1}</p>
+                                  <p>{selectedWeaponName}</p>
+                                </div>
+                                <Button
+                                  type="button"
+                                  size="sm"
+                                  variant="secondary"
+                                  className="bg-indigo-500/20 text-indigo-50 border border-indigo-400/60"
+                                  onClick={() => openWeaponDialog(choiceGroup, entry.weaponType === WeaponType.MARTIAL_WEAPON, weaponIdx)}
+                                >
+                                  Обрати зброю
+                                </Button>
+                              </div>
+                            )
+                          })}
                         </div>
                       )}
                     </div>

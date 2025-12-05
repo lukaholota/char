@@ -49,8 +49,18 @@ export const RacesForm = (
     return SOURCE_LABELS[suffix] ?? 'Інші джерела';
   };
 
-  const coreRaces = useMemo(() => races.filter(r => r.name.endsWith('2014')), [races]);
-  const otherRaces = useMemo(() => races.filter(r => !r.name.endsWith('2014')), [races]);
+  const coreRaces = useMemo(
+    () => races
+      .filter(r => r.name.endsWith('2014'))
+      .sort((a, b) => (a.sortOrder - b.sortOrder) || (a.raceId - b.raceId)),
+    [races]
+  );
+  const otherRaces = useMemo(
+    () => races
+      .filter(r => !r.name.endsWith('2014'))
+      .sort((a, b) => (a.sortOrder - b.sortOrder) || (a.raceId - b.raceId)),
+    [races]
+  );
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">

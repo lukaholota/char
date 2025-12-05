@@ -9,6 +9,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к4',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 1,
             properties: [WeaponProperty.LIGHT]
         },
         {
@@ -16,6 +17,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к4',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 2,
             properties: [WeaponProperty.FINESSE, WeaponProperty.LIGHT, WeaponProperty.THROWN],
             normalRange: 20,
             longRange: 60
@@ -25,6 +27,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 3,
             properties: [WeaponProperty.TWO_HANDED],
         },
         {
@@ -32,6 +35,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 4,
             properties: [WeaponProperty.LIGHT, WeaponProperty.THROWN],
             normalRange: 20,
             longRange: 60
@@ -41,6 +45,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 5,
             properties: [WeaponProperty.THROWN],
             normalRange: 30,
             longRange: 120
@@ -50,6 +55,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к4',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 6,
             properties: [WeaponProperty.LIGHT, WeaponProperty.THROWN],
             normalRange: 20,
             longRange: 60
@@ -59,6 +65,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 7,
             properties: []
         },
         {
@@ -66,6 +73,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 8,
             properties: [WeaponProperty.VERSATILE],
             versatileDamage: '1к8'
         },
@@ -74,6 +82,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к4',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 9,
             properties: [WeaponProperty.LIGHT]
         },
         {
@@ -81,6 +90,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 10,
             properties: [WeaponProperty.THROWN, WeaponProperty.VERSATILE],
             normalRange: 20,
             longRange: 60,
@@ -91,6 +101,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 11,
             properties: []
         },
 
@@ -100,6 +111,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 12,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING, WeaponProperty.TWO_HANDED],
             normalRange: 80,
             longRange: 320,
@@ -110,6 +122,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к4',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 13,
             properties: [WeaponProperty.FINESSE, WeaponProperty.THROWN],
             normalRange: 20,
             longRange: 60,
@@ -120,6 +133,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 14,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.TWO_HANDED],
             normalRange: 80,
             longRange: 320,
@@ -130,6 +144,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к4',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.SIMPLE_WEAPON,
+            sortOrder: 15,
             properties: [WeaponProperty.AMMUNITION],
             normalRange: 30,
             longRange: 120,
@@ -142,6 +157,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 16,
             properties: [WeaponProperty.VERSATILE],
             versatileDamage: '1к10'
         },
@@ -150,6 +166,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 17,
             properties: []
         },
         {
@@ -157,6 +174,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к10',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 18,
             properties: [WeaponProperty.HEAVY, WeaponProperty.REACH, WeaponProperty.TWO_HANDED]
         },
         {
@@ -164,6 +182,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к12',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 19,
             properties: [WeaponProperty.HEAVY, WeaponProperty.TWO_HANDED]
         },
         {
@@ -171,6 +190,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '2к6',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 20,
             properties: [WeaponProperty.HEAVY, WeaponProperty.TWO_HANDED]
         },
         {
@@ -178,6 +198,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к10',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 21,
             properties: [WeaponProperty.HEAVY, WeaponProperty.REACH, WeaponProperty.TWO_HANDED]
         },
         {
@@ -185,6 +206,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к12',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 22,
             properties: [WeaponProperty.REACH, WeaponProperty.SPECIAL]
         },
         {
@@ -192,6 +214,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 23,
             properties: [WeaponProperty.VERSATILE],
             versatileDamage: '1к10'
         },
@@ -200,6 +223,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '2к6',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 24,
             properties: [WeaponProperty.HEAVY, WeaponProperty.TWO_HANDED]
         },
         {
@@ -207,6 +231,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 25,
             properties: []
         },
         {
@@ -214,6 +239,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к10',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 26,
             properties: [WeaponProperty.HEAVY, WeaponProperty.REACH, WeaponProperty.TWO_HANDED]
         },
         {
@@ -221,6 +247,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 27,
             properties: [WeaponProperty.FINESSE]
         },
         {
@@ -228,6 +255,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 28,
             properties: [WeaponProperty.FINESSE, WeaponProperty.LIGHT]
         },
         {
@@ -235,6 +263,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 29,
             properties: [WeaponProperty.FINESSE, WeaponProperty.LIGHT]
         },
         {
@@ -242,6 +271,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 30,
             properties: [WeaponProperty.THROWN, WeaponProperty.VERSATILE],
             normalRange: 20,
             longRange: 60,
@@ -252,6 +282,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 31,
             properties: []
         },
         {
@@ -259,6 +290,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 32,
             properties: [WeaponProperty.VERSATILE],
             versatileDamage: '1к10'
         },
@@ -267,6 +299,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к4',
             damageType: DamageType.SLASHING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 33,
             properties: [WeaponProperty.FINESSE, WeaponProperty.REACH]
         },
 
@@ -276,6 +309,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 34,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LOADING],
             normalRange: 25,
             longRange: 100,
@@ -286,6 +320,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к6',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 35,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.LIGHT, WeaponProperty.LOADING],
             normalRange: 30,
             longRange: 120,
@@ -296,6 +331,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к10',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 36,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.HEAVY, WeaponProperty.LOADING, WeaponProperty.TWO_HANDED],
             normalRange: 100,
             longRange: 400,
@@ -306,6 +342,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '1к8',
             damageType: DamageType.PIERCING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 37,
             properties: [WeaponProperty.AMMUNITION, WeaponProperty.HEAVY, WeaponProperty.TWO_HANDED],
             normalRange: 150,
             longRange: 600,
@@ -316,6 +353,7 @@ export const seedWeapons = async (prisma: PrismaClient) => {
             damage: '0',
             damageType: DamageType.BLUDGEONING,
             weaponType: WeaponType.MARTIAL_WEAPON,
+            sortOrder: 38,
             properties: [WeaponProperty.SPECIAL, WeaponProperty.THROWN],
             normalRange: 5,
             longRange: 15,

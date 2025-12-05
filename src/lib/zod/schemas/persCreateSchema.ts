@@ -1,5 +1,5 @@
 import {z} from "zod";
-import { Ability, Skills } from "@prisma/client";
+import { Ability } from "@prisma/client";
 import {SkillsEnum} from "@/lib/types/enums";
 
 export const raceSchema = z.object({
@@ -115,7 +115,7 @@ export const equipmentSchema = z.object({
       z.string(), // js has no numeric keys
       z.array(z.number())
     ).default({}),
-    anyWeaponSelection: z.record(z.string(), z.number()).default({})
+    anyWeaponSelection: z.record(z.string(), z.array(z.number())).default({})
 })
 
 export const nameSchema = z.object({

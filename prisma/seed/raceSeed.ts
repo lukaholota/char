@@ -38,6 +38,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ ДВОРФ ============
         {
             name: Races.DWARF_2014,
+            sortOrder: 2,
             size: [Size.MEDIUM],
             speed: 25,
             source: Source.PHB,
@@ -89,6 +90,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ ЕЛЬФ ============
         {
             name: Races.ELF_2014,
+            sortOrder: 3,
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.PHB,
@@ -127,6 +129,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ НАПІВРОСЛИК ============
         {
             name: Races.HALFLING_2014,
+            sortOrder: 4,
             size: [Size.SMALL],
             speed: 25,
             source: Source.PHB,
@@ -163,6 +166,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ ЛЮДИНА ============
         {
             name: Races.HUMAN_2014,
+            sortOrder: 1,
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.PHB,
@@ -188,6 +192,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ ДРАКОНОНАРОДЖЕНИЙ ============
         {
             name: Races.DRAGONBORN_2014,
+            sortOrder: 5,
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.PHB,
@@ -229,6 +234,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ ГНОМ ============
         {
             name: Races.GNOME_2014,
+            sortOrder: 6,
             size: [Size.SMALL],
             speed: 25,
             source: Source.PHB,
@@ -264,6 +270,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ НАПІВЕЛЬФ ============
         {
             name: Races.HALF_ELF_2014,
+            sortOrder: 7,
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.PHB,
@@ -315,6 +322,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ НАПІВОРК ============
         {
             name: Races.HALF_ORC_2014,
+            sortOrder: 8,
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.PHB,
@@ -360,6 +368,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
         // ============ ТИФЛІНГ ============
         {
             name: Races.TIEFLING_2014,
+            sortOrder: 9,
             size: [Size.MEDIUM],
             speed: 30,
             source: Source.PHB,
