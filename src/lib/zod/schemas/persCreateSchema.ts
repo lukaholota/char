@@ -3,7 +3,8 @@ import { Ability } from "@prisma/client";
 import {SkillsEnum} from "@/lib/types/enums";
 
 export const raceSchema = z.object({
-  raceId: z.number().min(1, "Треба обрати расу 😈")
+  raceId: z.number().min(1, "D›¥?DæDñDø D_Dñ¥?Dø¥,D, ¥?Dø¥?¥Ÿ dY~^"),
+  raceSearch: z.string().default('')
 })
 
 export const classSchema = z.object({
@@ -11,7 +12,8 @@ export const classSchema = z.object({
 });
 
 export const backgroundSchema = z.object({
-  backgroundId: z.number().min(1, "Передісторію не обрано... ти хто взагалі?"),
+  backgroundId: z.number().min(1, "DYDæ¥?DæD'¥-¥?¥,D_¥?¥-¥Z D«Dæ D_Dñ¥?DøD«D_... ¥,D, ¥.¥,D_ DýDúDøD3DøD¯¥-?"),
+  backgroundSearch: z.string().default('')
 });
 
 const choices = z.object({
@@ -125,8 +127,10 @@ export const nameSchema = z.object({
 
 export const fullCharacterSchema = z.object({
   raceId: z.number(),
+  raceSearch: z.string().default(''),
   classId: z.number(),
   backgroundId: z.number(),
+  backgroundSearch: z.string().default(''),
   isDefaultASI: z.boolean().default(false),
   asiSystem: z.string().default('POINT_BUY'),
   points: z.number().min(0).default(0),
@@ -147,3 +151,5 @@ export const fullCharacterSchema = z.object({
 
 
 export type PersFormData = z.infer<typeof fullCharacterSchema>
+
+

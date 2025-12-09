@@ -217,7 +217,7 @@ export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisab
             <div key={index} className="rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-white">Опція {choiceGroup}</p>
-                <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700">Оберіть одну</Badge>
+                <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700 cursor-default">Оберіть одну</Badge>
               </div>
               <div className="mt-3 space-y-2">
                 {Object.values(choiceGroupToOptionGroup).map((optionGroup, idx) => {

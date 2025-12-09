@@ -10,19 +10,15 @@ interface Props {
 
 export const CharacterCreateHeader = ({ onReset, onOpenAuth }: Props) => {
   return (
-    <div className="w-full rounded-2xl border border-slate-800/80 bg-gradient-to-r from-slate-950 via-slate-900/80 to-slate-900 px-6 py-5 shadow-xl backdrop-blur">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div className="w-full rounded-2xl border border-slate-800/80 bg-gradient-to-r from-slate-950 via-slate-900/80 to-slate-900 px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5 shadow-xl backdrop-blur">
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
         <div className="space-y-1">
           <p className="text-[11px] uppercase tracking-[0.32em] text-slate-400">
-            DND builder
+            pers creator
           </p>
-          <h1 className="text-2xl font-semibold text-white md:text-3xl">
+          <h1 className="text-xl font-semibold text-white sm:text-2xl md:text-3xl">
             Створити персонажа
           </h1>
-          <p className="text-sm text-slate-400">
-            Інтуїтивний, мінімалістичний майстер — сфокусований на важливому
-            без зайвих відволікань.
-          </p>
         </div>
 
         <div className="flex items-center gap-3">

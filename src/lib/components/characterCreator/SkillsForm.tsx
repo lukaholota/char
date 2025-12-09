@@ -142,9 +142,6 @@ export const SkillsForm = ({race, selectedClass, background, formId, onNextDisab
         <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <CardTitle className="text-white">Навички</CardTitle>
-            <CardDescription className="text-slate-400">
-              Оберіть профіцієнції. Мінімалістичні кнопки замість чекбоксів.
-            </CardDescription>
           </div>
           <div className="flex items-center gap-3">
             <Switch

@@ -1,6 +1,6 @@
 import React from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import './globals.css'
 import { Navigation } from "@/lib/components/ui/Navigation";
 import { App } from "@/lib/components/ui/App";
@@ -20,6 +20,13 @@ const jetBrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 });
 
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: 'ДнД українською',
@@ -50,9 +57,9 @@ export default function RootLayout(
     { children: React.ReactNode }
 ) {
   return (
-    <html lang={ 'uk' } className="h-full w-full">
+    <html lang={ 'uk' } className="h-full w-full dark">
     <body
-      className={ `${ jetBrainsMono.variable } ${ inter.variable } bg-slate-900 text-slate-200 h-full w-full` }>
+      className={ `${ jetBrainsMono.variable } ${ inter.variable } bg-slate-900 text-slate-200 h-full w-full overflow-x-hidden` }>
     <SessionProvider>
       <GoogleOneTap/>
       <div className="grid min-h-screen w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">

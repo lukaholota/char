@@ -256,13 +256,6 @@ export const ASIForm = (
         <CardHeader className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="space-y-1">
             <CardTitle className="text-xl text-white md:text-2xl">Розподіл характеристик</CardTitle>
-            <CardDescription className="text-slate-400">
-              Чистий, мінімалістичний контроль над силами персонажа. Оберіть систему, яка підходить вам.
-            </CardDescription>
-          </div>
-          <div className="flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-xs uppercase tracking-[0.18em] text-slate-300">
-            <Sparkles className="h-4 w-4 text-indigo-400" />
-            мінімалістичний режим
           </div>
         </CardHeader>
 
@@ -323,7 +316,7 @@ export const ASIForm = (
                 {asiFields.map((field, index) => {
                   const attr = attributes.find((a) => a.eng === field.ability);
                   const currentValue = form.watch(`asi.${index}.value`) || field.value;
-                  const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
+                  const bonus = Math.floor((currentValue - 10) / 2)
 
                   return (
                     <Card
@@ -333,10 +326,9 @@ export const ASIForm = (
                       <CardHeader className="flex flex-row items-center justify-between pb-2">
                         <div>
                           <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
-                          <p className="text-3xl font-semibold text-white">{currentValue as number}</p>
                         </div>
                         <Badge variant="outline" className="border-slate-700 text-slate-200">
-                          {shortName}
+                          {bonus > 0 ? `+${bonus}` : bonus}
                         </Badge>
                       </CardHeader>
                       <CardContent className="flex items-center justify-between pt-0">
@@ -384,45 +376,42 @@ export const ASIForm = (
                 {sortedSimpleAsi.map((field, sortedIndex) => {
                   const attr = attributes.find((a) => a.eng === field.ability);
                   const currentValue = field.value;
-                  const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
-
                   return (
                     <Card
-                      key={field.id}
-                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
-                    >
-                      <CardHeader className="flex items-center justify-between pb-1">
-                        <div>
-                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
-                          <p className="text-xl font-semibold text-white">{currentValue}</p>
-                        </div>
-                        <Badge variant="outline" className="border-slate-700 text-slate-200">
-                          {shortName}
-                        </Badge>
-                      </CardHeader>
-                      <CardContent className="flex items-center justify-between gap-3 pt-0">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          className="border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
-                          onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: true })}
-                          disabled={sortedIndex === 0 || currentValue >= 15}
-                        >
-                          <ArrowUp className="h-4 w-4" />
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          className="border-emerald-500/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
-                          onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: false })}
-                          disabled={sortedIndex === sortedSimpleAsi.length - 1 || currentValue <= 8}
-                        >
-                          <ArrowDown className="h-4 w-4" />
-                        </Button>
-                      </CardContent>
-                    </Card>
+                    key={field.id}
+                    className="border border-slate-800/80 bg-slate-900/70 shadow-sm
+                               transition hover:-translate-y-0.5 hover:border-indigo-500/60
+                               p-2"
+                  >
+                    <CardContent className="flex items-center justify-between gap-1 pt-0 pb-1">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        className="h-6 w-6 border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
+                        onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: true })}
+                        disabled={sortedIndex === 0 || currentValue >= 15}
+                      >
+                        <ArrowUp className="h-3 w-3" />
+                      </Button>
+                  
+                      <div className="flex flex-col items-center justify-center">
+                        <p className="text-[10px] uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
+                        <p className="text-lg font-semibold text-white leading-none">{currentValue}</p>
+                      </div>
+                  
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        className="h-6 w-6 border-emerald-500/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
+                        onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: false })}
+                        disabled={sortedIndex === sortedSimpleAsi.length - 1 || currentValue <= 8}
+                      >
+                        <ArrowDown className="h-3 w-3" />
+                      </Button>
+                    </CardContent>
+                  </Card>
                   );
                 })}
               </div>
@@ -443,11 +432,7 @@ export const ASIForm = (
                       <CardHeader className="flex items-center justify-between pb-2">
                         <div>
                           <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
-                          <p className="text-sm text-slate-400">Введіть будь-яке значення</p>
                         </div>
-                        <Badge variant="outline" className="border-slate-700 text-slate-200">
-                          {shortName}
-                        </Badge>
                       </CardHeader>
                       <CardContent className="pt-0">
                         <Input
@@ -456,7 +441,7 @@ export const ASIForm = (
                           placeholder="14"
                           value={currentValue ?? ''}
                           onChange={(e) => form.setValue(`customAsi.${index}.value`, e.target.value)}
-                          className="border-slate-800/80 bg-slate-900/70 text-white"
+                          className="border-slate-700 bg-slate-900/70 text-white"
                         />
                       </CardContent>
                     </Card>
@@ -471,9 +456,6 @@ export const ASIForm = (
       <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
         <CardHeader>
           <CardTitle className="text-white">Расові бонуси</CardTitle>
-          <CardDescription className="text-slate-400">
-            Додайте акценти раси до характеристик. Вибирайте інтуїтивно — кнопки підкажуть доступні варіанти.
-          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           {form.formState.errors.racialBonusChoiceSchema && (

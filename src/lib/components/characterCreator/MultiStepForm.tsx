@@ -145,80 +145,82 @@ export const MultiStepForm = (
   }, [currentStep]);
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 pb-20 md:px-0">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-24 sm:px-4 md:gap-6 md:px-0 md:py-6">
       <CharacterCreateHeader
         onReset={resetForm}
         onOpenAuth={() => setAuthDialogOpen(true)}
       />
 
       <Card className="border border-slate-800/70 bg-slate-950/70 shadow-2xl">
-        <CardContent className="grid gap-4 p-4 md:grid-cols-[1fr,300px] md:p-6">
-          <div className="space-y-4 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner md:p-5">
+        <CardContent className="grid gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-[1fr,300px] md:p-6">
+          <div className="space-y-3 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner sm:space-y-4 sm:p-4 md:p-5">
             {renderStep()}
           </div>
 
-          <aside className="rounded-xl border border-slate-800/70 bg-slate-900/60 p-4 shadow-inner">
-            <div className="flex items-center justify-between text-sm text-slate-400">
-              <span className="font-medium text-slate-200">Ваш прогрес</span>
-              <Badge variant="outline" className="border-slate-800/80 text-slate-300">
-                {progress}% готово
-              </Badge>
-            </div>
+          <aside className="rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner sm:p-4">
+          <div className="sticky top-14 sm:top-16">
+            <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
+                <span className="font-medium text-slate-200">Ваш прогрес</span>
+                <Badge variant="outline" className="border-slate-800/80 text-slate-300 text-[11px] sm:text-xs">
+                  {progress}% готово
+                </Badge>
+              </div>
 
-            <div className="mt-4 space-y-2">
-              {STEPS.map((step) => {
-                const isDone = step.id < currentStep;
-                const isActive = step.id === currentStep;
+              <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
+                {STEPS.map((step) => {
+                  const isDone = step.id < currentStep;
+                  const isActive = step.id === currentStep;
 
-                return (
-                  <div
-                    key={step.id}
-                    className={clsx(
-                      "flex w-full items-center justify-between rounded-lg border px-3 py-2 text-left",
-                      isActive
-                        ? "border-indigo-400/60 bg-indigo-500/10 text-white"
-                        : "border-slate-800/80 bg-slate-900/60 text-slate-300"
-                    )}
-                  >
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.16em] text-slate-400">
-                        Крок {step.id}
-                      </p>
-                      <p className="text-sm font-semibold">{step.name}</p>
+                  return (
+                    <div
+                      key={step.id}
+                      className={clsx(
+                        "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left sm:px-3",
+                        isActive
+                          ? "border-indigo-400/60 bg-indigo-500/10 text-white"
+                          : "border-slate-800/80 bg-slate-900/60 text-slate-300"
+                      )}
+                    >
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-[11px]">
+                          Крок {step.id}
+                        </p>
+                        <p className="text-xs font-semibold sm:text-sm">{step.name}</p>
+                      </div>
+                      {isDone ? (
+                        <Badge variant="secondary" className="bg-emerald-500/20 text-emerald-200">
+                          <Check className="h-4 w-4" />
+                        </Badge>
+                      ) : (
+                        <Badge
+                          variant="outline"
+                          className={`border-slate-800/80 ${
+                            isActive ? "text-indigo-200" : "text-slate-400"
+                          }`}
+                        >
+                          <Circle className="h-3 w-3" />
+                        </Badge>
+                      )}
                     </div>
-                    {isDone ? (
-                      <Badge variant="secondary" className="bg-emerald-500/20 text-emerald-200">
-                        <Check className="h-4 w-4" />
-                      </Badge>
-                    ) : (
-                      <Badge
-                        variant="outline"
-                        className={`border-slate-800/80 ${
-                          isActive ? "text-indigo-200" : "text-slate-400"
-                        }`}
-                      >
-                        <Circle className="h-3 w-3" />
-                      </Badge>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
 
-            <div className="mt-5 h-2 rounded-full bg-slate-800/80">
-              <div
-                className="h-2 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all"
-                style={{ width: `${progress}%` }}
-              />
+              <div className="mt-4 h-1.5 sm:mt-5 sm:h-2 rounded-full bg-slate-800/80">
+                <div
+                  className="h-1.5 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all sm:h-2"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
             </div>
           </aside>
         </CardContent>
       </Card>
 
-      <div className="sticky bottom-0 left-0 right-0 z-30 w-full max-w-6xl px-1 pb-2">
-        <div className="flex items-center justify-between rounded-2xl border border-slate-800/80 bg-slate-950/90 px-3 py-3 shadow-xl backdrop-blur">
-          <div className="flex items-center gap-3 text-sm text-slate-300">
-            <Badge variant="secondary" className="bg-white/5 text-white">
+      <div className="sticky bottom-0 left-0 right-0 z-30 w-full px-2 pb-3 sm:px-3 md:px-0">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border border-slate-800/80 bg-slate-950/90 px-2.5 py-2.5 shadow-xl backdrop-blur sm:rounded-2xl sm:px-3 sm:py-3">
+          <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
+            <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
               Крок {currentStep} / {STEPS.length}
             </Badge>
             <span className="hidden text-slate-400 sm:inline">Прогрес {progress}%</span>
@@ -229,7 +231,7 @@ export const MultiStepForm = (
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="border border-slate-800/70 text-slate-200 hover:bg-slate-800"
+                className="border border-slate-800/70 text-sm text-slate-200 hover:bg-slate-800 sm:text-base"
                 onClick={prevStep}
               >
                 <ChevronLeft className="mr-2 h-4 w-4" />
@@ -240,7 +242,8 @@ export const MultiStepForm = (
               type="submit"
               form={activeFormId}
               disabled={nextDisabled}
-              className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
+              size="sm"
+              className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-sm text-white shadow-lg shadow-indigo-500/20 sm:text-base"
             >
               Далі →
             </Button>
