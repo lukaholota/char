@@ -37,7 +37,7 @@ export const InfoDialog = ({
           size="icon"
           variant="secondary"
           className={clsx(
-            "absolute -right-3 -top-3 h-10 w-10 rounded-full border border-indigo-500/50 bg-slate-900/90 text-indigo-100 shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:text-white focus-visible:ring-indigo-400 sm:-right-4 sm:-top-4",
+            "absolute -right-2.5 -top-2.5 h-9 w-9 rounded-full border border-indigo-500/50 bg-slate-900/90 text-indigo-100 shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:text-white focus-visible:ring-indigo-400 sm:-right-3 sm:-top-3",
             triggerClassName
           )}
           aria-label={triggerLabel}

@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { raceTranslations, raceTranslationsEng } from "@/lib/refs/translation";
+import { raceTranslations, sourceTranslations } from "@/lib/refs/translation";
 import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { raceSchema } from "@/lib/zod/schemas/persCreateSchema";
@@ -36,29 +36,29 @@ const normalizeText = (value?: string) =>
 
 const formatSpeeds = (race: RaceI) => {
   const speeds = [
-    { label: "Walk", value: race.speed },
-    { label: "Climb", value: race.climbSpeed },
-    { label: "Swim", value: race.swimSpeed },
-    { label: "Fly", value: race.flightSpeed },
-    { label: "Burrow", value: race.burrowSpeed },
-  ].filter((item) => (item.value ?? 0) > 0 || item.label === "Walk");
+    { label: "??????", value: race.speed },
+    { label: "???????", value: race.climbSpeed },
+    { label: "????????", value: race.swimSpeed },
+    { label: "?????", value: race.flightSpeed },
+    { label: "?????", value: race.burrowSpeed },
+  ].filter((item) => (item.value ?? 0) > 0 || item.label === "??????");
 
   return speeds
-    .map((item) => `${item.label}: ${item.value} ft`)
-    .join(" • ");
+    .map((item) => `${item.label}: ${item.value} ??`)
+    .join(" ? ");
 };
 
 const formatRaceAC = (ac?: RaceAC | null) => {
-  if (!ac) return "Standard";
+  if (!ac) return "???????????";
   if ("consistentBonus" in ac) {
-    return `+${ac.consistentBonus} AC bonus`;
+    return `+${ac.consistentBonus} ?? ??`;
   }
   const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
-  return `Base ${ac.base}${bonus}`;
+  return `???? ${ac.base}${bonus}`;
 };
 
 const formatASI = (asi?: RaceASI | null) => {
-  if (!asi) return "—";
+  if (!asi) return "?";
 
   const fixedEntries = Object.entries(asi.basic?.simple || {});
   const basicFlexible = asi.basic?.flexible?.groups || [];
@@ -68,7 +68,7 @@ const formatASI = (asi?: RaceASI | null) => {
 
   if (fixedEntries.length) {
     parts.push(
-      `Fixed: ${fixedEntries
+      `?????????: ${fixedEntries
         .map(([stat, value]) => `${prettifyEnum(stat)} +${value}`)
         .join(", ")}`
     );
@@ -76,10 +76,10 @@ const formatASI = (asi?: RaceASI | null) => {
 
   if (basicFlexible.length) {
     parts.push(
-      `Flexible: ${basicFlexible
+      `??????: ${basicFlexible
         .map(
           (group) =>
-            `${group.groupName} (+${group.value}, choose ${group.choiceCount})`
+            `${group.groupName} (+${group.value}, ??????? ${group.choiceCount})`
         )
         .join("; ")}`
     );
@@ -87,16 +87,17 @@ const formatASI = (asi?: RaceASI | null) => {
 
   if (tashaFlexible.length) {
     parts.push(
-      `Tasha: ${tashaFlexible
+      `?? ??????: ${tashaFlexible
         .map(
           (group) =>
-            `${group.groupName} (+${group.value}, choose ${group.choiceCount})`
+            `${group.groupName} (+${group.value}, ??????? ${group.choiceCount})`
         )
         .join("; ")}`
     );
   }
 
-  return parts.join(" • ") || "—";
+  return parts.join(" ? ") || "?";
+};
 };
 
 interface Props {
@@ -125,70 +126,52 @@ export const RacesForm = (
   const matchesSearch = (raceName: string) => {
     if (!normalizedRaceSearch) return true;
     const ua = normalizeText(raceTranslations[raceName]);
-    const eng = normalizeText(raceTranslationsEng[raceName]);
-    return ua.includes(normalizedRaceSearch) || eng.includes(normalizedRaceSearch);
+    return ua.includes(normalizedRaceSearch);
   };
 
-  const SOURCE_LABELS: Record<string, string> = {
-    MPMM: "Monsters of the Multiverse",
-    GGTR: "Ravnica",
-    EBERRON: "Eberron",
-    SACOC: "Witchlight",
-    AI: "Acquisitions Incorporated",
-    LR: "Locathah Rising",
-    OGA: "One Grung Above",
-    DRAGONLANCE: "Dragonlance",
-    SPELLJAMMER: "Spelljammer",
-  };
-
-  const sourceLabelFromName = (name: string) => {
-    const suffix = name.split('_').pop() || '';
-    if (suffix === '2014') return 'PHB 2014';
-    if (suffix === '2024') return 'PHB 2024';
-    return SOURCE_LABELS[suffix] ?? 'Other sources';
-  };
+  const sourceLabel = (race: RaceI) => sourceTranslations[race.source] ?? race.source;
 
   const RaceInfoModal = ({ race }: { race: RaceI }) => {
-    const traitList = [...(race.traits || [])].sort(
+    const rawTraits = race.traits || (race as any).raceTraits || [];
+    const traitList = [...rawTraits].sort(
       (a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
     );
 
     return (
       <InfoDialog
         title={raceTranslations[race.name] || race.name}
-        subtitle={raceTranslationsEng[race.name]}
-        triggerLabel={`Show details for ${raceTranslationsEng[race.name] ?? race.name}`}
+        triggerLabel={`Показати деталі ${raceTranslations[race.name] ?? race.name}`}
       >
         <InfoGrid>
-          <InfoPill label="Source" value={sourceLabelFromName(race.name)} />
-          <InfoPill label="Size" value={formatList(race.size)} />
-          <InfoPill label="Movement" value={formatSpeeds(race)} />
-          <InfoPill label="Base AC" value={formatRaceAC(race.ac)} />
-          <InfoPill label="Ability bonuses" value={formatASI(race.ASI)} />
+          <InfoPill label="Джерело" value={sourceLabel(race)} />
+          <InfoPill label="Розмір" value={formatList(race.size)} />
+          <InfoPill label="Швидкості" value={formatSpeeds(race)} />
+          <InfoPill label="Базовий КЗ" value={formatRaceAC(race.ac)} />
+          <InfoPill label="Бонуси характеристик" value={formatASI(race.ASI)} />
           <InfoPill
-            label="Languages"
+            label="Мови"
             value={formatLanguages(race.languages, race.languagesToChooseCount)}
           />
           <InfoPill
-            label="Skills"
+            label="Навички"
             value={formatSkillProficiencies(race.skillProficiencies)}
           />
           <InfoPill
-            label="Tools"
+            label="Інструменти"
             value={formatToolProficiencies(race.toolProficiencies, race.toolToChooseCount)}
           />
           <InfoPill
-            label="Weapons"
+            label="Зброя"
             value={formatWeaponProficiencies(race.weaponProficiencies)}
           />
           <InfoPill
-            label="Armor"
+            label="Броня"
             value={formatArmorProficiencies(race.armorProficiencies)}
           />
         </InfoGrid>
 
         <div className="space-y-2">
-          <InfoSectionTitle>Traits</InfoSectionTitle>
+          <InfoSectionTitle>Риси</InfoSectionTitle>
           {traitList.length ? (
             traitList.map((trait) => (
               <div
@@ -202,13 +185,12 @@ export const RacesForm = (
               </div>
             ))
           ) : (
-            <p className="text-sm text-slate-400">No traits available for this race.</p>
+            <p className="text-sm text-slate-400">Для цієї раси ще немає опису рис.</p>
           )}
         </div>
       </InfoDialog>
     );
   };
-
   const coreRaces = useMemo(
     () => races
       .filter(r => r.name.endsWith('2014'))
@@ -230,13 +212,13 @@ export const RacesForm = (
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Choose a race</h2>
-        <p className="text-sm text-slate-400">Cards are tappable, pick one to continue.</p>
+        <h2 className="text-xl font-semibold text-white">Оберіть расу</h2>
+        <p className="text-sm text-slate-400">Натисніть на картку, щоб продовжити.</p>
       </div>
 
       <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-sm font-semibold text-white">Search races</div>
+          <div className="text-sm font-semibold text-white">Пошук раси</div>
           <div className="relative w-full sm:max-w-md">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <Input
@@ -244,8 +226,8 @@ export const RacesForm = (
               {...form.register('raceSearch')}
               value={raceSearch}
               onChange={(e) => form.setValue('raceSearch', e.target.value)}
-              placeholder="Search name (ukr / eng)"
-              aria-label="Search races"
+              placeholder="Пошук за назвою"
+              aria-label="Пошук раси"
               className="h-10 bg-slate-950/60 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-500"
             />
             {raceSearch && (
@@ -255,7 +237,7 @@ export const RacesForm = (
                 size="icon"
                 className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
                 onClick={() => form.setValue('raceSearch', '')}
-                aria-label="Clear race search"
+                aria-label="Очистити пошук рас"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -265,14 +247,14 @@ export const RacesForm = (
       </div>
 
       {hasNoResults && (
-        <p className="text-center text-sm text-slate-400">Nothing found for this query.</p>
+        <p className="text-center text-sm text-slate-400">Нічого не знайдено.</p>
       )}
 
       <div className="space-y-3">
         <div>
           <div className="mb-2 flex items-center justify-between">
             <p className="text-sm font-semibold text-white">PHB 2014</p>
-            <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Source</Badge>
+            <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Джерело</Badge>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {coreRaces.map(r =>  (
@@ -288,15 +270,12 @@ export const RacesForm = (
                   <RaceInfoModal race={r} />
                   <div>
                     <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
-                    <div className="text-xs text-slate-400">
-                      {raceTranslationsEng[r.name]}
-                    </div>
                   </div>
                   <Badge
                     variant={r.raceId === chosenRaceId ? "secondary" : "outline"}
                     className={`border-slate-700 ${r.raceId === chosenRaceId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
                   >
-                    {r.subraces?.length || 0} subraces
+                    {sourceLabel(r)}
                   </Badge>
                 </CardContent>
               </Card>
@@ -306,7 +285,7 @@ export const RacesForm = (
 
         <details className="rounded-xl border border-slate-800/80 bg-slate-900/60 shadow-inner" open={forceOpenOther || undefined}>
           <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800/80 [&::-webkit-details-marker]:hidden">
-            Other sources
+            ÐÐ½ÑÑ Ð´Ð¶ÐµÑÐµÐ»Ð°
           </summary>
           <div className="border-t border-slate-800/80 p-3">
             <div className="grid gap-3 sm:grid-cols-2">
@@ -323,19 +302,13 @@ export const RacesForm = (
                     <RaceInfoModal race={r} />
                     <div>
                       <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
-                      <div className="text-xs text-slate-400">
-                        {raceTranslationsEng[r.name]}
-                      </div>
                     </div>
-                    <div className="flex flex-col items-end gap-1">
-                      <Badge
-                        variant={r.raceId === chosenRaceId ? "secondary" : "outline"}
-                        className={`border-slate-700 ${r.raceId === chosenRaceId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
-                      >
-                        {r.subraces?.length || 0} subraces
-                      </Badge>
-                      <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">
-                        {sourceLabelFromName(r.name)}
+                    <Badge
+                      variant={r.raceId === chosenRaceId ? "secondary" : "outline"}
+                      className={`border-slate-700 ${r.raceId === chosenRaceId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
+                    >
+                      {sourceLabel(r)}
+                    </Badge>
                       </Badge>
                     </div>
                   </CardContent>

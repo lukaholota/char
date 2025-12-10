@@ -1,7 +1,7 @@
 "use client";
 
 import { SpellcastingType } from "@prisma/client";
-import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
+import { classTranslations } from "@/lib/refs/translation";
 import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classSchema } from "@/lib/zod/schemas/persCreateSchema";
@@ -33,11 +33,11 @@ interface Props {
 }
 
 const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
-  NONE: "No spellcasting",
-  FULL: "Full caster",
-  HALF: "Half caster",
-  THIRD: "Third caster",
-  PACT: "Pact magic",
+  NONE: "Без чаклунства",
+  FULL: "Повний кастер",
+  HALF: "Половинний кастер",
+  THIRD: "Третинний кастер",
+  PACT: "Магія пакту",
 };
 
 export const ClassesForm = (
@@ -67,51 +67,50 @@ export const ClassesForm = (
     return (
       <InfoDialog
         title={classTranslations[cls.name] || cls.name}
-        subtitle={classTranslationsEng[cls.name]}
-        triggerLabel={`Show details for ${classTranslationsEng[cls.name] ?? cls.name}`}
+        triggerLabel={`Показати деталі ${classTranslations[cls.name] ?? cls.name}`}
       >
         <InfoGrid>
-          <InfoPill label="Hit die" value={`d${cls.hitDie}`} />
+          <InfoPill label="Кістка хітів" value={`d${cls.hitDie}`} />
           <InfoPill
-            label="Spellcasting"
-            value={SPELLCASTING_LABELS[cls.spellcastingType] ?? "No data"}
+            label="Чаклунство"
+            value={SPELLCASTING_LABELS[cls.spellcastingType] ?? "—"}
           />
-          <InfoPill label="Subclass at" value={`Level ${cls.subclassLevel}`} />
-          <InfoPill label="Saving throws" value={formatAbilityList(cls.savingThrows)} />
+          <InfoPill label="Підклас з рівня" value={`Рівень ${cls.subclassLevel}`} />
+          <InfoPill label="Рятунки" value={formatAbilityList(cls.savingThrows)} />
           <InfoPill
-            label="Skills"
+            label="Навички"
             value={formatSkillProficiencies(cls.skillProficiencies)}
           />
           <InfoPill
-            label="Tools"
+            label="Інструменти"
             value={formatToolProficiencies(cls.toolProficiencies, cls.toolToChooseCount)}
           />
           <InfoPill
-            label="Weapons"
+            label="Зброя"
             value={formatWeaponProficiencies(cls.weaponProficiencies)}
           />
           <InfoPill
-            label="Armor"
+            label="Броня"
             value={formatArmorProficiencies(cls.armorProficiencies)}
           />
           <InfoPill
-            label="Languages"
+            label="Мови"
             value={formatLanguages(cls.languages, cls.languagesToChooseCount)}
           />
           <InfoPill
-            label="Multiclass"
+            label="Мультіклас"
             value={formatMulticlassReqs(cls.multiclassReqs)}
           />
           {cls.primaryCastingStat ? (
             <InfoPill
-              label="Primary casting stat"
+              label="Ключова характеристика"
               value={prettifyEnum(cls.primaryCastingStat)}
             />
           ) : null}
         </InfoGrid>
 
         <div className="space-y-2">
-          <InfoSectionTitle>Features</InfoSectionTitle>
+          <InfoSectionTitle>Особливості</InfoSectionTitle>
           {features.length ? (
             features.map((feature) => (
               <div
@@ -124,7 +123,7 @@ export const ClassesForm = (
                     variant="outline"
                     className="border-slate-700 bg-slate-800/70 text-[11px] text-slate-200"
                   >
-                    Lvl {feature.levelGranted}
+                    Рів. {feature.levelGranted}
                   </Badge>
                 </div>
                 <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
@@ -133,7 +132,7 @@ export const ClassesForm = (
               </div>
             ))
           ) : (
-            <p className="text-sm text-slate-400">No features found for this class.</p>
+            <p className="text-sm text-slate-400">Наразі немає описаних умінь.</p>
           )}
         </div>
       </InfoDialog>
@@ -143,8 +142,8 @@ export const ClassesForm = (
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Choose a class</h2>
-        <p className="text-sm text-slate-400">Tap a card to select a class or open the ? to read its kit.</p>
+        <h2 className="text-xl font-semibold text-white">Оберіть клас</h2>
+        <p className="text-sm text-slate-400">Натисніть картку, або відкрийте ? для деталей.</p>
       </div>
 
       <div className="grid gap-3 md:grid-cols-2">
@@ -162,9 +161,6 @@ export const ClassesForm = (
                 <ClassInfoModal cls={c} />
                 <div>
                   <div className="text-lg font-semibold text-white">{classTranslations[c.name]}</div>
-                  <div className="text-xs text-slate-400">
-                    {classTranslationsEng[c.name]}
-                  </div>
                 </div>
               </CardContent>
             </Card>

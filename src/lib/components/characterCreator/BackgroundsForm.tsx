@@ -2,7 +2,7 @@
 
 import type {Background} from "@prisma/client"
 import {
-  backgroundTranslations, backgroundTranslationsEng,
+  backgroundTranslations,
 } from "@/lib/refs/translation";
 import clsx from "clsx";
 import {useStepForm} from "@/hooks/useStepForm";
@@ -106,39 +106,38 @@ export const BackgroundsForm = (
   const BackgroundInfoModal = ({ background }: { background: Background }) => {
     const items = parseItems(background.items);
     const sourceText = sourceLabel(background.name);
-    const resolvedSource = sourceText === "Other sources" && background.source
+    const resolvedSource = sourceText === "Інші джерела" && background.source
       ? prettifyEnum(background.source)
       : sourceText;
 
     return (
       <InfoDialog
         title={backgroundTranslations[background.name] || background.name}
-        subtitle={backgroundTranslationsEng[background.name]}
-        triggerLabel={`Show details for ${backgroundTranslationsEng[background.name] ?? background.name}`}
+        triggerLabel={`Показати деталі ${backgroundTranslations[background.name] ?? background.name}`}
       >
         <InfoGrid>
-          <InfoPill label="Source" value={resolvedSource} />
+          <InfoPill label="Джерело" value={resolvedSource} />
           <InfoPill
-            label="Skills"
+            label="Навички"
             value={formatSkillProficiencies(background.skillProficiencies)}
           />
           <InfoPill
-            label="Tools"
+            label="Інструменти"
             value={formatToolProficiencies(background.toolProficiencies)}
           />
           <InfoPill
-            label="Languages"
+            label="Мови"
             value={formatLanguages([], background.languagesToChooseCount)}
           />
           <InfoPill
-            label="Feature"
-            value={background.specialAbilityName || "—"}
+            label="Особливість"
+            value={background.specialAbilityName || "-"}
           />
         </InfoGrid>
 
         {items.length ? (
           <div className="space-y-1.5">
-            <InfoSectionTitle>Starting equipment</InfoSectionTitle>
+            <InfoSectionTitle>Стартове спорядження</InfoSectionTitle>
             <ul className="space-y-1 text-sm text-slate-200/90">
               {items.map((item, index) => (
                 <li key={`${item}-${index}`} className="flex items-start gap-2">
@@ -152,7 +151,7 @@ export const BackgroundsForm = (
 
         {(background.specialAbilityName || background.description) && (
           <div className="space-y-1">
-            <InfoSectionTitle>Feature details</InfoSectionTitle>
+            <InfoSectionTitle>Опис особливості</InfoSectionTitle>
             {background.specialAbilityName ? (
               <p className="text-sm font-semibold text-white">
                 {background.specialAbilityName}
@@ -172,8 +171,7 @@ export const BackgroundsForm = (
   const matchesSearch = (name: string) => {
     if (!normalizedBackgroundSearch) return true;
     const ua = normalizeText(backgroundTranslations[name]);
-    const eng = normalizeText(backgroundTranslationsEng[name]);
-    return ua.includes(normalizedBackgroundSearch) || eng.includes(normalizedBackgroundSearch);
+    return ua.includes(normalizedBackgroundSearch);
   };
 
   const primaryBackgrounds = useMemo(
@@ -189,20 +187,20 @@ export const BackgroundsForm = (
     [backgrounds, normalizedBackgroundSearch]
   );
 
-  const sourceLabel = (name: string) => SOURCE_OVERRIDES[name] ?? "Other sources";
+  const sourceLabel = (name: string) => SOURCE_OVERRIDES[name] ?? "Інші джерела";
   const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;
   const forceOpenOther = Boolean(normalizedBackgroundSearch);
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Choose a background</h2>
-        <p className="text-sm text-slate-400">PHB items are shown first, others live under the accordion.</p>
+        <h2 className="text-xl font-semibold text-white">Оберіть передісторію</h2>
+        <p className="text-sm text-slate-400">Спершу показані варіанти PHB, решта в акордеоні нижче.</p>
       </div>
 
       <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-sm font-semibold text-white">Search backgrounds</div>
+          <div className="text-sm font-semibold text-white">Пошук передісторії</div>
           <div className="relative w-full sm:max-w-md">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <Input
@@ -210,8 +208,8 @@ export const BackgroundsForm = (
               {...form.register('backgroundSearch')}
               value={backgroundSearch}
               onChange={(e) => form.setValue('backgroundSearch', e.target.value)}
-              placeholder="Search name (ukr / eng)"
-              aria-label="Search backgrounds"
+              placeholder="Пошук за назвою"
+              aria-label="Пошук передісторій"
               className="h-10 bg-slate-950/60 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-500"
             />
             {backgroundSearch && (
@@ -221,7 +219,7 @@ export const BackgroundsForm = (
                 size="icon"
                 className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
                 onClick={() => form.setValue('backgroundSearch', '')}
-                aria-label="Clear background search"
+                aria-label="Очистити пошук передісторій"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -231,14 +229,14 @@ export const BackgroundsForm = (
       </div>
 
       {hasNoResults && (
-        <p className="text-center text-sm text-slate-400">Nothing found for this query.</p>
+        <p className="text-center text-sm text-slate-400">Нічого не знайдено.</p>
       )}
 
       <div className="space-y-3">
         <div>
           <div className="mb-2 flex items-center justify-between">
             <p className="text-sm font-semibold text-white">PHB 2014</p>
-            <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Source</Badge>
+            <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Джерело</Badge>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {primaryBackgrounds.map(b =>  (
@@ -254,9 +252,6 @@ export const BackgroundsForm = (
                   <BackgroundInfoModal background={b} />
                   <div>
                     <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
-                    <div className="text-xs text-slate-400">
-                      {backgroundTranslationsEng[b.name]}
-                    </div>
                   </div>
                   <Badge
                     variant={b.backgroundId === chosenBackgroundId ? "secondary" : "outline"}
@@ -272,7 +267,7 @@ export const BackgroundsForm = (
 
         <details className="rounded-xl border border-slate-800/80 bg-slate-900/60 shadow-inner" open={forceOpenOther || undefined}>
           <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800/80 [&::-webkit-details-marker]:hidden">
-            Other sources
+            Інші джерела
           </summary>
           <div className="border-t border-slate-800/80 p-3">
             <div className="grid gap-3 sm:grid-cols-2">
@@ -289,16 +284,13 @@ export const BackgroundsForm = (
                     <BackgroundInfoModal background={b} />
                     <div>
                       <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
-                      <div className="text-xs text-slate-400">
-                        {backgroundTranslationsEng[b.name]}
-                      </div>
                     </div>
                     <div className="flex flex-col items-end gap-1">
                       <Badge
                         variant={b.backgroundId === chosenBackgroundId ? "secondary" : "outline"}
                         className={`border-slate-700 ${b.backgroundId === chosenBackgroundId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
                       >
-                        Other
+                        Інше
                       </Badge>
                       <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">
                         {sourceLabel(b.name)}
