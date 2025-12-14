@@ -793,30 +793,74 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
     ]
 
+    
     for (const class_ of classes) {
+        const featureCreates = Array.isArray(class_.features?.create)
+            ? class_.features?.create ?? []
+            : class_.features?.create
+                ? [class_.features.create]
+                : [];
+
+        const { features, ...classData } = class_;
+
         try {
-            await prisma.class.upsert({
+            const savedClass = await prisma.class.upsert({
                 where: { name: class_.name },
-                update: class_,
-                create: class_
+                update: classData,
+                create: classData
             });
+
+            for (const entry of featureCreates) {
+                const engName = (entry as any)?.feature?.connect?.engName as string | undefined;
+                if (!engName) continue;
+
+                const feature = await prisma.feature.findUnique({ where: { engName } });
+                if (!feature) {
+                    console.warn(`Feature with engName=${engName} not found, skip linking to class ${class_.name}`);
+                    continue;
+                }
+
+                const existing = await prisma.classFeature.findFirst({
+                    where: { classId: savedClass.classId, featureId: feature.featureId },
+                });
+
+                const data = {
+                    classId: savedClass.classId,
+                    featureId: feature.featureId,
+                    levelGranted: (entry as any)?.levelGranted ?? 1,
+                    grantsSpellSlots: (entry as any)?.grantsSpellSlots ?? false,
+                };
+
+                if (existing) {
+                    if (
+                        existing.levelGranted !== data.levelGranted ||
+                        existing.grantsSpellSlots !== data.grantsSpellSlots
+                    ) {
+                        await prisma.classFeature.update({
+                            where: { classFeatureId: existing.classFeatureId },
+                            data,
+                        });
+                    }
+                } else {
+                    await prisma.classFeature.create({ data });
+                }
+            }
         } catch (error) {
-            console.error('💀 ПОМИЛКА на класі:', class_.name);
-            console.error('📝 Class дані:', JSON.stringify(class_, null, 2));
-            console.error('⚠️ Error:', error);
+            console.error('Failed to upsert class:', class_.name);
+            console.error('Class payload:', JSON.stringify(class_, null, 2));
+            console.error('Error:', error);
 
-            // Перевіряємо чи це Prisma помилка
             if (error instanceof Prisma.PrismaClientKnownRequestError) {
-                console.error('🔍 Prisma Error Code:', error.code);
-                console.error('🔍 Meta:', error.meta);
+                console.error('Prisma Error Code:', error.code);
+                console.error('Meta:', error.meta);
 
-                // Тепер можна безпечно юзати error.code і error.meta 🎯
                 if (error.code === 'P2025') {
-                    console.error('❌ Не знайдено record(s) для connect:', error.meta?.cause);
+                    console.error('Record to connect not found:', error.meta?.cause);
                 }
             }
         }
     }
+
 
 
     console.log(`✅ додано ${classes.length} класів!`)

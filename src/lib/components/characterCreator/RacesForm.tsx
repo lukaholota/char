@@ -1,6 +1,6 @@
-﻿"use client";
+"use client";
 
-import { raceTranslations, sourceTranslations } from "@/lib/refs/translation";
+import { raceTranslations, raceTranslationsEng, sourceTranslations } from "@/lib/refs/translation";
 import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { raceSchema } from "@/lib/zod/schemas/persCreateSchema";
@@ -17,6 +17,7 @@ import {
   InfoPill,
   InfoSectionTitle,
 } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import {
   formatArmorProficiencies,
   formatList,
@@ -36,29 +37,29 @@ const normalizeText = (value?: string) =>
 
 const formatSpeeds = (race: RaceI) => {
   const speeds = [
-    { label: "??????", value: race.speed },
-    { label: "???????", value: race.climbSpeed },
-    { label: "????????", value: race.swimSpeed },
-    { label: "?????", value: race.flightSpeed },
-    { label: "?????", value: race.burrowSpeed },
-  ].filter((item) => (item.value ?? 0) > 0 || item.label === "??????");
+    { label: "Ходьба", value: race.speed },
+    { label: "Лазіння", value: race.climbSpeed },
+    { label: "Плавання", value: race.swimSpeed },
+    { label: "Політ", value: race.flightSpeed },
+    { label: "Риття", value: race.burrowSpeed },
+  ].filter((item) => (item.value ?? 0) > 0 || item.label === "Ходьба");
 
   return speeds
-    .map((item) => `${item.label}: ${item.value} ??`)
-    .join(" ? ");
+    .map((item) => `${item.label}: ${item.value} фт`)
+    .join(" • ");
 };
 
 const formatRaceAC = (ac?: RaceAC | null) => {
-  if (!ac) return "???????????";
+  if (!ac) return "10";
   if ("consistentBonus" in ac) {
-    return `+${ac.consistentBonus} ?? ??`;
+    return `+${ac.consistentBonus} до КЗ`;
   }
   const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
-  return `???? ${ac.base}${bonus}`;
+  return `База ${ac.base}${bonus}`;
 };
 
 const formatASI = (asi?: RaceASI | null) => {
-  if (!asi) return "?";
+  if (!asi) return "—";
 
   const fixedEntries = Object.entries(asi.basic?.simple || {});
   const basicFlexible = asi.basic?.flexible?.groups || [];
@@ -68,7 +69,7 @@ const formatASI = (asi?: RaceASI | null) => {
 
   if (fixedEntries.length) {
     parts.push(
-      `?????????: ${fixedEntries
+      `Фіксовано: ${fixedEntries
         .map(([stat, value]) => `${prettifyEnum(stat)} +${value}`)
         .join(", ")}`
     );
@@ -76,10 +77,10 @@ const formatASI = (asi?: RaceASI | null) => {
 
   if (basicFlexible.length) {
     parts.push(
-      `??????: ${basicFlexible
+      `Гнучко: ${basicFlexible
         .map(
           (group) =>
-            `${group.groupName} (+${group.value}, ??????? ${group.choiceCount})`
+            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
         )
         .join("; ")}`
     );
@@ -87,17 +88,16 @@ const formatASI = (asi?: RaceASI | null) => {
 
   if (tashaFlexible.length) {
     parts.push(
-      `?? ??????: ${tashaFlexible
+      `За Та́шею: ${tashaFlexible
         .map(
           (group) =>
-            `${group.groupName} (+${group.value}, ??????? ${group.choiceCount})`
+            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
         )
         .join("; ")}`
     );
   }
 
-  return parts.join(" ? ") || "?";
-};
+  return parts.join(" • ") || "—";
 };
 
 interface Props {
@@ -126,13 +126,14 @@ export const RacesForm = (
   const matchesSearch = (raceName: string) => {
     if (!normalizedRaceSearch) return true;
     const ua = normalizeText(raceTranslations[raceName]);
-    return ua.includes(normalizedRaceSearch);
+    const eng = normalizeText(raceTranslationsEng[raceName]);
+    return ua.includes(normalizedRaceSearch) || eng.includes(normalizedRaceSearch);
   };
 
   const sourceLabel = (race: RaceI) => sourceTranslations[race.source] ?? race.source;
 
   const RaceInfoModal = ({ race }: { race: RaceI }) => {
-    const rawTraits = race.traits || (race as any).raceTraits || [];
+    const rawTraits = race.traits || [];
     const traitList = [...rawTraits].sort(
       (a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
     );
@@ -191,6 +192,7 @@ export const RacesForm = (
       </InfoDialog>
     );
   };
+
   const coreRaces = useMemo(
     () => races
       .filter(r => r.name.endsWith('2014'))
@@ -218,8 +220,7 @@ export const RacesForm = (
 
       <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-sm font-semibold text-white">Пошук раси</div>
-          <div className="relative w-full sm:max-w-md">
+          <div className="relative w-full">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <Input
               type="search"
@@ -270,13 +271,9 @@ export const RacesForm = (
                   <RaceInfoModal race={r} />
                   <div>
                     <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
+                    <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
                   </div>
-                  <Badge
-                    variant={r.raceId === chosenRaceId ? "secondary" : "outline"}
-                    className={`border-slate-700 ${r.raceId === chosenRaceId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
-                  >
-                    {sourceLabel(r)}
-                  </Badge>
+                  <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
                 </CardContent>
               </Card>
             ))}
@@ -285,7 +282,7 @@ export const RacesForm = (
 
         <details className="rounded-xl border border-slate-800/80 bg-slate-900/60 shadow-inner" open={forceOpenOther || undefined}>
           <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800/80 [&::-webkit-details-marker]:hidden">
-            ÐÐ½ÑÑ Ð´Ð¶ÐµÑÐµÐ»Ð°
+            Інші джерела
           </summary>
           <div className="border-t border-slate-800/80 p-3">
             <div className="grid gap-3 sm:grid-cols-2">
@@ -302,15 +299,9 @@ export const RacesForm = (
                     <RaceInfoModal race={r} />
                     <div>
                       <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
+                      <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
                     </div>
-                    <Badge
-                      variant={r.raceId === chosenRaceId ? "secondary" : "outline"}
-                      className={`border-slate-700 ${r.raceId === chosenRaceId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
-                    >
-                      {sourceLabel(r)}
-                    </Badge>
-                      </Badge>
-                    </div>
+                    <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
                   </CardContent>
                 </Card>
               ))}

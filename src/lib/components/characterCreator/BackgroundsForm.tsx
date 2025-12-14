@@ -2,7 +2,7 @@
 
 import type {Background} from "@prisma/client"
 import {
-  backgroundTranslations,
+  backgroundTranslations, backgroundTranslationsEng,
 } from "@/lib/refs/translation";
 import clsx from "clsx";
 import {useStepForm} from "@/hooks/useStepForm";
@@ -19,12 +19,14 @@ import {
   InfoPill,
   InfoSectionTitle,
 } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import {
   formatLanguages,
   formatSkillProficiencies,
   formatToolProficiencies,
   prettifyEnum,
 } from "@/lib/components/characterCreator/infoUtils";
+import { BackgroundI } from "@/lib/types/model-types";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -52,7 +54,7 @@ const parseItems = (items: unknown): string[] => {
 };
 
 interface Props {
-  backgrounds: Background[]
+  backgrounds: BackgroundI[]
   formId: string
   onNextDisabledChange?: (disabled: boolean) => void
 }
@@ -103,7 +105,7 @@ export const BackgroundsForm = (
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenBackgroundId]);
 
-  const BackgroundInfoModal = ({ background }: { background: Background }) => {
+  const BackgroundInfoModal = ({ background }: { background: BackgroundI }) => {
     const items = parseItems(background.items);
     const sourceText = sourceLabel(background.name);
     const resolvedSource = sourceText === "Інші джерела" && background.source
@@ -200,8 +202,7 @@ export const BackgroundsForm = (
 
       <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-sm font-semibold text-white">Пошук передісторії</div>
-          <div className="relative w-full sm:max-w-md">
+          <div className="relative w-full">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <Input
               type="search"
@@ -252,13 +253,9 @@ export const BackgroundsForm = (
                   <BackgroundInfoModal background={b} />
                   <div>
                     <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
+                    <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
                   </div>
-                  <Badge
-                    variant={b.backgroundId === chosenBackgroundId ? "secondary" : "outline"}
-                    className={`border-slate-700 ${b.backgroundId === chosenBackgroundId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
-                  >
-                    PHB
-                  </Badge>
+                  <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
                 </CardContent>
               </Card>
             ))}
@@ -284,18 +281,9 @@ export const BackgroundsForm = (
                     <BackgroundInfoModal background={b} />
                     <div>
                       <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
+                      <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
                     </div>
-                    <div className="flex flex-col items-end gap-1">
-                      <Badge
-                        variant={b.backgroundId === chosenBackgroundId ? "secondary" : "outline"}
-                        className={`border-slate-700 ${b.backgroundId === chosenBackgroundId ? "bg-indigo-500/20 text-indigo-50" : "bg-slate-800/60 text-slate-200"}`}
-                      >
-                        Інше
-                      </Badge>
-                      <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">
-                        {sourceLabel(b.name)}
-                      </Badge>
-                    </div>
+                    <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
                   </CardContent>
                 </Card>
               ))}

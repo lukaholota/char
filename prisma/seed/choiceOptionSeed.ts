@@ -901,29 +901,48 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
     ]
 
-    // Створюємо всі опції
+    // Створюємо/оновлюємо саму опцію, а звʼязки з фічами додаємо тільки якщо їх ще немає
     for (const option of options) {
-        try {
-            await prisma.choiceOption.upsert({
-                    where: { optionNameEng: option.optionNameEng },
-                    update: option,
-                    create: option
-                }
-            );
-        } catch (error) {
-            console.error('💀 ПОМИЛКА на опції:', option.optionName);
-            console.error('📝 Option дані:', JSON.stringify(option, null, 2));
-            console.error('⚠️ Error:', error);
+        const createEntries = option.features?.create;
+        const featureCreates = Array.isArray(createEntries)
+            ? createEntries
+            : createEntries
+                ? [createEntries]
+                : [];
 
-            // Перевіряємо чи це Prisma помилка
-            if (error instanceof Prisma.PrismaClientKnownRequestError) {
-                console.error('🔍 Prisma Error Code:', error.code);
-                console.error('🔍 Meta:', error.meta);
+        const featureNames = featureCreates
+            .map((entry) => (entry as any)?.feature?.connect?.engName as string | undefined)
+            .filter(Boolean) as string[];
 
-                // Тепер можна безпечно юзати error.code і error.meta 🎯
-                if (error.code === 'P2025') {
-                    console.error('❌ Не знайдено record(s) для connect:', error.meta?.cause);
-                }
+        const { features, ...optionData } = option;
+
+        const savedOption = await prisma.choiceOption.upsert({
+            where: { optionNameEng: option.optionNameEng },
+            update: optionData,
+            create: optionData,
+        });
+
+        for (const engName of featureNames) {
+            const feature = await prisma.feature.findUnique({ where: { engName } });
+            if (!feature) {
+                console.warn(`⚠️ Feature with engName=${engName} not found, skip linking to ${option.optionNameEng}`);
+                continue;
+            }
+
+            const existingLink = await prisma.choiceOptionFeature.findFirst({
+                where: {
+                    choiceOptionId: savedOption.choiceOptionId,
+                    featureId: feature.featureId,
+                },
+            });
+
+            if (!existingLink) {
+                await prisma.choiceOptionFeature.create({
+                    data: {
+                        choiceOptionId: savedOption.choiceOptionId,
+                        featureId: feature.featureId,
+                    },
+                });
             }
         }
     }

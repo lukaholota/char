@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { ReactNode } from "react";
+import { ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import { CircleHelp } from "lucide-react";
 import clsx from "clsx";
+import type { FocusOutsideEvent, PointerDownOutsideEvent } from "@radix-ui/react-dismissable-layer";
 
 import {
   Dialog,
@@ -29,8 +30,28 @@ export const InfoDialog = ({
   triggerClassName,
   children,
 }: InfoDialogProps) => {
+  const [open, setOpen] = useState(false);
+
+  const stopPropagation = useCallback((event: SyntheticEvent) => {
+    event.stopPropagation();
+  }, []);
+
+  const handleInteractOutside = useCallback(
+    (event: PointerDownOutsideEvent | FocusOutsideEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const originalEvent = event.detail?.originalEvent;
+      originalEvent?.stopPropagation();
+      originalEvent?.preventDefault?.();
+
+      setOpen(false);
+    },
+    []
+  );
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
           type="button"
@@ -46,7 +67,12 @@ export const InfoDialog = ({
           <CircleHelp className="h-5 w-5" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[82vh] max-w-3xl overflow-y-auto border border-slate-800/80 bg-slate-950 text-slate-100 shadow-2xl shadow-indigo-500/10 sm:rounded-2xl">
+      <DialogContent
+        className="max-h-[82vh] max-w-3xl overflow-y-auto border border-slate-800/80 bg-slate-950 text-slate-100 shadow-2xl shadow-indigo-500/10 sm:rounded-2xl"
+        onPointerDown={stopPropagation}
+        onClick={stopPropagation}
+        onInteractOutside={handleInteractOutside}
+      >
         <DialogHeader className="space-y-1">
           <DialogTitle className="text-2xl font-semibold text-white">{title}</DialogTitle>
           {subtitle ? (

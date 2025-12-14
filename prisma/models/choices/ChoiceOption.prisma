@@ -9,6 +9,7 @@ model ChoiceOption {
 
   features           ChoiceOptionFeature[]
   classChoiceOptions ClassChoiceOption[]
+  subclassChoiceOptions SubclassChoiceOption[]
   perses             Pers[]
 
   classOptionalFeatures ClassOptionalFeature[]

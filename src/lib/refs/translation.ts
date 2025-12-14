@@ -74,7 +74,7 @@ export const raceTranslations = {
   PLASMOID_SPELLJAMMER: "Плазмоїд",
   THRI_KREEN_SPELLJAMMER: "Три-крін",
   KENDER_DRAGONLANCE: "Кендер",
-  GRUNG_OGA: "Грунг",
+  GRUNG_OGA: "Ґрунґ",
   LOCATHAH_LR: "Локата"
 } as const;
 
@@ -364,13 +364,22 @@ export const backgroundTranslationsEng = {
 } as const;
 
 
-export const attributesUrkFull = {
+export const attributesUkrFull = {
   STR: "Сила",
   DEX: "Спритність",
   CON: "Статура",
   INT: "Інтелект",
   WIS: "Мудрість",
   CHA: "Харизма"
+};
+
+export const attributesUkrShort = {
+  STR: "СИЛ",
+  DEX: "СПР",
+  CON: "СТА",
+  INT: "ІНТ",
+  WIS: "МУД",
+  CHA: "ХАР"
 };
 
 export const skills = [
@@ -417,15 +426,15 @@ export const engEnumSkills = [
 
 export const sourceTranslations = {
   PHB: "Книга Гравця (2014)",
-  DMG: "Керівництво Майстра (2014)",
+  DMG: "Посібник Майстра (2014)",
   MM: "Бестіарій (2014)",
-  XGTE: "Довідник Ксанатара про все",
+  XGTE: "Довідник Занатара про все",
   TCOE: "Казан Таші з усім",
   FTOD: "Скарбниця драконів Фізбана",
   EGTW: "Путівник дослідника по Вайлдмаунту",
   SCAG: "Путівник по Узбережжю Мечів",
   GGTR: "Путівник по Равніці",
-  AI: "Acquisitions Incorporated",
+  AI: "Корпорація пригодників",
   IDROTF: "Долина Крижаного Вітру: Іній Льодової Діви",
   SPELLJAMMER: "Спелджаммер: Пригоди в космосі",
   COS: "Прокляття Страда",
@@ -436,15 +445,15 @@ export const sourceTranslations = {
   BPGOTG: "Бігбі представляє: Слава Гігантів",
   VRGTR: "Путівник Ван Ріхтена по Равенлофту",
   MOOT: "Міфічні одіссеї Тероса",
-  SACOC: "Стріксхейвен: Навчальна програма хаосу",
+  SACOC: "Стріксхевен: Навчальна програма хаосу",
   WBTW: "Дикі межі Відьомського Світла",
   EBERRON: "Еберрон: Постання з Останньої Війни",
-  DRAGONLANCE: "Dragonlance: Тінь Королеви Драконів",
+  DRAGONLANCE: "Спис Дракона: Тінь Королеви Драконів",
   PHB_2024: "Книга Гравця (2024)",
-  DMG_2024: "Керівництво Майстра (2024)",
+  DMG_2024: "Посібник Майстра (2024)",
   MM_2024: "Бестіарій (2024)",
-  OGA: "One Grung Above",
-  LR: "Locathah Rising"
+  OGA: "Один Ґрунґ Вище",
+  LR: "Схід Локати"
 } as const;
 
 export const sourceTranslationsEng = {
@@ -628,3 +637,40 @@ export const weaponTranslationsEng = {
   ANTIMATTER_RIFLE: "Antimatter Rifle",
   LASER_RIFLE: "Laser Rifle"
 } as const;
+
+export const SizeTranslations: Record<string, string> = {
+  TINY: "Крихітний",
+  SMALL: "Маленький",
+  MEDIUM: "Середній",
+  LARGE: "Великий",
+  HUGE: "Величезний",
+  GARGANTUAN: "Гігантський",
+} as const;
+
+export const LanguageTranslations: Record<string, string> = {
+  COMMON: "Загальна",
+  DWARVISH: "Дворфійська",
+  ELVISH: "Ельфійська",
+  GIANT: "Мова велетнів",
+  GNOMISH: "Гном'яча",
+  GOBLIN: "Гоблінська",
+  HALFLING: "Мова напівросликів",
+  ORC: "Оркська",
+  ABYSSAL: "Мова безодні",
+  CELESTIAL: "Небесна",
+  DRACONIC: "Драконяча",
+  DEEP_SPEECH: "Глибинна мова",
+  INFERNAL: "Пекельна",
+  PRIMORDIAL: "Первинна",
+  SYLVAN: "Сільван",
+  UNDERCOMMON: "Підземна",
+  DRUIDIC: "Друїдська",
+  THIEVES_CANT: "Злодійський жаргон",
+  COMMON_SIGN_LANGUAGE: "Загальна мова жестів",
+  GRUNG: "Ґрунґська",
+  AQUAN: "Акванська",
+  LOXODON: "Локсодонська",
+  VEDALKEN: "Ведалкенська",
+  QUORI: "Куорійська",
+  LEONIN: "Леонінська",
+};

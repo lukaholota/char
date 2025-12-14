@@ -9,11 +9,15 @@ export default async function Page() {
     classes,
     backgrounds,
     weapons,
-    armors,
   ] = await Promise.all([
     prisma.race.findMany({
       include: {
         subraces: true,
+        traits: {
+          include: {
+            feature: true,
+          }
+        },
       },
       orderBy: [
         { sortOrder: 'asc' },
@@ -22,20 +26,58 @@ export default async function Page() {
     }) as Promise<RaceI[]>,
     prisma.class.findMany({
       include: {
-        subclasses: true,
+        subclasses: {
+          include: {
+            features: {
+              include: {
+                feature: true,
+              },
+            },
+            expandedSpells: true,
+          },
+        },
         startingEquipmentOption: {
           include: {
-            equipmentPack: true
-          }
+            equipmentPack: true,
+            weapon: true,
+            armor: true,
+          },
         },
-        classChoiceOptions: true,
-        classOptionalFeatures: true
+        classChoiceOptions: {
+          include: {
+            choiceOption: {
+              include: {
+                features: {
+                  include: {
+                    feature: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+        classOptionalFeatures: {
+          include: {
+            feature: true,
+            replacesFeatures: {
+              include: {
+                replacedFeature: true,
+              },
+            },
+            appearsOnlyIfChoicesTaken: true,
+          },
+        },
+        features: {
+          include: {
+            feature: true,
+          },
+        },
       },
       orderBy: [
         { sortOrder: 'asc' },
         { classId: 'asc' }
       ]
-    }) as Promise<ClassI[]>,
+    }) as unknown as Promise<ClassI[]>,
     prisma.background.findMany() as Promise<BackgroundI[]>,
     prisma.weapon.findMany({
       orderBy: [

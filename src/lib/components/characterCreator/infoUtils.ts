@@ -1,9 +1,22 @@
-import { Ability, ArmorType, Language, WeaponCategory, WeaponType } from "@prisma/client";
+import { Ability, ArmorType, Language, Size, WeaponCategory, WeaponType, Skills } from "@prisma/client";
 
+import {
+  LanguageTranslations,
+  SizeTranslations,
+  armorTranslations,
+  attributesUkrFull,
+  engEnumSkills,
+  weaponTranslations,
+} from "@/lib/refs/translation";
 import { MulticlassReqs, SkillProficiencies, ToolProficiencies, WeaponProficiencies } from "@/lib/types/model-types";
 
-const capitalize = (value: string) =>
-  value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+
+const abilityTranslations = attributesUkrFull;
+
+const skillTranslations: Record<Skills, string> = Object.fromEntries(
+  engEnumSkills.map(({ eng, ukr }) => [eng, ukr])
+) as Record<Skills, string>;
 
 export const prettifyEnum = (value?: string | number | null) => {
   if (value === undefined || value === null) return "";
@@ -14,12 +27,29 @@ export const prettifyEnum = (value?: string | number | null) => {
     .join(" ");
 };
 
-export const formatList = (
-  values?: Array<string | number> | null,
-  fallback = "—"
-) => {
+const translateValue = (value?: string | number | null): string => {
+  if (value === undefined || value === null) return "";
+  const key = String(value);
+
+  if ((abilityTranslations as Record<string, string>)[key]) return abilityTranslations[key as Ability];
+  if (SizeTranslations[key]) return SizeTranslations[key];
+  if (LanguageTranslations[key]) return LanguageTranslations[key];
+  if (armorTranslations[key as keyof typeof armorTranslations]) return armorTranslations[key as keyof typeof armorTranslations];
+  if (weaponTranslations[key as keyof typeof weaponTranslations])
+    return weaponTranslations[key as keyof typeof weaponTranslations];
+  if ((skillTranslations as Record<string, string>)[key]) return skillTranslations[key as Skills];
+
+  return prettifyEnum(value);
+};
+
+export const formatList = (values?: Array<string | number> | null, fallback = "—") => {
   if (!values || values.length === 0) return fallback;
-  return values.map((item) => prettifyEnum(item)).join(", ");
+  return values.map((item) => translateValue(item)).join(", ");
+};
+
+export const formatSize = (values?: Size[] | null, fallback = "—") => {
+  if (!values || values.length === 0) return fallback;
+  return values.map((item) => translateValue(item)).join(", ");
 };
 
 export const formatSkillProficiencies = (skills?: SkillProficiencies | null) => {
@@ -32,17 +62,14 @@ export const formatSkillProficiencies = (skills?: SkillProficiencies | null) => 
   const count = choiceCount ?? options.length;
 
   if (chooseAny) {
-    return `Choose any ${count}`;
+    return `Обери будь-які ${count}`;
   }
 
-  if (!options.length) return `Choose ${count}`;
-  return `Choose ${count}: ${formatList(options)}`;
+  if (!options.length) return `Обери ${count}`;
+  return `Обери ${count}: ${formatList(options)}`;
 };
 
-export const formatToolProficiencies = (
-  tools?: ToolProficiencies | null,
-  chooseCount?: number | null
-) => {
+export const formatToolProficiencies = (tools?: ToolProficiencies | null, chooseCount?: number | null) => {
   const parts: string[] = [];
 
   if (tools && tools.length) {
@@ -50,22 +77,19 @@ export const formatToolProficiencies = (
   }
 
   if (chooseCount) {
-    parts.push(`Choose ${chooseCount}`);
+    parts.push(`Обери ${chooseCount}`);
   }
 
   return parts.length ? parts.join(" • ") : "—";
 };
 
-export const formatLanguages = (
-  languages?: Language[] | null,
-  toChoose?: number | null
-) => {
+export const formatLanguages = (languages?: Language[] | null, toChoose?: number | null) => {
   const hasLanguages = languages && languages.length;
   if (hasLanguages && toChoose) {
-    return `${formatList(languages)} • Choose ${toChoose}`;
+    return `${formatList(languages)} • обери ще ${toChoose}`;
   }
   if (hasLanguages) return formatList(languages);
-  if (toChoose) return `Choose ${toChoose}`;
+  if (toChoose) return `Обери ${toChoose}`;
   return "—";
 };
 
@@ -90,27 +114,23 @@ export const formatWeaponProficiencies = (
   return parts.length ? parts.join(" • ") : "—";
 };
 
-export const formatArmorProficiencies = (armor?: ArmorType[] | null) =>
-  formatList(armor);
+export const formatArmorProficiencies = (armor?: ArmorType[] | null) => formatList(armor);
 
-export const formatAbilityList = (abilities?: Ability[] | null) =>
-  formatList(abilities);
+export const formatAbilityList = (abilities?: Ability[] | null) => formatList(abilities);
 
-export const formatMulticlassReqs = (
-  reqs?: MulticlassReqs | (MulticlassReqs & { choice?: Ability[] }) | null
-) => {
+export const formatMulticlassReqs = (reqs?: MulticlassReqs | (MulticlassReqs & { choice?: Ability[] }) | null) => {
   if (!reqs) return "—";
 
   const choice = (reqs as any).choice as Ability[] | undefined;
   const required = (reqs as any).required as Ability[] | undefined;
 
   if (choice?.length) {
-    return `Score ${reqs.score}+ in one of: ${formatList(choice)}`;
+    return `Характеристика ${reqs.score}+ в одній з: ${formatList(choice)}`;
   }
 
   if (required?.length) {
-    return `Score ${reqs.score}+ in ${formatList(required)}`;
+    return `Характеристика ${reqs.score}+ у: ${formatList(required)}`;
   }
 
-  return `Score ${reqs.score}+`;
+  return `Потрібно ${reqs.score}+ у характеристиці`;
 };

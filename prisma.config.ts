@@ -14,6 +14,6 @@ export default defineConfig({
     shadowDatabaseUrl: process.env.SHADOW_DATABASE_URL,
   },
   migrations: {
-    seed: 'bun ./prisma/seed.ts',
+    seed: 'tsx prisma/seed.ts',
   },
 });

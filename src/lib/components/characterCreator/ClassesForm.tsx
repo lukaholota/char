@@ -1,7 +1,7 @@
 "use client";
 
 import { SpellcastingType } from "@prisma/client";
-import { classTranslations } from "@/lib/refs/translation";
+import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classSchema } from "@/lib/zod/schemas/persCreateSchema";
@@ -157,11 +157,12 @@ export const ClassesForm = (
               )}
               onClick={() => form.setValue('classId', c.classId)}
             >
-              <CardContent className="relative flex items-center justify-between p-4">
-                <ClassInfoModal cls={c} />
-                <div>
+                <CardContent className="relative flex items-center justify-between p-4">
+                  <ClassInfoModal cls={c} />
+                  <div>
                   <div className="text-lg font-semibold text-white">{classTranslations[c.name]}</div>
-                </div>
+                  <div className="text-xs text-slate-400">{classTranslationsEng[c.name]}</div>
+                  </div>
               </CardContent>
             </Card>
           ))}

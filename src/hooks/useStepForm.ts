@@ -68,6 +68,8 @@ export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape
         raceId: "Оберіть, будь ласка, расу",
         classId: "Оберіть, будь ласка, клас",
         backgroundId: "Оберіть, будь ласка, передісторію",
+        classChoiceSelections: "Зробіть вибір серед опцій класу",
+        classOptionalFeatureSelections: "Вкажіть, чи берете додаткову рису класу",
         asi: "Перевірте характеристики",
         simpleAsi: "Перевірте характеристики",
         customAsi: "Введіть коректні значення",

@@ -2,7 +2,7 @@
 model Subclass {
   subclassId  Int     @id @default(autoincrement()) @map("subclass_id")
   classId     Int     @map("class_id")
-  name        String  @db.VarChar(100)
+  name        Subclasses @map("name")
   description String? @db.Text
 
   primaryCastingStat Ability?         @map("primary_casting_stat")
@@ -17,6 +17,7 @@ model Subclass {
 
   class            Class             @relation(fields: [classId], references: [classId], onDelete: Cascade)
   features         SubclassFeature[]
+  subclassChoiceOptions SubclassChoiceOption[]
   perses           Pers[]
   persMulticlasses PersMulticlass[]
 

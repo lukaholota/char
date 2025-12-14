@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import type {Background, Weapon} from "@prisma/client"
+import type { Weapon } from "@prisma/client";
 import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
 import {usePersFormStore} from "@/lib/stores/persFormStore";
@@ -18,16 +18,8 @@ import { Check, ChevronLeft, Circle } from "lucide-react";
 import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
 import clsx from "clsx";
 import NameForm from "@/lib/components/characterCreator/NameForm";
-
-const STEPS = [
-  {id: 1, name: 'Раса', component: 'races'},
-  {id: 2, name: 'Клас', component: 'class'},
-  {id: 3, name: 'Передісторія', component: 'background'},
-  {id: 4, name: 'Стати', component: 'asi'},
-  {id: 5, name: 'Навички', component: 'skills'},
-  {id: 6, name: 'Спорядження', component: 'equipment'},
-  {id: 7, name: "Ім'я", component: 'name'},
-] as const
+import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
+import ClassOptionalFeaturesForm from "@/lib/components/characterCreator/ClassOptionalFeaturesForm";
 
 interface Props {
   races: RaceI[]
@@ -44,7 +36,16 @@ export const MultiStepForm = (
     weapons,
   }: Props
 ) => {
-  const {currentStep, prevStep, resetForm, formData, prevRaceId, setPrevRaceId, setCurrentStep } = usePersFormStore()
+  const {
+    currentStep,
+    prevStep,
+    resetForm,
+    formData,
+    prevRaceId,
+    setPrevRaceId,
+    setCurrentStep,
+    setTotalSteps,
+  } = usePersFormStore()
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
 
@@ -55,28 +56,93 @@ export const MultiStepForm = (
   const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
   const cls = useMemo(() => classes.find(c => c.classId === formData.classId) as ClassI, [classes, formData.classId])
   const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
+  const hasLevelOneChoices = useMemo(
+    () => Boolean(cls?.classChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
+    [cls]
+  );
+  const hasLevelOneOptionalFeatures = useMemo(
+    () => Boolean(cls?.classOptionalFeatures?.some((opt) => (opt.grantedOnLevels || []).includes(1))),
+    [cls]
+  );
+
+  const steps = useMemo(() => {
+    const dynamicSteps: { id: string; name: string; component: string }[] = [
+      { id: "race", name: "Раса", component: "races" },
+      { id: "class", name: "Клас", component: "class" },
+    ];
+
+    if (hasLevelOneChoices) {
+      dynamicSteps.push({ id: "classChoices", name: "Опції класу", component: "classChoices" });
+    }
+
+    if (hasLevelOneOptionalFeatures) {
+      dynamicSteps.push({ id: "classOptional", name: "Додаткові риси", component: "classOptional" });
+    }
+
+    dynamicSteps.push(
+      { id: "background", name: "Передісторія", component: "background" },
+      { id: "asi", name: "Характеристики", component: "asi" },
+      { id: "skills", name: "Навички", component: "skills" },
+      { id: "equipment", name: "Спорядження", component: "equipment" },
+      { id: "name", name: "Імʼя", component: "name" },
+    );
+
+    return dynamicSteps;
+  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures]);
+
+  useEffect(() => {
+    const total = steps.length;
+    setTotalSteps(total);
+    if (currentStep > total) {
+      setCurrentStep(total);
+    }
+  }, [steps, currentStep, setCurrentStep, setTotalSteps]);
 
   const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return <RacesForm
-          races={races}
-          formId={activeFormId}
-          onNextDisabledChange={setNextDisabled}
-        />
-      case 2:
-        return <ClassesForm
-          classes={classes}
-          formId={activeFormId}
-          onNextDisabledChange={setNextDisabled}
-        />
-      case 3:
-        return <BackgroundsForm
-          backgrounds={backgrounds}
-          formId={activeFormId}
-          onNextDisabledChange={setNextDisabled}
-        />
-      case 4:
+    const activeComponent = steps[currentStep - 1]?.component;
+
+    switch (activeComponent) {
+      case "races":
+        return (
+          <RacesForm
+            races={races}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
+          />
+        );
+      case "class":
+        return (
+          <ClassesForm
+            classes={classes}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
+          />
+        );
+      case "classChoices":
+        return (
+          <ClassChoiceOptionsForm
+            selectedClass={cls}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
+          />
+        );
+      case "classOptional":
+        return (
+          <ClassOptionalFeaturesForm
+            selectedClass={cls}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
+          />
+        );
+      case "background":
+        return (
+          <BackgroundsForm
+            backgrounds={backgrounds}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
+          />
+        );
+      case "asi":
         if (!race || !cls) {
           return (
             <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
@@ -84,14 +150,17 @@ export const MultiStepForm = (
             </Card>
           );
         }
-        return <ASIForm
-                  race={race}
-                  selectedClass={cls}
-                  prevRaceId={prevRaceId} setPrevRaceId={setPrevRaceId}
-                  formId={activeFormId}
-                  onNextDisabledChange={setNextDisabled}
-        />
-      case 5:
+        return (
+          <ASIForm
+            race={race}
+            selectedClass={cls}
+            prevRaceId={prevRaceId}
+            setPrevRaceId={setPrevRaceId}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
+          />
+        );
+      case "skills":
         if (!race || !cls || !bg) {
           return (
             <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
@@ -99,14 +168,16 @@ export const MultiStepForm = (
             </Card>
           );
         }
-        return <SkillsForm
+        return (
+          <SkillsForm
             race={race}
             selectedClass={cls}
             background={bg}
             formId={activeFormId}
             onNextDisabledChange={setNextDisabled}
           />
-      case 6:
+        );
+      case "equipment":
         if (!race || !cls) {
           return (
             <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
@@ -114,14 +185,16 @@ export const MultiStepForm = (
             </Card>
           );
         }
-        return <EquipmentForm
-          weapons={weapons}
-          selectedClass={cls}
-          race={race}
-          formId={activeFormId}
-          onNextDisabledChange={setNextDisabled}
-        />
-      case 7:
+        return (
+          <EquipmentForm
+            weapons={weapons}
+            selectedClass={cls}
+            race={race}
+            formId={activeFormId}
+            onNextDisabledChange={setNextDisabled}
+          />
+        );
+      case "name":
         return (
           <NameForm
             formId={activeFormId}
@@ -129,15 +202,13 @@ export const MultiStepForm = (
             selectedClass={cls}
             background={bg}
           />
-        )
-      // case 7:
-      //   return <NameForm onFinalSubmit={handleFinalSubmit}/>
+        );
       default:
-        return null
+        return null;
     }
   }
 
-  const progress = Math.round((currentStep / STEPS.length) * 100);
+  const progress = Math.round((currentStep / steps.length) * 100);
   const activeFormId = `character-step-form-${currentStep}`;
 
   useEffect(() => {
@@ -167,9 +238,10 @@ export const MultiStepForm = (
               </div>
 
               <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
-                {STEPS.map((step) => {
-                  const isDone = step.id < currentStep;
-                  const isActive = step.id === currentStep;
+                {steps.map((step, index) => {
+                  const stepOrder = index + 1;
+                  const isDone = stepOrder < currentStep;
+                  const isActive = stepOrder === currentStep;
 
                   return (
                     <div
@@ -183,7 +255,7 @@ export const MultiStepForm = (
                     >
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-[11px]">
-                          Крок {step.id}
+                          Крок {stepOrder}
                         </p>
                         <p className="text-xs font-semibold sm:text-sm">{step.name}</p>
                       </div>
@@ -221,7 +293,7 @@ export const MultiStepForm = (
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border border-slate-800/80 bg-slate-950/90 px-2.5 py-2.5 shadow-xl backdrop-blur sm:rounded-2xl sm:px-3 sm:py-3">
           <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
             <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
-              Крок {currentStep} / {STEPS.length}
+              Крок {currentStep} / {steps.length}
             </Badge>
             <span className="hidden text-slate-400 sm:inline">Прогрес {progress}%</span>
           </div>

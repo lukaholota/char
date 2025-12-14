@@ -1807,33 +1807,65 @@ export const seedRaces = async (prisma: PrismaClient) => {
         }
     ]
 
+    
     for (const race of races) {
+        const traitCreates = Array.isArray(race.traits?.create)
+            ? race.traits?.create ?? []
+            : race.traits?.create
+                ? [race.traits.create]
+                : [];
+
+        const { traits, ...raceData } = race;
+
         try {
-            await prisma.race.upsert({
-                where: { name: race.name }, // ← І тут теж engName!
-                update: race,
-                create: race
+            const savedRace = await prisma.race.upsert({
+                where: { name: race.name },
+                update: raceData,
+                create: raceData
             })
+
+            for (const entry of traitCreates) {
+                const engName = (entry as any)?.feature?.connect?.engName as string | undefined;
+                if (!engName) continue;
+
+                const feature = await prisma.feature.findUnique({ where: { engName } });
+                if (!feature) {
+                    console.warn(`Feature with engName=${engName} not found, skip linking to race ${race.name}`);
+                    continue;
+                }
+
+                const existing = await prisma.raceTrait.findFirst({
+                    where: { raceId: savedRace.raceId, featureId: feature.featureId },
+                });
+
+                if (!existing) {
+                    await prisma.raceTrait.create({
+                        data: {
+                            raceId: savedRace.raceId,
+                            featureId: feature.featureId,
+                        },
+                    });
+                }
+            }
         } catch (error) {
-            console.error('💀 ПОМИЛКА на расі:', race.name);
-            console.error('📝 Races дані:', JSON.stringify(race, null, 2));
-            console.error('⚠️ Error:', error);
+            console.error('Failed to upsert race:', race.name);
+            console.error('Race payload:', JSON.stringify(race, null, 2));
+            console.error('Error:', error);
 
             if (error instanceof Prisma.PrismaClientKnownRequestError) {
-                console.error('🔍 Prisma Error Code:', error.code);
-                console.error('🔍 Meta:', error.meta);
+                console.error('Prisma Error Code:', error.code);
+                console.error('Meta:', error.meta);
 
                 if (error.code === 'P2025') {
-                    console.error('❌ Не знайдено record(s) для connect:', error.meta?.cause);
-
-                    // Спробуємо знайти, який саме feature не знайдено
+                    console.error('Record to connect not found:', error.meta?.cause);
                 }
                 if (error.code === 'P2002') {
-                    console.error('❌ Unique constraint violation (дублікат):', error.meta?.target);
+                    console.error('Unique constraint violation:', error.meta?.target);
                 }
             }
         }
     }
+
 
     console.log(`✅ Додано ${races.length} рас!`)
 }

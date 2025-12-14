@@ -11,6 +11,14 @@ export const classSchema = z.object({
   classId: z.number().min(1, "Клас теж треба обрати, мандрівнику!"),
 });
 
+export const classChoiceOptionsSchema = z.object({
+  classChoiceSelections: z.record(z.string(), z.number().int()).default({})
+});
+
+export const classOptionalFeaturesSchema = z.object({
+  classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({})
+});
+
 export const backgroundSchema = z.object({
   backgroundId: z.number().min(1, "DYDæ¥?DæD'¥-¥?¥,D_¥?¥-¥Z D«Dæ D_Dñ¥?DøD«D_... ¥,D, ¥.¥,D_ DýDúDøD3DøD¯¥-?"),
   backgroundSearch: z.string().default('')
@@ -129,6 +137,8 @@ export const fullCharacterSchema = z.object({
   raceId: z.number(),
   raceSearch: z.string().default(''),
   classId: z.number(),
+  classChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({}),
   backgroundId: z.number(),
   backgroundSearch: z.string().default(''),
   isDefaultASI: z.boolean().default(false),
