@@ -59,6 +59,27 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { groupName: "Руни велетнів", optionName: "Руна каменю", optionNameEng: "Stone Rune (Rune)", featureEngName: "Stone Rune" },
     { groupName: "Руни велетнів", optionName: "Руна пагорба", optionNameEng: "Hill Rune (Rune)", featureEngName: "Hill Rune" },
     { groupName: "Руни велетнів", optionName: "Руна бурі", optionNameEng: "Storm Rune (Rune)", featureEngName: "Storm Rune" },
+
+    // Totem Spirit (Barbarian)
+    { groupName: "Тотемний дух", optionName: "Ведмідь (тотем)", optionNameEng: "Totem Spirit: Bear", featureEngName: "Totem Spirit: Bear" },
+    { groupName: "Тотемний дух", optionName: "Орел (тотем)", optionNameEng: "Totem Spirit: Eagle", featureEngName: "Totem Spirit: Eagle" },
+    { groupName: "Тотемний дух", optionName: "Лось (тотем)", optionNameEng: "Totem Spirit: Elk", featureEngName: "Totem Spirit: Elk" },
+    { groupName: "Тотемний дух", optionName: "Тигр (тотем)", optionNameEng: "Totem Spirit: Tiger", featureEngName: "Totem Spirit: Tiger" },
+    { groupName: "Тотемний дух", optionName: "Вовк (тотем)", optionNameEng: "Totem Spirit: Wolf", featureEngName: "Totem Spirit: Wolf" },
+
+    // Aspect of the Beast (Barbarian)
+    { groupName: "Аспект звіра", optionName: "Ведмідь (аспект)", optionNameEng: "Aspect of the Beast: Bear", featureEngName: "Aspect of the Beast: Bear" },
+    { groupName: "Аспект звіра", optionName: "Орел (аспект)", optionNameEng: "Aspect of the Beast: Eagle", featureEngName: "Aspect of the Beast: Eagle" },
+    { groupName: "Аспект звіра", optionName: "Лось (аспект)", optionNameEng: "Aspect of the Beast: Elk", featureEngName: "Aspect of the Beast: Elk" },
+    { groupName: "Аспект звіра", optionName: "Тигр (аспект)", optionNameEng: "Aspect of the Beast: Tiger", featureEngName: "Aspect of the Beast: Tiger" },
+    { groupName: "Аспект звіра", optionName: "Вовк (аспект)", optionNameEng: "Aspect of the Beast: Wolf", featureEngName: "Aspect of the Beast: Wolf" },
+
+    // Totemic Attunement (Barbarian)
+    { groupName: "Настроювання тотема", optionName: "Ведмідь (настроювання)", optionNameEng: "Totemic Attunement: Bear", featureEngName: "Totemic Attunement: Bear" },
+    { groupName: "Настроювання тотема", optionName: "Орел (настроювання)", optionNameEng: "Totemic Attunement: Eagle", featureEngName: "Totemic Attunement: Eagle" },
+    { groupName: "Настроювання тотема", optionName: "Лось (настроювання)", optionNameEng: "Totemic Attunement: Elk", featureEngName: "Totemic Attunement: Elk" },
+    { groupName: "Настроювання тотема", optionName: "Тигр (настроювання)", optionNameEng: "Totemic Attunement: Tiger", featureEngName: "Totemic Attunement: Tiger" },
+    { groupName: "Настроювання тотема", optionName: "Вовк (настроювання)", optionNameEng: "Totemic Attunement: Wolf", featureEngName: "Totemic Attunement: Wolf" },
   ]
 
   const subclassLinks: SubclassChoiceLink[] = [
@@ -119,6 +140,27 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { subclass: Subclasses.CHAMPION, optionNameEng: "Unarmed Fighting", levelsGranted: [10] },
     { subclass: Subclasses.CHAMPION, optionNameEng: "Druidic Warrior", levelsGranted: [10] },
     { subclass: Subclasses.CHAMPION, optionNameEng: "Blessed Warrior", levelsGranted: [10] },
+
+    // Totem Spirit (Barbarian)
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totem Spirit: Bear", levelsGranted: [3] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totem Spirit: Eagle", levelsGranted: [3] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totem Spirit: Elk", levelsGranted: [3] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totem Spirit: Tiger", levelsGranted: [3] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totem Spirit: Wolf", levelsGranted: [3] },
+
+    // Aspect of the Beast (Barbarian)
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Aspect of the Beast: Bear", levelsGranted: [6] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Aspect of the Beast: Eagle", levelsGranted: [6] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Aspect of the Beast: Elk", levelsGranted: [6] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Aspect of the Beast: Tiger", levelsGranted: [6] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Aspect of the Beast: Wolf", levelsGranted: [6] },
+
+    // Totemic Attunement (Barbarian)
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Bear", levelsGranted: [14] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Eagle", levelsGranted: [14] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Elk", levelsGranted: [14] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Tiger", levelsGranted: [14] },
+    { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Wolf", levelsGranted: [14] },
   ]
 
   for (const option of newChoiceOptions) {
