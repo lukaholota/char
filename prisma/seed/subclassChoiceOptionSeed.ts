@@ -60,6 +60,16 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { groupName: "Руни велетнів", optionName: "Руна пагорба", optionNameEng: "Hill Rune (Rune)", featureEngName: "Hill Rune" },
     { groupName: "Руни велетнів", optionName: "Руна бурі", optionNameEng: "Storm Rune (Rune)", featureEngName: "Storm Rune" },
 
+    // Circle of the Land biomes
+    { groupName: "Коло землі (біом)", optionName: "Арктика", optionNameEng: "Circle Spells — Arctic", featureEngName: "Circle Spells — Arctic" },
+    { groupName: "Коло землі (біом)", optionName: "Узбережжя", optionNameEng: "Circle Spells — Coast", featureEngName: "Circle Spells — Coast" },
+    { groupName: "Коло землі (біом)", optionName: "Пустеля", optionNameEng: "Circle Spells — Desert", featureEngName: "Circle Spells — Desert" },
+    { groupName: "Коло землі (біом)", optionName: "Ліс", optionNameEng: "Circle Spells — Forest", featureEngName: "Circle Spells — Forest" },
+    { groupName: "Коло землі (біом)", optionName: "Рівнини", optionNameEng: "Circle Spells — Grassland", featureEngName: "Circle Spells — Grassland" },
+    { groupName: "Коло землі (біом)", optionName: "Гори", optionNameEng: "Circle Spells — Mountain", featureEngName: "Circle Spells — Mountain" },
+    { groupName: "Коло землі (біом)", optionName: "Болото", optionNameEng: "Circle Spells — Swamp", featureEngName: "Circle Spells — Swamp" },
+    { groupName: "Коло землі (біом)", optionName: "Підморок", optionNameEng: "Circle Spells — Underdark", featureEngName: "Circle Spells — Underdark" },
+
     // Totem Spirit (Barbarian)
     { groupName: "Тотемний дух", optionName: "Ведмідь (тотем)", optionNameEng: "Totem Spirit: Bear", featureEngName: "Totem Spirit: Bear" },
     { groupName: "Тотемний дух", optionName: "Орел (тотем)", optionNameEng: "Totem Spirit: Eagle", featureEngName: "Totem Spirit: Eagle" },
@@ -80,6 +90,18 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { groupName: "Настроювання тотема", optionName: "Лось (настроювання)", optionNameEng: "Totemic Attunement: Elk", featureEngName: "Totemic Attunement: Elk" },
     { groupName: "Настроювання тотема", optionName: "Тигр (настроювання)", optionNameEng: "Totemic Attunement: Tiger", featureEngName: "Totemic Attunement: Tiger" },
     { groupName: "Настроювання тотема", optionName: "Вовк (настроювання)", optionNameEng: "Totemic Attunement: Wolf", featureEngName: "Totemic Attunement: Wolf" },
+
+    // Draconic Ancestry (Sorcerer)
+    { groupName: "Дракон-предок", optionName: "Чорний дракон (кислота)", optionNameEng: "Black Dragon (Acid)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Синій дракон (блискавка)", optionNameEng: "Blue Dragon (Lightning)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Латунний дракон (вогонь)", optionNameEng: "Brass Dragon (Fire)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Бронзовий дракон (блискавка)", optionNameEng: "Bronze Dragon (Lightning)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Мідний дракон (кислота)", optionNameEng: "Copper Dragon (Acid)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Золотий дракон (вогонь)", optionNameEng: "Gold Dragon (Fire)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Зелений дракон (отрута)", optionNameEng: "Green Dragon (Poison)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Червоний дракон (вогонь)", optionNameEng: "Red Dragon (Fire)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Срібний дракон (холод)", optionNameEng: "Silver Dragon (Cold)", featureEngName: "Draconic Ancestry" },
+    { groupName: "Дракон-предок", optionName: "Білий дракон (холод)", optionNameEng: "White Dragon (Cold)", featureEngName: "Draconic Ancestry" },
   ]
 
   const subclassLinks: SubclassChoiceLink[] = [
@@ -126,6 +148,16 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { subclass: Subclasses.RUNE_KNIGHT, optionNameEng: "Hill Rune (Rune)", levelsGranted: [3, 7, 10, 15] },
     { subclass: Subclasses.RUNE_KNIGHT, optionNameEng: "Storm Rune (Rune)", levelsGranted: [3, 7, 10, 15] },
 
+    // Circle of the Land biomes
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Arctic", levelsGranted: [3] },
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Coast", levelsGranted: [3] },
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Desert", levelsGranted: [3] },
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Forest", levelsGranted: [3] },
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Grassland", levelsGranted: [3] },
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Mountain", levelsGranted: [3] },
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Swamp", levelsGranted: [3] },
+    { subclass: Subclasses.CIRCLE_OF_THE_LAND, optionNameEng: "Circle Spells — Underdark", levelsGranted: [3] },
+
     // Champion additional fighting style at 10 level
     { subclass: Subclasses.CHAMPION, optionNameEng: "Archery", levelsGranted: [10] },
     { subclass: Subclasses.CHAMPION, optionNameEng: "Blind Fighting", levelsGranted: [10] },
@@ -161,6 +193,18 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Elk", levelsGranted: [14] },
     { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Tiger", levelsGranted: [14] },
     { subclass: Subclasses.PATH_OF_THE_TOTEM_WARRIOR, optionNameEng: "Totemic Attunement: Wolf", levelsGranted: [14] },
+
+    // Draconic Ancestry (Sorcerer)
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Black Dragon (Acid)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Blue Dragon (Lightning)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Brass Dragon (Fire)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Bronze Dragon (Lightning)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Copper Dragon (Acid)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Gold Dragon (Fire)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Green Dragon (Poison)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Red Dragon (Fire)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Silver Dragon (Cold)", levelsGranted: [1] },
+    { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "White Dragon (Cold)", levelsGranted: [1] },
   ]
 
   for (const option of newChoiceOptions) {

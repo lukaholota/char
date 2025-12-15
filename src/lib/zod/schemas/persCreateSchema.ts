@@ -3,7 +3,7 @@ import { Ability } from "@prisma/client";
 import {SkillsEnum} from "@/lib/types/enums";
 
 export const raceSchema = z.object({
-  raceId: z.number().min(1, "D›¥?DæDñDø D_Dñ¥?Dø¥,D, ¥?Dø¥?¥Ÿ dY~^"),
+  raceId: z.number().min(1, "Оберіть, будь ласка, расу!"),
   raceSearch: z.string().default('')
 })
 
@@ -20,7 +20,7 @@ export const classOptionalFeaturesSchema = z.object({
 });
 
 export const backgroundSchema = z.object({
-  backgroundId: z.number().min(1, "DYDæ¥?DæD'¥-¥?¥,D_¥?¥-¥Z D«Dæ D_Dñ¥?DøD«D_... ¥,D, ¥.¥,D_ DýDúDøD3DøD¯¥-?"),
+  backgroundId: z.number().min(1, "Оберіть, будь ласка, передісторію!"),
   backgroundSearch: z.string().default('')
 });
 

@@ -57,7 +57,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     },
     {
       name: Subclasses.ELDRITCH_KNIGHT,
-      description: "Містичний лицар поєднує магію мага зі збройною майстерністю, накладаючи заклинання поряд із ударами.",
+      description: "Містичний лицар поєднує магію чарівника зі збройною майстерністю, накладаючи заклинання поряд із ударами.",
       primaryCastingStat: Ability.INT,
       spellcastingType: SpellcastingType.THIRD,
       grantsSpells: true,
@@ -164,7 +164,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.ARCANA_DOMAIN,
       description:
-        "Арканний домен поєднує божественне служіння з вивченням магії: заклинання мага, усунення чарів та покарання порушників магічного порядку.",
+        "Арканний домен поєднує божественне служіння з вивченням магії: закляття чарівника, усунення чарів та покарання порушників магічного порядку.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -299,6 +299,384 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
       classConnect: Classes.CLERIC_2014,
+      expandedSpells: { connect: [] },
+    },
+
+    // ==== Warlock ====
+    {
+      name: Subclasses.ARCHFEY,
+      description:
+        "Покровитель-архіфея дарує силу обману, чарів і туману: присутність феї, невидимість і видіння зводять ворогів з розуму.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.FIEND,
+      description:
+        "Бісівський покровитель укріплює вас пекельною удачею та опором: додаткові закляття вогню, благословення при перемозі й безжальне вигнання ворогів.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.GREAT_OLD_ONE,
+      description:
+        "Древній жах дарує телепатію та захист думок: викривлення ймовірності, психічний захист і створення слуг-трилів.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.HEXBLADE,
+      description:
+        "Хексблейд черпає силу з потойбічної зброї: прокляття цілей, майстерність зброї на Харизмі й прислужники-спектри.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CELESTIAL,
+      description:
+        "Небесний покровитель дарує світло й зцілення: запас лікування, опір радіантній шкоді та відродження в променистому спалаху.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.FATHOMLESS,
+      description:
+        "Безодня наділяє силами океану: примарні щупальця, опір холоду, контроль води й телепортація крізь глибини.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.THE_GENIE,
+      description:
+        "Благородний джинн дає судину, що містить силу стихій: розширений список заклять, додаткову шкоду його стихією та польоти на дарованих вітрах.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.UNDEAD,
+      description:
+        "Покровитель-некроархон дозволяє ставати формою жаху, посилює некротичну шкоду й дарує безсмертні спалахи.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.UNDYING,
+      description:
+        "Невмерлий покровитель захищає від смерті: опір хворобам, ігнорування голоду та відновлення тіла після поранень.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.PACT,
+      grantsSpells: true,
+      classConnect: Classes.WARLOCK_2014,
+      expandedSpells: { connect: [] },
+    },
+
+    // ==== Sorcerer ====
+    {
+      name: Subclasses.ABERRANT_MIND,
+      description:
+        "Психічна порода, що відкриває телепатію й спотворені закляття: щупальця, захист розуму та викривлення реальності.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CLOCKWORK_SOUL,
+      description:
+        "Душа годинникового порядку приносить закляття стабільності, скасовує перевагу та захищає союзників ліченими механізмами.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.DRACONIC_BLOODLINE,
+      description:
+        "Драконяча кров додає луски, крилатий політ і стихійну лють із підвищеною витривалістю та присутністю дракона.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.DIVINE_SOUL,
+      description:
+        "Божественна іскра відкриває список клірика для чародія: підтримка союзників, крила й небесне відновлення.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.LUNAR_SORCERY,
+      description:
+        "Місячна магія змінює фази: різні списки заклять, знижена вартість метамагії та потужні явища повні й нові.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SHADOW_MAGIC,
+      description:
+        "Тіньова магія дарує темнозір, пес омени, переміщення крізь темряву та невразливу тіньову форму.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.STORM_SORCERY,
+      description:
+        "Буревій у крові: польоти на вітрі, вибухи блискавок і громів, відштовхування ворогів та поділ польоту з союзниками.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WILD_MAGIC,
+      description:
+        "Дика магія породжує хаос: вибухи випадкових ефектів, вплив на кидки й контроль над спалахами сили.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.SORCERER_2014,
+      expandedSpells: { connect: [] },
+    },
+
+    // ==== Wizard ====
+    {
+      name: Subclasses.SCHOOL_OF_ABJURATION,
+      description:
+        "Школа захисту зміцнює магічні бар’єри: покращені контрчари, захисний резерв і стійкість проти заклять.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_BLADESINGING,
+      description:
+        "Блейдспів поєднує меч і магію: легкі обладунки, додаткові атаки, укривні маневри й посилена магія під час пісні.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_CHRONURGY,
+      description:
+        "Хронургія керує часом: зміщення кидків, зупинка ворогів у стазисі, сховище заклять і спотворення майбутнього.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_CONJURATION,
+      description:
+        "Школа виклику створює й переносить об’єкти та істот: миттєві предмети, телепортація, надійні виклики.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_DIVINATION,
+      description:
+        "Ворожіння відкриває ймовірності: передбачення кидків, швидке відновлення чар і всевидюче око.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_ENCHANTMENT,
+      description:
+        "Причарування маніпулює волею: гіпноз, інстинктивний перенапрям атак, розділені чари та стирання спогадів.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_EVOCATION,
+      description:
+        "Втілення формує енергію: ліплення зон, посилені замовляння, контроль над шкодою й безпечні потужні вибухи.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_GRAVITURGY,
+      description:
+        "Гравітургія керує тяжінням: зміна щільності, притягнення, підсилені влучання та аура сповільнення ворогів.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_ILLUSION,
+      description:
+        "Ілюзії надають форму обману: покращені дрібні ілюзії, змінні чари, псевдотіла та наділення ілюзій реальністю.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_NECROMANCY,
+      description:
+        "Некромантія керує життям і смертю: збір енергії з убитих, сильніші скелети/зомбі, опір смерті й контроль над нежиттю.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.ORDER_OF_SCRIBES,
+      description:
+        "Порядок переписувачів живить магію через книги: пробуджена книжка, маніфестований дух, створення свитків і захист від втрати заклять.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_TRANSMUTATION,
+      description:
+        "Трансмутація змінює матерію: перетворення речовин, камінь трансмутатора з корисними властивостями, зміна форми.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCHOOL_OF_WAR_MAGIC,
+      description:
+        "Військова магія поєднує оборону й напад: арканний відбій, бонус ініціативи, запас енергії та стійкість під час концентрації.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.WIZARD_2014,
+      expandedSpells: { connect: [] },
+    },
+
+    // ==== Druid ====
+    {
+      name: Subclasses.CIRCLE_OF_DREAMS,
+      description:
+        "Друїд мрій черпає силу з Фейвайлду: лікує союзників силою літа, укриває табір у тіні місяця, телепортує друзів і мандрує крізь сни.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.DRUID_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CIRCLE_OF_THE_LAND,
+      description:
+        "Коло землі прив’язане до певного біому: додаткові закляття землі, швидке відновлення магії, вільний рух крізь хащі та захист природи.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.DRUID_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CIRCLE_OF_THE_MOON,
+      description:
+        "Коло місяця спеціалізується на Дикій формі: бойова трансформація, сильніші звірі, елементалі та магічні удари.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.DRUID_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CIRCLE_OF_THE_SHEPHERD,
+      description:
+        "Друїд-пастух спілкується зі звірами й феями, викликає духів-тотемів, посилює закликаних істот і захищає їх.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.DRUID_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CIRCLE_OF_SPORES,
+      description:
+        "Споровий друїд носить грибковий симбіоз: аура спор, заражені тіла, некротичні посилення й імунітет до страху та отрути.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.DRUID_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CIRCLE_OF_STARS,
+      description:
+        "Коло зірок читає небесні знаки: зоряна мапа, сузір’я, що дають стрілу, кубок чи дракона, космічні передвістя та сяйво, що захищає.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.DRUID_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.CIRCLE_OF_WILDFIRE,
+      description:
+        "Дике полум’я балансує руйнування й оновлення: дух вогню, додаткові вогняні й лікувальні закляття, запечатані спалахи та відродження з попелу.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.DRUID_2014,
       expandedSpells: { connect: [] },
     },
   ]
