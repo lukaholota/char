@@ -4,6 +4,8 @@ model Subrace {
   raceId        Int      @map("race_id")
   name          Subraces @unique
   speedModifier Int?     @map("speed_modifier")
+  swimSpeed     Int?     @map("swim_speed")
+  flightSpeed   Int?     @map("flight_speed")
   source        Source   @default(PHB)
 
   replacesASI      Boolean   @default(false) @map("replaces_asi")
@@ -12,6 +14,7 @@ model Subrace {
   additionalASI          Json?      @map("additional_asi")
   additionalLanguages    Language[] @default([]) @map("additional_languages")
   languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
+  cantripToChooseCount   Int        @default(0) @map("cantrip_to_choose_count")
 
   /// [ToolProficiencies]
   toolProficiencies   Json?       @map("tool_proficiencies")

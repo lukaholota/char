@@ -1,4 +1,4 @@
-import { PrismaClient, FeatureDisplayType, RestType, Prisma, ToolCategory } from "@prisma/client";
+import { PrismaClient, FeatureDisplayType, RestType, Prisma } from "@prisma/client";
 
 export const seedRaceFeatures = async (prisma: PrismaClient) => {
     console.log('🌟 Додаємо базові расові фічі...')

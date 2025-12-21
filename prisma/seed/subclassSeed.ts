@@ -9,6 +9,36 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
   console.log("Створюємо підкласи...")
 
   const subclasses: SubclassSeed[] = [
+    // ==== Artificer ====
+    {
+      name: Subclasses.ALCHEMIST,
+      description: "Алхімік є експертом у поєднанні реагентів для створення містичних ефектів. Алхіміки використовують свої витвори, щоб дарувати життя і висмоктувати його.",
+      spellcastingType: SpellcastingType.HALF,
+      classConnect: Classes.ARTIFICER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.ARMORER,
+      description: "Зброяр модифікує броню, щоб вона діяла майже як друга шкіра. Броня розкриває потужні атаки та захист.",
+      spellcastingType: SpellcastingType.HALF,
+      classConnect: Classes.ARTIFICER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.ARTILLERIST,
+      description: "Артилерист спеціалізується на вивільненні енергії, створюючи вибухи та захисні позиції за допомогою магічних гармат.",
+      spellcastingType: SpellcastingType.HALF,
+      classConnect: Classes.ARTIFICER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.BATTLE_SMITH,
+      description: "Бойовий коваль поєднує магію та інженерію для створення захисників та ремонту матеріалів. Вони супроводжуються сталевим захисником.",
+      spellcastingType: SpellcastingType.HALF,
+      classConnect: Classes.ARTIFICER_2014,
+      expandedSpells: { connect: [] },
+    },
+
     {
       name: Subclasses.ARCANE_ARCHER,
       description:
@@ -677,6 +707,262 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
       classConnect: Classes.DRUID_2014,
+      expandedSpells: { connect: [] },
+    },
+
+    // ==== Paladin ====
+    {
+      name: Subclasses.OATH_OF_THE_ANCIENTS,
+      description:
+        "Клятва древніх зобов’язує паладина берегти світло й життя, захищаючи природу та радість від темряви.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATH_OF_CONQUEST,
+      description:
+        "Клятва завоювання вимагає абсолютної перемоги: знищувати ворогів, сіяти страх і встановлювати залізний порядок.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATH_OF_THE_CROWN,
+      description:
+        "Клятва корони присвячує паладина служінню закону, монарху або цивілізації, ставлячи обов’язок вище за все.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATH_OF_DEVOTION,
+      description:
+        "Клятва відданості — це ідеал білого лицаря: честь, чесність, співчуття та захист слабких від зла.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATH_OF_GLORY,
+      description:
+        "Клятва слави вірить, що доля вирішується вчинками: паладин прагне героїзму, фізичної досконалості та легендарних подвигів.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATH_OF_REDEMPTION,
+      description:
+        "Клятва спокути проповідує ненасильство й прощення, вдаючись до зброї лише як до останнього засобу для порятунку.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATH_OF_VENGEANCE,
+      description:
+        "Клятва помсти — це обітниця карати злочинців будь-якою ціною, ставлячи знищення зла вище за власний спокій.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATH_OF_THE_WATCHERS,
+      description:
+        "Клятва вартових захищає смертний світ від позавимірних загроз, стоячи на сторожі проти чужинців із інших планів.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.OATHBREAKER,
+      description:
+        "Клятвопорушник зрадив свої ідеали заради темної сили та амбіцій, керуючи нежиттю й сіючи жах.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.PALADIN_2014,
+      expandedSpells: { connect: [] },
+    },
+
+    // ==== Ranger ====
+    {
+      name: Subclasses.BEAST_MASTER_CONCLAVE,
+      description:
+        "Володар звірів формує містичний зв’язок із вірним звіром-супутником, котрий б’ється пліч-о-пліч із слідопитом.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.DRAKEWARDEN,
+      description:
+        "Драконячий охоронець пов’язує свою душу з духом дракона, викликаючи дрейка-супутника та володіючи силою дихання.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.FEY_WANDERER,
+      description:
+        "Мандрівник фей черпає магію з Фейвайлду: чарівні атаки, опір до причарування та вміння маніпулювати розумом ворогів.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.GLOOM_STALKER_CONCLAVE,
+      description:
+        "Мисливець у темряві — майстер засідок у підземеллях: невидимість для темнозору, раптові удари та залізна воля.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.HORIZON_WALKER_CONCLAVE,
+      description:
+        "Мандрівник горизонту охороняє межі світів: телепортація, перетворення атак на силову енергію та захист від планарних загроз.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.HUNTER_CONCLAVE,
+      description:
+        "Мисливець спеціалізується на знищенні конкретних загроз: вбивця велетнів, винищувач орд або захисник від жахів.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.MONSTER_SLAYER_CONCLAVE,
+      description:
+        "Вбивця чудовиськ вивчає надприродних ворогів, щоб руйнувати їхню магію, протистояти їхнім прокльонам і знищувати їх.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SWARMKEEPER,
+      description:
+        "Охоронець рою керує духами природи у формі комах або птахів: рій атакує ворогів, захищає слідопита і переносить його.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.HALF,
+      grantsSpells: true,
+      classConnect: Classes.RANGER_2014,
+      expandedSpells: { connect: [] },
+    },
+
+    // ==== Bard ====
+    {
+      name: Subclasses.COLLEGE_OF_CREATION,
+      description:
+        "Колегія творення втілює пісню, що створила світ. Барди створюють предмети з повітря та пожвавлюють неживе.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.COLLEGE_OF_ELOQUENCE,
+      description:
+        "Колегія красномовства вчить силі слова: переконувати сумнівних, заспокоювати ворогів і надихати союзників логікою та емоціями.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.COLLEGE_OF_GLAMOUR,
+      description:
+        "Колегія гламуру черпає магію з Фейвайлду. Їхня вистава зачаровує глядачів, а зовнішність набуває неземної краси.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.COLLEGE_OF_LORE,
+      description:
+        "Колегія знань збирає таємниці з усього світу. Барди використовують знання, щоб різати словом ворогів і вивчати будь-яку магію.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.COLLEGE_OF_SPIRITS,
+      description:
+        "Колегія духів звертається до історій минулого. Барди викликають духів через спіритичні сеанси, щоб отримати їхню мудрість і силу.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.COLLEGE_OF_SWORDS,
+      description:
+        "Колегія мечів перетворює бій на виставу. Барди виконують смертельні трюки зі зброєю, танцюючи між ударами.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.COLLEGE_OF_VALOR,
+      description:
+        "Колегія доблесті оспівує героїв минулого. Барди надихають союзників на подвиги та самі вступають у бій зі зброєю та щитом.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.COLLEGE_OF_WHISPERS,
+      description:
+        "Колегія шепотів використовує знання як зброю. Барди сіють страх, крадуть тіні та маніпулюють розумом, залишаючись непоміченими.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.FULL,
+      grantsSpells: true,
+      classConnect: Classes.BARD_2014,
       expandedSpells: { connect: [] },
     },
   ]

@@ -12,6 +12,9 @@ model MagicItem {
 
   requiresAttunement Boolean @default(false) @map("requires_attunement")
 
+  bonusToRangedDamage Int? @map("bonus_to_ranged_damage")
+  bonusToAC           Int? @map("bonus_to_ac")
+
   /// [WeaponProficiencies]
   weaponProficiencies        Json? @map("weapon_proficiencies")
   /// [WeaponProficienciesSpecial]

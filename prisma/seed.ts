@@ -14,6 +14,12 @@ import { seedClassEquipment } from "./seed/classEquipmentSeed";
 import { seedChoiceOptions } from "./seed/choiceOptionSeed";
 import { seedClassChoiceOptions } from "./seed/classChoiceOptionSeed";
 import { seedClassOptionalFeatures } from "./seed/optionalFeatureSeed";
+import { seedSubraces } from "./seed/subraceSeed";
+import { seedSubraceFeatures } from "./seed/subraceFeatureSeed";
+
+import { seedInfusionFeatures } from "./seed/infusionFeaturesSeed";
+import { seedInfusions } from "./seed/infusionSeed";
+import { seedMagicItems } from "./seed/magicItemSeed";
 
 async function main() {
     console.log('Starting seed...')
@@ -23,16 +29,23 @@ async function main() {
     // await seedArmor(prisma)
     // await seedEquipmentPacks(prisma)
     // await seedBackground(prisma)
-    // await seedRaceFeatures(prisma)
+    await seedRaceFeatures(prisma)
+    await seedSubraceFeatures(prisma)
     await seedRaces(prisma)
+    await seedSubraces(prisma)
 
     await seedClassFeatures(prisma)
+    await seedInfusionFeatures(prisma) // features for infusions
     await seedClasses(prisma)
     await seedSubclasses(prisma)
     await seedSubclassFeatures(prisma)
     await seedChoiceOptions(prisma)
     await seedClassChoiceOptions(prisma)
     await seedSubclassChoiceOptions(prisma)
+    
+    await seedMagicItems(prisma) // items for infusions
+    await seedInfusions(prisma)  // infusions themselves
+
     // await seedClassEquipment(prisma)
     // await seedClassOptionalFeatures(prisma)
 }

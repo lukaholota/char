@@ -102,6 +102,33 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { groupName: "Дракон-предок", optionName: "Червоний дракон (вогонь)", optionNameEng: "Red Dragon (Fire)", featureEngName: "Draconic Ancestry" },
     { groupName: "Дракон-предок", optionName: "Срібний дракон (холод)", optionNameEng: "Silver Dragon (Cold)", featureEngName: "Draconic Ancestry" },
     { groupName: "Дракон-предок", optionName: "Білий дракон (холод)", optionNameEng: "White Dragon (Cold)", featureEngName: "Draconic Ancestry" },
+
+    // Hunter's Prey (Hunter)
+    { groupName: "Здобич мисливця", optionName: "Вбивця колосів", optionNameEng: "Colossus Slayer (Hunter)", featureEngName: "Hunter's Prey" },
+    { groupName: "Здобич мисливця", optionName: "Вбивця велетнів", optionNameEng: "Giant Killer (Hunter)", featureEngName: "Hunter's Prey" },
+    { groupName: "Здобич мисливця", optionName: "Знищувач орд", optionNameEng: "Horde Breaker (Hunter)", featureEngName: "Hunter's Prey" },
+
+    // Defensive Tactics (Hunter)
+    { groupName: "Оборонна тактика", optionName: "Втеча від орди", optionNameEng: "Escape the Horde (Hunter)", featureEngName: "Defensive Tactics" },
+    { groupName: "Оборонна тактика", optionName: "Захист від мультиатаки", optionNameEng: "Multiattack Defense (Hunter)", featureEngName: "Defensive Tactics" },
+    { groupName: "Оборонна тактика", optionName: "Сталева воля", optionNameEng: "Steel Will (Hunter)", featureEngName: "Defensive Tactics" },
+
+    // Multiattack (Hunter)
+    { groupName: "Мультиатака", optionName: "Залп", optionNameEng: "Volley (Hunter)", featureEngName: "Multiattack (Hunter)" },
+    { groupName: "Мультиатака", optionName: "Вихор удару", optionNameEng: "Whirlwind Attack (Hunter)", featureEngName: "Multiattack (Hunter)" },
+
+    // Superior Hunter's Defense
+    { groupName: "Захист вищого мисливця", optionName: "Ухиляння", optionNameEng: "Evasion (Hunter)", featureEngName: "Superior Hunter's Defense" },
+    { groupName: "Захист вищого мисливця", optionName: "Стійкість проти течії", optionNameEng: "Stand Against the Tide (Hunter)", featureEngName: "Superior Hunter's Defense" },
+    { groupName: "Захист вищого мисливця", optionName: "Неймовірна спритність", optionNameEng: "Uncanny Dodge (Hunter)", featureEngName: "Superior Hunter's Defense" },
+
+    // Fighting Style (Swords)
+    { groupName: "Бойовий стиль (Swords)", optionName: "Дуелянт", optionNameEng: "Dueling (Swords)", featureEngName: "Fighting Style (Swords)" },
+    { groupName: "Бойовий стиль (Swords)", optionName: "Бій двома зброями", optionNameEng: "Two-Weapon Fighting (Swords)", featureEngName: "Fighting Style (Swords)" },
+    
+    // Armor Model (Armorer)
+    { groupName: "Модель броні", optionName: "Вартовий", optionNameEng: "Guardian (Armor Model)", featureEngName: "Armor Model" },
+    { groupName: "Модель броні", optionName: "Лазутчик", optionNameEng: "Infiltrator (Armor Model)", featureEngName: "Armor Model" },
   ]
 
   const subclassLinks: SubclassChoiceLink[] = [
@@ -205,6 +232,33 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Red Dragon (Fire)", levelsGranted: [1] },
     { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "Silver Dragon (Cold)", levelsGranted: [1] },
     { subclass: Subclasses.DRACONIC_BLOODLINE, optionNameEng: "White Dragon (Cold)", levelsGranted: [1] },
+
+    // Hunter's Prey (Hunter)
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Colossus Slayer (Hunter)", levelsGranted: [3] },
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Giant Killer (Hunter)", levelsGranted: [3] },
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Horde Breaker (Hunter)", levelsGranted: [3] },
+
+    // Defensive Tactics (Hunter)
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Escape the Horde (Hunter)", levelsGranted: [7] },
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Multiattack Defense (Hunter)", levelsGranted: [7] },
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Steel Will (Hunter)", levelsGranted: [7] },
+
+    // Multiattack (Hunter)
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Volley (Hunter)", levelsGranted: [11] },
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Whirlwind Attack (Hunter)", levelsGranted: [11] },
+
+    // Superior Hunter's Defense (Hunter)
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Evasion (Hunter)", levelsGranted: [15] },
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Stand Against the Tide (Hunter)", levelsGranted: [15] },
+    { subclass: Subclasses.HUNTER_CONCLAVE, optionNameEng: "Uncanny Dodge (Hunter)", levelsGranted: [15] },
+
+    // Fighting Style (Swords)
+    { subclass: Subclasses.COLLEGE_OF_SWORDS, optionNameEng: "Dueling (Swords)", levelsGranted: [3] },
+    { subclass: Subclasses.COLLEGE_OF_SWORDS, optionNameEng: "Two-Weapon Fighting (Swords)", levelsGranted: [3] },
+
+    // Armor Model (Armorer)
+    { subclass: Subclasses.ARMORER, optionNameEng: "Guardian (Armor Model)", levelsGranted: [3] },
+    { subclass: Subclasses.ARMORER, optionNameEng: "Infiltrator (Armor Model)", levelsGranted: [3] },
   ]
 
   for (const option of newChoiceOptions) {
@@ -232,7 +286,7 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     await prisma.choiceOptionFeature.create({
       data: {
         choiceOptionId: choice.choiceOptionId,
-        feature: { connect: { engName: option.featureEngName } },
+        featureId: feature.featureId,
       },
     })
   }
