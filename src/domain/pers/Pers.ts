@@ -1,13 +1,11 @@
+import { Ability, Skills as Skill } from "@prisma/client";
 import { AbilityScores } from "./AbilityScores";
 import { HitPoints } from "./HitPoints";
-import { Money } from "./Money.ts";
-import { Ability } from "./Ability";
+import { Money } from "./Money";
 import { PersClass } from "./PersClass";
 import { Race } from "./Race";
 import { Background } from "./Background";
-import { Skill } from "./Skill";
 import { AbilitySchema } from "./CreatePersInput.schema";
-import { Equipment } from "./Equipment";
 import { CharacterNotes } from "./CharacterNotes";
 
 export class Pers {
@@ -30,7 +28,7 @@ export class Pers {
 
     private additionalSaveProficiencies: Ability[],
 
-    private equipment: Equipment,
+    private equipment: any,
 
     private notes: CharacterNotes,
 
@@ -63,7 +61,7 @@ export class Pers {
       name: this.name,
       level: this.level,
       race: this.race,
-      class: this.characterClass,
+      class: this.persClass,
     };
   }
 }

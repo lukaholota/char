@@ -965,16 +965,113 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
       classConnect: Classes.BARD_2014,
       expandedSpells: { connect: [] },
     },
+
+    // ==== Rogue ====
+    {
+      name: Subclasses.ARCANE_TRICKSTER,
+      description:
+        "Містичний шахрай поєднує спритність рук зі знанням ілюзій та чарівництва, щоб заплутати та пограбувати ворогів.",
+      primaryCastingStat: Ability.INT,
+      spellcastingType: SpellcastingType.THIRD,
+      grantsSpells: true,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.ASSASSIN,
+      description:
+        "Убивця — майстер маскування та отрут, що спеціалізується на швидкому та смертоносному усуненні цілей.",
+      primaryCastingStat: Ability.DEX,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.INQUISITIVE,
+      description:
+        "Допитливий використовує гострий розум та спостережливість, щоб розгадувати таємниці та знаходити вразливі місця ворогів навіть у запалі бою.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.MASTERMIND,
+      description:
+        "Майстер інтриг — фахівець з маніпуляцій та стратегії, який здатен бачити наскрізь чужі плани та керувати союзниками на відстані.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.PHANTOM,
+      description:
+        "Фантом має зв'язок зі світом мертвих, використовуючи енергію смерті для атак та отримання знань від духів.",
+      primaryCastingStat: Ability.DEX,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SCOUT,
+      description:
+        "Скаут — майстер виживання та розвідки, що відрізняється неймовірною мобільністю серед дикої природи.",
+      primaryCastingStat: Ability.DEX,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SOULKNIFE,
+      description:
+        "Душевний ніж викликає леза з чистої психічної енергії та використовує свій розум для посилення власних можливостей та зв'язку з іншими.",
+      primaryCastingStat: Ability.DEX,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.SWASHBUCKLER,
+      description:
+        "Дуелянт — шляхетний та зухвалий боєць, що покладається на швидкість, чарівність та майстерність фехтування один на один.",
+      primaryCastingStat: Ability.CHA,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.THIEF,
+      description:
+        "Злодій фокусується на класичних навичках шахрайства: зломі замків, спритності рухів та швидкому використанні магічних предметів.",
+      primaryCastingStat: Ability.DEX,
+      spellcastingType: SpellcastingType.NONE,
+      grantsSpells: false,
+      classConnect: Classes.ROGUE_2014,
+      expandedSpells: { connect: [] },
+    },
   ]
 
   for (const subclass of subclasses) {
     const { classConnect, ...data } = subclass
     const cls = await prisma.class.findUnique({ where: { name: classConnect } })
 
+    if (!cls) {
+        console.error('💀 КЛАС НЕ ЗНАЙДЕНО:', classConnect, 'для підкласу:', subclass.name);
+        throw new Error(`Class ${classConnect} not found for subclass ${subclass.name}`);
+    }
+
     await prisma.subclass.upsert({
       where: {
         classId_name: {
-          classId: cls!.classId,
+          classId: cls.classId,
           name: subclass.name,
         },
       },

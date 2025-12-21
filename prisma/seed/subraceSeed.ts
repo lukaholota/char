@@ -4,6 +4,8 @@ export const seedSubraces = async (prisma: PrismaClient) => {
     console.log('🧝 Додаємо підраси Ельфів...');
     console.log('🧔 Додаємо підраси Дварфів...');
     console.log('🧔‍♂️ Додаємо підраси Напівросликів...');
+    console.log('🧙 Додаємо підраси Гномів...');
+    console.log('🐉 Додаємо підраси Дракононароджених (Fizban\'s)...');
 
     const elf = await prisma.race.findFirst({ where: { name: Races.ELF_2014 } });
     if (!elf) {
@@ -18,6 +20,16 @@ export const seedSubraces = async (prisma: PrismaClient) => {
     const halfling = await prisma.race.findFirst({ where: { name: Races.HALFLING_2014 } });
     if (!halfling) {
         throw new Error("Halfling race not found");
+    }
+
+    const gnome = await prisma.race.findFirst({ where: { name: Races.GNOME_2014 } });
+    if (!gnome) {
+        throw new Error("Gnome race not found");
+    }
+
+    const dragonborn = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_2014 } });
+    if (!dragonborn) {
+        throw new Error("Dragonborn race not found");
     }
 
     const MPMM_ASI = {
@@ -249,6 +261,147 @@ export const seedSubraces = async (prisma: PrismaClient) => {
                     connectFeature('Silent Speech')
                 ]
             }
+        },
+        
+        // ============ FOREST GNOME (PHB) ============
+        {
+            raceId: gnome.raceId,
+            name: Subraces.GNOME_FOREST_2014,
+            source: Source.PHB,
+            additionalASI: { DEX: 1 },
+            traits: {
+                create: [
+                    connectFeature('Natural Illusionist'),
+                    connectFeature('Speak with Small Beasts')
+                ]
+            }
+        },
+        // ============ ROCK GNOME (PHB) ============
+        {
+            raceId: gnome.raceId,
+            name: Subraces.GNOME_ROCK_2014,
+            source: Source.PHB,
+            additionalASI: { CON: 1 },
+            toolProficiencies: {
+                category: ["ARTISAN_TINKER"]
+            },
+            traits: {
+                create: [
+                    connectFeature('Artificer\'s Lore'),
+                    connectFeature('Tinker')
+                ]
+            }
+        },
+        // ============ DEEP GNOME (SVIRFNEBLIN) (SCAG) ============
+        {
+            raceId: gnome.raceId,
+            name: Subraces.GNOME_DEEP_SCAG,
+            source: Source.SCAG,
+            additionalASI: { DEX: 1 },
+            traits: {
+                create: [
+                    connectFeature('Superior Darkvision (Deep Gnome)'),
+                    connectFeature('Stone Camouflage')
+                ]
+            }
+        },
+        
+        // ============ CHROMATIC DRAGONBORN (FIZBAN'S) ============
+        {
+            raceId: dragonborn.raceId,
+            name: Subraces.DRAGONBORN_CHROMATIC,
+            source: Source.FTOD,
+            replacesASI: true,
+            additionalASI: {
+                tasha: {
+                    flexible: {
+                        groups: [
+                            {
+                                groupName: '+2 до Однієї',
+                                value: 2,
+                                choiceCount: 1,
+                                unique: false
+                            },
+                            {
+                                groupName: '+1 до Однієї',
+                                value: 1,
+                                choiceCount: 1,
+                                unique: false
+                            }
+                        ]
+                    }
+                }
+            },
+            traits: {
+                create: [
+                    connectFeature('Chromatic Warding')
+                ]
+            }
+        },
+        // ============ METALLIC DRAGONBORN (FIZBAN'S) ============
+        {
+            raceId: dragonborn.raceId,
+            name: Subraces.DRAGONBORN_METALLIC,
+            source: Source.FTOD,
+            replacesASI: true,
+            additionalASI: {
+                tasha: {
+                    flexible: {
+                        groups: [
+                            {
+                                groupName: '+2 до Однієї',
+                                value: 2,
+                                choiceCount: 1,
+                                unique: false
+                            },
+                            {
+                                groupName: '+1 до Однієї',
+                                value: 1,
+                                choiceCount: 1,
+                                unique: false
+                            }
+                        ]
+                    }
+                }
+            },
+            traits: {
+                create: [
+                    connectFeature('Metallic Breath Weapon')
+                ]
+            }
+        },
+        // ============ GEM DRAGONBORN (FIZBAN'S) ============
+        {
+            raceId: dragonborn.raceId,
+            name: Subraces.DRAGONBORN_GEM,
+            source: Source.FTOD,
+            replacesASI: true,
+            additionalASI: {
+                tasha: {
+                    flexible: {
+                        groups: [
+                            {
+                                groupName: '+2 до Однієї',
+                                value: 2,
+                                choiceCount: 1,
+                                unique: false
+                            },
+                            {
+                                groupName: '+1 до Однієї',
+                                value: 1,
+                                choiceCount: 1,
+                                unique: false
+                            }
+                        ]
+                    }
+                }
+            },
+            traits: {
+                create: [
+                    connectFeature('Psionic Mind'),
+                    connectFeature('Gem Flight')
+                ]
+            }
         }
     ];
 
@@ -260,5 +413,5 @@ export const seedSubraces = async (prisma: PrismaClient) => {
         });
     }
 
-    console.log(`✅ Додано ${subraces.length} підрас (Ельфи, Дварфи, Напіврослики)!`);
+    console.log(`✅ Додано ${subraces.length} підрас (Ельфи, Дварфи, Напіврослики, Гноми, Дракононароджені)!`);
 }

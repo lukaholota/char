@@ -14,6 +14,13 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             shortDescription: 'Можна ховатися в легкій природній місцевості',
             displayType: [FeatureDisplayType.PASSIVE]
         },
+        {
+            name: 'Прудконогість',
+            engName: 'Fleet of Foot',
+            description: 'Ваша базова швидкість ходьби збільшується до 35 футів.',
+            shortDescription: 'Швидкість 35 футів',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
 
         // --- DROW ---
         {
@@ -220,6 +227,102 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             description: 'Ви можете телепатично спілкуватися з будь-якою істотою в межах 30 футів від вас. Істота розуміє вас, тільки якщо ви обидва знаєте спільну мову. Ви можете одночасно говорити телепатично тільки з однією істотою.',
             shortDescription: 'Телепатія 30 футів (спільна мова потрібна)',
             displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ GNOME SUBRACE FEATURES ============
+
+        // --- FOREST GNOME ---
+        {
+            name: 'Природний ілюзіоніст',
+            engName: 'Natural Illusionist',
+            description: 'Ви знаєте замовляння <a href="/spell/1351">Мала ілюзія [Minor Illusion]</a>. Інтелект є вашою заклинальною характеристикою для нього.',
+            shortDescription: 'Замовляння Мала ілюзія [Minor Illusion]',
+            displayType: [FeatureDisplayType.PASSIVE],
+            givesSpells: {
+                connect: [
+                    { engName: 'Minor Illusion' }
+                ]
+            }
+        },
+        {
+            name: 'Розмова з малими звірами',
+            engName: 'Speak with Small Beasts',
+            description: 'За допомогою звуків і жестів ви можете передавати прості ідеї малим або менше за розміром звірам.',
+            shortDescription: 'Спілкування з малими звірами',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // --- ROCK GNOME ---
+        {
+            name: 'Знання ремісника',
+            engName: 'Artificer\'s Lore',
+            description: 'Коли ви робите перевірку Інтелекту (Історія [History]), пов\'язану з магічними предметами, алхімічними об\'єктами або технологічними пристроями, ви можете додати подвійний бонус майстерності замість будь-якого бонуса майстерності, який ви зазвичай застосовуєте.',
+            shortDescription: 'Подвійна майстерність на Історію про магічні/технологічні предмети',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Майстер-винахідник',
+            engName: 'Tinker',
+            description: 'Ви володієте інструментами ремісника (інструменти тінкера). Використовуючи ці інструменти, ви можете витратити 1 годину та матеріали на суму 10 зм, щоб створити Крихітний механічний пристрій (КС 5). Пристрій перестає працювати через 24 години (якщо ви не витратите 1 годину на його ремонт) або коли ви використовуєте свою дію, щоб його демонтувати; у цей час ви можете повернути використані матеріали. Ви можете мати до трьох таких пристроїв активними одночасно. Коли ви створюєте пристрій, виберіть один з наступних варіантів: Заводна іграшка, Запальничка, Музична скринька.',
+            shortDescription: 'Створення крихітних механічних пристроїв',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // --- DEEP GNOME (SVIRFNEBLIN) ---
+        {
+            name: 'Вищий темнозір (Глибинний гном)',
+            engName: 'Superior Darkvision (Deep Gnome)',
+            description: 'Ваш темнозір має радіус 120 футів.',
+            shortDescription: 'Темнозір 120 футів',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Кам\'яний камуфляж',
+            engName: 'Stone Camouflage',
+            description: 'Ви маєте перевагу на перевірки Спритності (Непомітність [Stealth]), щоб сховатися в кам\'янистій місцевості.',
+            shortDescription: 'Перевага на Непомітність у кам\'янистій місцевості',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ DRAGONBORN (FIZBAN'S) SUBRACE FEATURES ============
+
+        // --- CHROMATIC DRAGONBORN ---
+        {
+            name: 'Хроматичне огородження',
+            engName: 'Chromatic Warding',
+            description: 'Починаючи з 5-го рівня, як дію ви можете направити свою драконячу енергію, щоб ненадовго оточити себе аурою, яка захищає ваших союзників. Аура поширюється на 10 футів від вас у всіх напрямках, але не через повне укриття. Ваші союзники в аурі отримують опір до кислотної, холодної, вогняної, блискавичної або отруйної шкоди (ви обираєте тип шкоди коли активуєте цю здібність). Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.',
+            shortDescription: 'Аура захисту (опір до обраного типу шкоди)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+
+        // --- METALLIC DRAGONBORN ---
+        {
+            name: 'Металеве дихання',
+            engName: 'Metallic Breath Weapon',
+            description: 'На 5-му рівні ви отримуєте другий різновид зброї дихання. Коли ви робите дію Breath Weapon, ви можете витратити використання свого Breath Weapon, щоб видихнути паралізуючий газ у конусі 15 футів. Кожна істота в цій області повинна зробити ряткидок Статури (СК = 8 + ваш модифікатор Статури + ваш бонус майстерності). При провалі істота паралізована до кінця вашого наступного ходу.',
+            shortDescription: 'Паралізуюче дихання (конус 15 фт)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST
+        },
+
+        // --- GEM DRAGONBORN ---
+        {
+            name: 'Псионічний розум',
+            engName: 'Psionic Mind',
+            description: 'Ви можете телепатично спілкуватися з будь-якою істотою, яку можете бачити в межах 30 футів від вас. Вам не потрібна спільна мова з істотою, але істота повинна розуміти принаймні одну мову.',
+            shortDescription: 'Телепатія 30 футів',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Самоцвітний політ',
+            engName: 'Gem Flight',
+            description: 'Починаючи з 5-го рівня, ви можете використовувати бонусну дію, щоб маніфестувати мерехтливі самоцвітні крила, які дають вам швидкість польоту 30 футів. Ці крила тривають 1 хвилину. Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.',
+            shortDescription: 'Швидкість польоту 30 футів (1 хвилина)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
         }
     ];
 

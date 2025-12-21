@@ -207,7 +207,7 @@ export const seedMagicItems = async ( prisma: PrismaClient ) => {
             shortDescription: 'Опір до шкоди силовим полем, імунітет до <a href="/spell/1333">Магічного дротика [Magic Missile]</a>',
             requiresAttunement: true,
             givesSpells: {
-                connect: [{ engName: 'Magic missile' }]
+                connect: [{ engName: 'Magic Missile' }]
             },
         },
         {

@@ -1,19 +1,46 @@
 
 model Feat {
-  featId           Int          @id @default(autoincrement()) @map("feat_id")
-  name             String       @db.VarChar(100)
-  category         FeatCategory
-  shortDescription String       @map("short_description") @db.Text
-  longDescription  String       @map("long_description") @db.Text
-
-  languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
-  languages              Language[] @default([])
-
-  prerequisites Json?
-
-  featFeatures     FeatFeature[]
-  featAbilityBoost FeatAbilityBoost?
-  persFeats        PersFeat[]
-
+  featId      Int      @id @default(autoincrement()) @map("feat_id")
+  name        Feats    @unique // enum з усіх назв рисів
+  engName     String   @map("eng_name")
+  source      Source   @default(PHB)
+  
+  description     String  @db.Text
+  shortDescription String @map("short_description") @db.Text
+  
+  // Вимоги
+  prerequisiteAbilityScore Json?   @map("prerequisite_ability_score") // {STR: 13}
+  prerequisiteLevel        Int?    @map("prerequisite_level")
+  prerequisiteProficiency  Json?   @map("prerequisite_proficiency") // {armor: ["MEDIUM"]}
+  prerequisiteSpellcasting Boolean @default(false) @map("prerequisite_spellcasting")
+  prerequisiteFeat         String? @map("prerequisite_feat") // для ланцюгових рисів
+  
+  // Расові обмеження (якщо є)
+  raceRestriction    Races[]    @default([]) @map("race_restriction")
+  subraceRestriction Subraces[] @default([]) @map("subrace_restriction")
+  
+  // Що дає рис
+  /// [FeatASI]
+  grantedASI              Json?       @map("granted_asi") // {STR: 1, DEX: 1} або {ANY: 1}
+  grantedSkillCount       Int         @default(0) @map("granted_skill_count")
+  /// [SkillProficiencies]
+  grantedSkills           Json?       @map("granted_skills")
+  grantedLanguageCount    Int         @default(0) @map("granted_language_count")
+  grantedLanguages        Language[]  @default([]) @map("granted_languages")
+  /// [ToolProficiencies]
+  grantedToolProficiencies Json?      @map("granted_tool_proficiencies")
+  /// [WeaponProficiencies]
+  grantedWeaponProficiencies Json?   @map("granted_weapon_proficiencies")
+  grantedArmorProficiencies  ArmorType[] @default([]) @map("granted_armor_proficiencies")
+  
+  // Особливі здібності
+  grantsFeature Feature[] @relation("FeatGrantsFeature")
+  
+  // Зв'язки
+  perses PersFeat[]
+  
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  
   @@map("feat")
 }

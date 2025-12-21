@@ -476,10 +476,11 @@ export const seedWeapons = async (prisma: PrismaClient) => {
 
     for (const weapon of weapons) {
         await prisma.weapon.upsert({
-            where: {name: weapon.name},
+            where: { name: weapon.name },
             update: weapon,
             create: weapon
         })
+        await new Promise(resolve => setTimeout(resolve, 100));
     }
 
     console.log(`✅ Seeded ${weapons.length} weapons`)

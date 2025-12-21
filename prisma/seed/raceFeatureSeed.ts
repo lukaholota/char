@@ -1688,6 +1688,749 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             shortDescription: 'Володіння Непомітністю',
             displayType: [FeatureDisplayType.PASSIVE],
         },
+
+        // ============ TIEFLING VARIANT FEATURES ============
+
+        // --- SCAG BLOODLINES ---
+        
+        // Asmodeus (PHB default, explicit variant)
+        {
+            name: 'Пекельна спадщина (Асмодей)',
+            engName: 'Infernal Legacy (Asmodeus)',
+            description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1320">Пекельна відсіч [Hellish Rebuke]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Дивотворство, Пекельна відсіч (3), Темрява (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Thaumaturgy' },
+                    { engName: 'Hellish Rebuke' },
+                    { engName: 'Darkness' }
+                ]
+            }
+        },
+        
+        // Baalzebul
+        {
+            name: 'Пекельна спадщина (Ваальзевул)',
+            engName: 'Infernal Legacy (Baalzebul)',
+            description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1499">Промінь хвороби [Ray of Sickness]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1501">Корона шаленства [Crown of Madness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Дивотворство, Промінь хвороби (3), Корона шаленства (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Thaumaturgy' },
+                    { engName: 'Ray of Sickness' },
+                    { engName: 'Crown of Madness' }
+                ]
+            }
+        },
+        
+        // Dispater
+        {
+            name: 'Пекельна спадщина (Діспатер)',
+            engName: 'Infernal Legacy (Dispater)',
+            description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1332">Маскування [Disguise Self]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1297">Виявлення думок [Detect Thoughts]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Дивотворство, Маскування (3), Виявлення думок (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Thaumaturgy' },
+                    { engName: 'Disguise Self' },
+                    { engName: 'Detect Thoughts' }
+                ]
+            }
+        },
+        
+        // Fierna
+        {
+            name: 'Пекельна спадщина (Фієрна)',
+            engName: 'Infernal Legacy (Fierna)',
+            description: 'Ви знаєте замовляння <a href="/spell/1494">Дружба [Friends]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1318">Причарування особи [Charm Person]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1277">Навіювання [Suggestion]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Дружба, Причарування особи (3), Навіювання (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Friends' },
+                    { engName: 'Charm Person' },
+                    { engName: 'Suggestion' }
+                ]
+            }
+        },
+        
+        // Glasya
+        {
+            name: 'Пекельна спадщина (Ґлася)',
+            engName: 'Infernal Legacy (Glasya)',
+            description: 'Ви знаєте замовляння <a href="/spell/1351">Мала ілюзія [Minor Illusion]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1332">Маскування [Disguise Self]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Мала ілюзія, Маскування (3), Невидимість (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Minor Illusion' },
+                    { engName: 'Disguise Self' },
+                    { engName: 'Invisibility' }
+                ]
+            }
+        },
+        
+        // Levistus
+        {
+            name: 'Пекельна спадщина (Левістус)',
+            engName: 'Infernal Legacy (Levistus)',
+            description: 'Ви знаєте замовляння <a href="/spell/1342">Промінь холоду [Ray of Frost]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1497">Обладунок Агатіса [Armor of Agathys]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Промінь холоду, Обладунок Агатіса (3), Темрява (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Ray of Frost' },
+                    { engName: 'Armor of Agathys' },
+                    { engName: 'Darkness' }
+                ]
+            }
+        },
+        
+        // Mammon
+        {
+            name: 'Пекельна спадщина (Маммон)',
+            engName: 'Infernal Legacy (Mammon)',
+            description: 'Ви знаєте замовляння <a href="/spell/1352">Магічна рука [Mage Hand]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1504">Літаючий диск Тензера [Tenser\'s Floating Disk]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1300">Арканний замок [Arcane Lock]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Магічна рука, Літаючий диск Тензера (3), Арканний замок (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Mage Hand' },
+                    { engName: 'Tenser\'s Floating Disk' },
+                    { engName: 'Arcane Lock' }
+                ]
+            }
+        },
+        
+        // Mephistopheles
+        {
+            name: 'Пекельна спадщина (Мефістофель)',
+            engName: 'Infernal Legacy (Mephistopheles)',
+            description: 'Ви знаєте замовляння <a href="/spell/1352">Магічна рука [Mage Hand]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1321">Палючі долоні [Burning Hands]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1363">Вогняний клинок [Flame Blade]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Магічна рука, Палючі долоні (3), Вогняний клинок (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Mage Hand' },
+                    { engName: 'Burning Hands' },
+                    { engName: 'Flame Blade' }
+                ]
+            }
+        },
+        
+        // Zariel
+        {
+            name: 'Пекельна спадщина (Заріель)',
+            engName: 'Infernal Legacy (Zariel)',
+            description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1455">Паляча кара [Searing Smite]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1252">Таврувальна кара [Branding Smite]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Дивотворство, Паляча кара (3), Таврувальна кара (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Thaumaturgy' },
+                    { engName: 'Searing Smite' },
+                    { engName: 'Branding Smite' }
+                ]
+            }
+        },
+        
+        // --- MTOF VARIANTS ---
+        
+        // Devil's Tongue
+        {
+            name: 'Пекельна спадщина (Диявольський язик)',
+            engName: 'Infernal Legacy (Devil\'s Tongue)',
+            description: 'Ви знаєте замовляння <a href="/spell/1356">Злісне глузування [Vicious Mockery]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1318">Причарування особи [Charm Person]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1290">Захоплива промова [Enthrall]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Злісне глузування, Причарування особи (3), Захоплива промова (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Vicious Mockery' },
+                    { engName: 'Charm Person' },
+                    { engName: 'Enthrall' }
+                ]
+            }
+        },
+        
+        // Hellfire
+        {
+            name: 'Пекельна спадщина (Пекельний вогонь)',
+            engName: 'Infernal Legacy (Hellfire)',
+            description: 'Ві знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1321">Палючі долоні [Burning Hands]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Дивотворство, Палючі долоні (3), Темрява (5)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            givesSpells: {
+                connect: [
+                    { engName: 'Thaumaturgy' },
+                    { engName: 'Burning Hands' },
+                    { engName: 'Darkness' }
+                ]
+            }
+        },
+        
+        // Winged
+        {
+            name: 'Крилатий тифлінг',
+            engName: 'Winged Tiefling',
+            description: 'Ви маєте швидкість польоту 30 футів. Щоб використовувати цю швидкість, ви не можете носити середні або важкі обладунки.',
+            shortDescription: 'Швидкість польоту 30 футів',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ DRAGONBORN ANCESTRY FEATURES ============
+
+        // Draconic Ancestry - Damage Resistance
+        {
+            name: 'Драконячий родовід (Чорний) - Опір',
+            engName: 'Draconic Ancestry (Black)',
+            description: 'Ви маєте опір до кислотної шкоди.',
+            shortDescription: 'Опір до кислоти',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Синій) - Опір',
+            engName: 'Draconic Ancestry (Blue)',
+            description: 'Ви маєте опір до шкоди блискавкою.',
+            shortDescription: 'Опір до блискавки',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Латунний) - Опір',
+            engName: 'Draconic Ancestry (Brass)',
+            description: 'Ви маєте опір до вогняної шкоди.',
+            shortDescription: 'Опір до вогню',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Бронзовий) - Опір',
+            engName: 'Draconic Ancestry (Bronze)',
+            description: 'Ви маєте опір до шкоди блискавкою.',
+            shortDescription: 'Опір до блискавки',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Мідний) - Опір',
+            engName: 'Draconic Ancestry (Copper)',
+            description: 'Ви маєте опір до кислотної шкоди.',
+            shortDescription: 'Опір до кислоти',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Золотий) - Опір',
+            engName: 'Draconic Ancestry (Gold)',
+            description: 'Ви маєте опір до вогняної шкоди.',
+            shortDescription: 'Опір до вогню',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Зелений) - Опір',
+            engName: 'Draconic Ancestry (Green)',
+            description: 'Ви маєте опір до отруйної шкоди.',
+            shortDescription: 'Опір до отрути',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Червоний) - Опір',
+            engName: 'Draconic Ancestry (Red)',
+            description: 'Ви маєте опір до вогняної шкоди.',
+            shortDescription: 'Опір до вогню',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Срібний) - Опір',
+            engName: 'Draconic Ancestry (Silver)',
+            description: 'Ви маєте опір до холодної шкоди.',
+            shortDescription: 'Опір до холоду',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Білий) - Опір',
+            engName: 'Draconic Ancestry (White)',
+            description: 'Ви маєте опір до холодної шкоди.',
+            shortDescription: 'Опір до холоду',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // Breath Weapon variants
+        {
+            name: 'Зброя дихання (Кислота - Лінія)',
+            engName: 'Breath Weapon (Acid - Line)',
+            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 кислотної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: лінія 5x30 футів.',
+            shortDescription: 'Видих кислоти (лінія 5x30 фт, 2к6)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Блискавка - Лінія)',
+            engName: 'Breath Weapon (Lightning - Line)',
+            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 шкоди блискавкою при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: лінія 5x30 футів.',
+            shortDescription: 'Видих блискавки (лінія 5x30 фт, 2к6)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Вогонь - Лінія)',
+            engName: 'Breath Weapon (Fire - Line)',
+            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 вогняної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: лінія 5x30 футів.',
+            shortDescription: 'Видих вогню (лінія 5x30 фт, 2к6)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Вогонь - Конус)',
+            engName: 'Breath Weapon (Fire - Cone)',
+            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 вогняної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: конус 15 футів.',
+            shortDescription: 'Видих вогню (конус 15 фт, 2к6)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Отрута - Конус)',
+            engName: 'Breath Weapon (Poison - Cone)',
+            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Статури. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 отруйної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: конус 15 футів.',
+            shortDescription: 'Видих отрути (конус 15 фт, 2к6)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Холод - Конус)',
+            engName: 'Breath Weapon (Cold - Cone)',
+            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Статури. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 холодної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: конус 15 футів.',
+            shortDescription: 'Видих холоду (конус 15 фт, 2к6)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+
+        // ============ HALF-ELF DRAGONMARKS (EBERRON) ============
+
+        // Mark of Detection
+        {
+            name: 'Дедуктивна інтуїція',
+            engName: 'Deductive Intuition',
+            description: 'Коли ви робите перевірку Інтелекту (Розслідування [Investigation]) або Мудрості (Проникливість [Insight]), ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Investigation та Insight',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Магічне виявлення',
+            engName: 'Magical Detection',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1289">Виявлення магії [Detect Magic]</a> та <a href="/spell/1406">Виявлення думок [Detect Thoughts]</a>, кожне один раз за допомогою цієї риси. Після використання ви не можете використовувати їх знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Detect Magic та Detect Thoughts 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки виявлення',
+            engName: 'Spells of the Mark (Detection)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1406">Виявлення думок [Detect Thoughts]</a>, <a href="/spell/1289">Виявлення магії [Detect Magic]</a>, <a href="/spell/1314">Ясновидіння [Clairvoyance]</a>, <a href="/spell/1141">Арканий глаз [Arcane Eye]</a>, <a href="/spell/1314">Легенди та перекази [Legend Lore]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // Mark of Storm
+        {
+            name: 'Стійкість вітрового моряка',
+            engName: 'Windwright\'s Intuition',
+            description: 'Коли ви робите перевірку Спритності (Акробатика [Acrobatics]) або будь-яку перевірку, пов\'язану з навігацією або транспортними засобами, ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Acrobatics та navigation',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Опір шторму',
+            engName: 'Storm\'s Boon',
+            description: 'Ви маєте опір до шкоди блискавкою.',
+            shortDescription: 'Опір до блискавки',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Натяк на шторм',
+            engName: 'Headwinds',
+            description: 'Ви знаєте замовляння <a href="/spell/1352">Порив [Gust]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/2544">Порив вітру [Gust of Wind]</a>, яке потребує концентрації. Після використання ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Gust cantrip + Gust of Wind 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки шторму',
+            engName: 'Spells of the Mark (Storm)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/2544">Порив вітру [Gust of Wind]</a>, <a href="/spell/1345">Блискавка [Lightning Bolt]</a>, <a href="/spell/1385">Град [Sleet Storm]</a>, <a href="/spell/1287">Контроль води [Control Water]</a>, <a href="/spell/1318">Виклик блискавки [Conjure Elemental]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ AASIMAR CELESTIAL REVELATION (CHOICE) ============
+
+        {
+            name: 'Некротичне покривало',
+            engName: 'Necrotic Shroud',
+            description: 'Ваші очі на мить стають пулами темряви, а примарні крила привидів з\'являються на вашій спині. Істоти на ваш вибір в межах 10 футів від вас, які можуть бачити вас, повинні зробити ряткидок Харизми (СК 8 + бонус майстерності + модифікатор Харизми). При провалі істота стає налякною вами до кінця вашого наступного ходу. До кінця вашого наступного ходу, один раз у кожен свій хід, ви можете завдати додаткову некротичну шкоду 1к10 одній цілі при влученні атакою (між зброєю або заклинанням). Трансформація триває 1 хвилину або до кінця вашого ходу, якщо ви втратили свідомість.',
+            shortDescription: 'Налякування + 1к10 некротичної шкоди',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Променеве спалювання',
+            engName: 'Radiant Consumption',
+            description: 'Сліпуче світло випромінюється з вас у радіусі 10 футів. До кінця вашого ходу воно створює яскраве світло у радіусі 10 футів і тьмяне світло ще на 10 футів. Коли ви активуєте цю здібність і в кінці кожного свого ходу до її завершення, ви та кожна істота в межах 10 футів від вас отримуєте променеву шкоду, рівну половині вашого рівня (округлюючи вгору). На додаток, один раз у кожен свій хід, ви можете завдати додаткову променеву шкоду 1к10 одній цілі при влученні атакою. Трансформація триває 1 хвилину або до кінця вашого ходу, якщо ви втратили свідомість.',
+            shortDescription: 'Аура променевого світла + 1к10 променевої шкоди',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Променева душа',
+            engName: 'Radiant Soul',
+            description: 'З вашої спини виростають два світлові ефірні крила, даруючи вам швидкість польоту 30 футів. На додаток, один раз у кожен свій хід, ви можете завдати додаткову променеву шкоду 1к10 одній цілі при влученні атакою. Трансформація триває 1 хвилину або до кінця вашого ходу, якщо ви втратили свідомість.',
+            shortDescription: 'Політ 30 футів + 1к10 променевої шкоди',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+
+        // ============ SHIFTER SHIFTING FORMS (CHOICE) ============
+
+        {
+            name: 'Перевертання: Звіроша шкіра',
+            engName: 'Shifting: Beasthide',
+            description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ви отримуєте бонус +1 до Класу Броні.',
+            shortDescription: '1к6+СОН тимчасових HP + AC +1',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Перевертання: Довгий ікл',
+            engName: 'Shifting: Longtooth',
+            description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ваші ікла подовжуються; ваші укуси завдають 1к6 + модифікатор Сили колючої шкоди. Як бонусну дію ви можете здійснити одну атаку укусом.',
+            shortDescription: '1к6+СОН тимчасових HP + укус 1к6+СИЛ',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Перевертання: Швидкий крок',
+            engName: 'Shifting: Swiftstride',
+            description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ваша швидкість ходьби збільшується на 10 футів. Додатково, ви можете пересуватися до 10 футів як реакцію, коли ворог закінчує свій хід у межах 5 футів від вас. Цей рух не провокує атаки по можливості.',
+            shortDescription: '1к6+СОН тимчасових HP + швидкість +10 фт',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Перевертання: Дикий мисливець',
+            engName: 'Shifting: Wildhunt',
+            description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ви маєте перевагу на перевірки Мудрості, і жодна істота в межах 30 футів від вас не може отримати перевагу на кидки атаки проти вас, якщо ви не втратили свідомість.',
+            shortDescription: '1к6+СОН тимчасових HP + перевага на МДР',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+
+        // ============ DWARF DRAGONMARK (EBERRON) ============
+
+        // Mark of Warding
+        {
+            name: 'Інтуїція майстра варди',
+            engName: 'Warder\'s Intuition',
+            description: 'Коли ви робите перевірку Інтелекту (Розслідування [Investigation]) для виявлення пасток або перевірку, яка використовує інструменти злодія, ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Investigation (пастки) та інструментів злодія',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Магія варди',
+            engName: 'Wards and Seals',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1136">Сигнал тривоги [Alarm]</a> та <a href="/spell/1343">Магічна броня [Mage Armor]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1141">Аркан ний замок [Arcane Lock]</a>. Після використання будь-якого з цих заклинань ви не можете використовувати його знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Alarm, Mage Armor, Arcane Lock 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки вард',
+            engName: 'Spells of the Mark (Warding)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1136">Сигнал тривоги [Alarm]</a>, <a href="/spell/1141">Арканий замок [Arcane Lock]</a>, <a href="/spell/1357">Гліф охорони [Glyph of Warding]</a>, <a href="/spell/1343">Магічна броня [Mage Armor]</a>, <a href="/spell/1334">Таємна скриня Леомунда [Leomund\'s Secret Chest]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ HALFLING DRAGONMARK (EBERRON) ============
+
+        // Mark of Healing
+        {
+            name: 'Медична інтуїція',
+            engName: 'Medical Intuition',
+            description: 'Коли ви робите перевірку Мудрості (Медицина [Medicine]) або перевірку характеристики з використанням набору травозная [herbalism kit], ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Medicine та herbalism kit',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Цілющий дотик',
+            engName: 'Healing Touch',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1334">Лікування ран [Cure Wounds]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1281">Мале відновлення [Lesser Restoration]</a>. Після використання будь-якого з цих заклинань ви не можете використовувати його знову за допомогою цієї риси, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Cure Wounds та Lesser Restoration 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки зцілення',
+            engName: 'Spells of the Mark (Healing)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1334">Лікування ран [Cure Wounds]</a>, <a href="/spell/1333">Цілюще слово [Healing Word]</a>, <a href="/spell/1281">Мале відновлення [Lesser Restoration]</a>, <a href="/spell/1280">Молитва про зцілення [Prayer of Healing]</a>, <a href="/spell/1510">Аура живучості [Aura of Vitality]</a>, <a href="/spell/1230">Масове цілюще слово [Mass Healing Word]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // Mark of Hospitality
+        {
+            name: 'Завжди гостинний',
+            engName: 'Ever-Hospitable',
+            description: 'Коли ви робите перевірку Харизми (Переконання [Persuasion]) або перевірку характеристики з використанням приладдя пивовара [brewer\'s supplies] або кухарського начиння [cook\'s utensils], ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Persuasion, brewer\'s supplies та cook\'s utensils',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Магія господаря',
+            engName: 'Innkeeper\'s Magic',
+            description: 'Ви знаєте замовляння <a href="/spell/1050">Штукарство [Prestidigitation]</a>. Ви також можете використовувати заклинання <a href="/spell/1323">Очищення їжі та напоїв [Purify Food and Drink]</a> та <a href="/spell/1340">Доброягода [Goodberry]</a> по одному разу за допомогою цієї риси. Після використання будь-якого з них ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Prestidigitation, Purify Food and Drink та Goodberry 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки гостинності',
+            engName: 'Spells of the Mark (Hospitality)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1340">Доброягода [Goodberry]</a>, <a href="/spell/1323">Очищення їжі та напоїв [Purify Food and Drink]</a>, <a href="/spell/1259">Підтримка [Aid]</a>, <a href="/spell/1298">Вгамування емоцій [Calm Emotions]</a>, <a href="/spell/1211">Створення їжі та води [Create Food and Water]</a>, <a href="/spell/1513">Леомундова крихітна хатинка [Leomund\'s Tiny Hut]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ GNOME DRAGONMARK (EBERRON) ============
+
+        // Mark of Scribing
+        {
+            name: 'Обдарований каліграф',
+            engName: 'Gifted Scribe',
+            description: 'Коли ви робите перевірку Інтелекту (Історія [History]) або перевірку характеристики з використанням приладдя каліграфа [calligrapher\'s supplies], ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до History та calligrapher\'s supplies',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Проникливість писаря',
+            engName: 'Scribe\'s Insight',
+            description: 'Ви знаєте замовляння <a href="/spell/1344">Повідомлення [Message]</a>. Ви також можете використовувати заклинання <a href="/spell/1315">Розуміння мов [Comprehend Languages]</a> по одному разу за допомогою цієї риси. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1282">Магічні вуста [Magic Mouth]</a> по одному разу за допомогою цієї риси. Після того, як ви використали Comprehend Languages або Magic Mouth за допомогою цієї риси, ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Message, Comprehend Languages та Magic Mouth 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки писаря',
+            engName: 'Spells of the Mark (Scribing)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1315">Розуміння мов [Comprehend Languages]</a>, <a href="/spell/1049">Ілюзорний напис [Illusory Script]</a>, <a href="/spell/1314">Звіриний гонець [Animal Messenger]</a>, <a href="/spell/1282">Магічні вуста [Magic Mouth]</a>, <a href="/spell/1247">Послання [Sending]</a>, <a href="/spell/1146">Аркан на сторінка [Arcane Page]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ HUMAN DRAGONMARK (EBERRON) ============
+
+        // Mark of Finding
+        {
+            name: 'Інтуїція мисливця',
+            engName: 'Hunter\'s Intuition',
+            description: 'Коли ви робите перевірку Мудрості (Уважність [Perception]) або Мудрості (Виживання [Survival]), ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Perception та Survival',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Магія шукача',
+            engName: 'Finder\'s Magic',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1331">Мисливська мітка [Hunter\'s Mark]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1265">Пошук предмета [Locate Object]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Hunter\'s Mark та Locate Object 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки пошуку (Людина)',
+            engName: 'Spells of the Mark (Finding)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1331">Мисливська мітка [Hunter\'s Mark]</a>, <a href="/spell/1316">Розпізнавання [Identify]</a>, <a href="/spell/1265">Пошук предмета [Locate Object]</a>, <a href="/spell/1264">Пошук тварин або рослин [Locate Animals or Plants]</a>, <a href="/spell/1218">Підглядання [Clairvoyance]</a>, <a href="/spell/1214">Розмова з рослинами [Speak with Plants]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // Mark of Handling
+        {
+            name: 'Дика інтуїція',
+            engName: 'Wild Intuition',
+            description: 'Коли ви робите перевірку Мудрості (Поводження з тваринами [Animal Handling]) або Інтелекту (Природа [Nature]), ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Animal Handling та Nature',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Первісний зв’язок',
+            engName: 'Primal Connection',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1339">Дружба з тваринами [Animal Friendship]</a> та <a href="/spell/1317">Розмова з тваринами [Speak with Animals]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1459">Звірячі узи [Beast Bond]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Animal Friendship, Speak with Animals та Beast Bond 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Чим вони більші',
+            engName: 'The Bigger They Are',
+            description: 'Коли ви накладаєте заклинання Дружба з тваринами [Animal Friendship] або Розмова з тваринами [Speak with Animals], ви можете націлюватися на Істот (Monstrosity), якщо їхній показник Інтелекту 3 або нижче.',
+            shortDescription: 'Застосування магії звірів на Monstrosity',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Закляття марки поводження',
+            engName: 'Spells of the Mark (Handling)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1339">Дружба з тваринами [Animal Friendship]</a>, <a href="/spell/1317">Розмова з тваринами [Speak with Animals]</a>, <a href="/spell/1459">Звірячі узи [Beast Bond]</a>, <a href="/spell/1548">Тваринне чуття [Beast Sense]</a>, <a href="/spell/1298">Вгамування емоцій [Calm Emotions]</a>, <a href="/spell/1221">Накликання тварин [Conjure Animals]</a>, <a href="/spell/1185">Підкорення звіра [Dominate Beast]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // Mark of Making
+        {
+            name: 'Інтуїція ремісника',
+            engName: 'Artisan\'s Intuition',
+            description: 'Коли ви робите перевірку Інтелекту (Магія [Arcana]) або перевірку характеристики з використанням ремісничих інструментів [artisan\'s tools], ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Arcana та artisan\'s tools',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Дарунок творця',
+            engName: 'Maker\'s Gift',
+            description: 'Ви знаєте замовляння <a href="/spell/1353">Лагодження [Mending]</a>.',
+            shortDescription: 'Ви знаєте Mending',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Заклинач предметів',
+            engName: 'Spellsmith',
+            description: 'Ви можете накласти заклинання <a href="/spell/1283">Магічна зброя [Magic Weapon]</a> цією рисою. Коли ви робите це, заклинання триває 1 годину і не потребує Концентрації. Починаючи з 3-го рівня, ви також можете накласти заклинання <a href="/spell/1316">Розпізнавання [Identify]</a> цією рисою. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову за допомогою цією рисою, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Magic Weapon (без конц.) та Identify 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки творення',
+            engName: 'Spells of the Mark (Making)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1316">Розпізнавання [Identify]</a>, <a href="/spell/1504">Літаючий диск Тензера [Tenser\'s Floating Disk]</a>, <a href="/spell/1273">Безперервне полум’я [Continual Flame]</a>, <a href="/spell/1283">Магічна зброя [Magic Weapon]</a>, <a href="/spell/1491">Стихійна зброя [Elemental Weapon]</a>, <a href="/spell/1201">Виготовлення [Fabricate]</a>, <a href="/spell/1140">Творення [Creation]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // Mark of Passage
+        {
+            name: 'Інтуїція мандрівника',
+            engName: 'Intuition of the Voyager',
+            description: 'Коли ви робите перевірку Спритності (Акробатика [Acrobatics]) або перевірку характеристики з використанням сухопутних транспортних засобів [land vehicles], ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Acrobatics та land vehicles',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Магічний перехід',
+            engName: 'Magical Passage',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1247">Туманний крок [Misty Step]</a> як бонусну дію. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1327">Негайний відступ [Expeditious Retreat]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Misty Step та Expeditious Retreat 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки переходу',
+            engName: 'Spells of the Mark (Passage)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1327">Негайний відступ [Expeditious Retreat]</a>, <a href="/spell/1307">Стрибок [Jump]</a>, <a href="/spell/1247">Туманний крок [Misty Step]</a>, <a href="/spell/1270">Переміщення без сліду [Pass without Trace]</a>, <a href="/spell/1221">Політ [Fly]</a>, <a href="/spell/1196">Двері між вимірами [Dimension Door]</a>, <a href="/spell/1163">Коло телепортації [Teleportation Circle]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // Mark of Sentinel
+        {
+            name: 'Інтуїція вартового',
+            engName: 'Sentinel\'s Intuition',
+            description: 'Коли ви робите перевірку Мудрості (Аналіз Поведінки [Insight]) або Мудрості (Уважність [Perception]), ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Insight та Perception',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Щит захисника',
+            engName: 'Guardian\'s Shield',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1302">Щит [Shield]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1274">Охоронний зв’язок [Warding Bond]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Shield та Warding Bond 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Пильний охоронець',
+            engName: 'Vigilant Guardian',
+            description: 'Коли істота, яку ви бачите в межах 5 футів від вас, отримує влучання атакою, ви можете використати свою реакцію, щоб магічно помінятися місцями з цією істотою. Ви отримуєте влучання цією атакою замість неї. Ви не можете використовувати цю здатність знову, доки не завершите довгий відпочинок.',
+            shortDescription: 'Помінятися місцями з ціллю атаки (реакція)',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки вартового',
+            engName: 'Spells of the Mark (Sentinel)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1495">Виклик на дуель [Compelled Duel]</a>, <a href="/spell/1301">Щит віри [Shield of Faith]</a>, <a href="/spell/1259">Підтримка [Aid]</a>, <a href="/spell/1274">Охоронний зв’язок [Warding Bond]</a>, <a href="/spell/1236">Захист від енергії [Protection from Energy]</a>, <a href="/spell/1193">Захист від смерті [Death Ward]</a>, <a href="/spell/1203">Вартовий віри [Guardian of Faith]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
+        // ============ ELF DRAGONMARK (EBERRON) ============
+
+        // Mark of Shadow
+        {
+            name: 'Хитра інтуїція',
+            engName: 'Cunning Intuition',
+            description: 'Коли ви робите перевірку Харизми (Виступ [Performance]) або Спритності (Скритність [Stealth]), ви можете кинути к4 і додати результат до перевірки.',
+            shortDescription: 'к4 до Performance та Stealth',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Формування тіней',
+            engName: 'Shape Shadows',
+            description: 'Ви знаєте замовляння <a href="/spell/1351">Мала ілюзія [Minor Illusion]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a> один раз за допомогою цією рисою і не можете робити це знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            shortDescription: 'Minor Illusion, Invisibility 1/день',
+            displayType: [FeatureDisplayType.RESOURCE],
+            limitedUsesPer: RestType.LONG_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Закляття марки тіні',
+            engName: 'Spells of the Mark (Shadow)',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/456">Маскування [Disguise Self]</a>, <a href="/spell/2586">Мовчазний образ [Silent Image]</a>, <a href="/spell/1276">Невидимість [Invisibility]</a>, <a href="/spell/1270">Переміщення без сліду [Pass without Trace]</a>, <a href="/spell/1218">Підглядання [Clairvoyance]</a>, <a href="/spell/2496">Оживлений образ [Major Image]</a>, <a href="/spell/1200">Вища невидимість [Greater Invisibility]</a>, <a href="/spell/1205">Галюциногенна місцевість [Hallucinatory Terrain]</a>, <a href="/spell/1161">Омана [Mislead]</a>.',
+            shortDescription: 'Розширений список заклинань',
+            displayType: [FeatureDisplayType.PASSIVE]
+        }
     ]
 
     for (const feature of features) {

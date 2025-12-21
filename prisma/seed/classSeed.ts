@@ -145,6 +145,142 @@ export const seedClasses = async (prisma: PrismaClient) => {
                 ],
             }
         },
+        // BARD CLASS
+        {
+            name: Classes.BARD_2014,
+            sortOrder: 2,
+            hitDie: 8,
+            primaryCastingStat: Ability.CHA,
+            spellcastingType: SpellcastingType.FULL,
+            abilityScoreUpLevels: [4, 8, 12, 16, 19],
+            subclassLevel: 3,
+            multiclassReqs: {
+                required: ['CHA'],
+                score: 13,
+            },
+            armorProficiencies: [ArmorType.LIGHT],
+            weaponProficiencies: [WeaponType.SIMPLE_WEAPON],
+            weaponProficienciesSpecial: {
+                specific: [
+                    WeaponCategory.HAND_CROSSBOW,
+                    WeaponCategory.LONGSWORD,
+                    WeaponCategory.RAPIER,
+                    WeaponCategory.SHORTSWORD
+                ]
+            },
+            savingThrows: [Ability.DEX, Ability.CHA],
+            skillProficiencies: {
+                options: Object.values(Skills), // Any 3 skills
+                choiceCount: 3
+            },
+            toolProficiencies: [],
+            toolToChooseCount: 3, // Three musical instruments
+            features: {
+                create: [
+                    { feature: { connect: { engName: "Spellcasting (Bard)" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Bardic Inspiration" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Jack of All Trades" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Song of Rest" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Expertise (Bard)" } }, levelGranted: 3 },
+                    { feature: { connect: { engName: "Font of Inspiration" } }, levelGranted: 5 },
+                    { feature: { connect: { engName: "Countercharm" } }, levelGranted: 6 },
+                    { feature: { connect: { engName: "Magical Secrets" } }, levelGranted: 10 },
+                    { feature: { connect: { engName: "Superior Inspiration" } }, levelGranted: 20 },
+                ]
+            }
+        },
+        // CLERIC CLASS
+        {
+            name: Classes.CLERIC_2014,
+            sortOrder: 3,
+            hitDie: 8,
+            primaryCastingStat: Ability.WIS,
+            spellcastingType: SpellcastingType.FULL,
+            abilityScoreUpLevels: [4, 8, 12, 16, 19],
+            subclassLevel: 1, // Devine Domain at 1st level
+            multiclassReqs: {
+                required: ['WIS'],
+                score: 13,
+            },
+            armorProficiencies: [ArmorType.LIGHT, ArmorType.MEDIUM, ArmorType.SHIELD],
+            weaponProficiencies: [WeaponType.SIMPLE_WEAPON],
+            savingThrows: [Ability.WIS, Ability.CHA],
+            skillProficiencies: {
+                options: [
+                    Skills.HISTORY,
+                    Skills.INSIGHT,
+                    Skills.MEDICINE,
+                    Skills.PERSUASION,
+                    Skills.RELIGION
+                ],
+                choiceCount: 2
+            },
+            features: {
+                create: [
+                    { feature: { connect: { engName: "Spellcasting (Cleric)" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Divine Domain" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Channel Divinity (Cleric)" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Destroy Undead" } }, levelGranted: 5 },
+                    { feature: { connect: { engName: "Divine Intervention" } }, levelGranted: 10 },
+                ]
+            }
+        },
+        // DRUID CLASS
+        {
+            name: Classes.DRUID_2014,
+            sortOrder: 4,
+            hitDie: 8,
+            primaryCastingStat: Ability.WIS,
+            spellcastingType: SpellcastingType.FULL,
+            abilityScoreUpLevels: [4, 8, 12, 16, 19],
+            subclassLevel: 2,
+            multiclassReqs: {
+                required: ['WIS'],
+                score: 13,
+            },
+            armorProficiencies: [ArmorType.LIGHT, ArmorType.MEDIUM, ArmorType.SHIELD],
+            weaponProficiencies: [],
+            weaponProficienciesSpecial: {
+                specific: [
+                    WeaponCategory.CLUB,
+                    WeaponCategory.DAGGER,
+                    WeaponCategory.DART,
+                    WeaponCategory.JAVELIN,
+                    WeaponCategory.MACE,
+                    WeaponCategory.QUARTERSTAFF,
+                    WeaponCategory.SCIMITAR,
+                    WeaponCategory.SICKLE,
+                    WeaponCategory.SLING,
+                    WeaponCategory.SPEAR
+                ]
+            },
+            savingThrows: [Ability.INT, Ability.WIS],
+            skillProficiencies: {
+                options: [
+                    Skills.ARCANA,
+                    Skills.ANIMAL_HANDLING,
+                    Skills.INSIGHT,
+                    Skills.MEDICINE,
+                    Skills.NATURE,
+                    Skills.PERCEPTION,
+                    Skills.RELIGION,
+                    Skills.SURVIVAL
+                ],
+                choiceCount: 2
+            },
+            toolProficiencies: [ToolCategory.HERBALISM_KIT],
+            features: {
+                create: [
+                    { feature: { connect: { engName: "Druidic" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Spellcasting (Druid)" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Wild Shape" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Druid Circle" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Timeless Body (Druid)" } }, levelGranted: 18 },
+                    { feature: { connect: { engName: "Beast Spells" } }, levelGranted: 18 },
+                    { feature: { connect: { engName: "Archdruid" } }, levelGranted: 20 },
+                ]
+            }
+        },
         // КЛАС МОНАХА
         {
             name: Classes.MONK_2014,

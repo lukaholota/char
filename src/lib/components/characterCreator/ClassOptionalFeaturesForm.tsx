@@ -42,9 +42,9 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
     () =>
       levelOneOptional
         .filter((item) => {
-          const deps = item.appearsOnlyIfChoicesTaken || [];
+          const deps = (item as any).appearsOnlyIfChoicesTaken || [];
           if (!deps.length) return true;
-          return deps.some((choice) => selectedChoiceIds.includes(choice.choiceOptionId));
+          return deps.some((choice: any) => selectedChoiceIds.includes(choice.choiceOptionId));
         })
         .filter((item) => Boolean(item.optionalFeatureId)),
     [levelOneOptional, selectedChoiceIds]

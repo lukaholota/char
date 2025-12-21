@@ -15,6 +15,9 @@ model MagicItem {
   bonusToRangedDamage Int? @map("bonus_to_ranged_damage")
   bonusToAC           Int? @map("bonus_to_ac")
 
+  bonusToSavingThrows       Json?    @map("bonus_to_saving_throws")
+  noArmorOrShieldForACBonus Boolean? @map("no_armor_or_shield_for_ac_bonus")
+
   /// [WeaponProficiencies]
   weaponProficiencies        Json? @map("weapon_proficiencies")
   /// [WeaponProficienciesSpecial]

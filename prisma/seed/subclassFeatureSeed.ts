@@ -5477,6 +5477,407 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
     },
 
+    // ================ ROGUE ================
+
+    // ==== Thief ====
+    {
+      name: "Швидкі руки",
+      engName: "Fast Hands",
+      shortDescription: "Використовуйте бонусну дію для Спритності рук, злому замків або Використання предмета.",
+      description:
+        "Починаючи з 3-го рівня, ви можете використовувати бонусну дію, надану вашим Хитрим ходом (Cunning Action), щоб здійснити перевірку Спритності (Спритність рук), використати інструменти злодія для знешкодження пастки чи злому замка, або виконати дію Використання предмета.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Робота на другому поверсі",
+      engName: "Second-Story Work",
+      shortDescription: "Лазіння без штрафів, збільшена дальність стрибка.",
+      description:
+        "На 3-му рівні вы отримуєте можливість підніматися швидше, ніж зазвичай. Лазіння більше не коштує вам додаткового руху. Крім того, коли ви робите стрибок з розбігу, відстань, яку ви долаєте, збільшується на кількість футів, що дорівнює вашому модифікатору Спритності.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Найвище крадькома",
+      engName: "Supreme Sneak",
+      shortDescription: "Перевага на Скрадання, якщо рухаєтеся не більше ніж на половину швидкості.",
+      description:
+        "Починаючи з 9-го рівня, ви маєте перевагу на перевірки Спритності (Скрадання), якщо в цей хід рухаєтеся не більше ніж на половину своєї швидкості.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Використання магічних пристроїв",
+      engName: "Use Magic Device",
+      shortDescription: "Ігноруйте вимоги до класу, раси та рівня для магічних предметів.",
+      description:
+        "На 13-му рівні ви навчилися ігнорувати вимоги магічних предметів. Ви ігноруєте всі вимоги до класу, раси та рівня при використанні магічних предметів.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Рефлекси злодія",
+      engName: "Thief's Reflexes",
+      shortDescription: "Два ходи в першому раунді бою.",
+      description:
+        "На 17-му рівні ви стаєте настільки швидкими, що можете здійснити два ходи під час першого раунду бою. Ви робите перший хід зі своєю звичайною ініціативою, а другий хід — з ініціативою «ваша ініціатива мінус 10». Ви не можете використовувати цю рису, якщо ви здивовані (surprised).",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // ==== Assassin ====
+    {
+      name: "Додаткові володіння (Убивця)",
+      engName: "Bonus Proficiencies (Assassin)",
+      shortDescription: "Володіння набором для гриму та набором отрут.",
+      description:
+        "Коли ви обираєте цей архетип на 3-му рівні, ви отримуєте володіння набором для гриму (disguise kit) та набором для виготовлення отрут (poisoner's kit).",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Вбивство",
+      engName: "Assassinate",
+      shortDescription: "Перевага проти тих, хто ще не ходив. Крит по здивованих ворогах.",
+      description:
+        "Починаючи з 3-го рівня, ви стаєте найсмертоноснішими на початку бою. Ви маєте перевагу на кидки атаки проти будь-якої істоти, яка ще не зробила хід у поточному бою. Крім того, будь-яке влучання по істоті, яка здивована (surprised), є критичним влучанням.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Майстерність проникнення",
+      engName: "Infiltration Expertise",
+      shortDescription: "Створення фальшивої ідентичності за 7 днів та 25 зм.",
+      description:
+        "Починаючи з 9-го рівня, ви можете майстерно створювати фальшиві ідентичності. Витративши сім днів і 25 зм, ви можете створити собі нову особистість з документами, історією та зв'язками. Ви не можете бути викриті як самозванець, якщо тільки не дасте приводу для підозр.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Самозванець",
+      engName: "Impostor",
+      shortDescription: "Бездоганна імітація голосу, почерку та поведінки після 3 годин спостереження.",
+      description:
+        "На 13-му рівні ви отримуєте здатність бездоганно імітувати поведінку, почерк та голос іншої людини. Вам потрібно спостерігати за поведінкою людини протягом трьох годин, щоб вивчити її манери та голос. Ваша імітація настільки досконала, що звичайна людина не помітить підступу.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Смертельний удар",
+      engName: "Death Strike",
+      shortDescription: "Удар по здивованій цілі може подвоїти шкоду (ряткидок CON).",
+      description:
+        "На 17-му рівні ви стаєте майстром миттєвої смерті. Коли ви атакуєте та влучаєте по істоті, яка здивована (surprised), вона повинна зробити ряткидок Статури (CD 8 + модифікатор Спритності + бонус майстерності). При провалі шкода від вашої атаки подвоюється.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // ==== Arcane Trickster ====
+    {
+      name: "Чародійство (Містичний шахрай)",
+      engName: "Spellcasting (Arcane Trickster)",
+      shortDescription: "Ви можете накладати заклинання чарівника (INT).",
+      description:
+        "На 3-му рівні ви отримуєте здатність накладати заклинання. Ви знаєте три замовляння: <a href=\"/spell/1352\">Магічна рука [Mage Hand]</a> та ще два на ваш вибір зі списку заклинань чарівника. Ви знаєте три заклинання 1-го рівня, два з яких мають належати до шкіл ілюзії або зачарування.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Спритність Руки Мага",
+      engName: "Mage Hand Legerdemain",
+      shortDescription: "Невидима Магічна рука, може красти або зламувати замки на відстані.",
+      description:
+        "На 3-му рівні ваше замовляння «Магічна рука» покращується. Рука стає невидимою, і ви можете виконувати нею додаткові завдання:\n* Покласти один предмет, який ви тримаєте, у контейнер, який носить або тримає інша істота.\n* Витягти предмет з контейнера іншої істоти.\n* Використати інструменти злодія для злому замка або знешкодження пастки на відстані.\nВи можете виконувати ці завдання непомітно, зробивши перевірку Спритності (Спритність рук) проти Мудрості (Уважність). Крім того, ви можете використовувати бонусну дію для керування рукою.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Магічна засідка",
+      engName: "Magical Ambush",
+      shortDescription: "Недолік на ряткидок проти ваших заклинань, якщо ви приховані.",
+      description:
+        "Починаючи з 9-го рівня, якщо ви приховані від істоти, когда накладаєте на неї заклинання, вона має недолік на будь-який ряткидок проти цього заклинання в цей хід.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Універсальний шахрай",
+      engName: "Versatile Trickster",
+      shortDescription: "Бонусна дія для отримання переваги за допомогою Магічної руки.",
+      description:
+        "На 13-му рівні ви отримуєте можливість відволікати ворогів своєю «Магічною рукою». Бонусною дією у свій хід ви можете обрати істоту в межах 5 футів від руки. Ви отримуєте перевагу на кидки атаки проти цієї істоти до кінця вашого поточного ходу.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Крадій заклинань",
+      engName: "Spell Thief",
+      shortDescription: "Реакцією крадете заклинання, що накладене на вас.",
+      description:
+        "На 17-му рівні ви отримуєте здатність викрадати знання про заклинання. Використовуючи реакцію після того, як ви зробили ряткидок проти заклинання, ви можете змусити накладача зробити ряткидок своєю заклинальною характеристикою проти вашого CD порятунку від заклинань. При провалі ви не отримуєте ефекту заклинання, а ворог забуває його на 8 годин. Якщо заклинання відповідає вашому рівню, ви можете накладати його, поки воно викрадене.",
+      displayType: [FeatureDisplayType.REACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
+    },
+
+    // ==== Inquisitive ====
+    {
+      name: "Нюх на брехню",
+      engName: "Ear for Deceit",
+      shortDescription: "Мінімум 10 на кубику для перевірок Проникливості на виявлення брехні.",
+      description:
+        "Коли ви обираєте цей архетип на 3-му рівні, ви розвиваєте гостре чуття на брехню. Коли ви робите перевірку Мудрості (Проникливість), щоб визначити, чи істота бреше, результат 7 або менше на кубику вважається 8.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Око на деталі",
+      engName: "Eye for Detail",
+      shortDescription: "Бонусна дія для перевірки Уважності або Розслідування.",
+      description:
+        "На 3-му рівні ви можете використовувати бонусну дію, щоб зробити перевірку Мудрості (Уважність), щоб помітити приховану істоту чи об'єкт, або перевірку Інтелекту (Розслідування), щоб знайти та розшифрувати підказки.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Проникливий бій",
+      engName: "Insightful Fighting",
+      shortDescription: "Бонусна дія для отримання Прихованої атаки без переваги.",
+      description:
+        "На 3-му рівні ви вчитеся бачити крізь захист противника. Бонусною дією ви можете зробити перевірку Мудрості (Проникливість) проти Харизми (Обман) істоти, яку ви бачите і яка не є недієздатною. При успіху ви можете використовувати свою Приховану атаку (Sneak Attack) проти цієї цілі, навіть якщо у вас немає переваги на кидок атаки, але немає недоліку. Ця перевага триває 1 хвилину або поки ви не використаєте цю рису проти іншої цілі.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Спокійне око",
+      engName: "Steady Eye",
+      shortDescription: "Перевага на пошук, якщо ви рухаєтеся не більше ніж на половину швидкості.",
+      description:
+        "Починаючи з 9-го рівні, ви отримуєте перевагу на перевірки Мудрості (Уважність) та Інтелекту (Розслідування), якщо в цей хід рухаєтеся не більше ніж на половину своєї швидкості.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Безпомилкове око",
+      engName: "Unerring Eye",
+      shortDescription: "Відчуття ілюзій та перевертнів навколо вас.",
+      description:
+        "На 13-му рівні ваші чуття настільки гострі, що їх важко обманути магією. Дією ви відчуваєте присутність ілюзій, невидимих істот або перевертнів у межах 30 футів від вас. Ви знаєте, що щось не так, але не бачите істоту чи справжній вигляд. Ви можете використовувати цю рису кількість разів, що дорівнює вашому модифікатору Мудрості (мінімум 1), і відновлюєте використання після довгого відпочинку.",
+      displayType: [FeatureDisplayType.ACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      // usesCount based on WIS
+    },
+    {
+      name: "Око на слабкості",
+      engName: "Eye for Weakness",
+      shortDescription: "Додаткова шкода Прихованої атаки проти цілі Проникливого бою.",
+      description:
+        "На 17-му рівні ви вчитеся завдавати ударів у найбільш вразливі місця. Коли ви використовуєте Приховану атаку проти цілі, на яку діє ваш Проникливий бій (Insightful Fighting), шкода Прихованої атаки збільшується на 3к6.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // ==== Mastermind ====
+    {
+      name: "Майстер інтриг (Риса)",
+      engName: "Master of Intrigue",
+      shortDescription: "Володіння ігровим набором, набором для гриму та двома мовами. Імітація акценту.",
+      description:
+        "Коли ви обираєте цей архетип на 3-му рівні, ви отримуєте володіння набором для гриму (disguise kit), набором для фальшування (forgery kit) та одним ігровим набором на ваш вибір. Ви також вивчаєте дві мови на ваш вибір. Крім того, ви можете бездоганно імітувати акцент або говір іншої істоти, якщо слухали її мову принаймні 1 хвилину.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Майстер тактики",
+      engName: "Master of Tactics",
+      shortDescription: "Бонусна добавка дії Допомога на відстані 30 футів.",
+      description:
+        "Починаючи з 3-го рівні, ви можете використовувати бонусну дію для виконання дії Допомога (Help). Коли ви використовуєте Допомогу для союзника, який атакує істоту, ця істота може перебувати в межах 30 футів від вас, замість звичайних 5 футів.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Проникливий маніпулятор",
+      engName: "Insightful Manipulator",
+      shortDescription: "Вивчення характеристик істоти після 1 хвилини спостереження.",
+      description:
+        "Починаючи з 9-го рівні, якщо ви спостерігаєте за істотою або взаємодієте з нею протягом 1 хвилини, ви можете дізнатися, чи вона сильніша або слабша за вас у двох з наступних категорій (на ваш вибір):\n* Показник Інтелекту\n* Показник Мудрості\n* Показник Харизми\n* Рівень класу (якщо є).",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Введення в оману",
+      engName: "Misdirection",
+      shortDescription: "Перенаправлення атаки на іншу істоту, що дає вам укриття.",
+      description:
+        "Починаючи з 13-го рівні, ви можете змусити ворога влучити в іншу істоту замість вас. Коли по вам здійснюють атаку, а інша істота в межах 5 футів від вас надає вам укриття (cover) від цієї атаки, ви можете зреагувати так, щоб атака натомість була спрямована на цю істоту.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Душа обману",
+      engName: "Soul of Deceit",
+      shortDescription: "Імунітет до читання думок та визначення брехні.",
+      description:
+        "На 17-му рівні ваші думки більше не можуть бути прочитані телепатією або іншими засобами, якщо ви того не забажаєте. Ви також захищені від магії, що визначає, чи говорите ви правду. Коли ви брешете, перебуваючи під дією такої магії, ви можете зробити так, щоб магія показувала, що ви говорите правду.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // ==== Scout ====
+    {
+      name: "Застрільник",
+      engName: "Skirmisher",
+      shortDescription: "Реакція для руху на половину швидкості, коли ворог підходить до вас.",
+      description:
+        "Починаючи з 3-го рівня, ви стаєте невловимими в бою. Коли ворог закінчує свій хід у межах 5 футів від вас, ви можете використати свою реакцію, щоб переміститися на відстань до половини вашої швидкості. Цей рух не провокує атак при нагоді.",
+      displayType: [FeatureDisplayType.REACTION],
+    },
+    {
+      name: "Виживальник",
+      engName: "Survivalist",
+      shortDescription: "Володіння та подвійний бонус до Природи та Виживання.",
+      description:
+        "На 3-му рівні ви стаєте майстром виживання. Ви отримуєте володіння навичками Природа (Nature) та Виживання (Survival). Ваш бонус майстерності подвоюється для будь-якої перевірки характеристик, яку ви робите з використанням цих навичок.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Виняткова мобільність",
+      engName: "Superior Mobility",
+      shortDescription: "+10 футів до швидкості ходьби (та лазіння/плавання).",
+      description:
+        "На 9-му рівні ваша швидкість ходьби збільшується на 10 футів. Якщо у вас є швидкість лазіння або плавання, вони також збільшуються на 10 футів.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Майстер засідки",
+      engName: "Ambush Master",
+      shortDescription: "Перевага на ініціативу. Перший удар по цілі дає перевагу союзникам.",
+      description:
+        "Починаючи з 13-го рівні, ви маєте перевагу на кидки ініціативи. Крім того, перша істота, по якій ви влучили атакою в першому раунді бою, стає легкою ціллю для ваших союзників: кидки атаки проти неї мають перевагу до початку вашого наступного ходу.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Раптовий удар",
+      engName: "Sudden Strike",
+      shortDescription: "Бонусна дія для другої атаки з Прихованою атакою.",
+      description:
+        "На 17-му рівні ви можете атакувати з блискавичною швидкістю. Коли ви використовуєте дію Атака у свій хід, ви можете здійснити одну додаткову атаку бонусною дією. Ця атака може використовувати вашу Приховану атаку (Sneak Attack), навіть якщо ви вже використовували її в цей хід, але ви не можете використати Приховану атаку проти однієї і тієї ж цілі двічі за один хід.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+
+    // ==== Phantom ====
+    {
+      name: "Шепоти мертвих",
+      engName: "Whispers from the Dead",
+      shortDescription: "Отримання володіння однією навичкою або інструментом після відпочинку.",
+      description:
+        "На 3-му рівні ви можете отримати знання від духів. Коли ви закінчуєте короткий або довгий відпочинок, ви можете отримати володіння однією навичкою або інструментом на ваш вибір, оскільки примарні голоси діляться з вами своїми спогадами. Ви володієте цим, поки не використаєте цю рису знову.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Плач з могили",
+      engName: "Wails from the Grave",
+      shortDescription: "Додаткова некротична шкода другій цілі під час Прихованої атаки.",
+      description:
+        "На 3-му рівні, коли ви завдаєте шкоди Прихованою атакою (Sneak Attack), ви можете направити енергію смерті на іншу істоту в межах 30 футів від першої. Ця істота отримує некротичну шкоду, що дорівнює половині кількості кубиків вашої Прихованої атаки (округлено вгору). Ви можете використовувати цю рису кількість разів, що дорівнює вашому бонусу майстерності, і відновлюєте використання після довгого відпочинку.",
+      displayType: [FeatureDisplayType.PASSIVE],
+      limitedUsesPer: RestType.LONG_REST,
+      // usesCount based on Proficiency Bonus
+    },
+    {
+      name: "Токени спочилих",
+      engName: "Tokens of the Departed",
+      shortDescription: "Захоплення душі істоти в магічний токен для посилення.",
+      description:
+        "На 9-му рівні, коли в межах 30 футів від вас помирає істота, ви можете реакцією захопити її життєву силу в магічний токен (наприклад, монету або кістку). Ви можете мати кількість токенів, що не перевищує ваш бонус майстерності. Поки токен у вас:\n* Ви маєте перевагу на ряткитки Статури та від смерті.\n* Ви можете використати токен, щоб застосувати Плач з могили, не витрачаючи його звичайні використання.\n* Ви можете знищити токен дією, щоб поставити запитання духу померлого (як у заклинання Розмова з мертвими).",
+      displayType: [FeatureDisplayType.REACTION],
+    },
+    {
+      name: "Примарна хода",
+      engName: "Ghost Walk",
+      shortDescription: "Перетворення на привида: політ та проходження крізь стіни.",
+      description:
+        "На 13-му рівні ви можете ставати напівматеріальним. Бонусною дією ви стаєте примарним на 10 хвилин. Ви отримуєте швидкість польоту 10 футів, можете проходити крізь істот та об'єкти (отримуючи шкоду, якщо закінчите хід всередині), а кидки атаки проти вас мають недолік. Ви можете використовувати цю рису раз за довгий відпочинок, або витративши один токен спочилих.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
+    },
+    {
+      name: "Друг смерті",
+      engName: "Death's Friend",
+      shortDescription: "Кожен Плач з могили завдає шкоди обом цілям. Токен після відпочинку.",
+      description:
+        "На 17-му рівні ваш зв'язок зі смертю стає нерозривним. Тепер, коли ви використовуєте Плач з могили, некротична шкода завдається не тільки другій цілі, а й першій. Крім того, якщо ви закінчуєте довгий відпочинок без жодного токена спочилих, у вас з'являється один токен.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // ==== Soulknife ====
+    {
+      name: "Психічні шепоти",
+      engName: "Psychic Whispers",
+      shortDescription: "Створення телепатичного зв'язку між союзниками.",
+      description:
+        "На 3-му рівні ви можете встановити телепатичний зв'язок. Витративши один Кубик Психічної Енергії, ви обираєте істот (до вашого бонусу майстерності) у межах 30 футів. Ви можете спілкуватися телепатично на відстані в милях, що дорівнює результату кидка кубика. Зв'язок триває 1 годину.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Психічні леза",
+      engName: "Psychic Blades",
+      shortDescription: "Матеріалізація лез психічної енергії для атаки.",
+      description:
+        "На 3-му рівні ви можете створювати леза з чистого розуму. Коли ви використовуєте дію Атака, ви можете матеріалізувати лезо в порожній руці та атакувати ним (шкода 1к6 психікою). Після атаки лезо зникає. Якщо ви атакуєте цим лезом у свій хід, ви можете здійснити другу атаку іншим лезом бонусною дією (шкода 1к4).",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Леза душі",
+      engName: "Soul Blades",
+      shortDescription: "Використання психічних кубиків для посилення атак та стрибків.",
+      description:
+        "На 9-му рівні ви вчитеся направляти психічну енергію через свої леза. Ви можете витрачати Кубики Психічної Енергії, щоб:\n* Додати результат кубика до промаху атаки, щоб спробувати влучити.\n* Телепортуватися на відстань, що дорівнює результату кидка кубика, помноженому на 5.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Психічна завіса",
+      engName: "Psychic Veil",
+      shortDescription: "Ставайте невидимим на 1 годину.",
+      description:
+        "На 13-му рівні ви можете стати невидимим. Дією ви стаєте невидимим разом з усім спорядженням на 1 годину або доки не влучите по комусь або не змусите когось зробити ряткидок. Ви можете використовувати це раз за довгий відпочинок, або витративши один Кубик Психічної Енергії.",
+      displayType: [FeatureDisplayType.ACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
+    },
+    {
+      name: "Розрив розуму",
+      engName: "Rend Mind",
+      shortDescription: "Удар лезом може приголомшити ціль (ряткидок WIS).",
+      description:
+        "На 17-му рівні ваші леза можуть розірвати розум ворога. Коли ви завдаєте шкоди Прихованою атакою (Sneak Attack) за допомогою Психічного леза, ви можете змусити ціль зробити ряткидок Мудрості (CD 8 + бонус майстерності + модифікатор Спритності). при провалі вона стає Приголомшеною (Stunned) на 1 хвилину. Ви можете використовувати це раз за довгий відпочинок, або витративши три Кубики Психічної Енергії.",
+      displayType: [FeatureDisplayType.PASSIVE],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
+    },
+
+    // ==== Swashbuckler ====
+    {
+      name: "Витончена робота ніг",
+      engName: "Fancy Footwork",
+      shortDescription: "Істоти, яких ви атакували в ближньому бою, не можуть атакувати при нагоді проти вас.",
+      description:
+        "На 3-му рівні ви вчитеся уникати ударів під час відступу. Якщо ви здійснюєте атаку ближнього бою проти істоти у свій хід, ця істота не може здійснювати атаки при нагоді (attacks of opportunity) проти вас до кінця цього ходу, незалежно від того, чи влучили ви.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Зухвала відвага",
+      engName: "Rakish Audacity",
+      shortDescription: "Додавайте Харизму до ініціативи. Прихована атака в дуелі 1 на 1.",
+      description:
+        "На 3-му рівні ваша впевненість веде вас у бій. Ви додаєте модифікатор Харизми до своїх кидків ініціативи. Крім того, ви можете використовувати Приховану атаку (Sneak Attack), якщо ви перебуваєте в межах 5 футів від цілі, жодна інша істота не перебуває в межах 5 футів від вас, і у вас немає недоліку на кидок атаки.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Шик",
+      engName: "Panache",
+      shortDescription: "Перевірка Харизми для зачарування або провокації ворога.",
+      description:
+        "На 9-му рівні ваша чарівність стає магічною. Дією ви робите перевірку Харизми (Переконання) проти Мудрості (Проникливість) істоти, яку ви бачите:\n* Якщо вона ворожа, вона має недолік на атаки проти інших істот та не може здійснювати атаки при нагоді проти них протягом 1 хвилини.\n* Якщо вона не ворожа, вона Зачарована (Charmed) вами на 1 хвилину.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Елегантний маневр",
+      engName: "Elegant Maneuver",
+      shortDescription: "Бонусна дія для переваги на наступну перевірку Акробатики або Атлетики.",
+      description:
+        "На 13-му рівні ви можете використовувати бонусну дію, щоб отримати перевагу на наступну перевірку Спритності (Акробатика) або Сили (Атлетика), яку ви зробите до кінця вашого поточного ходу.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Майстерний дуелянт",
+      engName: "Master Duelist",
+      shortDescription: "Перекидання промаху атаки з перевагою.",
+      description:
+        "На 17-му рівні ваша майстерність зі зброєю дозволяє перетворювати промахи на влучання. Якщо ви промахуєтеся кидком атаки, ви можете перекинути його з перевагою. Використовується раз за короткий або довгий відпочинок.",
+      displayType: [FeatureDisplayType.PASSIVE],
+      limitedUsesPer: RestType.SHORT_REST,
+      usesCount: 1,
+    },
   ]
   const links: SubclassFeatureLink[] = [
     // College of Creation
@@ -6205,6 +6606,70 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     { subclass: Subclasses.BATTLE_SMITH, feature: "Extra Attack (Battle Smith)", level: 5 },
     { subclass: Subclasses.BATTLE_SMITH, feature: "Arcane Jolt", level: 9 },
     { subclass: Subclasses.BATTLE_SMITH, feature: "Improved Defender", level: 15 },
+
+    // Thief
+    { subclass: Subclasses.THIEF, feature: "Fast Hands", level: 3 },
+    { subclass: Subclasses.THIEF, feature: "Second-Story Work", level: 3 },
+    { subclass: Subclasses.THIEF, feature: "Supreme Sneak", level: 9 },
+    { subclass: Subclasses.THIEF, feature: "Use Magic Device", level: 13 },
+    { subclass: Subclasses.THIEF, feature: "Thief's Reflexes", level: 17 },
+
+    // Assassin
+    { subclass: Subclasses.ASSASSIN, feature: "Bonus Proficiencies (Assassin)", level: 3 },
+    { subclass: Subclasses.ASSASSIN, feature: "Assassinate", level: 3 },
+    { subclass: Subclasses.ASSASSIN, feature: "Infiltration Expertise", level: 9 },
+    { subclass: Subclasses.ASSASSIN, feature: "Impostor", level: 13 },
+    { subclass: Subclasses.ASSASSIN, feature: "Death Strike", level: 17 },
+
+    // Arcane Trickster
+    { subclass: Subclasses.ARCANE_TRICKSTER, feature: "Spellcasting (Arcane Trickster)", level: 3 },
+    { subclass: Subclasses.ARCANE_TRICKSTER, feature: "Mage Hand Legerdemain", level: 3 },
+    { subclass: Subclasses.ARCANE_TRICKSTER, feature: "Magical Ambush", level: 9 },
+    { subclass: Subclasses.ARCANE_TRICKSTER, feature: "Versatile Trickster", level: 13 },
+    { subclass: Subclasses.ARCANE_TRICKSTER, feature: "Spell Thief", level: 17 },
+
+    // Inquisitive
+    { subclass: Subclasses.INQUISITIVE, feature: "Ear for Deceit", level: 3 },
+    { subclass: Subclasses.INQUISITIVE, feature: "Eye for Detail", level: 3 },
+    { subclass: Subclasses.INQUISITIVE, feature: "Insightful Fighting", level: 3 },
+    { subclass: Subclasses.INQUISITIVE, feature: "Steady Eye", level: 9 },
+    { subclass: Subclasses.INQUISITIVE, feature: "Unerring Eye", level: 13 },
+    { subclass: Subclasses.INQUISITIVE, feature: "Eye for Weakness", level: 17 },
+
+    // Mastermind
+    { subclass: Subclasses.MASTERMIND, feature: "Master of Intrigue", level: 3 },
+    { subclass: Subclasses.MASTERMIND, feature: "Master of Tactics", level: 3 },
+    { subclass: Subclasses.MASTERMIND, feature: "Insightful Manipulator", level: 9 },
+    { subclass: Subclasses.MASTERMIND, feature: "Misdirection", level: 13 },
+    { subclass: Subclasses.MASTERMIND, feature: "Soul of Deceit", level: 17 },
+
+    // Scout
+    { subclass: Subclasses.SCOUT, feature: "Skirmisher", level: 3 },
+    { subclass: Subclasses.SCOUT, feature: "Survivalist", level: 3 },
+    { subclass: Subclasses.SCOUT, feature: "Superior Mobility", level: 9 },
+    { subclass: Subclasses.SCOUT, feature: "Ambush Master", level: 13 },
+    { subclass: Subclasses.SCOUT, feature: "Sudden Strike", level: 17 },
+
+    // Phantom
+    { subclass: Subclasses.PHANTOM, feature: "Whispers from the Dead", level: 3 },
+    { subclass: Subclasses.PHANTOM, feature: "Wails from the Grave", level: 3 },
+    { subclass: Subclasses.PHANTOM, feature: "Tokens of the Departed", level: 9 },
+    { subclass: Subclasses.PHANTOM, feature: "Ghost Walk", level: 13 },
+    { subclass: Subclasses.PHANTOM, feature: "Death's Friend", level: 17 },
+
+    // Soulknife
+    { subclass: Subclasses.SOULKNIFE, feature: "Psychic Whispers", level: 3 },
+    { subclass: Subclasses.SOULKNIFE, feature: "Psychic Blades", level: 3 },
+    { subclass: Subclasses.SOULKNIFE, feature: "Soul Blades", level: 9 },
+    { subclass: Subclasses.SOULKNIFE, feature: "Psychic Veil", level: 13 },
+    { subclass: Subclasses.SOULKNIFE, feature: "Rend Mind", level: 17 },
+
+    // Swashbuckler
+    { subclass: Subclasses.SWASHBUCKLER, feature: "Fancy Footwork", level: 3 },
+    { subclass: Subclasses.SWASHBUCKLER, feature: "Rakish Audacity", level: 3 },
+    { subclass: Subclasses.SWASHBUCKLER, feature: "Panache", level: 9 },
+    { subclass: Subclasses.SWASHBUCKLER, feature: "Elegant Maneuver", level: 13 },
+    { subclass: Subclasses.SWASHBUCKLER, feature: "Master Duelist", level: 17 },
   ]
 
   for (const feature of features) {

@@ -3,6 +3,7 @@
 import { ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import { CircleHelp } from "lucide-react";
 import clsx from "clsx";
+// @ts-expect-error
 import type { FocusOutsideEvent, PointerDownOutsideEvent } from "@radix-ui/react-dismissable-layer";
 
 import {

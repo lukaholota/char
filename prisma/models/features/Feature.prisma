@@ -62,7 +62,7 @@ model Feature {
   subracesReplacingFeatures     Subrace[]                             @relation("SubraceReplacingFeature")
   raceVariantsReplacingFeatures RaceVariant[]                         @relation("RaceVariantReplacingFeature")
 
-  featFeatures FeatFeature[]
+  grantsByFeat Feat[] @relation("FeatGrantsFeature")
 
   infusions Infusion[]
 
