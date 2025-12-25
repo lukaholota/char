@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeftRight, LogIn } from "lucide-react";
-import { Button } from "@/lib/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   onReset: () => void;

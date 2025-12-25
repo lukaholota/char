@@ -16,6 +16,7 @@ import {
   LevelUpStep,
   LevelUpChoice
 } from '@/types/character-flow';
+import { translateValue } from '@/lib/components/characterCreator/infoUtils';
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // INDIVIDUAL STEP RENDERERS
@@ -34,7 +35,7 @@ const SubclassSelectionGrid: React.FC<{ step: SelectSubclassStep }> = ({ step })
     <div className="space-y-4">
       <div className="mb-6">
         <h3 className="text-lg font-semibold text-foreground">
-          {step.className} — Обери Підклас
+          {translateValue(step.className)} — Обери Підклас
         </h3>
         <p className="text-sm text-muted-foreground">
           На {step.level}-му рівні ви обираєте архетип, що визначає ваш шлях.
@@ -51,7 +52,7 @@ const SubclassSelectionGrid: React.FC<{ step: SelectSubclassStep }> = ({ step })
             onClick={() => addChoice({ stepType: 'SELECT_SUBCLASS', subclassId: subclass.id })}
           >
             <CardHeader>
-              <CardTitle>{subclass.name}</CardTitle>
+              <CardTitle>{translateValue(subclass.name)}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">{subclass.description}</p>

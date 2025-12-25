@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Button } from "@/lib/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";

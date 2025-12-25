@@ -73,7 +73,7 @@ export default function SkillsSlide({ pers }: SkillsSlideProps) {
                 className={`flex justify-between items-center h-8 px-3 rounded transition-all ${
                   isProficient
                     ? "bg-cyan-500/10 border-l-2 border-cyan-400/60"
-                    : "bg-slate-900/20 opacity-50"
+                    : "bg-slate-800/25 border-l-2 border-slate-700/40"
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -85,7 +85,7 @@ export default function SkillsSlide({ pers }: SkillsSlideProps) {
                   )}
                   <span
                     className={`text-sm transition ${
-                      isProficient ? "text-slate-50 opacity-100 font-medium" : "text-slate-400 opacity-50"
+                      isProficient ? "text-slate-50 opacity-100 font-medium" : "text-slate-300/80"
                     }`}
                   >
                     {skillInfo.name}
@@ -97,7 +97,7 @@ export default function SkillsSlide({ pers }: SkillsSlideProps) {
                       ? "text-amber-300 opacity-100"
                       : proficiency === "PROFICIENT"
                         ? "text-cyan-300 opacity-100"
-                        : "text-slate-400 opacity-50"
+                        : "text-slate-300/70"
                   }`}
                 >
                   {formatModifier(total)}

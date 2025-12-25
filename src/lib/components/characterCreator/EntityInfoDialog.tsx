@@ -11,8 +11,44 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/lib/components/ui/dialog";
-import { Button } from "@/lib/components/ui/Button";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+
+export const InfoDialogContent = ({
+  title,
+  subtitle,
+  children,
+  className,
+}: {
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+  className?: string;
+}) => {
+  return (
+    <DialogContent
+      className={clsx(
+        "max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto bg-slate-900/95 backdrop-blur-2xl border border-indigo-500/30 shadow-[0_0_50px_-10px_rgba(79,70,229,0.5)] rounded-2xl p-6",
+        className
+      )}
+    >
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent shadow-[0_0_10px_indigo]" />
+
+      <DialogHeader className="space-y-3 pb-4 border-b border-indigo-500/20">
+        <DialogTitle className="text-2xl font-bold tracking-wide text-indigo-100 drop-shadow-md">
+          {title}
+        </DialogTitle>
+        {subtitle && (
+          <DialogDescription className="text-sm text-indigo-200/70 font-medium">
+            {subtitle}
+          </DialogDescription>
+        )}
+      </DialogHeader>
+
+      <div className="pt-4 space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">{children}</div>
+    </DialogContent>
+  );
+};
 
 interface InfoDialogProps {
   title: string;
@@ -54,25 +90,33 @@ export const InfoDialog = ({
         </DialogTrigger>
       </div>
       
-      <DialogContent className="max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto bg-slate-950/95 backdrop-blur-2xl border border-indigo-500/30 shadow-[0_0_50px_-10px_rgba(79,70,229,0.5)] rounded-2xl p-6">
-        {/* Decorative Top Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent shadow-[0_0_10px_indigo]" />
-        
-        <DialogHeader className="space-y-3 pb-4 border-b border-indigo-500/20">
-          <DialogTitle className="text-2xl font-bold tracking-wide text-indigo-100 drop-shadow-md">
-            {title}
-          </DialogTitle>
-          {subtitle && (
-            <DialogDescription className="text-sm text-indigo-200/70 font-medium">
-              {subtitle}
-            </DialogDescription>
-          )}
-        </DialogHeader>
-        
-        <div className="pt-4 space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
-          {children}
-        </div>
-      </DialogContent>
+      <InfoDialogContent title={title} subtitle={subtitle}>
+        {children}
+      </InfoDialogContent>
+    </Dialog>
+  );
+};
+
+export const ControlledInfoDialog = ({
+  open,
+  onOpenChange,
+  title,
+  subtitle,
+  children,
+  contentClassName,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+  contentClassName?: string;
+}) => {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <InfoDialogContent title={title} subtitle={subtitle} className={contentClassName}>
+        {children}
+      </InfoDialogContent>
     </Dialog>
   );
 };

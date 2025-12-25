@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "sonner";
-import { Button } from "@/lib/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/lib/components/ui/dialog";
+} from "@/components/ui/dialog";
 import { Loader2, LogIn, ShieldCheck } from "lucide-react";
 
 interface Props {

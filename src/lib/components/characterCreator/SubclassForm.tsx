@@ -3,10 +3,10 @@
 import { useStepForm } from "@/hooks/useStepForm";
 import { subclassSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { ClassI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import clsx from "clsx";
 import { useEffect } from "react";
-import { Badge } from "@/lib/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 // import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
@@ -15,6 +15,7 @@ import {
   formatLanguages,
   formatToolProficiencies,
   prettifyEnum,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 
 interface Props {
@@ -106,7 +107,7 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
         <h2 className="text-xl font-semibold text-white">Оберіть підклас</h2>
-        <p className="text-sm text-slate-400">Для класу {cls.name}</p>
+        <p className="text-sm text-slate-400">Для класу {translateValue(cls.name)}</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {subclasses.map((sc) => {
@@ -134,7 +135,16 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
           </Card>
         )})}
       </div>
-      <input type="hidden" {...form.register("subclassId", { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("subclassId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   );
 };

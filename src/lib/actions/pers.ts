@@ -82,6 +82,15 @@ export async function getPersById(id: number) {
                     }
                 } 
             },
+            raceVariants: {
+                include: {
+                    traits: {
+                        include: {
+                            feature: true,
+                        },
+                    },
+                },
+            },
             features: { include: { feature: true } },
             choiceOptions: true,
             raceChoiceOptions: true,
@@ -175,39 +184,6 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         where: { persId },
         include: {
             features: { include: { feature: true } },
-            class: {
-                include: {
-                    features: {
-                        include: { feature: true },
-                    },
-                },
-            },
-            subclass: {
-                include: {
-                    features: {
-                        include: { feature: true },
-                    },
-                },
-            },
-            background: true,
-            race: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true,
-                        },
-                    },
-                },
-            },
-            subrace: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true,
-                        },
-                    },
-                },
-            },
             feats: {
                 include: {
                     feat: true,
@@ -261,70 +237,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         });
     }
 
-    // 2) Class features up to current level
-    const cls = pers.class;
-    if (cls?.features) {
-        for (const cf of cls.features.filter((x) => x.levelGranted <= pers.level)) {
-            const f = cf.feature;
-            push({
-                key: `CLASS:${pers.classId}:feature:${f.featureId}`,
-                name: f.name,
-                description: f.description,
-                displayTypes: normalizeDisplayTypes(f.displayType),
-                source: "CLASS",
-                sourceName: cls.name,
-            });
-        }
-    }
-
-    // 3) Subclass features up to current level
-    const subcls = pers.subclass;
-    if (subcls?.features) {
-        for (const scf of subcls.features.filter((x) => x.levelGranted <= pers.level)) {
-            const f = scf.feature;
-            push({
-                key: `SUBCLASS:${pers.subclassId}:feature:${f.featureId}`,
-                name: f.name,
-                description: f.description,
-                displayTypes: normalizeDisplayTypes(f.displayType),
-                source: "SUBCLASS",
-                sourceName: subcls.name,
-            });
-        }
-    }
-
-    // 4) Race + subrace traits
-    const race = pers.race;
-    if (race) {
-        for (const t of race.traits ?? []) {
-            const f = t.feature;
-            push({
-                key: `RACE:${pers.raceId}:feature:${f.featureId}`,
-                name: f.name,
-                description: f.description,
-                displayTypes: normalizeDisplayTypes(f.displayType),
-                source: "RACE",
-                sourceName: race.name,
-            });
-        }
-    }
-
-    const subrace = pers.subrace;
-    if (subrace) {
-        for (const t of subrace.traits ?? []) {
-            const f = t.feature;
-            push({
-                key: `SUBRACE:${pers.subraceId}:feature:${f.featureId}`,
-                name: f.name,
-                description: f.description,
-                displayTypes: normalizeDisplayTypes(f.displayType),
-                source: "SUBRACE",
-                sourceName: subrace.name,
-            });
-        }
-    }
-
-    // 5) Class/race choice options stored directly on pers
+    // 2) Choice options stored directly on pers
     for (const co of pers.choiceOptions ?? []) {
         const sourceName = co.groupName;
         push({
@@ -348,7 +261,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         });
     }
 
-    // 6) Feats + their selected feat choice options
+    // 3) Feats + their selected feat choice options
     for (const pf of pers.feats ?? []) {
         const featName = pf.feat.name;
         const displayTypes = [FeatureDisplayType.PASSIVE];

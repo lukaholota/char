@@ -12,7 +12,7 @@ export const subraceSchema = z.object({
 });
 
 export const raceVariantSchema = z.object({
-  raceVariantId: z.number().optional(),
+  raceVariantId: z.number().nullable().optional(),
 });
 
 export const featSchema = z.object({
@@ -149,28 +149,28 @@ export const skillsSchema  = z.object({
   .superRefine((data, ctx) => {
     // Skip validation if metadata not provided (for backward compatibility)
     if (data.isTasha && data._requiredCount !== undefined) {
-      // In Tasha mode: validate total count
+      // In Tasha mode: validate total count (upper bound)
       const actualCount = data.tashaChoices.length;
-      if (actualCount !== data._requiredCount) {
+      if (actualCount > data._requiredCount) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: `Оберіть рівно ${data._requiredCount} навичок`,
+          message: `Оберіть не більше ${data._requiredCount} навичок`,
           path: ['tashaChoices'],
         });
       }
     } else if (!data.isTasha && data._raceCount !== undefined && data._classCount !== undefined) {
-      // In basic mode: validate race and class counts separately
-      if (data.basicChoices.race.length !== data._raceCount) {
+      // In basic mode: validate race and class counts separately (upper bounds)
+      if (data.basicChoices.race.length > data._raceCount) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: `Оберіть рівно ${data._raceCount} навичок за расу`,
+          message: `Оберіть не більше ${data._raceCount} навичок за расу`,
           path: ['basicChoices', 'race'],
         });
       }
-      if (data.basicChoices.selectedClass.length !== data._classCount) {
+      if (data.basicChoices.selectedClass.length > data._classCount) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: `Оберіть рівно ${data._classCount} навичок за клас`,
+          message: `Оберіть не більше ${data._classCount} навичок за клас`,
           path: ['basicChoices', 'selectedClass'],
         });
       }
@@ -198,7 +198,7 @@ export const fullCharacterSchema = z.object({
   raceId: z.number(),
   raceSearch: z.string().default(''),
   subraceId: z.number().optional(),
-  raceVariantId: z.number().optional(),
+  raceVariantId: z.number().nullable().optional(),
   featId: z.number().optional(),
   classId: z.number(),
   subclassId: z.number().optional(),

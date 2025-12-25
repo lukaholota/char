@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { KeyboardEvent, SyntheticEvent, useEffect, useMemo, useRef, useState } from "react";
 
-import { Badge } from "@/lib/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { sourceTranslations, sourceTranslationsEng } from "@/lib/refs/translation";
 
 interface SourceBadgeProps {

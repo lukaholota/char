@@ -3,7 +3,8 @@
 import { useStepForm } from "@/hooks/useStepForm";
 import { raceVariantSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { RaceI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import clsx from "clsx";
 import { useEffect } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
@@ -14,6 +15,7 @@ import {
   formatASI,
   // formatRaceAC,
   formatSpeeds,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 
 interface Props {
@@ -26,19 +28,16 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
   const { updateFormData, nextStep } = usePersFormStore();
   
   const { form, onSubmit } = useStepForm(raceVariantSchema, (data) => {
-    updateFormData({ raceVariantId: data.raceVariantId });
+    updateFormData({ raceVariantId: data.raceVariantId ?? null });
     nextStep();
   });
   
   const chosenVariantId = form.watch("raceVariantId");
 
   useEffect(() => {
-    if (!chosenVariantId) {
-      onNextDisabledChange?.(true);
-      return;
-    }
+    // Variant selection is optional — user can continue without choosing.
     onNextDisabledChange?.(false);
-  }, [onNextDisabledChange, chosenVariantId]);
+  }, [onNextDisabledChange]);
 
   const variants = race.raceVariants || [];
 
@@ -91,8 +90,8 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть варіант раси</h2>
-        <p className="text-sm text-slate-400">Для раси {race.name}</p>
+        <h2 className="text-xl font-semibold text-white">Варіант раси (необовʼязково)</h2>
+        <p className="text-sm text-slate-400">Для раси {translateValue(race.name)}</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {variants.map((rv) => {
@@ -120,7 +119,32 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
           </Card>
         )})}
       </div>
-      <input type="hidden" {...form.register("raceVariantId", { valueAsNumber: true })} />
+
+      <div className="flex justify-center">
+        <Button
+          type="button"
+          variant="outline"
+          className="border-slate-800/80 bg-slate-900/60 text-slate-200"
+          onClick={() => {
+            form.setValue("raceVariantId", undefined);
+            updateFormData({ raceVariantId: null });
+            nextStep();
+          }}
+        >
+          Пропустити
+        </Button>
+      </div>
+
+      <input
+        type="hidden"
+        {...form.register("raceVariantId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return null;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : null;
+          },
+        })}
+      />
     </form>
   );
 };

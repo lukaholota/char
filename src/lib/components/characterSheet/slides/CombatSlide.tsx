@@ -70,7 +70,7 @@ export default function CombatSlide({ pers }: CombatSlideProps) {
                   {armorTypeTranslations[pa.armor.armorType as keyof typeof armorTypeTranslations] || pa.armor.armorType}
                 </div>
               </div>
-              <div className="text-sm text-slate-300">КЗ {pa.armor.baseAC}</div>
+              <div className="text-sm text-slate-300">КБ {pa.armor.baseAC}</div>
             </div>
           ))}
           {pers.armors.length === 0 && (

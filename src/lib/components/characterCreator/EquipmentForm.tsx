@@ -5,11 +5,11 @@ import {useEffect, useMemo, useState} from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { ClassStartingEquipmentOption, Weapon, WeaponType } from "@prisma/client";
 import {groupBy} from "@/lib/server/formatters/generalFormatters";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/lib/components/ui/dialog";
-import { Button } from "@/lib/components/ui/Button";
-import { Tabs, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WeaponKindType } from "@/lib/types/enums";
 import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
 

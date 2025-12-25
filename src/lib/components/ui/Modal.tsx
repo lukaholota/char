@@ -42,7 +42,7 @@ export const Modal = ({open, onClose, children}: Props) => {
         rounded-xl
         bg-slate-700
         text-white
-        backdrop:bg-black/50
+        backdrop:bg-slate-950/60
         backdrop:backdrop-blur-sm
         p-0
         open:animate-fadeIn

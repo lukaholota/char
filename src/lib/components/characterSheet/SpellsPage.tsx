@@ -2,7 +2,7 @@
 
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 
 export default function SpellsPage({ pers }: { pers: PersWithRelations }) {

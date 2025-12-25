@@ -48,7 +48,7 @@ export default function CombatPage({ pers }: { pers: PersWithRelations }) {
       <div className="grid grid-cols-3 gap-2">
         <Card className="bg-violet-500/20 border-violet-400/40 backdrop-blur">
             <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
-                <div className="text-xs font-bold uppercase text-violet-200">КЗ</div>
+                <div className="text-xs font-bold uppercase text-violet-200">КБ</div>
                 <div className="text-2xl font-bold text-violet-50">{ac}</div>
             </CardContent>
         </Card>

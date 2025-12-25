@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { raceTranslations, classTranslations, subclassTranslations, subraceTranslations, backgroundTranslations, featTranslations } from "@/lib/refs/translation";
 import { useState } from "react";
 import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/lib/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 export default function FeaturesPage({ pers }: { pers: PersWithRelations }) {

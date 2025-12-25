@@ -5,8 +5,8 @@ import { expertiseSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { ClassI, BackgroundI, RaceI } from "@/lib/types/model-types";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { useEffect, useMemo } from "react";
-import { Button } from "@/lib/components/ui/Button";
-import { Card } from "@/lib/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { engEnumSkills } from "@/lib/refs/translation";
 import { Skills } from "@prisma/client";
@@ -65,8 +65,8 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
   }, [formData.skills, formData.skillsSchema]);
 
   useEffect(() => {
-    const isValid = selectedExpertises.length === expertiseCount;
-    onNextDisabledChange?.(!isValid);
+    // Expertise selection is optional: user may proceed with fewer than the max.
+    onNextDisabledChange?.(false);
   }, [selectedExpertises, expertiseCount, onNextDisabledChange]);
 
   const toggleExpertise = (skill: string) => {
@@ -87,21 +87,20 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
   if (!expertiseFeature) return null;
 
   // Show warning if no skills selected yet
-  if (availableProficiencies.length === 0) {
-    return (
-      <Card className="border-yellow-500/50">
-        <div className="p-6 text-center">
-          <p className="text-yellow-400 mb-2">⚠️ Немає обраних навичок!</p>
-          <p className="text-sm text-slate-400">
-            Поверніться на крок &quot;Навички&quot; і оберіть принаймні одну навичку.
-          </p>
-        </div>
-      </Card>
-    );
-  }
 
   return (
     <form id={formId} onSubmit={onSubmit} className="space-y-6">
+      {availableProficiencies.length === 0 ? (
+        <Card className="border-yellow-500/50">
+          <div className="p-6 text-center">
+            <p className="text-yellow-400 mb-2">⚠️ Немає обраних навичок!</p>
+            <p className="text-sm text-slate-400">
+              Можна продовжити без експертизи або повернутись на крок &quot;Навички&quot;.
+            </p>
+          </div>
+        </Card>
+      ) : null}
+
       <div className="space-y-2 text-center">
         <h2 className="text-xl font-semibold text-white">Експертиза</h2>
         <p className="text-sm text-slate-400">
@@ -112,33 +111,35 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
         </p>
       </div>
 
-      <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
-        {availableProficiencies.map((skill) => {
-          const isSelected = selectedExpertises.includes(skill as Skills);
-          const isMaxReached = selectedExpertises.length >= expertiseCount;
-          const isDisabled = !isSelected && isMaxReached;
-          const active = isSelected;
-          const skillTranslation = engEnumSkills.find(s => s.eng === skill)?.ukr || skill;
+      {availableProficiencies.length > 0 ? (
+        <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+          {availableProficiencies.map((skill) => {
+            const isSelected = selectedExpertises.includes(skill as Skills);
+            const isMaxReached = selectedExpertises.length >= expertiseCount;
+            const isDisabled = !isSelected && isMaxReached;
+            const active = isSelected;
+            const skillTranslation = engEnumSkills.find(s => s.eng === skill)?.ukr || skill;
 
-          return (
-            <Button
-              key={skill}
-              type="button"
-              variant={active ? "secondary" : "outline"}
-              disabled={isDisabled}
-              className={`justify-between ${
-                active 
-                  ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                  : "bg-slate-900/60 border-slate-800/80 text-slate-200"
-              } ${isDisabled ? "opacity-60" : ""}`}
-              onClick={() => !isDisabled && toggleExpertise(skill)}
-            >
-              <span>{skillTranslation}</span>
-              {active && <Check className="h-4 w-4" />}
-            </Button>
-          );
-        })}
-      </div>
+            return (
+              <Button
+                key={skill}
+                type="button"
+                variant={active ? "secondary" : "outline"}
+                disabled={isDisabled}
+                className={`justify-between ${
+                  active 
+                    ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
+                    : "bg-slate-900/60 border-slate-800/80 text-slate-200"
+                } ${isDisabled ? "opacity-60" : ""}`}
+                onClick={() => !isDisabled && toggleExpertise(skill)}
+              >
+                <span>{skillTranslation}</span>
+                {active && <Check className="h-4 w-4" />}
+              </Button>
+            );
+          })}
+        </div>
+      ) : null}
     </form>
   );
 };

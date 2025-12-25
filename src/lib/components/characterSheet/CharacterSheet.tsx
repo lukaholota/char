@@ -18,8 +18,8 @@ export default function CharacterSheet({ pers, groupedFeatures }: CharacterSheet
   const className = classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name;
 
   return (
-    <div className="h-screen w-full bg-slate-950 flex flex-col">
-      <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-950/70 backdrop-blur sticky top-0 z-20">
+    <div className="h-screen w-full bg-slate-900 flex flex-col">
+      <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-900/70 backdrop-blur sticky top-0 z-20">
            <div>
              <div className="font-bold text-base md:text-lg text-slate-50">{pers.name}</div>
              <div className="text-xs text-slate-300/80">{raceName} {className} • Рівень {pers.level}</div>

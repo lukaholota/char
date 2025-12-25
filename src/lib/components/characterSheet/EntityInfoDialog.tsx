@@ -7,7 +7,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/lib/components/ui/dialog";
+} from "@/components/ui/dialog";
 
 export type EntityInfoKind = "race" | "class" | "background";
 

@@ -5,10 +5,10 @@ import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { raceSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { RaceAC, RaceASI, RaceI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { Input } from "@/lib/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useCallback } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
@@ -27,6 +27,7 @@ import {
   formatToolProficiencies,
   formatWeaponProficiencies,
   prettifyEnum,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 
 const normalizeText = (value?: string) =>
@@ -53,7 +54,7 @@ const formatSpeeds = (race: RaceI) => {
 const formatRaceAC = (ac?: RaceAC | null) => {
   if (!ac) return "10";
   if ("consistentBonus" in ac) {
-    return `+${ac.consistentBonus} до КЗ`;
+    return `+${ac.consistentBonus} до КБ`;
   }
   const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
   return `База ${ac.base}${bonus}`;
@@ -71,7 +72,7 @@ const formatASI = (asi?: RaceASI | null) => {
   if (fixedEntries.length) {
     parts.push(
       `Фіксовано: ${fixedEntries
-        .map(([stat, value]) => `${prettifyEnum(stat)} +${value}`)
+        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
         .join(", ")}`
     );
   }
@@ -156,7 +157,7 @@ export const RacesForm = (
           <InfoPill label="Джерело" value={sourceLabel(race)} />
           <InfoPill label="Розмір" value={formatList(race.size)} />
           <InfoPill label="Швидкості" value={formatSpeeds(race)} />
-          <InfoPill label="Базовий КЗ" value={formatRaceAC(race.ac)} />
+          <InfoPill label="Базовий КБ" value={formatRaceAC(race.ac)} />
           <InfoPill label="Бонуси характеристик" value={formatASI(race.ASI)} />
           <InfoPill
             label="Мови"
@@ -319,7 +320,16 @@ export const RacesForm = (
         </details>
       </div>
 
-      <input type="hidden" {...form.register('raceId', { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("raceId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   )
 };

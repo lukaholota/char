@@ -4,11 +4,11 @@ import { useEffect, useMemo, useRef } from "react";
 import { ClassI } from "@/lib/types/model-types";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-// import { Button } from "@/lib/components/ui/Button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import clsx from "clsx";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 
@@ -24,6 +24,8 @@ const formatFeatures = (features?: ClassI["classChoiceOptions"][number]["choiceO
 
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
+
+const isEnumLike = (value?: string | null) => !!value && /^[A-Z0-9_]+$/.test(value);
 
 const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
@@ -125,7 +127,9 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                   const optionId = opt.optionId ?? opt.choiceOptionId;
                   const selected = selections[groupName] === optionId;
                   const features = formatFeatures(opt.choiceOption.features);
-                  const label = opt.choiceOption.optionName || opt.choiceOption.optionNameEng;
+                  const ukrLabel = opt.choiceOption.optionName;
+                  const engLabel = opt.choiceOption.optionNameEng;
+                  const label = ukrLabel || (isEnumLike(engLabel) ? translateValue(engLabel) : engLabel);
 
                   return (
                     <Card
@@ -140,7 +144,12 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                     >
                       <CardContent className="flex h-full flex-col gap-3 p-3 sm:p-4">
                         <div className="flex items-center justify-between gap-2">
-                          <p className="text-sm font-semibold text-white">{label}</p>
+                          <div className="min-w-0">
+                            <p className="truncate text-sm font-semibold text-white">{label}</p>
+                            {ukrLabel && engLabel ? (
+                              <p className="truncate text-xs text-slate-400">{engLabel}</p>
+                            ) : null}
+                          </div>
                           <Badge
                             variant={selected ? "secondary" : "outline"}
                             className={clsx(

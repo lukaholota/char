@@ -74,7 +74,7 @@ export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCa
     if (id === "skills") return <SkillsSlide pers={pers} />;
     if (id === "equipment") return <CombatSlide pers={pers} />;
     if (id === "magic") return <MagicSlide pers={pers} />;
-    if (id === "features") return <FeaturesSlide groupedFeatures={groupedFeatures} />;
+    if (id === "features") return <FeaturesSlide pers={pers} groupedFeatures={groupedFeatures} />;
     return null;
   };
 
@@ -116,7 +116,7 @@ export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCa
             {visibleSlides.map((slide) => (
               <div
                 key={`${slide.id}-${slide.index}`}
-                className="h-full bg-slate-950/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden"
+                className="h-full bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden"
               >
                 <div className="h-full overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
                   {renderSlide(slide.id)}
@@ -146,7 +146,7 @@ export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCa
       </div>
 
       {/* Bottom navigation (always visible) */}
-      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-slate-950/85 backdrop-blur px-2 py-2">
+      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-slate-900/85 backdrop-blur px-2 py-2">
         <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
           {allSlides.map((s, idx) => {
             const active = idx === currentIndex;

@@ -232,6 +232,11 @@ export async function createCharacter(data: PersFormData) {
     featuresToConnect.push(...subclassFeatures.map(f => ({ featureId: f.featureId })));
   }
 
+  // Deduplicate feature ids (PersFeature has @@unique([persId, featureId]))
+  const uniqueFeatureIds = Array.from(
+    new Set(featuresToConnect.map((f) => f.featureId))
+  ).filter((id) => Number.isFinite(id));
+
   // 2. Prepare Equipment
   const weaponsToCreate: { weaponId: number }[] = [];
   const armorsToCreate: { armorId: number }[] = [];
@@ -282,6 +287,11 @@ export async function createCharacter(data: PersFormData) {
   Object.values(validData.classChoiceSelections).forEach(id => choiceOptionsToConnect.push({ choiceOptionId: id }));
   Object.values(validData.subclassChoiceSelections).forEach(id => choiceOptionsToConnect.push({ choiceOptionId: id }));
 
+  // Avoid duplicates when connecting many-to-many choice options
+  const uniqueChoiceOptionsToConnect = Array.from(
+    new Map(choiceOptionsToConnect.map((c) => [c.choiceOptionId, c])).values()
+  ).filter((c) => Number.isFinite(c.choiceOptionId) && c.choiceOptionId > 0);
+
 
   try {
     const newPers = await prisma.$transaction(async (tx) => {
@@ -314,12 +324,21 @@ export async function createCharacter(data: PersFormData) {
               }
             : undefined,
 
-          features: {
-            create: featuresToConnect.map((f) => ({ featureId: f.featureId })),
-          },
-          choiceOptions: {
-            connect: choiceOptionsToConnect,
-          },
+          features:
+            uniqueFeatureIds.length > 0
+              ? {
+                  createMany: {
+                    data: uniqueFeatureIds.map((featureId) => ({ featureId })),
+                    skipDuplicates: true,
+                  },
+                }
+              : undefined,
+          choiceOptions:
+            uniqueChoiceOptionsToConnect.length > 0
+              ? {
+                  connect: uniqueChoiceOptionsToConnect,
+                }
+              : undefined,
         },
       });
 

@@ -9,10 +9,10 @@ import {useStepForm} from "@/hooks/useStepForm";
 import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
 import { useEffect, useMemo, useCallback } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { Input } from "@/lib/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import {
   InfoDialog,
@@ -25,7 +25,7 @@ import {
   formatLanguages,
   formatSkillProficiencies,
   formatToolProficiencies,
-  prettifyEnum,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { BackgroundI } from "@/lib/types/model-types";
 
@@ -118,7 +118,7 @@ export const BackgroundsForm = (
     const items = parseItems(background.items);
     const sourceText = sourceLabel(background.name);
     const resolvedSource = sourceText === "Інші джерела" && background.source
-      ? prettifyEnum(background.source)
+      ? translateValue(background.source)
       : sourceText;
 
     return (
@@ -206,7 +206,7 @@ export const BackgroundsForm = (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
         <h2 className="text-xl font-semibold text-white">Оберіть передісторію</h2>
-        <p className="text-sm text-slate-400">Спершу показані варіанти PHB, решта в акордеоні нижче.</p>
+        <p className="text-sm text-slate-400">Спершу показані варіанти з Книги Гравця (2014), решта в акордеоні нижче.</p>
       </div>
 
       <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
@@ -245,7 +245,7 @@ export const BackgroundsForm = (
       <div className="space-y-3">
         <div>
           <div className="mb-2 flex items-center justify-between">
-            <p className="text-sm font-semibold text-white">PHB 2014</p>
+            <p className="text-sm font-semibold text-white">Книга Гравця (2014)</p>
             <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Джерело</Badge>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -301,7 +301,16 @@ export const BackgroundsForm = (
         </details>
       </div>
 
-      <input type="hidden" {...form.register('backgroundId', { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("backgroundId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   )
 };

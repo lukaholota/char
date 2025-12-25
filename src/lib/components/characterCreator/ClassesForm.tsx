@@ -6,8 +6,8 @@ import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { ClassI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { useEffect, useMemo } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import {
@@ -174,7 +174,16 @@ export const ClassesForm = (
           ))}
       </div>
 
-      <input type="hidden" {...form.register('classId', { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("classId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   )
 };

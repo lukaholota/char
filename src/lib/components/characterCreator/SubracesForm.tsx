@@ -3,7 +3,7 @@
 import { useStepForm } from "@/hooks/useStepForm";
 import { subraceSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { RaceI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import clsx from "clsx";
 import { useEffect } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
@@ -19,6 +19,7 @@ import {
   formatSpeeds,
   formatToolProficiencies,
   // formatWeaponProficiencies,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 
 interface Props {
@@ -102,7 +103,7 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
         <h2 className="text-xl font-semibold text-white">Оберіть підрасу</h2>
-        <p className="text-sm text-slate-400">Для раси {race.name}</p>
+        <p className="text-sm text-slate-400">Для раси {translateValue(race.name)}</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {subraces.map((sr) => {
@@ -130,7 +131,16 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
           </Card>
         )})}
       </div>
-      <input type="hidden" {...form.register("subraceId", { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("subraceId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   );
 };

@@ -3,7 +3,7 @@
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAbilityMod, formatModifier, getProficiencyBonus, skillAbilityMap } from "@/lib/logic/utils";
-import { Badge } from "@/lib/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { Skills } from "@prisma/client";
 
 export default function StatsPage({ pers }: { pers: PersWithRelations }) {

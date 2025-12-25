@@ -4,15 +4,16 @@ import { useEffect, useMemo, useRef } from "react";
 import { useStepForm } from "@/hooks/useStepForm";
 import { featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { FeatPrisma } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { useWatch } from "react-hook-form";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Skills } from "@prisma/client";
 import { SkillsEnum } from "@/lib/types/enums";
 import { engEnumSkills, expertiseTranslations } from "@/lib/refs/translation";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 
 interface Props {
   selectedFeat?: FeatPrisma | null;
@@ -323,7 +324,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
       <div className="space-y-1 text-center">
         <p className="text-sm font-semibold text-indigo-200">Риса</p>
         <h2 className="text-xl font-semibold text-white">Опції риси</h2>
-        <p className="text-sm text-slate-400">Риса &quot;{selectedFeat.name}&quot; вимагає вибору.</p>
+        <p className="text-sm text-slate-400">Риса &quot;{translateValue(selectedFeat.name)}&quot; вимагає вибору.</p>
       </div>
 
       <div className="space-y-4">

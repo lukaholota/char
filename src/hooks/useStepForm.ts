@@ -2,7 +2,7 @@ import {z, ZodObject, ZodRawShape} from "zod";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {DefaultValues, useForm} from "react-hook-form";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { toast } from "sonner";
 
 const extractErrorMessage = (err: unknown): string | null => {
@@ -31,7 +31,7 @@ export function useStepForm<TShape extends ZodRawShape>(
     type Input = z.input<typeof schema>
     type Output = z.output<typeof schema>
 
-    const { formData, updateFormData, nextStep } = usePersFormStore();
+    const { formData, updateFormData, nextStep, isHydrated } = usePersFormStore();
 
     const schemaDefaults = useMemo(() => {
         const result = schema.safeParse({});
@@ -59,21 +59,33 @@ export function useStepForm<TShape extends ZodRawShape>(
         shouldUnregister: false
     });
 
+    const didApplyHydratedDefaults = useRef(false);
+
+    useEffect(() => {
+        if (!isHydrated) return;
+        if (didApplyHydratedDefaults.current) return;
+        // After zustand-persist hydration, ensure persisted values override schema defaults.
+        form.reset(mergedDefaults as DefaultValues<Input>);
+        didApplyHydratedDefaults.current = true;
+    }, [isHydrated, form, mergedDefaults]);
+
     // Save data when unmounting (navigating away without submitting)
     useEffect(() => {
         return () => {
+            if (!isHydrated) return;
             const values = form.getValues();
             updateFormData(values);
         };
-    }, [form, updateFormData]);
+    }, [form, updateFormData, isHydrated]);
 
 
     useEffect(() => {
+        if (!isHydrated) return;
         const subscription = form.watch((value) => {
             updateFormData(value as Partial<Input>);
         });
         return () => subscription.unsubscribe();
-    }, [form, updateFormData])
+    }, [form, updateFormData, isHydrated])
 
     const friendlyMessages: Record<string, string> = {
         raceId: "Оберіть, будь ласка, расу",

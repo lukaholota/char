@@ -5,11 +5,11 @@ import {useEffect, useMemo} from "react";
 import {engEnumSkills} from "@/lib/refs/translation";
 import {RaceVariant, Skills} from "@prisma/client";
 import {Skill, SkillsEnum} from "@/lib/types/enums";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { Switch } from "@/lib/components/ui/switch";
-import { Label } from "@/lib/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { Check, Lock } from "lucide-react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 
@@ -205,7 +205,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
         backgroundCount,
         subraceCount,
         variantCount
-      }) + fixedSkillsFromRaceAndBackground.length // Add fixed skills that become choices in Tasha mode
+      })
     : 0;
     
   const tashaChoiceCountCurrent = tashaChoiceCountTotal - (tashaChoices?.length ?? 0)
@@ -257,12 +257,14 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
 
   // Update button state based on form validity
   useEffect(() => {
-    const hasCorrectCount = isTasha 
-      ? tashaChoices.length === tashaChoiceCountTotal  // In Tasha mode: ONE pool validation
-      : (basicChoices.selectedClass ?? []).length === classCount; // In non-Tasha: only validate class choices (race is auto-granted)
-    
-    onNextDisabledChange?.(!hasCorrectCount);
-  }, [isTasha, tashaChoices, tashaChoiceCountTotal, basicChoices, classCount, fixedSkillsFromRaceAndBackground, form.formState.isValid, form.formState.errors, onNextDisabledChange]);
+    // Skills selection is optional: allow continuing even if not all picks are filled.
+    // We only guard against impossible states (over the computed limit), but UI already prevents that.
+    const isOverLimit = isTasha
+      ? tashaChoices.length > tashaChoiceCountTotal
+      : (basicChoices.selectedClass ?? []).length > classCount;
+
+    onNextDisabledChange?.(isOverLimit);
+  }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, onNextDisabledChange]);
 
   const handleToggleTashaSkill = (skill: Skill) => {
     const has = tashaChoices.includes(skill)
@@ -312,7 +314,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
           {isTasha ? (
             <div className="space-y-3">
               <div className="flex items-center justify-between rounded-lg border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
-                <span>Залишилось обрати</span>
+                <span>Можна обрати ще</span>
                 <Badge variant="outline" className="border-slate-700 bg-slate-800/80 text-white">
                   {tashaChoiceCountCurrent}
                 </Badge>

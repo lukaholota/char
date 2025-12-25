@@ -1,13 +1,18 @@
+"use client";
+
 import { nameSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useStepForm } from "@/hooks/useStepForm";
-import { Input } from "@/lib/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { raceTranslations, classTranslations, backgroundTranslations } from "@/lib/refs/translation";
 import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
 import { RaceVariant } from "@prisma/client";
 import { useCharacterStats } from "@/hooks/useCharacterStats";
+import { useFantasyNameGenerator } from "@/hooks/useFantasyNameGenerator";
 import clsx from "clsx";
+import { RefreshCw } from "lucide-react";
 
 interface Props {
   formId: string;
@@ -69,6 +74,7 @@ const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }
 export const NameForm = ({ formId, race, raceVariant, selectedClass, background, feat, onSuccess }: Props) => {
   const { form, onSubmit } = useStepForm(nameSchema, onSuccess);
   const stats = useCharacterStats({ race, raceVariant, feat });
+  const { currentName, generateName } = useFantasyNameGenerator();
 
   const raceName = race ? raceTranslations[race.name] : undefined;
   const className = selectedClass ? classTranslations[selectedClass.name] : undefined;
@@ -97,12 +103,39 @@ export const NameForm = ({ formId, race, raceVariant, selectedClass, background,
 
           <div className="space-y-2">
             <label className="text-sm text-slate-300" htmlFor="name">Ім&apos;я</label>
-            <Input
-              id="name"
-              placeholder="Наприклад, Аравор"
-              {...form.register('name')}
-              className="border-slate-800/80 bg-slate-900/70 text-white"
-            />
+            <div className="flex gap-2">
+              <Input
+                id="name"
+                placeholder={currentName || "Наприклад, Аравор"}
+                {...form.register('name')}
+                className="border-slate-800/80 bg-slate-900/70 text-white"
+              />
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="border-slate-800/80 bg-slate-900/60 text-slate-200"
+                onClick={() => generateName()}
+                title="Згенерувати інше імʼя"
+              >
+                <RefreshCw className="h-4 w-4" />
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="text-slate-200"
+                onClick={() => form.setValue('name', currentName, { shouldDirty: true })}
+                disabled={!currentName}
+                title="Використати запропоноване імʼя"
+              >
+                Використати
+              </Button>
+            </div>
+            {currentName ? (
+              <p className="text-xs text-slate-500">
+                Підказка: <span className="text-slate-300">{currentName}</span>
+              </p>
+            ) : null}
             <p className="text-xs text-slate-500">Це ім&apos;я побачите у підсумку та на листі персонажа.</p>
           </div>
         </CardContent>

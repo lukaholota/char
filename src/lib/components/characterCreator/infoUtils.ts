@@ -6,10 +6,12 @@ import {
   armorTranslations,
   attributesUkrFull,
   engEnumSkills,
+  featTranslations,
   weaponTranslations,
   subraceTranslations,
   variantTranslations,
   subclassTranslations,
+  sourceTranslations,
   toolTranslations,
   armorTypeTranslations,
   weaponTypeTranslations,
@@ -54,6 +56,8 @@ export const translateValue = (value?: string | number | null): string => {
   if (subraceTranslations[key as keyof typeof subraceTranslations]) return subraceTranslations[key as keyof typeof subraceTranslations];
   if (variantTranslations[key as keyof typeof variantTranslations]) return variantTranslations[key as keyof typeof variantTranslations];
   if (subclassTranslations[key as keyof typeof subclassTranslations]) return subclassTranslations[key as keyof typeof subclassTranslations];
+  if (sourceTranslations[key as keyof typeof sourceTranslations]) return sourceTranslations[key as keyof typeof sourceTranslations];
+  if (featTranslations[key]) return featTranslations[key];
   if (toolTranslations[key as keyof typeof toolTranslations]) return toolTranslations[key as keyof typeof toolTranslations];
   if (armorTypeTranslations[key as keyof typeof armorTypeTranslations]) return armorTypeTranslations[key as keyof typeof armorTypeTranslations];
   if (weaponTypeTranslations[key as keyof typeof weaponTypeTranslations]) return weaponTypeTranslations[key as keyof typeof weaponTypeTranslations];
@@ -160,7 +164,7 @@ export const formatMulticlassReqs = (reqs?: MulticlassReqs | (MulticlassReqs & {
 export const formatRaceAC = (ac?: any | null) => {
   if (!ac) return "10";
   if ("consistentBonus" in ac) {
-    return `+${ac.consistentBonus} до КЗ`;
+    return `+${ac.consistentBonus} до КБ`;
   }
   const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
   return `База ${ac.base}${bonus}`;
@@ -178,7 +182,7 @@ export const formatASI = (asi?: any | null) => {
   if (fixedEntries.length) {
     parts.push(
       `Фіксовано: ${fixedEntries
-        .map(([stat, value]) => `${prettifyEnum(stat)} +${value}`)
+        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
         .join(", ")}`
     );
   }

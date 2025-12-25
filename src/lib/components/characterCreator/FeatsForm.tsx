@@ -3,7 +3,7 @@
 import { useStepForm } from "@/hooks/useStepForm";
 import { featSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { Feat } from "@prisma/client";
-import { Card, CardContent } from "@/lib/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import clsx from "clsx";
 import { useEffect, useMemo, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
@@ -18,9 +18,9 @@ import {
   formatWeaponProficiencies,
   formatArmorProficiencies,
 } from "@/lib/components/characterCreator/infoUtils";
-import { Input } from "@/lib/components/ui/input";
+import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
-import { Button } from "@/lib/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   feats: Feat[];
@@ -149,7 +149,16 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
           </Card>
         )})}
       </div>
-      <input type="hidden" {...form.register("featId", { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("featId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   );
 };

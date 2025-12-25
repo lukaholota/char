@@ -141,7 +141,7 @@ export default function MainStatsSlide({ pers }: MainStatsSlideProps) {
       <div className="grid grid-cols-3 gap-3">
         <Card className="glass-card bg-indigo-500/15 border-indigo-500/40 h-28">
           <CardContent className="p-3 flex flex-col items-center justify-center h-full">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-300">Клас Обладунку</div>
+            <div className="text-xs font-bold uppercase tracking-wide text-indigo-300">Клас Броні</div>
             <div className="text-4xl font-bold text-white mt-1">{ac}</div>
             <Shield className="w-4 h-4 text-indigo-400 opacity-60 mt-1" />
           </CardContent>
