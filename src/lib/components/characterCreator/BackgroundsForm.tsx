@@ -1,13 +1,14 @@
 ﻿"use client";
 
-import type {Background} from "@prisma/client"
+// import type {Background} from "@prisma/client"
 import {
   backgroundTranslations, backgroundTranslationsEng,
 } from "@/lib/refs/translation";
 import clsx from "clsx";
 import {useStepForm} from "@/hooks/useStepForm";
 import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useCallback } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Card, CardContent } from "@/lib/components/ui/card";
 import { Badge } from "@/lib/components/ui/badge";
 import { Button } from "@/lib/components/ui/Button";
@@ -91,7 +92,15 @@ const SOURCE_OVERRIDES: Record<string, string> = {
 export const BackgroundsForm = (
   {backgrounds, formId, onNextDisabledChange}: Props
 ) => {
-  const {form, onSubmit} = useStepForm(backgroundSchema)
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const {form, onSubmit} = useStepForm(backgroundSchema, (data) => {
+    updateFormData({ 
+      backgroundId: data.backgroundId,
+      backgroundSearch: data.backgroundSearch 
+    });
+    nextStep();
+  });
 
   const chosenBackgroundId = form.watch('backgroundId') || 0
   const backgroundSearch = form.watch('backgroundSearch') || ''
@@ -170,23 +179,23 @@ export const BackgroundsForm = (
     );
   };
 
-  const matchesSearch = (name: string) => {
+  const matchesSearch = useCallback((name: string) => {
     if (!normalizedBackgroundSearch) return true;
     const ua = normalizeText(backgroundTranslations[name]);
     return ua.includes(normalizedBackgroundSearch);
-  };
+  }, [normalizedBackgroundSearch]);
 
   const primaryBackgrounds = useMemo(
     () => backgrounds
       .filter(b => PHB_BACKGROUNDS.has(b.name))
       .filter(b => matchesSearch(b.name)),
-    [backgrounds, normalizedBackgroundSearch]
+    [backgrounds, matchesSearch]
   );
   const otherBackgrounds = useMemo(
     () => backgrounds
       .filter(b => !PHB_BACKGROUNDS.has(b.name))
       .filter(b => matchesSearch(b.name)),
-    [backgrounds, normalizedBackgroundSearch]
+    [backgrounds, matchesSearch]
   );
 
   const sourceLabel = (name: string) => SOURCE_OVERRIDES[name] ?? "Інші джерела";

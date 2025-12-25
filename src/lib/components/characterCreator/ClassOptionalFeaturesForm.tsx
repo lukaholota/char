@@ -22,8 +22,12 @@ const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
 
 const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
-  const { form, onSubmit } = useStepForm(classOptionalFeaturesSchema);
-  const { formData } = usePersFormStore();
+  const { formData, updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(classOptionalFeaturesSchema, (data) => {
+    updateFormData({ classOptionalFeatureSelections: data.classOptionalFeatureSelections });
+    nextStep();
+  });
 
   const decisions = form.watch("classOptionalFeatureSelections") || {};
   const selectedChoiceIds = useMemo(() => {

@@ -6,9 +6,19 @@ model ClassFeature {
 
   levelGranted     Int     @map("level_granted")
   grantsSpellSlots Boolean @default(false) @map("grants_spell_slots")
+  
+  mechanicType FeatureMechanic @default(PASSIVE) @map("mechanic_type")
+  
+  mechanicMetadata Json? @map("mechanic_metadata")
+  
+  displayOrder Int @default(0) @map("display_order")
+  
+  mechanicDescription String? @map("mechanic_description") @db.Text
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
   class   Class   @relation(fields: [classId], references: [classId])
 
+  @@index([classId, levelGranted])
+  @@index([mechanicType])
   @@map("class_feature")
 }

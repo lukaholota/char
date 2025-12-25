@@ -6,7 +6,7 @@ import { useStepForm } from "@/hooks/useStepForm";
 import { classChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { Card, CardContent } from "@/lib/components/ui/card";
 import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
+// import { Button } from "@/lib/components/ui/Button";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import clsx from "clsx";
@@ -14,6 +14,7 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 
 interface Props {
   selectedClass?: ClassI | null;
+  availableOptions?: ClassI["classChoiceOptions"];
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
 }
@@ -24,26 +25,31 @@ const formatFeatures = (features?: ClassI["classChoiceOptions"][number]["choiceO
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
 
-const ClassChoiceOptionsForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
-  const { form, onSubmit } = useStepForm(classChoiceOptionsSchema);
-  const { updateFormData } = usePersFormStore();
+const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange }: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(classChoiceOptionsSchema, (data) => {
+    updateFormData({ classChoiceSelections: data.classChoiceSelections });
+    nextStep();
+  });
+  
   const selections = form.watch("classChoiceSelections") || {};
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
-  const levelOneOptions = useMemo(
-    () => (selectedClass?.classChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(1)),
-    [selectedClass]
-  );
+  const optionsToUse = useMemo(() => {
+      if (availableOptions) return availableOptions;
+      return (selectedClass?.classChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(1));
+  }, [selectedClass, availableOptions]);
 
   const groupedOptions = useMemo(() => {
-    const groups: Record<string, typeof levelOneOptions> = {};
-    levelOneOptions.forEach((opt) => {
+    const groups: Record<string, typeof optionsToUse> = {};
+    optionsToUse.forEach((opt) => {
       const key = opt.choiceOption.groupName || "Опції";
       if (!groups[key]) groups[key] = [];
       groups[key].push(opt);
     });
     return Object.entries(groups).map(([groupName, options]) => ({ groupName, options }));
-  }, [levelOneOptions]);
+  }, [optionsToUse]);
 
   useEffect(() => {
     let disabled: boolean;
@@ -71,7 +77,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, formId, onNextDisabledChange }:
     form.setValue("classChoiceSelections", next, { shouldDirty: true });
   };
 
-  if (!selectedClass) {
+  if (!selectedClass && !availableOptions) {
     return (
       <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
         Спершу оберіть клас.
@@ -144,7 +150,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, formId, onNextDisabledChange }:
                                 : "bg-slate-800/60 text-slate-200"
                             )}
                           >
-                            {selected ? "Обрано" : "Натисніть, щоб обрати"}
+                            {selected ? "Обрано" : "Обрати"}
                           </Badge>
                         </div>
 

@@ -129,6 +129,24 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     // Armor Model (Armorer)
     { groupName: "Модель броні", optionName: "Вартовий", optionNameEng: "Guardian (Armor Model)", featureEngName: "Armor Model" },
     { groupName: "Модель броні", optionName: "Лазутчик", optionNameEng: "Infiltrator (Armor Model)", featureEngName: "Armor Model" },
+
+    // Elemental Disciplines (Way of the Four Elements)
+    { groupName: "Стихійні дисципліни", optionName: "Подих зими", optionNameEng: "Breath of Winter (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Хватка північного вітру", optionNameEng: "Clench of the North Wind (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Захист вічної гори", optionNameEng: "Eternal Mountain Defense (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Ікла вогняної змії", optionNameEng: "Fangs of the Fire Snake (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Кулак чотирьох громів", optionNameEng: "Fist of Four Thunders (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Кулак непорушного повітря", optionNameEng: "Fist of Unbroken Air (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Полум'я фенікса", optionNameEng: "Flames of the Phoenix (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Гонг вершини", optionNameEng: "Gong of the Summit (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Стійка туману", optionNameEng: "Mist Stance (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Осідлати вітер", optionNameEng: "Ride the Wind (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Ріка голодного полум'я", optionNameEng: "River of Hungry Flame (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Натиск духів бурі", optionNameEng: "Rush of the Gale Spirits (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Формування ріки", optionNameEng: "Shape the Flowing River (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Розмашистий попелястий удар", optionNameEng: "Sweeping Cinder Strike (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Водяний батіг", optionNameEng: "Water Whip (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
+    { groupName: "Стихійні дисципліни", optionName: "Хвиля рухомої землі", optionNameEng: "Wave of Rolling Earth (Elemental Discipline)", featureEngName: "Disciple of the Elements" },
   ]
 
   const subclassLinks: SubclassChoiceLink[] = [
@@ -259,6 +277,24 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     // Armor Model (Armorer)
     { subclass: Subclasses.ARMORER, optionNameEng: "Guardian (Armor Model)", levelsGranted: [3] },
     { subclass: Subclasses.ARMORER, optionNameEng: "Infiltrator (Armor Model)", levelsGranted: [3] },
+
+    // Elemental Disciplines (Way of the Four Elements)
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Breath of Winter (Elemental Discipline)", levelsGranted: [17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Clench of the North Wind (Elemental Discipline)", levelsGranted: [6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Eternal Mountain Defense (Elemental Discipline)", levelsGranted: [11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Fangs of the Fire Snake (Elemental Discipline)", levelsGranted: [3, 6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Fist of Four Thunders (Elemental Discipline)", levelsGranted: [3, 6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Fist of Unbroken Air (Elemental Discipline)", levelsGranted: [3, 6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Flames of the Phoenix (Elemental Discipline)", levelsGranted: [11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Gong of the Summit (Elemental Discipline)", levelsGranted: [6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Mist Stance (Elemental Discipline)", levelsGranted: [11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Ride the Wind (Elemental Discipline)", levelsGranted: [11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "River of Hungry Flame (Elemental Discipline)", levelsGranted: [17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Rush of the Gale Spirits (Elemental Discipline)", levelsGranted: [3, 6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Shape the Flowing River (Elemental Discipline)", levelsGranted: [3, 6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Sweeping Cinder Strike (Elemental Discipline)", levelsGranted: [3, 6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Water Whip (Elemental Discipline)", levelsGranted: [3, 6, 11, 17] },
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, optionNameEng: "Wave of Rolling Earth (Elemental Discipline)", levelsGranted: [17] },
   ]
 
   for (const option of newChoiceOptions) {

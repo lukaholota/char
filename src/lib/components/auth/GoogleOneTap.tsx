@@ -88,7 +88,7 @@ export default function GoogleOneTap() {
       window.google.accounts.id.prompt(() => {
         window.__gsiInFlight = false;
       });
-    } catch (e) {
+    } catch {
       initialized.current = false;
       window.__gsiInit = false
       setTimeout(init, 800);

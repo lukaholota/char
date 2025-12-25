@@ -1,0 +1,8 @@
+model FightingStyle {
+  id          Int    @id @default(autoincrement())
+  name        String
+  engName     String @unique @map("eng_name")
+  description String
+
+  @@map("fighting_style")
+}

@@ -9,10 +9,29 @@ export default async function Page() {
     classes,
     backgrounds,
     weapons,
+    // armors,
+    feats,
   ] = await Promise.all([
     prisma.race.findMany({
       include: {
-        subraces: true,
+        subraces: {
+          include: {
+            traits: {
+              include: {
+                feature: true,
+              }
+            }
+          }
+        },
+        raceVariants: {
+          include: {
+            traits: {
+              include: {
+                feature: true,
+              }
+            }
+          }
+        },
         traits: {
           include: {
             feature: true,
@@ -85,7 +104,27 @@ export default async function Page() {
         { weaponId: 'asc' }
       ]
     }),
-    prisma.armor.findMany(),
+    prisma.feat.findMany({
+      include: {
+        grantsFeature: true,
+        featChoiceOptions: {
+          include: {
+            choiceOption: {
+              include: {
+                features: {
+                  include: {
+                    feature: true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      orderBy: [
+        { name: 'asc' }
+      ]
+    }),
   ])
 
   return (
@@ -95,6 +134,7 @@ export default async function Page() {
         classes={classes}
         backgrounds={backgrounds}
         weapons={weapons}
+        feats={feats}
       />
     </>
   );

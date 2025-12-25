@@ -1,4 +1,4 @@
-const DND_DICTIONARY = {
+export const DND_DICTIONARY = {
     attributes: {
         strength: "Сила",
         dexterity: "Спритність",
@@ -315,7 +315,7 @@ const DND_DICTIONARY = {
 
 
 // # база даних назв заклинань та відповідників англійською. в givesSpells під'єднувати саме через engName
-const spells = [
+export const spells = [
     {
         "spell_id": 1073,
         "eng_name": "Animal shapes",

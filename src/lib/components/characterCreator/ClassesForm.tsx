@@ -9,6 +9,7 @@ import { ClassI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/lib/components/ui/card";
 import { Badge } from "@/lib/components/ui/badge";
 import { useEffect, useMemo } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import {
   InfoDialog,
   InfoGrid,
@@ -43,7 +44,12 @@ const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
 export const ClassesForm = (
   {classes, formId, onNextDisabledChange}: Props
 ) => {
-  const {form, onSubmit} = useStepForm(classSchema)
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const {form, onSubmit} = useStepForm(classSchema, (data) => {
+    updateFormData({ classId: data.classId });
+    nextStep();
+  });
 
   const chosenClassId = form.watch('classId') || 0
   const sortedClasses = useMemo(

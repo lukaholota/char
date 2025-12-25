@@ -1,4 +1,5 @@
-import { FeatureDisplayType, Prisma, PrismaClient, RestType, Subclasses } from "@prisma/client"
+import { FeatureDisplayType, PrismaClient, RestType, Subclasses } from "@prisma/client"
+import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType"
 
 type SubclassFeatureLink = {
   subclass: Subclasses
@@ -11,7 +12,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
 
   const subclassSpellSlotFeatures = new Set<string>(["Spellcasting (Eldritch Knight)"])
 
-  const features: Prisma.FeatureCreateInput[] = [
+  const features: SeedFeatureCreateInput[] = [
     // ===== Arcane Archer =====
     {
       name: "Арканний лучник: знання",
@@ -5878,6 +5879,365 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       limitedUsesPer: RestType.SHORT_REST,
       usesCount: 1,
     },
+
+    // ==== Monk Features ====
+
+    // Way of Mercy
+    {
+      name: "Знаряддя милосердя",
+      engName: "Implements of Mercy",
+      shortDescription: "Володіння навичками Проникливість і Медицина, а також набором травника.",
+      description:
+        "Ви отримуєте володіння навичками Проникливість і Медицина, а також володіння набором травника. Ви також отримуєте спеціальну маску, яку носите як символ вашого шляху.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Рука шкоди",
+      engName: "Hand of Harm",
+      shortDescription: "Витратьте 1 ци, щоб завдати додаткової некротичної шкоди при ударі без зброї.",
+      description:
+        "Ви використовуєте свою ци, щоб завдавати ран. Коли ви влучаєте по істоті ударом без зброї, ви можете витратити 1 очко ци, щоб завдати додаткової некротичної шкоди, що дорівнює одному кидку вашого кубика бойових мистецтв + ваш модифікатор Мудрості.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Рука зцілення",
+      engName: "Hand of Healing",
+      shortDescription: "Витратьте 1 ци, щоб відновити хіти істоті дотиком.",
+      description:
+        "Ваш містичний дотик може затягувати рани. Дією ви можете витратити 1 очко ци, щоб торкнутися істоти і відновити їй кількість хітів, що дорівнює кидку вашого кубика бойових мистецтв + ваш модифікатор Мудрості. Коли ви використовуєте Шквал ударів, ви можете замінити один з ударів без зброї на використання цієї особливості без витрати дії.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Дотик лікаря",
+      engName: "Physician's Touch",
+      shortDescription: "Рука зцілення лікує хвороби, Рука шкоди отруює.",
+      description:
+        "Ваші навички зцілення та завдання шкоди покращуються. Коли ви використовуєте Руку зцілення, ви також можете закінчити одну хворобу або один із наступних станів, що діють на істоту: засліплений, оглушений, паралізований, отруєний або приголомшений.\n\nКоли ви використовуєте Руку шкоди, ви можете піддати ціль отруєному стану до кінця вашого наступного ходу.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Шквал зцілення та шкоди",
+      engName: "Flurry of Healing and Harm",
+      shortDescription: "Використовуйте Руку зцілення замість ударів у Шквалі ударів без витрати ци.",
+      description:
+        "Тепер ви можете роздавати милосердя і кару шквалом ударів. Коли ви використовуєте Шквал ударів, ви можете замінити кожен з ударів без зброї на використання Руки зцілення без витрати очок ци на саме зцілення. Крім того, коли ви робите удар без зброї за допомогою Шквалу ударів, ви можете використати Руку шкоди з цим ударом без витрати очок ци (але все ще лише раз за хід).",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Рука найвищого милосердя",
+      engName: "Hand of Ultimate Mercy",
+      shortDescription: "Воскресіть померлу істоту за 5 очок ци.",
+      description:
+        "Ваша майстерність над життєвою енергією відкриває межу милосердя. Дією ви можете торкнутися трупа істоти, яка померла не більше ніж 24 години тому, і витратити 5 очок ци. Істота повертається до життя, маючи кількість хітів, що дорівнює 4к10 + ваш модифікатор Мудрості. Якщо істота померла, будучи під дією будь-якого з наступних станів, вона оживає без них: засліплений, оглушений, паралізований, отруєний, приголомшений. Раз використавши цю особливість, ви не можете використати її знову до закінчення тривалого відпочинку.",
+      displayType: [FeatureDisplayType.ACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
+    },
+
+    // Way of the Ascendant Dragon
+    {
+      name: "Драконів учень",
+      engName: "Draconic Disciple",
+      shortDescription: "Перекидання переконання/залякування, зміна типу шкоди ударів, мова драконів.",
+      description:
+        "Ви спрямовуєте драконячу силу. Ви отримуєте наступні переваги:\n\n**Драконяча присутність.** Якщо ви провалюєте перевірку Харизми (Залякування) або Харизми (Переконання), ви можете використати реакцію, щоб перекинути кидок, і повинні використати новий результат. Раз використавши цю здатність, ви не можете використати її знову до закінчення тривалого відпочинку, якщо не витратите 1 очко ци.\n\n**Драконячий удар.** Коли ви завдаєте шкоди ударом без зброї, ви можете змінити тип шкоди на кислоту, холод, вогонь, блискавку або отруту.\n\n**Мова драконів.** Ви вивчаєте драконячу мову або іншу мову на вибір.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Подих дракона",
+      engName: "Breath of the Dragon",
+      shortDescription: "Замініть атаку на видих енергії (конус або лінія).",
+      description:
+        "Ви можете спрямувати руйнівну енергію дракона. Коли ви робите дію Атака у свій хід, ви можете замінити одну з атак видихом енергії дракона в 20-футовому конусі або 30-футовій лінії завширшки 5 футів. Оберіть тип шкоди: кислота, холод, вогонь, блискавка або отрута. Кожна істота в зоні повинна зробити ряткидок Спритності проти вашого КС ряткидків ци, отримуючи шкоду, що дорівнює двом кидкам вашого кубика бойових мистецтв при провалі, або половину при успіху.\n\nВи можете використати цю особливість кількість разів, що дорівнює вашому бонусу майстерності, відновлюючи всі використання після тривалого відпочинку. Ви також можете використати її за 2 очки ци.",
+      displayType: [FeatureDisplayType.ACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 2, // Initial proficiency bonus, scales automatically if handled elsewhere, otherwise static for now
+    },
+    {
+      name: "Розгорнуті крила",
+      engName: "Wings Unfurled",
+      shortDescription: "Отримайте швидкість польоту при використанні Кроку вітру.",
+      description:
+        "Коли ви використовуєте Крок вітру, ви можете розгорнути спектральні драконячі крила на своїй спині, які зникають в кінці вашого ходу. Поки крила існують, ви маєте швидкість польоту, що дорівнює вашій швидкості ходьби. Ви можете використовувати цю особливість кількість разів, що дорівнює вашому бонусу майстерності, відновлюючи всі використання після тривалого відпочинку. Ви також можете використати її за 1 очко ци.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Аспект змія",
+      engName: "Aspect of the Wyrm",
+      shortDescription: "Створіть ауру страху або опору стихіям.",
+      description:
+        "Ви можете створити ауру драконячої сили. Бонусною дією ви обираєте одну з наступних переваг, яка діє 1 хвилину або поки ви не станете недієздатним:\n\n**Аура жаху.** Коли істота починає хід у межах 10 футів від вас, ви можете змусити її зробити ряткидок Мудрості або стати наляканою вами до кінця вашого наступного ходу.\n\n**Аура опору.** Оберіть кислоту, холод, вогонь, блискавку або отруту. Ви та ваші союзники в межах 10 футів маєте опір до цієї шкоди.\n\nРаз використавши цю особливість, ви не можете використати її знову до закінчення тривалого відпочинку, якщо не витратите 3 очки ци.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
+    },
+    {
+      name: "Висхідний аспект",
+      engName: "Ascendant Aspect",
+      shortDescription: "Сліпозір, вибуховий подих та покращений аспект.",
+      description:
+        "Ваш зв'язок з драконячою силою досягає піку:\n\n**Сліпозір.** Ви отримуєте сліпозір у радіусі 10 футів. У межах цього радіусу ви можете бачити невидимих істот, якщо вони не сховані від вас.\n\n**Вибухова лють.** Коли ви використовуєте Подих дракона, вибух енергії стає ще небезпечнішим. Шкода збільшується до трьох кидків вашого кубика бойових мистецтв.\n\n**Покращений аспект.** Коли ви активуєте Аспект змія, радіус аури збільшується до 30 футів.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // Way of the Astral Self
+    {
+      name: "Руки астрального \"я\"",
+      engName: "Arms of the Astral Self",
+      shortDescription: "Викликайте спектральні руки для атак та перевірок.",
+      description:
+        "Бонусною дією ви можете витратити 1 очко ци, щоб викликати руки вашого астрального \"я\". Коли ви це робите, кожна істота на ваш вибір у межах 10 футів від вас повинна зробити ряткидок Спритності або отримати 2к4 силової шкоди. Руки існують 10 хвилин. Поки вони активні:\n\n- Ви можете використовувати модифікатор Мудрості замість Сили для перевірок Сили та ряткидків Сили.\n- Ви можете використовувати руки для ударів без зброї.\n- Коли ви робите удар без зброї руками, ваша досяжність збільшується на 5 футів.\n- Удари без зброї руками завдають силову шкоду, і ви можете використовувати модифікатор Мудрості замість Сили або Спритності для кидків атаки та шкоди.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Обличчя астрального \"я\"",
+      engName: "Visage of the Astral Self",
+      shortDescription: "Викликайте спектральне обличчя для покращеного сприйняття.",
+      description:
+        "Бонусною дією (або як частину дії виклику рук) ви можете витратити 1 очко ци, щоб викликати обличчя вашого астрального \"я\". Воно дає наступні переваги:\n\n**Астральний зір.** Ви можете бачити в звичайній і магічній темряві на відстані 120 футів.\n\n**Мудрість духу.** Ви маєте перевагу на перевірки Мудрості (Проникливість) та Харизми (Залякування).\n\n**Слово духу.** Ви можете говорити так, що ваш голос чути лише тим, кого ви оберете в межах 60 футів.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Тіло астрального \"я\"",
+      engName: "Body of the Astral Self",
+      shortDescription: "Викликайте тіло для захисту та посилення атак.",
+      description:
+        "Коли ви маєте активні і руки, і обличчя, ви можете викликати тіло вашого астрального \"я\" (без додаткових витрат). Це дає переваги:\n\n**Відбиття енергії.** Коли ви отримуєте шкоду кислотою, холодом, вогнем, силою, блискавкою або громом, ви можете реакцією зменшити шкоду на 1к10 + ваш модифікатор Мудрості + ваш рівень монаха.\n\n**Посилені руки.** Раз у свій хід, коли ви влучаєте атакою Руками астрального \"я\", ви можете завдати додаткову шкоду, рівну одному кидку вашого кубика бойових мистецтв.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Пробуджене астральне \"я\"",
+      engName: "Awakened Astral Self",
+      shortDescription: "+2 КЗ та додаткова атака при повному виклику.",
+      description:
+        "Коли ви викликаєте повну форму вашого астрального \"я\" (руки, обличчя і тіло), ви отримуєте:\n\n**Броня духу.** Ви отримуєте +2 до Класу Захисту.\n\n**Астральний шквал.** Коли ви використовуєте дію Атака у свій хід, ви можете зробити одну додаткову атаку Руками астрального \"я\" (загалом три атаки).",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // Way of the Drunken Master
+    {
+      name: "Додаткові володіння (П'яний майстер)",
+      engName: "Bonus Proficiencies (Drunken Master)",
+      shortDescription: "Володіння навичкою Виступ та приладдям пивовара.",
+      description:
+        "Ви отримуєте володіння навичкою Виступ та приладдям пивовара.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "П'яна техніка",
+      engName: "Drunken Technique",
+      shortDescription: "Шквал ударів дає Відхід та +10 футів швидкості.",
+      description:
+        "Коли ви використовуєте Шквал ударів, ви отримуєте переваги дії Відхід, і ваша швидкість переміщення збільшується на 10 футів до кінця поточного ходу.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Хитка хода",
+      engName: "Tipsy Sway",
+      shortDescription: "Швидке вставання та перенаправлення атаки.",
+      description:
+        "Ви рухаєтеся з раптовими, хаотичними ривками. Ви отримуєте наступні переваги:\n\n**Стрибок на ноги.** Коли ви збиті з ніг, ви можете встати, витративши лише 5 футів переміщення.\n\n**Перенаправлення атаки.** Коли істота промахується по вам кидком атаки в ближньому бою, ви можете витратити 1 очко ци реакцією, щоб змусити цю атаку влучити в іншу істоту на ваш вибір (крім нападника), яку ви бачите в межах 5 футів від себе.",
+      displayType: [FeatureDisplayType.REACTION],
+    },
+    {
+      name: "Удача п'яниці",
+      engName: "Drunkard's Luck",
+      shortDescription: "Скасуйте недолік на кидок за 2 ци.",
+      description:
+        "Коли ви робите кидок атаки, перевірку здібності або ряткидок з недоліком, ви можете витратити 2 очки ци, щоб скасувати недолік для цього кидка.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Сп'яніла лють",
+      engName: "Intoxicated Frenzy",
+      shortDescription: "До 5 атак у Шквалі ударів по різним цілям.",
+      description:
+        "Коли ви використовуєте Шквал ударів, ви можете зробити до трьох додаткових атак (загалом 5), за умови, що кожна атака Шквалу ударів спрямована на іншу істоту.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // Way of the Four Elements
+    {
+      name: "Учень стихій",
+      engName: "Disciple of the Elements",
+      shortDescription: "Ви вивчаєте стихійні дисципліни, що використовують ци.",
+      description:
+        "Ви вивчаєте магічні дисципліни, що використовують силу чотирьох стихій. Ви знаєте дисципліну Співзвуччя зі стихіями та ще одну на вибір. Ви вивчаєте додаткові дисципліни на 6, 11 та 17 рівнях.\n\nКоли ви використовуєте дисципліну, що вимагає кидка атаки або ряткидка, КС дорівнює 8 + ваш бонус майстерності + ваш модифікатор Мудрості.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    // Elemental Disciplines will be handled via Choices
+
+    // Way of the Kensei
+    {
+      name: "Шлях кенсея",
+      engName: "Path of the Kensei",
+      shortDescription: "Зброя кенсея, спритне парирування, постріл кенсея.",
+      description:
+        "Ви опановуєте особливі техніки володіння зброєю:\n\n**Зброя кенсея.** Оберіть два види зброї (одну ближнього бою і одну дальнього), які стають для вас зброєю кенсея. Ви отримуєте володіння ними, якщо ще не мали. Вони вважаються для вас монашою зброєю. Ви обираєте додаткову зброю на 6, 11 і 17 рівнях.\n\n**Спритне парирування.** Якщо ви робите удар без зброї як частину дії Атака, тримаючи зброю кенсея ближнього бою, ви отримуєте +2 до КЗ до початку вашого наступного ходу.\n\n**Постріл кенсея.** Бонусною дією ви можете зробити свої атаки дальнього бою зброєю кенсея більш смертоносними. До кінця ходу влучання завдають додаткові 1к4 шкоди того ж типу.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Єдність із клинком",
+      engName: "One with the Blade",
+      shortDescription: "Магічна зброя кенсея та Вправний удар.",
+      description:
+        "Ваші атаки зброєю кенсея вважаються магічними. Крім того, коли ви влучаєте по цілі зброєю кенсея, ви можете витратити 1 очко ци, щоб завдати додаткову шкоду, рівну вашому кубику бойових мистецтв.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Загострення клинка",
+      engName: "Sharpen the Blade",
+      shortDescription: "Витратьте ци, щоб додати бонус до атаки і шкоди зброї.",
+      description:
+        "Бонусною дією ви можете витратити до 3 очок ци, щоб надати зброї кенсея, якої ви торкаєтесь, бонус до кидків атаки і шкоди, що дорівнює кількості витрачених очок. Ефект триває 1 хвилину.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Безпомилкова точність",
+      engName: "Unerring Accuracy",
+      shortDescription: "Перекиньте промах зброєю кенсея раз за хід.",
+      description:
+        "Якщо ви промахуєтеся кидком атаки, використовуючи зброю монаха, ви можете перекинути його. Ви можете використовувати цю особливість лише один раз за хід.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+
+    // Way of the Long Death
+    {
+      name: "Дотик смерті",
+      engName: "Touch of Death",
+      shortDescription: "Отримуйте тимчасові хіти при вбивстві ворога.",
+      description:
+        "Коли ви опускаєте хіти істоти в межах 5 футів від вас до 0, ви отримуєте тимчасові хіти, що дорівнюють вашому модифікатору Мудрості + ваш рівень монаха.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Година жнив",
+      engName: "Hour of Reaping",
+      shortDescription: "Налякайте всіх істот у радіусі 30 футів.",
+      description:
+        "Дією ви можете використати свою душу, щоб вселити жах. Кожна істота в межах 30 футів від вас, яка може вас бачити, повинна зробити ряткидок Мудрості або стати наляканою вами до кінця вашого наступного ходу.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Майстерність смерті",
+      engName: "Mastery of Death",
+      shortDescription: "Витратьте 1 ци, щоб залишитися з 1 хітом замість 0.",
+      description:
+        "Коли ваші хіти опускаються до 0, ви можете витратити 1 очко ци (реакція не потрібна), щоб замість цього ваші хіти стали рівні 1.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Дотик довгої смерті",
+      engName: "Touch of the Long Death",
+      shortDescription: "Витратьте 1-10 ци, щоб завдати значної некротичної шкоди.",
+      description:
+        "Дією ви можете торкнутися істоти в межах 5 футів і витратити від 1 до 10 очок ци. Ціль повинна зробити ряткидок Статури, отримуючи 2к10 некротичної шкоди за кожне витрачене очко ци при провалі, або половину при успіху.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+
+    // Way of the Open Hand
+    {
+      name: "Техніка відкритої долоні",
+      engName: "Open Hand Technique",
+      shortDescription: "Додаткові ефекти для Шквалу ударів (збити з ніг, відштовхнути, позбавити реакцій).",
+      description:
+        "Коли ви влучаєте по істоті атакою зі Шквалу ударів, ви можете накласти на неї один з ефектів:\n\n- Вона повинна зробити ряткидок Спритності або буде збита з ніг.\n- Вона повинна зробити ряткидок Сили або буде відштовхнута на 15 футів від вас.\n- Вона не може робити реакції до кінця вашого наступного ходу.",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Цілісність тіла",
+      engName: "Wholeness of Body",
+      shortDescription: "Відновіть хіти (3 * рівень монаха) дією.",
+      description:
+        "Дією ви можете відновити собі хіти в кількості, що дорівнює вашому рівню монаха, помноженому на 3. Ви повинні закінчити тривалий відпочинок, перш ніж зможете використати цю особливість знову.",
+      displayType: [FeatureDisplayType.ACTION],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
+    },
+    {
+      name: "Спокій",
+      engName: "Tranquility",
+      shortDescription: "Ефект заклинання Прихисток після тривалого відпочинку.",
+      description:
+        "Ви можете увійти в стан особливого спокою. В кінці тривалого відпочинку ви отримуєте ефект заклинання Прихисток (КС ряткидка дорівнює вашому КС ряткидків ци). Ефект триває до початку вашого наступного тривалого відпочинку (або поки не перерветься як звичайне заклинання).",
+      displayType: [FeatureDisplayType.PASSIVE],
+    },
+    {
+      name: "Тремтяча долоня",
+      engName: "Quivering Palm",
+      shortDescription: "Смертельні вібрації в тілі ворога.",
+      description:
+        "Ви отримуєте здатність створювати смертельні вібрації в тілі ворога. Коли ви влучаєте по істоті ударом без зброї, ви можете витратити 3 очки ци, щоб запустити ці вібрації. Вони тривають кількість днів, що дорівнює вашому рівню монаха. Поки вібрації активні, ви можете дією закінчити їх. Істота повинна зробити ряткидок Статури. При провалі вона опускається до 0 хітів. При успіху вона отримує 10к10 некротичної шкоди.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+
+    // Way of Shadow
+    {
+      name: "Тіньові мистецтва",
+      engName: "Shadow Arts",
+      shortDescription: "Темнозір, Мала ілюзія та заклинання за 2 ци.",
+      description:
+        "Ви можете використовувати ци для відтворення ефектів певних заклинань. Дією ви можете витратити 2 очки ци, щоб накласти Темряву, Темнозір, Безслідне пересування або Тишу, не витрачаючи матеріальних компонентів. Крім того, ви отримуєте замовляння Мала ілюзія.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Тіньовий крок",
+      engName: "Shadow Step",
+      shortDescription: "Телепортація між тінями на 60 футів.",
+      description:
+        "Ви отримуєте здатність переміщуватися з однієї тіні в іншу. Коли ви перебуваєте в тьмяному світлі або темряві, ви можете бонусною дією телепортуватися на відстань до 60 футів у вільний простір, який ви бачите і який також перебуває в тьмяному світлі або темряві. Після цього ваша перша атака ближнього бою до кінця ходу здійснюється з перевагою.",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Плащ тіней",
+      engName: "Cloak of Shadows",
+      shortDescription: "Ставайте невидимим у тіні.",
+      description:
+        "Коли ви перебуваєте в тьмяному світлі або темряві, ви можете дією стати невидимим. Ви залишаєтеся невидимим, поки не атакуєте, не накладете заклинання або не опинитеся в області яскравого світла.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Опортуніст",
+      engName: "Opportunist",
+      shortDescription: "Реакція на атаку по ворогу поруч.",
+      description:
+        "Ви можете скористатися моментом, коли ворог відволікся. Коли істота в межах 5 футів від вас отримує влучання атакою від когось іншого, крім вас, ви можете використати реакцію, щоб зробити атаку ближнього бою по цій істоті.",
+      displayType: [FeatureDisplayType.REACTION],
+    },
+
+    // Way of the Sun Soul
+    {
+      name: "Промінь сонячного світла",
+      engName: "Radiant Sun Bolt",
+      shortDescription: "Дальня атака заклинанням, що завдає радіантної шкоди.",
+      description:
+        "Ви можете жбурляти пекучі болти магічної енергії. Ви отримуєте нову атаку, яку можете використовувати дією Атака. Це далекобійна атака заклинанням з дальністю 30 футів. Ви володієте нею і додаєте модифікатор Спритності до кидків атаки і шкоди. Шкода є радіантною, а кістка шкоди — ваш кубик бойових мистецтв. Коли ви використовуєте дію Атака у свій хід і використовуєте цю атаку, ви можете витратити 1 очко ци, щоб зробити дві додаткові атаки цією особливістю бонусною дією.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Пекучий дуговий удар",
+      engName: "Searing Arc Strike",
+      shortDescription: "Накладіть Палаючі руки бонусною дією після атаки.",
+      description:
+        "Одразу після того, як ви робите дію Атака у свій хід, ви можете витратити 2 очки ци, щоб накласти заклинання Палаючі руки бонусною дією. Ви можете витратити додаткові очки ци, щоб підвищити рівень заклинання (максимум половина вашого рівня монаха, округлена вгору).",
+      displayType: [FeatureDisplayType.BONUSACTION],
+    },
+    {
+      name: "Пекучий сонячний вибух",
+      engName: "Searing Sunburst",
+      shortDescription: "Вибух світла в радіусі 20 футів.",
+      description:
+        "Дією ви створюєте сферу світла. Кожна істота в сфері радіусом 20 футів з центром у точці в межах 150 футів повинна зробити ряткидок Статури. Істота отримує 2к6 радіантної шкоди при провалі. Істота не отримує шкоди при успіху. Ви можете збільшити шкоду, витративши очки ци. Кожне очко (максимум 3) додає 2к6 шкоди.",
+      displayType: [FeatureDisplayType.ACTION],
+    },
+    {
+      name: "Сонячний щит",
+      engName: "Sun Shield",
+      shortDescription: "Аура світла, що завдає шкоди нападникам.",
+      description:
+        "Ви стаєте світилом. Ви випромінюєте яскраве світло на 30 футів і тьмяне ще на 30. Ви можете погасити або відновити світло бонусною дією. Якщо істота влучає по вам атакою ближнього бою, поки світло сяє, ви можете реакцією завдати їй радіантної шкоди, що дорівнює 5 + ваш модифікатор Мудрості.",
+      displayType: [FeatureDisplayType.REACTION],
+    },
   ]
   const links: SubclassFeatureLink[] = [
     // College of Creation
@@ -6670,13 +7030,75 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     { subclass: Subclasses.SWASHBUCKLER, feature: "Panache", level: 9 },
     { subclass: Subclasses.SWASHBUCKLER, feature: "Elegant Maneuver", level: 13 },
     { subclass: Subclasses.SWASHBUCKLER, feature: "Master Duelist", level: 17 },
+
+    // Way of Mercy
+    { subclass: Subclasses.WAY_OF_MERCY, feature: "Implements of Mercy", level: 3 },
+    { subclass: Subclasses.WAY_OF_MERCY, feature: "Hand of Harm", level: 3 },
+    { subclass: Subclasses.WAY_OF_MERCY, feature: "Hand of Healing", level: 3 },
+    { subclass: Subclasses.WAY_OF_MERCY, feature: "Physician's Touch", level: 6 },
+    { subclass: Subclasses.WAY_OF_MERCY, feature: "Flurry of Healing and Harm", level: 11 },
+    { subclass: Subclasses.WAY_OF_MERCY, feature: "Hand of Ultimate Mercy", level: 17 },
+
+    // Way of the Ascendant Dragon
+    { subclass: Subclasses.WAY_OF_THE_ASCENDANT_DRAGON, feature: "Draconic Disciple", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_ASCENDANT_DRAGON, feature: "Breath of the Dragon", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_ASCENDANT_DRAGON, feature: "Wings Unfurled", level: 6 },
+    { subclass: Subclasses.WAY_OF_THE_ASCENDANT_DRAGON, feature: "Aspect of the Wyrm", level: 11 },
+    { subclass: Subclasses.WAY_OF_THE_ASCENDANT_DRAGON, feature: "Ascendant Aspect", level: 17 },
+
+    // Way of the Astral Self
+    { subclass: Subclasses.WAY_OF_THE_ASTRAL_SELF, feature: "Arms of the Astral Self", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_ASTRAL_SELF, feature: "Visage of the Astral Self", level: 6 },
+    { subclass: Subclasses.WAY_OF_THE_ASTRAL_SELF, feature: "Body of the Astral Self", level: 11 },
+    { subclass: Subclasses.WAY_OF_THE_ASTRAL_SELF, feature: "Awakened Astral Self", level: 17 },
+
+    // Way of the Drunken Master
+    { subclass: Subclasses.WAY_OF_THE_DRUNKEN_MASTER, feature: "Bonus Proficiencies (Drunken Master)", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_DRUNKEN_MASTER, feature: "Drunken Technique", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_DRUNKEN_MASTER, feature: "Tipsy Sway", level: 6 },
+    { subclass: Subclasses.WAY_OF_THE_DRUNKEN_MASTER, feature: "Drunkard's Luck", level: 11 },
+    { subclass: Subclasses.WAY_OF_THE_DRUNKEN_MASTER, feature: "Intoxicated Frenzy", level: 17 },
+
+    // Way of the Four Elements
+    { subclass: Subclasses.WAY_OF_THE_FOUR_ELEMENTS, feature: "Disciple of the Elements", level: 3 },
+
+    // Way of the Kensei
+    { subclass: Subclasses.WAY_OF_THE_KENSEI, feature: "Path of the Kensei", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_KENSEI, feature: "One with the Blade", level: 6 },
+    { subclass: Subclasses.WAY_OF_THE_KENSEI, feature: "Sharpen the Blade", level: 11 },
+    { subclass: Subclasses.WAY_OF_THE_KENSEI, feature: "Unerring Accuracy", level: 17 },
+
+    // Way of the Long Death
+    { subclass: Subclasses.WAY_OF_THE_LONG_DEATH, feature: "Touch of Death", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_LONG_DEATH, feature: "Hour of Reaping", level: 6 },
+    { subclass: Subclasses.WAY_OF_THE_LONG_DEATH, feature: "Mastery of Death", level: 11 },
+    { subclass: Subclasses.WAY_OF_THE_LONG_DEATH, feature: "Touch of the Long Death", level: 17 },
+
+    // Way of the Open Hand
+    { subclass: Subclasses.WAY_OF_THE_OPEN_HAND, feature: "Open Hand Technique", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_OPEN_HAND, feature: "Wholeness of Body", level: 6 },
+    { subclass: Subclasses.WAY_OF_THE_OPEN_HAND, feature: "Tranquility", level: 11 },
+    { subclass: Subclasses.WAY_OF_THE_OPEN_HAND, feature: "Quivering Palm", level: 17 },
+
+    // Way of Shadow
+    { subclass: Subclasses.WAY_OF_SHADOW, feature: "Shadow Arts", level: 3 },
+    { subclass: Subclasses.WAY_OF_SHADOW, feature: "Shadow Step", level: 6 },
+    { subclass: Subclasses.WAY_OF_SHADOW, feature: "Cloak of Shadows", level: 11 },
+    { subclass: Subclasses.WAY_OF_SHADOW, feature: "Opportunist", level: 17 },
+
+    // Way of the Sun Soul
+    { subclass: Subclasses.WAY_OF_THE_SUN_SOUL, feature: "Radiant Sun Bolt", level: 3 },
+    { subclass: Subclasses.WAY_OF_THE_SUN_SOUL, feature: "Searing Arc Strike", level: 6 },
+    { subclass: Subclasses.WAY_OF_THE_SUN_SOUL, feature: "Searing Sunburst", level: 11 },
+    { subclass: Subclasses.WAY_OF_THE_SUN_SOUL, feature: "Sun Shield", level: 17 },
   ]
 
   for (const feature of features) {
+    const normalized = normalizeFeatureCreateInput(feature)
     await prisma.feature.upsert({
-      where: { engName: feature.engName },
-      update: feature,
-      create: feature,
+      where: { engName: normalized.engName },
+      update: normalized,
+      create: normalized,
     })
   }
 

@@ -1,8 +1,9 @@
 import { Ability, FeatureDisplayType, Prisma, PrismaClient, RestType, Skills } from "@prisma/client";
+import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType";
 
 export const seedClassFeatures = async ( prisma: PrismaClient ) => {
     console.log( '🌟 Додаємо класові фічі...' )
-    const features: Prisma.FeatureCreateInput[] = [
+    const features: SeedFeatureCreateInput[] = [
         {
             name: 'Стрільба з лука',
             engName: 'Archery',
@@ -1971,14 +1972,124 @@ export const seedClassFeatures = async ( prisma: PrismaClient ) => {
             shortDescription: '+1 до КБ і ряткидків за кожен влитий предмет; тримайтесь на 1 ХП',
             displayType: [FeatureDisplayType.PASSIVE],
         },
+
+        // BARD
+        { name: 'Заклинання (Бард)', engName: 'Spellcasting (Bard)', description: 'Здатність накладати заклинання барда.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Натхнення Барда', engName: 'Bardic Inspiration', description: 'Надихайте інших своїм виступом.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Майстер на всі руки', engName: 'Jack of All Trades', description: 'Додайте половину бонуса майстерності до перевірок характеристик.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Пісня Відпочинку', engName: 'Song of Rest', description: 'Відновлюйте додаткові ХП під час короткого відпочинку.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Експертиза (Бард)', engName: 'Expertise (Bard)', description: 'Подвійний бонус майстерності для обраних навичок.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Джерело Натхнення', engName: 'Font of Inspiration', description: 'Відновлюйте натхнення барда після короткого відпочинку.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Контрчари', engName: 'Countercharm', description: 'Виступ, що захищає від переляку та зачарування.', displayType: [FeatureDisplayType.ACTION] },
+        { name: 'Магічні Таємниці', engName: 'Magical Secrets', description: 'Вивчайте заклинання з будь-якого класу.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Вище Натхнення', engName: 'Superior Inspiration', description: 'Відновлюйте натхнення перед боєм.', displayType: [FeatureDisplayType.PASSIVE] },
+
+        // CLERIC
+        { name: 'Заклинання (Жрець)', engName: 'Spellcasting (Cleric)', description: 'Здатність накладати заклинання жерця.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Божественний Домен', engName: 'Divine Domain', description: 'Оберіть домен вашого божества.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Проведення Енергії (Жрець)', engName: 'Channel Divinity (Cleric)', description: 'Використовуйте божественну енергію.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Вигнання Нежиті', engName: 'Turn Undead', description: 'Виганяйте нежить силою віри.', displayType: [FeatureDisplayType.ACTION] },
+        { name: 'Знищення Нежиті', engName: 'Destroy Undead', description: 'Знищуйте слабку нежить.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Божественне Втручання', engName: 'Divine Intervention', description: 'Закликайте своє божество на допомогу.', displayType: [FeatureDisplayType.ACTION] },
+
+        // DRUID
+        { name: 'Друїдична Мова', engName: 'Druidic', description: 'Таємна мова друїдів.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Заклинання (Друїд)', engName: 'Spellcasting (Druid)', description: 'Здатність накладати заклинання друїда.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Дика Форма', engName: 'Wild Shape', description: 'Перетворюйтесь на звірів.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Коло Друїдів', engName: 'Druid Circle', description: 'Оберіть коло друїдів.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Тіло поза часом', engName: 'Timeless Body (Druid)', description: 'Ви старієте повільніше.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Заклинання Звіра', engName: 'Beast Spells', description: 'Накладайте заклинання у дикій формі.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Архі-друїд', engName: 'Archdruid', description: 'Необмежене використання Дикої Форми.', displayType: [FeatureDisplayType.PASSIVE] },
+
+        // MONK
+        { name: 'Захист без обладунків (Монах)', engName: 'Unarmored Defense (Monk)', description: 'КБ залежить від Спритності та Мудрості.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Бойові Мистецтва', engName: 'Martial Arts', description: 'Майстерність беззбройного бою.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Кі', engName: 'Ki', description: 'Містична енергія монаха.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Рух без обладунків', engName: 'Unarmored Movement', description: 'Збільшена швидкість пересування.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Відбивання Снарядів', engName: 'Deflect Missiles', description: 'Зменшуйте шкоду від дальніх атак.', displayType: [FeatureDisplayType.REACTION] },
+        { name: 'Повільне Падіння', engName: 'Slow Fall', description: 'Зменшуйте шкоду від падіння.', displayType: [FeatureDisplayType.REACTION] },
+        { name: 'Додаткова Атака (Монах)', engName: 'Extra Attack (Monk)', description: 'Атакуйте двічі за дію.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Оголомшуючий Удар', engName: 'Stunning Strike', description: 'Оголомшуйте ворогів ударами.', displayType: [FeatureDisplayType.ACTION] },
+        { name: 'Удари посилені Кі', engName: 'Ki-Empowered Strikes', description: 'Ваші беззбройні удари стають магічними.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Ухилення', engName: 'Evasion', description: 'Уникайте шкоди від ефектів по площі.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Спокій Розуму', engName: 'Stillness of Mind', description: 'Знімайте ефекти чарування та переляку.', displayType: [FeatureDisplayType.ACTION] },
+        { name: 'Рух без обладунків (Вертикальний)', engName: 'Unarmored Movement (Vertical)', description: 'Бігайте по стінах та воді.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Чистота Тіла', engName: 'Purity of Body', description: 'Імунітет до хвороб та отрути.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Язик Сонця і Місяця', engName: 'Tongue of the Sun and Moon', description: 'Розумійте будь-яку мову.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Діамантова Душа', engName: 'Diamond Soul', description: 'Володіння всіма ряткидками.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Тіло поза часом (Монах)', engName: 'Timeless Body', description: 'Ви не старієте і не потребуєте їжі.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Порожнє Тіло', engName: 'Empty Body', description: 'Ставайте невидимим або астральним.', displayType: [FeatureDisplayType.ACTION] },
+        { name: 'Досконале Я', engName: 'Perfect Self', description: 'Відновлюйте Кі перед боєм.', displayType: [FeatureDisplayType.PASSIVE] },
+
+        // PALADIN
+        { name: 'Божественне Чуття', engName: 'Divine Sense', description: 'Відчувайте зло і добро.', displayType: [FeatureDisplayType.ACTION] },
+        { name: 'Покладання Рук', engName: 'Lay on Hands', description: 'Лікуйте дотиком.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Заклинання (Паладин)', engName: 'Spellcasting (Paladin)', description: 'Здатність накладати заклинання паладина.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Божественна Кара', engName: 'Divine Smite', description: 'Витрачайте слоти на додаткову шкоду.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Божественне Здоров\'я', engName: 'Divine Health', description: 'Імунітет до хвороб.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Священна Клятва', engName: 'Sacred Oath', description: 'Оберіть клятву паладина.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Проведення Енергії (Паладин)', engName: 'Channel Divinity', description: 'Використовуйте силу клятви.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Заклинання Клятви', engName: 'Oath Spells', description: 'Завжди підготовлені заклинання.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Додаткова Атака (Паладин)', engName: 'Extra Attack (Paladin)', description: 'Атакуйте двічі за дію.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Аура Захисту', engName: 'Aura of Protection', description: 'Бонус до ряткидків союзників.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Аура Відваги', engName: 'Aura of Courage', description: 'Імунітет до переляку для союзників.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Покращена Божественна Кара', engName: 'Improved Divine Smite', description: 'Додаткова шкода всім атакам.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Очищувальний Дотик', engName: 'Cleansing Touch', description: 'Знімайте заклинання дотиком.', displayType: [FeatureDisplayType.ACTION] },
+
+        // RANGER
+        { name: 'Заклинання (Слідопит)', engName: 'Spellcasting (Ranger)', description: 'Здатність накладати заклинання слідопита.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Додаткова Атака (Слідопит)', engName: 'Extra Attack (Ranger)', description: 'Атакуйте двічі за дію.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Подорож по Місцевості', engName: 'Land\'s Stride', description: 'Рухайтесь через складну місцевість без штрафів.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Зникнення', engName: 'Vanish', description: 'Ховайтесь бонусним дією.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Дикі Чуття', engName: 'Feral Senses', description: 'Боріться з невидимими ворогами.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Вбивця Ворогів', engName: 'Foe Slayer', description: 'Додавайте мудрість до атаки або шкоди.', displayType: [FeatureDisplayType.PASSIVE] },
+
+        // ROGUE
+        { name: 'Експертиза', engName: 'Expertise', description: 'Подвійний бонус майстерності.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Прихована Атака', engName: 'Sneak Attack', description: 'Додаткова шкода по вразливим цілям.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Злодійський Жаргон', engName: 'Thieves\' Cant', description: 'Таємна мова злодіїв.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Хитра Дія', engName: 'Cunning Action', description: 'Ривок, Відхід або Заховання як бонусна дія.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Архетип Злодія', engName: 'Roguish Archetype', description: 'Оберіть архетип.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Неймовірне Ухилення', engName: 'Uncanny Dodge', description: 'Зменшуйте шкоду реакцією.', displayType: [FeatureDisplayType.REACTION] },
+        { name: 'Експертиза 2', engName: 'Expertise 2', description: 'Ще більше навичок з подвійною майстерністю.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Надійний Талант', engName: 'Reliable Talent', description: 'Мінімальний результат 10 на перевірках.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Сліповид', engName: 'Blindsense', description: 'Відчувайте прихованих ворогів.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Слизький Розум', engName: 'Slippery Mind', description: 'Володіння ряткидками Мудрості.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Невловимий', engName: 'Elusive', description: 'Вороги не мають переваги проти вас.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Удача', engName: 'Stroke of Luck', description: 'Перетворюйте промах на влучання.', displayType: [FeatureDisplayType.PASSIVE] },
+
+        // SORCERER
+        { name: 'Заклинання (Чародій)', engName: 'Spellcasting (Sorcerer)', description: 'Здатність накладати заклинання чародія.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Чародійське Походження', engName: 'Sorcerous Origin', description: 'Джерело вашої магії.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Джерело Магії', engName: 'Font of Magic', description: 'Очки чародійства.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Метамагія', engName: 'Metamagic', description: 'Змінюйте свої заклинання.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Чародійське Відновлення', engName: 'Sorcerous Restoration', description: 'Відновлюйте очки чародійства.', displayType: [FeatureDisplayType.PASSIVE] },
+
+        // WARLOCK
+        { name: 'Магія Пакту', engName: 'Pact Magic', description: 'Унікальна магія чаклуна.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Таємничі Відозви', engName: 'Eldritch Invocations', description: 'Особливі магічні здібності.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Дар Пакту', engName: 'Pact Boon', description: 'Подарунок від покровителя.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Містичний Арканум (6 рівень)', engName: 'Mystic Arcanum (6th level)', description: 'Заклинання 6 рівня раз на день.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Містичний Арканум (7 рівень)', engName: 'Mystic Arcanum (7th level)', description: 'Заклинання 7 рівня раз на день.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Містичний Арканум (8 рівень)', engName: 'Mystic Arcanum (8th level)', description: 'Заклинання 8 рівня раз на день.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Містичний Арканум (9 рівень)', engName: 'Mystic Arcanum (9th level)', description: 'Заклинання 9 рівня раз на день.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Таємничий Майстер', engName: 'Eldritch Master', description: 'Відновлюйте магію за хвилину.', displayType: [FeatureDisplayType.PASSIVE] },
+
+        // WIZARD
+        { name: 'Заклинання (Чарівник)', engName: 'Spellcasting (Wizard)', description: 'Здатність накладати заклинання чарівника.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Магічне Відновлення', engName: 'Arcane Recovery', description: 'Відновлюйте слоти заклинань.', displayType: [FeatureDisplayType.CLASS_RESOURCE] },
+        { name: 'Магічна Традиція', engName: 'Arcane Tradition', description: 'Школа магії.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Майстерність Заклинань', engName: 'Spell Mastery', description: 'Безлімітні заклинання 1 і 2 рівня.', displayType: [FeatureDisplayType.PASSIVE] },
+        { name: 'Фірмові Заклинання', engName: 'Signature Spells', description: 'Два заклинання 3 рівня завжди підготовлені.', displayType: [FeatureDisplayType.PASSIVE] },
     ]
 
     for (const feature of features) {
         try {
+            const normalized = normalizeFeatureCreateInput(feature);
             await prisma.feature.upsert({
-                where: { engName: feature.engName },
-                update: feature,
-                create: feature,
+                where: { engName: normalized.engName },
+                update: normalized,
+                create: normalized,
             });
         } catch (error) {
             console.error('💀 ПОМИЛКА на фічі:', feature.name);

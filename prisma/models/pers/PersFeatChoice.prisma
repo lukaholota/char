@@ -1,0 +1,11 @@
+model PersFeatChoice {
+  persFeatChoiceId Int @id @default(autoincrement()) @map("pers_feat_choice_id")
+  persFeatId       Int @map("pers_feat_id")
+  choiceOptionId   Int @map("choice_option_id")
+
+  persFeat     PersFeat     @relation(fields: [persFeatId], references: [persFeatId], onDelete: Cascade)
+  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
+
+  @@unique([persFeatId, choiceOptionId], name: "unique_pers_feat_choice")
+  @@map("pers_feat_choice")
+}

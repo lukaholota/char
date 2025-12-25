@@ -492,58 +492,26 @@ export const seedClasses = async (prisma: PrismaClient) => {
 
             features: {
                 create: [
-                    {
-                        feature: { connect: { engName: "Divine Sense" } },
-                        levelGranted: 1,
-                    },
-                    {
-                        feature: { connect: { engName: "Lay on Hands" } },
-                        levelGranted: 1,
-                    },
-                    {
-                        feature: { connect: { engName: "Spellcasting (Paladin)" } },
-                        levelGranted: 2,
-                    },
-                    {
-                        feature: { connect: { engName: "Divine Smite" } },
-                        levelGranted: 2,
-                    },
-                    {
-                        feature: { connect: { engName: "Divine Health" } },
-                        levelGranted: 3,
-                    },
-                    {
-                        feature: { connect: { engName: "Sacred Oath" } },
-                        levelGranted: 3,
-                    },
-                    {
-                        feature: { connect: { engName: "Channel Divinity" } },
-                        levelGranted: 3,
-                    },
-                    {
-                        feature: { connect: { engName: "Oath Spells" } },
-                        levelGranted: 3,
-                    },
-                    {
-                        feature: { connect: { engName: "Extra Attack (Paladin)" } },
-                        levelGranted: 5,
-                    },
-                    {
-                        feature: { connect: { engName: "Aura of Protection" } },
-                        levelGranted: 6,
-                    },
-                    {
-                        feature: { connect: { engName: "Aura of Courage" } },
-                        levelGranted: 10,
-                    },
-                    {
-                        feature: { connect: { engName: "Improved Divine Smite" } },
-                        levelGranted: 11,
-                    },
-                    {
-                        feature: { connect: { engName: "Cleansing Touch" } },
-                        levelGranted: 14,
-                    },
+                    { feature: { connect: { engName: "Divine Sense" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Lay on Hands" } }, levelGranted: 1 },
+                    { feature: { connect: { engName: "Fighting Style" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Spellcasting (Paladin)" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Divine Smite" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Divine Health" } }, levelGranted: 3 },
+                    { feature: { connect: { engName: "Sacred Oath" } }, levelGranted: 3 },
+                    { feature: { connect: { engName: "Channel Divinity" } }, levelGranted: 3 },
+                    { feature: { connect: { engName: "Oath Spells" } }, levelGranted: 3 },
+                    { feature: { connect: { engName: "Ability Score Improvement" } }, levelGranted: 4 },
+                    { feature: { connect: { engName: "Extra Attack (Paladin)" } }, levelGranted: 5 },
+                    { feature: { connect: { engName: "Aura of Protection" } }, levelGranted: 6 },
+                    { feature: { connect: { engName: "Ability Score Improvement" } }, levelGranted: 8 },
+                    { feature: { connect: { engName: "Aura of Courage" } }, levelGranted: 10 },
+                    { feature: { connect: { engName: "Improved Divine Smite" } }, levelGranted: 11 },
+                    { feature: { connect: { engName: "Ability Score Improvement" } }, levelGranted: 12 },
+                    { feature: { connect: { engName: "Cleansing Touch" } }, levelGranted: 14 },
+                    { feature: { connect: { engName: "Ability Score Improvement" } }, levelGranted: 16 },
+                    { feature: { connect: { engName: "Aura Improvements" } }, levelGranted: 18 },
+                    { feature: { connect: { engName: "Ability Score Improvement" } }, levelGranted: 19 },
                 ],
             }
         },

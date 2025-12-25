@@ -43,7 +43,7 @@ const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }:
         toast.success("Готово! Ви авторизовані.");
         onOpenChange?.(false);
       }
-    } catch (error) {
+    } catch {
       toast.error("Не вдалося авторизуватися", {
         description: "Перевірте зʼєднання та спробуйте знову.",
       });

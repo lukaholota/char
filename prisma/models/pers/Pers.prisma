@@ -19,6 +19,8 @@ model Pers {
   maxHp     Int @map("max_hp")
   tempHp    Int @default(0) @map("temp_hp")
 
+  persSpells PersSpell[]
+
   raceCustom           String @default("") @map("race_custom") @db.VarChar(100)
   classCustom          String @default("") @map("class_custom") @db.VarChar(100)
   alignment            String @default("") @db.VarChar(100)

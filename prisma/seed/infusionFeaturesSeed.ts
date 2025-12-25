@@ -1,8 +1,9 @@
-import { FeatureDisplayType, Prisma, PrismaClient, RestType } from "@prisma/client"
+import { FeatureDisplayType, PrismaClient, RestType } from "@prisma/client"
+import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType"
 
 export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 	console.log( '🧪 Додаємо Feature для Вливань...' )
-	const features: Prisma.FeatureCreateInput[] = [
+	const features: SeedFeatureCreateInput[] = [
 		{
 			name: 'Покращений арканний фокус',
 			engName: 'Infusion: Enhanced Arcane Focus',
@@ -113,10 +114,11 @@ export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 	]
 
 	for ( const f of features ) {
+		const normalized = normalizeFeatureCreateInput(f)
 		await prisma.feature.upsert( {
-			where: { engName: f.engName },
+			where: { engName: normalized.engName },
 			update: {},
-			create: f,
+			create: normalized,
 		} )
 	}
 	console.log( `✅ Додано/оновлено infusion features: ${features.length}` )

@@ -1,0 +1,23 @@
+model PersSpell {
+  persSpellId    Int       @id @default(autoincrement()) @map("pers_spell_id")
+  persId         Int       @map("pers_id")
+  spellId        Int       @map("spell_id")
+  learnedAtLevel Int       @map("learned_at_level")
+  
+  origin         SpellOrigin @default(MANUAL)
+  
+  sourceId       Int?      @map("source_id")
+  sourceName     String?   @map("source_name")
+  notes          String?
+  
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  pers    Pers    @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  spell   Spell   @relation(fields: [spellId], references: [spellId], onDelete: Cascade)
+
+  @@unique([persId, spellId])
+  @@index([persId])
+  @@index([origin])
+  @@map("pers_spell")
+}

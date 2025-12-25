@@ -24,37 +24,40 @@ import { seedInfusionFeatures } from "./seed/infusionFeaturesSeed";
 import { seedInfusions } from "./seed/infusionSeed";
 import { seedMagicItems } from "./seed/magicItemSeed";
 import { seedFeats } from "./seed/featSeed";
+import { seedFeatChoiceOptions } from "./seed/featChoiceOptionSeed";
 
 async function main() {
     console.log('Starting seed...')
     console.log('ВАЖЛИВО‼️‼️‼️‼️‼️ ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД!')
     // ВАЖЛИВО! ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД! поки стосується лише classEquipment та classOptionalFeature
-    await seedWeapons(prisma)
-    await seedArmor(prisma)
-    await seedEquipmentPacks(prisma)
-    await seedBackground(prisma)
-    await seedRaceFeatures(prisma)
-    await seedSubraceFeatures(prisma)
-    await seedRaces(prisma)
-    await seedSubraces(prisma)
-    await seedRaceVariants(prisma)
-    await seedRaceChoiceOptions(prisma)
+    // await seedWeapons(prisma)
+    // await seedArmor(prisma)
+    // await seedEquipmentPacks(prisma)
+    // await seedBackground(prisma)
+    // await seedRaceFeatures(prisma)
+    // await seedSubraceFeatures(prisma)
+    // await seedRaces(prisma)
+    // await seedSubraces(prisma)
+    // await seedRaceVariants(prisma)
+    // await seedRaceChoiceOptions(prisma)
 
-    await seedClassFeatures(prisma)
-    await seedInfusionFeatures(prisma) // features for infusions
-    await seedClasses(prisma)
-    await seedSubclasses(prisma)
-    await seedSubclassFeatures(prisma)
-    await seedChoiceOptions(prisma)
-    await seedClassChoiceOptions(prisma)
-    await seedSubclassChoiceOptions(prisma)
+    // await seedClasses(prisma)
+    // await seedSubclasses(prisma)
+    // await seedSubclassFeatures(prisma)
+    // await seedChoiceOptions(prisma)
+    // await seedClassChoiceOptions(prisma)
+    // await seedSubclassChoiceOptions(prisma)
     
-    await seedMagicItems(prisma) // items for infusions
-    await seedInfusions(prisma)  // infusions themselves
+    // await seedMagicItems(prisma) // items for infusions
+    // await seedInfusions(prisma)  // infusions themselves
 
-    await seedClassOptionalFeatures(prisma)
+    // await seedClassOptionalFeatures(prisma)
     
     await seedFeats(prisma);
+    await seedFeatChoiceOptions(prisma);
+
+    // await seedClassFeatures(prisma)
+    // await seedInfusionFeatures(prisma) // features for infusions
 }
 
 main()

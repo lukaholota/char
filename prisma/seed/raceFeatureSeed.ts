@@ -1,9 +1,10 @@
 import { PrismaClient, FeatureDisplayType, RestType, Prisma } from "@prisma/client";
+import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType";
 
 export const seedRaceFeatures = async (prisma: PrismaClient) => {
     console.log('🌟 Додаємо базові расові фічі...')
 
-    const features: Prisma.FeatureCreateInput[] = [
+    const features: SeedFeatureCreateInput[] = [
         // ============ СЕНСИ І ПЕРЦЕПЦІЯ ============
         {
             name: 'Темнозір',
@@ -2435,10 +2436,11 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
 
     for (const feature of features) {
         try {
+            const normalized = normalizeFeatureCreateInput(feature);
             await prisma.feature.upsert({
-                where: { engName: feature.engName },
-                update: feature,
-                create: feature,
+                where: { engName: normalized.engName },
+                update: normalized,
+                create: normalized,
             });
         } catch (error) {
             console.error('💀 ПОМИЛКА на фічі:', feature.name);

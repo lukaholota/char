@@ -5,20 +5,23 @@ import { Ability, Classes,  } from "@prisma/client";
 import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
 import React, { useEffect, useMemo } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { classAbilityScores } from "@/lib/refs/classesBaseASI";
-import { ClassI, RaceI } from "@/lib/types/model-types";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { ClassI, RaceI, RaceASI } from "@/lib/types/model-types";
+import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
 import { Button } from "@/lib/components/ui/Button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
 import { Badge } from "@/lib/components/ui/badge";
-import { Minus, Plus, ArrowUp, ArrowDown, Check, Sparkles, AlertCircle } from "lucide-react";
+import { Minus, Plus, ArrowUp, ArrowDown, Check, AlertCircle } from "lucide-react";
 import { Input } from "@/lib/components/ui/input";
 import { Switch } from "@/lib/components/ui/switch";
 import { Label } from "@/lib/components/ui/label";
+import { RaceVariant } from "@prisma/client";
 
 
 interface Props {
   race: RaceI
+  raceVariant?: RaceVariant | null
   selectedClass: ClassI
   prevRaceId: number | null
   setPrevRaceId: (id: number) => void;
@@ -52,11 +55,29 @@ const asiSystems = {
 
 
 export const ASIForm = (
-  { race, selectedClass, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
+  { race, raceVariant, selectedClass, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
 ) => {
-  const raceAsi = race.ASI
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const raceAsi = useMemo(() => {
+    if (raceVariant?.overridesRaceASI) {
+      return raceVariant.overridesRaceASI as unknown as RaceASI;
+    }
+    return race.ASI;
+  }, [race, raceVariant]);
 
-  const { form, onSubmit } = useStepForm(asiSchema)
+  const { form, onSubmit } = useStepForm(asiSchema, (data) => {
+    // Save the entire ASI data object
+    updateFormData({
+      isDefaultASI: data.isDefaultASI,
+      asiSystem: data.asiSystem,
+      points: data.points,
+      simpleAsi: data.simpleAsi,
+      asi: data.asi,
+      racialBonusChoiceSchema: data.racialBonusChoiceSchema
+    });
+    nextStep();
+  });
 
   const { fields: asiFields, replace: replaceAsi } = useFieldArray({
     control: form.control,
@@ -101,14 +122,14 @@ export const ASIForm = (
 
   const incrementValue = (index: number) => {
     const currentValue = form.getValues(`asi.${ index }.value`) || 0;
-    form.setValue('points', currentValue >= 13 ? points - 2 : points - 1)
-    form.setValue(`asi.${ index }.value`, currentValue + 1)
+    form.setValue('points', currentValue >= 13 ? points - 2 : points - 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
+    form.setValue(`asi.${ index }.value`, currentValue + 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
   }
   const decrementValue = (index: number) => {
     const currentValue = form.getValues(`asi.${ index }.value`) || 0;
     if (currentValue > 8) {
-      form.setValue('points', currentValue >= 14 ? points + 2 : points + 1)
-      form.setValue(`asi.${ index }.value`, currentValue - 1)
+      form.setValue('points', currentValue >= 14 ? points + 2 : points + 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
+      form.setValue(`asi.${ index }.value`, currentValue - 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
     }
   }
 
@@ -161,7 +182,8 @@ export const ASIForm = (
 
       form.setValue(
         `${ schemaPath }.${ arrayIndex }.selectedAbilities`,
-        newAbilities
+        newAbilities,
+        { shouldDirty: true, shouldTouch: true, shouldValidate: true }
       )
     } else {
       const newGroup = {
@@ -171,7 +193,7 @@ export const ASIForm = (
       }
       const newGroups = [...groups, newGroup]
 
-      form.setValue(`${ schemaPath }`, newGroups)
+      form.setValue(`${ schemaPath }`, newGroups, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
     }
   }
 
@@ -215,7 +237,7 @@ export const ASIForm = (
         }
       }
     }
-  }, [selectedClass, replaceAsi, replaceSimpleAsi, replaceCustomAsi])
+  }, [selectedClass, replaceAsi, replaceSimpleAsi, replaceCustomAsi, form])
 
   useEffect(() => {
     form.register('points')
@@ -422,7 +444,7 @@ export const ASIForm = (
                 {customAsiFields.map((field, index) => {
                   const attr = attributes.find((a) => a.eng === field.ability);
                   const currentValue = form.watch(`customAsi.${index}.value`);
-                  const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
+                  // const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
 
                   return (
                     <Card

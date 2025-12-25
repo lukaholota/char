@@ -24,7 +24,10 @@ const extractErrorMessage = (err: unknown): string | null => {
     return null;
 }
 
-export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape>) {
+export function useStepForm<TShape extends ZodRawShape>(
+    schema: ZodObject<TShape>,
+    onSuccess?: (data: z.output<typeof schema>) => void
+) {
     type Input = z.input<typeof schema>
     type Output = z.output<typeof schema>
 
@@ -47,14 +50,22 @@ export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape
     const mergedDefaults = useMemo(() => ({
         ...schemaDefaults,
         ...relevantFormData,
-    }), [schemaDefaults, formData])
+    }), [schemaDefaults, relevantFormData])
 
     const form = useForm<Input, unknown, Output>({
         resolver: zodResolver(schema),
         defaultValues: mergedDefaults as DefaultValues<Input>,
         mode: "onChange",
-        shouldUnregister: true
+        shouldUnregister: false
     });
+
+    // Save data when unmounting (navigating away without submitting)
+    useEffect(() => {
+        return () => {
+            const values = form.getValues();
+            updateFormData(values);
+        };
+    }, [form, updateFormData]);
 
 
     useEffect(() => {
@@ -62,7 +73,7 @@ export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape
             updateFormData(value as Partial<Input>);
         });
         return () => subscription.unsubscribe();
-    }, [form.watch, updateFormData])
+    }, [form, updateFormData])
 
     const friendlyMessages: Record<string, string> = {
         raceId: "Оберіть, будь ласка, расу",
@@ -82,7 +93,11 @@ export function useStepForm<TShape extends ZodRawShape>(schema: ZodObject<TShape
 
     const onSubmit = form.handleSubmit((data) => {
         updateFormData(data as unknown as Partial<Input>);
-        nextStep();
+        if (onSuccess) {
+            onSuccess(data as unknown as Output);
+        } else {
+            nextStep();
+        }
     }, (errors) => {
         const firstMessage = extractErrorMessage(errors);
         const firstKey = Object.keys(errors)[0];

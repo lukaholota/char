@@ -8,6 +8,8 @@ model Spell {
   castingTime      String  @map("casting_time") @db.VarChar(255)
   range            String  @db.VarChar(255)
   components       String? @db.VarChar(500)
+
+  persSpells       PersSpell[]
   duration         String  @db.VarChar(255)
   description      String  @db.Text
   hasRitual        String? @map("has_ritual") @db.VarChar

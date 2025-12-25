@@ -1,19 +1,21 @@
 import {skillsSchema} from "@/lib/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
 import {BackgroundI, ClassI, RaceI, SkillProficiencies, SkillProficienciesChoice} from "@/lib/types/model-types";
-import {useEffect} from "react";
+import {useEffect, useMemo} from "react";
 import {engEnumSkills} from "@/lib/refs/translation";
-import {Skills} from "@prisma/client";
+import {RaceVariant, Skills} from "@prisma/client";
 import {Skill, SkillsEnum} from "@/lib/types/enums";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
 import { Badge } from "@/lib/components/ui/badge";
 import { Button } from "@/lib/components/ui/Button";
 import { Switch } from "@/lib/components/ui/switch";
 import { Label } from "@/lib/components/ui/label";
-import { Check } from "lucide-react";
+import { Check, Lock } from "lucide-react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 
 interface Props {
   race: RaceI
+  raceVariant?: RaceVariant | null
   selectedClass: ClassI
   background: BackgroundI
   formId: string
@@ -21,6 +23,29 @@ interface Props {
 }
 
 type GroupName = 'race' | 'selectedClass';
+
+function isSkill(value: unknown): value is Skill {
+  return typeof value === "string" && (SkillsEnum as readonly string[]).includes(value)
+}
+
+function normalizeSkillProficiencies(value: unknown): SkillProficiencies | null {
+  if (!value) return null
+
+  if (Array.isArray(value)) {
+    return value.filter(isSkill) as unknown as SkillProficiencies
+  }
+
+  if (typeof value === "object") {
+    const maybe = value as { options?: unknown; choiceCount?: unknown; chooseAny?: unknown }
+    if (typeof maybe.choiceCount === "number" && Array.isArray(maybe.options)) {
+      const options = maybe.options.filter(isSkill)
+      const chooseAny = typeof maybe.chooseAny === "boolean" ? maybe.chooseAny : undefined
+      return { options, choiceCount: maybe.choiceCount, chooseAny }
+    }
+  }
+
+  return null
+}
 
 function getSkillProficienciesCount(skillProfs: SkillProficiencies | null): number {
   if (!skillProfs) return 0;
@@ -31,9 +56,15 @@ function getSkillProficienciesCount(skillProfs: SkillProficiencies | null): numb
 }
 
 function getTotalSkillProficienciesCount(
-  {raceCount, classCount, backgroundCount}: { raceCount: number, classCount: number, backgroundCount: number }
+  {raceCount, classCount, backgroundCount, subraceCount, variantCount}: { 
+    raceCount: number, 
+    classCount: number, 
+    backgroundCount: number,
+    subraceCount: number,
+    variantCount: number
+  }
 ): number {
-  return raceCount + classCount + backgroundCount
+  return raceCount + classCount + backgroundCount + subraceCount + variantCount
 }
 
 interface hasSkills {
@@ -46,8 +77,82 @@ function populateSkills<T extends hasSkills>(model: T) {
   }
 }
 
-export const SkillsForm = ({race, selectedClass, background, formId, onNextDisabledChange}: Props) => {
-  const {form, onSubmit} = useStepForm(skillsSchema);
+export const SkillsForm = ({race, raceVariant, selectedClass, background, formId, onNextDisabledChange}: Props) => {
+  const { formData, updateFormData, nextStep } = usePersFormStore();
+  
+  // Get selected subrace from formData
+  const selectedSubrace = useMemo(() => {
+    if (!formData.subraceId) return null;
+    return race.subraces?.find(sr => sr.subraceId === formData.subraceId);
+  }, [formData.subraceId, race.subraces]);
+  
+  // Calculate fixed skills from race/background/subrace
+  const fixedSkillsFromRaceAndBackground = useMemo(() => {
+    const skills = new Set<Skill>();
+    
+    // Background fixed skills
+    if (Array.isArray(background.skillProficiencies)) {
+      background.skillProficiencies.forEach(s => skills.add(s));
+    }
+    
+    // Race fixed skills
+    if (Array.isArray(race.skillProficiencies)) {
+      race.skillProficiencies.forEach(s => skills.add(s));
+    }
+    
+    // Subrace fixed skills
+    if (selectedSubrace && Array.isArray(selectedSubrace.skillProficiencies)) {
+      selectedSubrace.skillProficiencies.forEach((s) => {
+        if (isSkill(s)) skills.add(s)
+      });
+    }
+    
+    return Array.from(skills);
+  }, [background, race, selectedSubrace]);
+  
+  // Custom submit handler to build skills array
+  const {form, onSubmit: baseOnSubmit} = useStepForm(skillsSchema, (data) => {
+    // Build flat skills array from schema data
+    const allSkills = new Set<string>();
+    
+    if (data.isTasha) {
+      // In Tasha mode, tashaChoices already contains ALL selected skills (no fixed skills - they become choices)
+      data.tashaChoices.forEach(s => allSkills.add(s));
+    } else {
+      // In basic mode, combine fixed race/background skills + class choices
+      
+      // Add fixed background skills
+      if (Array.isArray(background.skillProficiencies)) {
+        background.skillProficiencies.forEach(s => allSkills.add(s));
+      }
+      
+      // Add fixed race skills
+      if (Array.isArray(race.skillProficiencies)) {
+        race.skillProficiencies.forEach(s => allSkills.add(s));
+      }
+      
+      // Add subrace fixed skills
+      const selectedSubrace = race.subraces?.find(sr => sr.subraceId === formData.subraceId);
+      if (selectedSubrace && Array.isArray(selectedSubrace.skillProficiencies)) {
+        selectedSubrace.skillProficiencies.forEach((s) => {
+          if (isSkill(s)) allSkills.add(s)
+        });
+      }
+      
+      // Add class choices (user-selected)
+      data.basicChoices.selectedClass.forEach(s => allSkills.add(s));
+    }
+    
+    // Save both skillsSchema AND flat skills array
+    const skillsArray = Array.from(allSkills);
+    
+    updateFormData({
+      skillsSchema: data,
+      skills: skillsArray
+    });
+    
+    nextStep();
+  });
 
   populateSkills<typeof race>(race)
 
@@ -57,28 +162,52 @@ export const SkillsForm = ({race, selectedClass, background, formId, onNextDisab
     form.register('basicChoices.selectedClass')
     form.register('tashaChoices')
     form.register('isTasha')
-  }, [])
-
-  useEffect(() => {
-    onNextDisabledChange?.(false);
-  }, [onNextDisabledChange])
+    form.register('_requiredCount')
+    form.register('_raceCount')
+    form.register('_classCount')
+  }, [form])
 
   const isTasha = form.watch('isTasha') ?? true
-  const tashaChoices = form.watch('tashaChoices') || [] // просто watch
+  const tashaChoices = form.watch('tashaChoices') || []
   const basicChoices = form.watch('basicChoices') ?? {
     race: [],
     selectedClass: [],
   }
 
-  const raceCount = getSkillProficienciesCount(race.skillProficiencies)
+  // Skills shown as "locked" in UI - only in non-Tasha mode
+  const lockedSkillsInUI = useMemo(() => {
+    if (isTasha) return []; // In Tasha mode, NO skills are locked in UI (they become free choices)
+    return fixedSkillsFromRaceAndBackground; // In non-Tasha mode, these are locked
+  }, [isTasha, fixedSkillsFromRaceAndBackground]);
+
+  const raceSkillProficiencies = useMemo(() => {
+    if (raceVariant?.name === 'HUMAN_VARIANT') {
+      // Variant Human gets 1 skill of choice
+      return {
+        choiceCount: 1,
+        options: [...SkillsEnum]
+      } as SkillProficienciesChoice;
+    }
+    return race.skillProficiencies;
+  }, [race, raceVariant]);
+
+  const raceCount = getSkillProficienciesCount(raceSkillProficiencies)
   const classCount = getSkillProficienciesCount(selectedClass.skillProficiencies)
   const backgroundCount = getSkillProficienciesCount(background.skillProficiencies)
+  const subraceCount = getSkillProficienciesCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
+  const variantCount = 0
 
-  const tashaChoiceCountTotal = getTotalSkillProficienciesCount({
-    raceCount: raceCount,
-    classCount: classCount,
-    backgroundCount: backgroundCount
-  })
+  // In Tasha mode, ALL skills (including fixed ones) become free choices in ONE pool
+  const tashaChoiceCountTotal = isTasha 
+    ? getTotalSkillProficienciesCount({
+        raceCount,
+        classCount,
+        backgroundCount,
+        subraceCount,
+        variantCount
+      }) + fixedSkillsFromRaceAndBackground.length // Add fixed skills that become choices in Tasha mode
+    : 0;
+    
   const tashaChoiceCountCurrent = tashaChoiceCountTotal - (tashaChoices?.length ?? 0)
 
   const basicCounts = {
@@ -87,14 +216,16 @@ export const SkillsForm = ({race, selectedClass, background, formId, onNextDisab
   }
 
   const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
-  const staticSkillGroups = [race, background].filter(e => Array.isArray(e.skillProficiencies))
 
   const skillsByGroup = {
-    race: race.skillProficiencies as SkillProficienciesChoice,
+    race: raceSkillProficiencies as SkillProficienciesChoice,
     selectedClass: selectedClass.skillProficiencies as SkillProficienciesChoice,
   }
 
   const checkIfSelectedByOthers = (groupName: GroupName, skill: Skill) => {
+    // Check if skill is in fixed granted skills
+    if (fixedSkillsFromRaceAndBackground.includes(skill)) return true;
+    
     const allSkillGroups = {
       background: background.skillProficiencies,
       race: Array.isArray(race.skillProficiencies)
@@ -111,9 +242,32 @@ export const SkillsForm = ({race, selectedClass, background, formId, onNextDisab
     )
   }
 
+  // Set validation metadata fields
+  useEffect(() => {
+    if (isTasha) {
+      form.setValue('_requiredCount', tashaChoiceCountTotal);
+      form.setValue('_raceCount', undefined);
+      form.setValue('_classCount', undefined);
+    } else {
+      form.setValue('_requiredCount', undefined);
+      form.setValue('_raceCount', raceCount);
+      form.setValue('_classCount', classCount);
+    }
+  }, [isTasha, tashaChoiceCountTotal, raceCount, classCount, form]);
+
+  // Update button state based on form validity
+  useEffect(() => {
+    const hasCorrectCount = isTasha 
+      ? tashaChoices.length === tashaChoiceCountTotal  // In Tasha mode: ONE pool validation
+      : (basicChoices.selectedClass ?? []).length === classCount; // In non-Tasha: only validate class choices (race is auto-granted)
+    
+    onNextDisabledChange?.(!hasCorrectCount);
+  }, [isTasha, tashaChoices, tashaChoiceCountTotal, basicChoices, classCount, fixedSkillsFromRaceAndBackground, form.formState.isValid, form.formState.errors, onNextDisabledChange]);
+
   const handleToggleTashaSkill = (skill: Skill) => {
     const has = tashaChoices.includes(skill)
 
+    // Can't select if already at limit and not currently selected
     if (!has && tashaChoiceCountCurrent < 1) return;
 
     const updated = has
@@ -137,7 +291,7 @@ export const SkillsForm = ({race, selectedClass, background, formId, onNextDisab
   }
 
   return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+    <form id={formId} onSubmit={baseOnSubmit} className="w-full space-y-4">
       <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
         <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -163,47 +317,63 @@ export const SkillsForm = ({race, selectedClass, background, formId, onNextDisab
                   {tashaChoiceCountCurrent}
                 </Badge>
               </div>
+              
+              {/* In Tasha mode, NO fixed skills section - all become choices */}
+              <p className="text-xs text-slate-400 px-2">
+                🌟 Режим Таші: всі навички від раси, підраси та передісторії тепер доступні для вільного вибору
+              </p>
+              
               <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
                 {engEnumSkills.map((skill, index) => {
-                  const isSelected = tashaChoices.includes(skill.eng)
-                  const isReachedLimit = tashaChoiceCountCurrent < 1
+                  const isSelected = tashaChoices.includes(skill.eng);
+                  const isReachedLimit = tashaChoiceCountCurrent < 1;
                   const isDisabled = !isSelected && isReachedLimit;
                   const active = isSelected;
+                  
                   return (
                     <Button
                       key={index}
                       type="button"
                       variant={active ? "secondary" : "outline"}
                       disabled={isDisabled}
-                      className={`justify-between ${active ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" : "bg-slate-900/60 border-slate-800/80 text-slate-200"} ${isDisabled ? "opacity-60" : ""}`}
+                      className={`justify-between ${
+                        active 
+                          ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
+                          : "bg-slate-900/60 border-slate-800/80 text-slate-200"
+                      } ${isDisabled ? "opacity-60" : ""}`}
                       onClick={() => handleToggleTashaSkill(skill.eng)}
                     >
                       <span>{skill.ukr}</span>
                       {active && <Check className="h-4 w-4" />}
                     </Button>
-                  )
+                  );
                 })}
               </div>
             </div>
           ) : (
             <div className="space-y-5">
-              {staticSkillGroups.map((group, index) => (
-                <div key={index} className="rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
-                  <h3 className="text-sm font-semibold text-white">
-                    {group === race ? 'Навички за расу' : 'Навички за передісторію'}
-                  </h3>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {(group.skillProficiencies as Skill[]).map((skill, idx) => {
-                      const skillGroup = engEnumSkills.find((s) => s.eng === skill)
+              {/* Show fixed skills from background/race/subrace in NON-Tasha mode */}
+              {lockedSkillsInUI.length > 0 && (
+                <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Lock className="h-4 w-4 text-amber-400" />
+                    <h3 className="text-sm font-semibold text-amber-200">Фіксовані навички</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {lockedSkillsInUI.map((skill) => {
+                      const skillGroup = engEnumSkills.find((s) => s.eng === skill);
                       return (
-                        <Badge key={idx} className="bg-slate-800/80 text-slate-200 border border-slate-700">
+                        <Badge key={skill} className="bg-amber-900/30 text-amber-100 border border-amber-700/50">
                           {skillGroup?.ukr}
                         </Badge>
-                      )
+                      );
                     })}
                   </div>
+                  <p className="text-xs text-amber-300/70 mt-2">
+                    Ці навички автоматично отримані від раси та передісторії
+                  </p>
                 </div>
-              ))}
+              )}
 
               {entries.map(([groupName, choices], index) => (
                 <div key={index} className="space-y-2 rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
@@ -224,20 +394,31 @@ export const SkillsForm = ({race, selectedClass, background, formId, onNextDisab
                       const isMaxReached = basicCounts[groupName] < 1;
                       const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
                       const active = isSelected || isSelectedByOthers;
+                      
                       return (
                         <Button
                           key={skillIndex}
                           type="button"
                           variant={active ? "secondary" : "outline"}
                           disabled={isDisabled}
-                          className={`justify-between ${active ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" : "bg-slate-900/60 border-slate-800/80 text-slate-200"} ${isDisabled ? "opacity-60" : ""}`}
-                          onClick={() => handleToggleBasicSkill({
+                          className={`justify-between ${
+                            isSelectedByOthers 
+                              ? "bg-slate-700/30 text-slate-400 border-slate-600/50 cursor-not-allowed" 
+                              : active 
+                                ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
+                                : "bg-slate-900/60 border-slate-800/80 text-slate-200"
+                          } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
+                          onClick={() => !isSelectedByOthers && handleToggleBasicSkill({
                             skill: Skills[skillGroup.eng],
                             groupName: groupName
                           })}
                         >
-                          <span>{skillGroup.ukr}</span>
-                          {active && <Check className="h-4 w-4" />}
+                          <span className="flex items-center gap-2">
+                            {isSelectedByOthers && <Lock className="h-3 w-3" />}
+                            {skillGroup.ukr}
+                          </span>
+                          {active && !isSelectedByOthers && <Check className="h-4 w-4" />}
+                          {isSelectedByOthers && <span className="text-xs opacity-70">(вже обрано)</span>}
                         </Button>
                       )
                     })}

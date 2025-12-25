@@ -16,5 +16,6 @@ model PersArmor {
   // Opposite side of PersInfusion.armor
   infusions PersInfusion[]
 
+  @@unique([persId, armorId], name: "unique_pers_armor")
   @@map("pers_armor")
 }

@@ -2,7 +2,7 @@ import { CreatePersInput } from "./CreatePersInput.schema";
 import { Pers } from "./Pers";
 
 export class PersFactory {
-    static create(input: CreatePersInput): Pers {
+    static create(_input: CreatePersInput): Pers {
         return null as any;
     }
 }

@@ -44,6 +44,9 @@ import {
   WeaponCategory,
   WeaponProperty,
   WeaponType,
+  SubclassChoiceOption,
+  ChoiceOption,
+  ChoiceOptionFeature,
 } from '@prisma/client';
 
 // Якщо в тебе є окремий фронтовий enum Skill — підтягуємо
@@ -287,9 +290,25 @@ export type Prerequisites = PrerequisiteSimpleTag[] | PrerequisiteObject;
 
 export type RacePrisma = Prisma.RaceGetPayload<{
   include: {
-    subraces: true;
+    subraces: {
+      include: {
+        traits: {
+          include: {
+            feature: true;
+          };
+        };
+      };
+    };
     raceChoiceOptions: true;
-    raceVariants: true;
+    raceVariants: {
+      include: {
+        traits: {
+          include: {
+            feature: true;
+          };
+        };
+      };
+    };
     traits: {
       include: {
         feature: true;
@@ -310,6 +329,19 @@ export type ClassPrisma = Prisma.ClassGetPayload<{
           };
         };
         expandedSpells: true;
+        subclassChoiceOptions: {
+          include: {
+            choiceOption: {
+              include: {
+                features: {
+                  include: {
+                    feature: true;
+                  };
+                };
+              };
+            };
+          };
+        };
       };
     };
     startingEquipmentOption: {
@@ -403,18 +435,7 @@ export type FeaturePrisma = Prisma.FeatureGetPayload<{
   };
 }>;
 
-// 3.5. Feat
 
-export type FeatPrisma = Prisma.FeatGetPayload<{
-  include: {
-    featFeatures: {
-      include: {
-        feature: true;
-      };
-    };
-    featAbilityBoost: true;
-  };
-}>;
 
 // 3.6. MagicItem
 
@@ -532,6 +553,27 @@ export type SpellPrisma = Prisma.SpellGetPayload<{
   };
 }>;
 
+// 3.10. Feat
+
+export type FeatPrisma = Prisma.FeatGetPayload<{
+  include: {
+    grantsFeature: true;
+    featChoiceOptions: {
+      include: {
+        choiceOption: {
+          include: {
+            features: {
+              include: {
+                feature: true;
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}>;
+
 // ============================================================================
 // 4. Інтерфейси I-* з приведеними JSON-полями
 // ============================================================================
@@ -603,6 +645,16 @@ export interface MagicItemI
 // 5. Експорт корисних alias'ів (як захочеш використовувати далі)
 // ============================================================================
 
+export interface SubclassI extends Subclass {
+  subclassChoiceOptions: (SubclassChoiceOption & {
+    choiceOption: ChoiceOption & {
+      features: (ChoiceOptionFeature & {
+        feature: Feature
+      })[]
+    }
+  })[];
+}
+
 export type {
   Ability,
   Armor,
@@ -645,4 +697,7 @@ export type {
   WeaponCategory,
   WeaponProperty,
   WeaponType,
+  SubclassChoiceOption,
+  ChoiceOption,
+  ChoiceOptionFeature,
 };

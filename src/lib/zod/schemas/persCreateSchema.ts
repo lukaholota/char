@@ -7,12 +7,34 @@ export const raceSchema = z.object({
   raceSearch: z.string().default('')
 })
 
+export const subraceSchema = z.object({
+  subraceId: z.number().optional(),
+});
+
+export const raceVariantSchema = z.object({
+  raceVariantId: z.number().optional(),
+});
+
+export const featSchema = z.object({
+  featId: z.number().min(1, "Оберіть рису!"),
+  featSearch: z.string().default('')
+});
+
 export const classSchema = z.object({
   classId: z.number().min(1, "Клас теж треба обрати, мандрівнику!"),
 });
 
+export const subclassSchema = z.object({
+  subclassId: z.number().optional(),
+  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+});
+
 export const classChoiceOptionsSchema = z.object({
   classChoiceSelections: z.record(z.string(), z.number().int()).default({})
+});
+
+export const featChoiceOptionsSchema = z.object({
+  featChoiceSelections: z.record(z.string(), z.number().int()).default({})
 });
 
 export const classOptionalFeaturesSchema = z.object({
@@ -27,7 +49,7 @@ export const backgroundSchema = z.object({
 const choices = z.object({
   groupIndex: z.number(),
   choiceCount: z.number(),
-  selectedAbilities: z.array(z.enum(Ability))
+  selectedAbilities: z.array(z.nativeEnum(Ability))
 })
 
 export const asiSchema = z.object({
@@ -117,8 +139,47 @@ export const skillsSchema  = z.object({
   }).default({
     race: [],
     selectedClass: [],
-  })
+  }),
+  
+  // Metadata fields for validation (not stored in DB)
+  _requiredCount: z.number().optional(),
+  _raceCount: z.number().optional(),
+  _classCount: z.number().optional(),
 }).strict()
+  .superRefine((data, ctx) => {
+    // Skip validation if metadata not provided (for backward compatibility)
+    if (data.isTasha && data._requiredCount !== undefined) {
+      // In Tasha mode: validate total count
+      const actualCount = data.tashaChoices.length;
+      if (actualCount !== data._requiredCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Оберіть рівно ${data._requiredCount} навичок`,
+          path: ['tashaChoices'],
+        });
+      }
+    } else if (!data.isTasha && data._raceCount !== undefined && data._classCount !== undefined) {
+      // In basic mode: validate race and class counts separately
+      if (data.basicChoices.race.length !== data._raceCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Оберіть рівно ${data._raceCount} навичок за расу`,
+          path: ['basicChoices', 'race'],
+        });
+      }
+      if (data.basicChoices.selectedClass.length !== data._classCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Оберіть рівно ${data._classCount} навичок за клас`,
+          path: ['basicChoices', 'selectedClass'],
+        });
+      }
+    }
+  })
+
+export const expertiseSchema = z.object({
+  expertises: z.array(skills).default([])
+});
 
 export const equipmentSchema = z.object({
     choiceGroupToId: z.record(
@@ -136,8 +197,14 @@ export const nameSchema = z.object({
 export const fullCharacterSchema = z.object({
   raceId: z.number(),
   raceSearch: z.string().default(''),
+  subraceId: z.number().optional(),
+  raceVariantId: z.number().optional(),
+  featId: z.number().optional(),
   classId: z.number(),
+  subclassId: z.number().optional(),
+  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
   classChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  featChoiceSelections: z.record(z.string(), z.number().int()).default({}),
   classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({}),
   backgroundId: z.number(),
   backgroundSearch: z.string().default(''),
@@ -147,16 +214,17 @@ export const fullCharacterSchema = z.object({
   simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
   customAsi: z.array(z.object({ ability: z.string(), value: z.string().transform((val) => (val === '' ? 10 : Number(val)))})).default([]).optional(),
   asi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
-  skills: z.array(z.string()),
-  equipment: z.array(z.number()),
-  name: z.string(),
+  skills: z.array(z.string()).default([]),
+  equipment: z.array(z.number()).default([]),
+  name: z.string().default(''),
   racialBonusChoiceSchema: z.object({
     basicChoices: z.array(choices).default([]),
     tashaChoices: z.array(choices).default([])
   }).optional(),
-  skillsSchema,
-  equipmentSchema,
-  nameSchema
+  skillsSchema: skillsSchema.optional(),
+  expertiseSchema: expertiseSchema.optional(),
+  equipmentSchema: equipmentSchema.optional(),
+  nameSchema: nameSchema.optional()
 })
 
 

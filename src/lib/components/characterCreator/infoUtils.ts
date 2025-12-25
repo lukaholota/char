@@ -7,6 +7,17 @@ import {
   attributesUkrFull,
   engEnumSkills,
   weaponTranslations,
+  subraceTranslations,
+  variantTranslations,
+  subclassTranslations,
+  toolTranslations,
+  armorTypeTranslations,
+  weaponTypeTranslations,
+  backgroundTranslations,
+  spellSchoolTranslations,
+  damageTypeTranslations,
+  raceTranslations,
+  classTranslations,
 } from "@/lib/refs/translation";
 import { MulticlassReqs, SkillProficiencies, ToolProficiencies, WeaponProficiencies } from "@/lib/types/model-types";
 
@@ -27,7 +38,7 @@ export const prettifyEnum = (value?: string | number | null) => {
     .join(" ");
 };
 
-const translateValue = (value?: string | number | null): string => {
+export const translateValue = (value?: string | number | null): string => {
   if (value === undefined || value === null) return "";
   const key = String(value);
 
@@ -38,6 +49,17 @@ const translateValue = (value?: string | number | null): string => {
   if (weaponTranslations[key as keyof typeof weaponTranslations])
     return weaponTranslations[key as keyof typeof weaponTranslations];
   if ((skillTranslations as Record<string, string>)[key]) return skillTranslations[key as Skills];
+  if (raceTranslations[key as keyof typeof raceTranslations]) return raceTranslations[key as keyof typeof raceTranslations];
+  if (classTranslations[key as keyof typeof classTranslations]) return classTranslations[key as keyof typeof classTranslations];
+  if (subraceTranslations[key as keyof typeof subraceTranslations]) return subraceTranslations[key as keyof typeof subraceTranslations];
+  if (variantTranslations[key as keyof typeof variantTranslations]) return variantTranslations[key as keyof typeof variantTranslations];
+  if (subclassTranslations[key as keyof typeof subclassTranslations]) return subclassTranslations[key as keyof typeof subclassTranslations];
+  if (toolTranslations[key as keyof typeof toolTranslations]) return toolTranslations[key as keyof typeof toolTranslations];
+  if (armorTypeTranslations[key as keyof typeof armorTypeTranslations]) return armorTypeTranslations[key as keyof typeof armorTypeTranslations];
+  if (weaponTypeTranslations[key as keyof typeof weaponTypeTranslations]) return weaponTypeTranslations[key as keyof typeof weaponTypeTranslations];
+  if (backgroundTranslations[key as keyof typeof backgroundTranslations]) return backgroundTranslations[key as keyof typeof backgroundTranslations];
+  if (spellSchoolTranslations[key as keyof typeof spellSchoolTranslations]) return spellSchoolTranslations[key as keyof typeof spellSchoolTranslations];
+  if (damageTypeTranslations[key as keyof typeof damageTypeTranslations]) return damageTypeTranslations[key as keyof typeof damageTypeTranslations];
 
   return prettifyEnum(value);
 };
@@ -133,4 +155,69 @@ export const formatMulticlassReqs = (reqs?: MulticlassReqs | (MulticlassReqs & {
   }
 
   return `Потрібно ${reqs.score}+ у характеристиці`;
+};
+
+export const formatRaceAC = (ac?: any | null) => {
+  if (!ac) return "10";
+  if ("consistentBonus" in ac) {
+    return `+${ac.consistentBonus} до КЗ`;
+  }
+  const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
+  return `База ${ac.base}${bonus}`;
+};
+
+export const formatASI = (asi?: any | null) => {
+  if (!asi) return "—";
+
+  const fixedEntries = Object.entries(asi.basic?.simple || {});
+  const basicFlexible = asi.basic?.flexible?.groups || [];
+  const tashaFlexible = asi.tasha?.flexible?.groups || [];
+
+  const parts: string[] = [];
+
+  if (fixedEntries.length) {
+    parts.push(
+      `Фіксовано: ${fixedEntries
+        .map(([stat, value]) => `${prettifyEnum(stat)} +${value}`)
+        .join(", ")}`
+    );
+  }
+
+  if (basicFlexible.length) {
+    parts.push(
+      `Гнучко: ${basicFlexible
+        .map(
+          (group: any) =>
+            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
+        )
+        .join("; ")}`
+    );
+  }
+
+  if (tashaFlexible.length) {
+    parts.push(
+      `За Та́шею: ${tashaFlexible
+        .map(
+          (group: any) =>
+            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
+        )
+        .join("; ")}`
+    );
+  }
+
+  return parts.join(" • ") || "—";
+};
+
+export const formatSpeeds = (entity: any) => {
+  const speeds = [
+    { label: "Ходьба", value: entity.speed },
+    { label: "Лазіння", value: entity.climbSpeed },
+    { label: "Плавання", value: entity.swimSpeed },
+    { label: "Політ", value: entity.flightSpeed },
+    { label: "Риття", value: entity.burrowSpeed },
+  ].filter((item) => (item.value ?? 0) > 0 || item.label === "Ходьба");
+
+  return speeds
+    .map((item) => `${item.label}: ${item.value} фт`)
+    .join(" • ");
 };

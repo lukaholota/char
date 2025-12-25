@@ -1,9 +1,10 @@
 import { PrismaClient, FeatureDisplayType, RestType, Prisma } from "@prisma/client";
+import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType";
 
 export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     console.log('🌟 Додаємо фічі підрас...')
 
-    const features: Prisma.FeatureCreateInput[] = [
+    const features: SeedFeatureCreateInput[] = [
         // ============ ELF SUBRACE FEATURES ============
 
         // --- WOOD ELF ---
@@ -328,10 +329,11 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
 
     for (const feature of features) {
         try {
+            const normalized = normalizeFeatureCreateInput(feature);
             await prisma.feature.upsert({
-                where: { engName: feature.engName },
-                update: feature,
-                create: feature,
+                where: { engName: normalized.engName },
+                update: normalized,
+                create: normalized,
             });
         } catch (error) {
             console.error('💀 ПОМИЛКА на фічі підраси:', feature.name);

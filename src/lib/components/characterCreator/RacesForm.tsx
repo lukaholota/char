@@ -10,7 +10,8 @@ import { Badge } from "@/lib/components/ui/badge";
 import { Button } from "@/lib/components/ui/Button";
 import { Input } from "@/lib/components/ui/input";
 import { Search, X } from "lucide-react";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useCallback } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import {
   InfoDialog,
   InfoGrid,
@@ -109,7 +110,15 @@ interface Props {
 export const RacesForm = (
   {races, formId, onNextDisabledChange}: Props
 ) => {
-  const {form, onSubmit} = useStepForm(raceSchema)
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const {form, onSubmit} = useStepForm(raceSchema, (data) => {
+    updateFormData({ 
+      raceId: data.raceId,
+      raceSearch: data.raceSearch 
+    });
+    nextStep();
+  });
 
   const chosenRaceId = form.watch('raceId') || 0
   const raceSearch = form.watch('raceSearch') || ''
@@ -123,12 +132,12 @@ export const RacesForm = (
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenRaceId]);
 
-  const matchesSearch = (raceName: string) => {
+  const matchesSearch = useCallback((raceName: string) => {
     if (!normalizedRaceSearch) return true;
     const ua = normalizeText(raceTranslations[raceName]);
     const eng = normalizeText(raceTranslationsEng[raceName]);
     return ua.includes(normalizedRaceSearch) || eng.includes(normalizedRaceSearch);
-  };
+  }, [normalizedRaceSearch]);
 
   const sourceLabel = (race: RaceI) => sourceTranslations[race.source] ?? race.source;
 
@@ -198,14 +207,14 @@ export const RacesForm = (
       .filter(r => r.name.endsWith('2014'))
       .filter(r => matchesSearch(r.name))
       .sort((a, b) => (a.sortOrder - b.sortOrder) || (a.raceId - b.raceId)),
-    [races, normalizedRaceSearch]
+    [races, matchesSearch]
   );
   const otherRaces = useMemo(
     () => races
       .filter(r => !r.name.endsWith('2014'))
       .filter(r => matchesSearch(r.name))
       .sort((a, b) => (a.sortOrder - b.sortOrder) || (a.raceId - b.raceId)),
-    [races, normalizedRaceSearch]
+    [races, matchesSearch]
   );
 
   const hasNoResults = !coreRaces.length && !otherRaces.length;

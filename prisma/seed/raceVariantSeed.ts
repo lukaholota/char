@@ -58,6 +58,42 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
     const connectFeature = (engName: string) => ({ feature: { connect: { engName } } });
 
     const variants = [
+        // ============ HUMAN VARIANT (PHB) ============
+        {
+            raceId: human.raceId,
+            name: Variants.HUMAN_VARIANT,
+            source: Source.PHB,
+            overridesRaceASI: {
+                basic: {
+                    flexible: {
+                        groups: [
+                            {
+                                groupName: '+1 до Двох',
+                                value: 1,
+                                choiceCount: 2,
+                                unique: true
+                            }
+                        ]
+                    }
+                },
+                tasha: {
+                    flexible: {
+                        groups: [
+                            {
+                                groupName: '+1 до Двох',
+                                value: 1,
+                                choiceCount: 2,
+                                unique: true
+                            }
+                        ]
+                    }
+                }
+            },
+            traits: {
+                create: []
+            }
+        },
+
         // ============ SCAG BLOODLINES ============
         
         // Asmodeus (PHB default, explicit variant)

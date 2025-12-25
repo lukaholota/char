@@ -1057,6 +1057,97 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
       classConnect: Classes.ROGUE_2014,
       expandedSpells: { connect: [] },
     },
+
+    {
+      name: Subclasses.WAY_OF_MERCY,
+      description:
+        "Шлях милосердя вчить маніпулювати життєвою силою, щоб зцілювати стражденних і карати ворогів. Монахи носять маски, як символ своєї ролі між життям і смертю.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_ASCENDANT_DRAGON,
+      description:
+        "Шлях висхідного дракона дозволяє монаху втілювати силу драконів. Вони видихають руйнівну енергію, літають на примарних крилах і наповнюють свої удари стихійною силою.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_ASTRAL_SELF,
+      description:
+        "Шлях астрального \"я\" вірить, що тіло — це ілюзія. Монахи викликають астральні руки, маски та обладунки, що є проявом їхньої істинної душі та волі.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_DRUNKEN_MASTER,
+      description:
+        "Шлях п'яного майстра навчає рухатися з непередбачуваною грацією п'яниці. Монах хитається й ухиляється, збиваючи ворогів з пантелику та завдаючи швидких ударів.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_FOUR_ELEMENTS,
+      description:
+        "Шлях чотирьох стихій дозволяє монаху керувати вогнем, водою, повітрям і землею. Вони використовують свою ци, щоб створювати вибухи полум'я, крижані стіни та пориви вітру.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_KENSEI,
+      description:
+        "Шлях кенсея фокусується на майстерності володіння зброєю. Для цих монахів меч або лук є продовженням тіла, а бойове мистецтво перетворюється на витончену каліграфію.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_LONG_DEATH,
+      description:
+        "Шлях довгої смерті вивчає механізми вмирання. Монахи цього шляху поглинають життєву силу ворогів, щоб зцілювати себе, і випромінюють ауру жаху.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_OPEN_HAND,
+      description:
+        "Шлях відкритої долоні — це класичне бойове мистецтво. Монахи маніпулюють енергією ци ворога, збиваючи його з ніг, відштовхуючи або навіть миттєво зупиняючи серце.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_SHADOW,
+      description:
+        "Шлях тіні навчає мистецтву непомітності та вбивства. Монахи переміщуються між тінями, стають невидимими й використовують темряву, щоб дезорієнтувати ворогів.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
+    {
+      name: Subclasses.WAY_OF_THE_SUN_SOUL,
+      description:
+        "Шлях сонячної душі дозволяє каналізувати внутрішнє світло. Монахи вистрілюють променями радіантної енергії та створюють вибухи світла, спалюючи темряву.",
+      primaryCastingStat: Ability.WIS,
+      spellcastingType: SpellcastingType.NONE,
+      classConnect: Classes.MONK_2014,
+      expandedSpells: { connect: [] },
+    },
   ]
 
   for (const subclass of subclasses) {

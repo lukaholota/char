@@ -2,13 +2,14 @@ import {equipmentSchema} from "@/lib/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
 import {ClassI, RaceI} from "@/lib/types/model-types";
 import {useEffect, useMemo, useState} from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { ClassStartingEquipmentOption, Weapon, WeaponType } from "@prisma/client";
 import {groupBy} from "@/lib/server/formatters/generalFormatters";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
 import { Badge } from "@/lib/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/lib/components/ui/dialog";
 import { Button } from "@/lib/components/ui/Button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
 import { WeaponKindType } from "@/lib/types/enums";
 import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
 
@@ -25,8 +26,13 @@ const constToCamel: Record<string, WeaponKindType> = {
   MARTIAL_WEAPON: "meleeMartial",  
 }
 
-export const EquipmentForm = ({race, selectedClass, weapons, formId, onNextDisabledChange}: Props) => {
-  const {form, onSubmit} = useStepForm(equipmentSchema);
+export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledChange}: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const {form, onSubmit} = useStepForm(equipmentSchema, (data) => {
+    updateFormData({ equipmentSchema: data });
+    nextStep();
+  });
 
   const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
   const anyWeaponSelection = form.watch('anyWeaponSelection') as Record<string, number[]>
