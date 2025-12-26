@@ -5,7 +5,7 @@ model SubraceTrait {
   featureId      Int @map("feature_id")
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  subrace Subrace @relation(fields: [subraceId], references: [subraceId])
+  subrace Subrace @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
 
   @@map("subrace_trait")
 }

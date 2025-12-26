@@ -81,7 +81,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
 
   if (!selectedClass && !availableOptions) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+      <Card className="p-4 text-center text-slate-200">
         Спершу оберіть клас.
       </Card>
     );
@@ -89,7 +89,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
 
   if (!groupedOptions.length) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+      <Card className="p-4 text-center text-slate-200">
         На 1 рівні {displayName(selectedClass)} не має окремих виборів. Можна рухатися далі.
       </Card>
     );
@@ -98,8 +98,8 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
   return (
     <form id={formId} onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-1 text-center">
-        <p className="text-sm font-semibold text-indigo-200">Рівень 1</p>
-        <h2 className="text-xl font-semibold text-white">Опції класу</h2>
+        <p className="text-sm font-semibold text-slate-300">Рівень 1</p>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">Опції класу</h2>
         <p className="text-sm text-slate-400">
           {displayName(selectedClass)} пропонує вибір. Оберіть те, що підходить вашому персонажу.
         </p>
@@ -109,7 +109,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
         {groupedOptions.map(({ groupName, options }) => (
           <Card
             key={groupName}
-            className="border border-slate-800/80 bg-slate-900/70 shadow-inner shadow-indigo-500/5"
+            className=""
           >
             <CardContent className="space-y-3 p-4">
               <div className="flex items-center justify-between gap-3">
@@ -117,7 +117,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                   <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
                   <p className="text-base font-semibold text-white">{groupName}</p>
                 </div>
-                <Badge variant="outline" className="border-slate-700 bg-slate-800/60 text-slate-200">
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
                   Оберіть 1
                 </Badge>
               </div>
@@ -135,10 +135,8 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                     <Card
                       key={optionId}
                       className={clsx(
-                        "cursor-pointer transition hover:-translate-y-0.5",
-                        selected
-                          ? "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-                          : "border-slate-800/80 bg-slate-900/70 hover:border-indigo-500/60"
+                        "glass-card cursor-pointer transition-all duration-200",
+                        selected ? "glass-active" : ""
                       )}
                       onClick={() => selectOption(groupName, optionId)}
                     >
@@ -153,10 +151,8 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                           <Badge
                             variant={selected ? "secondary" : "outline"}
                             className={clsx(
-                              "border-slate-700",
-                              selected
-                                ? "bg-indigo-500/20 text-indigo-50"
-                                : "bg-slate-800/60 text-slate-200"
+                              "border-white/15 bg-white/5 text-slate-200",
+                              selected && "text-slate-100"
                             )}
                           >
                             {selected ? "Обрано" : "Обрати"}
@@ -164,7 +160,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                         </div>
 
                         {features.length ? (
-                          <div className="space-y-1.5 rounded-lg border border-slate-800/70 bg-slate-950/40 p-3">
+                          <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
                             <InfoSectionTitle>Що дає</InfoSectionTitle>
                             <ul className="space-y-1 text-sm text-slate-200/90">
                               {features.map((feat) => (

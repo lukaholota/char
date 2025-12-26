@@ -20,8 +20,8 @@ model RaceChoiceOption {
   languagesToChooseCount Int                     @default(0) @map("languages_to_choose_count")
   modifiesSpeed          Int?                    @map("modifies_speed")
 
-  race    Race     @relation(fields: [raceId], references: [raceId])
-  subrace Subrace? @relation(fields: [subraceId], references: [subraceId])
+  race    Race     @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  subrace Subrace? @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
   perses  Pers[]
 
   @@unique([raceId, subraceId, choiceGroupName, optionName])

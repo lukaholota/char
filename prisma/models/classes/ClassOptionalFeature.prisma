@@ -17,7 +17,7 @@ model ClassOptionalFeature {
   prerequisites Json?
 
   perses  Pers[]
-  class   Class    @relation(fields: [classId], references: [classId])
+  class   Class    @relation(fields: [classId], references: [classId], onDelete: Cascade)
   feature Feature? @relation("GrantedFeature", fields: [featureId], references: [featureId], onDelete: Cascade)
 
   replacesFeatures          ClassOptionalFeatureReplacesFeature[]

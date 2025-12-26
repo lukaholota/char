@@ -305,7 +305,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
 
   if (!selectedFeat) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+      <Card className="p-4 text-center text-slate-200">
         Спершу оберіть рису.
       </Card>
     );
@@ -313,7 +313,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
 
   if (groupedChoices.length === 0) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+      <Card className="p-4 text-center text-slate-200">
         Ця риса не має додаткових виборів. Можна рухатися далі.
       </Card>
     );
@@ -322,8 +322,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
   return (
     <form id={formId} onSubmit={baseOnSubmit} className="space-y-4">
       <div className="space-y-1 text-center">
-        <p className="text-sm font-semibold text-indigo-200">Риса</p>
-        <h2 className="text-xl font-semibold text-white">Опції риси</h2>
+        <p className="text-sm font-semibold text-slate-300">Риса</p>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">Опції риси</h2>
         <p className="text-sm text-slate-400">Риса &quot;{translateValue(selectedFeat.name)}&quot; вимагає вибору.</p>
       </div>
 
@@ -331,7 +331,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
         {groupedChoices.map((group) => (
           <Card
             key={group.groupName}
-            className="border border-slate-800/80 bg-slate-900/70 shadow-inner shadow-indigo-500/5"
+            className=""
           >
             <CardContent className="space-y-3 p-4">
               <div className="flex items-center justify-between gap-3">
@@ -339,7 +339,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
                   <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
                   <p className="text-base font-semibold text-white">{group.groupName}</p>
                 </div>
-                <Badge variant="outline" className="border-slate-700 bg-slate-800/60 text-slate-200">
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
                   Оберіть {group.pickCount}
                 </Badge>
               </div>
@@ -373,12 +373,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
                     <Button
                       key={optionId}
                       type="button"
-                      variant={isSelected ? "secondary" : "outline"}
+                      variant="outline"
                       disabled={disabled && !isSelected}
-                      className={`justify-between ${
-                        isSelected 
-                          ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                          : "bg-slate-900/60 border-slate-800/80 text-slate-200"
+                      className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${
+                        isSelected ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : ""
                       } ${disabled && !isSelected ? "opacity-60 cursor-not-allowed" : ""}`}
                       onClick={() => !disabled && selectOption(group.groupName, optionId)}
                     >

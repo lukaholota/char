@@ -71,7 +71,7 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
             traitList.map((trait: any) => (
               <div
                 key={trait.raceTraitId || trait.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
                 <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
@@ -90,7 +90,9 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Варіант раси (необовʼязково)</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Варіант раси (необовʼязково)
+        </h2>
         <p className="text-sm text-slate-400">Для раси {translateValue(race.name)}</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -102,9 +104,8 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
           <Card
             key={rv.raceVariantId}
             className={clsx(
-              "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-              rv.raceVariantId === chosenVariantId &&
-                "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
+              "glass-card cursor-pointer transition-all duration-200",
+              rv.raceVariantId === chosenVariantId && "glass-active"
             )}
             onClick={() => form.setValue("raceVariantId", rv.raceVariantId)}
           >
@@ -124,7 +125,7 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
         <Button
           type="button"
           variant="outline"
-          className="border-slate-800/80 bg-slate-900/60 text-slate-200"
+          className="border-white/15 bg-white/5 text-slate-200 hover:bg-white/7"
           onClick={() => {
             form.setValue("raceVariantId", undefined);
             updateFormData({ raceVariantId: null });

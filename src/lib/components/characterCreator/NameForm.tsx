@@ -25,7 +25,7 @@ interface Props {
 }
 
 const SummaryCard = ({ label, value }: { label: string; value?: string }) => (
-  <Card className="border border-slate-800/70 bg-slate-900/70 shadow-inner">
+  <Card className="shadow-inner">
     <CardHeader className="pb-2">
       <CardDescription className="text-slate-400">{label}</CardDescription>
       <CardTitle className="text-white text-lg">{value ?? "Не обрано"}</CardTitle>
@@ -48,9 +48,19 @@ const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }
       {attributes.map((attr) => {
         const stat = stats[attr.key];
         return (
-          <div key={attr.key} className="flex flex-col items-center rounded-lg border border-slate-800/60 bg-slate-900/40 p-2">
+          <div key={attr.key} className="flex flex-col items-center rounded-lg border border-white/10 bg-white/5 p-2">
             <span className="text-[10px] font-bold uppercase text-slate-500">{attr.label}</span>
-            <span className="text-xl font-bold text-white">{stat.total}</span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-xl font-bold text-white">{stat.total}</span>
+              {stat.bonus > 0 && (
+                <span
+                  className="text-[10px] text-indigo-400"
+                  title={`База: ${stat.base}, Бонус: +${stat.bonus}`}
+                >
+                  (+{stat.bonus})
+                </span>
+              )}
+            </div>
             <div className="flex items-center gap-1">
               <Badge variant="outline" className={clsx(
                 "h-5 px-1 text-[10px]",
@@ -58,11 +68,6 @@ const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }
               )}>
                 {stat.mod >= 0 ? `+${stat.mod}` : stat.mod}
               </Badge>
-              {stat.bonus > 0 && (
-                 <span className="text-[10px] text-indigo-400" title={`База: ${stat.base}, Бонус: +${stat.bonus}`}>
-                   (+{stat.bonus})
-                 </span>
-              )}
             </div>
           </div>
         );
@@ -82,7 +87,7 @@ export const NameForm = ({ formId, race, raceVariant, selectedClass, background,
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+      <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="text-white">Ім&apos;я персонажа</CardTitle>
           <CardDescription className="text-slate-400">
@@ -108,13 +113,13 @@ export const NameForm = ({ formId, race, raceVariant, selectedClass, background,
                 id="name"
                 placeholder={currentName || "Наприклад, Аравор"}
                 {...form.register('name')}
-                className="border-slate-800/80 bg-slate-900/70 text-white"
+                className="border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
               />
               <Button
                 type="button"
                 variant="outline"
                 size="icon"
-                className="border-slate-800/80 bg-slate-900/60 text-slate-200"
+                className="border-white/15 bg-white/5 text-slate-200 hover:bg-white/7"
                 onClick={() => generateName()}
                 title="Згенерувати інше імʼя"
               >

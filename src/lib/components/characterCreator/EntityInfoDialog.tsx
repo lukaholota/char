@@ -28,24 +28,24 @@ export const InfoDialogContent = ({
   return (
     <DialogContent
       className={clsx(
-        "max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto bg-slate-900/95 backdrop-blur-2xl border border-indigo-500/30 shadow-[0_0_50px_-10px_rgba(79,70,229,0.5)] rounded-2xl p-6",
+        "max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto",
         className
       )}
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent shadow-[0_0_10px_indigo]" />
+      <div className="absolute left-1/2 top-0 h-[2px] w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
 
-      <DialogHeader className="space-y-3 pb-4 border-b border-indigo-500/20">
-        <DialogTitle className="text-2xl font-bold tracking-wide text-indigo-100 drop-shadow-md">
+      <DialogHeader className="space-y-3 border-b border-white/10 pb-4">
+        <DialogTitle className="font-rpg-display text-2xl font-semibold uppercase tracking-widest text-slate-200">
           {title}
         </DialogTitle>
         {subtitle && (
-          <DialogDescription className="text-sm text-indigo-200/70 font-medium">
+          <DialogDescription className="text-sm font-medium text-slate-300">
             {subtitle}
           </DialogDescription>
         )}
       </DialogHeader>
 
-      <div className="pt-4 space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">{children}</div>
+      <div className="space-y-4 pt-4 text-sm leading-relaxed text-slate-200/90 sm:text-base">{children}</div>
     </DialogContent>
   );
 };
@@ -68,8 +68,12 @@ export const InfoDialog = ({
   return (
     <Dialog>
       <div 
+        onPointerDown={(e) => {
+          // Prevent the underlying Card onClick when the trigger overlaps the card.
+          // Must NOT be capture-phase; capture would block the click from reaching the trigger.
+          e.stopPropagation();
+        }}
         onClick={(e) => {
-          // Блокуємо поширення до картки, але НЕ preventDefault!
           e.stopPropagation();
         }}
         className={clsx(
@@ -82,7 +86,7 @@ export const InfoDialog = ({
             type="button"
             size="icon"
             variant="secondary"
-            className="h-9 w-9 rounded-full border border-indigo-500/50 bg-slate-900/90 text-indigo-100 shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:text-white focus-visible:ring-indigo-400"
+            className="glass-panel border-gradient-rpg h-9 w-9 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
             aria-label={triggerLabel}
           >
             <CircleHelp className="h-5 w-5" />
@@ -135,11 +139,11 @@ export const InfoPill = ({
   if (!value || value === "—") return null;
   
   return (
-    <div className="rounded-lg bg-indigo-500/10 border border-indigo-500/20 px-3 py-2">
-      <p className="text-[11px] uppercase tracking-[0.14em] text-indigo-400">
+    <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+      <p className="text-[11px] uppercase tracking-[0.14em] text-slate-400">
         {label}
       </p>
-      <div className="text-sm font-semibold leading-tight text-indigo-200">
+      <div className="text-sm font-semibold leading-tight text-slate-100">
         {value}
       </div>
     </div>
@@ -147,7 +151,7 @@ export const InfoPill = ({
 };
 
 export const InfoSectionTitle = ({ children }: { children: ReactNode }) => (
-  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-400">
+  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
     {children}
   </p>
 );

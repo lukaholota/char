@@ -4,6 +4,7 @@ import { useStepForm } from "@/hooks/useStepForm";
 import { subraceSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { RaceI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import clsx from "clsx";
 import { useEffect } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
@@ -39,12 +40,9 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
   const chosenSubraceId = form.watch("subraceId");
 
   useEffect(() => {
-    if (!chosenSubraceId) {
-      onNextDisabledChange?.(true);
-      return;
-    }
+    // Subrace selection is optional — user can continue without choosing.
     onNextDisabledChange?.(false);
-  }, [onNextDisabledChange, chosenSubraceId]);
+  }, [onNextDisabledChange]);
 
   const subraces = race.subraces || [];
 
@@ -83,7 +81,7 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
             traitList.map((trait: any) => (
               <div
                 key={trait.raceTraitId || trait.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
                 <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
@@ -102,7 +100,9 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть підрасу</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть підрасу (необовʼязково)
+        </h2>
         <p className="text-sm text-slate-400">Для раси {translateValue(race.name)}</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
@@ -114,9 +114,8 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
           <Card
             key={sr.subraceId}
             className={clsx(
-              "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-              sr.subraceId === chosenSubraceId &&
-                "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
+              "glass-card cursor-pointer transition-all duration-200",
+              sr.subraceId === chosenSubraceId && "glass-active"
             )}
             onClick={() => form.setValue("subraceId", sr.subraceId)}
           >
@@ -131,6 +130,22 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
           </Card>
         )})}
       </div>
+
+      <div className="flex justify-center">
+        <Button
+          type="button"
+          variant="outline"
+            className="border-white/15 bg-white/5 text-slate-200 hover:bg-white/7"
+          onClick={() => {
+            form.setValue("subraceId", undefined);
+            updateFormData({ subraceId: undefined });
+            nextStep();
+          }}
+        >
+          Пропустити
+        </Button>
+      </div>
+
       <input
         type="hidden"
         {...form.register("subraceId", {

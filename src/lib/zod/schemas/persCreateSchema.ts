@@ -15,13 +15,19 @@ export const raceVariantSchema = z.object({
   raceVariantId: z.number().nullable().optional(),
 });
 
+export const raceChoiceOptionsSchema = z.object({
+  raceChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+});
+
 export const featSchema = z.object({
   featId: z.number().min(1, "Оберіть рису!"),
   featSearch: z.string().default('')
 });
 
 export const classSchema = z.object({
-  classId: z.number().min(1, "Клас теж треба обрати, мандрівнику!"),
+  classId: z
+    .number({ message: "Клас обов'язковий для вибору" })
+    .min(1, "Клас теж треба обрати, мандрівнику!"),
 });
 
 export const subclassSchema = z.object({
@@ -199,8 +205,9 @@ export const fullCharacterSchema = z.object({
   raceSearch: z.string().default(''),
   subraceId: z.number().optional(),
   raceVariantId: z.number().nullable().optional(),
+  raceChoiceSelections: z.record(z.string(), z.number().int()).default({}),
   featId: z.number().optional(),
-  classId: z.number(),
+  classId: z.number().min(1, "Клас обов'язковий для вибору"),
   subclassId: z.number().optional(),
   subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
   classChoiceSelections: z.record(z.string(), z.number().int()).default({}),

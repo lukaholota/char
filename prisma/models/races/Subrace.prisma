@@ -25,7 +25,7 @@ model Subrace {
   weaponProficiencies Json?       @map("weapon_proficiencies")
   armorProficiencies  ArmorType[] @default([]) @map("armor_proficiencies")
 
-  race              Race               @relation(fields: [raceId], references: [raceId])
+  race              Race               @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
   perses            Pers[]
   raceChoiceOptions RaceChoiceOption[]
 

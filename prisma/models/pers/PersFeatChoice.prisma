@@ -4,7 +4,7 @@ model PersFeatChoice {
   choiceOptionId   Int @map("choice_option_id")
 
   persFeat     PersFeat     @relation(fields: [persFeatId], references: [persFeatId], onDelete: Cascade)
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
+  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
 
   @@unique([persFeatId, choiceOptionId], name: "unique_pers_feat_choice")
   @@map("pers_feat_choice")

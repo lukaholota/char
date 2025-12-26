@@ -5,7 +5,7 @@ model RaceChoiceOptionTrait {
   featureId               Int @map("feature_id")
 
   feature          Feature          @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  raceChoiceOption RaceChoiceOption @relation(fields: [optionId], references: [optionId])
+  raceChoiceOption RaceChoiceOption @relation(fields: [optionId], references: [optionId], onDelete: Cascade)
 
   @@map("race_choice_option_trait")
 }

@@ -14,8 +14,8 @@ model PersWeapon {
 
   isProficient Boolean @default(true) @map("is_proficient")
 
-  pers   Pers   @relation(fields: [persId], references: [persId])
-  weapon Weapon @relation(fields: [weaponId], references: [weaponId])
+  pers   Pers   @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  weapon Weapon @relation(fields: [weaponId], references: [weaponId], onDelete: Cascade)
 
   // Opposite side of PersInfusion.weapon
   infusions PersInfusion[]

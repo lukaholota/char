@@ -6,8 +6,8 @@ model ClassChoiceOption {
 
   levelsGranted Int[] @map("levels_granted")
 
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
-  class        Class        @relation(fields: [classId], references: [classId])
+  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
+  class        Class        @relation(fields: [classId], references: [classId], onDelete: Cascade)
 
   @@unique([classId, choiceOptionId], name: "unique_class_choice")
   @@map("class_choice_option")

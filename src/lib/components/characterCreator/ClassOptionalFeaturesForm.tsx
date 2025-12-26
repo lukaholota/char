@@ -76,7 +76,7 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
 
   if (!selectedClass) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+      <Card className="p-4 text-center text-slate-200">
         Спершу оберіть клас.
       </Card>
     );
@@ -84,7 +84,7 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
 
   if (!visibleOptional.length) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+      <Card className="p-4 text-center text-slate-200">
         На 1 рівні {displayName(selectedClass)} не пропонує додаткових рис. Можна продовжувати.
       </Card>
     );
@@ -93,8 +93,8 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
   return (
     <form id={formId} onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-1 text-center">
-        <p className="text-sm font-semibold text-indigo-200">Рівень 1</p>
-        <h2 className="text-xl font-semibold text-white">Додаткові риси класу</h2>
+        <p className="text-sm font-semibold text-slate-300">Рівень 1</p>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">Додаткові риси класу</h2>
         <p className="text-sm text-slate-400">
           Оберіть, чи берете запропоновані Optional Class Features. Можна відмовитися, якщо вони не пасують.
         </p>
@@ -115,8 +115,7 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
             <Card
               key={key}
               className={clsx(
-                "border border-slate-800/80 bg-slate-900/70 shadow-inner shadow-indigo-500/5",
-                accepted === true && "border-emerald-400/70 bg-emerald-500/5",
+                accepted === true && "border-gradient-rpg border-gradient-rpg-active glass-active",
                 accepted === false && "opacity-90"
               )}
             >
@@ -128,12 +127,12 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
                       <p className="text-xs text-slate-400">Замінює: {replaces}</p>
                     ) : null}
                   </div>
-                  <Badge variant="outline" className="border-slate-700 bg-slate-800/60 text-slate-200">
+                  <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
                     Рівень 1
                   </Badge>
                 </div>
 
-                <div className="space-y-1.5 rounded-lg border border-slate-800/70 bg-slate-950/40 p-3">
+                <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
                   <InfoSectionTitle>Опис</InfoSectionTitle>
                   <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">{description}</p>
                 </div>
@@ -142,12 +141,10 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
                   <Button
                     type="button"
                     size="sm"
-                    variant={accepted === true ? "secondary" : "outline"}
+                    variant="outline"
                     className={clsx(
-                      "border-slate-700",
-                      accepted === true
-                        ? "bg-indigo-500/20 text-indigo-50"
-                        : "bg-slate-900/60 text-slate-200 hover:text-white"
+                      "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white",
+                      accepted === true && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100"
                     )}
                     onClick={() => setDecision(item.optionalFeatureId!, true)}
                   >
@@ -156,12 +153,10 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
                   <Button
                     type="button"
                     size="sm"
-                    variant={accepted === false ? "secondary" : "outline"}
+                    variant="outline"
                     className={clsx(
-                      "border-slate-700",
-                      accepted === false
-                        ? "bg-rose-500/20 text-rose-50"
-                        : "bg-slate-900/60 text-slate-200 hover:text-white"
+                      "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white",
+                      accepted === false && "border-rose-400/40 bg-rose-500/10 text-rose-50"
                     )}
                     onClick={() => setDecision(item.optionalFeatureId!, false)}
                   >

@@ -146,7 +146,7 @@ export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCa
       </div>
 
       {/* Bottom navigation (always visible) */}
-      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-slate-900/85 backdrop-blur px-2 py-2">
+      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
         <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
           {allSlides.map((s, idx) => {
             const active = idx === currentIndex;

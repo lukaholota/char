@@ -58,11 +58,11 @@ model Pers {
   wearsNaturalArmor     Boolean @default(false) @map("wears_natural_armor")
 
   user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  class      Class      @relation(fields: [classId], references: [classId])
-  subclass   Subclass?  @relation(fields: [subclassId], references: [subclassId])
-  race       Race       @relation(fields: [raceId], references: [raceId])
-  subrace    Subrace?   @relation(fields: [subraceId], references: [subraceId])
-  background Background @relation(fields: [backgroundId], references: [backgroundId])
+  class      Class      @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  subclass   Subclass?  @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
+  race       Race       @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  subrace    Subrace?   @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
+  background Background @relation(fields: [backgroundId], references: [backgroundId], onDelete: Cascade)
 
   skills                PersSkill[]
   multiclasses          PersMulticlass[]

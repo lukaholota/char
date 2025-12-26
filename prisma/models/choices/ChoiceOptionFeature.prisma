@@ -4,7 +4,7 @@ model ChoiceOptionFeature {
   choiceOptionId  Int @map("option_id")
   featureId       Int @map("feature_id")
 
-  option  ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
+  option  ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
   feature Feature      @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
 
   @@map("choice_option_feature")

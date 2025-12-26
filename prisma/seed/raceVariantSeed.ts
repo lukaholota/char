@@ -504,7 +504,7 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
         // Mark of Finding (Half-Orc)
         {
             raceId: halfOrc.raceId,
-            name: Variants.HUMAN_MARK_OF_FINDING_EBERRON, // Reusing enum as the features are identical (mostly)
+            name: Variants.HALF_ORC_MARK_OF_FINDING_EBERRON, 
             source: Source.EBERRON,
             overridesRaceASI: { WIS: 2, STR: 1 },
             traits: {

@@ -4,8 +4,8 @@ model PersMagicItem {
   persId          Int @map("pers_id")
   magicItemId     Int @map("magic_item_id")
 
-  pers      Pers      @relation(fields: [persId], references: [persId])
-  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId])
+  pers      Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId], onDelete: Cascade)
 
   // Opposite side of PersInfusion.magicItem
   infusions PersInfusion[]

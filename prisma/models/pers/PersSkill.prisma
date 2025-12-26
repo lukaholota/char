@@ -7,7 +7,7 @@ model PersSkill {
   customModifier  Int?                 @map("custom_modifier")
   name            Skills
 
-  pers Pers @relation(fields: [persId], references: [persId])
+  pers Pers @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
   @@unique([persId, name])
   @@map("pers_skill")

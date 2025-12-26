@@ -292,6 +292,14 @@ export async function createCharacter(data: PersFormData) {
     new Map(choiceOptionsToConnect.map((c) => [c.choiceOptionId, c])).values()
   ).filter((c) => Number.isFinite(c.choiceOptionId) && c.choiceOptionId > 0);
 
+  const raceChoiceOptionIds = Array.from(
+    new Set(
+      Object.values(validData.raceChoiceSelections ?? {})
+        .map((id) => Number(id))
+        .filter((id) => Number.isFinite(id) && id > 0)
+    )
+  );
+
 
   try {
     const newPers = await prisma.$transaction(async (tx) => {
@@ -323,6 +331,13 @@ export async function createCharacter(data: PersFormData) {
                 connect: { raceVariantId: validData.raceVariantId },
               }
             : undefined,
+
+          raceChoiceOptions:
+            raceChoiceOptionIds.length > 0
+              ? {
+                  connect: raceChoiceOptionIds.map((optionId) => ({ optionId })),
+                }
+              : undefined,
 
           features:
             uniqueFeatureIds.length > 0

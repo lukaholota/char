@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { expertiseSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { ClassI, BackgroundI, RaceI } from "@/lib/types/model-types";
@@ -102,7 +103,9 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
       ) : null}
 
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Експертиза</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Експертиза
+        </h2>
         <p className="text-sm text-slate-400">
           Оберіть {expertiseCount} навички, в яких ви станете експертом (подвійний бонус майстерності).
         </p>
@@ -124,13 +127,13 @@ export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: P
               <Button
                 key={skill}
                 type="button"
-                variant={active ? "secondary" : "outline"}
+                variant="outline"
                 disabled={isDisabled}
-                className={`justify-between ${
-                  active 
-                    ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                    : "bg-slate-900/60 border-slate-800/80 text-slate-200"
-                } ${isDisabled ? "opacity-60" : ""}`}
+                className={clsx(
+                  "justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white",
+                  active && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100",
+                  isDisabled && "opacity-60"
+                )}
                 onClick={() => !isDisabled && toggleExpertise(skill)}
               >
                 <span>{skillTranslation}</span>

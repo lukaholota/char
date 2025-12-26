@@ -97,11 +97,13 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть рису</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть рису
+        </h2>
         <p className="text-sm text-slate-400">Додаткова риса для вашого персонажа</p>
       </div>
 
-      <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
+      <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
         <div className="relative w-full">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <Input
@@ -109,7 +111,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
               value={search}
               onChange={(e) => form.setValue("featSearch", e.target.value)}
               placeholder="Пошук риси"
-              className="h-10 bg-slate-950/60 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-500"
+              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
             />
              {search && (
               <Button
@@ -132,9 +134,8 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
           <Card
             key={feat.featId}
             className={clsx(
-              "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-              feat.featId === chosenFeatId &&
-                "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
+              "glass-card cursor-pointer transition-all duration-200",
+              feat.featId === chosenFeatId && "glass-active"
             )}
             onClick={() => form.setValue("featId", feat.featId)}
           >

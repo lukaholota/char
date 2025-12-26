@@ -23,6 +23,7 @@ import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceO
 import ClassOptionalFeaturesForm from "@/lib/components/characterCreator/ClassOptionalFeaturesForm";
 import SubracesForm from "@/lib/components/characterCreator/SubracesForm";
 import RaceVariantsForm from "@/lib/components/characterCreator/RaceVariantsForm";
+import RaceChoiceOptionsForm from "@/lib/components/characterCreator/RaceChoiceOptionsForm";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
@@ -118,6 +119,7 @@ export const MultiStepForm = (
   );
   const hasSubraces = useMemo(() => (race?.subraces?.length ?? 0) > 0, [race]);
   const hasRaceVariants = useMemo(() => (race?.raceVariants?.length ?? 0) > 0, [race]);
+  const hasRaceChoiceOptions = useMemo(() => (race as any)?.raceChoiceOptions?.length > 0, [race]);
   const raceVariant = useMemo(() => 
     race?.raceVariants?.find(v => v.raceVariantId === formData.raceVariantId), 
     [race, formData.raceVariantId]
@@ -152,6 +154,10 @@ export const MultiStepForm = (
     }
     if (hasRaceVariants) {
       dynamicSteps.push({ id: "raceVariant", name: "Варіант раси", component: "raceVariant" });
+    }
+
+    if (hasRaceChoiceOptions) {
+      dynamicSteps.push({ id: "raceChoices", name: "Опції раси", component: "raceChoices" });
     }
 
     dynamicSteps.push({ id: "class", name: "Клас", component: "class" });
@@ -192,7 +198,7 @@ export const MultiStepForm = (
     );
 
     return dynamicSteps;
-  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures, hasSubraces, hasRaceVariants, hasSubclasses, hasFeatChoice, hasFeatChoices, hasExpertiseChoice]);
+  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures, hasSubraces, hasRaceVariants, hasRaceChoiceOptions, hasSubclasses, hasFeatChoice, hasFeatChoices, hasExpertiseChoice]);
 
   useEffect(() => {
     const total = steps.length;
@@ -260,6 +266,15 @@ export const MultiStepForm = (
             onNextDisabledChange={handleNextDisabledChange}
           />
         );
+      case "raceChoices":
+        return (
+          <RaceChoiceOptionsForm
+            race={race}
+            subraceId={formData.subraceId ?? null}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
       case "feat":
         return (
           <FeatsForm
@@ -319,7 +334,7 @@ export const MultiStepForm = (
       case "asi":
         if (!race || !cls) {
           return (
-            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+            <Card className="p-4 text-center text-slate-200">
               Спершу оберіть расу та клас.
             </Card>
           );
@@ -338,7 +353,7 @@ export const MultiStepForm = (
       case "skills":
         if (!race || !cls || !bg) {
           return (
-            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+            <Card className="p-4 text-center text-slate-200">
               Спершу завершіть расу, клас та передісторію.
             </Card>
           );
@@ -366,7 +381,7 @@ export const MultiStepForm = (
       case "equipment":
         if (!race || !cls) {
           return (
-            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+            <Card className="p-4 text-center text-slate-200">
               Спершу заповніть попередні кроки.
             </Card>
           );
@@ -411,17 +426,17 @@ export const MultiStepForm = (
         onOpenAuth={() => setAuthDialogOpen(true)}
       />
 
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-2xl">
+      <Card className="shadow-2xl">
         <CardContent className="grid gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-[1fr,300px] md:p-6">
-          <div className="space-y-3 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner sm:space-y-4 sm:p-4 md:p-5">
+          <div className="glass-panel border-gradient-rpg space-y-3 rounded-xl p-3 sm:space-y-4 sm:p-4 md:p-5">
             {renderStep()}
           </div>
 
-          <aside className="rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner sm:p-4">
+          <aside className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
           <div className="sticky top-14 sm:top-16">
             <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
                 <span className="font-medium text-slate-200">Ваш прогрес</span>
-                <Badge variant="outline" className="border-slate-800/80 text-slate-300 text-[11px] sm:text-xs">
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-[11px] text-slate-200 sm:text-xs">
                   {progress}% готово
                 </Badge>
               </div>
@@ -438,8 +453,8 @@ export const MultiStepForm = (
                       className={clsx(
                         "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left sm:px-3",
                         isActive
-                          ? "border-indigo-400/60 bg-indigo-500/10 text-white"
-                          : "border-slate-800/80 bg-slate-900/60 text-slate-300"
+                          ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white"
+                          : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
                       )}
                     >
                       <div>
@@ -455,9 +470,10 @@ export const MultiStepForm = (
                       ) : (
                         <Badge
                           variant="outline"
-                          className={`border-slate-800/80 ${
-                            isActive ? "text-indigo-200" : "text-slate-400"
-                          }`}
+                          className={clsx(
+                            "border-white/15 bg-white/5 text-slate-300",
+                            isActive && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100"
+                          )}
                         >
                           <Circle className="h-3 w-3" />
                         </Badge>
@@ -467,7 +483,7 @@ export const MultiStepForm = (
                 })}
               </div>
 
-              <div className="mt-4 h-1.5 sm:mt-5 sm:h-2 rounded-full bg-slate-800/80">
+              <div className="mt-4 h-1.5 rounded-full bg-white/10 sm:mt-5 sm:h-2">
                 <div
                   className="h-1.5 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all sm:h-2"
                   style={{ width: `${progress}%` }}
@@ -479,7 +495,7 @@ export const MultiStepForm = (
       </Card>
 
       <div className="sticky bottom-0 left-0 right-0 z-30 w-full px-2 pb-3 sm:px-3 md:px-0">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border border-slate-800/80 bg-slate-950/90 px-2.5 py-2.5 shadow-xl backdrop-blur sm:rounded-2xl sm:px-3 sm:py-3">
+        <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
           <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
             <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
               Крок {currentStep} / {steps.length}
@@ -492,7 +508,7 @@ export const MultiStepForm = (
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="border border-slate-800/70 text-sm text-slate-200 hover:bg-slate-800 sm:text-base"
+                className="border border-white/10 bg-white/5 text-sm text-slate-200 hover:bg-white/7 sm:text-base"
                 onClick={prevStep}
               >
                 <ChevronLeft className="mr-2 h-4 w-4" />

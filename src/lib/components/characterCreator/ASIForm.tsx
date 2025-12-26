@@ -1,7 +1,7 @@
 "use client";
 
 import { useStepForm } from "@/hooks/useStepForm";
-import { Ability, Classes,  } from "@prisma/client";
+import { Ability, Classes } from "@prisma/client";
 import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
 import React, { useEffect, useMemo } from "react";
@@ -166,47 +166,71 @@ export const ASIForm = (
   }) => {
     const schemaPath = racialBonusSchemaPath;
 
-    const groups = form.getValues(schemaPath) || []
+    const groups: {
+      groupIndex: number;
+      choiceCount: number;
+      selectedAbilities: Ability[];
+    }[] = form.getValues(schemaPath) || []
 
-    const arrayIndex = groups.findIndex(g => g.groupIndex === groupIndex);
+    const arrayIndex = groups.findIndex((g) => g.groupIndex === groupIndex)
 
     if (arrayIndex !== -1) {
-      const currentAbilities = groups[arrayIndex].selectedAbilities;
-      const hasAbility = currentAbilities.includes(ability);
+      const currentAbilities = groups[arrayIndex]?.selectedAbilities ?? []
+      const hasAbility = currentAbilities.includes(ability)
 
-      if (!hasAbility && currentAbilities.length === groups[arrayIndex].choiceCount) return null;
+      if (!hasAbility && currentAbilities.length >= choiceCount) return null
 
       const newAbilities = hasAbility
-        ? currentAbilities.filter(a => a !== ability)
+        ? currentAbilities.filter((a) => a !== ability)
         : [...currentAbilities, ability]
 
-      form.setValue(
-        `${ schemaPath }.${ arrayIndex }.selectedAbilities`,
-        newAbilities,
-        { shouldDirty: true, shouldTouch: true, shouldValidate: true }
+      const nextGroups = groups.map((g, idx) =>
+        idx === arrayIndex
+          ? {
+              ...g,
+              choiceCount,
+              selectedAbilities: newAbilities,
+            }
+          : g
       )
-    } else {
-      const newGroup = {
-        groupIndex: groupIndex,
-        choiceCount: choiceCount,
-        selectedAbilities: [ability]
-      }
-      const newGroups = [...groups, newGroup]
 
-      form.setValue(`${ schemaPath }`, newGroups, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
+      form.setValue(schemaPath, nextGroups, {
+        shouldDirty: true,
+        shouldTouch: true,
+        shouldValidate: true,
+      })
+      return
     }
+
+    const newGroup = {
+      groupIndex,
+      choiceCount,
+      selectedAbilities: [ability],
+    }
+    form.setValue(schemaPath, [...groups, newGroup], {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    })
   }
 
-  const isRacialBonusSelected = (index: number, attr: Ability) => {
-    const abilities = form.getValues(`${ racialBonusSchemaPath }.${ index }.selectedAbilities`) || [];
-
-    return abilities.includes(attr)
+  const getRacialBonusGroup = (groupIndex: number) => {
+    const groups: {
+      groupIndex: number;
+      choiceCount: number;
+      selectedAbilities: Ability[];
+    }[] = form.getValues(racialBonusSchemaPath) || []
+    return groups.find((g) => g.groupIndex === groupIndex)
   }
 
-  const getCurrentSelectedCount = (index: number) => {
-    const abilities = form.getValues(`${ racialBonusSchemaPath }.${ index }.selectedAbilities`) || [];
+  const isRacialBonusSelected = (groupIndex: number, ability: Ability) => {
+    const group = getRacialBonusGroup(groupIndex)
+    return (group?.selectedAbilities ?? []).includes(ability)
+  }
 
-    return abilities.length;
+  const getCurrentSelectedCount = (groupIndex: number) => {
+    const group = getRacialBonusGroup(groupIndex)
+    return (group?.selectedAbilities ?? []).length
   }
 
   useEffect(() => {
@@ -274,7 +298,7 @@ export const ASIForm = (
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-6">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+      <Card className="shadow-xl">
         <CardHeader className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="space-y-1">
             <CardTitle className="text-xl text-white md:text-2xl">Розподіл характеристик</CardTitle>
@@ -310,22 +334,22 @@ export const ASIForm = (
             onValueChange={(value) => form.setValue('asiSystem', value)}
             className="w-full"
           >
-            <TabsList className="grid w-full grid-cols-3 bg-slate-900/70 text-slate-300">
+            <TabsList className="grid w-full grid-cols-3 bg-white/5 text-slate-300">
               <TabsTrigger
                 value={asiSystems.POINT_BUY}
-                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
               >
                 За очками
               </TabsTrigger>
               <TabsTrigger
                 value={asiSystems.SIMPLE}
-                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
               >
                 Просто
               </TabsTrigger>
               <TabsTrigger
                 value={asiSystems.CUSTOM}
-                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
               >
                 Вільно
               </TabsTrigger>
@@ -343,13 +367,13 @@ export const ASIForm = (
                   return (
                     <Card
                       key={field.id}
-                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
+                      className="shadow-sm transition hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10"
                     >
                       <CardHeader className="flex flex-row items-center justify-between pb-2">
                         <div>
                           <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
                         </div>
-                        <Badge variant="outline" className="border-slate-700 text-slate-200">
+                        <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
                           {bonus > 0 ? `+${bonus}` : bonus}
                         </Badge>
                       </CardHeader>
@@ -364,7 +388,7 @@ export const ASIForm = (
                         >
                           <Minus className="h-4 w-4" />
                         </Button>
-                        <div className="rounded-lg border border-slate-800/70 bg-slate-900/80 px-4 py-2 text-lg font-semibold text-white">
+                        <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-lg font-semibold text-white">
                           {currentValue as number}
                         </div>
                         <Button
@@ -382,7 +406,7 @@ export const ASIForm = (
                   );
                 })}
               </div>
-              <div className="flex items-center justify-between rounded-lg border border-slate-800/70 bg-slate-900/80 px-4 py-3 text-sm">
+              <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm">
                 <span className="text-slate-300">Залишок очок</span>
                 <Badge
                   variant="outline"
@@ -401,9 +425,7 @@ export const ASIForm = (
                   return (
                     <Card
                     key={field.id}
-                    className="border border-slate-800/80 bg-slate-900/70 shadow-sm
-                               transition hover:-translate-y-0.5 hover:border-indigo-500/60
-                               p-2"
+                    className="shadow-sm transition hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10 p-2"
                   >
                     <CardContent className="flex items-center justify-between gap-1 pt-0 pb-1">
                       <Button
@@ -449,7 +471,7 @@ export const ASIForm = (
                   return (
                     <Card
                       key={field.id}
-                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
+                      className="shadow-sm transition hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10"
                     >
                       <CardHeader className="flex items-center justify-between pb-2">
                         <div>
@@ -463,7 +485,7 @@ export const ASIForm = (
                           placeholder="14"
                           value={currentValue ?? ''}
                           onChange={(e) => form.setValue(`customAsi.${index}.value`, e.target.value)}
-                          className="border-slate-700 bg-slate-900/70 text-white"
+                          className="border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
                         />
                       </CardContent>
                     </Card>
@@ -475,7 +497,7 @@ export const ASIForm = (
         </CardContent>
       </Card>
 
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+      <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="text-white">Расові бонуси</CardTitle>
         </CardHeader>
@@ -491,7 +513,7 @@ export const ASIForm = (
             racialBonusGroups.map((group, index) => (
               <div
                 key={index}
-                className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 shadow-inner"
+                className="glass-panel border-gradient-rpg rounded-xl p-4"
               >
                 <div className="flex items-center justify-between">
                   <div>
@@ -499,7 +521,7 @@ export const ASIForm = (
                     <p className="text-xs text-slate-400">Оберіть {group.choiceCount}</p>
                   </div>
                   <Badge variant="secondary" className="bg-white/5 text-white">
-                    +{group.choiceCount}
+                    +{group.value}
                   </Badge>
                 </div>
 
@@ -514,7 +536,7 @@ export const ASIForm = (
                       selectedAbilities: Ability[];
                     }[] = form.getValues(racialBonusSchemaPath) || [];
 
-                    const currentGroupIndex = formGroups.findIndex((g) => g.groupIndex === index);
+                    const currentGroup = formGroups.find((g) => g.groupIndex === index);
 
                     const uniqueDisabled = isDefaultASI
                       ? (
@@ -527,7 +549,7 @@ export const ASIForm = (
                         (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
                         && (raceAsi.tasha?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
                         && (formGroups?.some((flexGroup) =>
-                          (flexGroup.groupIndex !== currentGroupIndex)
+                          (flexGroup.groupIndex !== (currentGroup?.groupIndex ?? index))
                           && (flexGroup.selectedAbilities.includes(attr.eng))
                         ))
                       );
@@ -539,7 +561,7 @@ export const ASIForm = (
                         key={i}
                         type="button"
                         variant={isSelected ? 'secondary' : 'outline'}
-                        className={`justify-between ${isDisabled ? 'opacity-60' : ''}`}
+                        className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${isSelected ? 'border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100' : ''} ${isDisabled ? 'opacity-60' : ''}`}
                         disabled={isDisabled}
                         onClick={() =>
                           handleToggleRacialBonus({
@@ -569,10 +591,10 @@ export const ASIForm = (
                 return (
                   <div
                     key={index}
-                    className="flex items-center justify-between rounded-lg border border-slate-800/80 bg-slate-900/70 px-4 py-3"
+                    className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3"
                   >
                     <span className="font-semibold text-white">{attr?.ukr}</span>
-                    <Badge variant="outline" className="border-slate-700 text-indigo-200">
+                    <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-100">
                       +{value}
                     </Badge>
                   </div>
@@ -583,7 +605,7 @@ export const ASIForm = (
         </CardContent>
       </Card>
 
-      <div className="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/70 p-4 shadow-xl">
+      <div className="glass-panel border-gradient-rpg space-y-3 rounded-2xl p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm font-semibold text-white">Базові расові бонуси</p>

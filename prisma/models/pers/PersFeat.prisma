@@ -4,8 +4,8 @@ model PersFeat {
   featId     Int @map("feat_id")
   persId     Int @map("pers_id")
 
-  feat Feat @relation(fields: [featId], references: [featId])
-  pers Pers @relation(fields: [persId], references: [persId])
+  feat Feat @relation(fields: [featId], references: [featId], onDelete: Cascade)
+  pers Pers @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
   choices PersFeatChoice[]
 

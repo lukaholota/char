@@ -182,7 +182,7 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
   const categories = useMemo<Category[]>(() => {
     if (!groupedFeatures) return [];
     return [
-      { title: "Активні вміння", items: groupedFeatures.actions, kind: "action" },
+      { title: "Основна дія", items: groupedFeatures.actions, kind: "action" },
       { title: "Бонусна дія", items: groupedFeatures.bonusActions, kind: "bonus" },
       { title: "Реакція", items: groupedFeatures.reactions, kind: "reaction" },
       { title: "Пасивні здібності", items: groupedFeatures.passive, kind: "passive" },
@@ -458,7 +458,7 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
 
       const subcls = pers.subclass as any;
       const rawFeatures = (subcls.features || []) as any[];
-      const featureList = [...rawFeatures].sort((a, b) => (a.level || 0) - (b.level || 0));
+      const featureList = [...rawFeatures].sort((a, b) => (a.levelUnlock || 0) - (b.levelUnlock || 0));
 
       return {
         title: subclassName || subcls.name,
@@ -487,7 +487,7 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
                     <div className="flex items-center justify-between mb-1">
                       <p className="text-sm font-semibold text-white">{f.feature?.name}</p>
                       <Badge variant="outline" className="text-[10px] border-slate-700 text-slate-400">
-                        Рівень {f.level}
+                        Рівень {f.levelUnlock}
                       </Badge>
                     </div>
                     <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">

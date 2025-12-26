@@ -14,7 +14,7 @@ model RaceVariant {
   overridesRaceSpeed   Int?    @map("overrides_race_speed")
   overridesFlightSpeed Int?    @map("overrides_flight_speed")
 
-  race   Race   @relation(fields: [raceId], references: [raceId])
+  race   Race   @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
   perses Pers[]
 
   @@map("race_variant")

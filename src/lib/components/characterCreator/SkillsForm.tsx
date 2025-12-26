@@ -294,7 +294,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
 
   return (
     <form id={formId} onSubmit={baseOnSubmit} className="w-full space-y-4">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+      <Card className="shadow-xl">
         <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <CardTitle className="text-white">Навички</CardTitle>
@@ -306,16 +306,16 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
               onCheckedChange={(checked) => form.setValue('isTasha', checked)}
             />
             <Label htmlFor="isTasha" className="text-slate-200">Правила Таші</Label>
-            <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700">Гнучкий режим</Badge>
+            <Badge className="border border-white/15 bg-white/5 text-slate-200">Гнучкий режим</Badge>
           </div>
         </CardHeader>
 
         <CardContent className="space-y-4">
           {isTasha ? (
             <div className="space-y-3">
-              <div className="flex items-center justify-between rounded-lg border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
+              <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300">
                 <span>Можна обрати ще</span>
-                <Badge variant="outline" className="border-slate-700 bg-slate-800/80 text-white">
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-white">
                   {tashaChoiceCountCurrent}
                 </Badge>
               </div>
@@ -336,12 +336,10 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                     <Button
                       key={index}
                       type="button"
-                      variant={active ? "secondary" : "outline"}
+                      variant="outline"
                       disabled={isDisabled}
-                      className={`justify-between ${
-                        active 
-                          ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                          : "bg-slate-900/60 border-slate-800/80 text-slate-200"
+                      className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${
+                        active ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : ""
                       } ${isDisabled ? "opacity-60" : ""}`}
                       onClick={() => handleToggleTashaSkill(skill.eng)}
                     >
@@ -378,7 +376,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
               )}
 
               {entries.map(([groupName, choices], index) => (
-                <div key={index} className="space-y-2 rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
+                <div key={index} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
                   {skillsByGroup[groupName]?.options && (
                     <div className="flex items-center justify-between text-sm text-slate-300">
                       <div className="font-semibold text-white">
@@ -401,14 +399,14 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                         <Button
                           key={skillIndex}
                           type="button"
-                          variant={active ? "secondary" : "outline"}
+                          variant="outline"
                           disabled={isDisabled}
                           className={`justify-between ${
                             isSelectedByOthers 
-                              ? "bg-slate-700/30 text-slate-400 border-slate-600/50 cursor-not-allowed" 
+                              ? "bg-white/3 text-slate-400 border-white/10 cursor-not-allowed" 
                               : active 
-                                ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                                : "bg-slate-900/60 border-slate-800/80 text-slate-200"
+                                ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-slate-100" 
+                                : "border-white/15 bg-white/5 text-slate-200"
                           } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
                           onClick={() => !isSelectedByOthers && handleToggleBasicSkill({
                             skill: Skills[skillGroup.eng],

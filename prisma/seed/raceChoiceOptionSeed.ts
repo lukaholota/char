@@ -1,4 +1,4 @@
-import { PrismaClient, Races, WeaponCategory } from "@prisma/client";
+import { PrismaClient, Races } from "@prisma/client";
 
 export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
     console.log('🐉 Додаємо вибір родоводу Дракононароджених...');
@@ -7,6 +7,21 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
     const dragonborn = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_2014 } });
     if (!dragonborn) {
         throw new Error("Dragonborn race not found");
+    }
+
+    const dragonbornChromatic = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_CHROMATIC } });
+    if (!dragonbornChromatic) {
+        throw new Error("Dragonborn (Chromatic) race not found");
+    }
+
+    const dragonbornMetallic = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_METALLIC } });
+    if (!dragonbornMetallic) {
+        throw new Error("Dragonborn (Metallic) race not found");
+    }
+
+    const dragonbornGem = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_GEM } });
+    if (!dragonbornGem) {
+        throw new Error("Dragonborn (Gem) race not found");
     }
 
     const halfElf = await prisma.race.findFirst({ where: { name: Races.HALF_ELF_2014 } });
@@ -189,6 +204,237 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             }
         },
 
+        // ============ DRAGONBORN (CHROMATIC) ANCESTRY (FTOD) ============
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Чорний дракон",
+            description: "Тип шкоди: кислота. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Acid - Line)'),
+                    connectFeature('Draconic Ancestry (Black)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Синій дракон",
+            description: "Тип шкоди: блискавка. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Lightning - Line)'),
+                    connectFeature('Draconic Ancestry (Blue)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Зелений дракон",
+            description: "Тип шкоди: отрута. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Poison - Cone)'),
+                    connectFeature('Draconic Ancestry (Green)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Червоний дракон",
+            description: "Тип шкоди: вогонь. Форма зброї дихання: конус 15 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Fire - Cone)'),
+                    connectFeature('Draconic Ancestry (Red)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Білий дракон",
+            description: "Тип шкоди: холод. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Cold - Cone)'),
+                    connectFeature('Draconic Ancestry (White)')
+                ]
+            }
+        },
+
+        // ============ DRAGONBORN (METALLIC) ANCESTRY (FTOD) ============
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Латунний дракон",
+            description: "Тип шкоди: вогонь. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Fire - Line)'),
+                    connectFeature('Draconic Ancestry (Brass)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Бронзовий дракон",
+            description: "Тип шкоди: блискавка. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Lightning - Line)'),
+                    connectFeature('Draconic Ancestry (Bronze)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Мідний дракон",
+            description: "Тип шкоди: кислота. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Acid - Line)'),
+                    connectFeature('Draconic Ancestry (Copper)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Золотий дракон",
+            description: "Тип шкоди: вогонь. Форма зброї дихання: конус 15 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Fire - Cone)'),
+                    connectFeature('Draconic Ancestry (Gold)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Срібний дракон",
+            description: "Тип шкоди: холод. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Cold - Cone)'),
+                    connectFeature('Draconic Ancestry (Silver)')
+                ]
+            }
+        },
+
+        // ============ DRAGONBORN (GEM) ANCESTRY (FTOD) ============
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Аметистовий дракон",
+            description: "Тип шкоди: сила. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Force - Cone)'),
+                    connectFeature('Draconic Ancestry (Amethyst)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Кришталевий дракон",
+            description: "Тип шкоди: променева. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Radiant - Cone)'),
+                    connectFeature('Draconic Ancestry (Crystal)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Смарагдовий дракон",
+            description: "Тип шкоди: психічна. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Psychic - Cone)'),
+                    connectFeature('Draconic Ancestry (Emerald)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Сапфіровий дракон",
+            description: "Тип шкоди: громова. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Thunder - Cone)'),
+                    connectFeature('Draconic Ancestry (Sapphire)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Топазовий дракон",
+            description: "Тип шкоди: некротична. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Necrotic - Cone)'),
+                    connectFeature('Draconic Ancestry (Topaz)')
+                ]
+            }
+        },
+
         // ============ HALF-ELF VERSATILITY (SCAG) ============
         // Skill Versatility (базова PHB опція - дві додаткові навички)
         {
@@ -271,7 +517,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             subraceId: null,
             choiceGroupName: "Half-Elf Versatility",
             optionName: "Drow Magic",
-            description: "Ви знаєте замовляння Танцюючі вогники [Dancing Lights]. Коли ви досягаєте 3-го рівня, ви можете використати заклинання Чарівний вогонь [Faerie Fire]. Коли ви досягаєте 5-го рівня, ви також можете використати заклинання Темрява [Darkness]. Харизма є вашою заклинальною характеристикою для цих заклинань.",
+            description: 'Ви знаєте замовляння <a href="/spell/1350">Танцюючі вогники [Dancing Lights]</a>. Коли ви досягаєте 3-го рівня, ви можете використати заклинання <a href="/spell/1041">Чарівний вогонь [Faerie Fire]</a>. Коли ви досягаєте 5-го рівня, ви також можете використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             selectMultiple: false,
             maxSelection: 1,
             traits: {

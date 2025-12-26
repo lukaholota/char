@@ -65,12 +65,11 @@ export const SourceBadge = ({ code, active, className }: SourceBadgeProps) => {
       <Badge
         role="button"
         tabIndex={0}
-        variant={active ? "secondary" : "outline"}
+        variant="outline"
         className={clsx(
-          "cursor-pointer select-none border-slate-700",
-          active
-            ? "bg-indigo-500/20 text-indigo-50"
-            : "bg-slate-800/60 text-slate-200 hover:border-indigo-400/80 hover:text-white",
+          "cursor-pointer select-none border-white/15 bg-white/5 text-slate-200",
+          "hover:bg-white/7 hover:text-white",
+          active && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100",
           className
         )}
         onClick={toggle}
@@ -86,7 +85,7 @@ export const SourceBadge = ({ code, active, className }: SourceBadgeProps) => {
           onClick={(event) => event.stopPropagation()}
           onPointerDown={(event) => event.stopPropagation()}
         >
-          <div className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs font-semibold text-slate-50 shadow-lg shadow-indigo-500/20">
+          <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2 text-xs font-semibold text-slate-50">
             <span>{hintPrimary}</span>
             {hintSecondary ? (
               <span className="ml-1 text-[11px] font-normal text-slate-400">
@@ -94,7 +93,7 @@ export const SourceBadge = ({ code, active, className }: SourceBadgeProps) => {
               </span>
             ) : null}
           </div>
-          <div className="h-2 w-2 rotate-45 border-b border-r border-slate-800 bg-slate-950" />
+          <div className="h-2 w-2 rotate-45 border-b border-r border-white/10 bg-white/5" />
         </div>
       ) : null}
     </div>

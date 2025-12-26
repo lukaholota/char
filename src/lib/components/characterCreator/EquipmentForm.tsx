@@ -5,6 +5,7 @@ import {useEffect, useMemo, useState} from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { ClassStartingEquipmentOption, Weapon, WeaponType } from "@prisma/client";
 import {groupBy} from "@/lib/server/formatters/generalFormatters";
+import clsx from "clsx";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog";
@@ -35,15 +36,17 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
   });
 
   const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
-  const anyWeaponSelection = form.watch('anyWeaponSelection') as Record<string, number[]>
+  const anyWeaponSelection = (form.watch('anyWeaponSelection') ?? {}) as Record<string, number[]>
 
   const choiceGroups = selectedClass.startingEquipmentOption
-  const choiceGroupsGroupedRaw = groupBy(choiceGroups, group => group.choiceGroup)
-  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = useMemo(() => ({}), []); // HERE
-
-  for (const [choiceGroup, group] of Object.entries(choiceGroupsGroupedRaw)) {
-      choiceGroupsGrouped[choiceGroup] = groupBy(group, g => g.option)
-  }
+  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = useMemo(() => {
+    const raw = groupBy(choiceGroups ?? [], (group) => group.choiceGroup)
+    const grouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = {}
+    for (const [choiceGroup, group] of Object.entries(raw)) {
+      grouped[choiceGroup] = groupBy(group, (g) => g.option)
+    }
+    return grouped
+  }, [choiceGroups])
 
   const meleeSimple = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
   const meleeMartial = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
@@ -65,7 +68,7 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
   const [weaponDialogGroup, setWeaponDialogGroup] = useState<string | null>(null);
   const [weaponDialogIndex, setWeaponDialogIndex] = useState<number>(0);
   const [weaponFilter, setWeaponFilter] = useState<WeaponKindType | undefined>(() => {
-    const weaponType = choiceGroups.find(g => g.chooseAnyWeapon)?.weaponType;
+    const weaponType = (choiceGroups ?? []).find(g => g.chooseAnyWeapon)?.weaponType;
     return weaponType 
       ? constToCamel[weaponType]
       : undefined;
@@ -131,30 +134,38 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
   }, [onNextDisabledChange]);
 
   useEffect(() => {
+    if (!choiceGroupsGrouped || Object.keys(choiceGroupsGrouped).length === 0) return
+
     const current = form.getValues('choiceGroupToId')
+    if (current && Object.keys(current).length > 0) return
 
-    if (!current) return
+    const initialChoiceGroupToId: Record<string, number[]> = {}
+    const initialAnyWeaponSelection: Record<string, number[]> = {}
 
-    if (Object.keys(current).length > 0) return
+    Object.entries(choiceGroupsGrouped).forEach(([choiceGroup, choiceGroupToOptionGroup]) => {
+      const optionGroup = choiceGroupToOptionGroup['a'] ?? Object.values(choiceGroupToOptionGroup)[0]
+      if (!optionGroup?.[0]) return
 
-    const { initialChoiceGroupToId, initialAnyWeaponSelection } = Object.entries(choiceGroupsGrouped).reduce(
-      (acc, [choiceGroup, choiceGroupToOptionGroup]) => {
-        const optionA = choiceGroupToOptionGroup['a']
-        acc.initialChoiceGroupToId[choiceGroup] = [optionA[0].optionId]
-        const hasAny = optionA.some(o => o.chooseAnyWeapon);
-        if (hasAny && weaponFilter) {
-          const weaponCount = optionA[0].weaponCount ?? 1;
-          const defaults = weaponsByKind[weaponFilter].slice(0, weaponCount).map(w => w.weaponId);
-          const fallback = weaponsByKind[weaponFilter][0]?.weaponId ?? weapons[0]?.weaponId;
-          acc.initialAnyWeaponSelection[choiceGroup] = Array.from({ length: weaponCount }, (_, idx) => defaults[idx] ?? fallback).filter((id): id is number => typeof id === 'number');
-        }
-        return acc
-      }, { initialChoiceGroupToId: {} as Record<string, number[]>, initialAnyWeaponSelection: {} as Record<string, number[]> }
-    )
+      initialChoiceGroupToId[choiceGroup] = [optionGroup[0].optionId]
 
-    form.setValue('choiceGroupToId', initialChoiceGroupToId)
+      const hasAny = optionGroup.some((o) => o.chooseAnyWeapon)
+      if (hasAny && weaponFilter) {
+        const weaponCount = optionGroup[0].weaponCount ?? 1
+        const defaults = weaponsByKind[weaponFilter]
+          .slice(0, weaponCount)
+          .map((w) => w.weaponId)
+        const fallback = weaponsByKind[weaponFilter]?.[0]?.weaponId ?? weapons[0]?.weaponId
+        initialAnyWeaponSelection[choiceGroup] = Array.from(
+          { length: weaponCount },
+          (_, idx) => defaults[idx] ?? fallback
+        ).filter((id): id is number => typeof id === 'number')
+      }
+    })
+
+    form.setValue('choiceGroupToId', initialChoiceGroupToId, { shouldDirty: false })
     form.setValue('anyWeaponSelection', initialAnyWeaponSelection, { shouldDirty: false })
-  }, [choiceGroupsGrouped, form, weaponsByKind, weaponFilter, weapons])
+    onNextDisabledChange?.(false)
+  }, [choiceGroupsGrouped, form, weaponsByKind, weaponFilter, weapons, onNextDisabledChange])
 
 
   const renderWeaponDialog = () => {
@@ -163,7 +174,7 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
     const list = weaponsByKind[weaponFilter];
     return (
       <Dialog open={weaponDialogOpen} onOpenChange={setWeaponDialogOpen}>
-        <DialogContent className="sm:max-w-[520px] border border-slate-800 bg-slate-950/90">
+        <DialogContent className="sm:max-w-[520px]">
           <DialogHeader>
             <DialogTitle className="text-white">Оберіть {isMartial && 'бойову'} зброю</DialogTitle>
             <DialogDescription className="text-slate-400">
@@ -172,11 +183,11 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
           </DialogHeader>
 
           <Tabs value={weaponFilter} onValueChange={(val: string) => setWeaponFilter(val as WeaponKindType)}>
-            <TabsList className="grid grid-cols-2 bg-slate-900/70">
-              <TabsTrigger value={isMartial ? 'meleeMartial' : 'meleeSimple'} className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
+            <TabsList className="grid grid-cols-2 bg-white/5">
+              <TabsTrigger value={isMartial ? 'meleeMartial' : 'meleeSimple'} className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
                 Ближній бій
               </TabsTrigger>
-              <TabsTrigger value={isMartial ? 'rangedMartial' : 'rangedSimple'} className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
+              <TabsTrigger value={isMartial ? 'rangedMartial' : 'rangedSimple'} className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
                 Дальній бій
               </TabsTrigger>
             </TabsList>
@@ -187,7 +198,7 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
           <div className="space-y-2">
             <label className="text-sm text-slate-200">{isMartial ? 'Бойова ' : 'Проста '}Зброя</label>
             <select
-              className="w-full rounded-md border border-slate-800 bg-slate-900/80 px-3 py-2 text-white"
+              className="w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-white"
               value={selectedWeaponId ?? ''}
               onChange={(e) => setSelectedWeaponId(Number(e.target.value))}
             >
@@ -213,17 +224,17 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
   const weaponNameById = (id?: number) => weapons.find(w => w.weaponId === id);
 
   return (
-    <form id={formId} onSubmit={onSubmit} className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 shadow-inner space-y-4">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
+    <form id={formId} onSubmit={onSubmit} className="glass-panel border-gradient-rpg space-y-4 rounded-xl p-4">
+      <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="text-white">Спорядження</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           {Object.entries(choiceGroupsGrouped).map(([choiceGroup, choiceGroupToOptionGroup], index) => (
-            <div key={index} className="rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
+            <div key={index} className="glass-panel border-gradient-rpg rounded-lg p-3">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-white">Опція {choiceGroup}</p>
-                <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700 cursor-default">Оберіть одну</Badge>
+                <Badge className="cursor-default border border-white/15 bg-white/5 text-slate-200">Оберіть одну</Badge>
               </div>
               <div className="mt-3 space-y-2">
                 {Object.values(choiceGroupToOptionGroup).map((optionGroup, idx) => {
@@ -236,7 +247,12 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
                   return (
                     <div
                       key={idx}
-                      className={`rounded-lg border px-3 py-2 ${checked ? "border-indigo-400/60 bg-indigo-500/10" : "border-slate-800/70 bg-slate-900/70"}`}
+                      className={clsx(
+                        "rounded-lg border px-3 py-2",
+                        checked
+                          ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5"
+                          : "border-white/10 bg-white/5"
+                      )}
                     >
                       <label className="flex items-center gap-2 text-slate-200 cursor-pointer">
                         <input
@@ -253,7 +269,7 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
                           {Array.from({ length: entry.weaponCount || 1 }).map((_, weaponIdx) => {
                             const selectedWeaponName = weaponTranslations[weaponNameById(selectedWeapons?.[weaponIdx])?.name ?? ''] ?? 'Не обрано';
                             return (
-                              <div key={weaponIdx} className="flex items-center justify-between rounded-md border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-200">
+                              <div key={weaponIdx} className="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200">
                                 <div>
                                   <p className="text-xs text-slate-400">Зброя #{weaponIdx + 1}</p>
                                   <p>{selectedWeaponName}</p>
@@ -262,7 +278,7 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
                                   type="button"
                                   size="sm"
                                   variant="secondary"
-                                  className="bg-indigo-500/20 text-indigo-50 border border-indigo-400/60"
+                                  className="border border-white/15 bg-white/5 text-slate-100 hover:bg-white/7"
                                   onClick={() => openWeaponDialog(choiceGroup, entry.weaponType === WeaponType.MARTIAL_WEAPON, weaponIdx)}
                                 >
                                   Обрати зброю

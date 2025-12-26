@@ -219,12 +219,21 @@ src/
       useLevelUpManager.ts
     ui/
       alert.tsx
+      App.tsx
+      badge.tsx
       button.tsx
       card.tsx
+      checkbox.tsx
       collapsible.tsx
+      dialog.tsx
+      input.tsx
       label.tsx
+      Navigation.tsx
       radio-group.tsx
       scroll-area.tsx
+      select.tsx
+      sonner.tsx
+      switch.tsx
       tabs.tsx
   domain/
     pers/
@@ -272,6 +281,7 @@ src/
         infoUtils.ts
         MultiStepForm.tsx
         NameForm.tsx
+        RaceChoiceOptionsForm.tsx
         RacesForm.tsx
         RaceVariantsForm.tsx
         SkillsForm.tsx
@@ -303,20 +313,8 @@ src/
         TaskCreator.tsx
         Tasks.tsx
       ui/
-        App.tsx
-        badge.tsx
-        Button.tsx
         card.tsx
-        checkbox.tsx
         dialog.tsx
-        input.tsx
-        label.tsx
-        Modal.tsx
-        Navigation.tsx
-        select.tsx
-        sonner.tsx
-        switch.tsx
-        tabs.tsx
     hooks/
       useMediaQuery.ts
     logic/
@@ -372,495 +370,185 @@ tsconfig.json
 <files>
 This section contains the contents of the repository's files.
 
-<file path="src/hooks/useFantasyNameGenerator.ts">
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { FANTASY_NAMES } from "@/lib/refs/fantasyNames";
+<file path="src/lib/components/characterCreator/RaceChoiceOptionsForm.tsx">
+"use client";
 
-export function useFantasyNameGenerator() {
-  const names = useMemo(() => FANTASY_NAMES, []);
-  const [currentName, setCurrentName] = useState<string>(names[0] ?? "");
+import { useEffect, useMemo, useRef } from "react";
+import { useStepForm } from "@/hooks/useStepForm";
+import { raceChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import clsx from "clsx";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import type { RaceI } from "@/lib/types/model-types";
 
-  const generateName = useCallback(() => {
-    if (!names.length) return "";
-    const randomIndex = Math.floor(Math.random() * names.length);
-    const next = names[randomIndex];
-    setCurrentName(next);
-    return next;
-  }, [names]);
+interface Props {
+  race?: RaceI | null;
+  subraceId?: number | null;
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
+}
+
+type RaceWithChoices = RaceI & { raceChoiceOptions?: RaceChoiceOptionLike[] };
+
+type RaceChoiceOptionLike = {
+  optionId: number;
+  subraceId?: number | null;
+  choiceGroupName: string;
+  optionName: string;
+  description?: string | null;
+  selectMultiple?: boolean;
+  maxSelection?: number;
+};
+
+const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+
+  const { form, onSubmit } = useStepForm(raceChoiceOptionsSchema, (data) => {
+    updateFormData({ raceChoiceSelections: data.raceChoiceSelections });
+    nextStep();
+  });
+
+  const watchedSelections = form.watch("raceChoiceSelections");
+  const selections = useMemo(() => watchedSelections || {}, [watchedSelections]);
+  const prevDisabledRef = useRef<boolean | undefined>(undefined);
+
+  const optionsToUse = useMemo(() => {
+    const raw = ((race as RaceWithChoices | null | undefined)?.raceChoiceOptions || []) as RaceChoiceOptionLike[];
+
+    return raw.filter((opt) => {
+      const optSubraceId = opt.subraceId ?? null;
+      if (!optSubraceId) return true;
+      if (!subraceId) return false;
+      return optSubraceId === subraceId;
+    });
+  }, [race, subraceId]);
+
+  const groupedOptions = useMemo(() => {
+    const groups: Record<string, RaceChoiceOptionLike[]> = {};
+    optionsToUse.forEach((opt) => {
+      const key = opt.choiceGroupName || "Опції раси";
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(opt);
+    });
+
+    return Object.entries(groups).map(([groupName, options]) => ({
+      groupName,
+      options: options.sort((a, b) => a.optionId - b.optionId),
+    }));
+  }, [optionsToUse]);
 
   useEffect(() => {
-    if (!currentName) generateName();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    let disabled: boolean;
 
-  return { currentName, generateName };
-}
-</file>
+    if (!race) {
+      disabled = true;
+    } else if (groupedOptions.length === 0) {
+      disabled = false;
+    } else {
+      disabled = groupedOptions.some(({ groupName }) => selections[groupName] === undefined);
+    }
 
-<file path="src/lib/refs/fantasyNames.ts">
-const SEED_NAMES = [
-  "Вогнеслав",
-  "Зоряна",
-  "Громовиця",
-  "Лісодух",
-  "Камнелом",
-  "Буревій",
-  "Олдрік",
-  "Терон",
-  "Лісандра",
-  "Елара",
-  "Кейл",
-  "Міра",
-  "Серафіна",
-  "Вален",
-  "Ізольда",
-  "Аеліндор",
-  "Фаелар",
-  "Сільваніс",
-  "Тандоріель",
-  "Лутієн",
-  "Торін",
-  "Балін",
-  "Двалін",
-  "Гімлі",
-  "Дурін",
-  "Ґроґ",
-  "Круск",
-  "Рогар",
-  "Акмен",
-  "Інферно",
-  "Надія",
-  "Відчай",
-  "Сутінь",
-  "Промінь",
-  "Хмара",
-] as const;
+    if (prevDisabledRef.current !== disabled) {
+      prevDisabledRef.current = disabled;
+      onNextDisabledChange?.(disabled);
+    }
+  }, [race, groupedOptions, selections, onNextDisabledChange]);
 
-function mulberry32(seed: number) {
-  let a = seed >>> 0;
-  return function next() {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  useEffect(() => {
+    updateFormData({ raceChoiceSelections: selections });
+  }, [selections, updateFormData]);
+
+  const selectOption = (groupName: string, optionId: number) => {
+    const next = { ...(selections || {}), [groupName]: optionId };
+    form.setValue("raceChoiceSelections", next, { shouldDirty: true });
   };
-}
 
-function capFirst(value: string) {
-  if (!value) return value;
-  return value[0].toUpperCase() + value.slice(1);
-}
-
-function squeeze(value: string) {
-  // Light de-dup for accidental double separators.
-  return value
-    .replace(/--+/g, "-")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function pick<T>(rng: () => number, list: readonly T[]): T {
-  return list[Math.floor(rng() * list.length)];
-}
-
-const UA_TRAD = [
-  "Ярослав",
-  "Святослав",
-  "Богдан",
-  "Володимир",
-  "Ростислав",
-  "Людмила",
-  "Оксана",
-  "Соломія",
-  "Марія",
-  "Злата",
-  "Мирослав",
-  "Мирослава",
-  "Станіслав",
-  "Вікторія",
-  "Данило",
-  "Іван",
-  "Тарас",
-  "Леся",
-  "Назар",
-  "Калина",
-] as const;
-
-const UA_ROOTS = [
-  "вогн",
-  "зор",
-  "грім",
-  "ліс",
-  "вод",
-  "кам",
-  "світ",
-  "темн",
-  "бур",
-  "вітр",
-  "місяц",
-  "сонц",
-  "криж",
-  "попіл",
-  "зіл",
-  "тін",
-  "град",
-  "клин",
-  "крил",
-  "душ",
-] as const;
-
-const UA_PREFIX = [
-  "Вогне",
-  "Зоре",
-  "Громо",
-  "Лісо",
-  "Водо",
-  "Камне",
-  "Світло",
-  "Темно",
-  "Буре",
-  "Вітро",
-  "Місяце",
-  "Сонце",
-  "Криго",
-  "Попело",
-  "Тіне",
-] as const;
-
-const UA_SUFFIX = [
-  "слав",
-  "слава",
-  "вик",
-  "вій",
-  "бій",
-  "бор",
-  "риц(я)",
-  "дух",
-  "пад",
-  "мор",
-  "крила",
-  "ликий",
-  "хід",
-  "мудр",
-] as const;
-
-const UA_SUFFIX_CLEAN = [
-  "слав",
-  "слава",
-  "вик",
-  "вій",
-  "бій",
-  "бор",
-  "риця",
-  "дух",
-  "пад",
-  "мор",
-  "крила",
-  "ликий",
-  "хід",
-  "мудр",
-] as const;
-
-const ELF_PRE = [
-  "Ае",
-  "Ела",
-  "Ілі",
-  "Лу",
-  "Сі",
-  "Та",
-  "Ке",
-  "Фае",
-  "Мі",
-  "Гала",
-  "Ні",
-  "Ері",
-] as const;
-
-const ELF_MID = [
-  "лін",
-  "ріо",
-  "ндор",
-  "віа",
-  "фел",
-  "сіль",
-  "тір",
-  "мар",
-  "дор",
-  "ніель",
-  "ран",
-  "лен",
-] as const;
-
-const ELF_SUF = [
-  "іель",
-  "ор",
-  "он",
-  "іс",
-  "ель",
-  "ан",
-  "іна",
-  "іон",
-  "ає",
-  "ер",
-] as const;
-
-const DWARF_PRE = [
-  "Тор",
-  "Бал",
-  "Двал",
-  "Дур",
-  "Гім",
-  "Брун",
-  "Хіль",
-  "Рун",
-  "Крем",
-  "Гран",
-  "Вуг",
-  "Заліз",
-] as const;
-
-const DWARF_SUF = [
-  "ін",
-  "ар",
-  "ур",
-  "ім",
-  "ек",
-  "дор",
-  "бород",
-  "молот",
-  "коп",
-  "кам",
-] as const;
-
-const ORC_PRE = [
-  "Ґро",
-  "Кру",
-  "Ток",
-  "Ро",
-  "Шар",
-  "Гру",
-  "Дро",
-  "Зур",
-  "Храг",
-  "Бру",
-] as const;
-
-const ORC_SUF = [
-  "ґ",
-  "ск",
-  "к",
-  "р",
-  "ш",
-  "г",
-  "т",
-  "м",
-  "шк",
-] as const;
-
-const TIEF_WORDS = [
-  "Надія",
-  "Відчай",
-  "Страх",
-  "Ідеал",
-  "Покора",
-  "Воля",
-  "Гордість",
-  "Помста",
-  "Слава",
-  "Таїна",
-] as const;
-
-const TIEF_PRE = [
-  "Ак",
-  "Зе",
-  "Мор",
-  "Інф",
-  "Дем",
-  "Пек",
-  "Сар",
-  "Ве",
-  "Кал",
-] as const;
-
-const TIEF_SUF = [
-  "мен",
-  "ріан",
-  "фір",
-  "зіс",
-  "тор",
-  "на",
-  "іс",
-  "іон",
-] as const;
-
-const GNOME_PRE = [
-  "Ол",
-  "Бод",
-  "Дім",
-  "Брок",
-  "Тін",
-  "Флік",
-  "Блим",
-  "Цікав",
-  "Штуч",
-] as const;
-
-const GNOME_SUF = [
-  "стон",
-  "дінок",
-  "бл",
-  "лер",
-  "ік",
-  "ко",
-  "авка",
-  "чик",
-] as const;
-
-const HALFLING_PRE = [
-  "Лай",
-  "Мер",
-  "Кал",
-  "Ко",
-  "Джі",
-  "Лін",
-  "Ос",
-] as const;
-
-const HALFLING_SUF = [
-  "л",
-  "рік",
-  "лі",
-  "ра",
-  "іан",
-  "ет",
-  "ік",
-] as const;
-
-const EXOTIC_PRE = [
-  "Ґітх",
-  "Крук",
-  "Лап",
-  "Крил",
-  "Таба",
-  "Кен",
-  "Аара",
-  "Сах",
-] as const;
-
-const EXOTIC_SUF = [
-  "-Вар",
-  "ар",
-  "астик",
-  "ань",
-  "ік",
-  "ра",
-  "ок",
-] as const;
-
-function buildUkrFantasy(rng: () => number) {
-  const prefix = pick(rng, UA_PREFIX);
-  const suffix = pick(rng, UA_SUFFIX_CLEAN);
-
-  // Two simple patterns for variety.
-  if (rng() < 0.5) {
-    return squeeze(`${prefix}${capFirst(suffix)}`);
-  }
-  const root = pick(rng, UA_ROOTS);
-  return squeeze(`${prefix}${capFirst(root)}${capFirst(suffix)}`);
-}
-
-function buildElf(rng: () => number) {
-  const pre = pick(rng, ELF_PRE);
-  const mid = pick(rng, ELF_MID);
-  const suf = pick(rng, ELF_SUF);
-  return squeeze(`${pre}${mid}${suf}`);
-}
-
-function buildDwarf(rng: () => number) {
-  const pre = pick(rng, DWARF_PRE);
-  const suf = pick(rng, DWARF_SUF);
-  const maybeTitle = rng() < 0.15 ? `-${pick(rng, ["Камнесік", "Залізобород", "Рудокоп", "Молотобій"] as const)}` : "";
-  return squeeze(`${pre}${suf}${maybeTitle}`);
-}
-
-function buildOrc(rng: () => number) {
-  const pre = pick(rng, ORC_PRE);
-  const suf = pick(rng, ORC_SUF);
-  return squeeze(`${pre}${suf}`);
-}
-
-function buildTiefling(rng: () => number) {
-  if (rng() < 0.35) return pick(rng, TIEF_WORDS);
-  const pre = pick(rng, TIEF_PRE);
-  const suf = pick(rng, TIEF_SUF);
-  return squeeze(`${pre}${suf}`);
-}
-
-function buildGnome(rng: () => number) {
-  const pre = pick(rng, GNOME_PRE);
-  const suf = pick(rng, GNOME_SUF);
-  return squeeze(`${pre}${suf}`);
-}
-
-function buildHalfling(rng: () => number) {
-  const pre = pick(rng, HALFLING_PRE);
-  const suf = pick(rng, HALFLING_SUF);
-  const cozy = rng() < 0.2 ? pick(rng, ["Смачненко", "Веселко", "Затишко", "Добряк", "Пиріжко"] as const) : "";
-  return cozy ? cozy : squeeze(`${pre}${suf}`);
-}
-
-function buildExotic(rng: () => number) {
-  const pre = pick(rng, EXOTIC_PRE);
-  const suf = pick(rng, EXOTIC_SUF);
-  return squeeze(`${pre}${suf}`);
-}
-
-function buildHuman(rng: () => number) {
-  if (rng() < 0.35) return pick(rng, UA_TRAD);
-  // Adapted classic fantasy-ish.
-  const pre = pick(rng, ["Ал", "Ол", "Тер", "Ліс", "Ел", "Ка", "До", "Сер", "Вал", "Із"] as const);
-  const mid = pick(rng, ["др", "ан", "ел", "ор", "іа", "ен", "ар", "іс", "ла", "он"] as const);
-  const suf = pick(rng, ["ік", "ан", "ор", "а", "ія", "ель", "іна", "он", "ар"] as const);
-  return squeeze(`${pre}${mid}${suf}`);
-}
-
-function generateFantasyNames(targetCount: number) {
-  const rng = mulberry32(0xC0FFEE);
-  const out = new Set<string>(SEED_NAMES);
-
-  const builders = [
-    buildHuman,
-    buildElf,
-    buildDwarf,
-    buildOrc,
-    buildTiefling,
-    buildGnome,
-    buildHalfling,
-    buildExotic,
-    buildUkrFantasy,
-  ] as const;
-
-  // Ensure at least some purely-UA compound names.
-  for (let i = 0; i < 200 && out.size < targetCount; i++) {
-    out.add(buildUkrFantasy(rng));
+  if (!race) {
+    return (
+      <Card className="p-4 text-center text-slate-200">
+        Спершу оберіть расу.
+      </Card>
+    );
   }
 
-  while (out.size < targetCount) {
-    const builder = pick(rng, builders);
-    const name = builder(rng);
-
-    // Filter super short / weird cases.
-    if (name.length < 3) continue;
-    if (name.length > 24) continue;
-
-    out.add(name);
+  if (!groupedOptions.length) {
+    return (
+      <Card className="p-4 text-center text-slate-200">
+        Для цієї раси немає додаткових виборів. Можна рухатися далі.
+      </Card>
+    );
   }
 
-  return Array.from(out);
-}
+  return (
+    <form id={formId} onSubmit={onSubmit} className="space-y-4">
+      <div className="space-y-1 text-center">
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Опції раси
+        </h2>
+        <p className="text-sm text-slate-400">
+          Оберіть 1 варіант у кожній групі.
+        </p>
+      </div>
 
-export const FANTASY_NAMES = generateFantasyNames(3000) as readonly string[];
+      <div className="space-y-4">
+        {groupedOptions.map(({ groupName, options }) => (
+          <Card key={groupName}>
+            <CardContent className="space-y-3 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
+                  <p className="text-base font-semibold text-white">{groupName}</p>
+                </div>
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
+                  Оберіть 1
+                </Badge>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {options.map((opt) => {
+                  const selected = selections[groupName] === opt.optionId;
+
+                  return (
+                    <Card
+                      key={opt.optionId}
+                      className={clsx(
+                        "cursor-pointer transition will-change-transform hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10",
+                        selected ? "border-gradient-rpg border-gradient-rpg-active glass-active" : ""
+                      )}
+                      onClick={() => selectOption(groupName, opt.optionId)}
+                    >
+                      <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="truncate text-sm font-semibold text-white">{opt.optionName}</p>
+                          <Badge
+                            variant={selected ? "secondary" : "outline"}
+                            className={clsx(
+                              "border-white/15 bg-white/5 text-slate-200",
+                              selected && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100"
+                            )}
+                          >
+                            {selected ? "Обрано" : "Обрати"}
+                          </Badge>
+                        </div>
+
+                        {opt.description ? (
+                          <p className="text-sm text-slate-200/90 whitespace-pre-line">{opt.description}</p>
+                        ) : null}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </form>
+  );
+};
+
+export default RaceChoiceOptionsForm;
 </file>
 
 <file path="prisma/enums/Ability.prisma">
@@ -1355,6 +1043,11 @@ enum Races {
   KENDER_DRAGONLANCE
   GRUNG_OGA
   LOCATHAH_LR
+
+  // Fizban's Treasury of Dragons
+  DRAGONBORN_CHROMATIC
+  DRAGONBORN_METALLIC
+  DRAGONBORN_GEM
 }
 </file>
 
@@ -2936,7 +2629,7 @@ model ChoiceOptionFeature {
   choiceOptionId  Int @map("option_id")
   featureId       Int @map("feature_id")
 
-  option  ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
+  option  ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
   feature Feature      @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
 
   @@map("choice_option_feature")
@@ -2951,8 +2644,8 @@ model ClassChoiceOption {
 
   levelsGranted Int[] @map("levels_granted")
 
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
-  class        Class        @relation(fields: [classId], references: [classId])
+  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
+  class        Class        @relation(fields: [classId], references: [classId], onDelete: Cascade)
 
   @@unique([classId, choiceOptionId], name: "unique_class_choice")
   @@map("class_choice_option")
@@ -2978,7 +2671,7 @@ model ClassOptionalFeature {
   prerequisites Json?
 
   perses  Pers[]
-  class   Class    @relation(fields: [classId], references: [classId])
+  class   Class    @relation(fields: [classId], references: [classId], onDelete: Cascade)
   feature Feature? @relation("GrantedFeature", fields: [featureId], references: [featureId], onDelete: Cascade)
 
   replacesFeatures          ClassOptionalFeatureReplacesFeature[]
@@ -3027,7 +2720,7 @@ model ClassStartingEquipmentOption {
 
   description String? @db.Text
 
-  class         Class          @relation(fields: [classId], references: [classId])
+  class         Class          @relation(fields: [classId], references: [classId], onDelete: Cascade)
   weapon        Weapon?        @relation(fields: [weaponId], references: [weaponId])
   armor         Armor?         @relation(fields: [armorId], references: [armorId])
   equipmentPack EquipmentPack? @relation(fields: [equipmentPackId], references: [equipmentPackId])
@@ -3057,8 +2750,8 @@ model SubclassChoiceOption {
 
   levelsGranted Int[] @map("levels_granted")
 
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
-  subclass     Subclass     @relation(fields: [subclassId], references: [subclassId])
+  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
+  subclass     Subclass     @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
   @@unique([subclassId, choiceOptionId], name: "unique_subclass_choice")
   @@map("subclass_choice_option")
@@ -3076,7 +2769,7 @@ model SubclassFeature {
   grantsSpellSlots Boolean @default(false) @map("grants_spell_slots")
 
   feature  Feature  @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  subclass Subclass @relation(fields: [subclassId], references: [subclassId])
+  subclass Subclass @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
   @@map("subclass_feature")
 }
@@ -3129,8 +2822,8 @@ model FeatChoiceOption {
   featId         Int @map("feat_id")
   choiceOptionId Int @map("choice_option_id")
 
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
-  feat         Feat         @relation(fields: [featId], references: [featId])
+  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
+  feat         Feat         @relation(fields: [featId], references: [featId], onDelete: Cascade)
 
   @@unique([featId, choiceOptionId], name: "unique_feat_choice")
   @@map("feat_choice_option")
@@ -3216,7 +2909,7 @@ model PersFeatChoice {
   choiceOptionId   Int @map("choice_option_id")
 
   persFeat     PersFeat     @relation(fields: [persFeatId], references: [persFeatId], onDelete: Cascade)
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
+  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
 
   @@unique([persFeatId, choiceOptionId], name: "unique_pers_feat_choice")
   @@map("pers_feat_choice")
@@ -3232,7 +2925,7 @@ model PersFeature {
   usesRemaining Int? @map("uses_remaining")
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  pers    Pers    @relation(fields: [persId], references: [persId])
+  pers    Pers    @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
   @@unique([persId, featureId])
   @@map("pers_feature")
@@ -3253,11 +2946,11 @@ model PersInfusion {
   createdAt DateTime  @default(now()) @map("created_at")
   expiresAt DateTime? @map("expires_at")
 
-  pers      Pers           @relation(fields: [persId], references: [persId])
-  infusion  Infusion       @relation(fields: [infusionId], references: [infusionId])
-  weapon    PersWeapon?    @relation(fields: [persWeaponId], references: [persWeaponId])
-  armor     PersArmor?     @relation(fields: [persArmorId], references: [persArmorId])
-  magicItem PersMagicItem? @relation(fields: [persMagicItemId], references: [persMagicItemId])
+  pers      Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  infusion  Infusion       @relation(fields: [infusionId], references: [infusionId], onDelete: Cascade)
+  weapon    PersWeapon?    @relation(fields: [persWeaponId], references: [persWeaponId], onDelete: Cascade)
+  armor     PersArmor?     @relation(fields: [persArmorId], references: [persArmorId], onDelete: Cascade)
+  magicItem PersMagicItem? @relation(fields: [persMagicItemId], references: [persMagicItemId], onDelete: Cascade)
 
   @@map("pers_infusion")
 }
@@ -3269,8 +2962,8 @@ model PersMagicItem {
   persId          Int @map("pers_id")
   magicItemId     Int @map("magic_item_id")
 
-  pers      Pers      @relation(fields: [persId], references: [persId])
-  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId])
+  pers      Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId], onDelete: Cascade)
 
   // Opposite side of PersInfusion.magicItem
   infusions PersInfusion[]
@@ -3287,9 +2980,9 @@ model PersMulticlass {
   subclassId       Int? @map("subclass_id")
   classLevel       Int  @map("class_level")
 
-  pers     Pers      @relation(fields: [persId], references: [persId])
-  class    Class     @relation(fields: [classId], references: [classId])
-  subclass Subclass? @relation(fields: [subclassId], references: [subclassId])
+  pers     Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  class    Class     @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  subclass Subclass? @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
   @@unique([persId, classId])
   @@map("pers_multiclass")
@@ -3305,7 +2998,7 @@ model PersSkill {
   customModifier  Int?                 @map("custom_modifier")
   name            Skills
 
-  pers Pers @relation(fields: [persId], references: [persId])
+  pers Pers @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
   @@unique([persId, name])
   @@map("pers_skill")
@@ -3360,8 +3053,8 @@ model RaceChoiceOption {
   languagesToChooseCount Int                     @default(0) @map("languages_to_choose_count")
   modifiesSpeed          Int?                    @map("modifies_speed")
 
-  race    Race     @relation(fields: [raceId], references: [raceId])
-  subrace Subrace? @relation(fields: [subraceId], references: [subraceId])
+  race    Race     @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  subrace Subrace? @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
   perses  Pers[]
 
   @@unique([raceId, subraceId, choiceGroupName, optionName])
@@ -3376,7 +3069,7 @@ model RaceChoiceOptionTrait {
   featureId               Int @map("feature_id")
 
   feature          Feature          @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  raceChoiceOption RaceChoiceOption @relation(fields: [optionId], references: [optionId])
+  raceChoiceOption RaceChoiceOption @relation(fields: [optionId], references: [optionId], onDelete: Cascade)
 
   @@map("race_choice_option_trait")
 }
@@ -3389,7 +3082,7 @@ model RaceTrait {
   featureId   Int @map("feature_id")
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  race    Race    @relation(fields: [raceId], references: [raceId])
+  race    Race    @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
 
   @@map("race_trait")
 }
@@ -3411,7 +3104,7 @@ model RaceVariant {
   overridesRaceSpeed   Int?    @map("overrides_race_speed")
   overridesFlightSpeed Int?    @map("overrides_flight_speed")
 
-  race   Race   @relation(fields: [raceId], references: [raceId])
+  race   Race   @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
   perses Pers[]
 
   @@map("race_variant")
@@ -3425,7 +3118,7 @@ model RaceVariantTrait {
   featureId          Int @map("feature_id")
 
   feature     Feature     @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  raceVariant RaceVariant @relation(fields: [raceVariantId], references: [raceVariantId])
+  raceVariant RaceVariant @relation(fields: [raceVariantId], references: [raceVariantId], onDelete: Cascade)
 
   @@map("race_variant_trait")
 }
@@ -3438,7 +3131,7 @@ model SubraceTrait {
   featureId      Int @map("feature_id")
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  subrace Subrace @relation(fields: [subraceId], references: [subraceId])
+  subrace Subrace @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
 
   @@map("subrace_trait")
 }
@@ -5983,7 +5676,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
 </file>
 
 <file path="prisma/seed/raceChoiceOptionSeed.ts">
-import { PrismaClient, Races, WeaponCategory } from "@prisma/client";
+import { PrismaClient, Races } from "@prisma/client";
 
 export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
     console.log('🐉 Додаємо вибір родоводу Дракононароджених...');
@@ -5992,6 +5685,21 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
     const dragonborn = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_2014 } });
     if (!dragonborn) {
         throw new Error("Dragonborn race not found");
+    }
+
+    const dragonbornChromatic = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_CHROMATIC } });
+    if (!dragonbornChromatic) {
+        throw new Error("Dragonborn (Chromatic) race not found");
+    }
+
+    const dragonbornMetallic = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_METALLIC } });
+    if (!dragonbornMetallic) {
+        throw new Error("Dragonborn (Metallic) race not found");
+    }
+
+    const dragonbornGem = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_GEM } });
+    if (!dragonbornGem) {
+        throw new Error("Dragonborn (Gem) race not found");
     }
 
     const halfElf = await prisma.race.findFirst({ where: { name: Races.HALF_ELF_2014 } });
@@ -6174,6 +5882,237 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             }
         },
 
+        // ============ DRAGONBORN (CHROMATIC) ANCESTRY (FTOD) ============
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Чорний дракон",
+            description: "Тип шкоди: кислота. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Acid - Line)'),
+                    connectFeature('Draconic Ancestry (Black)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Синій дракон",
+            description: "Тип шкоди: блискавка. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Lightning - Line)'),
+                    connectFeature('Draconic Ancestry (Blue)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Зелений дракон",
+            description: "Тип шкоди: отрута. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Poison - Cone)'),
+                    connectFeature('Draconic Ancestry (Green)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Червоний дракон",
+            description: "Тип шкоди: вогонь. Форма зброї дихання: конус 15 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Fire - Cone)'),
+                    connectFeature('Draconic Ancestry (Red)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornChromatic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Білий дракон",
+            description: "Тип шкоди: холод. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Cold - Cone)'),
+                    connectFeature('Draconic Ancestry (White)')
+                ]
+            }
+        },
+
+        // ============ DRAGONBORN (METALLIC) ANCESTRY (FTOD) ============
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Латунний дракон",
+            description: "Тип шкоди: вогонь. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Fire - Line)'),
+                    connectFeature('Draconic Ancestry (Brass)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Бронзовий дракон",
+            description: "Тип шкоди: блискавка. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Lightning - Line)'),
+                    connectFeature('Draconic Ancestry (Bronze)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Мідний дракон",
+            description: "Тип шкоди: кислота. Форма зброї дихання: лінія 5x30 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Acid - Line)'),
+                    connectFeature('Draconic Ancestry (Copper)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Золотий дракон",
+            description: "Тип шкоди: вогонь. Форма зброї дихання: конус 15 футів (ряткидок Спритності).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Fire - Cone)'),
+                    connectFeature('Draconic Ancestry (Gold)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornMetallic.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Срібний дракон",
+            description: "Тип шкоди: холод. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Cold - Cone)'),
+                    connectFeature('Draconic Ancestry (Silver)')
+                ]
+            }
+        },
+
+        // ============ DRAGONBORN (GEM) ANCESTRY (FTOD) ============
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Аметистовий дракон",
+            description: "Тип шкоди: сила. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Force - Cone)'),
+                    connectFeature('Draconic Ancestry (Amethyst)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Кришталевий дракон",
+            description: "Тип шкоди: променева. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Radiant - Cone)'),
+                    connectFeature('Draconic Ancestry (Crystal)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Смарагдовий дракон",
+            description: "Тип шкоди: психічна. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Psychic - Cone)'),
+                    connectFeature('Draconic Ancestry (Emerald)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Сапфіровий дракон",
+            description: "Тип шкоди: громова. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Thunder - Cone)'),
+                    connectFeature('Draconic Ancestry (Sapphire)')
+                ]
+            }
+        },
+        {
+            raceId: dragonbornGem.raceId,
+            subraceId: null,
+            choiceGroupName: "Родовід дракона",
+            optionName: "Топазовий дракон",
+            description: "Тип шкоди: некротична. Форма зброї дихання: конус 15 футів (ряткидок Статури).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Breath Weapon (Necrotic - Cone)'),
+                    connectFeature('Draconic Ancestry (Topaz)')
+                ]
+            }
+        },
+
         // ============ HALF-ELF VERSATILITY (SCAG) ============
         // Skill Versatility (базова PHB опція - дві додаткові навички)
         {
@@ -6256,7 +6195,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             subraceId: null,
             choiceGroupName: "Half-Elf Versatility",
             optionName: "Drow Magic",
-            description: "Ви знаєте замовляння Танцюючі вогники [Dancing Lights]. Коли ви досягаєте 3-го рівня, ви можете використати заклинання Чарівний вогонь [Faerie Fire]. Коли ви досягаєте 5-го рівня, ви також можете використати заклинання Темрява [Darkness]. Харизма є вашою заклинальною характеристикою для цих заклинань.",
+            description: 'Ви знаєте замовляння <a href="/spell/1350">Танцюючі вогники [Dancing Lights]</a>. Коли ви досягаєте 3-го рівня, ви можете використати заклинання <a href="/spell/1041">Чарівний вогонь [Faerie Fire]</a>. Коли ви досягаєте 5-го рівня, ви також можете використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             selectMultiple: false,
             maxSelection: 1,
             traits: {
@@ -7082,219 +7021,6 @@ export const LevelUpWizardMulticlass: React.FC<LevelUpWizardMulticlassProps> = (
 };
 </file>
 
-<file path="src/components/level-up/StepRenderer.tsx">
-'use client';
-
-import React from 'react';
-import { useCharacterStore } from '@/store/character-store';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { 
-  SelectSubclassStep, 
-  SelectFeatOrASIStep, 
-  AddHPStep, 
-  ChooseOptionalFeatureStep,
-  LevelUpStep,
-  LevelUpChoice
-} from '@/types/character-flow';
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// INDIVIDUAL STEP RENDERERS
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-/**
- * 1️⃣ SELECT_SUBCLASS Renderer
- */
-const SubclassSelectionGrid: React.FC<{ step: SelectSubclassStep }> = ({ step }) => {
-  const addChoice = useCharacterStore((s) => s.addChoice);
-  const choices = useCharacterStore((s) => s.choices);
-
-  const selectedId = (choices.find((c) => c.stepType === 'SELECT_SUBCLASS') as LevelUpChoice)?.subclassId;
-
-  return (
-    <div className="space-y-4">
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold text-foreground">
-          {step.className} — Обери Підклас
-        </h3>
-        <p className="text-sm text-muted-foreground">
-          На {step.level}-му рівні ви обираєте архетип, що визначає ваш шлях.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {step.options.map((subclass) => (
-          <Card 
-            key={subclass.id}
-            className={`cursor-pointer transition-all border-2 ${
-              selectedId === subclass.id ? 'border-primary bg-primary/5' : 'border-transparent hover:border-primary/50'
-            }`}
-            onClick={() => addChoice({ stepType: 'SELECT_SUBCLASS', subclassId: subclass.id })}
-          >
-            <CardHeader>
-              <CardTitle>{subclass.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">{subclass.description}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-/**
- * 2️⃣ SELECT_FEAT_OR_ASI Renderer
- */
-const FeatAsiTabs: React.FC<{ step: SelectFeatOrASIStep }> = () => {
-    const addChoice = useCharacterStore((s) => s.addChoice);
-    // Simplified for brevity
-    return (
-        <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Покращення Характеристик або Риса</h3>
-            <Tabs defaultValue="asi">
-                <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="asi">Характеристики (+2)</TabsTrigger>
-                    <TabsTrigger value="feat">Риса (Feat)</TabsTrigger>
-                </TabsList>
-                <TabsContent value="asi" className="p-4 border rounded-md">
-                    <p className="text-sm text-muted-foreground mb-4">
-                        Оберіть одну характеристику для +2 або дві для +1.
-                    </p>
-                    {/* ASI Logic would go here */}
-                    <Button onClick={() => addChoice({ stepType: 'SELECT_FEAT_OR_ASI', type: 'ASI', stats: { STR: 2 } })}>
-                        Додати +2 до Сили (Тест)
-                    </Button>
-                </TabsContent>
-                <TabsContent value="feat" className="p-4 border rounded-md">
-                    <p>Список рис поки недоступний.</p>
-                </TabsContent>
-            </Tabs>
-        </div>
-    );
-};
-
-/**
- * 3️⃣ ADD_HP Renderer
- */
-const HpRoller: React.FC<{ step: AddHPStep }> = ({ step }) => {
-    const addChoice = useCharacterStore((s) => s.addChoice);
-    const choices = useCharacterStore((s) => s.choices);
-    const choice = choices.find(c => c.stepType === 'ADD_HP') as LevelUpChoice;
-
-    const fixedHp = Math.floor(step.hitDie / 2) + 1;
-
-    return (
-        <div className="space-y-6 max-w-md mx-auto">
-            <div className="text-center">
-                <h3 className="text-xl font-bold mb-2">Здоров&apos;я (HP)</h3>
-                <p className="text-muted-foreground">
-                    Кістка Хітів: d{step.hitDie}
-                </p>
-            </div>
-
-            <RadioGroup 
-                defaultValue="fixed" 
-                onValueChange={(val) => {
-                    const value = val === 'fixed' ? fixedHp : Math.floor(Math.random() * step.hitDie) + 1; // Mock roll
-                    addChoice({ stepType: 'ADD_HP', value, method: val as 'fixed' | 'roll' });
-                }}
-            >
-                <div className="flex items-center space-x-2 border p-4 rounded-lg cursor-pointer hover:bg-accent">
-                    <RadioGroupItem value="fixed" id="fixed" />
-                    <Label htmlFor="fixed" className="flex-1 cursor-pointer">
-                        <span className="font-bold block">Фіксоване значення: {fixedHp}</span>
-                        <span className="text-xs text-muted-foreground">Надійний вибір</span>
-                    </Label>
-                </div>
-                <div className="flex items-center space-x-2 border p-4 rounded-lg cursor-pointer hover:bg-accent">
-                    <RadioGroupItem value="roll" id="roll" />
-                    <Label htmlFor="roll" className="flex-1 cursor-pointer">
-                        <span className="font-bold block">Кинути кубик (d{step.hitDie})</span>
-                        <span className="text-xs text-muted-foreground">Ризиковано!</span>
-                    </Label>
-                </div>
-            </RadioGroup>
-            
-            {choice && (
-                <div className="text-center p-4 bg-primary/10 rounded-lg animate-in fade-in">
-                    <span className="text-2xl font-bold text-primary">+{choice.value} HP</span>
-                </div>
-            )}
-        </div>
-    );
-};
-
-/**
- * 4️⃣ CHOOSE_OPTIONAL_FEATURE Renderer (Fighting Styles etc)
- */
-const OptionalFeatureGrid: React.FC<{ step: ChooseOptionalFeatureStep }> = ({ step }) => {
-    const addChoice = useCharacterStore((s) => s.addChoice);
-    const choices = useCharacterStore((s) => s.choices);
-    const selectedId = (choices.find((c) => c.stepType === 'CHOOSE_OPTIONAL_FEATURE' && c.featureId === step.featureId) as LevelUpChoice)?.selectedOptionId;
-
-    return (
-        <div className="space-y-4">
-             <div className="mb-6">
-                <h3 className="text-lg font-semibold">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
-            </div>
-            <ScrollArea className="h-[400px] pr-4">
-                <div className="grid grid-cols-1 gap-3">
-                    {step.options.map((opt) => (
-                        <Card 
-                            key={opt.id}
-                            className={`cursor-pointer transition-all ${selectedId === opt.id ? 'border-primary bg-primary/5' : ''}`}
-                            onClick={() => addChoice({ stepType: 'CHOOSE_OPTIONAL_FEATURE', featureId: step.featureId, selectedOptionId: opt.id })}
-                        >
-                            <CardHeader className="p-4">
-                                <CardTitle className="text-base">{opt.name}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 pt-0">
-                                <p className="text-sm text-muted-foreground">{opt.description}</p>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </ScrollArea>
-        </div>
-    );
-}
-
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// MAIN RENDERER SWITCH
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-export const StepRenderer: React.FC<{ step: LevelUpStep }> = ({ step }) => {
-  switch (step.type) {
-    case 'SELECT_SUBCLASS':
-      return <SubclassSelectionGrid step={step} />;
-    
-    case 'SELECT_FEAT_OR_ASI':
-      return <FeatAsiTabs step={step} />;
-
-    case 'ADD_HP':
-      return <HpRoller step={step} />;
-      
-    case 'CHOOSE_OPTIONAL_FEATURE':
-        return <OptionalFeatureGrid step={step} />;
-
-    default:
-      return (
-        <div className="p-4 border border-dashed rounded-lg text-center text-muted-foreground">
-          Невідомий тип кроку: {(step as LevelUpStep).type}
-        </div>
-      );
-  }
-};
-</file>
-
 <file path="src/components/level-up/useLevelUpManager.ts">
 import { useState, useEffect } from 'react';
 import { getLevelUpInfo, commitLevelUp, LevelUpInfo, LevelUpSelections } from '@/app/actions/level-up';
@@ -7624,6 +7350,162 @@ ScrollArea.displayName = "ScrollArea"
 export { ScrollArea }
 </file>
 
+<file path="src/components/ui/select.tsx">
+"use client"
+
+import * as React from "react"
+import * as SelectPrimitive from "@radix-ui/react-select"
+import { Check, ChevronDown, ChevronUp } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const Select = SelectPrimitive.Root
+
+const SelectGroup = SelectPrimitive.Group
+
+const SelectValue = SelectPrimitive.Value
+
+const SelectTrigger = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => (
+  <SelectPrimitive.Trigger
+    ref={ref}
+    className={cn(
+      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      className
+    )}
+    {...props}
+  >
+    {children}
+    <SelectPrimitive.Icon asChild>
+      <ChevronDown className="h-4 w-4 opacity-50" />
+    </SelectPrimitive.Icon>
+  </SelectPrimitive.Trigger>
+))
+SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
+
+const SelectScrollUpButton = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollUpButton
+    ref={ref}
+    className={cn("flex cursor-default items-center justify-center py-1", className)}
+    {...props}
+  >
+    <ChevronUp className="h-4 w-4" />
+  </SelectPrimitive.ScrollUpButton>
+))
+SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
+
+const SelectScrollDownButton = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollDownButton
+    ref={ref}
+    className={cn("flex cursor-default items-center justify-center py-1", className)}
+    {...props}
+  >
+    <ChevronDown className="h-4 w-4" />
+  </SelectPrimitive.ScrollDownButton>
+))
+SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName
+
+const SelectContent = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
+>(({ className, children, position = "popper", ...props }, ref) => (
+  <SelectPrimitive.Portal>
+    <SelectPrimitive.Content
+      ref={ref}
+      className={cn(
+        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        position === "popper" &&
+          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+        className
+      )}
+      position={position}
+      {...props}
+    >
+      <SelectScrollUpButton />
+      <SelectPrimitive.Viewport
+        className={cn(
+          "p-1",
+          position === "popper" &&
+            "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"
+        )}
+      >
+        {children}
+      </SelectPrimitive.Viewport>
+      <SelectScrollDownButton />
+    </SelectPrimitive.Content>
+  </SelectPrimitive.Portal>
+))
+SelectContent.displayName = SelectPrimitive.Content.displayName
+
+const SelectLabel = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Label>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Label
+    ref={ref}
+    className={cn("py-1.5 pl-8 pr-2 text-sm font-semibold", className)}
+    {...props}
+  />
+))
+SelectLabel.displayName = SelectPrimitive.Label.displayName
+
+const SelectItem = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+>(({ className, children, ...props }, ref) => (
+  <SelectPrimitive.Item
+    ref={ref}
+    className={cn(
+      "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      className
+    )}
+    {...props}
+  >
+    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <SelectPrimitive.ItemIndicator>
+        <Check className="h-4 w-4" />
+      </SelectPrimitive.ItemIndicator>
+    </span>
+
+    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+  </SelectPrimitive.Item>
+))
+SelectItem.displayName = SelectPrimitive.Item.displayName
+
+const SelectSeparator = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Separator>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Separator
+    ref={ref}
+    className={cn("-mx-1 my-1 h-px bg-muted", className)}
+    {...props}
+  />
+))
+SelectSeparator.displayName = SelectPrimitive.Separator.displayName
+
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+  SelectScrollUpButton,
+  SelectScrollDownButton,
+}
+</file>
+
 <file path="src/domain/pers/AbilityScores.ts">
 import { Ability } from "@prisma/client";
 
@@ -7891,6 +7773,31 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
 };
 </file>
 
+<file path="src/hooks/useFantasyNameGenerator.ts">
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { FANTASY_NAMES } from "@/lib/refs/fantasyNames";
+
+export function useFantasyNameGenerator() {
+  const names = useMemo(() => FANTASY_NAMES, []);
+  const [currentName, setCurrentName] = useState<string>(names[0] ?? "");
+
+  const generateName = useCallback(() => {
+    if (!names.length) return "";
+    const randomIndex = Math.floor(Math.random() * names.length);
+    const next = names[randomIndex];
+    setCurrentName(next);
+    return next;
+  }, [names]);
+
+  useEffect(() => {
+    if (!currentName) generateName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return { currentName, generateName };
+}
+</file>
+
 <file path="src/hooks/useMediaQuery.ts">
 "use client";
 
@@ -8085,451 +7992,6 @@ export async function confirmLevelUp(input: ConfirmLevelUpInput) {
   } catch (error) {
     console.error("Level up failed:", error);
     return { success: false, error: "Level up failed" };
-  }
-}
-</file>
-
-<file path="src/lib/actions/character.ts">
-"use server";
-
-import { prisma } from "@/lib/prisma";
-import { fullCharacterSchema, PersFormData } from "@/lib/zod/schemas/persCreateSchema";
-import { auth } from "@/lib/auth";
-import { SkillProficiencyType, Skills } from "@prisma/client";
-import { revalidatePath } from "next/cache";
-
-type UnknownRecord = Record<string, unknown>;
-
-function isRecord(value: unknown): value is UnknownRecord {
-  return typeof value === "object" && value !== null && !Array.isArray(value);
-}
-
-function getChildRecord(value: unknown, key: string): UnknownRecord | null {
-  if (!isRecord(value)) return null;
-  const child = value[key];
-  return isRecord(child) ? child : null;
-}
-
-function getSimpleBonuses(asi: unknown): Record<string, number> {
-  const basic = getChildRecord(asi, "basic");
-  const simple = getChildRecord(basic, "simple");
-  if (!simple) return {};
-
-  const out: Record<string, number> = {};
-  for (const [ability, rawBonus] of Object.entries(simple)) {
-    const bonus =
-      typeof rawBonus === "number"
-        ? rawBonus
-        : typeof rawBonus === "string"
-          ? Number(rawBonus)
-          : NaN;
-    if (Number.isFinite(bonus)) out[ability] = bonus;
-  }
-  return out;
-}
-
-export async function createCharacter(data: PersFormData) {
-  const session = await auth();
-
-  if (!session || !session.user || !session.user.email) {
-    return { error: "Unauthorized" };
-  }
-
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-  });
-
-  if (!user) {
-    return { error: "User not found" };
-  }
-
-  const validation = fullCharacterSchema.safeParse(data);
-
-  if (!validation.success) {
-    return { error: "Validation failed", details: validation.error.flatten() };
-  }
-
-  const validData = validation.data;
-
-  // Calculate Ability Scores
-  const scores: Record<string, number> = {
-    STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10
-  };
-
-  if (validData.asiSystem === 'POINT_BUY') {
-    validData.asi.forEach(s => scores[s.ability] = s.value);
-  } else if (validData.asiSystem === 'SIMPLE') {
-    validData.simpleAsi.forEach(s => scores[s.ability] = s.value);
-  } else if (validData.asiSystem === 'CUSTOM' && validData.customAsi) {
-    validData.customAsi.forEach(s => scores[s.ability] = Number(s.value));
-  }
-
-  // Apply Racial Bonuses if needed (This logic might be complex depending on how the form sends data)
-  // The form seems to handle the final calculation or at least the base assignment.
-  // However, usually the form sends the *base* score and the *bonuses* separately or combined.
-  // Looking at the schema, `asi` seems to be the base scores from the calculator.
-  // Racial bonuses might need to be added if they are not already included.
-  // BUT, for now, let's assume the user sees the final score or the form handles it.
-  // Wait, `asiSchema` has `racialBonusChoiceSchema`. This implies bonuses are separate.
-  
-  // Let's fetch the race to be sure about fixed bonuses.
-  const race = await prisma.race.findUnique({ where: { raceId: validData.raceId } });
-  if (!race) return { error: "Race not found" };
-
-  let effectiveASI: unknown = race.ASI;
-
-  if (validData.raceVariantId) {
-      const variant = await prisma.raceVariant.findUnique({ where: { raceVariantId: validData.raceVariantId } });
-      if (variant && variant.overridesRaceASI) {
-          effectiveASI = variant.overridesRaceASI;
-      }
-  }
-
-  // Apply fixed racial bonuses
-  {
-    const bonuses = getSimpleBonuses(effectiveASI);
-    Object.entries(bonuses).forEach(([ability, bonus]) => {
-      if (scores[ability]) scores[ability] += bonus;
-    });
-  }
-
-  // Apply chosen racial bonuses
-  if (validData.racialBonusChoiceSchema) {
-      const choices = validData.isDefaultASI 
-          ? validData.racialBonusChoiceSchema.basicChoices 
-          : validData.racialBonusChoiceSchema.tashaChoices;
-      
-      choices?.forEach(choice => {
-          choice.selectedAbilities.forEach(ability => {
-             if (scores[ability]) scores[ability] += 1; // Usually +1
-          });
-      });
-  }
-  
-  // Apply Subrace bonuses
-  if (validData.subraceId) {
-      const subrace = await prisma.subrace.findUnique({ where: { subraceId: validData.subraceId } });
-      if (subrace) {
-          const bonuses = getSimpleBonuses(subrace.additionalASI);
-          Object.entries(bonuses).forEach(([ability, bonus]) => {
-            if (scores[ability]) scores[ability] += bonus;
-          });
-          // Subrace choices? Usually subraces have fixed bonuses, but some might have choices.
-          // The schema handles choices generically.
-      }
-  }
-  
-  // Apply Feat bonuses (if any)
-  if (validData.featId) {
-      const feat = await prisma.feat.findUnique({ where: { featId: validData.featId } });
-      if (feat) {
-          const bonuses = getSimpleBonuses(feat.grantedASI);
-          Object.entries(bonuses).forEach(([ability, bonus]) => {
-            if (scores[ability]) scores[ability] += bonus;
-          });
-      }
-  }
-
-  // Prepare Skills
-  const allSkills = new Set<string>(validData.skills);
-
-  // From Schema
-  if (validData.skillsSchema) {
-      if (validData.skillsSchema.isTasha) {
-          validData.skillsSchema.tashaChoices.forEach(s => allSkills.add(s));
-      } else {
-          validData.skillsSchema.basicChoices.race.forEach(s => allSkills.add(s));
-          validData.skillsSchema.basicChoices.selectedClass.forEach(s => allSkills.add(s));
-      }
-  }
-
-  // From Race (Fixed)
-  if (race && race.skillProficiencies && Array.isArray(race.skillProficiencies)) {
-      (race.skillProficiencies as string[]).forEach(s => allSkills.add(s));
-  }
-  
-  // From Background (Fixed)
-  const background = await prisma.background.findUnique({ where: { backgroundId: validData.backgroundId } });
-  if (background && background.skillProficiencies && Array.isArray(background.skillProficiencies)) {
-      (background.skillProficiencies as string[]).forEach(s => allSkills.add(s));
-  }
-
-  // From Feat (if selected) - now processed AFTER base skills
-  if (validData.featId) {
-    const feat = await prisma.feat.findUnique({ 
-      where: { featId: validData.featId },
-      include: { 
-        featChoiceOptions: { 
-          include: { choiceOption: true } 
-        } 
-      }
-    });
-    
-    if (feat) {
-      // Direct skill grants from feat
-      if (feat.grantedSkills && Array.isArray(feat.grantedSkills)) {
-        (feat.grantedSkills as string[]).forEach(s => allSkills.add(s));
-      }
-      
-      // Skills from feat choice options (e.g., Skill Expert)
-      if (validData.featChoiceSelections) {
-        for (const choiceOptionId of Object.values(validData.featChoiceSelections)) {
-          const featChoice = feat.featChoiceOptions?.find(
-            fco => fco.choiceOptionId === Number(choiceOptionId)
-          );
-          
-          if (featChoice?.choiceOption) {
-            // Check if this choice option grants a skill
-            // The groupName might contain "Skill Proficiency" or similar
-            const option = featChoice.choiceOption;
-            
-            // If the choice option has a direct skill reference
-            if (option.optionName && Object.values(Skills).includes(option.optionName as Skills)) {
-              allSkills.add(option.optionName);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // 1. Prepare Features
-  const featuresToConnect: { featureId: number }[] = [];
-  
-  const classFeatures = await prisma.classFeature.findMany({
-    where: { classId: validData.classId, levelGranted: 1 },
-    select: { featureId: true }
-  });
-  featuresToConnect.push(...classFeatures.map(f => ({ featureId: f.featureId })));
-
-  const raceFeatures = await prisma.raceTrait.findMany({
-    where: { raceId: validData.raceId },
-    select: { featureId: true }
-  });
-  featuresToConnect.push(...raceFeatures.map(f => ({ featureId: f.featureId })));
-
-  if (validData.subraceId) {
-    const subraceFeatures = await prisma.subraceTrait.findMany({
-      where: { subraceId: validData.subraceId },
-      select: { featureId: true }
-    });
-    featuresToConnect.push(...subraceFeatures.map(f => ({ featureId: f.featureId })));
-  }
-
-  if (validData.subclassId) {
-    const subclassFeatures = await prisma.subclassFeature.findMany({
-      where: { subclassId: validData.subclassId, levelGranted: 1 },
-      select: { featureId: true }
-    });
-    featuresToConnect.push(...subclassFeatures.map(f => ({ featureId: f.featureId })));
-  }
-
-  // 2. Prepare Equipment
-  const weaponsToCreate: { weaponId: number }[] = [];
-  const armorsToCreate: { armorId: number }[] = [];
-  const customEquipmentLines: string[] = [];
-
-  if (validData.equipmentSchema) {
-      const { choiceGroupToId, anyWeaponSelection } = validData.equipmentSchema;
-
-      // Choice Groups
-      for (const ids of Object.values(choiceGroupToId)) {
-          for (const id of ids) {
-              const opt = await prisma.classStartingEquipmentOption.findUnique({
-                  where: { optionId: id },
-                    include: { equipmentPack: true }
-              });
-              if (opt) {
-                  if (opt.weaponId) weaponsToCreate.push({ weaponId: opt.weaponId });
-                  if (opt.armorId) armorsToCreate.push({ armorId: opt.armorId });
-                  if (opt.equipmentPack && Array.isArray(opt.equipmentPack.items)) {
-                      for (const item of opt.equipmentPack.items as unknown[]) {
-                        if (!isRecord(item)) continue;
-                        const name = typeof item.name === "string" ? item.name : null;
-                        const quantity =
-                          typeof item.quantity === "number"
-                            ? item.quantity
-                            : typeof item.quantity === "string"
-                              ? Number(item.quantity)
-                              : NaN;
-
-                        if (name && Number.isFinite(quantity)) {
-                          customEquipmentLines.push(`${name} x${quantity}`);
-                        }
-                      }
-                  }
-              }
-          }
-      }
-
-      // Any Weapon
-      for (const ids of Object.values(anyWeaponSelection)) {
-          ids.forEach(id => weaponsToCreate.push({ weaponId: id }));
-      }
-  }
-
-  // 3. Prepare Choices
-  const choiceOptionsToConnect: { choiceOptionId: number }[] = [];
-  
-  Object.values(validData.classChoiceSelections).forEach(id => choiceOptionsToConnect.push({ choiceOptionId: id }));
-  Object.values(validData.subclassChoiceSelections).forEach(id => choiceOptionsToConnect.push({ choiceOptionId: id }));
-
-
-  try {
-    const newPers = await prisma.$transaction(async (tx) => {
-      const createdPers = await tx.pers.create({
-        data: {
-          userId: user.id,
-          name: validData.name,
-          raceId: validData.raceId,
-          subraceId: validData.subraceId,
-          classId: validData.classId,
-          subclassId: validData.subclassId,
-          backgroundId: validData.backgroundId,
-
-          str: scores.STR,
-          dex: scores.DEX,
-          con: scores.CON,
-          int: scores.INT,
-          wis: scores.WIS,
-          cha: scores.CHA,
-
-          // Placeholder, updated below once we know class hit die
-          currentHp: 10,
-          maxHp: 10,
-
-          customEquipment: customEquipmentLines.join("\n"),
-
-          raceVariants: validData.raceVariantId
-            ? {
-                connect: { raceVariantId: validData.raceVariantId },
-              }
-            : undefined,
-
-          features: {
-            create: featuresToConnect.map((f) => ({ featureId: f.featureId })),
-          },
-          choiceOptions: {
-            connect: choiceOptionsToConnect,
-          },
-        },
-      });
-
-      // Save Feat + Feat choices AFTER Pers exists
-      if (validData.featId) {
-        const persFeat = await tx.persFeat.create({
-          data: {
-            persId: createdPers.persId,
-            featId: validData.featId,
-          },
-        });
-
-        const entries = Object.entries(validData.featChoiceSelections ?? {});
-        if (entries.length > 0) {
-          await tx.persFeatChoice.createMany({
-            data: entries
-              .map(([, choiceOptionId]) => Number(choiceOptionId))
-              .filter((choiceOptionId) => Number.isFinite(choiceOptionId) && choiceOptionId > 0)
-              .map((choiceOptionId) => ({
-                persFeatId: persFeat.persFeatId,
-                choiceOptionId,
-              })),
-            skipDuplicates: true,
-          });
-        }
-      }
-
-      // Save skills AFTER Pers exists (createMany + skipDuplicates)
-      const skillRows = Array.from(allSkills)
-        .filter((skillName) => Object.values(Skills).includes(skillName as Skills))
-        .map((skillName) => {
-          const skillEnum = skillName as Skills;
-          const skillIndex = Object.values(Skills).indexOf(skillEnum);
-          return {
-            persId: createdPers.persId,
-            name: skillEnum,
-            skillId: skillIndex + 1,
-            proficiencyType: SkillProficiencyType.PROFICIENT,
-          };
-        })
-        .filter((row) => row.skillId > 0);
-
-      if (skillRows.length > 0) {
-        await tx.persSkill.createMany({
-          data: skillRows,
-          skipDuplicates: true,
-        });
-      }
-
-      // Update expertise skills (upsert so it's safe even if missing)
-      const expertiseSkills = validData.expertiseSchema?.expertises ?? [];
-      for (const skillEnum of expertiseSkills) {
-        const skillIndex = Object.values(Skills).indexOf(skillEnum);
-        await tx.persSkill.upsert({
-          where: {
-            persId_name: {
-              persId: createdPers.persId,
-              name: skillEnum,
-            },
-          },
-          update: {
-            proficiencyType: SkillProficiencyType.EXPERTISE,
-          },
-          create: {
-            persId: createdPers.persId,
-            name: skillEnum,
-            skillId: skillIndex + 1,
-            proficiencyType: SkillProficiencyType.EXPERTISE,
-          },
-        });
-      }
-
-      // Save weapons AFTER Pers exists
-      if (weaponsToCreate.length > 0) {
-        await tx.persWeapon.createMany({
-          data: weaponsToCreate.map((w) => ({
-            persId: createdPers.persId,
-            weaponId: w.weaponId,
-          })),
-          skipDuplicates: true,
-        });
-      }
-
-      // Save armors AFTER Pers exists
-      if (armorsToCreate.length > 0) {
-        await tx.persArmor.createMany({
-          data: armorsToCreate.map((a) => ({
-            persId: createdPers.persId,
-            armorId: a.armorId,
-            equipped: false,
-          })),
-          skipDuplicates: true,
-        });
-      }
-
-      // Update HP based on Class and CON mod
-      const cls = await tx.class.findUnique({ where: { classId: validData.classId } });
-      if (cls) {
-        const conMod = Math.floor((scores.CON - 10) / 2);
-        const hitDie = cls.hitDie;
-        const maxHp = hitDie + conMod;
-        await tx.pers.update({
-          where: { persId: createdPers.persId },
-          data: {
-            maxHp,
-            currentHp: maxHp,
-          },
-        });
-      }
-
-      return createdPers;
-    });
-
-    revalidatePath("/pers");
-    return { success: true, persId: newPers.persId };
-  } catch (error) {
-    console.error("Error creating character:", error);
-    return { error: "Database error" };
   }
 }
 </file>
@@ -8826,305 +8288,6 @@ export async function levelUpCharacter(persId: number, data: any) {
 }
 </file>
 
-<file path="src/lib/actions/pers.ts">
-"use server";
-
-import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
-import { FeatureDisplayType, RestType } from "@prisma/client";
-
-export async function getUserPerses() {
-  const session = await auth();
-  if (!session?.user?.email) {
-    return [];
-  }
-
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-  });
-
-  if (!user) return [];
-
-  return prisma.pers.findMany({
-    where: { userId: user.id },
-    include: {
-      race: true,
-      class: true,
-      background: true,
-    },
-    orderBy: { updatedAt: 'desc' }
-  });
-}
-
-export async function getPersById(id: number) {
-    const session = await auth();
-    if (!session?.user?.email) return null;
-
-    const pers = await prisma.pers.findUnique({
-        where: { persId: id },
-        include: {
-            race: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            subrace: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            class: {
-                include: {
-                    features: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            subclass: {
-                include: {
-                    features: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            background: true,
-            skills: true,
-            feats: { 
-                include: { 
-                    feat: true,
-                    choices: {
-                        include: {
-                            choiceOption: true,
-                        }
-                    }
-                } 
-            },
-            raceVariants: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true,
-                        },
-                    },
-                },
-            },
-            features: { include: { feature: true } },
-            choiceOptions: true,
-            raceChoiceOptions: true,
-            spells: true,
-            weapons: { include: { weapon: true } },
-            armors: { include: { armor: true } },
-            user: true,
-        }
-    });
-    
-    if (!pers) return null;
-
-    // Check ownership
-    const user = await prisma.user.findUnique({ where: { email: session.user.email } });
-    if (pers.userId !== user?.id) {
-        // Allow viewing if we decide to share, but for now restrict
-        // return null; 
-        // Actually, for debugging/demo, let's allow it if it's just a fetch, 
-        // but strictly speaking we should restrict.
-        // The user asked for "current user's perses", so let's enforce ownership for the sheet too.
-        if (pers.userId !== user?.id) return null;
-    }
-
-    return pers;
-}
-
-export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersById>>>;
-
-export type FeatureSource = "CLASS" | "SUBCLASS" | "RACE" | "SUBRACE" | "BACKGROUND" | "FEAT" | "PERS" | "CHOICE" | "RACE_CHOICE";
-
-export type CharacterFeatureGroupKey = "passive" | "actions" | "bonusActions" | "reactions";
-
-export interface CharacterFeatureItem {
-    key: string;
-    name: string;
-    description: string;
-    displayTypes: FeatureDisplayType[];
-    primaryType: FeatureDisplayType;
-    source: FeatureSource;
-    sourceName: string;
-    usesRemaining?: number | null;
-    usesPer?: number | null;
-    restType?: RestType | null;
-}
-
-export type CharacterFeaturesGroupedResult = Record<CharacterFeatureGroupKey, CharacterFeatureItem[]>;
-
-function normalizeDisplayTypes(input: unknown): FeatureDisplayType[] {
-    if (Array.isArray(input)) {
-        const values = input.filter(Boolean) as FeatureDisplayType[];
-        return values.length > 0 ? values : [FeatureDisplayType.PASSIVE];
-    }
-    if (typeof input === "string" && input.length > 0) {
-        return [input as FeatureDisplayType];
-    }
-    return [FeatureDisplayType.PASSIVE];
-}
-
-function getPrimaryDisplayType(displayTypes: FeatureDisplayType[]): FeatureDisplayType {
-    const normalized = normalizeDisplayTypes(displayTypes);
-    // Priority: ACTION > BONUSACTION > REACTION > PASSIVE
-    if (normalized.includes(FeatureDisplayType.ACTION)) return FeatureDisplayType.ACTION;
-    if (normalized.includes(FeatureDisplayType.BONUSACTION)) return FeatureDisplayType.BONUSACTION;
-    if (normalized.includes(FeatureDisplayType.REACTION)) return FeatureDisplayType.REACTION;
-    return FeatureDisplayType.PASSIVE;
-}
-
-function toPrimaryGroupKey(primaryType: FeatureDisplayType): CharacterFeatureGroupKey {
-    switch (primaryType) {
-        case FeatureDisplayType.ACTION:
-            return "actions";
-        case FeatureDisplayType.BONUSACTION:
-            return "bonusActions";
-        case FeatureDisplayType.REACTION:
-            return "reactions";
-        default:
-            return "passive";
-    }
-}
-
-export async function getCharacterFeaturesGrouped(persId: number): Promise<CharacterFeaturesGroupedResult | null> {
-    const session = await auth();
-    if (!session?.user?.email) return null;
-
-    const user = await prisma.user.findUnique({
-        where: { email: session.user.email },
-    });
-    if (!user) return null;
-
-    const pers = await prisma.pers.findUnique({
-        where: { persId },
-        include: {
-            features: { include: { feature: true } },
-            feats: {
-                include: {
-                    feat: true,
-                    choices: {
-                        include: {
-                            choiceOption: true,
-                        },
-                    },
-                },
-            },
-            choiceOptions: true,
-            raceChoiceOptions: true,
-            user: true,
-        },
-    });
-
-    if (!pers) return null;
-    if (pers.userId !== user.id) return null;
-
-    const buckets: CharacterFeaturesGroupedResult = {
-        passive: [],
-        actions: [],
-        bonusActions: [],
-        reactions: [],
-    };
-
-    const push = (item: Omit<CharacterFeatureItem, "primaryType" | "displayTypes"> & { displayTypes: FeatureDisplayType[] }) => {
-        const displayTypes = normalizeDisplayTypes(item.displayTypes);
-        const primaryType = getPrimaryDisplayType(displayTypes);
-        const key = toPrimaryGroupKey(primaryType);
-        buckets[key].push({
-            ...item,
-            displayTypes,
-            primaryType,
-        });
-    };
-
-    // 1) Explicit pers_feature (usually level-up granted)
-    for (const pf of pers.features) {
-        const f = pf.feature;
-        push({
-            key: `PERS:feature:${f.featureId}`,
-            name: f.name,
-            description: f.description,
-            displayTypes: normalizeDisplayTypes(f.displayType),
-            source: "PERS",
-            sourceName: f.name,
-            usesRemaining: (pf as any).usesRemaining ?? null,
-            usesPer: (pf as any).usesPer ?? null,
-            restType: (pf as any).restType ?? null,
-        });
-    }
-
-    // 2) Choice options stored directly on pers
-    for (const co of pers.choiceOptions ?? []) {
-        const sourceName = co.groupName;
-        push({
-            key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}`,
-            name: co.optionName,
-            description: `${co.groupName}: ${co.optionName}`,
-            displayTypes: [FeatureDisplayType.PASSIVE],
-            source: "CHOICE",
-            sourceName,
-        });
-    }
-    for (const rco of pers.raceChoiceOptions ?? []) {
-        const sourceName = rco.choiceGroupName;
-        push({
-            key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}`,
-            name: rco.optionName,
-            description: rco.description || `${rco.choiceGroupName}: ${rco.optionName}`,
-            displayTypes: [FeatureDisplayType.PASSIVE],
-            source: "RACE_CHOICE",
-            sourceName,
-        });
-    }
-
-    // 3) Feats + their selected feat choice options
-    for (const pf of pers.feats ?? []) {
-        const featName = pf.feat.name;
-        const displayTypes = [FeatureDisplayType.PASSIVE];
-
-        // If a feat has no explicit choices, still show it as a single item
-        if (!pf.choices || pf.choices.length === 0) {
-            push({
-                key: `FEAT:${pf.featId}`,
-                name: featName,
-                description: pf.feat.description,
-                displayTypes,
-                source: "FEAT",
-                sourceName: featName,
-            });
-            continue;
-        }
-
-        for (const choice of pf.choices) {
-            if (!choice.choiceOption) continue;
-            push({
-                key: `FEAT:${pf.featId}:choice:${choice.choiceOptionId}`,
-                name: choice.choiceOption.optionName,
-                description: `${choice.choiceOption.groupName}: ${choice.choiceOption.optionName}`,
-                displayTypes,
-                source: "FEAT",
-                sourceName: featName,
-            });
-        }
-    }
-
-    return buckets;
-}
-</file>
-
 <file path="src/lib/actions/spell-actions.ts">
 'use server';
 
@@ -9202,2190 +8365,6 @@ export async function addManualSpell({
     console.error('Failed to add manual spell:', error);
     return { success: false, error: 'Не вдалося додати заклинання' };
   }
-}
-</file>
-
-<file path="src/lib/components/characterCreator/ExpertiseForm.tsx">
-"use client";
-
-import { useStepForm } from "@/hooks/useStepForm";
-import { expertiseSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { ClassI, BackgroundI, RaceI } from "@/lib/types/model-types";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { useEffect, useMemo } from "react";
-import { Button } from "@/lib/components/ui/Button";
-import { Card } from "@/lib/components/ui/card";
-import { Check } from "lucide-react";
-import { engEnumSkills } from "@/lib/refs/translation";
-import { Skills } from "@prisma/client";
-
-interface Props {
-  selectedClass: ClassI;
-  race: RaceI;
-  background: BackgroundI;
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
-  const { formData, updateFormData, nextStep } = usePersFormStore();
-  
-  const { form, onSubmit } = useStepForm(expertiseSchema, (data) => {
-    updateFormData({ expertiseSchema: data });
-    nextStep();
-  });
-  
-  const expertiseFeature = useMemo(() => 
-    selectedClass.features.find(f => 
-      f.levelGranted === 1 && 
-      (f.feature.skillExpertises as { count?: number } | undefined)?.count && 
-      ((f.feature.skillExpertises as { count?: number } | undefined)?.count || 0) > 0
-    ), [selectedClass]);
-
-  const expertiseCount = (expertiseFeature?.feature.skillExpertises as { count?: number })?.count || 0;
-  
-  const selectedExpertises = form.watch("expertises") || [];
-
-  // Get ONLY currently selected skills from formData
-  const availableProficiencies = useMemo(() => {
-    const skills = new Set<string>();
-    
-    // From SkillsForm selections (formData.skills)
-    if (formData.skills && Array.isArray(formData.skills)) {
-      formData.skills.forEach(skill => {
-        if (Object.values(Skills).includes(skill as Skills)) {
-          skills.add(skill);
-        }
-      });
-    }
-    
-    // From skillsSchema (Tasha or basic choices)
-    if (formData.skillsSchema) {
-      if (formData.skillsSchema.isTasha) {
-        formData.skillsSchema.tashaChoices?.forEach(skill => skills.add(skill));
-      } else {
-        formData.skillsSchema.basicChoices?.race?.forEach(skill => skills.add(skill));
-        formData.skillsSchema.basicChoices?.selectedClass?.forEach(skill => skills.add(skill));
-      }
-    }
-    
-    return Array.from(skills);
-  }, [formData.skills, formData.skillsSchema]);
-
-  useEffect(() => {
-    // Expertise selection is optional: user may proceed with fewer than the max.
-    onNextDisabledChange?.(false);
-  }, [selectedExpertises, expertiseCount, onNextDisabledChange]);
-
-  const toggleExpertise = (skill: string) => {
-    const current = form.getValues("expertises") || [];
-    if (current.includes(skill as Skills)) {
-      const newVal = current.filter(s => s !== skill);
-      form.setValue("expertises", newVal);
-      updateFormData({ expertiseSchema: { expertises: newVal } });
-    } else {
-      if (current.length < expertiseCount) {
-        const newVal = [...current, skill as Skills];
-        form.setValue("expertises", newVal);
-        updateFormData({ expertiseSchema: { expertises: newVal } });
-      }
-    }
-  };
-
-  if (!expertiseFeature) return null;
-
-  // Show warning if no skills selected yet
-
-  return (
-    <form id={formId} onSubmit={onSubmit} className="space-y-6">
-      {availableProficiencies.length === 0 ? (
-        <Card className="border-yellow-500/50">
-          <div className="p-6 text-center">
-            <p className="text-yellow-400 mb-2">⚠️ Немає обраних навичок!</p>
-            <p className="text-sm text-slate-400">
-              Можна продовжити без експертизи або повернутись на крок &quot;Навички&quot;.
-            </p>
-          </div>
-        </Card>
-      ) : null}
-
-      <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Експертиза</h2>
-        <p className="text-sm text-slate-400">
-          Оберіть {expertiseCount} навички, в яких ви станете експертом (подвійний бонус майстерності).
-        </p>
-        <p className="text-xs text-amber-400 mt-1">
-          ⚠️ Експертизу можна отримати ТІЛЬКИ в навичках, які ви вже маєте!
-        </p>
-      </div>
-
-      {availableProficiencies.length > 0 ? (
-        <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
-          {availableProficiencies.map((skill) => {
-            const isSelected = selectedExpertises.includes(skill as Skills);
-            const isMaxReached = selectedExpertises.length >= expertiseCount;
-            const isDisabled = !isSelected && isMaxReached;
-            const active = isSelected;
-            const skillTranslation = engEnumSkills.find(s => s.eng === skill)?.ukr || skill;
-
-            return (
-              <Button
-                key={skill}
-                type="button"
-                variant={active ? "secondary" : "outline"}
-                disabled={isDisabled}
-                className={`justify-between ${
-                  active 
-                    ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                    : "bg-slate-900/60 border-slate-800/80 text-slate-200"
-                } ${isDisabled ? "opacity-60" : ""}`}
-                onClick={() => !isDisabled && toggleExpertise(skill)}
-              >
-                <span>{skillTranslation}</span>
-                {active && <Check className="h-4 w-4" />}
-              </Button>
-            );
-          })}
-        </div>
-      ) : null}
-    </form>
-  );
-};
-</file>
-
-<file path="src/lib/components/characterCreator/FeatChoiceOptionsForm.tsx">
-"use client";
-
-import { useEffect, useMemo, useRef } from "react";
-import { useStepForm } from "@/hooks/useStepForm";
-import { featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { FeatPrisma } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { Check } from "lucide-react";
-import { useWatch } from "react-hook-form";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Skills } from "@prisma/client";
-import { SkillsEnum } from "@/lib/types/enums";
-import { engEnumSkills, expertiseTranslations } from "@/lib/refs/translation";
-
-interface Props {
-  selectedFeat?: FeatPrisma | null;
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-type Group = {
-  groupName: string;
-  options: NonNullable<FeatPrisma["featChoiceOptions"]>;
-  pickCount: number;
-  isSkill: boolean;
-  isExpertise: boolean;
-};
-
-/**
- * Extracts skill enum value from optionNameEng
- * Handles formats like "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS"
- * @param optionNameEng - The English option name
- * @returns The skill enum value or original string
- */
-const extractSkillFromOptionName = (optionNameEng: string): string => {
-  // Try to extract skill from parentheses
-  const match = optionNameEng.match(/\(([A-Z_]+)\)$/);
-  if (match) {
-    return match[1];
-  }
-  return optionNameEng;
-};
-
-/**
- * Determines if all options in a group are skills
- * @param options - Array of feat choice options
- * @returns true if all options are from Skills enum
- */
-const isSkillGroup = (options: NonNullable<FeatPrisma["featChoiceOptions"]>): boolean => {
-  return options.every(opt => {
-    // Extract skill name from optionNameEng before checking
-    const skillName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
-    return (SkillsEnum as readonly string[]).includes(skillName);
-  });
-};
-
-/**
- * Determines if a group represents expertise choices based on its name
- * @param groupName - The name of the choice group
- * @returns true if group name contains expertise-related keywords
- */
-const isExpertiseGroup = (groupName: string): boolean => {
-  const lowerName = groupName.toLowerCase();
-  return lowerName.includes('expertise') || 
-         lowerName.includes('експертиза') ||
-         lowerName.includes('expert');
-};
-
-const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: Props) => {
-  const { formData, updateFormData, nextStep } = usePersFormStore();
-  
-  const { form, onSubmit: baseOnSubmit } = useStepForm(featChoiceOptionsSchema, (data) => {
-    updateFormData({ featChoiceSelections: data.featChoiceSelections });
-    nextStep();
-  });
-  
-  const watchedSelections = useWatch({
-    control: form.control,
-    name: "featChoiceSelections",
-  });
-  const selections = useMemo(
-    () => ((watchedSelections ?? {}) as Record<string, number>),
-    [watchedSelections]
-  );
-  const prevDisabledRef = useRef<boolean | undefined>(undefined);
-
-  /**
-   * Gets all skills the character has from SkillsForm
-   * Handles both Tasha's mode and basic mode
-   */
-  const existingSkills = useMemo(() => {
-    const skills = new Set<string>();
-    
-    // Primary source: flat skills array from SkillsForm
-    if (formData.skills && Array.isArray(formData.skills)) {
-      formData.skills.forEach(skill => {
-        if (Object.values(Skills).includes(skill as Skills)) {
-          skills.add(skill);
-        }
-      });
-    }
-    
-    return Array.from(skills);
-  }, [formData.skills]);
-
-  /**
-   * Gets all expertises the character already has from ExpertiseForm
-   */
-  const existingExpertises = useMemo(() => {
-    const expertises = new Set<string>();
-    
-    if (formData.expertiseSchema?.expertises) {
-      formData.expertiseSchema.expertises.forEach(exp => expertises.add(exp));
-    }
-    
-    return Array.from(expertises);
-  }, [formData.expertiseSchema]);
-
-  const optionsToUse = useMemo(() => selectedFeat?.featChoiceOptions || [], [selectedFeat]);
-
-  const groupedChoices = useMemo<Group[]>(() => {
-    const groups = new Map<string, NonNullable<FeatPrisma["featChoiceOptions"]>>();
-
-    for (const fco of optionsToUse) {
-      const groupName = fco.choiceOption.groupName || "Опції";
-      const bucket = groups.get(groupName) ?? [];
-      bucket.push(fco);
-      groups.set(groupName, bucket);
-    }
-
-    return Array.from(groups.entries()).map(([groupName, options]) => ({
-      groupName,
-      options,
-      pickCount: 1,
-      isSkill: isSkillGroup(options),
-      isExpertise: isExpertiseGroup(groupName),
-    }));
-  }, [optionsToUse]);
-
-  /**
-   * Gets skills selected in THIS form (for live expertise updates)
-   * Only includes skill groups that are NOT expertise groups
-   */
-  const selectedSkillsInForm = useMemo(() => {
-    const skills = new Set<string>();
-    groupedChoices.forEach(group => {
-      // Only look at skill groups that are NOT expertise groups
-      if (group.isSkill && !group.isExpertise) {
-        const selectedOptionId = selections[group.groupName];
-        if (selectedOptionId) {
-          const option = group.options.find(opt => opt.choiceOptionId === selectedOptionId);
-          if (option) {
-            // Extract skill name from optionNameEng (e.g., "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS")
-            const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
-            skills.add(skillName);
-          }
-        }
-      }
-    });
-    
-    return Array.from(skills);
-  }, [groupedChoices, selections]);
-  
-  /**
-   * Combined list of ALL skills available for expertise selection
-   * Includes both existing skills from SkillsForm AND skills just selected in this form
-   */
-  const allAvailableSkillsForExpertise = useMemo(() => {
-    const combined = new Set<string>([
-      ...existingSkills,
-      ...selectedSkillsInForm
-    ]);
-    
-    return Array.from(combined);
-  }, [existingSkills, selectedSkillsInForm]);
-
-  /**
-   * Gets all selected option names across all groups (to prevent duplicates)
-   * For expertise groups, only track selections from OTHER expertise groups
-   */
-  const allSelectedOptions = useMemo(() => {
-    const selected = new Set<string>();
-    Object.entries(selections).forEach(([groupName, optionId]) => {
-      groupedChoices.forEach(group => {
-        if (group.groupName === groupName) {
-          const option = group.options.find(opt => opt.choiceOptionId === optionId);
-          if (option) {
-            // For skill groups, extract the actual skill name
-            if (group.isSkill || group.isExpertise) {
-              const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
-              selected.add(skillName);
-            } else {
-              selected.add(option.choiceOption.optionNameEng);
-            }
-          }
-        }
-      });
-    });
-    return Array.from(selected);
-  }, [selections, groupedChoices]);
-
-  /**
-   * Gets selected expertises from THIS form (to prevent duplicate expertises)
-   */
-  const selectedExpertisesInForm = useMemo(() => {
-    const expertises = new Set<string>();
-    Object.entries(selections).forEach(([groupName, optionId]) => {
-      const group = groupedChoices.find(g => g.groupName === groupName);
-      if (group?.isExpertise && group?.isSkill) {
-        const option = group.options.find(opt => opt.choiceOptionId === optionId);
-        if (option) {
-          const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
-          expertises.add(skillName);
-        }
-      }
-    });
-    return Array.from(expertises);
-  }, [selections, groupedChoices]);
-
-  useEffect(() => {
-    let disabled: boolean;
-    if (!selectedFeat) {
-      disabled = true;
-    } else if (groupedChoices.length === 0) {
-      disabled = false;
-    } else {
-      disabled = groupedChoices.some((g) => !selections[g.groupName]);
-    }
-
-    if (prevDisabledRef.current !== disabled) {
-      prevDisabledRef.current = disabled;
-      onNextDisabledChange?.(disabled);
-    }
-  }, [selectedFeat, groupedChoices, selections, onNextDisabledChange]);
-
-  const selectOption = (groupName: string, optionId: number) => {
-    const next = { ...(selections || {}), [groupName]: optionId };
-    form.setValue("featChoiceSelections", next, {
-      shouldDirty: true,
-      shouldTouch: true,
-      shouldValidate: true,
-    });
-  };
-
-  /**
-   * Determines if an option should be disabled based on skill/expertise rules
-   * @param group - The group containing the option
-   * @param opt - The specific option to check
-   * @returns Object with disabled status and optional reason
-   */
-  const isOptionDisabled = (group: Group, opt: NonNullable<FeatPrisma["featChoiceOptions"]>[0]): { disabled: boolean; reason?: string } => {
-    // Extract the actual skill name from optionNameEng
-    const optionName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
-    const isSelected = selections[group.groupName] === opt.choiceOptionId;
-    
-    // If this is a SKILL group (not expertise)
-    if (group.isSkill && !group.isExpertise) {
-      // Already have this skill from previous steps?
-      if (existingSkills.includes(optionName)) {
-        return { disabled: true, reason: 'Вже маєте' };
-      }
-      // Already selected in another NON-EXPERTISE group in this form?
-      if (!isSelected && allSelectedOptions.includes(optionName)) {
-        // Check if it's selected in another skill (non-expertise) group
-        const isInOtherSkillGroup = groupedChoices.some(g => 
-          g.isSkill && !g.isExpertise && 
-          g.groupName !== group.groupName &&
-          selections[g.groupName] !== undefined &&
-          g.options.some(o => 
-            o.choiceOptionId === selections[g.groupName] &&
-            extractSkillFromOptionName(o.choiceOption.optionNameEng) === optionName
-          )
-        );
-        if (isInOtherSkillGroup) {
-          return { disabled: true, reason: 'Вже обрано' };
-        }
-      }
-    }
-    
-    // If this is an EXPERTISE group
-    if (group.isExpertise && group.isSkill) {
-      // Can only pick expertise if we have the skill (from existing OR just selected in this form)
-      const hasSkill = allAvailableSkillsForExpertise.includes(optionName);
-      
-      if (!hasSkill) {
-        return { disabled: true, reason: 'Потрібна навичка' };
-      }
-      
-      // Already have expertise in this?
-      if (existingExpertises.includes(optionName)) {
-        return { disabled: true, reason: 'Вже експерт' };
-      }
-      
-      // Already selected as expertise in ANOTHER expertise group in this form?
-      if (!isSelected && selectedExpertisesInForm.includes(optionName)) {
-        return { disabled: true, reason: 'Вже обрано' };
-      }
-    }
-    
-    return { disabled: false };
-  };
-
-  if (!selectedFeat) {
-    return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-        Спершу оберіть рису.
-      </Card>
-    );
-  }
-
-  if (groupedChoices.length === 0) {
-    return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-        Ця риса не має додаткових виборів. Можна рухатися далі.
-      </Card>
-    );
-  }
-
-  return (
-    <form id={formId} onSubmit={baseOnSubmit} className="space-y-4">
-      <div className="space-y-1 text-center">
-        <p className="text-sm font-semibold text-indigo-200">Риса</p>
-        <h2 className="text-xl font-semibold text-white">Опції риси</h2>
-        <p className="text-sm text-slate-400">Риса &quot;{selectedFeat.name}&quot; вимагає вибору.</p>
-      </div>
-
-      <div className="space-y-4">
-        {groupedChoices.map((group) => (
-          <Card
-            key={group.groupName}
-            className="border border-slate-800/80 bg-slate-900/70 shadow-inner shadow-indigo-500/5"
-          >
-            <CardContent className="space-y-3 p-4">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
-                  <p className="text-base font-semibold text-white">{group.groupName}</p>
-                </div>
-                <Badge variant="outline" className="border-slate-700 bg-slate-800/60 text-slate-200">
-                  Оберіть {group.pickCount}
-                </Badge>
-              </div>
-
-              {group.isExpertise && group.isSkill && (
-                <p className="text-xs text-amber-400">
-                  ⚠️ Експертизу можна обрати ТІЛЬКИ в навичках, які ви вже маєте!
-                </p>
-              )}
-
-              <div className="grid gap-2 sm:grid-cols-2">
-                {group.options.map((opt) => {
-                  const optionId = opt.choiceOptionId;
-                  const optionNameEng = opt.choiceOption.optionNameEng;
-                  const isSelected = selections[group.groupName] === optionId;
-                  const { disabled, reason } = isOptionDisabled(group, opt);
-                  
-                  // Get Ukrainian translation for skills/expertises
-                  let label = opt.choiceOption.optionName;
-                  if (group.isSkill || group.isExpertise) {
-                    // Extract skill name and translate it
-                    const skillName = extractSkillFromOptionName(optionNameEng);
-                    const skillTranslation = engEnumSkills.find(s => s.eng === skillName)?.ukr 
-                      || expertiseTranslations[skillName as Skills];
-                    label = skillTranslation || label || skillName;
-                  } else {
-                    label = label || optionNameEng;
-                  }
-
-                  return (
-                    <Button
-                      key={optionId}
-                      type="button"
-                      variant={isSelected ? "secondary" : "outline"}
-                      disabled={disabled && !isSelected}
-                      className={`justify-between ${
-                        isSelected 
-                          ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                          : "bg-slate-900/60 border-slate-800/80 text-slate-200"
-                      } ${disabled && !isSelected ? "opacity-60 cursor-not-allowed" : ""}`}
-                      onClick={() => !disabled && selectOption(group.groupName, optionId)}
-                    >
-                      <span className="flex items-center gap-2">
-                        {label}
-                        {disabled && reason && (
-                          <span className="text-xs opacity-70">({reason})</span>
-                        )}
-                      </span>
-                      {isSelected && <Check className="h-4 w-4" />}
-                    </Button>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </form>
-  );
-};
-
-export default FeatChoiceOptionsForm;
-</file>
-
-<file path="src/lib/components/characterCreator/FeatsForm.tsx">
-"use client";
-
-import { useStepForm } from "@/hooks/useStepForm";
-import { featSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Feat } from "@prisma/client";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import clsx from "clsx";
-import { useEffect, useMemo, useState } from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { InfoDialog, InfoGrid, InfoPill } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import { sourceTranslations, featTranslations } from "@/lib/refs/translation";
-import {
-  formatASI,
-  formatLanguages,
-  formatSkillProficiencies,
-  formatToolProficiencies,
-  formatWeaponProficiencies,
-  formatArmorProficiencies,
-} from "@/lib/components/characterCreator/infoUtils";
-import { Input } from "@/lib/components/ui/input";
-import { Search, X } from "lucide-react";
-import { Button } from "@/lib/components/ui/Button";
-
-interface Props {
-  feats: Feat[];
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
-  const { updateFormData, nextStep } = usePersFormStore();
-  
-  const { form, onSubmit } = useStepForm(featSchema, (data) => {
-    updateFormData({ featId: data.featId });
-    nextStep();
-  });
-  
-  const chosenFeatId = form.watch("featId");
-  const search = form.watch("featSearch");
-
-  useEffect(() => {
-    if (!chosenFeatId) {
-      onNextDisabledChange?.(true);
-      return;
-    }
-    onNextDisabledChange?.(false);
-  }, [onNextDisabledChange, chosenFeatId]);
-
-  const filteredFeats = useMemo(() => {
-    const normalizedSearch = (search || "").toLowerCase().trim();
-    if (!normalizedSearch) return feats;
-    return feats.filter(f => 
-      f.name.toLowerCase().includes(normalizedSearch) || 
-      f.engName.toLowerCase().includes(normalizedSearch)
-    );
-  }, [feats, search]);
-
-  const FeatInfoModal = ({ feat }: { feat: Feat }) => {
-    const name = featTranslations[feat.name] ?? feat.name;
-    return (
-      <InfoDialog
-        title={name}
-        triggerLabel={`Показати деталі ${name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={sourceTranslations[feat.source] ?? feat.source} />
-          <InfoPill label="Бонуси характеристик" value={formatASI(feat.grantedASI)} />
-          <InfoPill
-            label="Навички"
-            value={formatSkillProficiencies(feat.grantedSkills as any)}
-          />
-           <InfoPill
-            label="Мови"
-            value={formatLanguages(feat.grantedLanguages, feat.grantedLanguageCount)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(feat.grantedToolProficiencies as any)}
-          />
-           <InfoPill
-            label="Зброя"
-            value={formatWeaponProficiencies(feat.grantedWeaponProficiencies as any)}
-          />
-           <InfoPill
-            label="Обладунки"
-            value={formatArmorProficiencies(feat.grantedArmorProficiencies)}
-          />
-          <div className="col-span-full">
-             <p className="text-sm text-slate-300 whitespace-pre-line">{feat.description}</p>
-          </div>
-        </InfoGrid>
-      </InfoDialog>
-    );
-  };
-
-  return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
-      <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть рису</h2>
-        <p className="text-sm text-slate-400">Додаткова риса для вашого персонажа</p>
-      </div>
-
-      <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
-        <div className="relative w-full">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
-            <Input
-              type="search"
-              value={search}
-              onChange={(e) => form.setValue("featSearch", e.target.value)}
-              placeholder="Пошук риси"
-              className="h-10 bg-slate-950/60 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-500"
-            />
-             {search && (
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
-                onClick={() => form.setValue("featSearch", '')}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            )}
-        </div>
-      </div>
-
-      <div className="grid gap-3 sm:grid-cols-2">
-        {filteredFeats.map((feat) => {
-          const name = featTranslations[feat.name] ?? feat.name;
-          return (
-          <Card
-            key={feat.featId}
-            className={clsx(
-              "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-              feat.featId === chosenFeatId &&
-                "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-            )}
-            onClick={() => form.setValue("featId", feat.featId)}
-          >
-            <CardContent className="relative flex items-center justify-between p-4">
-              <FeatInfoModal feat={feat} />
-              <div>
-                <div className="text-lg font-semibold text-white">{name}</div>
-                <div className="text-xs text-slate-400">{feat.engName}</div>
-              </div>
-              <SourceBadge code={feat.source} active={feat.featId === chosenFeatId} />
-            </CardContent>
-          </Card>
-        )})}
-      </div>
-      <input type="hidden" {...form.register("featId", { valueAsNumber: true })} />
-    </form>
-  );
-};
-
-export default FeatsForm;
-</file>
-
-<file path="src/lib/components/characterCreator/RaceVariantsForm.tsx">
-"use client";
-
-import { useStepForm } from "@/hooks/useStepForm";
-import { raceVariantSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { RaceI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Button } from "@/lib/components/ui/Button";
-import clsx from "clsx";
-import { useEffect } from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import { sourceTranslations, variantTranslations, variantTranslationsEng } from "@/lib/refs/translation";
-import {
-  formatASI,
-  // formatRaceAC,
-  formatSpeeds,
-} from "@/lib/components/characterCreator/infoUtils";
-
-interface Props {
-  race: RaceI;
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) => {
-  const { updateFormData, nextStep } = usePersFormStore();
-  
-  const { form, onSubmit } = useStepForm(raceVariantSchema, (data) => {
-    updateFormData({ raceVariantId: data.raceVariantId ?? null });
-    nextStep();
-  });
-  
-  const chosenVariantId = form.watch("raceVariantId");
-
-  useEffect(() => {
-    // Variant selection is optional — user can continue without choosing.
-    onNextDisabledChange?.(false);
-  }, [onNextDisabledChange]);
-
-  const variants = race.raceVariants || [];
-
-  const VariantInfoModal = ({ variant }: { variant: any }) => {
-    const name = variantTranslations[variant.name] ?? variant.name;
-    const rawTraits = variant.traits || [];
-    const traitList = [...rawTraits].sort(
-      (a: any, b: any) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
-    );
-
-    return (
-      <InfoDialog
-        title={name}
-        triggerLabel={`Показати деталі ${name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={sourceTranslations[variant.source] ?? variant.source} />
-          <InfoPill label="Швидкості" value={formatSpeeds({
-            speed: variant.overridesRaceSpeed,
-            flightSpeed: variant.overridesFlightSpeed
-          })} />
-          <InfoPill label="Бонуси характеристик" value={formatASI(variant.overridesRaceASI)} />
-          <div className="col-span-full">
-             <p className="text-sm text-slate-300">{variant.description}</p>
-          </div>
-        </InfoGrid>
-
-        <div className="space-y-2">
-          <InfoSectionTitle>Риси</InfoSectionTitle>
-          {traitList.length ? (
-            traitList.map((trait: any) => (
-              <div
-                key={trait.raceTraitId || trait.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-              >
-                <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {trait.feature.description}
-                </p>
-              </div>
-            ))
-          ) : (
-            <p className="text-sm text-slate-400">Для цього варіанту ще немає опису рис.</p>
-          )}
-        </div>
-      </InfoDialog>
-    );
-  };
-
-  return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
-      <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Варіант раси (необовʼязково)</h2>
-        <p className="text-sm text-slate-400">Для раси {race.name}</p>
-      </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {variants.map((rv) => {
-          const name = variantTranslations[rv.name] ?? rv.name;
-          const engName = variantTranslationsEng[rv.name] ?? rv.name;
-          
-          return (
-          <Card
-            key={rv.raceVariantId}
-            className={clsx(
-              "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-              rv.raceVariantId === chosenVariantId &&
-                "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-            )}
-            onClick={() => form.setValue("raceVariantId", rv.raceVariantId)}
-          >
-            <CardContent className="relative flex items-center justify-between p-4">
-              <VariantInfoModal variant={rv} />
-              <div>
-                <div className="text-lg font-semibold text-white">{name}</div>
-                <div className="text-xs text-slate-400">{engName}</div>
-              </div>
-              <SourceBadge code={rv.source} active={rv.raceVariantId === chosenVariantId} />
-            </CardContent>
-          </Card>
-        )})}
-      </div>
-
-      <div className="flex justify-center">
-        <Button
-          type="button"
-          variant="outline"
-          className="border-slate-800/80 bg-slate-900/60 text-slate-200"
-          onClick={() => {
-            form.setValue("raceVariantId", undefined);
-            updateFormData({ raceVariantId: null });
-            nextStep();
-          }}
-        >
-          Пропустити
-        </Button>
-      </div>
-
-      <input
-        type="hidden"
-        {...form.register("raceVariantId", {
-          setValueAs: (value) => {
-            if (value === "" || value === undefined || value === null) return null;
-            const num = typeof value === "number" ? value : Number(value);
-            return Number.isFinite(num) ? num : null;
-          },
-        })}
-      />
-    </form>
-  );
-};
-
-export default RaceVariantsForm;
-</file>
-
-<file path="src/lib/components/characterCreator/SourceBadge.tsx">
-"use client";
-
-import clsx from "clsx";
-import { KeyboardEvent, SyntheticEvent, useEffect, useMemo, useRef, useState } from "react";
-
-import { Badge } from "@/lib/components/ui/badge";
-import { sourceTranslations, sourceTranslationsEng } from "@/lib/refs/translation";
-
-interface SourceBadgeProps {
-  code?: string | null;
-  active?: boolean;
-  className?: string;
-}
-
-const getTranslation = (code?: string | null) => {
-  if (!code) return { ua: undefined, en: undefined };
-
-  const ua = Object.prototype.hasOwnProperty.call(sourceTranslations, code)
-    ? (sourceTranslations as Record<string, string>)[code]
-    : undefined;
-  const en = Object.prototype.hasOwnProperty.call(sourceTranslationsEng, code)
-    ? (sourceTranslationsEng as Record<string, string>)[code]
-    : undefined;
-
-  return { ua, en };
-};
-
-export const SourceBadge = ({ code, active, className }: SourceBadgeProps) => {
-  const [open, setOpen] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  const { ua, en } = useMemo(() => getTranslation(code), [code]);
-  const label = code || "—";
-  const hintPrimary = ua || "Невідоме джерело";
-  const hintSecondary = en || (code ? code : "");
-
-  useEffect(() => setOpen(false), [code]);
-
-  useEffect(() => {
-    if (!open) return;
-    const handleOutside = (event: PointerEvent) => {
-      if (!wrapperRef.current?.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("pointerdown", handleOutside);
-    return () => document.removeEventListener("pointerdown", handleOutside);
-  }, [open]);
-
-  const toggle = (event?: SyntheticEvent) => {
-    event?.stopPropagation();
-    setOpen((prev) => !prev);
-  };
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      toggle(event);
-    }
-  };
-
-  return (
-    <div ref={wrapperRef} className={clsx("relative", className)}>
-      <Badge
-        role="button"
-        tabIndex={0}
-        variant={active ? "secondary" : "outline"}
-        className={clsx(
-          "cursor-pointer select-none border-slate-700",
-          active
-            ? "bg-indigo-500/20 text-indigo-50"
-            : "bg-slate-800/60 text-slate-200 hover:border-indigo-400/80 hover:text-white",
-          className
-        )}
-        onClick={toggle}
-        onPointerDown={(event) => event.stopPropagation()}
-        onKeyDown={handleKeyDown}
-      >
-        {label}
-      </Badge>
-
-      {open ? (
-        <div
-          className="absolute left-1/2 top-0 z-30 flex -translate-x-1/2 -translate-y-3 flex-col items-center"
-          onClick={(event) => event.stopPropagation()}
-          onPointerDown={(event) => event.stopPropagation()}
-        >
-          <div className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs font-semibold text-slate-50 shadow-lg shadow-indigo-500/20">
-            <span>{hintPrimary}</span>
-            {hintSecondary ? (
-              <span className="ml-1 text-[11px] font-normal text-slate-400">
-                ({hintSecondary})
-              </span>
-            ) : null}
-          </div>
-          <div className="h-2 w-2 rotate-45 border-b border-r border-slate-800 bg-slate-950" />
-        </div>
-      ) : null}
-    </div>
-  );
-};
-
-export default SourceBadge;
-</file>
-
-<file path="src/lib/components/characterCreator/SubclassChoiceOptionsForm.tsx">
-"use client";
-
-import { useEffect, useMemo, useRef } from "react";
-import { SubclassI } from "@/lib/types/model-types";
-import { useStepForm } from "@/hooks/useStepForm";
-import { subclassSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-// import { Button } from "@/lib/components/ui/Button";
-import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import clsx from "clsx";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-
-interface Props {
-  selectedSubclass?: SubclassI | null;
-  availableOptions?: SubclassI["subclassChoiceOptions"];
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-const formatFeatures = (features?: SubclassI["subclassChoiceOptions"][number]["choiceOption"]["features"]) =>
-  (features || []).map((item) => item.feature?.name).filter(Boolean);
-
-const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange }: Props) => {
-  const { updateFormData, nextStep } = usePersFormStore();
-  
-  const { form, onSubmit } = useStepForm(subclassSchema, (data) => {
-    updateFormData({ subclassChoiceSelections: data.subclassChoiceSelections });
-    nextStep();
-  });
-  
-  const selections = form.watch("subclassChoiceSelections") || {};
-  const prevDisabledRef = useRef<boolean | undefined>(undefined);
-
-  const optionsToUse = useMemo(() => {
-      if (availableOptions) return availableOptions;
-      // Default to level 1 if not specified (though subclasses usually start at 1, 2, or 3)
-      // For creation flow, we might need to check the class's subclass level, but usually this form is shown when subclass is active.
-      // Let's assume for creation flow we show all options granted at the subclass level?
-      // Or maybe we just show all options?
-      // In creation flow, we usually pick subclass at level 1, 2 or 3.
-      // If we are at that level, we should show options for that level.
-      // But `levelsGranted` might be higher.
-      // For now, let's filter for level 1 as a default fallback, or just return all if we assume the parent filters.
-      // Actually, let's stick to the pattern:
-      return (selectedSubclass?.subclassChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(1));
-  }, [selectedSubclass, availableOptions]);
-
-  const groupedOptions = useMemo(() => {
-    const groups: Record<string, typeof optionsToUse> = {};
-    optionsToUse.forEach((opt) => {
-      const key = opt.choiceOption.groupName || "Опції";
-      if (!groups[key]) groups[key] = [];
-      groups[key].push(opt);
-    });
-    return Object.entries(groups).map(([groupName, options]) => ({ groupName, options }));
-  }, [optionsToUse]);
-
-  useEffect(() => {
-    let disabled: boolean;
-
-    if (groupedOptions.length === 0) {
-      disabled = false;
-    } else {
-      const allGroupsSelected = groupedOptions.every(({ groupName }) => {
-        const selectedOptionId = selections[groupName];
-        return selectedOptionId !== undefined;
-      });
-      disabled = !allGroupsSelected;
-    }
-
-    if (prevDisabledRef.current !== disabled) {
-      onNextDisabledChange?.(disabled);
-      prevDisabledRef.current = disabled;
-    }
-  }, [groupedOptions, selections, onNextDisabledChange]);
-
-  const handleSelect = (groupName: string, optionId: number) => {
-    const newSelections = { ...selections, [groupName]: optionId };
-    form.setValue("subclassChoiceSelections", newSelections);
-    updateFormData({ subclassChoiceSelections: newSelections });
-  };
-
-  if (groupedOptions.length === 0) {
-    return <div className="text-center text-muted-foreground py-4">Немає доступних опцій для вибору на цьому рівні.</div>;
-  }
-
-  return (
-    <form id={formId} onSubmit={onSubmit} className="space-y-6">
-      {groupedOptions.map(({ groupName, options }) => (
-        <div key={groupName} className="space-y-3">
-          <InfoSectionTitle>{groupName}</InfoSectionTitle>
-          <div className="grid grid-cols-1 gap-3">
-            {options.map((opt) => {
-              const isSelected = selections[groupName] === opt.choiceOption.choiceOptionId;
-              const features = formatFeatures(opt.choiceOption.features);
-
-              return (
-                <Card
-                  key={opt.choiceOption.choiceOptionId}
-                  className={clsx(
-                    "cursor-pointer transition-all hover:border-primary/50",
-                    isSelected ? "border-primary bg-primary/5" : "border-border"
-                  )}
-                  onClick={() => handleSelect(groupName, opt.choiceOption.choiceOptionId)}
-                >
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <div>
-                      <div className="font-bold text-lg">{opt.choiceOption.optionName}</div>
-                      {features.length > 0 && (
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {features.map((f, i) => (
-                            <Badge key={i} variant="secondary" className="text-xs">
-                              {f}
-                            </Badge>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    <div className={clsx(
-                        "w-5 h-5 rounded-full border flex items-center justify-center",
-                        isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground"
-                    )}>
-                        {isSelected && <div className="w-2.5 h-2.5 bg-current rounded-full" />}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      ))}
-    </form>
-  );
-};
-
-export default SubclassChoiceOptionsForm;
-</file>
-
-<file path="src/lib/components/characterCreator/SubclassForm.tsx">
-"use client";
-
-import { useStepForm } from "@/hooks/useStepForm";
-import { subclassSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { ClassI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import clsx from "clsx";
-import { useEffect } from "react";
-import { Badge } from "@/lib/components/ui/badge";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-// import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import { sourceTranslations, subclassTranslations, subclassTranslationsEng } from "@/lib/refs/translation";
-import {
-  formatLanguages,
-  formatToolProficiencies,
-  prettifyEnum,
-} from "@/lib/components/characterCreator/infoUtils";
-
-interface Props {
-  cls: ClassI;
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
-  const { updateFormData, nextStep } = usePersFormStore();
-  
-  const { form, onSubmit } = useStepForm(subclassSchema, (data) => {
-    updateFormData({ 
-      subclassId: data.subclassId,
-      subclassChoiceSelections: data.subclassChoiceSelections 
-    });
-    nextStep();
-  });
-  
-  const chosenSubclassId = form.watch("subclassId");
-
-  useEffect(() => {
-    if (!chosenSubclassId) {
-      onNextDisabledChange?.(true);
-      return;
-    }
-    onNextDisabledChange?.(false);
-  }, [onNextDisabledChange, chosenSubclassId]);
-
-  const subclasses = cls.subclasses || [];
-
-  const SubclassInfoModal = ({ subclass }: { subclass: any }) => {
-    const name = subclassTranslations[subclass.name] ?? subclass.name;
-    const rawFeatures = subclass.features || [];
-    const featureList = [...rawFeatures].sort(
-      (a: any, b: any) => (a.level || 0) - (b.level || 0)
-    );
-
-    return (
-      <InfoDialog
-        title={name}
-        triggerLabel={`Показати деталі ${name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={sourceTranslations[subclass.source] ?? subclass.source} />
-          <InfoPill label="Основна характеристика" value={prettifyEnum(subclass.primaryCastingStat)} />
-          <InfoPill label="Тип заклинань" value={prettifyEnum(subclass.spellcastingType)} />
-          <InfoPill
-            label="Мови"
-            value={formatLanguages(subclass.languages, subclass.languagesToChooseCount)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(subclass.toolProficiencies, subclass.toolToChooseCount)}
-          />
-          <div className="col-span-full">
-             <p className="text-sm text-slate-300">{subclass.description}</p>
-          </div>
-        </InfoGrid>
-
-        <div className="space-y-2">
-          <InfoSectionTitle>Риси підкласу</InfoSectionTitle>
-          {featureList.length ? (
-            featureList.map((f: any) => (
-              <div
-                key={f.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <p className="text-sm font-semibold text-white">{f.feature.name}</p>
-                  <Badge variant="outline" className="text-[10px] border-slate-700 text-slate-400">
-                    Рівень {f.level}
-                  </Badge>
-                </div>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {f.feature.description}
-                </p>
-              </div>
-            ))
-          ) : (
-            <p className="text-sm text-slate-400">Для цього підкласу ще немає опису рис.</p>
-          )}
-        </div>
-      </InfoDialog>
-    );
-  };
-
-  return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
-      <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть підклас</h2>
-        <p className="text-sm text-slate-400">Для класу {cls.name}</p>
-      </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {subclasses.map((sc) => {
-          const name = subclassTranslations[sc.name] ?? sc.name;
-          const engName = subclassTranslationsEng[sc.name] ?? sc.name;
-          
-          return (
-          <Card
-            key={sc.subclassId}
-            className={clsx(
-              "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-              sc.subclassId === chosenSubclassId &&
-                "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-            )}
-            onClick={() => form.setValue("subclassId", sc.subclassId)}
-          >
-            <CardContent className="relative flex items-center justify-between p-4">
-              <SubclassInfoModal subclass={sc} />
-              <div>
-                <div className="text-lg font-semibold text-white">{name}</div>
-                <div className="text-xs text-slate-400">{engName}</div>
-              </div>
-              {/* <SourceBadge code={sc.source} active={sc.subclassId === chosenSubclassId} /> */}
-            </CardContent>
-          </Card>
-        )})}
-      </div>
-      <input type="hidden" {...form.register("subclassId", { valueAsNumber: true })} />
-    </form>
-  );
-};
-
-export default SubclassForm;
-</file>
-
-<file path="src/lib/components/characterCreator/SubracesForm.tsx">
-"use client";
-
-import { useStepForm } from "@/hooks/useStepForm";
-import { subraceSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { RaceI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import clsx from "clsx";
-import { useEffect } from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import { sourceTranslations, subraceTranslations, subraceTranslationsEng } from "@/lib/refs/translation";
-import {
-  // formatArmorProficiencies,
-  formatASI,
-  formatLanguages,
-  // formatList,
-  // formatSkillProficiencies,
-  formatSpeeds,
-  formatToolProficiencies,
-  // formatWeaponProficiencies,
-} from "@/lib/components/characterCreator/infoUtils";
-
-interface Props {
-  race: RaceI;
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
-  const { updateFormData, nextStep } = usePersFormStore();
-  
-  const { form, onSubmit } = useStepForm(subraceSchema, (data) => {
-    updateFormData({ subraceId: data.subraceId });
-    nextStep();
-  });
-  
-  const chosenSubraceId = form.watch("subraceId");
-
-  useEffect(() => {
-    if (!chosenSubraceId) {
-      onNextDisabledChange?.(true);
-      return;
-    }
-    onNextDisabledChange?.(false);
-  }, [onNextDisabledChange, chosenSubraceId]);
-
-  const subraces = race.subraces || [];
-
-  const SubraceInfoModal = ({ subrace }: { subrace: any }) => {
-    const name = subraceTranslations[subrace.name] ?? subrace.name;
-    const rawTraits = subrace.traits || [];
-    const traitList = [...rawTraits].sort(
-      (a: any, b: any) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
-    );
-
-    return (
-      <InfoDialog
-        title={name}
-        triggerLabel={`Показати деталі ${name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={sourceTranslations[subrace.source] ?? subrace.source} />
-          <InfoPill label="Швидкості" value={formatSpeeds(subrace)} />
-          <InfoPill label="Бонуси характеристик" value={formatASI(subrace.additionalASI)} />
-          <InfoPill
-            label="Мови"
-            value={formatLanguages(subrace.additionalLanguages, subrace.languagesToChooseCount)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(subrace.toolProficiencies)}
-          />
-          <div className="col-span-full">
-             <p className="text-sm text-slate-300">{subrace.description}</p>
-          </div>
-        </InfoGrid>
-
-        <div className="space-y-2">
-          <InfoSectionTitle>Риси</InfoSectionTitle>
-          {traitList.length ? (
-            traitList.map((trait: any) => (
-              <div
-                key={trait.raceTraitId || trait.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-              >
-                <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {trait.feature.description}
-                </p>
-              </div>
-            ))
-          ) : (
-            <p className="text-sm text-slate-400">Для цієї підраси ще немає опису рис.</p>
-          )}
-        </div>
-      </InfoDialog>
-    );
-  };
-
-  return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
-      <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть підрасу</h2>
-        <p className="text-sm text-slate-400">Для раси {race.name}</p>
-      </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {subraces.map((sr) => {
-          const name = subraceTranslations[sr.name] ?? sr.name;
-          const engName = subraceTranslationsEng[sr.name] ?? sr.name;
-          
-          return (
-          <Card
-            key={sr.subraceId}
-            className={clsx(
-              "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-              sr.subraceId === chosenSubraceId &&
-                "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-            )}
-            onClick={() => form.setValue("subraceId", sr.subraceId)}
-          >
-            <CardContent className="relative flex items-center justify-between p-4">
-              <SubraceInfoModal subrace={sr} />
-              <div>
-                <div className="text-lg font-semibold text-white">{name}</div>
-                <div className="text-xs text-slate-400">{engName}</div>
-              </div>
-              <SourceBadge code={sr.source} active={sr.subraceId === chosenSubraceId} />
-            </CardContent>
-          </Card>
-        )})}
-      </div>
-      <input type="hidden" {...form.register("subraceId", { valueAsNumber: true })} />
-    </form>
-  );
-};
-
-export default SubracesForm;
-</file>
-
-<file path="src/lib/components/characterSheet/slides/CombatSlide.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  armorTranslations,
-  armorTypeTranslations,
-  damageTypeTranslations,
-  weaponTranslations,
-  weaponTypeTranslations,
-} from "@/lib/refs/translation";
-import { Sword } from "lucide-react";
-
-interface CombatSlideProps {
-  pers: PersWithRelations;
-}
-
-export default function CombatSlide({ pers }: CombatSlideProps) {
-  return (
-    <div className="h-full p-4 space-y-4">
-      <Card className="glass-card bg-white/5 border-white/10">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-lg flex items-center gap-2 text-slate-50">
-            <Sword className="w-5 h-5" />
-            <span className="uppercase tracking-wide text-indigo-300">Атаки та Зброя</span>
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          {pers.weapons.map((pw) => (
-            <div
-              key={pw.persWeaponId}
-              className="flex justify-between items-center border border-white/10 bg-slate-900/30 p-3 rounded-lg hover:bg-slate-900/45 transition"
-            >
-              <div>
-                <div className="font-bold text-slate-50">
-                  {weaponTranslations[pw.weapon.name as keyof typeof weaponTranslations] || pw.weapon.name}
-                </div>
-                <div className="text-xs text-slate-300">
-                  {(weaponTypeTranslations[pw.weapon.weaponType as keyof typeof weaponTypeTranslations] || pw.weapon.weaponType) + " • "}
-                  {pw.weapon.damage} {damageTypeTranslations[pw.weapon.damageType as keyof typeof damageTypeTranslations] || pw.weapon.damageType}
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="font-bold text-lg text-slate-200">+{Math.floor(Math.random() * 5) + 3}</div>
-                <div className="text-xs text-slate-400">атака</div>
-              </div>
-            </div>
-          ))}
-          {pers.weapons.length === 0 && (
-            <div className="text-slate-300/60 text-sm text-center py-8">Зброя не екіпірована</div>
-          )}
-        </CardContent>
-      </Card>
-
-      <Card className="glass-card bg-white/5 border-white/10">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-lg uppercase tracking-wide text-indigo-300">Броня</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          {pers.armors.map((pa) => (
-            <div
-              key={pa.persArmorId}
-              className="flex justify-between items-center border border-white/10 bg-slate-900/30 p-3 rounded-lg"
-            >
-              <div>
-                <div className="font-semibold text-slate-50">
-                  {armorTranslations[pa.armor.name as keyof typeof armorTranslations] || pa.armor.name}
-                </div>
-                <div className="text-xs text-slate-300">
-                  {armorTypeTranslations[pa.armor.armorType as keyof typeof armorTypeTranslations] || pa.armor.armorType}
-                </div>
-              </div>
-              <div className="text-sm text-slate-300">КЗ {pa.armor.baseAC}</div>
-            </div>
-          ))}
-          {pers.armors.length === 0 && (
-            <div className="text-slate-300/60 text-sm text-center py-8">Броня не екіпірована</div>
-          )}
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/slides/FeaturesSlide.tsx">
-"use client";
-
-import { useMemo, useState } from "react";
-import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
-import { FeatureDisplayType, SpellcastingType } from "@prisma/client";
-import { ChevronRight } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/lib/components/ui/dialog";
-
-import { Badge } from "@/lib/components/ui/badge";
-import {
-  ControlledInfoDialog,
-  InfoGrid,
-  InfoPill,
-  InfoSectionTitle,
-} from "@/lib/components/characterCreator/EntityInfoDialog";
-import {
-  formatASI,
-  formatAbilityList,
-  formatArmorProficiencies,
-  formatLanguages,
-  formatList,
-  formatMulticlassReqs,
-  formatRaceAC,
-  formatSkillProficiencies,
-  formatSpeeds,
-  formatToolProficiencies,
-  formatWeaponProficiencies,
-  prettifyEnum,
-} from "@/lib/components/characterCreator/infoUtils";
-import {
-  backgroundTranslations,
-  classTranslations,
-  raceTranslations,
-  sourceTranslations,
-  subraceTranslations,
-  subclassTranslations,
-  variantTranslations,
-} from "@/lib/refs/translation";
-
-interface FeaturesSlideProps {
-  pers: PersWithRelations;
-  groupedFeatures: CharacterFeaturesGroupedResult | null;
-}
-
-type CategoryKind = "passive" | "action" | "bonus" | "reaction";
-type Category = { title: string; items: CharacterFeatureItem[]; kind: CategoryKind };
-
-type EntityDialogKind = "race" | "raceVariant" | "subrace" | "class" | "subclass" | "background";
-
-const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
-  NONE: "Без чаклунства",
-  FULL: "Повний кастер",
-  HALF: "Половинний кастер",
-  THIRD: "Третинний кастер",
-  PACT: "Магія пакту",
-};
-
-function safeText(value: string | null | undefined) {
-  return (value ?? "").trim();
-}
-
-function categoryVariant(kind: "passive" | "action" | "bonus" | "reaction") {
-  switch (kind) {
-    case "action":
-      return {
-        container: "border-l-red-500/50 from-red-950/20",
-        chevron: "text-red-300",
-        title: "text-red-50",
-        count: "text-red-200/70",
-        cardBorder: "border-red-600/30 hover:border-red-500/60",
-        cardBg: "bg-red-900/25 hover:bg-red-900/45",
-      };
-    case "bonus":
-      return {
-        container: "border-l-blue-500/50 from-blue-950/20",
-        chevron: "text-blue-300",
-        title: "text-blue-50",
-        count: "text-blue-200/70",
-        cardBorder: "border-blue-600/30 hover:border-blue-500/60",
-        cardBg: "bg-blue-900/25 hover:bg-blue-900/45",
-      };
-    case "reaction":
-      return {
-        container: "border-l-purple-500/50 from-purple-950/20",
-        chevron: "text-purple-300",
-        title: "text-purple-50",
-        count: "text-purple-200/70",
-        cardBorder: "border-purple-600/30 hover:border-purple-500/60",
-        cardBg: "bg-purple-900/25 hover:bg-purple-900/45",
-      };
-    case "passive":
-    default:
-      return {
-        container: "border-l-amber-600/50 from-amber-950/20",
-        chevron: "text-amber-300",
-        title: "text-amber-50",
-        count: "text-amber-200/70",
-        cardBorder: "border-amber-700/30 hover:border-amber-600/60",
-        cardBg: "bg-amber-900/20 hover:bg-amber-900/40",
-      };
-  }
-}
-
-function getKindFromPrimaryType(primaryType: FeatureDisplayType): "passive" | "action" | "bonus" | "reaction" {
-  switch (primaryType) {
-    case FeatureDisplayType.ACTION:
-      return "action";
-    case FeatureDisplayType.BONUSACTION:
-      return "bonus";
-    case FeatureDisplayType.REACTION:
-      return "reaction";
-    default:
-      return "passive";
-  }
-}
-
-function FeatureCard({
-  item,
-  onClick,
-}: {
-  item: CharacterFeatureItem;
-  onClick: () => void;
-}) {
-  const kind = getKindFromPrimaryType(item.primaryType);
-  const variant = categoryVariant(kind);
-
-  const description = safeText(item.description);
-  const preview = description.length > 180 ? description.slice(0, 180).trimEnd() + "…" : description;
-
-  const showUses =
-    (item.primaryType === FeatureDisplayType.ACTION || item.primaryType === FeatureDisplayType.BONUSACTION) &&
-    typeof item.usesRemaining === "number" &&
-    typeof item.usesPer === "number";
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={
-        "group relative w-full text-left p-3 rounded-lg border shadow-inner transition-all cursor-pointer " +
-        variant.cardBorder +
-        " " +
-        variant.cardBg
-      }
-    >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-white/5 via-transparent to-transparent rounded-lg transition-opacity" />
-
-      <div className="relative z-10 flex items-start justify-between gap-2">
-        <div className="min-w-0 flex-1">
-          <h4 className="font-bold text-sm text-white/95 truncate">{item.name}</h4>
-          {preview ? <p className="text-xs mt-1 text-slate-200/70 leading-snug line-clamp-2">{preview}</p> : null}
-        </div>
-
-        {showUses ? (
-          <div className="flex-shrink-0 text-right">
-            <div className="text-xs font-semibold text-amber-300">
-              {item.usesRemaining}/{item.usesPer}
-            </div>
-            {item.restType ? <div className="text-[10px] text-slate-400 mt-0.5">{item.restType}</div> : null}
-          </div>
-        ) : null}
-      </div>
-    </button>
-  );
-}
-
-export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlideProps) {
-  const [selected, setSelected] = useState<CharacterFeatureItem | null>(null);
-  const [entityOpen, setEntityOpen] = useState(false);
-  const [entityKind, setEntityKind] = useState<EntityDialogKind>("race");
-  const [entityVariantIndex, setEntityVariantIndex] = useState(0);
-
-  const categories = useMemo<Category[]>(() => {
-    if (!groupedFeatures) return [];
-    return [
-      { title: "Активні вміння", items: groupedFeatures.actions, kind: "action" },
-      { title: "Бонусна дія", items: groupedFeatures.bonusActions, kind: "bonus" },
-      { title: "Реакція", items: groupedFeatures.reactions, kind: "reaction" },
-      { title: "Пасивні здібності", items: groupedFeatures.passive, kind: "passive" },
-    ];
-  }, [groupedFeatures]);
-
-  const raceName = useMemo(
-    () => raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name,
-    [pers.race.name]
-  );
-  const className = useMemo(
-    () => classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name,
-    [pers.class.name]
-  );
-  const subclassName = useMemo(() => {
-    if (!pers.subclass) return null;
-    return subclassTranslations[pers.subclass.name as keyof typeof subclassTranslations] || pers.subclass.name;
-  }, [pers.subclass]);
-  const subraceName = useMemo(() => {
-    if (!pers.subrace) return null;
-    return subraceTranslations[pers.subrace.name as keyof typeof subraceTranslations] || pers.subrace.name;
-  }, [pers.subrace]);
-  const backgroundName = useMemo(
-    () => backgroundTranslations[pers.background.name as keyof typeof backgroundTranslations] || pers.background.name,
-    [pers.background.name]
-  );
-
-  const openEntity = (kind: EntityDialogKind, variantIndex?: number) => {
-    setEntityKind(kind);
-    if (typeof variantIndex === "number") setEntityVariantIndex(variantIndex);
-    setEntityOpen(true);
-  };
-
-  const parseItems = (items: unknown): string[] => {
-    if (!Array.isArray(items)) return [];
-
-    return (items as unknown[])
-      .map((item) => {
-        if (!item) return null;
-        if (typeof item === "string") return item;
-        if (typeof item === "object") {
-          const name = (item as any).name;
-          const quantity = (item as any).quantity;
-          if (!name) return null;
-          return quantity ? `${name} x${quantity}` : name;
-        }
-        return null;
-      })
-      .filter(Boolean) as string[];
-  };
-
-  const entityDialog = useMemo(() => {
-    if (entityKind === "race") {
-      const race = pers.race as any;
-      const rawTraits = (race.traits || []) as any[];
-      const traitList = [...rawTraits].sort((a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0));
-
-      return {
-        title: raceName,
-        subtitle: undefined,
-        content: (
-          <>
-            <InfoGrid>
-              <InfoPill label="Джерело" value={sourceTranslations[race.source] ?? race.source} />
-              <InfoPill label="Розмір" value={formatList(race.size)} />
-              <InfoPill label="Швидкості" value={formatSpeeds(race)} />
-              <InfoPill label="Базовий КЗ" value={formatRaceAC(race.ac)} />
-              <InfoPill label="Бонуси характеристик" value={formatASI(race.ASI)} />
-              <InfoPill label="Мови" value={formatLanguages(race.languages, race.languagesToChooseCount)} />
-              <InfoPill label="Навички" value={formatSkillProficiencies(race.skillProficiencies)} />
-              <InfoPill label="Інструменти" value={formatToolProficiencies(race.toolProficiencies, race.toolToChooseCount)} />
-              <InfoPill label="Зброя" value={formatWeaponProficiencies(race.weaponProficiencies)} />
-              <InfoPill label="Броня" value={formatArmorProficiencies(race.armorProficiencies)} />
-            </InfoGrid>
-
-            <div className="space-y-2">
-              <InfoSectionTitle>Риси</InfoSectionTitle>
-              {traitList.length ? (
-                traitList.map((trait) => (
-                  <div
-                    key={trait.raceTraitId || trait.feature?.featureId}
-                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-                  >
-                    <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {trait.feature?.description}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">Для цієї раси ще немає опису рис.</p>
-              )}
-            </div>
-          </>
-        ),
-      };
-    }
-
-    if (entityKind === "raceVariant") {
-      const variants = (pers as any).raceVariants as any[] | undefined;
-      const variant = variants?.[entityVariantIndex];
-      if (!variant) {
-        return {
-          title: "Варіант раси",
-          subtitle: undefined,
-          content: <div className="text-sm text-slate-400">Немає даних про варіант.</div>,
-        };
-      }
-
-      const name = variantTranslations[variant.name as keyof typeof variantTranslations] ?? String(variant.name);
-      const rawTraits = (variant.traits || []) as any[];
-      const traitList = [...rawTraits].sort((a, b) => (a.raceVariantTraitId || 0) - (b.raceVariantTraitId || 0));
-
-      return {
-        title: name,
-        subtitle: undefined,
-        content: (
-          <>
-            <InfoGrid>
-              <InfoPill label="Джерело" value={sourceTranslations[variant.source] ?? variant.source} />
-              <InfoPill
-                label="Швидкості"
-                value={
-                  formatSpeeds({
-                    speed: variant.overridesRaceSpeed,
-                    flightSpeed: variant.overridesFlightSpeed,
-                  })
-                }
-              />
-              <InfoPill label="Бонуси характеристик" value={formatASI(variant.overridesRaceASI)} />
-              <div className="col-span-full">
-                <p className="text-sm text-slate-300">{variant.description}</p>
-              </div>
-            </InfoGrid>
-
-            <div className="space-y-2">
-              <InfoSectionTitle>Риси</InfoSectionTitle>
-              {traitList.length ? (
-                traitList.map((trait) => (
-                  <div
-                    key={trait.raceVariantTraitId || trait.feature?.featureId}
-                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-                  >
-                    <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {trait.feature?.description}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">Для цього варіанту ще немає опису рис.</p>
-              )}
-            </div>
-          </>
-        ),
-      };
-    }
-
-    if (entityKind === "subrace") {
-      if (!pers.subrace) {
-        return {
-          title: "Підраса",
-          subtitle: undefined,
-          content: <div className="text-sm text-slate-400">Підраса не обрана.</div>,
-        };
-      }
-
-      const subrace = pers.subrace as any;
-      const rawTraits = (subrace.traits || []) as any[];
-      const traitList = [...rawTraits].sort((a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0));
-
-      return {
-        title: subraceName || subrace.name,
-        subtitle: undefined,
-        content: (
-          <>
-            <InfoGrid>
-              <InfoPill label="Джерело" value={sourceTranslations[subrace.source] ?? subrace.source} />
-              <InfoPill label="Швидкості" value={formatSpeeds(subrace)} />
-              <InfoPill label="Бонуси характеристик" value={formatASI(subrace.additionalASI)} />
-              <InfoPill label="Мови" value={formatLanguages(subrace.additionalLanguages, subrace.languagesToChooseCount)} />
-              <InfoPill label="Інструменти" value={formatToolProficiencies(subrace.toolProficiencies)} />
-            </InfoGrid>
-
-            <div className="space-y-2">
-              <InfoSectionTitle>Риси</InfoSectionTitle>
-              {traitList.length ? (
-                traitList.map((trait) => (
-                  <div
-                    key={trait.raceTraitId || trait.feature?.featureId}
-                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-                  >
-                    <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {trait.feature?.description}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">Для цієї підраси ще немає опису рис.</p>
-              )}
-            </div>
-          </>
-        ),
-      };
-    }
-
-    if (entityKind === "class") {
-      const cls = pers.class as any;
-      const rawFeatures = (cls.features || []) as any[];
-      const features = [...rawFeatures].sort((a, b) => (a.levelGranted || 0) - (b.levelGranted || 0));
-
-      return {
-        title: className,
-        subtitle: undefined,
-        content: (
-          <>
-            <InfoGrid>
-              <InfoPill label="Кістка хітів" value={`d${cls.hitDie}`} />
-              <InfoPill label="Чаклунство" value={SPELLCASTING_LABELS[cls.spellcastingType as SpellcastingType] ?? "—"} />
-              <InfoPill label="Підклас з рівня" value={`Рівень ${cls.subclassLevel}`} />
-              <InfoPill label="Рятунки" value={formatAbilityList(cls.savingThrows)} />
-              <InfoPill label="Навички" value={formatSkillProficiencies(cls.skillProficiencies)} />
-              <InfoPill label="Інструменти" value={formatToolProficiencies(cls.toolProficiencies, cls.toolToChooseCount)} />
-              <InfoPill label="Зброя" value={formatWeaponProficiencies(cls.weaponProficiencies)} />
-              <InfoPill label="Броня" value={formatArmorProficiencies(cls.armorProficiencies)} />
-              <InfoPill label="Мови" value={formatLanguages(cls.languages, cls.languagesToChooseCount)} />
-              <InfoPill label="Мультіклас" value={formatMulticlassReqs(cls.multiclassReqs)} />
-              {cls.primaryCastingStat ? (
-                <InfoPill label="Ключова характеристика" value={prettifyEnum(cls.primaryCastingStat)} />
-              ) : null}
-            </InfoGrid>
-
-            <div className="space-y-2">
-              <InfoSectionTitle>Особливості</InfoSectionTitle>
-              {features.length ? (
-                features.map((feature) => (
-                  <div
-                    key={feature.classFeatureId || feature.feature?.featureId}
-                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-                  >
-                    <div className="mb-1 flex items-center justify-between gap-2">
-                      <p className="text-sm font-semibold text-white">{feature.feature?.name}</p>
-                      <Badge
-                        variant="outline"
-                        className="border-slate-700 bg-slate-800/70 text-[11px] text-slate-200"
-                      >
-                        Рів. {feature.levelGranted}
-                      </Badge>
-                    </div>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {feature.feature?.description}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">Наразі немає описаних умінь.</p>
-              )}
-            </div>
-          </>
-        ),
-      };
-    }
-
-    if (entityKind === "subclass") {
-      if (!pers.subclass) {
-        return {
-          title: "Підклас",
-          subtitle: undefined,
-          content: <div className="text-sm text-slate-400">Підклас не обраний.</div>,
-        };
-      }
-
-      const subcls = pers.subclass as any;
-      const rawFeatures = (subcls.features || []) as any[];
-      const featureList = [...rawFeatures].sort((a, b) => (a.level || 0) - (b.level || 0));
-
-      return {
-        title: subclassName || subcls.name,
-        subtitle: undefined,
-        content: (
-          <>
-            <InfoGrid>
-              <InfoPill label="Джерело" value={sourceTranslations[subcls.source] ?? subcls.source} />
-              <InfoPill label="Основна характеристика" value={prettifyEnum(subcls.primaryCastingStat)} />
-              <InfoPill label="Тип заклинань" value={prettifyEnum(subcls.spellcastingType)} />
-              <InfoPill label="Мови" value={formatLanguages(subcls.languages, subcls.languagesToChooseCount)} />
-              <InfoPill label="Інструменти" value={formatToolProficiencies(subcls.toolProficiencies, subcls.toolToChooseCount)} />
-              <div className="col-span-full">
-                <p className="text-sm text-slate-300">{subcls.description}</p>
-              </div>
-            </InfoGrid>
-
-            <div className="space-y-2">
-              <InfoSectionTitle>Риси підкласу</InfoSectionTitle>
-              {featureList.length ? (
-                featureList.map((f) => (
-                  <div
-                    key={f.feature?.featureId}
-                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <p className="text-sm font-semibold text-white">{f.feature?.name}</p>
-                      <Badge variant="outline" className="text-[10px] border-slate-700 text-slate-400">
-                        Рівень {f.level}
-                      </Badge>
-                    </div>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {f.feature?.description}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">Для цього підкласу ще немає опису рис.</p>
-              )}
-            </div>
-          </>
-        ),
-      };
-    }
-
-    const background = pers.background as any;
-    const items = parseItems(background.items);
-    const resolvedSource = background.source ? prettifyEnum(background.source) : "—";
-
-    return {
-      title: backgroundName,
-      subtitle: undefined,
-      content: (
-        <>
-          <InfoGrid>
-            <InfoPill label="Джерело" value={resolvedSource} />
-            <InfoPill label="Навички" value={formatSkillProficiencies(background.skillProficiencies)} />
-            <InfoPill label="Інструменти" value={formatToolProficiencies(background.toolProficiencies)} />
-            <InfoPill label="Мови" value={formatLanguages([], background.languagesToChooseCount)} />
-            <InfoPill label="Особливість" value={background.specialAbilityName || "-"} />
-          </InfoGrid>
-
-          {items.length ? (
-            <div className="space-y-1.5">
-              <InfoSectionTitle>Стартове спорядження</InfoSectionTitle>
-              <ul className="space-y-1 text-sm text-slate-200/90">
-                {items.map((item, index) => (
-                  <li key={`${item}-${index}`} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400" aria-hidden />
-                    <span className="flex-1">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-
-          {(background.specialAbilityName || background.description) ? (
-            <div className="space-y-1">
-              <InfoSectionTitle>Опис особливості</InfoSectionTitle>
-              {background.specialAbilityName ? (
-                <p className="text-sm font-semibold text-white">{background.specialAbilityName}</p>
-              ) : null}
-              {background.description ? (
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {background.description}
-                </p>
-              ) : null}
-            </div>
-          ) : null}
-        </>
-      ),
-    };
-  }, [backgroundName, className, entityKind, entityVariantIndex, pers, raceName, subclassName, subraceName]);
-
-  return (
-    <div className="h-full p-3 sm:p-4 space-y-3">
-      <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-        <button
-          type="button"
-          onClick={() => openEntity("race")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-        >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Раса</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{raceName}</div>
-        </button>
-
-        {(pers as any).raceVariants?.map((rv: any, idx: number) => {
-          const name = variantTranslations[rv.name as keyof typeof variantTranslations] ?? String(rv.name);
-          return (
-            <button
-              key={rv.raceVariantId ?? idx}
-              type="button"
-              onClick={() => openEntity("raceVariant", idx)}
-              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-            >
-              <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Варіант раси</div>
-              <div className="text-sm font-semibold text-slate-50 truncate">{name}</div>
-            </button>
-          );
-        })}
-
-        {pers.subrace ? (
-          <button
-            type="button"
-            onClick={() => openEntity("subrace")}
-            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-          >
-            <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Підраса</div>
-            <div className="text-sm font-semibold text-slate-50 truncate">{subraceName}</div>
-          </button>
-        ) : null}
-
-        <button
-          type="button"
-          onClick={() => openEntity("class")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-        >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Клас</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{className}</div>
-          <div className="text-xs text-slate-300/70 truncate">Рівень {pers.level}</div>
-        </button>
-
-        {pers.subclass ? (
-          <button
-            type="button"
-            onClick={() => openEntity("subclass")}
-            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-          >
-            <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Підклас</div>
-            <div className="text-sm font-semibold text-slate-50 truncate">{subclassName}</div>
-          </button>
-        ) : null}
-
-        <button
-          type="button"
-          onClick={() => openEntity("background")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-        >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Передісторія</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{backgroundName}</div>
-        </button>
-      </div>
-
-      {!groupedFeatures ? (
-        <div className="text-sm text-slate-400">Немає даних про фічі</div>
-      ) : (
-        <div className="space-y-2">
-          {categories.map((category) => {
-            const variant = categoryVariant(category.kind);
-            const total = category.items.length;
-
-            return (
-              <Collapsible
-                key={category.title}
-                defaultOpen={total > 0}
-                className={
-                  "group border-l-2 bg-gradient-to-r to-transparent rounded-r-lg p-3 sm:p-4 transition-all duration-300 " +
-                  variant.container
-                }
-              >
-                <CollapsibleTrigger className="flex items-center gap-3 w-full">
-                  <ChevronRight className={"w-5 h-5 transition-transform group-data-[state=open]:rotate-90 " + variant.chevron} />
-                  <span className={"font-bold uppercase tracking-wider text-xs sm:text-sm " + variant.title}>{category.title}</span>
-                  <span className={"ml-auto text-[10px] sm:text-xs " + variant.count}>[{total}]</span>
-                </CollapsibleTrigger>
-
-                <CollapsibleContent className="mt-3 sm:mt-4 pl-6 sm:pl-8">
-                  {total === 0 ? (
-                    <div className="text-xs text-slate-400">Немає в цій категорії</div>
-                  ) : (
-                    <ScrollArea className="max-h-[44vh] overflow-y-auto pr-3">
-                      <div className="space-y-2">
-                        {category.items.map((item) => (
-                          <FeatureCard key={item.key} item={item} onClick={() => setSelected(item)} />
-                        ))}
-                      </div>
-                    </ScrollArea>
-                  )}
-                </CollapsibleContent>
-              </Collapsible>
-            );
-          })}
-        </div>
-      )}
-
-      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
-        <DialogContent className="max-w-2xl border border-white/10 bg-slate-900/95 backdrop-blur text-slate-50">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-bold">{selected?.name}</DialogTitle>
-            {selected ? (
-              <DialogDescription className="text-xs text-slate-300">
-                {selected.sourceName} • {selected.source}
-              </DialogDescription>
-            ) : null}
-          </DialogHeader>
-          <div className="text-sm text-slate-200/90 whitespace-pre-line leading-relaxed">
-            {selected?.description}
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      <ControlledInfoDialog
-        open={entityOpen}
-        onOpenChange={(open) => setEntityOpen(open)}
-        title={entityDialog.title}
-        subtitle={entityDialog.subtitle}
-      >
-        {entityDialog.content}
-      </ControlledInfoDialog>
-    </div>
-  );
 }
 </file>
 
@@ -11480,1188 +8459,6 @@ export default function MagicSlide({ pers }: MagicSlideProps) {
 }
 </file>
 
-<file path="src/lib/components/characterSheet/slides/MainStatsSlide.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import { Card, CardContent } from "@/components/ui/card";
-import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
-import { Ability } from "@prisma/client";
-import {
-  attributesUkrShort,
-  backgroundTranslations,
-  classTranslations,
-  raceTranslations,
-  subclassTranslations,
-  subraceTranslations,
-} from "@/lib/refs/translation";
-import { Shield } from "lucide-react";
-import { useMemo, useState } from "react";
-import { EntityInfoDialog, type EntityInfoKind } from "@/lib/components/characterSheet/EntityInfoDialog";
-
-interface MainStatsSlideProps {
-  pers: PersWithRelations;
-}
-
-export default function MainStatsSlide({ pers }: MainStatsSlideProps) {
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [dialogKind, setDialogKind] = useState<EntityInfoKind>("race");
-
-  const raceName = useMemo(
-    () => raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name,
-    [pers.race.name]
-  );
-  const className = useMemo(
-    () => classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name,
-    [pers.class.name]
-  );
-  const subclassName = useMemo(() => {
-    if (!pers.subclass) return null;
-    return subclassTranslations[pers.subclass.name as keyof typeof subclassTranslations] || pers.subclass.name;
-  }, [pers.subclass]);
-  const subraceName = useMemo(() => {
-    if (!pers.subrace) return null;
-    return subraceTranslations[pers.subrace.name as keyof typeof subraceTranslations] || pers.subrace.name;
-  }, [pers.subrace]);
-  const backgroundName = useMemo(
-    () => backgroundTranslations[pers.background.name as keyof typeof backgroundTranslations] || pers.background.name,
-    [pers.background.name]
-  );
-
-  const dexMod = getAbilityMod(pers.dex);
-  const initiative = dexMod;
-  const pb = getProficiencyBonus(pers.level);
-  const hitDice = `${pers.level}d${pers.class.hitDie}`;
-  const ac = 10 + dexMod + (pers.wearsShield ? 2 : 0) + pers.additionalShieldBonus + pers.armorBonus;
-
-  // Get saving throw proficiencies
-  const savingThrows: Ability[] = pers.class.savingThrows ?? [];
-
-  const attributes = [
-    { name: attributesUkrShort.STR, fullName: "Сила", score: pers.str, key: "str", borderColor: "border-red-500/40" },
-    { name: attributesUkrShort.DEX, fullName: "Спритність", score: pers.dex, key: "dex", borderColor: "border-green-500/40" },
-    { name: attributesUkrShort.CON, fullName: "Статура", score: pers.con, key: "con", borderColor: "border-orange-500/40" },
-    { name: attributesUkrShort.INT, fullName: "Інтелект", score: pers.int, key: "int", borderColor: "border-blue-500/40" },
-    { name: attributesUkrShort.WIS, fullName: "Мудрість", score: pers.wis, key: "wis", borderColor: "border-purple-500/40" },
-    { name: attributesUkrShort.CHA, fullName: "Харизма", score: pers.cha, key: "cha", borderColor: "border-pink-500/40" },
-  ] as const;
-
-  const abilityByKey: Record<(typeof attributes)[number]["key"], Ability> = {
-    str: Ability.STR,
-    dex: Ability.DEX,
-    con: Ability.CON,
-    int: Ability.INT,
-    wis: Ability.WIS,
-    cha: Ability.CHA,
-  };
-
-  const openEntity = (kind: EntityInfoKind) => {
-    setDialogKind(kind);
-    setDialogOpen(true);
-  };
-
-  const dialog = useMemo(() => {
-    if (dialogKind === "race") {
-      return {
-        kind: "race" as const,
-        title: raceName,
-        subtitle: subraceName || undefined,
-        entity: pers.race,
-      };
-    }
-    if (dialogKind === "class") {
-      return {
-        kind: "class" as const,
-        title: className,
-        subtitle: subclassName || undefined,
-        entity: pers.class,
-      };
-    }
-    return {
-      kind: "background" as const,
-      title: backgroundName,
-      subtitle: undefined,
-      entity: pers.background,
-    };
-  }, [backgroundName, className, dialogKind, pers.background, pers.class, pers.race, raceName, subclassName, subraceName]);
-
-  return (
-    <div className="h-full flex flex-col gap-4 p-4">
-      {/* Race/Class/Background cards (click = modal) */}
-      <div className="grid grid-cols-3 gap-2">
-        <button
-          type="button"
-          onClick={() => openEntity("race")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-        >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Раса</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{raceName}</div>
-          {subraceName ? <div className="text-xs text-slate-300/70 truncate">{subraceName}</div> : null}
-        </button>
-
-        <button
-          type="button"
-          onClick={() => openEntity("class")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-        >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Клас</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{className}</div>
-          {subclassName ? <div className="text-xs text-slate-300/70 truncate">{subclassName}</div> : null}
-        </button>
-
-        <button
-          type="button"
-          onClick={() => openEntity("background")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-        >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Передісторія</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{backgroundName}</div>
-          <div className="text-xs text-slate-300/70 truncate">Рівень {pers.level}</div>
-        </button>
-      </div>
-
-      {/* HERO SECTION: Combat Stats (HP, AC, Initiative) */}
-      <div className="grid grid-cols-3 gap-3">
-        <Card className="glass-card bg-indigo-500/15 border-indigo-500/40 h-28">
-          <CardContent className="p-3 flex flex-col items-center justify-center h-full">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-300">Клас Обладунку</div>
-            <div className="text-4xl font-bold text-white mt-1">{ac}</div>
-            <Shield className="w-4 h-4 text-indigo-400 opacity-60 mt-1" />
-          </CardContent>
-        </Card>
-
-        <Card className="glass-card bg-rose-500/20 border-rose-500/50 h-28">
-          <CardContent className="p-3 flex flex-col items-center justify-center h-full">
-            <div className="text-xs font-bold uppercase tracking-wide text-rose-300">Здоров&apos;я</div>
-            <div className="text-5xl font-black text-white mt-1">{pers.currentHp}</div>
-            <div className="text-xs text-rose-400">/ {pers.maxHp}</div>
-          </CardContent>
-        </Card>
-
-        <Card className="glass-card bg-emerald-500/15 border-emerald-500/40 h-28">
-          <CardContent className="p-3 flex flex-col items-center justify-center h-full">
-            <div className="text-xs font-bold uppercase tracking-wide text-emerald-300">Ініціатива</div>
-            <div className="text-4xl font-bold text-white mt-1">{formatModifier(initiative)}</div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* SECONDARY STATS ROW: Speed, Hit Dice, Proficiency */}
-      <div className="grid grid-cols-3 gap-3">
-        <Card className="glass-card bg-cyan-500/15 border-cyan-400/40 h-20">
-          <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-cyan-300">Швидкість</div>
-            <div className="text-2xl font-bold text-cyan-50">30</div>
-          </CardContent>
-        </Card>
-        <Card className="glass-card bg-amber-500/15 border-amber-400/40 h-20">
-          <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-amber-300">Хіт Дайси</div>
-            <div className="text-2xl font-bold text-amber-50">{hitDice}</div>
-          </CardContent>
-        </Card>
-        <Card className="glass-card bg-indigo-500/15 border-indigo-400/40 h-20">
-          <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-indigo-300">Майстерність</div>
-            <div className="text-2xl font-bold text-indigo-50">{formatModifier(pb)}</div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* ABILITY SCORES GRID (Perfectly Balanced Layout) */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-        {attributes.map((attr) => {
-          const mod = getAbilityMod(attr.score);
-          const hasSaveProficiency = savingThrows.includes(abilityByKey[attr.key]);
-          const saveBonus = mod + (hasSaveProficiency ? pb : 0);
-
-          return (
-            <Card key={attr.name} className={`glass-card bg-slate-900/60 ${attr.borderColor} border h-18`}>
-              <CardContent className="h-full px-1 py-2 grid grid-cols-[1fr_auto_1fr] items-center gap-0">
-                {/* Left: Ability Name & Score */}
-                <div className="flex flex-col items-center justify-center gap-0.5">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{attr.name}</span>
-                  <span className="text-[10px] font-mono text-slate-500">{attr.score}</span>
-                </div>
-
-                {/* Center: Modifier (Main Focus) */}
-                <div className="flex items-center justify-center w-14">
-                  <span className="text-3xl font-black text-white tracking-tight">{formatModifier(mod)}</span>
-                </div>
-
-                {/* Right: Saving Throw */}
-                <div className="flex flex-col items-center justify-center gap-0.5">
-                  <span className="text-[9px] text-slate-500 uppercase tracking-tighter">Сейв</span>
-                  <div className="flex items-center gap-1">
-                    <span className={`text-xs font-bold ${
-                      hasSaveProficiency ? "text-indigo-400" : "text-slate-400"
-                    }`}>
-                      {formatModifier(saveBonus)}
-                    </span>
-                    {hasSaveProficiency && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_5px_rgba(99,102,241,0.5)]" />
-                    )}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-
-      <EntityInfoDialog
-        isOpen={dialogOpen}
-        onClose={() => setDialogOpen(false)}
-        kind={dialog.kind}
-        title={dialog.title}
-        subtitle={dialog.subtitle}
-        entity={dialog.entity}
-      />
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/slides/SkillsSlide.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
-import { Skills } from "@prisma/client";
-
-interface SkillsSlideProps {
-  pers: PersWithRelations;
-}
-
-export default function SkillsSlide({ pers }: SkillsSlideProps) {
-  const pb = getProficiencyBonus(pers.level);
-
-  const allSkills = [
-    // STR
-    { ability: "STR", abilityName: "СИЛА", skill: Skills.ATHLETICS, name: "Атлетика", score: pers.str },
-    // DEX
-    { ability: "DEX", abilityName: "СПРИТНІСТЬ", skill: Skills.ACROBATICS, name: "Акробатика", score: pers.dex },
-    { ability: "DEX", abilityName: "СПРИТНІСТЬ", skill: Skills.SLEIGHT_OF_HAND, name: "Спритність рук", score: pers.dex },
-    { ability: "DEX", abilityName: "СПРИТНІСТЬ", skill: Skills.STEALTH, name: "Непомітність", score: pers.dex },
-    // INT
-    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.ARCANA, name: "Магія", score: pers.int },
-    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.HISTORY, name: "Історія", score: pers.int },
-    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.INVESTIGATION, name: "Розслідування", score: pers.int },
-    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.NATURE, name: "Природа", score: pers.int },
-    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.RELIGION, name: "Релігія", score: pers.int },
-    // WIS
-    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.ANIMAL_HANDLING, name: "Поводження з тваринами", score: pers.wis },
-    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.INSIGHT, name: "Аналіз поведінки", score: pers.wis },
-    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.MEDICINE, name: "Медицина", score: pers.wis },
-    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.PERCEPTION, name: "Уважність", score: pers.wis },
-    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.SURVIVAL, name: "Виживання", score: pers.wis },
-    // CHA
-    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.DECEPTION, name: "Обман", score: pers.cha },
-    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.INTIMIDATION, name: "Залякування", score: pers.cha },
-    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.PERFORMANCE, name: "Виступ", score: pers.cha },
-    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.PERSUASION, name: "Переконання", score: pers.cha },
-  ];
-
-  const getSkillProficiency = (skillName: Skills) => {
-    const persSkill = pers.skills.find((ps) => ps.name === skillName);
-    return persSkill?.proficiencyType || "NONE";
-  };
-
-  const calculateSkillModifier = (skillName: Skills, abilityScore: number) => {
-    const abilityMod = getAbilityMod(abilityScore);
-    const proficiency = getSkillProficiency(skillName);
-    let total = abilityMod;
-    if (proficiency === "PROFICIENT") total += pb;
-    if (proficiency === "EXPERTISE") total += pb * 2;
-    return { total, proficiency };
-  };
-
-  let lastAbility = "";
-
-  return (
-    <div className="h-full p-4">
-      <div className="space-y-0">
-        {allSkills.map((skillInfo) => {
-          const { total, proficiency } = calculateSkillModifier(skillInfo.skill, skillInfo.score);
-          const isProficient = proficiency !== "NONE";
-          const showHeader = lastAbility !== skillInfo.ability;
-          if (showHeader) lastAbility = skillInfo.ability;
-
-          return (
-            <div key={skillInfo.skill}>
-              {showHeader && (
-                <div className="text-[10px] font-bold uppercase tracking-wider text-indigo-400/80 mt-3 mb-1 px-2">
-                  {skillInfo.abilityName}
-                </div>
-              )}
-              <div
-                className={`flex justify-between items-center h-8 px-3 rounded transition-all ${
-                  isProficient
-                    ? "bg-cyan-500/10 border-l-2 border-cyan-400/60"
-                    : "bg-slate-800/25 border-l-2 border-slate-700/40"
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  {proficiency === "EXPERTISE" && (
-                    <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_4px_rgba(251,191,36,0.8)]" />
-                  )}
-                  {proficiency === "PROFICIENT" && (
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
-                  )}
-                  <span
-                    className={`text-sm transition ${
-                      isProficient ? "text-slate-50 opacity-100 font-medium" : "text-slate-300/80"
-                    }`}
-                  >
-                    {skillInfo.name}
-                  </span>
-                </div>
-                <span
-                  className={`text-sm font-bold transition ${
-                    proficiency === "EXPERTISE"
-                      ? "text-amber-300 opacity-100"
-                      : proficiency === "PROFICIENT"
-                        ? "text-cyan-300 opacity-100"
-                        : "text-slate-300/70"
-                  }`}
-                >
-                  {formatModifier(total)}
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/CharacterCarousel.tsx">
-"use client";
-
-import { useEffect, useMemo, useRef, useState } from "react";
-import { PersWithRelations } from "@/lib/actions/pers";
-import MainStatsSlide from "./slides/MainStatsSlide";
-import SkillsSlide from "./slides/SkillsSlide";
-import CombatSlide from "./slides/CombatSlide";
-import MagicSlide from "./slides/MagicSlide";
-import FeaturesSlide from "./slides/FeaturesSlide";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
-
-interface CharacterCarouselProps {
-  pers: PersWithRelations;
-  groupedFeatures: CharacterFeaturesGroupedResult | null;
-}
-
-export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCarouselProps) {
-  const isLg = useMediaQuery("(min-width: 1024px)");
-  const isMd = useMediaQuery("(min-width: 768px)");
-
-  type SlideId = "stats" | "skills" | "equipment" | "magic" | "features";
-  type SlideDef = { id: SlideId; label: string };
-
-  const allSlides: SlideDef[] = useMemo(
-    () => [
-      { id: "stats", label: "Головна" },
-      { id: "skills", label: "Навички" },
-      { id: "equipment", label: "Спорядження" },
-      { id: "magic", label: "Магія" },
-      { id: "features", label: "Фічі" },
-    ],
-    []
-  );
-
-  const totalSlides = allSlides.length;
-  const visibleCount = isLg ? 3 : isMd ? 2 : 1;
-
-  const getStartIndex = () => (isLg ? 4 : 0);
-
-  const [currentIndex, setCurrentIndex] = useState(getStartIndex);
-
-  // On breakpoint change, set initial index per spec.
-  useEffect(() => {
-    setCurrentIndex(getStartIndex());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLg, isMd]);
-
-  const swipeStart = useRef<{ x: number; y: number } | null>(null);
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  };
-
-  const getVisibleSlides = () => {
-    const visible: Array<SlideDef & { index: number }> = [];
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (currentIndex + i) % totalSlides;
-      visible.push({ ...allSlides[index], index });
-    }
-    return visible;
-  };
-
-  const visibleSlides = getVisibleSlides();
-
-  const renderSlide = (id: SlideId) => {
-    if (id === "stats") return <MainStatsSlide pers={pers} />;
-    if (id === "skills") return <SkillsSlide pers={pers} />;
-    if (id === "equipment") return <CombatSlide pers={pers} />;
-    if (id === "magic") return <MagicSlide pers={pers} />;
-    if (id === "features") return <FeaturesSlide pers={pers} groupedFeatures={groupedFeatures} />;
-    return null;
-  };
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    const t = e.touches[0];
-    if (!t) return;
-    swipeStart.current = { x: t.clientX, y: t.clientY };
-  };
-
-  const onTouchEnd = (e: React.TouchEvent) => {
-    const start = swipeStart.current;
-    swipeStart.current = null;
-    if (!start) return;
-
-    const t = e.changedTouches[0];
-    if (!t) return;
-
-    const dx = t.clientX - start.x;
-    const dy = t.clientY - start.y;
-
-    // Horizontal swipe only; keep vertical scroll intact.
-    if (Math.abs(dx) < 60) return;
-    if (Math.abs(dy) > 40) return;
-
-    if (dx < 0) handleNext();
-    else handlePrevious();
-  };
-
-  return (
-    <div className="h-full flex flex-col overflow-hidden">
-      {/* Content */}
-      <div className="flex-1 relative overflow-hidden">
-        <div
-          className="absolute inset-0 px-3 pt-3 pb-2 md:px-4 md:pt-4"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          <div className="h-full grid gap-3 md:gap-4" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
-            {visibleSlides.map((slide) => (
-              <div
-                key={`${slide.id}-${slide.index}`}
-                className="h-full bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden"
-              >
-                <div className="h-full overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
-                  {renderSlide(slide.id)}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Side navigation arrows (all breakpoints) */}
-          <Button
-            onClick={handlePrevious}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
-            size="icon"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-          </Button>
-          <Button
-            onClick={handleNext}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
-            size="icon"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Bottom navigation (always visible) */}
-      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-slate-900/85 backdrop-blur px-2 py-2">
-        <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
-          {allSlides.map((s, idx) => {
-            const active = idx === currentIndex;
-            return (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => {
-                  setCurrentIndex(idx);
-                }}
-                className={
-                  "px-2 py-1 rounded-md text-[10px] sm:text-xs transition border " +
-                  (active
-                    ? "bg-indigo-500/20 border-indigo-400/40 text-indigo-100"
-                    : "bg-white/5 border-white/10 text-slate-200/80 hover:bg-white/10")
-                }
-              >
-                {s.label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/CharacterSheet.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import CharacterCarousel from "./CharacterCarousel";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowUpCircle } from "lucide-react";
-import { raceTranslations, classTranslations } from "@/lib/refs/translation";
-import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-
-interface CharacterSheetProps {
-  pers: PersWithRelations;
-  groupedFeatures: CharacterFeaturesGroupedResult | null;
-}
-
-export default function CharacterSheet({ pers, groupedFeatures }: CharacterSheetProps) {
-  const raceName = raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name;
-  const className = classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name;
-
-  return (
-    <div className="h-screen w-full bg-slate-900 flex flex-col">
-      <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-900/70 backdrop-blur sticky top-0 z-20">
-           <div>
-             <div className="font-bold text-base md:text-lg text-slate-50">{pers.name}</div>
-             <div className="text-xs text-slate-300/80">{raceName} {className} • Рівень {pers.level}</div>
-           </div>
-           <Link href={`/pers/${pers.persId}/levelup`}>
-               <Button size="sm" variant="secondary" className="h-8 gap-2 bg-indigo-600/20 hover:bg-indigo-600/30 border-indigo-500/30">
-                   <ArrowUpCircle className="w-4 h-4" />
-                   <span className="hidden sm:inline">Підняти рівень</span>
-               </Button>
-           </Link>
-       </div>
-      
-      <div className="flex-1 overflow-hidden">
-        <CharacterCarousel pers={pers} groupedFeatures={groupedFeatures} />
-      </div>
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/CombatPage.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import { Card, CardContent } from "@/components/ui/card";
-import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
-
-export default function CombatPage({ pers }: { pers: PersWithRelations }) {
-  const dexMod = getAbilityMod(pers.dex);
-  const initiative = dexMod; 
-  const pb = getProficiencyBonus(pers.level);
-  const hitDice = `${pers.level}d${pers.class.hitDie}`;
-  
-  const ac = 10 + dexMod + (pers.wearsShield ? 2 : 0) + pers.additionalShieldBonus + pers.armorBonus;
-
-  const attributes = [
-    { name: "Сила", score: pers.str, key: "str" },
-    { name: "Спритність", score: pers.dex, key: "dex" },
-    { name: "Статура", score: pers.con, key: "con" },
-    { name: "Інтелект", score: pers.int, key: "int" },
-    { name: "Мудрість", score: pers.wis, key: "wis" },
-    { name: "Харизма", score: pers.cha, key: "cha" },
-  ] as const;
-
-  return (
-    <div className="space-y-3">
-      <div className="grid grid-cols-3 gap-2">
-        <Card className="bg-emerald-500/20 border-emerald-400/40 backdrop-blur">
-            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
-                <div className="text-xs font-bold uppercase text-emerald-200">Ініціатива</div>
-                <div className="text-2xl font-bold text-emerald-50">{formatModifier(initiative)}</div>
-            </CardContent>
-        </Card>
-        <Card className="bg-rose-500/20 border-rose-400/40 backdrop-blur">
-            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
-                <div className="text-xs font-bold uppercase text-rose-200">ХП</div>
-                <div className="text-2xl font-bold text-rose-50">{pers.currentHp}</div>
-                <div className="text-xs text-rose-200">/ {pers.maxHp}</div>
-            </CardContent>
-        </Card>
-        <Card className="bg-cyan-500/20 border-cyan-400/40 backdrop-blur">
-            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
-                <div className="text-xs font-bold uppercase text-cyan-200">Швидкість</div>
-                <div className="text-xl font-bold text-cyan-50">30 фт</div>
-            </CardContent>
-        </Card>
-      </div>
-
-      <div className="grid grid-cols-3 gap-2">
-        <Card className="bg-violet-500/20 border-violet-400/40 backdrop-blur">
-            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
-                <div className="text-xs font-bold uppercase text-violet-200">КЗ</div>
-                <div className="text-2xl font-bold text-violet-50">{ac}</div>
-            </CardContent>
-        </Card>
-        <Card className="bg-amber-500/20 border-amber-400/40 backdrop-blur">
-            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
-                <div className="text-xs font-bold uppercase text-amber-200">Хіт Дайси</div>
-                <div className="text-xl font-bold text-amber-50">{hitDice}</div>
-            </CardContent>
-        </Card>
-        <Card className="bg-indigo-500/20 border-indigo-400/40 backdrop-blur">
-            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
-                <div className="text-xs font-bold uppercase text-indigo-200">Майстерність</div>
-                <div className="text-xl font-bold text-indigo-50">{formatModifier(pb)}</div>
-            </CardContent>
-        </Card>
-      </div>
-
-      <div className="grid grid-cols-2 gap-2">
-        {attributes.map((attr) => {
-            const mod = getAbilityMod(attr.score);
-            return (
-                <Card key={attr.name} className="bg-white/10 border-purple-300/30 backdrop-blur">
-                    <CardContent className="p-3 text-center">
-                        <div className="text-xs font-bold uppercase text-purple-300">{attr.name}</div>
-                        <div className="flex items-center justify-center gap-2">
-                          <div className="text-xl font-bold text-purple-50">{attr.score}</div>
-                          <div className="text-sm font-medium text-purple-200">
-                              ({formatModifier(mod)})
-                          </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            );
-        })}
-      </div>
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/EntityInfoDialog.tsx">
-"use client";
-
-import { ReactNode } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/lib/components/ui/dialog";
-
-export type EntityInfoKind = "race" | "class" | "background";
-
-export interface EntityInfoDialogEntity {
-  name?: string | null;
-  description?: string | null;
-  [key: string]: unknown;
-}
-
-interface EntityInfoDialogProps {
-  isOpen: boolean;
-  onClose: () => void;
-  kind: EntityInfoKind;
-  title: string;
-  subtitle?: string;
-  entity?: EntityInfoDialogEntity | null;
-  children?: ReactNode;
-}
-
-export function EntityInfoDialog({
-  isOpen,
-  onClose,
-  kind,
-  title,
-  subtitle,
-  entity,
-  children,
-}: EntityInfoDialogProps) {
-  const description = (entity?.description ?? "").toString().trim();
-
-  return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[85vh] w-[95vw] max-w-2xl overflow-y-auto bg-slate-950/95 backdrop-blur border border-white/10 text-slate-50">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold">{title}</DialogTitle>
-          <DialogDescription className="text-xs text-slate-300">
-            {subtitle ? `${subtitle} • ` : ""}
-            {kind.toUpperCase()}
-          </DialogDescription>
-        </DialogHeader>
-
-        {children ? <div className="space-y-3">{children}</div> : null}
-
-        {description ? (
-          <div className="text-sm text-slate-200/90 whitespace-pre-line leading-relaxed">{description}</div>
-        ) : (
-          <div className="text-sm text-slate-400">Немає опису</div>
-        )}
-      </DialogContent>
-    </Dialog>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/FeaturesPage.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import { Card, CardContent } from "@/components/ui/card";
-import { raceTranslations, classTranslations, subclassTranslations, subraceTranslations, backgroundTranslations, featTranslations } from "@/lib/refs/translation";
-import { useState } from "react";
-import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/lib/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-
-export default function FeaturesPage({ pers }: { pers: PersWithRelations }) {
-  const [selectedFeature, setSelectedFeature] = useState<{ name: string; description: string } | null>(null);
-  
-  const raceName = raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name;
-  const className = classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name;
-  const subclassName = pers.subclass ? (subclassTranslations[pers.subclass.name as keyof typeof subclassTranslations] || pers.subclass.name) : null;
-  const subraceName = pers.subrace ? (subraceTranslations[pers.subrace.name as keyof typeof subraceTranslations] || pers.subrace.name) : null;
-  const backgroundName = backgroundTranslations[pers.background.name as keyof typeof backgroundTranslations] || pers.background.name;
-
-  // Collect all features from various sources
-  const allFeatures: { name: string; description: string; source: string }[] = [];
-  
-  // Features from PersFeature
-  pers.features.forEach(pf => {
-    allFeatures.push({
-      name: pf.feature.name,
-      description: pf.feature.description,
-      source: 'feature'
-    });
-  });
-
-  // Features from ClassChoiceOptions and SubclassChoiceOptions (direct many-to-many)
-  if (pers.choiceOptions) {
-    pers.choiceOptions.forEach(co => {
-      allFeatures.push({
-        name: co.optionName,
-        description: `${co.groupName}: ${co.optionName}`,
-        source: 'choice'
-      });
-    });
-  }
-
-  // Features from RaceChoiceOptions (direct many-to-many)
-  if (pers.raceChoiceOptions) {
-    pers.raceChoiceOptions.forEach(rco => {
-      allFeatures.push({
-        name: rco.optionName,
-        description: rco.description || `${rco.choiceGroupName}: ${rco.optionName}`,
-        source: 'race_choice'
-      });
-    });
-  }
-
-  // Features from FeatChoiceOptions
-  pers.feats.forEach(pf => {
-    pf.choices.forEach(choice => {
-      if (choice.choiceOption) {
-        allFeatures.push({
-          name: choice.choiceOption.optionName,
-          description: `${choice.choiceOption.groupName}: ${choice.choiceOption.optionName}`,
-          source: 'feat_choice'
-        });
-      }
-    });
-  });
-
-  return (
-    <div className="h-full flex flex-col space-y-3">
-      {/* Entity Grid - 2 columns */}
-      <div className="grid grid-cols-2 gap-2">
-        <EntityCard 
-          title={className} 
-          subtitle={subclassName || undefined}
-          type="class"
-          entity={pers.class}
-          subEntity={pers.subclass}
-          persLevel={pers.level}
-        />
-        <EntityCard 
-          title={raceName} 
-          subtitle={subraceName || undefined}
-          type="race"
-          entity={pers.race}
-          subEntity={pers.subrace}
-          persLevel={pers.level}
-        />
-        <EntityCard 
-          title={backgroundName}
-          type="background"
-          entity={pers.background}
-          persLevel={pers.level}
-        />
-      </div>
-
-      {/* Features List - Scrollable */}
-      <Card className="flex-1 overflow-hidden flex flex-col bg-white/10 border-purple-300/30 backdrop-blur">
-        <CardContent className="p-3 overflow-y-auto flex-1 space-y-1">
-          {allFeatures.map((feature, idx) => (
-            <button
-              key={idx}
-              onClick={() => setSelectedFeature(feature)}
-              className="w-full text-left px-3 py-2 rounded border border-purple-400/30 bg-purple-900/20 hover:bg-purple-800/40 hover:border-purple-400/60 transition text-sm text-purple-100"
-            >
-              {feature.name}
-            </button>
-          ))}
-          {pers.feats.map(pf => (
-            <button
-              key={pf.persFeatId}
-              onClick={() => setSelectedFeature({ 
-                name: featTranslations[pf.feat.name as keyof typeof featTranslations] || pf.feat.name, 
-                description: pf.feat.description 
-              })}
-              className="w-full text-left px-3 py-2 rounded border border-amber-400/40 bg-amber-900/30 hover:bg-amber-800/50 hover:border-amber-400/70 transition text-sm text-amber-50"
-            >
-              <span className="font-semibold">{featTranslations[pf.feat.name as keyof typeof featTranslations] || pf.feat.name}</span>
-            </button>
-          ))}
-        </CardContent>
-      </Card>
-
-      {/* Feature Detail Modal */}
-      <Dialog open={!!selectedFeature} onOpenChange={() => setSelectedFeature(null)}>
-        <DialogContent className="max-w-2xl border border-purple-400/30 bg-purple-950/95 backdrop-blur text-purple-50">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-purple-100">{selectedFeature?.name}</DialogTitle>
-          </DialogHeader>
-          <div className="text-sm text-purple-200 whitespace-pre-wrap max-h-96 overflow-y-auto">
-            {selectedFeature?.description}
-          </div>
-        </DialogContent>
-      </Dialog>
-    </div>
-  );
-}
-
-interface EntityCardProps {
-  title: string;
-  subtitle?: string;
-  type: 'class' | 'race' | 'background';
-  entity: any;
-  subEntity?: any;
-  persLevel: number;
-}
-
-function EntityCard({ title, subtitle, type, entity, subEntity, persLevel }: EntityCardProps) {
-  return (
-    <Card className="relative bg-white/10 border-purple-300/30 backdrop-blur hover:border-purple-400/60 transition cursor-pointer group">
-      <CardContent className="p-3">
-        <div className="font-bold text-sm text-purple-50">{title}</div>
-        {subtitle && <div className="text-xs text-purple-300">{subtitle}</div>}
-      </CardContent>
-      
-      {/* Info Dialog */}
-      {type === 'class' && (
-        <InfoDialog title={title} subtitle={subtitle} triggerLabel={`Інформація про ${title}`}>
-          <InfoGrid>
-            <InfoPill label="Кістка хітів" value={`d${entity.hitDie}`} />
-            <InfoPill label="Підклас з рівня" value={`Рівень ${entity.subclassLevel}`} />
-          </InfoGrid>
-          
-          {entity.features && entity.features.length > 0 && (
-            <>
-              <InfoSectionTitle>Вміння класу</InfoSectionTitle>
-              <div className="space-y-2">
-                {entity.features.map((f: any, idx: number) => {
-                  const isUnlocked = f.level <= persLevel;
-                  return (
-                    <div 
-                      key={idx} 
-                      className={`p-3 rounded-lg border ${
-                        isUnlocked 
-                          ? 'border-green-500/50 bg-green-900/20' 
-                          : 'border-slate-800/50 bg-slate-900/30 opacity-60'
-                      }`}
-                    >
-                      <div className="flex justify-between items-start mb-1">
-                        <span className="font-semibold text-sm">{f.name}</span>
-                        <span className="text-xs text-slate-400">Рівень {f.level}</span>
-                      </div>
-                      <p className="text-xs text-slate-300">{f.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </>
-          )}
-          
-          {subEntity && subEntity.features && (
-            <>
-              <InfoSectionTitle>Вміння підкласу</InfoSectionTitle>
-              <div className="space-y-2">
-                {subEntity.features.map((f: any, idx: number) => {
-                  const isUnlocked = f.level <= persLevel;
-                  return (
-                    <div 
-                      key={idx} 
-                      className={`p-3 rounded-lg border ${
-                        isUnlocked 
-                          ? 'border-blue-500/50 bg-blue-900/20' 
-                          : 'border-slate-800/50 bg-slate-900/30 opacity-60'
-                      }`}
-                    >
-                      <div className="flex justify-between items-start mb-1">
-                        <span className="font-semibold text-sm">{f.name}</span>
-                        <span className="text-xs text-slate-400">Рівень {f.level}</span>
-                      </div>
-                      <p className="text-xs text-slate-300">{f.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </>
-          )}
-        </InfoDialog>
-      )}
-      
-      {type === 'race' && (
-        <InfoDialog title={title} subtitle={subtitle} triggerLabel={`Інформація про ${title}`}>
-          {entity.traits && entity.traits.length > 0 && (
-            <>
-              <InfoSectionTitle>Расові особливості</InfoSectionTitle>
-              <div className="space-y-2">
-                {entity.traits.map((t: any, idx: number) => (
-                  <div key={idx} className="p-3 rounded-lg border border-slate-800/50 bg-slate-900/30">
-                    <span className="font-semibold text-sm block mb-1">{t.name}</span>
-                    <p className="text-xs text-slate-300">{t.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-          
-          {subEntity && subEntity.traits && (
-            <>
-              <InfoSectionTitle>Особливості підраси</InfoSectionTitle>
-              <div className="space-y-2">
-                {subEntity.traits.map((t: any, idx: number) => (
-                  <div key={idx} className="p-3 rounded-lg border border-slate-800/50 bg-slate-900/30">
-                    <span className="font-semibold text-sm block mb-1">{t.name}</span>
-                    <p className="text-xs text-slate-300">{t.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-        </InfoDialog>
-      )}
-      
-      {type === 'background' && (
-        <InfoDialog title={title} triggerLabel={`Інформація про ${title}`}>
-          {entity.description && (
-            <div className="text-sm text-slate-300">
-              {entity.description}
-            </div>
-          )}
-        </InfoDialog>
-      )}
-    </Card>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/SpellsPage.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { spellSchoolTranslations } from "@/lib/refs/translation";
-
-export default function SpellsPage({ pers }: { pers: PersWithRelations }) {
-  const spellsByLevel = pers.spells.reduce((acc, ps) => {
-    const level = ps.level;
-    if (!acc[level]) acc[level] = [];
-    acc[level].push(ps);
-    return acc;
-  }, {} as Record<number, typeof pers.spells>);
-
-  const levels = Object.keys(spellsByLevel).map(Number).sort((a, b) => a - b);
-
-  return (
-    <div className="space-y-4">
-      <Card>
-        <CardHeader className="pb-2">
-            <CardTitle>Заклинання</CardTitle>
-        </CardHeader>
-        <CardContent>
-            <div className="grid grid-cols-3 gap-2 text-center text-sm">
-                <div className="bg-secondary/20 p-2 rounded">
-                    <div className="text-xs text-muted-foreground">Складність</div>
-                    <div className="font-bold text-lg">--</div>
-                </div>
-                <div className="bg-secondary/20 p-2 rounded">
-                    <div className="text-xs text-muted-foreground">Атака</div>
-                    <div className="font-bold text-lg">--</div>
-                </div>
-                <div className="bg-secondary/20 p-2 rounded">
-                    <div className="text-xs text-muted-foreground">Характеристика</div>
-                    <div className="font-bold text-lg">--</div>
-                </div>
-            </div>
-        </CardContent>
-      </Card>
-
-      {levels.map(level => (
-        <Card key={level}>
-            <CardHeader className="pb-2 py-3 bg-secondary/10">
-                <CardTitle className="text-base flex justify-between items-center">
-                    <span>{level === 0 ? "Замовляння" : `Рівень ${level}`}</span>
-                    {level > 0 && (
-                        <Badge variant="outline">
-                            Комірки: --
-                        </Badge>
-                    )}
-                </CardTitle>
-            </CardHeader>
-            <CardContent className="p-0">
-                {spellsByLevel[level].map((spell, i) => (
-                    <div key={spell.spellId} className={`p-3 ${i !== spellsByLevel[level].length - 1 ? 'border-b' : ''}`}>
-                        <div className="font-medium">{spell.name}</div>
-                        <div className="text-xs text-muted-foreground truncate">
-                            {spellSchoolTranslations[spell.school as keyof typeof spellSchoolTranslations] || spell.school} • {spell.castingTime} • {spell.range}
-                        </div>
-                    </div>
-                ))}
-            </CardContent>
-        </Card>
-      ))}
-      
-      {levels.length === 0 && (
-        <div className="text-center text-muted-foreground py-8">
-            Заклинання не відомі
-        </div>
-      )}
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/characterSheet/StatsPage.tsx">
-"use client";
-
-import { PersWithRelations } from "@/lib/actions/pers";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getAbilityMod, formatModifier, getProficiencyBonus, skillAbilityMap } from "@/lib/logic/utils";
-import { Badge } from "@/lib/components/ui/badge";
-import { Skills } from "@prisma/client";
-
-export default function StatsPage({ pers }: { pers: PersWithRelations }) {
-  const pb = getProficiencyBonus(pers.level);
-
-  // Group all skills by ability score
-  const skillsByAbility = {
-    STR: [
-      { skill: Skills.ATHLETICS, name: "Атлетика" }
-    ],
-    DEX: [
-      { skill: Skills.ACROBATICS, name: "Акробатика" },
-      { skill: Skills.SLEIGHT_OF_HAND, name: "Спритність рук" },
-      { skill: Skills.STEALTH, name: "Непомітність" }
-    ],
-    INT: [
-      { skill: Skills.ARCANA, name: "Магія" },
-      { skill: Skills.HISTORY, name: "Історія" },
-      { skill: Skills.INVESTIGATION, name: "Розслідування" },
-      { skill: Skills.NATURE, name: "Природа" },
-      { skill: Skills.RELIGION, name: "Релігія" }
-    ],
-    WIS: [
-      { skill: Skills.ANIMAL_HANDLING, name: "Поводження з тваринами" },
-      { skill: Skills.INSIGHT, name: "Аналіз поведінки" },
-      { skill: Skills.MEDICINE, name: "Медицина" },
-      { skill: Skills.PERCEPTION, name: "Уважність" },
-      { skill: Skills.SURVIVAL, name: "Виживання" }
-    ],
-    CHA: [
-      { skill: Skills.DECEPTION, name: "Обман" },
-      { skill: Skills.INTIMIDATION, name: "Залякування" },
-      { skill: Skills.PERFORMANCE, name: "Виступ" },
-      { skill: Skills.PERSUASION, name: "Переконання" }
-    ]
-  };
-
-  const abilityGroups = [
-    { ability: "STR", name: "Сила", score: pers.str },
-    { ability: "DEX", name: "Спритність", score: pers.dex },
-    { ability: "INT", name: "Інтелект", score: pers.int },
-    { ability: "WIS", name: "Мудрість", score: pers.wis },
-    { ability: "CHA", name: "Харизма", score: pers.cha }
-  ] as const;
-
-  const getSkillProficiency = (skillName: Skills) => {
-    const persSkill = pers.skills.find(ps => ps.name === skillName);
-    return persSkill?.proficiencyType || 'NONE';
-  };
-
-  const calculateSkillModifier = (skillName: Skills, abilityScore: number) => {
-    const abilityMod = getAbilityMod(abilityScore);
-    const proficiency = getSkillProficiency(skillName);
-    let total = abilityMod;
-    if (proficiency === 'PROFICIENT') total += pb;
-    if (proficiency === 'EXPERTISE') total += pb * 2;
-    return { total, proficiency };
-  };
-
-  return (
-    <div className="space-y-3">
-      {abilityGroups.map(({ ability, name, score }) => (
-        <Card key={ability} className="bg-white/10 border-purple-300/30 backdrop-blur">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base flex items-center justify-between text-purple-50">
-              <span>{name}</span>
-              <span className="text-2xl font-bold text-purple-200">{formatModifier(getAbilityMod(score))}</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-1">
-            {skillsByAbility[ability as keyof typeof skillsByAbility].map(({ skill, name: skillName }) => {
-              const { total, proficiency } = calculateSkillModifier(skill, score);
-              const isProficient = proficiency !== 'NONE';
-              
-              return (
-                <div 
-                  key={skill} 
-                  className={`flex justify-between items-center border-b border-purple-400/20 last:border-0 py-1.5 ${!isProficient ? 'opacity-40' : ''}`}
-                >
-                  <span className="text-sm text-purple-100">{skillName}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-sm text-purple-200">{formatModifier(total)}</span>
-                    {proficiency !== 'NONE' && (
-                      <Badge variant="secondary" className="text-[10px] h-5 px-1.5 bg-purple-500/30 text-purple-100 border-purple-400/30">
-                        {proficiency === 'EXPERTISE' ? 'Експ' : 'Проф'}
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-}
-</file>
-
 <file path="src/lib/components/icons/Logo.tsx">
 import Image from "next/image";
 
@@ -12679,390 +8476,6 @@ export const Logo = () => {
       />
     </div>
   )
-}
-</file>
-
-<file path="src/lib/components/levelUp/LevelUpASIForm.tsx">
-"use client";
-
-import { useState, useEffect } from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
-// import { Button } from "@/lib/components/ui/Button";
-import { Badge } from "@/lib/components/ui/badge";
-import { Label } from "@/lib/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/lib/components/ui/select";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
-import { Feat } from "@prisma/client";
-import { Ability } from "@prisma/client";
-
-interface Props {
-  feats: Feat[];
-  formId: string;
-  onNextDisabledChange?: (disabled: boolean) => void;
-}
-
-const ABILITIES = Object.values(Ability);
-
-export default function LevelUpASIForm({ feats, onNextDisabledChange }: Props) {
-  const { updateFormData, formData } = usePersFormStore();
-  const [choiceType, setChoiceType] = useState<"ASI" | "FEAT">("ASI");
-  
-  // ASI State
-  const [asiSelection, setAsiSelection] = useState<{ ability: string; value: number }[]>([]);
-  
-  // Sync with store
-  useEffect(() => {
-      if (choiceType === "ASI") {
-          // Clear feat
-          updateFormData({ featId: undefined });
-          
-          // Update customAsi
-          // We use customAsi to store the bonuses: [{ability: 'STR', value: '2'}]
-          const formatted = asiSelection.map(s => ({ ability: s.ability, value: s.value.toString() }));
-          // Fill to 6 items to satisfy schema if needed, or just pass what we have if schema allows optional
-          // The schema expects 6 items for CUSTOM system.
-          // We might need to bypass the schema validation for Level Up or mock the rest.
-          // Actually, for Level Up we don't use the full creation schema validation.
-          // We will validate manually in the action.
-          updateFormData({ customAsi: formatted as any });
-          
-          const total = asiSelection.reduce((acc, s) => acc + s.value, 0);
-          const isValid = total === 2 && asiSelection.length > 0;
-          onNextDisabledChange?.(!isValid);
-      } else {
-          // Clear ASI
-          updateFormData({ customAsi: [] });
-          // Feat validation is handled by FeatsForm? 
-          // FeatsForm uses useStepForm which validates featId.
-          // But here we are wrapping it.
-          // We need to check if featId is set.
-          const isValid = !!formData.featId;
-          onNextDisabledChange?.(!isValid);
-      }
-  }, [choiceType, asiSelection, formData.featId, updateFormData, onNextDisabledChange]);
-
-  const handleAsiChange = (index: number, ability: string) => {
-      const newSel = [...asiSelection];
-      if (!newSel[index]) newSel[index] = { ability, value: 1 };
-      else newSel[index].ability = ability;
-      setAsiSelection(newSel);
-  };
-
-  return (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Оберіть покращення</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <RadioGroup 
-            value={choiceType} 
-            onValueChange={(v) => setChoiceType(v as "ASI" | "FEAT")}
-            className="flex gap-4"
-          >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="ASI" id="asi" />
-              <Label htmlFor="asi">Покращення характеристик (+2)</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="FEAT" id="feat" />
-              <Label htmlFor="feat">Риса (Feat)</Label>
-            </div>
-          </RadioGroup>
-        </CardContent>
-      </Card>
-
-      {choiceType === "ASI" && (
-        <Card>
-            <CardHeader>
-                <CardTitle>Розподіл характеристик</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                <div className="flex gap-4 items-center">
-                    <Label>Варіант:</Label>
-                    <Select 
-                        value={asiSelection.length === 1 && asiSelection[0].value === 2 ? "single" : "split"}
-                        onValueChange={(v) => {
-                            if (v === "single") setAsiSelection([{ ability: ABILITIES[0], value: 2 }]);
-                            else setAsiSelection([{ ability: ABILITIES[0], value: 1 }, { ability: ABILITIES[1], value: 1 }]);
-                        }}
-                    >
-                        <SelectTrigger className="w-[200px]">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="single">+2 до однієї</SelectItem>
-                            <SelectItem value="split">+1 до двох</SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
-
-                {asiSelection.map((sel, idx) => (
-                    <div key={idx} className="flex gap-4 items-center">
-                        <Label>Характеристика {idx + 1}</Label>
-                        <Select 
-                            value={sel.ability} 
-                            onValueChange={(v) => handleAsiChange(idx, v)}
-                        >
-                            <SelectTrigger className="w-[200px]">
-                                <SelectValue />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {ABILITIES.map(a => (
-                                    <SelectItem key={a} value={a}>{a}</SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                        <Badge>+{sel.value}</Badge>
-                    </div>
-                ))}
-            </CardContent>
-        </Card>
-      )}
-
-      {choiceType === "FEAT" && (
-          <FeatsForm feats={feats} formId="feat-form-internal" />
-      )}
-    </div>
-  );
-}
-</file>
-
-<file path="src/lib/components/levelUp/LevelUpWizard.tsx">
-"use client";
-
-import { useEffect, useState } from "react";
-import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Button } from "@/lib/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { ChevronLeft, ChevronRight, Check } from "lucide-react";
-import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
-import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
-import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
-import LevelUpASIForm from "@/lib/components/levelUp/LevelUpASIForm";
-import { ClassI } from "@/lib/types/model-types";
-
-type LevelUpInfo = Awaited<ReturnType<typeof getLevelUpInfo>>;
-
-interface Props {
-  info: LevelUpInfo;
-}
-
-export default function LevelUpWizard({ info }: Props) {
-  const { resetForm, formData } = usePersFormStore();
-  const [currentStep, setCurrentStep] = useState(0);
-  const [nextDisabled, setNextDisabled] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
-
-  // Initialize store
-  useEffect(() => {
-      resetForm();
-      // We don't need to load old data for new choices, 
-      // but we might need to load existing choices to prevent duplicates if we were editing.
-      // For Level Up, we start fresh.
-  }, [resetForm]);
-
-  if ('error' in info) return <div>Error: {info.error}</div>;
-
-  const { 
-      pers, needsSubclass, isASILevel, 
-      classChoiceGroups, 
-      subclassChoiceGroups,
-      feats,
-      nextLevel
-  } = info;
-
-  // Define Steps
-  const steps = [
-      { id: 'summary', title: 'Новий рівень', component: <SummaryStep info={info} /> },
-      ...(needsSubclass ? [{ id: 'subclass', title: 'Підклас', component: <SubclassForm cls={pers.class as unknown as ClassI} formId="subclass-form" onNextDisabledChange={setNextDisabled} /> }] : []),
-      ...(Object.keys(classChoiceGroups).length > 0 ? [{ 
-          id: 'class-choices', 
-          title: 'Опції класу', 
-          component: <ClassChoiceOptionsForm 
-              availableOptions={Object.values(classChoiceGroups).flat()} 
-              formId="class-choice-form" 
-              onNextDisabledChange={setNextDisabled} 
-          /> 
-      }] : []),
-      ...(Object.keys(subclassChoiceGroups).length > 0 ? [{ 
-          id: 'subclass-choices', 
-          title: 'Опції підкласу', 
-          component: <SubclassChoiceOptionsForm 
-              availableOptions={Object.values(subclassChoiceGroups).flat()} 
-              formId="subclass-choice-form" 
-              onNextDisabledChange={setNextDisabled} 
-          /> 
-      }] : []),
-      ...(isASILevel ? [{ 
-          id: 'asi', 
-          title: 'Покращення', 
-          component: <LevelUpASIForm feats={feats} formId="asi-form" onNextDisabledChange={setNextDisabled} /> 
-      }] : []),
-      { id: 'confirm', title: 'Підтвердження', component: <ConfirmStep info={info} formData={formData} /> }
-  ];
-
-  const handleNext = async () => {
-      if (currentStep < steps.length - 1) {
-          setCurrentStep(prev => prev + 1);
-          setNextDisabled(false); // Reset for next step (components should set it to true if needed on mount)
-      } else {
-          // Submit
-          setIsSubmitting(true);
-          try {
-              const result = await levelUpCharacter(pers.persId, formData);
-              if ('error' in result) {
-                  toast.error(result.error);
-              } else {
-                  toast.success("Рівень підвищено!");
-                  router.push(`/pers/${pers.persId}`);
-              }
-          } catch {
-              toast.error("Помилка при збереженні");
-          } finally {
-              setIsSubmitting(false);
-          }
-      }
-  };
-
-  const handlePrev = () => {
-      if (currentStep > 0) {
-          setCurrentStep(prev => prev - 1);
-          setNextDisabled(false);
-      }
-  };
-
-  const CurrentComponent = steps[currentStep].component;
-
-  return (
-    <div className="container mx-auto py-8 px-4 max-w-3xl">
-        <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">Підвищення рівня до {nextLevel}</h1>
-            <div className="flex gap-2 overflow-x-auto pb-2">
-                {steps.map((s, i) => (
-                    <div key={s.id} className={`flex items-center whitespace-nowrap ${i === currentStep ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center border mr-2 ${i === currentStep ? 'border-primary bg-primary text-primary-foreground' : 'border-muted-foreground'}`}>
-                            {i + 1}
-                        </div>
-                        {s.title}
-                        {i < steps.length - 1 && <div className="mx-2 h-[1px] w-4 bg-border" />}
-                    </div>
-                ))}
-            </div>
-        </div>
-
-        <div className="mb-8 min-h-[300px]">
-            {CurrentComponent}
-        </div>
-
-        <div className="flex justify-between">
-            <Button variant="outline" onClick={handlePrev} disabled={currentStep === 0 || isSubmitting}>
-                <ChevronLeft className="mr-2 h-4 w-4" /> Назад
-            </Button>
-            <Button onClick={handleNext} disabled={nextDisabled || isSubmitting}>
-                {currentStep === steps.length - 1 ? (
-                    isSubmitting ? "Збереження..." : "Підвищити рівень"
-                ) : (
-                    <>Далі <ChevronRight className="ml-2 h-4 w-4" /></>
-                )}
-            </Button>
-        </div>
-    </div>
-  );
-}
-
-function SummaryStep({ info }: { info: any }) {
-    const { nextLevel, newClassFeatures, newSubclassFeatures, pers } = info;
-    // Calculate HP increase (Average or Roll? Usually average for simplicity in this app unless we add rolling)
-    // Hit Die: pers.class.hitDie
-    const conMod = Math.floor((pers.con - 10) / 2);
-    const hpIncrease = Math.floor(pers.class.hitDie / 2) + 1 + conMod;
-
-    return (
-        <Card>
-            <CardHeader>
-                <CardTitle>Вітаємо з {nextLevel}-м рівнем!</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-secondary/20 rounded-lg">
-                    <span className="font-bold">HP Increase</span>
-                    <span className="text-2xl font-bold text-green-600">+{hpIncrease}</span>
-                </div>
-                
-                {newClassFeatures.length > 0 && (
-                    <div>
-                        <h3 className="font-semibold mb-2">Нові класові вміння:</h3>
-                        <ul className="space-y-2">
-                            {newClassFeatures.map((f: any) => (
-                                <li key={f.featureId} className="border p-3 rounded">
-                                    <div className="font-bold">{f.feature.name}</div>
-                                    <div className="text-sm text-muted-foreground">{f.feature.shortDescription || f.feature.description}</div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-
-                {newSubclassFeatures.length > 0 && (
-                    <div>
-                        <h3 className="font-semibold mb-2">Нові вміння підкласу:</h3>
-                        <ul className="space-y-2">
-                            {newSubclassFeatures.map((f: any) => (
-                                <li key={f.featureId} className="border p-3 rounded">
-                                    <div className="font-bold">{f.feature.name}</div>
-                                    <div className="text-sm text-muted-foreground">{f.feature.shortDescription || f.feature.description}</div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-            </CardContent>
-        </Card>
-    );
-}
-
-function ConfirmStep({ formData }: { info: any, formData: any }) {
-    return (
-        <Card>
-            <CardHeader>
-                <CardTitle>Перевірка змін</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                <p>Ви готові підвищити рівень персонажа?</p>
-                {/* We could list the choices made here */}
-                {formData.subclassId && (
-                    <div className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-green-500" />
-                        <span>Підклас обрано</span>
-                    </div>
-                )}
-                {Object.keys(formData.classChoiceSelections || {}).length > 0 && (
-                    <div className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-green-500" />
-                        <span>Опції класу обрано</span>
-                    </div>
-                )}
-                 {Object.keys(formData.subclassChoiceSelections || {}).length > 0 && (
-                    <div className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-green-500" />
-                        <span>Опції підкласу обрано</span>
-                    </div>
-                )}
-                {(formData.featId || (formData.customAsi && formData.customAsi.length > 0)) && (
-                    <div className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-green-500" />
-                        <span>Покращення обрано</span>
-                    </div>
-                )}
-            </CardContent>
-        </Card>
-    );
 }
 </file>
 
@@ -13147,639 +8560,6 @@ export const Tasks = () => {
 }
 
 export default Tasks
-</file>
-
-<file path="src/lib/components/ui/badge.tsx">
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-
-import { cn } from "@/lib/utils"
-
-const badgeVariants = cva(
-  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-  {
-    variants: {
-      variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "text-foreground",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
-
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
-
-function Badge({ className, variant, ...props }: BadgeProps) {
-  return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
-}
-
-export { Badge, badgeVariants }
-</file>
-
-<file path="src/lib/components/ui/Button.tsx">
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
-
-import { cn } from "@/lib/utils"
-
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-  {
-    variants: {
-      variant: {
-        default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-)
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
-}
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Button.displayName = "Button"
-
-export { Button, buttonVariants }
-</file>
-
-<file path="src/lib/components/ui/card.tsx">
-import * as React from "react"
-
-import { cn } from "@/lib/utils"
-
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-xl border bg-card text-card-foreground shadow",
-      className
-    )}
-    {...props}
-  />
-))
-Card.displayName = "Card"
-
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
-    {...props}
-  />
-))
-CardHeader.displayName = "CardHeader"
-
-const CardTitle = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("font-semibold leading-none tracking-tight", className)}
-    {...props}
-  />
-))
-CardTitle.displayName = "CardTitle"
-
-const CardDescription = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
-))
-CardDescription.displayName = "CardDescription"
-
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-))
-CardContent.displayName = "CardContent"
-
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
-    {...props}
-  />
-))
-CardFooter.displayName = "CardFooter"
-
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
-</file>
-
-<file path="src/lib/components/ui/checkbox.tsx">
-"use client"
-
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { Check } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-
-const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <CheckboxPrimitive.Root
-    ref={ref}
-    className={cn(
-      "grid place-content-center peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-      className
-    )}
-    {...props}
-  >
-    <CheckboxPrimitive.Indicator
-      className={cn("grid place-content-center text-current")}
-    >
-      <Check className="h-4 w-4" />
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
-))
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
-
-export { Checkbox }
-</file>
-
-<file path="src/lib/components/ui/input.tsx">
-import * as React from "react"
-
-import { cn } from "@/lib/utils"
-
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Input.displayName = "Input"
-
-export { Input }
-</file>
-
-<file path="src/lib/components/ui/label.tsx">
-"use client"
-
-import * as React from "react"
-import * as LabelPrimitive from "@radix-ui/react-label"
-import { cva, type VariantProps } from "class-variance-authority"
-
-import { cn } from "@/lib/utils"
-
-const labelVariants = cva(
-  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-)
-
-const Label = React.forwardRef<
-  React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
-    VariantProps<typeof labelVariants>
->(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root
-    ref={ref}
-    className={cn(labelVariants(), className)}
-    {...props}
-  />
-))
-Label.displayName = LabelPrimitive.Root.displayName
-
-export { Label }
-</file>
-
-<file path="src/lib/components/ui/Modal.tsx">
-"use client"
-
-import { ReactNode, useEffect, useRef } from "react";
-
-interface Props {
-  open: boolean;
-  onClose: () => void;
-  children: ReactNode;
-}
-
-export const Modal = ({open, onClose, children}: Props) => {
-  const ref = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    const dialog = ref.current;
-    if (!dialog) return;
-
-    if (open) {
-      if (!dialog.open) dialog.showModal();
-    } else {
-      if (dialog.open) dialog.close();
-    }
-  }, [open])
-
-  useEffect(() => {
-    const dialog = ref.current;
-    if (!dialog) return;
-
-    const handleCancel = (e: Event) => {
-      e.preventDefault();
-      onClose();
-    }
-
-    dialog.addEventListener("cancel", handleCancel);
-    return () => dialog.removeEventListener("cancel", handleCancel);
-  }, [onClose]);
-
-  return (
-    <dialog
-      ref={ref}
-      className="
-        rounded-xl
-        bg-slate-700
-        text-white
-        backdrop:bg-slate-950/60
-        backdrop:backdrop-blur-sm
-        p-0
-        open:animate-fadeIn
-        animate-fadeOut
-      "
-    >
-      <div className="p-6">{children}</div>
-    </dialog>
-  )
-}
-
-export default Modal;
-</file>
-
-<file path="src/lib/components/ui/Navigation.tsx">
-import { Logo } from "@/lib/components/icons/Logo";
-
-export const Navigation = () => {
-  return (
-    <nav className="row-start-2 md:row-start-1 md:col-start-1 flex w-full flex-row items-center justify-center gap-4 border-t border-slate-800/70 bg-slate-900/70 px-3 py-2 shadow-lg md:h-screen md:flex-col md:justify-between md:border-t-0 md:border-r md:px-2 md:py-4 md:sticky md:top-0">
-      <div className="flex flex-row items-center gap-3 md:flex-col md:gap-4">
-        <a href="/spells" className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/80 shadow-inner md:mt-2">
-          <Logo/>
-        </a>
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/60 text-slate-400">1</div>
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/60 text-slate-400">2</div>
-      </div>
-      <div className="hidden md:flex flex-col gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800/60 text-slate-400">⚙️</div>
-      </div>
-    </nav>
-  )
-}
-</file>
-
-<file path="src/lib/components/ui/select.tsx">
-"use client"
-
-import * as React from "react"
-import * as SelectPrimitive from "@radix-ui/react-select"
-import { Check, ChevronDown, ChevronUp } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-
-const Select = SelectPrimitive.Root
-
-const SelectGroup = SelectPrimitive.Group
-
-const SelectValue = SelectPrimitive.Value
-
-const SelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <SelectPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
-      className
-    )}
-    {...props}
-  >
-    {children}
-    <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
-    </SelectPrimitive.Icon>
-  </SelectPrimitive.Trigger>
-))
-SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
-
-const SelectScrollUpButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.ScrollUpButton
-    ref={ref}
-    className={cn(
-      "flex cursor-default items-center justify-center py-1",
-      className
-    )}
-    {...props}
-  >
-    <ChevronUp className="h-4 w-4" />
-  </SelectPrimitive.ScrollUpButton>
-))
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
-
-const SelectScrollDownButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.ScrollDownButton
-    ref={ref}
-    className={cn(
-      "flex cursor-default items-center justify-center py-1",
-      className
-    )}
-    {...props}
-  >
-    <ChevronDown className="h-4 w-4" />
-  </SelectPrimitive.ScrollDownButton>
-))
-SelectScrollDownButton.displayName =
-  SelectPrimitive.ScrollDownButton.displayName
-
-const SelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, position = "popper", ...props }, ref) => (
-  <SelectPrimitive.Portal>
-    <SelectPrimitive.Content
-      ref={ref}
-      className={cn(
-        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        position === "popper" &&
-          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
-        className
-      )}
-      position={position}
-      {...props}
-    >
-      <SelectScrollUpButton />
-      <SelectPrimitive.Viewport
-        className={cn(
-          "p-1",
-          position === "popper" &&
-            "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"
-        )}
-      >
-        {children}
-      </SelectPrimitive.Viewport>
-      <SelectScrollDownButton />
-    </SelectPrimitive.Content>
-  </SelectPrimitive.Portal>
-))
-SelectContent.displayName = SelectPrimitive.Content.displayName
-
-const SelectLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.Label
-    ref={ref}
-    className={cn("py-1.5 pl-8 pr-2 text-sm font-semibold", className)}
-    {...props}
-  />
-))
-SelectLabel.displayName = SelectPrimitive.Label.displayName
-
-const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(({ className, children, ...props }, ref) => (
-  <SelectPrimitive.Item
-    ref={ref}
-    className={cn(
-      "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      className
-    )}
-    {...props}
-  >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-      <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
-      </SelectPrimitive.ItemIndicator>
-    </span>
-
-    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-  </SelectPrimitive.Item>
-))
-SelectItem.displayName = SelectPrimitive.Item.displayName
-
-const SelectSeparator = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.Separator
-    ref={ref}
-    className={cn("-mx-1 my-1 h-px bg-muted", className)}
-    {...props}
-  />
-))
-SelectSeparator.displayName = SelectPrimitive.Separator.displayName
-
-export {
-  Select,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
-  SelectContent,
-  SelectLabel,
-  SelectItem,
-  SelectSeparator,
-  SelectScrollUpButton,
-  SelectScrollDownButton,
-}
-</file>
-
-<file path="src/lib/components/ui/sonner.tsx">
-"use client"
-
-import { useTheme } from "next-themes"
-import { Toaster as Sonner } from "sonner"
-
-type ToasterProps = React.ComponentProps<typeof Sonner>
-
-const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
-
-  return (
-    <Sonner
-      theme={theme as ToasterProps["theme"]}
-      className="toaster group"
-      toastOptions={{
-        classNames: {
-          toast:
-            "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:text-muted-foreground",
-          actionButton:
-            "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
-          cancelButton:
-            "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
-        },
-      }}
-      {...props}
-    />
-  )
-}
-
-export { Toaster }
-</file>
-
-<file path="src/lib/components/ui/switch.tsx">
-"use client"
-
-import * as React from "react"
-import * as SwitchPrimitives from "@radix-ui/react-switch"
-
-import { cn } from "@/lib/utils"
-
-const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitives.Root>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
->(({ className, ...props }, ref) => (
-  <SwitchPrimitives.Root
-    className={cn(
-      "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
-      className
-    )}
-    {...props}
-    ref={ref}
-  >
-    <SwitchPrimitives.Thumb
-      className={cn(
-        "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
-      )}
-    />
-  </SwitchPrimitives.Root>
-))
-Switch.displayName = SwitchPrimitives.Root.displayName
-
-export { Switch }
-</file>
-
-<file path="src/lib/components/ui/tabs.tsx">
-"use client"
-
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
-
-import { cn } from "@/lib/utils"
-
-const Tabs = TabsPrimitive.Root
-
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.List
-    ref={ref}
-    className={cn(
-      "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
-      className
-    )}
-    {...props}
-  />
-))
-TabsList.displayName = TabsPrimitive.List.displayName
-
-const TabsTrigger = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
-      className
-    )}
-    {...props}
-  />
-))
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
-
-const TabsContent = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content
-    ref={ref}
-    className={cn(
-      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      className
-    )}
-    {...props}
-  />
-))
-TabsContent.displayName = TabsPrimitive.Content.displayName
-
-export { Tabs, TabsList, TabsTrigger, TabsContent }
 </file>
 
 <file path="src/lib/hooks/useMediaQuery.ts">
@@ -14220,6 +9000,472 @@ export const classAbilityScores: Record<Classes, Array<{ability: Ability, value:
     { ability: Ability.CHA, value: 10 }
   ]
 };
+</file>
+
+<file path="src/lib/refs/fantasyNames.ts">
+const SEED_NAMES = [
+  "Вогнеслав",
+  "Зоряна",
+  "Громовиця",
+  "Лісодух",
+  "Камнелом",
+  "Буревій",
+  "Олдрік",
+  "Терон",
+  "Лісандра",
+  "Елара",
+  "Кейл",
+  "Міра",
+  "Серафіна",
+  "Вален",
+  "Ізольда",
+  "Аеліндор",
+  "Фаелар",
+  "Сільваніс",
+  "Тандоріель",
+  "Лутієн",
+  "Торін",
+  "Балін",
+  "Двалін",
+  "Гімлі",
+  "Дурін",
+  "Ґроґ",
+  "Круск",
+  "Рогар",
+  "Акмен",
+  "Інферно",
+  "Надія",
+  "Відчай",
+  "Сутінь",
+  "Промінь",
+  "Хмара",
+] as const;
+
+function mulberry32(seed: number) {
+  let a = seed >>> 0;
+  return function next() {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function capFirst(value: string) {
+  if (!value) return value;
+  return value[0].toUpperCase() + value.slice(1);
+}
+
+function squeeze(value: string) {
+  // Light de-dup for accidental double separators.
+  return value
+    .replace(/--+/g, "-")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function pick<T>(rng: () => number, list: readonly T[]): T {
+  return list[Math.floor(rng() * list.length)];
+}
+
+const UA_TRAD = [
+  "Ярослав",
+  "Святослав",
+  "Богдан",
+  "Володимир",
+  "Ростислав",
+  "Людмила",
+  "Оксана",
+  "Соломія",
+  "Марія",
+  "Злата",
+  "Мирослав",
+  "Мирослава",
+  "Станіслав",
+  "Вікторія",
+  "Данило",
+  "Іван",
+  "Тарас",
+  "Леся",
+  "Назар",
+  "Калина",
+] as const;
+
+const UA_ROOTS = [
+  "вогн",
+  "зор",
+  "грім",
+  "ліс",
+  "вод",
+  "кам",
+  "світ",
+  "темн",
+  "бур",
+  "вітр",
+  "місяц",
+  "сонц",
+  "криж",
+  "попіл",
+  "зіл",
+  "тін",
+  "град",
+  "клин",
+  "крил",
+  "душ",
+] as const;
+
+const UA_PREFIX = [
+  "Вогне",
+  "Зоре",
+  "Громо",
+  "Лісо",
+  "Водо",
+  "Камне",
+  "Світло",
+  "Темно",
+  "Буре",
+  "Вітро",
+  "Місяце",
+  "Сонце",
+  "Криго",
+  "Попело",
+  "Тіне",
+] as const;
+
+const UA_SUFFIX = [
+  "слав",
+  "слава",
+  "вик",
+  "вій",
+  "бій",
+  "бор",
+  "риц(я)",
+  "дух",
+  "пад",
+  "мор",
+  "крила",
+  "ликий",
+  "хід",
+  "мудр",
+] as const;
+
+const UA_SUFFIX_CLEAN = [
+  "слав",
+  "слава",
+  "вик",
+  "вій",
+  "бій",
+  "бор",
+  "риця",
+  "дух",
+  "пад",
+  "мор",
+  "крила",
+  "ликий",
+  "хід",
+  "мудр",
+] as const;
+
+const ELF_PRE = [
+  "Ае",
+  "Ела",
+  "Ілі",
+  "Лу",
+  "Сі",
+  "Та",
+  "Ке",
+  "Фае",
+  "Мі",
+  "Гала",
+  "Ні",
+  "Ері",
+] as const;
+
+const ELF_MID = [
+  "лін",
+  "ріо",
+  "ндор",
+  "віа",
+  "фел",
+  "сіль",
+  "тір",
+  "мар",
+  "дор",
+  "ніель",
+  "ран",
+  "лен",
+] as const;
+
+const ELF_SUF = [
+  "іель",
+  "ор",
+  "он",
+  "іс",
+  "ель",
+  "ан",
+  "іна",
+  "іон",
+  "ає",
+  "ер",
+] as const;
+
+const DWARF_PRE = [
+  "Тор",
+  "Бал",
+  "Двал",
+  "Дур",
+  "Гім",
+  "Брун",
+  "Хіль",
+  "Рун",
+  "Крем",
+  "Гран",
+  "Вуг",
+  "Заліз",
+] as const;
+
+const DWARF_SUF = [
+  "ін",
+  "ар",
+  "ур",
+  "ім",
+  "ек",
+  "дор",
+  "бород",
+  "молот",
+  "коп",
+  "кам",
+] as const;
+
+const ORC_PRE = [
+  "Ґро",
+  "Кру",
+  "Ток",
+  "Ро",
+  "Шар",
+  "Гру",
+  "Дро",
+  "Зур",
+  "Храг",
+  "Бру",
+] as const;
+
+const ORC_SUF = [
+  "ґ",
+  "ск",
+  "к",
+  "р",
+  "ш",
+  "г",
+  "т",
+  "м",
+  "шк",
+] as const;
+
+const TIEF_WORDS = [
+  "Надія",
+  "Відчай",
+  "Страх",
+  "Ідеал",
+  "Покора",
+  "Воля",
+  "Гордість",
+  "Помста",
+  "Слава",
+  "Таїна",
+] as const;
+
+const TIEF_PRE = [
+  "Ак",
+  "Зе",
+  "Мор",
+  "Інф",
+  "Дем",
+  "Пек",
+  "Сар",
+  "Ве",
+  "Кал",
+] as const;
+
+const TIEF_SUF = [
+  "мен",
+  "ріан",
+  "фір",
+  "зіс",
+  "тор",
+  "на",
+  "іс",
+  "іон",
+] as const;
+
+const GNOME_PRE = [
+  "Ол",
+  "Бод",
+  "Дім",
+  "Брок",
+  "Тін",
+  "Флік",
+  "Блим",
+  "Цікав",
+  "Штуч",
+] as const;
+
+const GNOME_SUF = [
+  "стон",
+  "дінок",
+  "бл",
+  "лер",
+  "ік",
+  "ко",
+  "авка",
+  "чик",
+] as const;
+
+const HALFLING_PRE = [
+  "Лай",
+  "Мер",
+  "Кал",
+  "Ко",
+  "Джі",
+  "Лін",
+  "Ос",
+] as const;
+
+const HALFLING_SUF = [
+  "л",
+  "рік",
+  "лі",
+  "ра",
+  "іан",
+  "ет",
+  "ік",
+] as const;
+
+const EXOTIC_PRE = [
+  "Ґітх",
+  "Крук",
+  "Лап",
+  "Крил",
+  "Таба",
+  "Кен",
+  "Аара",
+  "Сах",
+] as const;
+
+const EXOTIC_SUF = [
+  "-Вар",
+  "ар",
+  "астик",
+  "ань",
+  "ік",
+  "ра",
+  "ок",
+] as const;
+
+function buildUkrFantasy(rng: () => number) {
+  const prefix = pick(rng, UA_PREFIX);
+  const suffix = pick(rng, UA_SUFFIX_CLEAN);
+
+  // Two simple patterns for variety.
+  if (rng() < 0.5) {
+    return squeeze(`${prefix}${capFirst(suffix)}`);
+  }
+  const root = pick(rng, UA_ROOTS);
+  return squeeze(`${prefix}${capFirst(root)}${capFirst(suffix)}`);
+}
+
+function buildElf(rng: () => number) {
+  const pre = pick(rng, ELF_PRE);
+  const mid = pick(rng, ELF_MID);
+  const suf = pick(rng, ELF_SUF);
+  return squeeze(`${pre}${mid}${suf}`);
+}
+
+function buildDwarf(rng: () => number) {
+  const pre = pick(rng, DWARF_PRE);
+  const suf = pick(rng, DWARF_SUF);
+  const maybeTitle = rng() < 0.15 ? `-${pick(rng, ["Камнесік", "Залізобород", "Рудокоп", "Молотобій"] as const)}` : "";
+  return squeeze(`${pre}${suf}${maybeTitle}`);
+}
+
+function buildOrc(rng: () => number) {
+  const pre = pick(rng, ORC_PRE);
+  const suf = pick(rng, ORC_SUF);
+  return squeeze(`${pre}${suf}`);
+}
+
+function buildTiefling(rng: () => number) {
+  if (rng() < 0.35) return pick(rng, TIEF_WORDS);
+  const pre = pick(rng, TIEF_PRE);
+  const suf = pick(rng, TIEF_SUF);
+  return squeeze(`${pre}${suf}`);
+}
+
+function buildGnome(rng: () => number) {
+  const pre = pick(rng, GNOME_PRE);
+  const suf = pick(rng, GNOME_SUF);
+  return squeeze(`${pre}${suf}`);
+}
+
+function buildHalfling(rng: () => number) {
+  const pre = pick(rng, HALFLING_PRE);
+  const suf = pick(rng, HALFLING_SUF);
+  const cozy = rng() < 0.2 ? pick(rng, ["Смачненко", "Веселко", "Затишко", "Добряк", "Пиріжко"] as const) : "";
+  return cozy ? cozy : squeeze(`${pre}${suf}`);
+}
+
+function buildExotic(rng: () => number) {
+  const pre = pick(rng, EXOTIC_PRE);
+  const suf = pick(rng, EXOTIC_SUF);
+  return squeeze(`${pre}${suf}`);
+}
+
+function buildHuman(rng: () => number) {
+  if (rng() < 0.35) return pick(rng, UA_TRAD);
+  // Adapted classic fantasy-ish.
+  const pre = pick(rng, ["Ал", "Ол", "Тер", "Ліс", "Ел", "Ка", "До", "Сер", "Вал", "Із"] as const);
+  const mid = pick(rng, ["др", "ан", "ел", "ор", "іа", "ен", "ар", "іс", "ла", "он"] as const);
+  const suf = pick(rng, ["ік", "ан", "ор", "а", "ія", "ель", "іна", "он", "ар"] as const);
+  return squeeze(`${pre}${mid}${suf}`);
+}
+
+function generateFantasyNames(targetCount: number) {
+  const rng = mulberry32(0xC0FFEE);
+  const out = new Set<string>(SEED_NAMES);
+
+  const builders = [
+    buildHuman,
+    buildElf,
+    buildDwarf,
+    buildOrc,
+    buildTiefling,
+    buildGnome,
+    buildHalfling,
+    buildExotic,
+    buildUkrFantasy,
+  ] as const;
+
+  // Ensure at least some purely-UA compound names.
+  for (let i = 0; i < 200 && out.size < targetCount; i++) {
+    out.add(buildUkrFantasy(rng));
+  }
+
+  while (out.size < targetCount) {
+    const builder = pick(rng, builders);
+    const name = builder(rng);
+
+    // Filter super short / weird cases.
+    if (name.length < 3) continue;
+    if (name.length > 24) continue;
+
+    out.add(name);
+  }
+
+  return Array.from(out);
+}
+
+export const FANTASY_NAMES = generateFantasyNames(3000) as readonly string[];
 </file>
 
 <file path="src/lib/refs/static.ts">
@@ -15252,78 +10498,6 @@ Shifting: Beasthide
 Shifting: Longtooth
 Shifting: Swiftstride
 Shifting: Wildhunt
-</file>
-
-<file path="tailwind.config.ts">
-import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
-
-const config: Config = {
-  darkMode: ["class"],
-  content: ["./src/app/**/*.{js,ts,jsx,tsx}", "./src/lib/**/*.{js,ts,jsx,tsx}"],
-  safelist: [
-    "bg-violet-700",
-    "bg-violet-900",
-    "hover:bg-violet-700",
-    "hover:bg-violet-800",
-    "border-slate-700",
-    "border-slate-800",
-  ],
-  theme: {
-    extend: {
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
-        },
-      },
-    },
-  },
-  plugins: [tailwindcssAnimate],
-};
-
-export default config;
 </file>
 
 <file path="test_pg.js">
@@ -17974,9 +13148,6 @@ enum Subraces {
   DRAGONBORN_RED
   DRAGONBORN_SILVER
   DRAGONBORN_WHITE
-  DRAGONBORN_CHROMATIC
-  DRAGONBORN_METALLIC
-  DRAGONBORN_GEM
   DRAGONBORN_DRACONBLOOD
   DRAGONBORN_RAVENITE
   AASIMAR_PROTECTOR
@@ -18031,6 +13202,8 @@ enum Variants {
   HUMAN_MARK_OF_SENTINEL_EBERRON
   // Elf Dragonmarks (EBERRON)
   ELF_MARK_OF_SHADOW_EBERRON
+
+  HALF_ORC_MARK_OF_FINDING_EBERRON
 }
 </file>
 
@@ -18126,7 +13299,7 @@ model ClassFeature {
   mechanicDescription String? @map("mechanic_description") @db.Text
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  class   Class   @relation(fields: [classId], references: [classId])
+  class   Class   @relation(fields: [classId], references: [classId], onDelete: Cascade)
 
   @@index([classId, levelGranted])
   @@index([mechanicType])
@@ -18299,11 +13472,11 @@ model Pers {
   wearsNaturalArmor     Boolean @default(false) @map("wears_natural_armor")
 
   user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  class      Class      @relation(fields: [classId], references: [classId])
-  subclass   Subclass?  @relation(fields: [subclassId], references: [subclassId])
-  race       Race       @relation(fields: [raceId], references: [raceId])
-  subrace    Subrace?   @relation(fields: [subraceId], references: [subraceId])
-  background Background @relation(fields: [backgroundId], references: [backgroundId])
+  class      Class      @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  subclass   Subclass?  @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
+  race       Race       @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  subrace    Subrace?   @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
+  background Background @relation(fields: [backgroundId], references: [backgroundId], onDelete: Cascade)
 
   skills                PersSkill[]
   multiclasses          PersMulticlass[]
@@ -18340,8 +13513,8 @@ model PersArmor {
 
   equipped Boolean @default(false)
 
-  pers  Pers  @relation(fields: [persId], references: [persId])
-  armor Armor @relation(fields: [armorId], references: [armorId])
+  pers  Pers  @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  armor Armor @relation(fields: [armorId], references: [armorId], onDelete: Cascade)
 
   // Opposite side of PersInfusion.armor
   infusions PersInfusion[]
@@ -18357,8 +13530,8 @@ model PersFeat {
   featId     Int @map("feat_id")
   persId     Int @map("pers_id")
 
-  feat Feat @relation(fields: [featId], references: [featId])
-  pers Pers @relation(fields: [persId], references: [persId])
+  feat Feat @relation(fields: [featId], references: [featId], onDelete: Cascade)
+  pers Pers @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
   choices PersFeatChoice[]
 
@@ -18383,8 +13556,8 @@ model PersWeapon {
 
   isProficient Boolean @default(true) @map("is_proficient")
 
-  pers   Pers   @relation(fields: [persId], references: [persId])
-  weapon Weapon @relation(fields: [weaponId], references: [weaponId])
+  pers   Pers   @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  weapon Weapon @relation(fields: [weaponId], references: [weaponId], onDelete: Cascade)
 
   // Opposite side of PersInfusion.weapon
   infusions PersInfusion[]
@@ -18461,7 +13634,7 @@ model Subrace {
   weaponProficiencies Json?       @map("weapon_proficiencies")
   armorProficiencies  ArmorType[] @default([]) @map("armor_proficiencies")
 
-  race              Race               @relation(fields: [raceId], references: [raceId])
+  race              Race               @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
   perses            Pers[]
   raceChoiceOptions RaceChoiceOption[]
 
@@ -21055,7 +16228,7 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
         // Mark of Finding (Half-Orc)
         {
             raceId: halfOrc.raceId,
-            name: Variants.HUMAN_MARK_OF_FINDING_EBERRON, // Reusing enum as the features are identical (mostly)
+            name: Variants.HALF_ORC_MARK_OF_FINDING_EBERRON, // Reusing enum as the features are identical (mostly)
             source: Source.EBERRON,
             overridesRaceASI: { WIS: 2, STR: 1 },
             traits: {
@@ -21114,7 +16287,6 @@ export const seedSubraces = async (prisma: PrismaClient) => {
     console.log('🧔 Додаємо підраси Дварфів...');
     console.log('🧔‍♂️ Додаємо підраси Напівросликів...');
     console.log('🧙 Додаємо підраси Гномів...');
-    console.log('🐉 Додаємо підраси Дракононароджених (Fizban\'s)...');
 
     const elf = await prisma.race.findFirst({ where: { name: Races.ELF_2014 } });
     if (!elf) {
@@ -21134,11 +16306,6 @@ export const seedSubraces = async (prisma: PrismaClient) => {
     const gnome = await prisma.race.findFirst({ where: { name: Races.GNOME_2014 } });
     if (!gnome) {
         throw new Error("Gnome race not found");
-    }
-
-    const dragonborn = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_2014 } });
-    if (!dragonborn) {
-        throw new Error("Dragonborn race not found");
     }
 
     const MPMM_ASI = {
@@ -21415,103 +16582,6 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             }
         },
         
-        // ============ CHROMATIC DRAGONBORN (FIZBAN'S) ============
-        {
-            raceId: dragonborn.raceId,
-            name: Subraces.DRAGONBORN_CHROMATIC,
-            source: Source.FTOD,
-            replacesASI: true,
-            additionalASI: {
-                tasha: {
-                    flexible: {
-                        groups: [
-                            {
-                                groupName: '+2 до Однієї',
-                                value: 2,
-                                choiceCount: 1,
-                                unique: false
-                            },
-                            {
-                                groupName: '+1 до Однієї',
-                                value: 1,
-                                choiceCount: 1,
-                                unique: false
-                            }
-                        ]
-                    }
-                }
-            },
-            traits: {
-                create: [
-                    connectFeature('Chromatic Warding')
-                ]
-            }
-        },
-        // ============ METALLIC DRAGONBORN (FIZBAN'S) ============
-        {
-            raceId: dragonborn.raceId,
-            name: Subraces.DRAGONBORN_METALLIC,
-            source: Source.FTOD,
-            replacesASI: true,
-            additionalASI: {
-                tasha: {
-                    flexible: {
-                        groups: [
-                            {
-                                groupName: '+2 до Однієї',
-                                value: 2,
-                                choiceCount: 1,
-                                unique: false
-                            },
-                            {
-                                groupName: '+1 до Однієї',
-                                value: 1,
-                                choiceCount: 1,
-                                unique: false
-                            }
-                        ]
-                    }
-                }
-            },
-            traits: {
-                create: [
-                    connectFeature('Metallic Breath Weapon')
-                ]
-            }
-        },
-        // ============ GEM DRAGONBORN (FIZBAN'S) ============
-        {
-            raceId: dragonborn.raceId,
-            name: Subraces.DRAGONBORN_GEM,
-            source: Source.FTOD,
-            replacesASI: true,
-            additionalASI: {
-                tasha: {
-                    flexible: {
-                        groups: [
-                            {
-                                groupName: '+2 до Однієї',
-                                value: 2,
-                                choiceCount: 1,
-                                unique: false
-                            },
-                            {
-                                groupName: '+1 до Однієї',
-                                value: 1,
-                                choiceCount: 1,
-                                unique: false
-                            }
-                        ]
-                    }
-                }
-            },
-            traits: {
-                create: [
-                    connectFeature('Psionic Mind'),
-                    connectFeature('Gem Flight')
-                ]
-            }
-        }
     ];
 
     for (const subrace of subraces) {
@@ -21532,41 +16602,433 @@ export const { GET, POST } = handlers
 export const runtime = 'nodejs'
 </file>
 
-<file path="src/components/ui/card.tsx">
+<file path="src/components/level-up/StepRenderer.tsx">
+'use client';
+
+import React from 'react';
+import { useCharacterStore } from '@/store/character-store';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { 
+  SelectSubclassStep, 
+  SelectFeatOrASIStep, 
+  AddHPStep, 
+  ChooseOptionalFeatureStep,
+  LevelUpStep,
+  LevelUpChoice
+} from '@/types/character-flow';
+import { translateValue } from '@/lib/components/characterCreator/infoUtils';
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// INDIVIDUAL STEP RENDERERS
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/**
+ * 1️⃣ SELECT_SUBCLASS Renderer
+ */
+const SubclassSelectionGrid: React.FC<{ step: SelectSubclassStep }> = ({ step }) => {
+  const addChoice = useCharacterStore((s) => s.addChoice);
+  const choices = useCharacterStore((s) => s.choices);
+
+  const selectedId = (choices.find((c) => c.stepType === 'SELECT_SUBCLASS') as LevelUpChoice)?.subclassId;
+
+  return (
+    <div className="space-y-4">
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold text-foreground">
+          {translateValue(step.className)} — Обери Підклас
+        </h3>
+        <p className="text-sm text-muted-foreground">
+          На {step.level}-му рівні ви обираєте архетип, що визначає ваш шлях.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {step.options.map((subclass) => (
+          <Card 
+            key={subclass.id}
+            className={`cursor-pointer transition-all border-2 ${
+              selectedId === subclass.id ? 'border-primary bg-primary/5' : 'border-transparent hover:border-primary/50'
+            }`}
+            onClick={() => addChoice({ stepType: 'SELECT_SUBCLASS', subclassId: subclass.id })}
+          >
+            <CardHeader>
+              <CardTitle>{translateValue(subclass.name)}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">{subclass.description}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/**
+ * 2️⃣ SELECT_FEAT_OR_ASI Renderer
+ */
+const FeatAsiTabs: React.FC<{ step: SelectFeatOrASIStep }> = () => {
+    const addChoice = useCharacterStore((s) => s.addChoice);
+    // Simplified for brevity
+    return (
+        <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Покращення Характеристик або Риса</h3>
+            <Tabs defaultValue="asi">
+                <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="asi">Характеристики (+2)</TabsTrigger>
+                    <TabsTrigger value="feat">Риса (Feat)</TabsTrigger>
+                </TabsList>
+                <TabsContent value="asi" className="p-4 border rounded-md">
+                    <p className="text-sm text-muted-foreground mb-4">
+                        Оберіть одну характеристику для +2 або дві для +1.
+                    </p>
+                    {/* ASI Logic would go here */}
+                    <Button onClick={() => addChoice({ stepType: 'SELECT_FEAT_OR_ASI', type: 'ASI', stats: { STR: 2 } })}>
+                        Додати +2 до Сили (Тест)
+                    </Button>
+                </TabsContent>
+                <TabsContent value="feat" className="p-4 border rounded-md">
+                    <p>Список рис поки недоступний.</p>
+                </TabsContent>
+            </Tabs>
+        </div>
+    );
+};
+
+/**
+ * 3️⃣ ADD_HP Renderer
+ */
+const HpRoller: React.FC<{ step: AddHPStep }> = ({ step }) => {
+    const addChoice = useCharacterStore((s) => s.addChoice);
+    const choices = useCharacterStore((s) => s.choices);
+    const choice = choices.find(c => c.stepType === 'ADD_HP') as LevelUpChoice;
+
+    const fixedHp = Math.floor(step.hitDie / 2) + 1;
+
+    return (
+        <div className="space-y-6 max-w-md mx-auto">
+            <div className="text-center">
+                <h3 className="text-xl font-bold mb-2">Здоров&apos;я (HP)</h3>
+                <p className="text-muted-foreground">
+                    Кістка Хітів: d{step.hitDie}
+                </p>
+            </div>
+
+            <RadioGroup 
+                defaultValue="fixed" 
+                onValueChange={(val) => {
+                    const value = val === 'fixed' ? fixedHp : Math.floor(Math.random() * step.hitDie) + 1; // Mock roll
+                    addChoice({ stepType: 'ADD_HP', value, method: val as 'fixed' | 'roll' });
+                }}
+            >
+                <div className="flex items-center space-x-2 border p-4 rounded-lg cursor-pointer hover:bg-accent">
+                    <RadioGroupItem value="fixed" id="fixed" />
+                    <Label htmlFor="fixed" className="flex-1 cursor-pointer">
+                        <span className="font-bold block">Фіксоване значення: {fixedHp}</span>
+                        <span className="text-xs text-muted-foreground">Надійний вибір</span>
+                    </Label>
+                </div>
+                <div className="flex items-center space-x-2 border p-4 rounded-lg cursor-pointer hover:bg-accent">
+                    <RadioGroupItem value="roll" id="roll" />
+                    <Label htmlFor="roll" className="flex-1 cursor-pointer">
+                        <span className="font-bold block">Кинути кубик (d{step.hitDie})</span>
+                        <span className="text-xs text-muted-foreground">Ризиковано!</span>
+                    </Label>
+                </div>
+            </RadioGroup>
+            
+            {choice && (
+                <div className="text-center p-4 bg-primary/10 rounded-lg animate-in fade-in">
+                    <span className="text-2xl font-bold text-primary">+{choice.value} HP</span>
+                </div>
+            )}
+        </div>
+    );
+};
+
+/**
+ * 4️⃣ CHOOSE_OPTIONAL_FEATURE Renderer (Fighting Styles etc)
+ */
+const OptionalFeatureGrid: React.FC<{ step: ChooseOptionalFeatureStep }> = ({ step }) => {
+    const addChoice = useCharacterStore((s) => s.addChoice);
+    const choices = useCharacterStore((s) => s.choices);
+    const selectedId = (choices.find((c) => c.stepType === 'CHOOSE_OPTIONAL_FEATURE' && c.featureId === step.featureId) as LevelUpChoice)?.selectedOptionId;
+
+    return (
+        <div className="space-y-4">
+             <div className="mb-6">
+                <h3 className="text-lg font-semibold">{step.title}</h3>
+                <p className="text-sm text-muted-foreground">{step.description}</p>
+            </div>
+            <ScrollArea className="h-[400px] pr-4">
+                <div className="grid grid-cols-1 gap-3">
+                    {step.options.map((opt) => (
+                        <Card 
+                            key={opt.id}
+                            className={`cursor-pointer transition-all ${selectedId === opt.id ? 'border-primary bg-primary/5' : ''}`}
+                            onClick={() => addChoice({ stepType: 'CHOOSE_OPTIONAL_FEATURE', featureId: step.featureId, selectedOptionId: opt.id })}
+                        >
+                            <CardHeader className="p-4">
+                                <CardTitle className="text-base">{opt.name}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-4 pt-0">
+                                <p className="text-sm text-muted-foreground">{opt.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </ScrollArea>
+        </div>
+    );
+}
+
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// MAIN RENDERER SWITCH
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+export const StepRenderer: React.FC<{ step: LevelUpStep }> = ({ step }) => {
+  switch (step.type) {
+    case 'SELECT_SUBCLASS':
+      return <SubclassSelectionGrid step={step} />;
+    
+    case 'SELECT_FEAT_OR_ASI':
+      return <FeatAsiTabs step={step} />;
+
+    case 'ADD_HP':
+      return <HpRoller step={step} />;
+      
+    case 'CHOOSE_OPTIONAL_FEATURE':
+        return <OptionalFeatureGrid step={step} />;
+
+    default:
+      return (
+        <div className="p-4 border border-dashed rounded-lg text-center text-muted-foreground">
+          Невідомий тип кроку: {(step as LevelUpStep).type}
+        </div>
+      );
+  }
+};
+</file>
+
+<file path="src/components/ui/badge.tsx">
 import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+
 import { cn } from "@/lib/utils"
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("rounded-xl border bg-card text-card-foreground shadow", className)} {...props} />
-))
-Card.displayName = "Card"
+const badgeVariants = cva(
+  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
+        outline: "text-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
 
-const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
-))
-CardHeader.displayName = "CardHeader"
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {}
 
-const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(({ className, ...props }, ref) => (
-  <h3 ref={ref} className={cn("font-semibold leading-none tracking-tight", className)} {...props} />
-))
-CardTitle.displayName = "CardTitle"
+function Badge({ className, variant, ...props }: BadgeProps) {
+  return <div className={cn(badgeVariants({ variant }), className)} {...props} />
+}
 
-const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
-))
-CardDescription.displayName = "CardDescription"
+export { Badge, badgeVariants }
+</file>
 
-const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-))
-CardContent.displayName = "CardContent"
+<file path="src/components/ui/checkbox.tsx">
+"use client"
 
-const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
-))
-CardFooter.displayName = "CardFooter"
+import * as React from "react"
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import { Check } from "lucide-react"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+import { cn } from "@/lib/utils"
+
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <CheckboxPrimitive.Root
+    ref={ref}
+    className={cn(
+      "grid place-content-center peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+      className
+    )}
+    {...props}
+  >
+    <CheckboxPrimitive.Indicator className={cn("grid place-content-center text-current")}>
+      <Check className="h-4 w-4" />
+    </CheckboxPrimitive.Indicator>
+  </CheckboxPrimitive.Root>
+))
+Checkbox.displayName = CheckboxPrimitive.Root.displayName
+
+export { Checkbox }
+</file>
+
+<file path="src/components/ui/dialog.tsx">
+"use client"
+
+import * as React from "react"
+import * as DialogPrimitive from "@radix-ui/react-dialog"
+import { X } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const Dialog = DialogPrimitive.Root
+
+const DialogTrigger = DialogPrimitive.Trigger
+
+const DialogPortal = DialogPrimitive.Portal
+
+const DialogClose = DialogPrimitive.Close
+
+const DialogOverlay = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Overlay
+    ref={ref}
+    className={cn(
+      "fixed inset-0 z-[9998] bg-slate-950/70 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      className
+    )}
+    {...props}
+  />
+))
+DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+
+const DialogContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
+  <DialogPortal>
+    <DialogOverlay />
+    <DialogPrimitive.Content
+      ref={ref}
+      className={cn(
+        "fixed left-[50%] top-[50%] z-[9999] grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 rounded-2xl border border-white/10 bg-slate-900/95 p-6 text-slate-50 backdrop-blur duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+        <X className="h-4 w-4" />
+        <span className="sr-only">Close</span>
+      </DialogPrimitive.Close>
+    </DialogPrimitive.Content>
+  </DialogPortal>
+))
+DialogContent.displayName = DialogPrimitive.Content.displayName
+
+const DialogHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn("flex flex-col space-y-1.5 text-center sm:text-left", className)}
+    {...props}
+  />
+)
+DialogHeader.displayName = "DialogHeader"
+
+const DialogFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+      className
+    )}
+    {...props}
+  />
+)
+DialogFooter.displayName = "DialogFooter"
+
+const DialogTitle = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Title
+    ref={ref}
+    className={cn(
+      "font-rpg-display text-lg font-semibold uppercase leading-none tracking-wider text-slate-200",
+      className
+    )}
+    {...props}
+  />
+))
+DialogTitle.displayName = DialogPrimitive.Title.displayName
+
+const DialogDescription = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Description
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+DialogDescription.displayName = DialogPrimitive.Description.displayName
+
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogTrigger,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+}
+</file>
+
+<file path="src/components/ui/input.tsx">
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Input.displayName = "Input"
+
+export { Input }
 </file>
 
 <file path="src/components/ui/label.tsx">
@@ -21578,6 +17040,73 @@ const Label = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<HTMLL
 Label.displayName = "Label"
 
 export { Label }
+</file>
+
+<file path="src/components/ui/sonner.tsx">
+"use client"
+
+import * as React from "react"
+import { useTheme } from "next-themes"
+import { Toaster as Sonner } from "sonner"
+
+type ToasterProps = React.ComponentProps<typeof Sonner>
+
+const Toaster = ({ ...props }: ToasterProps) => {
+  const { theme = "system" } = useTheme()
+
+  return (
+    <Sonner
+      theme={theme as ToasterProps["theme"]}
+      className="toaster group"
+      toastOptions={{
+        classNames: {
+          toast:
+            "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+          description: "group-[.toast]:text-muted-foreground",
+          actionButton:
+            "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+          cancelButton:
+            "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
+        },
+      }}
+      {...props}
+    />
+  )
+}
+
+export { Toaster }
+</file>
+
+<file path="src/components/ui/switch.tsx">
+"use client"
+
+import * as React from "react"
+import * as SwitchPrimitives from "@radix-ui/react-switch"
+
+import { cn } from "@/lib/utils"
+
+const Switch = React.forwardRef<
+  React.ElementRef<typeof SwitchPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+>(({ className, ...props }, ref) => (
+  <SwitchPrimitives.Root
+    className={cn(
+      "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+      className
+    )}
+    {...props}
+    ref={ref}
+  >
+    <SwitchPrimitives.Thumb
+      className={cn(
+        "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
+      )}
+    />
+  </SwitchPrimitives.Root>
+))
+Switch.displayName = SwitchPrimitives.Root.displayName
+
+export { Switch }
 </file>
 
 <file path="src/components/ui/tabs.tsx">
@@ -21635,123 +17164,782 @@ TabsContent.displayName = TabsPrimitive.Content.displayName
 export { Tabs, TabsList, TabsTrigger, TabsContent }
 </file>
 
-<file path="src/lib/components/auth/GoogleAuthDialog.tsx">
-"use client";
+<file path="src/lib/actions/character.ts">
+"use server";
 
-import { useState } from "react";
-import { signIn, useSession } from "next-auth/react";
-import { toast } from "sonner";
-import { Button } from "@/lib/components/ui/Button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/lib/components/ui/dialog";
-import { Loader2, LogIn, ShieldCheck } from "lucide-react";
+import { prisma } from "@/lib/prisma";
+import { fullCharacterSchema, PersFormData } from "@/lib/zod/schemas/persCreateSchema";
+import { auth } from "@/lib/auth";
+import { SkillProficiencyType, Skills } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
-interface Props {
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
-  triggerLabel?: string;
+type UnknownRecord = Record<string, unknown>;
+
+function isRecord(value: unknown): value is UnknownRecord {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
-const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }: Props) => {
-  const { data: session, status } = useSession();
-  const [loading, setLoading] = useState(false);
-  const shouldRenderTrigger = typeof open === "undefined";
+function getChildRecord(value: unknown, key: string): UnknownRecord | null {
+  if (!isRecord(value)) return null;
+  const child = value[key];
+  return isRecord(child) ? child : null;
+}
 
-  const handleSignIn = async () => {
-    setLoading(true);
-    try {
-      const result = await signIn("google", { redirect: false, callbackUrl: "/pers" });
+function getSimpleBonuses(asi: unknown): Record<string, number> {
+  const basic = getChildRecord(asi, "basic");
+  const simple = getChildRecord(basic, "simple");
+  if (!simple) return {};
 
-      if (result?.error) {
-        toast.error("Не вдалося авторизуватися", {
-          description: "Google повернув помилку. Спробуйте ще раз.",
-        });
-        return;
-      }
+  const out: Record<string, number> = {};
+  for (const [ability, rawBonus] of Object.entries(simple)) {
+    const bonus =
+      typeof rawBonus === "number"
+        ? rawBonus
+        : typeof rawBonus === "string"
+          ? Number(rawBonus)
+          : NaN;
+    if (Number.isFinite(bonus)) out[ability] = bonus;
+  }
+  return out;
+}
 
-      if (result?.url) {
-        window.location.href = result.url;
-      } else {
-        toast.success("Готово! Ви авторизовані.");
-        onOpenChange?.(false);
-      }
-    } catch {
-      toast.error("Не вдалося авторизуватися", {
-        description: "Перевірте зʼєднання та спробуйте знову.",
-      });
-    } finally {
-      setLoading(false);
-    }
+export async function createCharacter(data: PersFormData) {
+  const session = await auth();
+
+  if (!session || !session.user || !session.user.email) {
+    return { error: "Unauthorized" };
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+  });
+
+  if (!user) {
+    return { error: "User not found" };
+  }
+
+  const validation = fullCharacterSchema.safeParse(data);
+
+  if (!validation.success) {
+    return { error: "Validation failed", details: validation.error.flatten() };
+  }
+
+  const validData = validation.data;
+
+  // Calculate Ability Scores
+  const scores: Record<string, number> = {
+    STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10
   };
 
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      {shouldRenderTrigger && (
-        <DialogTrigger asChild>
-          <Button
-            variant="secondary"
-            size="sm"
-            className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"
-          >
-            <LogIn className="mr-2 h-4 w-4" />
-            {triggerLabel}
-          </Button>
-        </DialogTrigger>
-      )}
-      <DialogContent className="sm:max-w-[420px] border border-slate-800/70 bg-slate-950/90 backdrop-blur">
-        <DialogHeader>
-          <DialogTitle className="text-white">Увійти через Google</DialogTitle>
-          <DialogDescription className="text-slate-400">
-            Швидка аутентифікація без паролів. Ми використовуємо Google лише для підтвердження пошти.
-          </DialogDescription>
-        </DialogHeader>
+  if (validData.asiSystem === 'POINT_BUY') {
+    validData.asi.forEach(s => scores[s.ability] = s.value);
+  } else if (validData.asiSystem === 'SIMPLE') {
+    validData.simpleAsi.forEach(s => scores[s.ability] = s.value);
+  } else if (validData.asiSystem === 'CUSTOM' && validData.customAsi) {
+    validData.customAsi.forEach(s => scores[s.ability] = Number(s.value));
+  }
 
-        <div className="space-y-3">
-          {session?.user ? (
-            <div className="flex items-center justify-between rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
-              <span>Ви вже увійшли як {session.user.email}</span>
-              <ShieldCheck className="h-4 w-4" />
-            </div>
-          ) : (
-            <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
-              Авторизація потрібна для збереження персонажів та синхронізації між пристроями.
-            </div>
-          )}
+  // Apply Racial Bonuses if needed (This logic might be complex depending on how the form sends data)
+  // The form seems to handle the final calculation or at least the base assignment.
+  // However, usually the form sends the *base* score and the *bonuses* separately or combined.
+  // Looking at the schema, `asi` seems to be the base scores from the calculator.
+  // Racial bonuses might need to be added if they are not already included.
+  // BUT, for now, let's assume the user sees the final score or the form handles it.
+  // Wait, `asiSchema` has `racialBonusChoiceSchema`. This implies bonuses are separate.
+  
+  // Let's fetch the race to be sure about fixed bonuses.
+  const race = await prisma.race.findUnique({ where: { raceId: validData.raceId } });
+  if (!race) return { error: "Race not found" };
 
-          <Button
-            onClick={handleSignIn}
-            disabled={loading || status === "loading" || !!session}
-            className="w-full bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
-          >
-            {loading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                З&apos;єднання...
-              </>
-            ) : session ? (
-              "Ви вже авторизовані"
-            ) : (
-              <>
-                <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[11px] font-semibold text-slate-900">
-                  G
-                </span>
-                Продовжити з Google
-              </>
-            )}
-          </Button>
-        </div>
-      </DialogContent>
-    </Dialog>
+  let effectiveASI: unknown = race.ASI;
+
+  if (validData.raceVariantId) {
+      const variant = await prisma.raceVariant.findUnique({ where: { raceVariantId: validData.raceVariantId } });
+      if (variant && variant.overridesRaceASI) {
+          effectiveASI = variant.overridesRaceASI;
+      }
+  }
+
+  // Apply fixed racial bonuses
+  {
+    const bonuses = getSimpleBonuses(effectiveASI);
+    Object.entries(bonuses).forEach(([ability, bonus]) => {
+      if (scores[ability]) scores[ability] += bonus;
+    });
+  }
+
+  // Apply chosen racial bonuses
+  if (validData.racialBonusChoiceSchema) {
+      const choices = validData.isDefaultASI 
+          ? validData.racialBonusChoiceSchema.basicChoices 
+          : validData.racialBonusChoiceSchema.tashaChoices;
+      
+      choices?.forEach(choice => {
+          choice.selectedAbilities.forEach(ability => {
+             if (scores[ability]) scores[ability] += 1; // Usually +1
+          });
+      });
+  }
+  
+  // Apply Subrace bonuses
+  if (validData.subraceId) {
+      const subrace = await prisma.subrace.findUnique({ where: { subraceId: validData.subraceId } });
+      if (subrace) {
+          const bonuses = getSimpleBonuses(subrace.additionalASI);
+          Object.entries(bonuses).forEach(([ability, bonus]) => {
+            if (scores[ability]) scores[ability] += bonus;
+          });
+          // Subrace choices? Usually subraces have fixed bonuses, but some might have choices.
+          // The schema handles choices generically.
+      }
+  }
+  
+  // Apply Feat bonuses (if any)
+  if (validData.featId) {
+      const feat = await prisma.feat.findUnique({ where: { featId: validData.featId } });
+      if (feat) {
+          const bonuses = getSimpleBonuses(feat.grantedASI);
+          Object.entries(bonuses).forEach(([ability, bonus]) => {
+            if (scores[ability]) scores[ability] += bonus;
+          });
+      }
+  }
+
+  // Prepare Skills
+  const allSkills = new Set<string>(validData.skills);
+
+  // From Schema
+  if (validData.skillsSchema) {
+      if (validData.skillsSchema.isTasha) {
+          validData.skillsSchema.tashaChoices.forEach(s => allSkills.add(s));
+      } else {
+          validData.skillsSchema.basicChoices.race.forEach(s => allSkills.add(s));
+          validData.skillsSchema.basicChoices.selectedClass.forEach(s => allSkills.add(s));
+      }
+  }
+
+  // From Race (Fixed)
+  if (race && race.skillProficiencies && Array.isArray(race.skillProficiencies)) {
+      (race.skillProficiencies as string[]).forEach(s => allSkills.add(s));
+  }
+  
+  // From Background (Fixed)
+  const background = await prisma.background.findUnique({ where: { backgroundId: validData.backgroundId } });
+  if (background && background.skillProficiencies && Array.isArray(background.skillProficiencies)) {
+      (background.skillProficiencies as string[]).forEach(s => allSkills.add(s));
+  }
+
+  // From Feat (if selected) - now processed AFTER base skills
+  if (validData.featId) {
+    const feat = await prisma.feat.findUnique({ 
+      where: { featId: validData.featId },
+      include: { 
+        featChoiceOptions: { 
+          include: { choiceOption: true } 
+        } 
+      }
+    });
+    
+    if (feat) {
+      // Direct skill grants from feat
+      if (feat.grantedSkills && Array.isArray(feat.grantedSkills)) {
+        (feat.grantedSkills as string[]).forEach(s => allSkills.add(s));
+      }
+      
+      // Skills from feat choice options (e.g., Skill Expert)
+      if (validData.featChoiceSelections) {
+        for (const choiceOptionId of Object.values(validData.featChoiceSelections)) {
+          const featChoice = feat.featChoiceOptions?.find(
+            fco => fco.choiceOptionId === Number(choiceOptionId)
+          );
+          
+          if (featChoice?.choiceOption) {
+            // Check if this choice option grants a skill
+            // The groupName might contain "Skill Proficiency" or similar
+            const option = featChoice.choiceOption;
+            
+            // If the choice option has a direct skill reference
+            if (option.optionName && Object.values(Skills).includes(option.optionName as Skills)) {
+              allSkills.add(option.optionName);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 1. Prepare Features
+  const featuresToConnect: { featureId: number }[] = [];
+  
+  const classFeatures = await prisma.classFeature.findMany({
+    where: { classId: validData.classId, levelGranted: 1 },
+    select: { featureId: true }
+  });
+  featuresToConnect.push(...classFeatures.map(f => ({ featureId: f.featureId })));
+
+  const raceFeatures = await prisma.raceTrait.findMany({
+    where: { raceId: validData.raceId },
+    select: { featureId: true }
+  });
+  featuresToConnect.push(...raceFeatures.map(f => ({ featureId: f.featureId })));
+
+  if (validData.subraceId) {
+    const subraceFeatures = await prisma.subraceTrait.findMany({
+      where: { subraceId: validData.subraceId },
+      select: { featureId: true }
+    });
+    featuresToConnect.push(...subraceFeatures.map(f => ({ featureId: f.featureId })));
+  }
+
+  if (validData.subclassId) {
+    const subclassFeatures = await prisma.subclassFeature.findMany({
+      where: { subclassId: validData.subclassId, levelGranted: 1 },
+      select: { featureId: true }
+    });
+    featuresToConnect.push(...subclassFeatures.map(f => ({ featureId: f.featureId })));
+  }
+
+  // Deduplicate feature ids (PersFeature has @@unique([persId, featureId]))
+  const uniqueFeatureIds = Array.from(
+    new Set(featuresToConnect.map((f) => f.featureId))
+  ).filter((id) => Number.isFinite(id));
+
+  // 2. Prepare Equipment
+  const weaponsToCreate: { weaponId: number }[] = [];
+  const armorsToCreate: { armorId: number }[] = [];
+  const customEquipmentLines: string[] = [];
+
+  if (validData.equipmentSchema) {
+      const { choiceGroupToId, anyWeaponSelection } = validData.equipmentSchema;
+
+      // Choice Groups
+      for (const ids of Object.values(choiceGroupToId)) {
+          for (const id of ids) {
+              const opt = await prisma.classStartingEquipmentOption.findUnique({
+                  where: { optionId: id },
+                    include: { equipmentPack: true }
+              });
+              if (opt) {
+                  if (opt.weaponId) weaponsToCreate.push({ weaponId: opt.weaponId });
+                  if (opt.armorId) armorsToCreate.push({ armorId: opt.armorId });
+                  if (opt.equipmentPack && Array.isArray(opt.equipmentPack.items)) {
+                      for (const item of opt.equipmentPack.items as unknown[]) {
+                        if (!isRecord(item)) continue;
+                        const name = typeof item.name === "string" ? item.name : null;
+                        const quantity =
+                          typeof item.quantity === "number"
+                            ? item.quantity
+                            : typeof item.quantity === "string"
+                              ? Number(item.quantity)
+                              : NaN;
+
+                        if (name && Number.isFinite(quantity)) {
+                          customEquipmentLines.push(`${name} x${quantity}`);
+                        }
+                      }
+                  }
+              }
+          }
+      }
+
+      // Any Weapon
+      for (const ids of Object.values(anyWeaponSelection)) {
+          ids.forEach(id => weaponsToCreate.push({ weaponId: id }));
+      }
+  }
+
+  // 3. Prepare Choices
+  const choiceOptionsToConnect: { choiceOptionId: number }[] = [];
+  
+  Object.values(validData.classChoiceSelections).forEach(id => choiceOptionsToConnect.push({ choiceOptionId: id }));
+  Object.values(validData.subclassChoiceSelections).forEach(id => choiceOptionsToConnect.push({ choiceOptionId: id }));
+
+  // Avoid duplicates when connecting many-to-many choice options
+  const uniqueChoiceOptionsToConnect = Array.from(
+    new Map(choiceOptionsToConnect.map((c) => [c.choiceOptionId, c])).values()
+  ).filter((c) => Number.isFinite(c.choiceOptionId) && c.choiceOptionId > 0);
+
+  const raceChoiceOptionIds = Array.from(
+    new Set(
+      Object.values(validData.raceChoiceSelections ?? {})
+        .map((id) => Number(id))
+        .filter((id) => Number.isFinite(id) && id > 0)
+    )
   );
-};
 
-export default GoogleAuthDialog;
+
+  try {
+    const newPers = await prisma.$transaction(async (tx) => {
+      const createdPers = await tx.pers.create({
+        data: {
+          userId: user.id,
+          name: validData.name,
+          raceId: validData.raceId,
+          subraceId: validData.subraceId,
+          classId: validData.classId,
+          subclassId: validData.subclassId,
+          backgroundId: validData.backgroundId,
+
+          str: scores.STR,
+          dex: scores.DEX,
+          con: scores.CON,
+          int: scores.INT,
+          wis: scores.WIS,
+          cha: scores.CHA,
+
+          // Placeholder, updated below once we know class hit die
+          currentHp: 10,
+          maxHp: 10,
+
+          customEquipment: customEquipmentLines.join("\n"),
+
+          raceVariants: validData.raceVariantId
+            ? {
+                connect: { raceVariantId: validData.raceVariantId },
+              }
+            : undefined,
+
+          raceChoiceOptions:
+            raceChoiceOptionIds.length > 0
+              ? {
+                  connect: raceChoiceOptionIds.map((optionId) => ({ optionId })),
+                }
+              : undefined,
+
+          features:
+            uniqueFeatureIds.length > 0
+              ? {
+                  createMany: {
+                    data: uniqueFeatureIds.map((featureId) => ({ featureId })),
+                    skipDuplicates: true,
+                  },
+                }
+              : undefined,
+          choiceOptions:
+            uniqueChoiceOptionsToConnect.length > 0
+              ? {
+                  connect: uniqueChoiceOptionsToConnect,
+                }
+              : undefined,
+        },
+      });
+
+      // Save Feat + Feat choices AFTER Pers exists
+      if (validData.featId) {
+        const persFeat = await tx.persFeat.create({
+          data: {
+            persId: createdPers.persId,
+            featId: validData.featId,
+          },
+        });
+
+        const entries = Object.entries(validData.featChoiceSelections ?? {});
+        if (entries.length > 0) {
+          await tx.persFeatChoice.createMany({
+            data: entries
+              .map(([, choiceOptionId]) => Number(choiceOptionId))
+              .filter((choiceOptionId) => Number.isFinite(choiceOptionId) && choiceOptionId > 0)
+              .map((choiceOptionId) => ({
+                persFeatId: persFeat.persFeatId,
+                choiceOptionId,
+              })),
+            skipDuplicates: true,
+          });
+        }
+      }
+
+      // Save skills AFTER Pers exists (createMany + skipDuplicates)
+      const skillRows = Array.from(allSkills)
+        .filter((skillName) => Object.values(Skills).includes(skillName as Skills))
+        .map((skillName) => {
+          const skillEnum = skillName as Skills;
+          const skillIndex = Object.values(Skills).indexOf(skillEnum);
+          return {
+            persId: createdPers.persId,
+            name: skillEnum,
+            skillId: skillIndex + 1,
+            proficiencyType: SkillProficiencyType.PROFICIENT,
+          };
+        })
+        .filter((row) => row.skillId > 0);
+
+      if (skillRows.length > 0) {
+        await tx.persSkill.createMany({
+          data: skillRows,
+          skipDuplicates: true,
+        });
+      }
+
+      // Update expertise skills (upsert so it's safe even if missing)
+      const expertiseSkills = validData.expertiseSchema?.expertises ?? [];
+      for (const skillEnum of expertiseSkills) {
+        const skillIndex = Object.values(Skills).indexOf(skillEnum);
+        await tx.persSkill.upsert({
+          where: {
+            persId_name: {
+              persId: createdPers.persId,
+              name: skillEnum,
+            },
+          },
+          update: {
+            proficiencyType: SkillProficiencyType.EXPERTISE,
+          },
+          create: {
+            persId: createdPers.persId,
+            name: skillEnum,
+            skillId: skillIndex + 1,
+            proficiencyType: SkillProficiencyType.EXPERTISE,
+          },
+        });
+      }
+
+      // Save weapons AFTER Pers exists
+      if (weaponsToCreate.length > 0) {
+        await tx.persWeapon.createMany({
+          data: weaponsToCreate.map((w) => ({
+            persId: createdPers.persId,
+            weaponId: w.weaponId,
+          })),
+          skipDuplicates: true,
+        });
+      }
+
+      // Save armors AFTER Pers exists
+      if (armorsToCreate.length > 0) {
+        await tx.persArmor.createMany({
+          data: armorsToCreate.map((a) => ({
+            persId: createdPers.persId,
+            armorId: a.armorId,
+            equipped: false,
+          })),
+          skipDuplicates: true,
+        });
+      }
+
+      // Update HP based on Class and CON mod
+      const cls = await tx.class.findUnique({ where: { classId: validData.classId } });
+      if (cls) {
+        const conMod = Math.floor((scores.CON - 10) / 2);
+        const hitDie = cls.hitDie;
+        const maxHp = hitDie + conMod;
+        await tx.pers.update({
+          where: { persId: createdPers.persId },
+          data: {
+            maxHp,
+            currentHp: maxHp,
+          },
+        });
+      }
+
+      return createdPers;
+    });
+
+    revalidatePath("/pers");
+    return { success: true, persId: newPers.persId };
+  } catch (error) {
+    console.error("Error creating character:", error);
+    return { error: "Database error" };
+  }
+}
+</file>
+
+<file path="src/lib/actions/pers.ts">
+"use server";
+
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { FeatureDisplayType, RestType } from "@prisma/client";
+
+export async function getUserPerses() {
+  const session = await auth();
+  if (!session?.user?.email) {
+    return [];
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+  });
+
+  if (!user) return [];
+
+  return prisma.pers.findMany({
+    where: { userId: user.id },
+    include: {
+      race: true,
+      class: true,
+      background: true,
+    },
+    orderBy: { updatedAt: 'desc' }
+  });
+}
+
+export async function getPersById(id: number) {
+    const session = await auth();
+    if (!session?.user?.email) return null;
+
+    const pers = await prisma.pers.findUnique({
+        where: { persId: id },
+        include: {
+            race: {
+                include: {
+                    traits: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            subrace: {
+                include: {
+                    traits: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            class: {
+                include: {
+                    features: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            subclass: {
+                include: {
+                    features: {
+                        include: {
+                            feature: true
+                        }
+                    }
+                }
+            },
+            background: true,
+            skills: true,
+            feats: { 
+                include: { 
+                    feat: true,
+                    choices: {
+                        include: {
+                            choiceOption: true,
+                        }
+                    }
+                } 
+            },
+            raceVariants: {
+                include: {
+                    traits: {
+                        include: {
+                            feature: true,
+                        },
+                    },
+                },
+            },
+            features: { include: { feature: true } },
+            choiceOptions: true,
+            raceChoiceOptions: true,
+            spells: true,
+            weapons: { include: { weapon: true } },
+            armors: { include: { armor: true } },
+            user: true,
+        }
+    });
+    
+    if (!pers) return null;
+
+    // Check ownership
+    const user = await prisma.user.findUnique({ where: { email: session.user.email } });
+    if (pers.userId !== user?.id) {
+        // Allow viewing if we decide to share, but for now restrict
+        // return null; 
+        // Actually, for debugging/demo, let's allow it if it's just a fetch, 
+        // but strictly speaking we should restrict.
+        // The user asked for "current user's perses", so let's enforce ownership for the sheet too.
+        if (pers.userId !== user?.id) return null;
+    }
+
+    return pers;
+}
+
+export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersById>>>;
+
+export type FeatureSource = "CLASS" | "SUBCLASS" | "RACE" | "SUBRACE" | "BACKGROUND" | "FEAT" | "PERS" | "CHOICE" | "RACE_CHOICE";
+
+export type CharacterFeatureGroupKey = "passive" | "actions" | "bonusActions" | "reactions";
+
+export interface CharacterFeatureItem {
+    key: string;
+    name: string;
+    description: string;
+    displayTypes: FeatureDisplayType[];
+    primaryType: FeatureDisplayType;
+    source: FeatureSource;
+    sourceName: string;
+    usesRemaining?: number | null;
+    usesPer?: number | null;
+    restType?: RestType | null;
+}
+
+export type CharacterFeaturesGroupedResult = Record<CharacterFeatureGroupKey, CharacterFeatureItem[]>;
+
+function normalizeDisplayTypes(input: unknown): FeatureDisplayType[] {
+    if (Array.isArray(input)) {
+        const values = input.filter(Boolean) as FeatureDisplayType[];
+        return values.length > 0 ? values : [FeatureDisplayType.PASSIVE];
+    }
+    if (typeof input === "string" && input.length > 0) {
+        return [input as FeatureDisplayType];
+    }
+    return [FeatureDisplayType.PASSIVE];
+}
+
+function getPrimaryDisplayType(displayTypes: FeatureDisplayType[]): FeatureDisplayType {
+    const normalized = normalizeDisplayTypes(displayTypes);
+    // Priority: ACTION > BONUSACTION > REACTION > PASSIVE
+    if (normalized.includes(FeatureDisplayType.ACTION)) return FeatureDisplayType.ACTION;
+    if (normalized.includes(FeatureDisplayType.BONUSACTION)) return FeatureDisplayType.BONUSACTION;
+    if (normalized.includes(FeatureDisplayType.REACTION)) return FeatureDisplayType.REACTION;
+    return FeatureDisplayType.PASSIVE;
+}
+
+function toPrimaryGroupKey(primaryType: FeatureDisplayType): CharacterFeatureGroupKey {
+    switch (primaryType) {
+        case FeatureDisplayType.ACTION:
+            return "actions";
+        case FeatureDisplayType.BONUSACTION:
+            return "bonusActions";
+        case FeatureDisplayType.REACTION:
+            return "reactions";
+        default:
+            return "passive";
+    }
+}
+
+export async function getCharacterFeaturesGrouped(persId: number): Promise<CharacterFeaturesGroupedResult | null> {
+    const session = await auth();
+    if (!session?.user?.email) return null;
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
+    if (!user) return null;
+
+    const pers = await prisma.pers.findUnique({
+        where: { persId },
+        include: {
+            features: { include: { feature: true } },
+            feats: {
+                include: {
+                    feat: true,
+                    choices: {
+                        include: {
+                            choiceOption: true,
+                        },
+                    },
+                },
+            },
+            choiceOptions: true,
+            raceChoiceOptions: true,
+            user: true,
+        },
+    });
+
+    if (!pers) return null;
+    if (pers.userId !== user.id) return null;
+
+    const buckets: CharacterFeaturesGroupedResult = {
+        passive: [],
+        actions: [],
+        bonusActions: [],
+        reactions: [],
+    };
+
+    const push = (item: Omit<CharacterFeatureItem, "primaryType" | "displayTypes"> & { displayTypes: FeatureDisplayType[] }) => {
+        const displayTypes = normalizeDisplayTypes(item.displayTypes);
+        const primaryType = getPrimaryDisplayType(displayTypes);
+        const key = toPrimaryGroupKey(primaryType);
+        buckets[key].push({
+            ...item,
+            displayTypes,
+            primaryType,
+        });
+    };
+
+    // 1) Explicit pers_feature (usually level-up granted)
+    for (const pf of pers.features) {
+        const f = pf.feature;
+        push({
+            key: `PERS:feature:${f.featureId}`,
+            name: f.name,
+            description: f.description,
+            displayTypes: normalizeDisplayTypes(f.displayType),
+            source: "PERS",
+            sourceName: f.name,
+            usesRemaining: (pf as any).usesRemaining ?? null,
+            usesPer: (pf as any).usesPer ?? null,
+            restType: (pf as any).restType ?? null,
+        });
+    }
+
+    // 2) Choice options stored directly on pers
+    for (const co of pers.choiceOptions ?? []) {
+        const sourceName = co.groupName;
+        push({
+            key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}`,
+            name: co.optionName,
+            description: `${co.groupName}: ${co.optionName}`,
+            displayTypes: [FeatureDisplayType.PASSIVE],
+            source: "CHOICE",
+            sourceName,
+        });
+    }
+    for (const rco of pers.raceChoiceOptions ?? []) {
+        const sourceName = rco.choiceGroupName;
+        push({
+            key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}`,
+            name: rco.optionName,
+            description: rco.description || `${rco.choiceGroupName}: ${rco.optionName}`,
+            displayTypes: [FeatureDisplayType.PASSIVE],
+            source: "RACE_CHOICE",
+            sourceName,
+        });
+    }
+
+    // 3) Feats + their selected feat choice options
+    for (const pf of pers.feats ?? []) {
+        const featName = pf.feat.name;
+        const displayTypes = [FeatureDisplayType.PASSIVE];
+
+        // If a feat has no explicit choices, still show it as a single item
+        if (!pf.choices || pf.choices.length === 0) {
+            push({
+                key: `FEAT:${pf.featId}`,
+                name: featName,
+                description: pf.feat.description,
+                displayTypes,
+                source: "FEAT",
+                sourceName: featName,
+            });
+            continue;
+        }
+
+        for (const choice of pf.choices) {
+            if (!choice.choiceOption) continue;
+            push({
+                key: `FEAT:${pf.featId}:choice:${choice.choiceOptionId}`,
+                name: choice.choiceOption.optionName,
+                description: `${choice.choiceOption.groupName}: ${choice.choiceOption.optionName}`,
+                displayTypes,
+                source: "FEAT",
+                sourceName: featName,
+            });
+        }
+    }
+
+    return buckets;
+}
 </file>
 
 <file path="src/lib/components/auth/GoogleOneTap.tsx">
@@ -21889,99 +18077,1042 @@ export default function GoogleOneTap() {
 }
 </file>
 
-<file path="src/lib/components/characterCreator/CharacterCreateHeader.tsx">
+<file path="src/lib/components/characterCreator/ExpertiseForm.tsx">
 "use client";
 
-import { ArrowLeftRight, LogIn } from "lucide-react";
-import { Button } from "@/lib/components/ui/Button";
+import clsx from "clsx";
+import { useStepForm } from "@/hooks/useStepForm";
+import { expertiseSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { ClassI, BackgroundI, RaceI } from "@/lib/types/model-types";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { useEffect, useMemo } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Check } from "lucide-react";
+import { engEnumSkills } from "@/lib/refs/translation";
+import { Skills } from "@prisma/client";
 
 interface Props {
-  onReset: () => void;
-  onOpenAuth: () => void;
+  selectedClass: ClassI;
+  race: RaceI;
+  background: BackgroundI;
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
 }
 
-export const CharacterCreateHeader = ({ onReset, onOpenAuth }: Props) => {
-  return (
-    <div className="w-full rounded-2xl border border-slate-800/80 bg-gradient-to-r from-slate-950 via-slate-900/80 to-slate-900 px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5 shadow-xl backdrop-blur">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
-        <div className="space-y-1">
-          <p className="text-[11px] uppercase tracking-[0.32em] text-slate-400">
-            pers creator
-          </p>
-          <h1 className="text-xl font-semibold text-white sm:text-2xl md:text-3xl">
-            Створити персонажа
-          </h1>
-        </div>
+export const ExpertiseForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
+  const { formData, updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(expertiseSchema, (data) => {
+    updateFormData({ expertiseSchema: data });
+    nextStep();
+  });
+  
+  const expertiseFeature = useMemo(() => 
+    selectedClass.features.find(f => 
+      f.levelGranted === 1 && 
+      (f.feature.skillExpertises as { count?: number } | undefined)?.count && 
+      ((f.feature.skillExpertises as { count?: number } | undefined)?.count || 0) > 0
+    ), [selectedClass]);
 
-        <div className="flex items-center gap-3">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="border border-slate-800/60 bg-slate-900/60 hover:bg-slate-800"
-            onClick={onReset}
-          >
-            <ArrowLeftRight className="mr-2 h-4 w-4" />
-            Скинути
-          </Button>
-          <Button
-            variant="secondary"
-            size="sm"
-            className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"
-            onClick={onOpenAuth}
-          >
-            <LogIn className="mr-2 h-4 w-4" />
-            Увійти
-          </Button>
-        </div>
+  const expertiseCount = (expertiseFeature?.feature.skillExpertises as { count?: number })?.count || 0;
+  
+  const selectedExpertises = form.watch("expertises") || [];
+
+  // Get ONLY currently selected skills from formData
+  const availableProficiencies = useMemo(() => {
+    const skills = new Set<string>();
+    
+    // From SkillsForm selections (formData.skills)
+    if (formData.skills && Array.isArray(formData.skills)) {
+      formData.skills.forEach(skill => {
+        if (Object.values(Skills).includes(skill as Skills)) {
+          skills.add(skill);
+        }
+      });
+    }
+    
+    // From skillsSchema (Tasha or basic choices)
+    if (formData.skillsSchema) {
+      if (formData.skillsSchema.isTasha) {
+        formData.skillsSchema.tashaChoices?.forEach(skill => skills.add(skill));
+      } else {
+        formData.skillsSchema.basicChoices?.race?.forEach(skill => skills.add(skill));
+        formData.skillsSchema.basicChoices?.selectedClass?.forEach(skill => skills.add(skill));
+      }
+    }
+    
+    return Array.from(skills);
+  }, [formData.skills, formData.skillsSchema]);
+
+  useEffect(() => {
+    // Expertise selection is optional: user may proceed with fewer than the max.
+    onNextDisabledChange?.(false);
+  }, [selectedExpertises, expertiseCount, onNextDisabledChange]);
+
+  const toggleExpertise = (skill: string) => {
+    const current = form.getValues("expertises") || [];
+    if (current.includes(skill as Skills)) {
+      const newVal = current.filter(s => s !== skill);
+      form.setValue("expertises", newVal);
+      updateFormData({ expertiseSchema: { expertises: newVal } });
+    } else {
+      if (current.length < expertiseCount) {
+        const newVal = [...current, skill as Skills];
+        form.setValue("expertises", newVal);
+        updateFormData({ expertiseSchema: { expertises: newVal } });
+      }
+    }
+  };
+
+  if (!expertiseFeature) return null;
+
+  // Show warning if no skills selected yet
+
+  return (
+    <form id={formId} onSubmit={onSubmit} className="space-y-6">
+      {availableProficiencies.length === 0 ? (
+        <Card className="border-yellow-500/50">
+          <div className="p-6 text-center">
+            <p className="text-yellow-400 mb-2">⚠️ Немає обраних навичок!</p>
+            <p className="text-sm text-slate-400">
+              Можна продовжити без експертизи або повернутись на крок &quot;Навички&quot;.
+            </p>
+          </div>
+        </Card>
+      ) : null}
+
+      <div className="space-y-2 text-center">
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Експертиза
+        </h2>
+        <p className="text-sm text-slate-400">
+          Оберіть {expertiseCount} навички, в яких ви станете експертом (подвійний бонус майстерності).
+        </p>
+        <p className="text-xs text-amber-400 mt-1">
+          ⚠️ Експертизу можна отримати ТІЛЬКИ в навичках, які ви вже маєте!
+        </p>
       </div>
-    </div>
+
+      {availableProficiencies.length > 0 ? (
+        <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+          {availableProficiencies.map((skill) => {
+            const isSelected = selectedExpertises.includes(skill as Skills);
+            const isMaxReached = selectedExpertises.length >= expertiseCount;
+            const isDisabled = !isSelected && isMaxReached;
+            const active = isSelected;
+            const skillTranslation = engEnumSkills.find(s => s.eng === skill)?.ukr || skill;
+
+            return (
+              <Button
+                key={skill}
+                type="button"
+                variant="outline"
+                disabled={isDisabled}
+                className={clsx(
+                  "justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white",
+                  active && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100",
+                  isDisabled && "opacity-60"
+                )}
+                onClick={() => !isDisabled && toggleExpertise(skill)}
+              >
+                <span>{skillTranslation}</span>
+                {active && <Check className="h-4 w-4" />}
+              </Button>
+            );
+          })}
+        </div>
+      ) : null}
+    </form>
   );
 };
 </file>
 
-<file path="src/lib/components/characterCreator/ClassChoiceOptionsForm.tsx">
+<file path="src/lib/components/characterCreator/FeatChoiceOptionsForm.tsx">
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
-import { ClassI } from "@/lib/types/model-types";
 import { useStepForm } from "@/hooks/useStepForm";
-import { classChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-// import { Button } from "@/lib/components/ui/Button";
-import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
+import { featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { FeatPrisma } from "@/lib/types/model-types";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
+import { useWatch } from "react-hook-form";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Skills } from "@prisma/client";
+import { SkillsEnum } from "@/lib/types/enums";
+import { engEnumSkills, expertiseTranslations } from "@/lib/refs/translation";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+
+interface Props {
+  selectedFeat?: FeatPrisma | null;
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
+}
+
+type Group = {
+  groupName: string;
+  options: NonNullable<FeatPrisma["featChoiceOptions"]>;
+  pickCount: number;
+  isSkill: boolean;
+  isExpertise: boolean;
+};
+
+/**
+ * Extracts skill enum value from optionNameEng
+ * Handles formats like "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS"
+ * @param optionNameEng - The English option name
+ * @returns The skill enum value or original string
+ */
+const extractSkillFromOptionName = (optionNameEng: string): string => {
+  // Try to extract skill from parentheses
+  const match = optionNameEng.match(/\(([A-Z_]+)\)$/);
+  if (match) {
+    return match[1];
+  }
+  return optionNameEng;
+};
+
+/**
+ * Determines if all options in a group are skills
+ * @param options - Array of feat choice options
+ * @returns true if all options are from Skills enum
+ */
+const isSkillGroup = (options: NonNullable<FeatPrisma["featChoiceOptions"]>): boolean => {
+  return options.every(opt => {
+    // Extract skill name from optionNameEng before checking
+    const skillName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
+    return (SkillsEnum as readonly string[]).includes(skillName);
+  });
+};
+
+/**
+ * Determines if a group represents expertise choices based on its name
+ * @param groupName - The name of the choice group
+ * @returns true if group name contains expertise-related keywords
+ */
+const isExpertiseGroup = (groupName: string): boolean => {
+  const lowerName = groupName.toLowerCase();
+  return lowerName.includes('expertise') || 
+         lowerName.includes('експертиза') ||
+         lowerName.includes('expert');
+};
+
+const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: Props) => {
+  const { formData, updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit: baseOnSubmit } = useStepForm(featChoiceOptionsSchema, (data) => {
+    updateFormData({ featChoiceSelections: data.featChoiceSelections });
+    nextStep();
+  });
+  
+  const watchedSelections = useWatch({
+    control: form.control,
+    name: "featChoiceSelections",
+  });
+  const selections = useMemo(
+    () => ((watchedSelections ?? {}) as Record<string, number>),
+    [watchedSelections]
+  );
+  const prevDisabledRef = useRef<boolean | undefined>(undefined);
+
+  /**
+   * Gets all skills the character has from SkillsForm
+   * Handles both Tasha's mode and basic mode
+   */
+  const existingSkills = useMemo(() => {
+    const skills = new Set<string>();
+    
+    // Primary source: flat skills array from SkillsForm
+    if (formData.skills && Array.isArray(formData.skills)) {
+      formData.skills.forEach(skill => {
+        if (Object.values(Skills).includes(skill as Skills)) {
+          skills.add(skill);
+        }
+      });
+    }
+    
+    return Array.from(skills);
+  }, [formData.skills]);
+
+  /**
+   * Gets all expertises the character already has from ExpertiseForm
+   */
+  const existingExpertises = useMemo(() => {
+    const expertises = new Set<string>();
+    
+    if (formData.expertiseSchema?.expertises) {
+      formData.expertiseSchema.expertises.forEach(exp => expertises.add(exp));
+    }
+    
+    return Array.from(expertises);
+  }, [formData.expertiseSchema]);
+
+  const optionsToUse = useMemo(() => selectedFeat?.featChoiceOptions || [], [selectedFeat]);
+
+  const groupedChoices = useMemo<Group[]>(() => {
+    const groups = new Map<string, NonNullable<FeatPrisma["featChoiceOptions"]>>();
+
+    for (const fco of optionsToUse) {
+      const groupName = fco.choiceOption.groupName || "Опції";
+      const bucket = groups.get(groupName) ?? [];
+      bucket.push(fco);
+      groups.set(groupName, bucket);
+    }
+
+    return Array.from(groups.entries()).map(([groupName, options]) => ({
+      groupName,
+      options,
+      pickCount: 1,
+      isSkill: isSkillGroup(options),
+      isExpertise: isExpertiseGroup(groupName),
+    }));
+  }, [optionsToUse]);
+
+  /**
+   * Gets skills selected in THIS form (for live expertise updates)
+   * Only includes skill groups that are NOT expertise groups
+   */
+  const selectedSkillsInForm = useMemo(() => {
+    const skills = new Set<string>();
+    groupedChoices.forEach(group => {
+      // Only look at skill groups that are NOT expertise groups
+      if (group.isSkill && !group.isExpertise) {
+        const selectedOptionId = selections[group.groupName];
+        if (selectedOptionId) {
+          const option = group.options.find(opt => opt.choiceOptionId === selectedOptionId);
+          if (option) {
+            // Extract skill name from optionNameEng (e.g., "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS")
+            const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
+            skills.add(skillName);
+          }
+        }
+      }
+    });
+    
+    return Array.from(skills);
+  }, [groupedChoices, selections]);
+  
+  /**
+   * Combined list of ALL skills available for expertise selection
+   * Includes both existing skills from SkillsForm AND skills just selected in this form
+   */
+  const allAvailableSkillsForExpertise = useMemo(() => {
+    const combined = new Set<string>([
+      ...existingSkills,
+      ...selectedSkillsInForm
+    ]);
+    
+    return Array.from(combined);
+  }, [existingSkills, selectedSkillsInForm]);
+
+  /**
+   * Gets all selected option names across all groups (to prevent duplicates)
+   * For expertise groups, only track selections from OTHER expertise groups
+   */
+  const allSelectedOptions = useMemo(() => {
+    const selected = new Set<string>();
+    Object.entries(selections).forEach(([groupName, optionId]) => {
+      groupedChoices.forEach(group => {
+        if (group.groupName === groupName) {
+          const option = group.options.find(opt => opt.choiceOptionId === optionId);
+          if (option) {
+            // For skill groups, extract the actual skill name
+            if (group.isSkill || group.isExpertise) {
+              const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
+              selected.add(skillName);
+            } else {
+              selected.add(option.choiceOption.optionNameEng);
+            }
+          }
+        }
+      });
+    });
+    return Array.from(selected);
+  }, [selections, groupedChoices]);
+
+  /**
+   * Gets selected expertises from THIS form (to prevent duplicate expertises)
+   */
+  const selectedExpertisesInForm = useMemo(() => {
+    const expertises = new Set<string>();
+    Object.entries(selections).forEach(([groupName, optionId]) => {
+      const group = groupedChoices.find(g => g.groupName === groupName);
+      if (group?.isExpertise && group?.isSkill) {
+        const option = group.options.find(opt => opt.choiceOptionId === optionId);
+        if (option) {
+          const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
+          expertises.add(skillName);
+        }
+      }
+    });
+    return Array.from(expertises);
+  }, [selections, groupedChoices]);
+
+  useEffect(() => {
+    let disabled: boolean;
+    if (!selectedFeat) {
+      disabled = true;
+    } else if (groupedChoices.length === 0) {
+      disabled = false;
+    } else {
+      disabled = groupedChoices.some((g) => !selections[g.groupName]);
+    }
+
+    if (prevDisabledRef.current !== disabled) {
+      prevDisabledRef.current = disabled;
+      onNextDisabledChange?.(disabled);
+    }
+  }, [selectedFeat, groupedChoices, selections, onNextDisabledChange]);
+
+  const selectOption = (groupName: string, optionId: number) => {
+    const next = { ...(selections || {}), [groupName]: optionId };
+    form.setValue("featChoiceSelections", next, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    });
+  };
+
+  /**
+   * Determines if an option should be disabled based on skill/expertise rules
+   * @param group - The group containing the option
+   * @param opt - The specific option to check
+   * @returns Object with disabled status and optional reason
+   */
+  const isOptionDisabled = (group: Group, opt: NonNullable<FeatPrisma["featChoiceOptions"]>[0]): { disabled: boolean; reason?: string } => {
+    // Extract the actual skill name from optionNameEng
+    const optionName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
+    const isSelected = selections[group.groupName] === opt.choiceOptionId;
+    
+    // If this is a SKILL group (not expertise)
+    if (group.isSkill && !group.isExpertise) {
+      // Already have this skill from previous steps?
+      if (existingSkills.includes(optionName)) {
+        return { disabled: true, reason: 'Вже маєте' };
+      }
+      // Already selected in another NON-EXPERTISE group in this form?
+      if (!isSelected && allSelectedOptions.includes(optionName)) {
+        // Check if it's selected in another skill (non-expertise) group
+        const isInOtherSkillGroup = groupedChoices.some(g => 
+          g.isSkill && !g.isExpertise && 
+          g.groupName !== group.groupName &&
+          selections[g.groupName] !== undefined &&
+          g.options.some(o => 
+            o.choiceOptionId === selections[g.groupName] &&
+            extractSkillFromOptionName(o.choiceOption.optionNameEng) === optionName
+          )
+        );
+        if (isInOtherSkillGroup) {
+          return { disabled: true, reason: 'Вже обрано' };
+        }
+      }
+    }
+    
+    // If this is an EXPERTISE group
+    if (group.isExpertise && group.isSkill) {
+      // Can only pick expertise if we have the skill (from existing OR just selected in this form)
+      const hasSkill = allAvailableSkillsForExpertise.includes(optionName);
+      
+      if (!hasSkill) {
+        return { disabled: true, reason: 'Потрібна навичка' };
+      }
+      
+      // Already have expertise in this?
+      if (existingExpertises.includes(optionName)) {
+        return { disabled: true, reason: 'Вже експерт' };
+      }
+      
+      // Already selected as expertise in ANOTHER expertise group in this form?
+      if (!isSelected && selectedExpertisesInForm.includes(optionName)) {
+        return { disabled: true, reason: 'Вже обрано' };
+      }
+    }
+    
+    return { disabled: false };
+  };
+
+  if (!selectedFeat) {
+    return (
+      <Card className="p-4 text-center text-slate-200">
+        Спершу оберіть рису.
+      </Card>
+    );
+  }
+
+  if (groupedChoices.length === 0) {
+    return (
+      <Card className="p-4 text-center text-slate-200">
+        Ця риса не має додаткових виборів. Можна рухатися далі.
+      </Card>
+    );
+  }
+
+  return (
+    <form id={formId} onSubmit={baseOnSubmit} className="space-y-4">
+      <div className="space-y-1 text-center">
+        <p className="text-sm font-semibold text-slate-300">Риса</p>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">Опції риси</h2>
+        <p className="text-sm text-slate-400">Риса &quot;{translateValue(selectedFeat.name)}&quot; вимагає вибору.</p>
+      </div>
+
+      <div className="space-y-4">
+        {groupedChoices.map((group) => (
+          <Card
+            key={group.groupName}
+            className=""
+          >
+            <CardContent className="space-y-3 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
+                  <p className="text-base font-semibold text-white">{group.groupName}</p>
+                </div>
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
+                  Оберіть {group.pickCount}
+                </Badge>
+              </div>
+
+              {group.isExpertise && group.isSkill && (
+                <p className="text-xs text-amber-400">
+                  ⚠️ Експертизу можна обрати ТІЛЬКИ в навичках, які ви вже маєте!
+                </p>
+              )}
+
+              <div className="grid gap-2 sm:grid-cols-2">
+                {group.options.map((opt) => {
+                  const optionId = opt.choiceOptionId;
+                  const optionNameEng = opt.choiceOption.optionNameEng;
+                  const isSelected = selections[group.groupName] === optionId;
+                  const { disabled, reason } = isOptionDisabled(group, opt);
+                  
+                  // Get Ukrainian translation for skills/expertises
+                  let label = opt.choiceOption.optionName;
+                  if (group.isSkill || group.isExpertise) {
+                    // Extract skill name and translate it
+                    const skillName = extractSkillFromOptionName(optionNameEng);
+                    const skillTranslation = engEnumSkills.find(s => s.eng === skillName)?.ukr 
+                      || expertiseTranslations[skillName as Skills];
+                    label = skillTranslation || label || skillName;
+                  } else {
+                    label = label || optionNameEng;
+                  }
+
+                  return (
+                    <Button
+                      key={optionId}
+                      type="button"
+                      variant="outline"
+                      disabled={disabled && !isSelected}
+                      className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${
+                        isSelected ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : ""
+                      } ${disabled && !isSelected ? "opacity-60 cursor-not-allowed" : ""}`}
+                      onClick={() => !disabled && selectOption(group.groupName, optionId)}
+                    >
+                      <span className="flex items-center gap-2">
+                        {label}
+                        {disabled && reason && (
+                          <span className="text-xs opacity-70">({reason})</span>
+                        )}
+                      </span>
+                      {isSelected && <Check className="h-4 w-4" />}
+                    </Button>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </form>
+  );
+};
+
+export default FeatChoiceOptionsForm;
+</file>
+
+<file path="src/lib/components/characterCreator/FeatsForm.tsx">
+"use client";
+
+import { useStepForm } from "@/hooks/useStepForm";
+import { featSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { Feat } from "@prisma/client";
+import { Card, CardContent } from "@/components/ui/card";
+import clsx from "clsx";
+import { useEffect, useMemo, useState } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { InfoDialog, InfoGrid, InfoPill } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import { sourceTranslations, featTranslations } from "@/lib/refs/translation";
+import {
+  formatASI,
+  formatLanguages,
+  formatSkillProficiencies,
+  formatToolProficiencies,
+  formatWeaponProficiencies,
+  formatArmorProficiencies,
+} from "@/lib/components/characterCreator/infoUtils";
+import { Input } from "@/components/ui/input";
+import { Search, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+interface Props {
+  feats: Feat[];
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
+}
+
+export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(featSchema, (data) => {
+    updateFormData({ featId: data.featId });
+    nextStep();
+  });
+  
+  const chosenFeatId = form.watch("featId");
+  const search = form.watch("featSearch");
+
+  useEffect(() => {
+    if (!chosenFeatId) {
+      onNextDisabledChange?.(true);
+      return;
+    }
+    onNextDisabledChange?.(false);
+  }, [onNextDisabledChange, chosenFeatId]);
+
+  const filteredFeats = useMemo(() => {
+    const normalizedSearch = (search || "").toLowerCase().trim();
+    if (!normalizedSearch) return feats;
+    return feats.filter(f => 
+      f.name.toLowerCase().includes(normalizedSearch) || 
+      f.engName.toLowerCase().includes(normalizedSearch)
+    );
+  }, [feats, search]);
+
+  const FeatInfoModal = ({ feat }: { feat: Feat }) => {
+    const name = featTranslations[feat.name] ?? feat.name;
+    return (
+      <InfoDialog
+        title={name}
+        triggerLabel={`Показати деталі ${name}`}
+      >
+        <InfoGrid>
+          <InfoPill label="Джерело" value={sourceTranslations[feat.source] ?? feat.source} />
+          <InfoPill label="Бонуси характеристик" value={formatASI(feat.grantedASI)} />
+          <InfoPill
+            label="Навички"
+            value={formatSkillProficiencies(feat.grantedSkills as any)}
+          />
+           <InfoPill
+            label="Мови"
+            value={formatLanguages(feat.grantedLanguages, feat.grantedLanguageCount)}
+          />
+          <InfoPill
+            label="Інструменти"
+            value={formatToolProficiencies(feat.grantedToolProficiencies as any)}
+          />
+           <InfoPill
+            label="Зброя"
+            value={formatWeaponProficiencies(feat.grantedWeaponProficiencies as any)}
+          />
+           <InfoPill
+            label="Обладунки"
+            value={formatArmorProficiencies(feat.grantedArmorProficiencies)}
+          />
+          <div className="col-span-full">
+             <p className="text-sm text-slate-300 whitespace-pre-line">{feat.description}</p>
+          </div>
+        </InfoGrid>
+      </InfoDialog>
+    );
+  };
+
+  return (
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+      <div className="space-y-2 text-center">
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть рису
+        </h2>
+        <p className="text-sm text-slate-400">Додаткова риса для вашого персонажа</p>
+      </div>
+
+      <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
+        <div className="relative w-full">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+            <Input
+              type="search"
+              value={search}
+              onChange={(e) => form.setValue("featSearch", e.target.value)}
+              placeholder="Пошук риси"
+              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
+            />
+             {search && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
+                onClick={() => form.setValue("featSearch", '')}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            )}
+        </div>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        {filteredFeats.map((feat) => {
+          const name = featTranslations[feat.name] ?? feat.name;
+          return (
+          <Card
+            key={feat.featId}
+            className={clsx(
+              "cursor-pointer transition will-change-transform hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10",
+              feat.featId === chosenFeatId &&
+                "border-gradient-rpg-active glass-active"
+            )}
+            onClick={() => form.setValue("featId", feat.featId)}
+          >
+            <CardContent className="relative flex items-center justify-between p-4">
+              <FeatInfoModal feat={feat} />
+              <div>
+                <div className="text-lg font-semibold text-white">{name}</div>
+                <div className="text-xs text-slate-400">{feat.engName}</div>
+              </div>
+              <SourceBadge code={feat.source} active={feat.featId === chosenFeatId} />
+            </CardContent>
+          </Card>
+        )})}
+      </div>
+      <input
+        type="hidden"
+        {...form.register("featId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
+    </form>
+  );
+};
+
+export default FeatsForm;
+</file>
+
+<file path="src/lib/components/characterCreator/RaceVariantsForm.tsx">
+"use client";
+
+import { useStepForm } from "@/hooks/useStepForm";
+import { raceVariantSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { RaceI } from "@/lib/types/model-types";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import clsx from "clsx";
+import { useEffect } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import { sourceTranslations, variantTranslations, variantTranslationsEng } from "@/lib/refs/translation";
+import {
+  formatASI,
+  // formatRaceAC,
+  formatSpeeds,
+  translateValue,
+} from "@/lib/components/characterCreator/infoUtils";
+
+interface Props {
+  race: RaceI;
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
+}
+
+export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(raceVariantSchema, (data) => {
+    updateFormData({ raceVariantId: data.raceVariantId ?? null });
+    nextStep();
+  });
+  
+  const chosenVariantId = form.watch("raceVariantId");
+
+  useEffect(() => {
+    // Variant selection is optional — user can continue without choosing.
+    onNextDisabledChange?.(false);
+  }, [onNextDisabledChange]);
+
+  const variants = race.raceVariants || [];
+
+  const VariantInfoModal = ({ variant }: { variant: any }) => {
+    const name = variantTranslations[variant.name] ?? variant.name;
+    const rawTraits = variant.traits || [];
+    const traitList = [...rawTraits].sort(
+      (a: any, b: any) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
+    );
+
+    return (
+      <InfoDialog
+        title={name}
+        triggerLabel={`Показати деталі ${name}`}
+      >
+        <InfoGrid>
+          <InfoPill label="Джерело" value={sourceTranslations[variant.source] ?? variant.source} />
+          <InfoPill label="Швидкості" value={formatSpeeds({
+            speed: variant.overridesRaceSpeed,
+            flightSpeed: variant.overridesFlightSpeed
+          })} />
+          <InfoPill label="Бонуси характеристик" value={formatASI(variant.overridesRaceASI)} />
+          <div className="col-span-full">
+             <p className="text-sm text-slate-300">{variant.description}</p>
+          </div>
+        </InfoGrid>
+
+        <div className="space-y-2">
+          <InfoSectionTitle>Риси</InfoSectionTitle>
+          {traitList.length ? (
+            traitList.map((trait: any) => (
+              <div
+                key={trait.raceTraitId || trait.feature.featureId}
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
+              >
+                <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
+                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                  {trait.feature.description}
+                </p>
+              </div>
+            ))
+          ) : (
+            <p className="text-sm text-slate-400">Для цього варіанту ще немає опису рис.</p>
+          )}
+        </div>
+      </InfoDialog>
+    );
+  };
+
+  return (
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+      <div className="space-y-2 text-center">
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Варіант раси (необовʼязково)
+        </h2>
+        <p className="text-sm text-slate-400">Для раси {translateValue(race.name)}</p>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {variants.map((rv) => {
+          const name = variantTranslations[rv.name] ?? rv.name;
+          const engName = variantTranslationsEng[rv.name] ?? rv.name;
+          
+          return (
+          <Card
+            key={rv.raceVariantId}
+            className={clsx(
+              "cursor-pointer transition will-change-transform hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10",
+              rv.raceVariantId === chosenVariantId && "border-gradient-rpg-active glass-active"
+            )}
+            onClick={() => form.setValue("raceVariantId", rv.raceVariantId)}
+          >
+            <CardContent className="relative flex items-center justify-between p-4">
+              <VariantInfoModal variant={rv} />
+              <div>
+                <div className="text-lg font-semibold text-white">{name}</div>
+                <div className="text-xs text-slate-400">{engName}</div>
+              </div>
+              <SourceBadge code={rv.source} active={rv.raceVariantId === chosenVariantId} />
+            </CardContent>
+          </Card>
+        )})}
+      </div>
+
+      <div className="flex justify-center">
+        <Button
+          type="button"
+          variant="outline"
+          className="border-white/15 bg-white/5 text-slate-200 hover:bg-white/7"
+          onClick={() => {
+            form.setValue("raceVariantId", undefined);
+            updateFormData({ raceVariantId: null });
+            nextStep();
+          }}
+        >
+          Пропустити
+        </Button>
+      </div>
+
+      <input
+        type="hidden"
+        {...form.register("raceVariantId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return null;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : null;
+          },
+        })}
+      />
+    </form>
+  );
+};
+
+export default RaceVariantsForm;
+</file>
+
+<file path="src/lib/components/characterCreator/SourceBadge.tsx">
+"use client";
+
+import clsx from "clsx";
+import { KeyboardEvent, SyntheticEvent, useEffect, useMemo, useRef, useState } from "react";
+
+import { Badge } from "@/components/ui/badge";
+import { sourceTranslations, sourceTranslationsEng } from "@/lib/refs/translation";
+
+interface SourceBadgeProps {
+  code?: string | null;
+  active?: boolean;
+  className?: string;
+}
+
+const getTranslation = (code?: string | null) => {
+  if (!code) return { ua: undefined, en: undefined };
+
+  const ua = Object.prototype.hasOwnProperty.call(sourceTranslations, code)
+    ? (sourceTranslations as Record<string, string>)[code]
+    : undefined;
+  const en = Object.prototype.hasOwnProperty.call(sourceTranslationsEng, code)
+    ? (sourceTranslationsEng as Record<string, string>)[code]
+    : undefined;
+
+  return { ua, en };
+};
+
+export const SourceBadge = ({ code, active, className }: SourceBadgeProps) => {
+  const [open, setOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const { ua, en } = useMemo(() => getTranslation(code), [code]);
+  const label = code || "—";
+  const hintPrimary = ua || "Невідоме джерело";
+  const hintSecondary = en || (code ? code : "");
+
+  useEffect(() => setOpen(false), [code]);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleOutside = (event: PointerEvent) => {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutside);
+    return () => document.removeEventListener("pointerdown", handleOutside);
+  }, [open]);
+
+  const toggle = (event?: SyntheticEvent) => {
+    event?.stopPropagation();
+    setOpen((prev) => !prev);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggle(event);
+    }
+  };
+
+  return (
+    <div ref={wrapperRef} className={clsx("relative", className)}>
+      <Badge
+        role="button"
+        tabIndex={0}
+        variant="outline"
+        className={clsx(
+          "cursor-pointer select-none border-white/15 bg-white/5 text-slate-200",
+          "hover:bg-white/7 hover:text-white",
+          active && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100",
+          className
+        )}
+        onClick={toggle}
+        onPointerDown={(event) => event.stopPropagation()}
+        onKeyDown={handleKeyDown}
+      >
+        {label}
+      </Badge>
+
+      {open ? (
+        <div
+          className="absolute left-1/2 top-0 z-30 flex -translate-x-1/2 -translate-y-3 flex-col items-center"
+          onClick={(event) => event.stopPropagation()}
+          onPointerDown={(event) => event.stopPropagation()}
+        >
+          <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2 text-xs font-semibold text-slate-50">
+            <span>{hintPrimary}</span>
+            {hintSecondary ? (
+              <span className="ml-1 text-[11px] font-normal text-slate-400">
+                ({hintSecondary})
+              </span>
+            ) : null}
+          </div>
+          <div className="h-2 w-2 rotate-45 border-b border-r border-white/10 bg-white/5" />
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+export default SourceBadge;
+</file>
+
+<file path="src/lib/components/characterCreator/SubclassChoiceOptionsForm.tsx">
+"use client";
+
+import { useEffect, useMemo, useRef } from "react";
+import { SubclassI } from "@/lib/types/model-types";
+import { useStepForm } from "@/hooks/useStepForm";
+import { subclassSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import clsx from "clsx";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 
 interface Props {
-  selectedClass?: ClassI | null;
-  availableOptions?: ClassI["classChoiceOptions"];
+  selectedSubclass?: SubclassI | null;
+  availableOptions?: SubclassI["subclassChoiceOptions"];
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
 }
 
-const formatFeatures = (features?: ClassI["classChoiceOptions"][number]["choiceOption"]["features"]) =>
+const formatFeatures = (features?: SubclassI["subclassChoiceOptions"][number]["choiceOption"]["features"]) =>
   (features || []).map((item) => item.feature?.name).filter(Boolean);
 
-const displayName = (cls?: ClassI | null) =>
-  cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
-
-const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange }: Props) => {
+const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
   
-  const { form, onSubmit } = useStepForm(classChoiceOptionsSchema, (data) => {
-    updateFormData({ classChoiceSelections: data.classChoiceSelections });
+  const { form, onSubmit } = useStepForm(subclassSchema, (data) => {
+    updateFormData({ subclassChoiceSelections: data.subclassChoiceSelections });
     nextStep();
   });
   
-  const selections = form.watch("classChoiceSelections") || {};
+  const selections = form.watch("subclassChoiceSelections") || {};
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   const optionsToUse = useMemo(() => {
       if (availableOptions) return availableOptions;
-      return (selectedClass?.classChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(1));
-  }, [selectedClass, availableOptions]);
+      // Default to level 1 if not specified (though subclasses usually start at 1, 2, or 3)
+      // For creation flow, we might need to check the class's subclass level, but usually this form is shown when subclass is active.
+      // Let's assume for creation flow we show all options granted at the subclass level?
+      // Or maybe we just show all options?
+      // In creation flow, we usually pick subclass at level 1, 2 or 3.
+      // If we are at that level, we should show options for that level.
+      // But `levelsGranted` might be higher.
+      // For now, let's filter for level 1 as a default fallback, or just return all if we assume the parent filters.
+      // Actually, let's stick to the pattern:
+      return (selectedSubclass?.subclassChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(1));
+  }, [selectedSubclass, availableOptions]);
 
   const groupedOptions = useMemo(() => {
     const groups: Record<string, typeof optionsToUse> = {};
@@ -21996,423 +19127,2835 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
   useEffect(() => {
     let disabled: boolean;
 
-    if (!selectedClass) {
-      disabled = true;
-    } else if (!groupedOptions.length) {
+    if (groupedOptions.length === 0) {
       disabled = false;
     } else {
-      disabled = groupedOptions.some(({ groupName }) => !selections[groupName]);
+      const allGroupsSelected = groupedOptions.every(({ groupName }) => {
+        const selectedOptionId = selections[groupName];
+        return selectedOptionId !== undefined;
+      });
+      disabled = !allGroupsSelected;
     }
 
     if (prevDisabledRef.current !== disabled) {
-      prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
+      prevDisabledRef.current = disabled;
     }
-  }, [selectedClass, groupedOptions, selections, onNextDisabledChange]);
+  }, [groupedOptions, selections, onNextDisabledChange]);
 
-  useEffect(() => {
-    updateFormData({ classChoiceSelections: selections });
-  }, [selections, updateFormData]);
-
-  const selectOption = (groupName: string, optionId: number) => {
-    const next = { ...(selections || {}), [groupName]: optionId };
-    form.setValue("classChoiceSelections", next, { shouldDirty: true });
+  const handleSelect = (groupName: string, optionId: number) => {
+    const newSelections = { ...selections, [groupName]: optionId };
+    form.setValue("subclassChoiceSelections", newSelections);
+    updateFormData({ subclassChoiceSelections: newSelections });
   };
 
-  if (!selectedClass && !availableOptions) {
-    return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-        Спершу оберіть клас.
-      </Card>
-    );
-  }
-
-  if (!groupedOptions.length) {
-    return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-        На 1 рівні {displayName(selectedClass)} не має окремих виборів. Можна рухатися далі.
-      </Card>
-    );
+  if (groupedOptions.length === 0) {
+    return <div className="text-center text-muted-foreground py-4">Немає доступних опцій для вибору на цьому рівні.</div>;
   }
 
   return (
-    <form id={formId} onSubmit={onSubmit} className="space-y-4">
-      <div className="space-y-1 text-center">
-        <p className="text-sm font-semibold text-indigo-200">Рівень 1</p>
-        <h2 className="text-xl font-semibold text-white">Опції класу</h2>
-        <p className="text-sm text-slate-400">
-          {displayName(selectedClass)} пропонує вибір. Оберіть те, що підходить вашому персонажу.
-        </p>
-      </div>
+    <form id={formId} onSubmit={onSubmit} className="space-y-6">
+      {groupedOptions.map(({ groupName, options }) => (
+        <div key={groupName} className="space-y-3">
+          <InfoSectionTitle>{groupName}</InfoSectionTitle>
+          <div className="grid grid-cols-1 gap-3">
+            {options.map((opt) => {
+              const isSelected = selections[groupName] === opt.choiceOption.choiceOptionId;
+              const features = formatFeatures(opt.choiceOption.features);
 
-      <div className="space-y-4">
-        {groupedOptions.map(({ groupName, options }) => (
-          <Card
-            key={groupName}
-            className="border border-slate-800/80 bg-slate-900/70 shadow-inner shadow-indigo-500/5"
-          >
-            <CardContent className="space-y-3 p-4">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
-                  <p className="text-base font-semibold text-white">{groupName}</p>
-                </div>
-                <Badge variant="outline" className="border-slate-700 bg-slate-800/60 text-slate-200">
-                  Оберіть 1
-                </Badge>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {options.map((opt) => {
-                  const optionId = opt.optionId ?? opt.choiceOptionId;
-                  const selected = selections[groupName] === optionId;
-                  const features = formatFeatures(opt.choiceOption.features);
-                  const label = opt.choiceOption.optionName || opt.choiceOption.optionNameEng;
-
-                  return (
-                    <Card
-                      key={optionId}
-                      className={clsx(
-                        "cursor-pointer transition hover:-translate-y-0.5",
-                        selected
-                          ? "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-                          : "border-slate-800/80 bg-slate-900/70 hover:border-indigo-500/60"
-                      )}
-                      onClick={() => selectOption(groupName, optionId)}
-                    >
-                      <CardContent className="flex h-full flex-col gap-3 p-3 sm:p-4">
-                        <div className="flex items-center justify-between gap-2">
-                          <p className="text-sm font-semibold text-white">{label}</p>
-                          <Badge
-                            variant={selected ? "secondary" : "outline"}
-                            className={clsx(
-                              "border-slate-700",
-                              selected
-                                ? "bg-indigo-500/20 text-indigo-50"
-                                : "bg-slate-800/60 text-slate-200"
-                            )}
-                          >
-                            {selected ? "Обрано" : "Обрати"}
-                          </Badge>
+              return (
+                <Card
+                  key={opt.choiceOption.choiceOptionId}
+                  className={clsx(
+                    "cursor-pointer transition-all hover:border-primary/50",
+                    isSelected ? "border-primary bg-primary/5" : "border-border"
+                  )}
+                  onClick={() => handleSelect(groupName, opt.choiceOption.choiceOptionId)}
+                >
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <div>
+                      <div className="font-bold text-lg">{opt.choiceOption.optionName}</div>
+                      {features.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {features.map((f, i) => (
+                            <Badge key={i} variant="secondary" className="text-xs">
+                              {f}
+                            </Badge>
+                          ))}
                         </div>
-
-                        {features.length ? (
-                          <div className="space-y-1.5 rounded-lg border border-slate-800/70 bg-slate-950/40 p-3">
-                            <InfoSectionTitle>Що дає</InfoSectionTitle>
-                            <ul className="space-y-1 text-sm text-slate-200/90">
-                              {features.map((feat) => (
-                                <li key={feat} className="flex items-start gap-2">
-                                  <span
-                                    className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400"
-                                    aria-hidden
-                                  />
-                                  <span className="leading-snug">{feat}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+                      )}
+                    </div>
+                    <div className={clsx(
+                        "w-5 h-5 rounded-full border flex items-center justify-center",
+                        isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground"
+                    )}>
+                        {isSelected && <div className="w-2.5 h-2.5 bg-current rounded-full" />}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </form>
   );
 };
 
-export default ClassChoiceOptionsForm;
+export default SubclassChoiceOptionsForm;
 </file>
 
-<file path="src/lib/components/characterCreator/NameForm.tsx">
+<file path="src/lib/components/characterCreator/SubclassForm.tsx">
 "use client";
 
-import { nameSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useStepForm } from "@/hooks/useStepForm";
-import { Input } from "@/lib/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { raceTranslations, classTranslations, backgroundTranslations } from "@/lib/refs/translation";
-import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
-import { RaceVariant } from "@prisma/client";
-import { useCharacterStats } from "@/hooks/useCharacterStats";
-import { useFantasyNameGenerator } from "@/hooks/useFantasyNameGenerator";
+import { subclassSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { ClassI } from "@/lib/types/model-types";
+import { Card, CardContent } from "@/components/ui/card";
 import clsx from "clsx";
-import { RefreshCw } from "lucide-react";
+import { useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+// import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import { sourceTranslations, subclassTranslations, subclassTranslationsEng } from "@/lib/refs/translation";
+import {
+  formatLanguages,
+  formatToolProficiencies,
+  prettifyEnum,
+  translateValue,
+} from "@/lib/components/characterCreator/infoUtils";
 
 interface Props {
+  cls: ClassI;
   formId: string;
-  race?: RaceI;
-  raceVariant?: RaceVariant | null;
-  selectedClass?: ClassI;
-  background?: BackgroundI;
-  feat?: FeatPrisma | null;
-  onSuccess?: () => void;
+  onNextDisabledChange?: (disabled: boolean) => void;
 }
 
-const SummaryCard = ({ label, value }: { label: string; value?: string }) => (
-  <Card className="border border-slate-800/70 bg-slate-900/70 shadow-inner">
-    <CardHeader className="pb-2">
-      <CardDescription className="text-slate-400">{label}</CardDescription>
-      <CardTitle className="text-white text-lg">{value ?? "Не обрано"}</CardTitle>
-    </CardHeader>
-  </Card>
-);
+export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(subclassSchema, (data) => {
+    updateFormData({ 
+      subclassId: data.subclassId,
+      subclassChoiceSelections: data.subclassChoiceSelections 
+    });
+    nextStep();
+  });
+  
+  const chosenSubclassId = form.watch("subclassId");
 
-const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }) => {
-  const attributes = [
-    { key: 'STR', label: 'СИЛ' },
-    { key: 'DEX', label: 'СПР' },
-    { key: 'CON', label: 'СТА' },
-    { key: 'INT', label: 'ІНТ' },
-    { key: 'WIS', label: 'МУД' },
-    { key: 'CHA', label: 'ХАР' },
-  ];
+  useEffect(() => {
+    if (!chosenSubclassId) {
+      onNextDisabledChange?.(true);
+      return;
+    }
+    onNextDisabledChange?.(false);
+  }, [onNextDisabledChange, chosenSubclassId]);
 
-  return (
-    <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
-      {attributes.map((attr) => {
-        const stat = stats[attr.key];
-        return (
-          <div key={attr.key} className="flex flex-col items-center rounded-lg border border-slate-800/60 bg-slate-900/40 p-2">
-            <span className="text-[10px] font-bold uppercase text-slate-500">{attr.label}</span>
-            <span className="text-xl font-bold text-white">{stat.total}</span>
-            <div className="flex items-center gap-1">
-              <Badge variant="outline" className={clsx(
-                "h-5 px-1 text-[10px]",
-                stat.mod >= 0 ? "border-emerald-500/30 text-emerald-400" : "border-red-500/30 text-red-400"
-              )}>
-                {stat.mod >= 0 ? `+${stat.mod}` : stat.mod}
-              </Badge>
-              {stat.bonus > 0 && (
-                 <span className="text-[10px] text-indigo-400" title={`База: ${stat.base}, Бонус: +${stat.bonus}`}>
-                   (+{stat.bonus})
-                 </span>
-              )}
-            </div>
+  const subclasses = cls.subclasses || [];
+
+  const SubclassInfoModal = ({ subclass }: { subclass: any }) => {
+    const name = subclassTranslations[subclass.name] ?? subclass.name;
+    const rawFeatures = subclass.features || [];
+    const featureList = [...rawFeatures].sort(
+      (a: any, b: any) => (a.levelUnlock || 0) - (b.levelUnlock || 0)
+    );
+
+    return (
+      <InfoDialog
+        title={name}
+        triggerLabel={`Показати деталі ${name}`}
+      >
+        <InfoGrid>
+          <InfoPill label="Джерело" value={sourceTranslations[subclass.source] ?? subclass.source} />
+          <InfoPill label="Основна характеристика" value={prettifyEnum(subclass.primaryCastingStat)} />
+          <InfoPill label="Тип заклинань" value={prettifyEnum(subclass.spellcastingType)} />
+          <InfoPill
+            label="Мови"
+            value={formatLanguages(subclass.languages, subclass.languagesToChooseCount)}
+          />
+          <InfoPill
+            label="Інструменти"
+            value={formatToolProficiencies(subclass.toolProficiencies, subclass.toolToChooseCount)}
+          />
+          <div className="col-span-full">
+             <p className="text-sm text-slate-300">{subclass.description}</p>
           </div>
-        );
-      })}
-    </div>
-  );
-};
+        </InfoGrid>
 
-export const NameForm = ({ formId, race, raceVariant, selectedClass, background, feat, onSuccess }: Props) => {
-  const { form, onSubmit } = useStepForm(nameSchema, onSuccess);
-  const stats = useCharacterStats({ race, raceVariant, feat });
-  const { currentName, generateName } = useFantasyNameGenerator();
-
-  const raceName = race ? raceTranslations[race.name] : undefined;
-  const className = selectedClass ? classTranslations[selectedClass.name] : undefined;
-  const bgName = background ? backgroundTranslations[background.name] : undefined;
+        <div className="space-y-2">
+          <InfoSectionTitle>Риси підкласу</InfoSectionTitle>
+          {featureList.length ? (
+            featureList.map((f: any) => (
+              <div
+                key={f.feature.featureId}
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-sm font-semibold text-white">{f.feature.name}</p>
+                  <Badge variant="outline" className="border-white/15 bg-white/5 text-[10px] text-slate-300">
+                    Рівень {f.levelUnlock}
+                  </Badge>
+                </div>
+                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                  {f.feature.description}
+                </p>
+              </div>
+            ))
+          ) : (
+            <p className="text-sm text-slate-400">Для цього підкласу ще немає опису рис.</p>
+          )}
+        </div>
+      </InfoDialog>
+    );
+  };
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
-        <CardHeader>
-          <CardTitle className="text-white">Ім&apos;я персонажа</CardTitle>
-          <CardDescription className="text-slate-400">
-            Завершіть створення та перевірте вибір.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid gap-3 md:grid-cols-3">
-            <SummaryCard label="Раса" value={raceName} />
-            <SummaryCard label="Клас" value={className} />
-            <SummaryCard label="Передісторія" value={bgName} />
-          </div>
-
-          <div className="space-y-2">
-             <h3 className="text-sm font-medium text-slate-300">Фінальні характеристики</h3>
-             <StatsSummary stats={stats} />
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm text-slate-300" htmlFor="name">Ім&apos;я</label>
-            <div className="flex gap-2">
-              <Input
-                id="name"
-                placeholder={currentName || "Наприклад, Аравор"}
-                {...form.register('name')}
-                className="border-slate-800/80 bg-slate-900/70 text-white"
-              />
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                className="border-slate-800/80 bg-slate-900/60 text-slate-200"
-                onClick={() => generateName()}
-                title="Згенерувати інше імʼя"
-              >
-                <RefreshCw className="h-4 w-4" />
-              </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                className="text-slate-200"
-                onClick={() => form.setValue('name', currentName, { shouldDirty: true })}
-                disabled={!currentName}
-                title="Використати запропоноване імʼя"
-              >
-                Використати
-              </Button>
-            </div>
-            {currentName ? (
-              <p className="text-xs text-slate-500">
-                Підказка: <span className="text-slate-300">{currentName}</span>
-              </p>
-            ) : null}
-            <p className="text-xs text-slate-500">Це ім&apos;я побачите у підсумку та на листі персонажа.</p>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="space-y-2 text-center">
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть підклас
+        </h2>
+        <p className="text-sm text-slate-400">Для класу {translateValue(cls.name)}</p>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {subclasses.map((sc) => {
+          const name = subclassTranslations[sc.name] ?? sc.name;
+          const engName = subclassTranslationsEng[sc.name] ?? sc.name;
+          
+          return (
+          <Card
+            key={sc.subclassId}
+            className={clsx(
+              "cursor-pointer transition will-change-transform hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10",
+              sc.subclassId === chosenSubclassId && "border-gradient-rpg-active glass-active"
+            )}
+            onClick={() => form.setValue("subclassId", sc.subclassId)}
+          >
+            <CardContent className="relative flex items-center justify-between p-4">
+              <SubclassInfoModal subclass={sc} />
+              <div>
+                <div className="text-lg font-semibold text-white">{name}</div>
+                <div className="text-xs text-slate-400">{engName}</div>
+              </div>
+              {/* <SourceBadge code={sc.source} active={sc.subclassId === chosenSubclassId} /> */}
+            </CardContent>
+          </Card>
+        )})}
+      </div>
+      <input
+        type="hidden"
+        {...form.register("subclassId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   );
 };
 
-export default NameForm;
+export default SubclassForm;
 </file>
 
-<file path="src/lib/components/ui/App.tsx">
-import React from "react";
+<file path="src/lib/components/characterCreator/SubracesForm.tsx">
+"use client";
 
-export const App = ({ children }: { children: React.ReactNode }) => {
+import { useStepForm } from "@/hooks/useStepForm";
+import { subraceSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { RaceI } from "@/lib/types/model-types";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import clsx from "clsx";
+import { useEffect } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import { sourceTranslations, subraceTranslations, subraceTranslationsEng } from "@/lib/refs/translation";
+import {
+  // formatArmorProficiencies,
+  formatASI,
+  formatLanguages,
+  // formatList,
+  // formatSkillProficiencies,
+  formatSpeeds,
+  formatToolProficiencies,
+  // formatWeaponProficiencies,
+  translateValue,
+} from "@/lib/components/characterCreator/infoUtils";
+
+interface Props {
+  race: RaceI;
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
+}
+
+export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(subraceSchema, (data) => {
+    updateFormData({ subraceId: data.subraceId });
+    nextStep();
+  });
+  
+  const chosenSubraceId = form.watch("subraceId");
+
+  useEffect(() => {
+    // Subrace selection is optional — user can continue without choosing.
+    onNextDisabledChange?.(false);
+  }, [onNextDisabledChange]);
+
+  const subraces = race.subraces || [];
+
+  const SubraceInfoModal = ({ subrace }: { subrace: any }) => {
+    const name = subraceTranslations[subrace.name] ?? subrace.name;
+    const rawTraits = subrace.traits || [];
+    const traitList = [...rawTraits].sort(
+      (a: any, b: any) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
+    );
+
+    return (
+      <InfoDialog
+        title={name}
+        triggerLabel={`Показати деталі ${name}`}
+      >
+        <InfoGrid>
+          <InfoPill label="Джерело" value={sourceTranslations[subrace.source] ?? subrace.source} />
+          <InfoPill label="Швидкості" value={formatSpeeds(subrace)} />
+          <InfoPill label="Бонуси характеристик" value={formatASI(subrace.additionalASI)} />
+          <InfoPill
+            label="Мови"
+            value={formatLanguages(subrace.additionalLanguages, subrace.languagesToChooseCount)}
+          />
+          <InfoPill
+            label="Інструменти"
+            value={formatToolProficiencies(subrace.toolProficiencies)}
+          />
+          <div className="col-span-full">
+             <p className="text-sm text-slate-300">{subrace.description}</p>
+          </div>
+        </InfoGrid>
+
+        <div className="space-y-2">
+          <InfoSectionTitle>Риси</InfoSectionTitle>
+          {traitList.length ? (
+            traitList.map((trait: any) => (
+              <div
+                key={trait.raceTraitId || trait.feature.featureId}
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
+              >
+                <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
+                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                  {trait.feature.description}
+                </p>
+              </div>
+            ))
+          ) : (
+            <p className="text-sm text-slate-400">Для цієї підраси ще немає опису рис.</p>
+          )}
+        </div>
+      </InfoDialog>
+    );
+  };
+
   return (
-    <main className="col-start-1 row-start-1 flex min-h-full w-full flex-col items-center px-0.5 md:py-6 md:col-start-2 md:px-6">
-      { children }
-    </main>
-  )
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+      <div className="space-y-2 text-center">
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть підрасу (необовʼязково)
+        </h2>
+        <p className="text-sm text-slate-400">Для раси {translateValue(race.name)}</p>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {subraces.map((sr) => {
+          const name = subraceTranslations[sr.name] ?? sr.name;
+          const engName = subraceTranslationsEng[sr.name] ?? sr.name;
+          
+          return (
+          <Card
+            key={sr.subraceId}
+            className={clsx(
+              "cursor-pointer transition will-change-transform hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10",
+              sr.subraceId === chosenSubraceId && "border-gradient-rpg-active glass-active"
+            )}
+            onClick={() => form.setValue("subraceId", sr.subraceId)}
+          >
+            <CardContent className="relative flex items-center justify-between p-4">
+              <SubraceInfoModal subrace={sr} />
+              <div>
+                <div className="text-lg font-semibold text-white">{name}</div>
+                <div className="text-xs text-slate-400">{engName}</div>
+              </div>
+              <SourceBadge code={sr.source} active={sr.subraceId === chosenSubraceId} />
+            </CardContent>
+          </Card>
+        )})}
+      </div>
+
+      <div className="flex justify-center">
+        <Button
+          type="button"
+          variant="outline"
+            className="border-white/15 bg-white/5 text-slate-200 hover:bg-white/7"
+          onClick={() => {
+            form.setValue("subraceId", undefined);
+            updateFormData({ subraceId: undefined });
+            nextStep();
+          }}
+        >
+          Пропустити
+        </Button>
+      </div>
+
+      <input
+        type="hidden"
+        {...form.register("subraceId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
+    </form>
+  );
+};
+
+export default SubracesForm;
+</file>
+
+<file path="src/lib/components/characterSheet/slides/CombatSlide.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  armorTranslations,
+  armorTypeTranslations,
+  damageTypeTranslations,
+  weaponTranslations,
+  weaponTypeTranslations,
+} from "@/lib/refs/translation";
+import { Sword } from "lucide-react";
+
+interface CombatSlideProps {
+  pers: PersWithRelations;
+}
+
+export default function CombatSlide({ pers }: CombatSlideProps) {
+  return (
+    <div className="h-full p-4 space-y-4">
+      <Card className="glass-card bg-white/5 border-white/10">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg flex items-center gap-2 text-slate-50">
+            <Sword className="w-5 h-5" />
+            <span className="uppercase tracking-wide text-indigo-300">Атаки та Зброя</span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {pers.weapons.map((pw) => (
+            <div
+              key={pw.persWeaponId}
+              className="flex justify-between items-center border border-white/10 bg-slate-900/30 p-3 rounded-lg hover:bg-slate-900/45 transition"
+            >
+              <div>
+                <div className="font-bold text-slate-50">
+                  {weaponTranslations[pw.weapon.name as keyof typeof weaponTranslations] || pw.weapon.name}
+                </div>
+                <div className="text-xs text-slate-300">
+                  {(weaponTypeTranslations[pw.weapon.weaponType as keyof typeof weaponTypeTranslations] || pw.weapon.weaponType) + " • "}
+                  {pw.weapon.damage} {damageTypeTranslations[pw.weapon.damageType as keyof typeof damageTypeTranslations] || pw.weapon.damageType}
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="font-bold text-lg text-slate-200">+{Math.floor(Math.random() * 5) + 3}</div>
+                <div className="text-xs text-slate-400">атака</div>
+              </div>
+            </div>
+          ))}
+          {pers.weapons.length === 0 && (
+            <div className="text-slate-300/60 text-sm text-center py-8">Зброя не екіпірована</div>
+          )}
+        </CardContent>
+      </Card>
+
+      <Card className="glass-card bg-white/5 border-white/10">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-lg uppercase tracking-wide text-indigo-300">Броня</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {pers.armors.map((pa) => (
+            <div
+              key={pa.persArmorId}
+              className="flex justify-between items-center border border-white/10 bg-slate-900/30 p-3 rounded-lg"
+            >
+              <div>
+                <div className="font-semibold text-slate-50">
+                  {armorTranslations[pa.armor.name as keyof typeof armorTranslations] || pa.armor.name}
+                </div>
+                <div className="text-xs text-slate-300">
+                  {armorTypeTranslations[pa.armor.armorType as keyof typeof armorTypeTranslations] || pa.armor.armorType}
+                </div>
+              </div>
+              <div className="text-sm text-slate-300">КБ {pa.armor.baseAC}</div>
+            </div>
+          ))}
+          {pers.armors.length === 0 && (
+            <div className="text-slate-300/60 text-sm text-center py-8">Броня не екіпірована</div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
 }
 </file>
 
-<file path="src/lib/components/ui/dialog.tsx">
-"use client"
+<file path="src/lib/components/characterSheet/slides/FeaturesSlide.tsx">
+"use client";
 
+import { useMemo, useState } from "react";
+import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
+import { FeatureDisplayType, SpellcastingType } from "@prisma/client";
+import { ChevronRight } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+import { Badge } from "@/components/ui/badge";
+import {
+  ControlledInfoDialog,
+  InfoGrid,
+  InfoPill,
+  InfoSectionTitle,
+} from "@/lib/components/characterCreator/EntityInfoDialog";
+import {
+  formatASI,
+  formatAbilityList,
+  formatArmorProficiencies,
+  formatLanguages,
+  formatList,
+  formatMulticlassReqs,
+  formatRaceAC,
+  formatSkillProficiencies,
+  formatSpeeds,
+  formatToolProficiencies,
+  formatWeaponProficiencies,
+  prettifyEnum,
+  translateValue,
+} from "@/lib/components/characterCreator/infoUtils";
+import {
+  backgroundTranslations,
+  classTranslations,
+  raceTranslations,
+  sourceTranslations,
+  subraceTranslations,
+  subclassTranslations,
+  variantTranslations,
+} from "@/lib/refs/translation";
+
+interface FeaturesSlideProps {
+  pers: PersWithRelations;
+  groupedFeatures: CharacterFeaturesGroupedResult | null;
+}
+
+type CategoryKind = "passive" | "action" | "bonus" | "reaction";
+type Category = { title: string; items: CharacterFeatureItem[]; kind: CategoryKind };
+
+type EntityDialogKind = "race" | "raceVariant" | "subrace" | "class" | "subclass" | "background";
+
+const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
+  NONE: "Без чаклунства",
+  FULL: "Повний кастер",
+  HALF: "Половинний кастер",
+  THIRD: "Третинний кастер",
+  PACT: "Магія пакту",
+};
+
+function safeText(value: string | null | undefined) {
+  return (value ?? "").trim();
+}
+
+function categoryVariant(kind: "passive" | "action" | "bonus" | "reaction") {
+  switch (kind) {
+    case "action":
+      return {
+        container: "border-l-red-500/50 from-red-950/20",
+        chevron: "text-red-300",
+        title: "text-red-50",
+        count: "text-red-200/70",
+        cardBorder: "border-red-600/30 hover:border-red-500/60",
+        cardBg: "bg-red-900/25 hover:bg-red-900/45",
+      };
+    case "bonus":
+      return {
+        container: "border-l-blue-500/50 from-blue-950/20",
+        chevron: "text-blue-300",
+        title: "text-blue-50",
+        count: "text-blue-200/70",
+        cardBorder: "border-blue-600/30 hover:border-blue-500/60",
+        cardBg: "bg-blue-900/25 hover:bg-blue-900/45",
+      };
+    case "reaction":
+      return {
+        container: "border-l-purple-500/50 from-purple-950/20",
+        chevron: "text-purple-300",
+        title: "text-purple-50",
+        count: "text-purple-200/70",
+        cardBorder: "border-purple-600/30 hover:border-purple-500/60",
+        cardBg: "bg-purple-900/25 hover:bg-purple-900/45",
+      };
+    case "passive":
+    default:
+      return {
+        container: "border-l-amber-600/50 from-amber-950/20",
+        chevron: "text-amber-300",
+        title: "text-amber-50",
+        count: "text-amber-200/70",
+        cardBorder: "border-amber-700/30 hover:border-amber-600/60",
+        cardBg: "bg-amber-900/20 hover:bg-amber-900/40",
+      };
+  }
+}
+
+function getKindFromPrimaryType(primaryType: FeatureDisplayType): "passive" | "action" | "bonus" | "reaction" {
+  switch (primaryType) {
+    case FeatureDisplayType.ACTION:
+      return "action";
+    case FeatureDisplayType.BONUSACTION:
+      return "bonus";
+    case FeatureDisplayType.REACTION:
+      return "reaction";
+    default:
+      return "passive";
+  }
+}
+
+function FeatureCard({
+  item,
+  onClick,
+}: {
+  item: CharacterFeatureItem;
+  onClick: () => void;
+}) {
+  const kind = getKindFromPrimaryType(item.primaryType);
+  const variant = categoryVariant(kind);
+
+  const description = safeText(item.description);
+  const preview = description.length > 180 ? description.slice(0, 180).trimEnd() + "…" : description;
+
+  const showUses =
+    (item.primaryType === FeatureDisplayType.ACTION || item.primaryType === FeatureDisplayType.BONUSACTION) &&
+    typeof item.usesRemaining === "number" &&
+    typeof item.usesPer === "number";
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={
+        "group relative w-full text-left p-3 rounded-lg border shadow-inner transition-all cursor-pointer " +
+        variant.cardBorder +
+        " " +
+        variant.cardBg
+      }
+    >
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-white/5 via-transparent to-transparent rounded-lg transition-opacity" />
+
+      <div className="relative z-10 flex items-start justify-between gap-2">
+        <div className="min-w-0 flex-1">
+          <h4 className="font-bold text-sm text-white/95 truncate">{item.name}</h4>
+          {preview ? <p className="text-xs mt-1 text-slate-200/70 leading-snug line-clamp-2">{preview}</p> : null}
+        </div>
+
+        {showUses ? (
+          <div className="flex-shrink-0 text-right">
+            <div className="text-xs font-semibold text-amber-300">
+              {item.usesRemaining}/{item.usesPer}
+            </div>
+            {item.restType ? <div className="text-[10px] text-slate-400 mt-0.5">{item.restType}</div> : null}
+          </div>
+        ) : null}
+      </div>
+    </button>
+  );
+}
+
+export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlideProps) {
+  const [selected, setSelected] = useState<CharacterFeatureItem | null>(null);
+  const [entityOpen, setEntityOpen] = useState(false);
+  const [entityKind, setEntityKind] = useState<EntityDialogKind>("race");
+  const [entityVariantIndex, setEntityVariantIndex] = useState(0);
+
+  const categories = useMemo<Category[]>(() => {
+    if (!groupedFeatures) return [];
+    return [
+      { title: "Основна дія", items: groupedFeatures.actions, kind: "action" },
+      { title: "Бонусна дія", items: groupedFeatures.bonusActions, kind: "bonus" },
+      { title: "Реакція", items: groupedFeatures.reactions, kind: "reaction" },
+      { title: "Пасивні здібності", items: groupedFeatures.passive, kind: "passive" },
+    ];
+  }, [groupedFeatures]);
+
+  const raceName = useMemo(
+    () => raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name,
+    [pers.race.name]
+  );
+  const className = useMemo(
+    () => classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name,
+    [pers.class.name]
+  );
+  const subclassName = useMemo(() => {
+    if (!pers.subclass) return null;
+    return subclassTranslations[pers.subclass.name as keyof typeof subclassTranslations] || pers.subclass.name;
+  }, [pers.subclass]);
+  const subraceName = useMemo(() => {
+    if (!pers.subrace) return null;
+    return subraceTranslations[pers.subrace.name as keyof typeof subraceTranslations] || pers.subrace.name;
+  }, [pers.subrace]);
+  const backgroundName = useMemo(
+    () => backgroundTranslations[pers.background.name as keyof typeof backgroundTranslations] || pers.background.name,
+    [pers.background.name]
+  );
+
+  const openEntity = (kind: EntityDialogKind, variantIndex?: number) => {
+    setEntityKind(kind);
+    if (typeof variantIndex === "number") setEntityVariantIndex(variantIndex);
+    setEntityOpen(true);
+  };
+
+  const parseItems = (items: unknown): string[] => {
+    if (!Array.isArray(items)) return [];
+
+    return (items as unknown[])
+      .map((item) => {
+        if (!item) return null;
+        if (typeof item === "string") return item;
+        if (typeof item === "object") {
+          const name = (item as any).name;
+          const quantity = (item as any).quantity;
+          if (!name) return null;
+          return quantity ? `${name} x${quantity}` : name;
+        }
+        return null;
+      })
+      .filter(Boolean) as string[];
+  };
+
+  const entityDialog = useMemo(() => {
+    if (entityKind === "race") {
+      const race = pers.race as any;
+      const rawTraits = (race.traits || []) as any[];
+      const traitList = [...rawTraits].sort((a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0));
+
+      return {
+        title: raceName,
+        subtitle: undefined,
+        content: (
+          <>
+            <InfoGrid>
+              <InfoPill label="Джерело" value={sourceTranslations[race.source] ?? race.source} />
+              <InfoPill label="Розмір" value={formatList(race.size)} />
+              <InfoPill label="Швидкості" value={formatSpeeds(race)} />
+              <InfoPill label="Базовий КБ" value={formatRaceAC(race.ac)} />
+              <InfoPill label="Бонуси характеристик" value={formatASI(race.ASI)} />
+              <InfoPill label="Мови" value={formatLanguages(race.languages, race.languagesToChooseCount)} />
+              <InfoPill label="Навички" value={formatSkillProficiencies(race.skillProficiencies)} />
+              <InfoPill label="Інструменти" value={formatToolProficiencies(race.toolProficiencies, race.toolToChooseCount)} />
+              <InfoPill label="Зброя" value={formatWeaponProficiencies(race.weaponProficiencies)} />
+              <InfoPill label="Броня" value={formatArmorProficiencies(race.armorProficiencies)} />
+            </InfoGrid>
+
+            <div className="space-y-2">
+              <InfoSectionTitle>Риси</InfoSectionTitle>
+              {traitList.length ? (
+                traitList.map((trait) => (
+                  <div
+                    key={trait.raceTraitId || trait.feature?.featureId}
+                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                  >
+                    <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                      {trait.feature?.description}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-slate-400">Для цієї раси ще немає опису рис.</p>
+              )}
+            </div>
+          </>
+        ),
+      };
+    }
+
+    if (entityKind === "raceVariant") {
+      const variants = (pers as any).raceVariants as any[] | undefined;
+      const variant = variants?.[entityVariantIndex];
+      if (!variant) {
+        return {
+          title: "Варіант раси",
+          subtitle: undefined,
+          content: <div className="text-sm text-slate-400">Немає даних про варіант.</div>,
+        };
+      }
+
+      const name = variantTranslations[variant.name as keyof typeof variantTranslations] ?? String(variant.name);
+      const rawTraits = (variant.traits || []) as any[];
+      const traitList = [...rawTraits].sort((a, b) => (a.raceVariantTraitId || 0) - (b.raceVariantTraitId || 0));
+
+      return {
+        title: name,
+        subtitle: undefined,
+        content: (
+          <>
+            <InfoGrid>
+              <InfoPill label="Джерело" value={sourceTranslations[variant.source] ?? variant.source} />
+              <InfoPill
+                label="Швидкості"
+                value={
+                  formatSpeeds({
+                    speed: variant.overridesRaceSpeed,
+                    flightSpeed: variant.overridesFlightSpeed,
+                  })
+                }
+              />
+              <InfoPill label="Бонуси характеристик" value={formatASI(variant.overridesRaceASI)} />
+              <div className="col-span-full">
+                <p className="text-sm text-slate-300">{variant.description}</p>
+              </div>
+            </InfoGrid>
+
+            <div className="space-y-2">
+              <InfoSectionTitle>Риси</InfoSectionTitle>
+              {traitList.length ? (
+                traitList.map((trait) => (
+                  <div
+                    key={trait.raceVariantTraitId || trait.feature?.featureId}
+                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                  >
+                    <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                      {trait.feature?.description}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-slate-400">Для цього варіанту ще немає опису рис.</p>
+              )}
+            </div>
+          </>
+        ),
+      };
+    }
+
+    if (entityKind === "subrace") {
+      if (!pers.subrace) {
+        return {
+          title: "Підраса",
+          subtitle: undefined,
+          content: <div className="text-sm text-slate-400">Підраса не обрана.</div>,
+        };
+      }
+
+      const subrace = pers.subrace as any;
+      const rawTraits = (subrace.traits || []) as any[];
+      const traitList = [...rawTraits].sort((a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0));
+
+      return {
+        title: subraceName || subrace.name,
+        subtitle: undefined,
+        content: (
+          <>
+            <InfoGrid>
+              <InfoPill label="Джерело" value={sourceTranslations[subrace.source] ?? subrace.source} />
+              <InfoPill label="Швидкості" value={formatSpeeds(subrace)} />
+              <InfoPill label="Бонуси характеристик" value={formatASI(subrace.additionalASI)} />
+              <InfoPill label="Мови" value={formatLanguages(subrace.additionalLanguages, subrace.languagesToChooseCount)} />
+              <InfoPill label="Інструменти" value={formatToolProficiencies(subrace.toolProficiencies)} />
+            </InfoGrid>
+
+            <div className="space-y-2">
+              <InfoSectionTitle>Риси</InfoSectionTitle>
+              {traitList.length ? (
+                traitList.map((trait) => (
+                  <div
+                    key={trait.raceTraitId || trait.feature?.featureId}
+                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                  >
+                    <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                      {trait.feature?.description}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-slate-400">Для цієї підраси ще немає опису рис.</p>
+              )}
+            </div>
+          </>
+        ),
+      };
+    }
+
+    if (entityKind === "class") {
+      const cls = pers.class as any;
+      const rawFeatures = (cls.features || []) as any[];
+      const features = [...rawFeatures].sort((a, b) => (a.levelGranted || 0) - (b.levelGranted || 0));
+
+      return {
+        title: className,
+        subtitle: undefined,
+        content: (
+          <>
+            <InfoGrid>
+              <InfoPill label="Кістка хітів" value={`d${cls.hitDie}`} />
+              <InfoPill label="Чаклунство" value={SPELLCASTING_LABELS[cls.spellcastingType as SpellcastingType] ?? "—"} />
+              <InfoPill label="Підклас з рівня" value={`Рівень ${cls.subclassLevel}`} />
+              <InfoPill label="Рятунки" value={formatAbilityList(cls.savingThrows)} />
+              <InfoPill label="Навички" value={formatSkillProficiencies(cls.skillProficiencies)} />
+              <InfoPill label="Інструменти" value={formatToolProficiencies(cls.toolProficiencies, cls.toolToChooseCount)} />
+              <InfoPill label="Зброя" value={formatWeaponProficiencies(cls.weaponProficiencies)} />
+              <InfoPill label="Броня" value={formatArmorProficiencies(cls.armorProficiencies)} />
+              <InfoPill label="Мови" value={formatLanguages(cls.languages, cls.languagesToChooseCount)} />
+              <InfoPill label="Мультіклас" value={formatMulticlassReqs(cls.multiclassReqs)} />
+              {cls.primaryCastingStat ? (
+                <InfoPill label="Ключова характеристика" value={prettifyEnum(cls.primaryCastingStat)} />
+              ) : null}
+            </InfoGrid>
+
+            <div className="space-y-2">
+              <InfoSectionTitle>Особливості</InfoSectionTitle>
+              {features.length ? (
+                features.map((feature) => (
+                  <div
+                    key={feature.classFeatureId || feature.feature?.featureId}
+                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                  >
+                    <div className="mb-1 flex items-center justify-between gap-2">
+                      <p className="text-sm font-semibold text-white">{feature.feature?.name}</p>
+                      <Badge
+                        variant="outline"
+                        className="border-slate-700 bg-slate-800/70 text-[11px] text-slate-200"
+                      >
+                        Рів. {feature.levelGranted}
+                      </Badge>
+                    </div>
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                      {feature.feature?.description}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-slate-400">Наразі немає описаних умінь.</p>
+              )}
+            </div>
+          </>
+        ),
+      };
+    }
+
+    if (entityKind === "subclass") {
+      if (!pers.subclass) {
+        return {
+          title: "Підклас",
+          subtitle: undefined,
+          content: <div className="text-sm text-slate-400">Підклас не обраний.</div>,
+        };
+      }
+
+      const subcls = pers.subclass as any;
+      const rawFeatures = (subcls.features || []) as any[];
+      const featureList = [...rawFeatures].sort((a, b) => (a.levelUnlock || 0) - (b.levelUnlock || 0));
+
+      return {
+        title: subclassName || subcls.name,
+        subtitle: undefined,
+        content: (
+          <>
+            <InfoGrid>
+              <InfoPill label="Джерело" value={sourceTranslations[subcls.source] ?? subcls.source} />
+              <InfoPill label="Основна характеристика" value={prettifyEnum(subcls.primaryCastingStat)} />
+              <InfoPill label="Тип заклинань" value={prettifyEnum(subcls.spellcastingType)} />
+              <InfoPill label="Мови" value={formatLanguages(subcls.languages, subcls.languagesToChooseCount)} />
+              <InfoPill label="Інструменти" value={formatToolProficiencies(subcls.toolProficiencies, subcls.toolToChooseCount)} />
+              <div className="col-span-full">
+                <p className="text-sm text-slate-300">{subcls.description}</p>
+              </div>
+            </InfoGrid>
+
+            <div className="space-y-2">
+              <InfoSectionTitle>Риси підкласу</InfoSectionTitle>
+              {featureList.length ? (
+                featureList.map((f) => (
+                  <div
+                    key={f.feature?.featureId}
+                    className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-sm font-semibold text-white">{f.feature?.name}</p>
+                      <Badge variant="outline" className="text-[10px] border-slate-700 text-slate-400">
+                        Рівень {f.levelUnlock}
+                      </Badge>
+                    </div>
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                      {f.feature?.description}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-slate-400">Для цього підкласу ще немає опису рис.</p>
+              )}
+            </div>
+          </>
+        ),
+      };
+    }
+
+    const background = pers.background as any;
+    const items = parseItems(background.items);
+    const resolvedSource = background.source ? prettifyEnum(background.source) : "—";
+
+    return {
+      title: backgroundName,
+      subtitle: undefined,
+      content: (
+        <>
+          <InfoGrid>
+            <InfoPill label="Джерело" value={resolvedSource} />
+            <InfoPill label="Навички" value={formatSkillProficiencies(background.skillProficiencies)} />
+            <InfoPill label="Інструменти" value={formatToolProficiencies(background.toolProficiencies)} />
+            <InfoPill label="Мови" value={formatLanguages([], background.languagesToChooseCount)} />
+            <InfoPill label="Особливість" value={background.specialAbilityName || "-"} />
+          </InfoGrid>
+
+          {items.length ? (
+            <div className="space-y-1.5">
+              <InfoSectionTitle>Стартове спорядження</InfoSectionTitle>
+              <ul className="space-y-1 text-sm text-slate-200/90">
+                {items.map((item, index) => (
+                  <li key={`${item}-${index}`} className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400" aria-hidden />
+                    <span className="flex-1">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {(background.specialAbilityName || background.description) ? (
+            <div className="space-y-1">
+              <InfoSectionTitle>Опис особливості</InfoSectionTitle>
+              {background.specialAbilityName ? (
+                <p className="text-sm font-semibold text-white">{background.specialAbilityName}</p>
+              ) : null}
+              {background.description ? (
+                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                  {background.description}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
+        </>
+      ),
+    };
+  }, [backgroundName, className, entityKind, entityVariantIndex, pers, raceName, subclassName, subraceName]);
+
+  return (
+    <div className="h-full p-3 sm:p-4 space-y-3">
+      <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <button
+          type="button"
+          onClick={() => openEntity("race")}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+        >
+          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Раса</div>
+          <div className="text-sm font-semibold text-slate-50 truncate">{raceName}</div>
+        </button>
+
+        {(pers as any).raceVariants?.map((rv: any, idx: number) => {
+          const name = variantTranslations[rv.name as keyof typeof variantTranslations] ?? String(rv.name);
+          return (
+            <button
+              key={rv.raceVariantId ?? idx}
+              type="button"
+              onClick={() => openEntity("raceVariant", idx)}
+              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+            >
+              <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Варіант раси</div>
+              <div className="text-sm font-semibold text-slate-50 truncate">{name}</div>
+            </button>
+          );
+        })}
+
+        {pers.subrace ? (
+          <button
+            type="button"
+            onClick={() => openEntity("subrace")}
+            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+          >
+            <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Підраса</div>
+            <div className="text-sm font-semibold text-slate-50 truncate">{subraceName}</div>
+          </button>
+        ) : null}
+
+        <button
+          type="button"
+          onClick={() => openEntity("class")}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+        >
+          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Клас</div>
+          <div className="text-sm font-semibold text-slate-50 truncate">{className}</div>
+          <div className="text-xs text-slate-300/70 truncate">Рівень {pers.level}</div>
+        </button>
+
+        {pers.subclass ? (
+          <button
+            type="button"
+            onClick={() => openEntity("subclass")}
+            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+          >
+            <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Підклас</div>
+            <div className="text-sm font-semibold text-slate-50 truncate">{subclassName}</div>
+          </button>
+        ) : null}
+
+        <button
+          type="button"
+          onClick={() => openEntity("background")}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+        >
+          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Передісторія</div>
+          <div className="text-sm font-semibold text-slate-50 truncate">{backgroundName}</div>
+        </button>
+      </div>
+
+      {!groupedFeatures ? (
+        <div className="text-sm text-slate-400">Немає даних про фічі</div>
+      ) : (
+        <div className="space-y-2">
+          {categories.map((category) => {
+            const variant = categoryVariant(category.kind);
+            const total = category.items.length;
+
+            return (
+              <Collapsible
+                key={category.title}
+                defaultOpen={total > 0}
+                className={
+                  "group border-l-2 bg-gradient-to-r to-transparent rounded-r-lg p-3 sm:p-4 transition-all duration-300 " +
+                  variant.container
+                }
+              >
+                <CollapsibleTrigger className="flex items-center gap-3 w-full">
+                  <ChevronRight className={"w-5 h-5 transition-transform group-data-[state=open]:rotate-90 " + variant.chevron} />
+                  <span className={"font-bold uppercase tracking-wider text-xs sm:text-sm " + variant.title}>{category.title}</span>
+                  <span className={"ml-auto text-[10px] sm:text-xs " + variant.count}>[{total}]</span>
+                </CollapsibleTrigger>
+
+                <CollapsibleContent className="mt-3 sm:mt-4 pl-6 sm:pl-8">
+                  {total === 0 ? (
+                    <div className="text-xs text-slate-400">Немає в цій категорії</div>
+                  ) : (
+                    <ScrollArea className="max-h-[44vh] overflow-y-auto pr-3">
+                      <div className="space-y-2">
+                        {category.items.map((item) => (
+                          <FeatureCard key={item.key} item={item} onClick={() => setSelected(item)} />
+                        ))}
+                      </div>
+                    </ScrollArea>
+                  )}
+                </CollapsibleContent>
+              </Collapsible>
+            );
+          })}
+        </div>
+      )}
+
+      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+        <DialogContent className="max-w-2xl border border-white/10 bg-slate-900/95 backdrop-blur text-slate-50">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold">{selected?.name}</DialogTitle>
+            {selected ? (
+              <DialogDescription className="text-xs text-slate-300">
+                {selected.sourceName} • {translateValue(selected.source)}
+              </DialogDescription>
+            ) : null}
+          </DialogHeader>
+          <div className="text-sm text-slate-200/90 whitespace-pre-line leading-relaxed">
+            {selected?.description}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <ControlledInfoDialog
+        open={entityOpen}
+        onOpenChange={(open) => setEntityOpen(open)}
+        title={entityDialog.title}
+        subtitle={entityDialog.subtitle}
+      >
+        {entityDialog.content}
+      </ControlledInfoDialog>
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/slides/MainStatsSlide.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import { Card, CardContent } from "@/components/ui/card";
+import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
+import { Ability } from "@prisma/client";
+import {
+  attributesUkrShort,
+  backgroundTranslations,
+  classTranslations,
+  raceTranslations,
+  subclassTranslations,
+  subraceTranslations,
+} from "@/lib/refs/translation";
+import { Shield } from "lucide-react";
+import { useMemo, useState } from "react";
+import { EntityInfoDialog, type EntityInfoKind } from "@/lib/components/characterSheet/EntityInfoDialog";
+
+interface MainStatsSlideProps {
+  pers: PersWithRelations;
+}
+
+export default function MainStatsSlide({ pers }: MainStatsSlideProps) {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogKind, setDialogKind] = useState<EntityInfoKind>("race");
+
+  const raceName = useMemo(
+    () => raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name,
+    [pers.race.name]
+  );
+  const className = useMemo(
+    () => classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name,
+    [pers.class.name]
+  );
+  const subclassName = useMemo(() => {
+    if (!pers.subclass) return null;
+    return subclassTranslations[pers.subclass.name as keyof typeof subclassTranslations] || pers.subclass.name;
+  }, [pers.subclass]);
+  const subraceName = useMemo(() => {
+    if (!pers.subrace) return null;
+    return subraceTranslations[pers.subrace.name as keyof typeof subraceTranslations] || pers.subrace.name;
+  }, [pers.subrace]);
+  const backgroundName = useMemo(
+    () => backgroundTranslations[pers.background.name as keyof typeof backgroundTranslations] || pers.background.name,
+    [pers.background.name]
+  );
+
+  const dexMod = getAbilityMod(pers.dex);
+  const initiative = dexMod;
+  const pb = getProficiencyBonus(pers.level);
+  const hitDice = `${pers.level}d${pers.class.hitDie}`;
+  const ac = 10 + dexMod + (pers.wearsShield ? 2 : 0) + pers.additionalShieldBonus + pers.armorBonus;
+
+  // Get saving throw proficiencies
+  const savingThrows: Ability[] = pers.class.savingThrows ?? [];
+
+  const attributes = [
+    { name: attributesUkrShort.STR, fullName: "Сила", score: pers.str, key: "str", borderColor: "border-red-500/40" },
+    { name: attributesUkrShort.DEX, fullName: "Спритність", score: pers.dex, key: "dex", borderColor: "border-green-500/40" },
+    { name: attributesUkrShort.CON, fullName: "Статура", score: pers.con, key: "con", borderColor: "border-orange-500/40" },
+    { name: attributesUkrShort.INT, fullName: "Інтелект", score: pers.int, key: "int", borderColor: "border-blue-500/40" },
+    { name: attributesUkrShort.WIS, fullName: "Мудрість", score: pers.wis, key: "wis", borderColor: "border-purple-500/40" },
+    { name: attributesUkrShort.CHA, fullName: "Харизма", score: pers.cha, key: "cha", borderColor: "border-pink-500/40" },
+  ] as const;
+
+  const abilityByKey: Record<(typeof attributes)[number]["key"], Ability> = {
+    str: Ability.STR,
+    dex: Ability.DEX,
+    con: Ability.CON,
+    int: Ability.INT,
+    wis: Ability.WIS,
+    cha: Ability.CHA,
+  };
+
+  const openEntity = (kind: EntityInfoKind) => {
+    setDialogKind(kind);
+    setDialogOpen(true);
+  };
+
+  const dialog = useMemo(() => {
+    if (dialogKind === "race") {
+      return {
+        kind: "race" as const,
+        title: raceName,
+        subtitle: subraceName || undefined,
+        entity: pers.race,
+      };
+    }
+    if (dialogKind === "class") {
+      return {
+        kind: "class" as const,
+        title: className,
+        subtitle: subclassName || undefined,
+        entity: pers.class,
+      };
+    }
+    return {
+      kind: "background" as const,
+      title: backgroundName,
+      subtitle: undefined,
+      entity: pers.background,
+    };
+  }, [backgroundName, className, dialogKind, pers.background, pers.class, pers.race, raceName, subclassName, subraceName]);
+
+  return (
+    <div className="h-full flex flex-col gap-4 p-4">
+      {/* Race/Class/Background cards (click = modal) */}
+      <div className="grid grid-cols-3 gap-2">
+        <button
+          type="button"
+          onClick={() => openEntity("race")}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+        >
+          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Раса</div>
+          <div className="text-sm font-semibold text-slate-50 truncate">{raceName}</div>
+          {subraceName ? <div className="text-xs text-slate-300/70 truncate">{subraceName}</div> : null}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => openEntity("class")}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+        >
+          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Клас</div>
+          <div className="text-sm font-semibold text-slate-50 truncate">{className}</div>
+          {subclassName ? <div className="text-xs text-slate-300/70 truncate">{subclassName}</div> : null}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => openEntity("background")}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+        >
+          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Передісторія</div>
+          <div className="text-sm font-semibold text-slate-50 truncate">{backgroundName}</div>
+          <div className="text-xs text-slate-300/70 truncate">Рівень {pers.level}</div>
+        </button>
+      </div>
+
+      {/* HERO SECTION: Combat Stats (HP, AC, Initiative) */}
+      <div className="grid grid-cols-3 gap-3">
+        <Card className="glass-card bg-indigo-500/15 border-indigo-500/40 h-28">
+          <CardContent className="p-3 flex flex-col items-center justify-center h-full">
+            <div className="text-xs font-bold uppercase tracking-wide text-indigo-300">Клас Броні</div>
+            <div className="text-4xl font-bold text-white mt-1">{ac}</div>
+            <Shield className="w-4 h-4 text-indigo-400 opacity-60 mt-1" />
+          </CardContent>
+        </Card>
+
+        <Card className="glass-card bg-rose-500/20 border-rose-500/50 h-28">
+          <CardContent className="p-3 flex flex-col items-center justify-center h-full">
+            <div className="text-xs font-bold uppercase tracking-wide text-rose-300">Здоров&apos;я</div>
+            <div className="text-5xl font-black text-white mt-1">{pers.currentHp}</div>
+            <div className="text-xs text-rose-400">/ {pers.maxHp}</div>
+          </CardContent>
+        </Card>
+
+        <Card className="glass-card bg-emerald-500/15 border-emerald-500/40 h-28">
+          <CardContent className="p-3 flex flex-col items-center justify-center h-full">
+            <div className="text-xs font-bold uppercase tracking-wide text-emerald-300">Ініціатива</div>
+            <div className="text-4xl font-bold text-white mt-1">{formatModifier(initiative)}</div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* SECONDARY STATS ROW: Speed, Hit Dice, Proficiency */}
+      <div className="grid grid-cols-3 gap-3">
+        <Card className="glass-card bg-cyan-500/15 border-cyan-400/40 h-20">
+          <CardContent className="p-2 flex flex-col items-center justify-center h-full">
+            <div className="text-[10px] font-bold uppercase tracking-wide text-cyan-300">Швидкість</div>
+            <div className="text-2xl font-bold text-cyan-50">30</div>
+          </CardContent>
+        </Card>
+        <Card className="glass-card bg-amber-500/15 border-amber-400/40 h-20">
+          <CardContent className="p-2 flex flex-col items-center justify-center h-full">
+            <div className="text-[10px] font-bold uppercase tracking-wide text-amber-300">Хіт Дайси</div>
+            <div className="text-2xl font-bold text-amber-50">{hitDice}</div>
+          </CardContent>
+        </Card>
+        <Card className="glass-card bg-indigo-500/15 border-indigo-400/40 h-20">
+          <CardContent className="p-2 flex flex-col items-center justify-center h-full">
+            <div className="text-[10px] font-bold uppercase tracking-wide text-indigo-300">Майстерність</div>
+            <div className="text-2xl font-bold text-indigo-50">{formatModifier(pb)}</div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* ABILITY SCORES GRID (Perfectly Balanced Layout) */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {attributes.map((attr) => {
+          const mod = getAbilityMod(attr.score);
+          const hasSaveProficiency = savingThrows.includes(abilityByKey[attr.key]);
+          const saveBonus = mod + (hasSaveProficiency ? pb : 0);
+
+          return (
+            <Card key={attr.name} className={`glass-card bg-slate-900/60 ${attr.borderColor} border h-18`}>
+              <CardContent className="h-full px-1 py-2 grid grid-cols-[1fr_auto_1fr] items-center gap-0">
+                {/* Left: Ability Name & Score */}
+                <div className="flex flex-col items-center justify-center gap-0.5">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{attr.name}</span>
+                  <span className="text-[10px] font-mono text-slate-500">{attr.score}</span>
+                </div>
+
+                {/* Center: Modifier (Main Focus) */}
+                <div className="flex items-center justify-center w-14">
+                  <span className="text-3xl font-black text-white tracking-tight">{formatModifier(mod)}</span>
+                </div>
+
+                {/* Right: Saving Throw */}
+                <div className="flex flex-col items-center justify-center gap-0.5">
+                  <span className="text-[9px] text-slate-500 uppercase tracking-tighter">Сейв</span>
+                  <div className="flex items-center gap-1">
+                    <span className={`text-xs font-bold ${
+                      hasSaveProficiency ? "text-indigo-400" : "text-slate-400"
+                    }`}>
+                      {formatModifier(saveBonus)}
+                    </span>
+                    {hasSaveProficiency && (
+                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_5px_rgba(99,102,241,0.5)]" />
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+
+      <EntityInfoDialog
+        isOpen={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        kind={dialog.kind}
+        title={dialog.title}
+        subtitle={dialog.subtitle}
+        entity={dialog.entity}
+      />
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/slides/SkillsSlide.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
+import { Skills } from "@prisma/client";
+
+interface SkillsSlideProps {
+  pers: PersWithRelations;
+}
+
+export default function SkillsSlide({ pers }: SkillsSlideProps) {
+  const pb = getProficiencyBonus(pers.level);
+
+  const allSkills = [
+    // STR
+    { ability: "STR", abilityName: "СИЛА", skill: Skills.ATHLETICS, name: "Атлетика", score: pers.str },
+    // DEX
+    { ability: "DEX", abilityName: "СПРИТНІСТЬ", skill: Skills.ACROBATICS, name: "Акробатика", score: pers.dex },
+    { ability: "DEX", abilityName: "СПРИТНІСТЬ", skill: Skills.SLEIGHT_OF_HAND, name: "Спритність рук", score: pers.dex },
+    { ability: "DEX", abilityName: "СПРИТНІСТЬ", skill: Skills.STEALTH, name: "Непомітність", score: pers.dex },
+    // INT
+    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.ARCANA, name: "Магія", score: pers.int },
+    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.HISTORY, name: "Історія", score: pers.int },
+    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.INVESTIGATION, name: "Розслідування", score: pers.int },
+    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.NATURE, name: "Природа", score: pers.int },
+    { ability: "INT", abilityName: "ІНТЕЛЕКТ", skill: Skills.RELIGION, name: "Релігія", score: pers.int },
+    // WIS
+    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.ANIMAL_HANDLING, name: "Поводження з тваринами", score: pers.wis },
+    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.INSIGHT, name: "Аналіз поведінки", score: pers.wis },
+    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.MEDICINE, name: "Медицина", score: pers.wis },
+    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.PERCEPTION, name: "Уважність", score: pers.wis },
+    { ability: "WIS", abilityName: "МУДРІСТЬ", skill: Skills.SURVIVAL, name: "Виживання", score: pers.wis },
+    // CHA
+    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.DECEPTION, name: "Обман", score: pers.cha },
+    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.INTIMIDATION, name: "Залякування", score: pers.cha },
+    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.PERFORMANCE, name: "Виступ", score: pers.cha },
+    { ability: "CHA", abilityName: "ХАРИЗМА", skill: Skills.PERSUASION, name: "Переконання", score: pers.cha },
+  ];
+
+  const getSkillProficiency = (skillName: Skills) => {
+    const persSkill = pers.skills.find((ps) => ps.name === skillName);
+    return persSkill?.proficiencyType || "NONE";
+  };
+
+  const calculateSkillModifier = (skillName: Skills, abilityScore: number) => {
+    const abilityMod = getAbilityMod(abilityScore);
+    const proficiency = getSkillProficiency(skillName);
+    let total = abilityMod;
+    if (proficiency === "PROFICIENT") total += pb;
+    if (proficiency === "EXPERTISE") total += pb * 2;
+    return { total, proficiency };
+  };
+
+  let lastAbility = "";
+
+  return (
+    <div className="h-full p-4">
+      <div className="space-y-0">
+        {allSkills.map((skillInfo) => {
+          const { total, proficiency } = calculateSkillModifier(skillInfo.skill, skillInfo.score);
+          const isProficient = proficiency !== "NONE";
+          const showHeader = lastAbility !== skillInfo.ability;
+          if (showHeader) lastAbility = skillInfo.ability;
+
+          return (
+            <div key={skillInfo.skill}>
+              {showHeader && (
+                <div className="text-[10px] font-bold uppercase tracking-wider text-indigo-400/80 mt-3 mb-1 px-2">
+                  {skillInfo.abilityName}
+                </div>
+              )}
+              <div
+                className={`flex justify-between items-center h-8 px-3 rounded transition-all ${
+                  isProficient
+                    ? "bg-cyan-500/10 border-l-2 border-cyan-400/60"
+                    : "bg-slate-800/25 border-l-2 border-slate-700/40"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  {proficiency === "EXPERTISE" && (
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_4px_rgba(251,191,36,0.8)]" />
+                  )}
+                  {proficiency === "PROFICIENT" && (
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
+                  )}
+                  <span
+                    className={`text-sm transition ${
+                      isProficient ? "text-slate-50 opacity-100 font-medium" : "text-slate-300/80"
+                    }`}
+                  >
+                    {skillInfo.name}
+                  </span>
+                </div>
+                <span
+                  className={`text-sm font-bold transition ${
+                    proficiency === "EXPERTISE"
+                      ? "text-amber-300 opacity-100"
+                      : proficiency === "PROFICIENT"
+                        ? "text-cyan-300 opacity-100"
+                        : "text-slate-300/70"
+                  }`}
+                >
+                  {formatModifier(total)}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/CharacterCarousel.tsx">
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import { PersWithRelations } from "@/lib/actions/pers";
+import MainStatsSlide from "./slides/MainStatsSlide";
+import SkillsSlide from "./slides/SkillsSlide";
+import CombatSlide from "./slides/CombatSlide";
+import MagicSlide from "./slides/MagicSlide";
+import FeaturesSlide from "./slides/FeaturesSlide";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
+import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+
+interface CharacterCarouselProps {
+  pers: PersWithRelations;
+  groupedFeatures: CharacterFeaturesGroupedResult | null;
+}
+
+export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCarouselProps) {
+  const isLg = useMediaQuery("(min-width: 1024px)");
+  const isMd = useMediaQuery("(min-width: 768px)");
+
+  type SlideId = "stats" | "skills" | "equipment" | "magic" | "features";
+  type SlideDef = { id: SlideId; label: string };
+
+  const allSlides: SlideDef[] = useMemo(
+    () => [
+      { id: "stats", label: "Головна" },
+      { id: "skills", label: "Навички" },
+      { id: "equipment", label: "Спорядження" },
+      { id: "magic", label: "Магія" },
+      { id: "features", label: "Фічі" },
+    ],
+    []
+  );
+
+  const totalSlides = allSlides.length;
+  const visibleCount = isLg ? 3 : isMd ? 2 : 1;
+
+  const getStartIndex = () => (isLg ? 4 : 0);
+
+  const [currentIndex, setCurrentIndex] = useState(getStartIndex);
+
+  // On breakpoint change, set initial index per spec.
+  useEffect(() => {
+    setCurrentIndex(getStartIndex());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLg, isMd]);
+
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
+
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  };
+
+  const getVisibleSlides = () => {
+    const visible: Array<SlideDef & { index: number }> = [];
+    for (let i = 0; i < visibleCount; i++) {
+      const index = (currentIndex + i) % totalSlides;
+      visible.push({ ...allSlides[index], index });
+    }
+    return visible;
+  };
+
+  const visibleSlides = getVisibleSlides();
+
+  const renderSlide = (id: SlideId) => {
+    if (id === "stats") return <MainStatsSlide pers={pers} />;
+    if (id === "skills") return <SkillsSlide pers={pers} />;
+    if (id === "equipment") return <CombatSlide pers={pers} />;
+    if (id === "magic") return <MagicSlide pers={pers} />;
+    if (id === "features") return <FeaturesSlide pers={pers} groupedFeatures={groupedFeatures} />;
+    return null;
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    if (!t) return;
+    swipeStart.current = { x: t.clientX, y: t.clientY };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = swipeStart.current;
+    swipeStart.current = null;
+    if (!start) return;
+
+    const t = e.changedTouches[0];
+    if (!t) return;
+
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+
+    // Horizontal swipe only; keep vertical scroll intact.
+    if (Math.abs(dx) < 60) return;
+    if (Math.abs(dy) > 40) return;
+
+    if (dx < 0) handleNext();
+    else handlePrevious();
+  };
+
+  return (
+    <div className="h-full flex flex-col overflow-hidden">
+      {/* Content */}
+      <div className="flex-1 relative overflow-hidden">
+        <div
+          className="absolute inset-0 px-3 pt-3 pb-2 md:px-4 md:pt-4"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          <div className="h-full grid gap-3 md:gap-4" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
+            {visibleSlides.map((slide) => (
+              <div
+                key={`${slide.id}-${slide.index}`}
+                className="h-full bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden"
+              >
+                <div className="h-full overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
+                  {renderSlide(slide.id)}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Side navigation arrows (all breakpoints) */}
+          <Button
+            onClick={handlePrevious}
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            size="icon"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+          </Button>
+          <Button
+            onClick={handleNext}
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            size="icon"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Bottom navigation (always visible) */}
+      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
+        <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
+          {allSlides.map((s, idx) => {
+            const active = idx === currentIndex;
+            return (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => {
+                  setCurrentIndex(idx);
+                }}
+                className={
+                  "px-2 py-1 rounded-md text-[10px] sm:text-xs transition border " +
+                  (active
+                    ? "bg-indigo-500/20 border-indigo-400/40 text-indigo-100"
+                    : "bg-white/5 border-white/10 text-slate-200/80 hover:bg-white/10")
+                }
+              >
+                {s.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/CharacterSheet.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import CharacterCarousel from "./CharacterCarousel";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowUpCircle } from "lucide-react";
+import { raceTranslations, classTranslations } from "@/lib/refs/translation";
+import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
+
+interface CharacterSheetProps {
+  pers: PersWithRelations;
+  groupedFeatures: CharacterFeaturesGroupedResult | null;
+}
+
+export default function CharacterSheet({ pers, groupedFeatures }: CharacterSheetProps) {
+  const raceName = raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name;
+  const className = classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name;
+
+  return (
+    <div className="h-screen w-full bg-slate-900 flex flex-col">
+      <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-900/70 backdrop-blur sticky top-0 z-20">
+           <div>
+             <div className="font-bold text-base md:text-lg text-slate-50">{pers.name}</div>
+             <div className="text-xs text-slate-300/80">{raceName} {className} • Рівень {pers.level}</div>
+           </div>
+           <Link href={`/pers/${pers.persId}/levelup`}>
+               <Button size="sm" variant="secondary" className="h-8 gap-2 bg-indigo-600/20 hover:bg-indigo-600/30 border-indigo-500/30">
+                   <ArrowUpCircle className="w-4 h-4" />
+                   <span className="hidden sm:inline">Підняти рівень</span>
+               </Button>
+           </Link>
+       </div>
+      
+      <div className="flex-1 overflow-hidden">
+        <CharacterCarousel pers={pers} groupedFeatures={groupedFeatures} />
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/CombatPage.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import { Card, CardContent } from "@/components/ui/card";
+import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
+
+export default function CombatPage({ pers }: { pers: PersWithRelations }) {
+  const dexMod = getAbilityMod(pers.dex);
+  const initiative = dexMod; 
+  const pb = getProficiencyBonus(pers.level);
+  const hitDice = `${pers.level}d${pers.class.hitDie}`;
+  
+  const ac = 10 + dexMod + (pers.wearsShield ? 2 : 0) + pers.additionalShieldBonus + pers.armorBonus;
+
+  const attributes = [
+    { name: "Сила", score: pers.str, key: "str" },
+    { name: "Спритність", score: pers.dex, key: "dex" },
+    { name: "Статура", score: pers.con, key: "con" },
+    { name: "Інтелект", score: pers.int, key: "int" },
+    { name: "Мудрість", score: pers.wis, key: "wis" },
+    { name: "Харизма", score: pers.cha, key: "cha" },
+  ] as const;
+
+  return (
+    <div className="space-y-3">
+      <div className="grid grid-cols-3 gap-2">
+        <Card className="bg-emerald-500/20 border-emerald-400/40 backdrop-blur">
+            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
+                <div className="text-xs font-bold uppercase text-emerald-200">Ініціатива</div>
+                <div className="text-2xl font-bold text-emerald-50">{formatModifier(initiative)}</div>
+            </CardContent>
+        </Card>
+        <Card className="bg-rose-500/20 border-rose-400/40 backdrop-blur">
+            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
+                <div className="text-xs font-bold uppercase text-rose-200">ХП</div>
+                <div className="text-2xl font-bold text-rose-50">{pers.currentHp}</div>
+                <div className="text-xs text-rose-200">/ {pers.maxHp}</div>
+            </CardContent>
+        </Card>
+        <Card className="bg-cyan-500/20 border-cyan-400/40 backdrop-blur">
+            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
+                <div className="text-xs font-bold uppercase text-cyan-200">Швидкість</div>
+                <div className="text-xl font-bold text-cyan-50">30 фт</div>
+            </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2">
+        <Card className="bg-violet-500/20 border-violet-400/40 backdrop-blur">
+            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
+                <div className="text-xs font-bold uppercase text-violet-200">КБ</div>
+                <div className="text-2xl font-bold text-violet-50">{ac}</div>
+            </CardContent>
+        </Card>
+        <Card className="bg-amber-500/20 border-amber-400/40 backdrop-blur">
+            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
+                <div className="text-xs font-bold uppercase text-amber-200">Хіт Дайси</div>
+                <div className="text-xl font-bold text-amber-50">{hitDice}</div>
+            </CardContent>
+        </Card>
+        <Card className="bg-indigo-500/20 border-indigo-400/40 backdrop-blur">
+            <CardContent className="p-2 text-center flex flex-col justify-center items-center h-20">
+                <div className="text-xs font-bold uppercase text-indigo-200">Майстерність</div>
+                <div className="text-xl font-bold text-indigo-50">{formatModifier(pb)}</div>
+            </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
+        {attributes.map((attr) => {
+            const mod = getAbilityMod(attr.score);
+            return (
+                <Card key={attr.name} className="bg-white/10 border-purple-300/30 backdrop-blur">
+                    <CardContent className="p-3 text-center">
+                        <div className="text-xs font-bold uppercase text-purple-300">{attr.name}</div>
+                        <div className="flex items-center justify-center gap-2">
+                          <div className="text-xl font-bold text-purple-50">{attr.score}</div>
+                          <div className="text-sm font-medium text-purple-200">
+                              ({formatModifier(mod)})
+                          </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            );
+        })}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/EntityInfoDialog.tsx">
+"use client";
+
+import { ReactNode } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+export type EntityInfoKind = "race" | "class" | "background";
+
+export interface EntityInfoDialogEntity {
+  name?: string | null;
+  description?: string | null;
+  [key: string]: unknown;
+}
+
+interface EntityInfoDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  kind: EntityInfoKind;
+  title: string;
+  subtitle?: string;
+  entity?: EntityInfoDialogEntity | null;
+  children?: ReactNode;
+}
+
+export function EntityInfoDialog({
+  isOpen,
+  onClose,
+  kind,
+  title,
+  subtitle,
+  entity,
+  children,
+}: EntityInfoDialogProps) {
+  const description = (entity?.description ?? "").toString().trim();
+
+  return (
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-h-[85vh] w-[95vw] max-w-2xl overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold">{title}</DialogTitle>
+          <DialogDescription className="text-xs text-slate-300">
+            {subtitle ? `${subtitle} • ` : ""}
+            {kind.toUpperCase()}
+          </DialogDescription>
+        </DialogHeader>
+
+        {children ? <div className="space-y-3">{children}</div> : null}
+
+        {description ? (
+          <div className="text-sm text-slate-200/90 whitespace-pre-line leading-relaxed">{description}</div>
+        ) : (
+          <div className="text-sm text-slate-400">Немає опису</div>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/FeaturesPage.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import { Card, CardContent } from "@/components/ui/card";
+import { raceTranslations, classTranslations, subclassTranslations, subraceTranslations, backgroundTranslations, featTranslations } from "@/lib/refs/translation";
+import { useState } from "react";
+import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+
+export default function FeaturesPage({ pers }: { pers: PersWithRelations }) {
+  const [selectedFeature, setSelectedFeature] = useState<{ name: string; description: string } | null>(null);
+  
+  const raceName = raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name;
+  const className = classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name;
+  const subclassName = pers.subclass ? (subclassTranslations[pers.subclass.name as keyof typeof subclassTranslations] || pers.subclass.name) : null;
+  const subraceName = pers.subrace ? (subraceTranslations[pers.subrace.name as keyof typeof subraceTranslations] || pers.subrace.name) : null;
+  const backgroundName = backgroundTranslations[pers.background.name as keyof typeof backgroundTranslations] || pers.background.name;
+
+  // Collect all features from various sources
+  const allFeatures: { name: string; description: string; source: string }[] = [];
+  
+  // Features from PersFeature
+  pers.features.forEach(pf => {
+    allFeatures.push({
+      name: pf.feature.name,
+      description: pf.feature.description,
+      source: 'feature'
+    });
+  });
+
+  // Features from ClassChoiceOptions and SubclassChoiceOptions (direct many-to-many)
+  if (pers.choiceOptions) {
+    pers.choiceOptions.forEach(co => {
+      allFeatures.push({
+        name: co.optionName,
+        description: `${co.groupName}: ${co.optionName}`,
+        source: 'choice'
+      });
+    });
+  }
+
+  // Features from RaceChoiceOptions (direct many-to-many)
+  if (pers.raceChoiceOptions) {
+    pers.raceChoiceOptions.forEach(rco => {
+      allFeatures.push({
+        name: rco.optionName,
+        description: rco.description || `${rco.choiceGroupName}: ${rco.optionName}`,
+        source: 'race_choice'
+      });
+    });
+  }
+
+  // Features from FeatChoiceOptions
+  pers.feats.forEach(pf => {
+    pf.choices.forEach(choice => {
+      if (choice.choiceOption) {
+        allFeatures.push({
+          name: choice.choiceOption.optionName,
+          description: `${choice.choiceOption.groupName}: ${choice.choiceOption.optionName}`,
+          source: 'feat_choice'
+        });
+      }
+    });
+  });
+
+  return (
+    <div className="h-full flex flex-col space-y-3">
+      {/* Entity Grid - 2 columns */}
+      <div className="grid grid-cols-2 gap-2">
+        <EntityCard 
+          title={className} 
+          subtitle={subclassName || undefined}
+          type="class"
+          entity={pers.class}
+          subEntity={pers.subclass}
+          persLevel={pers.level}
+        />
+        <EntityCard 
+          title={raceName} 
+          subtitle={subraceName || undefined}
+          type="race"
+          entity={pers.race}
+          subEntity={pers.subrace}
+          persLevel={pers.level}
+        />
+        <EntityCard 
+          title={backgroundName}
+          type="background"
+          entity={pers.background}
+          persLevel={pers.level}
+        />
+      </div>
+
+      {/* Features List - Scrollable */}
+      <Card className="flex-1 overflow-hidden flex flex-col bg-white/10 border-purple-300/30 backdrop-blur">
+        <CardContent className="p-3 overflow-y-auto flex-1 space-y-1">
+          {allFeatures.map((feature, idx) => (
+            <button
+              key={idx}
+              onClick={() => setSelectedFeature(feature)}
+              className="w-full text-left px-3 py-2 rounded border border-purple-400/30 bg-purple-900/20 hover:bg-purple-800/40 hover:border-purple-400/60 transition text-sm text-purple-100"
+            >
+              {feature.name}
+            </button>
+          ))}
+          {pers.feats.map(pf => (
+            <button
+              key={pf.persFeatId}
+              onClick={() => setSelectedFeature({ 
+                name: featTranslations[pf.feat.name as keyof typeof featTranslations] || pf.feat.name, 
+                description: pf.feat.description 
+              })}
+              className="w-full text-left px-3 py-2 rounded border border-amber-400/40 bg-amber-900/30 hover:bg-amber-800/50 hover:border-amber-400/70 transition text-sm text-amber-50"
+            >
+              <span className="font-semibold">{featTranslations[pf.feat.name as keyof typeof featTranslations] || pf.feat.name}</span>
+            </button>
+          ))}
+        </CardContent>
+      </Card>
+
+      {/* Feature Detail Modal */}
+      <Dialog open={!!selectedFeature} onOpenChange={() => setSelectedFeature(null)}>
+        <DialogContent className="max-w-2xl border border-purple-400/30 bg-purple-950/95 backdrop-blur text-purple-50">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-semibold text-purple-100">{selectedFeature?.name}</DialogTitle>
+          </DialogHeader>
+          <div className="text-sm text-purple-200 whitespace-pre-wrap max-h-96 overflow-y-auto">
+            {selectedFeature?.description}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}
+
+interface EntityCardProps {
+  title: string;
+  subtitle?: string;
+  type: 'class' | 'race' | 'background';
+  entity: any;
+  subEntity?: any;
+  persLevel: number;
+}
+
+function EntityCard({ title, subtitle, type, entity, subEntity, persLevel }: EntityCardProps) {
+  return (
+    <Card className="relative bg-white/10 border-purple-300/30 backdrop-blur hover:border-purple-400/60 transition cursor-pointer group">
+      <CardContent className="p-3">
+        <div className="font-bold text-sm text-purple-50">{title}</div>
+        {subtitle && <div className="text-xs text-purple-300">{subtitle}</div>}
+      </CardContent>
+      
+      {/* Info Dialog */}
+      {type === 'class' && (
+        <InfoDialog title={title} subtitle={subtitle} triggerLabel={`Інформація про ${title}`}>
+          <InfoGrid>
+            <InfoPill label="Кістка хітів" value={`d${entity.hitDie}`} />
+            <InfoPill label="Підклас з рівня" value={`Рівень ${entity.subclassLevel}`} />
+          </InfoGrid>
+          
+          {entity.features && entity.features.length > 0 && (
+            <>
+              <InfoSectionTitle>Вміння класу</InfoSectionTitle>
+              <div className="space-y-2">
+                {entity.features.map((f: any, idx: number) => {
+                  const isUnlocked = f.level <= persLevel;
+                  return (
+                    <div 
+                      key={idx} 
+                      className={`p-3 rounded-lg border ${
+                        isUnlocked 
+                          ? 'border-green-500/50 bg-green-900/20' 
+                          : 'border-slate-800/50 bg-slate-900/30 opacity-60'
+                      }`}
+                    >
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="font-semibold text-sm">{f.name}</span>
+                        <span className="text-xs text-slate-400">Рівень {f.level}</span>
+                      </div>
+                      <p className="text-xs text-slate-300">{f.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+          
+          {subEntity && subEntity.features && (
+            <>
+              <InfoSectionTitle>Вміння підкласу</InfoSectionTitle>
+              <div className="space-y-2">
+                {subEntity.features.map((f: any, idx: number) => {
+                  const isUnlocked = f.level <= persLevel;
+                  return (
+                    <div 
+                      key={idx} 
+                      className={`p-3 rounded-lg border ${
+                        isUnlocked 
+                          ? 'border-blue-500/50 bg-blue-900/20' 
+                          : 'border-slate-800/50 bg-slate-900/30 opacity-60'
+                      }`}
+                    >
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="font-semibold text-sm">{f.name}</span>
+                        <span className="text-xs text-slate-400">Рівень {f.level}</span>
+                      </div>
+                      <p className="text-xs text-slate-300">{f.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </InfoDialog>
+      )}
+      
+      {type === 'race' && (
+        <InfoDialog title={title} subtitle={subtitle} triggerLabel={`Інформація про ${title}`}>
+          {entity.traits && entity.traits.length > 0 && (
+            <>
+              <InfoSectionTitle>Расові особливості</InfoSectionTitle>
+              <div className="space-y-2">
+                {entity.traits.map((t: any, idx: number) => (
+                  <div key={idx} className="p-3 rounded-lg border border-slate-800/50 bg-slate-900/30">
+                    <span className="font-semibold text-sm block mb-1">{t.name}</span>
+                    <p className="text-xs text-slate-300">{t.description}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+          
+          {subEntity && subEntity.traits && (
+            <>
+              <InfoSectionTitle>Особливості підраси</InfoSectionTitle>
+              <div className="space-y-2">
+                {subEntity.traits.map((t: any, idx: number) => (
+                  <div key={idx} className="p-3 rounded-lg border border-slate-800/50 bg-slate-900/30">
+                    <span className="font-semibold text-sm block mb-1">{t.name}</span>
+                    <p className="text-xs text-slate-300">{t.description}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </InfoDialog>
+      )}
+      
+      {type === 'background' && (
+        <InfoDialog title={title} triggerLabel={`Інформація про ${title}`}>
+          {entity.description && (
+            <div className="text-sm text-slate-300">
+              {entity.description}
+            </div>
+          )}
+        </InfoDialog>
+      )}
+    </Card>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/SpellsPage.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { spellSchoolTranslations } from "@/lib/refs/translation";
+
+export default function SpellsPage({ pers }: { pers: PersWithRelations }) {
+  const spellsByLevel = pers.spells.reduce((acc, ps) => {
+    const level = ps.level;
+    if (!acc[level]) acc[level] = [];
+    acc[level].push(ps);
+    return acc;
+  }, {} as Record<number, typeof pers.spells>);
+
+  const levels = Object.keys(spellsByLevel).map(Number).sort((a, b) => a - b);
+
+  return (
+    <div className="space-y-4">
+      <Card>
+        <CardHeader className="pb-2">
+            <CardTitle>Заклинання</CardTitle>
+        </CardHeader>
+        <CardContent>
+            <div className="grid grid-cols-3 gap-2 text-center text-sm">
+                <div className="bg-secondary/20 p-2 rounded">
+                    <div className="text-xs text-muted-foreground">Складність</div>
+                    <div className="font-bold text-lg">--</div>
+                </div>
+                <div className="bg-secondary/20 p-2 rounded">
+                    <div className="text-xs text-muted-foreground">Атака</div>
+                    <div className="font-bold text-lg">--</div>
+                </div>
+                <div className="bg-secondary/20 p-2 rounded">
+                    <div className="text-xs text-muted-foreground">Характеристика</div>
+                    <div className="font-bold text-lg">--</div>
+                </div>
+            </div>
+        </CardContent>
+      </Card>
+
+      {levels.map(level => (
+        <Card key={level}>
+            <CardHeader className="pb-2 py-3 bg-secondary/10">
+                <CardTitle className="text-base flex justify-between items-center">
+                    <span>{level === 0 ? "Замовляння" : `Рівень ${level}`}</span>
+                    {level > 0 && (
+                        <Badge variant="outline">
+                            Комірки: --
+                        </Badge>
+                    )}
+                </CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+                {spellsByLevel[level].map((spell, i) => (
+                    <div key={spell.spellId} className={`p-3 ${i !== spellsByLevel[level].length - 1 ? 'border-b' : ''}`}>
+                        <div className="font-medium">{spell.name}</div>
+                        <div className="text-xs text-muted-foreground truncate">
+                            {spellSchoolTranslations[spell.school as keyof typeof spellSchoolTranslations] || spell.school} • {spell.castingTime} • {spell.range}
+                        </div>
+                    </div>
+                ))}
+            </CardContent>
+        </Card>
+      ))}
+      
+      {levels.length === 0 && (
+        <div className="text-center text-muted-foreground py-8">
+            Заклинання не відомі
+        </div>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/characterSheet/StatsPage.tsx">
+"use client";
+
+import { PersWithRelations } from "@/lib/actions/pers";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getAbilityMod, formatModifier, getProficiencyBonus, skillAbilityMap } from "@/lib/logic/utils";
+import { Badge } from "@/components/ui/badge";
+import { Skills } from "@prisma/client";
+
+export default function StatsPage({ pers }: { pers: PersWithRelations }) {
+  const pb = getProficiencyBonus(pers.level);
+
+  // Group all skills by ability score
+  const skillsByAbility = {
+    STR: [
+      { skill: Skills.ATHLETICS, name: "Атлетика" }
+    ],
+    DEX: [
+      { skill: Skills.ACROBATICS, name: "Акробатика" },
+      { skill: Skills.SLEIGHT_OF_HAND, name: "Спритність рук" },
+      { skill: Skills.STEALTH, name: "Непомітність" }
+    ],
+    INT: [
+      { skill: Skills.ARCANA, name: "Магія" },
+      { skill: Skills.HISTORY, name: "Історія" },
+      { skill: Skills.INVESTIGATION, name: "Розслідування" },
+      { skill: Skills.NATURE, name: "Природа" },
+      { skill: Skills.RELIGION, name: "Релігія" }
+    ],
+    WIS: [
+      { skill: Skills.ANIMAL_HANDLING, name: "Поводження з тваринами" },
+      { skill: Skills.INSIGHT, name: "Аналіз поведінки" },
+      { skill: Skills.MEDICINE, name: "Медицина" },
+      { skill: Skills.PERCEPTION, name: "Уважність" },
+      { skill: Skills.SURVIVAL, name: "Виживання" }
+    ],
+    CHA: [
+      { skill: Skills.DECEPTION, name: "Обман" },
+      { skill: Skills.INTIMIDATION, name: "Залякування" },
+      { skill: Skills.PERFORMANCE, name: "Виступ" },
+      { skill: Skills.PERSUASION, name: "Переконання" }
+    ]
+  };
+
+  const abilityGroups = [
+    { ability: "STR", name: "Сила", score: pers.str },
+    { ability: "DEX", name: "Спритність", score: pers.dex },
+    { ability: "INT", name: "Інтелект", score: pers.int },
+    { ability: "WIS", name: "Мудрість", score: pers.wis },
+    { ability: "CHA", name: "Харизма", score: pers.cha }
+  ] as const;
+
+  const getSkillProficiency = (skillName: Skills) => {
+    const persSkill = pers.skills.find(ps => ps.name === skillName);
+    return persSkill?.proficiencyType || 'NONE';
+  };
+
+  const calculateSkillModifier = (skillName: Skills, abilityScore: number) => {
+    const abilityMod = getAbilityMod(abilityScore);
+    const proficiency = getSkillProficiency(skillName);
+    let total = abilityMod;
+    if (proficiency === 'PROFICIENT') total += pb;
+    if (proficiency === 'EXPERTISE') total += pb * 2;
+    return { total, proficiency };
+  };
+
+  return (
+    <div className="space-y-3">
+      {abilityGroups.map(({ ability, name, score }) => (
+        <Card key={ability} className="bg-white/10 border-purple-300/30 backdrop-blur">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base flex items-center justify-between text-purple-50">
+              <span>{name}</span>
+              <span className="text-2xl font-bold text-purple-200">{formatModifier(getAbilityMod(score))}</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-1">
+            {skillsByAbility[ability as keyof typeof skillsByAbility].map(({ skill, name: skillName }) => {
+              const { total, proficiency } = calculateSkillModifier(skill, score);
+              const isProficient = proficiency !== 'NONE';
+              
+              return (
+                <div 
+                  key={skill} 
+                  className={`flex justify-between items-center border-b border-purple-400/20 last:border-0 py-1.5 ${!isProficient ? 'opacity-40' : ''}`}
+                >
+                  <span className="text-sm text-purple-100">{skillName}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-sm text-purple-200">{formatModifier(total)}</span>
+                    {proficiency !== 'NONE' && (
+                      <Badge variant="secondary" className="text-[10px] h-5 px-1.5 bg-purple-500/30 text-purple-100 border-purple-400/30">
+                        {proficiency === 'EXPERTISE' ? 'Експ' : 'Проф'}
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/levelUp/LevelUpASIForm.tsx">
+"use client";
+
+import { useState, useEffect } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
+import { Feat } from "@prisma/client";
+import { Ability } from "@prisma/client";
+
+interface Props {
+  feats: Feat[];
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
+}
+
+const ABILITIES = Object.values(Ability);
+
+export default function LevelUpASIForm({ feats, onNextDisabledChange }: Props) {
+  const { updateFormData, formData } = usePersFormStore();
+  const [choiceType, setChoiceType] = useState<"ASI" | "FEAT">("ASI");
+  
+  // ASI State
+  const [asiSelection, setAsiSelection] = useState<{ ability: string; value: number }[]>([]);
+  
+  // Sync with store
+  useEffect(() => {
+      if (choiceType === "ASI") {
+          // Clear feat
+          updateFormData({ featId: undefined });
+          
+          // Update customAsi
+          // We use customAsi to store the bonuses: [{ability: 'STR', value: '2'}]
+          const formatted = asiSelection.map(s => ({ ability: s.ability, value: s.value.toString() }));
+          // Fill to 6 items to satisfy schema if needed, or just pass what we have if schema allows optional
+          // The schema expects 6 items for CUSTOM system.
+          // We might need to bypass the schema validation for Level Up or mock the rest.
+          // Actually, for Level Up we don't use the full creation schema validation.
+          // We will validate manually in the action.
+          updateFormData({ customAsi: formatted as any });
+          
+          const total = asiSelection.reduce((acc, s) => acc + s.value, 0);
+          const isValid = total === 2 && asiSelection.length > 0;
+          onNextDisabledChange?.(!isValid);
+      } else {
+          // Clear ASI
+          updateFormData({ customAsi: [] });
+          // Feat validation is handled by FeatsForm? 
+          // FeatsForm uses useStepForm which validates featId.
+          // But here we are wrapping it.
+          // We need to check if featId is set.
+          const isValid = !!formData.featId;
+          onNextDisabledChange?.(!isValid);
+      }
+  }, [choiceType, asiSelection, formData.featId, updateFormData, onNextDisabledChange]);
+
+  const handleAsiChange = (index: number, ability: string) => {
+      const newSel = [...asiSelection];
+      if (!newSel[index]) newSel[index] = { ability, value: 1 };
+      else newSel[index].ability = ability;
+      setAsiSelection(newSel);
+  };
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>Оберіть покращення</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <RadioGroup 
+            value={choiceType} 
+            onValueChange={(v) => setChoiceType(v as "ASI" | "FEAT")}
+            className="flex gap-4"
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="ASI" id="asi" />
+              <Label htmlFor="asi">Покращення характеристик (+2)</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="FEAT" id="feat" />
+              <Label htmlFor="feat">Риса (Feat)</Label>
+            </div>
+          </RadioGroup>
+        </CardContent>
+      </Card>
+
+      {choiceType === "ASI" && (
+        <Card>
+            <CardHeader>
+                <CardTitle>Розподіл характеристик</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <div className="flex gap-4 items-center">
+                    <Label>Варіант:</Label>
+                    <Select 
+                        value={asiSelection.length === 1 && asiSelection[0].value === 2 ? "single" : "split"}
+                        onValueChange={(v) => {
+                            if (v === "single") setAsiSelection([{ ability: ABILITIES[0], value: 2 }]);
+                            else setAsiSelection([{ ability: ABILITIES[0], value: 1 }, { ability: ABILITIES[1], value: 1 }]);
+                        }}
+                    >
+                        <SelectTrigger className="w-[200px]">
+                            <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="single">+2 до однієї</SelectItem>
+                            <SelectItem value="split">+1 до двох</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+
+                {asiSelection.map((sel, idx) => (
+                    <div key={idx} className="flex gap-4 items-center">
+                        <Label>Характеристика {idx + 1}</Label>
+                        <Select 
+                            value={sel.ability} 
+                            onValueChange={(v) => handleAsiChange(idx, v)}
+                        >
+                            <SelectTrigger className="w-[200px]">
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {ABILITIES.map(a => (
+                                    <SelectItem key={a} value={a}>{a}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                        <Badge>+{sel.value}</Badge>
+                    </div>
+                ))}
+            </CardContent>
+        </Card>
+      )}
+
+      {choiceType === "FEAT" && (
+          <FeatsForm feats={feats} formId="feat-form-internal" />
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="src/lib/components/levelUp/LevelUpWizard.tsx">
+"use client";
+
+import { useEffect, useState } from "react";
+import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { ChevronLeft, ChevronRight, Check } from "lucide-react";
+import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
+import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
+import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
+import LevelUpASIForm from "@/lib/components/levelUp/LevelUpASIForm";
+import { ClassI } from "@/lib/types/model-types";
+
+type LevelUpInfo = Awaited<ReturnType<typeof getLevelUpInfo>>;
+
+interface Props {
+  info: LevelUpInfo;
+}
+
+export default function LevelUpWizard({ info }: Props) {
+  const { resetForm, formData } = usePersFormStore();
+  const [currentStep, setCurrentStep] = useState(0);
+  const [nextDisabled, setNextDisabled] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
+
+  // Initialize store
+  useEffect(() => {
+      resetForm();
+      // We don't need to load old data for new choices, 
+      // but we might need to load existing choices to prevent duplicates if we were editing.
+      // For Level Up, we start fresh.
+  }, [resetForm]);
+
+  if ('error' in info) return <div>Error: {info.error}</div>;
+
+  const { 
+      pers, needsSubclass, isASILevel, 
+      classChoiceGroups, 
+      subclassChoiceGroups,
+      feats,
+      nextLevel
+  } = info;
+
+  // Define Steps
+  const steps = [
+      { id: 'summary', title: 'Новий рівень', component: <SummaryStep info={info} /> },
+      ...(needsSubclass ? [{ id: 'subclass', title: 'Підклас', component: <SubclassForm cls={pers.class as unknown as ClassI} formId="subclass-form" onNextDisabledChange={setNextDisabled} /> }] : []),
+      ...(Object.keys(classChoiceGroups).length > 0 ? [{ 
+          id: 'class-choices', 
+          title: 'Опції класу', 
+          component: <ClassChoiceOptionsForm 
+              availableOptions={Object.values(classChoiceGroups).flat()} 
+              formId="class-choice-form" 
+              onNextDisabledChange={setNextDisabled} 
+          /> 
+      }] : []),
+      ...(Object.keys(subclassChoiceGroups).length > 0 ? [{ 
+          id: 'subclass-choices', 
+          title: 'Опції підкласу', 
+          component: <SubclassChoiceOptionsForm 
+              availableOptions={Object.values(subclassChoiceGroups).flat()} 
+              formId="subclass-choice-form" 
+              onNextDisabledChange={setNextDisabled} 
+          /> 
+      }] : []),
+      ...(isASILevel ? [{ 
+          id: 'asi', 
+          title: 'Покращення', 
+          component: <LevelUpASIForm feats={feats} formId="asi-form" onNextDisabledChange={setNextDisabled} /> 
+      }] : []),
+      { id: 'confirm', title: 'Підтвердження', component: <ConfirmStep info={info} formData={formData} /> }
+  ];
+
+  const handleNext = async () => {
+      if (currentStep < steps.length - 1) {
+          setCurrentStep(prev => prev + 1);
+          setNextDisabled(false); // Reset for next step (components should set it to true if needed on mount)
+      } else {
+          // Submit
+          setIsSubmitting(true);
+          try {
+              const result = await levelUpCharacter(pers.persId, formData);
+              if ('error' in result) {
+                  toast.error(result.error);
+              } else {
+                  toast.success("Рівень підвищено!");
+                  router.push(`/pers/${pers.persId}`);
+              }
+          } catch {
+              toast.error("Помилка при збереженні");
+          } finally {
+              setIsSubmitting(false);
+          }
+      }
+  };
+
+  const handlePrev = () => {
+      if (currentStep > 0) {
+          setCurrentStep(prev => prev - 1);
+          setNextDisabled(false);
+      }
+  };
+
+  const CurrentComponent = steps[currentStep].component;
+
+  return (
+    <div className="container mx-auto py-8 px-4 max-w-3xl">
+        <div className="mb-8">
+            <h1 className="text-3xl font-bold mb-2">Підвищення рівня до {nextLevel}</h1>
+            <div className="flex gap-2 overflow-x-auto pb-2">
+                {steps.map((s, i) => (
+                    <div key={s.id} className={`flex items-center whitespace-nowrap ${i === currentStep ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center border mr-2 ${i === currentStep ? 'border-primary bg-primary text-primary-foreground' : 'border-muted-foreground'}`}>
+                            {i + 1}
+                        </div>
+                        {s.title}
+                        {i < steps.length - 1 && <div className="mx-2 h-[1px] w-4 bg-border" />}
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div className="mb-8 min-h-[300px]">
+            {CurrentComponent}
+        </div>
+
+        <div className="flex justify-between">
+            <Button variant="outline" onClick={handlePrev} disabled={currentStep === 0 || isSubmitting}>
+                <ChevronLeft className="mr-2 h-4 w-4" /> Назад
+            </Button>
+            <Button onClick={handleNext} disabled={nextDisabled || isSubmitting}>
+                {currentStep === steps.length - 1 ? (
+                    isSubmitting ? "Збереження..." : "Підвищити рівень"
+                ) : (
+                    <>Далі <ChevronRight className="ml-2 h-4 w-4" /></>
+                )}
+            </Button>
+        </div>
+    </div>
+  );
+}
+
+function SummaryStep({ info }: { info: any }) {
+    const { nextLevel, newClassFeatures, newSubclassFeatures, pers } = info;
+    // Calculate HP increase (Average or Roll? Usually average for simplicity in this app unless we add rolling)
+    // Hit Die: pers.class.hitDie
+    const conMod = Math.floor((pers.con - 10) / 2);
+    const hpIncrease = Math.floor(pers.class.hitDie / 2) + 1 + conMod;
+
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Вітаємо з {nextLevel}-м рівнем!</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <div className="flex items-center justify-between p-4 bg-secondary/20 rounded-lg">
+                    <span className="font-bold">HP Increase</span>
+                    <span className="text-2xl font-bold text-green-600">+{hpIncrease}</span>
+                </div>
+                
+                {newClassFeatures.length > 0 && (
+                    <div>
+                        <h3 className="font-semibold mb-2">Нові класові вміння:</h3>
+                        <ul className="space-y-2">
+                            {newClassFeatures.map((f: any) => (
+                                <li key={f.featureId} className="border p-3 rounded">
+                                    <div className="font-bold">{f.feature.name}</div>
+                                    <div className="text-sm text-muted-foreground">{f.feature.shortDescription || f.feature.description}</div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {newSubclassFeatures.length > 0 && (
+                    <div>
+                        <h3 className="font-semibold mb-2">Нові вміння підкласу:</h3>
+                        <ul className="space-y-2">
+                            {newSubclassFeatures.map((f: any) => (
+                                <li key={f.featureId} className="border p-3 rounded">
+                                    <div className="font-bold">{f.feature.name}</div>
+                                    <div className="text-sm text-muted-foreground">{f.feature.shortDescription || f.feature.description}</div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+    );
+}
+
+function ConfirmStep({ formData }: { info: any, formData: any }) {
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Перевірка змін</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <p>Ви готові підвищити рівень персонажа?</p>
+                {/* We could list the choices made here */}
+                {formData.subclassId && (
+                    <div className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-green-500" />
+                        <span>Підклас обрано</span>
+                    </div>
+                )}
+                {Object.keys(formData.classChoiceSelections || {}).length > 0 && (
+                    <div className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-green-500" />
+                        <span>Опції класу обрано</span>
+                    </div>
+                )}
+                 {Object.keys(formData.subclassChoiceSelections || {}).length > 0 && (
+                    <div className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-green-500" />
+                        <span>Опції підкласу обрано</span>
+                    </div>
+                )}
+                {(formData.featId || (formData.customAsi && formData.customAsi.length > 0)) && (
+                    <div className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-green-500" />
+                        <span>Покращення обрано</span>
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+    );
+}
+</file>
+
+<file path="src/lib/components/ui/card.tsx">
 import * as React from "react"
-import * as DialogPrimitive from "@radix-ui/react-dialog"
-import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Dialog = DialogPrimitive.Root
-
-const DialogTrigger = DialogPrimitive.Trigger
-
-const DialogPortal = DialogPrimitive.Portal
-
-const DialogClose = DialogPrimitive.Close
-
-const DialogOverlay = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
+  <div
     ref={ref}
     className={cn(
-      "fixed inset-0 z-[200] bg-slate-950/70 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "glass-card rounded-xl text-card-foreground",
       className
     )}
     {...props}
   />
 ))
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+Card.displayName = "Card"
 
-const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogPrimitive.Content
-      ref={ref}
-      className={cn(
-        "fixed left-[50%] top-[50%] z-[201] grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-        <X className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </DialogPrimitive.Close>
-    </DialogPrimitive.Content>
-  </DialogPortal>
-))
-DialogContent.displayName = DialogPrimitive.Content.displayName
-
-const DialogHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col space-y-1.5 text-center sm:text-left",
-      className
-    )}
-    {...props}
-  />
-)
-DialogHeader.displayName = "DialogHeader"
-
-const DialogFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className
-    )}
-    {...props}
-  />
-)
-DialogFooter.displayName = "DialogFooter"
-
-const DialogTitle = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+))
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
     ref={ref}
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "font-rpg-display font-semibold uppercase leading-none tracking-wider text-amber-50/90 drop-shadow-[0_2px_10px_rgba(99,102,241,0.25)]",
       className
     )}
     {...props}
   />
 ))
-DialogTitle.displayName = DialogPrimitive.Title.displayName
+CardTitle.displayName = "CardTitle"
 
-const DialogDescription = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+const CardDescription = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
+  <div
     ref={ref}
     className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
 ))
-DialogDescription.displayName = DialogPrimitive.Description.displayName
+CardDescription.displayName = "CardDescription"
 
-export {
-  Dialog,
-  DialogPortal,
-  DialogOverlay,
-  DialogTrigger,
-  DialogClose,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
-}
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+))
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
 </file>
 
 <file path="src/lib/refs/dictionary.json">
@@ -28947,6 +28490,105 @@ export const prisma =
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 </file>
 
+<file path="tailwind.config.ts">
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
+
+const config: Config = {
+  darkMode: ["class"],
+  content: [
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/lib/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [
+    "bg-violet-700",
+    "bg-violet-900",
+    "hover:bg-violet-700",
+    "hover:bg-violet-800",
+    "border-slate-700",
+    "border-slate-800",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: [
+          "var(--font-jetbrains-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace",
+        ],
+        "rpg-display": [
+          "var(--font-rpg-display)",
+          "var(--font-cinzel)",
+          "ui-serif",
+          "Georgia",
+          "Cambria",
+          "Times New Roman",
+          "serif",
+        ],
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+        },
+      },
+    },
+  },
+  plugins: [tailwindcssAnimate],
+};
+
+export default config;
+</file>
+
 <file path="prisma/models/choices/ChoiceOption.prisma">
 model ChoiceOption {
   choiceOptionId Int @id @default(autoincrement()) @map("option_id")
@@ -30056,6 +29698,72 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
 }
 </file>
 
+<file path="src/components/ui/card.tsx">
+import * as React from "react"
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("glass-card rounded-xl text-card-foreground", className)} {...props} />
+))
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+))
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn(
+      "font-rpg-display font-semibold uppercase leading-none tracking-wider text-slate-200",
+      className
+    )}
+    {...props}
+  />
+))
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(({ className, ...props }, ref) => (
+  <p ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+))
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+))
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+</file>
+
+<file path="src/components/ui/Navigation.tsx">
+import { Logo } from "@/lib/components/icons/Logo";
+import Link from "next/link";
+
+export const Navigation = () => {
+  return (
+    <nav className="row-start-2 md:row-start-1 md:col-start-1 flex w-full flex-row items-center justify-center gap-4 border-t border-slate-800/70 bg-slate-900/70 px-3 py-2 shadow-lg md:h-screen md:flex-col md:justify-between md:border-t-0 md:border-r md:px-2 md:py-4 md:sticky md:top-0">
+      <div className="flex flex-row items-center gap-3 md:flex-col md:gap-4">
+        <Link href="/" className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/80 shadow-inner md:mt-2">
+          <Logo/>
+        </Link>
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/60 text-slate-400">1</div>
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/60 text-slate-400">2</div>
+      </div>
+      <div className="hidden md:flex flex-col gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800/60 text-slate-400">⚙️</div>
+      </div>
+    </nav>
+  )
+}
+</file>
+
 <file path="src/domain/pers/Pers.ts">
 import { Ability, Skills as Skill } from "@prisma/client";
 import { AbilityScores } from "./AbilityScores";
@@ -30137,716 +29845,268 @@ export class PersFactory {
 }
 </file>
 
-<file path="src/lib/components/characterCreator/ASIForm.tsx">
+<file path="src/lib/components/auth/GoogleAuthDialog.tsx">
 "use client";
 
-import { useStepForm } from "@/hooks/useStepForm";
-import { Ability, Classes,  } from "@prisma/client";
-import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { useFieldArray, useWatch } from "react-hook-form";
-import React, { useEffect, useMemo } from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { classAbilityScores } from "@/lib/refs/classesBaseASI";
-import { ClassI, RaceI, RaceASI } from "@/lib/types/model-types";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { Button } from "@/lib/components/ui/Button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
-import { Badge } from "@/lib/components/ui/badge";
-import { Minus, Plus, ArrowUp, ArrowDown, Check, AlertCircle } from "lucide-react";
-import { Input } from "@/lib/components/ui/input";
-import { Switch } from "@/lib/components/ui/switch";
-import { Label } from "@/lib/components/ui/label";
-import { RaceVariant } from "@prisma/client";
-
+import { useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Loader2, LogIn, ShieldCheck } from "lucide-react";
 
 interface Props {
-  race: RaceI
-  raceVariant?: RaceVariant | null
-  selectedClass: ClassI
-  prevRaceId: number | null
-  setPrevRaceId: (id: number) => void;
-  formId: string
-  onNextDisabledChange?: (disabled: boolean) => void
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  triggerLabel?: string;
 }
 
-const attributes = [
-  { eng: Ability.STR, ukr: 'Сила' },
-  { eng: Ability.DEX, ukr: 'Спритність' },
-  { eng: Ability.CON, ukr: 'Статура' },
-  { eng: Ability.INT, ukr: 'Інтелект' },
-  { eng: Ability.WIS, ukr: 'Мудрість' },
-  { eng: Ability.CHA, ukr: 'Харизма' }
-];
+const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }: Props) => {
+  const { data: session, status } = useSession();
+  const [loading, setLoading] = useState(false);
+  const shouldRenderTrigger = typeof open === "undefined";
 
-const attributesUrkShort = [
-  { eng: Ability.STR, ukr: 'СИЛ' }, // Strength — Сила
-  { eng: Ability.DEX, ukr: 'СПР' }, // Dexterity — Спритність
-  { eng: Ability.CON, ukr: 'СТА' }, // Constitution — Статура
-  { eng: Ability.INT, ukr: 'ІНТ' }, // Intelligence — Інтелект
-  { eng: Ability.WIS, ukr: 'МУД' }, // Wisdom — Мудрість
-  { eng: Ability.CHA, ukr: 'ХАР' }, // Charisma — Харизма
-];
+  const handleSignIn = async () => {
+    setLoading(true);
+    try {
+      const result = await signIn("google", { redirect: false, callbackUrl: "/pers" });
 
-const asiSystems = {
-  POINT_BUY: 'POINT_BUY',
-  SIMPLE: 'SIMPLE',
-  CUSTOM: 'CUSTOM'
-}
-
-
-export const ASIForm = (
-  { race, raceVariant, selectedClass, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
-) => {
-  const { updateFormData, nextStep } = usePersFormStore();
-  
-  const raceAsi = useMemo(() => {
-    if (raceVariant?.overridesRaceASI) {
-      return raceVariant.overridesRaceASI as unknown as RaceASI;
-    }
-    return race.ASI;
-  }, [race, raceVariant]);
-
-  const { form, onSubmit } = useStepForm(asiSchema, (data) => {
-    // Save the entire ASI data object
-    updateFormData({
-      isDefaultASI: data.isDefaultASI,
-      asiSystem: data.asiSystem,
-      points: data.points,
-      simpleAsi: data.simpleAsi,
-      asi: data.asi,
-      racialBonusChoiceSchema: data.racialBonusChoiceSchema
-    });
-    nextStep();
-  });
-
-  const { fields: asiFields, replace: replaceAsi } = useFieldArray({
-    control: form.control,
-    name: "asi",
-  });
-  const { fields: simpleAsiFields, replace: replaceSimpleAsi } = useFieldArray({
-    control: form.control,
-    name: "simpleAsi",
-  });
-  const { fields: customAsiFields, replace: replaceCustomAsi } = useFieldArray({
-    control: form.control,
-    name: "customAsi",
-  });
-  const watchedSimpleAsi = useWatch({
-    control: form.control,
-    name: 'simpleAsi'
-  })
-
-  const isDefaultASI = form.watch('isDefaultASI') || false
-  const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
-  const points = form.watch('points') || 0
-
-  useEffect(() => {
-    onNextDisabledChange?.(asiSystem === asiSystems.POINT_BUY && points < 0);
-  }, [asiSystem, points, onNextDisabledChange])
-
-  const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
-
-  const sortedSimpleAsi = useMemo(() => {
-    if (!watchedSimpleAsi || watchedSimpleAsi.length === 0) {
-      return [...simpleAsiFields].sort((a, b) => b.value - a.value);
-    }
-
-    const enrichedFields = simpleAsiFields.map((field, index) => ({
-      ...field,
-      ability: field.ability,
-      value: watchedSimpleAsi[index]?.value ?? field.value
-    }));
-
-    return enrichedFields.sort((a, b) => b.value - a.value);
-  }, [watchedSimpleAsi, simpleAsiFields])
-
-  const incrementValue = (index: number) => {
-    const currentValue = form.getValues(`asi.${ index }.value`) || 0;
-    form.setValue('points', currentValue >= 13 ? points - 2 : points - 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
-    form.setValue(`asi.${ index }.value`, currentValue + 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
-  }
-  const decrementValue = (index: number) => {
-    const currentValue = form.getValues(`asi.${ index }.value`) || 0;
-    if (currentValue > 8) {
-      form.setValue('points', currentValue >= 14 ? points + 2 : points + 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
-      form.setValue(`asi.${ index }.value`, currentValue - 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
-    }
-  }
-
-  const swapValues = ({ sortedIndexA, isDirectionUp }: { sortedIndexA: number, isDirectionUp: boolean }) => { // index == 0-5
-    if (isDirectionUp ? sortedIndexA > 0 : sortedIndexA < 5) {
-      const sortedIndexB = isDirectionUp ? sortedIndexA - 1 : sortedIndexA + 1
-
-      const itemA = sortedSimpleAsi[sortedIndexA]
-      const itemB = sortedSimpleAsi[sortedIndexB]
-
-      const originalIndexA = simpleAsiFields.findIndex(field => field.id === itemA.id);
-      const originalIndexB = simpleAsiFields.findIndex(field => field.id === itemB.id);
-
-      if (originalIndexA === -1 || originalIndexB === -1) return;
-
-      form.setValue(`simpleAsi.${ originalIndexA }.value`, itemB.value, {
-        shouldTouch: true,
-        shouldDirty: true,
-        shouldValidate: true
-      });
-
-      form.setValue(`simpleAsi.${ originalIndexB }.value`, itemA.value, {
-        shouldTouch: true,
-        shouldDirty: true,
-        shouldValidate: true
-      });
-    }
-  }
-
-  const handleToggleRacialBonus = ({ groupIndex, choiceCount, ability }: {
-    groupIndex: number,
-    choiceCount: number,
-    ability: Ability
-  }) => {
-    const schemaPath = racialBonusSchemaPath;
-
-    const groups = form.getValues(schemaPath) || []
-
-    const arrayIndex = groups.findIndex(g => g.groupIndex === groupIndex);
-
-    if (arrayIndex !== -1) {
-      const currentAbilities = groups[arrayIndex].selectedAbilities;
-      const hasAbility = currentAbilities.includes(ability);
-
-      if (!hasAbility && currentAbilities.length === groups[arrayIndex].choiceCount) return null;
-
-      const newAbilities = hasAbility
-        ? currentAbilities.filter(a => a !== ability)
-        : [...currentAbilities, ability]
-
-      form.setValue(
-        `${ schemaPath }.${ arrayIndex }.selectedAbilities`,
-        newAbilities,
-        { shouldDirty: true, shouldTouch: true, shouldValidate: true }
-      )
-    } else {
-      const newGroup = {
-        groupIndex: groupIndex,
-        choiceCount: choiceCount,
-        selectedAbilities: [ability]
+      if (result?.error) {
+        toast.error("Не вдалося авторизуватися", {
+          description: "Google повернув помилку. Спробуйте ще раз.",
+        });
+        return;
       }
-      const newGroups = [...groups, newGroup]
 
-      form.setValue(`${ schemaPath }`, newGroups, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
-    }
-  }
-
-  const isRacialBonusSelected = (index: number, attr: Ability) => {
-    const abilities = form.getValues(`${ racialBonusSchemaPath }.${ index }.selectedAbilities`) || [];
-
-    return abilities.includes(attr)
-  }
-
-  const getCurrentSelectedCount = (index: number) => {
-    const abilities = form.getValues(`${ racialBonusSchemaPath }.${ index }.selectedAbilities`) || [];
-
-    return abilities.length;
-  }
-
-  useEffect(() => {
-    if (selectedClass) {
-      const defaultClassASI = classAbilityScores[selectedClass.name as Classes]
-      if (defaultClassASI) {
-        const currentAsi = form.getValues('asi')
-        const currentSimpleAsi = form.getValues('simpleAsi')
-        const currentCustomAsi = form.getValues('customAsi')
-
-        if (!currentAsi || currentAsi.length === 0) {
-          replaceAsi(defaultClassASI.map(asi => ({
-            ability: asi.ability,
-            value: asi.value,
-          })));
-        }
-        if (!currentSimpleAsi || currentSimpleAsi.length === 0) {
-          replaceSimpleAsi(defaultClassASI.map(asi => ({
-            ability: asi.ability,
-            value: asi.value,
-          })));
-        }
-        if (!currentCustomAsi || currentCustomAsi.length === 0) {
-          replaceCustomAsi(defaultClassASI.map(asi => ({
-            ability: asi.ability,
-            value: String(asi.value),
-          })));
-        }
+      if (result?.url) {
+        window.location.href = result.url;
+      } else {
+        toast.success("Готово! Ви авторизовані.");
+        onOpenChange?.(false);
       }
+    } catch {
+      toast.error("Не вдалося авторизуватися", {
+        description: "Перевірте зʼєднання та спробуйте знову.",
+      });
+    } finally {
+      setLoading(false);
     }
-  }, [selectedClass, replaceAsi, replaceSimpleAsi, replaceCustomAsi, form])
-
-  useEffect(() => {
-    form.register('points')
-
-    const p = form.getValues('points');
-    if (typeof p !== 'number') {
-      form.setValue('points', 0, { shouldDirty: false, shouldTouch: false })
-    }
-  }, [form])
-
-  useEffect(() => {form.register('racialBonusChoiceSchema')},
-    [form])
-
-  useEffect(() => {
-    if (prevRaceId !== null && prevRaceId !== race.raceId) {
-      form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
-      form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
-    }
-
-    setPrevRaceId(race.raceId)
-  }, [form, prevRaceId, race.raceId, setPrevRaceId])
-
-  const racialBonusGroups = useMemo(() => {
-    return isDefaultASI
-      ? raceAsi.basic?.flexible?.groups
-      : raceAsi.tasha?.flexible.groups
-  }, [isDefaultASI, raceAsi])
-
-  const systemCopy: Record<string, string> = {
-    [asiSystems.POINT_BUY]: 'Розподіляйте бюджет очок і отримайте контроль над кожною характеристикою.',
-    [asiSystems.SIMPLE]: 'Швидкий старт — пересувайте значення вгору та вниз без калькулятора.',
-    [asiSystems.CUSTOM]: 'Повна свобода: введіть будь-які значення вручну, якщо ви знаєте що робите.',
-  }
+  };
 
   return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-6">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
-        <CardHeader className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div className="space-y-1">
-            <CardTitle className="text-xl text-white md:text-2xl">Розподіл характеристик</CardTitle>
-          </div>
-        </CardHeader>
-
-        <CardContent className="space-y-4">
-          <input type="hidden" {...form.register('asiSystem')} value={asiSystem} />
-
-          {asiFields.map((field, index) => (
-            <React.Fragment key={field.id}>
-              <input type="hidden" {...form.register(`asi.${index}.ability`)} />
-              <input type="hidden" {...form.register(`asi.${index}.value`, { valueAsNumber: true })} />
-            </React.Fragment>
-          ))}
-
-          {simpleAsiFields.map((field, index) => (
-            <React.Fragment key={field.id}>
-              <input type="hidden" {...form.register(`simpleAsi.${index}.ability`)} />
-              <input type="hidden" {...form.register(`simpleAsi.${index}.value`, { valueAsNumber: true })} />
-            </React.Fragment>
-          ))}
-
-          {customAsiFields.map((field, index) => (
-            <React.Fragment key={field.id}>
-              <input type="hidden" {...form.register(`customAsi.${index}.ability`)} />
-              <input type="hidden" {...form.register(`customAsi.${index}.value`)} />
-            </React.Fragment>
-          ))}
-
-          <Tabs
-            value={asiSystem}
-            onValueChange={(value) => form.setValue('asiSystem', value)}
-            className="w-full"
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      {shouldRenderTrigger && (
+        <DialogTrigger asChild>
+          <Button
+            variant="secondary"
+            size="sm"
+            className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"
           >
-            <TabsList className="grid w-full grid-cols-3 bg-slate-900/70 text-slate-300">
-              <TabsTrigger
-                value={asiSystems.POINT_BUY}
-                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
-              >
-                За очками
-              </TabsTrigger>
-              <TabsTrigger
-                value={asiSystems.SIMPLE}
-                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
-              >
-                Просто
-              </TabsTrigger>
-              <TabsTrigger
-                value={asiSystems.CUSTOM}
-                className="data-[state=active]:bg-slate-800 data-[state=active]:text-white"
-              >
-                Вільно
-              </TabsTrigger>
-            </TabsList>
+            <LogIn className="mr-2 h-4 w-4" />
+            {triggerLabel}
+          </Button>
+        </DialogTrigger>
+      )}
+      <DialogContent className="sm:max-w-[420px] border border-slate-800/70 bg-slate-950/90 backdrop-blur">
+        <DialogHeader>
+          <DialogTitle className="text-white">Увійти через Google</DialogTitle>
+          <DialogDescription className="text-slate-400">
+            Швидка аутентифікація без паролів. Ми використовуємо Google лише для підтвердження пошти.
+          </DialogDescription>
+        </DialogHeader>
 
-            <p className="mt-3 text-sm text-slate-400">{systemCopy[asiSystem]}</p>
-
-            <TabsContent value={asiSystems.POINT_BUY} className="space-y-4">
-              <div className="grid gap-3 md:grid-cols-2">
-                {asiFields.map((field, index) => {
-                  const attr = attributes.find((a) => a.eng === field.ability);
-                  const currentValue = form.watch(`asi.${index}.value`) || field.value;
-                  const bonus = Math.floor((currentValue - 10) / 2)
-
-                  return (
-                    <Card
-                      key={field.id}
-                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
-                    >
-                      <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <div>
-                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
-                        </div>
-                        <Badge variant="outline" className="border-slate-700 text-slate-200">
-                          {bonus > 0 ? `+${bonus}` : bonus}
-                        </Badge>
-                      </CardHeader>
-                      <CardContent className="flex items-center justify-between pt-0">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          onClick={() => decrementValue(index)}
-                          disabled={(currentValue as number) <= 8}
-                          className="border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
-                        >
-                          <Minus className="h-4 w-4" />
-                        </Button>
-                        <div className="rounded-lg border border-slate-800/70 bg-slate-900/80 px-4 py-2 text-lg font-semibold text-white">
-                          {currentValue as number}
-                        </div>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          onClick={() => incrementValue(index)}
-                          disabled={(currentValue as number) > 14}
-                          className="border-emerald-400/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
-                        >
-                          <Plus className="h-4 w-4" />
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-              <div className="flex items-center justify-between rounded-lg border border-slate-800/70 bg-slate-900/80 px-4 py-3 text-sm">
-                <span className="text-slate-300">Залишок очок</span>
-                <Badge
-                  variant="outline"
-                  className={`px-3 text-base ${points < 0 ? 'border-red-500/60 text-red-200' : 'border-emerald-500/50 text-emerald-200'}`}
-                >
-                  {points}
-                </Badge>
-              </div>
-            </TabsContent>
-
-            <TabsContent value={asiSystems.SIMPLE} className="space-y-3">
-              <div className="flex flex-col gap-2">
-                {sortedSimpleAsi.map((field, sortedIndex) => {
-                  const attr = attributes.find((a) => a.eng === field.ability);
-                  const currentValue = field.value;
-                  return (
-                    <Card
-                    key={field.id}
-                    className="border border-slate-800/80 bg-slate-900/70 shadow-sm
-                               transition hover:-translate-y-0.5 hover:border-indigo-500/60
-                               p-2"
-                  >
-                    <CardContent className="flex items-center justify-between gap-1 pt-0 pb-1">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        className="h-6 w-6 border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
-                        onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: true })}
-                        disabled={sortedIndex === 0 || currentValue >= 15}
-                      >
-                        <ArrowUp className="h-3 w-3" />
-                      </Button>
-                  
-                      <div className="flex flex-col items-center justify-center">
-                        <p className="text-[10px] uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
-                        <p className="text-lg font-semibold text-white leading-none">{currentValue}</p>
-                      </div>
-                  
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        className="h-6 w-6 border-emerald-500/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
-                        onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: false })}
-                        disabled={sortedIndex === sortedSimpleAsi.length - 1 || currentValue <= 8}
-                      >
-                        <ArrowDown className="h-3 w-3" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                  );
-                })}
-              </div>
-            </TabsContent>
-
-            <TabsContent value={asiSystems.CUSTOM} className="space-y-3">
-              <div className="grid gap-3 md:grid-cols-2">
-                {customAsiFields.map((field, index) => {
-                  const attr = attributes.find((a) => a.eng === field.ability);
-                  const currentValue = form.watch(`customAsi.${index}.value`);
-                  // const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
-
-                  return (
-                    <Card
-                      key={field.id}
-                      className="border border-slate-800/80 bg-slate-900/70 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-500/60"
-                    >
-                      <CardHeader className="flex items-center justify-between pb-2">
-                        <div>
-                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-0">
-                        <Input
-                          type="number"
-                          inputMode="numeric"
-                          placeholder="14"
-                          value={currentValue ?? ''}
-                          onChange={(e) => form.setValue(`customAsi.${index}.value`, e.target.value)}
-                          className="border-slate-700 bg-slate-900/70 text-white"
-                        />
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </TabsContent>
-          </Tabs>
-        </CardContent>
-      </Card>
-
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
-        <CardHeader>
-          <CardTitle className="text-white">Расові бонуси</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {form.formState.errors.racialBonusChoiceSchema && (
-            <div className="flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">
-              <AlertCircle className="h-4 w-4" />
-              <span>{form.formState.errors.racialBonusChoiceSchema.message}</span>
+        <div className="space-y-3">
+          {session?.user ? (
+            <div className="flex items-center justify-between rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
+              <span>Ви вже увійшли як {session.user.email}</span>
+              <ShieldCheck className="h-4 w-4" />
             </div>
-          )}
-
-          {racialBonusGroups?.length ? (
-            racialBonusGroups.map((group, index) => (
-              <div
-                key={index}
-                className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 shadow-inner"
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-white">{group.groupName}</p>
-                    <p className="text-xs text-slate-400">Оберіть {group.choiceCount}</p>
-                  </div>
-                  <Badge variant="secondary" className="bg-white/5 text-white">
-                    +{group.choiceCount}
-                  </Badge>
-                </div>
-
-                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
-                  {attributesUrkShort.map((attr, i) => {
-                    const isSelected = isRacialBonusSelected(index, attr.eng);
-                    const currentCount = getCurrentSelectedCount(index);
-                    const isMaxReached = currentCount >= group.choiceCount;
-                    const formGroups: {
-                      groupIndex: number;
-                      choiceCount: number;
-                      selectedAbilities: Ability[];
-                    }[] = form.getValues(racialBonusSchemaPath) || [];
-
-                    const currentGroupIndex = formGroups.findIndex((g) => g.groupIndex === index);
-
-                    const uniqueDisabled = isDefaultASI
-                      ? (
-                        raceAsi.basic?.simple
-                        && (raceAsi.basic?.flexible?.groups?.length ?? 0) > 0
-                        && (raceAsi.basic?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
-                        && (Object.keys(raceAsi.basic?.simple ?? {}).includes(attr.eng))
-                      )
-                      : (
-                        (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
-                        && (raceAsi.tasha?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
-                        && (formGroups?.some((flexGroup) =>
-                          (flexGroup.groupIndex !== currentGroupIndex)
-                          && (flexGroup.selectedAbilities.includes(attr.eng))
-                        ))
-                      );
-
-                    const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
-
-                    return (
-                      <Button
-                        key={i}
-                        type="button"
-                        variant={isSelected ? 'secondary' : 'outline'}
-                        className={`justify-between ${isDisabled ? 'opacity-60' : ''}`}
-                        disabled={isDisabled}
-                        onClick={() =>
-                          handleToggleRacialBonus({
-                            groupIndex: index,
-                            choiceCount: group.choiceCount,
-                            ability: attr.eng,
-                          })
-                        }
-                      >
-                        <span className="text-sm">{attr.ukr}</span>
-                        {isSelected && <Check className="h-4 w-4" />}
-                      </Button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))
           ) : (
-            <p className="text-sm text-slate-400">Для цієї раси немає гнучких бонусів.</p>
-          )}
-
-          {isDefaultASI && Object.entries(raceAsi.basic?.simple || {}).length > 0 && (
-            <div className="grid gap-3 sm:grid-cols-2">
-              {Object.entries(raceAsi.basic?.simple || {}).map(([attrEng, value], index) => {
-                const attr = attributes.find((a) => a.eng === attrEng);
-
-                return (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between rounded-lg border border-slate-800/80 bg-slate-900/70 px-4 py-3"
-                  >
-                    <span className="font-semibold text-white">{attr?.ukr}</span>
-                    <Badge variant="outline" className="border-slate-700 text-indigo-200">
-                      +{value}
-                    </Badge>
-                  </div>
-                );
-              })}
+            <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
+              Авторизація потрібна для збереження персонажів та синхронізації між пристроями.
             </div>
           )}
-        </CardContent>
-      </Card>
 
-      <div className="space-y-3 rounded-2xl border border-slate-800/70 bg-slate-950/70 p-4 shadow-xl">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm font-semibold text-white">Базові расові бонуси</p>
-            <p className="text-xs text-slate-400">Вимкніть, щоб перейти на правила Таші з вільним розподілом.</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <input
-              type="checkbox"
-              className="sr-only"
-              {...form.register('isDefaultASI')}
-              checked={isDefaultASI}
-              onChange={(event) => form.setValue('isDefaultASI', event.target.checked)}
-            />
-            <Switch
-              id="isDefaultASI"
-              checked={isDefaultASI}
-              onCheckedChange={(checked) => form.setValue('isDefaultASI', checked)}
-            />
-            <Label htmlFor="isDefaultASI" className="text-slate-200">
-              Базові
-            </Label>
-          </div>
+          <Button
+            onClick={handleSignIn}
+            disabled={loading || status === "loading" || !!session}
+            className="w-full bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
+          >
+            {loading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                З&apos;єднання...
+              </>
+            ) : session ? (
+              "Ви вже авторизовані"
+            ) : (
+              <>
+                <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[11px] font-semibold text-slate-900">
+                  G
+                </span>
+                Продовжити з Google
+              </>
+            )}
+          </Button>
         </div>
-        <p className="text-xs text-right text-slate-500">
-          Кнопки навігації завжди внизу екрана.
-        </p>
-      </div>
-    </form>
-  )
+      </DialogContent>
+    </Dialog>
+  );
 };
 
-export default ASIForm;
+export default GoogleAuthDialog;
 </file>
 
-<file path="src/lib/components/characterCreator/ClassOptionalFeaturesForm.tsx">
+<file path="src/lib/components/characterCreator/CharacterCreateHeader.tsx">
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { ArrowLeftRight, LogIn } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+interface Props {
+  onReset: () => void;
+  onOpenAuth: () => void;
+}
+
+export const CharacterCreateHeader = ({ onReset, onOpenAuth }: Props) => {
+  return (
+    <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5">
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
+        <div className="space-y-1">
+          <p className="text-[11px] uppercase tracking-[0.32em] text-slate-400">
+            pers creator
+          </p>
+          <h1 className="font-rpg-display text-xl font-semibold uppercase tracking-widest text-slate-200 sm:text-2xl md:text-3xl">
+            Створити персонажа
+          </h1>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="border border-white/10 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white"
+            onClick={onReset}
+          >
+            <ArrowLeftRight className="mr-2 h-4 w-4" />
+            Скинути
+          </Button>
+          <Button
+            variant="secondary"
+            className="border border-white/15 bg-white/5 text-white hover:bg-white/10"
+            onClick={onOpenAuth}
+          >
+            <LogIn className="mr-2 h-4 w-4" />
+            Увійти
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+</file>
+
+<file path="src/lib/components/characterCreator/ClassChoiceOptionsForm.tsx">
+"use client";
+
+import { useEffect, useMemo, useRef } from "react";
 import { ClassI } from "@/lib/types/model-types";
 import { useStepForm } from "@/hooks/useStepForm";
-import { classOptionalFeaturesSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
+import { classChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import clsx from "clsx";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 
 interface Props {
   selectedClass?: ClassI | null;
+  availableOptions?: ClassI["classChoiceOptions"];
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
 }
 
+const formatFeatures = (features?: ClassI["classChoiceOptions"][number]["choiceOption"]["features"]) =>
+  (features || []).map((item) => item.feature?.name).filter(Boolean);
+
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
 
-const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
-  const { formData, updateFormData, nextStep } = usePersFormStore();
+const isEnumLike = (value?: string | null) => !!value && /^[A-Z0-9_]+$/.test(value);
+
+const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange }: Props) => {
+  const { updateFormData, nextStep } = usePersFormStore();
   
-  const { form, onSubmit } = useStepForm(classOptionalFeaturesSchema, (data) => {
-    updateFormData({ classOptionalFeatureSelections: data.classOptionalFeatureSelections });
+  const { form, onSubmit } = useStepForm(classChoiceOptionsSchema, (data) => {
+    updateFormData({ classChoiceSelections: data.classChoiceSelections });
     nextStep();
   });
+  
+  const selections = form.watch("classChoiceSelections") || {};
+  const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
-  const decisions = form.watch("classOptionalFeatureSelections") || {};
-  const selectedChoiceIds = useMemo(() => {
-    const selections = (formData.classChoiceSelections as Record<string, number>) || {};
-    return Object.values(selections)
-      .map((value) => Number(value))
-      .filter((value) => !Number.isNaN(value));
-  }, [formData.classChoiceSelections]);
+  const optionsToUse = useMemo(() => {
+      if (availableOptions) return availableOptions;
+      return (selectedClass?.classChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(1));
+  }, [selectedClass, availableOptions]);
 
-  const levelOneOptional = useMemo(
-    () => (selectedClass?.classOptionalFeatures || []).filter((item) => (item.grantedOnLevels || []).includes(1)),
-    [selectedClass]
-  );
-
-  const visibleOptional = useMemo(
-    () =>
-      levelOneOptional
-        .filter((item) => {
-          const deps = (item as any).appearsOnlyIfChoicesTaken || [];
-          if (!deps.length) return true;
-          return deps.some((choice: any) => selectedChoiceIds.includes(choice.choiceOptionId));
-        })
-        .filter((item) => Boolean(item.optionalFeatureId)),
-    [levelOneOptional, selectedChoiceIds]
-  );
+  const groupedOptions = useMemo(() => {
+    const groups: Record<string, typeof optionsToUse> = {};
+    optionsToUse.forEach((opt) => {
+      const key = opt.choiceOption.groupName || "Опції";
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(opt);
+    });
+    return Object.entries(groups).map(([groupName, options]) => ({ groupName, options }));
+  }, [optionsToUse]);
 
   useEffect(() => {
-    if (!selectedClass) {
-      onNextDisabledChange?.(true);
-      return;
-    }
-    if (!visibleOptional.length) {
-      onNextDisabledChange?.(false);
-      return;
-    }
-    const incomplete = visibleOptional.some(
-      (item) => decisions[item.optionalFeatureId?.toString() || ""] === undefined
-    );
-    onNextDisabledChange?.(incomplete);
-  }, [selectedClass, visibleOptional, decisions, onNextDisabledChange]);
+    let disabled: boolean;
 
-  const setDecision = (id: number, take: boolean) => {
-    const next = { ...(decisions || {}), [id]: take };
-    form.setValue("classOptionalFeatureSelections", next, { shouldDirty: true });
+    if (!selectedClass) {
+      disabled = true;
+    } else if (!groupedOptions.length) {
+      disabled = false;
+    } else {
+      disabled = groupedOptions.some(({ groupName }) => !selections[groupName]);
+    }
+
+    if (prevDisabledRef.current !== disabled) {
+      prevDisabledRef.current = disabled;
+      onNextDisabledChange?.(disabled);
+    }
+  }, [selectedClass, groupedOptions, selections, onNextDisabledChange]);
+
+  useEffect(() => {
+    updateFormData({ classChoiceSelections: selections });
+  }, [selections, updateFormData]);
+
+  const selectOption = (groupName: string, optionId: number) => {
+    const next = { ...(selections || {}), [groupName]: optionId };
+    form.setValue("classChoiceSelections", next, { shouldDirty: true });
   };
 
-  if (!selectedClass) {
+  if (!selectedClass && !availableOptions) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
+      <Card className="p-4 text-center text-slate-200">
         Спершу оберіть клас.
       </Card>
     );
   }
 
-  if (!visibleOptional.length) {
+  if (!groupedOptions.length) {
     return (
-      <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-        На 1 рівні {displayName(selectedClass)} не пропонує додаткових рис. Можна продовжувати.
+      <Card className="p-4 text-center text-slate-200">
+        На 1 рівні {displayName(selectedClass)} не має окремих виборів. Можна рухатися далі.
       </Card>
     );
   }
@@ -30854,758 +30114,379 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
   return (
     <form id={formId} onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-1 text-center">
-        <p className="text-sm font-semibold text-indigo-200">Рівень 1</p>
-        <h2 className="text-xl font-semibold text-white">Додаткові риси класу</h2>
+        <p className="text-sm font-semibold text-slate-300">Рівень 1</p>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">Опції класу</h2>
         <p className="text-sm text-slate-400">
-          Оберіть, чи берете запропоновані Optional Class Features. Можна відмовитися, якщо вони не пасують.
+          {displayName(selectedClass)} пропонує вибір. Оберіть те, що підходить вашому персонажу.
         </p>
       </div>
 
-      <div className="space-y-3">
-        {visibleOptional.map((item) => {
-          if (!item.optionalFeatureId) return null;
-
-          const key = item.optionalFeatureId?.toString() || "";
-          const accepted = decisions[key];
-          const title = item.title || item.feature?.name || "Додаткова риса";
-          const description = item.feature?.description || "Деталі відсутні.";
-          const replaces =
-            item.replacesFeatures?.map((rep) => rep.replacedFeature?.name).filter(Boolean).join(", ") || "";
-
-          return (
-            <Card
-              key={key}
-              className={clsx(
-                "border border-slate-800/80 bg-slate-900/70 shadow-inner shadow-indigo-500/5",
-                accepted === true && "border-emerald-400/70 bg-emerald-500/5",
-                accepted === false && "opacity-90"
-              )}
-            >
-              <CardContent className="space-y-3 p-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div>
-                    <p className="text-sm font-semibold text-white">{title}</p>
-                    {replaces ? (
-                      <p className="text-xs text-slate-400">Замінює: {replaces}</p>
-                    ) : null}
-                  </div>
-                  <Badge variant="outline" className="border-slate-700 bg-slate-800/60 text-slate-200">
-                    Рівень 1
-                  </Badge>
+      <div className="space-y-4">
+        {groupedOptions.map(({ groupName, options }) => (
+          <Card
+            key={groupName}
+            className=""
+          >
+            <CardContent className="space-y-3 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
+                  <p className="text-base font-semibold text-white">{groupName}</p>
                 </div>
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
+                  Оберіть 1
+                </Badge>
+              </div>
 
-                <div className="space-y-1.5 rounded-lg border border-slate-800/70 bg-slate-950/40 p-3">
-                  <InfoSectionTitle>Опис</InfoSectionTitle>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">{description}</p>
-                </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {options.map((opt) => {
+                  const optionId = opt.optionId ?? opt.choiceOptionId;
+                  const selected = selections[groupName] === optionId;
+                  const features = formatFeatures(opt.choiceOption.features);
+                  const ukrLabel = opt.choiceOption.optionName;
+                  const engLabel = opt.choiceOption.optionNameEng;
+                  const label = ukrLabel || (isEnumLike(engLabel) ? translateValue(engLabel) : engLabel);
 
-                <div className="flex flex-wrap gap-2">
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant={accepted === true ? "secondary" : "outline"}
-                    className={clsx(
-                      "border-slate-700",
-                      accepted === true
-                        ? "bg-indigo-500/20 text-indigo-50"
-                        : "bg-slate-900/60 text-slate-200 hover:text-white"
-                    )}
-                    onClick={() => setDecision(item.optionalFeatureId!, true)}
-                  >
-                    Взяти
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant={accepted === false ? "secondary" : "outline"}
-                    className={clsx(
-                      "border-slate-700",
-                      accepted === false
-                        ? "bg-rose-500/20 text-rose-50"
-                        : "bg-slate-900/60 text-slate-200 hover:text-white"
-                    )}
-                    onClick={() => setDecision(item.optionalFeatureId!, false)}
-                  >
-                    Пропустити
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+                  return (
+                    <Card
+                      key={optionId}
+                      className={clsx(
+                        "cursor-pointer transition will-change-transform hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10",
+                        selected
+                          ? "border-gradient-rpg border-gradient-rpg-active glass-active"
+                          : ""
+                      )}
+                      onClick={() => selectOption(groupName, optionId)}
+                    >
+                      <CardContent className="flex h-full flex-col gap-3 p-3 sm:p-4">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="min-w-0">
+                            <p className="truncate text-sm font-semibold text-white">{label}</p>
+                            {ukrLabel && engLabel ? (
+                              <p className="truncate text-xs text-slate-400">{engLabel}</p>
+                            ) : null}
+                          </div>
+                          <Badge
+                            variant={selected ? "secondary" : "outline"}
+                            className={clsx(
+                              "border-white/15 bg-white/5 text-slate-200",
+                              selected && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100"
+                            )}
+                          >
+                            {selected ? "Обрано" : "Обрати"}
+                          </Badge>
+                        </div>
+
+                        {features.length ? (
+                          <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
+                            <InfoSectionTitle>Що дає</InfoSectionTitle>
+                            <ul className="space-y-1 text-sm text-slate-200/90">
+                              {features.map((feat) => (
+                                <li key={feat} className="flex items-start gap-2">
+                                  <span
+                                    className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400"
+                                    aria-hidden
+                                  />
+                                  <span className="leading-snug">{feat}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </form>
   );
 };
 
-export default ClassOptionalFeaturesForm;
+export default ClassChoiceOptionsForm;
 </file>
 
-<file path="src/lib/components/characterCreator/infoUtils.ts">
-import { Ability, ArmorType, Language, Size, WeaponCategory, WeaponType, Skills } from "@prisma/client";
+<file path="src/lib/components/characterCreator/NameForm.tsx">
+"use client";
 
-import {
-  LanguageTranslations,
-  SizeTranslations,
-  armorTranslations,
-  attributesUkrFull,
-  engEnumSkills,
-  weaponTranslations,
-  subraceTranslations,
-  variantTranslations,
-  subclassTranslations,
-  toolTranslations,
-  armorTypeTranslations,
-  weaponTypeTranslations,
-  backgroundTranslations,
-  spellSchoolTranslations,
-  damageTypeTranslations,
-  raceTranslations,
-  classTranslations,
-} from "@/lib/refs/translation";
-import { MulticlassReqs, SkillProficiencies, ToolProficiencies, WeaponProficiencies } from "@/lib/types/model-types";
-
-const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
-
-const abilityTranslations = attributesUkrFull;
-
-const skillTranslations: Record<Skills, string> = Object.fromEntries(
-  engEnumSkills.map(({ eng, ukr }) => [eng, ukr])
-) as Record<Skills, string>;
-
-export const prettifyEnum = (value?: string | number | null) => {
-  if (value === undefined || value === null) return "";
-  return String(value)
-    .split("_")
-    .filter(Boolean)
-    .map(capitalize)
-    .join(" ");
-};
-
-export const translateValue = (value?: string | number | null): string => {
-  if (value === undefined || value === null) return "";
-  const key = String(value);
-
-  if ((abilityTranslations as Record<string, string>)[key]) return abilityTranslations[key as Ability];
-  if (SizeTranslations[key]) return SizeTranslations[key];
-  if (LanguageTranslations[key]) return LanguageTranslations[key];
-  if (armorTranslations[key as keyof typeof armorTranslations]) return armorTranslations[key as keyof typeof armorTranslations];
-  if (weaponTranslations[key as keyof typeof weaponTranslations])
-    return weaponTranslations[key as keyof typeof weaponTranslations];
-  if ((skillTranslations as Record<string, string>)[key]) return skillTranslations[key as Skills];
-  if (raceTranslations[key as keyof typeof raceTranslations]) return raceTranslations[key as keyof typeof raceTranslations];
-  if (classTranslations[key as keyof typeof classTranslations]) return classTranslations[key as keyof typeof classTranslations];
-  if (subraceTranslations[key as keyof typeof subraceTranslations]) return subraceTranslations[key as keyof typeof subraceTranslations];
-  if (variantTranslations[key as keyof typeof variantTranslations]) return variantTranslations[key as keyof typeof variantTranslations];
-  if (subclassTranslations[key as keyof typeof subclassTranslations]) return subclassTranslations[key as keyof typeof subclassTranslations];
-  if (toolTranslations[key as keyof typeof toolTranslations]) return toolTranslations[key as keyof typeof toolTranslations];
-  if (armorTypeTranslations[key as keyof typeof armorTypeTranslations]) return armorTypeTranslations[key as keyof typeof armorTypeTranslations];
-  if (weaponTypeTranslations[key as keyof typeof weaponTypeTranslations]) return weaponTypeTranslations[key as keyof typeof weaponTypeTranslations];
-  if (backgroundTranslations[key as keyof typeof backgroundTranslations]) return backgroundTranslations[key as keyof typeof backgroundTranslations];
-  if (spellSchoolTranslations[key as keyof typeof spellSchoolTranslations]) return spellSchoolTranslations[key as keyof typeof spellSchoolTranslations];
-  if (damageTypeTranslations[key as keyof typeof damageTypeTranslations]) return damageTypeTranslations[key as keyof typeof damageTypeTranslations];
-
-  return prettifyEnum(value);
-};
-
-export const formatList = (values?: Array<string | number> | null, fallback = "—") => {
-  if (!values || values.length === 0) return fallback;
-  return values.map((item) => translateValue(item)).join(", ");
-};
-
-export const formatSize = (values?: Size[] | null, fallback = "—") => {
-  if (!values || values.length === 0) return fallback;
-  return values.map((item) => translateValue(item)).join(", ");
-};
-
-export const formatSkillProficiencies = (skills?: SkillProficiencies | null) => {
-  if (!skills) return "—";
-  if (Array.isArray(skills)) {
-    return formatList(skills);
-  }
-
-  const { options, choiceCount, chooseAny } = skills;
-  const count = choiceCount ?? options.length;
-
-  if (chooseAny) {
-    return `Обери будь-які ${count}`;
-  }
-
-  if (!options.length) return `Обери ${count}`;
-  return `Обери ${count}: ${formatList(options)}`;
-};
-
-export const formatToolProficiencies = (tools?: ToolProficiencies | null, chooseCount?: number | null) => {
-  const parts: string[] = [];
-
-  if (tools && tools.length) {
-    parts.push(formatList(tools));
-  }
-
-  if (chooseCount) {
-    parts.push(`Обери ${chooseCount}`);
-  }
-
-  return parts.length ? parts.join(" • ") : "—";
-};
-
-export const formatLanguages = (languages?: Language[] | null, toChoose?: number | null) => {
-  const hasLanguages = languages && languages.length;
-  if (hasLanguages && toChoose) {
-    return `${formatList(languages)} • обери ще ${toChoose}`;
-  }
-  if (hasLanguages) return formatList(languages);
-  if (toChoose) return `Обери ${toChoose}`;
-  return "—";
-};
-
-export const formatWeaponProficiencies = (
-  profs?: WeaponProficiencies | WeaponType[] | WeaponCategory[] | null
-) => {
-  if (!profs) return "—";
-
-  if (Array.isArray(profs)) {
-    return formatList(profs);
-  }
-
-  const parts: string[] = [];
-
-  if (profs.category?.length) {
-    parts.push(formatList(profs.category));
-  }
-  if (profs.type?.length) {
-    parts.push(formatList(profs.type));
-  }
-
-  return parts.length ? parts.join(" • ") : "—";
-};
-
-export const formatArmorProficiencies = (armor?: ArmorType[] | null) => formatList(armor);
-
-export const formatAbilityList = (abilities?: Ability[] | null) => formatList(abilities);
-
-export const formatMulticlassReqs = (reqs?: MulticlassReqs | (MulticlassReqs & { choice?: Ability[] }) | null) => {
-  if (!reqs) return "—";
-
-  const choice = (reqs as any).choice as Ability[] | undefined;
-  const required = (reqs as any).required as Ability[] | undefined;
-
-  if (choice?.length) {
-    return `Характеристика ${reqs.score}+ в одній з: ${formatList(choice)}`;
-  }
-
-  if (required?.length) {
-    return `Характеристика ${reqs.score}+ у: ${formatList(required)}`;
-  }
-
-  return `Потрібно ${reqs.score}+ у характеристиці`;
-};
-
-export const formatRaceAC = (ac?: any | null) => {
-  if (!ac) return "10";
-  if ("consistentBonus" in ac) {
-    return `+${ac.consistentBonus} до КЗ`;
-  }
-  const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
-  return `База ${ac.base}${bonus}`;
-};
-
-export const formatASI = (asi?: any | null) => {
-  if (!asi) return "—";
-
-  const fixedEntries = Object.entries(asi.basic?.simple || {});
-  const basicFlexible = asi.basic?.flexible?.groups || [];
-  const tashaFlexible = asi.tasha?.flexible?.groups || [];
-
-  const parts: string[] = [];
-
-  if (fixedEntries.length) {
-    parts.push(
-      `Фіксовано: ${fixedEntries
-        .map(([stat, value]) => `${prettifyEnum(stat)} +${value}`)
-        .join(", ")}`
-    );
-  }
-
-  if (basicFlexible.length) {
-    parts.push(
-      `Гнучко: ${basicFlexible
-        .map(
-          (group: any) =>
-            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
-        )
-        .join("; ")}`
-    );
-  }
-
-  if (tashaFlexible.length) {
-    parts.push(
-      `За Та́шею: ${tashaFlexible
-        .map(
-          (group: any) =>
-            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
-        )
-        .join("; ")}`
-    );
-  }
-
-  return parts.join(" • ") || "—";
-};
-
-export const formatSpeeds = (entity: any) => {
-  const speeds = [
-    { label: "Ходьба", value: entity.speed },
-    { label: "Лазіння", value: entity.climbSpeed },
-    { label: "Плавання", value: entity.swimSpeed },
-    { label: "Політ", value: entity.flightSpeed },
-    { label: "Риття", value: entity.burrowSpeed },
-  ].filter((item) => (item.value ?? 0) > 0 || item.label === "Ходьба");
-
-  return speeds
-    .map((item) => `${item.label}: ${item.value} фт`)
-    .join(" • ");
-};
-</file>
-
-<file path="src/lib/components/characterCreator/SkillsForm.tsx">
-import {skillsSchema} from "@/lib/zod/schemas/persCreateSchema";
-import {useStepForm} from "@/hooks/useStepForm";
-import {BackgroundI, ClassI, RaceI, SkillProficiencies, SkillProficienciesChoice} from "@/lib/types/model-types";
-import {useEffect, useMemo} from "react";
-import {engEnumSkills} from "@/lib/refs/translation";
-import {RaceVariant, Skills} from "@prisma/client";
-import {Skill, SkillsEnum} from "@/lib/types/enums";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { Switch } from "@/lib/components/ui/switch";
-import { Label } from "@/lib/components/ui/label";
-import { Check, Lock } from "lucide-react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { nameSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { useStepForm } from "@/hooks/useStepForm";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { raceTranslations, classTranslations, backgroundTranslations } from "@/lib/refs/translation";
+import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
+import { RaceVariant } from "@prisma/client";
+import { useCharacterStats } from "@/hooks/useCharacterStats";
+import { useFantasyNameGenerator } from "@/hooks/useFantasyNameGenerator";
+import clsx from "clsx";
+import { RefreshCw } from "lucide-react";
 
 interface Props {
-  race: RaceI
-  raceVariant?: RaceVariant | null
-  selectedClass: ClassI
-  background: BackgroundI
-  formId: string
-  onNextDisabledChange?: (disabled: boolean) => void
+  formId: string;
+  race?: RaceI;
+  raceVariant?: RaceVariant | null;
+  selectedClass?: ClassI;
+  background?: BackgroundI;
+  feat?: FeatPrisma | null;
+  onSuccess?: () => void;
 }
 
-type GroupName = 'race' | 'selectedClass';
+const SummaryCard = ({ label, value }: { label: string; value?: string }) => (
+  <Card className="shadow-inner">
+    <CardHeader className="pb-2">
+      <CardDescription className="text-slate-400">{label}</CardDescription>
+      <CardTitle className="text-white text-lg">{value ?? "Не обрано"}</CardTitle>
+    </CardHeader>
+  </Card>
+);
 
-function isSkill(value: unknown): value is Skill {
-  return typeof value === "string" && (SkillsEnum as readonly string[]).includes(value)
-}
-
-function normalizeSkillProficiencies(value: unknown): SkillProficiencies | null {
-  if (!value) return null
-
-  if (Array.isArray(value)) {
-    return value.filter(isSkill) as unknown as SkillProficiencies
-  }
-
-  if (typeof value === "object") {
-    const maybe = value as { options?: unknown; choiceCount?: unknown; chooseAny?: unknown }
-    if (typeof maybe.choiceCount === "number" && Array.isArray(maybe.options)) {
-      const options = maybe.options.filter(isSkill)
-      const chooseAny = typeof maybe.chooseAny === "boolean" ? maybe.chooseAny : undefined
-      return { options, choiceCount: maybe.choiceCount, chooseAny }
-    }
-  }
-
-  return null
-}
-
-function getSkillProficienciesCount(skillProfs: SkillProficiencies | null): number {
-  if (!skillProfs) return 0;
-
-  if (Array.isArray(skillProfs)) return skillProfs.length
-
-  return skillProfs.choiceCount
-}
-
-function getTotalSkillProficienciesCount(
-  {raceCount, classCount, backgroundCount, subraceCount, variantCount}: { 
-    raceCount: number, 
-    classCount: number, 
-    backgroundCount: number,
-    subraceCount: number,
-    variantCount: number
-  }
-): number {
-  return raceCount + classCount + backgroundCount + subraceCount + variantCount
-}
-
-interface hasSkills {
-  skillProficiencies: SkillProficiencies | null
-}
-
-function populateSkills<T extends hasSkills>(model: T) {
-  if (model.skillProficiencies && !Array.isArray(model.skillProficiencies)) {
-    model.skillProficiencies.options = [...SkillsEnum]
-  }
-}
-
-export const SkillsForm = ({race, raceVariant, selectedClass, background, formId, onNextDisabledChange}: Props) => {
-  const { formData, updateFormData, nextStep } = usePersFormStore();
-  
-  // Get selected subrace from formData
-  const selectedSubrace = useMemo(() => {
-    if (!formData.subraceId) return null;
-    return race.subraces?.find(sr => sr.subraceId === formData.subraceId);
-  }, [formData.subraceId, race.subraces]);
-  
-  // Calculate fixed skills from race/background/subrace
-  const fixedSkillsFromRaceAndBackground = useMemo(() => {
-    const skills = new Set<Skill>();
-    
-    // Background fixed skills
-    if (Array.isArray(background.skillProficiencies)) {
-      background.skillProficiencies.forEach(s => skills.add(s));
-    }
-    
-    // Race fixed skills
-    if (Array.isArray(race.skillProficiencies)) {
-      race.skillProficiencies.forEach(s => skills.add(s));
-    }
-    
-    // Subrace fixed skills
-    if (selectedSubrace && Array.isArray(selectedSubrace.skillProficiencies)) {
-      selectedSubrace.skillProficiencies.forEach((s) => {
-        if (isSkill(s)) skills.add(s)
-      });
-    }
-    
-    return Array.from(skills);
-  }, [background, race, selectedSubrace]);
-  
-  // Custom submit handler to build skills array
-  const {form, onSubmit: baseOnSubmit} = useStepForm(skillsSchema, (data) => {
-    // Build flat skills array from schema data
-    const allSkills = new Set<string>();
-    
-    if (data.isTasha) {
-      // In Tasha mode, tashaChoices already contains ALL selected skills (no fixed skills - they become choices)
-      data.tashaChoices.forEach(s => allSkills.add(s));
-    } else {
-      // In basic mode, combine fixed race/background skills + class choices
-      
-      // Add fixed background skills
-      if (Array.isArray(background.skillProficiencies)) {
-        background.skillProficiencies.forEach(s => allSkills.add(s));
-      }
-      
-      // Add fixed race skills
-      if (Array.isArray(race.skillProficiencies)) {
-        race.skillProficiencies.forEach(s => allSkills.add(s));
-      }
-      
-      // Add subrace fixed skills
-      const selectedSubrace = race.subraces?.find(sr => sr.subraceId === formData.subraceId);
-      if (selectedSubrace && Array.isArray(selectedSubrace.skillProficiencies)) {
-        selectedSubrace.skillProficiencies.forEach((s) => {
-          if (isSkill(s)) allSkills.add(s)
-        });
-      }
-      
-      // Add class choices (user-selected)
-      data.basicChoices.selectedClass.forEach(s => allSkills.add(s));
-    }
-    
-    // Save both skillsSchema AND flat skills array
-    const skillsArray = Array.from(allSkills);
-    
-    updateFormData({
-      skillsSchema: data,
-      skills: skillsArray
-    });
-    
-    nextStep();
-  });
-
-  populateSkills<typeof race>(race)
-
-  useEffect(() => {
-    form.register('basicChoices')
-    form.register('basicChoices.race')
-    form.register('basicChoices.selectedClass')
-    form.register('tashaChoices')
-    form.register('isTasha')
-    form.register('_requiredCount')
-    form.register('_raceCount')
-    form.register('_classCount')
-  }, [form])
-
-  const isTasha = form.watch('isTasha') ?? true
-  const tashaChoices = form.watch('tashaChoices') || []
-  const basicChoices = form.watch('basicChoices') ?? {
-    race: [],
-    selectedClass: [],
-  }
-
-  // Skills shown as "locked" in UI - only in non-Tasha mode
-  const lockedSkillsInUI = useMemo(() => {
-    if (isTasha) return []; // In Tasha mode, NO skills are locked in UI (they become free choices)
-    return fixedSkillsFromRaceAndBackground; // In non-Tasha mode, these are locked
-  }, [isTasha, fixedSkillsFromRaceAndBackground]);
-
-  const raceSkillProficiencies = useMemo(() => {
-    if (raceVariant?.name === 'HUMAN_VARIANT') {
-      // Variant Human gets 1 skill of choice
-      return {
-        choiceCount: 1,
-        options: [...SkillsEnum]
-      } as SkillProficienciesChoice;
-    }
-    return race.skillProficiencies;
-  }, [race, raceVariant]);
-
-  const raceCount = getSkillProficienciesCount(raceSkillProficiencies)
-  const classCount = getSkillProficienciesCount(selectedClass.skillProficiencies)
-  const backgroundCount = getSkillProficienciesCount(background.skillProficiencies)
-  const subraceCount = getSkillProficienciesCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
-  const variantCount = 0
-
-  // In Tasha mode, ALL skills (including fixed ones) become free choices in ONE pool
-  const tashaChoiceCountTotal = isTasha 
-    ? getTotalSkillProficienciesCount({
-        raceCount,
-        classCount,
-        backgroundCount,
-        subraceCount,
-        variantCount
-      })
-    : 0;
-    
-  const tashaChoiceCountCurrent = tashaChoiceCountTotal - (tashaChoices?.length ?? 0)
-
-  const basicCounts = {
-    race: raceCount - (basicChoices?.race?.length ?? 0),
-    selectedClass: classCount - (basicChoices?.selectedClass?.length ?? 0)
-  }
-
-  const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
-
-  const skillsByGroup = {
-    race: raceSkillProficiencies as SkillProficienciesChoice,
-    selectedClass: selectedClass.skillProficiencies as SkillProficienciesChoice,
-  }
-
-  const checkIfSelectedByOthers = (groupName: GroupName, skill: Skill) => {
-    // Check if skill is in fixed granted skills
-    if (fixedSkillsFromRaceAndBackground.includes(skill)) return true;
-    
-    const allSkillGroups = {
-      background: background.skillProficiencies,
-      race: Array.isArray(race.skillProficiencies)
-        ? race.skillProficiencies
-        : basicChoices.race,
-      selectedClass: basicChoices.selectedClass
-    }
-    delete allSkillGroups[groupName]
-
-    return Object.values(allSkillGroups).some(value =>
-      Array.isArray(value)
-        ? value.includes(skill)
-        : value?.options?.includes(skill)
-    )
-  }
-
-  // Set validation metadata fields
-  useEffect(() => {
-    if (isTasha) {
-      form.setValue('_requiredCount', tashaChoiceCountTotal);
-      form.setValue('_raceCount', undefined);
-      form.setValue('_classCount', undefined);
-    } else {
-      form.setValue('_requiredCount', undefined);
-      form.setValue('_raceCount', raceCount);
-      form.setValue('_classCount', classCount);
-    }
-  }, [isTasha, tashaChoiceCountTotal, raceCount, classCount, form]);
-
-  // Update button state based on form validity
-  useEffect(() => {
-    // Skills selection is optional: allow continuing even if not all picks are filled.
-    // We only guard against impossible states (over the computed limit), but UI already prevents that.
-    const isOverLimit = isTasha
-      ? tashaChoices.length > tashaChoiceCountTotal
-      : (basicChoices.selectedClass ?? []).length > classCount;
-
-    onNextDisabledChange?.(isOverLimit);
-  }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, onNextDisabledChange]);
-
-  const handleToggleTashaSkill = (skill: Skill) => {
-    const has = tashaChoices.includes(skill)
-
-    // Can't select if already at limit and not currently selected
-    if (!has && tashaChoiceCountCurrent < 1) return;
-
-    const updated = has
-      ? tashaChoices.filter(c => c !== skill)
-      : [...tashaChoices, skill]
-
-    form.setValue('tashaChoices', updated)
-  }
-
-  const handleToggleBasicSkill = ({skill, groupName}: { skill: Skill, groupName: GroupName }) => {
-    const current = basicChoices[groupName] ?? []
-    const has = current.includes(skill)
-
-    if (!has && basicCounts[groupName] < 1) return;
-
-    const updated = has
-      ? current.filter(c => c !== skill)
-      : [...current, skill]
-
-    form.setValue(`basicChoices.${groupName}`, updated)
-  }
+const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }) => {
+  const attributes = [
+    { key: 'STR', label: 'СИЛ' },
+    { key: 'DEX', label: 'СПР' },
+    { key: 'CON', label: 'СТА' },
+    { key: 'INT', label: 'ІНТ' },
+    { key: 'WIS', label: 'МУД' },
+    { key: 'CHA', label: 'ХАР' },
+  ];
 
   return (
-    <form id={formId} onSubmit={baseOnSubmit} className="w-full space-y-4">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
-        <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <CardTitle className="text-white">Навички</CardTitle>
-          </div>
-          <div className="flex items-center gap-3">
-            <Switch
-              id="isTasha"
-              checked={isTasha}
-              onCheckedChange={(checked) => form.setValue('isTasha', checked)}
-            />
-            <Label htmlFor="isTasha" className="text-slate-200">Правила Таші</Label>
-            <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700">Гнучкий режим</Badge>
-          </div>
-        </CardHeader>
-
-        <CardContent className="space-y-4">
-          {isTasha ? (
-            <div className="space-y-3">
-              <div className="flex items-center justify-between rounded-lg border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
-                <span>Можна обрати ще</span>
-                <Badge variant="outline" className="border-slate-700 bg-slate-800/80 text-white">
-                  {tashaChoiceCountCurrent}
-                </Badge>
-              </div>
-              
-              {/* In Tasha mode, NO fixed skills section - all become choices */}
-              <p className="text-xs text-slate-400 px-2">
-                🌟 Режим Таші: всі навички від раси, підраси та передісторії тепер доступні для вільного вибору
-              </p>
-              
-              <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
-                {engEnumSkills.map((skill, index) => {
-                  const isSelected = tashaChoices.includes(skill.eng);
-                  const isReachedLimit = tashaChoiceCountCurrent < 1;
-                  const isDisabled = !isSelected && isReachedLimit;
-                  const active = isSelected;
-                  
-                  return (
-                    <Button
-                      key={index}
-                      type="button"
-                      variant={active ? "secondary" : "outline"}
-                      disabled={isDisabled}
-                      className={`justify-between ${
-                        active 
-                          ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                          : "bg-slate-900/60 border-slate-800/80 text-slate-200"
-                      } ${isDisabled ? "opacity-60" : ""}`}
-                      onClick={() => handleToggleTashaSkill(skill.eng)}
-                    >
-                      <span>{skill.ukr}</span>
-                      {active && <Check className="h-4 w-4" />}
-                    </Button>
-                  );
-                })}
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-5">
-              {/* Show fixed skills from background/race/subrace in NON-Tasha mode */}
-              {lockedSkillsInUI.length > 0 && (
-                <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Lock className="h-4 w-4 text-amber-400" />
-                    <h3 className="text-sm font-semibold text-amber-200">Фіксовані навички</h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {lockedSkillsInUI.map((skill) => {
-                      const skillGroup = engEnumSkills.find((s) => s.eng === skill);
-                      return (
-                        <Badge key={skill} className="bg-amber-900/30 text-amber-100 border border-amber-700/50">
-                          {skillGroup?.ukr}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                  <p className="text-xs text-amber-300/70 mt-2">
-                    Ці навички автоматично отримані від раси та передісторії
-                  </p>
-                </div>
+    <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
+      {attributes.map((attr) => {
+        const stat = stats[attr.key];
+        return (
+          <div key={attr.key} className="flex flex-col items-center rounded-lg border border-white/10 bg-white/5 p-2">
+            <span className="text-[10px] font-bold uppercase text-slate-500">{attr.label}</span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-xl font-bold text-white">{stat.total}</span>
+              {stat.bonus > 0 && (
+                <span
+                  className="text-[10px] text-indigo-400"
+                  title={`База: ${stat.base}, Бонус: +${stat.bonus}`}
+                >
+                  (+{stat.bonus})
+                </span>
               )}
-
-              {entries.map(([groupName, choices], index) => (
-                <div key={index} className="space-y-2 rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
-                  {skillsByGroup[groupName]?.options && (
-                    <div className="flex items-center justify-between text-sm text-slate-300">
-                      <div className="font-semibold text-white">
-                        {groupName === 'race' ? 'Навички за расу' : 'Навички за клас'}
-                      </div>
-                      <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
-                    </div>
-                  )}
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {(skillsByGroup[groupName]?.options ?? []).map((skill, skillIndex) => {
-                      const skillGroup = engEnumSkills.find((s) => s.eng === skill)
-                      if (!skillGroup) return null;
-                      const isSelected = (choices ?? []).includes(skill)
-                      const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
-                      const isMaxReached = basicCounts[groupName] < 1;
-                      const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
-                      const active = isSelected || isSelectedByOthers;
-                      
-                      return (
-                        <Button
-                          key={skillIndex}
-                          type="button"
-                          variant={active ? "secondary" : "outline"}
-                          disabled={isDisabled}
-                          className={`justify-between ${
-                            isSelectedByOthers 
-                              ? "bg-slate-700/30 text-slate-400 border-slate-600/50 cursor-not-allowed" 
-                              : active 
-                                ? "bg-indigo-500/20 text-indigo-50 border-indigo-400/60" 
-                                : "bg-slate-900/60 border-slate-800/80 text-slate-200"
-                          } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
-                          onClick={() => !isSelectedByOthers && handleToggleBasicSkill({
-                            skill: Skills[skillGroup.eng],
-                            groupName: groupName
-                          })}
-                        >
-                          <span className="flex items-center gap-2">
-                            {isSelectedByOthers && <Lock className="h-3 w-3" />}
-                            {skillGroup.ukr}
-                          </span>
-                          {active && !isSelectedByOthers && <Check className="h-4 w-4" />}
-                          {isSelectedByOthers && <span className="text-xs opacity-70">(вже обрано)</span>}
-                        </Button>
-                      )
-                    })}
-                  </div>
-                </div>
-              ))}
             </div>
-          )}
+            <div className="flex items-center gap-1">
+              <Badge variant="outline" className={clsx(
+                "h-5 px-1 text-[10px]",
+                stat.mod >= 0 ? "border-emerald-500/30 text-emerald-400" : "border-red-500/30 text-red-400"
+              )}>
+                {stat.mod >= 0 ? `+${stat.mod}` : stat.mod}
+              </Badge>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export const NameForm = ({ formId, race, raceVariant, selectedClass, background, feat, onSuccess }: Props) => {
+  const { form, onSubmit } = useStepForm(nameSchema, onSuccess);
+  const stats = useCharacterStats({ race, raceVariant, feat });
+  const { currentName, generateName } = useFantasyNameGenerator();
+
+  const raceName = race ? raceTranslations[race.name] : undefined;
+  const className = selectedClass ? classTranslations[selectedClass.name] : undefined;
+  const bgName = background ? backgroundTranslations[background.name] : undefined;
+
+  return (
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+      <Card className="shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-white">Ім&apos;я персонажа</CardTitle>
+          <CardDescription className="text-slate-400">
+            Завершіть створення та перевірте вибір.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid gap-3 md:grid-cols-3">
+            <SummaryCard label="Раса" value={raceName} />
+            <SummaryCard label="Клас" value={className} />
+            <SummaryCard label="Передісторія" value={bgName} />
+          </div>
+
+          <div className="space-y-2">
+             <h3 className="text-sm font-medium text-slate-300">Фінальні характеристики</h3>
+             <StatsSummary stats={stats} />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm text-slate-300" htmlFor="name">Ім&apos;я</label>
+            <div className="flex gap-2">
+              <Input
+                id="name"
+                placeholder={currentName || "Наприклад, Аравор"}
+                {...form.register('name')}
+                className="border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
+              />
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="border-white/15 bg-white/5 text-slate-200 hover:bg-white/7"
+                onClick={() => generateName()}
+                title="Згенерувати інше імʼя"
+              >
+                <RefreshCw className="h-4 w-4" />
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="text-slate-200"
+                onClick={() => form.setValue('name', currentName, { shouldDirty: true })}
+                disabled={!currentName}
+                title="Використати запропоноване імʼя"
+              >
+                Використати
+              </Button>
+            </div>
+            {currentName ? (
+              <p className="text-xs text-slate-500">
+                Підказка: <span className="text-slate-300">{currentName}</span>
+              </p>
+            ) : null}
+            <p className="text-xs text-slate-500">Це ім&apos;я побачите у підсумку та на листі персонажа.</p>
+          </div>
         </CardContent>
       </Card>
     </form>
-  )
+  );
 };
 
-export default SkillsForm
+export default NameForm;
+</file>
+
+<file path="src/lib/components/ui/dialog.tsx">
+"use client"
+
+import * as React from "react"
+import * as DialogPrimitive from "@radix-ui/react-dialog"
+import { X } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const Dialog = DialogPrimitive.Root
+
+const DialogTrigger = DialogPrimitive.Trigger
+
+const DialogPortal = DialogPrimitive.Portal
+
+const DialogClose = DialogPrimitive.Close
+
+const DialogOverlay = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Overlay
+    ref={ref}
+    className={cn(
+      "fixed inset-0 z-[9998] bg-slate-950/70 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      className
+    )}
+    {...props}
+  />
+))
+DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+
+const DialogContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
+  <DialogPortal>
+    <DialogOverlay />
+    <DialogPrimitive.Content
+      ref={ref}
+      className={cn(
+        "fixed left-[50%] top-[50%] z-[9999] grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 rounded-2xl border border-white/10 bg-slate-900/95 p-6 text-slate-50 backdrop-blur duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+        <X className="h-4 w-4" />
+        <span className="sr-only">Close</span>
+      </DialogPrimitive.Close>
+    </DialogPrimitive.Content>
+  </DialogPortal>
+))
+DialogContent.displayName = DialogPrimitive.Content.displayName
+
+const DialogHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "flex flex-col space-y-1.5 text-center sm:text-left",
+      className
+    )}
+    {...props}
+  />
+)
+DialogHeader.displayName = "DialogHeader"
+
+const DialogFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+      className
+    )}
+    {...props}
+  />
+)
+DialogFooter.displayName = "DialogFooter"
+
+const DialogTitle = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Title
+    ref={ref}
+    className={cn(
+      "font-rpg-display text-lg font-semibold uppercase leading-none tracking-wider text-amber-50/90 drop-shadow-[0_2px_10px_rgba(99,102,241,0.25)]",
+      className
+    )}
+    {...props}
+  />
+))
+DialogTitle.displayName = DialogPrimitive.Title.displayName
+
+const DialogDescription = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Description
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+DialogDescription.displayName = DialogPrimitive.Description.displayName
+
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogTrigger,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+}
 </file>
 
 <file path="src/lib/stores/persFormStore.ts">
@@ -36062,58 +34943,141 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             displayType: [FeatureDisplayType.PASSIVE]
         },
 
+        // Gem Dragonborn - Damage Resistance
+        {
+            name: 'Драконячий родовід (Аметистовий) - Опір',
+            engName: 'Draconic Ancestry (Amethyst)',
+            description: 'Ви маєте опір до шкоди силою.',
+            shortDescription: 'Опір до шкоди силою',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Кришталевий) - Опір',
+            engName: 'Draconic Ancestry (Crystal)',
+            description: 'Ви маєте опір до променевої шкоди.',
+            shortDescription: 'Опір до променевої шкоди',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Смарагдовий) - Опір',
+            engName: 'Draconic Ancestry (Emerald)',
+            description: 'Ви маєте опір до психічної шкоди.',
+            shortDescription: 'Опір до психічної шкоди',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Сапфіровий) - Опір',
+            engName: 'Draconic Ancestry (Sapphire)',
+            description: 'Ви маєте опір до громової шкоди.',
+            shortDescription: 'Опір до громової шкоди',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+        {
+            name: 'Драконячий родовід (Топазовий) - Опір',
+            engName: 'Draconic Ancestry (Topaz)',
+            description: 'Ви маєте опір до некротичної шкоди.',
+            shortDescription: 'Опір до некротичної шкоди',
+            displayType: [FeatureDisplayType.PASSIVE]
+        },
+
         // Breath Weapon variants
         {
             name: 'Зброя дихання (Кислота - Лінія)',
             engName: 'Breath Weapon (Acid - Line)',
-            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 кислотної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: лінія 5x30 футів.',
-            shortDescription: 'Видих кислоти (лінія 5x30 фт, 2к6)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Спритності. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 кислотної шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** лінія 5x30 футів\n**Ряткидок:** Спритність\n**Тип шкоди:** кислота\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Лінія 5x30 футів, 2к6 шкоди кислотою (ряткидок Спритності)',
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
         {
             name: 'Зброя дихання (Блискавка - Лінія)',
             engName: 'Breath Weapon (Lightning - Line)',
-            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 шкоди блискавкою при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: лінія 5x30 футів.',
-            shortDescription: 'Видих блискавки (лінія 5x30 фт, 2к6)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Спритності. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 шкоди блискавкою при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** лінія 5x30 футів\n**Ряткидок:** Спритність\n**Тип шкоди:** блискавка\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Лінія 5x30 футів, 2к6 шкоди блискавкою (ряткидок Спритності)',
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
         {
             name: 'Зброя дихання (Вогонь - Лінія)',
             engName: 'Breath Weapon (Fire - Line)',
-            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 вогняної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: лінія 5x30 футів.',
-            shortDescription: 'Видих вогню (лінія 5x30 фт, 2к6)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Спритності. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 вогняної шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** лінія 5x30 футів\n**Ряткидок:** Спритність\n**Тип шкоди:** вогонь\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Лінія 5x30 футів, 2к6 шкоди вогнем (ряткидок Спритності)',
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
         {
             name: 'Зброя дихання (Вогонь - Конус)',
             engName: 'Breath Weapon (Fire - Cone)',
-            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Спритності. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 вогняної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: конус 15 футів.',
-            shortDescription: 'Видих вогню (конус 15 фт, 2к6)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Спритності. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 вогняної шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Спритність\n**Тип шкоди:** вогонь\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 шкоди вогнем (ряткидок Спритності)',
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
         {
             name: 'Зброя дихання (Отрута - Конус)',
             engName: 'Breath Weapon (Poison - Cone)',
-            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Статури. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 отруйної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: конус 15 футів.',
-            shortDescription: 'Видих отрути (конус 15 фт, 2к6)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Статури. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 отруйної шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Статура\n**Тип шкоди:** отрута\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 шкоди отрутою (ряткидок Статури)',
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
         {
             name: 'Зброя дихання (Холод - Конус)',
             engName: 'Breath Weapon (Cold - Cone)',
-            description: 'Ви можете використовувати свою дію, щоб видихнути руйнівну енергію. Ваш драконячий родовід визначає розмір, форму та тип шкоди видиху. Коли ви використовуєте зброю дихання, кожна істота в області видиху повинна зробити ряткидок Статури. СК цього ряткидоку дорівнює 8 + ваш модифікатор Статури + ваш бонус майстерності. Істота отримує 2к6 холодної шкоди при провалі, або half damage при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му. Після використання зброї дихання ви не можете використовувати її знову доки не завершите короткий або довгий відпочинок. Форма: конус 15 футів.',
-            shortDescription: 'Видих холоду (конус 15 фт, 2к6)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Статури. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 холодної шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Статура\n**Тип шкоди:** холод\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 шкоди холодом (ряткидок Статури)',
+            displayType: [FeatureDisplayType.ACTION],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+
+        {
+            name: 'Зброя дихання (Сила - Конус)',
+            engName: 'Breath Weapon (Force - Cone)',
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Статури. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 шкоди силою при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Статура\n**Тип шкоди:** сила\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 шкоди силою (ряткидок Статури)',
+            displayType: [FeatureDisplayType.ACTION],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Променева - Конус)',
+            engName: 'Breath Weapon (Radiant - Cone)',
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Статури. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 променевої шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Статура\n**Тип шкоди:** променева\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 променевої шкоди (ряткидок Статури)',
+            displayType: [FeatureDisplayType.ACTION],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Психічна - Конус)',
+            engName: 'Breath Weapon (Psychic - Cone)',
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Статури. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 психічної шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Статура\n**Тип шкоди:** психічна\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 психічної шкоди (ряткидок Статури)',
+            displayType: [FeatureDisplayType.ACTION],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Громова - Конус)',
+            engName: 'Breath Weapon (Thunder - Cone)',
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Статури. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 громової шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Статура\n**Тип шкоди:** громова\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 громової шкоди (ряткидок Статури)',
+            displayType: [FeatureDisplayType.ACTION],
+            limitedUsesPer: RestType.SHORT_REST,
+            usesCount: 1
+        },
+        {
+            name: 'Зброя дихання (Некротична - Конус)',
+            engName: 'Breath Weapon (Necrotic - Cone)',
+            description: 'Ви можете використати свою дію, щоб видихнути руйнівну енергію. Коли ви використовуєте свою зброю дихання, усі істоти в зоні повинні зробити ряткидок Статури. СК цього ряткидка дорівнює 8 + ваш модифікатор Статури + ваш бонус володіння.\n\nІстота отримує 2к6 некротичної шкоди при провалі та половину цієї шкоди при успіху. Шкода збільшується до 3к6 на 6-му рівні, 4к6 на 11-му і 5к6 на 16-му рівні.\n\n**Форма:** конус 15 футів\n**Ряткидок:** Статура\n**Тип шкоди:** некротична\n\nПісля використання вашої зброї дихання ви не можете використати її знову, доки не завершите короткий або тривалий відпочинок.',
+            shortDescription: 'Конус 15 футів, 2к6 некротичної шкоди (ряткидок Статури)',
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -36791,6 +35755,54 @@ export const seedRaces = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Draconic Resistance' } } },
+                ]
+            }
+        },
+
+        // ============ ДРАКОНОНАРОДЖЕНИЙ (FIZBAN'S) ============
+        {
+            name: Races.DRAGONBORN_CHROMATIC,
+            sortOrder: 5,
+            size: [Size.MEDIUM],
+            speed: 30,
+            source: Source.FTOD,
+            languages: [Language.COMMON, Language.DRACONIC],
+            languagesToChooseCount: 0,
+            ASI: MPMMBaseASI,
+            traits: {
+                create: [
+                    { feature: { connect: { engName: 'Chromatic Warding' } } },
+                ]
+            }
+        },
+        {
+            name: Races.DRAGONBORN_METALLIC,
+            sortOrder: 5,
+            size: [Size.MEDIUM],
+            speed: 30,
+            source: Source.FTOD,
+            languages: [Language.COMMON, Language.DRACONIC],
+            languagesToChooseCount: 0,
+            ASI: MPMMBaseASI,
+            traits: {
+                create: [
+                    { feature: { connect: { engName: 'Metallic Breath Weapon' } } },
+                ]
+            }
+        },
+        {
+            name: Races.DRAGONBORN_GEM,
+            sortOrder: 5,
+            size: [Size.MEDIUM],
+            speed: 30,
+            source: Source.FTOD,
+            languages: [Language.COMMON, Language.DRACONIC],
+            languagesToChooseCount: 0,
+            ASI: MPMMBaseASI,
+            traits: {
+                create: [
+                    { feature: { connect: { engName: 'Psionic Mind' } } },
+                    { feature: { connect: { engName: 'Gem Flight' } } },
                 ]
             }
         },
@@ -38976,527 +37988,1506 @@ export default async function Page() {
 }
 </file>
 
-<file path="src/lib/components/characterCreator/MultiStepForm.tsx">
+<file path="src/components/ui/App.tsx">
+import React from "react";
+
+export const App = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <main className="col-start-1 row-start-1 flex min-h-full w-full flex-col items-center px-0.5 md:py-6 md:col-start-2 md:px-6">
+      { children }
+    </main>
+  )
+}
+</file>
+
+<file path="src/lib/components/characterCreator/ASIForm.tsx">
 "use client";
 
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import type { Weapon, Feat } from "@prisma/client";
-import RacesForm from "@/lib/components/characterCreator/RacesForm";
-import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
-import {usePersFormStore} from "@/lib/stores/persFormStore";
-import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
-import BackgroundsForm from "@/lib/components/characterCreator/BackgroundsForm";
-import ASIForm from "@/lib/components/characterCreator/ASIForm";
-import SkillsForm from "@/lib/components/characterCreator/SkillsForm";
-import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
-import EquipmentForm from "@/lib/components/characterCreator/EquipmentForm";
-import { Badge } from "@/lib/components/ui/badge";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Button } from "@/lib/components/ui/Button";
-import { Check, ChevronLeft, Circle } from "lucide-react";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
-import clsx from "clsx";
-import NameForm from "@/lib/components/characterCreator/NameForm";
-import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
-import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
-import ClassOptionalFeaturesForm from "@/lib/components/characterCreator/ClassOptionalFeaturesForm";
-import SubracesForm from "@/lib/components/characterCreator/SubracesForm";
-import RaceVariantsForm from "@/lib/components/characterCreator/RaceVariantsForm";
-import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
-import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
-import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
+import { useStepForm } from "@/hooks/useStepForm";
+import { Ability, Classes } from "@prisma/client";
+import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { useFieldArray, useWatch } from "react-hook-form";
+import React, { useEffect, useMemo } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { classAbilityScores } from "@/lib/refs/classesBaseASI";
+import { ClassI, RaceI, RaceASI } from "@/lib/types/model-types";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Minus, Plus, ArrowUp, ArrowDown, Check, AlertCircle } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { RaceVariant } from "@prisma/client";
 
-import { createCharacter } from "@/lib/actions/character";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 
 interface Props {
-  races: RaceI[]
-  classes: ClassI[],
-  backgrounds: BackgroundI[],
-  weapons: Weapon[],
-  feats: FeatPrisma[],
+  race: RaceI
+  raceVariant?: RaceVariant | null
+  selectedClass: ClassI
+  prevRaceId: number | null
+  setPrevRaceId: (id: number) => void;
+  formId: string
+  onNextDisabledChange?: (disabled: boolean) => void
 }
 
-export const MultiStepForm = (
-  {
-    races,
-    classes,
-    backgrounds,
-    weapons,
-    feats,
-  }: Props
+const attributes = [
+  { eng: Ability.STR, ukr: 'Сила' },
+  { eng: Ability.DEX, ukr: 'Спритність' },
+  { eng: Ability.CON, ukr: 'Статура' },
+  { eng: Ability.INT, ukr: 'Інтелект' },
+  { eng: Ability.WIS, ukr: 'Мудрість' },
+  { eng: Ability.CHA, ukr: 'Харизма' }
+];
+
+const attributesUrkShort = [
+  { eng: Ability.STR, ukr: 'СИЛ' }, // Strength — Сила
+  { eng: Ability.DEX, ukr: 'СПР' }, // Dexterity — Спритність
+  { eng: Ability.CON, ukr: 'СТА' }, // Constitution — Статура
+  { eng: Ability.INT, ukr: 'ІНТ' }, // Intelligence — Інтелект
+  { eng: Ability.WIS, ukr: 'МУД' }, // Wisdom — Мудрість
+  { eng: Ability.CHA, ukr: 'ХАР' }, // Charisma — Харизма
+];
+
+const asiSystems = {
+  POINT_BUY: 'POINT_BUY',
+  SIMPLE: 'SIMPLE',
+  CUSTOM: 'CUSTOM'
+}
+
+
+export const ASIForm = (
+  { race, raceVariant, selectedClass, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
 ) => {
-  const {
-    currentStep,
-    prevStep,
-    resetForm,
-    formData,
-    prevRaceId,
-    setPrevRaceId,
-    setCurrentStep,
-    setTotalSteps,
-    isHydrated,
-  } = usePersFormStore()
-  const [authDialogOpen, setAuthDialogOpen] = useState(false);
-  const [nextDisabled, setNextDisabled] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const raceAsi = useMemo(() => {
+    if (raceVariant?.overridesRaceASI) {
+      return raceVariant.overridesRaceASI as unknown as RaceASI;
+    }
+    return race.ASI;
+  }, [race, raceVariant]);
 
-  const handleNextDisabledChange = useCallback((disabled: boolean) => {
-    setNextDisabled(disabled);
-  }, []);
+  const { form, onSubmit } = useStepForm(asiSchema, (data) => {
+    // Save the entire ASI data object
+    updateFormData({
+      isDefaultASI: data.isDefaultASI,
+      asiSystem: data.asiSystem,
+      points: data.points,
+      simpleAsi: data.simpleAsi,
+      asi: data.asi,
+      racialBonusChoiceSchema: data.racialBonusChoiceSchema
+    });
+    nextStep();
+  });
 
-  const handleFinalSubmit = async () => {
-    setIsSubmitting(true);
-    try {
-      // We need to ensure formData has the latest name update, which happens in NameForm's onSubmit
-      // But handleFinalSubmit is called AS the success callback of NameForm, so formData might not be updated yet in the store?
-      // Actually, useStepForm calls updateFormData BEFORE calling onSuccess.
-      // So formData in store should be up to date?
-      // Wait, zustand updates are synchronous usually, but React state updates are batched.
-      // However, we are reading from `formData` which is a const from `usePersFormStore()`.
-      // This might be stale in the closure.
-      // Better to use `usePersFormStore.getState().formData`.
-      
-      const currentData = usePersFormStore.getState().formData as PersFormData;
-      
-      const result = await createCharacter(currentData);
+  const { fields: asiFields, replace: replaceAsi } = useFieldArray({
+    control: form.control,
+    name: "asi",
+  });
+  const { fields: simpleAsiFields, replace: replaceSimpleAsi } = useFieldArray({
+    control: form.control,
+    name: "simpleAsi",
+  });
+  const { fields: customAsiFields, replace: replaceCustomAsi } = useFieldArray({
+    control: form.control,
+    name: "customAsi",
+  });
+  const watchedSimpleAsi = useWatch({
+    control: form.control,
+    name: 'simpleAsi'
+  })
 
-      if (result.error) {
-        toast.error("Помилка створення", {
-          description: result.error
-        });
-        if (result.details) {
-            console.error(result.details);
-        }
-      } else if (result.success) {
-        toast.success("Персонажа створено!");
-        resetForm();
-        router.push(`/pers/${result.persId}`);
-      }
-    } catch (e) {
-      toast.error("Щось пішло не так...");
-      console.error(e);
-    } finally {
-      setIsSubmitting(false);
+  const isDefaultASI = form.watch('isDefaultASI') || false
+  const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
+  const points = form.watch('points') || 0
+
+  useEffect(() => {
+    onNextDisabledChange?.(asiSystem === asiSystems.POINT_BUY && points < 0);
+  }, [asiSystem, points, onNextDisabledChange])
+
+  const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
+
+  const sortedSimpleAsi = useMemo(() => {
+    if (!watchedSimpleAsi || watchedSimpleAsi.length === 0) {
+      return [...simpleAsiFields].sort((a, b) => b.value - a.value);
+    }
+
+    const enrichedFields = simpleAsiFields.map((field, index) => ({
+      ...field,
+      ability: field.ability,
+      value: watchedSimpleAsi[index]?.value ?? field.value
+    }));
+
+    return enrichedFields.sort((a, b) => b.value - a.value);
+  }, [watchedSimpleAsi, simpleAsiFields])
+
+  const incrementValue = (index: number) => {
+    const currentValue = form.getValues(`asi.${ index }.value`) || 0;
+    form.setValue('points', currentValue >= 13 ? points - 2 : points - 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
+    form.setValue(`asi.${ index }.value`, currentValue + 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
+  }
+  const decrementValue = (index: number) => {
+    const currentValue = form.getValues(`asi.${ index }.value`) || 0;
+    if (currentValue > 8) {
+      form.setValue('points', currentValue >= 14 ? points + 2 : points + 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
+      form.setValue(`asi.${ index }.value`, currentValue - 1, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
     }
   }
 
-  const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
-  const cls = useMemo(() => classes.find(c => c.classId === formData.classId) as ClassI, [classes, formData.classId])
-  const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
-  const hasLevelOneChoices = useMemo(
-    () => Boolean(cls?.classChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
-    [cls]
-  );
-  const hasLevelOneOptionalFeatures = useMemo(
-    () => Boolean(cls?.classOptionalFeatures?.some((opt) => (opt.grantedOnLevels || []).includes(1))),
-    [cls]
-  );
-  const hasSubraces = useMemo(() => (race?.subraces?.length ?? 0) > 0, [race]);
-  const hasRaceVariants = useMemo(() => (race?.raceVariants?.length ?? 0) > 0, [race]);
-  const raceVariant = useMemo(() => 
-    race?.raceVariants?.find(v => v.raceVariantId === formData.raceVariantId), 
-    [race, formData.raceVariantId]
-  );
-  const hasFeatChoice = useMemo(() => {
-    return raceVariant?.name === 'HUMAN_VARIANT';
-  }, [raceVariant]);
-  const feat = useMemo(() => feats.find(f => f.featId === formData.featId), [feats, formData.featId]);
-  const hasFeatChoices = useMemo(() => (feat?.featChoiceOptions?.length ?? 0) > 0, [feat]);
+  const swapValues = ({ sortedIndexA, isDirectionUp }: { sortedIndexA: number, isDirectionUp: boolean }) => { // index == 0-5
+    if (isDirectionUp ? sortedIndexA > 0 : sortedIndexA < 5) {
+      const sortedIndexB = isDirectionUp ? sortedIndexA - 1 : sortedIndexA + 1
 
-  const hasSubclasses = useMemo(() => {
-    if (!cls) return false;
-    const allowedClasses = ["CLERIC_2014", "WARLOCK_2014", "SORCERER_2014"];
-    return allowedClasses.includes(cls.name) && (cls.subclasses?.length ?? 0) > 0;
-  }, [cls]);
+      const itemA = sortedSimpleAsi[sortedIndexA]
+      const itemB = sortedSimpleAsi[sortedIndexB]
 
-  const hasExpertiseChoice = useMemo(() => {
-    if (!cls) return false;
-    return cls.features.some(f => 
-      f.levelGranted === 1 && 
-      (f.feature.skillExpertises as any)?.count > 0
-    );
-  }, [cls]);
+      const originalIndexA = simpleAsiFields.findIndex(field => field.id === itemA.id);
+      const originalIndexB = simpleAsiFields.findIndex(field => field.id === itemB.id);
 
-  const steps = useMemo(() => {
-    const dynamicSteps: { id: string; name: string; component: string }[] = [
-      { id: "race", name: "Раса", component: "races" },
-    ];
+      if (originalIndexA === -1 || originalIndexB === -1) return;
 
-    if (hasSubraces) {
-      dynamicSteps.push({ id: "subrace", name: "Підраса", component: "subrace" });
-    }
-    if (hasRaceVariants) {
-      dynamicSteps.push({ id: "raceVariant", name: "Варіант раси", component: "raceVariant" });
-    }
+      form.setValue(`simpleAsi.${ originalIndexA }.value`, itemB.value, {
+        shouldTouch: true,
+        shouldDirty: true,
+        shouldValidate: true
+      });
 
-    dynamicSteps.push({ id: "class", name: "Клас", component: "class" });
-
-    if (hasSubclasses) {
-      dynamicSteps.push({ id: "subclass", name: "Підклас", component: "subclass" });
-    }
-
-    if (hasLevelOneChoices) {
-      dynamicSteps.push({ id: "classChoices", name: "Опції класу", component: "classChoices" });
-    }
-
-    if (hasLevelOneOptionalFeatures) {
-      dynamicSteps.push({ id: "classOptional", name: "Додаткові риси", component: "classOptional" });
-    }
-
-    dynamicSteps.push(
-      { id: "background", name: "Передісторія", component: "background" },
-      { id: "asi", name: "Характеристики", component: "asi" },
-      { id: "skills", name: "Навички", component: "skills" },
-    );
-
-    if (hasExpertiseChoice) {
-      dynamicSteps.push({ id: "expertise", name: "Експертиза", component: "expertise" });
-    }
-
-    // MOVED: Feat selection AFTER skills and expertise
-    if (hasFeatChoice) {
-      dynamicSteps.push({ id: "feat", name: "Риса", component: "feat" });
-    }
-    if (hasFeatChoices) {
-      dynamicSteps.push({ id: "featChoices", name: "Опції риси", component: "featChoices" });
-    }
-
-    dynamicSteps.push(
-      { id: "equipment", name: "Спорядження", component: "equipment" },
-      { id: "name", name: "Імʼя", component: "name" },
-    );
-
-    return dynamicSteps;
-  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures, hasSubraces, hasRaceVariants, hasSubclasses, hasFeatChoice, hasFeatChoices, hasExpertiseChoice]);
-
-  useEffect(() => {
-    const total = steps.length;
-    setTotalSteps(total);
-    
-    // DON'T reset currentStep if:
-    // 1. Store hasn't hydrated yet (data still loading from localStorage)
-    // 2. formData suggests user has progressed beyond what steps currently show
-    //    (e.g. user has featId but steps don't include feat step yet)
-    
-    if (!isHydrated) {
-      // Wait for hydration to complete before adjusting steps
-      return;
-    }
-    
-    // Check if formData has critical fields that suggest more steps should exist
-    const hasProgressedData = 
-      formData.raceId || 
-      formData.classId || 
-      formData.backgroundId ||
-      formData.featId ||
-      formData.skills?.length ||
-      formData.name;
-    
-    // Only reduce currentStep if we're confident steps calculation is accurate
-    // If user has data but steps is short, it means dependencies (race/class) aren't loaded yet
-    if (currentStep > total) {
-      // If user has formData but steps seem incomplete, DON'T reset yet
-      if (hasProgressedData && total < 8) {
-        // Likely still initializing - wait for races/classes to load
-        console.log('[MultiStepForm] Waiting for data to load before adjusting currentStep');
-        return;
-      }
-      
-      // Safe to reset - either no data, or steps calculation is complete
-      setCurrentStep(total);
-    }
-  }, [steps, currentStep, isHydrated, formData, setCurrentStep, setTotalSteps]);
-
-  const renderStep = () => {
-    const activeComponent = steps[currentStep - 1]?.component;
-
-    switch (activeComponent) {
-      case "races":
-        return (
-          <RacesForm
-            races={races}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "subrace":
-        return (
-          <SubracesForm
-            race={race}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "raceVariant":
-        return (
-          <RaceVariantsForm
-            race={race}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "feat":
-        return (
-          <FeatsForm
-            feats={feats}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "featChoices":
-        return (
-          <FeatChoiceOptionsForm
-            selectedFeat={feat}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "class":
-        return (
-          <ClassesForm
-            classes={classes}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "subclass":
-        return (
-          <SubclassForm
-            cls={cls}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "classChoices":
-        return (
-          <ClassChoiceOptionsForm
-            selectedClass={cls}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "classOptional":
-        return (
-          <ClassOptionalFeaturesForm
-            selectedClass={cls}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "background":
-        return (
-          <BackgroundsForm
-            backgrounds={backgrounds}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "asi":
-        if (!race || !cls) {
-          return (
-            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-              Спершу оберіть расу та клас.
-            </Card>
-          );
-        }
-        return (
-          <ASIForm
-            race={race}
-            raceVariant={raceVariant}
-            selectedClass={cls}
-            prevRaceId={prevRaceId}
-            setPrevRaceId={setPrevRaceId}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "skills":
-        if (!race || !cls || !bg) {
-          return (
-            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-              Спершу завершіть расу, клас та передісторію.
-            </Card>
-          );
-        }
-        return (
-          <SkillsForm
-            race={race}
-            raceVariant={raceVariant}
-            selectedClass={cls}
-            background={bg}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "expertise":
-        return (
-          <ExpertiseForm
-            selectedClass={cls}
-            race={race}
-            background={bg}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "equipment":
-        if (!race || !cls) {
-          return (
-            <Card className="border border-slate-800/70 bg-slate-900/70 p-4 text-center text-slate-200">
-              Спершу заповніть попередні кроки.
-            </Card>
-          );
-        }
-        return (
-          <EquipmentForm
-            weapons={weapons}
-            selectedClass={cls}
-            race={race}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "name":
-        return (
-          <NameForm
-            formId={activeFormId}
-            race={race}
-            raceVariant={raceVariant}
-            selectedClass={cls}
-            background={bg}
-            feat={feat}
-            onSuccess={handleFinalSubmit}
-          />
-        );
-      default:
-        return null;
+      form.setValue(`simpleAsi.${ originalIndexB }.value`, itemA.value, {
+        shouldTouch: true,
+        shouldDirty: true,
+        shouldValidate: true
+      });
     }
   }
 
-  const progress = Math.round((currentStep / steps.length) * 100);
-  const activeFormId = `character-step-form-${currentStep}`;
+  const handleToggleRacialBonus = ({ groupIndex, choiceCount, ability }: {
+    groupIndex: number,
+    choiceCount: number,
+    ability: Ability
+  }) => {
+    const schemaPath = racialBonusSchemaPath;
+
+    const groups: {
+      groupIndex: number;
+      choiceCount: number;
+      selectedAbilities: Ability[];
+    }[] = form.getValues(schemaPath) || []
+
+    const arrayIndex = groups.findIndex((g) => g.groupIndex === groupIndex)
+
+    if (arrayIndex !== -1) {
+      const currentAbilities = groups[arrayIndex]?.selectedAbilities ?? []
+      const hasAbility = currentAbilities.includes(ability)
+
+      if (!hasAbility && currentAbilities.length >= choiceCount) return null
+
+      const newAbilities = hasAbility
+        ? currentAbilities.filter((a) => a !== ability)
+        : [...currentAbilities, ability]
+
+      const nextGroups = groups.map((g, idx) =>
+        idx === arrayIndex
+          ? {
+              ...g,
+              choiceCount,
+              selectedAbilities: newAbilities,
+            }
+          : g
+      )
+
+      form.setValue(schemaPath, nextGroups, {
+        shouldDirty: true,
+        shouldTouch: true,
+        shouldValidate: true,
+      })
+      return
+    }
+
+    const newGroup = {
+      groupIndex,
+      choiceCount,
+      selectedAbilities: [ability],
+    }
+    form.setValue(schemaPath, [...groups, newGroup], {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    })
+  }
+
+  const getRacialBonusGroup = (groupIndex: number) => {
+    const groups: {
+      groupIndex: number;
+      choiceCount: number;
+      selectedAbilities: Ability[];
+    }[] = form.getValues(racialBonusSchemaPath) || []
+    return groups.find((g) => g.groupIndex === groupIndex)
+  }
+
+  const isRacialBonusSelected = (groupIndex: number, ability: Ability) => {
+    const group = getRacialBonusGroup(groupIndex)
+    return (group?.selectedAbilities ?? []).includes(ability)
+  }
+
+  const getCurrentSelectedCount = (groupIndex: number) => {
+    const group = getRacialBonusGroup(groupIndex)
+    return (group?.selectedAbilities ?? []).length
+  }
 
   useEffect(() => {
-    setNextDisabled(false);
-  }, [currentStep]);
+    if (selectedClass) {
+      const defaultClassASI = classAbilityScores[selectedClass.name as Classes]
+      if (defaultClassASI) {
+        const currentAsi = form.getValues('asi')
+        const currentSimpleAsi = form.getValues('simpleAsi')
+        const currentCustomAsi = form.getValues('customAsi')
+
+        if (!currentAsi || currentAsi.length === 0) {
+          replaceAsi(defaultClassASI.map(asi => ({
+            ability: asi.ability,
+            value: asi.value,
+          })));
+        }
+        if (!currentSimpleAsi || currentSimpleAsi.length === 0) {
+          replaceSimpleAsi(defaultClassASI.map(asi => ({
+            ability: asi.ability,
+            value: asi.value,
+          })));
+        }
+        if (!currentCustomAsi || currentCustomAsi.length === 0) {
+          replaceCustomAsi(defaultClassASI.map(asi => ({
+            ability: asi.ability,
+            value: String(asi.value),
+          })));
+        }
+      }
+    }
+  }, [selectedClass, replaceAsi, replaceSimpleAsi, replaceCustomAsi, form])
+
+  useEffect(() => {
+    form.register('points')
+
+    const p = form.getValues('points');
+    if (typeof p !== 'number') {
+      form.setValue('points', 0, { shouldDirty: false, shouldTouch: false })
+    }
+  }, [form])
+
+  useEffect(() => {form.register('racialBonusChoiceSchema')},
+    [form])
+
+  useEffect(() => {
+    if (prevRaceId !== null && prevRaceId !== race.raceId) {
+      form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
+      form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
+    }
+
+    setPrevRaceId(race.raceId)
+  }, [form, prevRaceId, race.raceId, setPrevRaceId])
+
+  const racialBonusGroups = useMemo(() => {
+    return isDefaultASI
+      ? raceAsi.basic?.flexible?.groups
+      : raceAsi.tasha?.flexible.groups
+  }, [isDefaultASI, raceAsi])
+
+  const systemCopy: Record<string, string> = {
+    [asiSystems.POINT_BUY]: 'Розподіляйте бюджет очок і отримайте контроль над кожною характеристикою.',
+    [asiSystems.SIMPLE]: 'Швидкий старт — пересувайте значення вгору та вниз без калькулятора.',
+    [asiSystems.CUSTOM]: 'Повна свобода: введіть будь-які значення вручну, якщо ви знаєте що робите.',
+  }
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-24 sm:px-4 md:gap-6 md:px-0 md:py-6">
-      <CharacterCreateHeader
-        onReset={resetForm}
-        onOpenAuth={() => setAuthDialogOpen(true)}
-      />
-
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-2xl">
-        <CardContent className="grid gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-[1fr,300px] md:p-6">
-          <div className="space-y-3 rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner sm:space-y-4 sm:p-4 md:p-5">
-            {renderStep()}
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-6">
+      <Card className="shadow-xl">
+        <CardHeader className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-1">
+            <CardTitle className="text-xl text-white md:text-2xl">Розподіл характеристик</CardTitle>
           </div>
+        </CardHeader>
 
-          <aside className="rounded-xl border border-slate-800/70 bg-slate-900/60 p-3 shadow-inner sm:p-4">
-          <div className="sticky top-14 sm:top-16">
-            <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
-                <span className="font-medium text-slate-200">Ваш прогрес</span>
-                <Badge variant="outline" className="border-slate-800/80 text-slate-300 text-[11px] sm:text-xs">
-                  {progress}% готово
-                </Badge>
-              </div>
+        <CardContent className="space-y-4">
+          <input type="hidden" {...form.register('asiSystem')} value={asiSystem} />
 
-              <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
-                {steps.map((step, index) => {
-                  const stepOrder = index + 1;
-                  const isDone = stepOrder < currentStep;
-                  const isActive = stepOrder === currentStep;
+          {asiFields.map((field, index) => (
+            <React.Fragment key={field.id}>
+              <input type="hidden" {...form.register(`asi.${index}.ability`)} />
+              <input type="hidden" {...form.register(`asi.${index}.value`, { valueAsNumber: true })} />
+            </React.Fragment>
+          ))}
+
+          {simpleAsiFields.map((field, index) => (
+            <React.Fragment key={field.id}>
+              <input type="hidden" {...form.register(`simpleAsi.${index}.ability`)} />
+              <input type="hidden" {...form.register(`simpleAsi.${index}.value`, { valueAsNumber: true })} />
+            </React.Fragment>
+          ))}
+
+          {customAsiFields.map((field, index) => (
+            <React.Fragment key={field.id}>
+              <input type="hidden" {...form.register(`customAsi.${index}.ability`)} />
+              <input type="hidden" {...form.register(`customAsi.${index}.value`)} />
+            </React.Fragment>
+          ))}
+
+          <Tabs
+            value={asiSystem}
+            onValueChange={(value) => form.setValue('asiSystem', value)}
+            className="w-full"
+          >
+            <TabsList className="grid w-full grid-cols-3 bg-white/5 text-slate-300">
+              <TabsTrigger
+                value={asiSystems.POINT_BUY}
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
+              >
+                За очками
+              </TabsTrigger>
+              <TabsTrigger
+                value={asiSystems.SIMPLE}
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
+              >
+                Просто
+              </TabsTrigger>
+              <TabsTrigger
+                value={asiSystems.CUSTOM}
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
+              >
+                Вільно
+              </TabsTrigger>
+            </TabsList>
+
+            <p className="mt-3 text-sm text-slate-400">{systemCopy[asiSystem]}</p>
+
+            <TabsContent value={asiSystems.POINT_BUY} className="space-y-4">
+              <div className="grid gap-3 md:grid-cols-2">
+                {asiFields.map((field, index) => {
+                  const attr = attributes.find((a) => a.eng === field.ability);
+                  const currentValue = form.watch(`asi.${index}.value`) || field.value;
+                  const bonus = Math.floor((currentValue - 10) / 2)
 
                   return (
-                    <div
-                      key={step.id}
-                      className={clsx(
-                        "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left sm:px-3",
-                        isActive
-                          ? "border-indigo-400/60 bg-indigo-500/10 text-white"
-                          : "border-slate-800/80 bg-slate-900/60 text-slate-300"
-                      )}
+                    <Card
+                      key={field.id}
+                      className="shadow-sm transition hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10"
                     >
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-[11px]">
-                          Крок {stepOrder}
-                        </p>
-                        <p className="text-xs font-semibold sm:text-sm">{step.name}</p>
-                      </div>
-                      {isDone ? (
-                        <Badge variant="secondary" className="bg-emerald-500/20 text-emerald-200">
-                          <Check className="h-4 w-4" />
+                      <CardHeader className="flex flex-row items-center justify-between pb-2">
+                        <div>
+                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
+                        </div>
+                        <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
+                          {bonus > 0 ? `+${bonus}` : bonus}
                         </Badge>
-                      ) : (
-                        <Badge
+                      </CardHeader>
+                      <CardContent className="flex items-center justify-between pt-0">
+                        <Button
+                          type="button"
                           variant="outline"
-                          className={`border-slate-800/80 ${
-                            isActive ? "text-indigo-200" : "text-slate-400"
-                          }`}
+                          size="icon"
+                          onClick={() => decrementValue(index)}
+                          disabled={(currentValue as number) <= 8}
+                          className="border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
                         >
-                          <Circle className="h-3 w-3" />
-                        </Badge>
-                      )}
-                    </div>
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-lg font-semibold text-white">
+                          {currentValue as number}
+                        </div>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={() => incrementValue(index)}
+                          disabled={(currentValue as number) > 14}
+                          className="border-emerald-400/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                      </CardContent>
+                    </Card>
                   );
                 })}
               </div>
-
-              <div className="mt-4 h-1.5 sm:mt-5 sm:h-2 rounded-full bg-slate-800/80">
-                <div
-                  className="h-1.5 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all sm:h-2"
-                  style={{ width: `${progress}%` }}
-                />
+              <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm">
+                <span className="text-slate-300">Залишок очок</span>
+                <Badge
+                  variant="outline"
+                  className={`px-3 text-base ${points < 0 ? 'border-red-500/60 text-red-200' : 'border-emerald-500/50 text-emerald-200'}`}
+                >
+                  {points}
+                </Badge>
               </div>
-            </div>
-          </aside>
+            </TabsContent>
+
+            <TabsContent value={asiSystems.SIMPLE} className="space-y-3">
+              <div className="flex flex-col gap-2">
+                {sortedSimpleAsi.map((field, sortedIndex) => {
+                  const attr = attributes.find((a) => a.eng === field.ability);
+                  const currentValue = field.value;
+                  return (
+                    <Card
+                    key={field.id}
+                    className="shadow-sm transition hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10 p-2"
+                  >
+                    <CardContent className="flex items-center justify-between gap-1 pt-0 pb-1">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        className="h-6 w-6 border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
+                        onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: true })}
+                        disabled={sortedIndex === 0 || currentValue >= 15}
+                      >
+                        <ArrowUp className="h-3 w-3" />
+                      </Button>
+                  
+                      <div className="flex flex-col items-center justify-center">
+                        <p className="text-[10px] uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
+                        <p className="text-lg font-semibold text-white leading-none">{currentValue}</p>
+                      </div>
+                  
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        className="h-6 w-6 border-emerald-500/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
+                        onClick={() => swapValues({ sortedIndexA: sortedIndex, isDirectionUp: false })}
+                        disabled={sortedIndex === sortedSimpleAsi.length - 1 || currentValue <= 8}
+                      >
+                        <ArrowDown className="h-3 w-3" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                  );
+                })}
+              </div>
+            </TabsContent>
+
+            <TabsContent value={asiSystems.CUSTOM} className="space-y-3">
+              <div className="grid gap-3 md:grid-cols-2">
+                {customAsiFields.map((field, index) => {
+                  const attr = attributes.find((a) => a.eng === field.ability);
+                  const currentValue = form.watch(`customAsi.${index}.value`);
+                  // const shortName = attributesUrkShort.find((a) => a.eng === field.ability)?.ukr || attr?.ukr;
+
+                  return (
+                    <Card
+                      key={field.id}
+                      className="shadow-sm transition hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10"
+                    >
+                      <CardHeader className="flex items-center justify-between pb-2">
+                        <div>
+                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-0">
+                        <Input
+                          type="number"
+                          inputMode="numeric"
+                          placeholder="14"
+                          value={currentValue ?? ''}
+                          onChange={(e) => form.setValue(`customAsi.${index}.value`, e.target.value)}
+                          className="border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
+                        />
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </TabsContent>
+          </Tabs>
         </CardContent>
       </Card>
 
-      <div className="sticky bottom-0 left-0 right-0 z-30 w-full px-2 pb-3 sm:px-3 md:px-0">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border border-slate-800/80 bg-slate-950/90 px-2.5 py-2.5 shadow-xl backdrop-blur sm:rounded-2xl sm:px-3 sm:py-3">
-          <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
-            <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
-              Крок {currentStep} / {steps.length}
-            </Badge>
-            <span className="hidden text-slate-400 sm:inline">Прогрес {progress}%</span>
-          </div>
-          <div className="flex items-center gap-2">
-            {currentStep > 1 && (
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                className="border border-slate-800/70 text-sm text-slate-200 hover:bg-slate-800 sm:text-base"
-                onClick={prevStep}
+      <Card className="shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-white">Расові бонуси</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {form.formState.errors.racialBonusChoiceSchema && (
+            <div className="flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">
+              <AlertCircle className="h-4 w-4" />
+              <span>{form.formState.errors.racialBonusChoiceSchema.message}</span>
+            </div>
+          )}
+
+          {racialBonusGroups?.length ? (
+            racialBonusGroups.map((group, index) => (
+              <div
+                key={index}
+                className="glass-panel border-gradient-rpg rounded-xl p-4"
               >
-                <ChevronLeft className="mr-2 h-4 w-4" />
-                Назад
-              </Button>
-            )}
-            <Button
-              type="submit"
-              form={activeFormId}
-              disabled={nextDisabled || isSubmitting}
-              size="sm"
-              className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-sm text-white shadow-lg shadow-indigo-500/20 sm:text-base"
-            >
-              {currentStep === steps.length ? (isSubmitting ? "Створення..." : "Створити") : "Далі →"}
-            </Button>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-semibold text-white">{group.groupName}</p>
+                    <p className="text-xs text-slate-400">Оберіть {group.choiceCount}</p>
+                  </div>
+                  <Badge variant="secondary" className="bg-white/5 text-white">
+                    +{group.value}
+                  </Badge>
+                </div>
+
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                  {attributesUrkShort.map((attr, i) => {
+                    const isSelected = isRacialBonusSelected(index, attr.eng);
+                    const currentCount = getCurrentSelectedCount(index);
+                    const isMaxReached = currentCount >= group.choiceCount;
+                    const formGroups: {
+                      groupIndex: number;
+                      choiceCount: number;
+                      selectedAbilities: Ability[];
+                    }[] = form.getValues(racialBonusSchemaPath) || [];
+
+                    const currentGroup = formGroups.find((g) => g.groupIndex === index);
+
+                    const uniqueDisabled = isDefaultASI
+                      ? (
+                        raceAsi.basic?.simple
+                        && (raceAsi.basic?.flexible?.groups?.length ?? 0) > 0
+                        && (raceAsi.basic?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
+                        && (Object.keys(raceAsi.basic?.simple ?? {}).includes(attr.eng))
+                      )
+                      : (
+                        (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
+                        && (raceAsi.tasha?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
+                        && (formGroups?.some((flexGroup) =>
+                          (flexGroup.groupIndex !== (currentGroup?.groupIndex ?? index))
+                          && (flexGroup.selectedAbilities.includes(attr.eng))
+                        ))
+                      );
+
+                    const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
+
+                    return (
+                      <Button
+                        key={i}
+                        type="button"
+                        variant={isSelected ? 'secondary' : 'outline'}
+                        className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${isSelected ? 'border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100' : ''} ${isDisabled ? 'opacity-60' : ''}`}
+                        disabled={isDisabled}
+                        onClick={() =>
+                          handleToggleRacialBonus({
+                            groupIndex: index,
+                            choiceCount: group.choiceCount,
+                            ability: attr.eng,
+                          })
+                        }
+                      >
+                        <span className="text-sm">{attr.ukr}</span>
+                        {isSelected && <Check className="h-4 w-4" />}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-sm text-slate-400">Для цієї раси немає гнучких бонусів.</p>
+          )}
+
+          {isDefaultASI && Object.entries(raceAsi.basic?.simple || {}).length > 0 && (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {Object.entries(raceAsi.basic?.simple || {}).map(([attrEng, value], index) => {
+                const attr = attributes.find((a) => a.eng === attrEng);
+
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3"
+                  >
+                    <span className="font-semibold text-white">{attr?.ukr}</span>
+                    <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-100">
+                      +{value}
+                    </Badge>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      <div className="glass-panel border-gradient-rpg space-y-3 rounded-2xl p-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold text-white">Базові расові бонуси</p>
+            <p className="text-xs text-slate-400">Вимкніть, щоб перейти на правила Таші з вільним розподілом.</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <input
+              type="checkbox"
+              className="sr-only"
+              {...form.register('isDefaultASI')}
+              checked={isDefaultASI}
+              onChange={(event) => form.setValue('isDefaultASI', event.target.checked)}
+            />
+            <Switch
+              id="isDefaultASI"
+              checked={isDefaultASI}
+              onCheckedChange={(checked) => form.setValue('isDefaultASI', checked)}
+            />
+            <Label htmlFor="isDefaultASI" className="text-slate-200">
+              Базові
+            </Label>
           </div>
         </div>
+        <p className="text-xs text-right text-slate-500">
+          Кнопки навігації завжди внизу екрана.
+        </p>
       </div>
-
-      <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
-    </div>
+    </form>
   )
+};
+
+export default ASIForm;
+</file>
+
+<file path="src/lib/components/characterCreator/ClassOptionalFeaturesForm.tsx">
+"use client";
+
+import { useEffect, useMemo } from "react";
+import { ClassI } from "@/lib/types/model-types";
+import { useStepForm } from "@/hooks/useStepForm";
+import { classOptionalFeaturesSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
+import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import clsx from "clsx";
+
+interface Props {
+  selectedClass?: ClassI | null;
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
 }
 
-export default MultiStepForm
+const displayName = (cls?: ClassI | null) =>
+  cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
+
+const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
+  const { formData, updateFormData, nextStep } = usePersFormStore();
+  
+  const { form, onSubmit } = useStepForm(classOptionalFeaturesSchema, (data) => {
+    updateFormData({ classOptionalFeatureSelections: data.classOptionalFeatureSelections });
+    nextStep();
+  });
+
+  const decisions = form.watch("classOptionalFeatureSelections") || {};
+  const selectedChoiceIds = useMemo(() => {
+    const selections = (formData.classChoiceSelections as Record<string, number>) || {};
+    return Object.values(selections)
+      .map((value) => Number(value))
+      .filter((value) => !Number.isNaN(value));
+  }, [formData.classChoiceSelections]);
+
+  const levelOneOptional = useMemo(
+    () => (selectedClass?.classOptionalFeatures || []).filter((item) => (item.grantedOnLevels || []).includes(1)),
+    [selectedClass]
+  );
+
+  const visibleOptional = useMemo(
+    () =>
+      levelOneOptional
+        .filter((item) => {
+          const deps = (item as any).appearsOnlyIfChoicesTaken || [];
+          if (!deps.length) return true;
+          return deps.some((choice: any) => selectedChoiceIds.includes(choice.choiceOptionId));
+        })
+        .filter((item) => Boolean(item.optionalFeatureId)),
+    [levelOneOptional, selectedChoiceIds]
+  );
+
+  useEffect(() => {
+    if (!selectedClass) {
+      onNextDisabledChange?.(true);
+      return;
+    }
+    if (!visibleOptional.length) {
+      onNextDisabledChange?.(false);
+      return;
+    }
+    const incomplete = visibleOptional.some(
+      (item) => decisions[item.optionalFeatureId?.toString() || ""] === undefined
+    );
+    onNextDisabledChange?.(incomplete);
+  }, [selectedClass, visibleOptional, decisions, onNextDisabledChange]);
+
+  const setDecision = (id: number, take: boolean) => {
+    const next = { ...(decisions || {}), [id]: take };
+    form.setValue("classOptionalFeatureSelections", next, { shouldDirty: true });
+  };
+
+  if (!selectedClass) {
+    return (
+      <Card className="p-4 text-center text-slate-200">
+        Спершу оберіть клас.
+      </Card>
+    );
+  }
+
+  if (!visibleOptional.length) {
+    return (
+      <Card className="p-4 text-center text-slate-200">
+        На 1 рівні {displayName(selectedClass)} не пропонує додаткових рис. Можна продовжувати.
+      </Card>
+    );
+  }
+
+  return (
+    <form id={formId} onSubmit={onSubmit} className="space-y-4">
+      <div className="space-y-1 text-center">
+        <p className="text-sm font-semibold text-slate-300">Рівень 1</p>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">Додаткові риси класу</h2>
+        <p className="text-sm text-slate-400">
+          Оберіть, чи берете запропоновані Optional Class Features. Можна відмовитися, якщо вони не пасують.
+        </p>
+      </div>
+
+      <div className="space-y-3">
+        {visibleOptional.map((item) => {
+          if (!item.optionalFeatureId) return null;
+
+          const key = item.optionalFeatureId?.toString() || "";
+          const accepted = decisions[key];
+          const title = item.title || item.feature?.name || "Додаткова риса";
+          const description = item.feature?.description || "Деталі відсутні.";
+          const replaces =
+            item.replacesFeatures?.map((rep) => rep.replacedFeature?.name).filter(Boolean).join(", ") || "";
+
+          return (
+            <Card
+              key={key}
+              className={clsx(
+                accepted === true && "border-gradient-rpg border-gradient-rpg-active glass-active",
+                accepted === false && "opacity-90"
+              )}
+            >
+              <CardContent className="space-y-3 p-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <p className="text-sm font-semibold text-white">{title}</p>
+                    {replaces ? (
+                      <p className="text-xs text-slate-400">Замінює: {replaces}</p>
+                    ) : null}
+                  </div>
+                  <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
+                    Рівень 1
+                  </Badge>
+                </div>
+
+                <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
+                  <InfoSectionTitle>Опис</InfoSectionTitle>
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">{description}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    className={clsx(
+                      "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white",
+                      accepted === true && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100"
+                    )}
+                    onClick={() => setDecision(item.optionalFeatureId!, true)}
+                  >
+                    Взяти
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    className={clsx(
+                      "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white",
+                      accepted === false && "border-rose-400/40 bg-rose-500/10 text-rose-50"
+                    )}
+                    onClick={() => setDecision(item.optionalFeatureId!, false)}
+                  >
+                    Пропустити
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </form>
+  );
+};
+
+export default ClassOptionalFeaturesForm;
+</file>
+
+<file path="src/lib/components/characterCreator/infoUtils.ts">
+import { Ability, ArmorType, Language, Size, WeaponCategory, WeaponType, Skills } from "@prisma/client";
+
+import {
+  LanguageTranslations,
+  SizeTranslations,
+  armorTranslations,
+  attributesUkrFull,
+  engEnumSkills,
+  featTranslations,
+  weaponTranslations,
+  subraceTranslations,
+  variantTranslations,
+  subclassTranslations,
+  sourceTranslations,
+  toolTranslations,
+  armorTypeTranslations,
+  weaponTypeTranslations,
+  backgroundTranslations,
+  spellSchoolTranslations,
+  damageTypeTranslations,
+  raceTranslations,
+  classTranslations,
+} from "@/lib/refs/translation";
+import { MulticlassReqs, SkillProficiencies, ToolProficiencies, WeaponProficiencies } from "@/lib/types/model-types";
+
+const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+
+const abilityTranslations = attributesUkrFull;
+
+const skillTranslations: Record<Skills, string> = Object.fromEntries(
+  engEnumSkills.map(({ eng, ukr }) => [eng, ukr])
+) as Record<Skills, string>;
+
+export const prettifyEnum = (value?: string | number | null) => {
+  if (value === undefined || value === null) return "";
+  return String(value)
+    .split("_")
+    .filter(Boolean)
+    .map(capitalize)
+    .join(" ");
+};
+
+export const translateValue = (value?: string | number | null): string => {
+  if (value === undefined || value === null) return "";
+  const key = String(value);
+
+  if ((abilityTranslations as Record<string, string>)[key]) return abilityTranslations[key as Ability];
+  if (SizeTranslations[key]) return SizeTranslations[key];
+  if (LanguageTranslations[key]) return LanguageTranslations[key];
+  if (armorTranslations[key as keyof typeof armorTranslations]) return armorTranslations[key as keyof typeof armorTranslations];
+  if (weaponTranslations[key as keyof typeof weaponTranslations])
+    return weaponTranslations[key as keyof typeof weaponTranslations];
+  if ((skillTranslations as Record<string, string>)[key]) return skillTranslations[key as Skills];
+  if (raceTranslations[key as keyof typeof raceTranslations]) return raceTranslations[key as keyof typeof raceTranslations];
+  if (classTranslations[key as keyof typeof classTranslations]) return classTranslations[key as keyof typeof classTranslations];
+  if (subraceTranslations[key as keyof typeof subraceTranslations]) return subraceTranslations[key as keyof typeof subraceTranslations];
+  if (variantTranslations[key as keyof typeof variantTranslations]) return variantTranslations[key as keyof typeof variantTranslations];
+  if (subclassTranslations[key as keyof typeof subclassTranslations]) return subclassTranslations[key as keyof typeof subclassTranslations];
+  if (sourceTranslations[key as keyof typeof sourceTranslations]) return sourceTranslations[key as keyof typeof sourceTranslations];
+  if (featTranslations[key]) return featTranslations[key];
+  if (toolTranslations[key as keyof typeof toolTranslations]) return toolTranslations[key as keyof typeof toolTranslations];
+  if (armorTypeTranslations[key as keyof typeof armorTypeTranslations]) return armorTypeTranslations[key as keyof typeof armorTypeTranslations];
+  if (weaponTypeTranslations[key as keyof typeof weaponTypeTranslations]) return weaponTypeTranslations[key as keyof typeof weaponTypeTranslations];
+  if (backgroundTranslations[key as keyof typeof backgroundTranslations]) return backgroundTranslations[key as keyof typeof backgroundTranslations];
+  if (spellSchoolTranslations[key as keyof typeof spellSchoolTranslations]) return spellSchoolTranslations[key as keyof typeof spellSchoolTranslations];
+  if (damageTypeTranslations[key as keyof typeof damageTypeTranslations]) return damageTypeTranslations[key as keyof typeof damageTypeTranslations];
+
+  return prettifyEnum(value);
+};
+
+export const formatList = (values?: Array<string | number> | null, fallback = "—") => {
+  if (!values || values.length === 0) return fallback;
+  return values.map((item) => translateValue(item)).join(", ");
+};
+
+export const formatSize = (values?: Size[] | null, fallback = "—") => {
+  if (!values || values.length === 0) return fallback;
+  return values.map((item) => translateValue(item)).join(", ");
+};
+
+export const formatSkillProficiencies = (skills?: SkillProficiencies | null) => {
+  if (!skills) return "—";
+  if (Array.isArray(skills)) {
+    return formatList(skills);
+  }
+
+  const { options, choiceCount, chooseAny } = skills;
+  const count = choiceCount ?? options.length;
+
+  if (chooseAny) {
+    return `Обери будь-які ${count}`;
+  }
+
+  if (!options.length) return `Обери ${count}`;
+  return `Обери ${count}: ${formatList(options)}`;
+};
+
+export const formatToolProficiencies = (tools?: ToolProficiencies | null, chooseCount?: number | null) => {
+  const parts: string[] = [];
+
+  if (tools && tools.length) {
+    parts.push(formatList(tools));
+  }
+
+  if (chooseCount) {
+    parts.push(`Обери ${chooseCount}`);
+  }
+
+  return parts.length ? parts.join(" • ") : "—";
+};
+
+export const formatLanguages = (languages?: Language[] | null, toChoose?: number | null) => {
+  const hasLanguages = languages && languages.length;
+  if (hasLanguages && toChoose) {
+    return `${formatList(languages)} • обери ще ${toChoose}`;
+  }
+  if (hasLanguages) return formatList(languages);
+  if (toChoose) return `Обери ${toChoose}`;
+  return "—";
+};
+
+export const formatWeaponProficiencies = (
+  profs?: WeaponProficiencies | WeaponType[] | WeaponCategory[] | null
+) => {
+  if (!profs) return "—";
+
+  if (Array.isArray(profs)) {
+    return formatList(profs);
+  }
+
+  const parts: string[] = [];
+
+  if (profs.category?.length) {
+    parts.push(formatList(profs.category));
+  }
+  if (profs.type?.length) {
+    parts.push(formatList(profs.type));
+  }
+
+  return parts.length ? parts.join(" • ") : "—";
+};
+
+export const formatArmorProficiencies = (armor?: ArmorType[] | null) => formatList(armor);
+
+export const formatAbilityList = (abilities?: Ability[] | null) => formatList(abilities);
+
+export const formatMulticlassReqs = (reqs?: MulticlassReqs | (MulticlassReqs & { choice?: Ability[] }) | null) => {
+  if (!reqs) return "—";
+
+  const choice = (reqs as any).choice as Ability[] | undefined;
+  const required = (reqs as any).required as Ability[] | undefined;
+
+  if (choice?.length) {
+    return `Характеристика ${reqs.score}+ в одній з: ${formatList(choice)}`;
+  }
+
+  if (required?.length) {
+    return `Характеристика ${reqs.score}+ у: ${formatList(required)}`;
+  }
+
+  return `Потрібно ${reqs.score}+ у характеристиці`;
+};
+
+export const formatRaceAC = (ac?: any | null) => {
+  if (!ac) return "10";
+  if ("consistentBonus" in ac) {
+    return `+${ac.consistentBonus} до КБ`;
+  }
+  const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
+  return `База ${ac.base}${bonus}`;
+};
+
+export const formatASI = (asi?: any | null) => {
+  if (!asi) return "—";
+
+  const fixedEntries = Object.entries(asi.basic?.simple || {});
+  const basicFlexible = asi.basic?.flexible?.groups || [];
+  const tashaFlexible = asi.tasha?.flexible?.groups || [];
+
+  const parts: string[] = [];
+
+  if (fixedEntries.length) {
+    parts.push(
+      `Фіксовано: ${fixedEntries
+        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
+        .join(", ")}`
+    );
+  }
+
+  if (basicFlexible.length) {
+    parts.push(
+      `Гнучко: ${basicFlexible
+        .map(
+          (group: any) =>
+            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
+        )
+        .join("; ")}`
+    );
+  }
+
+  if (tashaFlexible.length) {
+    parts.push(
+      `За Та́шею: ${tashaFlexible
+        .map(
+          (group: any) =>
+            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
+        )
+        .join("; ")}`
+    );
+  }
+
+  return parts.join(" • ") || "—";
+};
+
+export const formatSpeeds = (entity: any) => {
+  const speeds = [
+    { label: "Ходьба", value: entity.speed },
+    { label: "Лазіння", value: entity.climbSpeed },
+    { label: "Плавання", value: entity.swimSpeed },
+    { label: "Політ", value: entity.flightSpeed },
+    { label: "Риття", value: entity.burrowSpeed },
+  ].filter((item) => (item.value ?? 0) > 0 || item.label === "Ходьба");
+
+  return speeds
+    .map((item) => `${item.label}: ${item.value} фт`)
+    .join(" • ");
+};
+</file>
+
+<file path="src/lib/components/characterCreator/SkillsForm.tsx">
+import {skillsSchema} from "@/lib/zod/schemas/persCreateSchema";
+import {useStepForm} from "@/hooks/useStepForm";
+import {BackgroundI, ClassI, RaceI, SkillProficiencies, SkillProficienciesChoice} from "@/lib/types/model-types";
+import {useEffect, useMemo} from "react";
+import {engEnumSkills} from "@/lib/refs/translation";
+import {RaceVariant, Skills} from "@prisma/client";
+import {Skill, SkillsEnum} from "@/lib/types/enums";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Check, Lock } from "lucide-react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+
+interface Props {
+  race: RaceI
+  raceVariant?: RaceVariant | null
+  selectedClass: ClassI
+  background: BackgroundI
+  formId: string
+  onNextDisabledChange?: (disabled: boolean) => void
+}
+
+type GroupName = 'race' | 'selectedClass';
+
+function isSkill(value: unknown): value is Skill {
+  return typeof value === "string" && (SkillsEnum as readonly string[]).includes(value)
+}
+
+function normalizeSkillProficiencies(value: unknown): SkillProficiencies | null {
+  if (!value) return null
+
+  if (Array.isArray(value)) {
+    return value.filter(isSkill) as unknown as SkillProficiencies
+  }
+
+  if (typeof value === "object") {
+    const maybe = value as { options?: unknown; choiceCount?: unknown; chooseAny?: unknown }
+    if (typeof maybe.choiceCount === "number" && Array.isArray(maybe.options)) {
+      const options = maybe.options.filter(isSkill)
+      const chooseAny = typeof maybe.chooseAny === "boolean" ? maybe.chooseAny : undefined
+      return { options, choiceCount: maybe.choiceCount, chooseAny }
+    }
+  }
+
+  return null
+}
+
+function getSkillProficienciesCount(skillProfs: SkillProficiencies | null): number {
+  if (!skillProfs) return 0;
+
+  if (Array.isArray(skillProfs)) return skillProfs.length
+
+  return skillProfs.choiceCount
+}
+
+function getTotalSkillProficienciesCount(
+  {raceCount, classCount, backgroundCount, subraceCount, variantCount}: { 
+    raceCount: number, 
+    classCount: number, 
+    backgroundCount: number,
+    subraceCount: number,
+    variantCount: number
+  }
+): number {
+  return raceCount + classCount + backgroundCount + subraceCount + variantCount
+}
+
+interface hasSkills {
+  skillProficiencies: SkillProficiencies | null
+}
+
+function populateSkills<T extends hasSkills>(model: T) {
+  if (model.skillProficiencies && !Array.isArray(model.skillProficiencies)) {
+    model.skillProficiencies.options = [...SkillsEnum]
+  }
+}
+
+export const SkillsForm = ({race, raceVariant, selectedClass, background, formId, onNextDisabledChange}: Props) => {
+  const { formData, updateFormData, nextStep } = usePersFormStore();
+  
+  // Get selected subrace from formData
+  const selectedSubrace = useMemo(() => {
+    if (!formData.subraceId) return null;
+    return race.subraces?.find(sr => sr.subraceId === formData.subraceId);
+  }, [formData.subraceId, race.subraces]);
+  
+  // Calculate fixed skills from race/background/subrace
+  const fixedSkillsFromRaceAndBackground = useMemo(() => {
+    const skills = new Set<Skill>();
+    
+    // Background fixed skills
+    if (Array.isArray(background.skillProficiencies)) {
+      background.skillProficiencies.forEach(s => skills.add(s));
+    }
+    
+    // Race fixed skills
+    if (Array.isArray(race.skillProficiencies)) {
+      race.skillProficiencies.forEach(s => skills.add(s));
+    }
+    
+    // Subrace fixed skills
+    if (selectedSubrace && Array.isArray(selectedSubrace.skillProficiencies)) {
+      selectedSubrace.skillProficiencies.forEach((s) => {
+        if (isSkill(s)) skills.add(s)
+      });
+    }
+    
+    return Array.from(skills);
+  }, [background, race, selectedSubrace]);
+  
+  // Custom submit handler to build skills array
+  const {form, onSubmit: baseOnSubmit} = useStepForm(skillsSchema, (data) => {
+    // Build flat skills array from schema data
+    const allSkills = new Set<string>();
+    
+    if (data.isTasha) {
+      // In Tasha mode, tashaChoices already contains ALL selected skills (no fixed skills - they become choices)
+      data.tashaChoices.forEach(s => allSkills.add(s));
+    } else {
+      // In basic mode, combine fixed race/background skills + class choices
+      
+      // Add fixed background skills
+      if (Array.isArray(background.skillProficiencies)) {
+        background.skillProficiencies.forEach(s => allSkills.add(s));
+      }
+      
+      // Add fixed race skills
+      if (Array.isArray(race.skillProficiencies)) {
+        race.skillProficiencies.forEach(s => allSkills.add(s));
+      }
+      
+      // Add subrace fixed skills
+      const selectedSubrace = race.subraces?.find(sr => sr.subraceId === formData.subraceId);
+      if (selectedSubrace && Array.isArray(selectedSubrace.skillProficiencies)) {
+        selectedSubrace.skillProficiencies.forEach((s) => {
+          if (isSkill(s)) allSkills.add(s)
+        });
+      }
+      
+      // Add class choices (user-selected)
+      data.basicChoices.selectedClass.forEach(s => allSkills.add(s));
+    }
+    
+    // Save both skillsSchema AND flat skills array
+    const skillsArray = Array.from(allSkills);
+    
+    updateFormData({
+      skillsSchema: data,
+      skills: skillsArray
+    });
+    
+    nextStep();
+  });
+
+  populateSkills<typeof race>(race)
+
+  useEffect(() => {
+    form.register('basicChoices')
+    form.register('basicChoices.race')
+    form.register('basicChoices.selectedClass')
+    form.register('tashaChoices')
+    form.register('isTasha')
+    form.register('_requiredCount')
+    form.register('_raceCount')
+    form.register('_classCount')
+  }, [form])
+
+  const isTasha = form.watch('isTasha') ?? true
+  const tashaChoices = form.watch('tashaChoices') || []
+  const basicChoices = form.watch('basicChoices') ?? {
+    race: [],
+    selectedClass: [],
+  }
+
+  // Skills shown as "locked" in UI - only in non-Tasha mode
+  const lockedSkillsInUI = useMemo(() => {
+    if (isTasha) return []; // In Tasha mode, NO skills are locked in UI (they become free choices)
+    return fixedSkillsFromRaceAndBackground; // In non-Tasha mode, these are locked
+  }, [isTasha, fixedSkillsFromRaceAndBackground]);
+
+  const raceSkillProficiencies = useMemo(() => {
+    if (raceVariant?.name === 'HUMAN_VARIANT') {
+      // Variant Human gets 1 skill of choice
+      return {
+        choiceCount: 1,
+        options: [...SkillsEnum]
+      } as SkillProficienciesChoice;
+    }
+    return race.skillProficiencies;
+  }, [race, raceVariant]);
+
+  const raceCount = getSkillProficienciesCount(raceSkillProficiencies)
+  const classCount = getSkillProficienciesCount(selectedClass.skillProficiencies)
+  const backgroundCount = getSkillProficienciesCount(background.skillProficiencies)
+  const subraceCount = getSkillProficienciesCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
+  const variantCount = 0
+
+  // In Tasha mode, ALL skills (including fixed ones) become free choices in ONE pool
+  const tashaChoiceCountTotal = isTasha 
+    ? getTotalSkillProficienciesCount({
+        raceCount,
+        classCount,
+        backgroundCount,
+        subraceCount,
+        variantCount
+      })
+    : 0;
+    
+  const tashaChoiceCountCurrent = tashaChoiceCountTotal - (tashaChoices?.length ?? 0)
+
+  const basicCounts = {
+    race: raceCount - (basicChoices?.race?.length ?? 0),
+    selectedClass: classCount - (basicChoices?.selectedClass?.length ?? 0)
+  }
+
+  const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
+
+  const skillsByGroup = {
+    race: raceSkillProficiencies as SkillProficienciesChoice,
+    selectedClass: selectedClass.skillProficiencies as SkillProficienciesChoice,
+  }
+
+  const checkIfSelectedByOthers = (groupName: GroupName, skill: Skill) => {
+    // Check if skill is in fixed granted skills
+    if (fixedSkillsFromRaceAndBackground.includes(skill)) return true;
+    
+    const allSkillGroups = {
+      background: background.skillProficiencies,
+      race: Array.isArray(race.skillProficiencies)
+        ? race.skillProficiencies
+        : basicChoices.race,
+      selectedClass: basicChoices.selectedClass
+    }
+    delete allSkillGroups[groupName]
+
+    return Object.values(allSkillGroups).some(value =>
+      Array.isArray(value)
+        ? value.includes(skill)
+        : value?.options?.includes(skill)
+    )
+  }
+
+  // Set validation metadata fields
+  useEffect(() => {
+    if (isTasha) {
+      form.setValue('_requiredCount', tashaChoiceCountTotal);
+      form.setValue('_raceCount', undefined);
+      form.setValue('_classCount', undefined);
+    } else {
+      form.setValue('_requiredCount', undefined);
+      form.setValue('_raceCount', raceCount);
+      form.setValue('_classCount', classCount);
+    }
+  }, [isTasha, tashaChoiceCountTotal, raceCount, classCount, form]);
+
+  // Update button state based on form validity
+  useEffect(() => {
+    // Skills selection is optional: allow continuing even if not all picks are filled.
+    // We only guard against impossible states (over the computed limit), but UI already prevents that.
+    const isOverLimit = isTasha
+      ? tashaChoices.length > tashaChoiceCountTotal
+      : (basicChoices.selectedClass ?? []).length > classCount;
+
+    onNextDisabledChange?.(isOverLimit);
+  }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, onNextDisabledChange]);
+
+  const handleToggleTashaSkill = (skill: Skill) => {
+    const has = tashaChoices.includes(skill)
+
+    // Can't select if already at limit and not currently selected
+    if (!has && tashaChoiceCountCurrent < 1) return;
+
+    const updated = has
+      ? tashaChoices.filter(c => c !== skill)
+      : [...tashaChoices, skill]
+
+    form.setValue('tashaChoices', updated)
+  }
+
+  const handleToggleBasicSkill = ({skill, groupName}: { skill: Skill, groupName: GroupName }) => {
+    const current = basicChoices[groupName] ?? []
+    const has = current.includes(skill)
+
+    if (!has && basicCounts[groupName] < 1) return;
+
+    const updated = has
+      ? current.filter(c => c !== skill)
+      : [...current, skill]
+
+    form.setValue(`basicChoices.${groupName}`, updated)
+  }
+
+  return (
+    <form id={formId} onSubmit={baseOnSubmit} className="w-full space-y-4">
+      <Card className="shadow-xl">
+        <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <CardTitle className="text-white">Навички</CardTitle>
+          </div>
+          <div className="flex items-center gap-3">
+            <Switch
+              id="isTasha"
+              checked={isTasha}
+              onCheckedChange={(checked) => form.setValue('isTasha', checked)}
+            />
+            <Label htmlFor="isTasha" className="text-slate-200">Правила Таші</Label>
+            <Badge className="border border-white/15 bg-white/5 text-slate-200">Гнучкий режим</Badge>
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-4">
+          {isTasha ? (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300">
+                <span>Можна обрати ще</span>
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-white">
+                  {tashaChoiceCountCurrent}
+                </Badge>
+              </div>
+              
+              {/* In Tasha mode, NO fixed skills section - all become choices */}
+              <p className="text-xs text-slate-400 px-2">
+                🌟 Режим Таші: всі навички від раси, підраси та передісторії тепер доступні для вільного вибору
+              </p>
+              
+              <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+                {engEnumSkills.map((skill, index) => {
+                  const isSelected = tashaChoices.includes(skill.eng);
+                  const isReachedLimit = tashaChoiceCountCurrent < 1;
+                  const isDisabled = !isSelected && isReachedLimit;
+                  const active = isSelected;
+                  
+                  return (
+                    <Button
+                      key={index}
+                      type="button"
+                      variant="outline"
+                      disabled={isDisabled}
+                      className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${
+                        active ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : ""
+                      } ${isDisabled ? "opacity-60" : ""}`}
+                      onClick={() => handleToggleTashaSkill(skill.eng)}
+                    >
+                      <span>{skill.ukr}</span>
+                      {active && <Check className="h-4 w-4" />}
+                    </Button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-5">
+              {/* Show fixed skills from background/race/subrace in NON-Tasha mode */}
+              {lockedSkillsInUI.length > 0 && (
+                <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Lock className="h-4 w-4 text-amber-400" />
+                    <h3 className="text-sm font-semibold text-amber-200">Фіксовані навички</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {lockedSkillsInUI.map((skill) => {
+                      const skillGroup = engEnumSkills.find((s) => s.eng === skill);
+                      return (
+                        <Badge key={skill} className="bg-amber-900/30 text-amber-100 border border-amber-700/50">
+                          {skillGroup?.ukr}
+                        </Badge>
+                      );
+                    })}
+                  </div>
+                  <p className="text-xs text-amber-300/70 mt-2">
+                    Ці навички автоматично отримані від раси та передісторії
+                  </p>
+                </div>
+              )}
+
+              {entries.map(([groupName, choices], index) => (
+                <div key={index} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
+                  {skillsByGroup[groupName]?.options && (
+                    <div className="flex items-center justify-between text-sm text-slate-300">
+                      <div className="font-semibold text-white">
+                        {groupName === 'race' ? 'Навички за расу' : 'Навички за клас'}
+                      </div>
+                      <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
+                    </div>
+                  )}
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {(skillsByGroup[groupName]?.options ?? []).map((skill, skillIndex) => {
+                      const skillGroup = engEnumSkills.find((s) => s.eng === skill)
+                      if (!skillGroup) return null;
+                      const isSelected = (choices ?? []).includes(skill)
+                      const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
+                      const isMaxReached = basicCounts[groupName] < 1;
+                      const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
+                      const active = isSelected || isSelectedByOthers;
+                      
+                      return (
+                        <Button
+                          key={skillIndex}
+                          type="button"
+                          variant="outline"
+                          disabled={isDisabled}
+                          className={`justify-between ${
+                            isSelectedByOthers 
+                              ? "bg-white/3 text-slate-400 border-white/10 cursor-not-allowed" 
+                              : active 
+                                ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-slate-100" 
+                                : "border-white/15 bg-white/5 text-slate-200"
+                          } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
+                          onClick={() => !isSelectedByOthers && handleToggleBasicSkill({
+                            skill: Skills[skillGroup.eng],
+                            groupName: groupName
+                          })}
+                        >
+                          <span className="flex items-center gap-2">
+                            {isSelectedByOthers && <Lock className="h-3 w-3" />}
+                            {skillGroup.ukr}
+                          </span>
+                          {active && !isSelectedByOthers && <Check className="h-4 w-4" />}
+                          {isSelectedByOthers && <span className="text-xs opacity-70">(вже обрано)</span>}
+                        </Button>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </form>
+  )
+};
+
+export default SkillsForm
 </file>
 
 <file path="src/lib/refs/translation.ts">
@@ -39514,6 +39505,9 @@ export const raceTranslations = {
   ORC_2024: "Орк",
   TIEFLING_2024: "Тифлінг",
   DRAGONBORN_2014: "Дракононароджений",
+  DRAGONBORN_CHROMATIC: "Дракононароджений (хроматичний)",
+  DRAGONBORN_METALLIC: "Дракононароджений (металічний)",
+  DRAGONBORN_GEM: "Дракононароджений (самоцвітний)",
   DWARF_2014: "Дворф",
   ELF_2014: "Ельф",
   GNOME_2014: "Гном",
@@ -39592,6 +39586,9 @@ export const raceTranslationsEng = {
   ORC_2024: "Orc",
   TIEFLING_2024: "Tiefling",
   DRAGONBORN_2014: "Dragonborn",
+  DRAGONBORN_CHROMATIC: "Dragonborn (Chromatic)",
+  DRAGONBORN_METALLIC: "Dragonborn (Metallic)",
+  DRAGONBORN_GEM: "Dragonborn (Gem)",
   DWARF_2014: "Dwarf",
   ELF_2014: "Elf",
   GNOME_2014: "Gnome",
@@ -39685,6 +39682,7 @@ export const variantTranslations = {
   HALFLING_MARK_OF_HOSPITALITY_EBERRON: "Напіврослик (Мітка Гостинності)",
   GNOME_MARK_OF_SCRIBING_EBERRON: "Гном (Мітка Письма)",
   HUMAN_MARK_OF_FINDING_EBERRON: "Людина (Мітка Пошуку)",
+  HALF_ORC_MARK_OF_FINDING_EBERRON: "Напіворк (Мітка Пошуку)",
   HUMAN_MARK_OF_HANDLING_EBERRON: "Людина (Мітка Поводження)",
   HUMAN_MARK_OF_MAKING_EBERRON: "Людина (Мітка Створення)",
   HUMAN_MARK_OF_PASSAGE_EBERRON: "Людина (Мітка Переходу)",
@@ -39719,6 +39717,7 @@ export const variantTranslationsEng = {
   HALFLING_MARK_OF_HOSPITALITY_EBERRON: "Halfling (Mark of Hospitality)",
   GNOME_MARK_OF_SCRIBING_EBERRON: "Gnome (Mark of Scribing)",
   HUMAN_MARK_OF_FINDING_EBERRON: "Human (Mark of Finding)",
+  HALF_ORC_MARK_OF_FINDING_EBERRON: "Half-Orc (Mark of Finding)",
   HUMAN_MARK_OF_HANDLING_EBERRON: "Human (Mark of Handling)",
   HUMAN_MARK_OF_MAKING_EBERRON: "Human (Mark of Making)",
   HUMAN_MARK_OF_PASSAGE_EBERRON: "Human (Mark of Passage)",
@@ -43082,453 +43081,543 @@ datasource db {
 }
 </file>
 
-<file path="src/lib/components/characterCreator/EntityInfoDialog.tsx">
+<file path="src/lib/components/characterCreator/MultiStepForm.tsx">
 "use client";
 
-import { ReactNode } from "react";
-import { CircleHelp } from "lucide-react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import type { Weapon, Feat } from "@prisma/client";
+import RacesForm from "@/lib/components/characterCreator/RacesForm";
+import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
+import {usePersFormStore} from "@/lib/stores/persFormStore";
+import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
+import BackgroundsForm from "@/lib/components/characterCreator/BackgroundsForm";
+import ASIForm from "@/lib/components/characterCreator/ASIForm";
+import SkillsForm from "@/lib/components/characterCreator/SkillsForm";
+import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
+import EquipmentForm from "@/lib/components/characterCreator/EquipmentForm";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Check, ChevronLeft, Circle } from "lucide-react";
+import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
 import clsx from "clsx";
+import NameForm from "@/lib/components/characterCreator/NameForm";
+import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
+import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
+import ClassOptionalFeaturesForm from "@/lib/components/characterCreator/ClassOptionalFeaturesForm";
+import SubracesForm from "@/lib/components/characterCreator/SubracesForm";
+import RaceVariantsForm from "@/lib/components/characterCreator/RaceVariantsForm";
+import RaceChoiceOptionsForm from "@/lib/components/characterCreator/RaceChoiceOptionsForm";
+import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
+import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
+import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/lib/components/ui/dialog";
-import { Button } from "@/lib/components/ui/Button";
-
-export const InfoDialogContent = ({
-  title,
-  subtitle,
-  children,
-  className,
-}: {
-  title: string;
-  subtitle?: string;
-  children: ReactNode;
-  className?: string;
-}) => {
-  return (
-    <DialogContent
-      className={clsx(
-        "max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto bg-slate-900/95 backdrop-blur-2xl border border-indigo-500/30 shadow-[0_0_50px_-10px_rgba(79,70,229,0.5)] rounded-2xl p-6",
-        className
-      )}
-    >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent shadow-[0_0_10px_indigo]" />
-
-      <DialogHeader className="space-y-3 pb-4 border-b border-indigo-500/20">
-        <DialogTitle className="text-2xl font-bold tracking-wide text-indigo-100 drop-shadow-md">
-          {title}
-        </DialogTitle>
-        {subtitle && (
-          <DialogDescription className="text-sm text-indigo-200/70 font-medium">
-            {subtitle}
-          </DialogDescription>
-        )}
-      </DialogHeader>
-
-      <div className="pt-4 space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">{children}</div>
-    </DialogContent>
-  );
-};
-
-interface InfoDialogProps {
-  title: string;
-  subtitle?: string;
-  triggerLabel: string;
-  triggerClassName?: string;
-  children: ReactNode;
-}
-
-export const InfoDialog = ({
-  title,
-  subtitle,
-  triggerLabel,
-  triggerClassName,
-  children,
-}: InfoDialogProps) => {
-  return (
-    <Dialog>
-      <div 
-        onClick={(e) => {
-          // Блокуємо поширення до картки, але НЕ preventDefault!
-          e.stopPropagation();
-        }}
-        className={clsx(
-          "absolute -right-2.5 -top-2.5 z-[50] sm:-right-3 sm:-top-3",
-          triggerClassName
-        )}
-      >
-        <DialogTrigger asChild>
-          <Button
-            type="button"
-            size="icon"
-            variant="secondary"
-            className="h-9 w-9 rounded-full border border-indigo-500/50 bg-slate-900/90 text-indigo-100 shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:text-white focus-visible:ring-indigo-400"
-            aria-label={triggerLabel}
-          >
-            <CircleHelp className="h-5 w-5" />
-          </Button>
-        </DialogTrigger>
-      </div>
-      
-      <InfoDialogContent title={title} subtitle={subtitle}>
-        {children}
-      </InfoDialogContent>
-    </Dialog>
-  );
-};
-
-export const ControlledInfoDialog = ({
-  open,
-  onOpenChange,
-  title,
-  subtitle,
-  children,
-  contentClassName,
-}: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  title: string;
-  subtitle?: string;
-  children: ReactNode;
-  contentClassName?: string;
-}) => {
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <InfoDialogContent title={title} subtitle={subtitle} className={contentClassName}>
-        {children}
-      </InfoDialogContent>
-    </Dialog>
-  );
-};
-
-export const InfoGrid = ({ children }: { children: ReactNode }) => (
-  <div className="grid gap-2 sm:grid-cols-2">{children}</div>
-);
-
-export const InfoPill = ({
-  label,
-  value,
-}: {
-  label: string;
-  value: ReactNode;
-}) => {
-  if (!value || value === "—") return null;
-  
-  return (
-    <div className="rounded-lg bg-indigo-500/10 border border-indigo-500/20 px-3 py-2">
-      <p className="text-[11px] uppercase tracking-[0.14em] text-indigo-400">
-        {label}
-      </p>
-      <div className="text-sm font-semibold leading-tight text-indigo-200">
-        {value}
-      </div>
-    </div>
-  );
-};
-
-export const InfoSectionTitle = ({ children }: { children: ReactNode }) => (
-  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-400">
-    {children}
-  </p>
-);
-
-export default InfoDialog;
-</file>
-
-<file path="src/lib/components/characterCreator/EquipmentForm.tsx">
-import {equipmentSchema} from "@/lib/zod/schemas/persCreateSchema";
-import {useStepForm} from "@/hooks/useStepForm";
-import {ClassI, RaceI} from "@/lib/types/model-types";
-import {useEffect, useMemo, useState} from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { ClassStartingEquipmentOption, Weapon, WeaponType } from "@prisma/client";
-import {groupBy} from "@/lib/server/formatters/generalFormatters";
-import { Card, CardContent, CardHeader, CardTitle } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/lib/components/ui/dialog";
-import { Button } from "@/lib/components/ui/Button";
-import { Tabs, TabsList, TabsTrigger } from "@/lib/components/ui/tabs";
-import { WeaponKindType } from "@/lib/types/enums";
-import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
+import { createCharacter } from "@/lib/actions/character";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 
 interface Props {
-  race: RaceI
-  selectedClass: ClassI
-  weapons: Weapon[]
-  formId: string
-  onNextDisabledChange?: (disabled: boolean) => void
+  races: RaceI[]
+  classes: ClassI[],
+  backgrounds: BackgroundI[],
+  weapons: Weapon[],
+  feats: FeatPrisma[],
 }
 
-const constToCamel: Record<string, WeaponKindType> = {
-  SIMPLE_WEAPON: "meleeSimple", 
-  MARTIAL_WEAPON: "meleeMartial",  
-}
+export const MultiStepForm = (
+  {
+    races,
+    classes,
+    backgrounds,
+    weapons,
+    feats,
+  }: Props
+) => {
+  const {
+    currentStep,
+    prevStep,
+    resetForm,
+    formData,
+    prevRaceId,
+    setPrevRaceId,
+    setCurrentStep,
+    setTotalSteps,
+    isHydrated,
+  } = usePersFormStore()
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
+  const [nextDisabled, setNextDisabled] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
-export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledChange}: Props) => {
-  const { updateFormData, nextStep } = usePersFormStore();
-  
-  const {form, onSubmit} = useStepForm(equipmentSchema, (data) => {
-    updateFormData({ equipmentSchema: data });
-    nextStep();
-  });
+  const handleNextDisabledChange = useCallback((disabled: boolean) => {
+    setNextDisabled(disabled);
+  }, []);
 
-  const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
-  const anyWeaponSelection = form.watch('anyWeaponSelection') as Record<string, number[]>
+  const handleFinalSubmit = async () => {
+    setIsSubmitting(true);
+    try {
+      // We need to ensure formData has the latest name update, which happens in NameForm's onSubmit
+      // But handleFinalSubmit is called AS the success callback of NameForm, so formData might not be updated yet in the store?
+      // Actually, useStepForm calls updateFormData BEFORE calling onSuccess.
+      // So formData in store should be up to date?
+      // Wait, zustand updates are synchronous usually, but React state updates are batched.
+      // However, we are reading from `formData` which is a const from `usePersFormStore()`.
+      // This might be stale in the closure.
+      // Better to use `usePersFormStore.getState().formData`.
+      
+      const currentData = usePersFormStore.getState().formData as PersFormData;
+      
+      const result = await createCharacter(currentData);
 
-  const choiceGroups = selectedClass.startingEquipmentOption
-  const choiceGroupsGroupedRaw = groupBy(choiceGroups, group => group.choiceGroup)
-  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = useMemo(() => ({}), []); // HERE
-
-  for (const [choiceGroup, group] of Object.entries(choiceGroupsGroupedRaw)) {
-      choiceGroupsGrouped[choiceGroup] = groupBy(group, g => g.option)
-  }
-
-  const meleeSimple = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const meleeMartial = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  
-  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const rangedMartial= useMemo(() => weapons.filter(w => w.isRanged && (w.weaponType === WeaponType.MARTIAL_WEAPON || (w.weaponType === WeaponType.FIREARMS && !w.isAdditional))).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const firearmsAdditional = useMemo(() => weapons.filter(w => w.isRanged && w.isAdditional).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const weaponsByKind = useMemo(() => ({
-    'meleeSimple': meleeSimple,
-    'meleeMartial': meleeMartial,
-    'rangedSimple': rangedSimple,
-    'rangedMartial': rangedMartial,
-    'firearmsAdditional': firearmsAdditional
-  }), 
-  [meleeSimple, meleeMartial, rangedSimple, rangedMartial, firearmsAdditional])
-
-  const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
-  const [weaponDialogIsMartial, setWeaponDialogIsMartial] = useState(false);
-  const [weaponDialogGroup, setWeaponDialogGroup] = useState<string | null>(null);
-  const [weaponDialogIndex, setWeaponDialogIndex] = useState<number>(0);
-  const [weaponFilter, setWeaponFilter] = useState<WeaponKindType | undefined>(() => {
-    const weaponType = choiceGroups.find(g => g.chooseAnyWeapon)?.weaponType;
-    return weaponType 
-      ? constToCamel[weaponType]
-      : undefined;
-  });
-  const [selectedWeaponId, setSelectedWeaponId] = useState<number | null>(null);
-
-  const chooseOption = (optionGroup: ClassStartingEquipmentOption[]) => {
-    const choiceGroup = optionGroup[0].choiceGroup
-    const newOptions = optionGroup.map(g => g.optionId)
-
-    form.setValue(`choiceGroupToId.${choiceGroup}`, newOptions, { shouldDirty: true });
-
-    if (weaponFilter) {
-      const weaponCount = optionGroup[0]?.weaponCount ?? 1;
-      const existing = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
-      const defaults = weaponsByKind[weaponFilter]
-        .slice(0, weaponCount)
-        .map(w => w.weaponId);
-      const fallback = weaponsByKind[weaponFilter][0]?.weaponId ?? weapons[0]?.weaponId;
-      const selection = Array.from({ length: weaponCount }, (_, idx) => existing[idx] ?? defaults[idx] ?? fallback).filter((id): id is number => typeof id === 'number');
-      form.setValue(`anyWeaponSelection.${choiceGroup}`, selection, { shouldDirty: true });
+      if (result.error) {
+        toast.error("Помилка створення", {
+          description: result.error
+        });
+        if (result.details) {
+            console.error(result.details);
+        }
+      } else if (result.success) {
+        toast.success("Персонажа створено!");
+        resetForm();
+        router.push(`/pers/${result.persId}`);
+      }
+    } catch (e) {
+      toast.error("Щось пішло не так...");
+      console.error(e);
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
-  const openWeaponDialog = (choiceGroup: string, isMartial: boolean, weaponIndex: number) => {
-    if (!weaponFilter) return;
-    setWeaponDialogIndex(weaponIndex);
-    setWeaponDialogGroup(choiceGroup);
-    const currentWeapons = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
-    const fallback = weaponsByKind[weaponFilter][weaponIndex]?.weaponId ?? weaponsByKind[weaponFilter][0]?.weaponId ?? null;
-    setSelectedWeaponId(currentWeapons[weaponIndex] ?? fallback);
-    setWeaponDialogOpen(true);
-    setWeaponDialogIsMartial(isMartial);
-  }
+  const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
+  const cls = useMemo(() => classes.find(c => c.classId === formData.classId) as ClassI, [classes, formData.classId])
+  const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
+  const hasLevelOneChoices = useMemo(
+    () => Boolean(cls?.classChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
+    [cls]
+  );
+  const hasLevelOneOptionalFeatures = useMemo(
+    () => Boolean(cls?.classOptionalFeatures?.some((opt) => (opt.grantedOnLevels || []).includes(1))),
+    [cls]
+  );
+  const hasSubraces = useMemo(() => (race?.subraces?.length ?? 0) > 0, [race]);
+  const hasRaceVariants = useMemo(() => (race?.raceVariants?.length ?? 0) > 0, [race]);
+  const hasRaceChoiceOptions = useMemo(() => (race as any)?.raceChoiceOptions?.length > 0, [race]);
+  const raceVariant = useMemo(() => 
+    race?.raceVariants?.find(v => v.raceVariantId === formData.raceVariantId), 
+    [race, formData.raceVariantId]
+  );
+  const hasFeatChoice = useMemo(() => {
+    return raceVariant?.name === 'HUMAN_VARIANT';
+  }, [raceVariant]);
+  const feat = useMemo(() => feats.find(f => f.featId === formData.featId), [feats, formData.featId]);
+  const hasFeatChoices = useMemo(() => (feat?.featChoiceOptions?.length ?? 0) > 0, [feat]);
 
-  const saveWeaponSelection = () => {
-    if (!weaponDialogGroup || selectedWeaponId == null) {
-      setWeaponDialogOpen(false);
+  const hasSubclasses = useMemo(() => {
+    if (!cls) return false;
+    const allowedClasses = ["CLERIC_2014", "WARLOCK_2014", "SORCERER_2014"];
+    return allowedClasses.includes(cls.name) && (cls.subclasses?.length ?? 0) > 0;
+  }, [cls]);
+
+  const hasExpertiseChoice = useMemo(() => {
+    if (!cls) return false;
+    return cls.features.some(f => 
+      f.levelGranted === 1 && 
+      (f.feature.skillExpertises as any)?.count > 0
+    );
+  }, [cls]);
+
+  const steps = useMemo(() => {
+    const dynamicSteps: { id: string; name: string; component: string }[] = [
+      { id: "race", name: "Раса", component: "races" },
+    ];
+
+    if (hasSubraces) {
+      dynamicSteps.push({ id: "subrace", name: "Підраса", component: "subrace" });
+    }
+    if (hasRaceVariants) {
+      dynamicSteps.push({ id: "raceVariant", name: "Варіант раси", component: "raceVariant" });
+    }
+
+    if (hasRaceChoiceOptions) {
+      dynamicSteps.push({ id: "raceChoices", name: "Опції раси", component: "raceChoices" });
+    }
+
+    dynamicSteps.push({ id: "class", name: "Клас", component: "class" });
+
+    if (hasSubclasses) {
+      dynamicSteps.push({ id: "subclass", name: "Підклас", component: "subclass" });
+    }
+
+    if (hasLevelOneChoices) {
+      dynamicSteps.push({ id: "classChoices", name: "Опції класу", component: "classChoices" });
+    }
+
+    if (hasLevelOneOptionalFeatures) {
+      dynamicSteps.push({ id: "classOptional", name: "Додаткові риси", component: "classOptional" });
+    }
+
+    dynamicSteps.push(
+      { id: "background", name: "Передісторія", component: "background" },
+      { id: "asi", name: "Характеристики", component: "asi" },
+      { id: "skills", name: "Навички", component: "skills" },
+    );
+
+    if (hasExpertiseChoice) {
+      dynamicSteps.push({ id: "expertise", name: "Експертиза", component: "expertise" });
+    }
+
+    // MOVED: Feat selection AFTER skills and expertise
+    if (hasFeatChoice) {
+      dynamicSteps.push({ id: "feat", name: "Риса", component: "feat" });
+    }
+    if (hasFeatChoices) {
+      dynamicSteps.push({ id: "featChoices", name: "Опції риси", component: "featChoices" });
+    }
+
+    dynamicSteps.push(
+      { id: "equipment", name: "Спорядження", component: "equipment" },
+      { id: "name", name: "Імʼя", component: "name" },
+    );
+
+    return dynamicSteps;
+  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures, hasSubraces, hasRaceVariants, hasRaceChoiceOptions, hasSubclasses, hasFeatChoice, hasFeatChoices, hasExpertiseChoice]);
+
+  useEffect(() => {
+    const total = steps.length;
+    setTotalSteps(total);
+    
+    // DON'T reset currentStep if:
+    // 1. Store hasn't hydrated yet (data still loading from localStorage)
+    // 2. formData suggests user has progressed beyond what steps currently show
+    //    (e.g. user has featId but steps don't include feat step yet)
+    
+    if (!isHydrated) {
+      // Wait for hydration to complete before adjusting steps
       return;
     }
-    const currentWeapons = (form.getValues(`anyWeaponSelection.${weaponDialogGroup}`) as number[] | undefined) ?? [];
-    const updatedWeapons = [...currentWeapons];
-    updatedWeapons[weaponDialogIndex] = selectedWeaponId;
-    form.setValue(`anyWeaponSelection.${weaponDialogGroup}`, updatedWeapons, { shouldDirty: true });
-    setWeaponDialogOpen(false);
-  }
+    
+    // Check if formData has critical fields that suggest more steps should exist
+    const hasProgressedData = 
+      formData.raceId || 
+      formData.classId || 
+      formData.backgroundId ||
+      formData.featId ||
+      formData.skills?.length ||
+      formData.name;
+    
+    // Only reduce currentStep if we're confident steps calculation is accurate
+    // If user has data but steps is short, it means dependencies (race/class) aren't loaded yet
+    if (currentStep > total) {
+      // If user has formData but steps seem incomplete, DON'T reset yet
+      if (hasProgressedData && total < 8) {
+        // Likely still initializing - wait for races/classes to load
+        console.log('[MultiStepForm] Waiting for data to load before adjusting currentStep');
+        return;
+      }
+      
+      // Safe to reset - either no data, or steps calculation is complete
+      setCurrentStep(total);
+    }
+  }, [steps, currentStep, isHydrated, formData, setCurrentStep, setTotalSteps]);
 
-  useEffect(() => {
-    if (!weaponFilter) return;
-    const list = weaponsByKind[weaponFilter]
-    if (selectedWeaponId != null && list?.some(w => w.weaponId === selectedWeaponId)) return;
-    const fallback = list[0]?.weaponId ?? weapons[0]?.weaponId ?? null;
-    setSelectedWeaponId(fallback);
-  }, [weaponFilter, weaponsByKind, selectedWeaponId, weapons]);
+  const renderStep = () => {
+    const activeComponent = steps[currentStep - 1]?.component;
 
-  useEffect(() => {
-    form.register("choiceGroupToId");
-    form.register("anyWeaponSelection");
-  }, [form]);
-
-  useEffect(() => {
-    onNextDisabledChange?.(false);
-  }, [onNextDisabledChange]);
-
-  useEffect(() => {
-    const current = form.getValues('choiceGroupToId')
-
-    if (!current) return
-
-    if (Object.keys(current).length > 0) return
-
-    const { initialChoiceGroupToId, initialAnyWeaponSelection } = Object.entries(choiceGroupsGrouped).reduce(
-      (acc, [choiceGroup, choiceGroupToOptionGroup]) => {
-        const optionA = choiceGroupToOptionGroup['a']
-        acc.initialChoiceGroupToId[choiceGroup] = [optionA[0].optionId]
-        const hasAny = optionA.some(o => o.chooseAnyWeapon);
-        if (hasAny && weaponFilter) {
-          const weaponCount = optionA[0].weaponCount ?? 1;
-          const defaults = weaponsByKind[weaponFilter].slice(0, weaponCount).map(w => w.weaponId);
-          const fallback = weaponsByKind[weaponFilter][0]?.weaponId ?? weapons[0]?.weaponId;
-          acc.initialAnyWeaponSelection[choiceGroup] = Array.from({ length: weaponCount }, (_, idx) => defaults[idx] ?? fallback).filter((id): id is number => typeof id === 'number');
+    switch (activeComponent) {
+      case "races":
+        return (
+          <RacesForm
+            races={races}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "subrace":
+        return (
+          <SubracesForm
+            race={race}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "raceVariant":
+        return (
+          <RaceVariantsForm
+            race={race}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "raceChoices":
+        return (
+          <RaceChoiceOptionsForm
+            race={race}
+            subraceId={formData.subraceId ?? null}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "feat":
+        return (
+          <FeatsForm
+            feats={feats}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "featChoices":
+        return (
+          <FeatChoiceOptionsForm
+            selectedFeat={feat}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "class":
+        return (
+          <ClassesForm
+            classes={classes}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "subclass":
+        return (
+          <SubclassForm
+            cls={cls}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "classChoices":
+        return (
+          <ClassChoiceOptionsForm
+            selectedClass={cls}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "classOptional":
+        return (
+          <ClassOptionalFeaturesForm
+            selectedClass={cls}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "background":
+        return (
+          <BackgroundsForm
+            backgrounds={backgrounds}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "asi":
+        if (!race || !cls) {
+          return (
+            <Card className="p-4 text-center text-slate-200">
+              Спершу оберіть расу та клас.
+            </Card>
+          );
         }
-        return acc
-      }, { initialChoiceGroupToId: {} as Record<string, number[]>, initialAnyWeaponSelection: {} as Record<string, number[]> }
-    )
-
-    form.setValue('choiceGroupToId', initialChoiceGroupToId)
-    form.setValue('anyWeaponSelection', initialAnyWeaponSelection, { shouldDirty: false })
-  }, [choiceGroupsGrouped, form, weaponsByKind, weaponFilter, weapons])
-
-
-  const renderWeaponDialog = () => {
-    if (!weaponFilter) return;
-    const isMartial = weaponDialogIsMartial;
-    const list = weaponsByKind[weaponFilter];
-    return (
-      <Dialog open={weaponDialogOpen} onOpenChange={setWeaponDialogOpen}>
-        <DialogContent className="sm:max-w-[520px] border border-slate-800 bg-slate-950/90">
-          <DialogHeader>
-            <DialogTitle className="text-white">Оберіть {isMartial && 'бойову'} зброю</DialogTitle>
-            <DialogDescription className="text-slate-400">
-              Виберіть тип та конкретну зброю.
-            </DialogDescription>
-          </DialogHeader>
-
-          <Tabs value={weaponFilter} onValueChange={(val: string) => setWeaponFilter(val as WeaponKindType)}>
-            <TabsList className="grid grid-cols-2 bg-slate-900/70">
-              <TabsTrigger value={isMartial ? 'meleeMartial' : 'meleeSimple'} className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
-                Ближній бій
-              </TabsTrigger>
-              <TabsTrigger value={isMartial ? 'rangedMartial' : 'rangedSimple'} className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">
-                Дальній бій
-              </TabsTrigger>
-            </TabsList>
-            {/* <TabsContent value={isMartial ? 'meleeMartial' : 'meleeSimple'} />
-            <TabsContent value={isMartial ? 'rangedMartial' : 'rangedSimple'} /> */} {/* No need for content, we just filter the list above based on selected tab */}
-          </Tabs>
-
-          <div className="space-y-2">
-            <label className="text-sm text-slate-200">{isMartial ? 'Бойова ' : 'Проста '}Зброя</label>
-            <select
-              className="w-full rounded-md border border-slate-800 bg-slate-900/80 px-3 py-2 text-white"
-              value={selectedWeaponId ?? ''}
-              onChange={(e) => setSelectedWeaponId(Number(e.target.value))}
-            >
-              {list.map((w) => (
-                <option key={w.weaponId} value={w.weaponId} title={weaponTranslationsEng[w.name]}>
-                  {weaponTranslations[w.name]}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <DialogFooter className="mt-4 flex justify-end gap-2">
-            <DialogClose asChild>
-              <Button variant="ghost">Скасувати</Button>
-            </DialogClose>
-            <Button onClick={saveWeaponSelection} className="bg-indigo-500 text-white">Зберегти</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    )
+        return (
+          <ASIForm
+            race={race}
+            raceVariant={raceVariant}
+            selectedClass={cls}
+            prevRaceId={prevRaceId}
+            setPrevRaceId={setPrevRaceId}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "skills":
+        if (!race || !cls || !bg) {
+          return (
+            <Card className="p-4 text-center text-slate-200">
+              Спершу завершіть расу, клас та передісторію.
+            </Card>
+          );
+        }
+        return (
+          <SkillsForm
+            race={race}
+            raceVariant={raceVariant}
+            selectedClass={cls}
+            background={bg}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "expertise":
+        return (
+          <ExpertiseForm
+            selectedClass={cls}
+            race={race}
+            background={bg}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "equipment":
+        if (!race || !cls) {
+          return (
+            <Card className="p-4 text-center text-slate-200">
+              Спершу заповніть попередні кроки.
+            </Card>
+          );
+        }
+        return (
+          <EquipmentForm
+            weapons={weapons}
+            selectedClass={cls}
+            race={race}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "name":
+        return (
+          <NameForm
+            formId={activeFormId}
+            race={race}
+            raceVariant={raceVariant}
+            selectedClass={cls}
+            background={bg}
+            feat={feat}
+            onSuccess={handleFinalSubmit}
+          />
+        );
+      default:
+        return null;
+    }
   }
 
-  const weaponNameById = (id?: number) => weapons.find(w => w.weaponId === id);
+  const progress = Math.round((currentStep / steps.length) * 100);
+  const activeFormId = `character-step-form-${currentStep}`;
+
+  useEffect(() => {
+    setNextDisabled(false);
+  }, [currentStep]);
 
   return (
-    <form id={formId} onSubmit={onSubmit} className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 shadow-inner space-y-4">
-      <Card className="border border-slate-800/70 bg-slate-950/70 shadow-xl">
-        <CardHeader>
-          <CardTitle className="text-white">Спорядження</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {Object.entries(choiceGroupsGrouped).map(([choiceGroup, choiceGroupToOptionGroup], index) => (
-            <div key={index} className="rounded-lg border border-slate-800/70 bg-slate-900/60 p-3">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-semibold text-white">Опція {choiceGroup}</p>
-                <Badge className="bg-slate-800/70 text-slate-200 border border-slate-700 cursor-default">Оберіть одну</Badge>
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-24 sm:px-4 md:gap-6 md:px-0 md:py-6">
+      <CharacterCreateHeader
+        onReset={resetForm}
+        onOpenAuth={() => setAuthDialogOpen(true)}
+      />
+
+      <Card className="shadow-2xl">
+        <CardContent className="grid gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-[1fr,300px] md:p-6">
+          <div className="glass-panel border-gradient-rpg space-y-3 rounded-xl p-3 sm:space-y-4 sm:p-4 md:p-5">
+            {renderStep()}
+          </div>
+
+          <aside className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
+          <div className="sticky top-14 sm:top-16">
+            <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
+                <span className="font-medium text-slate-200">Ваш прогрес</span>
+                <Badge variant="outline" className="border-white/15 bg-white/5 text-[11px] text-slate-200 sm:text-xs">
+                  {progress}% готово
+                </Badge>
               </div>
-              <div className="mt-3 space-y-2">
-                {Object.values(choiceGroupToOptionGroup).map((optionGroup, idx) => {
-                  const entry = optionGroup[0]
-                  const output = optionGroup.map(g => g.description).join(', ')
-                  const checked = !!(choiceGroupToId[choiceGroup]?.includes?.(entry.optionId))
-                  const hasAnyWeapon = optionGroup.some(g => g.chooseAnyWeapon)
-                  const selectedWeapons = anyWeaponSelection?.[choiceGroup] ?? [];
+
+              <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
+                {steps.map((step, index) => {
+                  const stepOrder = index + 1;
+                  const isDone = stepOrder < currentStep;
+                  const isActive = stepOrder === currentStep;
 
                   return (
                     <div
-                      key={idx}
-                      className={`rounded-lg border px-3 py-2 ${checked ? "border-indigo-400/60 bg-indigo-500/10" : "border-slate-800/70 bg-slate-900/70"}`}
+                      key={step.id}
+                      className={clsx(
+                        "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left sm:px-3",
+                        isActive
+                          ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white"
+                          : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
+                      )}
                     >
-                      <label className="flex items-center gap-2 text-slate-200 cursor-pointer">
-                        <input
-                          type="radio"
-                          name={ choiceGroup }
-                          onChange={ () => chooseOption(optionGroup) }
-                          checked={checked}
-                          className="h-4 w-4"
-                        />
-                        <span>{output}</span>
-                      </label>
-                      {hasAnyWeapon && checked && (
-                        <div className="mt-2 space-y-2">
-                          {Array.from({ length: entry.weaponCount || 1 }).map((_, weaponIdx) => {
-                            const selectedWeaponName = weaponTranslations[weaponNameById(selectedWeapons?.[weaponIdx])?.name ?? ''] ?? 'Не обрано';
-                            return (
-                              <div key={weaponIdx} className="flex items-center justify-between rounded-md border border-slate-800/70 bg-slate-900/70 px-3 py-2 text-sm text-slate-200">
-                                <div>
-                                  <p className="text-xs text-slate-400">Зброя #{weaponIdx + 1}</p>
-                                  <p>{selectedWeaponName}</p>
-                                </div>
-                                <Button
-                                  type="button"
-                                  size="sm"
-                                  variant="secondary"
-                                  className="bg-indigo-500/20 text-indigo-50 border border-indigo-400/60"
-                                  onClick={() => openWeaponDialog(choiceGroup, entry.weaponType === WeaponType.MARTIAL_WEAPON, weaponIdx)}
-                                >
-                                  Обрати зброю
-                                </Button>
-                              </div>
-                            )
-                          })}
-                        </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-[11px]">
+                          Крок {stepOrder}
+                        </p>
+                        <p className="text-xs font-semibold sm:text-sm">{step.name}</p>
+                      </div>
+                      {isDone ? (
+                        <Badge variant="secondary" className="bg-emerald-500/20 text-emerald-200">
+                          <Check className="h-4 w-4" />
+                        </Badge>
+                      ) : (
+                        <Badge
+                          variant="outline"
+                          className={clsx(
+                            "border-white/15 bg-white/5 text-slate-300",
+                            isActive && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100"
+                          )}
+                        >
+                          <Circle className="h-3 w-3" />
+                        </Badge>
                       )}
                     </div>
-                  )
+                  );
                 })}
               </div>
+
+              <div className="mt-4 h-1.5 rounded-full bg-white/10 sm:mt-5 sm:h-2">
+                <div
+                  className="h-1.5 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all sm:h-2"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
             </div>
-          ))}
+          </aside>
         </CardContent>
       </Card>
-      {renderWeaponDialog()}
-    </form>
-  )
-};
 
-export default EquipmentForm
+      <div className="sticky bottom-0 left-0 right-0 z-30 w-full px-2 pb-3 sm:px-3 md:px-0">
+        <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
+          <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
+            <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
+              Крок {currentStep} / {steps.length}
+            </Badge>
+            <span className="hidden text-slate-400 sm:inline">Прогрес {progress}%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            {currentStep > 1 && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="border border-white/10 bg-white/5 text-sm text-slate-200 hover:bg-white/7 sm:text-base"
+                onClick={prevStep}
+              >
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                Назад
+              </Button>
+            )}
+            <Button
+              type="submit"
+              form={activeFormId}
+              disabled={nextDisabled || isSubmitting}
+              size="sm"
+              className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-sm text-white shadow-lg shadow-indigo-500/20 sm:text-base"
+            >
+              {currentStep === steps.length ? (isSubmitting ? "Створення..." : "Створити") : "Далі →"}
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
+    </div>
+  )
+}
+
+export default MultiStepForm
 </file>
 
 <file path="prisma/seed/subclassFeatureSeed.ts">
@@ -51857,750 +51946,473 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
 }
 </file>
 
-<file path="src/app/globals.css">
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-@layer utilities {
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: scale(.96);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-            transform: scale(1);
-        }
-        to {
-            opacity: 0;
-            transform: scale(.96)
-        }
-    }
-
-    .animate-fadeIn {
-        animation: fadeIn 0.15s ease-out forwards;
-    }
-    .animate-fadeOut {
-        animation: fadeOut 0.15s ease-in forwards;
-    }
-
-    /* Arcane Glassmorphism Card */
-    .glass-card {
-        @apply bg-slate-950/90 backdrop-blur-sm border border-white/10 shadow-lg shadow-black/20 rounded-lg;
-    }
-}
-
-
-
-
-
-@layer base {
-  :root {
-        --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
-        --primary: 222.2 47.4% 11.2%;
-        --primary-foreground: 210 40% 98%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 222.2 84% 4.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-    }
-  .dark {
-        --background: 222.2 84% 4.9%;
-        --foreground: 210 40% 98%;
-        --card: 222.2 84% 4.9%;
-        --card-foreground: 210 40% 98%;
-        --popover: 222.2 84% 4.9%;
-        --popover-foreground: 210 40% 98%;
-        --primary: 210 40% 98%;
-        --primary-foreground: 222.2 47.4% 11.2%;
-        --secondary: 217.2 32.6% 17.5%;
-        --secondary-foreground: 210 40% 98%;
-        --muted: 217.2 32.6% 17.5%;
-        --muted-foreground: 215 20.2% 65.1%;
-        --accent: 217.2 32.6% 17.5%;
-        --accent-foreground: 210 40% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
-        --ring: 212.7 26.8% 83.9%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
-    }
-}
-
-@layer base {
-  body {
-                @apply bg-slate-950 text-slate-200;
-  }
-}
-
-
-
-
-
-@layer base {
-  * {
-    @apply border-border;
-    }
-}
-</file>
-
-<file path="src/app/layout.tsx">
-import React from "react";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { Metadata, Viewport } from "next";
-import './globals.css'
-import { Navigation } from "@/lib/components/ui/Navigation";
-import { App } from "@/lib/components/ui/App";
-import { SessionProvider } from "next-auth/react";
-import GoogleOneTap from "@/lib/components/auth/GoogleOneTap";
-import { Toaster } from "@/lib/components/ui/sonner";
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-jetbrains-mono',
-});
-
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  viewportFit: "cover",
-};
-
-export const metadata: Metadata = {
-  title: 'ДнД українською',
-  description: 'Spells Holota Family - твій особистий помічник у світі днд! Створюй персонажа, знаходь заклинання, зброю, класи, підкласи, риси - все!',
-  icons: {
-    icon: [
-      {
-        media: '(prefers-color-scheme: light)',
-        url: '/images/dark-favicon.ico',
-        href: '/images/dark-favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
-      },
-      {
-        media: '(prefers-color-scheme: dark)',
-        url: '/images/favicon.ico',
-        href: '/images/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
-      },
-
-    ]
-  }
-}
-
-export default function RootLayout(
-  { children, }:
-    { children: React.ReactNode }
-) {
-  return (
-    <html lang={ 'uk' } className="h-full w-full dark">
-    <body
-      className={ `${ jetBrainsMono.variable } ${ inter.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden` }>
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute inset-0 bg-slate-950" />
-      <div className="absolute -inset-[30%] bg-gradient-to-br from-indigo-950/45 via-slate-950/0 to-purple-950/35 blur-3xl" />
-    </div>
-    <SessionProvider>
-      <GoogleOneTap/>
-      <div className="grid min-h-screen w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">
-        <Navigation/>
-        <App>{ children }</App>
-      </div>
-      <Toaster position="top-right" richColors closeButton />
-    </SessionProvider>
-    </body>
-    </html>
-  )
-}
-</file>
-
-<file path="src/lib/components/characterCreator/BackgroundsForm.tsx">
+<file path="src/lib/components/characterCreator/EntityInfoDialog.tsx">
 "use client";
 
-// import type {Background} from "@prisma/client"
-import {
-  backgroundTranslations, backgroundTranslationsEng,
-} from "@/lib/refs/translation";
+import { ReactNode } from "react";
+import { CircleHelp } from "lucide-react";
 import clsx from "clsx";
-import {useStepForm} from "@/hooks/useStepForm";
-import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
-import { useEffect, useMemo, useCallback } from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { Input } from "@/lib/components/ui/input";
-import { Search, X } from "lucide-react";
+
 import {
-  InfoDialog,
-  InfoGrid,
-  InfoPill,
-  InfoSectionTitle,
-} from "@/lib/components/characterCreator/EntityInfoDialog";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import {
-  formatLanguages,
-  formatSkillProficiencies,
-  formatToolProficiencies,
-  prettifyEnum,
-} from "@/lib/components/characterCreator/infoUtils";
-import { BackgroundI } from "@/lib/types/model-types";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
-const normalizeText = (value?: string) =>
-  (value || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
+export const InfoDialogContent = ({
+  title,
+  subtitle,
+  children,
+  className,
+}: {
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+  className?: string;
+}) => {
+  return (
+    <DialogContent
+      className={clsx(
+        "max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto",
+        className
+      )}
+    >
+      <div className="absolute left-1/2 top-0 h-[2px] w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
 
-const parseItems = (items: unknown): string[] => {
-  if (!Array.isArray(items)) return [];
+      <DialogHeader className="space-y-3 border-b border-white/10 pb-4">
+        <DialogTitle className="font-rpg-display text-2xl font-semibold uppercase tracking-widest text-slate-200">
+          {title}
+        </DialogTitle>
+        {subtitle && (
+          <DialogDescription className="text-sm font-medium text-slate-300">
+            {subtitle}
+          </DialogDescription>
+        )}
+      </DialogHeader>
 
-  return (items as unknown[])
-    .map((item) => {
-      if (!item) return null;
-      if (typeof item === "string") return item;
-      if (typeof item === "object") {
-        const name = (item as any).name;
-        const quantity = (item as any).quantity;
-        if (!name) return null;
-        return quantity ? `${name} x${quantity}` : name;
-      }
-      return null;
-    })
-    .filter(Boolean) as string[];
+      <div className="space-y-4 pt-4 text-sm leading-relaxed text-slate-200/90 sm:text-base">{children}</div>
+    </DialogContent>
+  );
 };
 
+interface InfoDialogProps {
+  title: string;
+  subtitle?: string;
+  triggerLabel: string;
+  triggerClassName?: string;
+  children: ReactNode;
+}
+
+export const InfoDialog = ({
+  title,
+  subtitle,
+  triggerLabel,
+  triggerClassName,
+  children,
+}: InfoDialogProps) => {
+  return (
+    <Dialog>
+      <div 
+        onPointerDownCapture={(e) => {
+          // Capture-phase stop is the most reliable way to prevent the underlying Card onClick
+          // from firing when the trigger overlaps the card.
+          e.stopPropagation();
+        }}
+        onClickCapture={(e) => {
+          e.stopPropagation();
+        }}
+        className={clsx(
+          "absolute -right-2.5 -top-2.5 z-[50] sm:-right-3 sm:-top-3",
+          triggerClassName
+        )}
+      >
+        <DialogTrigger asChild>
+          <Button
+            type="button"
+            size="icon"
+            variant="secondary"
+            className="glass-panel border-gradient-rpg h-9 w-9 rounded-full text-slate-100 transition hover:-translate-y-0.5 hover:text-white focus-visible:ring-cyan-400/30"
+            aria-label={triggerLabel}
+          >
+            <CircleHelp className="h-5 w-5" />
+          </Button>
+        </DialogTrigger>
+      </div>
+      
+      <InfoDialogContent title={title} subtitle={subtitle}>
+        {children}
+      </InfoDialogContent>
+    </Dialog>
+  );
+};
+
+export const ControlledInfoDialog = ({
+  open,
+  onOpenChange,
+  title,
+  subtitle,
+  children,
+  contentClassName,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+  contentClassName?: string;
+}) => {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <InfoDialogContent title={title} subtitle={subtitle} className={contentClassName}>
+        {children}
+      </InfoDialogContent>
+    </Dialog>
+  );
+};
+
+export const InfoGrid = ({ children }: { children: ReactNode }) => (
+  <div className="grid gap-2 sm:grid-cols-2">{children}</div>
+);
+
+export const InfoPill = ({
+  label,
+  value,
+}: {
+  label: string;
+  value: ReactNode;
+}) => {
+  if (!value || value === "—") return null;
+  
+  return (
+    <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+      <p className="text-[11px] uppercase tracking-[0.14em] text-slate-400">
+        {label}
+      </p>
+      <div className="text-sm font-semibold leading-tight text-slate-100">
+        {value}
+      </div>
+    </div>
+  );
+};
+
+export const InfoSectionTitle = ({ children }: { children: ReactNode }) => (
+  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
+    {children}
+  </p>
+);
+
+export default InfoDialog;
+</file>
+
+<file path="src/lib/components/characterCreator/EquipmentForm.tsx">
+import {equipmentSchema} from "@/lib/zod/schemas/persCreateSchema";
+import {useStepForm} from "@/hooks/useStepForm";
+import {ClassI, RaceI} from "@/lib/types/model-types";
+import {useEffect, useMemo, useState} from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { ClassStartingEquipmentOption, Weapon, WeaponType } from "@prisma/client";
+import {groupBy} from "@/lib/server/formatters/generalFormatters";
+import clsx from "clsx";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { WeaponKindType } from "@/lib/types/enums";
+import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
+
 interface Props {
-  backgrounds: BackgroundI[]
+  race: RaceI
+  selectedClass: ClassI
+  weapons: Weapon[]
   formId: string
   onNextDisabledChange?: (disabled: boolean) => void
 }
 
-const PHB_BACKGROUNDS = new Set([
-  "ACOLYTE","CHARLATAN","CRIMINAL","ENTERTAINER","FOLK_HERO","GUILD_ARTISAN","GUILD_MERCHANT",
-  "HERMIT","NOBLE","OUTLANDER","SAGE","SAILOR","SOLDIER","URCHIN"
-]);
+const constToCamel: Record<string, WeaponKindType> = {
+  SIMPLE_WEAPON: "meleeSimple", 
+  MARTIAL_WEAPON: "meleeMartial",  
+}
 
-const SOURCE_OVERRIDES: Record<string, string> = {
-  AZORIUS_FUNCTIONARY: "Ravnica",
-  BOROS_LEGIONNAIRE: "Ravnica",
-  DIMIR_OPERATIVE: "Ravnica",
-  GOLGARI_AGENT: "Ravnica",
-  GRUUL_ANARCH: "Ravnica",
-  IZZET_ENGINEER: "Ravnica",
-  ORZHOV_REPRESENTATIVE: "Ravnica",
-  RAKDOS_CULTIST: "Ravnica",
-  SELESNYA_INITIATE: "Ravnica",
-  SIMIC_SCIENTIST: "Ravnica",
-  LOREHOLD_STUDENT: "Strixhaven",
-  PRISMARI_STUDENT: "Strixhaven",
-  QUANDRIX_STUDENT: "Strixhaven",
-  SILVERQUILL_STUDENT: "Strixhaven",
-  WITHERBLOOM_STUDENT: "Strixhaven",
-  ASTRAL_DRIFTER: "Spelljammer",
-  WILDSPACER: "Spelljammer",
-  FEYLOST: "Witchlight",
-  WITCHLIGHT_HAND: "Witchlight",
-  KNIGHT_OF_SOLAMNIA: "Dragonlance",
-  MAGE_OF_HIGH_SORCERY: "Dragonlance",
-};
-
-export const BackgroundsForm = (
-  {backgrounds, formId, onNextDisabledChange}: Props
-) => {
+export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledChange}: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
   
-  const {form, onSubmit} = useStepForm(backgroundSchema, (data) => {
-    updateFormData({ 
-      backgroundId: data.backgroundId,
-      backgroundSearch: data.backgroundSearch 
-    });
+  const {form, onSubmit} = useStepForm(equipmentSchema, (data) => {
+    updateFormData({ equipmentSchema: data });
     nextStep();
   });
 
-  const chosenBackgroundId = form.watch('backgroundId') || 0
-  const backgroundSearch = form.watch('backgroundSearch') || ''
-  const normalizedBackgroundSearch = useMemo(() => normalizeText(backgroundSearch), [backgroundSearch])
+  const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
+  const anyWeaponSelection = (form.watch('anyWeaponSelection') ?? {}) as Record<string, number[]>
 
-  useEffect(() => {
-    if (!chosenBackgroundId) {
-      onNextDisabledChange?.(true);
+  const choiceGroups = selectedClass.startingEquipmentOption
+  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = useMemo(() => {
+    const raw = groupBy(choiceGroups ?? [], (group) => group.choiceGroup)
+    const grouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = {}
+    for (const [choiceGroup, group] of Object.entries(raw)) {
+      grouped[choiceGroup] = groupBy(group, (g) => g.option)
+    }
+    return grouped
+  }, [choiceGroups])
+
+  const meleeSimple = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const meleeMartial = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  
+  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const rangedMartial= useMemo(() => weapons.filter(w => w.isRanged && (w.weaponType === WeaponType.MARTIAL_WEAPON || (w.weaponType === WeaponType.FIREARMS && !w.isAdditional))).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const firearmsAdditional = useMemo(() => weapons.filter(w => w.isRanged && w.isAdditional).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
+  const weaponsByKind = useMemo(() => ({
+    'meleeSimple': meleeSimple,
+    'meleeMartial': meleeMartial,
+    'rangedSimple': rangedSimple,
+    'rangedMartial': rangedMartial,
+    'firearmsAdditional': firearmsAdditional
+  }), 
+  [meleeSimple, meleeMartial, rangedSimple, rangedMartial, firearmsAdditional])
+
+  const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
+  const [weaponDialogIsMartial, setWeaponDialogIsMartial] = useState(false);
+  const [weaponDialogGroup, setWeaponDialogGroup] = useState<string | null>(null);
+  const [weaponDialogIndex, setWeaponDialogIndex] = useState<number>(0);
+  const [weaponFilter, setWeaponFilter] = useState<WeaponKindType | undefined>(() => {
+    const weaponType = (choiceGroups ?? []).find(g => g.chooseAnyWeapon)?.weaponType;
+    return weaponType 
+      ? constToCamel[weaponType]
+      : undefined;
+  });
+  const [selectedWeaponId, setSelectedWeaponId] = useState<number | null>(null);
+
+  const chooseOption = (optionGroup: ClassStartingEquipmentOption[]) => {
+    const choiceGroup = optionGroup[0].choiceGroup
+    const newOptions = optionGroup.map(g => g.optionId)
+
+    form.setValue(`choiceGroupToId.${choiceGroup}`, newOptions, { shouldDirty: true });
+
+    if (weaponFilter) {
+      const weaponCount = optionGroup[0]?.weaponCount ?? 1;
+      const existing = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
+      const defaults = weaponsByKind[weaponFilter]
+        .slice(0, weaponCount)
+        .map(w => w.weaponId);
+      const fallback = weaponsByKind[weaponFilter][0]?.weaponId ?? weapons[0]?.weaponId;
+      const selection = Array.from({ length: weaponCount }, (_, idx) => existing[idx] ?? defaults[idx] ?? fallback).filter((id): id is number => typeof id === 'number');
+      form.setValue(`anyWeaponSelection.${choiceGroup}`, selection, { shouldDirty: true });
+    }
+  }
+
+  const openWeaponDialog = (choiceGroup: string, isMartial: boolean, weaponIndex: number) => {
+    if (!weaponFilter) return;
+    setWeaponDialogIndex(weaponIndex);
+    setWeaponDialogGroup(choiceGroup);
+    const currentWeapons = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
+    const fallback = weaponsByKind[weaponFilter][weaponIndex]?.weaponId ?? weaponsByKind[weaponFilter][0]?.weaponId ?? null;
+    setSelectedWeaponId(currentWeapons[weaponIndex] ?? fallback);
+    setWeaponDialogOpen(true);
+    setWeaponDialogIsMartial(isMartial);
+  }
+
+  const saveWeaponSelection = () => {
+    if (!weaponDialogGroup || selectedWeaponId == null) {
+      setWeaponDialogOpen(false);
       return;
     }
+    const currentWeapons = (form.getValues(`anyWeaponSelection.${weaponDialogGroup}`) as number[] | undefined) ?? [];
+    const updatedWeapons = [...currentWeapons];
+    updatedWeapons[weaponDialogIndex] = selectedWeaponId;
+    form.setValue(`anyWeaponSelection.${weaponDialogGroup}`, updatedWeapons, { shouldDirty: true });
+    setWeaponDialogOpen(false);
+  }
+
+  useEffect(() => {
+    if (!weaponFilter) return;
+    const list = weaponsByKind[weaponFilter]
+    if (selectedWeaponId != null && list?.some(w => w.weaponId === selectedWeaponId)) return;
+    const fallback = list[0]?.weaponId ?? weapons[0]?.weaponId ?? null;
+    setSelectedWeaponId(fallback);
+  }, [weaponFilter, weaponsByKind, selectedWeaponId, weapons]);
+
+  useEffect(() => {
+    form.register("choiceGroupToId");
+    form.register("anyWeaponSelection");
+  }, [form]);
+
+  useEffect(() => {
     onNextDisabledChange?.(false);
-  }, [onNextDisabledChange, chosenBackgroundId]);
+  }, [onNextDisabledChange]);
 
-  const BackgroundInfoModal = ({ background }: { background: BackgroundI }) => {
-    const items = parseItems(background.items);
-    const sourceText = sourceLabel(background.name);
-    const resolvedSource = sourceText === "Інші джерела" && background.source
-      ? prettifyEnum(background.source)
-      : sourceText;
+  useEffect(() => {
+    if (!choiceGroupsGrouped || Object.keys(choiceGroupsGrouped).length === 0) return
 
+    const current = form.getValues('choiceGroupToId')
+    if (current && Object.keys(current).length > 0) return
+
+    const initialChoiceGroupToId: Record<string, number[]> = {}
+    const initialAnyWeaponSelection: Record<string, number[]> = {}
+
+    Object.entries(choiceGroupsGrouped).forEach(([choiceGroup, choiceGroupToOptionGroup]) => {
+      const optionGroup = choiceGroupToOptionGroup['a'] ?? Object.values(choiceGroupToOptionGroup)[0]
+      if (!optionGroup?.[0]) return
+
+      initialChoiceGroupToId[choiceGroup] = [optionGroup[0].optionId]
+
+      const hasAny = optionGroup.some((o) => o.chooseAnyWeapon)
+      if (hasAny && weaponFilter) {
+        const weaponCount = optionGroup[0].weaponCount ?? 1
+        const defaults = weaponsByKind[weaponFilter]
+          .slice(0, weaponCount)
+          .map((w) => w.weaponId)
+        const fallback = weaponsByKind[weaponFilter]?.[0]?.weaponId ?? weapons[0]?.weaponId
+        initialAnyWeaponSelection[choiceGroup] = Array.from(
+          { length: weaponCount },
+          (_, idx) => defaults[idx] ?? fallback
+        ).filter((id): id is number => typeof id === 'number')
+      }
+    })
+
+    form.setValue('choiceGroupToId', initialChoiceGroupToId, { shouldDirty: false })
+    form.setValue('anyWeaponSelection', initialAnyWeaponSelection, { shouldDirty: false })
+    onNextDisabledChange?.(false)
+  }, [choiceGroupsGrouped, form, weaponsByKind, weaponFilter, weapons, onNextDisabledChange])
+
+
+  const renderWeaponDialog = () => {
+    if (!weaponFilter) return;
+    const isMartial = weaponDialogIsMartial;
+    const list = weaponsByKind[weaponFilter];
     return (
-      <InfoDialog
-        title={backgroundTranslations[background.name] || background.name}
-        triggerLabel={`Показати деталі ${backgroundTranslations[background.name] ?? background.name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={resolvedSource} />
-          <InfoPill
-            label="Навички"
-            value={formatSkillProficiencies(background.skillProficiencies)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(background.toolProficiencies)}
-          />
-          <InfoPill
-            label="Мови"
-            value={formatLanguages([], background.languagesToChooseCount)}
-          />
-          <InfoPill
-            label="Особливість"
-            value={background.specialAbilityName || "-"}
-          />
-        </InfoGrid>
+      <Dialog open={weaponDialogOpen} onOpenChange={setWeaponDialogOpen}>
+        <DialogContent className="sm:max-w-[520px]">
+          <DialogHeader>
+            <DialogTitle className="text-white">Оберіть {isMartial && 'бойову'} зброю</DialogTitle>
+            <DialogDescription className="text-slate-400">
+              Виберіть тип та конкретну зброю.
+            </DialogDescription>
+          </DialogHeader>
 
-        {items.length ? (
-          <div className="space-y-1.5">
-            <InfoSectionTitle>Стартове спорядження</InfoSectionTitle>
-            <ul className="space-y-1 text-sm text-slate-200/90">
-              {items.map((item, index) => (
-                <li key={`${item}-${index}`} className="flex items-start gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400" aria-hidden />
-                  <span className="flex-1">{item}</span>
-                </li>
+          <Tabs value={weaponFilter} onValueChange={(val: string) => setWeaponFilter(val as WeaponKindType)}>
+            <TabsList className="grid grid-cols-2 bg-white/5">
+              <TabsTrigger value={isMartial ? 'meleeMartial' : 'meleeSimple'} className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
+                Ближній бій
+              </TabsTrigger>
+              <TabsTrigger value={isMartial ? 'rangedMartial' : 'rangedSimple'} className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
+                Дальній бій
+              </TabsTrigger>
+            </TabsList>
+            {/* <TabsContent value={isMartial ? 'meleeMartial' : 'meleeSimple'} />
+            <TabsContent value={isMartial ? 'rangedMartial' : 'rangedSimple'} /> */} {/* No need for content, we just filter the list above based on selected tab */}
+          </Tabs>
+
+          <div className="space-y-2">
+            <label className="text-sm text-slate-200">{isMartial ? 'Бойова ' : 'Проста '}Зброя</label>
+            <select
+              className="w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-white"
+              value={selectedWeaponId ?? ''}
+              onChange={(e) => setSelectedWeaponId(Number(e.target.value))}
+            >
+              {list.map((w) => (
+                <option key={w.weaponId} value={w.weaponId} title={weaponTranslationsEng[w.name]}>
+                  {weaponTranslations[w.name]}
+                </option>
               ))}
-            </ul>
+            </select>
           </div>
-        ) : null}
 
-        {(background.specialAbilityName || background.description) && (
-          <div className="space-y-1">
-            <InfoSectionTitle>Опис особливості</InfoSectionTitle>
-            {background.specialAbilityName ? (
-              <p className="text-sm font-semibold text-white">
-                {background.specialAbilityName}
-              </p>
-            ) : null}
-            {background.description ? (
-              <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                {background.description}
-              </p>
-            ) : null}
-          </div>
-        )}
-      </InfoDialog>
-    );
-  };
+          <DialogFooter className="mt-4 flex justify-end gap-2">
+            <DialogClose asChild>
+              <Button variant="ghost">Скасувати</Button>
+            </DialogClose>
+            <Button onClick={saveWeaponSelection} className="bg-indigo-500 text-white">Зберегти</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    )
+  }
 
-  const matchesSearch = useCallback((name: string) => {
-    if (!normalizedBackgroundSearch) return true;
-    const ua = normalizeText(backgroundTranslations[name]);
-    return ua.includes(normalizedBackgroundSearch);
-  }, [normalizedBackgroundSearch]);
-
-  const primaryBackgrounds = useMemo(
-    () => backgrounds
-      .filter(b => PHB_BACKGROUNDS.has(b.name))
-      .filter(b => matchesSearch(b.name)),
-    [backgrounds, matchesSearch]
-  );
-  const otherBackgrounds = useMemo(
-    () => backgrounds
-      .filter(b => !PHB_BACKGROUNDS.has(b.name))
-      .filter(b => matchesSearch(b.name)),
-    [backgrounds, matchesSearch]
-  );
-
-  const sourceLabel = (name: string) => SOURCE_OVERRIDES[name] ?? "Інші джерела";
-  const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;
-  const forceOpenOther = Boolean(normalizedBackgroundSearch);
+  const weaponNameById = (id?: number) => weapons.find(w => w.weaponId === id);
 
   return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
-      <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть передісторію</h2>
-        <p className="text-sm text-slate-400">Спершу показані варіанти PHB, решта в акордеоні нижче.</p>
-      </div>
+    <form id={formId} onSubmit={onSubmit} className="glass-panel border-gradient-rpg space-y-4 rounded-xl p-4">
+      <Card className="shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-white">Спорядження</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {Object.entries(choiceGroupsGrouped).map(([choiceGroup, choiceGroupToOptionGroup], index) => (
+            <div key={index} className="glass-panel border-gradient-rpg rounded-lg p-3">
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-semibold text-white">Опція {choiceGroup}</p>
+                <Badge className="cursor-default border border-white/15 bg-white/5 text-slate-200">Оберіть одну</Badge>
+              </div>
+              <div className="mt-3 space-y-2">
+                {Object.values(choiceGroupToOptionGroup).map((optionGroup, idx) => {
+                  const entry = optionGroup[0]
+                  const output = optionGroup.map(g => g.description).join(', ')
+                  const checked = !!(choiceGroupToId[choiceGroup]?.includes?.(entry.optionId))
+                  const hasAnyWeapon = optionGroup.some(g => g.chooseAnyWeapon)
+                  const selectedWeapons = anyWeaponSelection?.[choiceGroup] ?? [];
 
-      <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="relative w-full">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
-            <Input
-              type="search"
-              {...form.register('backgroundSearch')}
-              value={backgroundSearch}
-              onChange={(e) => form.setValue('backgroundSearch', e.target.value)}
-              placeholder="Пошук за назвою"
-              aria-label="Пошук передісторій"
-              className="h-10 bg-slate-950/60 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-500"
-            />
-            {backgroundSearch && (
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
-                onClick={() => form.setValue('backgroundSearch', '')}
-                aria-label="Очистити пошук передісторій"
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {hasNoResults && (
-        <p className="text-center text-sm text-slate-400">Нічого не знайдено.</p>
-      )}
-
-      <div className="space-y-3">
-        <div>
-          <div className="mb-2 flex items-center justify-between">
-            <p className="text-sm font-semibold text-white">PHB 2014</p>
-            <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Джерело</Badge>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {primaryBackgrounds.map(b =>  (
-              <Card
-                key={b.backgroundId}
-                className={clsx(
-                  "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                  b.backgroundId === chosenBackgroundId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-                )}
-                onClick={() => form.setValue('backgroundId', b.backgroundId)}
-              >
-                <CardContent className="relative flex items-center justify-between p-4">
-                  <BackgroundInfoModal background={b} />
-                  <div>
-                    <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
-                    <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
-                  </div>
-                  <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        <details className="rounded-xl border border-slate-800/80 bg-slate-900/60 shadow-inner" open={forceOpenOther || undefined}>
-          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800/80 [&::-webkit-details-marker]:hidden">
-            Інші джерела
-          </summary>
-          <div className="border-t border-slate-800/80 p-3">
-            <div className="grid gap-3 sm:grid-cols-2">
-              {otherBackgrounds.map(b =>  (
-                <Card
-                  key={b.backgroundId}
-                  className={clsx(
-                    "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                    b.backgroundId === chosenBackgroundId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-                  )}
-                  onClick={() => form.setValue('backgroundId', b.backgroundId)}
-                >
-                  <CardContent className="relative flex items-center justify-between p-4">
-                    <BackgroundInfoModal background={b} />
-                    <div>
-                      <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
-                      <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
+                  return (
+                    <div
+                      key={idx}
+                      className={clsx(
+                        "rounded-lg border px-3 py-2",
+                        checked
+                          ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5"
+                          : "border-white/10 bg-white/5"
+                      )}
+                    >
+                      <label className="flex items-center gap-2 text-slate-200 cursor-pointer">
+                        <input
+                          type="radio"
+                          name={ choiceGroup }
+                          onChange={ () => chooseOption(optionGroup) }
+                          checked={checked}
+                          className="h-4 w-4"
+                        />
+                        <span>{output}</span>
+                      </label>
+                      {hasAnyWeapon && checked && (
+                        <div className="mt-2 space-y-2">
+                          {Array.from({ length: entry.weaponCount || 1 }).map((_, weaponIdx) => {
+                            const selectedWeaponName = weaponTranslations[weaponNameById(selectedWeapons?.[weaponIdx])?.name ?? ''] ?? 'Не обрано';
+                            return (
+                              <div key={weaponIdx} className="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200">
+                                <div>
+                                  <p className="text-xs text-slate-400">Зброя #{weaponIdx + 1}</p>
+                                  <p>{selectedWeaponName}</p>
+                                </div>
+                                <Button
+                                  type="button"
+                                  size="sm"
+                                  variant="secondary"
+                                  className="border border-white/15 bg-white/5 text-slate-100 hover:bg-white/7"
+                                  onClick={() => openWeaponDialog(choiceGroup, entry.weaponType === WeaponType.MARTIAL_WEAPON, weaponIdx)}
+                                >
+                                  Обрати зброю
+                                </Button>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )}
                     </div>
-                    <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
-                  </CardContent>
-                </Card>
-              ))}
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        </details>
-      </div>
-
-      <input type="hidden" {...form.register('backgroundId', { valueAsNumber: true })} />
+          ))}
+        </CardContent>
+      </Card>
+      {renderWeaponDialog()}
     </form>
   )
 };
 
-export default BackgroundsForm;
-</file>
-
-<file path="src/lib/zod/schemas/persCreateSchema.ts">
-import {z} from "zod";
-import { Ability } from "@prisma/client";
-import {SkillsEnum} from "@/lib/types/enums";
-
-export const raceSchema = z.object({
-  raceId: z.number().min(1, "Оберіть, будь ласка, расу!"),
-  raceSearch: z.string().default('')
-})
-
-export const subraceSchema = z.object({
-  subraceId: z.number().optional(),
-});
-
-export const raceVariantSchema = z.object({
-  raceVariantId: z.number().nullable().optional(),
-});
-
-export const featSchema = z.object({
-  featId: z.number().min(1, "Оберіть рису!"),
-  featSearch: z.string().default('')
-});
-
-export const classSchema = z.object({
-  classId: z.number().min(1, "Клас теж треба обрати, мандрівнику!"),
-});
-
-export const subclassSchema = z.object({
-  subclassId: z.number().optional(),
-  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
-});
-
-export const classChoiceOptionsSchema = z.object({
-  classChoiceSelections: z.record(z.string(), z.number().int()).default({})
-});
-
-export const featChoiceOptionsSchema = z.object({
-  featChoiceSelections: z.record(z.string(), z.number().int()).default({})
-});
-
-export const classOptionalFeaturesSchema = z.object({
-  classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({})
-});
-
-export const backgroundSchema = z.object({
-  backgroundId: z.number().min(1, "Оберіть, будь ласка, передісторію!"),
-  backgroundSearch: z.string().default('')
-});
-
-const choices = z.object({
-  groupIndex: z.number(),
-  choiceCount: z.number(),
-  selectedAbilities: z.array(z.nativeEnum(Ability))
-})
-
-export const asiSchema = z.object({
-  isDefaultASI: z.boolean().default(false), // ТОБТО НЕ ТАША
-
-  asiSystem: z.string().default('POINT_BUY'),
-  points: z.number().default(0),
-  simpleAsi: z.array(z.object({
-    ability: z.string(),
-    value: z.number(),
-  })).default([]).optional(),
-  asi: z.array(z.object({
-    ability: z.string(),
-    value: z.number(), // коерсимо
-  })).default([]).optional(),
-  customAsi: z.array(z.object({
-    ability: z.string(),
-    value: z.string().optional()
-      // .min(0, 'замало! Має бути більше за 0').max(99, 'Забагато! має бути менше за 100'), // коерсимо
-  })).default([]).optional(),
-
-  racialBonusChoiceSchema: z.object({
-    basicChoices: z.array(choices).default([]),
-    tashaChoices: z.array(choices).default([])
-  }).optional()
-})
-  .refine((data) => {
-  if (data.asiSystem === 'POINT_BUY') {
-    return data.asi && data.asi.length === 6 && data.points >= 0;
-  }
-  return true
-}, {
-  message: "Очків не має бути менше за 0",
-  path: ['points']
-}).refine((data) => {
-    if (data.asiSystem === 'SIMPLE') {
-      return data.simpleAsi && data.simpleAsi.length === 6;
-    }
-    return true;
-  }, {
-  message: "Помилка... Спробуйте перезавантажити сторінку 🙏",
-    path: ['simpleAsi']
-  }).refine((data) => {
-    if (data.asiSystem === 'CUSTOM') {
-      return data.customAsi
-        && data.customAsi.length === 6
-        && data.customAsi.every((entry) => {
-          try {
-            const num = Number(entry.value)
-            return !isNaN(num) && entry.value != '';
-          } catch {
-            return false;
-          }
-        })
-    }
-    return true;
-  }, {
-    message: "Введіть саме числа, будь ласка!",
-    path: ['customAsi', 'root']
-  }).refine((data) => {
-    if (data.racialBonusChoiceSchema) {
-      const check = (groups: any[]) => {
-        return groups.every(g => g.selectedAbilities.length === g.choiceCount)
-      }
-      if (data.isDefaultASI && data.racialBonusChoiceSchema.basicChoices) {
-        return check(data.racialBonusChoiceSchema.basicChoices)
-      }
-      else if (!data.isDefaultASI && data.racialBonusChoiceSchema.tashaChoices) {
-        return check(data.racialBonusChoiceSchema.tashaChoices)
-      }
-    }
-    return true;
-  }, {
-    message: "Дооберіть, будь ласка",
-    path: ['racialBonusChoiceSchema']
-  })
-
-const skills = z.enum(SkillsEnum)
-
-export const skillsSchema  = z.object({
-  isTasha: z.boolean().default(true),
-  tashaChoices: z.array(skills).default([]),
-
-  basicChoices: z.object({
-    race: z.array(skills).default([]),
-    selectedClass: z.array(skills).default([]),
-  }).default({
-    race: [],
-    selectedClass: [],
-  }),
-  
-  // Metadata fields for validation (not stored in DB)
-  _requiredCount: z.number().optional(),
-  _raceCount: z.number().optional(),
-  _classCount: z.number().optional(),
-}).strict()
-  .superRefine((data, ctx) => {
-    // Skip validation if metadata not provided (for backward compatibility)
-    if (data.isTasha && data._requiredCount !== undefined) {
-      // In Tasha mode: validate total count (upper bound)
-      const actualCount = data.tashaChoices.length;
-      if (actualCount > data._requiredCount) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `Оберіть не більше ${data._requiredCount} навичок`,
-          path: ['tashaChoices'],
-        });
-      }
-    } else if (!data.isTasha && data._raceCount !== undefined && data._classCount !== undefined) {
-      // In basic mode: validate race and class counts separately (upper bounds)
-      if (data.basicChoices.race.length > data._raceCount) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `Оберіть не більше ${data._raceCount} навичок за расу`,
-          path: ['basicChoices', 'race'],
-        });
-      }
-      if (data.basicChoices.selectedClass.length > data._classCount) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `Оберіть не більше ${data._classCount} навичок за клас`,
-          path: ['basicChoices', 'selectedClass'],
-        });
-      }
-    }
-  })
-
-export const expertiseSchema = z.object({
-  expertises: z.array(skills).default([])
-});
-
-export const equipmentSchema = z.object({
-    choiceGroupToId: z.record(
-      z.string(), // js has no numeric keys
-      z.array(z.number())
-    ).default({}),
-    anyWeaponSelection: z.record(z.string(), z.array(z.number())).default({})
-})
-
-export const nameSchema = z.object({
-  name: z.string()
-    .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
-})
-
-export const fullCharacterSchema = z.object({
-  raceId: z.number(),
-  raceSearch: z.string().default(''),
-  subraceId: z.number().optional(),
-  raceVariantId: z.number().nullable().optional(),
-  featId: z.number().optional(),
-  classId: z.number(),
-  subclassId: z.number().optional(),
-  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
-  classChoiceSelections: z.record(z.string(), z.number().int()).default({}),
-  featChoiceSelections: z.record(z.string(), z.number().int()).default({}),
-  classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({}),
-  backgroundId: z.number(),
-  backgroundSearch: z.string().default(''),
-  isDefaultASI: z.boolean().default(false),
-  asiSystem: z.string().default('POINT_BUY'),
-  points: z.number().min(0).default(0),
-  simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
-  customAsi: z.array(z.object({ ability: z.string(), value: z.string().transform((val) => (val === '' ? 10 : Number(val)))})).default([]).optional(),
-  asi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
-  skills: z.array(z.string()).default([]),
-  equipment: z.array(z.number()).default([]),
-  name: z.string().default(''),
-  racialBonusChoiceSchema: z.object({
-    basicChoices: z.array(choices).default([]),
-    tashaChoices: z.array(choices).default([])
-  }).optional(),
-  skillsSchema: skillsSchema.optional(),
-  expertiseSchema: expertiseSchema.optional(),
-  equipmentSchema: equipmentSchema.optional(),
-  nameSchema: nameSchema.optional()
-})
-
-
-export type PersFormData = z.infer<typeof fullCharacterSchema>
+export default EquipmentForm
 </file>
 
 <file path="prisma.config.ts">
@@ -53640,6 +53452,849 @@ export const seedClasses = async (prisma: PrismaClient) => {
 }
 </file>
 
+<file path="src/app/globals.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(.96);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: scale(1);
+        }
+        to {
+            opacity: 0;
+            transform: scale(.96)
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 0.15s ease-out forwards;
+    }
+    .animate-fadeOut {
+        animation: fadeOut 0.15s ease-in forwards;
+    }
+
+    /* Arcane Glassmorphism Card */
+    .glass-card {
+        @apply bg-slate-900/60 border border-white/10;
+        box-shadow: 0 4px 16px -8px rgba(0,0,0,0.6);
+    }
+
+    .glass-card:hover {
+        @apply bg-slate-900/75 border-white/15;
+        box-shadow: 0 6px 20px -8px rgba(0,0,0,0.7);
+    }
+
+    /* Same vibe, but for inset panels (search boxes, sidebars) */
+    .glass-panel {
+        /* Stabilize: prefer clean translucency over blur for perf */
+        @apply bg-slate-950/30 ring-1 ring-white/10;
+        background-image: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.012) 55%, rgba(255,255,255,0) 75%);
+        box-shadow:
+            0 10px 32px -34px rgba(0,0,0,0.95),
+            inset 1px 1px 0 rgba(255,255,255,0.10),
+            inset -1px -1px 0 rgba(0,0,0,0.35);
+    }
+
+    /* Selected state glow (inner + outer) */
+    .glass-active {
+        @apply bg-blue-500/15 border-blue-400/60;
+        box-shadow:
+            0 0 0 1px rgba(96, 165, 250, 0.3),
+            0 4px 24px -4px rgba(59, 130, 246, 0.5),
+            inset 0 0 20px rgba(96, 165, 250, 0.1);
+    }
+
+    .glass-active:hover {
+        @apply bg-blue-500/20 border-blue-400/80;
+        box-shadow:
+            0 0 0 1px rgba(96, 165, 250, 0.5),
+            0 6px 28px -4px rgba(59, 130, 246, 0.6),
+            inset 0 0 24px rgba(96, 165, 250, 0.15);
+    }
+
+    .border-gradient-rpg {
+        @apply border border-white/10;
+    }
+
+    .border-gradient-rpg-active {
+        @apply border-blue-400/60;
+    }
+}
+
+
+
+
+
+@layer base {
+  :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 222.2 84% 4.9%;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.5rem;
+    }
+  .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+  body {
+                @apply bg-slate-950 text-slate-200;
+  }
+}
+
+
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+    }
+}
+</file>
+
+<file path="src/app/layout.tsx">
+import React from "react";
+import { Cinzel, Forum, Inter, JetBrains_Mono } from "next/font/google";
+import { Metadata, Viewport } from "next";
+import './globals.css'
+import { Navigation } from "@/components/ui/Navigation";
+import { App } from "@/components/ui/App";
+import { SessionProvider } from "next-auth/react";
+import GoogleOneTap from "@/lib/components/auth/GoogleOneTap";
+import { Toaster } from "@/components/ui/sonner";
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-jetbrains-mono',
+});
+
+// Cinzel looks great for Latin, but has no Cyrillic glyphs (UA titles would fallback).
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-cinzel",
+});
+
+// Primary RPG display font: Cyrillic-capable carved/antique vibe.
+const rpgDisplay = Forum({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  weight: ["400"],
+  variable: "--font-rpg-display",
+});
+
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
+};
+
+export const metadata: Metadata = {
+  title: 'ДнД українською',
+  description: 'Spells Holota Family - твій особистий помічник у світі днд! Створюй персонажа, знаходь заклинання, зброю, класи, підкласи, риси - все!',
+  icons: {
+    icon: [
+      {
+        media: '(prefers-color-scheme: light)',
+        url: '/images/dark-favicon.ico',
+        href: '/images/dark-favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+      },
+      {
+        media: '(prefers-color-scheme: dark)',
+        url: '/images/favicon.ico',
+        href: '/images/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+      },
+
+    ]
+  }
+}
+
+export default function RootLayout(
+  { children, }:
+    { children: React.ReactNode }
+) {
+  return (
+    <html lang={ 'uk' } className="h-full w-full dark">
+    <body
+      className={ `${ jetBrainsMono.variable } ${ inter.variable } ${ cinzel.variable } ${ rpgDisplay.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden antialiased` }>
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 bg-slate-950" />
+      {/* Mesh gradient layers */}
+      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-950/55 via-purple-950/10 to-transparent blur-3xl" />
+      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-950/45 via-indigo-950/0 to-transparent blur-3xl" />
+      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-indigo-950/35 via-slate-950/0 to-transparent blur-3xl" />
+
+      {/* Noise overlay via SVG turbulence */}
+      <svg
+        className="absolute inset-0 h-full w-full opacity-[0.05] mix-blend-overlay"
+        aria-hidden="true"
+      >
+        <filter id="rpg-noise">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.85"
+            numOctaves="3"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#rpg-noise)" />
+      </svg>
+    </div>
+    <SessionProvider>
+      <GoogleOneTap/>
+      <div className="grid min-h-screen w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">
+        <Navigation/>
+        <App>{ children }</App>
+      </div>
+      <Toaster position="top-right" richColors closeButton />
+    </SessionProvider>
+    </body>
+    </html>
+  )
+}
+</file>
+
+<file path="src/lib/components/characterCreator/BackgroundsForm.tsx">
+"use client";
+
+// import type {Background} from "@prisma/client"
+import {
+  backgroundTranslations, backgroundTranslationsEng,
+} from "@/lib/refs/translation";
+import clsx from "clsx";
+import {useStepForm} from "@/hooks/useStepForm";
+import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
+import { useEffect, useMemo, useCallback } from "react";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Search, X } from "lucide-react";
+import {
+  InfoDialog,
+  InfoGrid,
+  InfoPill,
+  InfoSectionTitle,
+} from "@/lib/components/characterCreator/EntityInfoDialog";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import {
+  formatLanguages,
+  formatSkillProficiencies,
+  formatToolProficiencies,
+  translateValue,
+} from "@/lib/components/characterCreator/infoUtils";
+import { BackgroundI } from "@/lib/types/model-types";
+
+const normalizeText = (value?: string) =>
+  (value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+
+const parseItems = (items: unknown): string[] => {
+  if (!Array.isArray(items)) return [];
+
+  return (items as unknown[])
+    .map((item) => {
+      if (!item) return null;
+      if (typeof item === "string") return item;
+      if (typeof item === "object") {
+        const name = (item as any).name;
+        const quantity = (item as any).quantity;
+        if (!name) return null;
+        return quantity ? `${name} x${quantity}` : name;
+      }
+      return null;
+    })
+    .filter(Boolean) as string[];
+};
+
+interface Props {
+  backgrounds: BackgroundI[]
+  formId: string
+  onNextDisabledChange?: (disabled: boolean) => void
+}
+
+const PHB_BACKGROUNDS = new Set([
+  "ACOLYTE","CHARLATAN","CRIMINAL","ENTERTAINER","FOLK_HERO","GUILD_ARTISAN","GUILD_MERCHANT",
+  "HERMIT","NOBLE","OUTLANDER","SAGE","SAILOR","SOLDIER","URCHIN"
+]);
+
+const SOURCE_OVERRIDES: Record<string, string> = {
+  AZORIUS_FUNCTIONARY: "Ravnica",
+  BOROS_LEGIONNAIRE: "Ravnica",
+  DIMIR_OPERATIVE: "Ravnica",
+  GOLGARI_AGENT: "Ravnica",
+  GRUUL_ANARCH: "Ravnica",
+  IZZET_ENGINEER: "Ravnica",
+  ORZHOV_REPRESENTATIVE: "Ravnica",
+  RAKDOS_CULTIST: "Ravnica",
+  SELESNYA_INITIATE: "Ravnica",
+  SIMIC_SCIENTIST: "Ravnica",
+  LOREHOLD_STUDENT: "Strixhaven",
+  PRISMARI_STUDENT: "Strixhaven",
+  QUANDRIX_STUDENT: "Strixhaven",
+  SILVERQUILL_STUDENT: "Strixhaven",
+  WITHERBLOOM_STUDENT: "Strixhaven",
+  ASTRAL_DRIFTER: "Spelljammer",
+  WILDSPACER: "Spelljammer",
+  FEYLOST: "Witchlight",
+  WITCHLIGHT_HAND: "Witchlight",
+  KNIGHT_OF_SOLAMNIA: "Dragonlance",
+  MAGE_OF_HIGH_SORCERY: "Dragonlance",
+};
+
+export const BackgroundsForm = (
+  {backgrounds, formId, onNextDisabledChange}: Props
+) => {
+  const { updateFormData, nextStep } = usePersFormStore();
+  
+  const {form, onSubmit} = useStepForm(backgroundSchema, (data) => {
+    updateFormData({ 
+      backgroundId: data.backgroundId,
+      backgroundSearch: data.backgroundSearch 
+    });
+    nextStep();
+  });
+
+  const chosenBackgroundId = form.watch('backgroundId') || 0
+  const backgroundSearch = form.watch('backgroundSearch') || ''
+  const normalizedBackgroundSearch = useMemo(() => normalizeText(backgroundSearch), [backgroundSearch])
+
+  useEffect(() => {
+    if (!chosenBackgroundId) {
+      onNextDisabledChange?.(true);
+      return;
+    }
+    onNextDisabledChange?.(false);
+  }, [onNextDisabledChange, chosenBackgroundId]);
+
+  const BackgroundInfoModal = ({ background }: { background: BackgroundI }) => {
+    const items = parseItems(background.items);
+    const sourceText = sourceLabel(background.name);
+    const resolvedSource = sourceText === "Інші джерела" && background.source
+      ? translateValue(background.source)
+      : sourceText;
+
+    return (
+      <InfoDialog
+        title={backgroundTranslations[background.name] || background.name}
+        triggerLabel={`Показати деталі ${backgroundTranslations[background.name] ?? background.name}`}
+      >
+        <InfoGrid>
+          <InfoPill label="Джерело" value={resolvedSource} />
+          <InfoPill
+            label="Навички"
+            value={formatSkillProficiencies(background.skillProficiencies)}
+          />
+          <InfoPill
+            label="Інструменти"
+            value={formatToolProficiencies(background.toolProficiencies)}
+          />
+          <InfoPill
+            label="Мови"
+            value={formatLanguages([], background.languagesToChooseCount)}
+          />
+          <InfoPill
+            label="Особливість"
+            value={background.specialAbilityName || "-"}
+          />
+        </InfoGrid>
+
+        {items.length ? (
+          <div className="space-y-1.5">
+            <InfoSectionTitle>Стартове спорядження</InfoSectionTitle>
+            <ul className="space-y-1 text-sm text-slate-200/90">
+              {items.map((item, index) => (
+                <li key={`${item}-${index}`} className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400" aria-hidden />
+                  <span className="flex-1">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {(background.specialAbilityName || background.description) && (
+          <div className="space-y-1">
+            <InfoSectionTitle>Опис особливості</InfoSectionTitle>
+            {background.specialAbilityName ? (
+              <p className="text-sm font-semibold text-white">
+                {background.specialAbilityName}
+              </p>
+            ) : null}
+            {background.description ? (
+              <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                {background.description}
+              </p>
+            ) : null}
+          </div>
+        )}
+      </InfoDialog>
+    );
+  };
+
+  const matchesSearch = useCallback((name: string) => {
+    if (!normalizedBackgroundSearch) return true;
+    const ua = normalizeText(backgroundTranslations[name]);
+    return ua.includes(normalizedBackgroundSearch);
+  }, [normalizedBackgroundSearch]);
+
+  const primaryBackgrounds = useMemo(
+    () => backgrounds
+      .filter(b => PHB_BACKGROUNDS.has(b.name))
+      .filter(b => matchesSearch(b.name)),
+    [backgrounds, matchesSearch]
+  );
+  const otherBackgrounds = useMemo(
+    () => backgrounds
+      .filter(b => !PHB_BACKGROUNDS.has(b.name))
+      .filter(b => matchesSearch(b.name)),
+    [backgrounds, matchesSearch]
+  );
+
+  const sourceLabel = (name: string) => SOURCE_OVERRIDES[name] ?? "Інші джерела";
+  const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;
+  const forceOpenOther = Boolean(normalizedBackgroundSearch);
+
+  return (
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+      <div className="space-y-2 text-center">
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть передісторію
+        </h2>
+        <p className="text-sm text-slate-400">Спершу показані варіанти з Книги Гравця (2014), решта в акордеоні нижче.</p>
+      </div>
+
+      <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="relative w-full">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+            <Input
+              type="search"
+              {...form.register('backgroundSearch')}
+              value={backgroundSearch}
+              onChange={(e) => form.setValue('backgroundSearch', e.target.value)}
+              placeholder="Пошук за назвою"
+              aria-label="Пошук передісторій"
+              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
+            />
+            {backgroundSearch && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
+                onClick={() => form.setValue('backgroundSearch', '')}
+                aria-label="Очистити пошук передісторій"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {hasNoResults && (
+        <p className="text-center text-sm text-slate-400">Нічого не знайдено.</p>
+      )}
+
+      <div className="space-y-3">
+        <div>
+          <div className="mb-2 flex items-center justify-between">
+            <p className="text-sm font-semibold text-white">Книга Гравця (2014)</p>
+            <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">Джерело</Badge>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {primaryBackgrounds.map(b =>  (
+              <Card
+                key={b.backgroundId}
+                className={clsx(
+                  "glass-card cursor-pointer transition-all duration-200",
+                  b.backgroundId === chosenBackgroundId && "glass-active"
+                )}
+                onClick={() => form.setValue('backgroundId', b.backgroundId)}
+              >
+                <CardContent className="relative flex items-center justify-between p-4">
+                  <BackgroundInfoModal background={b} />
+                  <div>
+                    <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
+                    <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
+                  </div>
+                  <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <details className="glass-panel border-gradient-rpg rounded-xl" open={forceOpenOther || undefined}>
+          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
+            Інші джерела
+          </summary>
+          <div className="bg-slate-900/40 backdrop-blur-sm">
+            <div className="border-t border-white/10 p-3">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {otherBackgrounds.map(b =>  (
+                  <Card
+                    key={b.backgroundId}
+                    className={clsx(
+                      "glass-card cursor-pointer transition-all duration-200",
+                      b.backgroundId === chosenBackgroundId && "glass-active"
+                    )}
+                    onClick={() => form.setValue('backgroundId', b.backgroundId)}
+                  >
+                    <CardContent className="relative flex items-center justify-between p-4">
+                      <BackgroundInfoModal background={b} />
+                      <div>
+                        <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
+                        <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
+                      </div>
+                      <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <input
+        type="hidden"
+        {...form.register("backgroundId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
+    </form>
+  )
+};
+
+export default BackgroundsForm;
+</file>
+
+<file path="src/lib/zod/schemas/persCreateSchema.ts">
+import {z} from "zod";
+import { Ability } from "@prisma/client";
+import {SkillsEnum} from "@/lib/types/enums";
+
+export const raceSchema = z.object({
+  raceId: z.number().min(1, "Оберіть, будь ласка, расу!"),
+  raceSearch: z.string().default('')
+})
+
+export const subraceSchema = z.object({
+  subraceId: z.number().optional(),
+});
+
+export const raceVariantSchema = z.object({
+  raceVariantId: z.number().nullable().optional(),
+});
+
+export const raceChoiceOptionsSchema = z.object({
+  raceChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+});
+
+export const featSchema = z.object({
+  featId: z.number().min(1, "Оберіть рису!"),
+  featSearch: z.string().default('')
+});
+
+export const classSchema = z.object({
+  classId: z
+    .number({ message: "Клас обов'язковий для вибору" })
+    .min(1, "Клас теж треба обрати, мандрівнику!"),
+});
+
+export const subclassSchema = z.object({
+  subclassId: z.number().optional(),
+  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+});
+
+export const classChoiceOptionsSchema = z.object({
+  classChoiceSelections: z.record(z.string(), z.number().int()).default({})
+});
+
+export const featChoiceOptionsSchema = z.object({
+  featChoiceSelections: z.record(z.string(), z.number().int()).default({})
+});
+
+export const classOptionalFeaturesSchema = z.object({
+  classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({})
+});
+
+export const backgroundSchema = z.object({
+  backgroundId: z.number().min(1, "Оберіть, будь ласка, передісторію!"),
+  backgroundSearch: z.string().default('')
+});
+
+const choices = z.object({
+  groupIndex: z.number(),
+  choiceCount: z.number(),
+  selectedAbilities: z.array(z.nativeEnum(Ability))
+})
+
+export const asiSchema = z.object({
+  isDefaultASI: z.boolean().default(false), // ТОБТО НЕ ТАША
+
+  asiSystem: z.string().default('POINT_BUY'),
+  points: z.number().default(0),
+  simpleAsi: z.array(z.object({
+    ability: z.string(),
+    value: z.number(),
+  })).default([]).optional(),
+  asi: z.array(z.object({
+    ability: z.string(),
+    value: z.number(), // коерсимо
+  })).default([]).optional(),
+  customAsi: z.array(z.object({
+    ability: z.string(),
+    value: z.string().optional()
+      // .min(0, 'замало! Має бути більше за 0').max(99, 'Забагато! має бути менше за 100'), // коерсимо
+  })).default([]).optional(),
+
+  racialBonusChoiceSchema: z.object({
+    basicChoices: z.array(choices).default([]),
+    tashaChoices: z.array(choices).default([])
+  }).optional()
+})
+  .refine((data) => {
+  if (data.asiSystem === 'POINT_BUY') {
+    return data.asi && data.asi.length === 6 && data.points >= 0;
+  }
+  return true
+}, {
+  message: "Очків не має бути менше за 0",
+  path: ['points']
+}).refine((data) => {
+    if (data.asiSystem === 'SIMPLE') {
+      return data.simpleAsi && data.simpleAsi.length === 6;
+    }
+    return true;
+  }, {
+  message: "Помилка... Спробуйте перезавантажити сторінку 🙏",
+    path: ['simpleAsi']
+  }).refine((data) => {
+    if (data.asiSystem === 'CUSTOM') {
+      return data.customAsi
+        && data.customAsi.length === 6
+        && data.customAsi.every((entry) => {
+          try {
+            const num = Number(entry.value)
+            return !isNaN(num) && entry.value != '';
+          } catch {
+            return false;
+          }
+        })
+    }
+    return true;
+  }, {
+    message: "Введіть саме числа, будь ласка!",
+    path: ['customAsi', 'root']
+  }).refine((data) => {
+    if (data.racialBonusChoiceSchema) {
+      const check = (groups: any[]) => {
+        return groups.every(g => g.selectedAbilities.length === g.choiceCount)
+      }
+      if (data.isDefaultASI && data.racialBonusChoiceSchema.basicChoices) {
+        return check(data.racialBonusChoiceSchema.basicChoices)
+      }
+      else if (!data.isDefaultASI && data.racialBonusChoiceSchema.tashaChoices) {
+        return check(data.racialBonusChoiceSchema.tashaChoices)
+      }
+    }
+    return true;
+  }, {
+    message: "Дооберіть, будь ласка",
+    path: ['racialBonusChoiceSchema']
+  })
+
+const skills = z.enum(SkillsEnum)
+
+export const skillsSchema  = z.object({
+  isTasha: z.boolean().default(true),
+  tashaChoices: z.array(skills).default([]),
+
+  basicChoices: z.object({
+    race: z.array(skills).default([]),
+    selectedClass: z.array(skills).default([]),
+  }).default({
+    race: [],
+    selectedClass: [],
+  }),
+  
+  // Metadata fields for validation (not stored in DB)
+  _requiredCount: z.number().optional(),
+  _raceCount: z.number().optional(),
+  _classCount: z.number().optional(),
+}).strict()
+  .superRefine((data, ctx) => {
+    // Skip validation if metadata not provided (for backward compatibility)
+    if (data.isTasha && data._requiredCount !== undefined) {
+      // In Tasha mode: validate total count (upper bound)
+      const actualCount = data.tashaChoices.length;
+      if (actualCount > data._requiredCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Оберіть не більше ${data._requiredCount} навичок`,
+          path: ['tashaChoices'],
+        });
+      }
+    } else if (!data.isTasha && data._raceCount !== undefined && data._classCount !== undefined) {
+      // In basic mode: validate race and class counts separately (upper bounds)
+      if (data.basicChoices.race.length > data._raceCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Оберіть не більше ${data._raceCount} навичок за расу`,
+          path: ['basicChoices', 'race'],
+        });
+      }
+      if (data.basicChoices.selectedClass.length > data._classCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Оберіть не більше ${data._classCount} навичок за клас`,
+          path: ['basicChoices', 'selectedClass'],
+        });
+      }
+    }
+  })
+
+export const expertiseSchema = z.object({
+  expertises: z.array(skills).default([])
+});
+
+export const equipmentSchema = z.object({
+    choiceGroupToId: z.record(
+      z.string(), // js has no numeric keys
+      z.array(z.number())
+    ).default({}),
+    anyWeaponSelection: z.record(z.string(), z.array(z.number())).default({})
+})
+
+export const nameSchema = z.object({
+  name: z.string()
+    .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
+})
+
+export const fullCharacterSchema = z.object({
+  raceId: z.number(),
+  raceSearch: z.string().default(''),
+  subraceId: z.number().optional(),
+  raceVariantId: z.number().nullable().optional(),
+  raceChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  featId: z.number().optional(),
+  classId: z.number().min(1, "Клас обов'язковий для вибору"),
+  subclassId: z.number().optional(),
+  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  classChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  featChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({}),
+  backgroundId: z.number(),
+  backgroundSearch: z.string().default(''),
+  isDefaultASI: z.boolean().default(false),
+  asiSystem: z.string().default('POINT_BUY'),
+  points: z.number().min(0).default(0),
+  simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
+  customAsi: z.array(z.object({ ability: z.string(), value: z.string().transform((val) => (val === '' ? 10 : Number(val)))})).default([]).optional(),
+  asi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
+  skills: z.array(z.string()).default([]),
+  equipment: z.array(z.number()).default([]),
+  name: z.string().default(''),
+  racialBonusChoiceSchema: z.object({
+    basicChoices: z.array(choices).default([]),
+    tashaChoices: z.array(choices).default([])
+  }).optional(),
+  skillsSchema: skillsSchema.optional(),
+  expertiseSchema: expertiseSchema.optional(),
+  equipmentSchema: equipmentSchema.optional(),
+  nameSchema: nameSchema.optional()
+})
+
+
+export type PersFormData = z.infer<typeof fullCharacterSchema>
+</file>
+
 <file path="src/lib/components/characterCreator/ClassesForm.tsx">
 "use client";
 
@@ -53649,8 +54304,8 @@ import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { ClassI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { useEffect, useMemo } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import {
@@ -53764,13 +54419,13 @@ export const ClassesForm = (
             features.map((feature) => (
               <div
                 key={feature.classFeatureId || feature.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <div className="mb-1 flex items-center justify-between gap-2">
                   <p className="text-sm font-semibold text-white">{feature.feature.name}</p>
                   <Badge
-                    variant="outline"
-                    className="border-slate-700 bg-slate-800/70 text-[11px] text-slate-200"
+                              variant="outline"
+                              className="border-white/15 bg-white/5 text-[11px] text-slate-200"
                   >
                     Рів. {feature.levelGranted}
                   </Badge>
@@ -53791,7 +54446,9 @@ export const ClassesForm = (
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть клас</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть клас
+        </h2>
         <p className="text-sm text-slate-400">Натисніть картку, або відкрийте ? для деталей.</p>
       </div>
 
@@ -53801,8 +54458,8 @@ export const ClassesForm = (
             <Card
               key={c.classId}
               className={clsx(
-                "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                c.classId === chosenClassId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
+                "glass-card cursor-pointer transition-all duration-200",
+                c.classId === chosenClassId && "glass-active"
               )}
               onClick={() => form.setValue('classId', c.classId)}
             >
@@ -53817,7 +54474,16 @@ export const ClassesForm = (
           ))}
       </div>
 
-      <input type="hidden" {...form.register('classId', { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("classId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   )
 };
@@ -53833,10 +54499,10 @@ import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { raceSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { RaceAC, RaceASI, RaceI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/lib/components/ui/card";
-import { Badge } from "@/lib/components/ui/badge";
-import { Button } from "@/lib/components/ui/Button";
-import { Input } from "@/lib/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useCallback } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
@@ -53855,6 +54521,7 @@ import {
   formatToolProficiencies,
   formatWeaponProficiencies,
   prettifyEnum,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 
 const normalizeText = (value?: string) =>
@@ -53881,7 +54548,7 @@ const formatSpeeds = (race: RaceI) => {
 const formatRaceAC = (ac?: RaceAC | null) => {
   if (!ac) return "10";
   if ("consistentBonus" in ac) {
-    return `+${ac.consistentBonus} до КЗ`;
+    return `+${ac.consistentBonus} до КБ`;
   }
   const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
   return `База ${ac.base}${bonus}`;
@@ -53899,7 +54566,7 @@ const formatASI = (asi?: RaceASI | null) => {
   if (fixedEntries.length) {
     parts.push(
       `Фіксовано: ${fixedEntries
-        .map(([stat, value]) => `${prettifyEnum(stat)} +${value}`)
+        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
         .join(", ")}`
     );
   }
@@ -53984,7 +54651,7 @@ export const RacesForm = (
           <InfoPill label="Джерело" value={sourceLabel(race)} />
           <InfoPill label="Розмір" value={formatList(race.size)} />
           <InfoPill label="Швидкості" value={formatSpeeds(race)} />
-          <InfoPill label="Базовий КЗ" value={formatRaceAC(race.ac)} />
+          <InfoPill label="Базовий КБ" value={formatRaceAC(race.ac)} />
           <InfoPill label="Бонуси характеристик" value={formatASI(race.ASI)} />
           <InfoPill
             label="Мови"
@@ -54014,7 +54681,7 @@ export const RacesForm = (
             traitList.map((trait) => (
               <div
                 key={trait.raceTraitId || trait.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
                 <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
@@ -54051,11 +54718,13 @@ export const RacesForm = (
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть расу</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть расу
+        </h2>
         <p className="text-sm text-slate-400">Натисніть на картку, щоб продовжити.</p>
       </div>
 
-      <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
+      <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="relative w-full">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
@@ -54066,7 +54735,7 @@ export const RacesForm = (
               onChange={(e) => form.setValue('raceSearch', e.target.value)}
               placeholder="Пошук за назвою"
               aria-label="Пошук раси"
-              className="h-10 bg-slate-950/60 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-500"
+              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
             />
             {raceSearch && (
               <Button
@@ -54092,15 +54761,15 @@ export const RacesForm = (
         <div>
           <div className="mb-2 flex items-center justify-between">
             <p className="text-sm font-semibold text-white">PHB 2014</p>
-            <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Джерело</Badge>
+            <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">Джерело</Badge>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {coreRaces.map(r =>  (
               <Card
                 key={r.raceId}
                 className={clsx(
-                  "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                  r.raceId === chosenRaceId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
+                  "glass-card cursor-pointer transition-all duration-200",
+                  r.raceId === chosenRaceId && "glass-active"
                 )}
                 onClick={() => form.setValue('raceId', r.raceId)}
               >
@@ -54117,37 +54786,48 @@ export const RacesForm = (
           </div>
         </div>
 
-        <details className="rounded-xl border border-slate-800/80 bg-slate-900/60 shadow-inner" open={forceOpenOther || undefined}>
-          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800/80 [&::-webkit-details-marker]:hidden">
+        <details className="glass-panel border-gradient-rpg rounded-xl" open={forceOpenOther || undefined}>
+          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
             Інші джерела
           </summary>
-          <div className="border-t border-slate-800/80 p-3">
-            <div className="grid gap-3 sm:grid-cols-2">
-              {otherRaces.map(r =>  (
-                <Card
-                  key={r.raceId}
-                  className={clsx(
-                    "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                    r.raceId === chosenRaceId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-                  )}
-                  onClick={() => form.setValue('raceId', r.raceId)}
-                >
-                  <CardContent className="relative flex items-center justify-between p-4">
-                    <RaceInfoModal race={r} />
-                    <div>
-                      <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
-                      <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
-                    </div>
-                    <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
-                  </CardContent>
-                </Card>
-              ))}
+          <div className="bg-slate-900/40 backdrop-blur-sm">
+            <div className="border-t border-white/10 p-3">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {otherRaces.map(r =>  (
+                  <Card
+                    key={r.raceId}
+                    className={clsx(
+                      "glass-card cursor-pointer transition-all duration-200",
+                      r.raceId === chosenRaceId && "glass-active"
+                    )}
+                    onClick={() => form.setValue('raceId', r.raceId)}
+                  >
+                    <CardContent className="relative flex items-center justify-between p-4">
+                      <RaceInfoModal race={r} />
+                      <div>
+                        <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
+                        <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
+                      </div>
+                      <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </details>
       </div>
 
-      <input type="hidden" {...form.register('raceId', { valueAsNumber: true })} />
+      <input
+        type="hidden"
+        {...form.register("raceId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
+        })}
+      />
     </form>
   )
 };
@@ -54258,7 +54938,7 @@ async function main() {
     // await seedSubraceFeatures(prisma)
     // await seedRaces(prisma)
     // await seedSubraces(prisma)
-    // await seedRaceVariants(prisma)
+    await seedRaceVariants(prisma)
     // await seedRaceChoiceOptions(prisma)
 
     // await seedClasses(prisma)
@@ -54273,8 +54953,8 @@ async function main() {
 
     // await seedClassOptionalFeatures(prisma)
     
-    await seedFeats(prisma);
-    await seedFeatChoiceOptions(prisma);
+    // await seedFeats(prisma);
+    // await seedFeatChoiceOptions(prisma);
 
     // await seedClassFeatures(prisma)
     // await seedInfusionFeatures(prisma) // features for infusions
@@ -54307,6 +54987,15 @@ export default async function Page() {
   ] = await Promise.all([
     prisma.race.findMany({
       include: {
+        raceChoiceOptions: {
+          include: {
+            traits: {
+              include: {
+                feature: true,
+              }
+            }
+          }
+        },
         subraces: {
           include: {
             traits: {
@@ -54439,7 +55128,7 @@ import {z, ZodObject, ZodRawShape} from "zod";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {DefaultValues, useForm} from "react-hook-form";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { toast } from "sonner";
 
 const extractErrorMessage = (err: unknown): string | null => {
@@ -54468,7 +55157,7 @@ export function useStepForm<TShape extends ZodRawShape>(
     type Input = z.input<typeof schema>
     type Output = z.output<typeof schema>
 
-    const { formData, updateFormData, nextStep } = usePersFormStore();
+    const { formData, updateFormData, nextStep, isHydrated } = usePersFormStore();
 
     const schemaDefaults = useMemo(() => {
         const result = schema.safeParse({});
@@ -54496,21 +55185,33 @@ export function useStepForm<TShape extends ZodRawShape>(
         shouldUnregister: false
     });
 
+    const didApplyHydratedDefaults = useRef(false);
+
+    useEffect(() => {
+        if (!isHydrated) return;
+        if (didApplyHydratedDefaults.current) return;
+        // After zustand-persist hydration, ensure persisted values override schema defaults.
+        form.reset(mergedDefaults as DefaultValues<Input>);
+        didApplyHydratedDefaults.current = true;
+    }, [isHydrated, form, mergedDefaults]);
+
     // Save data when unmounting (navigating away without submitting)
     useEffect(() => {
         return () => {
+            if (!isHydrated) return;
             const values = form.getValues();
             updateFormData(values);
         };
-    }, [form, updateFormData]);
+    }, [form, updateFormData, isHydrated]);
 
 
     useEffect(() => {
+        if (!isHydrated) return;
         const subscription = form.watch((value) => {
             updateFormData(value as Partial<Input>);
         });
         return () => subscription.unsubscribe();
-    }, [form, updateFormData])
+    }, [form, updateFormData, isHydrated])
 
     const friendlyMessages: Record<string, string> = {
         raceId: "Оберіть, будь ласка, расу",

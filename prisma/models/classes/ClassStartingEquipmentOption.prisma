@@ -23,7 +23,7 @@ model ClassStartingEquipmentOption {
 
   description String? @db.Text
 
-  class         Class          @relation(fields: [classId], references: [classId])
+  class         Class          @relation(fields: [classId], references: [classId], onDelete: Cascade)
   weapon        Weapon?        @relation(fields: [weaponId], references: [weaponId])
   armor         Armor?         @relation(fields: [armorId], references: [armorId])
   equipmentPack EquipmentPack? @relation(fields: [equipmentPackId], references: [equipmentPackId])

@@ -1,5 +1,5 @@
 import React from "react";
-import { Cinzel, Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
+import { Cinzel, Forum, Inter, JetBrains_Mono } from "next/font/google";
 import { Metadata, Viewport } from "next";
 import './globals.css'
 import { Navigation } from "@/components/ui/Navigation";
@@ -27,11 +27,11 @@ const cinzel = Cinzel({
   variable: "--font-cinzel",
 });
 
-// Primary RPG display font: Cyrillic-capable antique serif.
-const rpgDisplay = Cormorant_Garamond({
+// Primary RPG display font: Cyrillic-capable carved/antique vibe.
+const rpgDisplay = Forum({
   subsets: ["latin", "cyrillic"],
   display: "swap",
-  weight: ["500", "600", "700"],
+  weight: ["400"],
   variable: "--font-rpg-display",
 });
 

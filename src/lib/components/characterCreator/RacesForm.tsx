@@ -187,7 +187,7 @@ export const RacesForm = (
             traitList.map((trait) => (
               <div
                 key={trait.raceTraitId || trait.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
                 <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
@@ -224,11 +224,13 @@ export const RacesForm = (
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть расу</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть расу
+        </h2>
         <p className="text-sm text-slate-400">Натисніть на картку, щоб продовжити.</p>
       </div>
 
-      <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-3 shadow-inner sm:p-4">
+      <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="relative w-full">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
@@ -239,7 +241,7 @@ export const RacesForm = (
               onChange={(e) => form.setValue('raceSearch', e.target.value)}
               placeholder="Пошук за назвою"
               aria-label="Пошук раси"
-              className="h-10 bg-slate-950/60 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-500"
+              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
             />
             {raceSearch && (
               <Button
@@ -265,15 +267,15 @@ export const RacesForm = (
         <div>
           <div className="mb-2 flex items-center justify-between">
             <p className="text-sm font-semibold text-white">PHB 2014</p>
-            <Badge variant="outline" className="border-slate-800 bg-slate-800/60 text-slate-200">Джерело</Badge>
+            <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">Джерело</Badge>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {coreRaces.map(r =>  (
               <Card
                 key={r.raceId}
                 className={clsx(
-                  "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                  r.raceId === chosenRaceId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
+                  "glass-card cursor-pointer transition-all duration-200",
+                  r.raceId === chosenRaceId && "glass-active"
                 )}
                 onClick={() => form.setValue('raceId', r.raceId)}
               >
@@ -290,31 +292,33 @@ export const RacesForm = (
           </div>
         </div>
 
-        <details className="rounded-xl border border-slate-800/80 bg-slate-900/60 shadow-inner" open={forceOpenOther || undefined}>
-          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800/80 [&::-webkit-details-marker]:hidden">
+        <details className="glass-panel border-gradient-rpg rounded-xl" open={forceOpenOther || undefined}>
+          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
             Інші джерела
           </summary>
-          <div className="border-t border-slate-800/80 p-3">
-            <div className="grid gap-3 sm:grid-cols-2">
-              {otherRaces.map(r =>  (
-                <Card
-                  key={r.raceId}
-                  className={clsx(
-                    "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                    r.raceId === chosenRaceId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
-                  )}
-                  onClick={() => form.setValue('raceId', r.raceId)}
-                >
-                  <CardContent className="relative flex items-center justify-between p-4">
-                    <RaceInfoModal race={r} />
-                    <div>
-                      <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
-                      <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
-                    </div>
-                    <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
-                  </CardContent>
-                </Card>
-              ))}
+          <div className="bg-slate-900/40 backdrop-blur-sm">
+            <div className="border-t border-white/10 p-3">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {otherRaces.map(r =>  (
+                  <Card
+                    key={r.raceId}
+                    className={clsx(
+                      "glass-card cursor-pointer transition-all duration-200",
+                      r.raceId === chosenRaceId && "glass-active"
+                    )}
+                    onClick={() => form.setValue('raceId', r.raceId)}
+                  >
+                    <CardContent className="relative flex items-center justify-between p-4">
+                      <RaceInfoModal race={r} />
+                      <div>
+                        <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
+                        <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
+                      </div>
+                      <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </details>

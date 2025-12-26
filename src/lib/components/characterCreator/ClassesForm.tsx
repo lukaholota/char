@@ -121,13 +121,13 @@ export const ClassesForm = (
             features.map((feature) => (
               <div
                 key={feature.classFeatureId || feature.feature.featureId}
-                className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
+                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <div className="mb-1 flex items-center justify-between gap-2">
                   <p className="text-sm font-semibold text-white">{feature.feature.name}</p>
                   <Badge
-                    variant="outline"
-                    className="border-slate-700 bg-slate-800/70 text-[11px] text-slate-200"
+                              variant="outline"
+                              className="border-white/15 bg-white/5 text-[11px] text-slate-200"
                   >
                     Рів. {feature.levelGranted}
                   </Badge>
@@ -148,7 +148,9 @@ export const ClassesForm = (
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
-        <h2 className="text-xl font-semibold text-white">Оберіть клас</h2>
+        <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
+          Оберіть клас
+        </h2>
         <p className="text-sm text-slate-400">Натисніть картку, або відкрийте ? для деталей.</p>
       </div>
 
@@ -158,8 +160,8 @@ export const ClassesForm = (
             <Card
               key={c.classId}
               className={clsx(
-                "cursor-pointer border border-slate-800/80 bg-slate-900/70 transition hover:-translate-y-0.5 hover:border-indigo-500/60",
-                c.classId === chosenClassId && "border-indigo-400/80 bg-indigo-500/10 shadow-lg shadow-indigo-500/15"
+                "glass-card cursor-pointer transition-all duration-200",
+                c.classId === chosenClassId && "glass-active"
               )}
               onClick={() => form.setValue('classId', c.classId)}
             >

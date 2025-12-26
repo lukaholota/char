@@ -10,8 +10,8 @@ model PersArmor {
 
   equipped Boolean @default(false)
 
-  pers  Pers  @relation(fields: [persId], references: [persId])
-  armor Armor @relation(fields: [armorId], references: [armorId])
+  pers  Pers  @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  armor Armor @relation(fields: [armorId], references: [armorId], onDelete: Cascade)
 
   // Opposite side of PersInfusion.armor
   infusions PersInfusion[]

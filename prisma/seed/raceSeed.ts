@@ -231,6 +231,54 @@ export const seedRaces = async (prisma: PrismaClient) => {
             }
         },
 
+        // ============ ДРАКОНОНАРОДЖЕНИЙ (FIZBAN'S) ============
+        {
+            name: Races.DRAGONBORN_CHROMATIC,
+            sortOrder: 5,
+            size: [Size.MEDIUM],
+            speed: 30,
+            source: Source.FTOD,
+            languages: [Language.COMMON, Language.DRACONIC],
+            languagesToChooseCount: 0,
+            ASI: MPMMBaseASI,
+            traits: {
+                create: [
+                    { feature: { connect: { engName: 'Chromatic Warding' } } },
+                ]
+            }
+        },
+        {
+            name: Races.DRAGONBORN_METALLIC,
+            sortOrder: 5,
+            size: [Size.MEDIUM],
+            speed: 30,
+            source: Source.FTOD,
+            languages: [Language.COMMON, Language.DRACONIC],
+            languagesToChooseCount: 0,
+            ASI: MPMMBaseASI,
+            traits: {
+                create: [
+                    { feature: { connect: { engName: 'Metallic Breath Weapon' } } },
+                ]
+            }
+        },
+        {
+            name: Races.DRAGONBORN_GEM,
+            sortOrder: 5,
+            size: [Size.MEDIUM],
+            speed: 30,
+            source: Source.FTOD,
+            languages: [Language.COMMON, Language.DRACONIC],
+            languagesToChooseCount: 0,
+            ASI: MPMMBaseASI,
+            traits: {
+                create: [
+                    { feature: { connect: { engName: 'Psionic Mind' } } },
+                    { feature: { connect: { engName: 'Gem Flight' } } },
+                ]
+            }
+        },
+
         // ============ ГНОМ ============
         {
             name: Races.GNOME_2014,

@@ -5,7 +5,6 @@ export const seedSubraces = async (prisma: PrismaClient) => {
     console.log('🧔 Додаємо підраси Дварфів...');
     console.log('🧔‍♂️ Додаємо підраси Напівросликів...');
     console.log('🧙 Додаємо підраси Гномів...');
-    console.log('🐉 Додаємо підраси Дракононароджених (Fizban\'s)...');
 
     const elf = await prisma.race.findFirst({ where: { name: Races.ELF_2014 } });
     if (!elf) {
@@ -25,11 +24,6 @@ export const seedSubraces = async (prisma: PrismaClient) => {
     const gnome = await prisma.race.findFirst({ where: { name: Races.GNOME_2014 } });
     if (!gnome) {
         throw new Error("Gnome race not found");
-    }
-
-    const dragonborn = await prisma.race.findFirst({ where: { name: Races.DRAGONBORN_2014 } });
-    if (!dragonborn) {
-        throw new Error("Dragonborn race not found");
     }
 
     const MPMM_ASI = {
@@ -306,103 +300,6 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             }
         },
         
-        // ============ CHROMATIC DRAGONBORN (FIZBAN'S) ============
-        {
-            raceId: dragonborn.raceId,
-            name: Subraces.DRAGONBORN_CHROMATIC,
-            source: Source.FTOD,
-            replacesASI: true,
-            additionalASI: {
-                tasha: {
-                    flexible: {
-                        groups: [
-                            {
-                                groupName: '+2 до Однієї',
-                                value: 2,
-                                choiceCount: 1,
-                                unique: false
-                            },
-                            {
-                                groupName: '+1 до Однієї',
-                                value: 1,
-                                choiceCount: 1,
-                                unique: false
-                            }
-                        ]
-                    }
-                }
-            },
-            traits: {
-                create: [
-                    connectFeature('Chromatic Warding')
-                ]
-            }
-        },
-        // ============ METALLIC DRAGONBORN (FIZBAN'S) ============
-        {
-            raceId: dragonborn.raceId,
-            name: Subraces.DRAGONBORN_METALLIC,
-            source: Source.FTOD,
-            replacesASI: true,
-            additionalASI: {
-                tasha: {
-                    flexible: {
-                        groups: [
-                            {
-                                groupName: '+2 до Однієї',
-                                value: 2,
-                                choiceCount: 1,
-                                unique: false
-                            },
-                            {
-                                groupName: '+1 до Однієї',
-                                value: 1,
-                                choiceCount: 1,
-                                unique: false
-                            }
-                        ]
-                    }
-                }
-            },
-            traits: {
-                create: [
-                    connectFeature('Metallic Breath Weapon')
-                ]
-            }
-        },
-        // ============ GEM DRAGONBORN (FIZBAN'S) ============
-        {
-            raceId: dragonborn.raceId,
-            name: Subraces.DRAGONBORN_GEM,
-            source: Source.FTOD,
-            replacesASI: true,
-            additionalASI: {
-                tasha: {
-                    flexible: {
-                        groups: [
-                            {
-                                groupName: '+2 до Однієї',
-                                value: 2,
-                                choiceCount: 1,
-                                unique: false
-                            },
-                            {
-                                groupName: '+1 до Однієї',
-                                value: 1,
-                                choiceCount: 1,
-                                unique: false
-                            }
-                        ]
-                    }
-                }
-            },
-            traits: {
-                create: [
-                    connectFeature('Psionic Mind'),
-                    connectFeature('Gem Flight')
-                ]
-            }
-        }
     ];
 
     for (const subrace of subraces) {

@@ -9,7 +9,7 @@ model SubclassFeature {
   grantsSpellSlots Boolean @default(false) @map("grants_spell_slots")
 
   feature  Feature  @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  subclass Subclass @relation(fields: [subclassId], references: [subclassId])
+  subclass Subclass @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
   @@map("subclass_feature")
 }

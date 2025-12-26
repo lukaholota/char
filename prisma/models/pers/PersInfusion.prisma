@@ -12,11 +12,11 @@ model PersInfusion {
   createdAt DateTime  @default(now()) @map("created_at")
   expiresAt DateTime? @map("expires_at")
 
-  pers      Pers           @relation(fields: [persId], references: [persId])
-  infusion  Infusion       @relation(fields: [infusionId], references: [infusionId])
-  weapon    PersWeapon?    @relation(fields: [persWeaponId], references: [persWeaponId])
-  armor     PersArmor?     @relation(fields: [persArmorId], references: [persArmorId])
-  magicItem PersMagicItem? @relation(fields: [persMagicItemId], references: [persMagicItemId])
+  pers      Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  infusion  Infusion       @relation(fields: [infusionId], references: [infusionId], onDelete: Cascade)
+  weapon    PersWeapon?    @relation(fields: [persWeaponId], references: [persWeaponId], onDelete: Cascade)
+  armor     PersArmor?     @relation(fields: [persArmorId], references: [persArmorId], onDelete: Cascade)
+  magicItem PersMagicItem? @relation(fields: [persMagicItemId], references: [persMagicItemId], onDelete: Cascade)
 
   @@map("pers_infusion")
 }

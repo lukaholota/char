@@ -16,7 +16,7 @@ model ClassFeature {
   mechanicDescription String? @map("mechanic_description") @db.Text
 
   feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  class   Class   @relation(fields: [classId], references: [classId])
+  class   Class   @relation(fields: [classId], references: [classId], onDelete: Cascade)
 
   @@index([classId, levelGranted])
   @@index([mechanicType])

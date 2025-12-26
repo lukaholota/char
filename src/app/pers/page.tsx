@@ -14,6 +14,15 @@ export default async function Page() {
   ] = await Promise.all([
     prisma.race.findMany({
       include: {
+        raceChoiceOptions: {
+          include: {
+            traits: {
+              include: {
+                feature: true,
+              }
+            }
+          }
+        },
         subraces: {
           include: {
             traits: {
