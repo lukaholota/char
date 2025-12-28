@@ -2118,7 +2118,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Магічне виявлення',
             engName: 'Magical Detection',
-            description: 'Ви можете використовувати заклинання <a href="/spell/1289">Виявлення магії [Detect Magic]</a> та <a href="/spell/1406">Виявлення думок [Detect Thoughts]</a>, кожне один раз за допомогою цієї риси. Після використання ви не можете використовувати їх знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1045">Виявлення магії [Detect Magic]</a> та <a href="/spell/1297">Виявлення думок [Detect Thoughts]</a>, кожне один раз за допомогою цієї риси. Після використання ви не можете використовувати їх знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Detect Magic та Detect Thoughts 1/день',
             displayType: [FeatureDisplayType.RESOURCE],
             limitedUsesPer: RestType.LONG_REST,
@@ -2127,7 +2127,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки виявлення',
             engName: 'Spells of the Mark (Detection)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1406">Виявлення думок [Detect Thoughts]</a>, <a href="/spell/1289">Виявлення магії [Detect Magic]</a>, <a href="/spell/1314">Ясновидіння [Clairvoyance]</a>, <a href="/spell/1141">Арканий глаз [Arcane Eye]</a>, <a href="/spell/1314">Легенди та перекази [Legend Lore]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1297">Виявлення думок [Detect Thoughts]</a>, <a href="/spell/1045">Виявлення магії [Detect Magic]</a>, <a href="/spell/1218">Ясновидіння [Clairvoyance]</a>, <a href="/spell/1205">Арканий глаз [Arcane Eye]</a>, <a href="/spell/1164">Легенди та перекази [Legend Lore]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2150,7 +2150,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Натяк на шторм',
             engName: 'Headwinds',
-            description: 'Ви знаєте замовляння <a href="/spell/1352">Порив [Gust]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/2544">Порив вітру [Gust of Wind]</a>, яке потребує концентрації. Після використання ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
+            description: 'Ви знаєте замовляння <a href="/spell/1416">Порив [Gust]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1267">Порив вітру [Gust of Wind]</a>, яке потребує концентрації. Після використання ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Gust cantrip + Gust of Wind 1/день',
             displayType: [FeatureDisplayType.RESOURCE],
             limitedUsesPer: RestType.LONG_REST,
@@ -2159,7 +2159,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки шторму',
             engName: 'Spells of the Mark (Storm)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/2544">Порив вітру [Gust of Wind]</a>, <a href="/spell/1345">Блискавка [Lightning Bolt]</a>, <a href="/spell/1385">Град [Sleet Storm]</a>, <a href="/spell/1287">Контроль води [Control Water]</a>, <a href="/spell/1318">Виклик блискавки [Conjure Elemental]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1267">Порив вітру [Gust of Wind]</a>, <a href="/spell/1237">Блискавка [Lightning Bolt]</a>, <a href="/spell/1238">Град [Sleet Storm]</a>, <a href="/spell/1191">Контроль води [Control Water]</a>, <a href="/spell/1170">Виклик блискавки [Conjure Elemental]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2246,7 +2246,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Магія варди',
             engName: 'Wards and Seals',
-            description: 'Ви можете використовувати заклинання <a href="/spell/1136">Сигнал тривоги [Alarm]</a> та <a href="/spell/1343">Магічна броня [Mage Armor]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1141">Аркан ний замок [Arcane Lock]</a>. Після використання будь-якого з цих заклинань ви не можете використовувати його знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
+            description: 'Ви можете використовувати заклинання <a href="/spell/1306">Сигнал тривоги [Alarm]</a> та <a href="/spell/1326">Магічна броня [Mage Armor]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1300">Аркан ний замок [Arcane Lock]</a>. Після використання будь-якого з цих заклинань ви не можете використовувати його знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Alarm, Mage Armor, Arcane Lock 1/день',
             displayType: [FeatureDisplayType.RESOURCE],
             limitedUsesPer: RestType.LONG_REST,
@@ -2255,7 +2255,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки вард',
             engName: 'Spells of the Mark (Warding)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1136">Сигнал тривоги [Alarm]</a>, <a href="/spell/1141">Арканий замок [Arcane Lock]</a>, <a href="/spell/1357">Гліф охорони [Glyph of Warding]</a>, <a href="/spell/1343">Магічна броня [Mage Armor]</a>, <a href="/spell/1334">Таємна скриня Леомунда [Leomund\'s Secret Chest]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1306">Сигнал тривоги [Alarm]</a>, <a href="/spell/1300">Арканий замок [Arcane Lock]</a>, <a href="/spell/1222">Гліф охорони [Glyph of Warding]</a>, <a href="/spell/1326">Магічна броня [Mage Armor]</a>, <a href="/spell/1334">Таємна скриня Леомунда [Leomund\'s Secret Chest]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2282,7 +2282,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки зцілення',
             engName: 'Spells of the Mark (Healing)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1334">Лікування ран [Cure Wounds]</a>, <a href="/spell/1333">Цілюще слово [Healing Word]</a>, <a href="/spell/1281">Мале відновлення [Lesser Restoration]</a>, <a href="/spell/1280">Молитва про зцілення [Prayer of Healing]</a>, <a href="/spell/1510">Аура живучості [Aura of Vitality]</a>, <a href="/spell/1230">Масове цілюще слово [Mass Healing Word]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1334">Лікування ран [Cure Wounds]</a>, <a href="/spell/1303">Цілюще слово [Healing Word]</a>, <a href="/spell/1281">Мале відновлення [Lesser Restoration]</a>, <a href="/spell/1280">Молитва про зцілення [Prayer of Healing]</a>, <a href="/spell/1510">Аура живучості [Aura of Vitality]</a>, <a href="/spell/1230">Масове цілюще слово [Mass Healing Word]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2334,7 +2334,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки писаря',
             engName: 'Spells of the Mark (Scribing)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1315">Розуміння мов [Comprehend Languages]</a>, <a href="/spell/1049">Ілюзорний напис [Illusory Script]</a>, <a href="/spell/1314">Звіриний гонець [Animal Messenger]</a>, <a href="/spell/1282">Магічні вуста [Magic Mouth]</a>, <a href="/spell/1247">Послання [Sending]</a>, <a href="/spell/1146">Аркан на сторінка [Arcane Page]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1315">Розуміння мов [Comprehend Languages]</a>, <a href="/spell/1049">Ілюзорний напис [Illusory Script]</a>, <a href="/spell/1251">Звіриний гонець [Animal Messenger]</a>, <a href="/spell/1282">Магічні вуста [Magic Mouth]</a>, <a href="/spell/1220">Послання [Sending]</a>, <a href="/spell/1146">Аркан на сторінка [Arcane Page]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2361,7 +2361,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки пошуку (Людина)',
             engName: 'Spells of the Mark (Finding)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1331">Мисливська мітка [Hunter\'s Mark]</a>, <a href="/spell/1316">Розпізнавання [Identify]</a>, <a href="/spell/1265">Пошук предмета [Locate Object]</a>, <a href="/spell/1264">Пошук тварин або рослин [Locate Animals or Plants]</a>, <a href="/spell/1218">Підглядання [Clairvoyance]</a>, <a href="/spell/1214">Розмова з рослинами [Speak with Plants]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1331">Мисливська мітка [Hunter\'s Mark]</a>, <a href="/spell/1316">Розпізнавання [Identify]</a>, <a href="/spell/1265">Пошук предмета [Locate Object]</a>, <a href="/spell/1263">Пошук тварин або рослин [Locate Animals or Plants]</a>, <a href="/spell/1218">Підглядання [Clairvoyance]</a>, <a href="/spell/1214">Розмова з рослинами [Speak with Plants]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2393,7 +2393,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки поводження',
             engName: 'Spells of the Mark (Handling)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1339">Дружба з тваринами [Animal Friendship]</a>, <a href="/spell/1317">Розмова з тваринами [Speak with Animals]</a>, <a href="/spell/1459">Звірячі узи [Beast Bond]</a>, <a href="/spell/1548">Тваринне чуття [Beast Sense]</a>, <a href="/spell/1298">Вгамування емоцій [Calm Emotions]</a>, <a href="/spell/1221">Накликання тварин [Conjure Animals]</a>, <a href="/spell/1185">Підкорення звіра [Dominate Beast]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1339">Дружба з тваринами [Animal Friendship]</a>, <a href="/spell/1317">Розмова з тваринами [Speak with Animals]</a>, <a href="/spell/1459">Звірячі узи [Beast Bond]</a>, <a href="/spell/1548">Тваринне чуття [Beast Sense]</a>, <a href="/spell/1298">Вгамування емоцій [Calm Emotions]</a>, <a href="/spell/1239">Накликання тварин [Conjure Animals]</a>, <a href="/spell/1185">Підкорення звіра [Dominate Beast]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2425,7 +2425,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки творення',
             engName: 'Spells of the Mark (Making)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1316">Розпізнавання [Identify]</a>, <a href="/spell/1504">Літаючий диск Тензера [Tenser\'s Floating Disk]</a>, <a href="/spell/1273">Безперервне полум’я [Continual Flame]</a>, <a href="/spell/1283">Магічна зброя [Magic Weapon]</a>, <a href="/spell/1491">Стихійна зброя [Elemental Weapon]</a>, <a href="/spell/1201">Виготовлення [Fabricate]</a>, <a href="/spell/1140">Творення [Creation]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1316">Розпізнавання [Identify]</a>, <a href="/spell/1504">Літаючий диск Тензера [Tenser\'s Floating Disk]</a>, <a href="/spell/1295">Безперервне полум’я [Continual Flame]</a>, <a href="/spell/1283">Магічна зброя [Magic Weapon]</a>, <a href="/spell/1491">Стихійна зброя [Elemental Weapon]</a>, <a href="/spell/1201">Виготовлення [Fabricate]</a>, <a href="/spell/1140">Творення [Creation]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         },
@@ -2511,7 +2511,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
         {
             name: 'Закляття марки тіні',
             engName: 'Spells of the Mark (Shadow)',
-            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/456">Маскування [Disguise Self]</a>, <a href="/spell/2586">Мовчазний образ [Silent Image]</a>, <a href="/spell/1276">Невидимість [Invisibility]</a>, <a href="/spell/1270">Переміщення без сліду [Pass without Trace]</a>, <a href="/spell/1218">Підглядання [Clairvoyance]</a>, <a href="/spell/2496">Оживлений образ [Major Image]</a>, <a href="/spell/1200">Вища невидимість [Greater Invisibility]</a>, <a href="/spell/1205">Галюциногенна місцевість [Hallucinatory Terrain]</a>, <a href="/spell/1161">Омана [Mislead]</a>.',
+            description: 'Якщо ви маєте здатність Spellcasting або Pact Magic, заклинання в цьому списку додаються до списку заклинань вашого класу: <a href="/spell/1332">Маскування [Disguise Self]</a>, <a href="/spell/1330">Мовчазний образ [Silent Image]</a>, <a href="/spell/1276">Невидимість [Invisibility]</a>, <a href="/spell/1270">Переміщення без сліду [Pass without Trace]</a>, <a href="/spell/1218">Підглядання [Clairvoyance]</a>, <a href="/spell/1223">Оживлений образ [Major Image]</a>, <a href="/spell/1204">Вища невидимість [Greater Invisibility]</a>, <a href="/spell/1178">Галюциногенна місцевість [Hallucinatory Terrain]</a>, <a href="/spell/1154">Омана [Mislead]</a>.',
             shortDescription: 'Розширений список заклинань',
             displayType: [FeatureDisplayType.PASSIVE]
         }

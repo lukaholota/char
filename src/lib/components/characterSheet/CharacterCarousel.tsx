@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { PersWithRelations } from "@/lib/actions/pers";
 import MainStatsSlide from "./slides/MainStatsSlide";
 import SkillsSlide from "./slides/SkillsSlide";
-import CombatSlide from "./slides/CombatSlide";
+import CombatPage from "./CombatPage";
 import MagicSlide from "./slides/MagicSlide";
 import FeaturesSlide from "./slides/FeaturesSlide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -14,10 +14,12 @@ import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
 interface CharacterCarouselProps {
   pers: PersWithRelations;
+  onPersUpdate: (next: PersWithRelations) => void;
   groupedFeatures: CharacterFeaturesGroupedResult | null;
+  isReadOnly?: boolean;
 }
 
-export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCarouselProps) {
+export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures, isReadOnly }: CharacterCarouselProps) {
   const isLg = useMediaQuery("(min-width: 1024px)");
   const isMd = useMediaQuery("(min-width: 768px)");
 
@@ -70,11 +72,11 @@ export default function CharacterCarousel({ pers, groupedFeatures }: CharacterCa
   const visibleSlides = getVisibleSlides();
 
   const renderSlide = (id: SlideId) => {
-    if (id === "stats") return <MainStatsSlide pers={pers} />;
-    if (id === "skills") return <SkillsSlide pers={pers} />;
-    if (id === "equipment") return <CombatSlide pers={pers} />;
-    if (id === "magic") return <MagicSlide pers={pers} />;
-    if (id === "features") return <FeaturesSlide pers={pers} groupedFeatures={groupedFeatures} />;
+    if (id === "stats") return <MainStatsSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (id === "skills") return <SkillsSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (id === "equipment") return <CombatPage pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (id === "magic") return <MagicSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (id === "features") return <FeaturesSlide pers={pers} onPersUpdate={onPersUpdate} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} />;
     return null;
   };
 

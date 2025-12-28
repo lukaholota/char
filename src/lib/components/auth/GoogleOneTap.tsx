@@ -77,7 +77,7 @@ export default function GoogleOneTap() {
         context: "signin",
         ux_mode: "popup",
         auto_select: false,
-        use_fedcm_for_prompt: true,
+        use_fedcm_for_prompt: false,
         cancel_on_tap_outside: true,
         itp_support: true,
       });

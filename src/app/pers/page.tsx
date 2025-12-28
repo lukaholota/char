@@ -61,6 +61,19 @@ export default async function Page() {
                 feature: true,
               },
             },
+            subclassChoiceOptions: {
+              include: {
+                choiceOption: {
+                  include: {
+                    features: {
+                      include: {
+                        feature: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
             expandedSpells: true,
           },
         },

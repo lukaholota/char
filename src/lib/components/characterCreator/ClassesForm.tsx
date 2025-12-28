@@ -1,7 +1,7 @@
 "use client";
 
 import { SpellcastingType } from "@prisma/client";
-import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
+import { attributesUkrShort, classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import clsx from "clsx";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classSchema } from "@/lib/zod/schemas/persCreateSchema";
@@ -26,11 +26,14 @@ import {
   formatWeaponProficiencies,
   prettifyEnum,
 } from "@/lib/components/characterCreator/infoUtils";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   classes: ClassI[]
   formId: string
   onNextDisabledChange?: (disabled: boolean) => void
+  mode?: "flow" | "wizard"
+  onClassSelected?: (classId: number) => void
 }
 
 const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
@@ -42,11 +45,16 @@ const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
 };
 
 export const ClassesForm = (
-  {classes, formId, onNextDisabledChange}: Props
+  {classes, formId, onNextDisabledChange, mode = "flow", onClassSelected}: Props
 ) => {
   const { updateFormData, nextStep } = usePersFormStore();
   
   const {form, onSubmit} = useStepForm(classSchema, (data) => {
+    if (mode === "wizard") {
+      if (typeof data.classId === "number") onClassSelected?.(data.classId);
+      return;
+    }
+
     updateFormData({ classId: data.classId });
     nextStep();
   });
@@ -104,13 +112,13 @@ export const ClassesForm = (
             value={formatLanguages(cls.languages, cls.languagesToChooseCount)}
           />
           <InfoPill
-            label="Мультіклас"
+            label="Мультиклас"
             value={formatMulticlassReqs(cls.multiclassReqs)}
           />
           {cls.primaryCastingStat ? (
             <InfoPill
               label="Ключова характеристика"
-              value={prettifyEnum(cls.primaryCastingStat)}
+              value={attributesUkrShort[cls.primaryCastingStat]}
             />
           ) : null}
         </InfoGrid>
@@ -132,9 +140,10 @@ export const ClassesForm = (
                     Рів. {feature.levelGranted}
                   </Badge>
                 </div>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {feature.feature.description}
-                </p>
+                  <FormattedDescription
+                    content={feature.feature.description}
+                    className="text-sm leading-relaxed text-slate-200/90"
+                  />
               </div>
             ))
           ) : (
@@ -163,7 +172,11 @@ export const ClassesForm = (
                 "glass-card cursor-pointer transition-all duration-200",
                 c.classId === chosenClassId && "glass-active"
               )}
-              onClick={() => form.setValue('classId', c.classId)}
+              onClick={(e) => {
+                if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                form.setValue('classId', c.classId);
+                if (mode === "wizard") onClassSelected?.(c.classId);
+              }}
             >
                 <CardContent className="relative flex items-center justify-between p-4">
                   <ClassInfoModal cls={c} />

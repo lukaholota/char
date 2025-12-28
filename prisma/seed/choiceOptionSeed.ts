@@ -437,7 +437,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Mage Armor необмежено',
+            optionName: 'Магічна броня необмежено',
             optionNameEng: 'Armor of Shadows',
             features: {
                 create: [{ feature: { connect: { engName: 'Armor of Shadows' } } }]
@@ -445,7 +445,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Deception + Persuasion',
+            optionName: 'Обман + Переконання',
             optionNameEng: 'Beguiling Influence',
             features: {
                 create: [{ feature: { connect: { engName: 'Beguiling Influence' } } }]
@@ -453,7 +453,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Speak with Animals необмежено',
+            optionName: 'Розмова з тваринами необмежено',
             optionNameEng: 'Beast Speech',
             features: {
                 create: [{ feature: { connect: { engName: 'Beast Speech' } } }]
@@ -469,7 +469,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Detect Magic необмежено',
+            optionName: 'Виявлення магії необмежено',
             optionNameEng: 'Eldritch Sight',
             features: {
                 create: [{ feature: { connect: { engName: 'Eldritch Sight' } } }]
@@ -485,7 +485,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Eldritch Blast 300 футів',
+            optionName: 'Потойбічний вибух 300 футів',
             optionNameEng: 'Eldritch Spear',
             features: {
                 create: [{ feature: { connect: { engName: 'Eldritch Spear' } } }]
@@ -501,7 +501,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'False Life необмежено',
+            optionName: 'Хибне життя необмежено',
             optionNameEng: 'Fiendish Vigor',
             features: {
                 create: [{ feature: { connect: { engName: 'Fiendish Vigor' } } }]
@@ -517,7 +517,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Disguise Self необмежено',
+            optionName: 'Маскування необмежено',
             optionNameEng: 'Mask of Many Faces',
             features: {
                 create: [{ feature: { connect: { engName: 'Mask of Many Faces' } } }]
@@ -525,7 +525,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Silent Image необмежено',
+            optionName: 'Тихий образ необмежено',
             optionNameEng: 'Misty Visions',
             features: {
                 create: [{ feature: { connect: { engName: 'Misty Visions' } } }]
@@ -533,7 +533,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Eldritch Blast відштовхує 10 фт',
+            optionName: 'Потойбічний вибух відштовхує на 10 фт',
             optionNameEng: 'Repelling Blast',
             features: {
                 create: [{ feature: { connect: { engName: 'Repelling Blast' } } }]
@@ -541,7 +541,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Eldritch Blast підтягує 10 фт',
+            optionName: 'Потойбічний вибух підтягує на 10 фт',
             optionNameEng: 'Grasp of Hadar',
             features: {
                 create: [{ feature: { connect: { engName: 'Grasp of Hadar' } } }]
@@ -549,7 +549,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Eldritch Blast сповільнює -10 фт',
+            optionName: 'Потойбічний вибух сповільнює на 10 фт',
             optionNameEng: 'Lance of Lethargy',
             features: {
                 create: [{ feature: { connect: { engName: 'Lance of Lethargy' } } }]
@@ -559,7 +559,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
 // ПЕРЕДУМОВИ: 5+ РІВЕНЬ
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Extra Attack пактовою зброєю',
+            optionName: 'Друга атака пактовою зброєю',
             optionNameEng: 'Thirsting Blade',
             prerequisites: { level: 5, pact: 'Pact of the Blade' },
             features: {
@@ -568,7 +568,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Bestow Curse 1/день',
+            optionName: 'Накладання прокляття 1/день',
             optionNameEng: 'Sign of Ill Omen',
             prerequisites: { level: 5 },
             features: {
@@ -615,7 +615,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
 // 7+ РІВЕНЬ
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Polymorph 1/день',
+            optionName: 'Перетворення 1/день',
             optionNameEng: 'Sculptor of Flesh',
             prerequisites: { level: 7 },
             features: {
@@ -700,7 +700,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Ritual заклинання в Книзі Тіней',
+            optionName: 'Ритуальні заклинання в Книзі Тіней',
             optionNameEng: 'Book of Ancient Secrets',
             prerequisites: { pact: 'Pact of the Tome' },
             features: {
@@ -711,7 +711,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
 // 15+ РІВЕНЬ
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Arcane Eye необмежено',
+            optionName: 'Чарівне око необмежено',
             optionNameEng: 'Visions of Distant Realms',
             prerequisites: { level: 15 },
             features: {
@@ -720,7 +720,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Alter Self необмежено',
+            optionName: 'Зміна подоби необмежено',
             optionNameEng: 'Master of Myriad Forms',
             prerequisites: { level: 15 },
             features: {
@@ -729,7 +729,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Invisibility необмежено на себе',
+            optionName: 'Невидимість необмежено (лише на себе)',
             optionNameEng: 'Shrouded in Shadow',
             prerequisites: { level: 15 },
             features: {
@@ -747,7 +747,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Hold Monster на планарних істот',
+            optionName: 'Утримання монстра на планарних істот',
             optionNameEng: 'Chains of Carceri',
             prerequisites: { level: 15, pact: 'Pact of the Chain' },
             features: {
@@ -859,7 +859,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
 // 52. Undying Servitude
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'Animate Dead 1/день',
+            optionName: 'Підіймання мерців 1/день',
             optionNameEng: 'Undying Servitude',
             prerequisites: { level: 5 },
             features: {
@@ -899,7 +899,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
                 create: [{ feature: { connect: { engName: 'Bond of the Talisman' } } }]
             },
         },
-    ]
+    ];
 
     // Створюємо/оновлюємо саму опцію, а звʼязки з фічами додаємо тільки якщо їх ще немає
     for (const option of options) {
@@ -949,5 +949,5 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
     }
 
 
-    console.log('✅ Додано опцій вибору:', options.length)
+    console.log('✅ Додано опцій вибору:', options.length);
 }

@@ -1,8 +1,10 @@
 import Image from "next/image";
 
-export const Logo = () => {
+export const Logo = ({ className }: { className?: string }) => {
+  const sizeClassName = className ?? "h-10 w-10";
+
   return (
-    <div className="relative h-10 w-10 overflow-hidden">
+    <div className={`relative overflow-hidden ${sizeClassName}`}>
       <Image
         src="/images/logo-new.png"
         alt="logo"

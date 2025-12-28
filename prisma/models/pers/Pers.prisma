@@ -6,6 +6,7 @@ model Pers {
   level  Int    @default(1)
 
   currentSpellSlots Int[] @default([]) @map("current_spell_slots")
+  currentPactSlots  Int   @default(0) @map("current_pact_slots")
 
   classId    Int  @map("class_id")
   subclassId Int? @map("subclass_id")
@@ -19,6 +20,10 @@ model Pers {
   maxHp     Int @map("max_hp")
   tempHp    Int @default(0) @map("temp_hp")
 
+  deathSaveSuccesses Int @default(0) @map("death_save_successes")
+  deathSaveFailures  Int @default(0) @map("death_save_failures")
+  isDead             Boolean @default(false) @map("is_dead")
+
   persSpells PersSpell[]
 
   raceCustom           String @default("") @map("race_custom") @db.VarChar(100)
@@ -26,6 +31,7 @@ model Pers {
   alignment            String @default("") @db.VarChar(100)
   xp                   Int    @default(0)
   customBackground     String @default("") @map("custom_background") @db.VarChar(100)
+  customProficiencies  String @default("") @map("custom_proficiencies") @db.Text
   customFeatures       String @default("") @map("custom_features") @db.Text
   customLanguagesKnown String @default("") @map("custom_languages_known") @db.Text
   customEquipment      String @default("") @map("custom_equipment") @db.Text
@@ -56,6 +62,33 @@ model Pers {
   additionalShieldBonus Int     @default(0) @map("additional_shield_bonus")
   armorBonus            Int     @default(0) @map("armor_bonus")
   wearsNaturalArmor     Boolean @default(false) @map("wears_natural_armor")
+
+  // Custom Bonuses (JSON for flexibility)
+  statBonuses           Json? @map("statbonuses")
+  statModifierBonuses   Json? @map("statmodifierbonuses")
+  saveBonuses           Json? @map("savebonuses")
+  skillBonuses          Json? @map("skillbonuses")
+  hpBonuses             Json? @map("hpbonuses")
+  acBonuses             Json? @map("acbonuses")
+  speedBonuses          Json? @map("speedbonuses")
+  proficiencyBonuses    Json? @map("proficiencybonuses")
+  initiativeBonuses     Json? @map("initiativebonuses")
+  spellAttackBonuses    Json? @map("spellattackbonuses")
+  spellDCBonuses        Json? @map("spelldcbonuses")
+
+  // Hit Dice Tracking
+  currentHitDice Json? @map("currenthitdice")
+  usedHitDice    Json? @map("usedhitdice")
+
+  // Character History (Snapshots)
+  parentPersId  Int?     @map("parentpersid")
+  isSnapshot    Boolean  @default(false) @map("issnapshot")
+  snapshotLevel Int?     @map("snapshotlevel")
+  isActive      Boolean  @default(true) @map("isactive")
+
+  // Sharing
+  shareToken String? @unique @map("sharetoken")
+
 
   user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   class      Class      @relation(fields: [classId], references: [classId], onDelete: Cascade)

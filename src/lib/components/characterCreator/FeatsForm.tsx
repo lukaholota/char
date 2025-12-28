@@ -21,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   feats: Feat[];
@@ -87,7 +88,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
             value={formatArmorProficiencies(feat.grantedArmorProficiencies)}
           />
           <div className="col-span-full">
-             <p className="text-sm text-slate-300 whitespace-pre-line">{feat.description}</p>
+             <FormattedDescription content={feat.description} className="text-sm text-slate-300" />
           </div>
         </InfoGrid>
       </InfoDialog>
@@ -137,7 +138,10 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
               "glass-card cursor-pointer transition-all duration-200",
               feat.featId === chosenFeatId && "glass-active"
             )}
-            onClick={() => form.setValue("featId", feat.featId)}
+            onClick={(e) => {
+              if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+              form.setValue("featId", feat.featId);
+            }}
           >
             <CardContent className="relative flex items-center justify-between p-4">
               <FeatInfoModal feat={feat} />

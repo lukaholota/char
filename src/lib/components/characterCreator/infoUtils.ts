@@ -219,7 +219,7 @@ export const formatSpeeds = (entity: any) => {
     { label: "Плавання", value: entity.swimSpeed },
     { label: "Політ", value: entity.flightSpeed },
     { label: "Риття", value: entity.burrowSpeed },
-  ].filter((item) => (item.value ?? 0) > 0 || item.label === "Ходьба");
+  ].filter((item) => (item.value ?? 0) > 0 || (item.label === "Ходьба" && item.value != null));
 
   return speeds
     .map((item) => `${item.label}: ${item.value} фт`)

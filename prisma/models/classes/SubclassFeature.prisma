@@ -11,5 +11,6 @@ model SubclassFeature {
   feature  Feature  @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
   subclass Subclass @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
+  @@unique([subclassId, featureId])
   @@map("subclass_feature")
 }

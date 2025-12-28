@@ -20,37 +20,105 @@ const DialogOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     ref={ref}
+    data-rpg-dialog-overlay
     className={cn(
-      "fixed inset-0 z-[9998] bg-slate-950/70 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "fixed inset-0 z-[9999] bg-slate-950/45 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
     )}
+    onPointerDown={() => {
+      // Only suppress the click if dialogs are stacked.
+      // Otherwise this will consume the first outside click and the dialog closes only on the second.
+      const openDialogs = document.querySelectorAll(
+        '[data-rpg-dialog-content][data-state="open"]'
+      ).length;
+      if (openDialogs <= 1) return;
+
+      const handler = (event: MouseEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ;(event as any).stopImmediatePropagation?.();
+        document.removeEventListener("click", handler, true);
+      };
+
+      document.addEventListener("click", handler, true);
+      window.setTimeout(() => {
+        document.removeEventListener("click", handler, true);
+      }, 800);
+    }}
     {...props}
   />
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
+function isFromAnyDialogLayer(target: EventTarget | null) {
+  if (!(target instanceof Element)) return false;
+  return Boolean(target.closest("[data-rpg-dialog-content], [data-rpg-dialog-overlay]"));
+}
+
+function isFromAnyDialogContent(target: EventTarget | null) {
+  if (!(target instanceof Element)) return false;
+  return Boolean(target.closest("[data-rpg-dialog-content]"));
+}
+
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
+    showClose?: boolean;
+    closeLabel?: string;
+  }
+>(
+  (
+    {
+      className,
+      children,
+      showClose = true,
+      closeLabel = "Close",
+      onPointerDownOutside,
+      onInteractOutside,
+      onFocusOutside,
+      ...props
+    },
+    ref
+  ) => (
   <DialogPortal>
     <DialogOverlay />
     <DialogPrimitive.Content
       ref={ref}
+      data-rpg-dialog-content
       className={cn(
-        "fixed left-[50%] top-[50%] z-[9999] grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 rounded-2xl border border-white/10 bg-slate-900/95 p-6 text-slate-50 backdrop-blur duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
+        "fixed left-[50%] top-[50%] z-[9999] grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 rounded-2xl border border-white/10 bg-gradient-to-b from-slate-950/28 to-slate-950/18 p-6 text-slate-50 backdrop-blur-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
         className
       )}
+      onPointerDown={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
+      onPointerDownOutside={(e) => {
+        // If another dialog is stacked on top, interactions with it should NOT dismiss this one.
+        // Allow clicking the overlay to dismiss; only block clicks inside another dialog content.
+        if (isFromAnyDialogContent(e.target)) e.preventDefault();
+        onPointerDownOutside?.(e);
+      }}
+      onInteractOutside={(e) => {
+        if (isFromAnyDialogContent(e.target)) e.preventDefault();
+        onInteractOutside?.(e);
+      }}
+      onFocusOutside={(e) => {
+        if (isFromAnyDialogContent(e.target)) e.preventDefault();
+        onFocusOutside?.(e);
+      }}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-        <X className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </DialogPrimitive.Close>
+      {showClose ? (
+        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+          <X className="h-4 w-4" />
+          <span className="sr-only">{closeLabel}</span>
+        </DialogPrimitive.Close>
+      ) : null}
     </DialogPrimitive.Content>
   </DialogPortal>
-))
+  )
+)
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
 const DialogHeader = ({

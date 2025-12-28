@@ -8,6 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 export type EntityInfoKind = "race" | "class" | "background";
 
@@ -38,9 +40,11 @@ export function EntityInfoDialog({
 }: EntityInfoDialogProps) {
   const description = (entity?.description ?? "").toString().trim();
 
+  useModalBackButton(isOpen, onClose);
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[85vh] w-[95vw] max-w-2xl overflow-y-auto">
+      <DialogContent className="max-h-[85vh] w-[95vw] max-w-2xl overflow-y-auto shadow-2xl ring-1 ring-white/20">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">{title}</DialogTitle>
           <DialogDescription className="text-xs text-slate-300">
@@ -52,7 +56,10 @@ export function EntityInfoDialog({
         {children ? <div className="space-y-3">{children}</div> : null}
 
         {description ? (
-          <div className="text-sm text-slate-200/90 whitespace-pre-line leading-relaxed">{description}</div>
+          <FormattedDescription
+            content={description}
+            className="text-sm text-slate-200/90 leading-relaxed"
+          />
         ) : (
           <div className="text-sm text-slate-400">Немає опису</div>
         )}

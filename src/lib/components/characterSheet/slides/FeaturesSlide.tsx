@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType, SpellcastingType } from "@prisma/client";
 import { ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
@@ -13,6 +15,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { FeatureCard, ResourceCard } from "@/lib/components/characterSheet/shared/FeatureCards";
+import { toast } from "sonner";
 
 import { Badge } from "@/components/ui/badge";
 import {
@@ -49,6 +55,7 @@ import {
 interface FeaturesSlideProps {
   pers: PersWithRelations;
   groupedFeatures: CharacterFeaturesGroupedResult | null;
+  isReadOnly?: boolean;
 }
 
 type CategoryKind = "passive" | "action" | "bonus" | "reaction";
@@ -64,9 +71,7 @@ const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
   PACT: "Магія пакту",
 };
 
-function safeText(value: string | null | undefined) {
-  return (value ?? "").trim();
-}
+// safeText removed - no longer used
 
 function categoryVariant(kind: "passive" | "action" | "bonus" | "reaction") {
   switch (kind) {
@@ -110,74 +115,91 @@ function categoryVariant(kind: "passive" | "action" | "bonus" | "reaction") {
   }
 }
 
-function getKindFromPrimaryType(primaryType: FeatureDisplayType): "passive" | "action" | "bonus" | "reaction" {
-  switch (primaryType) {
-    case FeatureDisplayType.ACTION:
-      return "action";
-    case FeatureDisplayType.BONUSACTION:
-      return "bonus";
-    case FeatureDisplayType.REACTION:
-      return "reaction";
-    default:
-      return "passive";
-  }
-}
+// getKindFromPrimaryType removed - no longer used
 
-function FeatureCard({
-  item,
-  onClick,
-}: {
-  item: CharacterFeatureItem;
-  onClick: () => void;
-}) {
-  const kind = getKindFromPrimaryType(item.primaryType);
-  const variant = categoryVariant(kind);
+// Redundant local FeatureCard removed - using shared/FeatureCards.tsx
 
-  const description = safeText(item.description);
-  const preview = description.length > 180 ? description.slice(0, 180).trimEnd() + "…" : description;
+export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: FeaturesSlideProps) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
-  const showUses =
-    (item.primaryType === FeatureDisplayType.ACTION || item.primaryType === FeatureDisplayType.BONUSACTION) &&
-    typeof item.usesRemaining === "number" &&
-    typeof item.usesPer === "number";
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={
-        "group relative w-full text-left p-3 rounded-lg border shadow-inner transition-all cursor-pointer " +
-        variant.cardBorder +
-        " " +
-        variant.cardBg
-      }
-    >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-white/5 via-transparent to-transparent rounded-lg transition-opacity" />
-
-      <div className="relative z-10 flex items-start justify-between gap-2">
-        <div className="min-w-0 flex-1">
-          <h4 className="font-bold text-sm text-white/95 truncate">{item.name}</h4>
-          {preview ? <p className="text-xs mt-1 text-slate-200/70 leading-snug line-clamp-2">{preview}</p> : null}
-        </div>
-
-        {showUses ? (
-          <div className="flex-shrink-0 text-right">
-            <div className="text-xs font-semibold text-amber-300">
-              {item.usesRemaining}/{item.usesPer}
-            </div>
-            {item.restType ? <div className="text-[10px] text-slate-400 mt-0.5">{item.restType}</div> : null}
-          </div>
-        ) : null}
-      </div>
-    </button>
-  );
-}
-
-export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlideProps) {
   const [selected, setSelected] = useState<CharacterFeatureItem | null>(null);
+
+  useModalBackButton(!!selected, () => setSelected(null));
   const [entityOpen, setEntityOpen] = useState(false);
   const [entityKind, setEntityKind] = useState<EntityDialogKind>("race");
   const [entityVariantIndex, setEntityVariantIndex] = useState(0);
+
+  const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
+
+  const classEntries = useMemo(() => {
+    const multiclasses = ((pers as any).multiclasses || []) as any[];
+    const multiclassLevels = multiclasses.reduce((acc, m) => acc + (Number(m.classLevel) || 0), 0);
+    const mainLevel = Math.max(1, (Number(pers.level) || 1) - multiclassLevels);
+
+    const entries: Array<{
+      key: string;
+      kind: "main" | "multiclass";
+      classLevel: number;
+      cls: any;
+    }> = [];
+
+    entries.push({
+      key: `main:${pers.classId}`,
+      kind: "main",
+      classLevel: mainLevel,
+      cls: pers.class,
+    });
+
+    multiclasses.forEach((m) => {
+      if (!m?.class) return;
+      entries.push({
+        key: `multi:${m.classId}`,
+        kind: "multiclass",
+        classLevel: Number(m.classLevel) || 1,
+        cls: m.class,
+      });
+    });
+
+    return entries;
+  }, [pers]);
+
+  const subclassEntries = useMemo(() => {
+    const multiclasses = ((pers as any).multiclasses || []) as any[];
+    const multiclassLevels = multiclasses.reduce((acc, m) => acc + (Number(m.classLevel) || 0), 0);
+    const mainLevel = Math.max(1, (Number(pers.level) || 1) - multiclassLevels);
+
+    const entries: Array<{
+      key: string;
+      kind: "main" | "multiclass";
+      classLevel: number;
+      cls: any;
+      subclass: any;
+    }> = [];
+
+    if (pers.subclass) {
+      entries.push({
+        key: `main:${pers.classId}:${pers.subclassId ?? "none"}`,
+        kind: "main",
+        classLevel: mainLevel,
+        cls: pers.class,
+        subclass: pers.subclass,
+      });
+    }
+
+    multiclasses.forEach((m) => {
+      if (!m?.class || !m?.subclass) return;
+      entries.push({
+        key: `multi:${m.classId}:${m.subclassId ?? "none"}`,
+        kind: "multiclass",
+        classLevel: Number(m.classLevel) || 1,
+        cls: m.class,
+        subclass: m.subclass,
+      });
+    });
+
+    return entries;
+  }, [pers]);
 
   const categories = useMemo<Category[]>(() => {
     if (!groupedFeatures) return [];
@@ -189,18 +211,71 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
     ];
   }, [groupedFeatures]);
 
+  const allItems = useMemo(() => {
+    if (!groupedFeatures) return [] as CharacterFeatureItem[];
+    return [
+      ...(groupedFeatures.actions ?? []),
+      ...(groupedFeatures.bonusActions ?? []),
+      ...(groupedFeatures.reactions ?? []),
+      ...(groupedFeatures.passive ?? []),
+    ];
+  }, [groupedFeatures]);
+
+// Redundant slot and label helpers removed
+
+  const resourceItems = useMemo(() => {
+    return allItems
+      .filter((it) => Array.isArray(it.displayTypes) && (it.displayTypes.includes(FeatureDisplayType.RESOURCE) || it.displayTypes.includes(FeatureDisplayType.CLASS_RESOURCE)))
+      .filter((it) => typeof it.usesPer === "number");
+  }, [allItems]);
+
+// limitedUseGroups removed
+
+  const getUsesRemaining = (item: CharacterFeatureItem) => {
+    const overridden = usesOverrideByKey[item.key];
+    return typeof overridden === "number" || overridden === null ? overridden : item.usesRemaining ?? null;
+  };
+
+  const spendOneUse = (item: CharacterFeatureItem) => {
+    if (isReadOnly || !item.featureId) return;
+    const cur = getUsesRemaining(item);
+    if (typeof cur !== "number" || cur <= 0) return;
+
+    setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: Math.max(0, cur - 1) }));
+    startTransition(async () => {
+      const res = await spendFeatureUse({ persId: pers.persId, featureId: item.featureId! });
+      if (!res.success) {
+        toast.error(res.error);
+        router.refresh();
+        return;
+      }
+      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+      router.refresh();
+    });
+  };
+
+  const restoreOneUse = (item: CharacterFeatureItem) => {
+    if (isReadOnly || !item.featureId) return;
+    const cur = getUsesRemaining(item);
+    if (typeof cur !== "number" || cur >= (item.usesPer ?? 0)) return;
+
+    setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: cur + 1 }));
+    startTransition(async () => {
+      const res = await restoreFeatureUse({ persId: pers.persId, featureId: item.featureId! });
+      if (!res.success) {
+          toast.error(res.error);
+          router.refresh();
+          return;
+      }
+      setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: res.usesRemaining }));
+      router.refresh();
+    });
+  };
+
   const raceName = useMemo(
     () => raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name,
     [pers.race.name]
   );
-  const className = useMemo(
-    () => classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name,
-    [pers.class.name]
-  );
-  const subclassName = useMemo(() => {
-    if (!pers.subclass) return null;
-    return subclassTranslations[pers.subclass.name as keyof typeof subclassTranslations] || pers.subclass.name;
-  }, [pers.subclass]);
   const subraceName = useMemo(() => {
     if (!pers.subrace) return null;
     return subraceTranslations[pers.subrace.name as keyof typeof subraceTranslations] || pers.subrace.name;
@@ -211,6 +286,7 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
   );
 
   const openEntity = (kind: EntityDialogKind, variantIndex?: number) => {
+    if (isReadOnly) return;
     setEntityKind(kind);
     if (typeof variantIndex === "number") setEntityVariantIndex(variantIndex);
     setEntityOpen(true);
@@ -261,15 +337,17 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
             <div className="space-y-2">
               <InfoSectionTitle>Риси</InfoSectionTitle>
               {traitList.length ? (
-                traitList.map((trait) => (
+                traitList.map((trait, idx) => (
                   <div
-                    key={trait.raceTraitId || trait.feature?.featureId}
+                    key={trait.raceTraitId ?? `feature:${trait.feature?.featureId ?? "unknown"}:${idx}`}
                     className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
                   >
                     <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {trait.feature?.description}
-                    </p>
+                    {trait.feature?.description ? (
+                      <div className="mt-1">
+                        <FormattedDescription content={trait.feature.description} className="text-slate-200/90" />
+                      </div>
+                    ) : null}
                   </div>
                 ))
               ) : (
@@ -314,22 +392,24 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
               />
               <InfoPill label="Бонуси характеристик" value={formatASI(variant.overridesRaceASI)} />
               <div className="col-span-full">
-                <p className="text-sm text-slate-300">{variant.description}</p>
+                {variant.description ? <FormattedDescription content={variant.description} className="text-slate-200/90" /> : null}
               </div>
             </InfoGrid>
 
             <div className="space-y-2">
               <InfoSectionTitle>Риси</InfoSectionTitle>
               {traitList.length ? (
-                traitList.map((trait) => (
+                traitList.map((trait, idx) => (
                   <div
-                    key={trait.raceVariantTraitId || trait.feature?.featureId}
+                    key={trait.raceVariantTraitId ?? `feature:${trait.feature?.featureId ?? "unknown"}:${idx}`}
                     className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
                   >
                     <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {trait.feature?.description}
-                    </p>
+                    {trait.feature?.description ? (
+                      <div className="mt-1">
+                        <FormattedDescription content={trait.feature.description} className="text-slate-200/90" />
+                      </div>
+                    ) : null}
                   </div>
                 ))
               ) : (
@@ -352,7 +432,7 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
 
       const subrace = pers.subrace as any;
       const rawTraits = (subrace.traits || []) as any[];
-      const traitList = [...rawTraits].sort((a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0));
+      const traitList = [...rawTraits].sort((a, b) => (a.subraceTraitId || 0) - (b.subraceTraitId || 0));
 
       return {
         title: subraceName || subrace.name,
@@ -370,15 +450,17 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
             <div className="space-y-2">
               <InfoSectionTitle>Риси</InfoSectionTitle>
               {traitList.length ? (
-                traitList.map((trait) => (
+                traitList.map((trait, idx) => (
                   <div
-                    key={trait.raceTraitId || trait.feature?.featureId}
+                    key={trait.subraceTraitId ?? `feature:${trait.feature?.featureId ?? "unknown"}:${idx}`}
                     className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
                   >
                     <p className="text-sm font-semibold text-white">{trait.feature?.name}</p>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {trait.feature?.description}
-                    </p>
+                    {trait.feature?.description ? (
+                      <div className="mt-1">
+                        <FormattedDescription content={trait.feature.description} className="text-slate-200/90" />
+                      </div>
+                    ) : null}
                   </div>
                 ))
               ) : (
@@ -391,12 +473,15 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
     }
 
     if (entityKind === "class") {
-      const cls = pers.class as any;
+      const entry = classEntries[entityVariantIndex] ?? classEntries[0];
+      const cls = (entry?.cls ?? pers.class) as any;
       const rawFeatures = (cls.features || []) as any[];
       const features = [...rawFeatures].sort((a, b) => (a.levelGranted || 0) - (b.levelGranted || 0));
 
+      const title = classTranslations[cls.name as keyof typeof classTranslations] || cls.name;
+
       return {
-        title: className,
+        title,
         subtitle: undefined,
         content: (
           <>
@@ -410,7 +495,7 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
               <InfoPill label="Зброя" value={formatWeaponProficiencies(cls.weaponProficiencies)} />
               <InfoPill label="Броня" value={formatArmorProficiencies(cls.armorProficiencies)} />
               <InfoPill label="Мови" value={formatLanguages(cls.languages, cls.languagesToChooseCount)} />
-              <InfoPill label="Мультіклас" value={formatMulticlassReqs(cls.multiclassReqs)} />
+              <InfoPill label="Мультиклас" value={formatMulticlassReqs(cls.multiclassReqs)} />
               {cls.primaryCastingStat ? (
                 <InfoPill label="Ключова характеристика" value={prettifyEnum(cls.primaryCastingStat)} />
               ) : null}
@@ -433,9 +518,11 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
                         Рів. {feature.levelGranted}
                       </Badge>
                     </div>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {feature.feature?.description}
-                    </p>
+                    {feature.feature?.description ? (
+                      <div className="mt-1">
+                        <FormattedDescription content={feature.feature.description} className="text-slate-200/90" />
+                      </div>
+                    ) : null}
                   </div>
                 ))
               ) : (
@@ -448,7 +535,9 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
     }
 
     if (entityKind === "subclass") {
-      if (!pers.subclass) {
+      const entry = subclassEntries[entityVariantIndex] ?? subclassEntries[0];
+
+      if (!entry?.subclass) {
         return {
           title: "Підклас",
           subtitle: undefined,
@@ -456,12 +545,17 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
         };
       }
 
-      const subcls = pers.subclass as any;
+      const subcls = entry.subclass as any;
       const rawFeatures = (subcls.features || []) as any[];
       const featureList = [...rawFeatures].sort((a, b) => (a.levelUnlock || 0) - (b.levelUnlock || 0));
 
+      const title =
+        subclassTranslations[subcls.name as keyof typeof subclassTranslations] ||
+        subcls.name ||
+        "Підклас";
+
       return {
-        title: subclassName || subcls.name,
+        title,
         subtitle: undefined,
         content: (
           <>
@@ -472,7 +566,9 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
               <InfoPill label="Мови" value={formatLanguages(subcls.languages, subcls.languagesToChooseCount)} />
               <InfoPill label="Інструменти" value={formatToolProficiencies(subcls.toolProficiencies, subcls.toolToChooseCount)} />
               <div className="col-span-full">
-                <p className="text-sm text-slate-300">{subcls.description}</p>
+                {subcls.description ? (
+                  <FormattedDescription content={subcls.description} className="text-slate-200/90" />
+                ) : null}
               </div>
             </InfoGrid>
 
@@ -487,12 +583,17 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
                     <div className="flex items-center justify-between mb-1">
                       <p className="text-sm font-semibold text-white">{f.feature?.name}</p>
                       <Badge variant="outline" className="text-[10px] border-slate-700 text-slate-400">
-                        Рівень {f.levelUnlock}
+                        {(() => {
+                          const lvl = (f as any).levelUnlock ?? (f as any).levelGranted;
+                          return `Рів. ${lvl ?? "—"}`;
+                        })()}
                       </Badge>
                     </div>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {f.feature?.description}
-                    </p>
+                    {f.feature?.description ? (
+                      <div className="mt-1">
+                        <FormattedDescription content={f.feature.description} className="text-slate-200/90" />
+                      </div>
+                    ) : null}
                   </div>
                 ))
               ) : (
@@ -542,29 +643,28 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
                 <p className="text-sm font-semibold text-white">{background.specialAbilityName}</p>
               ) : null}
               {background.description ? (
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {background.description}
-                </p>
+                <FormattedDescription content={background.description} className="text-slate-200/90" />
               ) : null}
             </div>
           ) : null}
         </>
       ),
     };
-  }, [backgroundName, className, entityKind, entityVariantIndex, pers, raceName, subclassName, subraceName]);
+  }, [backgroundName, classEntries, entityKind, entityVariantIndex, pers, raceName, subclassEntries, subraceName]);
 
   return (
     <div className="h-full p-3 sm:p-4 space-y-3">
       <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
         <button
           type="button"
           onClick={() => openEntity("race")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+          disabled={isReadOnly}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
         >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Раса</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{raceName}</div>
+          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Раса</div>
+          <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{raceName}</div>
         </button>
 
         {(pers as any).raceVariants?.map((rv: any, idx: number) => {
@@ -574,10 +674,11 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
               key={rv.raceVariantId ?? idx}
               type="button"
               onClick={() => openEntity("raceVariant", idx)}
-              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+              disabled={isReadOnly}
+              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
             >
-              <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Варіант раси</div>
-              <div className="text-sm font-semibold text-slate-50 truncate">{name}</div>
+              <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Варіант раси</div>
+              <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{name}</div>
             </button>
           );
         })}
@@ -586,43 +687,109 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
           <button
             type="button"
             onClick={() => openEntity("subrace")}
-            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+            disabled={isReadOnly}
+            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
           >
-            <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Підраса</div>
-            <div className="text-sm font-semibold text-slate-50 truncate">{subraceName}</div>
+            <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Підраса</div>
+            <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{subraceName}</div>
           </button>
         ) : null}
 
         <button
           type="button"
           onClick={() => openEntity("class")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+          disabled={isReadOnly}
+          className="hidden"
         >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Клас</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{className}</div>
-          <div className="text-xs text-slate-300/70 truncate">Рівень {pers.level}</div>
+          <div />
         </button>
 
-        {pers.subclass ? (
-          <button
-            type="button"
-            onClick={() => openEntity("subclass")}
-            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
-          >
-            <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Підклас</div>
-            <div className="text-sm font-semibold text-slate-50 truncate">{subclassName}</div>
-          </button>
-        ) : null}
+        {classEntries.map((entry, idx) => {
+          const name =
+            classTranslations[entry.cls?.name as keyof typeof classTranslations] ||
+            entry.cls?.name ||
+            "Клас";
+
+          return (
+            <button
+              key={entry.key}
+              type="button"
+              onClick={() => openEntity("class", idx)}
+                className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
+            >
+                  <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">
+                {entry.kind === "main" ? "Клас" : "Мультиклас"}
+              </div>
+                  <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{name}</div>
+                  <div className="text-[9px] text-slate-300/70 truncate leading-none">Рівень {entry.classLevel}</div>
+            </button>
+          );
+        })}
+
+        {subclassEntries.map((entry, idx) => {
+          const clsName =
+            classTranslations[entry.cls?.name as keyof typeof classTranslations] ||
+            entry.cls?.name ||
+            "Клас";
+          const scName =
+            subclassTranslations[entry.subclass?.name as keyof typeof subclassTranslations] ||
+            entry.subclass?.name ||
+            "Підклас";
+
+          return (
+            <button
+              key={entry.key}
+              type="button"
+              onClick={() => openEntity("subclass", idx)}
+              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
+            >
+                <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">
+                {entry.kind === "main" ? "Підклас" : "Підклас (м)"}
+              </div>
+                <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{scName}</div>
+                <div className="text-[9px] text-slate-300/70 truncate leading-none">{clsName}</div>
+            </button>
+          );
+        })}
 
         <button
           type="button"
           onClick={() => openEntity("background")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-3 py-2 text-left"
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
         >
-          <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Передісторія</div>
-          <div className="text-sm font-semibold text-slate-50 truncate">{backgroundName}</div>
+          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Передісторія</div>
+          <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{backgroundName}</div>
         </button>
       </div>
+
+      {resourceItems.length > 0 ? (
+        <div className="space-y-3">
+          <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-400 px-1">Ресурси та Відпочинок</div>
+          <div className="grid grid-cols-1 gap-2">
+            {resourceItems.map((item) => {
+                const remaining = getUsesRemaining(item);
+                const featureRef = {
+                    ...item,
+                    displayType: item.displayTypes,
+                    usesRemaining: remaining,
+                    usesCount: item.usesPer
+                };
+
+                return (
+                    <ResourceCard
+                        key={item.key}
+                        feature={featureRef}
+                        isPending={isPending}
+                        isReadOnly={isReadOnly}
+                        onSpend={() => spendOneUse(item)}
+                        onRestore={() => restoreOneUse(item)}
+                        onInfo={() => setSelected(item)}
+                    />
+                );
+            })}
+          </div>
+        </div>
+      ) : null}
 
       {!groupedFeatures ? (
         <div className="text-sm text-slate-400">Немає даних про фічі</div>
@@ -653,9 +820,27 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
                   ) : (
                     <ScrollArea className="max-h-[44vh] overflow-y-auto pr-3">
                       <div className="space-y-2">
-                        {category.items.map((item) => (
-                          <FeatureCard key={item.key} item={item} onClick={() => setSelected(item)} />
-                        ))}
+                        {category.items.map((item) => {
+                          const remaining = getUsesRemaining(item);
+                          const featureRef = {
+                              ...item,
+                              displayType: item.displayTypes,
+                              usesRemaining: remaining,
+                              usesCount: item.usesPer
+                          };
+
+                          return (
+                            <FeatureCard 
+                                key={item.key} 
+                                feature={featureRef} 
+                                onClick={() => setSelected(item)} 
+                                isPending={isPending}
+                                isReadOnly={isReadOnly}
+                                onSpend={() => spendOneUse(item)}
+                                onRestore={() => restoreOneUse(item)}
+                            />
+                          );
+                        })}
                       </div>
                     </ScrollArea>
                   )}
@@ -667,7 +852,7 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
       )}
 
       <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
-        <DialogContent className="max-w-2xl border border-white/10 bg-slate-900/95 backdrop-blur text-slate-50">
+        <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">{selected?.name}</DialogTitle>
             {selected ? (
@@ -676,9 +861,11 @@ export default function FeaturesSlide({ pers, groupedFeatures }: FeaturesSlidePr
               </DialogDescription>
             ) : null}
           </DialogHeader>
-          <div className="text-sm text-slate-200/90 whitespace-pre-line leading-relaxed">
-            {selected?.description}
-          </div>
+          {selected?.description ? (
+            <div className="glass-panel rounded-xl border border-slate-800/70 p-4">
+              <FormattedDescription content={selected.description} className="text-slate-200/90" />
+            </div>
+          ) : null}
         </DialogContent>
       </Dialog>
 

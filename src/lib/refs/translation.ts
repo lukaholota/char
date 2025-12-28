@@ -1299,12 +1299,12 @@ export const abilityTranslations: Record<string, string> = {
 
 export const skillTranslations: Record<string, string> = {
   ACROBATICS: "Акробатика",
-  ANIMAL_HANDLING: "Управління тваринами",
+  ANIMAL_HANDLING: "Поводження з тваринами",
   ARCANA: "Магія",
   ATHLETICS: "Атлетика",
   DECEPTION: "Обман",
   HISTORY: "Історія",
-  INSIGHT: "Проникливість",
+  INSIGHT: "Аналіз поведінки",
   INTIMIDATION: "Залякування",
   INVESTIGATION: "Розслідування",
   MEDICINE: "Медицина",
@@ -1314,7 +1314,7 @@ export const skillTranslations: Record<string, string> = {
   PERSUASION: "Переконання",
   RELIGION: "Релігія",
   SLEIGHT_OF_HAND: "Спритність рук",
-  STEALTH: "Потайливість",
+  STEALTH: "Непомітність",
   SURVIVAL: "Виживання",
 };
 
@@ -1354,3 +1354,78 @@ export const damageTypeTranslations: Record<string, string> = {
   SLASHING: "Ріжучий",
   THUNDER: "Грім",
 };
+
+// Rest system translations
+export const restTranslations = {
+  rest: "Відпочинок",
+  shortRest: "Короткий відпочинок",
+  longRest: "Тривалий відпочинок",
+  hitDice: "Хіт-дайси",
+  restoreHp: "Відновлення HP",
+  confirm: "Підтвердити",
+  cancel: "Скасувати",
+  currentHp: "Поточне HP",
+  maxHp: "Макс. HP",
+  hpRestored: "Відновлено HP",
+  featuresRestored: "Відновлені здібності",
+  spellSlotsRestored: "Комірки заклять відновлено",
+  selectHitDice: "Виберіть хіт-дайси для використання",
+  available: "Доступно",
+  perDie: "за дайс",
+  takingShortRest: "Короткий відпочинок...",
+  takingLongRest: "Тривалий відпочинок...",
+  shortRestComplete: "Короткий відпочинок завершено",
+  longRestComplete: "Тривалий відпочинок завершено",
+  confirmLongRest: "Підтвердити тривалий відпочинок?",
+  longRestDescription: "Повністю відновить HP, всі хіт-дайси, комірки заклять та здібності",
+  noHitDiceAvailable: "Немає доступних хіт-дайсів",
+} as const;
+
+// Bonus modification translations
+export const bonusTranslations = {
+  modifyTitle: "Модифікація",
+  statBonus: "Бонус до стату",
+  modifierBonus: "Бонус до модифікатора",
+  saveBonus: "Бонус до рятівного",
+  skillBonus: "Бонус до вміння",
+  hpBonus: "Бонус до макс. HP",
+  acBonus: "Бонус до AC",
+  speedBonus: "Бонус до швидкості",
+  proficiencyBonus: "Бонус до майстерності",
+  initiativeBonus: "Бонус до ініціативи",
+  spellAttackBonus: "Бонус до атаки заклять",
+  spellDCBonus: "Бонус до DC заклять",
+  baseValue: "Базове",
+  finalValue: "Фінальне",
+  currentBonus: "Поточний бонус",
+  save: "OK",
+  cancel: "Скасувати",
+  saving: "Зберігаю...",
+  noBonus: "Немає бонусу",
+  // Stat names
+  statNames: {
+    STR: "Сила",
+    DEX: "Спритність",
+    CON: "Статура",
+    INT: "Інтелект",
+    WIS: "Мудрість",
+    CHA: "Харизма",
+  },
+  // Simple field names
+  fieldNames: {
+    hp: "Хіт-поінти (HP)",
+    ac: "Клас обладунку (AC)",
+    speed: "Швидкість",
+    proficiency: "Бонус майстерності",
+    initiative: "Ініціатива",
+    spellAttack: "Атака закляттям",
+    spellDC: "Складність рятівного закляття",
+  },
+  proficiencyLevel: "Рівень майстерності",
+  proficiencies: {
+    NONE: "Немає",
+    PROFICIENT: "Володіння",
+    EXPERTISE: "Експертиза",
+  },
+  saveProficiency: "Володіння рятівним кидком",
+} as const;

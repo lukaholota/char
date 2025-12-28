@@ -14,12 +14,21 @@ model PersWeapon {
 
   isProficient Boolean @default(true) @map("is_proficient")
 
+  // Custom bonuses and damage customization
+  customAttackBonus   Json?    @map("customattackbonus")
+  customDamageBonus   Json?    @map("customdamagebonus")
+  customDamageCount   Int?     @map("customdamagecount")
+  customDamageDice    String?  @map("customdamagedice")
+  customDamageAbility Ability? @map("customdamageability")
+  isMagical           Boolean  @default(false) @map("ismagical")
+
+
   pers   Pers   @relation(fields: [persId], references: [persId], onDelete: Cascade)
   weapon Weapon @relation(fields: [weaponId], references: [weaponId], onDelete: Cascade)
 
   // Opposite side of PersInfusion.weapon
   infusions PersInfusion[]
 
-  @@unique([persId, weaponId], name: "unique_pers_weapon")
+  // unique_pers_weapon constraint removed to allow multiple same-type weapons
   @@map("pers_weapon")
 }

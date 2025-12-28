@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { CircleHelp } from "lucide-react";
 import clsx from "clsx";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 import {
   Dialog,
@@ -29,6 +30,7 @@ export const InfoDialogContent = ({
     <DialogContent
       className={clsx(
         "max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto",
+        "shadow-2xl ring-1 ring-white/20",
         className
       )}
     >
@@ -68,6 +70,7 @@ export const InfoDialog = ({
   return (
     <Dialog>
       <div 
+        data-stop-card-click
         onPointerDown={(e) => {
           // Prevent the underlying Card onClick when the trigger overlaps the card.
           // Must NOT be capture-phase; capture would block the click from reaching the trigger.
@@ -83,6 +86,7 @@ export const InfoDialog = ({
       >
         <DialogTrigger asChild>
           <Button
+            data-stop-card-click
             type="button"
             size="icon"
             variant="secondary"
@@ -116,6 +120,8 @@ export const ControlledInfoDialog = ({
   children: ReactNode;
   contentClassName?: string;
 }) => {
+  useModalBackButton(open, () => onOpenChange(false));
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <InfoDialogContent title={title} subtitle={subtitle} className={contentClassName}>

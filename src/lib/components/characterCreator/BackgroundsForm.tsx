@@ -28,6 +28,7 @@ import {
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { BackgroundI } from "@/lib/types/model-types";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -169,9 +170,10 @@ export const BackgroundsForm = (
               </p>
             ) : null}
             {background.description ? (
-              <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                {background.description}
-              </p>
+              <FormattedDescription
+                content={background.description}
+                className="text-sm leading-relaxed text-slate-200/90"
+              />
             ) : null}
           </div>
         )}
@@ -258,7 +260,10 @@ export const BackgroundsForm = (
                   "glass-card cursor-pointer transition-all duration-200",
                   b.backgroundId === chosenBackgroundId && "glass-active"
                 )}
-                onClick={() => form.setValue('backgroundId', b.backgroundId)}
+                onClick={(e) => {
+                  if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                  form.setValue('backgroundId', b.backgroundId);
+                }}
               >
                 <CardContent className="relative flex items-center justify-between p-4">
                   <BackgroundInfoModal background={b} />
@@ -277,29 +282,30 @@ export const BackgroundsForm = (
           <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
             Інші джерела
           </summary>
-          <div className="bg-slate-900/40 backdrop-blur-sm">
-            <div className="border-t border-white/10 p-3">
-              <div className="grid gap-3 sm:grid-cols-2">
-                {otherBackgrounds.map(b =>  (
-                  <Card
-                    key={b.backgroundId}
-                    className={clsx(
-                      "glass-card cursor-pointer transition-all duration-200",
-                      b.backgroundId === chosenBackgroundId && "glass-active"
-                    )}
-                    onClick={() => form.setValue('backgroundId', b.backgroundId)}
-                  >
-                    <CardContent className="relative flex items-center justify-between p-4">
-                      <BackgroundInfoModal background={b} />
-                      <div>
-                        <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
-                        <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
-                      </div>
-                      <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+          <div className="border-t border-white/10 p-3">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {otherBackgrounds.map(b =>  (
+                <Card
+                  key={b.backgroundId}
+                  className={clsx(
+                    "glass-card cursor-pointer transition-all duration-200",
+                    b.backgroundId === chosenBackgroundId && "glass-active"
+                  )}
+                  onClick={(e) => {
+                    if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                    form.setValue('backgroundId', b.backgroundId);
+                  }}
+                >
+                  <CardContent className="relative flex items-center justify-between p-4">
+                    <BackgroundInfoModal background={b} />
+                    <div>
+                      <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
+                      <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
+                    </div>
+                    <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </details>

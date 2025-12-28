@@ -4,6 +4,8 @@ import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 import {
   Dialog,
   DialogContent,
@@ -18,17 +20,40 @@ interface Props {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   triggerLabel?: string;
+  trigger?: React.ReactNode;
+  callbackUrl?: string;
 }
 
-const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }: Props) => {
+const GoogleAuthDialog = ({
+  open,
+  onOpenChange,
+  triggerLabel = "Увійти",
+  trigger,
+  callbackUrl,
+}: Props) => {
   const { data: session, status } = useSession();
+  const pathname = usePathname();
   const [loading, setLoading] = useState(false);
+
+  const [internalOpen, setInternalOpen] = useState(false);
   const shouldRenderTrigger = typeof open === "undefined";
+  const effectiveOpen = typeof open === "boolean" ? open : internalOpen;
+  const handleOpenChange = onOpenChange ?? setInternalOpen;
+
+  useModalBackButton(effectiveOpen, () => handleOpenChange(false));
+
+  const getCurrentUrl = () => {
+    if (typeof window === "undefined") return pathname || "/";
+    return `${window.location.pathname}${window.location.search}`;
+  };
 
   const handleSignIn = async () => {
     setLoading(true);
     try {
-      const result = await signIn("google", { redirect: false, callbackUrl: "/pers" });
+      const result = await signIn("google", {
+        redirect: false,
+        callbackUrl: callbackUrl ?? getCurrentUrl(),
+      });
 
       if (result?.error) {
         toast.error("Не вдалося авторизуватися", {
@@ -41,7 +66,7 @@ const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }:
         window.location.href = result.url;
       } else {
         toast.success("Готово! Ви авторизовані.");
-        onOpenChange?.(false);
+        handleOpenChange(false);
       }
     } catch {
       toast.error("Не вдалося авторизуватися", {
@@ -53,18 +78,22 @@ const GoogleAuthDialog = ({ open, onOpenChange, triggerLabel = "Увійти" }:
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      {shouldRenderTrigger && (
-        <DialogTrigger asChild>
-          <Button
-            variant="secondary"
-            size="sm"
-            className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"
-          >
-            <LogIn className="mr-2 h-4 w-4" />
-            {triggerLabel}
-          </Button>
-        </DialogTrigger>
+    <Dialog open={effectiveOpen} onOpenChange={handleOpenChange}>
+      {trigger ? (
+        <DialogTrigger asChild>{trigger}</DialogTrigger>
+      ) : (
+        shouldRenderTrigger && (
+          <DialogTrigger asChild>
+            <Button
+              variant="secondary"
+              size="sm"
+              className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"
+            >
+              <LogIn className="mr-2 h-4 w-4" />
+              {triggerLabel}
+            </Button>
+          </DialogTrigger>
+        )
       )}
       <DialogContent className="sm:max-w-[420px] border border-slate-800/70 bg-slate-950/90 backdrop-blur">
         <DialogHeader>

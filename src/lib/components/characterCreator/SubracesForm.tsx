@@ -22,6 +22,7 @@ import {
   // formatWeaponProficiencies,
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   race: RaceI;
@@ -50,7 +51,7 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
     const name = subraceTranslations[subrace.name] ?? subrace.name;
     const rawTraits = subrace.traits || [];
     const traitList = [...rawTraits].sort(
-      (a: any, b: any) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
+      (a: any, b: any) => (a.subraceTraitId || 0) - (b.subraceTraitId || 0)
     );
 
     return (
@@ -71,7 +72,9 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
             value={formatToolProficiencies(subrace.toolProficiencies)}
           />
           <div className="col-span-full">
-             <p className="text-sm text-slate-300">{subrace.description}</p>
+             {subrace.description ? (
+               <FormattedDescription content={subrace.description} className="text-sm text-slate-300" />
+             ) : null}
           </div>
         </InfoGrid>
 
@@ -80,13 +83,14 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
           {traitList.length ? (
             traitList.map((trait: any) => (
               <div
-                key={trait.raceTraitId || trait.feature.featureId}
+                key={trait.subraceTraitId}
                 className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {trait.feature.description}
-                </p>
+                <FormattedDescription
+                  content={trait.feature.description}
+                  className="text-sm leading-relaxed text-slate-200/90"
+                />
               </div>
             ))
           ) : (
@@ -117,7 +121,10 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
               "glass-card cursor-pointer transition-all duration-200",
               sr.subraceId === chosenSubraceId && "glass-active"
             )}
-            onClick={() => form.setValue("subraceId", sr.subraceId)}
+            onClick={(e) => {
+              if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+              form.setValue("subraceId", sr.subraceId);
+            }}
           >
             <CardContent className="relative flex items-center justify-between p-4">
               <SubraceInfoModal subrace={sr} />

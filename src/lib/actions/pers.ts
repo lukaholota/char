@@ -17,7 +17,13 @@ export async function getUserPerses() {
   if (!user) return [];
 
   return prisma.pers.findMany({
-    where: { userId: user.id },
+    where: { 
+      userId: user.id,
+      OR: [
+        { isSnapshot: false },
+        { isSnapshot: true, isActive: true }
+      ]
+    },
     include: {
       race: true,
       class: true,
@@ -25,6 +31,39 @@ export async function getUserPerses() {
     },
     orderBy: { updatedAt: 'desc' }
   });
+}
+
+export async function getUserPersesSpellIndex() {
+    const session = await auth();
+    if (!session?.user?.email) {
+        return [];
+    }
+
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+    });
+
+    if (!user) return [];
+
+    const perses = await prisma.pers.findMany({
+        where: { userId: user.id },
+        select: {
+            persId: true,
+            name: true,
+            persSpells: {
+                select: {
+                    spellId: true,
+                },
+            },
+        },
+        orderBy: { updatedAt: "desc" },
+    });
+
+    return perses.map((p) => ({
+        persId: p.persId,
+        name: p.name,
+        spellIds: p.persSpells.map((s) => s.spellId),
+    }));
 }
 
 export async function getPersById(id: number) {
@@ -70,6 +109,28 @@ export async function getPersById(id: number) {
                     }
                 }
             },
+            multiclasses: {
+                include: {
+                    class: {
+                        include: {
+                            features: {
+                                include: {
+                                    feature: true,
+                                },
+                            },
+                        },
+                    },
+                    subclass: {
+                        include: {
+                            features: {
+                                include: {
+                                    feature: true,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
             background: true,
             skills: true,
             feats: { 
@@ -95,6 +156,15 @@ export async function getPersById(id: number) {
             choiceOptions: true,
             raceChoiceOptions: true,
             spells: true,
+            persSpells: {
+                include: {
+                    spell: true,
+                },
+                orderBy: [
+                    { spell: { level: "asc" } },
+                    { spell: { name: "asc" } },
+                ],
+            },
             weapons: { include: { weapon: true } },
             armors: { include: { armor: true } },
             user: true,
@@ -118,6 +188,8 @@ export async function getPersById(id: number) {
 }
 
 export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersById>>>;
+export type PersWeaponWithWeapon = PersWithRelations['weapons'][number];
+export type PersArmorWithArmor = PersWithRelations['armors'][number];
 
 export type FeatureSource = "CLASS" | "SUBCLASS" | "RACE" | "SUBRACE" | "BACKGROUND" | "FEAT" | "PERS" | "CHOICE" | "RACE_CHOICE";
 
@@ -125,7 +197,9 @@ export type CharacterFeatureGroupKey = "passive" | "actions" | "bonusActions" | 
 
 export interface CharacterFeatureItem {
     key: string;
+    featureId?: number;
     name: string;
+    shortDescription?: string | null;
     description: string;
     displayTypes: FeatureDisplayType[];
     primaryType: FeatureDisplayType;
@@ -210,6 +284,11 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         reactions: [],
     };
 
+    const proficiencyBonus = (level: number) => {
+        if (!Number.isFinite(level) || level <= 0) return 2;
+        return 2 + Math.floor((level - 1) / 4);
+    };
+
     const push = (item: Omit<CharacterFeatureItem, "primaryType" | "displayTypes"> & { displayTypes: FeatureDisplayType[] }) => {
         const displayTypes = normalizeDisplayTypes(item.displayTypes);
         const primaryType = getPrimaryDisplayType(displayTypes);
@@ -224,16 +303,25 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     // 1) Explicit pers_feature (usually level-up granted)
     for (const pf of pers.features) {
         const f = pf.feature;
+
+        const usesPer = (() => {
+            if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
+            if (typeof f.usesCount === "number") return f.usesCount;
+            return null;
+        })();
+
         push({
             key: `PERS:feature:${f.featureId}`,
+            featureId: f.featureId,
             name: f.name,
+            shortDescription: f.shortDescription ?? null,
             description: f.description,
             displayTypes: normalizeDisplayTypes(f.displayType),
             source: "PERS",
             sourceName: f.name,
-            usesRemaining: (pf as any).usesRemaining ?? null,
-            usesPer: (pf as any).usesPer ?? null,
-            restType: (pf as any).restType ?? null,
+            usesRemaining: pf.usesRemaining ?? null,
+            usesPer,
+            restType: f.limitedUsesPer ?? null,
         });
     }
 

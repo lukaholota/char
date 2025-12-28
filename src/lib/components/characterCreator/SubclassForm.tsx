@@ -17,6 +17,7 @@ import {
   prettifyEnum,
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   cls: ClassI;
@@ -72,7 +73,9 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
             value={formatToolProficiencies(subclass.toolProficiencies, subclass.toolToChooseCount)}
           />
           <div className="col-span-full">
-             <p className="text-sm text-slate-300">{subclass.description}</p>
+             {subclass.description ? (
+               <FormattedDescription content={subclass.description} className="text-sm text-slate-300" />
+             ) : null}
           </div>
         </InfoGrid>
 
@@ -87,12 +90,16 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
                 <div className="flex items-center justify-between mb-1">
                   <p className="text-sm font-semibold text-white">{f.feature.name}</p>
                   <Badge variant="outline" className="border-white/15 bg-white/5 text-[10px] text-slate-300">
-                    Рівень {f.levelUnlock}
+                    {(() => {
+                      const lvl = f.levelUnlock ?? f.levelGranted;
+                      return `Рів. ${lvl ?? "—"}`;
+                    })()}
                   </Badge>
                 </div>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {f.feature.description}
-                </p>
+                <FormattedDescription
+                  content={f.feature.description}
+                  className="text-sm leading-relaxed text-slate-200/90"
+                />
               </div>
             ))
           ) : (
@@ -123,7 +130,13 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
               "glass-card cursor-pointer transition-all duration-200",
               sc.subclassId === chosenSubclassId && "glass-active"
             )}
-            onClick={() => form.setValue("subclassId", sc.subclassId)}
+            onClick={(e) => {
+              if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+              if (sc.subclassId === chosenSubclassId) return;
+              form.setValue("subclassId", sc.subclassId, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+              form.setValue("subclassChoiceSelections", {}, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+              updateFormData({ subclassId: sc.subclassId, subclassChoiceSelections: {} });
+            }}
           >
             <CardContent className="relative flex items-center justify-between p-4">
               <SubclassInfoModal subclass={sc} />

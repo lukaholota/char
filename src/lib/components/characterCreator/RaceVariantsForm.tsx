@@ -17,6 +17,7 @@ import {
   formatSpeeds,
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   race: RaceI;
@@ -55,13 +56,20 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
       >
         <InfoGrid>
           <InfoPill label="Джерело" value={sourceTranslations[variant.source] ?? variant.source} />
-          <InfoPill label="Швидкості" value={formatSpeeds({
-            speed: variant.overridesRaceSpeed,
-            flightSpeed: variant.overridesFlightSpeed
-          })} />
+          {(variant.overridesRaceSpeed != null || variant.overridesFlightSpeed != null) ? (
+            <InfoPill
+              label="Швидкості"
+              value={formatSpeeds({
+                speed: variant.overridesRaceSpeed,
+                flightSpeed: variant.overridesFlightSpeed,
+              })}
+            />
+          ) : null}
           <InfoPill label="Бонуси характеристик" value={formatASI(variant.overridesRaceASI)} />
           <div className="col-span-full">
-             <p className="text-sm text-slate-300">{variant.description}</p>
+             {variant.description ? (
+               <FormattedDescription content={variant.description} className="text-sm text-slate-300" />
+             ) : null}
           </div>
         </InfoGrid>
 
@@ -74,9 +82,10 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
                 className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {trait.feature.description}
-                </p>
+                <FormattedDescription
+                  content={trait.feature.description}
+                  className="text-sm leading-relaxed text-slate-200/90"
+                />
               </div>
             ))
           ) : (
@@ -107,7 +116,10 @@ export const RaceVariantsForm = ({ race, formId, onNextDisabledChange }: Props) 
               "glass-card cursor-pointer transition-all duration-200",
               rv.raceVariantId === chosenVariantId && "glass-active"
             )}
-            onClick={() => form.setValue("raceVariantId", rv.raceVariantId)}
+            onClick={(e) => {
+              if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+              form.setValue("raceVariantId", rv.raceVariantId);
+            }}
           >
             <CardContent className="relative flex items-center justify-between p-4">
               <VariantInfoModal variant={rv} />

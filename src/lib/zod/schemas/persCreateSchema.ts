@@ -232,6 +232,12 @@ export const fullCharacterSchema = z.object({
   expertiseSchema: expertiseSchema.optional(),
   equipmentSchema: equipmentSchema.optional(),
   nameSchema: nameSchema.optional()
+  ,
+  // -------------------------------------------------------------------------
+  // Level-up (не використовується під час створення персонажа)
+  // -------------------------------------------------------------------------
+  levelUpPath: z.enum(["EXISTING", "MULTICLASS"]).optional(),
+  levelUpHpIncrease: z.number().int().min(0).optional(),
 })
 
 

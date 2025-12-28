@@ -16,6 +16,6 @@ model PersArmor {
   // Opposite side of PersInfusion.armor
   infusions PersInfusion[]
 
-  @@unique([persId, armorId], name: "unique_pers_armor")
+  // unique_pers_armor constraint removed to allow multiple same-type armors
   @@map("pers_armor")
 }

@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import clsx from "clsx";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { RaceI } from "@/lib/types/model-types";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   race?: RaceI | null;
@@ -160,7 +161,10 @@ const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }
                         </div>
 
                         {opt.description ? (
-                          <p className="text-sm text-slate-200/90 whitespace-pre-line">{opt.description}</p>
+                          <FormattedDescription
+                            content={opt.description}
+                            className="text-sm text-slate-200/90"
+                          />
                         ) : null}
                       </CardContent>
                     </Card>

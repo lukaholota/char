@@ -3,6 +3,8 @@ model PersSpell {
   persId         Int       @map("pers_id")
   spellId        Int       @map("spell_id")
   learnedAtLevel Int       @map("learned_at_level")
+
+  isPrepared     Boolean   @default(false) @map("is_prepared")
   
   origin         SpellOrigin @default(MANUAL)
   

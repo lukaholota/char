@@ -1,4 +1,4 @@
-import { PrismaClient, Variants, Source, Races } from "@prisma/client";
+import { Prisma, PrismaClient, Variants, Source, Races } from "@prisma/client";
 
 export const seedRaceVariants = async (prisma: PrismaClient) => {
     console.log('👨 Додаємо варіанти Людей...');
@@ -303,28 +303,6 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
             }
         },
 
-        // ============ HUMAN VARIANT (PHB) ============
-        {
-            raceId: human.raceId,
-            name: Variants.HUMAN_VARIANT,
-            source: Source.PHB,
-            overridesRaceASI: {
-                flexible: {
-                    groups: [
-                        {
-                            groupName: '+1 до Двох різних',
-                            value: 1,
-                            choiceCount: 2,
-                            unique: true
-                        }
-                    ]
-                }
-            },
-            traits: {
-                create: []
-            }
-        },
-
         // ============ HALF-ELF DRAGONMARKS (EBERRON) ============
         
         // Mark of Detection
@@ -534,20 +512,103 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
         }
     ];
 
+    type TraitCreateItem = { feature: { connect: { engName: string } } };
+    type VariantSeed = (typeof variants)[number];
+
+    const extractTraitEngNames = (variant: VariantSeed): string[] => {
+        const raw = variant.traits?.create;
+        if (!raw || !Array.isArray(raw)) return [];
+        return (raw as TraitCreateItem[])
+            .map((x) => x.feature.connect.engName)
+            .filter((x): x is string => typeof x === "string" && x.trim().length > 0);
+    };
+
+    const allTraitEngNames = Array.from(
+        new Set(variants.flatMap((v) => extractTraitEngNames(v)))
+    );
+
+    const featuresByEngName = new Map<string, number>();
+    if (allTraitEngNames.length) {
+        const featureRows = await prisma.feature.findMany({
+            where: { engName: { in: allTraitEngNames } },
+            select: { featureId: true, engName: true },
+        });
+        for (const row of featureRows) featuresByEngName.set(row.engName, row.featureId);
+
+        const missing = allTraitEngNames.filter((name) => !featuresByEngName.has(name));
+        if (missing.length) {
+            console.warn(
+                `⚠️ seedRaceVariants: missing features by engName (traits will be skipped): ${missing.join(", ")}`
+            );
+        }
+    }
+
+    const resolveTraitFeatureIds = (variant: VariantSeed): number[] => {
+        const ids = extractTraitEngNames(variant)
+            .map((name) => featuresByEngName.get(name))
+            .filter((x): x is number => typeof x === "number");
+        return Array.from(new Set(ids));
+    };
+
+    const reconcileVariantTraits = async (raceVariantId: number, desiredFeatureIds: number[]) => {
+        const desired = new Set<number>(desiredFeatureIds);
+
+        const existing = await prisma.raceVariantTrait.findMany({
+            where: { raceVariantId },
+            select: { raceVariantTraitId: true, featureId: true },
+        });
+
+        // Remove accidental duplicates (same featureId multiple times)
+        const seenFeatureIds = new Set<number>();
+        const duplicateIds: number[] = [];
+        for (const row of existing) {
+            if (seenFeatureIds.has(row.featureId)) duplicateIds.push(row.raceVariantTraitId);
+            else seenFeatureIds.add(row.featureId);
+        }
+        if (duplicateIds.length) {
+            await prisma.raceVariantTrait.deleteMany({
+                where: { raceVariantTraitId: { in: duplicateIds } },
+            });
+        }
+
+        const existingFeatureIds = new Set(existing.map((x) => x.featureId));
+
+        const toDelete = Array.from(existingFeatureIds).filter((fid) => !desired.has(fid));
+        if (toDelete.length) {
+            await prisma.raceVariantTrait.deleteMany({
+                where: { raceVariantId, featureId: { in: toDelete } },
+            });
+        }
+
+        const toCreate = Array.from(desired).filter((fid) => !existingFeatureIds.has(fid));
+        if (toCreate.length) {
+            await prisma.raceVariantTrait.createMany({
+                data: toCreate.map((featureId) => ({ raceVariantId, featureId })),
+            });
+        }
+    };
+
     for (const variant of variants) {
         const existing = await prisma.raceVariant.findFirst({
             where: { name: variant.name, raceId: variant.raceId }
         });
 
+        const desiredTraitFeatureIds = resolveTraitFeatureIds(variant);
+        const { traits: _traits, ...variantData } = variant;
+
         if (existing) {
             await prisma.raceVariant.update({
                 where: { raceVariantId: existing.raceVariantId },
-                data: variant
+                data: variantData as unknown as Prisma.RaceVariantUpdateArgs["data"],
             });
+
+            await reconcileVariantTraits(existing.raceVariantId, desiredTraitFeatureIds);
         } else {
-            await prisma.raceVariant.create({
-                data: variant
+            const created = await prisma.raceVariant.create({
+                data: variantData as unknown as Prisma.RaceVariantCreateArgs["data"],
             });
+
+            await reconcileVariantTraits(created.raceVariantId, desiredTraitFeatureIds);
         }
     }
 

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useCharacterStore } from '@/store/character-store';
+import { cn } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -17,6 +18,9 @@ import {
   LevelUpChoice
 } from '@/types/character-flow';
 import { translateValue } from '@/lib/components/characterCreator/infoUtils';
+import { FormattedDescription } from '@/components/ui/FormattedDescription';
+import { InfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { subclassTranslations } from '@/lib/refs/translation';
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // INDIVIDUAL STEP RENDERERS
@@ -43,22 +47,34 @@ const SubclassSelectionGrid: React.FC<{ step: SelectSubclassStep }> = ({ step })
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {step.options.map((subclass) => (
-          <Card 
-            key={subclass.id}
-            className={`cursor-pointer transition-all border-2 ${
-              selectedId === subclass.id ? 'border-primary bg-primary/5' : 'border-transparent hover:border-primary/50'
-            }`}
-            onClick={() => addChoice({ stepType: 'SELECT_SUBCLASS', subclassId: subclass.id })}
-          >
-            <CardHeader>
-              <CardTitle>{translateValue(subclass.name)}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">{subclass.description}</p>
-            </CardContent>
-          </Card>
-        ))}
+        {step.options.map((subclass) => {
+          const sName = subclassTranslations[subclass.name as keyof typeof subclassTranslations] || subclass.name;
+          return (
+            <div key={subclass.id} className="relative group/card">
+              <Card 
+                className={`cursor-pointer transition-all border-2 backdrop-blur-xl bg-white/5 border-white/10 ${
+                  selectedId === subclass.id ? 'border-primary ring-1 ring-primary/30 bg-primary/10' : 'hover:bg-white/10 hover:border-white/20'
+                }`}
+                onClick={() => addChoice({ stepType: 'SELECT_SUBCLASS', subclassId: subclass.id })}
+              >
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold text-slate-100">{sName}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <FormattedDescription
+                    content={String(subclass.description || '')}
+                    className="text-sm text-slate-400 line-clamp-3"
+                  />
+                </CardContent>
+              </Card>
+              
+              <InfoDialog title={sName} triggerLabel="Деталі підкласу">
+                  <InfoSectionTitle>Опис</InfoSectionTitle>
+                  <FormattedDescription content={String(subclass.description || '')} className="text-sm text-slate-300" />
+              </InfoDialog>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -158,21 +174,30 @@ const OptionalFeatureGrid: React.FC<{ step: ChooseOptionalFeatureStep }> = ({ st
         <div className="space-y-4">
              <div className="mb-6">
                 <h3 className="text-lg font-semibold">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
+                <FormattedDescription
+                  content={String(step.description || '')}
+                  className="text-sm text-muted-foreground"
+                />
             </div>
             <ScrollArea className="h-[400px] pr-4">
                 <div className="grid grid-cols-1 gap-3">
                     {step.options.map((opt) => (
                         <Card 
                             key={opt.id}
-                            className={`cursor-pointer transition-all ${selectedId === opt.id ? 'border-primary bg-primary/5' : ''}`}
+                            className={cn(
+                                "cursor-pointer transition-all border-2 backdrop-blur-xl bg-white/5 border-white/10",
+                                selectedId === opt.id ? 'border-primary ring-1 ring-primary/30 bg-primary/10' : 'hover:bg-white/10 hover:border-white/20'
+                            )}
                             onClick={() => addChoice({ stepType: 'CHOOSE_OPTIONAL_FEATURE', featureId: step.featureId, selectedOptionId: opt.id })}
                         >
                             <CardHeader className="p-4">
-                                <CardTitle className="text-base">{opt.name}</CardTitle>
+                                <CardTitle className="text-base text-slate-100">{opt.name}</CardTitle>
                             </CardHeader>
                             <CardContent className="p-4 pt-0">
-                                <p className="text-sm text-muted-foreground">{opt.description}</p>
+                              <FormattedDescription
+                                content={String(opt.description || '')}
+                                className="text-sm text-slate-400"
+                              />
                             </CardContent>
                         </Card>
                     ))}

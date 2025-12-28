@@ -183,6 +183,18 @@ export const seedRaces = async (prisma: PrismaClient) => {
                         CHA: 1
                     }
                 },
+                tasha: {
+                    flexible: {
+                        groups: [
+                            {
+                                groupName: '+1 до Шести',
+                                value: 1,
+                                choiceCount: 6,
+                                unique: true
+                            }
+                        ]
+                    }
+                }
             },
             traits: {
                 create: []

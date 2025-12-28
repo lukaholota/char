@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WeaponKindType } from "@/lib/types/enums";
 import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 interface Props {
   race: RaceI
@@ -74,6 +75,8 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
       : undefined;
   });
   const [selectedWeaponId, setSelectedWeaponId] = useState<number | null>(null);
+
+  useModalBackButton(weaponDialogOpen, () => setWeaponDialogOpen(false));
 
   const chooseOption = (optionGroup: ClassStartingEquipmentOption[]) => {
     const choiceGroup = optionGroup[0].choiceGroup

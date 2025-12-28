@@ -11,6 +11,7 @@ import { classTranslations, classTranslationsEng } from "@/lib/refs/translation"
 import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import clsx from "clsx";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -134,7 +135,10 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
 
                 <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
                   <InfoSectionTitle>Опис</InfoSectionTitle>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">{description}</p>
+                  <FormattedDescription
+                    content={description}
+                    className="text-sm leading-relaxed text-slate-200/90"
+                  />
                 </div>
 
                 <div className="flex flex-wrap gap-2">

@@ -47,7 +47,15 @@ export const seedSubraces = async (prisma: PrismaClient) => {
         },
     };
 
-    const connectFeature = (engName: string) => ({ feature: { connect: { engName } } });
+        // На повторних запусках seed-а в "subrace_trait" могли з’явитися дублікати.
+        // Прибираємо їх, залишаючи найменший subrace_trait_id для кожної пари (subrace_id, feature_id).
+        await prisma.$executeRaw`
+                DELETE FROM "subrace_trait" a
+                USING "subrace_trait" b
+                WHERE a."subrace_id" = b."subrace_id"
+                    AND a."feature_id" = b."feature_id"
+                    AND a."subrace_trait_id" > b."subrace_trait_id";
+        `
 
     const subraces = [
         // ============ HIGH ELF (PHB) ============
@@ -60,13 +68,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             weaponProficiencies: {
                category: [WeaponCategory.LONGSWORD, WeaponCategory.SHORTSWORD, WeaponCategory.SHORTBOW, WeaponCategory.LONGBOW]
             },
-            traits: {
-                create: [
-                    connectFeature('Elf Weapon Training'),
-                    connectFeature('High Elf Cantrip'),
-                    connectFeature('Extra Language')
-                ]
-            }
+            traitEngNames: ['Elf Weapon Training', 'High Elf Cantrip', 'Extra Language']
         },
         // ============ WOOD ELF (PHB) ============
         {
@@ -78,12 +80,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             weaponProficiencies: {
                category: [WeaponCategory.LONGSWORD, WeaponCategory.SHORTSWORD, WeaponCategory.SHORTBOW, WeaponCategory.LONGBOW]
             },
-            traits: {
-                create: [
-                    connectFeature('Elf Weapon Training'),
-                    connectFeature('Mask of the Wild')
-                ]
-            }
+            traitEngNames: ['Elf Weapon Training', 'Mask of the Wild']
         },
         // ============ DROW (PHB) ============
         {
@@ -94,14 +91,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             weaponProficiencies: {
                category: [WeaponCategory.RAPIER, WeaponCategory.SHORTSWORD, WeaponCategory.HAND_CROSSBOW]
             },
-            traits: {
-                create: [
-                    connectFeature('Superior Darkvision (Drow)'),
-                    connectFeature('Sunlight Sensitivity'),
-                    connectFeature('Drow Magic'),
-                    connectFeature('Drow Weapon Training')
-                ]
-            }
+            traitEngNames: ['Superior Darkvision (Drow)', 'Sunlight Sensitivity', 'Drow Magic', 'Drow Weapon Training']
         },
         // ============ ELADRIN (DMG) ============
         {
@@ -112,12 +102,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             weaponProficiencies: {
                category: [WeaponCategory.LONGSWORD, WeaponCategory.SHORTSWORD, WeaponCategory.SHORTBOW, WeaponCategory.LONGBOW]
             },
-            traits: {
-                create: [
-                    connectFeature('Elf Weapon Training'),
-                    connectFeature('Fey Step (DMG)')
-                ]
-            }
+            traitEngNames: ['Elf Weapon Training', 'Fey Step (DMG)']
         },
         // ============ ELADRIN (MPMM) ============
         {
@@ -126,11 +111,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             source: Source.MPMM,
             replacesASI: true,
             additionalASI: MPMM_ASI,
-            traits: {
-                create: [
-                    connectFeature('Fey Step')
-                ]
-            }
+            traitEngNames: ['Fey Step']
         },
         // ============ SEA ELF (MTOF) ============
         {
@@ -143,12 +124,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
                 category: [WeaponCategory.SPEAR, WeaponCategory.TRIDENT, WeaponCategory.LIGHT_CROSSBOW, WeaponCategory.NET]
             },
             additionalLanguages: [Language.AQUAN],
-            traits: {
-                create: [
-                    connectFeature('Child of the Sea'),
-                    connectFeature('Friend of the Sea')
-                ]
-            }
+            traitEngNames: ['Child of the Sea', 'Friend of the Sea']
         },
         // ============ SHADAR-KAI (MPMM) ============
         {
@@ -157,13 +133,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             source: Source.MPMM,
             replacesASI: true,
             additionalASI: MPMM_ASI,
-            traits: {
-                create: [
-                    connectFeature('Necrotic Resistance'),
-                    connectFeature('Blessing of the Raven Queen'),
-                    connectFeature('Keen Senses')
-                ]
-            }
+            traitEngNames: ['Necrotic Resistance', 'Blessing of the Raven Queen', 'Keen Senses']
         },
         // ============ PALLID ELF (EGTW) ============
         {
@@ -171,12 +141,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.ELF_PALLID_EGTW,
             source: Source.EGTW,
             additionalASI: { WIS: 1 },
-            traits: {
-                create: [
-                    connectFeature('Incisive Sense'),
-                    connectFeature('Blessing of the Moon Weaver')
-                ]
-            }
+            traitEngNames: ['Incisive Sense', 'Blessing of the Moon Weaver']
         },
         
         // ============ HILL DWARF (PHB) ============
@@ -185,11 +150,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.DWARF_HILL_2014,
             source: Source.PHB,
             additionalASI: { WIS: 1 },
-            traits: {
-                create: [
-                    connectFeature('Dwarven Toughness')
-                ]
-            }
+            traitEngNames: ['Dwarven Toughness']
         },
         // ============ MOUNTAIN DWARF (PHB) ============
         {
@@ -198,11 +159,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             source: Source.PHB,
             additionalASI: { STR: 2 },
             armorProficiencies: [ArmorType.LIGHT, ArmorType.MEDIUM],
-            traits: {
-                create: [
-                    connectFeature('Dwarven Armor Training')
-                ]
-            }
+            traitEngNames: ['Dwarven Armor Training']
         },
         // ============ DUERGAR (GRAY DWARF) (SCAG) ============
         {
@@ -210,14 +167,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.DWARF_DUERGAR_GRAY_SCAG,
             source: Source.SCAG,
             additionalASI: { STR: 1 },
-            traits: {
-                create: [
-                    connectFeature('Superior Darkvision (Duergar)'),
-                    connectFeature('Duergar Resilience'),
-                    connectFeature('Duergar Magic'),
-                    connectFeature('Sunlight Sensitivity')
-                ]
-            }
+            traitEngNames: ['Superior Darkvision (Duergar)', 'Duergar Resilience', 'Duergar Magic', 'Sunlight Sensitivity']
         },
         
         // ============ LIGHTFOOT HALFLING (PHB) ============
@@ -226,11 +176,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.HALFLING_LIGHTFOOT_2014,
             source: Source.PHB,
             additionalASI: { CHA: 1 },
-            traits: {
-                create: [
-                    connectFeature('Naturally Stealthy')
-                ]
-            }
+            traitEngNames: ['Naturally Stealthy']
         },
         // ============ STOUT HALFLING (PHB) ============
         {
@@ -238,11 +184,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.HALFLING_STOUT_2014,
             source: Source.PHB,
             additionalASI: { CON: 1 },
-            traits: {
-                create: [
-                    connectFeature('Stout Resilience')
-                ]
-            }
+            traitEngNames: ['Stout Resilience']
         },
         // ============ GHOSTWISE HALFLING (SCAG) ============
         {
@@ -250,11 +192,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.HALFLING_GHOSTWISE_SCAG,
             source: Source.SCAG,
             additionalASI: { WIS: 1 },
-            traits: {
-                create: [
-                    connectFeature('Silent Speech')
-                ]
-            }
+            traitEngNames: ['Silent Speech']
         },
         
         // ============ FOREST GNOME (PHB) ============
@@ -263,12 +201,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.GNOME_FOREST_2014,
             source: Source.PHB,
             additionalASI: { DEX: 1 },
-            traits: {
-                create: [
-                    connectFeature('Natural Illusionist'),
-                    connectFeature('Speak with Small Beasts')
-                ]
-            }
+            traitEngNames: ['Natural Illusionist', 'Speak with Small Beasts']
         },
         // ============ ROCK GNOME (PHB) ============
         {
@@ -279,12 +212,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             toolProficiencies: {
                 category: ["ARTISAN_TINKER"]
             },
-            traits: {
-                create: [
-                    connectFeature('Artificer\'s Lore'),
-                    connectFeature('Tinker')
-                ]
-            }
+            traitEngNames: ['Artificer\'s Lore', 'Tinker']
         },
         // ============ DEEP GNOME (SVIRFNEBLIN) (SCAG) ============
         {
@@ -292,22 +220,60 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.GNOME_DEEP_SCAG,
             source: Source.SCAG,
             additionalASI: { DEX: 1 },
-            traits: {
-                create: [
-                    connectFeature('Superior Darkvision (Deep Gnome)'),
-                    connectFeature('Stone Camouflage')
-                ]
-            }
+            traitEngNames: ['Superior Darkvision (Deep Gnome)', 'Stone Camouflage']
         },
         
     ];
 
     for (const subrace of subraces) {
-        await prisma.subrace.upsert({
-            where: { name: subrace.name },
-            update: subrace,
-            create: subrace
+        // traits робимо окремо, щоб повторний seed не створював дублікати у join-таблиці
+        const { traitEngNames, ...subraceData } = subrace as any;
+
+        const saved = await prisma.subrace.upsert({
+            where: { name: subraceData.name },
+            update: subraceData,
+            create: subraceData
         });
+
+        const desiredFeatureRows = await prisma.feature.findMany({
+            where: { engName: { in: traitEngNames } },
+            select: { featureId: true, engName: true }
+        });
+
+        const found = new Set(desiredFeatureRows.map(f => f.engName));
+        for (const engName of traitEngNames) {
+            if (!found.has(engName)) {
+                console.warn(`⚠️ Не знайдена фіча для підраси ${saved.name}: ${engName}`);
+            }
+        }
+
+        const desiredFeatureIds = desiredFeatureRows.map(f => f.featureId);
+
+        // Видаляємо зв’язки, яких більше не має бути
+        await prisma.subraceTrait.deleteMany({
+            where: {
+                subraceId: saved.subraceId,
+                ...(desiredFeatureIds.length
+                    ? { NOT: { featureId: { in: desiredFeatureIds } } }
+                    : {}),
+            }
+        });
+
+        // Додаємо відсутні зв’язки
+        if (desiredFeatureIds.length) {
+            const existing = await prisma.subraceTrait.findMany({
+                where: { subraceId: saved.subraceId, featureId: { in: desiredFeatureIds } },
+                select: { featureId: true }
+            });
+            const existingIds = new Set(existing.map(e => e.featureId));
+            const toCreate = desiredFeatureIds
+                .filter(featureId => !existingIds.has(featureId))
+                .map(featureId => ({ subraceId: saved.subraceId, featureId }));
+
+            if (toCreate.length) {
+                await prisma.subraceTrait.createMany({ data: toCreate });
+            }
+        }
     }
 
     console.log(`✅ Додано ${subraces.length} підрас (Ельфи, Дварфи, Напіврослики, Гноми, Дракононароджені)!`);

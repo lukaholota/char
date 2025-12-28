@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import type { Weapon, Feat } from "@prisma/client";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { Weapon } from "@prisma/client";
 import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
 import {usePersFormStore} from "@/lib/stores/persFormStore";
@@ -25,6 +25,7 @@ import SubracesForm from "@/lib/components/characterCreator/SubracesForm";
 import RaceVariantsForm from "@/lib/components/characterCreator/RaceVariantsForm";
 import RaceChoiceOptionsForm from "@/lib/components/characterCreator/RaceChoiceOptionsForm";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
+import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
 import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 
@@ -32,6 +33,7 @@ import { createCharacter } from "@/lib/actions/character";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
+import { useSession } from "next-auth/react";
 
 interface Props {
   races: RaceI[]
@@ -50,6 +52,7 @@ export const MultiStepForm = (
     feats,
   }: Props
 ) => {
+  const { data: session, status: sessionStatus } = useSession();
   const {
     currentStep,
     prevStep,
@@ -65,12 +68,18 @@ export const MultiStepForm = (
   const [nextDisabled, setNextDisabled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const didMountRef = useRef(false);
 
   const handleNextDisabledChange = useCallback((disabled: boolean) => {
     setNextDisabled(disabled);
   }, []);
 
   const handleFinalSubmit = async () => {
+    if (sessionStatus !== "authenticated") {
+      setAuthDialogOpen(true);
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       // We need to ensure formData has the latest name update, which happens in NameForm's onSubmit
@@ -108,6 +117,10 @@ export const MultiStepForm = (
 
   const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
   const cls = useMemo(() => classes.find(c => c.classId === formData.classId) as ClassI, [classes, formData.classId])
+  const subclass = useMemo(
+    () => (cls?.subclasses || []).find((sc) => sc.subclassId === formData.subclassId),
+    [cls, formData.subclassId]
+  );
   const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
   const hasLevelOneChoices = useMemo(
     () => Boolean(cls?.classChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
@@ -135,6 +148,11 @@ export const MultiStepForm = (
     const allowedClasses = ["CLERIC_2014", "WARLOCK_2014", "SORCERER_2014"];
     return allowedClasses.includes(cls.name) && (cls.subclasses?.length ?? 0) > 0;
   }, [cls]);
+
+  const hasLevelOneSubclassChoices = useMemo(
+    () => Boolean(subclass?.subclassChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
+    [subclass]
+  );
 
   const hasExpertiseChoice = useMemo(() => {
     if (!cls) return false;
@@ -164,6 +182,10 @@ export const MultiStepForm = (
 
     if (hasSubclasses) {
       dynamicSteps.push({ id: "subclass", name: "Підклас", component: "subclass" });
+    }
+
+    if (hasLevelOneSubclassChoices) {
+      dynamicSteps.push({ id: "subclassChoices", name: "Опції підкласу", component: "subclassChoices" });
     }
 
     if (hasLevelOneChoices) {
@@ -198,7 +220,7 @@ export const MultiStepForm = (
     );
 
     return dynamicSteps;
-  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures, hasSubraces, hasRaceVariants, hasRaceChoiceOptions, hasSubclasses, hasFeatChoice, hasFeatChoices, hasExpertiseChoice]);
+  }, [hasLevelOneChoices, hasLevelOneOptionalFeatures, hasSubraces, hasRaceVariants, hasRaceChoiceOptions, hasSubclasses, hasLevelOneSubclassChoices, hasFeatChoice, hasFeatChoices, hasExpertiseChoice]);
 
   useEffect(() => {
     const total = steps.length;
@@ -303,6 +325,14 @@ export const MultiStepForm = (
         return (
           <SubclassForm
             cls={cls}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
+      case "subclassChoices":
+        return (
+          <SubclassChoiceOptionsForm
+            selectedSubclass={subclass}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
           />
@@ -419,11 +449,26 @@ export const MultiStepForm = (
     setNextDisabled(false);
   }, [currentStep]);
 
+  useEffect(() => {
+    if (!isHydrated) return;
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+    window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  }, [currentStep, isHydrated]);
+
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-24 sm:px-4 md:gap-6 md:px-0 md:py-6">
       <CharacterCreateHeader
         onReset={resetForm}
         onOpenAuth={() => setAuthDialogOpen(true)}
+        isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
       />
 
       <Card className="shadow-2xl">

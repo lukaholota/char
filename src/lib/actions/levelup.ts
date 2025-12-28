@@ -2,7 +2,8 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { Feat } from "@prisma/client";
+import { FeatPrisma } from "@/lib/types/model-types";
+import { createCharacterSnapshot } from "./snapshot-actions";
 
 export async function getLevelUpInfo(persId: number) {
   const session = await auth();
@@ -11,77 +12,17 @@ export async function getLevelUpInfo(persId: number) {
   const pers = await prisma.pers.findUnique({
     where: { persId },
     include: {
-      class: {
+      class: true,
+      subclass: true,
+      multiclasses: {
         include: {
-          classChoiceOptions: {
-            include: {
-              choiceOption: {
-                include: {
-                  features: { include: { feature: true } }
-                }
-              }
-            }
-          },
-          features: {
-            include: { feature: true }
-          },
-          subclasses: {
-            include: {
-                features: { include: { feature: true } },
-                expandedSpells: true,
-                subclassChoiceOptions: {
-                  include: {
-                    choiceOption: {
-                      include: {
-                        features: {
-                          include: {
-                            feature: true
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-            }
-          },
-          startingEquipmentOption: {
-            include: {
-              weapon: true,
-              armor: true,
-              equipmentPack: true
-            }
-          },
-          classOptionalFeatures: {
-            include: {
-              feature: true,
-              replacesFeatures: {
-                include: {
-                  replacedFeature: true
-                }
-              }
-            }
-          }
-        }
-      },
-      subclass: {
-        include: {
-            subclassChoiceOptions: {
-                include: {
-                    choiceOption: {
-                        include: {
-                            features: { include: { feature: true } }
-                        }
-                    }
-                }
-            },
-            features: {
-                include: { feature: true }
-            }
-        }
+          class: true,
+          subclass: true,
+        },
       },
       race: true,
       subrace: true,
-    }
+    },
   });
 
   if (!pers) return { error: "Character not found" };
@@ -89,43 +30,96 @@ export async function getLevelUpInfo(persId: number) {
   const nextLevel = pers.level + 1;
   if (nextLevel > 20) return { error: "Max level reached" };
 
-  // 1. Check for Subclass Selection
-  const needsSubclass = !pers.subclassId && pers.class.subclassLevel === nextLevel;
-  
-  // 2. Check for ASI/Feat
-  const isASILevel = pers.class.abilityScoreUpLevels.includes(nextLevel);
+  const [classes, feats] = await Promise.all([
+    prisma.class.findMany({
+      include: {
+        subclasses: {
+          include: {
+            features: { include: { feature: true } },
+            subclassChoiceOptions: {
+              include: {
+                choiceOption: {
+                  include: {
+                    features: { include: { feature: true } },
+                  },
+                },
+              },
+            },
+            expandedSpells: true,
+          },
+        },
+        startingEquipmentOption: {
+          include: {
+            equipmentPack: true,
+            weapon: true,
+            armor: true,
+          },
+        },
+        classChoiceOptions: {
+          include: {
+            choiceOption: {
+              include: {
+                features: { include: { feature: true } },
+              },
+            },
+          },
+        },
+        classOptionalFeatures: {
+          include: {
+            feature: true,
+            replacesFeatures: { include: { replacedFeature: true } },
+            appearsOnlyIfChoicesTaken: true,
+          },
+        },
+        features: { include: { feature: true } },
+      },
+      orderBy: [{ sortOrder: "asc" }, { classId: "asc" }],
+    }),
+    prisma.feat.findMany({
+      include: {
+        grantsFeature: true,
+        featChoiceOptions: {
+          include: {
+            choiceOption: {
+              include: {
+                features: { include: { feature: true } },
+              },
+            },
+          },
+        },
+      },
+      orderBy: [{ name: "asc" }],
+    }) as unknown as Promise<FeatPrisma[]>,
+  ]);
 
-  // 3. Get Class Features for next level
-  const newClassFeatures = pers.class.features.filter(f => f.levelGranted === nextLevel);
-  
-  // 4. Get Class Choices for next level
-  const newClassChoices = pers.class.classChoiceOptions.filter(opt => opt.levelsGranted.includes(nextLevel));
-  
-  // Group Class Choices
-  const classChoiceGroups = newClassChoices.reduce((acc, opt) => {
-      const group = opt.choiceOption.groupName;
-      if (!acc[group]) acc[group] = [];
-      acc[group].push(opt);
-      return acc;
-  }, {} as Record<string, typeof newClassChoices>);
+  const currentClass = classes.find((c) => c.classId === pers.classId);
+  const currentSubclass =
+    currentClass?.subclasses?.find((s) => s.subclassId === pers.subclassId) ?? null;
 
-  // 5. Get Subclass Features for next level (if subclass exists)
-  const newSubclassFeatures = pers.subclass?.features.filter(f => f.levelGranted === nextLevel) || [];
+  const needsSubclass = !pers.subclassId && nextLevel >= (currentClass?.subclassLevel ?? 3);
+  const isASILevel = (currentClass?.abilityScoreUpLevels ?? []).includes(nextLevel);
 
-  // 6. Get Subclass Choices for next level
-  const newSubclassChoices = pers.subclass?.subclassChoiceOptions.filter(opt => opt.levelsGranted.includes(nextLevel)) || [];
-  
-   // Group Subclass Choices
-  const subclassChoiceGroups = newSubclassChoices.reduce((acc, opt) => {
-      const group = opt.choiceOption.groupName;
-      if (!acc[group]) acc[group] = [];
-      acc[group].push(opt);
-      return acc;
-  }, {} as Record<string, typeof newSubclassChoices>);
+  const newClassFeatures = (currentClass?.features ?? []).filter((f) => f.levelGranted === nextLevel);
+  const newSubclassFeatures = (currentSubclass?.features ?? []).filter((f) => f.levelGranted === nextLevel);
 
-  let feats: Feat[] = [];
-  if (isASILevel) {
-      feats = await prisma.feat.findMany({ orderBy: { name: 'asc' } });
+  const classChoiceGroups: Record<string, (typeof currentClass extends undefined ? never : NonNullable<typeof currentClass>["classChoiceOptions"][number])[]> = {} as any;
+  const classChoiceOptions = (currentClass?.classChoiceOptions ?? []).filter((opt) =>
+    (opt.levelsGranted ?? []).includes(nextLevel)
+  );
+  for (const opt of classChoiceOptions) {
+    const key = opt.choiceOption?.groupName || "Опції";
+    if (!classChoiceGroups[key]) classChoiceGroups[key] = [];
+    classChoiceGroups[key].push(opt as any);
+  }
+
+  const subclassChoiceGroups: Record<string, (typeof currentSubclass extends null ? never : NonNullable<typeof currentSubclass>["subclassChoiceOptions"][number])[]> = {} as any;
+  const subclassChoiceOptions = (currentSubclass?.subclassChoiceOptions ?? []).filter((opt) =>
+    (opt.levelsGranted ?? []).includes(nextLevel)
+  );
+  for (const opt of subclassChoiceOptions) {
+    const key = opt.choiceOption?.groupName || "Опції";
+    if (!subclassChoiceGroups[key]) subclassChoiceGroups[key] = [];
+    subclassChoiceGroups[key].push(opt as any);
   }
 
   return {
@@ -134,10 +128,10 @@ export async function getLevelUpInfo(persId: number) {
     needsSubclass,
     isASILevel,
     newClassFeatures,
-    classChoiceGroups,
     newSubclassFeatures,
+    classChoiceGroups,
     subclassChoiceGroups,
-    availableSubclasses: needsSubclass ? pers.class.subclasses : [],
+    classes,
     feats,
   };
 }
@@ -147,141 +141,291 @@ export async function levelUpCharacter(persId: number, data: any) {
     if (!session?.user?.email) return { error: "Unauthorized" };
 
     try {
-        const info = await getLevelUpInfo(persId);
-        if ('error' in info) return info;
-        
-        const { pers, nextLevel, newClassFeatures, newSubclassFeatures } = info;
-        
-        // 1. Handle Stats (ASI)
-        const newStats = {
-            str: pers.str,
-            dex: pers.dex,
-            con: pers.con,
-            int: pers.int,
-            wis: pers.wis,
-            cha: pers.cha,
-        };
+    const info = await getLevelUpInfo(persId);
+    if ("error" in info) return info;
 
-        if (data.customAsi && Array.isArray(data.customAsi)) {
-            data.customAsi.forEach((asi: { ability: string, value: string }) => {
-                const key = asi.ability.toLowerCase() as keyof typeof newStats;
-                if (newStats[key] !== undefined) {
-                    newStats[key] += Number(asi.value);
-                }
-            });
+    const { pers, classes } = info;
+
+    const nextLevel = pers.level + 1;
+    if (nextLevel > 20) return { error: "Max level reached" };
+
+    const levelUpPath = data?.levelUpPath === "MULTICLASS" ? "MULTICLASS" : "EXISTING";
+    const selectedClassId = Number(data?.classId);
+    if (!Number.isFinite(selectedClassId)) return { error: "Оберіть клас для підвищення" };
+
+    const ownedClassIds = new Set<number>([pers.classId, ...(pers.multiclasses || []).map((m) => m.classId)]);
+    const hasClassAlready = ownedClassIds.has(selectedClassId);
+    if (levelUpPath === "EXISTING" && !hasClassAlready) {
+      return { error: "Цей клас ще не взято. Оберіть мультиклас." };
+    }
+    if (levelUpPath === "MULTICLASS" && hasClassAlready) {
+      return { error: "Цей клас уже взято. Оберіть існуючий клас." };
+    }
+
+    const selectedClass = (classes as any[]).find((c) => c.classId === selectedClassId);
+    if (!selectedClass) return { error: "Клас не знайдено" };
+
+    const multiclassRow = (pers.multiclasses || []).find((m) => m.classId === selectedClassId) ?? null;
+    const mainClassLevel = (() => {
+      const extras = (pers.multiclasses || []).reduce((acc, m) => acc + (m.classLevel || 0), 0);
+      const computed = pers.level - extras;
+      return computed > 0 ? computed : 1;
+    })();
+
+    const classLevelBefore = levelUpPath === "MULTICLASS"
+      ? 0
+      : selectedClassId === pers.classId
+        ? mainClassLevel
+        : multiclassRow?.classLevel ?? 0;
+    const classLevelAfter = classLevelBefore + 1;
+
+    // ===== 1) Stats =====
+    const newStats = {
+      str: pers.str,
+      dex: pers.dex,
+      con: pers.con,
+      int: pers.int,
+      wis: pers.wis,
+      cha: pers.cha,
+    };
+
+    const abilityToStatKey: Record<string, keyof typeof newStats> = {
+      STR: "str",
+      DEX: "dex",
+      CON: "con",
+      INT: "int",
+      WIS: "wis",
+      CHA: "cha",
+    };
+
+    if (Array.isArray(data?.customAsi)) {
+      for (const asi of data.customAsi as Array<{ ability?: string; value?: string }>) {
+        const ability = String(asi?.ability || "");
+        const key = abilityToStatKey[ability];
+        const delta = Number(asi?.value);
+        if (!key) continue;
+        if (!Number.isFinite(delta) || (delta !== 1 && delta !== 2)) continue;
+        newStats[key] += delta;
+      }
+    }
+
+    // ===== 2) Feat + feat choices =====
+    const featId = data?.featId ? Number(data.featId) : undefined;
+    const featChoiceSelections = (data?.featChoiceSelections || {}) as Record<string, number>;
+    const featChoiceOptionIds = Object.values(featChoiceSelections)
+      .map((v) => Number(v))
+      .filter((v) => Number.isFinite(v));
+
+    let featFeatureIds: number[] = [];
+    let featGrantedASI: any = null;
+
+    if (featId) {
+      const feat = await prisma.feat.findUnique({
+        where: { featId },
+        include: {
+          grantsFeature: true,
+        },
+      });
+
+      if (!feat) return { error: "Рису не знайдено" };
+      featFeatureIds = feat.grantsFeature.map((f) => f.featureId);
+      featGrantedASI = feat.grantedASI as any;
+
+      if (featGrantedASI?.basic?.simple) {
+        for (const [ability, bonus] of Object.entries(featGrantedASI.basic.simple as Record<string, unknown>)) {
+          const key = abilityToStatKey[String(ability)];
+          const delta = Number(bonus);
+          if (!key) continue;
+          if (!Number.isFinite(delta)) continue;
+          newStats[key] += delta;
         }
+      }
+    }
 
-        // 2. Handle Feat
-        const featId = data.featId ? Number(data.featId) : undefined;
-        let featFeatures: number[] = [];
-        if (featId) {
-            const feat = await prisma.feat.findUnique({ 
-                where: { featId },
-                include: { grantsFeature: true }
-            });
-            if (feat) {
-                // Add feat features
-                featFeatures = feat.grantsFeature.map(f => f.featureId);
-                
-                // Feat might also grant ASI (e.g. half-feats).
-                if (feat.grantedASI) {
-                     const featASI = feat.grantedASI as any;
-                     if (featASI && featASI.basic && featASI.basic.simple) {
-                         Object.entries(featASI.basic.simple).forEach(([ability, bonus]) => {
-                            const key = ability.toLowerCase() as keyof typeof newStats;
-                            if (newStats[key] !== undefined) newStats[key] += Number(bonus);
-                         });
-                     }
-                }
-            }
-        }
-
-        // 3. Calculate HP
+    // ===== 3) HP increase (from wizard) =====
+    const hpIncreaseFromWizard = Number(data?.levelUpHpIncrease);
+    const hpIncrease = Number.isFinite(hpIncreaseFromWizard)
+      ? Math.max(0, Math.trunc(hpIncreaseFromWizard))
+      : (() => {
+        // fallback: average
         const conMod = Math.floor((newStats.con - 10) / 2);
-        const hpIncrease = Math.floor(pers.class.hitDie / 2) + 1 + conMod;
-        const newMaxHp = pers.maxHp + hpIncrease;
-        const newCurrentHp = pers.currentHp + hpIncrease;
+        return Math.floor(pers.class.hitDie / 2) + 1 + conMod;
+      })();
 
-        // 4. Collect Features to Add
-        const featuresToAdd = new Set<number>();
-        
-        // Class Features
-        newClassFeatures.forEach(f => featuresToAdd.add(f.featureId));
-        
-        // Subclass Features
-        // If we just picked a subclass, we get ALL features up to this level?
-        // Or just the ones for this level?
-        // Usually when you pick a subclass at level 3, you get level 3 features.
-        // If `data.subclassId` is set, we are picking it now.
-        let subclassId = pers.subclassId;
-        if (data.subclassId) {
-            subclassId = Number(data.subclassId);
-            // Fetch subclass features for this level
-            const scFeatures = await prisma.subclassFeature.findMany({
-                where: { subclassId, levelGranted: nextLevel },
-                select: { featureId: true }
-            });
-            scFeatures.forEach(f => featuresToAdd.add(f.featureId));
-        } else if (pers.subclassId) {
-            // Existing subclass, just new features
-            newSubclassFeatures.forEach(f => featuresToAdd.add(f.featureId));
-        }
+    const newMaxHp = pers.maxHp + hpIncrease;
+    const newCurrentHp = pers.currentHp + hpIncrease;
 
-        // Feat Features
-        featFeatures.forEach(f => featuresToAdd.add(f));
+    // ===== 4) Subclass selection for the selected class =====
+    const chosenSubclassIdRaw = data?.subclassId ? Number(data.subclassId) : undefined;
+    const existingSubclassIdForClass =
+      selectedClassId === pers.classId ? pers.subclassId ?? undefined : multiclassRow?.subclassId ?? undefined;
 
-        // Choice Features
-        const choiceOptionIds: number[] = [];
-        
-        // Helper to process choices
-        const processChoices = async (selections: Record<string, number>) => {
-            if (!selections) return;
-            for (const optionId of Object.values(selections)) {
-                choiceOptionIds.push(optionId);
-                const choiceFeatures = await prisma.choiceOptionFeature.findMany({
-                    where: { choiceOptionId: optionId },
-                    select: { featureId: true }
-                });
-                choiceFeatures.forEach(f => featuresToAdd.add(f.featureId));
-            }
-        };
+    const subclassIdForSelectedClass = chosenSubclassIdRaw ?? existingSubclassIdForClass;
+    if (subclassIdForSelectedClass) {
+      const belongs = (selectedClass.subclasses || []).some((s: any) => s.subclassId === subclassIdForSelectedClass);
+      if (!belongs) return { error: "Підклас не належить обраному класу" };
+    }
 
-        await processChoices(data.classChoiceSelections);
-        await processChoices(data.subclassChoiceSelections);
+    const selectedSubclass = subclassIdForSelectedClass
+      ? (selectedClass.subclasses || []).find((s: any) => s.subclassId === subclassIdForSelectedClass) ?? null
+      : null;
 
-        // 5. Update DB
-        await prisma.$transaction(async (tx) => {
-            // Update Pers
-            await tx.pers.update({
-                where: { persId },
-                data: {
-                    level: nextLevel,
-                    maxHp: newMaxHp,
-                    currentHp: newCurrentHp,
-                    subclassId: subclassId,
-                    ...newStats,
-                    choiceOptions: {
-                        connect: choiceOptionIds.map(id => ({ choiceOptionId: id }))
-                    },
-                    feats: featId ? {
-                        create: { featId }
-                    } : undefined
-                }
-            });
+    // ===== 5) Features + choices =====
+    const featuresToAdd = new Set<number>();
+    const choiceOptionIds: number[] = [];
 
-            // Add Features
-            if (featuresToAdd.size > 0) {
-                await tx.persFeature.createMany({
-                    data: Array.from(featuresToAdd).map(fid => ({
-                        persId,
-                        featureId: fid
-                    })),
-                    skipDuplicates: true
-                });
-            }
+    // Class features for THIS class level
+    for (const cf of (selectedClass.features || [])) {
+      if (cf.levelGranted === classLevelAfter) featuresToAdd.add(cf.featureId);
+    }
+
+    // Subclass features for THIS class level
+    if (selectedSubclass) {
+      for (const sf of (selectedSubclass.features || [])) {
+        if (sf.levelGranted === classLevelAfter) featuresToAdd.add(sf.featureId);
+      }
+    }
+
+    // Feat features
+    for (const fid of featFeatureIds) featuresToAdd.add(fid);
+
+    const processChoiceSelections = async (selections: Record<string, number> | undefined) => {
+      if (!selections) return;
+      for (const optionIdRaw of Object.values(selections)) {
+        const optionId = Number(optionIdRaw);
+        if (!Number.isFinite(optionId)) continue;
+        choiceOptionIds.push(optionId);
+        const choiceFeatures = await prisma.choiceOptionFeature.findMany({
+          where: { choiceOptionId: optionId },
+          select: { featureId: true },
         });
-        
-        return { success: true };
+        for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
+      }
+    };
+
+    await processChoiceSelections(data?.classChoiceSelections as Record<string, number> | undefined);
+    await processChoiceSelections(data?.subclassChoiceSelections as Record<string, number> | undefined);
+    await processChoiceSelections(featChoiceSelections);
+
+    // Optional class features (replacements)
+    const optionalSelections = (data?.classOptionalFeatureSelections || {}) as Record<string, boolean>;
+    const acceptedOptionalIds = Object.entries(optionalSelections)
+      .filter(([, accepted]) => accepted === true)
+      .map(([id]) => Number(id))
+      .filter((id) => Number.isFinite(id));
+
+    const optionalReplacedFeatureIds = new Set<number>();
+    const optionalGrantedFeatureIds = new Set<number>();
+    if (acceptedOptionalIds.length) {
+      const optionalRecords = await prisma.classOptionalFeature.findMany({
+        where: { optionalFeatureId: { in: acceptedOptionalIds } },
+        include: {
+          replacesFeatures: true,
+        },
+      });
+
+      for (const opt of optionalRecords) {
+        if (opt.featureId) optionalGrantedFeatureIds.add(opt.featureId);
+        for (const rep of opt.replacesFeatures) {
+          optionalReplacedFeatureIds.add(rep.replacedFeatureId);
+        }
+      }
+    }
+
+    for (const fid of optionalGrantedFeatureIds) featuresToAdd.add(fid);
+
+    // ===== 6) Persist =====
+    await prisma.$transaction(async (tx) => {
+      // Create snapshot before changes
+      await createCharacterSnapshot(persId);
+
+      // multiclass row update/create
+      if (levelUpPath === "MULTICLASS") {
+        await tx.persMulticlass.create({
+          data: {
+            persId,
+            classId: selectedClassId,
+            classLevel: 1,
+            subclassId: subclassIdForSelectedClass ?? null,
+          },
+        });
+      } else if (selectedClassId !== pers.classId) {
+        // existing multiclass
+        await tx.persMulticlass.update({
+          where: { persId_classId: { persId, classId: selectedClassId } },
+          data: {
+            classLevel: classLevelAfter,
+            ...(chosenSubclassIdRaw ? { subclassId: chosenSubclassIdRaw } : {}),
+          },
+        });
+      }
+
+      // create or update PersFeat and its choices
+      let persFeatId: number | null = null;
+      if (featId) {
+        const created = await tx.persFeat.upsert({
+          where: { featId_persId: { featId, persId } },
+          update: {},
+          create: { featId, persId },
+          select: { persFeatId: true },
+        });
+        persFeatId = created.persFeatId;
+      }
+
+      if (persFeatId && featChoiceOptionIds.length) {
+        await tx.persFeatChoice.createMany({
+          data: featChoiceOptionIds.map((choiceOptionId) => ({
+            persFeatId: persFeatId as number,
+            choiceOptionId,
+          })),
+          skipDuplicates: true,
+        });
+      }
+
+      // Update Pers core
+      await tx.pers.update({
+        where: { persId },
+        data: {
+          level: nextLevel,
+          maxHp: newMaxHp,
+          currentHp: newCurrentHp,
+          ...(selectedClassId === pers.classId
+            ? { subclassId: chosenSubclassIdRaw ?? pers.subclassId ?? null }
+            : {}),
+          ...newStats,
+          choiceOptions: choiceOptionIds.length
+            ? {
+              connect: choiceOptionIds.map((id) => ({ choiceOptionId: id })),
+            }
+            : undefined,
+          classOptionalFeatures: acceptedOptionalIds.length
+            ? {
+              connect: acceptedOptionalIds.map((optionalFeatureId) => ({ optionalFeatureId })),
+            }
+            : undefined,
+        },
+      });
+
+      // Remove replaced features
+      if (optionalReplacedFeatureIds.size > 0) {
+        await tx.persFeature.deleteMany({
+          where: {
+            persId,
+            featureId: { in: Array.from(optionalReplacedFeatureIds) },
+          },
+        });
+      }
+
+      // Add features
+      if (featuresToAdd.size > 0) {
+        await tx.persFeature.createMany({
+          data: Array.from(featuresToAdd).map((featureId) => ({ persId, featureId })),
+          skipDuplicates: true,
+        });
+      }
+    });
+
+    return { success: true };
     } catch (e) {
         console.error(e);
         return { error: "Failed to level up" };

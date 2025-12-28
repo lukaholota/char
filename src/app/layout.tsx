@@ -1,12 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Cinzel, Forum, Inter, JetBrains_Mono } from "next/font/google";
 import { Metadata, Viewport } from "next";
 import './globals.css'
 import { Navigation } from "@/components/ui/Navigation";
 import { App } from "@/components/ui/App";
-import { SessionProvider } from "next-auth/react";
-import GoogleOneTap from "@/lib/components/auth/GoogleOneTap";
-import { Toaster } from "@/components/ui/sonner";
+import { Providers } from "@/app/providers";
+import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -80,7 +79,7 @@ export default function RootLayout(
       {/* Mesh gradient layers */}
       <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-950/55 via-purple-950/10 to-transparent blur-3xl" />
       <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-950/45 via-indigo-950/0 to-transparent blur-3xl" />
-      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-indigo-950/35 via-slate-950/0 to-transparent blur-3xl" />
+      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-indigo-950/45 via-slate-950/0 to-transparent blur-3xl" />
 
       {/* Noise overlay via SVG turbulence */}
       <svg
@@ -99,14 +98,15 @@ export default function RootLayout(
         <rect width="100%" height="100%" filter="url(#rpg-noise)" />
       </svg>
     </div>
-    <SessionProvider>
-      <GoogleOneTap/>
+    <Providers>
       <div className="grid min-h-screen w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">
         <Navigation/>
         <App>{ children }</App>
       </div>
-      <Toaster position="top-right" richColors closeButton />
-    </SessionProvider>
+      <Suspense fallback={null}>
+        <SpellInfoModal />
+      </Suspense>
+    </Providers>
     </body>
     </html>
   )

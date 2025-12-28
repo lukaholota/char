@@ -1,16 +1,38 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ClassI } from "@/lib/types/model-types";
 import { useStepForm } from "@/hooks/useStepForm";
 import { classChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
-import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import clsx from "clsx";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
+import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
+
+const stripMarkdownPreview = (value: string) => {
+  return value
+    .replace(/\r\n/g, "\n")
+    .replace(/<a\s+[^>]*>(.*?)<\/a>/gi, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/__([^_]+)__/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/_([^_]+)_/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/^>\s?/gm, "")
+    .replace(/^\s*[-*+]\s+/gm, "")
+    .replace(/^\s*\d+\.\s+/gm, "")
+    .replace(/\s+/g, " ")
+    .trim();
+};
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -19,9 +41,6 @@ interface Props {
   onNextDisabledChange?: (disabled: boolean) => void;
 }
 
-const formatFeatures = (features?: ClassI["classChoiceOptions"][number]["choiceOption"]["features"]) =>
-  (features || []).map((item) => item.feature?.name).filter(Boolean);
-
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
 
@@ -29,6 +48,10 @@ const isEnumLike = (value?: string | null) => !!value && /^[A-Z0-9_]+$/.test(val
 
 const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
+
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [infoTitle, setInfoTitle] = useState<string>("");
+  const [infoFeatures, setInfoFeatures] = useState<Array<{ name: string; description: string; shortDescription?: string | null }>>([]);
   
   const { form, onSubmit } = useStepForm(classChoiceOptionsSchema, (data) => {
     updateFormData({ classChoiceSelections: data.classChoiceSelections });
@@ -79,6 +102,25 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     form.setValue("classChoiceSelections", next, { shouldDirty: true });
   };
 
+  const openFeaturesInfo = (
+    title: string,
+    features?: ClassI["classChoiceOptions"][number]["choiceOption"]["features"]
+  ) => {
+    const normalized = (features || [])
+      .map((item) => item.feature)
+      .filter(Boolean)
+      .map((feat) => ({
+        name: String((feat as any).name ?? ""),
+        description: String((feat as any).description ?? ""),
+        shortDescription: (feat as any).shortDescription ?? null,
+      }))
+      .filter((feat) => feat.name);
+
+    setInfoTitle(title);
+    setInfoFeatures(normalized);
+    setInfoOpen(true);
+  };
+
   if (!selectedClass && !availableOptions) {
     return (
       <Card className="p-4 text-center text-slate-200">
@@ -126,10 +168,18 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                 {options.map((opt) => {
                   const optionId = opt.optionId ?? opt.choiceOptionId;
                   const selected = selections[groupName] === optionId;
-                  const features = formatFeatures(opt.choiceOption.features);
                   const ukrLabel = opt.choiceOption.optionName;
                   const engLabel = opt.choiceOption.optionNameEng;
                   const label = ukrLabel || (isEnumLike(engLabel) ? translateValue(engLabel) : engLabel);
+
+                  const featureObjects = (opt.choiceOption.features || [])
+                    .map((item) => item.feature)
+                    .filter(Boolean) as Array<{ shortDescription?: string | null; description?: string | null }>;
+
+                  const previewText =
+                    featureObjects.find((f) => (f.shortDescription ?? "").trim())?.shortDescription ||
+                    featureObjects.find((f) => (f.description ?? "").trim())?.description ||
+                    "";
 
                   return (
                     <Card
@@ -140,40 +190,48 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                       )}
                       onClick={() => selectOption(groupName, optionId)}
                     >
-                      <CardContent className="flex h-full flex-col gap-3 p-3 sm:p-4">
+                      <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
                         <div className="flex items-center justify-between gap-2">
-                          <div className="min-w-0">
-                            <p className="truncate text-sm font-semibold text-white">{label}</p>
-                            {ukrLabel && engLabel ? (
-                              <p className="truncate text-xs text-slate-400">{engLabel}</p>
-                            ) : null}
+                          <p className="truncate text-sm font-semibold text-white">{label}</p>
+
+                          <div className="flex items-center gap-2">
+                            <div
+                              onPointerDown={(e) => {
+                                e.stopPropagation();
+                              }}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                              }}
+                            >
+                              <Button
+                                type="button"
+                                size="icon"
+                                variant="secondary"
+                                className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
+                                aria-label={`Інформація про ${label}`}
+                                // Використовуємо ControlledInfoDialog з EntityInfoDialog.tsx для модалки з деталями фіч.
+                                onClick={() => openFeaturesInfo(label || "Опція", opt.choiceOption.features)}
+                              >
+                                <HelpCircle className="h-4 w-4" />
+                              </Button>
+                            </div>
+
+                            <Badge
+                              variant={selected ? "secondary" : "outline"}
+                              className={clsx(
+                                "border-white/15 bg-white/5 text-slate-200",
+                                selected && "text-slate-100"
+                              )}
+                            >
+                              {selected ? "Обрано" : "Обрати"}
+                            </Badge>
                           </div>
-                          <Badge
-                            variant={selected ? "secondary" : "outline"}
-                            className={clsx(
-                              "border-white/15 bg-white/5 text-slate-200",
-                              selected && "text-slate-100"
-                            )}
-                          >
-                            {selected ? "Обрано" : "Обрати"}
-                          </Badge>
                         </div>
 
-                        {features.length ? (
-                          <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
-                            <InfoSectionTitle>Що дає</InfoSectionTitle>
-                            <ul className="space-y-1 text-sm text-slate-200/90">
-                              {features.map((feat) => (
-                                <li key={feat} className="flex items-start gap-2">
-                                  <span
-                                    className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400"
-                                    aria-hidden
-                                  />
-                                  <span className="leading-snug">{feat}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                        {previewText ? (
+                          <p className="text-sm text-slate-400 line-clamp-2">
+                            {stripMarkdownPreview(String(previewText))}
+                          </p>
                         ) : null}
                       </CardContent>
                     </Card>
@@ -184,6 +242,35 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
           </Card>
         ))}
       </div>
+
+      <ControlledInfoDialog
+        open={infoOpen}
+        onOpenChange={setInfoOpen}
+        title={infoTitle || "Фічі"}
+        subtitle={infoFeatures.length ? `Фіч: ${infoFeatures.length}` : undefined}
+        contentClassName="max-w-2xl border border-white/10 bg-slate-900/95 backdrop-blur text-slate-50"
+      >
+        {infoFeatures.length ? (
+          <div className="space-y-3">
+            <InfoSectionTitle>Фічі</InfoSectionTitle>
+            <div className="space-y-3">
+              {infoFeatures.map((feat) => (
+                <div key={feat.name} className="rounded-lg border border-white/10 bg-white/5 p-3">
+                  <div className="text-sm font-semibold text-white">{feat.name}</div>
+                  {feat.description ? (
+                    <FormattedDescription
+                      content={feat.description}
+                      className="mt-2 text-slate-200/90"
+                    />
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="text-sm text-slate-400">Немає фіч</div>
+        )}
+      </ControlledInfoDialog>
     </form>
   );
 };

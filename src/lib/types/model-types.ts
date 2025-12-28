@@ -701,3 +701,39 @@ export type {
   ChoiceOption,
   ChoiceOptionFeature,
 };
+
+// ============================================================================
+// 6. Bonus Types for Custom Modifications
+// ============================================================================
+
+export type StatBonuses = Partial<Record<Ability, number>>;
+export type SkillBonuses = Partial<Record<Skills, number>>;
+
+export interface SimpleBonusValue {
+  value: number;
+}
+
+export type SimpleBonusField = 'hp' | 'ac' | 'speed' | 'proficiency' | 'initiative' | 'spellAttack' | 'spellDC';
+
+// PersWithBonuses - adds strongly typed bonus fields (overriding Json? from Prisma)
+export type PersWithBonuses = Omit<
+  Pers,
+  'statBonuses' | 'statModifierBonuses' | 'saveBonuses' | 'skillBonuses' |
+  'hpBonuses' | 'acBonuses' | 'speedBonuses' | 'proficiencyBonuses' |
+  'initiativeBonuses' | 'spellAttackBonuses' | 'spellDCBonuses'
+> & {
+  statBonuses: StatBonuses | null;
+  statModifierBonuses: StatBonuses | null;
+  saveBonuses: StatBonuses | null;
+  skillBonuses: SkillBonuses | null;
+  hpBonuses: SimpleBonusValue | null;
+  acBonuses: SimpleBonusValue | null;
+  speedBonuses: SimpleBonusValue | null;
+  proficiencyBonuses: SimpleBonusValue | null;
+  initiativeBonuses: SimpleBonusValue | null;
+  spellAttackBonuses: SimpleBonusValue | null;
+  spellDCBonuses: SimpleBonusValue | null;
+};
+
+export type BonusType = 'stat' | 'statModifier' | 'save' | 'skill' | SimpleBonusField;
+

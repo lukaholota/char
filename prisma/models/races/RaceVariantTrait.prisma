@@ -7,5 +7,6 @@ model RaceVariantTrait {
   feature     Feature     @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
   raceVariant RaceVariant @relation(fields: [raceVariantId], references: [raceVariantId], onDelete: Cascade)
 
+  @@unique([raceVariantId, featureId])
   @@map("race_variant_trait")
 }

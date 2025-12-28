@@ -1,14 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SubclassI } from "@/lib/types/model-types";
 import { useStepForm } from "@/hooks/useStepForm";
 import { subclassSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import clsx from "clsx";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 interface Props {
   selectedSubclass?: SubclassI | null;
@@ -17,11 +20,40 @@ interface Props {
   onNextDisabledChange?: (disabled: boolean) => void;
 }
 
-const formatFeatures = (features?: SubclassI["subclassChoiceOptions"][number]["choiceOption"]["features"]) =>
-  (features || []).map((item) => item.feature?.name).filter(Boolean);
+const previewTextFromFeatures = (
+  features?: SubclassI["subclassChoiceOptions"][number]["choiceOption"]["features"]
+) => {
+  const stripMarkdownPreview = (value: string) => {
+    return value
+      .replace(/\r\n/g, "\n")
+      .replace(/<a\s+[^>]*>(.*?)<\/a>/gi, "$1")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+      .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/__([^_]+)__/g, "$1")
+      .replace(/\*([^*]+)\*/g, "$1")
+      .replace(/_([^_]+)_/g, "$1")
+      .replace(/^#{1,6}\s+/gm, "")
+      .replace(/^>\s?/gm, "")
+      .replace(/^\s*[-*+]\s+/gm, "")
+      .replace(/^\s*\d+\.\s+/gm, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  };
+
+  const list = (features || []).map((x) => x.feature).filter(Boolean) as any[];
+  const first = list.find((f) => (f.shortDescription || f.description) && String(f.shortDescription || f.description).trim());
+  if (!first) return "";
+  return stripMarkdownPreview(String(first.shortDescription || first.description));
+};
 
 const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
+
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [infoTitle, setInfoTitle] = useState<string>("");
+  const [infoFeatures, setInfoFeatures] = useState<Array<{ name: string; description: string; shortDescription?: string | null }>>([]);
   
   const { form, onSubmit } = useStepForm(subclassSchema, (data) => {
     updateFormData({ subclassChoiceSelections: data.subclassChoiceSelections });
@@ -74,10 +106,32 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     }
   }, [groupedOptions, selections, onNextDisabledChange]);
 
-  const handleSelect = (groupName: string, optionId: number) => {
-    const newSelections = { ...selections, [groupName]: optionId };
-    form.setValue("subclassChoiceSelections", newSelections);
-    updateFormData({ subclassChoiceSelections: newSelections });
+  useEffect(() => {
+    updateFormData({ subclassChoiceSelections: selections });
+  }, [selections, updateFormData]);
+
+  const selectOption = (groupName: string, optionId: number) => {
+    const next = { ...(selections || {}), [groupName]: optionId };
+    form.setValue("subclassChoiceSelections", next, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+  };
+
+  const openFeaturesInfo = (
+    title: string,
+    features?: SubclassI["subclassChoiceOptions"][number]["choiceOption"]["features"]
+  ) => {
+    const normalized = (features || [])
+      .map((item) => item.feature)
+      .filter(Boolean)
+      .map((feat) => ({
+        name: String((feat as any).name ?? ""),
+        description: String((feat as any).description ?? ""),
+        shortDescription: (feat as any).shortDescription ?? null,
+      }))
+      .filter((f) => f.name.trim() || f.description.trim() || (f.shortDescription ?? "").toString().trim());
+
+    setInfoTitle(title);
+    setInfoFeatures(normalized);
+    setInfoOpen(true);
   };
 
   if (groupedOptions.length === 0) {
@@ -92,35 +146,55 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
           <div className="grid grid-cols-1 gap-3">
             {options.map((opt) => {
               const isSelected = selections[groupName] === opt.choiceOption.choiceOptionId;
-              const features = formatFeatures(opt.choiceOption.features);
+              const preview = previewTextFromFeatures(opt.choiceOption.features);
 
               return (
                 <Card
                   key={opt.choiceOption.choiceOptionId}
                   className={clsx(
-                    "cursor-pointer transition-all hover:border-primary/50",
-                    isSelected ? "border-primary bg-primary/5" : "border-border"
+                    "glass-card cursor-pointer transition-all duration-200",
+                    isSelected && "glass-active"
                   )}
-                  onClick={() => handleSelect(groupName, opt.choiceOption.choiceOptionId)}
+                  onClick={() => selectOption(groupName, opt.choiceOption.choiceOptionId)}
                 >
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <div>
-                      <div className="font-bold text-lg">{opt.choiceOption.optionName}</div>
-                      {features.length > 0 && (
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {features.map((f, i) => (
-                            <Badge key={i} variant="secondary" className="text-xs">
-                              {f}
-                            </Badge>
-                          ))}
+                  <CardContent className="relative flex items-start justify-between gap-4 p-4">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="truncate text-lg font-semibold text-white">
+                            {opt.choiceOption.optionName}
+                          </div>
+                          {preview && (
+                            <div className="mt-1 line-clamp-2 text-sm text-slate-300">
+                              {preview}
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
-                    <div className={clsx(
-                        "w-5 h-5 rounded-full border flex items-center justify-center",
-                        isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground"
-                    )}>
-                        {isSelected && <div className="w-2.5 h-2.5 bg-current rounded-full" />}
+
+                        <Button
+                          type="button"
+                          size="icon"
+                          variant="ghost"
+                          className="h-8 w-8 text-slate-300 hover:text-white"
+                          data-stop-card-click
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            openFeaturesInfo(opt.choiceOption.optionName, opt.choiceOption.features);
+                          }}
+                          aria-label={`Деталі: ${opt.choiceOption.optionName}`}
+                        >
+                          <HelpCircle className="h-5 w-5" />
+                        </Button>
+                      </div>
+
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {isSelected ? (
+                          <Badge className="bg-emerald-500/10 text-emerald-200">Обрано</Badge>
+                        ) : (
+                          <Badge variant="secondary">Натисніть, щоб обрати</Badge>
+                        )}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -129,6 +203,32 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
           </div>
         </div>
       ))}
+
+      <ControlledInfoDialog
+        open={infoOpen}
+        onOpenChange={setInfoOpen}
+        title={infoTitle}
+      >
+        <div className="space-y-4">
+          {infoFeatures.length === 0 ? (
+            <p className="text-sm text-slate-300">Немає деталей для показу.</p>
+          ) : (
+            infoFeatures.map((f) => (
+              <div key={f.name} className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-sm font-semibold text-white">{f.name}</p>
+                </div>
+                {f.description && (
+                  <FormattedDescription
+                    content={f.description}
+                    className="mt-2 text-slate-200/90"
+                  />
+                )}
+              </div>
+            ))
+          )}
+        </div>
+      </ControlledInfoDialog>
     </form>
   );
 };

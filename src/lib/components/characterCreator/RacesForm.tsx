@@ -29,6 +29,7 @@ import {
   prettifyEnum,
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -44,7 +45,7 @@ const formatSpeeds = (race: RaceI) => {
     { label: "Плавання", value: race.swimSpeed },
     { label: "Політ", value: race.flightSpeed },
     { label: "Риття", value: race.burrowSpeed },
-  ].filter((item) => (item.value ?? 0) > 0 || item.label === "Ходьба");
+  ].filter((item) => (item.value ?? 0) > 0 || (item.label === "Ходьба" && item.value != null));
 
   return speeds
     .map((item) => `${item.label}: ${item.value} фт`)
@@ -148,6 +149,35 @@ export const RacesForm = (
       (a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
     );
 
+    const subraces = race.subraces || [];
+    const variants = race.raceVariants || [];
+    const raceOptions = race.raceChoiceOptions || [];
+
+    const subraceNames = subraces
+      .map((sr) => translateValue(sr.name))
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b));
+
+    const variantNames = variants
+      .map((rv) => translateValue(rv.name))
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b));
+
+    const optionsByGroup = raceOptions.reduce((acc, opt) => {
+      const group = opt.choiceGroupName || "Опції";
+      acc[group] = acc[group] || [];
+      acc[group].push(opt.optionName);
+      return acc;
+    }, {} as Record<string, string[]>);
+
+    const optionGroups = Object.entries(optionsByGroup)
+      .map(([group, names]) => ({
+        group,
+        names: Array.from(new Set(names)).filter(Boolean).sort((a, b) => a.localeCompare(b)),
+      }))
+      .filter((g) => g.names.length)
+      .sort((a, b) => a.group.localeCompare(b.group));
+
     return (
       <InfoDialog
         title={raceTranslations[race.name] || race.name}
@@ -181,6 +211,39 @@ export const RacesForm = (
           />
         </InfoGrid>
 
+        {(subraceNames.length || variantNames.length || optionGroups.length) ? (
+          <div className="space-y-2">
+            <InfoSectionTitle>Що доступно</InfoSectionTitle>
+
+            {subraceNames.length ? (
+              <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
+                <p className="text-sm font-semibold text-white">Підраси</p>
+                <p className="text-sm text-slate-200/90">{subraceNames.join(", ")}</p>
+              </div>
+            ) : null}
+
+            {variantNames.length ? (
+              <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
+                <p className="text-sm font-semibold text-white">Варіанти</p>
+                <p className="text-sm text-slate-200/90">{variantNames.join(", ")}</p>
+              </div>
+            ) : null}
+
+            {optionGroups.length ? (
+              <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
+                <p className="text-sm font-semibold text-white">Опції раси</p>
+                <div className="space-y-1.5 text-sm text-slate-200/90">
+                  {optionGroups.map(({ group, names }) => (
+                    <p key={group}>
+                      <span className="font-semibold text-slate-100">{group}:</span> {names.join(", ")}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
         <div className="space-y-2">
           <InfoSectionTitle>Риси</InfoSectionTitle>
           {traitList.length ? (
@@ -190,13 +253,14 @@ export const RacesForm = (
                 className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
               >
                 <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
-                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                  {trait.feature.description}
-                </p>
+                <FormattedDescription
+                  content={trait.feature.description}
+                  className="text-sm leading-relaxed text-slate-200/90"
+                />
               </div>
             ))
           ) : (
-            <p className="text-sm text-slate-400">Для цієї раси ще немає опису рис.</p>
+            <p className="text-sm text-slate-400">Для цієї раси ще немає опису рис, але переглянь доступні підраси/варіанти/опції вище.</p>
           )}
         </div>
       </InfoDialog>
@@ -277,7 +341,10 @@ export const RacesForm = (
                   "glass-card cursor-pointer transition-all duration-200",
                   r.raceId === chosenRaceId && "glass-active"
                 )}
-                onClick={() => form.setValue('raceId', r.raceId)}
+                onClick={(e) => {
+                  if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                  form.setValue('raceId', r.raceId);
+                }}
               >
                 <CardContent className="relative flex items-center justify-between p-4">
                   <RaceInfoModal race={r} />
@@ -296,29 +363,30 @@ export const RacesForm = (
           <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
             Інші джерела
           </summary>
-          <div className="bg-slate-900/40 backdrop-blur-sm">
-            <div className="border-t border-white/10 p-3">
-              <div className="grid gap-3 sm:grid-cols-2">
-                {otherRaces.map(r =>  (
-                  <Card
-                    key={r.raceId}
-                    className={clsx(
-                      "glass-card cursor-pointer transition-all duration-200",
-                      r.raceId === chosenRaceId && "glass-active"
-                    )}
-                    onClick={() => form.setValue('raceId', r.raceId)}
-                  >
-                    <CardContent className="relative flex items-center justify-between p-4">
-                      <RaceInfoModal race={r} />
-                      <div>
-                        <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
-                        <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
-                      </div>
-                      <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+          <div className="border-t border-white/10 p-3">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {otherRaces.map(r =>  (
+                <Card
+                  key={r.raceId}
+                  className={clsx(
+                    "glass-card cursor-pointer transition-all duration-200",
+                    r.raceId === chosenRaceId && "glass-active"
+                  )}
+                  onClick={(e) => {
+                    if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                    form.setValue('raceId', r.raceId);
+                  }}
+                >
+                  <CardContent className="relative flex items-center justify-between p-4">
+                    <RaceInfoModal race={r} />
+                    <div>
+                      <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
+                      <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
+                    </div>
+                    <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </details>

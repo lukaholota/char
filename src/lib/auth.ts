@@ -9,6 +9,8 @@ import type { User } from "@prisma/client";
 const googleClient = new OAuth2Client();
 
 export const config = {
+  secret: process.env.AUTH_SECRET,
+  trustHost: true,
   adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
   providers: [

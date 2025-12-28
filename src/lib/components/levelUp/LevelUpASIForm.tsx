@@ -1,143 +1,261 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
-import { Feat } from "@prisma/client";
+import { useEffect, useMemo, useRef, useState } from "react";
+
 import { Ability } from "@prisma/client";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Check } from "lucide-react";
+
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
+import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
+import type { FeatPrisma } from "@/lib/types/model-types";
+import { attributesUkrShort } from "@/lib/refs/translation";
+
 interface Props {
-  feats: Feat[];
+  feats: FeatPrisma[];
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
 }
 
+type ChoiceType = "ASI" | "FEAT";
+type AsiMap = Partial<Record<Ability, 0 | 1 | 2>>;
+
 const ABILITIES = Object.values(Ability);
 
-export default function LevelUpASIForm({ feats, onNextDisabledChange }: Props) {
-  const { updateFormData, formData } = usePersFormStore();
-  const [choiceType, setChoiceType] = useState<"ASI" | "FEAT">("ASI");
-  
-  // ASI State
-  const [asiSelection, setAsiSelection] = useState<{ ability: string; value: number }[]>([]);
-  
-  // Sync with store
-  useEffect(() => {
-      if (choiceType === "ASI") {
-          // Clear feat
-          updateFormData({ featId: undefined });
-          
-          // Update customAsi
-          // We use customAsi to store the bonuses: [{ability: 'STR', value: '2'}]
-          const formatted = asiSelection.map(s => ({ ability: s.ability, value: s.value.toString() }));
-          // Fill to 6 items to satisfy schema if needed, or just pass what we have if schema allows optional
-          // The schema expects 6 items for CUSTOM system.
-          // We might need to bypass the schema validation for Level Up or mock the rest.
-          // Actually, for Level Up we don't use the full creation schema validation.
-          // We will validate manually in the action.
-          updateFormData({ customAsi: formatted as any });
-          
-          const total = asiSelection.reduce((acc, s) => acc + s.value, 0);
-          const isValid = total === 2 && asiSelection.length > 0;
-          onNextDisabledChange?.(!isValid);
-      } else {
-          // Clear ASI
-          updateFormData({ customAsi: [] });
-          // Feat validation is handled by FeatsForm? 
-          // FeatsForm uses useStepForm which validates featId.
-          // But here we are wrapping it.
-          // We need to check if featId is set.
-          const isValid = !!formData.featId;
-          onNextDisabledChange?.(!isValid);
-      }
-  }, [choiceType, asiSelection, formData.featId, updateFormData, onNextDisabledChange]);
+const normalizeAsi = (customAsi: unknown): AsiMap => {
+  const map: AsiMap = {};
+  if (!Array.isArray(customAsi)) return map;
+  for (const entry of customAsi as Array<{ ability?: string; value?: string }>) {
+    const ability = entry?.ability as Ability | undefined;
+    const value = Number(entry?.value);
+    if (!ability || !ABILITIES.includes(ability)) continue;
+    if (!Number.isFinite(value) || (value !== 1 && value !== 2)) continue;
+    map[ability] = value as 1 | 2;
+  }
+  return map;
+};
 
-  const handleAsiChange = (index: number, ability: string) => {
-      const newSel = [...asiSelection];
-      if (!newSel[index]) newSel[index] = { ability, value: 1 };
-      else newSel[index].ability = ability;
-      setAsiSelection(newSel);
+const toCustomAsi = (asi: AsiMap) => {
+  return Object.entries(asi)
+    .filter(([, value]) => value && value > 0)
+    .map(([ability, value]) => ({ ability, value: String(value) }));
+};
+
+export default function LevelUpASIForm({ feats, formId, onNextDisabledChange }: Props) {
+  const { updateFormData, formData } = usePersFormStore();
+  const [choiceType, setChoiceType] = useState<ChoiceType>("ASI");
+  const [featFormDisabled, setFeatFormDisabled] = useState(true);
+  const [featOptionsDisabled, setFeatOptionsDisabled] = useState(false);
+  const prevDisabledRef = useRef<boolean | undefined>(undefined);
+
+  const asiMap = useMemo(() => normalizeAsi(formData.customAsi), [formData.customAsi]);
+  const totalAsi = useMemo(
+    () => Object.values(asiMap).reduce<number>((acc, val) => acc + (val ?? 0), 0),
+    [asiMap]
+  );
+
+  const selectedFeat = useMemo(() => {
+    const id = formData.featId ? Number(formData.featId) : undefined;
+    if (!id) return null;
+    return feats.find((f) => f.featId === id) ?? null;
+  }, [feats, formData.featId]);
+
+  const featHasChoices = useMemo(
+    () => Boolean(selectedFeat?.featChoiceOptions?.length),
+    [selectedFeat]
+  );
+
+  useEffect(() => {
+    // Keep store coherent when switching mode.
+    if (choiceType === "ASI") {
+      updateFormData({
+        featId: undefined,
+        featChoiceSelections: {},
+      });
+    } else {
+      updateFormData({
+        customAsi: [],
+      });
+    }
+  }, [choiceType, updateFormData]);
+
+  useEffect(() => {
+    const asiValid = choiceType === "ASI" ? totalAsi === 2 : true;
+    const featValid =
+      choiceType === "FEAT"
+        ? !featFormDisabled && (!featHasChoices || !featOptionsDisabled)
+        : true;
+
+    const disabled = !(asiValid && featValid);
+
+    if (prevDisabledRef.current !== disabled) {
+      prevDisabledRef.current = disabled;
+      onNextDisabledChange?.(disabled);
+    }
+  }, [choiceType, totalAsi, featFormDisabled, featOptionsDisabled, featHasChoices, onNextDisabledChange]);
+
+  const setAsiValue = (ability: Ability, value: 1 | 2) => {
+    const current = asiMap[ability] ?? 0;
+    const currentTotal = totalAsi;
+
+    // Toggle off.
+    if (current === value) {
+      const next: AsiMap = { ...asiMap, [ability]: 0 };
+      updateFormData({ customAsi: toCustomAsi(next) as any });
+      return;
+    }
+
+    // If user sets +2, clear others (DnD: either +2 or +1/+1).
+    if (value === 2) {
+      const next: AsiMap = { [ability]: 2 };
+      updateFormData({ customAsi: toCustomAsi(next) as any });
+      return;
+    }
+
+    // value === 1
+    if (currentTotal >= 2 && current === 0) return;
+
+    // If currently +2 on this ability, downgrade to +1.
+    const next: AsiMap = { ...asiMap };
+    next[ability] = 1;
+
+    // If there is another +2 elsewhere, downgrade that to 0.
+    for (const a of ABILITIES) {
+      if (a !== ability && (next[a] ?? 0) === 2) next[a] = 0;
+    }
+
+    // Enforce total <= 2
+    const nextTotal = Object.values(next).reduce<number>((acc, v) => acc + (v ?? 0), 0);
+    if (nextTotal > 2) return;
+
+    updateFormData({ customAsi: toCustomAsi(next) as any });
+  };
+
+  const isDisabledButton = (ability: Ability, value: 1 | 2) => {
+    if (choiceType !== "ASI") return true;
+    const current = asiMap[ability] ?? 0;
+    if (current === value) return false;
+    if (value === 2) {
+      // Allow switching to +2 any time.
+      return false;
+    }
+    // value === 1
+    return totalAsi >= 2 && current === 0;
   };
 
   return (
-    <div className="space-y-6">
-      <Card>
+    <div className="space-y-4">
+      <Card className="glass-card">
         <CardHeader>
-          <CardTitle>Оберіть покращення</CardTitle>
+          <CardTitle>Покращення</CardTitle>
         </CardHeader>
-        <CardContent>
-          <RadioGroup 
-            value={choiceType} 
-            onValueChange={(v) => setChoiceType(v as "ASI" | "FEAT")}
-            className="flex gap-4"
+        <CardContent className="flex flex-wrap gap-2">
+          <Button
+            type="button"
+            variant="outline"
+            className={
+              "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white " +
+              (choiceType === "ASI" ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : "")
+            }
+            onClick={() => setChoiceType("ASI")}
           >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="ASI" id="asi" />
-              <Label htmlFor="asi">Покращення характеристик (+2)</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="FEAT" id="feat" />
-              <Label htmlFor="feat">Риса (Feat)</Label>
-            </div>
-          </RadioGroup>
+            Збільшити характеристики
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            className={
+              "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white " +
+              (choiceType === "FEAT" ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : "")
+            }
+            onClick={() => setChoiceType("FEAT")}
+          >
+            Взяти рису (Feat)
+          </Button>
         </CardContent>
       </Card>
 
-      {choiceType === "ASI" && (
-        <Card>
-            <CardHeader>
-                <CardTitle>Розподіл характеристик</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                <div className="flex gap-4 items-center">
-                    <Label>Варіант:</Label>
-                    <Select 
-                        value={asiSelection.length === 1 && asiSelection[0].value === 2 ? "single" : "split"}
-                        onValueChange={(v) => {
-                            if (v === "single") setAsiSelection([{ ability: ABILITIES[0], value: 2 }]);
-                            else setAsiSelection([{ ability: ABILITIES[0], value: 1 }, { ability: ABILITIES[1], value: 1 }]);
-                        }}
-                    >
-                        <SelectTrigger className="w-[200px]">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="single">+2 до однієї</SelectItem>
-                            <SelectItem value="split">+1 до двох</SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
+      {choiceType === "ASI" ? (
+        <Card className="glass-card">
+          <CardHeader>
+            <CardTitle>Розподіл (+2 або +1/+1)</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <p className="text-sm text-slate-300">
+                Розподіліть <span className="font-semibold text-slate-100">2</span> пункти.
+              </p>
+              <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-100">
+                Обрано: {totalAsi}/2
+              </Badge>
+            </div>
 
-                {asiSelection.map((sel, idx) => (
-                    <div key={idx} className="flex gap-4 items-center">
-                        <Label>Характеристика {idx + 1}</Label>
-                        <Select 
-                            value={sel.ability} 
-                            onValueChange={(v) => handleAsiChange(idx, v)}
-                        >
-                            <SelectTrigger className="w-[200px]">
-                                <SelectValue />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {ABILITIES.map(a => (
-                                    <SelectItem key={a} value={a}>{a}</SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                        <Badge>+{sel.value}</Badge>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {ABILITIES.map((ability) => {
+                const attr = attributesUkrShort[ability];
+                const current = asiMap[ability] ?? 0;
+
+                return (
+                  <div
+                    key={ability}
+                    className="glass-panel border-gradient-rpg flex items-center justify-between gap-3 rounded-xl p-3"
+                  >
+                    <div>
+                      <p className="text-sm font-semibold text-white">{attr}</p>
+                      <p className="text-xs text-slate-400">{ability}</p>
                     </div>
-                ))}
-            </CardContent>
-        </Card>
-      )}
 
-      {choiceType === "FEAT" && (
-          <FeatsForm feats={feats} formId="feat-form-internal" />
+                    <div className="flex items-center gap-2">
+                      <Button
+                        type="button"
+                        variant={current === 1 ? "secondary" : "outline"}
+                        size="sm"
+                        className={
+                          "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white " +
+                          (current === 1 ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : "")
+                        }
+                        disabled={isDisabledButton(ability, 1)}
+                        onClick={() => setAsiValue(ability, 1)}
+                      >
+                        +1 {current === 1 ? <Check className="ml-2 h-4 w-4" /> : null}
+                      </Button>
+
+                      <Button
+                        type="button"
+                        variant={current === 2 ? "secondary" : "outline"}
+                        size="sm"
+                        className={
+                          "border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white " +
+                          (current === 2 ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : "")
+                        }
+                        disabled={isDisabledButton(ability, 2)}
+                        onClick={() => setAsiValue(ability, 2)}
+                      >
+                        +2 {current === 2 ? <Check className="ml-2 h-4 w-4" /> : null}
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="space-y-4">
+          <FeatsForm feats={feats as any} formId={`${formId}-feat`} onNextDisabledChange={setFeatFormDisabled} />
+
+          {featHasChoices ? (
+            <FeatChoiceOptionsForm
+              selectedFeat={selectedFeat as any}
+              formId={`${formId}-feat-options`}
+              onNextDisabledChange={setFeatOptionsDisabled}
+            />
+          ) : null}
+        </div>
       )}
     </div>
   );

@@ -440,8 +440,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: halfElf.raceId,
             subraceId: null,
-            choiceGroupName: "Half-Elf Versatility",
-            optionName: "Skill Versatility",
+            choiceGroupName: "Універсальність напівельфа",
+            optionName: "Універсальність навичок",
+            legacy: { choiceGroupName: "Half-Elf Versatility", optionName: "Skill Versatility" },
             description: "Ви отримуєте володіння двома навичками на ваш вибір.",
             selectMultiple: false,
             maxSelection: 1,
@@ -454,8 +455,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: halfElf.raceId,
             subraceId: null,
-            choiceGroupName: "Half-Elf Versatility",
-            optionName: "Elf Weapon Training",
+            choiceGroupName: "Універсальність напівельфа",
+            optionName: "Ельфійське бойове навчання",
+            legacy: { choiceGroupName: "Half-Elf Versatility", optionName: "Elf Weapon Training" },
             description: "Ви володієте довгим мечем, коротким мечем, коротким луком та довгим луком.",
             selectMultiple: false,
             maxSelection: 1,
@@ -469,8 +471,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: halfElf.raceId,
             subraceId: null,
-            choiceGroupName: "Half-Elf Versatility",
-            optionName: "Cantrip",
+            choiceGroupName: "Універсальність напівельфа",
+            optionName: "Замовляння",
+            legacy: { choiceGroupName: "Half-Elf Versatility", optionName: "Cantrip" },
             description: "Ви знаєте одне замовляння на ваш вибір зі списку заклинань чарівника. Інтелект є вашою заклинальною характеристикою для нього.",
             selectMultiple: false,
             maxSelection: 1,
@@ -484,8 +487,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: halfElf.raceId,
             subraceId: null,
-            choiceGroupName: "Half-Elf Versatility",
-            optionName: "Fleet of Foot",
+            choiceGroupName: "Універсальність напівельфа",
+            optionName: "Прудконогість",
+            legacy: { choiceGroupName: "Half-Elf Versatility", optionName: "Fleet of Foot" },
             description: "Ваша базова швидкість ходьби збільшується до 35 футів.",
             selectMultiple: false,
             maxSelection: 1,
@@ -500,8 +504,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: halfElf.raceId,
             subraceId: null,
-            choiceGroupName: "Half-Elf Versatility",
-            optionName: "Mask of the Wild",
+            choiceGroupName: "Універсальність напівельфа",
+            optionName: "Маскування в дикій природі",
+            legacy: { choiceGroupName: "Half-Elf Versatility", optionName: "Mask of the Wild" },
             description: "Ви можете спробувати сховатися навіть за легким природним укриттям, таким як листя, сильний дощ, сніг, туман та інші природні явища.",
             selectMultiple: false,
             maxSelection: 1,
@@ -515,8 +520,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: halfElf.raceId,
             subraceId: null,
-            choiceGroupName: "Half-Elf Versatility",
-            optionName: "Drow Magic",
+            choiceGroupName: "Універсальність напівельфа",
+            optionName: "Магія дроу",
+            legacy: { choiceGroupName: "Half-Elf Versatility", optionName: "Drow Magic" },
             description: 'Ви знаєте замовляння <a href="/spell/1350">Танцюючі вогники [Dancing Lights]</a>. Коли ви досягаєте 3-го рівня, ви можете використати заклинання <a href="/spell/1041">Чарівний вогонь [Faerie Fire]</a>. Коли ви досягаєте 5-го рівня, ви також можете використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             selectMultiple: false,
             maxSelection: 1,
@@ -530,8 +536,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: halfElf.raceId,
             subraceId: null,
-            choiceGroupName: "Half-Elf Versatility",
-            optionName: "Swim Speed",
+            choiceGroupName: "Універсальність напівельфа",
+            optionName: "Швидкість плавання",
+            legacy: { choiceGroupName: "Half-Elf Versatility", optionName: "Swim Speed" },
             description: "Ви отримуєте швидкість плавання 30 футів.",
             selectMultiple: false,
             maxSelection: 1,
@@ -547,7 +554,8 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: aasimar.raceId,
             subraceId: null,
             choiceGroupName: "Небесне одкровення",
-            optionName: "Necrotic Shroud",
+            optionName: "Некротичне покривало",
+            legacy: { choiceGroupName: "Небесне одкровення", optionName: "Necrotic Shroud" },
             description: "Некротичне покривало: налякування + 1к10 некротичної шкоди.",
             selectMultiple: false,
             maxSelection: 1,
@@ -561,7 +569,8 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: aasimar.raceId,
             subraceId: null,
             choiceGroupName: "Небесне одкровення",
-            optionName: "Radiant Consumption",
+            optionName: "Променеве спалювання",
+            legacy: { choiceGroupName: "Небесне одкровення", optionName: "Radiant Consumption" },
             description: "Променеве спалювання: аура променевого світла + 1к10 променевої шкоди.",
             selectMultiple: false,
             maxSelection: 1,
@@ -575,7 +584,8 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: aasimar.raceId,
             subraceId: null,
             choiceGroupName: "Небесне одкровення",
-            optionName: "Radiant Soul",
+            optionName: "Променева душа",
+            legacy: { choiceGroupName: "Небесне одкровення", optionName: "Radiant Soul" },
             description: "Променева душа: політ 30 футів + 1к10 променевої шкоди.",
             selectMultiple: false,
             maxSelection: 1,
@@ -591,8 +601,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: shifter.raceId,
             subraceId: null,
             choiceGroupName: "Риса перевертання",
-            optionName: "Beasthide",
-            description: "Звіроша шкіра: 1к6+СОН тимчасових HP + AC +1.",
+            optionName: "Звіроша шкіра",
+            legacy: { choiceGroupName: "Риса перевертання", optionName: "Beasthide" },
+            description: "Звіроша шкіра: 1к6+СОН тимчасових ОЗ + КБ +1.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {
@@ -605,8 +616,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: shifter.raceId,
             subraceId: null,
             choiceGroupName: "Риса перевертання",
-            optionName: "Longtooth",
-            description: "Довгий ікл: 1к6+СТА тимчасових HP + укус 1к6+СИЛ.",
+            optionName: "Довгий ікл",
+            legacy: { choiceGroupName: "Риса перевертання", optionName: "Longtooth" },
+            description: "Довгий ікл: 1к6+СТА тимчасових ОЗ + укус 1к6+СИЛ.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {
@@ -619,8 +631,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: shifter.raceId,
             subraceId: null,
             choiceGroupName: "Риса перевертання",
-            optionName: "Swiftstride",
-            description: "Швидкий крок: 1к6+СТА тимчасових HP + швидкість +10 фт.",
+            optionName: "Швидкий крок",
+            legacy: { choiceGroupName: "Риса перевертання", optionName: "Swiftstride" },
+            description: "Швидкий крок: 1к6+СТА тимчасових ОЗ + швидкість +10 фт.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {
@@ -633,8 +646,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: shifter.raceId,
             subraceId: null,
             choiceGroupName: "Риса перевертання",
-            optionName: "Wildhunt",
-            description: "Дикий мисливець: 1к6+СТА тимчасових HP + перевага на МДР.",
+            optionName: "Дикий мисливець",
+            legacy: { choiceGroupName: "Риса перевертання", optionName: "Wildhunt" },
+            description: "Дикий мисливець: 1к6+СТА тимчасових ОЗ + перевага на МДР.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {
@@ -646,9 +660,9 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
     ];
 
     for (const choice of choices) {
-        const { traits, ...data } = choice;
+        const { traits, legacy, ...data } = choice as any;
         
-        const existing = await prisma.raceChoiceOption.findFirst({
+        let existing = await prisma.raceChoiceOption.findFirst({
             where: {
                 raceId: data.raceId,
                 subraceId: data.subraceId,
@@ -656,6 +670,18 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
                 optionName: data.optionName
             }
         });
+
+        // Backwards-compatible lookup: if an older DB has English group/option names, update that row in-place.
+        if (!existing && legacy?.choiceGroupName && legacy?.optionName) {
+            existing = await prisma.raceChoiceOption.findFirst({
+                where: {
+                    raceId: data.raceId,
+                    subraceId: data.subraceId,
+                    choiceGroupName: legacy.choiceGroupName,
+                    optionName: legacy.optionName,
+                }
+            });
+        }
 
         if (existing) {
             // Оновлюємо та чистимо старі тріти
@@ -672,7 +698,10 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         } else {
             // Створюємо нову
             await prisma.raceChoiceOption.create({
-                data: choice
+                data: {
+                    ...(data as any),
+                    ...(traits ? { traits } : {}),
+                }
             });
         }
     }

@@ -1,48 +1,116 @@
-import { getUserPerses } from "@/lib/actions/pers";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Plus } from "lucide-react";
-import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+"use client";
 
-export default async function Page() {
-  const perses = await getUserPerses();
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.18,
+      delayChildren: 0.1,
+    },
+  },
+} as const;
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 28,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+} as const;
+
+const textVariants = {
+  hidden: {
+    opacity: 0,
+    y: 10,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: 0.15,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+} as const;
+
+type HomeCard = {
+  href: string;
+  title: string;
+  imageSrc: string;
+  priority?: boolean;
+  objectClassName?: string;
+};
+
+const cards: HomeCard[] = [
+  {
+    href: "/pers/home",
+    title: "ПЕРСОНАЖІ",
+    imageSrc: "/images/home-characters.webp",
+    priority: true,
+    objectClassName: "object-center",
+  },
+  {
+    href: "/spells",
+    title: "ЗАКЛИНАННЯ",
+    imageSrc: "/images/home-spells.webp",
+    priority: true,
+    objectClassName: "object-[center_85%]",
+  },
+];
+
+export default function Page() {
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Мої Персонажі</h1>
-        <Link href="/pers">
-          <Button>
-            <Plus className="mr-2 h-4 w-4" /> Створити
-          </Button>
-        </Link>
-      </div>
+    <motion.main
+      className="h-[100dvh] w-full overflow-hidden"
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
+      <div className="flex h-full flex-col md:flex-row">
+        {cards.map((card, index) => (
+          <Link key={card.href} href={card.href} className="group relative flex-1 overflow-hidden">
+            <motion.div className="h-full" variants={cardVariants}>
+              <div className="glass-card relative h-full w-full overflow-hidden transition-transform duration-300 ease-out md:group-hover:-translate-y-4">
+                <Image
+                  src={card.imageSrc}
+                  alt={card.title}
+                  fill
+                  priority={card.priority}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`object-cover ${card.objectClassName ?? "object-center"} grayscale saturate-[0.4] opacity-80 transition-all duration-300 ease-out group-hover:grayscale-0 group-hover:saturate-100 group-hover:opacity-100 group-hover:brightness-110`}
+                />
+                <div className="absolute inset-0 bg-background/30" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {perses.map((pers) => (
-          <Link href={`/pers/${pers.persId}`} key={pers.persId} className="block hover:no-underline">
-            <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <CardTitle>{pers.name}</CardTitle>
-                <CardDescription>{translateValue(pers.race.name)} {translateValue(pers.class.name)} {pers.level}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex justify-between text-sm text-muted-foreground">
-                  <span>HP: {pers.currentHp}/{pers.maxHp}</span>
-                  <span>Передісторія: {translateValue(pers.background.name)}</span>
+                <div className="relative z-10 flex h-full items-center justify-center p-10">
+                  <motion.h1
+                    className="font-rpg-display text-center text-4xl uppercase tracking-[0.15em] text-foreground md:text-6xl md:tracking-[0.22em] lg:text-7xl"
+                    variants={textVariants}
+                    transition={{ ...textVariants.show.transition, delay: 0.25 + index * 0.08 }}
+                  >
+                    {card.title}
+                  </motion.h1>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </motion.div>
           </Link>
         ))}
-        
-        {perses.length === 0 && (
-            <div className="col-span-full text-center py-12 text-muted-foreground">
-                У вас ще немає персонажів. Створіть першого!
-            </div>
-        )}
       </div>
-    </div>
+    </motion.main>
   );
 }
