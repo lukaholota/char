@@ -408,15 +408,15 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
                           (isRemoving ? "opacity-0 translate-x-2 max-h-0 py-0" : "opacity-100 translate-x-0 max-h-24")
                         }
                       >
-                        <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center justify-between gap-2">
                           <button
                             type="button"
-                            className="flex-1 text-left"
+                            className="flex-1 min-w-0 max-w-[70%] text-left"
                             onClick={() => {
                               if (Number.isFinite(spellId)) openSpell(spellId);
                             }}
                           >
-                            <div className="font-medium text-slate-50">{spell?.name ?? "—"}</div>
+                            <div className="font-medium text-slate-50 truncate">{spell?.name ?? "—"}</div>
                             <div className="text-xs text-slate-300/70 truncate">
                               {(spellSchoolTranslations as any)[spell?.school] || spell?.school || "—"} • {spell?.castingTime ?? "—"} • {spell?.range ?? "—"}
                             </div>

@@ -20,6 +20,59 @@ export interface FeatureItemData {
   sourceName?: string;
 }
 
+// FeatureSource enum values from backend
+type FeatureSource = 'CLASS' | 'SUBCLASS' | 'RACE' | 'SUBRACE' | 'BACKGROUND' | 'FEAT' | 'PERS' | 'CHOICE' | 'RACECHOICE';
+
+// Normalizes various source string formats to a canonical FeatureSource
+function normalizeFeatureSource(raw: unknown): FeatureSource | null {
+  if (typeof raw !== 'string' || !raw) return null;
+  const upper = raw.toUpperCase().trim();
+  
+  // Direct enum matches
+  if (upper === 'CLASS') return 'CLASS';
+  if (upper === 'SUBCLASS') return 'SUBCLASS';
+  if (upper === 'RACE') return 'RACE';
+  if (upper === 'SUBRACE') return 'SUBRACE';
+  if (upper === 'BACKGROUND') return 'BACKGROUND';
+  if (upper === 'FEAT') return 'FEAT';
+  if (upper === 'PERS') return 'PERS';
+  if (upper === 'CHOICE') return 'CHOICE';
+  if (upper === 'RACECHOICE') return 'RACECHOICE';
+  
+  // Legacy/alternative formats
+  if (upper.includes('SUBCLASS')) return 'SUBCLASS';
+  if (upper.includes('CLASS')) return 'CLASS';
+  if (upper.includes('SUBRACE')) return 'SUBRACE';
+  if (upper.includes('RACE')) return 'RACE';
+  if (upper.includes('BACKGROUND') || upper.includes('BG')) return 'BACKGROUND';
+  if (upper.includes('FEAT')) return 'FEAT';
+  if (upper.includes('CUSTOM') || upper.includes('PERS')) return 'PERS';
+  if (upper.includes('CHOICE')) return 'CHOICE';
+  
+  return null;
+}
+
+// Returns Ukrainian label for feature source
+function getFeatureSourceLabel(source: FeatureSource): string {
+  switch (source) {
+    case 'CLASS': return 'Клас';
+    case 'SUBCLASS': return 'Підклас';
+    case 'RACE': return 'Раса';
+    case 'SUBRACE': return 'Субраса';
+    case 'BACKGROUND': return 'Бек';
+    case 'FEAT': return 'Фіт';
+    case 'CHOICE':
+    case 'RACECHOICE': return 'Вибір';
+    case 'PERS': return 'Кастом';
+    default: return '';
+  }
+}
+
+// Check if source is class-related for styling
+function isClassRelatedSource(source: FeatureSource | null): boolean {
+  return source === 'CLASS' || source === 'SUBCLASS';
+}
+
 const stripMarkdownPreview = (value: string) => {
   return value
     .replace(/\r\n/g, "\n")
@@ -126,7 +179,9 @@ export function FeatureCard({
   isReadOnly?: boolean
 }) {
   const hasTracker = feature.restType && feature.usesCount !== null;
-  const isClass = feature.source?.includes('class') || feature.source?.includes('subclass');
+  const normalizedSource = normalizeFeatureSource(feature.source);
+  const isClass = isClassRelatedSource(normalizedSource);
+  const sourceLabel = normalizedSource ? getFeatureSourceLabel(normalizedSource) : null;
 
   return (
     <div 
@@ -143,12 +198,14 @@ export function FeatureCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <span className="font-bold text-slate-100 group-hover:text-purple-200 transition">{feature.name}</span>
-            <span className={clsx(
-              "text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-tight",
-              isClass ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-slate-500/20 text-slate-400 border border-slate-500/30'
-            )}>
-              {isClass ? 'Клас' : 'Раса'}
-            </span>
+            {sourceLabel && (
+              <span className={clsx(
+                "text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-tight",
+                isClass ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-slate-500/20 text-slate-400 border border-slate-500/30'
+              )}>
+                {sourceLabel}
+              </span>
+            )}
           </div>
           {feature.shortDescription || feature.description ? (
             <div className="text-xs text-slate-400 line-clamp-2">

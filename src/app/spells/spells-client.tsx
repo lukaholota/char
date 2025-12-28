@@ -65,6 +65,28 @@ type SelectionState = {
   spell: string;
 };
 
+// Embed mode params
+type EmbedParams = {
+  origin: string | null;
+  persId: number | null;
+  persName: string | null;
+  maxSpellLevel: number | null;
+};
+
+function parseEmbedParams(params: URLSearchParams): EmbedParams {
+  const origin = params.get("origin");
+  const persIdRaw = params.get("persId");
+  const persId = persIdRaw ? parseInt(persIdRaw, 10) : null;
+  const persName = params.get("persName");
+  const maxSpellLevel = params.get("maxSpellLevel") ? parseInt(params.get("maxSpellLevel")!, 10) : null;
+  return {
+    origin,
+    persId: Number.isFinite(persId) ? persId : null,
+    persName,
+    maxSpellLevel: Number.isFinite(maxSpellLevel) ? maxSpellLevel : null,
+  };
+}
+
 function getParamSet(params: URLSearchParams, key: string): Set<string> {
   const raw = params.get(key);
   if (!raw) return new Set();
@@ -289,6 +311,62 @@ function SpellDetailPane({ spell }: { spell: SpellListItem }) {
   );
 }
 
+// Embed mode: simple add button for a specific character
+function EmbedAddButton({
+  spellId,
+  persId,
+  persSpellIds,
+  setPersSpellIds,
+}: {
+  spellId: number;
+  persId: number;
+  persSpellIds: Set<number>;
+  setPersSpellIds: React.Dispatch<React.SetStateAction<Set<number>>>;
+}) {
+  const [isPending, setIsPending] = useState(false);
+  const has = persSpellIds.has(spellId);
+
+  const handleToggle = async () => {
+    setIsPending(true);
+    try {
+      const res = await toggleSpellForPers({ persId, spellId });
+      if (res.success) {
+        setPersSpellIds((prev) => {
+          const next = new Set(prev);
+          if (res.added) next.add(spellId);
+          else next.delete(spellId);
+          return next;
+        });
+      }
+    } finally {
+      setIsPending(false);
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      disabled={isPending}
+      onClick={handleToggle}
+      className={
+        "inline-flex h-9 w-9 items-center justify-center rounded-xl transition " +
+        (has
+          ? "bg-teal-500/20 text-teal-300 border border-teal-500/30"
+          : "text-slate-400 hover:text-teal-300 hover:bg-white/5")
+      }
+      aria-label={has ? "Видалити з персонажа" : "Додати до персонажа"}
+    >
+      {isPending ? (
+        <Loader2 className="h-4 w-4 animate-spin" />
+      ) : has ? (
+        <Check className="h-4 w-4" />
+      ) : (
+        <UserPlus className="h-4 w-4" />
+      )}
+    </button>
+  );
+}
+
 function SpellbookDropdown({
   spellId,
   persIndex,
@@ -390,6 +468,23 @@ export function SpellsClient({
   const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
   const [classFilter, setClassFilter] = useState("");
   const [subclassFilter, setSubclassFilter] = useState("");
+
+  // Embed mode state
+  const [embedParams, setEmbedParams] = useState<EmbedParams>(() => {
+    if (typeof window === "undefined") return { origin: null, persId: null, persName: null, maxSpellLevel: null };
+    return parseEmbedParams(new URLSearchParams(window.location.search));
+  });
+  const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
+  const [persSpellIds, setPersSpellIds] = useState<Set<number>>(() => new Set());
+
+  // Load persSpellIds when in embed mode
+  useEffect(() => {
+    if (!isEmbedMode || !embedParams.persId) return;
+    getUserPersesSpellIndex().then((data) => {
+      const found = data.find((p) => p.persId === embedParams.persId);
+      if (found) setPersSpellIds(new Set(found.spellIds));
+    });
+  }, [isEmbedMode, embedParams.persId]);
 
   useModalBackButton(filtersOpen, () => setFiltersOpen(false));
 
@@ -667,9 +762,57 @@ export function SpellsClient({
     window.open(`/api/spells/print?ids=${ids}`, "_blank", "noopener,noreferrer");
   };
 
+  // Filter by maxSpellLevel in embed mode
+  const filteredByLevel = useMemo(() => {
+    if (!isEmbedMode || embedParams.maxSpellLevel === null) return filtered;
+    return filtered.filter((s) => s.level <= (embedParams.maxSpellLevel ?? 9));
+  }, [filtered, isEmbedMode, embedParams.maxSpellLevel]);
+
+  // Override grouped to use filteredByLevel in embed mode
+  const finalGrouped = useMemo(() => {
+    const source = isEmbedMode ? filteredByLevel : filtered;
+    const map = new Map<number, SpellListItem[]>();
+    for (const s of source) {
+      const arr = map.get(s.level) ?? [];
+      arr.push(s);
+      map.set(s.level, arr);
+    }
+    return Array.from(map.entries()).sort(([a], [b]) => a - b);
+  }, [filtered, filteredByLevel, isEmbedMode]);
+
+  // Use finalGrouped for flatRows
+  const finalFlatRows = useMemo(() => {
+    return finalGrouped.flatMap(([lvl, items]) => {
+      return [
+        { kind: "header" as const, lvl, count: items.length },
+        ...items.map((spell) => ({ kind: "spell" as const, lvl, spell })),
+      ];
+    });
+  }, [finalGrouped]);
+
   return (
     <div className="h-full w-full bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)]">
-      <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/40 backdrop-blur-xl">
+      {/* Embed mode banner */}
+      {isEmbedMode && (
+        <div className="sticky top-0 z-30 border-b border-teal-500/30 bg-teal-500/10 backdrop-blur-xl">
+          <div className="mx-auto w-full max-w-6xl px-3 py-2 sm:px-4">
+            <div className="flex items-center justify-between gap-2 text-sm">
+              <div className="flex items-center gap-2 text-teal-200">
+                <UserPlus className="h-4 w-4" />
+                <span>
+                  Додавання заклять для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
+                  {embedParams.maxSpellLevel !== null && (
+                    <span className="ml-1 text-teal-300/70">(макс. рівень: {embedParams.maxSpellLevel})</span>
+                  )}
+                </span>
+              </div>
+              <span className="text-xs text-teal-300/60">Натисни + щоб додати</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/40 backdrop-blur-xl" style={isEmbedMode ? { top: '40px' } : {}}>
         <div className="mx-auto w-full max-w-6xl px-3 py-3 sm:px-4">
           <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl">
             <div className="flex items-center gap-2 px-2 text-slate-400">
@@ -728,14 +871,14 @@ export function SpellsClient({
       <div className="mx-auto grid h-[calc(100vh-140px)] w-full max-w-6xl grid-cols-1 gap-4 px-3 py-4 sm:px-4 lg:grid-cols-5">
         <div className="lg:col-span-2 h-full">
           <div className="custom-scrollbar h-full">
-            {grouped.length === 0 ? (
+            {finalGrouped.length === 0 ? (
               <div className="glass-panel rounded-2xl border border-white/10 p-4 text-sm text-slate-400">
                 Нічого не знайдено
               </div>
             ) : (
               <Virtuoso
                 style={{ height: "100%" }}
-                data={flatRows}
+                data={finalFlatRows}
                 itemContent={(index, row) => {
                   if (row.kind === "header") {
                     return (
@@ -803,11 +946,20 @@ export function SpellsClient({
                               <Printer className="h-4 w-4" />
                             </button>
 
-                            <SpellbookDropdown
-                              spellId={spell.spellId}
-                              persIndex={persIndex}
-                              setPersIndex={setPersIndex}
-                            />
+                            {isEmbedMode && embedParams.persId ? (
+                              <EmbedAddButton
+                                spellId={spell.spellId}
+                                persId={embedParams.persId}
+                                persSpellIds={persSpellIds}
+                                setPersSpellIds={setPersSpellIds}
+                              />
+                            ) : (
+                              <SpellbookDropdown
+                                spellId={spell.spellId}
+                                persIndex={persIndex}
+                                setPersIndex={setPersIndex}
+                              />
+                            )}
                           </div>
                         </div>
                       </motion.div>

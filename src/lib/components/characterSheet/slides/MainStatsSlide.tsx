@@ -85,6 +85,13 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   const [draftFlaws, setDraftFlaws] = useState<string>(() => String(pers.flaws ?? ""));
   const [draftBackstory, setDraftBackstory] = useState<string>(() => String(pers.backstory ?? ""));
   const [draftNotes, setDraftNotes] = useState<string>(() => String(pers.notes ?? ""));
+  const [draftAlignment, setDraftAlignment] = useState<string>(() => String((pers as any).alignment ?? ""));
+  const [draftXp, setDraftXp] = useState<string>(() => String((pers as any).xp ?? 0));
+  const [draftCp, setDraftCp] = useState<string>(() => String((pers as any).cp ?? "0"));
+  const [draftEp, setDraftEp] = useState<string>(() => String((pers as any).ep ?? "0"));
+  const [draftSp, setDraftSp] = useState<string>(() => String((pers as any).sp ?? "0"));
+  const [draftGp, setDraftGp] = useState<string>(() => String((pers as any).gp ?? "0"));
+  const [draftPp, setDraftPp] = useState<string>(() => String((pers as any).pp ?? "0"));
 
   const [selectedLanguages, setSelectedLanguages] = useState<Set<string>>(() => {
     const raw = String((pers as any).customLanguagesKnown ?? "");
@@ -112,6 +119,13 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     setDraftFlaws(String(pers.flaws ?? ""));
     setDraftBackstory(String(pers.backstory ?? ""));
     setDraftNotes(String(pers.notes ?? ""));
+    setDraftAlignment(String((pers as any).alignment ?? ""));
+    setDraftXp(String((pers as any).xp ?? 0));
+    setDraftCp(String((pers as any).cp ?? "0"));
+    setDraftEp(String((pers as any).ep ?? "0"));
+    setDraftSp(String((pers as any).sp ?? "0"));
+    setDraftGp(String((pers as any).gp ?? "0"));
+    setDraftPp(String((pers as any).pp ?? "0"));
     setSelectedLanguages(() => {
       const raw = String((pers as any).customLanguagesKnown ?? "");
       const tokens = raw
@@ -134,7 +148,14 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
       draftBonds !== String(pers.bonds ?? "") ||
       draftFlaws !== String(pers.flaws ?? "") ||
       draftBackstory !== String(pers.backstory ?? "") ||
-      draftNotes !== String(pers.notes ?? "");
+      draftNotes !== String(pers.notes ?? "") ||
+      draftAlignment !== String((pers as any).alignment ?? "") ||
+      draftXp !== String((pers as any).xp ?? 0) ||
+      draftCp !== String((pers as any).cp ?? "0") ||
+      draftEp !== String((pers as any).ep ?? "0") ||
+      draftSp !== String((pers as any).sp ?? "0") ||
+      draftGp !== String((pers as any).gp ?? "0") ||
+      draftPp !== String((pers as any).pp ?? "0");
 
     if (!isDirty) return;
 
@@ -152,6 +173,13 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
             flaws: draftFlaws,
             backstory: draftBackstory,
             notes: draftNotes,
+            alignment: draftAlignment,
+            xp: parseInt(draftXp) || 0,
+            cp: draftCp,
+            ep: draftEp,
+            sp: draftSp,
+            gp: draftGp,
+            pp: draftPp,
           },
         });
       });
@@ -168,6 +196,13 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     draftFlaws,
     draftBackstory,
     draftNotes,
+    draftAlignment,
+    draftXp,
+    draftCp,
+    draftEp,
+    draftSp,
+    draftGp,
+    draftPp,
     pers.persId,
     startDetailsTransition,
   ]);
@@ -691,6 +726,101 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
 
         {detailsOpen ? (
           <div className="mt-3 rounded-xl border border-white/10 bg-slate-900/40 p-3 space-y-3">
+            {/* Alignment & XP */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <div className="text-xs font-semibold text-slate-200">Світогляд</div>
+                <Input
+                  value={draftAlignment}
+                  onChange={(e) => setDraftAlignment(e.target.value)}
+                  disabled={isDetailsPending || isReadOnly}
+                  className="bg-slate-950/40 border-white/10 text-slate-100"
+                  placeholder={isReadOnly ? "" : "Напр.: Законний добрий"}
+                  maxLength={100}
+                />
+              </div>
+              <div className="space-y-1">
+                <div className="text-xs font-semibold text-slate-200">Досвід (XP)</div>
+                <Input
+                  type="number"
+                  inputMode="numeric"
+                  value={draftXp}
+                  onChange={(e) => setDraftXp(e.target.value)}
+                  disabled={isDetailsPending || isReadOnly}
+                  className="bg-slate-950/40 border-white/10 text-slate-100"
+                  placeholder="0"
+                  min={0}
+                />
+              </div>
+            </div>
+
+            {/* Coins */}
+            <div className="space-y-1">
+              <div className="text-xs font-semibold text-slate-200">Монети</div>
+              <div className="grid grid-cols-5 gap-2">
+                <div className="space-y-0.5">
+                  <div className="text-[10px] text-center text-amber-600 font-bold">CP</div>
+                  <Input
+                    type="number"
+                    inputMode="numeric"
+                    value={draftCp}
+                    onChange={(e) => setDraftCp(e.target.value)}
+                    disabled={isDetailsPending || isReadOnly}
+                    className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
+                    min={0}
+                  />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[10px] text-center text-slate-400 font-bold">EP</div>
+                  <Input
+                    type="number"
+                    inputMode="numeric"
+                    value={draftEp}
+                    onChange={(e) => setDraftEp(e.target.value)}
+                    disabled={isDetailsPending || isReadOnly}
+                    className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
+                    min={0}
+                  />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[10px] text-center text-slate-300 font-bold">SP</div>
+                  <Input
+                    type="number"
+                    inputMode="numeric"
+                    value={draftSp}
+                    onChange={(e) => setDraftSp(e.target.value)}
+                    disabled={isDetailsPending || isReadOnly}
+                    className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
+                    min={0}
+                  />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[10px] text-center text-yellow-400 font-bold">GP</div>
+                  <Input
+                    type="number"
+                    inputMode="numeric"
+                    value={draftGp}
+                    onChange={(e) => setDraftGp(e.target.value)}
+                    disabled={isDetailsPending || isReadOnly}
+                    className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
+                    min={0}
+                  />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-[10px] text-center text-cyan-300 font-bold">PP</div>
+                  <Input
+                    type="number"
+                    inputMode="numeric"
+                    value={draftPp}
+                    onChange={(e) => setDraftPp(e.target.value)}
+                    disabled={isDetailsPending || isReadOnly}
+                    className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
+                    min={0}
+                  />
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-1">
               <div className="text-xs font-semibold text-slate-200">Профіцієнції (броня/зброя/інструменти)</div>
               <textarea

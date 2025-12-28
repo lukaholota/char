@@ -91,7 +91,7 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
           <span>Додати обладунок</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md bg-slate-900 border-white/10 text-slate-50 p-0 overflow-hidden flex flex-col h-[80vh]">
+      <DialogContent className="max-w-md bg-slate-900/60 backdrop-blur-xl border-white/10 text-slate-50 p-0 overflow-hidden flex flex-col h-[80vh]">
         <DialogHeader className="p-4 border-b border-white/10 shrink-0">
           <DialogTitle className="flex items-center gap-2">
             <Shield className="w-5 h-5 text-indigo-400" />

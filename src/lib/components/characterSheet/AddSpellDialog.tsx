@@ -11,12 +11,15 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Search, Plus, Check, Info } from "lucide-react";
+import { Search, Plus, Check, ExternalLink } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
 import { Badge } from "@/components/ui/badge";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { toggleSpellForPers, getSpellsList } from "@/lib/actions/spell-actions";
 import { toast } from "sonner";
+import { calculateCasterLevel } from "@/lib/logic/spell-logic";
+import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
+import { useMemo } from "react";
 
 // We need a server action to fetch the base spells list
 // Let's assume we'll add getBaseSpells to spell-actions.ts or similar
@@ -41,6 +44,37 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
   const [spells, setSpells] = useState<SpellBase[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isPending, startTransition] = useTransition();
+
+  // Calculate max spell level for embed mode
+  const maxSpellLevel = useMemo(() => {
+    const caster = calculateCasterLevel(pers as any);
+    const level = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
+    if (level <= 0) return 0;
+    const row = (SPELL_SLOT_PROGRESSION as any).FULL?.[level] as number[] | undefined;
+    if (!Array.isArray(row)) return 0;
+    // Find highest slot level with slots > 0
+    for (let i = row.length - 1; i >= 0; i--) {
+      if (row[i] > 0) return i + 1;
+    }
+    return 0;
+  }, [pers]);
+
+  // Build URL for /spells embed mode
+  const buildSpellsUrl = () => {
+    const params = new URLSearchParams();
+    params.set("origin", "character");
+    params.set("persId", String(pers.persId));
+    params.set("persName", pers.name || `Персонаж #${pers.persId}`);
+    if (maxSpellLevel > 0) params.set("maxSpellLevel", String(maxSpellLevel));
+    // Add class filter
+    const classNames: string[] = [];
+    if (pers.class?.name) classNames.push(pers.class.name);
+    pers.multiclasses?.forEach((mc: any) => {
+      if (mc.class?.name) classNames.push(mc.class.name);
+    });
+    if (classNames.length > 0) params.set("cls", classNames.join(","));
+    return `/spells?${params.toString()}`;
+  };
 
   // Load spells when dialog opens
   useEffect(() => {
@@ -85,18 +119,19 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button 
-            disabled={isReadOnly}
-            variant="outline" 
-            className="w-full h-12 gap-2 border-fuchsia-500/30 bg-fuchsia-500/10 hover:bg-fuchsia-500/20 text-fuchsia-200"
-        >
-          <Plus className="w-5 h-5" />
-          Додати закляття
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="max-w-2xl bg-slate-900 border-white/10 text-white p-0 overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="space-y-2">
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogTrigger asChild>
+          <Button 
+              disabled={isReadOnly}
+              variant="outline" 
+              className="w-full h-12 gap-2 border-fuchsia-500/30 bg-fuchsia-500/10 hover:bg-fuchsia-500/20 text-fuchsia-200"
+          >
+            <Plus className="w-5 h-5" />
+            Додати закляття
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-2xl bg-slate-900 border-white/10 text-white p-0 overflow-hidden flex flex-col max-h-[90vh]">
         <DialogHeader className="p-6 pb-2">
           <DialogTitle className="text-xl font-bold flex items-center gap-2">
             <Search className="w-5 h-5 text-fuchsia-400" />
@@ -157,6 +192,18 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
           </div>
         </ScrollArea>
       </DialogContent>
-    </Dialog>
+      </Dialog>
+      {!isReadOnly && (
+        <a
+          href={buildSpellsUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full h-10 flex items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 hover:bg-white/10 text-slate-300 text-sm transition"
+        >
+          <ExternalLink className="w-4 h-4" />
+          Відкрити каталог заклять
+        </a>
+      )}
+    </div>
   );
 }

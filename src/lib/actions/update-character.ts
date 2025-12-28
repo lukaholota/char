@@ -15,6 +15,13 @@ export type UpdateCharacterPayload = {
     flaws?: string;
     backstory?: string;
     notes?: string;
+    alignment?: string;
+    xp?: number;
+    cp?: string;
+    ep?: string;
+    sp?: string;
+    gp?: string;
+    pp?: string;
   };
 };
 
@@ -50,6 +57,13 @@ export async function updateCharacterAction(payload: UpdateCharacterPayload): Pr
       ...(typeof d.flaws === "string" ? { flaws: d.flaws } : {}),
       ...(typeof d.backstory === "string" ? { backstory: d.backstory } : {}),
       ...(typeof d.notes === "string" ? { notes: d.notes } : {}),
+      ...(typeof d.alignment === "string" ? { alignment: d.alignment.slice(0, 100) } : {}),
+      ...(typeof d.xp === "number" ? { xp: Math.max(0, Math.trunc(d.xp)) } : {}),
+      ...(typeof d.cp === "string" ? { cp: String(Math.max(0, parseInt(d.cp) || 0)) } : {}),
+      ...(typeof d.ep === "string" ? { ep: String(Math.max(0, parseInt(d.ep) || 0)) } : {}),
+      ...(typeof d.sp === "string" ? { sp: String(Math.max(0, parseInt(d.sp) || 0)) } : {}),
+      ...(typeof d.gp === "string" ? { gp: String(Math.max(0, parseInt(d.gp) || 0)) } : {}),
+      ...(typeof d.pp === "string" ? { pp: String(Math.max(0, parseInt(d.pp) || 0)) } : {}),
     },
   });
 

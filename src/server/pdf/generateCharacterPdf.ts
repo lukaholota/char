@@ -13,10 +13,13 @@ import {
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
-import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage, type PDFForm } from "pdf-lib";
-import fontkit from "@pdf-lib/fontkit";
+import { PDFDocument, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
+import * as fontkit from "@pdf-lib/fontkit";
 
 import type { CharacterPdfData, PersSpellWithSpell, PrintConfig, PrintSection } from "./types";
+import { CHARACTER_SHEET_OVERLAY, type OverlayFieldKey, type OverlayText } from "./overlayLayout";
+import { generateSpellsPdfBytes } from "./spellsPdf";
+import { generateFeaturesPdfBytes } from "./featuresPdf";
 
 type Maybe<T> = T | null | undefined;
 
@@ -41,84 +44,9 @@ function getPersExtras(pers: CharacterPdfData["pers"]): PersExtraFields {
 
 const DEFAULT_SECTIONS: PrintSection[] = ["CHARACTER", "FEATURES", "SPELLS"];
 
-// Layout constants for rendered (non-template) pages.
-const PAGE_MARGIN = 48; // 2/3 inch-ish.
-const HEADER_FONT_SIZE = 18;
-const SUBHEADER_FONT_SIZE = 13;
-const BODY_FONT_SIZE = 10;
-const BODY_LINE_HEIGHT = 12;
-const SECTION_GAP = 14;
-const ITEM_GAP = 10;
-
-interface PageContext {
-  page: PDFPage;
-  x: number;
-  y: number;
-  margin: number;
-  width: number;
-  height: number;
-}
-
-interface TextOptions {
-  font: PDFFont;
-  size: number;
-  color?: ReturnType<typeof rgb>;
-  maxWidth: number;
-  lineHeight: number;
-}
-
-interface FeatureGroup {
-  title: string;
-  items: Array<{
-    name: string;
-    sourceName: string;
-    description: string;
-    usesRemaining?: number | null;
-    usesPer?: number | null;
-    restType?: string | null;
-  }>;
-}
-
 function safeText(value: Maybe<string | number>): string {
   if (value === null || value === undefined) return "";
   return String(value);
-}
-
-function isAsciiOnly(text: string): boolean {
-  // StandardFonts in pdf-lib can only encode WinAnsi (effectively limited).
-  // If we detect non-ASCII, we should either embed a Unicode font or sanitize.
-  return /^[\x00-\x7F]*$/.test(text);
-}
-
-function sanitizeForStandardFont(text: string): string {
-  // Best-effort: preserve ASCII and replace anything else.
-  // TODO: Embed NotoSans (or other) TTF in public/fonts and use it for true Unicode.
-  return text.replace(/[^\x00-\x7F]/g, "?");
-}
-
-async function maybeEmbedUnicodeFonts(pdfDoc: PDFDocument): Promise<{ regular: PDFFont; bold: PDFFont } | null> {
-  // Optional: If you add these files, we will use them automatically for full Unicode.
-  // - public/fonts/NotoSans-Regular.ttf
-  // - public/fonts/NotoSans-Bold.ttf
-  try {
-    const fs = await import("fs/promises");
-    const path = await import("path");
-
-    const regularPath = path.resolve(process.cwd(), "public", "fonts", "NotoSans-Regular.ttf");
-    const boldPath = path.resolve(process.cwd(), "public", "fonts", "NotoSans-Bold.ttf");
-
-    const [regularBytes, boldBytes] = await Promise.all([
-      fs.readFile(regularPath),
-      fs.readFile(boldPath),
-    ]);
-
-    pdfDoc.registerFontkit(fontkit);
-    const regular = await pdfDoc.embedFont(regularBytes);
-    const bold = await pdfDoc.embedFont(boldBytes);
-    return { regular, bold };
-  } catch {
-    return null;
-  }
 }
 
 function normalizePrintConfig(config: PrintConfig | null | undefined): PrintConfig {
@@ -136,135 +64,49 @@ function groupPersSpellsByLevel(persSpells: PersSpellWithSpell[]): Record<number
   return out;
 }
 
-function createPageWithMargin(pdfDoc: PDFDocument, templateSize?: { width: number; height: number }): PageContext {
-  const width = templateSize?.width ?? 612; // Letter default
-  const height = templateSize?.height ?? 792;
-  const page = pdfDoc.addPage([width, height]);
-  return {
-    page,
-    margin: PAGE_MARGIN,
-    x: PAGE_MARGIN,
-    y: height - PAGE_MARGIN,
-    width,
-    height,
-  };
+interface TwoLineResult {
+  line1: string;
+  line2?: string;
 }
 
-function ensureSpace(ctx: PageContext, neededHeight: number, pdfDoc: PDFDocument, templateSize?: { width: number; height: number }): PageContext {
-  if (ctx.y - neededHeight >= ctx.margin) return ctx;
-  return createPageWithMargin(pdfDoc, templateSize);
-}
+function splitTextTwoLines(text: string, font: PDFFont, fontSize: number, maxWidth: number): TwoLineResult {
+  if (!text || text.trim() === "") return { line1: "" };
 
-function drawTextLine(ctx: PageContext, text: string, opts: Omit<TextOptions, "maxWidth">): PageContext {
-  const color = opts.color ?? rgb(0, 0, 0);
-  ctx.page.drawText(text, {
-    x: ctx.x,
-    y: ctx.y - opts.size,
-    size: opts.size,
-    font: opts.font,
-    color,
-  });
-  ctx.y -= opts.lineHeight;
-  return ctx;
-}
+  const textWidth = font.widthOfTextAtSize(text, fontSize);
+  if (textWidth <= maxWidth) {
+    return { line1: text };
+  }
 
-function wrapTextIntoLines(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
-  const words = text.split(/\s+/g).filter(Boolean);
-  const lines: string[] = [];
-  let line = "";
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length <= 1) {
+    return { line1: text };
+  }
 
-  for (const word of words) {
-    const next = line ? `${line} ${word}` : word;
-    const width = font.widthOfTextAtSize(next, size);
-    if (width <= maxWidth) {
-      line = next;
-      continue;
-    }
+  let line1 = "";
+  let line2 = "";
+  let splitIndex = 0;
 
-    if (line) lines.push(line);
-
-    // If a single word is longer than maxWidth, hard-break it.
-    if (font.widthOfTextAtSize(word, size) > maxWidth) {
-      let chunk = "";
-      for (const ch of word) {
-        const c2 = chunk + ch;
-        if (font.widthOfTextAtSize(c2, size) <= maxWidth) {
-          chunk = c2;
-        } else {
-          if (chunk) lines.push(chunk);
-          chunk = ch;
-        }
-      }
-      line = chunk;
+  for (let i = 0; i < words.length; i++) {
+    const testLine = words.slice(0, i + 1).join(" ");
+    const testWidth = font.widthOfTextAtSize(testLine, fontSize);
+    if (testWidth <= maxWidth) {
+      line1 = testLine;
+      splitIndex = i + 1;
     } else {
-      line = word;
+      break;
     }
   }
 
-  if (line) lines.push(line);
-  return lines;
-}
-
-function drawWrappedText(
-  ctx: PageContext,
-  pdfDoc: PDFDocument,
-  text: string,
-  opts: TextOptions,
-  templateSize?: { width: number; height: number },
-  supportsUnicode: boolean = false
-): PageContext {
-  const color = opts.color ?? rgb(0, 0, 0);
-  const sanitized = supportsUnicode || isAsciiOnly(text) ? text : sanitizeForStandardFont(text);
-  const lines = wrapTextIntoLines(sanitized, opts.font, opts.size, opts.maxWidth);
-
-  for (const line of lines) {
-    ctx = ensureSpace(ctx, opts.lineHeight + 2, pdfDoc, templateSize);
-    ctx.page.drawText(line, {
-      x: ctx.x,
-      y: ctx.y - opts.size,
-      size: opts.size,
-      font: opts.font,
-      color,
-    });
-    ctx.y -= opts.lineHeight;
+  if (splitIndex === 0) {
+    line1 = words[0];
+    splitIndex = 1;
   }
 
-  return ctx;
-}
-
-function tryGetTextField(form: PDFForm, name: string) {
-  try {
-    return form.getTextField(name);
-  } catch {
-    return null;
+  if (splitIndex < words.length) {
+    line2 = words.slice(splitIndex).join(" ");
   }
-}
 
-function tryGetCheckBox(form: PDFForm, name: string) {
-  try {
-    return form.getCheckBox(name);
-  } catch {
-    return null;
-  }
-}
-
-function setTextIfPresent(form: PDFForm, name: string, value: string) {
-  const field = tryGetTextField(form, name);
-  if (!field) return;
-  field.setText(value ?? "");
-  try {
-    field.enableReadOnly();
-    field.disableReadOnly();
-  } catch {
-    // Some field implementations may not support readOnly toggles.
-  }
-}
-
-function setCheckIfPresent(form: PDFForm, name: string, checked: boolean) {
-  const field = tryGetCheckBox(form, name);
-  if (!field) return;
-  if (checked) field.check();
-  else field.uncheck();
+  return line2 ? { line1, line2 } : { line1 };
 }
 
 function buildClassLevelString(pers: CharacterPdfData["pers"]): string {
@@ -310,9 +152,61 @@ function buildHitDiceInfoFromPers(pers: CharacterPdfData["pers"]): { totalString
   return { totalString, currentString };
 }
 
+function tryGetTextField(form: PDFForm, name: string) {
+  try {
+    return form.getTextField(name);
+  } catch {
+    return null;
+  }
+}
+
+function tryGetCheckBox(form: PDFForm, name: string) {
+  try {
+    return form.getCheckBox(name);
+  } catch {
+    return null;
+  }
+}
+
+function setTextFieldWithOverflow(
+  form: PDFForm,
+  name: string,
+  value: string,
+  font: PDFFont,
+  fontSize: number,
+  maxWidth: number
+) {
+  const field = tryGetTextField(form, name);
+  if (!field) return;
+
+  const { line1, line2 } = splitTextTwoLines(value, font, fontSize, maxWidth);
+
+  if (line2) {
+    try {
+      field.enableMultiline();
+      field.setText(`${line1}\n${line2}`);
+    } catch {
+      field.setText(line1);
+    }
+  } else {
+    field.setText(line1);
+  }
+}
+
+function setTextIfPresent(form: PDFForm, name: string, value: string) {
+  const field = tryGetTextField(form, name);
+  if (!field) return;
+  field.setText(value ?? "");
+}
+
+function setCheckIfPresent(form: PDFForm, name: string, checked: boolean) {
+  const field = tryGetCheckBox(form, name);
+  if (!field) return;
+  if (checked) field.check();
+  else field.uncheck();
+}
+
 function fillAbility(form: PDFForm, ability: Ability, score: number, mod: number) {
-  // These are common field names in many fillable 5e sheets.
-  // Your template might differ; if so, update these mappings.
   const scoreFieldCandidates = {
     STR: ["STR", "Strength"],
     DEX: ["DEX", "Dexterity"],
@@ -401,59 +295,74 @@ function fillDeathSaves(form: PDFForm, pers: CharacterPdfData["pers"]) {
   const successes = Number.isFinite(extras.deathSaveSuccesses) ? Math.max(0, Math.trunc(extras.deathSaveSuccesses as number)) : 0;
   const failures = Number.isFinite(extras.deathSaveFailures) ? Math.max(0, Math.trunc(extras.deathSaveFailures as number)) : 0;
 
-  // Common names in some sheets: DeathSaveSuccess1..3, DeathSaveFail1..3
   for (let i = 1; i <= 3; i++) {
     setCheckIfPresent(form, `DeathSaveSuccess${i}`, i <= successes);
     setCheckIfPresent(form, `DeathSaveFail${i}`, i <= failures);
   }
 }
 
-function fillFirstPage(form: PDFForm, data: CharacterPdfData) {
+const OVERFLOW_FIELDS: Array<{
+  fieldName: string;
+  maxWidth: number;
+  fontSize: number;
+}> = [
+  { fieldName: "CharacterName", maxWidth: 200, fontSize: 12 },
+  { fieldName: "ClassLevel", maxWidth: 200, fontSize: 10 },
+  { fieldName: "Race", maxWidth: 180, fontSize: 10 },
+  { fieldName: "PlayerName", maxWidth: 180, fontSize: 10 },
+];
+
+function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
   const { pers } = data;
   const extras = getPersExtras(pers);
 
-  // Identity
-  setTextIfPresent(form, "CharacterName", safeText(pers.name));
-  setTextIfPresent(form, "ClassLevel", buildClassLevelString(pers));
+  for (const { fieldName, maxWidth, fontSize } of OVERFLOW_FIELDS) {
+    let value = "";
+    switch (fieldName) {
+      case "CharacterName":
+        value = safeText(pers.name);
+        break;
+      case "ClassLevel":
+        value = buildClassLevelString(pers);
+        break;
+      case "Race":
+        value = safeText(pers.race?.name);
+        break;
+      case "PlayerName":
+        value = safeText(pers.user?.name ?? pers.user?.email);
+        break;
+    }
+    setTextFieldWithOverflow(form, fieldName, value, font, fontSize, maxWidth);
+  }
+
   setTextIfPresent(form, "Background", safeText(pers.background?.name));
-  setTextIfPresent(form, "PlayerName", safeText(pers.user?.name ?? pers.user?.email));
-  setTextIfPresent(form, "Race", safeText(pers.race?.name));
   setTextIfPresent(form, "Alignment", safeText(extras.alignment));
   setTextIfPresent(form, "XP", safeText(extras.xp));
 
-  // Ability scores & modifiers
   for (const ability of [Ability.STR, Ability.DEX, Ability.CON, Ability.INT, Ability.WIS, Ability.CHA]) {
     const score = calculateFinalStat(pers, ability);
     const mod = calculateFinalModifier(pers, ability);
     fillAbility(form, ability, score, mod);
   }
 
-  // Proficiency Bonus
   setTextIfPresent(form, "ProficiencyBonus", formatModifier(calculateFinalProficiency(pers)));
 
-  // AC / Initiative / Speed
   setTextIfPresent(form, "AC", safeText(calculateFinalAC(pers)));
   setTextIfPresent(form, "Initiative", formatModifier(calculateFinalInitiative(pers)));
   setTextIfPresent(form, "Speed", safeText(calculateFinalSpeed(pers)));
 
-  // HP
   setTextIfPresent(form, "HPMax", safeText(calculateFinalMaxHP(pers)));
   setTextIfPresent(form, "HPCurrent", safeText(pers.currentHp));
   setTextIfPresent(form, "HPTemp", safeText(extras.tempHp ?? 0));
 
-  // Hit dice
   const hitDice = buildHitDiceInfoFromPers(pers);
   setTextIfPresent(form, "HitDiceTotal", hitDice.totalString);
   setTextIfPresent(form, "HitDiceCurrent", hitDice.currentString);
 
-  // Death saves
   fillDeathSaves(form, pers);
-
-  // Saves & skills
   fillSavingThrows(form, pers);
   fillSkills(form, pers);
 
-  // Personality & backstory
   setTextIfPresent(form, "PersonalityTraits", safeText(pers.personalityTraits));
   setTextIfPresent(form, "Ideals", safeText(pers.ideals));
   setTextIfPresent(form, "Bonds", safeText(pers.bonds));
@@ -461,234 +370,128 @@ function fillFirstPage(form: PDFForm, data: CharacterPdfData) {
 
   setTextIfPresent(form, "Backstory", safeText(extras.backstory));
   setTextIfPresent(form, "Notes", safeText(extras.notes));
-
-  // Optional: custom proficiencies/languages if your template has fields.
   setTextIfPresent(form, "Proficiencies", safeText(extras.customProficiencies));
   setTextIfPresent(form, "Languages", safeText(extras.customLanguagesKnown));
 }
 
-function buildFeatureGroups(data: CharacterPdfData): FeatureGroup[] {
-  const allItems = Object.values(data.features).flat();
-  const byKey = new Map<string, (typeof allItems)[number]>();
-  for (const item of allItems) {
-    if (!byKey.has(item.key)) byKey.set(item.key, item);
+interface CreatedFieldDef {
+  key: OverlayFieldKey;
+  value: string;
+  needsOverflow?: boolean;
+}
+
+function createTextFieldOnPage(
+  form: PDFForm,
+  page: PDFPage,
+  name: string,
+  rect: OverlayText,
+  value: string,
+  font: PDFFont,
+  needsTwoLines: boolean = false
+) {
+  const lineHeight = rect.height;
+  let adjustedY = rect.y;
+  let adjustedHeight = rect.height;
+
+  if (needsTwoLines) {
+    adjustedHeight = rect.height * 2;
+    adjustedY = rect.y - rect.height;
   }
 
-  const items = [...byKey.values()];
+  const textField = form.createTextField(name);
+  textField.addToPage(page, {
+    x: rect.x,
+    y: adjustedY,
+    width: rect.width,
+    height: adjustedHeight,
+  });
 
-  const fromSource = (sources: Array<(typeof items)[number]["source"]>) =>
-    items
-      .filter((i) => sources.includes(i.source))
-      .map((i) => ({
-        name: i.name,
-        sourceName: i.sourceName,
-        description: i.description,
-        usesRemaining: i.usesRemaining ?? null,
-        usesPer: i.usesPer ?? null,
-        restType: i.restType ?? null,
-      }));
+  if (needsTwoLines) {
+    textField.enableMultiline();
+  }
 
-  const groups: FeatureGroup[] = [
-    {
-      title: "Class & Subclass Features",
-      items: fromSource(["CLASS", "SUBCLASS"]),
-    },
-    {
-      title: "Race & Subrace Features",
-      items: fromSource(["RACE", "SUBRACE"]),
-    },
-    {
-      title: "Background Features",
-      items: fromSource(["BACKGROUND"]),
-    },
-    {
-      title: "Feats",
-      items: fromSource(["FEAT"]),
-    },
-    {
-      title: "Other Features",
-      items: fromSource(["PERS", "CHOICE", "RACE_CHOICE"]),
-    },
+  textField.setText(value);
+
+  if (rect.align === "center") {
+    textField.setAlignment(TextAlignment.Center);
+  } else if (rect.align === "right") {
+    textField.setAlignment(TextAlignment.Right);
+  } else {
+    textField.setAlignment(TextAlignment.Left);
+  }
+}
+
+function createFieldsFromOverlay(
+  pdfDoc: PDFDocument,
+  form: PDFForm,
+  page: PDFPage,
+  data: CharacterPdfData,
+  font: PDFFont
+) {
+  const { pers } = data;
+  const extras = getPersExtras(pers);
+
+  const fieldDefs: CreatedFieldDef[] = [
+    { key: "characterName", value: safeText(pers.name), needsOverflow: true },
+    { key: "classLevel", value: buildClassLevelString(pers), needsOverflow: true },
+    { key: "background", value: safeText(pers.background?.name) },
+    { key: "playerName", value: safeText(pers.user?.name ?? pers.user?.email), needsOverflow: true },
+    { key: "race", value: safeText(pers.race?.name), needsOverflow: true },
+    { key: "alignment", value: safeText(extras.alignment) },
+    { key: "xp", value: safeText(extras.xp) },
+    { key: "ac", value: safeText(calculateFinalAC(pers)) },
+    { key: "initiative", value: formatModifier(calculateFinalInitiative(pers)) },
+    { key: "speed", value: safeText(calculateFinalSpeed(pers)) },
+    { key: "proficiencyBonus", value: formatModifier(calculateFinalProficiency(pers)) },
+    { key: "hpMax", value: safeText(calculateFinalMaxHP(pers)) },
+    { key: "hpCurrent", value: safeText(pers.currentHp) },
+    { key: "hpTemp", value: safeText(extras.tempHp ?? 0) },
   ];
 
-  return groups.filter((g) => g.items.length > 0);
-}
+  const abilities: Ability[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+  for (const ability of abilities) {
+    const score = calculateFinalStat(pers, ability);
+    const mod = calculateFinalModifier(pers, ability);
+    fieldDefs.push({ key: `stat:${ability}:score`, value: safeText(score) });
+    fieldDefs.push({ key: `stat:${ability}:mod`, value: formatModifier(mod) });
+  }
 
-async function renderFeaturesSection(
-  pdfDoc: PDFDocument,
-  data: CharacterPdfData,
-  fonts: { regular: PDFFont; bold: PDFFont },
-  templateSize?: { width: number; height: number },
-  supportsUnicode: boolean = false
-) {
-  let ctx = createPageWithMargin(pdfDoc, templateSize);
-  const maxWidth = ctx.width - ctx.margin * 2;
+  for (const def of fieldDefs) {
+    const rect = CHARACTER_SHEET_OVERLAY[def.key];
+    if (!rect) continue;
+    if (rect.pageIndex !== 0) continue;
 
-  ctx = drawTextLine(ctx, `Features — ${sanitizeForStandardFont(data.pers.name ?? "")}`, {
-    font: fonts.bold,
-    size: HEADER_FONT_SIZE,
-    lineHeight: HEADER_FONT_SIZE + 8,
-  });
-  ctx.y -= SECTION_GAP;
+    const fontSize = rect.size ?? 10;
+    const textWidth = font.widthOfTextAtSize(def.value, fontSize);
+    const needsTwoLines = def.needsOverflow && textWidth > rect.width;
 
-  const groups = buildFeatureGroups(data);
-
-  for (const group of groups) {
-    ctx = ensureSpace(ctx, SUBHEADER_FONT_SIZE + 10, pdfDoc, templateSize);
-    ctx = drawTextLine(ctx, sanitizeForStandardFont(group.title), {
-      font: fonts.bold,
-      size: SUBHEADER_FONT_SIZE,
-      lineHeight: SUBHEADER_FONT_SIZE + 6,
-    });
-
-    for (const item of group.items) {
-      const headerParts = [sanitizeForStandardFont(item.name)];
-      if (item.sourceName && item.sourceName !== item.name) headerParts.push(`(${sanitizeForStandardFont(item.sourceName)})`);
-      if (typeof item.usesPer === "number") {
-        const used = typeof item.usesRemaining === "number" ? `${item.usesRemaining}/${item.usesPer}` : `/${item.usesPer}`;
-        headerParts.push(`[${used}${item.restType ? ` ${item.restType}` : ""}]`);
-      }
-
-      ctx = ensureSpace(ctx, BODY_LINE_HEIGHT * 2, pdfDoc, templateSize);
-      ctx = drawWrappedText(
-        ctx,
-        pdfDoc,
-        headerParts.join(" "),
-        {
-          font: fonts.bold,
-          size: BODY_FONT_SIZE,
-          maxWidth,
-          lineHeight: BODY_LINE_HEIGHT,
-          color: rgb(0, 0, 0),
-        },
-        templateSize,
-        supportsUnicode
-      );
-
-      const description = item.description?.trim() ?? "";
-      if (description) {
-        ctx = drawWrappedText(
-          ctx,
-          pdfDoc,
-          description,
-          {
-            font: fonts.regular,
-            size: BODY_FONT_SIZE,
-            maxWidth,
-            lineHeight: BODY_LINE_HEIGHT,
-            color: rgb(0.12, 0.12, 0.12),
-          },
-          templateSize,
-          supportsUnicode
-        );
-      }
-
-      ctx.y -= ITEM_GAP;
+    let valueToSet = def.value;
+    if (needsTwoLines) {
+      const { line1, line2 } = splitTextTwoLines(def.value, font, fontSize, rect.width);
+      valueToSet = line2 ? `${line1}\n${line2}` : line1;
     }
 
-    ctx.y -= SECTION_GAP;
+    createTextFieldOnPage(form, page, def.key, rect, valueToSet, font, needsTwoLines);
   }
 }
 
-function levelLabel(level: number): string {
-  if (level === 0) return "Level 0 (Cantrips)";
-  return `Level ${level}`;
-}
+async function embedNotoSansFonts(pdfDoc: PDFDocument): Promise<{ regular: PDFFont; bold: PDFFont }> {
+  const fs = await import("fs/promises");
+  const path = await import("path");
 
-function buildSpellOneLiner(ps: PersSpellWithSpell): string {
-  const s = ps.spell;
-  if (!s) return "";
+  const regularPath = path.resolve(process.cwd(), "public", "fonts", "NotoSans-Regular.ttf");
+  const boldPath = path.resolve(process.cwd(), "public", "fonts", "NotoSans-Bold.ttf");
 
-  const school = s.school ? `${s.school}` : "";
-  const ritual = s.hasRitual ? "R" : "";
-  const conc = s.hasConcentration ? "C" : "";
-  const tags = [ritual, conc].filter(Boolean).join("/");
+  const [regularBytes, boldBytes] = await Promise.all([
+    fs.readFile(regularPath),
+    fs.readFile(boldPath),
+  ]);
 
-  const parts = [
-    s.name,
-    school ? `— ${school}${tags ? ` (${tags})` : ""}` : (tags ? `— (${tags})` : ""),
-    `, ${s.castingTime}`,
-    `, ${s.range}`,
-    s.components ? `, ${s.components}` : "",
-    `, ${s.duration}`,
-  ].join("");
+  pdfDoc.registerFontkit(fontkit);
+  const regular = await pdfDoc.embedFont(regularBytes, { subset: true });
+  const bold = await pdfDoc.embedFont(boldBytes, { subset: true });
 
-  return parts;
-}
-
-async function renderSpellsSection(
-  pdfDoc: PDFDocument,
-  data: CharacterPdfData,
-  fonts: { regular: PDFFont; bold: PDFFont },
-  templateSize?: { width: number; height: number },
-  supportsUnicode: boolean = false
-) {
-  let ctx = createPageWithMargin(pdfDoc, templateSize);
-  const maxWidth = ctx.width - ctx.margin * 2;
-
-  ctx = drawTextLine(ctx, `Spells — ${sanitizeForStandardFont(data.pers.name ?? "")}`, {
-    font: fonts.bold,
-    size: HEADER_FONT_SIZE,
-    lineHeight: HEADER_FONT_SIZE + 8,
-  });
-  ctx.y -= SECTION_GAP;
-
-  const levels = Object.keys(data.spellsByLevel)
-    .map(Number)
-    .sort((a, b) => a - b);
-
-  for (const level of levels) {
-    const spells = data.spellsByLevel[level] ?? [];
-    if (spells.length === 0) continue;
-
-    ctx = ensureSpace(ctx, SUBHEADER_FONT_SIZE + 10, pdfDoc, templateSize);
-    ctx = drawTextLine(ctx, levelLabel(level), {
-      font: fonts.bold,
-      size: SUBHEADER_FONT_SIZE,
-      lineHeight: SUBHEADER_FONT_SIZE + 6,
-    });
-
-    for (const ps of spells) {
-      const oneLine = buildSpellOneLiner(ps);
-      if (oneLine) {
-        ctx = drawWrappedText(
-          ctx,
-          pdfDoc,
-          oneLine,
-          {
-            font: fonts.bold,
-            size: BODY_FONT_SIZE,
-            maxWidth,
-            lineHeight: BODY_LINE_HEIGHT,
-          },
-          templateSize,
-          supportsUnicode
-        );
-      }
-
-      const description = ps.spell?.description?.trim() ?? "";
-      if (description) {
-        ctx = drawWrappedText(
-          ctx,
-          pdfDoc,
-          description,
-          {
-            font: fonts.regular,
-            size: BODY_FONT_SIZE,
-            maxWidth,
-            lineHeight: BODY_LINE_HEIGHT,
-            color: rgb(0.12, 0.12, 0.12),
-          },
-          templateSize,
-          supportsUnicode
-        );
-      }
-
-      ctx.y -= ITEM_GAP;
-    }
-
-    ctx.y -= SECTION_GAP;
-  }
+  return { regular, bold };
 }
 
 export async function generateCharacterPdf(
@@ -698,12 +501,10 @@ export async function generateCharacterPdf(
 ): Promise<Uint8Array> {
   const normalized = normalizePrintConfig(config);
 
-  // 1) Authorization
   const session = await auth();
   if (!session?.user?.email) throw new Error("Unauthorized");
   if (session.user.email !== userEmail) throw new Error("Unauthorized");
 
-  // 2) Gather data (reuses existing include/auth logic)
   const pers = await getPersById(persId);
   if (!pers) throw new Error("Not found");
 
@@ -711,10 +512,8 @@ export async function generateCharacterPdf(
   if (!features) throw new Error("Not found");
 
   const spellsByLevel = groupPersSpellsByLevel(pers.persSpells ?? []);
-
   const data: CharacterPdfData = { pers, features, spellsByLevel };
 
-  // 3) Load template
   const fs = await import("fs/promises");
   const path = await import("path");
 
@@ -723,42 +522,60 @@ export async function generateCharacterPdf(
 
   const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
-  const templatePages = pdfDoc.getPages();
-  const templateSize = templatePages.length
-    ? { width: templatePages[0].getWidth(), height: templatePages[0].getHeight() }
-    : undefined;
+  const { regular: notoSansRegular, bold: notoSansBold } = await embedNotoSansFonts(pdfDoc);
 
-  // 4) Fill template form fields (if any)
   if (normalized.sections.includes("CHARACTER")) {
-    // NOTE: The provided CharacterSheet.pdf in this workspace currently appears to have 0 AcroForm fields.
-    // If your chosen template is a proper AcroForm PDF, pdf-lib will populate fields and keep them editable.
-    try {
-      const form = pdfDoc.getForm();
-      const fieldCount = form.getFields().length;
-      if (fieldCount > 0) {
-        fillFirstPage(form, data);
+    const form = pdfDoc.getForm();
+    const existingFields = form.getFields();
+
+    if (existingFields.length > 0) {
+      fillFirstPageUsingExistingFields(form, data, notoSansRegular);
+      form.updateFieldAppearances(notoSansRegular);
+    } else {
+      const pages = pdfDoc.getPages();
+      if (pages.length > 0) {
+        createFieldsFromOverlay(pdfDoc, form, pages[0], data, notoSansRegular);
+        form.updateFieldAppearances(notoSansRegular);
       }
-      // Do NOT flatten to keep fields editable.
-    } catch {
-      // If template has no AcroForm or is incompatible, we still generate extra pages.
     }
   }
 
-  // 5/6) Render additional sections
-  const unicodeFonts = await maybeEmbedUnicodeFonts(pdfDoc);
-  const helvetica = unicodeFonts?.regular ?? (await pdfDoc.embedFont(StandardFonts.Helvetica));
-  const helveticaBold = unicodeFonts?.bold ?? (await pdfDoc.embedFont(StandardFonts.HelveticaBold));
-  const fonts = { regular: helvetica, bold: helveticaBold };
-  const supportsUnicode = Boolean(unicodeFonts);
-
   if (normalized.sections.includes("FEATURES")) {
-    await renderFeaturesSection(pdfDoc, data, fonts, templateSize, supportsUnicode);
+    const allFeatures = Object.values(features).flat();
+    if (allFeatures.length > 0) {
+      try {
+        const featuresPdfBytes = await generateFeaturesPdfBytes({
+          characterName: pers.name ?? "Character",
+          features,
+        });
+
+        const featuresPdfDoc = await PDFDocument.load(featuresPdfBytes);
+        const copiedPages = await pdfDoc.copyPages(featuresPdfDoc, featuresPdfDoc.getPageIndices());
+        for (const page of copiedPages) {
+          pdfDoc.addPage(page);
+        }
+      } catch (err) {
+        console.error("Failed to generate features PDF:", err);
+      }
+    }
   }
 
   if (normalized.sections.includes("SPELLS")) {
-    await renderSpellsSection(pdfDoc, data, fonts, templateSize, supportsUnicode);
+    const spellIds = (pers.persSpells ?? []).map((ps) => ps.spellId).filter((id): id is number => id != null);
+    if (spellIds.length > 0) {
+      try {
+        const spellsPdfBytes = await generateSpellsPdfBytes(spellIds);
+
+        const spellsPdfDoc = await PDFDocument.load(spellsPdfBytes);
+        const copiedPages = await pdfDoc.copyPages(spellsPdfDoc, spellsPdfDoc.getPageIndices());
+        for (const page of copiedPages) {
+          pdfDoc.addPage(page);
+        }
+      } catch (err) {
+        console.error("Failed to generate spells PDF:", err);
+      }
+    }
   }
 
-  // 7) Save
   return pdfDoc.save();
 }
