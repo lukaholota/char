@@ -55,6 +55,7 @@ import {
 interface FeaturesSlideProps {
   pers: PersWithRelations;
   groupedFeatures: CharacterFeaturesGroupedResult | null;
+  onPersUpdate?: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
 }
 

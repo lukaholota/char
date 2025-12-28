@@ -21,12 +21,13 @@ interface WeaponCustomizeModalProps {
 
 export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }: WeaponCustomizeModalProps) {
   const [isPending, startTransition] = useTransition();
+  const defaultAbility = persWeapon.customDamageAbility ?? Ability.STR;
   const [formData, setFormData] = useState({
     overrideName: persWeapon.overrideName || "",
     attackBonus: persWeapon.attackBonus || 0,
     customDamageBonus: persWeapon.customDamageBonus as number || 0,
     customDamageDice: persWeapon.customDamageDice || "",
-    customDamageAbility: persWeapon.customDamageAbility || "STR",
+    customDamageAbility: defaultAbility,
     isMagical: persWeapon.isMagical,
     isProficient: persWeapon.isProficient,
   });
@@ -40,7 +41,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
         attackBonus: persWeapon.attackBonus || 0,
         customDamageBonus: persWeapon.customDamageBonus as number || 0,
         customDamageDice: persWeapon.customDamageDice || "",
-        customDamageAbility: persWeapon.customDamageAbility || "STR",
+        customDamageAbility: persWeapon.customDamageAbility ?? Ability.STR,
         isMagical: persWeapon.isMagical,
         isProficient: persWeapon.isProficient,
       });
@@ -131,7 +132,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
               <Label>Характеристика</Label>
               <Select
                 value={formData.customDamageAbility}
-                onValueChange={(val) => setFormData({ ...formData, customDamageAbility: val })}
+                onValueChange={(val) => setFormData({ ...formData, customDamageAbility: val as Ability })}
               >
                 <SelectTrigger className="bg-white/5 border-white/10">
                   <SelectValue />

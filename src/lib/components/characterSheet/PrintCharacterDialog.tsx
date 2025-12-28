@@ -7,9 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { Printer } from "lucide-react";
 
 import type { PrintConfig, PrintSection } from "@/server/pdf/types";
 import { generateCharacterPdfAction } from "@/app/pers/[id]/print/actions";
+import { generateCharacterPdfByTokenAction } from "@/app/pers/share/[token]/print/actions";
 
 function base64ToUint8Array(base64: string): Uint8Array {
   const binaryString = atob(base64);
@@ -24,9 +26,10 @@ export interface PrintCharacterDialogProps {
   persId: number;
   characterName: string;
   disabled?: boolean;
+  shareToken?: string;
 }
 
-export default function PrintCharacterDialog({ persId, characterName, disabled }: PrintCharacterDialogProps) {
+export default function PrintCharacterDialog({ persId, characterName, disabled, shareToken }: PrintCharacterDialogProps) {
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
@@ -45,7 +48,9 @@ export default function PrintCharacterDialog({ persId, characterName, disabled }
   const handleDownload = () => {
     startTransition(async () => {
       try {
-        const res = await generateCharacterPdfAction(persId, config);
+        const res = shareToken
+          ? await generateCharacterPdfByTokenAction(shareToken, config)
+          : await generateCharacterPdfAction(persId, config);
         const bytes = base64ToUint8Array(res.data);
         const arrayBuffer = new ArrayBuffer(bytes.byteLength);
         new Uint8Array(arrayBuffer).set(bytes);
@@ -71,41 +76,42 @@ export default function PrintCharacterDialog({ persId, characterName, disabled }
       <Button
         size="sm"
         variant="secondary"
-        className="h-8"
+        className="h-8 gap-2"
         onClick={() => setOpen(true)}
         disabled={disabled || isPending}
       >
-        Print
+        <Printer className="h-4 w-4" />
+        <span className="hidden sm:inline">Друк</span>
       </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Print to PDF</DialogTitle>
+            <DialogTitle>Друк у PDF</DialogTitle>
           </DialogHeader>
 
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Checkbox checked={includeCharacter} onCheckedChange={(v) => setIncludeCharacter(Boolean(v))} id="print-character" />
-              <Label htmlFor="print-character">Include character sheet</Label>
+              <Label htmlFor="print-character">Лист персонажа</Label>
             </div>
 
             <div className="flex items-center gap-2">
               <Checkbox checked={includeFeatures} onCheckedChange={(v) => setIncludeFeatures(Boolean(v))} id="print-features" />
-              <Label htmlFor="print-features">Include features pages</Label>
+              <Label htmlFor="print-features">Здібності</Label>
             </div>
 
             <div className="flex items-center gap-2">
               <Checkbox checked={includeSpells} onCheckedChange={(v) => setIncludeSpells(Boolean(v))} id="print-spells" />
-              <Label htmlFor="print-spells">Include spells pages</Label>
+              <Label htmlFor="print-spells">Закляття</Label>
             </div>
 
             <div className="flex justify-end gap-2 pt-2">
               <Button variant="ghost" onClick={() => setOpen(false)} disabled={isPending}>
-                Cancel
+                Скасувати
               </Button>
               <Button onClick={handleDownload} disabled={isPending || config.sections.length === 0}>
-                {isPending ? "Generating…" : "Download PDF"}
+                {isPending ? "Генеруємо…" : "Завантажити PDF"}
               </Button>
             </div>
           </div>

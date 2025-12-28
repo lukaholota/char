@@ -3,7 +3,7 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { Ability } from "@prisma/client";
+import { Ability, Prisma } from "@prisma/client";
 
 /**
  * Helper to assert the user owns the pers
@@ -106,9 +106,22 @@ export async function updateWeapon(
   if (!owned.ok) return { success: false, error: owned.error };
 
   try {
+    const data: Prisma.PersWeaponUpdateInput = {
+      overrideName: updates.overrideName,
+      attackBonus: updates.attackBonus,
+      customDamageBonus:
+        updates.customDamageBonus === null
+          ? Prisma.DbNull
+          : updates.customDamageBonus,
+      customDamageDice: updates.customDamageDice,
+      customDamageAbility: updates.customDamageAbility,
+      isMagical: updates.isMagical,
+      isProficient: updates.isProficient,
+    };
+
     const updated = await prisma.persWeapon.update({
       where: { persWeaponId },
-      data: updates,
+      data,
     });
 
     revalidatePath(`/pers/${weapon.persId}`);

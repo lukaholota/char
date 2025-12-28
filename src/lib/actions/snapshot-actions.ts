@@ -3,6 +3,7 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { Prisma } from "@prisma/client";
 
 export async function createCharacterSnapshot(persId: number) {
   const session = await auth();
@@ -110,7 +111,7 @@ export async function createCharacterSnapshot(persId: number) {
 
           // Connect M:N relations
           raceVariants: { connect: pers.raceVariants.map(rv => ({ raceVariantId: rv.raceVariantId })) },
-          raceChoiceOptions: { connect: pers.raceChoiceOptions.map(rco => ({ raceChoiceOptionId: rco.raceChoiceOptionId })) },
+          raceChoiceOptions: { connect: pers.raceChoiceOptions.map(rco => ({ optionId: rco.optionId })) },
           choiceOptions: { connect: pers.choiceOptions.map(co => ({ choiceOptionId: co.choiceOptionId })) },
           classOptionalFeatures: { connect: pers.classOptionalFeatures.map(cof => ({ optionalFeatureId: cof.optionalFeatureId })) },
           spells: { connect: pers.spells.map(s => ({ spellId: s.spellId })) },
@@ -186,9 +187,8 @@ export async function createCharacterSnapshot(persId: number) {
             overrideName: w.overrideName,
             customDamageDice: w.customDamageDice,
             customDamageAbility: w.customDamageAbility,
-            customDamageBonus: w.customDamageBonus,
+            customDamageBonus: w.customDamageBonus === null ? Prisma.DbNull : w.customDamageBonus,
             isProficient: w.isProficient,
-            equipped: w.equipped,
           }))
         });
       }
@@ -199,7 +199,6 @@ export async function createCharacterSnapshot(persId: number) {
           data: pers.armors.map(a => ({
             persId: newPers.persId,
             armorId: a.armorId,
-            overrideName: a.overrideName,
             overrideBaseAC: a.overrideBaseAC,
             isProficient: a.isProficient,
             equipped: a.equipped,

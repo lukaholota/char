@@ -14,7 +14,8 @@ import {
 import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
 import { PDFDocument, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
-import * as fontkit from "@pdf-lib/fontkit";
+
+import fontkit from "@pdf-lib/fontkit";
 
 import type { CharacterPdfData, PersSpellWithSpell, PrintConfig, PrintSection } from "./types";
 import { CHARACTER_SHEET_OVERLAY, type OverlayFieldKey, type OverlayText } from "./overlayLayout";
@@ -514,6 +515,15 @@ export async function generateCharacterPdf(
   const spellsByLevel = groupPersSpellsByLevel(pers.persSpells ?? []);
   const data: CharacterPdfData = { pers, features, spellsByLevel };
 
+  return generateCharacterPdfFromData(data, normalized);
+}
+
+export async function generateCharacterPdfFromData(
+  data: CharacterPdfData,
+  config: PrintConfig
+): Promise<Uint8Array> {
+  const normalized = normalizePrintConfig(config);
+
   const fs = await import("fs/promises");
   const path = await import("path");
 
@@ -522,7 +532,7 @@ export async function generateCharacterPdf(
 
   const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
-  const { regular: notoSansRegular, bold: notoSansBold } = await embedNotoSansFonts(pdfDoc);
+  const { regular: notoSansRegular } = await embedNotoSansFonts(pdfDoc);
 
   if (normalized.sections.includes("CHARACTER")) {
     const form = pdfDoc.getForm();
@@ -541,38 +551,30 @@ export async function generateCharacterPdf(
   }
 
   if (normalized.sections.includes("FEATURES")) {
-    const allFeatures = Object.values(features).flat();
+    const allFeatures = Object.values(data.features).flat();
     if (allFeatures.length > 0) {
-      try {
-        const featuresPdfBytes = await generateFeaturesPdfBytes({
-          characterName: pers.name ?? "Character",
-          features,
-        });
+      const featuresPdfBytes = await generateFeaturesPdfBytes({
+        characterName: data.pers.name ?? "Character",
+        features: data.features,
+      });
 
-        const featuresPdfDoc = await PDFDocument.load(featuresPdfBytes);
-        const copiedPages = await pdfDoc.copyPages(featuresPdfDoc, featuresPdfDoc.getPageIndices());
-        for (const page of copiedPages) {
-          pdfDoc.addPage(page);
-        }
-      } catch (err) {
-        console.error("Failed to generate features PDF:", err);
+      const featuresPdfDoc = await PDFDocument.load(featuresPdfBytes);
+      const copiedPages = await pdfDoc.copyPages(featuresPdfDoc, featuresPdfDoc.getPageIndices());
+      for (const page of copiedPages) {
+        pdfDoc.addPage(page);
       }
     }
   }
 
   if (normalized.sections.includes("SPELLS")) {
-    const spellIds = (pers.persSpells ?? []).map((ps) => ps.spellId).filter((id): id is number => id != null);
+    const spellIds = (data.pers.persSpells ?? []).map((ps) => ps.spellId).filter((id): id is number => id != null);
     if (spellIds.length > 0) {
-      try {
-        const spellsPdfBytes = await generateSpellsPdfBytes(spellIds);
+      const spellsPdfBytes = await generateSpellsPdfBytes(spellIds);
 
-        const spellsPdfDoc = await PDFDocument.load(spellsPdfBytes);
-        const copiedPages = await pdfDoc.copyPages(spellsPdfDoc, spellsPdfDoc.getPageIndices());
-        for (const page of copiedPages) {
-          pdfDoc.addPage(page);
-        }
-      } catch (err) {
-        console.error("Failed to generate spells PDF:", err);
+      const spellsPdfDoc = await PDFDocument.load(spellsPdfBytes);
+      const copiedPages = await pdfDoc.copyPages(spellsPdfDoc, spellsPdfDoc.getPageIndices());
+      for (const page of copiedPages) {
+        pdfDoc.addPage(page);
       }
     }
   }

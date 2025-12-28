@@ -22,7 +22,13 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
-export default function CombatPage({ pers, isReadOnly }: { pers: PersWithRelations, isReadOnly?: boolean }) {
+type CombatPageProps = {
+  pers: PersWithRelations;
+  onPersUpdate?: (next: PersWithRelations) => void;
+  isReadOnly?: boolean;
+};
+
+export default function CombatPage({ pers, isReadOnly }: CombatPageProps) {
 // Redundant stats removed
 
   const [selectedWeapon, setSelectedWeapon] = useState<PersWeaponWithWeapon | null>(null);

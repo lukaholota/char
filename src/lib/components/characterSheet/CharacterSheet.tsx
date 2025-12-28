@@ -30,6 +30,8 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   const router = useRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
 
+  const shareToken = (params as any)?.token as string | undefined;
+
   useEffect(() => {
     setLocalPers(pers);
   }, [pers]);
@@ -76,13 +78,12 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                        <span className="hidden sm:inline">Копіювати до себе</span>
                    </Button>
                )}
-              {!isPublicView && (
               <PrintCharacterDialog
                 persId={localPers.persId}
                 characterName={localPers.name ?? "character"}
                 disabled={isCopyPending}
+                shareToken={isPublicView ? shareToken : undefined}
               />
-              )}
                {!isReadOnly && <ShareDialog persId={localPers.persId} initialToken={localPers.shareToken} />}
                {!isReadOnly && <RestButton pers={localPers} onPersUpdate={setLocalPers} />}
                {!isReadOnly && (
