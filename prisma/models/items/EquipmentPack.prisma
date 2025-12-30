@@ -1,11 +1,8 @@
-
 model EquipmentPack {
-  equipmentPackId Int                   @id @default(autoincrement()) @map("equipment_pack_id")
-  name            EquipmentPackCategory @unique
-  description     String                @db.Text
-
-  items Json
-
+  equipmentPackId               Int                            @id @default(autoincrement()) @map("equipment_pack_id")
+  name                          EquipmentPackCategory          @unique
+  description                   String
+  items                         Json
   classStartingEquipmentOptions ClassStartingEquipmentOption[]
 
   @@map("equipment_pack")

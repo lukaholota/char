@@ -1,23 +1,17 @@
-
 model ClassFeature {
-  classFeatureId Int @id @default(autoincrement()) @map("class_feature_id")
-  classId        Int @map("class_id")
-  featureId      Int @map("feature_id")
+  classFeatureId      Int             @id @default(autoincrement()) @map("class_feature_id")
+  classId             Int             @map("class_id")
+  featureId           Int             @map("feature_id")
+  levelGranted        Int             @map("level_granted")
+  grantsSpellSlots    Boolean         @default(false) @map("grants_spell_slots")
+  displayOrder        Int             @default(0) @map("display_order")
+  mechanicDescription String?         @map("mechanic_description")
+  mechanicMetadata    Json?           @map("mechanic_metadata")
+  mechanicType        FeatureMechanic @default(PASSIVE) @map("mechanic_type")
+  class               Class           @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  feature             Feature         @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
 
-  levelGranted     Int     @map("level_granted")
-  grantsSpellSlots Boolean @default(false) @map("grants_spell_slots")
-  
-  mechanicType FeatureMechanic @default(PASSIVE) @map("mechanic_type")
-  
-  mechanicMetadata Json? @map("mechanic_metadata")
-  
-  displayOrder Int @default(0) @map("display_order")
-  
-  mechanicDescription String? @map("mechanic_description") @db.Text
-
-  feature Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  class   Class   @relation(fields: [classId], references: [classId], onDelete: Cascade)
-
+  @@unique([classId, featureId])
   @@index([classId, levelGranted])
   @@index([mechanicType])
   @@map("class_feature")

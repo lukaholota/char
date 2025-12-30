@@ -1,34 +1,25 @@
-
 model ClassStartingEquipmentOption {
-  optionId Int @id @default(autoincrement()) @map("option_id")
-  classId  Int @map("class_id")
-  seedIndex Int @map("seed_index") @default(0)
-
-  choiceGroup Int    @map("choice_group")
-  option      String @db.Char(1)
-
-  weaponId        Int?    @map("weapon_id")
-  armorId         Int?    @map("armor_id")
-  equipmentPackId Int?    @map("equipment_pack_id")
+  optionId        Int            @id @default(autoincrement()) @map("option_id")
+  classId         Int            @map("class_id")
+  choiceGroup     Int            @map("choice_group")
+  option          String         @db.Char(1)
+  weaponId        Int?           @map("weapon_id")
+  armorId         Int?           @map("armor_id")
+  equipmentPackId Int?           @map("equipment_pack_id")
+  quantity        Int            @default(1)
+  chooseAnyArmor  Boolean        @default(false) @map("choose_any_armor")
+  armorType       ArmorType?     @map("armor_type")
+  chooseAnyWeapon Boolean        @default(false) @map("choose_any_weapon")
+  weaponType      WeaponType?    @map("weapon_type")
+  weaponCount     Int            @default(1) @map("weapon_count")
+  description     String?
   item            String?
+  seedIndex       Int            @unique @default(0) @map("seed_index")
+  armor           Armor?         @relation(fields: [armorId], references: [armorId])
+  class           Class          @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  equipmentPack   EquipmentPack? @relation(fields: [equipmentPackId], references: [equipmentPackId])
+  weapon          Weapon?        @relation(fields: [weaponId], references: [weaponId])
 
-  quantity Int @default(1)
-
-  chooseAnyArmor Boolean    @default(false) @map("choose_any_armor")
-  armorType      ArmorType? @map("armor_type")
-
-  chooseAnyWeapon Boolean     @default(false) @map("choose_any_weapon")
-  weaponType      WeaponType? @map("weapon_type")
-  weaponCount     Int         @default(1) @map("weapon_count")
-
-  description String? @db.Text
-
-  class         Class          @relation(fields: [classId], references: [classId], onDelete: Cascade)
-  weapon        Weapon?        @relation(fields: [weaponId], references: [weaponId])
-  armor         Armor?         @relation(fields: [armorId], references: [armorId])
-  equipmentPack EquipmentPack? @relation(fields: [equipmentPackId], references: [equipmentPackId])
-
-  @@unique([seedIndex])
   @@index([classId, choiceGroup, option])
   @@map("class_starting_equipment_option")
 }

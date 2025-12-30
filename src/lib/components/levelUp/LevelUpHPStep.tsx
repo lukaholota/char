@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Ability } from "@prisma/client";
 import type { FeatPrisma } from "@/lib/types/model-types";
 
 type Mode = "AVERAGE" | "RANDOM" | "MANUAL";
@@ -77,6 +76,7 @@ export default function LevelUpHPStep({
 }: Props) {
   const { formData, updateFormData } = usePersFormStore();
   const [mode, setMode] = useState<Mode>("AVERAGE");
+  const [hpInput, setHpInput] = useState<string>("");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const selectedFeat = useMemo(() => {
@@ -100,13 +100,27 @@ export default function LevelUpHPStep({
   }, [formData.levelUpHpIncrease]);
 
   useEffect(() => {
-    const disabled = typeof hpIncrease !== "number" || !Number.isFinite(hpIncrease) || hpIncrease < 0;
+    // Keep input in sync when value is set programmatically (average/random).
+    // Do not override while user is actively typing unless value is cleared.
+    if (typeof hpIncrease === "number") {
+      setHpInput(String(hpIncrease));
+    } else if (hpIncrease === undefined && mode === "MANUAL") {
+      setHpInput("");
+    }
+  }, [hpIncrease, mode]);
+
+  useEffect(() => {
+    const disabled = typeof hpIncrease !== "number" || !Number.isFinite(hpIncrease) || hpIncrease < 0 || hpIncrease > 1000;
     onNextDisabledChange?.(disabled);
   }, [hpIncrease, onNextDisabledChange]);
 
   const setHpIncrease = (value: number) => {
     const safe = Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
     updateFormData({ levelUpHpIncrease: safe });
+  };
+
+  const clearHpIncrease = () => {
+    updateFormData({ levelUpHpIncrease: undefined });
   };
 
   const applyAverage = () => {
@@ -165,12 +179,18 @@ export default function LevelUpHPStep({
               type="number"
               inputMode="numeric"
               min={0}
-              value={typeof hpIncrease === "number" ? hpIncrease : ""}
+              value={mode === "MANUAL" ? hpInput : typeof hpIncrease === "number" ? String(hpIncrease) : ""}
               onChange={(e) => {
                 setMode("MANUAL");
-                const val = Number(e.target.value);
+                const next = e.target.value;
+                setHpInput(next);
+                if (next.trim() === "") {
+                  clearHpIncrease();
+                  return;
+                }
+                const val = Number(next);
                 if (!Number.isFinite(val)) {
-                  updateFormData({ levelUpHpIncrease: undefined });
+                  clearHpIncrease();
                   return;
                 }
                 setHpIncrease(val);
@@ -180,6 +200,11 @@ export default function LevelUpHPStep({
             <p className="text-xs text-slate-400">
               Статура враховується автоматично й оновлюється після ASI/риси.
             </p>
+            {typeof hpIncrease === "number" && hpIncrease > 1000 && (
+              <p className="text-xs text-red-500 font-semibold animate-pulse">
+                Максимально допустимий приріст — 1000 HP
+              </p>
+            )}
           </div>
 
           <div className="flex flex-wrap gap-2">

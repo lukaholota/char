@@ -1,11 +1,9 @@
-
 model SpellbookSpells {
-  spellbookSpellId Int  @id @default(autoincrement()) @map("spellbook_spell_id")
-  spellId          Int? @map("spell_id")
-  spellbookId      Int? @map("spellbook_id")
-
-  spell     Spell?     @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
-  spellbook Spellbook? @relation(fields: [spellbookId], references: [spellbookId], onDelete: NoAction, onUpdate: NoAction)
+  spellbookSpellId Int        @id @default(autoincrement()) @map("spellbook_spell_id")
+  spellId          Int?       @map("spell_id")
+  spellbookId      Int?       @map("spellbook_id")
+  spell            Spell?     @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
+  spellbook        Spellbook? @relation(fields: [spellbookId], references: [spellbookId], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("spellbook_spells")
 }

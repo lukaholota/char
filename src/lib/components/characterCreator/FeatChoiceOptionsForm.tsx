@@ -12,7 +12,6 @@ import { useWatch } from "react-hook-form";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Skills } from "@prisma/client";
 import { SkillsEnum } from "@/lib/types/enums";
-import { engEnumSkills, expertiseTranslations } from "@/lib/refs/translation";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 
 interface Props {
@@ -362,11 +361,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
                   if (group.isSkill || group.isExpertise) {
                     // Extract skill name and translate it
                     const skillName = extractSkillFromOptionName(optionNameEng);
-                    const skillTranslation = engEnumSkills.find(s => s.eng === skillName)?.ukr 
-                      || expertiseTranslations[skillName as Skills];
+                    const skillTranslation = translateValue(skillName);
                     label = skillTranslation || label || skillName;
                   } else {
-                    label = label || optionNameEng;
+                    label = translateValue(label || optionNameEng);
                   }
 
                   return (

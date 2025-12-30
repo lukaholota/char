@@ -1,13 +1,10 @@
-
 model SubclassChoiceOption {
-  optionId       Int @id @default(autoincrement()) @map("option_id")
-  subclassId     Int @map("subclass_id")
-  choiceOptionId Int @map("choice_option_id")
-
-  levelsGranted Int[] @map("levels_granted")
-
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
-  subclass     Subclass     @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
+  optionId       Int          @id @default(autoincrement()) @map("option_id")
+  subclassId     Int          @map("subclass_id")
+  choiceOptionId Int          @map("choice_option_id")
+  levelsGranted  Int[]        @map("levels_granted")
+  choiceOption   ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
+  subclass       Subclass     @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
   @@unique([subclassId, choiceOptionId], name: "unique_subclass_choice")
   @@map("subclass_choice_option")

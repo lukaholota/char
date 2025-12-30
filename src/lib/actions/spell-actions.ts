@@ -178,7 +178,7 @@ export async function toggleSpellForPers({
       where: { persSpellId: existing.persSpellId },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     return { success: true, added: false };
   }
 
@@ -191,7 +191,7 @@ export async function toggleSpellForPers({
     },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   return { success: true, added: true };
 }
 
@@ -225,7 +225,7 @@ export async function removeSpellFromPers({
     where: { persId, spellId },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   return { success: true };
 }
 

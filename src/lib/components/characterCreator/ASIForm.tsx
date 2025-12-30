@@ -4,7 +4,7 @@ import { useStepForm } from "@/hooks/useStepForm";
 import { Ability, Classes } from "@prisma/client";
 import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { classAbilityScores } from "@/lib/refs/classesBaseASI";
 import { ClassI, RaceI, RaceASI } from "@/lib/types/model-types";
@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { RaceVariant } from "@prisma/client";
+import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
 
 
 interface Props {
@@ -58,13 +59,28 @@ export const ASIForm = (
   { race, raceVariant, selectedClass, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
 ) => {
   const { updateFormData, nextStep } = usePersFormStore();
+
+  const subraceId = usePersFormStore((s) => s.formData.subraceId);
+  const storeRaceVariantId = usePersFormStore((s) => s.formData.raceVariantId);
+
+  const subrace = useMemo(() => {
+    return (race.subraces || []).find((sr: any) => sr.subraceId === (subraceId ?? undefined));
+  }, [race, subraceId]);
   
   const raceAsi = useMemo(() => {
     if (raceVariant?.overridesRaceASI) {
-      return raceVariant.overridesRaceASI as unknown as RaceASI;
+      return normalizeRaceASI(raceVariant.overridesRaceASI) as unknown as RaceASI;
     }
-    return race.ASI;
+    return normalizeRaceASI(race.ASI) as RaceASI;
   }, [race, raceVariant]);
+
+  const subraceFixedAsi = useMemo(() => {
+    const map = (subrace as any)?.additionalASI as Record<string, number> | undefined;
+    if (!map || typeof map !== "object") return {} as Record<string, number>;
+    return Object.fromEntries(
+      Object.entries(map).filter(([, v]) => typeof v === "number" && Number(v) !== 0)
+    ) as Record<string, number>;
+  }, [subrace]);
 
   const { form, onSubmit } = useStepForm(asiSchema, (data) => {
     // Save the entire ASI data object
@@ -96,7 +112,7 @@ export const ASIForm = (
     name: 'simpleAsi'
   })
 
-  const isDefaultASI = form.watch('isDefaultASI') || false
+  const isDefaultASI = form.watch('isDefaultASI') ?? true
   const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
   const points = form.watch('points') || 0
 
@@ -284,11 +300,69 @@ export const ASIForm = (
     setPrevRaceId(race.raceId)
   }, [form, prevRaceId, race.raceId, setPrevRaceId])
 
+  const prevRaceDetailsRef = useRef<{
+    subraceId: number | undefined;
+    raceVariantId: number | null | undefined;
+  }>({
+    subraceId,
+    raceVariantId: storeRaceVariantId,
+  });
+
+  useEffect(() => {
+    const prev = prevRaceDetailsRef.current;
+    if (prev.subraceId !== subraceId || prev.raceVariantId !== storeRaceVariantId) {
+      form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
+      form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
+    }
+
+    prevRaceDetailsRef.current = {
+      subraceId,
+      raceVariantId: storeRaceVariantId,
+    };
+  }, [form, storeRaceVariantId, subraceId]);
+
+  const subraceAsiGroups = useMemo(() => {
+    // Convert fixed additionalASI into "flexible" groups for Tasha-style picking.
+    // Example: { STR: 2, CON: 1 } -> groups: (+2 choose 1 unique), (+1 choose 1 unique)
+    const entries = Object.entries(subraceFixedAsi);
+    if (!entries.length) {
+      return [] as Array<{ groupName: string; value: number; choiceCount: number; unique: boolean }>;
+    }
+
+    // Under Tasha-style allocation we want these bonuses to be free-pick (any ability),
+    // but preserve how many bonuses of a given value exist.
+    const byValue = new Map<number, number>();
+    for (const [_ability, value] of entries) {
+      const num = Number(value);
+      if (!Number.isFinite(num) || num === 0) continue;
+      byValue.set(num, (byValue.get(num) ?? 0) + 1);
+    }
+
+    // Each distinct value becomes its own group. choiceCount = count of bonuses with that value.
+    // In Tasha mode, user can assign them to any abilities (unique rules prevent duplicates between groups).
+    const groups = Array.from(byValue.entries())
+      .sort((a, b) => b[0] - a[0])
+      .map(([value, count]) => ({
+        groupName: `+${value} до ${count}`,
+        value,
+        choiceCount: count,
+        unique: true,
+      }));
+
+    return groups;
+  }, [subraceFixedAsi]);
+
   const racialBonusGroups = useMemo(() => {
-    return isDefaultASI
-      ? raceAsi.basic?.flexible?.groups
-      : raceAsi.tasha?.flexible.groups
-  }, [isDefaultASI, raceAsi])
+    const baseGroups = isDefaultASI
+      ? (raceAsi.basic?.flexible?.groups ?? [])
+      : (raceAsi.tasha?.flexible.groups ?? []);
+
+    if (!isDefaultASI && subraceAsiGroups.length) {
+      return [...baseGroups, ...subraceAsiGroups];
+    }
+
+    return baseGroups;
+  }, [isDefaultASI, raceAsi, subraceAsiGroups])
 
   const systemCopy: Record<string, string> = {
     [asiSystems.POINT_BUY]: 'Розподіляйте бюджет очок і отримайте контроль над кожною характеристикою.',
@@ -510,7 +584,7 @@ export const ASIForm = (
           )}
 
           {racialBonusGroups?.length ? (
-            racialBonusGroups.map((group, index) => (
+            racialBonusGroups.map((group: any, index) => (
               <div
                 key={index}
                 className="glass-panel border-gradient-rpg rounded-xl p-4"
@@ -538,16 +612,22 @@ export const ASIForm = (
 
                     const currentGroup = formGroups.find((g) => g.groupIndex === index);
 
+                    const areAllUnique = (racialBonusGroups?.length ?? 0) > 0
+                      && racialBonusGroups.every((flexGroup: any) => flexGroup.unique);
+
                     const uniqueDisabled = isDefaultASI
                       ? (
                         raceAsi.basic?.simple
                         && (raceAsi.basic?.flexible?.groups?.length ?? 0) > 0
                         && (raceAsi.basic?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
-                        && (Object.keys(raceAsi.basic?.simple ?? {}).includes(attr.eng))
+                        && (Object.keys({
+                          ...(raceAsi.basic?.simple ?? {}),
+                          ...subraceFixedAsi,
+                        }).includes(attr.eng))
                       )
                       : (
-                        (raceAsi.tasha?.flexible.groups.length ?? 0) > 1
-                        && (raceAsi.tasha?.flexible?.groups?.every((flexGroup) => flexGroup.unique))
+                        (racialBonusGroups.length ?? 0) > 1
+                        && areAllUnique
                         && (formGroups?.some((flexGroup) =>
                           (flexGroup.groupIndex !== (currentGroup?.groupIndex ?? index))
                           && (flexGroup.selectedAbilities.includes(attr.eng))
@@ -583,9 +663,17 @@ export const ASIForm = (
             <p className="text-sm text-slate-400">Для цієї раси немає гнучких бонусів.</p>
           )}
 
-          {isDefaultASI && Object.entries(raceAsi.basic?.simple || {}).length > 0 && (
+          {isDefaultASI && (
+            Object.entries({
+              ...(raceAsi.basic?.simple || {}),
+              ...subraceFixedAsi,
+            }).length > 0
+          ) && (
             <div className="grid gap-3 sm:grid-cols-2">
-              {Object.entries(raceAsi.basic?.simple || {}).map(([attrEng, value], index) => {
+              {Object.entries({
+                ...(raceAsi.basic?.simple || {}),
+                ...subraceFixedAsi,
+              }).map(([attrEng, value], index) => {
                 const attr = attributes.find((a) => a.eng === attrEng);
 
                 return (
@@ -602,6 +690,7 @@ export const ASIForm = (
               })}
             </div>
           )}
+
         </CardContent>
       </Card>
 
@@ -629,9 +718,6 @@ export const ASIForm = (
             </Label>
           </div>
         </div>
-        <p className="text-xs text-right text-slate-500">
-          Кнопки навігації завжди внизу екрана.
-        </p>
       </div>
     </form>
   )

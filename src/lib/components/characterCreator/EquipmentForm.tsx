@@ -3,7 +3,7 @@ import {useStepForm} from "@/hooks/useStepForm";
 import {ClassI, RaceI} from "@/lib/types/model-types";
 import {useEffect, useMemo, useState} from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { ClassStartingEquipmentOption, Weapon, WeaponType } from "@prisma/client";
+import { Weapon, WeaponType } from "@prisma/client";
 import {groupBy} from "@/lib/server/formatters/generalFormatters";
 import clsx from "clsx";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,6 +14,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WeaponKindType } from "@/lib/types/enums";
 import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
+import { HelpCircle } from "lucide-react";
+import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 
 interface Props {
   race: RaceI
@@ -39,10 +41,12 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
   const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
   const anyWeaponSelection = (form.watch('anyWeaponSelection') ?? {}) as Record<string, number[]>
 
+  type StartingEquipmentOptionLike = NonNullable<ClassI["startingEquipmentOption"]>[number];
+
   const choiceGroups = selectedClass.startingEquipmentOption
-  const choiceGroupsGrouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = useMemo(() => {
+  const choiceGroupsGrouped: Record<string, Record<string, StartingEquipmentOptionLike[]>> = useMemo(() => {
     const raw = groupBy(choiceGroups ?? [], (group) => group.choiceGroup)
-    const grouped: Record<string, Record<string, ClassStartingEquipmentOption[]>> = {}
+    const grouped: Record<string, Record<string, StartingEquipmentOptionLike[]>> = {}
     for (const [choiceGroup, group] of Object.entries(raw)) {
       grouped[choiceGroup] = groupBy(group, (g) => g.option)
     }
@@ -76,9 +80,14 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
   });
   const [selectedWeaponId, setSelectedWeaponId] = useState<number | null>(null);
 
+  const [packInfoOpen, setPackInfoOpen] = useState(false);
+  const [packInfoTitle, setPackInfoTitle] = useState<string>("");
+  const [packInfoDescription, setPackInfoDescription] = useState<string>("");
+  const [packInfoItems, setPackInfoItems] = useState<Array<{ name: string; quantity: number }>>([]);
+
   useModalBackButton(weaponDialogOpen, () => setWeaponDialogOpen(false));
 
-  const chooseOption = (optionGroup: ClassStartingEquipmentOption[]) => {
+  const chooseOption = (optionGroup: StartingEquipmentOptionLike[]) => {
     const choiceGroup = optionGroup[0].choiceGroup
     const newOptions = optionGroup.map(g => g.optionId)
 
@@ -131,6 +140,23 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
     form.register("choiceGroupToId");
     form.register("anyWeaponSelection");
   }, [form]);
+
+  const openPackInfo = (title: string, entry: StartingEquipmentOptionLike) => {
+    const pack = (entry as any).equipmentPack as any;
+    const rawItems = Array.isArray(pack?.items) ? (pack.items as any[]) : [];
+    const items = rawItems
+      .map((it) => {
+        const name = typeof it?.name === "string" ? it.name : "";
+        const qty = Number(it?.quantity);
+        return { name, quantity: Number.isFinite(qty) ? qty : 1 };
+      })
+      .filter((x) => x.name);
+
+    setPackInfoTitle(title);
+    setPackInfoDescription(String(pack?.description ?? entry.description ?? ""));
+    setPackInfoItems(items);
+    setPackInfoOpen(true);
+  };
 
   useEffect(() => {
     onNextDisabledChange?.(false);
@@ -256,17 +282,52 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
                           ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5"
                           : "border-white/10 bg-white/5"
                       )}
+                      role="button"
+                      tabIndex={0}
+                      onClick={(e) => {
+                        const target = e.target as HTMLElement | null;
+                        if (target?.closest?.('[data-stop-card-click]')) return;
+                        chooseOption(optionGroup);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key !== "Enter" && e.key !== " ") return;
+                        const target = e.target as HTMLElement | null;
+                        if (target?.closest?.('[data-stop-card-click]')) return;
+                        e.preventDefault();
+                        chooseOption(optionGroup);
+                      }}
                     >
-                      <label className="flex items-center gap-2 text-slate-200 cursor-pointer">
-                        <input
-                          type="radio"
-                          name={ choiceGroup }
-                          onChange={ () => chooseOption(optionGroup) }
-                          checked={checked}
-                          className="h-4 w-4"
-                        />
-                        <span>{output}</span>
-                      </label>
+                      <div className="flex items-start justify-between gap-3">
+                        <label className="flex items-center gap-2 text-slate-200 cursor-pointer">
+                          <input
+                            type="radio"
+                            name={ choiceGroup }
+                            onChange={ () => chooseOption(optionGroup) }
+                            checked={checked}
+                            className="h-4 w-4"
+                          />
+                          <span>{output}</span>
+                        </label>
+
+                        {(entry as any)?.equipmentPack ? (
+                          <div
+                            data-stop-card-click
+                            onPointerDown={(e) => e.stopPropagation()}
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Button
+                              type="button"
+                              size="icon"
+                              variant="secondary"
+                              className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
+                              aria-label={`Що входить до: ${output}`}
+                              onClick={() => openPackInfo(output || "Набір", entry)}
+                            >
+                              <HelpCircle className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        ) : null}
+                      </div>
                       {hasAnyWeapon && checked && (
                         <div className="mt-2 space-y-2">
                           {Array.from({ length: entry.weaponCount || 1 }).map((_, weaponIdx) => {
@@ -282,7 +343,12 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
                                   size="sm"
                                   variant="secondary"
                                   className="border border-white/15 bg-white/5 text-slate-100 hover:bg-white/7"
-                                  onClick={() => openWeaponDialog(choiceGroup, entry.weaponType === WeaponType.MARTIAL_WEAPON, weaponIdx)}
+                                  data-stop-card-click
+                                  onPointerDown={(e) => e.stopPropagation()}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    openWeaponDialog(choiceGroup, entry.weaponType === WeaponType.MARTIAL_WEAPON, weaponIdx);
+                                  }}
                                 >
                                   Обрати зброю
                                 </Button>
@@ -300,6 +366,36 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
         </CardContent>
       </Card>
       {renderWeaponDialog()}
+
+      <ControlledInfoDialog
+        open={packInfoOpen}
+        onOpenChange={setPackInfoOpen}
+        title={packInfoTitle || "Набір"}
+        subtitle={packInfoItems.length ? `Предметів: ${packInfoItems.length}` : undefined}
+        contentClassName="max-w-2xl"
+      >
+        <div className="space-y-3">
+          {packInfoDescription ? (
+            <div className="text-sm text-slate-200/90">{packInfoDescription}</div>
+          ) : null}
+
+          <div className="space-y-2">
+            <InfoSectionTitle>Вміст</InfoSectionTitle>
+            {packInfoItems.length ? (
+              <div className="space-y-2">
+                {packInfoItems.map((it) => (
+                  <div key={`${it.name}-${it.quantity}`} className="glass-panel rounded-xl border border-slate-800/70 p-3">
+                    <div className="text-sm font-semibold text-white">{it.name}</div>
+                    <div className="text-xs text-slate-300">Кількість: {it.quantity}</div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-sm text-slate-400">Немає даних</div>
+            )}
+          </div>
+        </div>
+      </ControlledInfoDialog>
     </form>
   )
 };

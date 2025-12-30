@@ -9,13 +9,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { History, Eye, Play, Check } from "lucide-react";
-import { getSnapshots, activateSnapshot } from "@/lib/actions/snapshot-actions";
+import { History as HistoryIcon, Eye, Copy } from "lucide-react";
+import { getSnapshots } from "@/lib/actions/snapshot-actions";
+import { duplicatePers } from "@/lib/actions/pers";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { uk } from "date-fns/locale";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 
 interface Snapshot {
   persId: number;
@@ -29,11 +29,26 @@ interface Snapshot {
 interface SnapshotHistoryModalProps {
   persId: number;
   characterName: string;
+  openOverride?: boolean;
+  onOpenChangeOverride?: (open: boolean) => void;
+  noButtonTrigger?: boolean;
+  onSuccess?: (pers: any) => void;
 }
 
-export function SnapshotHistoryModal({ persId, characterName }: SnapshotHistoryModalProps) {
+export function SnapshotHistoryModal({ 
+  persId, 
+  characterName, 
+  openOverride, 
+  onOpenChangeOverride,
+  noButtonTrigger: hideTrigger,
+  onSuccess
+}: SnapshotHistoryModalProps) {
   const [snapshots, setSnapshots] = useState<Snapshot[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(false);
+  
+  const isOpen = openOverride !== undefined ? openOverride : internalOpen;
+  const setIsOpen = onOpenChangeOverride !== undefined ? onOpenChangeOverride : setInternalOpen;
+
   const [isPending, startTransition] = useTransition();
 
   const loadSnapshots = async () => {
@@ -48,29 +63,42 @@ export function SnapshotHistoryModal({ persId, characterName }: SnapshotHistoryM
     }
   };
 
-  const handleActivate = (snapshotId: number) => {
+  const handleCopy = (snapshotId: number) => {
     startTransition(async () => {
-      const result = await activateSnapshot(snapshotId);
-      if (result.success) {
-        toast.success("Знімок активовано!");
-        loadSnapshots();
+      const result = await duplicatePers(snapshotId);
+      if (result.success && result.pers) {
+        toast.success("Створено нову копію персонажа!");
+        onSuccess?.(result.pers);
+        setIsOpen(false); 
       } else {
-        toast.error(result.error || "Не вдалося активувати знімок");
+        toast.error(result.error || "Не вдалося скопіювати знімок");
       }
     });
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={(e) => e.stopPropagation()}>
-          <History className="h-4 w-4" />
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] glass-card border-white/10 text-slate-100">
+      {!hideTrigger && (
+        <DialogTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <HistoryIcon className="h-4 w-4" />
+          </Button>
+        </DialogTrigger>
+      )}
+      <DialogContent 
+        className="sm:max-w-[500px] glass-card border-white/10 text-slate-100"
+        onClick={(e) => e.stopPropagation()}
+      >
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <History className="h-5 w-5" />
+            <HistoryIcon className="h-5 w-5" />
             Історія: {characterName}
           </DialogTitle>
         </DialogHeader>
@@ -89,11 +117,6 @@ export function SnapshotHistoryModal({ persId, characterName }: SnapshotHistoryM
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="font-medium">Рівень {snapshot.snapshotLevel || snapshot.level}</span>
-                    {snapshot.isActive && (
-                      <Badge variant="outline" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 py-0 h-5">
-                        <Check className="h-3 w-3 mr-1" /> Активний
-                      </Badge>
-                    )}
                   </div>
                   <p className="text-xs text-slate-400">
                     {format(new Date(snapshot.createdAt), "d MMMM yyyy, HH:mm", { locale: uk })}
@@ -101,27 +124,30 @@ export function SnapshotHistoryModal({ persId, characterName }: SnapshotHistoryM
                 </div>
                 
                 <div className="flex gap-2">
-                  <Link href={`/pers/${snapshot.persId}`} target="_blank">
+                  <Link href={`/char/${snapshot.persId}`} target="_blank">
                     <Button variant="ghost" size="icon" title="Переглянути">
                       <Eye className="h-4 w-4" />
                     </Button>
                   </Link>
-                  
-                  {!snapshot.isActive && (
-                    <Button 
+                                     <Button 
                       variant="ghost" 
                       size="icon" 
-                      title="Активувати"
+                      title="Скопіювати"
                       disabled={isPending}
-                      onClick={() => handleActivate(snapshot.persId)}
+                      onClick={() => handleCopy(snapshot.persId)}
                     >
-                      <Play className="h-4 w-4" />
+                      <Copy className="h-4 w-4" />
                     </Button>
-                  )}
                 </div>
               </div>
             ))
           )}
+        </div>
+        
+        <div className="mt-4 pt-4 border-t border-white/5">
+          <p className="text-[10px] uppercase font-bold tracking-[0.16em] text-cyan-400 text-center">
+            потрібно зіграти іншим рівнем? скопіюйте з історії!
+          </p>
         </div>
       </DialogContent>
     </Dialog>

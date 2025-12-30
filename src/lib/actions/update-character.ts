@@ -9,6 +9,7 @@ export type UpdateCharacterPayload = {
   data: {
     customProficiencies?: string;
     customLanguagesKnown?: string;
+    customEquipment?: string;
     personalityTraits?: string;
     ideals?: string;
     bonds?: string;
@@ -51,6 +52,7 @@ export async function updateCharacterAction(payload: UpdateCharacterPayload): Pr
     data: {
       ...(typeof d.customProficiencies === "string" ? { customProficiencies: d.customProficiencies } : {}),
       ...(typeof d.customLanguagesKnown === "string" ? { customLanguagesKnown: d.customLanguagesKnown } : {}),
+      ...(typeof d.customEquipment === "string" ? { customEquipment: d.customEquipment } : {}),
       ...(typeof d.personalityTraits === "string" ? { personalityTraits: d.personalityTraits } : {}),
       ...(typeof d.ideals === "string" ? { ideals: d.ideals } : {}),
       ...(typeof d.bonds === "string" ? { bonds: d.bonds } : {}),
@@ -67,7 +69,7 @@ export async function updateCharacterAction(payload: UpdateCharacterPayload): Pr
     },
   });
 
-  revalidatePath(`/pers/${payload.persId}`);
+  revalidatePath(`/char/${payload.persId}`);
   revalidatePath(`/character/${payload.persId}`);
 
   return { success: true };

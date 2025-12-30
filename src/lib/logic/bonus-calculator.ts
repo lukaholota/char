@@ -3,8 +3,8 @@
  * All functions handle null/undefined JSON fields gracefully
  */
 
-import { Ability, Skills, SkillProficiencyType, ArmorType } from "@prisma/client";
-import { PersWithRelations } from "@/lib/actions/pers";
+import { Ability, Skills, SkillProficiencyType, ArmorType, WeaponProperty } from "@prisma/client";
+import { PersWithRelations, PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { getAbilityMod, getProficiencyBonus, skillAbilityMap } from "./utils";
 import { StatBonuses, SkillBonuses, SimpleBonusValue } from "@/lib/types/model-types";
 
@@ -76,6 +76,63 @@ export function getSimpleBonus(pers: PersWithRelations, field: 'hp' | 'ac' | 'sp
 // Final Value Calculators
 // ============================================================================
 
+// ============================================================================
+// Magic Item Helpers
+// ============================================================================
+
+function getActiveMagicItems(pers: PersWithRelations) {
+  if (!pers.magicItems) return [];
+  return pers.magicItems.filter(pmi => 
+    pmi.isEquipped && 
+    (!pmi.magicItem?.requiresAttunement || pmi.isAttuned)
+  );
+}
+
+function getMagicItemACBonus(pers: PersWithRelations, hasArmor: boolean, hasShield: boolean): number {
+  const items = getActiveMagicItems(pers);
+  let bonus = 0;
+  for (const item of items) {
+     if (item.magicItem?.bonusToAC) {
+        if (item.magicItem.noArmorOrShieldForACBonus) {
+           if (!hasArmor && !hasShield) {
+              bonus += item.magicItem.bonusToAC;
+           }
+        } else {
+           bonus += item.magicItem.bonusToAC;
+        }
+     }
+  }
+  return bonus;
+}
+
+function getMagicItemSaveBonus(pers: PersWithRelations, ability: Ability): number {
+  const items = getActiveMagicItems(pers);
+  let bonus = 0;
+  for (const item of items) {
+    const saves = item.magicItem?.bonusToSavingThrows as Record<string, number> | null;
+    if (saves) {
+      if (typeof saves.all === 'number') bonus += saves.all;
+      if (typeof saves[ability.toLowerCase()] === 'number') bonus += saves[ability.toLowerCase()];
+    }
+  }
+  return bonus;
+}
+
+function getMagicItemRangedDamageBonus(pers: PersWithRelations): number {
+    const items = getActiveMagicItems(pers);
+    let bonus = 0;
+    for (const item of items) {
+        if (item.magicItem?.bonusToRangedDamage) {
+            bonus += item.magicItem.bonusToRangedDamage;
+        }
+    }
+    return bonus;
+}
+
+// ============================================================================
+// Final Value Calculators
+// ============================================================================
+
 /** Get base stat value for an ability */
 function getBaseStat(pers: PersWithRelations, ability: Ability): number {
   const statMap: Record<Ability, number> = {
@@ -117,7 +174,10 @@ export function calculateFinalSave(
   const miscBonuses = (pers as unknown as { miscSaveBonuses?: Record<string, number> }).miscSaveBonuses ?? {};
   const miscBonus = miscBonuses[ability] ?? 0;
   
-  return mod + pb + saveBonus + miscBonus;
+  // Add Magic Item bonuses
+  const magicItemBonus = getMagicItemSaveBonus(pers, ability);
+
+  return mod + pb + saveBonus + miscBonus + magicItemBonus;
 }
 
 /** Calculate final skill modifier */
@@ -141,6 +201,7 @@ export function calculateFinalSkill(
   const pb = calculateFinalProficiency(pers);
   let total = abilityMod + modBonus;
   
+  if (proficiency === SkillProficiencyType.HALF) total += Math.floor(pb / 2);
   if (proficiency === SkillProficiencyType.PROFICIENT) total += pb;
   if (proficiency === SkillProficiencyType.EXPERTISE) total += pb * 2;
   
@@ -164,6 +225,9 @@ export function calculateFinalAC(pers: PersWithRelations): number {
   
   let baseAC = 10 + dexMod; // default unarmored
   
+  const hasArmor = !!equippedArmor;
+  const hasShield = pers.wearsShield;
+
   if (equippedArmor) {
     const armorBase = equippedArmor.overrideBaseAC ?? equippedArmor.armor.baseAC;
     const armorType = equippedArmor.armor.armorType;
@@ -179,12 +243,17 @@ export function calculateFinalAC(pers: PersWithRelations): number {
   }
   
   // 2. Add shield
-  if (pers.wearsShield) {
+  if (hasShield) {
     baseAC += 2 + pers.additionalShieldBonus;
   }
   
   // 3. Add custom AC bonuses from simple bonus system
-  return baseAC + getSimpleBonus(pers, "ac");
+  baseAC += getSimpleBonus(pers, "ac");
+
+  // 4. Add Magic Items AC bonus
+  baseAC += getMagicItemACBonus(pers, hasArmor, hasShield);
+
+  return baseAC;
 }
 
 /** Calculate final speed (base 30 + bonuses) */
@@ -216,6 +285,55 @@ export function calculateSpellDC(pers: PersWithRelations, spellcastingAbility: A
   const mod = calculateFinalModifier(pers, spellcastingAbility);
   const pb = calculateFinalProficiency(pers);
   return 8 + mod + pb + getSimpleBonus(pers, "spellDC");
+}
+
+// ==========================================================================
+// Weapon math (shared between UI and PDF)
+// ==========================================================================
+
+function toNumber(value: unknown, fallback = 0): number {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string" && value.trim() !== "") {
+    const parsed = Number(value);
+    if (Number.isFinite(parsed)) return parsed;
+  }
+  return fallback;
+}
+
+export function getWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
+  if (pw.customDamageAbility) return pw.customDamageAbility;
+
+  const weapon = pw.weapon;
+  if (weapon?.isRanged) return Ability.DEX;
+
+  const isFinesse = Boolean(weapon?.properties?.includes(WeaponProperty.FINESSE));
+  if (isFinesse) {
+    const strMod = calculateFinalModifier(pers, Ability.STR);
+    const dexMod = calculateFinalModifier(pers, Ability.DEX);
+    return dexMod >= strMod ? Ability.DEX : Ability.STR;
+  }
+
+  return Ability.STR;
+}
+
+export function calculateWeaponAttackBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {
+  const ability = getWeaponAbility(pers, pw);
+  const mod = calculateFinalModifier(pers, ability);
+  const pb = pw.isProficient ? calculateFinalProficiency(pers) : 0;
+  return mod + pb + toNumber(pw.attackBonus, 0);
+}
+
+export function calculateWeaponDamageBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {
+  const ability = getWeaponAbility(pers, pw);
+  const mod = calculateFinalModifier(pers, ability);
+  let bonus = mod + toNumber(pw.customDamageBonus, 0);
+
+  // Add magic item ranged damage bonus if applicable
+  if (pw.weapon && pw.weapon.isRanged) {
+      bonus += getMagicItemRangedDamageBonus(pers);
+  }
+
+  return bonus;
 }
 
 // ============================================================================

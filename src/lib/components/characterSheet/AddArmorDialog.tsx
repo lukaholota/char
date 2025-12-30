@@ -10,7 +10,7 @@ import {
   addArmor 
 } from "@/lib/actions/equipment-actions";
 import { armorTranslations, armorTypeTranslations } from "@/lib/refs/translation";
-import { Armor } from "@prisma/client";
+import { Armor, ArmorType } from "@prisma/client";
 import { toast } from "sonner";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 
@@ -23,7 +23,7 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
   const [open, setOpen] = useState(false);
   const [armors, setArmors] = useState<Armor[]>([]);
   const [search, setSearch] = useState("");
-  const [typeFilter, setTypeFilter] = useState<string>("ALL");
+  const [typeFilter, setTypeFilter] = useState<ArmorType | "ALL">("ALL");
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,10 +31,12 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
 
   useEffect(() => {
     if (open) {
+      setSearch("");
+      setTypeFilter("ALL");
       setIsLoading(true);
       getBaseEquipment().then((res) => {
         if (res.success && res.armors) {
-          setArmors(res.armors.filter(a => a.armorType !== "SHIELD"));
+          setArmors(res.armors.filter((a) => a.armorType !== ArmorType.SHIELD));
         }
         setIsLoading(false);
       });
@@ -47,6 +49,10 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
     const matchesType = typeFilter === "ALL" || a.armorType === typeFilter;
     return matchesSearch && matchesType;
   });
+
+  const uniqueArmors = Array.from(
+    new Map(filteredArmors.map((a) => [a.name, a])).values()
+  );
 
   const handleAdd = (armor: Armor) => {
     startTransition(async () => {
@@ -68,6 +74,7 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
   const handleAddCustom = () => {
     startTransition(async () => {
         const res = await addArmor(persId, null, {
+          overrideName: "Кастомний обладунок",
           overrideBaseAC: 10,
           isProficient: true,
           equipped: false,
@@ -119,22 +126,22 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
                 onClick={() => setTypeFilter("ALL")}
               >Всі</Button>
               <Button 
-                variant={typeFilter === "LIGHT_ARMOR" ? "secondary" : "outline"} 
+                variant={typeFilter === ArmorType.LIGHT ? "secondary" : "outline"} 
                 size="sm" 
                 className="h-7 text-[10px] px-2"
-                onClick={() => setTypeFilter("LIGHT_ARMOR")}
+                onClick={() => setTypeFilter(ArmorType.LIGHT)}
               >Легкий</Button>
               <Button 
-                variant={typeFilter === "MEDIUM_ARMOR" ? "secondary" : "outline"} 
+                variant={typeFilter === ArmorType.MEDIUM ? "secondary" : "outline"} 
                 size="sm" 
                 className="h-7 text-[10px] px-2"
-                onClick={() => setTypeFilter("MEDIUM_ARMOR")}
+                onClick={() => setTypeFilter(ArmorType.MEDIUM)}
               >Середній</Button>
               <Button 
-                variant={typeFilter === "HEAVY_ARMOR" ? "secondary" : "outline"} 
+                variant={typeFilter === ArmorType.HEAVY ? "secondary" : "outline"} 
                 size="sm" 
                 className="h-7 text-[10px] px-2"
-                onClick={() => setTypeFilter("HEAVY_ARMOR")}
+                onClick={() => setTypeFilter(ArmorType.HEAVY)}
               >Важкий</Button>
             </div>
           </div>
@@ -152,8 +159,8 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
           <div className="space-y-2">
             {isLoading ? (
               <div className="text-center py-8 text-slate-400">Завантаження...</div>
-            ) : filteredArmors.length > 0 ? (
-              filteredArmors.map((a) => (
+            ) : uniqueArmors.length > 0 ? (
+              uniqueArmors.map((a) => (
                 <div
                   key={a.armorId}
                   className="flex items-center justify-between p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition group"

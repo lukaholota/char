@@ -1,28 +1,19 @@
-
 model ClassOptionalFeature {
-  optionalFeatureId Int  @id @default(autoincrement()) @map("option_feature_id")
-  featureId         Int? @map("feature_id")
-  classId           Int  @map("class_id")
-
-  seedIndex Int @map("seed_index") @default(0)
-
-  grantedOnLevels Int[]
-
-  replacesFightingStyle Boolean?
-  replacesManeuver      Boolean?
-  replacesInvocation    Boolean? @map("replaces_invocation")
-
-  title String? @db.VarChar(100)
-
-  prerequisites Json?
-
-  perses  Pers[]
-  class   Class    @relation(fields: [classId], references: [classId], onDelete: Cascade)
-  feature Feature? @relation("GrantedFeature", fields: [featureId], references: [featureId], onDelete: Cascade)
-
+  optionalFeatureId         Int                                   @id @default(autoincrement()) @map("option_feature_id")
+  featureId                 Int?                                  @map("feature_id")
+  classId                   Int                                   @map("class_id")
+  grantedOnLevels           Int[]
+  replacesFightingStyle     Boolean?
+  replacesManeuver          Boolean?
+  replacesInvocation        Boolean?                              @map("replaces_invocation")
+  title                     String?                               @db.VarChar(100)
+  prerequisites             Json?
+  seedIndex                 Int                                   @unique @default(0) @map("seed_index")
+  class                     Class                                 @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  feature                   Feature?                              @relation("GrantedFeature", fields: [featureId], references: [featureId], onDelete: Cascade)
   replacesFeatures          ClassOptionalFeatureReplacesFeature[]
-  appearsOnlyIfChoicesTaken ChoiceOption[]
+  appearsOnlyIfChoicesTaken ChoiceOption[]                        @relation("ChoiceOptionToClassOptionalFeature")
+  perses                    Pers[]                                @relation("ClassOptionalFeatureToPers")
 
-  @@unique([seedIndex])
   @@map("class_optional_feature")
 }

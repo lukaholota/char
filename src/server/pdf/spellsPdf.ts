@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { existsSync } from "node:fs";
+import { getFontsCss } from "./pdfUtils";
 
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
@@ -84,25 +85,21 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
     })
   );
 
-  const html = `<!doctype html>
+    const fontsCss = getFontsCss();
+
+    const html = `<!doctype html>
 <html lang="uk">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Spells Print</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-
     <style>
+      ${fontsCss}
       @page { size: letter portrait; margin: 16mm 12mm; }
       * { box-sizing: border-box; }
       body {
-        font-family: "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-family: "NotoSansLocal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
         color: #0f172a;
         background: #ffffff;
         margin: 0;
@@ -118,8 +115,8 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
         padding: 0 0 10px 0;
         margin: 0 0 12px 0;
         border-bottom: 1px solid rgba(15, 23, 42, 0.18);
-        break-inside: avoid-column;
-        page-break-inside: avoid;
+        break-inside: auto;
+        page-break-inside: auto;
       }
       .header { display:flex; align-items: baseline; justify-content: space-between; gap: 12px; }
       .name { font-family: "Noto Serif", Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; margin: 0; }
@@ -137,7 +134,6 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
       .desc table { width: 100%; border-collapse: collapse; margin: 8px 0; }
       .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 6px; text-align: left; }
       .desc ul, .desc ol { margin: 0 0 8px 18px; }
-      .generated { column-span: all; margin-top: 14px; font-size: 10px; color: rgba(15,23,42,0.6); }
     </style>
   </head>
   <body>
@@ -166,7 +162,6 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
         )
         .join("\n")}
       </div>
-      <div class="generated">сформовано на spells.holota.family | pers.holota.family</div>
     </div>
   </body>
 </html>`;
@@ -191,12 +186,15 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
     });
 
     const page = await browser.newPage();
-    await page.setContent(html, { waitUntil: "networkidle0" });
+    await page.setContent(html, { waitUntil: "load", timeout: 60000 });
 
     const pdfBuffer = await page.pdf({
       printBackground: true,
+      preferCSSPageSize: true,
+      scale: 0.98,
       format: "letter",
       margin: { top: "16mm", right: "12mm", bottom: "16mm", left: "12mm" },
+      timeout: 60000,
     });
 
     return Uint8Array.from(pdfBuffer);

@@ -50,12 +50,15 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
     return matchesSearch && matchesType && matchesRanged;
   });
 
+  const uniqueWeapons = Array.from(
+    new Map(filteredWeapons.map((w) => [w.name, w])).values()
+  );
+
   const handleAdd = (weapon: Weapon) => {
     startTransition(async () => {
       const res = await addWeapon(persId, weapon.weaponId, {
         overrideName: weaponTranslations[weapon.name as keyof typeof weaponTranslations] || weapon.name,
         customDamageDice: weapon.damage,
-        customDamageAbility: weapon.isRanged ? Ability.DEX : Ability.STR,
         isProficient: true,
       });
 
@@ -74,7 +77,6 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
         const res = await addWeapon(persId, null, {
           overrideName: "Нова зброя",
           customDamageDice: "1d6",
-          customDamageAbility: Ability.STR,
           isProficient: true,
         });
   
@@ -164,8 +166,8 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
           <div className="space-y-2">
             {isLoading ? (
               <div className="text-center py-8 text-slate-400">Завантаження...</div>
-            ) : filteredWeapons.length > 0 ? (
-              filteredWeapons.map((w) => (
+            ) : uniqueWeapons.length > 0 ? (
+              uniqueWeapons.map((w) => (
                 <div
                   key={w.weaponId}
                   className="flex items-center justify-between p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition group"

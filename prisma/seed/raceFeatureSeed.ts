@@ -57,7 +57,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Relentless Endurance',
             description: 'Коли ваші хіт-поінти зменшуються до 0, але ви не вмираєте одразу, ви можете впасти до 1 хіт-поінту замість цього. Ви не можете використовувати цю здібність знову, доки не завершите довгий відпочинок.',
             shortDescription: 'Один раз уникнути смерті',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -248,7 +248,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy',
             description: 'Ви знаєте заклинання Дивотворство [Thaumaturgy]. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання Пекельна відсіч [Hellish Rebuke] як заклинання 2-го рівня. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Темрява [Darkness]. Після використання Пекельної відсічі [Hellish Rebuke] або Темряви [Darkness] ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю.',
             shortDescription: 'Дивотворство [Thaumaturgy], Пекельна відсіч [Hellish Rebuke], Темрява [Darkness]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -309,7 +309,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Ingenious',
             description: 'Якщо ви провалюєте перевірку здібності використовуючи інструмент, ви можете додати бонус +к4. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому бонусу володіння, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: '+к4 до перевірок інструментів після провалу',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -318,7 +318,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Astral Knowledge',
             description: 'Ви можете божественно відчути грані долі всередині себе. Коли ви закінчуєте довгий відпочинок, ви отримуєте володіння одною навичкою на ваш вибір і одним інструментом або музичним інструментом на ваш вибір, обраним з Книги гравця. Ви містично отримуєте ці володіння, черпаючи їх із спільного свідомості ґітьянкі, і ви зберігаєте їх, доки не закінчите свій наступний довгий відпочинок.',
             shortDescription: 'Щоденна навичка/інструмент на вибір',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -351,7 +351,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Wind Caller',
             description: 'Починаючи з 3-го рівня, ви можете використати заклинання Порив вітру [Gust of Wind] цією здібністю, не потребуючи матеріального компонента. Після використання цього заклинання цією здібністю ви не можете використовувати його знову, доки не завершите довгий відпочинок. Ви також можете використовувати це заклинання, використовуючи будь-які слоти заклинань 2-го рівня або вище, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цього заклинання, коли ви використовуєте його цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Порив вітру [Gust of Wind] 1 раз на довгий відпочинок',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1,
             givesSpells: {
@@ -386,7 +386,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Celestial Revelation',
             description: 'Коли ви досягаєте 3-го рівня, оберіть один з варіантів одкровення нижче. Після цього ви можете використати Бонусну дію, щоб вивільнити небесну енергію всередині себе, отримуючи переваги цього одкровення. Ваша трансформація триває 1 хвилину або доки ви не завершите її Бонусною дією. Після використання вашого одкровення ви не можете використовувати його знову, доки не завершите довгий відпочинок:\n\nНекротичний саван. Ваші очі на мить стають кублами темряви, а примарні безкрилі крила проростають з вашої спини тимчасово. Істоти, окрім ваших союзників, у межах 10 футів від вас, які можуть вас бачити, повинні здійснити ряткидок Харизми (СК = 8 + ваш Бонус Майстерності + ваш модифікатор Харизми) або стають переляканими вами до кінця вашого наступного ходу. Під час трансформації, раз на кожен ваш хід, ви можете завдати додаткову некротичну шкоду одній цілі, коли завдаєте їй шкоди атакою або заклинанням. Додаткова шкода дорівнює вашому Бонусу Майстерності.\n\nПроменеве поглинання. Пекуче світло тимчасово випромінюється з ваших очей та рота. Протягом дії ви випромінюєте яскраве світло в радіусі 10 футів і тьмяне світло на додаткові 10 футів, і наприкінці кожного вашого ходу кожна істота у межах 10 футів від вас отримує променеву шкоду, що дорівнює вашому Бонусу Майстерності. Під час трансформації, раз на кожен ваш хід, ви можете завдати додаткову променеву шкоду одній цілі, коли завдаєте їй шкоди атакою або заклинанням. Додаткова шкода дорівнює вашому Бонусу Майстерності.\n\nПроменева душа. Два яскравих спектральних крила проростають з вашої спини тимчасово. Під час трансформації ви маєте швидкість польоту, що дорівнює вашій швидкості ходьби, і раз на кожен ваш хід ви можете завдати додаткову променеву шкоду одній цілі, коли завдаєте їй шкоди атакою або заклинанням. Додаткова шкода дорівнює вашому Бонусу Майстерності.',
             shortDescription: 'Трансформація: страх/аура/крила + бонусна шкода',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -463,7 +463,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Gift of the Svirfneblin',
             description: 'Починаючи з 3-го рівня, ви можете використати заклинання Маскування [Disguise Self] цією здібністю. Починаючи з 5-го рівня, ви також можете використати заклинання Уникнення виявлення [Nondetection], не потребуючи матеріального компонента. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Маскування [Disguise Self], Уникнення виявлення [Nondetection]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -484,7 +484,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Svirfneblin Camouflage',
             description: 'Коли ви робите перевірку Непомітності, ви можете зробити перевірку з перевагою. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Перевага на Непомітність кіл. разів = Бонусу Майстерності на довгий відпочинок',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -502,7 +502,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Duergar Magic',
             description: 'Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання Збільшення/Зменшення [Enlarge/Reduce] на себе. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Невидимість [Invisibility] на себе. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Збільшення/Зменшення [Enlarge/Reduce], Невидимість [Invisibility]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -526,7 +526,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Fey Step',
             description: 'Бонусною дією ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.\n\nКоли ви досягаєте 3-го рівня, ваш Фейський крок отримує додатковий ефект залежно від вашого сезону; якщо ефект вимагає ряткидку, СК дорівнює 8 + ваш Бонус Майстерності + ваш модифікатор Інтелекту, Мудрості або Харизми (ви обираєте при виборі цієї раси):\n\nОсінь. Одразу після того, як ви використовуєте свій Фейський крок, до двох істот на ваш вибір, яких ви бачите у межах 10 футів від вас, повинні здійснити ряткидок Мудрості або стати зачарованими вами на 1 хвилину, або доки ви чи ваші союзники не завдасте будь-якої шкоди цим істотам.\n\nЗима. Коли ви використовуєте свій Фейський крок, одна істота на ваш вибір, яку ви бачите у межах 5 футів від вас перед телепортацією, повинна здійснити ряткидок Мудрості або стати переляканою вами до кінця вашого наступного ходу.\n\nВесна. Коли ви використовуєте свій Фейський крок, ви можете торкнутися однієї бажаючої істоти у межах 5 футів від вас. Ця істота телепортується замість вас, з\'являючись у вільному просторі на ваш вибір, який ви бачите у межах 30 футів від вас.\n\nЛіто. Одразу після того, як ви використовуєте свій Фейський крок, кожна істота на ваш вибір, яку ви бачите у межах 5 футів від вас, отримує вогняну шкоду, що дорівнює вашому Бонусу Майстерності.',
             shortDescription: 'Телепорт 30 футів + сезонні ефекти',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -537,7 +537,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Fairy Magic',
             description: 'Ви знаєте замовляння Ремесло друїдів [Druidcraft]. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання Вогники фей [Faerie Fire]. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Збільшення/Зменшення [Enlarge/Reduce]. Після використання Вогників фей [Faerie Fire] або Збільшення/Зменшення [Enlarge/Reduce] ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Ремесло друїдів [Druidcraft], Вогники фей [Faerie Fire], Збільшення/Зменшення [Enlarge/Reduce]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -554,7 +554,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Hidden Step',
             description: 'Бонусною дією ви можете магічно стати невидимим до початку вашого наступного ходу або до моменту, коли ви атакуєте, завдаєте шкоди або змушуєте когось зробити ряткидок. Після використання цієї здібності ви не можете використовувати її знову, доки не завершите короткий або довгий відпочинок.',
             shortDescription: 'Тимчасова невидимість',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -570,7 +570,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Firbolg Magic',
             description: 'Ви можете один раз використати заклинання Виявлення магії [Detect Magic] та Маскування [Disguise Self]. Коли ви використовуєте цю версію Маскування [Disguise Self], ви можете здаватися на 3 фути вищим або нижчим. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Виявлення магії [Detect Magic], Маскування [Disguise Self]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -594,7 +594,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Mingle with the Wind',
             description: 'Ви знаєте замовляння Шокувальний дотик [Shocking Grasp]. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання Падіння пір\'їною [Feather Fall]. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Левітація [Levitate] на себе. Після використання Падіння пір\'їною [Feather Fall] або Левітації [Levitate] ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Шокувальний дотик [Shocking Grasp], Падіння пір\'їною [Feather Fall], Левітація [Levitate]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -625,7 +625,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Merge with Stone',
             description: 'Ви знаєте замовляння Захист від зброї [Blade Ward]. Ви можете використовувати його основною дією, але також - бонусною кількість разів, що дорівнюють вашому Бонусу Майстерності, і ви відновлюєте кількість таких використань після довгого відпочинку. Коли ви досягаєте 5-го рівня, ви можете один раз використати заклинання Переміщення без сліду [Pass without Trace]. Після використання Переміщення без сліду [Pass without Trace] ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Захист від зброї [Blade Ward], Переміщення без сліду [Pass without Trace]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
             givesSpells: {
@@ -650,7 +650,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Reach to the Blaze',
             description: 'Ви знаєте замовляння Створення вогню [Produce Flame]. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання Палючі долоні [Burning Hands] як заклинання 1-го рівня. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Палаюча сфера [Flaming Sphere] як заклинання 2-го рівня. Після використання Палючих долонь [Burning Hands] або Палаючої сфери [Flaming Sphere] ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Створення вогню [Produce Flame], Палючі долоні [Burning Hands], Палаюча сфера [Flaming Sphere]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -667,7 +667,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Call to the Wave',
             description: 'Ви знаєте замовляння Формування води [Shape Water]. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання Створення чи знищення води [Create or Destroy Water] як заклинання 1-го рівня. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Дихання водою [Water Breathing]. Після використання Створення чи знищення води [Create or Destroy Water] або Дихання водою [Water Breathing] ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Формування води [Shape Water], Створення чи знищення води [Create or Destroy Water], Дихання водою [Water Breathing]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -699,7 +699,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Githyanki Psionics',
             description: 'Ви знаєте замовляння Магічна рука [Mage Hand], і рука невидима, коли ви використовуєте це замовляння цією здібністю. Коли ви досягаєте 3-го рівня, ви можете використати заклинання Стрибок [Jump] цією здібністю. Коли ви досягаєте 5-го рівня, ви також можете використати заклинання Туманний крок [Misty Step] з нею. Після того, як ви використали Стрибок [Jump] або Туманний крок [Misty Step] цією здібністю, ви не можете використати це заклинання з нею знову, доки не завершите довгий відпочинок. Ви також можете використати будь-яке з цих заклинань, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси). Жодне з цих заклинань не вимагає компонентів заклинання, коли ви використовуєте їх цією здібністю.',
             shortDescription: 'Магічна рука [Mage Hand], Стрибок [Jump], Туманний крок [Misty Step]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -731,7 +731,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Githzerai Psionics',
             description: 'Ви знаєте замовляння Магічна рука [Mage Hand], і рука невидима, коли ви використовуєте це замовляння цією здібністю. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання Щит [Shield]. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Виявлення думок [Detect Thoughts]. Після використання Щита [Shield] або Виявлення думок [Detect Thoughts] ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси). Жодне з цих заклинань не вимагає компонентів заклинання, коли ви використовуєте їх цією здібністю.',
             shortDescription: 'Магічна рука [Mage Hand], Щит [Shield], Виявлення думок [Detect Thoughts]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -748,7 +748,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Fury of the Small',
             description: 'Коли ви завдаєте шкоди істоті атакою або заклинанням, і розмір цієї істоти більший за ваш, ви можете завдати додаткову шкоду цілі, що дорівнює вашому Бонусу Майстерності. Після використання цієї здібності ви не можете використовувати її знову, доки не завершите короткий або довгий відпочинок, а також не можна використовувати більше ніж раз на хід',
             shortDescription: 'Додаткова шкода Більшим істотам ра з на хід = Бонусу Майстерності',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -812,7 +812,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Rabbit Hop',
             description: 'Бонусною дією ви можете стрибнути на кількість футів, що дорівнює п\'яти вашим бонусам Майстерності, не провокуючи атаки. Ви можете використовувати цю здібність, лише якщо ваша швидкість більша за 0. Ви можете використовувати її кількість разів, що дорівнює вашому бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Стрибок на 5×Бонус Майстерності футів без провокування',
-            displayType: [FeatureDisplayType.RESOURCE, FeatureDisplayType.BONUSACTION],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -823,7 +823,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Fortune from the Many',
             description: 'Якщо ви промахуєтесь атакою або провалюєте перевірку здібності чи ряткидок, ви можете додати бонус до кидка, що дорівнює кількості союзників, яких ви можете бачити в межах 30 футів від вас (максимум бонус +3). Ви можете використовувати її кількість разів, що дорівнює вашому бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: '+1-3 до провалу будь-якої перевірки від союзників',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -832,7 +832,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Fey Gift',
             description: 'Ви можете використати цю здібність, щоб виконати дію Допомога як бонусну дію, і ви можете робити це кількість разів, що дорівнює вашому бонусу Майстерності. Ви відновлюєте всі витрачені використання після завершення довгого відпочинку.\n\nПочинаючи з 3-го рівня, виберіть один з варіантів нижче кожного разу, коли ви виконуєте дію Допомога за допомогою цієї здібності:\n\nГостинність. Ви та істота, якій ви допомагаєте, отримуєте кількість тимчасових хіт-поінтів, що дорівнює 1к6 + ваш бонус Майстерності.\n\nПрохід. Ви та істота, якій ви допомагаєте, збільшуєте вашу швидкість ходьби на 10 футів до початку вашого наступного ходу.\n\nЗлість. До початку вашого наступного ходу, коли істота, якій ви допомагаєте, вперше влучає в ціль кидком атаки, ця ціль має перешкоду на наступний кидок атаки, який вона робить протягом наступної хвилини.',
             shortDescription: 'Допомога бонусною дією + фейські бонуси (HP/швидкість/дебаф)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -844,7 +844,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Kenku Recall',
             description: 'Завдяки вашій чудовій пам\'яті, ви маєте володіння двома навичками на ваш вибір. Крім того, коли ви робите перевірку здібності, використовуючи будь-яку навичку, якою ви володієте, ви можете надати собі перевагу на перевірку перед киданням к20. Ви можете зробити це кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: '2 навички + перевага на володіння',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -869,11 +869,18 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Draconic Cry',
             description: 'Бонусною дією ви можете випустити крик на своїх ворогів у межах 10 футів від вас. До початку вашого наступного ходу ви та ваші союзники маєте перевагу на кидки атаки проти будь-якого з тих ворогів, хто міг вас чути. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Крик дає перевагу на атаки для вас і союзників',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
 
+        {
+            name: 'Спадщина кобольдів',
+            engName: 'Kobold Legacy',
+            description: 'Ви успадкували частину драконячої магії. Оберіть один із наступних варіантів:\n\n• Драконяча винахідливість (Craftiness): Ви отримуєте володіння однією з навичок: Магія, Історія, Розслідування, Медицина або Виживання.\n\n• Непокора (Defiance): Ви маєте перевагу на ряткидки для уникнення або завершення стану Переляканості на собі.\n\n• Драконяче чаклунство (Draconic Sorcery): Ви знаєте одне замовляння на ваш вибір зі списку заклинань чарівника. Інтелект, Мудрість або Харизма є вашою характеристикою для нього (оберіть при виборі раси).',
+            shortDescription: 'Вибір: навичка / перевага проти страху / замовляння чарівника',
+            displayType: [FeatureDisplayType.PASSIVE],
+        },
 // ============ LIZARDFOLK ============
         {
             name: 'Затримка дихання',
@@ -887,7 +894,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Hungry Jaws',
             description: 'Ви можете впасти у кровожерний шал. Бонусною дією ви можете здійснити спеціальну атаку своїм Укусом. Якщо атака влучає, вона завдає звичайну шкоду, і ви отримуєте тимчасові хіт-поінти, що дорівнюють вашому Бонусу Майстерності. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Атака укусом за бонусну дію + тимчасове ХП',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -935,7 +942,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Adrenaline Rush',
             description: 'Ви можете виконати дію Ривок Бонусною дією. Коли ви це робите, ви отримуєте кількість тимчасових хіт-поінтів, що дорівнює вашому Бонусу Майстерності. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Ривок + тимчасові HP',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -999,7 +1006,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Blessing of the Raven Queen',
             description: 'Бонусною дією ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Починаючи з 3 рівня, після телепортації ви маєте опір до всіх видів шкоди до початку вашого наступного ходу, а ваш зовнішній вигляд стає примарним та напівпрозорим. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Телепорт 30 футів + опір шкоді',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST
         },
         {
@@ -1016,7 +1023,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Shifting',
             description: 'Бонусною дією ви можете прийняти більш звіряче вигляд. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви вимкнете її Бонусною дією. Коли ви перетворюєтесь, ви отримуєте тимчасові хіт-поінти, що дорівнюють вашому рівню + ваш модифікатор Статури (мінімум 1). Ви також отримуєте додаткові переваги, які залежать від вашої підраси шифтера. Після використання цієї здібності ви не можете використовувати її знову, доки не завершите короткий або довгий відпочинок.',
             shortDescription: 'Звіряча форма на 1 хвилину',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -1048,7 +1055,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Feline Agility',
             description: 'Коли ви рухаєтесь у свій хід у бою, ви можете подвоїти своє переміщення до кінця ходу. Після використання цієї здібності ви не можете використовувати її знову, доки ви не рухатиметесь 0 футів в один зі своїх ходів.',
             shortDescription: 'Подвоєння переміщення',
-            displayType: [FeatureDisplayType.RESOURCE]
+            displayType: [FeatureDisplayType.PASSIVE]
         },
 
 // ============ TORTLE ============
@@ -1094,7 +1101,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Control Air and Water',
             description: 'Ви можете один раз використати заклинання Туманна хмара [Fog Cloud]. Коли ви досягаєте 3-го рівня, ви можете один раз використати замовляння Порив вітру [Gust of Wind]. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання Ходіння по воді [Water Walk]. Після використання цих заклять ви не можете використовувати їх знову, доки не завершите довгий відпочинок. Ви також можете використовувати ці заклинання, використовуючи будь-які слоти заклинань відповідного рівня, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Туманна хмара [Fog Cloud], Порив вітру [Gust of Wind], Ходіння по воді [Water Walk]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1132,7 +1139,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Serpentine Spellcasting',
             description: 'Ви знаєте замовляння Отруйні бризки [Poison Spray]. Ви можете використовувати заклинання Дружба з тваринами [Animal Friendship] необмежену кількість разів за допомогою цієї здібності, але ви можете націлювати ним лише змій. Починаючи з 3-го рівня, ви також можете використовувати заклинання Навіювання [Suggestion] за допомогою цієї здібності. Після використання ви не можете використовувати його знову, доки не завершите довгий відпочинок. Ви також можете використовувати його, використовуючи будь-які слоти заклинань 2-го рівня або вище, які у вас є. Інтелект, Мудрість або Харизма є вашою характеристикою для цих заклинань, коли ви використовуєте їх цією здібністю (ви обираєте при виборі цієї раси).',
             shortDescription: 'Отруйні бризки [Poison Spray], Дружба з тваринами [Animal Friendship] (змії), Навіювання [Suggestion]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1,
             givesSpells: {
@@ -1157,7 +1164,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Starlight Step',
             description: 'Бонусною дією ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який бачите. Можете використовувати цю здатність кількість разів, рівну вашому бонусу майстерності, і відновлюєте всі витрачені використання після довгого відпочинку.',
             shortDescription: 'Телепорт 30 футів (бонусна дія)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             // usesCount визначається бонусом майстерності
         },
@@ -1185,7 +1192,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Built for Success',
             description: 'Ви можете додати к4 до одного кидка атаки, перевірки характеристики або ряткидка, і можете зробити це після кидка к20, але до того, як будуть застосовані наслідки кидка. Можете використовувати цю здатність кількість разів, рівну бонусу майстерності, відновлюючи всі витрачені використання після довгого відпочинку.',
             shortDescription: '+к4 до кидка (після кидка)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST
         },
         {
@@ -1223,7 +1230,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Astral Spark',
             description: 'Ваш психічний зв’язок із Астральним планом дозволяє вам містично черпати іскру божественної сили, яку ви можете спрямувати через свою зброю. Коли ви влучаєте по цілі простою або бойовою зброєю, ви можете змусити ціль отримати додаткову шкоду Чистою Силою, що дорівнює вашому Бонусу Майстерності. Ви можете використовувати цю рису кількість разів, що дорівнює вашому Бонусу Майстерності, але не частіше ніж раз за хід. Ви відновлюєте всі використані застосування після завершення довгого відпочинку.',
             shortDescription: 'Додаткова шкода Чистою Силою = Бонус Майстерності',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
         },
         {
@@ -1247,21 +1254,21 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Dexterous Feet',
             description: 'Бонусною дією ви можете використовувати ноги для маніпулювання об\'єктом, відкриття або закриття дверей чи контейнерів, підняття або встановлення крихітного об\'єкта.',
             shortDescription: 'Бонусна дія: маніпуляція ногами',
-            displayType: [FeatureDisplayType.PASSIVE]
+            displayType: [FeatureDisplayType.BONUSACTION]
         },
         {
             name: 'Планерування',
             engName: 'Glide',
             description: 'Коли ви падаєте з висоти щонайменше 10 футів над землею, ви можете використати свою реакцію, щоб розправити свої шкірні мембрани та планерувати горизонтально на кількість футів, що дорівнює вашій швидкості ходьби, і ви отримуєте 0 шкоди від падіння. Ви визначаєте напрямок планерування.',
             shortDescription: 'Планерування на відстань швидкості ходьби + 0 шкоди від падіння',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.REACTION],
         },
         {
             name: 'Стійкість Хадозі',
             engName: 'Hadozee Resilience',
             description: 'Магія, що тече у ваших жилах, підсилює природний захист. Коли отримуєте пошкодження, можете реакцією кинути к6, додати бонус майстерності та зменшити отримані пошкодження на цю суму (мінімум 0). Ви можете використовувати цю здатність кількість разів, що дорівнює вашому Бонусу Майстерності. Ви відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Реакція: зменшити пошкодження на к6 + БМ',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.REACTION],
             limitedUsesPer: RestType.LONG_REST
         },
 
@@ -1344,7 +1351,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Taunt',
             description: 'Ви маєте надзвичайну здатність збивати з пантелику істот. Бонусною дією ви можете випустити шквал провокаційних слів на істоту в межах 60 футів від вас, яка може вас чути і розуміти. Ціль повинна здійснити ряткидок Мудрості, або вона матиме перешкоду на кидки атаки проти цілей, окрім вас, до початку вашого наступного ходу. СК дорівнює 8 + ваш Бонус Майстерності + ваш модифікатор Інтелекту, Мудрості або Харизми (ви обираєте при виборі цієї раси). Ви можете використовувати цю бонусну дію кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Бонусна дія: ціль має перешкоду на атаки проти інших',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST
         },
 
@@ -1497,7 +1504,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Partially Amphibious',
             description: 'Завдяки вашій біоінженерії, ви маєте здатність дихати під водою протягом до 1 години. Після використання цієї здібності ви не можете використовувати її знову, доки не завершите довгий відпочинок.',
             shortDescription: 'Дихання під водою 1 година на довгий відпочинок',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -1607,7 +1614,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Daunting Roar',
             description: 'Бонусною дією ви можете випустити особливо грізний рик. Істоти на ваш вибір у межах 10 футів від вас, які можуть вас чути, повинні здійснити ряткидок Мудрості або стати Переляканими вами до кінця вашого наступного ходу. СК дорівнює 8 + ваш Бонус Майстерності + ваш модифікатор Статури. Після використання цієї здібності ви не можете використовувати її знову, доки не завершите короткий або довгий відпочинок.',
             shortDescription: 'Бонусна дія: рик залякує в межах 10 футів',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -1632,7 +1639,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Vampiric Bite',
             description: 'Ваш ікластий укус є природною зброєю, що вважається простою зброєю ближнього бою, якою ви володієте. Ви додаєте свій модифікатор Статури замість модифікатора Сили до кидків атаки та шкоди, коли атакуєте цим укусом. Він завдає 1к4 колючої шкоди при влученні. Поки вам бракує половини або більше ваших хіт-поінтів, ви маєте перевагу на кидки атаки, які ви робите цим укусом.\n\nКоли ви атакуєте цим укусом і влучаєте в істоту, що не є Конструктом або Нежиттю, ви можете посилити себе одним із наступних способів на ваш вибір:\n\n• Ви відновлюєте хіт-поінти, що дорівнюють колючій шкоді, завданій укусом.\n\n• Ви отримуєте бонус до наступної перевірки характеристики або кидка атаки, який ви робите; бонус дорівнює колючій шкоді, завданій укусом.\n\nВи можете посилити себе цим укусом кількість разів, що дорівнює вашому бонусу Майстерності, і ви відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: 'Укус з модифікатором СТА (1к4) + самозцілення або бонус',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
         },
 
@@ -1643,7 +1650,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Eerie Token',
             description: 'Бонусною дією ви можете безпечно видалити пасмо свого волосся, один зі своїх нігтів або один зі своїх зубів. Цей токен насичений магією, доки ви не завершите довгий відпочинок. Поки токен насичений таким чином, ви можете виконувати ці дії:\n\nТелепатичне повідомлення: Дією ви можете надіслати телепатичне повідомлення істоті, що тримає або несе токен, за умови, що ви знаходитесь у межах 10 миль від нього. Повідомлення може містити до двадцяти п\'яти слів.\n\nВіддалений перегляд: Якщо ви знаходитесь у межах 10 миль від токена, ви можете увійти в транс дією. Транс триває 1 хвилину, але закінчується раніше, якщо ви зупиняєте його (дія не потрібна) або стаєте недієздатним. Під час цього трансу ви можете бачити і чути від токена так, ніби ви знаходитесь там, де він є. Поки ви використовуєте свої чуття в місці розташування токена, ви сліпі та глухі до свого власного оточення. Коли транс закінчується, токен безпечно знищується.\n\nПісля того, як ви створили токен за допомогою цієї здібності, ви не можете зробити це знову, доки не завершите довгий відпочинок, після чого ваша відсутня частина відростає.',
             shortDescription: 'Магічний токен для телепатії та віддаленого спостереження',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1,
         },
@@ -1652,7 +1659,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Hex Magic',
             description: 'Ви можете накласти заклинання Маскування [Disguise Self] та Проклін [Hex] цією здібністю. Після того, як ви наклали одне з цих заклинань цією здібністю, ви не можете накласти це заклинання нею знову, доки не завершите довгий відпочинок. Ви також можете накладати ці заклинання, використовуючи будь-які слоти заклинань, які у вас є.\n\nІнтелект, Мудрість або Харизма є вашою характеристикою для накладання цих заклинань (виберіть характеристику, коли обираєте расу).',
             shortDescription: 'Маскування [Disguise Self] та Прокляття [Hex] раз на відпочинок',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1675,7 +1682,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Knowledge from a Past Life',
             description: 'Ви тимчасово пам\'ятаєте проблиски минулого, можливо, вицвілі спогади з давніх часів або попереднього життя. Коли ви робите перевірку характеристики, що використовує навичку, ви можете кинути к6 одразу після того, як побачите число на к20, і додати число на к6 до перевірки. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому бонусу Майстерності, і ви відновлюєте всі витрачені використання після завершення довгого відпочинку.',
             shortDescription: '+1к6 до перевірок навичок після кидка',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true,  // Додаємо ✅
         },
@@ -1700,7 +1707,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Asmodeus)',
             description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1320">Пекельна відсіч [Hellish Rebuke]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Дивотворство, Пекельна відсіч (3), Темрява (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1717,7 +1724,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Baalzebul)',
             description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1499">Промінь хвороби [Ray of Sickness]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1501">Корона шаленства [Crown of Madness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Дивотворство, Промінь хвороби (3), Корона шаленства (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1734,7 +1741,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Dispater)',
             description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1332">Маскування [Disguise Self]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1297">Виявлення думок [Detect Thoughts]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Дивотворство, Маскування (3), Виявлення думок (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1751,7 +1758,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Fierna)',
             description: 'Ви знаєте замовляння <a href="/spell/1494">Дружба [Friends]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1318">Причарування особи [Charm Person]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1277">Навіювання [Suggestion]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Дружба, Причарування особи (3), Навіювання (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1768,7 +1775,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Glasya)',
             description: 'Ви знаєте замовляння <a href="/spell/1351">Мала ілюзія [Minor Illusion]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1332">Маскування [Disguise Self]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Мала ілюзія, Маскування (3), Невидимість (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1785,7 +1792,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Levistus)',
             description: 'Ви знаєте замовляння <a href="/spell/1342">Промінь холоду [Ray of Frost]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1497">Обладунок Агатіса [Armor of Agathys]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Промінь холоду, Обладунок Агатіса (3), Темрява (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1802,7 +1809,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Mammon)',
             description: 'Ви знаєте замовляння <a href="/spell/1352">Магічна рука [Mage Hand]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1504">Літаючий диск Тензера [Tenser\'s Floating Disk]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1300">Арканний замок [Arcane Lock]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Магічна рука, Літаючий диск Тензера (3), Арканний замок (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1819,7 +1826,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Mephistopheles)',
             description: 'Ви знаєте замовляння <a href="/spell/1352">Магічна рука [Mage Hand]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1321">Палючі долоні [Burning Hands]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1363">Вогняний клинок [Flame Blade]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Магічна рука, Палючі долоні (3), Вогняний клинок (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1836,7 +1843,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Zariel)',
             description: 'Ви знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1455">Паляча кара [Searing Smite]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1252">Таврувальна кара [Branding Smite]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Дивотворство, Паляча кара (3), Таврувальна кара (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1855,7 +1862,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Devil\'s Tongue)',
             description: 'Ви знаєте замовляння <a href="/spell/1356">Злісне глузування [Vicious Mockery]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1318">Причарування особи [Charm Person]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1290">Захоплива промова [Enthrall]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Злісне глузування, Причарування особи (3), Захоплива промова (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -1872,7 +1879,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Infernal Legacy (Hellfire)',
             description: 'Ві знаєте замовляння <a href="/spell/1357">Дивотворство [Thaumaturgy]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1321">Палючі долоні [Burning Hands]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Дивотворство, Палючі долоні (3), Темрява (5)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -2120,7 +2127,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Magical Detection',
             description: 'Ви можете використовувати заклинання <a href="/spell/1045">Виявлення магії [Detect Magic]</a> та <a href="/spell/1297">Виявлення думок [Detect Thoughts]</a>, кожне один раз за допомогою цієї риси. Після використання ви не можете використовувати їх знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Detect Magic та Detect Thoughts 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2152,7 +2159,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Headwinds',
             description: 'Ви знаєте замовляння <a href="/spell/1416">Порив [Gust]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1267">Порив вітру [Gust of Wind]</a>, яке потребує концентрації. Після використання ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Gust cantrip + Gust of Wind 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2171,7 +2178,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Necrotic Shroud',
             description: 'Ваші очі на мить стають пулами темряви, а примарні крила привидів з\'являються на вашій спині. Істоти на ваш вибір в межах 10 футів від вас, які можуть бачити вас, повинні зробити ряткидок Харизми (СК 8 + бонус майстерності + модифікатор Харизми). При провалі істота стає налякною вами до кінця вашого наступного ходу. До кінця вашого наступного ходу, один раз у кожен свій хід, ви можете завдати додаткову некротичну шкоду 1к10 одній цілі при влученні атакою (між зброєю або заклинанням). Трансформація триває 1 хвилину або до кінця вашого ходу, якщо ви втратили свідомість.',
             shortDescription: 'Налякування + 1к10 некротичної шкоди',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2180,7 +2187,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Radiant Consumption',
             description: 'Сліпуче світло випромінюється з вас у радіусі 10 футів. До кінця вашого ходу воно створює яскраве світло у радіусі 10 футів і тьмяне світло ще на 10 футів. Коли ви активуєте цю здібність і в кінці кожного свого ходу до її завершення, ви та кожна істота в межах 10 футів від вас отримуєте променеву шкоду, рівну половині вашого рівня (округлюючи вгору). На додаток, один раз у кожен свій хід, ви можете завдати додаткову променеву шкоду 1к10 одній цілі при влученні атакою. Трансформація триває 1 хвилину або до кінця вашого ходу, якщо ви втратили свідомість.',
             shortDescription: 'Аура променевого світла + 1к10 променевої шкоди',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2189,7 +2196,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Radiant Soul',
             description: 'З вашої спини виростають два світлові ефірні крила, даруючи вам швидкість польоту 30 футів. На додаток, один раз у кожен свій хід, ви можете завдати додаткову променеву шкоду 1к10 одній цілі при влученні атакою. Трансформація триває 1 хвилину або до кінця вашого ходу, якщо ви втратили свідомість.',
             shortDescription: 'Політ 30 футів + 1к10 променевої шкоди',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2201,7 +2208,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Shifting: Beasthide',
             description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ви отримуєте бонус +1 до Класу Броні.',
             shortDescription: '1к6+СОН тимчасових HP + AC +1',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -2210,7 +2217,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Shifting: Longtooth',
             description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ваші ікла подовжуються; ваші укуси завдають 1к6 + модифікатор Сили колючої шкоди. Як бонусну дію ви можете здійснити одну атаку укусом.',
             shortDescription: '1к6+СОН тимчасових HP + укус 1к6+СИЛ',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -2219,16 +2226,16 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Shifting: Swiftstride',
             description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ваша швидкість ходьби збільшується на 10 футів. Додатково, ви можете пересуватися до 10 футів як реакцію, коли ворог закінчує свій хід у межах 5 футів від вас. Цей рух не провокує атаки по можливості.',
             shortDescription: '1к6+СОН тимчасових HP + швидкість +10 фт',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
         {
             name: 'Перевертання: Дикий мисливець',
             engName: 'Shifting: Wildhunt',
-            description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ви маєте перевагу на перевірки Мудрості, і жодна істота в межах 30 футів від вас не може отримати перевагу на кидки атаки проти вас, якщо ви не втратили свідомість.',
+            description: 'Як бонусну дію ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ви маєте перевагу на перевірки Мудрості, і жодна істота в межах 30 футів від вас не може отримати перевагу на кидки атаки против вас, якщо ви не втратили свідомість.',
             shortDescription: '1к6+СОН тимчасових HP + перевага на МДР',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1
         },
@@ -2248,7 +2255,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Wards and Seals',
             description: 'Ви можете використовувати заклинання <a href="/spell/1306">Сигнал тривоги [Alarm]</a> та <a href="/spell/1326">Магічна броня [Mage Armor]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1300">Аркан ний замок [Arcane Lock]</a>. Після використання будь-якого з цих заклинань ви не можете використовувати його знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Alarm, Mage Armor, Arcane Lock 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2275,7 +2282,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Healing Touch',
             description: 'Ви можете використовувати заклинання <a href="/spell/1334">Лікування ран [Cure Wounds]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1281">Мале відновлення [Lesser Restoration]</a>. Після використання будь-якого з цих заклинань ви не можете використовувати його знову за допомогою цієї риси, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Cure Wounds та Lesser Restoration 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2300,7 +2307,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Innkeeper\'s Magic',
             description: 'Ви знаєте замовляння <a href="/spell/1050">Штукарство [Prestidigitation]</a>. Ви також можете використовувати заклинання <a href="/spell/1323">Очищення їжі та напоїв [Purify Food and Drink]</a> та <a href="/spell/1340">Доброягода [Goodberry]</a> по одному разу за допомогою цієї риси. Після використання будь-якого з них ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Prestidigitation, Purify Food and Drink та Goodberry 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2327,7 +2334,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Scribe\'s Insight',
             description: 'Ви знаєте замовляння <a href="/spell/1344">Повідомлення [Message]</a>. Ви також можете використовувати заклинання <a href="/spell/1315">Розуміння мов [Comprehend Languages]</a> по одному разу за допомогою цієї риси. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1282">Магічні вуста [Magic Mouth]</a> по одному разу за допомогою цієї риси. Після того, як ви використали Comprehend Languages або Magic Mouth за допомогою цієї риси, ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Message, Comprehend Languages та Magic Mouth 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2354,7 +2361,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Finder\'s Magic',
             description: 'Ви можете використовувати заклинання <a href="/spell/1331">Мисливська мітка [Hunter\'s Mark]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1265">Пошук предмета [Locate Object]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Hunter\'s Mark та Locate Object 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2379,7 +2386,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Primal Connection',
             description: 'Ви можете використовувати заклинання <a href="/spell/1339">Дружба з тваринами [Animal Friendship]</a> та <a href="/spell/1317">Розмова з тваринами [Speak with Animals]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1459">Звірячі узи [Beast Bond]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Animal Friendship, Speak with Animals та Beast Bond 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2418,7 +2425,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Spellsmith',
             description: 'Ви можете накласти заклинання <a href="/spell/1283">Магічна зброя [Magic Weapon]</a> цією рисою. Коли ви робите це, заклинання триває 1 годину і не потребує Концентрації. Починаючи з 3-го рівня, ви також можете накласти заклинання <a href="/spell/1316">Розпізнавання [Identify]</a> цією рисою. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову за допомогою цією рисою, доки не завершите довгий відпочинок. Інтелект є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Magic Weapon (без конц.) та Identify 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2443,7 +2450,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Magical Passage',
             description: 'Ви можете використовувати заклинання <a href="/spell/1247">Туманний крок [Misty Step]</a> як бонусну дію. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1327">Негайний відступ [Expeditious Retreat]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Misty Step та Expeditious Retreat 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2468,7 +2475,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Guardian\'s Shield',
             description: 'Ви можете використовувати заклинання <a href="/spell/1302">Щит [Shield]</a>. Починаючи з 3-го рівня, ви також можете використовувати заклинання <a href="/spell/1274">Охоронний зв’язок [Warding Bond]</a>. Після того, як ви використали будь-яке з цих заклинань за допомогою цієї риси, ви не можете використовувати його знову, доки не завершите довгий відпочинок. Мудрість є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Shield та Warding Bond 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2477,7 +2484,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Vigilant Guardian',
             description: 'Коли істота, яку ви бачите в межах 5 футів від вас, отримує влучання атакою, ви можете використати свою реакцію, щоб магічно помінятися місцями з цією істотою. Ви отримуєте влучання цією атакою замість неї. Ви не можете використовувати цю здатність знову, доки не завершите довгий відпочинок.',
             shortDescription: 'Помінятися місцями з ціллю атаки (реакція)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.REACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -2504,7 +2511,7 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             engName: 'Shape Shadows',
             description: 'Ви знаєте замовляння <a href="/spell/1351">Мала ілюзія [Minor Illusion]</a>. Починаючи з 3-го рівня, ви можете використовувати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a> один раз за допомогою цією рисою і не можете робити це знову, доки не завершите довгий відпочинок. Харизма є вашою заклинальною характеристикою для цих заклинань.',
             shortDescription: 'Minor Illusion, Invisibility 1/день',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },

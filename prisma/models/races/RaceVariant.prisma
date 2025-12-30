@@ -1,21 +1,17 @@
-
 model RaceVariant {
-  raceVariantId Int @id @default(autoincrement()) @map("race_variant_id")
-  raceId        Int @map("race_id")
-
-  name             Variants
-  source           Source
-  replacesFeatures Feature[]          @relation("RaceVariantReplacingFeature")
-  traits           RaceVariantTrait[]
-
-  exclusivityGroup     String? @map("exclusivity_group")
+  raceVariantId        Int                @id @default(autoincrement()) @map("race_variant_id")
+  raceId               Int                @map("race_id")
+  name                 Variants
+  source               Source
+  exclusivityGroup     String?            @map("exclusivity_group")
   /// [RaceASI]
-  overridesRaceASI     Json    @map("overrides_race_asi")
-  overridesRaceSpeed   Int?    @map("overrides_race_speed")
-  overridesFlightSpeed Int?    @map("overrides_flight_speed")
-
-  race   Race   @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
-  perses Pers[]
+  overridesRaceASI     Json               @map("overrides_race_asi")
+  overridesRaceSpeed   Int?               @map("overrides_race_speed")
+  overridesFlightSpeed Int?               @map("overrides_flight_speed")
+  race                 Race               @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  traits               RaceVariantTrait[]
+  perses               Pers[]             @relation("PersToRaceVariant")
+  replacesFeatures     Feature[]          @relation("RaceVariantReplacingFeature")
 
   @@map("race_variant")
 }

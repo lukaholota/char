@@ -1,13 +1,10 @@
-
 model ClassChoiceOption {
-  optionId       Int @id @default(autoincrement()) @map("option_id")
-  classId        Int @map("class_id")
-  choiceOptionId Int @map("choice_option_id")
-
-  levelsGranted Int[] @map("levels_granted")
-
-  choiceOption ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
-  class        Class        @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  optionId       Int          @id @default(autoincrement()) @map("option_id")
+  choiceOptionId Int          @map("choice_option_id")
+  classId        Int          @map("class_id")
+  levelsGranted  Int[]        @map("levels_granted")
+  choiceOption   ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
+  class          Class        @relation(fields: [classId], references: [classId], onDelete: Cascade)
 
   @@unique([classId, choiceOptionId], name: "unique_class_choice")
   @@map("class_choice_option")

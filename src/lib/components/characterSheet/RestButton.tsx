@@ -22,14 +22,15 @@ import { useRouter } from "next/navigation";
 import { longRest } from "@/lib/actions/rest-actions";
 import { restTranslations } from "@/lib/refs/translation";
 import ShortRestDialog from "./ShortRestDialog";
-import { PersWithRelations } from "@/lib/actions/pers";
+import { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 
 interface RestButtonProps {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
+  onFeaturesUpdate?: (next: CharacterFeaturesGroupedResult) => void;
 }
 
-export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
+export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: RestButtonProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,6 +64,10 @@ export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
         deathSaveFailures: 0 as any,
         isDead: false as any,
       });
+
+      if (res.groupedFeatures) {
+        onFeaturesUpdate?.(res.groupedFeatures);
+      }
 
       toast.success(restTranslations.longRestComplete, {
         description: `HP: ${res.newCurrentHp}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,
@@ -106,6 +111,7 @@ export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
         open={shortRestOpen}
         onOpenChange={setShortRestOpen}
         onPersUpdate={onPersUpdate ? (next) => onPersUpdate(next) : undefined}
+        onFeaturesUpdate={onFeaturesUpdate}
       />
 
       <Dialog open={longRestOpen} onOpenChange={setLongRestOpen}>
@@ -127,7 +133,7 @@ export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
             <Button
               onClick={handleLongRest}
               disabled={isSubmitting}
-              className="bg-indigo-600 hover:bg-indigo-700"
+              className="bg-indigo-600 hover:bg-indigo-700 text-slate-200"
             >
               {isSubmitting || isRefreshing ? restTranslations.takingLongRest : restTranslations.confirm}
             </Button>

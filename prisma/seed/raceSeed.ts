@@ -926,7 +926,8 @@ export const seedRaces = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Darkvision' } } },
-                    { feature: { connect: { engName: 'Draconic Cry' } } } // TODO: race options for ancestry
+                    { feature: { connect: { engName: 'Draconic Cry' } } },
+                    { feature: { connect: { engName: 'Kobold Legacy' } } }
                 ]
             }
         },

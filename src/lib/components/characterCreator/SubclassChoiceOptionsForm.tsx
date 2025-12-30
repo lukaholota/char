@@ -18,6 +18,7 @@ interface Props {
   availableOptions?: SubclassI["subclassChoiceOptions"];
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
+  pickCount?: number; // Added pickCount prop
 }
 
 const previewTextFromFeatures = (
@@ -48,7 +49,7 @@ const previewTextFromFeatures = (
   return stripMarkdownPreview(String(first.shortDescription || first.description));
 };
 
-const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange }: Props) => {
+const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange, pickCount = 1 }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
@@ -60,7 +61,9 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     nextStep();
   });
   
-  const selections = form.watch("subclassChoiceSelections") || {};
+  const watchedSelections = form.watch("subclassChoiceSelections") || {};
+  const selectionsStr = JSON.stringify(watchedSelections);
+  const selections = useMemo(() => watchedSelections, [watchedSelections]);
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   const optionsToUse = useMemo(() => {
@@ -94,8 +97,11 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
       disabled = false;
     } else {
       const allGroupsSelected = groupedOptions.every(({ groupName }) => {
-        const selectedOptionId = selections[groupName];
-        return selectedOptionId !== undefined;
+        const selected = selections[groupName];
+        if (Array.isArray(selected)) {
+          return selected.length === pickCount;
+        }
+        return selected !== undefined;
       });
       disabled = !allGroupsSelected;
     }
@@ -104,15 +110,39 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
       onNextDisabledChange?.(disabled);
       prevDisabledRef.current = disabled;
     }
-  }, [groupedOptions, selections, onNextDisabledChange]);
+  }, [groupedOptions, selections, onNextDisabledChange, pickCount]);
 
   useEffect(() => {
     updateFormData({ subclassChoiceSelections: selections });
   }, [selections, updateFormData]);
 
   const selectOption = (groupName: string, optionId: number) => {
-    const next = { ...(selections || {}), [groupName]: optionId };
-    form.setValue("subclassChoiceSelections", next, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+    const current = selections[groupName];
+    
+    if (pickCount > 1) {
+      // Multi-select logic
+      const currentArray = Array.isArray(current) ? current : (current ? [current as number] : []);
+      let nextArray: number[];
+      
+      if (currentArray.includes(optionId)) {
+        nextArray = currentArray.filter(id => id !== optionId);
+      } else {
+        if (currentArray.length >= pickCount) {
+          // If we are at the limit, we could either do nothing or replace the last one.
+          // Let's do nothing (user must unselect first) or we could auto-replace if pickCount is 1.
+          // But here pickCount > 1, so the user should actively manage their picks.
+          return; 
+        }
+        nextArray = [...currentArray, optionId];
+      }
+      
+      const next = { ...(selections || {}), [groupName]: nextArray };
+      form.setValue("subclassChoiceSelections", next, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+    } else {
+      // Single-select logic (original)
+      const next = { ...(selections || {}), [groupName]: optionId };
+      form.setValue("subclassChoiceSelections", next, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+    }
   };
 
   const openFeaturesInfo = (
@@ -142,10 +172,16 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     <form id={formId} onSubmit={onSubmit} className="space-y-6">
       {groupedOptions.map(({ groupName, options }) => (
         <div key={groupName} className="space-y-3">
-          <InfoSectionTitle>{groupName}</InfoSectionTitle>
+          <div className="flex items-center justify-between gap-3">
+            <InfoSectionTitle>{groupName}</InfoSectionTitle>
+            {pickCount > 1 && (
+              <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
+                Обрано: {(selections[groupName] as number[] | undefined)?.length || 0}/{pickCount}
+              </Badge>
+            )}
+          </div>
           <div className="grid grid-cols-1 gap-3">
             {options.map((opt) => {
-              const isSelected = selections[groupName] === opt.choiceOption.choiceOptionId;
               const preview = previewTextFromFeatures(opt.choiceOption.features);
 
               return (
@@ -153,9 +189,16 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
                   key={opt.choiceOption.choiceOptionId}
                   className={clsx(
                     "glass-card cursor-pointer transition-all duration-200",
-                    isSelected && "glass-active"
+                    pickCount > 1 
+                      ? (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).includes(opt.choiceOption.choiceOptionId))
+                        ? "glass-active"
+                        : (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).length >= pickCount) && "opacity-50 grayscale-[0.5]"
+                      : (selections[groupName] === opt.choiceOption.choiceOptionId) && "glass-active"
                   )}
-                  onClick={() => selectOption(groupName, opt.choiceOption.choiceOptionId)}
+                  onClick={(e) => {
+                    if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                    selectOption(groupName, opt.choiceOption.choiceOptionId)
+                  }}
                 >
                   <CardContent className="relative flex items-start justify-between gap-4 p-4">
                     <div className="min-w-0 flex-1">
@@ -188,13 +231,6 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
                         </Button>
                       </div>
 
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {isSelected ? (
-                          <Badge className="bg-emerald-500/10 text-emerald-200">Обрано</Badge>
-                        ) : (
-                          <Badge variant="secondary">Натисніть, щоб обрати</Badge>
-                        )}
-                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -214,7 +250,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
             <p className="text-sm text-slate-300">Немає деталей для показу.</p>
           ) : (
             infoFeatures.map((f) => (
-              <div key={f.name} className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
+              <div key={f.name} className="glass-panel rounded-xl border border-slate-800/70 p-4">
                 <div className="flex items-center justify-between gap-3">
                   <p className="text-sm font-semibold text-white">{f.name}</p>
                 </div>

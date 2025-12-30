@@ -1,4 +1,3 @@
-
 model Creature {
   creatureId        Int     @id @default(autoincrement()) @map("creature_id")
   name              String? @db.VarChar

@@ -1,20 +1,16 @@
-
 model ChoiceOption {
-  choiceOptionId Int @id @default(autoincrement()) @map("option_id")
-
-  groupName     String @map("group_name") @db.VarChar(100)
-  optionName    String @map("option_name") @db.VarChar(100)
-  optionNameEng String @unique @map("option_name_eng") @db.VarChar(100)
-  prerequisites Json? // {pact: 'pact'}
-
-  features           ChoiceOptionFeature[]
-  classChoiceOptions ClassChoiceOption[]
+  choiceOptionId        Int                    @id @default(autoincrement()) @map("option_id")
+  groupName             String                 @map("group_name") @db.VarChar(100)
+  optionName            String                 @map("option_name") @db.VarChar(100)
+  optionNameEng         String                 @unique @map("option_name_eng") @db.VarChar(100)
+  prerequisites         Json?
+  features              ChoiceOptionFeature[]
+  classChoiceOptions    ClassChoiceOption[]
+  featChoiceOptions     FeatChoiceOption[]
+  persFeatChoices       PersFeatChoice[]
   subclassChoiceOptions SubclassChoiceOption[]
-  featChoiceOptions  FeatChoiceOption[]
-  perses             Pers[]
-  persFeatChoices    PersFeatChoice[]
-
-  classOptionalFeatures ClassOptionalFeature[]
+  classOptionalFeatures ClassOptionalFeature[] @relation("ChoiceOptionToClassOptionalFeature")
+  perses                Pers[]                 @relation("ChoiceOptionToPers")
 
   @@map("choice_option")
 }

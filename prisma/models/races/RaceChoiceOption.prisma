@@ -1,28 +1,23 @@
-
 model RaceChoiceOption {
-  optionId  Int  @id @default(autoincrement()) @map("option_id")
-  raceId    Int  @map("race_id")
-  subraceId Int? @map("subrace_id")
-
-  choiceGroupName String  @map("choice_group_name")
-  optionName      String  @map("option_name")
-  description     String? @db.Text
-
-  selectMultiple Boolean @default(false) @map("select_multiple")
-  maxSelection   Int     @default(1) @map("max_selection")
-
-  traits                 RaceChoiceOptionTrait[]
-  /// [RaceASI]
-  ASI                    Json?                   @map("asi")
-  /// [SkillProficiencies]
-  skillProficiencies     Json?                   @map("skill_proficiencies")
-  languages              Language[]              @default([]) @map("languages")
+  optionId               Int                     @id @default(autoincrement()) @map("option_id")
+  raceId                 Int                     @map("race_id")
+  subraceId              Int?                    @map("subrace_id")
+  choiceGroupName        String                  @map("choice_group_name")
+  optionName             String                  @map("option_name")
+  description            String?
+  selectMultiple         Boolean                 @default(false) @map("select_multiple")
+  maxSelection           Int                     @default(1) @map("max_selection")
   languagesToChooseCount Int                     @default(0) @map("languages_to_choose_count")
   modifiesSpeed          Int?                    @map("modifies_speed")
-
-  race    Race     @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
-  subrace Subrace? @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
-  perses  Pers[]
+  /// [RaceASI]
+  ASI                    Json?                   @map("asi")
+  languages              Language[]              @default([]) @map("languages")
+  /// [SkillProficiencies]
+  skillProficiencies     Json?                   @map("skill_proficiencies")
+  race                   Race                    @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  subrace                Subrace?                @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
+  traits                 RaceChoiceOptionTrait[]
+  perses                 Pers[]                  @relation("PersToRaceChoiceOption")
 
   @@unique([raceId, subraceId, choiceGroupName, optionName])
   @@map("race_choice_option")

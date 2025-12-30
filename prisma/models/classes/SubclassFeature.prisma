@@ -1,15 +1,11 @@
-
 model SubclassFeature {
-  subclassFeatureId Int @id @default(autoincrement()) @map("subclass_feature_id")
-  subclassId        Int @map("subclass_id")
-  featureId         Int @map("feature_id")
-
-  levelGranted Int @map("level_granted")
-
-  grantsSpellSlots Boolean @default(false) @map("grants_spell_slots")
-
-  feature  Feature  @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
-  subclass Subclass @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
+  subclassFeatureId Int      @id @default(autoincrement()) @map("subclass_feature_id")
+  subclassId        Int      @map("subclass_id")
+  featureId         Int      @map("feature_id")
+  levelGranted      Int      @map("level_granted")
+  grantsSpellSlots  Boolean  @default(false) @map("grants_spell_slots")
+  feature           Feature  @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  subclass          Subclass @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
   @@unique([subclassId, featureId])
   @@map("subclass_feature")

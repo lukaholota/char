@@ -39,6 +39,7 @@ interface Props {
   availableOptions?: ClassI["classChoiceOptions"];
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
+  pickCount?: number;
 }
 
 const displayName = (cls?: ClassI | null) =>
@@ -46,7 +47,7 @@ const displayName = (cls?: ClassI | null) =>
 
 const isEnumLike = (value?: string | null) => !!value && /^[A-Z0-9_]+$/.test(value);
 
-const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange }: Props) => {
+const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange, pickCount = 1 }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
@@ -58,7 +59,9 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     nextStep();
   });
   
-  const selections = form.watch("classChoiceSelections") || {};
+  const watchedSelections = form.watch("classChoiceSelections") || {};
+  const selectionsStr = JSON.stringify(watchedSelections);
+  const selections = useMemo(() => watchedSelections, [watchedSelections]);
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   const optionsToUse = useMemo(() => {
@@ -79,27 +82,64 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
   useEffect(() => {
     let disabled: boolean;
 
-    if (!selectedClass) {
+    const hasProvidedOptions = Boolean(availableOptions && availableOptions.length);
+
+    if (!selectedClass && !hasProvidedOptions) {
       disabled = true;
     } else if (!groupedOptions.length) {
       disabled = false;
     } else {
-      disabled = groupedOptions.some(({ groupName }) => !selections[groupName]);
+      disabled = groupedOptions.some(({ groupName }) => {
+        const selected = selections[groupName];
+        if (Array.isArray(selected)) {
+          return selected.length < pickCount;
+        }
+        return !selected;
+      });
     }
 
     if (prevDisabledRef.current !== disabled) {
       prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
     }
-  }, [selectedClass, groupedOptions, selections, onNextDisabledChange]);
+  }, [selectedClass, availableOptions, groupedOptions, selections, onNextDisabledChange, pickCount]);
 
   useEffect(() => {
     updateFormData({ classChoiceSelections: selections });
   }, [selections, updateFormData]);
 
   const selectOption = (groupName: string, optionId: number) => {
-    const next = { ...(selections || {}), [groupName]: optionId };
-    form.setValue("classChoiceSelections", next, { shouldDirty: true });
+    const current = selections[groupName];
+    
+    if (pickCount > 1) {
+      const currentArray = Array.isArray(current) ? current : (current ? [current as number] : []);
+      let nextArray: number[];
+      
+      if (currentArray.includes(optionId)) {
+        nextArray = currentArray.filter(id => id !== optionId);
+      } else {
+        if (currentArray.length >= pickCount) return;
+        nextArray = [...currentArray, optionId];
+      }
+      
+      const next = { ...(selections || {}), [groupName]: nextArray };
+      form.setValue("classChoiceSelections", next, { shouldDirty: true });
+    } else {
+      const next: Record<string, number | number[]> = { ...(selections || {}), [groupName]: optionId };
+
+      // If a flow duplicates a base group into multiple synthetic groups (e.g. "Потойбічні виклики #1/#2"),
+      // enforce uniqueness across those groups so the same option can't be picked twice.
+      const base = groupName.replace(/\s+#\d+$/, "");
+      for (const key of Object.keys(next)) {
+        if (key === groupName) continue;
+        const keyBase = key.replace(/\s+#\d+$/, "");
+        if (keyBase !== base) continue;
+        if (next[key] === optionId) {
+          delete next[key];
+        }
+      }
+      form.setValue("classChoiceSelections", next, { shouldDirty: true });
+    }
   };
 
   const openFeaturesInfo = (
@@ -160,14 +200,13 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                   <p className="text-base font-semibold text-white">{groupName}</p>
                 </div>
                 <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
-                  Оберіть 1
+                  Обрано: {Array.isArray(selections[groupName]) ? (selections[groupName] as number[]).length : (selections[groupName] ? 1 : 0)}/{pickCount}
                 </Badge>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
                 {options.map((opt) => {
                   const optionId = opt.optionId ?? opt.choiceOptionId;
-                  const selected = selections[groupName] === optionId;
                   const ukrLabel = opt.choiceOption.optionName;
                   const engLabel = opt.choiceOption.optionNameEng;
                   const label = ukrLabel || (isEnumLike(engLabel) ? translateValue(engLabel) : engLabel);
@@ -186,9 +225,16 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                       key={optionId}
                       className={clsx(
                         "glass-card cursor-pointer transition-all duration-200",
-                        selected ? "glass-active" : ""
+                        pickCount > 1 
+                          ? (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).includes(optionId))
+                            ? "glass-active"
+                            : (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).length >= pickCount) && "opacity-50 grayscale-[0.5]"
+                          : (selections[groupName] === optionId) && "glass-active"
                       )}
-                      onClick={() => selectOption(groupName, optionId)}
+                      onClick={(e) => {
+                        if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                        selectOption(groupName, optionId)
+                      }}
                     >
                       <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
                         <div className="flex items-center justify-between gap-2">
@@ -215,16 +261,6 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                                 <HelpCircle className="h-4 w-4" />
                               </Button>
                             </div>
-
-                            <Badge
-                              variant={selected ? "secondary" : "outline"}
-                              className={clsx(
-                                "border-white/15 bg-white/5 text-slate-200",
-                                selected && "text-slate-100"
-                              )}
-                            >
-                              {selected ? "Обрано" : "Обрати"}
-                            </Badge>
                           </div>
                         </div>
 
@@ -247,15 +283,14 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
         open={infoOpen}
         onOpenChange={setInfoOpen}
         title={infoTitle || "Фічі"}
-        subtitle={infoFeatures.length ? `Фіч: ${infoFeatures.length}` : undefined}
-        contentClassName="max-w-2xl border border-white/10 bg-slate-900/95 backdrop-blur text-slate-50"
+        contentClassName="max-w-2xl"
       >
         {infoFeatures.length ? (
           <div className="space-y-3">
             <InfoSectionTitle>Фічі</InfoSectionTitle>
             <div className="space-y-3">
               {infoFeatures.map((feat) => (
-                <div key={feat.name} className="rounded-lg border border-white/10 bg-white/5 p-3">
+                <div key={feat.name} className="glass-panel rounded-xl border border-slate-800/70 p-4">
                   <div className="text-sm font-semibold text-white">{feat.name}</div>
                   {feat.description ? (
                     <FormattedDescription

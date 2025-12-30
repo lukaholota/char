@@ -173,7 +173,7 @@ export async function updateBonus(
       });
     }
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
 
     return {
@@ -220,7 +220,7 @@ export async function updateSkillProficiency(
       },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
 
     return { success: true };
@@ -259,7 +259,7 @@ export async function updateSaveProficiency(
       data: { additionalSaveProficiencies: nextSaves },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
 
     return { success: true };
@@ -307,4 +307,47 @@ export async function getAllBonuses(persId: number): Promise<{
       spellDCBonuses: owned.pers.spellDCBonuses as { value: number } | null,
     },
   };
+}
+
+/**
+ * Update base stat value for a character
+ */
+export async function updateBaseStat(
+  persId: number,
+  ability: Ability,
+  value: number
+): Promise<{ success: true } | { success: false; error: string }> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+  
+  // Validate value
+  if (!Number.isFinite(value) || value < 0) {
+    return { success: false, error: "Невірне значення характеристики" };
+  }
+  
+  const roundedValue = Math.trunc(value);
+  
+  try {
+    const abilityFieldMap: Record<Ability, string> = {
+      STR: 'str',
+      DEX: 'dex',
+      CON: 'con',
+      INT: 'int',
+      WIS: 'wis',
+      CHA: 'cha',
+    };
+    
+    await prisma.pers.update({
+      where: { persId },
+      data: { [abilityFieldMap[ability]]: roundedValue },
+    });
+    
+    revalidatePath(`/char/${persId}`);
+    revalidatePath(`/character/${persId}`);
+    
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating base stat:", error);
+    return { success: false, error: "Помилка при збереженні характеристики" };
+  }
 }

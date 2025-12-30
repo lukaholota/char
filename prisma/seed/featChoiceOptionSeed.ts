@@ -6,6 +6,7 @@ import {
   featTranslations,
   classTranslations
 } from "../../src/lib/refs/translation";
+import { translateValue } from "../../src/lib/components/characterCreator/infoUtils";
 import { CHOICE_GROUPS } from "./helpers/groupNames";
 
 export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
@@ -266,6 +267,48 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
     }
     
     console.log(`✅ Skill Expert: ${Object.values(Ability).length} abilities, ${Object.values(Skills).length * 2} skill options`);
+  }
+
+  // ========================================================================
+  // PRODIGY (Вундеркінд)
+  // 1. Gain proficiency in one skill
+  // 2. Gain expertise in one skill
+  // 3. Gain proficiency in one tool
+  // 4. Learn one language
+  // ========================================================================
+  const prodigy = await findFeat(Feats.PRODIGY);
+  if (prodigy) {
+    // 1. Skill Proficiency
+    for (const skill of Object.values(Skills)) {
+      const skillTranslation = translateValue(skill);
+      
+      const option = await createChoiceOption(
+        "Навичка Вундеркінда",
+        skillTranslation,
+        `Prodigy Proficiency (${skill})`,
+        []
+      );
+      await linkFeatChoice(prodigy.featId, option.choiceOptionId);
+    }
+
+    // 2. Expertise
+    for (const skill of Object.values(Skills)) {
+      const skillTranslation = translateValue(skill);
+      
+      const option = await createChoiceOption(
+        "Експертиза Вундеркінда",
+        skillTranslation,
+        `Prodigy Expertise (${skill})`,
+        []
+      );
+      await linkFeatChoice(prodigy.featId, option.choiceOptionId);
+    }
+    
+    // Tools and Languages are handled differently in the schema usually, 
+    // but here we might need to add them if they are choice-based.
+    // For now, focusing on Skill/Expertise which was the reported issue.
+
+    console.log(`✅ Prodigy: ${Object.values(Skills).length * 2} skill/expertise options`);
   }
 
   // ========================================================================

@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import { prisma } from "@/lib/prisma";
+import { redirect } from "next/navigation";
+import { getAllSpells, type SpellData } from "@/lib/spellsData";
 import { SpellsClient, type SpellListItem } from "./spells-client";
 
-export const dynamic = "force-dynamic";
-
+// Static generation — data comes from generated JSON
 export default async function SpellsPage({
   searchParams,
 }: {
@@ -11,28 +11,16 @@ export default async function SpellsPage({
 }) {
   const resolvedSearchParams = await searchParams;
 
-  const spells = await prisma.spell.findMany({
-    orderBy: [{ level: "asc" }, { name: "asc" }],
-    select: {
-      spellId: true,
-      name: true,
-      engName: true,
-      level: true,
-      school: true,
-      castingTime: true,
-      duration: true,
-      range: true,
-      components: true,
-      description: true,
-      source: true,
-      hasRitual: true,
-      hasConcentration: true,
-      spellClasses: { select: { className: true } },
-      spellRaces: { select: { raceName: true } },
-    },
-  });
+  // Legacy redirect: ?selectedSpellId=123 → /spells/123
+  const selectedSpellId = resolvedSearchParams.selectedSpellId;
+  if (selectedSpellId && typeof selectedSpellId === "string") {
+    redirect(`/spells/${selectedSpellId}`);
+  }
 
-  const items: SpellListItem[] = spells.map((s) => ({
+  // Get static spell data (no Prisma, no DB)
+  const spells = getAllSpells();
+
+  const items: SpellListItem[] = spells.map((s: SpellData) => ({
     spellId: s.spellId,
     name: s.name,
     engName: s.engName,
@@ -43,7 +31,7 @@ export default async function SpellsPage({
     range: s.range,
     components: s.components,
     description: s.description,
-    source: String(s.source),
+    source: s.source,
     hasRitual: s.hasRitual,
     hasConcentration: s.hasConcentration,
     spellClasses: s.spellClasses,

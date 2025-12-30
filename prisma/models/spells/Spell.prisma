@@ -1,29 +1,26 @@
-
 model Spell {
-  spellId          Int     @id @default(autoincrement()) @map("spell_id")
-  name             String  @unique(map: "unique_names") @db.VarChar(255)
-  engName          String  @unique @map("eng_name") @db.VarChar(255)
+  spellId          Int               @id @default(autoincrement()) @map("spell_id")
+  name             String            @unique(map: "unique_names") @db.VarChar(255)
+  school           String?           @db.VarChar(255)
+  castingTime      String            @map("casting_time") @db.VarChar(255)
+  range            String            @db.VarChar(255)
+  components       String?           @db.VarChar(500)
+  duration         String            @db.VarChar(255)
+  description      String
+  hasRitual        String?           @map("has_ritual") @db.VarChar
+  hasConcentration String?           @map("has_concentration") @db.VarChar
+  source           Source            @default(PHB)
   level            Int
-  school           String? @db.VarChar(255)
-  castingTime      String  @map("casting_time") @db.VarChar(255)
-  range            String  @db.VarChar(255)
-  components       String? @db.VarChar(500)
-
+  engName          String            @unique @map("eng_name") @db.VarChar(255)
+  characterSpells  CharacterSpells[]
   persSpells       PersSpell[]
-  duration         String  @db.VarChar(255)
-  description      String  @db.Text
-  hasRitual        String? @map("has_ritual") @db.VarChar
-  hasConcentration String? @map("has_concentration") @db.VarChar
-  source           Source  @default(PHB)
-
-  characterSpells CharacterSpells[]
-  spellClasses    SpellClasses[]
-  spellRaces      SpellRaces[]
-  spellbookSpells SpellbookSpells[]
-  subclasses      Subclass[]        @relation("SubclassExpandedSpells")
-  perses          Pers[]
-  features        Feature[]
-  magicItems      MagicItem[]
+  spellClasses     SpellClasses[]
+  spellRaces       SpellRaces[]
+  spellbookSpells  SpellbookSpells[]
+  features         Feature[]         @relation("FeatureToSpell")
+  magicItems       MagicItem[]       @relation("MagicItemToSpell")
+  perses           Pers[]            @relation("PersToSpell")
+  subclasses       Subclass[]        @relation("SubclassExpandedSpells")
 
   @@map("spell")
 }

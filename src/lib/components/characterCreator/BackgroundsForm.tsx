@@ -9,26 +9,16 @@ import {useStepForm} from "@/hooks/useStepForm";
 import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
 import { useEffect, useMemo, useCallback } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Input } from "@/components/ui/input";
+import { Search, X } from "lucide-react";
+import { BackgroundInfoModal } from "@/lib/components/characterCreator/modals/BackgroundInfoModal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, X } from "lucide-react";
 import {
-  InfoDialog,
-  InfoGrid,
-  InfoPill,
-  InfoSectionTitle,
-} from "@/lib/components/characterCreator/EntityInfoDialog";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import {
-  formatLanguages,
-  formatSkillProficiencies,
-  formatToolProficiencies,
-  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { BackgroundI } from "@/lib/types/model-types";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -37,23 +27,7 @@ const normalizeText = (value?: string) =>
     .toLowerCase()
     .trim();
 
-const parseItems = (items: unknown): string[] => {
-  if (!Array.isArray(items)) return [];
-
-  return (items as unknown[])
-    .map((item) => {
-      if (!item) return null;
-      if (typeof item === "string") return item;
-      if (typeof item === "object") {
-        const name = (item as any).name;
-        const quantity = (item as any).quantity;
-        if (!name) return null;
-        return quantity ? `${name} x${quantity}` : name;
-      }
-      return null;
-    })
-    .filter(Boolean) as string[];
-};
+// parseItems removed as it was unused
 
 interface Props {
   backgrounds: BackgroundI[]
@@ -115,72 +89,6 @@ export const BackgroundsForm = (
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenBackgroundId]);
 
-  const BackgroundInfoModal = ({ background }: { background: BackgroundI }) => {
-    const items = parseItems(background.items);
-    const sourceText = sourceLabel(background.name);
-    const resolvedSource = sourceText === "Інші джерела" && background.source
-      ? translateValue(background.source)
-      : sourceText;
-
-    return (
-      <InfoDialog
-        title={backgroundTranslations[background.name] || background.name}
-        triggerLabel={`Показати деталі ${backgroundTranslations[background.name] ?? background.name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={resolvedSource} />
-          <InfoPill
-            label="Навички"
-            value={formatSkillProficiencies(background.skillProficiencies)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(background.toolProficiencies)}
-          />
-          <InfoPill
-            label="Мови"
-            value={formatLanguages([], background.languagesToChooseCount)}
-          />
-          <InfoPill
-            label="Особливість"
-            value={background.specialAbilityName || "-"}
-          />
-        </InfoGrid>
-
-        {items.length ? (
-          <div className="space-y-1.5">
-            <InfoSectionTitle>Стартове спорядження</InfoSectionTitle>
-            <ul className="space-y-1 text-sm text-slate-200/90">
-              {items.map((item, index) => (
-                <li key={`${item}-${index}`} className="flex items-start gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400" aria-hidden />
-                  <span className="flex-1">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
-        {(background.specialAbilityName || background.description) && (
-          <div className="space-y-1">
-            <InfoSectionTitle>Опис особливості</InfoSectionTitle>
-            {background.specialAbilityName ? (
-              <p className="text-sm font-semibold text-white">
-                {background.specialAbilityName}
-              </p>
-            ) : null}
-            {background.description ? (
-              <FormattedDescription
-                content={background.description}
-                className="text-sm leading-relaxed text-slate-200/90"
-              />
-            ) : null}
-          </div>
-        )}
-      </InfoDialog>
-    );
-  };
-
   const matchesSearch = useCallback((name: string) => {
     if (!normalizedBackgroundSearch) return true;
     const ua = normalizeText(backgroundTranslations[name]);
@@ -200,7 +108,6 @@ export const BackgroundsForm = (
     [backgrounds, matchesSearch]
   );
 
-  const sourceLabel = (name: string) => SOURCE_OVERRIDES[name] ?? "Інші джерела";
   const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;
   const forceOpenOther = Boolean(normalizedBackgroundSearch);
 

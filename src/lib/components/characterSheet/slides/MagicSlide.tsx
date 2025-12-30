@@ -3,7 +3,7 @@
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
-import { Check, Sparkles, Trash2 } from "lucide-react";
+import { Check, Sparkles, Trash2, Info, Plus, ChevronRight, Wand2, Calculator, MessageSquare, Printer } from "lucide-react";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
@@ -180,7 +180,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
             }}
         >
           <CardContent className="p-3 text-center">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-fuchsia-300">Бонус атаки</div>
+            <div className="text-[10px] font-bold uppercase tracking-wide text-fuchsia-300">Бонус атаки Заклинаннями</div>
             <div className="text-2xl font-bold text-fuchsia-50 drop-shadow-[0_0_8px_rgba(217,70,239,0.4)]">{formatModifier(spellAttackBonus)}</div>
           </CardContent>
         </Card>
@@ -192,7 +192,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
             }}
         >
           <CardContent className="p-3 text-center">
-            <div className="text-[10px] font-bold uppercase tracking-wide text-fuchsia-300">DC рятунку</div>
+            <div className="text-[10px] font-bold uppercase tracking-wide text-fuchsia-300">СК (Складість Ряткидка)</div>
             <div className="text-2xl font-bold text-fuchsia-50 drop-shadow-[0_0_8px_rgba(217,70,239,0.4)]">{spellSaveDC}</div>
           </CardContent>
         </Card>
@@ -364,11 +364,14 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
 
       {/* Spell List */}
       <Card className="glass-card bg-white/5 border-purple-300/20">
-        <CardHeader className="pb-3">
+        <CardHeader className="pb-3 flex-row items-center justify-between">
           <CardTitle className="text-lg flex items-center gap-2 text-purple-50">
-            <Sparkles className="w-5 h-5" />
+            <Wand2 className="w-5 h-5" />
             <span className="uppercase tracking-wide text-indigo-300">Заклинання</span>
           </CardTitle>
+          <div className="flex items-center gap-1">
+            {!isReadOnly && <AddSpellDialog pers={localPers} onPersUpdate={onPersUpdate} />}
+          </div>
         </CardHeader>
         <CardContent className="space-y-3">
           <Input
@@ -386,7 +389,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
               <Card key={level} className="border-white/10 bg-white/5">
                 <CardHeader className="pb-2 py-3 bg-white/5">
                   <CardTitle className="text-base flex justify-between items-center">
-                    <span>{level === 0 ? "Замовляння" : `Рівень ${level}`}</span>
+                    <span>{level === 0 ? "Замовляння" : "Рівень " + level}</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -446,7 +449,6 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
                                 e.stopPropagation();
                                 if (!Number.isFinite(spellId) || isRemoving || !canPrepare || isReadOnly) return;
                                 const nextPrepared = !prepared;
-                                // ... rest of onClick
 
                                 setLocalPersSpells((prev: any[]) =>
                                   prev.map((x) => {

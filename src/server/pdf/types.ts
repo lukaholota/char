@@ -1,10 +1,11 @@
 import type { PersWithRelations } from "@/lib/actions/pers";
 import type { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 
-export type PrintSection = "CHARACTER" | "FEATURES" | "SPELLS";
+export type PrintSection = "CHARACTER" | "FEATURES" | "SPELLS" | "MAGIC_ITEMS";
 
 export interface PrintConfig {
   sections: PrintSection[];
+  flattenCharacterSheet?: boolean;
 }
 
 export type PersSpellWithSpell = PersWithRelations["persSpells"][number];

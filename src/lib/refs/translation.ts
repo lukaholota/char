@@ -899,7 +899,7 @@ export const weaponTranslations = {
   JAVELIN: "Метальний спис",
   LIGHT_HAMMER: "Легкий молот",
   MACE: "Булава",
-  QUARTERSTAFF: "Бойовий посох",
+  QUARTERSTAFF: "Палиця",
   SICKLE: "Серп",
   SPEAR: "Спис",
   UNARMED_STRIKE: "Беззбройний удар",
@@ -913,7 +913,7 @@ export const weaponTranslations = {
   GREATAXE: "Велика сокира",
   GREATSWORD: "Дворучний меч",
   HALBERD: "Алебарда",
-  LANCE: "Піка",
+  LANCE: "Довгий спис",
   LONGSWORD: "Довгий меч",
   MAUL: "Дворучний молот",
   MORNINGSTAR: "Моргенштерн",
@@ -1018,7 +1018,7 @@ export const SizeTranslations: Record<string, string> = {
 
 export const LanguageTranslations: Record<string, string> = {
   COMMON: "Загальна",
-  DWARVISH: "Дворфійська",
+  DWARVISH: "Дворфська",
   ELVISH: "Ельфійська",
   GIANT: "Мова велетнів",
   GNOMISH: "Гном'яча",
@@ -1288,6 +1288,14 @@ export const spellSchoolTranslations: Record<string, string> = {
   TRANSMUTATION: "Перетворення",
 };
 
+export const spellcastingTypeTranslations: Record<string, string> = {
+  NONE: "Відсутній",
+  FULL: "Повний",
+  HALF: "Половинний",
+  THIRD: "Третинний",
+  PACT: "Магія пакту",
+};
+
 export const abilityTranslations: Record<string, string> = {
   STR: "Сила",
   DEX: "Спритність",
@@ -1295,6 +1303,18 @@ export const abilityTranslations: Record<string, string> = {
   INT: "Інтелект",
   WIS: "Мудрість",
   CHA: "Харизма",
+};
+
+export const asiSystemTranslations: Record<string, string> = {
+  POINT_BUY: "За очками",
+  STANDARD_ARRAY: "Стандартний набір",
+  ROLL: "Кидки",
+  MANUAL: "Вручну",
+};
+
+export const asiModeTranslations: Record<string, string> = {
+  BASIC: "Базові",
+  TASHA: "Таша",
 };
 
 export const skillTranslations: Record<string, string> = {
@@ -1320,12 +1340,12 @@ export const skillTranslations: Record<string, string> = {
 
 export const expertiseTranslations: Record<Skills, string> = {
   ACROBATICS: "Акробатика",
-  ANIMAL_HANDLING: "Управління тваринами",
+  ANIMAL_HANDLING: "Поводження з тваринами",
   ARCANA: "Магія",
   ATHLETICS: "Атлетика",
   DECEPTION: "Обман",
   HISTORY: "Історія",
-  INSIGHT: "Проникливість",
+  INSIGHT: "Аналіз поведінки",
   INTIMIDATION: "Залякування",
   INVESTIGATION: "Розслідування",
   MEDICINE: "Медицина",
@@ -1335,24 +1355,24 @@ export const expertiseTranslations: Record<Skills, string> = {
   PERSUASION: "Переконання",
   RELIGION: "Релігія",
   SLEIGHT_OF_HAND: "Спритність рук",
-  STEALTH: "Потайливість",
+  STEALTH: "Непомітність",
   SURVIVAL: "Виживання",
 };
 
 export const damageTypeTranslations: Record<string, string> = {
-  ACID: "Кислота",
-  BLUDGEONING: "Дробячий",
-  COLD: "Холод",
-  FIRE: "Вогонь",
-  FORCE: "Силовий",
-  LIGHTNING: "Блискавка",
-  NECROTIC: "Некротичний",
-  PIERCING: "Колючий",
-  POISON: "Отрута",
-  PSYCHIC: "Психічний",
-  RADIANT: "Променистий",
-  SLASHING: "Ріжучий",
-  THUNDER: "Грім",
+  ACID: "Кислотна",
+  BLUDGEONING: "Дробяча",
+  COLD: "Холодом",
+  FIRE: "Вогняна",
+  FORCE: "Силова",
+  LIGHTNING: "Блискавична",
+  NECROTIC: "Некротична",
+  PIERCING: "Колюча",
+  POISON: "Отрутою",
+  PSYCHIC: "Психічна",
+  RADIANT: "Промениста",
+  SLASHING: "Ріжуча",
+  THUNDER: "Громова",
 };
 
 // Rest system translations
@@ -1360,7 +1380,7 @@ export const restTranslations = {
   rest: "Відпочинок",
   shortRest: "Короткий відпочинок",
   longRest: "Тривалий відпочинок",
-  hitDice: "Хіт-дайси",
+  hitDice: "Кубики здоровʼя",
   restoreHp: "Відновлення HP",
   confirm: "Підтвердити",
   cancel: "Скасувати",
@@ -1369,16 +1389,16 @@ export const restTranslations = {
   hpRestored: "Відновлено HP",
   featuresRestored: "Відновлені здібності",
   spellSlotsRestored: "Комірки заклять відновлено",
-  selectHitDice: "Виберіть хіт-дайси для використання",
+  selectHitDice: "Виберіть кубики здоров'я для використання",
   available: "Доступно",
-  perDie: "за дайс",
+  perDie: "за кубик",
   takingShortRest: "Короткий відпочинок...",
   takingLongRest: "Тривалий відпочинок...",
   shortRestComplete: "Короткий відпочинок завершено",
   longRestComplete: "Тривалий відпочинок завершено",
   confirmLongRest: "Підтвердити тривалий відпочинок?",
-  longRestDescription: "Повністю відновить HP, всі хіт-дайси, комірки заклять та здібності",
-  noHitDiceAvailable: "Немає доступних хіт-дайсів",
+  longRestDescription: "Повністю відновить HP, всі кубики здоров'я, комірки заклять та здібності",
+  noHitDiceAvailable: "Немає доступних кубиків здоров'я",
 } as const;
 
 // Bonus modification translations
@@ -1393,8 +1413,8 @@ export const bonusTranslations = {
   speedBonus: "Бонус до швидкості",
   proficiencyBonus: "Бонус до майстерності",
   initiativeBonus: "Бонус до ініціативи",
-  spellAttackBonus: "Бонус до атаки заклять",
-  spellDCBonus: "Бонус до DC заклять",
+  spellAttackBonus: "Бонус до атаки заклинаннями",
+  spellDCBonus: "Бонус до СК заклинань",
   baseValue: "Базове",
   finalValue: "Фінальне",
   currentBonus: "Поточний бонус",
@@ -1419,13 +1439,49 @@ export const bonusTranslations = {
     proficiency: "Бонус майстерності",
     initiative: "Ініціатива",
     spellAttack: "Атака закляттям",
-    spellDC: "Складність рятівного закляття",
+    spellDC: "Складність ряткидка",
   },
   proficiencyLevel: "Рівень майстерності",
   proficiencies: {
     NONE: "Немає",
+    HALF: "Пів-володіння",
     PROFICIENT: "Володіння",
     EXPERTISE: "Експертиза",
   },
   saveProficiency: "Володіння рятівним кидком",
 } as const;
+
+export const infusionTargetTranslations = {
+  ARMOR: "Обладунок",
+  SHIELD: "Щит",
+  WEAPON: "Зброя",
+  WAND_ROD_STAFF: "Паличка/жезл/посох",
+  BOOTS: "Чоботи",
+  HELMET: "Шолом",
+  RING: "Кільце",
+  AMMO: "Боєприпаси",
+  GEM_CRYSTAL: "Самоцвіт/кристал",
+  ANY: "Будь-який",
+};
+export const magicItemTypeTranslations = {
+  WEAPON: "Зброя",
+  ARMOR: "Обладунок",
+  WONDROUS_ITEM: "Дивовижний предмет",
+  POTION: "Зілля",
+  SCROLL: "Сувій",
+  RING: "Каблучка",
+  WAND: "Жезл",
+  ROD: "Скіпетр",
+  STAFF: "Посох",
+} as const;
+
+export const rarityTranslations = {
+  COMMON: "Звичайний",
+  UNCOMMON: "Незвичайний",
+  RARE: "Рідкісний",
+  VERY_RARE: "Дуже рідкісний",
+  LEGENDARY: "Легендарний",
+  ARTIFACT: "Артефакт",
+} as const;
+
+export const itemRarityTranslations = rarityTranslations;

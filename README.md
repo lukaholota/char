@@ -20,6 +20,25 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Environment Variables
+
+Create a `.env.local` file with the following variables:
+
+```bash
+# Authentication
+AUTH_SECRET=your-auth-secret
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+# Database
+DATABASE_URL=your-database-url
+
+# dddice 3D Dice Roller (optional)
+# Get API key and create a room at https://dddice.com
+NEXT_PUBLIC_DDDICE_API_KEY=your-dddice-api-key
+NEXT_PUBLIC_DDDICE_ROOM_SLUG=your-room-slug
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

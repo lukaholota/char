@@ -1,120 +1,93 @@
-
 model Pers {
-  persId Int    @id @default(autoincrement()) @map("pers_id")
-  userId Int    @map("user_id")
-  name   String @db.VarChar(100)
-  level  Int    @default(1)
-
-  currentSpellSlots Int[] @default([]) @map("current_spell_slots")
-  currentPactSlots  Int   @default(0) @map("current_pact_slots")
-
-  classId    Int  @map("class_id")
-  subclassId Int? @map("subclass_id")
-
-  backgroundId Int @map("background_id")
-
-  raceId    Int  @map("race_id")
-  subraceId Int? @map("subrace_id")
-
-  currentHp Int @map("current_hp")
-  maxHp     Int @map("max_hp")
-  tempHp    Int @default(0) @map("temp_hp")
-
-  deathSaveSuccesses Int @default(0) @map("death_save_successes")
-  deathSaveFailures  Int @default(0) @map("death_save_failures")
-  isDead             Boolean @default(false) @map("is_dead")
-
-  persSpells PersSpell[]
-
-  raceCustom           String @default("") @map("race_custom") @db.VarChar(100)
-  classCustom          String @default("") @map("class_custom") @db.VarChar(100)
-  alignment            String @default("") @db.VarChar(100)
-  xp                   Int    @default(0)
-  customBackground     String @default("") @map("custom_background") @db.VarChar(100)
-  customProficiencies  String @default("") @map("custom_proficiencies") @db.Text
-  customFeatures       String @default("") @map("custom_features") @db.Text
-  customLanguagesKnown String @default("") @map("custom_languages_known") @db.Text
-  customEquipment      String @default("") @map("custom_equipment") @db.Text
-  personalityTraits    String @default("") @map("personality_traits") @db.Text
-  ideals               String @default("") @db.Text
-  bonds                String @default("") @db.Text
-  flaws                String @default("") @db.Text
-  backstory            String @default("") @db.Text
-  notes                String @default("") @db.Text
-
-  str Int
-  dex Int
-  con Int
-  int Int
-  wis Int
-  cha Int
-
-  cp String @default("0")
-  ep String @default("0")
-  sp String @default("0")
-  gp String @default("0")
-  pp String @default("0")
-
-  additionalSaveProficiencies Ability[] @default([]) @map("additional_save_proficiencies")
-  miscSaveBonuses             Json?     @map("misc_save_bonuses")
-
-  wearsShield           Boolean @default(false) @map("wears_shield")
-  additionalShieldBonus Int     @default(0) @map("additional_shield_bonus")
-  armorBonus            Int     @default(0) @map("armor_bonus")
-  wearsNaturalArmor     Boolean @default(false) @map("wears_natural_armor")
-
-  // Custom Bonuses (JSON for flexibility)
-  statBonuses           Json? @map("statbonuses")
-  statModifierBonuses   Json? @map("statmodifierbonuses")
-  saveBonuses           Json? @map("savebonuses")
-  skillBonuses          Json? @map("skillbonuses")
-  hpBonuses             Json? @map("hpbonuses")
-  acBonuses             Json? @map("acbonuses")
-  speedBonuses          Json? @map("speedbonuses")
-  proficiencyBonuses    Json? @map("proficiencybonuses")
-  initiativeBonuses     Json? @map("initiativebonuses")
-  spellAttackBonuses    Json? @map("spellattackbonuses")
-  spellDCBonuses        Json? @map("spelldcbonuses")
-
-  // Hit Dice Tracking
-  currentHitDice Json? @map("currenthitdice")
-  usedHitDice    Json? @map("usedhitdice")
-
-  // Character History (Snapshots)
-  parentPersId  Int?     @map("parentpersid")
-  isSnapshot    Boolean  @default(false) @map("issnapshot")
-  snapshotLevel Int?     @map("snapshotlevel")
-  isActive      Boolean  @default(true) @map("isactive")
-
-  // Sharing
-  shareToken String? @unique @map("sharetoken")
-
-
-  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  class      Class      @relation(fields: [classId], references: [classId], onDelete: Cascade)
-  subclass   Subclass?  @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
-  race       Race       @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
-  subrace    Subrace?   @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
-  background Background @relation(fields: [backgroundId], references: [backgroundId], onDelete: Cascade)
-
-  skills                PersSkill[]
-  multiclasses          PersMulticlass[]
-  features              PersFeature[]
-  spells                Spell[]
-  feats                 PersFeat[]
-  armors                PersArmor[]
-  weapons               PersWeapon[]
-  magicItems            PersMagicItem[]
-  raceVariants          RaceVariant[]
-  raceChoiceOptions     RaceChoiceOption[]
-  choiceOptions         ChoiceOption[]
-  classOptionalFeatures ClassOptionalFeature[]
-
-  // Opposite side of PersInfusion.pers
-  persInfusions PersInfusion[]
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  persId                      Int                    @id @default(autoincrement()) @map("pers_id")
+  userId                      Int                    @map("user_id")
+  name                        String                 @db.VarChar(100)
+  level                       Int                    @default(1)
+  currentSpellSlots           Int[]                  @default([]) @map("current_spell_slots")
+  classId                     Int                    @map("class_id")
+  subclassId                  Int?                   @map("subclass_id")
+  backgroundId                Int                    @map("background_id")
+  raceId                      Int                    @map("race_id")
+  subraceId                   Int?                   @map("subrace_id")
+  currentHp                   Int                    @map("current_hp")
+  maxHp                       Int                    @map("max_hp")
+  tempHp                      Int                    @default(0) @map("temp_hp")
+  raceCustom                  String                 @default("") @map("race_custom") @db.VarChar(100)
+  classCustom                 String                 @default("") @map("class_custom") @db.VarChar(100)
+  alignment                   String                 @default("") @db.VarChar(100)
+  xp                          Int                    @default(0)
+  customBackground            String                 @default("") @map("custom_background") @db.VarChar(100)
+  customFeatures              String                 @default("") @map("custom_features")
+  customLanguagesKnown        String                 @default("") @map("custom_languages_known")
+  customEquipment             String                 @default("") @map("custom_equipment")
+  personalityTraits           String                 @default("") @map("personality_traits")
+  ideals                      String                 @default("")
+  bonds                       String                 @default("")
+  flaws                       String                 @default("")
+  backstory                   String                 @default("")
+  notes                       String                 @default("")
+  str                         Int
+  dex                         Int
+  con                         Int
+  int                         Int
+  wis                         Int
+  cha                         Int
+  cp                          String                 @default("0")
+  sp                          String                 @default("0")
+  ep                          String                 @default("0")
+  gp                          String                 @default("0")
+  pp                          String                 @default("0")
+  additionalSaveProficiencies Ability[]              @default([]) @map("additional_save_proficiencies")
+  miscSaveBonuses             Json?                  @map("misc_save_bonuses")
+  createdAt                   DateTime               @default(now()) @map("created_at")
+  updatedAt                   DateTime               @updatedAt @map("updated_at")
+  additionalShieldBonus       Int                    @default(0) @map("additional_shield_bonus")
+  armorBonus                  Int                    @default(0) @map("armor_bonus")
+  wearsNaturalArmor           Boolean                @default(false) @map("wears_natural_armor")
+  wearsShield                 Boolean                @default(false) @map("wears_shield")
+  currentPactSlots            Int                    @default(0) @map("current_pact_slots")
+  customProficiencies         String                 @default("") @map("custom_proficiencies")
+  deathSaveFailures           Int                    @default(0) @map("death_save_failures")
+  deathSaveSuccesses          Int                    @default(0) @map("death_save_successes")
+  isDead                      Boolean                @default(false) @map("is_dead")
+  acBonuses                   Json?                  @map("acbonuses")
+  currentHitDice              Json?                  @map("currenthitdice")
+  hpBonuses                   Json?                  @map("hpbonuses")
+  initiativeBonuses           Json?                  @map("initiativebonuses")
+  isActive                    Boolean                @default(true) @map("isactive")
+  isSnapshot                  Boolean                @default(false) @map("issnapshot")
+  parentPersId                Int?                   @map("parentpersid")
+  proficiencyBonuses          Json?                  @map("proficiencybonuses")
+  saveBonuses                 Json?                  @map("savebonuses")
+  shareToken                  String?                @unique @map("sharetoken")
+  skillBonuses                Json?                  @map("skillbonuses")
+  snapshotLevel               Int?                   @map("snapshotlevel")
+  speedBonuses                Json?                  @map("speedbonuses")
+  spellAttackBonuses          Json?                  @map("spellattackbonuses")
+  spellDCBonuses              Json?                  @map("spelldcbonuses")
+  statBonuses                 Json?                  @map("statbonuses")
+  statModifierBonuses         Json?                  @map("statmodifierbonuses")
+  usedHitDice                 Json?                  @map("usedhitdice")
+  background                  Background             @relation(fields: [backgroundId], references: [backgroundId], onDelete: Cascade)
+  class                       Class                  @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  race                        Race                   @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  subclass                    Subclass?              @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
+  subrace                     Subrace?               @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
+  user                        User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  armors                      PersArmor[]
+  feats                       PersFeat[]
+  features                    PersFeature[]
+  persInfusions               PersInfusion[]
+  magicItems                  PersMagicItem[]
+  multiclasses                PersMulticlass[]
+  skills                      PersSkill[]
+  persSpells                  PersSpell[]
+  weapons                     PersWeapon[]
+  choiceOptions               ChoiceOption[]         @relation("ChoiceOptionToPers")
+  classOptionalFeatures       ClassOptionalFeature[] @relation("ClassOptionalFeatureToPers")
+  raceChoiceOptions           RaceChoiceOption[]     @relation("PersToRaceChoiceOption")
+  raceVariants                RaceVariant[]          @relation("PersToRaceVariant")
+  spells                      Spell[]                @relation("PersToSpell")
 
   @@map("pers")
 }

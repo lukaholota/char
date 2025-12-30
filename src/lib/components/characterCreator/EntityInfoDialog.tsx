@@ -29,25 +29,25 @@ export const InfoDialogContent = ({
   return (
     <DialogContent
       className={clsx(
-        "max-h-[85vh] w-[95vw] max-w-lg overflow-y-auto",
+        "max-h-[90vh] w-[95vw] max-w-lg overflow-y-auto px-4 py-5 sm:p-6",
         "shadow-2xl ring-1 ring-white/20",
         className
       )}
     >
       <div className="absolute left-1/2 top-0 h-[2px] w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
 
-      <DialogHeader className="space-y-3 border-b border-white/10 pb-4">
-        <DialogTitle className="font-rpg-display text-2xl font-semibold uppercase tracking-widest text-slate-200">
+      <DialogHeader className="space-y-2 border-b border-white/10 pb-3 pr-6 sm:pr-0">
+        <DialogTitle className="font-sans text-xl font-semibold uppercase tracking-wider text-slate-200">
           {title}
         </DialogTitle>
         {subtitle && (
-          <DialogDescription className="text-sm font-medium text-slate-300">
+          <DialogDescription className="text-xs font-medium text-slate-400">
             {subtitle}
           </DialogDescription>
         )}
       </DialogHeader>
 
-      <div className="space-y-4 pt-4 text-sm leading-relaxed text-slate-200/90 sm:text-base">{children}</div>
+      <div className="space-y-3 pt-4 text-sm leading-relaxed text-slate-200/90 sm:text-base">{children}</div>
     </DialogContent>
   );
 };
@@ -58,6 +58,7 @@ interface InfoDialogProps {
   triggerLabel: string;
   triggerClassName?: string;
   children: ReactNode;
+  trigger?: ReactNode;
 }
 
 export const InfoDialog = ({
@@ -66,7 +67,31 @@ export const InfoDialog = ({
   triggerLabel,
   triggerClassName,
   children,
+  trigger,
 }: InfoDialogProps) => {
+  const content = (
+    <InfoDialogContent title={title} subtitle={subtitle}>
+      {children}
+    </InfoDialogContent>
+  );
+
+  if (trigger) {
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <div 
+            data-stop-card-click
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {trigger}
+          </div>
+        </DialogTrigger>
+        {content}
+      </Dialog>
+    );
+  }
+
   return (
     <Dialog>
       <div 
@@ -98,9 +123,7 @@ export const InfoDialog = ({
         </DialogTrigger>
       </div>
       
-      <InfoDialogContent title={title} subtitle={subtitle}>
-        {children}
-      </InfoDialogContent>
+      {content}
     </Dialog>
   );
 };

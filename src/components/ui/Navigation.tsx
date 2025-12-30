@@ -2,24 +2,46 @@
 
 import { Logo } from "@/lib/components/icons/Logo";
 import Link from "next/link";
-import { Suspense } from "react";
-import { usePathname } from "next/navigation";
-import { Home, Sparkles, LogIn, LogOut } from "lucide-react";
+import { Suspense, useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Home, Sparkles, LogIn, LogOut, Dices, WandSparkles } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
-import { useState } from "react";
+import { useTwoStepConfirm } from "@/hooks/useTwoStepConfirm";
 import Image from "next/image";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 
 export const Navigation = () => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { data: session } = useSession();
   const [authOpen, setAuthOpen] = useState(false);
+  const { toggle } = useDiceUIStore();
+
+  const logoutConfirm = useTwoStepConfirm<HTMLButtonElement>({
+    onConfirm: () => signOut({ callbackUrl: "/" }),
+  });
+
+  const isEmbed = (pathname.startsWith("/spells") || pathname.startsWith("/magic-items")) && searchParams.get("origin") === "character";
+  
+  // Also hide if inside iframe to be sure
+  const [isIframe, setIsIframe] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.self !== window.top) {
+      setIsIframe(true);
+    }
+  }, []);
+
+  if (isEmbed || isIframe) {
+    return null;
+  }
 
   const navLinks = [
     { href: "/", icon: Home, label: "Головна" },
     { href: "/spells", icon: Sparkles, label: "Заклинання" },
-    { href: "/pers/home", icon: "dragon", label: "Персонажі" },
+    { href: "/magic-items", icon: WandSparkles, label: "Предмети" },
+    { href: "/char/home", icon: "dragon", label: "Персонажі" },
   ];
 
   return (
@@ -30,7 +52,7 @@ export const Navigation = () => {
         <Link
           href="/"
           aria-label="Головна"
-          className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-violet-500/20 shadow-lg ring-1 ring-white/10 transition-transform hover:scale-105 active:scale-95 md:h-12 md:w-12"
+          className="hidden md:flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-violet-500/20 shadow-lg ring-1 ring-white/10 transition-transform hover:scale-105 active:scale-95 md:h-12 md:w-12"
         >
           <Logo className="h-7 w-7 md:h-8 md:w-8" />
         </Link>
@@ -84,13 +106,30 @@ export const Navigation = () => {
         </div>
       </div>
 
-      {/* Bottom Section: Auth */}
-      <div className="flex flex-row gap-4 md:flex-col md:gap-4">
+      {/* Bottom Section: Dice & Auth */}
+      <div className="flex flex-row gap-0 md:flex-col md:gap-4">
+        {/* Dice Roller */}
+        <button
+          aria-label="Кубики"
+          onClick={toggle}
+          className="flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 text-amber-400/80 transition-all hover:bg-amber-500/10 hover:text-amber-400"
+        >
+          <Dices className="h-6 w-6" />
+          <span className="text-[11px] leading-none">Кубики</span>
+        </button>
+
+        {/* Auth Section */}
         {session?.user ? (
           <button
-            onClick={() => signOut({ callbackUrl: "/" })}
+            ref={logoutConfirm.ref}
+            onClick={logoutConfirm.onClick}
             aria-label="Вийти"
-            className="flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 text-rose-400/70 transition-all hover:bg-rose-500/10 hover:text-rose-400"
+            className={cn(
+              "flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 transition-all",
+              logoutConfirm.isConfirming
+                ? "bg-rose-600/25 text-rose-200 ring-1 ring-rose-500/50"
+                : "text-rose-400/70 hover:bg-rose-500/10 hover:text-rose-400"
+            )}
           >
             <LogOut className="h-6 w-6" />
             <span className="text-[11px] leading-none">Вийти</span>

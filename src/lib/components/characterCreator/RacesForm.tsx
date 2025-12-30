@@ -12,21 +12,16 @@ import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useCallback } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import {
-  InfoDialog,
-  InfoGrid,
-  InfoPill,
-  InfoSectionTitle,
-} from "@/lib/components/characterCreator/EntityInfoDialog";
+import { RaceInfoModal } from "@/lib/components/characterCreator/modals/RaceInfoModal";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import {
   formatArmorProficiencies,
+  formatASI,
   formatList,
   formatLanguages,
   formatSkillProficiencies,
   formatToolProficiencies,
   formatWeaponProficiencies,
-  prettifyEnum,
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -59,48 +54,6 @@ const formatRaceAC = (ac?: RaceAC | null) => {
   }
   const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
   return `База ${ac.base}${bonus}`;
-};
-
-const formatASI = (asi?: RaceASI | null) => {
-  if (!asi) return "—";
-
-  const fixedEntries = Object.entries(asi.basic?.simple || {});
-  const basicFlexible = asi.basic?.flexible?.groups || [];
-  const tashaFlexible = asi.tasha?.flexible?.groups || [];
-
-  const parts: string[] = [];
-
-  if (fixedEntries.length) {
-    parts.push(
-      `Фіксовано: ${fixedEntries
-        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
-        .join(", ")}`
-    );
-  }
-
-  if (basicFlexible.length) {
-    parts.push(
-      `Гнучко: ${basicFlexible
-        .map(
-          (group) =>
-            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
-        )
-        .join("; ")}`
-    );
-  }
-
-  if (tashaFlexible.length) {
-    parts.push(
-      `За Та́шею: ${tashaFlexible
-        .map(
-          (group) =>
-            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
-        )
-        .join("; ")}`
-    );
-  }
-
-  return parts.join(" • ") || "—";
 };
 
 interface Props {
@@ -141,131 +94,7 @@ export const RacesForm = (
     return ua.includes(normalizedRaceSearch) || eng.includes(normalizedRaceSearch);
   }, [normalizedRaceSearch]);
 
-  const sourceLabel = (race: RaceI) => sourceTranslations[race.source] ?? race.source;
-
-  const RaceInfoModal = ({ race }: { race: RaceI }) => {
-    const rawTraits = race.traits || [];
-    const traitList = [...rawTraits].sort(
-      (a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0)
-    );
-
-    const subraces = race.subraces || [];
-    const variants = race.raceVariants || [];
-    const raceOptions = race.raceChoiceOptions || [];
-
-    const subraceNames = subraces
-      .map((sr) => translateValue(sr.name))
-      .filter(Boolean)
-      .sort((a, b) => a.localeCompare(b));
-
-    const variantNames = variants
-      .map((rv) => translateValue(rv.name))
-      .filter(Boolean)
-      .sort((a, b) => a.localeCompare(b));
-
-    const optionsByGroup = raceOptions.reduce((acc, opt) => {
-      const group = opt.choiceGroupName || "Опції";
-      acc[group] = acc[group] || [];
-      acc[group].push(opt.optionName);
-      return acc;
-    }, {} as Record<string, string[]>);
-
-    const optionGroups = Object.entries(optionsByGroup)
-      .map(([group, names]) => ({
-        group,
-        names: Array.from(new Set(names)).filter(Boolean).sort((a, b) => a.localeCompare(b)),
-      }))
-      .filter((g) => g.names.length)
-      .sort((a, b) => a.group.localeCompare(b.group));
-
-    return (
-      <InfoDialog
-        title={raceTranslations[race.name] || race.name}
-        triggerLabel={`Показати деталі ${raceTranslations[race.name] ?? race.name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={sourceLabel(race)} />
-          <InfoPill label="Розмір" value={formatList(race.size)} />
-          <InfoPill label="Швидкості" value={formatSpeeds(race)} />
-          <InfoPill label="Базовий КБ" value={formatRaceAC(race.ac)} />
-          <InfoPill label="Бонуси характеристик" value={formatASI(race.ASI)} />
-          <InfoPill
-            label="Мови"
-            value={formatLanguages(race.languages, race.languagesToChooseCount)}
-          />
-          <InfoPill
-            label="Навички"
-            value={formatSkillProficiencies(race.skillProficiencies)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(race.toolProficiencies, race.toolToChooseCount)}
-          />
-          <InfoPill
-            label="Зброя"
-            value={formatWeaponProficiencies(race.weaponProficiencies)}
-          />
-          <InfoPill
-            label="Броня"
-            value={formatArmorProficiencies(race.armorProficiencies)}
-          />
-        </InfoGrid>
-
-        {(subraceNames.length || variantNames.length || optionGroups.length) ? (
-          <div className="space-y-2">
-            <InfoSectionTitle>Що доступно</InfoSectionTitle>
-
-            {subraceNames.length ? (
-              <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
-                <p className="text-sm font-semibold text-white">Підраси</p>
-                <p className="text-sm text-slate-200/90">{subraceNames.join(", ")}</p>
-              </div>
-            ) : null}
-
-            {variantNames.length ? (
-              <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
-                <p className="text-sm font-semibold text-white">Варіанти</p>
-                <p className="text-sm text-slate-200/90">{variantNames.join(", ")}</p>
-              </div>
-            ) : null}
-
-            {optionGroups.length ? (
-              <div className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5">
-                <p className="text-sm font-semibold text-white">Опції раси</p>
-                <div className="space-y-1.5 text-sm text-slate-200/90">
-                  {optionGroups.map(({ group, names }) => (
-                    <p key={group}>
-                      <span className="font-semibold text-slate-100">{group}:</span> {names.join(", ")}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-
-        <div className="space-y-2">
-          <InfoSectionTitle>Риси</InfoSectionTitle>
-          {traitList.length ? (
-            traitList.map((trait) => (
-              <div
-                key={trait.raceTraitId || trait.feature.featureId}
-                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
-              >
-                <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
-                <FormattedDescription
-                  content={trait.feature.description}
-                  className="text-sm leading-relaxed text-slate-200/90"
-                />
-              </div>
-            ))
-          ) : (
-            <p className="text-sm text-slate-400">Для цієї раси ще немає опису рис, але переглянь доступні підраси/варіанти/опції вище.</p>
-          )}
-        </div>
-      </InfoDialog>
-    );
-  };
+  const sourceLabel = (race: RaceI) => sourceTranslations[race.source as keyof typeof sourceTranslations] ?? race.source;
 
   const coreRaces = useMemo(
     () => races
@@ -343,6 +172,16 @@ export const RacesForm = (
                 )}
                 onClick={(e) => {
                   if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                  if (r.raceId !== chosenRaceId) {
+                    updateFormData({
+                      subraceId: undefined,
+                      raceVariantId: null,
+                      raceChoiceSelections: {},
+                      featId: undefined,
+                      featChoiceSelections: {},
+                      racialBonusChoiceSchema: undefined,
+                    });
+                  }
                   form.setValue('raceId', r.raceId);
                 }}
               >
@@ -374,6 +213,16 @@ export const RacesForm = (
                   )}
                   onClick={(e) => {
                     if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                    if (r.raceId !== chosenRaceId) {
+                      updateFormData({
+                        subraceId: undefined,
+                        raceVariantId: null,
+                        raceChoiceSelections: {},
+                        featId: undefined,
+                        featChoiceSelections: {},
+                        racialBonusChoiceSchema: undefined,
+                      });
+                    }
                     form.setValue('raceId', r.raceId);
                   }}
                 >

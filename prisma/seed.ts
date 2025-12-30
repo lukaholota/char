@@ -1,27 +1,27 @@
 import 'dotenv/config';
 import { prisma } from "@/lib/prisma";
-import { seedWeapons } from "./seed/weaponSeed";
-import { seedArmor } from "./seed/armorSeed";
-import { seedEquipmentPacks } from "./seed/equipmentPackSeed";
-import { seedBackground } from "./seed/backgroundSeed";
-import { seedRaceFeatures } from "./seed/raceFeatureSeed";
-import { seedRaces } from "./seed/raceSeed";
-import { seedClassFeatures } from "./seed/classFeatureSeed";
-import { seedClasses } from "./seed/classSeed";
-import { seedSubclasses } from "./seed/subclassSeed";
-import { seedSubclassFeatures } from "./seed/subclassFeatureSeed";
-import { seedSubclassChoiceOptions } from "./seed/subclassChoiceOptionSeed";
-import { seedClassEquipment } from "./seed/classEquipmentSeed";
-import { seedChoiceOptions } from "./seed/choiceOptionSeed";
-import { seedClassChoiceOptions } from "./seed/classChoiceOptionSeed";
-import { seedClassOptionalFeatures } from "./seed/optionalFeatureSeed";
-import { seedSubraces } from "./seed/subraceSeed";
-import { seedSubraceFeatures } from "./seed/subraceFeatureSeed";
-import { seedRaceVariants } from "./seed/raceVariantSeed";
-import { seedRaceChoiceOptions } from "./seed/raceChoiceOptionSeed";
+import { seedWeapons as _seedWeapons } from "./seed/weaponSeed";
+import { seedArmor as _seedArmor } from "./seed/armorSeed";
+import { seedEquipmentPacks as _seedEquipmentPacks } from "./seed/equipmentPackSeed";
+import { seedBackground as _seedBackground } from "./seed/backgroundSeed";
+import { seedRaceFeatures as _seedRaceFeatures } from "./seed/raceFeatureSeed";
+import { seedRaces as _seedRaces } from "./seed/raceSeed";
+import { seedClassFeatures as _seedClassFeatures } from "./seed/classFeatureSeed";
+import { seedClasses as _seedClasses } from "./seed/classSeed";
+import { seedSubclasses as _seedSubclasses } from "./seed/subclassSeed";
+import { seedSubclassFeatures as _seedSubclassFeatures } from "./seed/subclassFeatureSeed";
+import { seedSubclassChoiceOptions as _seedSubclassChoiceOptions } from "./seed/subclassChoiceOptionSeed";
+import { seedClassEquipment as _seedClassEquipment } from "./seed/classEquipmentSeed";
+import { seedChoiceOptions as _seedChoiceOptions } from "./seed/choiceOptionSeed";
+import { seedClassChoiceOptions as _seedClassChoiceOptions } from "./seed/classChoiceOptionSeed";
+import { seedClassOptionalFeatures as _seedClassOptionalFeatures } from "./seed/optionalFeatureSeed";
+import { seedSubraces as _seedSubraces } from "./seed/subraceSeed";
+import { seedSubraceFeatures as _seedSubraceFeatures } from "./seed/subraceFeatureSeed";
+import { seedRaceVariants as _seedRaceVariants } from "./seed/raceVariantSeed";
+import { seedRaceChoiceOptions as _seedRaceChoiceOptions } from "./seed/raceChoiceOptionSeed";
 
-import { seedInfusionFeatures } from "./seed/infusionFeaturesSeed";
-import { seedInfusions } from "./seed/infusionSeed";
+import { seedInfusionFeatures as _seedInfusionFeatures } from "./seed/infusionFeaturesSeed";
+import { seedInfusions as _seedInfusions } from "./seed/infusionSeed";
 import { seedMagicItems } from "./seed/magicItemSeed";
 import { seedFeats } from "./seed/featSeed";
 import { seedFeatChoiceOptions } from "./seed/featChoiceOptionSeed";
@@ -43,18 +43,18 @@ async function main() {
 
     // await seedClasses(prisma)
     // await seedSubclasses(prisma)
-    await seedSubclassFeatures(prisma)
+    // await seedSubclassFeatures(prisma)
     // await seedChoiceOptions(prisma)
     // await seedClassChoiceOptions(prisma)
     // await seedSubclassChoiceOptions(prisma)
     
-    // await seedMagicItems(prisma) // items for infusions
+    await seedMagicItems(prisma) // items for infusions
     // await seedInfusions(prisma)  // infusions themselves
 
     // await seedClassOptionalFeatures(prisma)
     
-    // await seedFeats(prisma);
-    // await seedFeatChoiceOptions(prisma);
+    await seedFeats(prisma);
+    await seedFeatChoiceOptions(prisma);
 
     // await seedClassFeatures(prisma)
     // await seedInfusionFeatures(prisma) // features for infusions

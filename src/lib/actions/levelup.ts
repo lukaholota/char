@@ -4,6 +4,8 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { FeatPrisma } from "@/lib/types/model-types";
 import { createCharacterSnapshot } from "./snapshot-actions";
+import { calculateCasterLevel } from "../logic/spell-logic";
+import { SPELL_SLOT_PROGRESSION } from "../refs/static";
 
 export async function getLevelUpInfo(persId: number) {
   const session = await auth();
@@ -14,6 +16,12 @@ export async function getLevelUpInfo(persId: number) {
     include: {
       class: true,
       subclass: true,
+      choiceOptions: true,
+      persInfusions: {
+        select: {
+          infusionId: true,
+        },
+      },
       multiclasses: {
         include: {
           class: true,
@@ -30,7 +38,7 @@ export async function getLevelUpInfo(persId: number) {
   const nextLevel = pers.level + 1;
   if (nextLevel > 20) return { error: "Max level reached" };
 
-  const [classes, feats] = await Promise.all([
+  const [classes, feats, infusions] = await Promise.all([
     prisma.class.findMany({
       include: {
         subclasses: {
@@ -90,6 +98,13 @@ export async function getLevelUpInfo(persId: number) {
       },
       orderBy: [{ name: "asc" }],
     }) as unknown as Promise<FeatPrisma[]>,
+    prisma.infusion.findMany({
+      include: {
+        feature: true,
+        replicatedMagicItem: true,
+      },
+      orderBy: [{ minArtificerLevel: "asc" }, { name: "asc" }],
+    }),
   ]);
 
   const currentClass = classes.find((c) => c.classId === pers.classId);
@@ -133,6 +148,7 @@ export async function getLevelUpInfo(persId: number) {
     subclassChoiceGroups,
     classes,
     feats,
+    infusions,
   };
 }
 
@@ -289,17 +305,30 @@ export async function levelUpCharacter(persId: number, data: any) {
     // Feat features
     for (const fid of featFeatureIds) featuresToAdd.add(fid);
 
-    const processChoiceSelections = async (selections: Record<string, number> | undefined) => {
+    const processChoiceSelections = async (selections: Record<string, number | number[]> | undefined) => {
       if (!selections) return;
       for (const optionIdRaw of Object.values(selections)) {
-        const optionId = Number(optionIdRaw);
-        if (!Number.isFinite(optionId)) continue;
-        choiceOptionIds.push(optionId);
-        const choiceFeatures = await prisma.choiceOptionFeature.findMany({
-          where: { choiceOptionId: optionId },
-          select: { featureId: true },
-        });
-        for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
+        if (Array.isArray(optionIdRaw)) {
+          for (const raw of optionIdRaw) {
+            const optionId = Number(raw);
+            if (!Number.isFinite(optionId)) continue;
+            choiceOptionIds.push(optionId);
+            const choiceFeatures = await prisma.choiceOptionFeature.findMany({
+              where: { choiceOptionId: optionId },
+              select: { featureId: true },
+            });
+            for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
+          }
+        } else {
+          const optionId = Number(optionIdRaw);
+          if (!Number.isFinite(optionId)) continue;
+          choiceOptionIds.push(optionId);
+          const choiceFeatures = await prisma.choiceOptionFeature.findMany({
+            where: { choiceOptionId: optionId },
+            select: { featureId: true },
+          });
+          for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
+        }
       }
     };
 
@@ -382,8 +411,7 @@ export async function levelUpCharacter(persId: number, data: any) {
         });
       }
 
-      // Update Pers core
-      await tx.pers.update({
+      const updatedPers = await tx.pers.update({
         where: { persId },
         data: {
           level: nextLevel,
@@ -393,6 +421,30 @@ export async function levelUpCharacter(persId: number, data: any) {
             ? { subclassId: chosenSubclassIdRaw ?? pers.subclassId ?? null }
             : {}),
           ...newStats,
+        },
+        include: {
+          class: true,
+          subclass: true,
+          multiclasses: {
+            include: {
+              class: true,
+              subclass: true,
+            },
+          },
+        },
+      });
+
+      // Recalculate spell slots and restore to max
+      const caster = calculateCasterLevel(updatedPers as any);
+      const maxSpellSlotsRow = ((SPELL_SLOT_PROGRESSION as any).FULL?.[caster.casterLevel] as number[] | undefined) ?? Array(9).fill(0);
+      const pactInfo = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
+      const maxPactSlots = pactInfo?.slots ? Math.max(0, Math.trunc(pactInfo.slots)) : 0;
+
+      await tx.pers.update({
+        where: { persId },
+        data: {
+          currentSpellSlots: maxSpellSlotsRow,
+          currentPactSlots: maxPactSlots,
           choiceOptions: choiceOptionIds.length
             ? {
               connect: choiceOptionIds.map((id) => ({ choiceOptionId: id })),
@@ -405,6 +457,50 @@ export async function levelUpCharacter(persId: number, data: any) {
             : undefined,
         },
       });
+
+      // Artificer Infusions (known) at level 2
+      if (selectedClass?.name === "ARTIFICER_2014" && classLevelAfter === 2) {
+        const rawSelections = Array.isArray(data?.infusionSelections) ? data.infusionSelections : [];
+        const infusionIds = rawSelections
+          .map((v: unknown) => Number(v))
+          .filter((v: number) => Number.isFinite(v) && v > 0);
+
+        if (infusionIds.length !== 4) {
+          throw new Error("Оберіть рівно 4 вливання");
+        }
+
+        const eligible = await tx.infusion.findMany({
+          where: {
+            infusionId: { in: infusionIds },
+            minArtificerLevel: { lte: classLevelAfter },
+          },
+          select: { infusionId: true },
+        });
+
+        if (eligible.length !== infusionIds.length) {
+          throw new Error("Деякі вливання недоступні на цьому рівні");
+        }
+
+        const existing = await tx.persInfusion.findMany({
+          where: {
+            persId,
+            infusionId: { in: infusionIds },
+          },
+          select: { infusionId: true },
+        });
+
+        const existingSet = new Set(existing.map((e) => e.infusionId));
+        const toCreate = infusionIds.filter((id) => !existingSet.has(id));
+
+        if (toCreate.length) {
+          await tx.persInfusion.createMany({
+            data: toCreate.map((infusionId) => ({
+              persId,
+              infusionId,
+            })),
+          });
+        }
+      }
 
       // Remove replaced features
       if (optionalReplacedFeatureIds.size > 0) {

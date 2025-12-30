@@ -1,10 +1,8 @@
-
 model SpellClasses {
-  classId   Int    @id @default(autoincrement()) @map("class_id") // OLDDDDDD
+  classId   Int    @id @default(autoincrement()) @map("class_id")
   spellId   Int    @map("spell_id")
   className String @map("class_name") @db.VarChar(255)
-
-  spell Spell @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction, map: "fk_spell_classes")
+  spell     Spell  @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction, map: "fk_spell_classes")
 
   @@map("spell_classes")
 }

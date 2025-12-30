@@ -21,8 +21,7 @@ import NameForm from "@/lib/components/characterCreator/NameForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
 import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
 import ClassOptionalFeaturesForm from "@/lib/components/characterCreator/ClassOptionalFeaturesForm";
-import SubracesForm from "@/lib/components/characterCreator/SubracesForm";
-import RaceVariantsForm from "@/lib/components/characterCreator/RaceVariantsForm";
+import RaceSubraceVariantForm from "@/lib/components/characterCreator/RaceSubraceVariantForm";
 import RaceChoiceOptionsForm from "@/lib/components/characterCreator/RaceChoiceOptionsForm";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
@@ -67,8 +66,32 @@ export const MultiStepForm = (
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [initialDataForStep, setInitialDataForStep] = useState<string>("");
+  const [highestStepCompleted, setHighestStepCompleted] = useState<number>(0);
   const router = useRouter();
   const didMountRef = useRef(false);
+
+  useEffect(() => {
+    if (!isHydrated) return;
+    setInitialDataForStep(JSON.stringify(formData));
+    // When moving forward, update the highest reached step
+    if (currentStep - 1 > highestStepCompleted) {
+      setHighestStepCompleted(currentStep - 1);
+    }
+  }, [currentStep, isHydrated]);
+
+  useEffect(() => {
+    if (!isHydrated || !initialDataForStep) return;
+    
+    // If data changed on the current step, reset highestStepCompleted to current - 1
+    // because future steps might depend on these changes.
+    const currentData = JSON.stringify(formData);
+    if (currentData !== initialDataForStep) {
+      if (highestStepCompleted >= currentStep) {
+        setHighestStepCompleted(currentStep - 1);
+      }
+    }
+  }, [formData, currentStep, initialDataForStep, isHydrated, highestStepCompleted]);
 
   const handleNextDisabledChange = useCallback((disabled: boolean) => {
     setNextDisabled(disabled);
@@ -105,7 +128,7 @@ export const MultiStepForm = (
       } else if (result.success) {
         toast.success("Персонажа створено!");
         resetForm();
-        router.push(`/pers/${result.persId}`);
+        router.push(`/char/${result.persId}`);
       }
     } catch (e) {
       toast.error("Щось пішло не так...");
@@ -167,11 +190,14 @@ export const MultiStepForm = (
       { id: "race", name: "Раса", component: "races" },
     ];
 
-    if (hasSubraces) {
-      dynamicSteps.push({ id: "subrace", name: "Підраса", component: "subrace" });
-    }
-    if (hasRaceVariants) {
-      dynamicSteps.push({ id: "raceVariant", name: "Варіант раси", component: "raceVariant" });
+    if (hasSubraces || hasRaceVariants) {
+      const name = hasSubraces && hasRaceVariants
+        ? "Підраса чи Варіант"
+        : hasSubraces
+          ? "Підраса"
+          : "Варіант раси";
+
+      dynamicSteps.push({ id: "raceDetails", name, component: "raceDetails" });
     }
 
     if (hasRaceChoiceOptions) {
@@ -260,6 +286,46 @@ export const MultiStepForm = (
     }
   }, [steps, currentStep, isHydrated, formData, setCurrentStep, setTotalSteps]);
 
+  const isStepCompleted = useCallback((stepId: string, data: any) => {
+    if (!data) return false;
+    switch (stepId) {
+      case "race": return !!data.raceId;
+      case "raceDetails": return !!(data.subraceId || data.raceVariantId);
+      case "raceChoices": return Object.keys(data.raceChoiceSelections || {}).length > 0;
+      case "class": return !!data.classId;
+      case "subclass": return !!data.subclassId;
+      case "subclassChoices": return Object.keys(data.subclassChoiceSelections || {}).length > 0;
+      case "classChoices": return Object.keys(data.classChoiceSelections || {}).length > 0;
+      case "classOptional": return Object.keys(data.classOptionalFeatureSelections || {}).length > 0;
+      case "background": return !!data.backgroundId;
+      case "asi": return !!data.asiSystem;
+      case "skills": return (data.skills || []).length > 0;
+      case "expertise": return !!(data.expertiseSchema?.expertises?.length);
+      case "feat": return !!data.featId;
+      case "featChoices": return Object.keys(data.featChoiceSelections || {}).length > 0;
+      case "equipment": return !!(data.equipmentSchema?.choiceGroupToId);
+      case "name": return !!data.name;
+      default: return false;
+    }
+  }, []);
+
+  const jumpToStep = useCallback((stepOrder: number) => {
+    const targetStep = steps[stepOrder - 1];
+    if (!targetStep) return;
+    
+    // Allow jumping back to any step
+    if (stepOrder < currentStep) {
+      setCurrentStep(stepOrder);
+      return;
+    }
+    
+    // Allow jumping forward only to the next step OR any already completed step
+    const canJumpForward = stepOrder === currentStep + 1 || isStepCompleted(targetStep.id, formData);
+    if (canJumpForward) {
+      setCurrentStep(stepOrder);
+    }
+  }, [steps, currentStep, setCurrentStep, isStepCompleted, formData]);
+
   const renderStep = () => {
     const activeComponent = steps[currentStep - 1]?.component;
 
@@ -272,17 +338,9 @@ export const MultiStepForm = (
             onNextDisabledChange={handleNextDisabledChange}
           />
         );
-      case "subrace":
+      case "raceDetails":
         return (
-          <SubracesForm
-            race={race}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
-      case "raceVariant":
-        return (
-          <RaceVariantsForm
+          <RaceSubraceVariantForm
             race={race}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
@@ -434,6 +492,7 @@ export const MultiStepForm = (
             selectedClass={cls}
             background={bg}
             feat={feat}
+            weapons={weapons}
             onSuccess={handleFinalSubmit}
           />
         );
@@ -464,7 +523,7 @@ export const MultiStepForm = (
   }, [currentStep, isHydrated]);
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-24 sm:px-4 md:gap-6 md:px-0 md:py-6">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-[calc(7.5rem+env(safe-area-inset-bottom))] sm:px-4 md:gap-6 md:px-0 md:py-6">
       <CharacterCreateHeader
         onReset={resetForm}
         onOpenAuth={() => setAuthDialogOpen(true)}
@@ -489,17 +548,23 @@ export const MultiStepForm = (
               <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
                 {steps.map((step, index) => {
                   const stepOrder = index + 1;
-                  const isDone = stepOrder < currentStep;
+                  const isDone = stepOrder <= highestStepCompleted && isStepCompleted(step.id, formData);
                   const isActive = stepOrder === currentStep;
+                  const canJump = stepOrder <= highestStepCompleted + 1 || isStepCompleted(step.id, formData);
 
                   return (
-                    <div
+                    <button
                       key={step.id}
+                      type="button"
+                      disabled={!canJump && !isActive}
+                      onClick={() => jumpToStep(stepOrder)}
                       className={clsx(
-                        "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left sm:px-3",
+                        "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left transition-all duration-200 sm:px-3",
                         isActive
                           ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white"
-                          : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
+                          : canJump 
+                            ? "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:border-white/20"
+                            : "border-white/5 bg-transparent text-slate-500 cursor-not-allowed opacity-50"
                       )}
                     >
                       <div>
@@ -523,7 +588,7 @@ export const MultiStepForm = (
                           <Circle className="h-3 w-3" />
                         </Badge>
                       )}
-                    </div>
+                    </button>
                   );
                 })}
               </div>
@@ -539,7 +604,7 @@ export const MultiStepForm = (
         </CardContent>
       </Card>
 
-      <div className="sticky bottom-0 left-0 right-0 z-30 w-full px-2 pb-3 sm:px-3 md:px-0">
+      <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
         <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
           <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
             <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">

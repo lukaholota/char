@@ -1,14 +1,12 @@
-
 model PersMulticlass {
-  persMulticlassId Int  @id @default(autoincrement()) @map("pers_multiclass_id")
-  persId           Int  @map("pers_id")
-  classId          Int  @map("class_id")
-  subclassId       Int? @map("subclass_id")
-  classLevel       Int  @map("class_level")
-
-  pers     Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade)
-  class    Class     @relation(fields: [classId], references: [classId], onDelete: Cascade)
-  subclass Subclass? @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
+  persMulticlassId Int       @id @default(autoincrement()) @map("pers_multiclass_id")
+  persId           Int       @map("pers_id")
+  classId          Int       @map("class_id")
+  subclassId       Int?      @map("subclass_id")
+  classLevel       Int       @map("class_level")
+  class            Class     @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  pers             Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  subclass         Subclass? @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
 
   @@unique([persId, classId])
   @@map("pers_multiclass")

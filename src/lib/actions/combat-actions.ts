@@ -103,7 +103,7 @@ export async function applyHpChange({
     },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
   return { success: true, ...updated };
@@ -138,7 +138,7 @@ export async function setDeathSaves({
       select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
     return { success: true, ...updated };
   }
@@ -156,7 +156,7 @@ export async function setDeathSaves({
       select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
     return { success: true, ...updated };
   }
@@ -173,7 +173,7 @@ export async function setDeathSaves({
       select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
     return { success: true, ...updated };
   }
@@ -187,7 +187,7 @@ export async function setDeathSaves({
     select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
   return { success: true, ...updated };
 }
@@ -214,7 +214,54 @@ export async function reviveCharacter({
     select: { currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
+  return { success: true, ...updated };
+}
+export async function updateHpDirectly({
+  persId,
+  currentHp,
+  maxHp,
+}: {
+  persId: number;
+  currentHp: number;
+  maxHp: number;
+}): Promise<
+  | { success: true; currentHp: number; tempHp: number; maxHp: number; deathSaveSuccesses: number; deathSaveFailures: number; isDead: boolean }
+  | { success: false; error: string }
+> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const nextMax = Math.max(1, clampInt(maxHp, 1));
+  const nextCur = Math.max(0, Math.min(nextMax, clampInt(currentHp, 0)));
+  const clearsDeath = nextCur > 0;
+
+  const updated = await prisma.pers.update({
+    where: { persId },
+    data: {
+      currentHp: nextCur,
+      maxHp: nextMax,
+      ...(clearsDeath
+        ? {
+            deathSaveSuccesses: 0,
+            deathSaveFailures: 0,
+            isDead: false,
+          }
+        : {}),
+    },
+    select: {
+      currentHp: true,
+      tempHp: true,
+      maxHp: true,
+      deathSaveSuccesses: true,
+      deathSaveFailures: true,
+      isDead: true,
+    },
+  });
+
+  revalidatePath(`/char/${persId}`);
+  revalidatePath(`/character/${persId}`);
+
   return { success: true, ...updated };
 }

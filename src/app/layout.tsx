@@ -6,6 +6,9 @@ import { Navigation } from "@/components/ui/Navigation";
 import { App } from "@/components/ui/App";
 import { Providers } from "@/app/providers";
 import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
+import { DiceOverlay } from "@/lib/components/dice/DiceOverlay";
+import { DiceSidebar } from "@/lib/components/dice/DiceSidebar";
+import { RootGrid } from "@/components/ui/RootGrid";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -71,7 +74,7 @@ export default function RootLayout(
     { children: React.ReactNode }
 ) {
   return (
-    <html lang={ 'uk' } className="h-full w-full dark">
+    <html lang={ 'uk' } className="h-full w-full dark" suppressHydrationWarning>
     <body
       className={ `${ jetBrainsMono.variable } ${ inter.variable } ${ cinzel.variable } ${ rpgDisplay.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden antialiased` }>
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -99,13 +102,18 @@ export default function RootLayout(
       </svg>
     </div>
     <Providers>
-      <div className="grid min-h-screen w-full grid-rows-[1fr_auto] md:grid-rows-1 md:grid-cols-[88px_1fr]">
-        <Navigation/>
-        <App>{ children }</App>
-      </div>
+      <Suspense fallback={null}>
+        <RootGrid>
+          <Navigation/>
+          <App>{ children }</App>
+        </RootGrid>
+      </Suspense>
       <Suspense fallback={null}>
         <SpellInfoModal />
       </Suspense>
+      {/* Dice overlay - mounted globally, stays on top of everything */}
+      <DiceOverlay />
+      <DiceSidebar />
     </Providers>
     </body>
     </html>

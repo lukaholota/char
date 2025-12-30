@@ -69,7 +69,7 @@ export async function spendSpellSlot(
     select: { currentSpellSlots: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
   return { success: true, currentSpellSlots: updated.currentSpellSlots as number[] };
@@ -98,7 +98,7 @@ export async function spendPactSlot(
     select: { currentPactSlots: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
   return { success: true, currentPactSlots: updated.currentPactSlots };
@@ -160,7 +160,7 @@ export async function restoreSpellSlot(
     select: { currentSpellSlots: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
   return { success: true, currentSpellSlots: updated.currentSpellSlots as number[] };
@@ -210,7 +210,7 @@ export async function restorePactSlot(
     select: { currentPactSlots: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
   return { success: true, currentPactSlots: updated.currentPactSlots };

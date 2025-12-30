@@ -10,7 +10,8 @@ import { Badge } from "@/components/ui/badge";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, ChevronRight, Check } from "lucide-react";
+import { ControlledInfoDialog } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { ChevronLeft, ChevronRight, Check, Loader2 } from "lucide-react";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
@@ -18,13 +19,13 @@ import LevelUpASIForm from "@/lib/components/levelUp/LevelUpASIForm";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import OptionalFeaturesForm from "@/lib/components/levelUp/OptionalFeaturesForm";
 import LevelUpHPStep from "@/lib/components/levelUp/LevelUpHPStep";
+import LevelUpInfusionsStep from "@/lib/components/levelUp/LevelUpInfusionsStep";
 import clsx from "clsx";
-import { classTranslations, classTranslationsEng, attributesUkrShort, sourceTranslations } from "@/lib/refs/translation";
+import { classTranslations, subclassTranslations, classTranslationsEng, attributesUkrShort } from "@/lib/refs/translation";
 import { Ability, FeatureDisplayType, SpellcastingType } from "@prisma/client";
-import { ClassI } from "@/lib/types/model-types";
+import { ClassI, SubclassI } from "@/lib/types/model-types";
 import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { FeatureCard, ResourceCard } from "@/lib/components/characterSheet/shared/FeatureCards";
+import { FeatureItemData, FeatureCard, ResourceCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 import {
   formatAbilityList,
   formatArmorProficiencies,
@@ -33,8 +34,23 @@ import {
   formatSkillProficiencies,
   formatToolProficiencies,
   formatWeaponProficiencies,
-  prettifyEnum,
 } from "@/lib/components/characterCreator/infoUtils";
+import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
+import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
+
+const WARLOCK_INVOCATION_GROUP = "Потойбічні виклики";
+
+function warlockInvocationPicksAtLevel(classLevelAfter: number) {
+  if (classLevelAfter === 2) return 2;
+  if ([5, 7, 9, 12, 15, 18].includes(classLevelAfter)) return 1;
+  return 0;
+}
+
+function battleMasterManeuverPicksAtLevel(classLevelAfter: number) {
+  if (classLevelAfter === 3) return 3;
+  if ([7, 10, 15].includes(classLevelAfter)) return 2;
+  return 0;
+}
 
 const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
   NONE: "Без чаклунства",
@@ -148,16 +164,78 @@ export default function LevelUpWizard({ info }: Props) {
         return (selectedClass.abilityScoreUpLevels || []).includes(classLevelAfter);
     }, [selectedClass, classLevelAfter]);
 
+    const needsInfusions = useMemo(() => {
+        if (!selectedClass) return false;
+        if (selectedClass.name !== "ARTIFICER_2014") return false;
+        return classLevelAfter === 2;
+    }, [selectedClass, classLevelAfter]);
+
     const classChoiceGroups = useMemo(() => {
         if (!selectedClass) return {} as Record<string, any[]>;
         const options = (selectedClass.classChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(classLevelAfter));
-        return options.reduce((acc, opt) => {
+        const grouped = options.reduce((acc, opt) => {
             const group = opt.choiceOption.groupName;
             if (!acc[group]) acc[group] = [];
             acc[group].push(opt);
             return acc;
         }, {} as Record<string, typeof options>);
-    }, [selectedClass, classLevelAfter]);
+
+        // Warlock: Eldritch Invocations are a multi-pick group. We model it as N synthetic groups
+        // ("Потойбічні виклики #1", "... #2", etc) so we can reuse existing single-pick UI/schema.
+        if (selectedClass.name === "WARLOCK_2014") {
+          const picks = warlockInvocationPicksAtLevel(classLevelAfter);
+          const invocationOptions = grouped[WARLOCK_INVOCATION_GROUP];
+          if (picks > 0 && Array.isArray(invocationOptions) && invocationOptions.length) {
+            const existingChoiceOptions = new Set<number>();
+            (pers?.choiceOptions || []).forEach((co: any) => {
+              if (typeof co?.choiceOptionId === "number") existingChoiceOptions.add(co.choiceOptionId);
+            });
+
+            const selectedPact = (() => {
+              // Pact boon is stored as a ChoiceOption (e.g. Pact of the Blade)
+              const fromPers = (pers?.choiceOptions || []).find((co: any) =>
+                typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
+              );
+              if (fromPers?.optionNameEng) return String(fromPers.optionNameEng);
+
+              const fromSelections = (formData.classChoiceSelections as Record<string, number> | undefined) || {};
+              const selectedIds = Object.values(fromSelections)
+                .map((v) => Number(v))
+                .filter((v) => Number.isFinite(v));
+              for (const opt of options) {
+                if (!selectedIds.includes(opt.choiceOptionId)) continue;
+                if (typeof opt.choiceOption?.optionNameEng === "string" && opt.choiceOption.optionNameEng.startsWith("Pact of")) {
+                  return String(opt.choiceOption.optionNameEng);
+                }
+              }
+              return undefined;
+            })();
+
+            const eligible = invocationOptions
+              .filter((opt: any) => {
+                const id = Number(opt.choiceOptionId);
+                if (!Number.isFinite(id)) return false;
+                if (existingChoiceOptions.has(id)) return false;
+
+                const prereq = opt.choiceOption?.prerequisites as any;
+                const minLevel = prereq?.level ? Number(prereq.level) : undefined;
+                if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
+                  return false;
+                }
+                const pact = prereq?.pact ? String(prereq.pact) : undefined;
+                if (pact && selectedPact && pact !== selectedPact) return false;
+                if (pact && !selectedPact) return false;
+                return true;
+              })
+              .map((opt: any) => opt);
+
+            delete (grouped as any)[WARLOCK_INVOCATION_GROUP];
+            (grouped as any)[WARLOCK_INVOCATION_GROUP] = eligible;
+          }
+        }
+
+        return grouped;
+    }, [selectedClass, classLevelAfter, pers, formData.classChoiceSelections]);
 
     const subclassChoiceGroups = useMemo(() => {
         if (!effectiveSubclass) return {} as Record<string, any[]>;
@@ -172,12 +250,16 @@ export default function LevelUpWizard({ info }: Props) {
 
     const newClassFeatures = useMemo(() => {
         if (!selectedClass) return [] as any[];
-        return (selectedClass.features || []).filter((f) => f.levelGranted === classLevelAfter);
+        return (selectedClass.features || [])
+            .filter((f) => f.levelGranted === classLevelAfter)
+            .sort((a, b) => (a.classFeatureId || 0) - (b.classFeatureId || 0));
     }, [selectedClass, classLevelAfter]);
 
     const newSubclassFeatures = useMemo(() => {
         if (!effectiveSubclass) return [] as any[];
-        return (effectiveSubclass.features || []).filter((f) => f.levelGranted === classLevelAfter);
+        return (effectiveSubclass.features || [])
+            .filter((f) => f.levelGranted === classLevelAfter)
+            .sort((a, b) => (a.subclassFeatureId || 0) - (b.subclassFeatureId || 0));
     }, [effectiveSubclass, classLevelAfter]);
 
     const eligibleMulticlassClasses = useMemo(() => {
@@ -256,6 +338,8 @@ export default function LevelUpWizard({ info }: Props) {
                     classLevelAfter={classLevelAfter}
                     newClassFeatures={newClassFeatures}
                     newSubclassFeatures={newSubclassFeatures}
+                    selectedClass={selectedClass as unknown as ClassI}
+                    effectiveSubclass={effectiveSubclass as unknown as SubclassI}
                 />
             ),
         });
@@ -276,13 +360,26 @@ export default function LevelUpWizard({ info }: Props) {
                 id: "class-choices",
                 title: "Опції класу",
                 initialDisabled: true,
-                component: (
-                    <ClassChoiceOptionsForm
-                        availableOptions={Object.values(classChoiceGroups).flat()}
-                        formId="class-choice-form"
-                        onNextDisabledChange={setNextDisabled}
-                    />
-                ),
+                component: (() => {
+                    const groupNames = Object.keys(classChoiceGroups);
+                    // Currently we support pickCount per form. If multiple groups have different pickCounts, 
+                    // we might need separate steps or a smarter form.
+                    // For now, if it's Warlock Invocations, use the calculated pickCount.
+                    let pickCount = 1;
+                    if (selectedClass.name === "WARLOCK_2014" && groupNames.includes(WARLOCK_INVOCATION_GROUP)) {
+                        pickCount = warlockInvocationPicksAtLevel(classLevelAfter);
+                    }
+
+                    return (
+                        <ClassChoiceOptionsForm
+                            selectedClass={selectedClass as unknown as ClassI}
+                            availableOptions={Object.values(classChoiceGroups).flat()}
+                            formId="class-choice-form"
+                            onNextDisabledChange={setNextDisabled}
+                            pickCount={pickCount}
+                        />
+                    );
+                })(),
             });
         }
 
@@ -291,13 +388,22 @@ export default function LevelUpWizard({ info }: Props) {
                 id: "subclass-choices",
                 title: "Опції підкласу",
                 initialDisabled: true,
-                component: (
-                    <SubclassChoiceOptionsForm
-                        availableOptions={Object.values(subclassChoiceGroups).flat()}
-                        formId="subclass-choice-form"
-                        onNextDisabledChange={setNextDisabled}
-                    />
-                ),
+                component: (() => {
+                    const groupNames = Object.keys(subclassChoiceGroups);
+                    let pickCount = 1;
+                    if (effectiveSubclass?.name === "BATTLE_MASTER" && groupNames.some(g => g.toLowerCase().includes("маневри"))) {
+                        pickCount = battleMasterManeuverPicksAtLevel(classLevelAfter);
+                    }
+
+                    return (
+                        <SubclassChoiceOptionsForm
+                            availableOptions={Object.values(subclassChoiceGroups).flat()}
+                            formId="subclass-choice-form"
+                            onNextDisabledChange={setNextDisabled}
+                            pickCount={pickCount}
+                        />
+                    );
+                })(),
             });
         }
 
@@ -307,6 +413,25 @@ export default function LevelUpWizard({ info }: Props) {
                 title: "Покращення",
                 initialDisabled: true,
                 component: <LevelUpASIForm feats={feats as any} formId="asi-form" onNextDisabledChange={setNextDisabled} />,
+            });
+        }
+
+        if (needsInfusions) {
+            const known = (pers as any)?.persInfusions?.map((pi: any) => Number(pi?.infusionId)).filter((v: any) => Number.isFinite(v)) ?? [];
+            result.push({
+                id: "infusions",
+                title: "Вливання",
+                initialDisabled: true,
+                component: (
+                    <LevelUpInfusionsStep
+                        infusions={(info as any).infusions || []}
+                        artificerLevelAfter={classLevelAfter}
+                        alreadyKnownInfusionIds={known}
+                        requiredCount={4}
+                        formId="infusions-form"
+                        onNextDisabledChange={setNextDisabled}
+                    />
+                ),
             });
         }
 
@@ -375,6 +500,7 @@ export default function LevelUpWizard({ info }: Props) {
         formData,
         isASILevel,
                 isError,
+        needsInfusions,
         mainClassLevel,
         needsSubclass,
         newClassFeatures,
@@ -386,6 +512,7 @@ export default function LevelUpWizard({ info }: Props) {
         selectedClassName,
         subclassChoiceGroups,
                 info,
+        effectiveSubclass,
     ]);
 
     const currentStepId = steps[currentStep]?.id;
@@ -394,6 +521,7 @@ export default function LevelUpWizard({ info }: Props) {
         const initial = steps[currentStep]?.initialDisabled ?? true;
         setNextDisabled(initial);
         prevDisabledRef.current = undefined;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentStep, currentStepId]);
 
   const handleNext = async () => {
@@ -411,7 +539,7 @@ export default function LevelUpWizard({ info }: Props) {
                   toast.error(result.error);
               } else {
                   toast.success("Рівень підвищено!");
-                  router.push(`/pers/${pers.persId}`);
+                  router.push(`/char/${pers.persId}`);
               }
           } catch {
               toast.error("Помилка при збереженні");
@@ -432,38 +560,114 @@ export default function LevelUpWizard({ info }: Props) {
   const CurrentComponent = steps[currentStep].component;
 
   return (
-    <div className="container mx-auto py-8 px-4 max-w-3xl">
-        <div className="mb-8">
-            <h1 className="font-sans text-2xl font-light tracking-wide text-slate-100 mb-2">Підвищення рівня до {nextLevel}</h1>
-            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                {steps.map((s, i) => (
-                    <div key={s.id} className={`flex items-center whitespace-nowrap text-sm ${i === currentStep ? 'text-cyan-400 font-medium' : 'text-slate-500'}`}>
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center border mr-2 ${i === currentStep ? 'border-cyan-400 bg-cyan-400/10 text-cyan-400' : 'border-slate-800'}`}>
-                            {i + 1}
-                        </div>
-                        {s.title}
-                        {i < steps.length - 1 && <div className="mx-2 h-[1px] w-4 bg-white/5" />}
-                    </div>
-                ))}
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-[calc(7.5rem+env(safe-area-inset-bottom))] sm:px-4 md:gap-6 md:px-0 md:py-6">
+      <div className="space-y-4">
+        <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-4 py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-4">
+            <div className="space-y-0.5">
+              <h1 className="font-rpg-display text-xl sm:text-2xl font-semibold uppercase tracking-widest text-slate-200">
+                Рівень {nextLevel}
+              </h1>
+              <div className="text-[11px] uppercase tracking-wider text-slate-400">Підвищення рівня</div>
             </div>
+          </div>
         </div>
 
-        <div className="mb-8 min-h-[300px]">
-            {CurrentComponent}
-        </div>
+        <Card className="shadow-2xl">
+          <CardContent className="grid gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-[1fr,300px] md:p-6">
+            <div className="glass-panel border-gradient-rpg space-y-3 rounded-xl p-3 sm:space-y-4 sm:p-4 md:p-5">
+              {CurrentComponent}
+            </div>
 
-        <div className="flex justify-between">
-            <Button variant="outline" onClick={handlePrev} disabled={currentStep === 0 || isSubmitting}>
-                <ChevronLeft className="mr-2 h-4 w-4" /> Назад
-            </Button>
-            <Button onClick={handleNext} disabled={nextDisabled || isSubmitting}>
+            <aside className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
+              <div className="sticky top-14 sm:top-16">
+                <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
+                  <span className="font-medium text-slate-200">Ваш прогрес</span>
+                  <Badge variant="outline" className="border-white/15 bg-white/5 text-[11px] text-slate-200 sm:text-xs">
+                    {steps.length > 1 ? Math.floor((currentStep / (steps.length - 1)) * 100) : 10}% готово
+                  </Badge>
+                </div>
+
+                <div className="mt-3 space-y-2">
+                  {steps.map((s, i) => {
+                    const isActive = i === currentStep;
+                    const isDone = i < currentStep;
+                    return (
+                      <button
+                        key={s.id}
+                        type="button"
+                        className={clsx(
+                          "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left sm:px-3",
+                          isActive
+                            ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white"
+                            : "border-white/10 bg-white/5 text-slate-300",
+                          isDone && "hover:bg-white/7"
+                        )}
+                        onClick={() => {
+                          if (i <= currentStep) setCurrentStep(i);
+                        }}
+                        disabled={i > currentStep}
+                      >
+                        <span className="truncate pr-2 text-xs sm:text-sm">{s.title}</span>
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[11px] text-slate-200">
+                          {isDone ? <Check className="h-3 w-3" /> : i + 1}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-4 h-1.5 rounded-full bg-white/10 sm:mt-5 sm:h-2">
+                  <div
+                    className="h-1.5 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all sm:h-2"
+                    style={{ width: `${steps.length > 1 ? Math.floor((currentStep / (steps.length - 1)) * 100) : 10}%` }}
+                  />
+                </div>
+              </div>
+            </aside>
+          </CardContent>
+        </Card>
+
+        <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
+          <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
+            <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
+              <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
+                Крок {currentStep + 1} / {steps.length}
+              </Badge>
+              <span className="hidden text-slate-400 sm:inline">Прогрес {steps.length > 1 ? Math.floor((currentStep / (steps.length - 1)) * 100) : 10}%</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={handlePrev}
+                disabled={currentStep === 0 || isSubmitting}
+                className="border-white/15 bg-white/5 text-slate-300"
+              >
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                Назад
+              </Button>
+
+              <Button
+                onClick={handleNext}
+                disabled={nextDisabled || isSubmitting}
+                className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-sm text-white shadow-lg shadow-indigo-500/20 sm:text-base"
+              >
                 {currentStep === steps.length - 1 ? (
-                    isSubmitting ? "Збереження..." : "Підвищити рівень"
+                  <>
+                    {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    {isSubmitting ? "Збереження..." : "Підвищити рівень"}
+                  </>
                 ) : (
-                    <>Далі <ChevronRight className="ml-2 h-4 w-4" /></>
+                  <>
+                    Далі <ChevronRight className="ml-2 h-4 w-4" />
+                  </>
                 )}
-            </Button>
+              </Button>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   );
 }
@@ -473,115 +677,128 @@ function SummaryStep({
     classLevelAfter,
     newClassFeatures,
     newSubclassFeatures,
+    selectedClass,
+    effectiveSubclass,
 }: {
     totalLevel: number;
     className: string;
     classLevelAfter: number;
     newClassFeatures: any[];
     newSubclassFeatures: any[];
+    selectedClass: ClassI | null;
+    effectiveSubclass: SubclassI | null;
 }) {
     const [selectedFeature, setSelectedFeature] = useState<{name: string, description: string} | null>(null);
 
+    const renderFeature = (f: any, source: string) => {
+        const featureData: FeatureItemData = {
+            ...f.feature,
+            displayType: Array.isArray(f.feature?.displayType) ? f.feature.displayType : [f.feature?.displayType],
+            source: source,
+            sourceName: className
+        };
+        const isResource = featureData.displayType.includes(FeatureDisplayType.CLASS_RESOURCE);
+
+        if (isResource) {
+            return (
+                <ResourceCard 
+                    key={f.featureId} 
+                    feature={featureData}
+                    onInfo={() => setSelectedFeature({ name: f.feature?.name, description: f.feature?.description })}
+                    isReadOnly={true}
+                />
+            );
+        }
+
+        return (
+            <FeatureCard 
+                key={f.featureId} 
+                feature={featureData}
+                onClick={() => setSelectedFeature({ name: f.feature?.name, description: f.feature?.description })}
+                isReadOnly={true}
+            />
+        );
+    };
+
     return (
-        <Card className="glass-card backdrop-blur-xl border-white/10 bg-white/5">
-            <CardHeader>
-                <CardTitle className="text-xl font-light tracking-wide text-slate-100">Вітаємо з {totalLevel}-м рівнем!</CardTitle>
+        <Card className="glass-card backdrop-blur-xl border-white/10 bg-white/5 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-500">
+            <CardHeader className="pb-2">
+                <CardTitle className="text-xl font-light tracking-wide text-slate-100 font-rpg-display uppercase">Вітаємо з {totalLevel}-м рівнем!</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-                <div className="glass-panel border-gradient-rpg rounded-xl p-4 bg-white/5 border-white/10">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Ви підвищуєте:</p>
-                    <p className="text-lg font-semibold text-white">
-                        {className} (рівень {classLevelAfter})
-                    </p>
+            <CardContent className="space-y-6 pt-2">
+                <div className="space-y-3">
+                    <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-indigo-400 px-1">Ви підвищуєте:</p>
+                    <div className="grid grid-cols-1 gap-3">
+                        {selectedClass && (
+                            <ClassInfoModal 
+                                cls={selectedClass} 
+                                trigger={
+                                    <button className="w-full text-left group">
+                                        <div className="glass-panel border-gradient-rpg rounded-xl p-4 bg-white/5 border-white/10 group-hover:bg-white/10 transition-all duration-300 group-hover:scale-[1.01] active:scale-[0.99] relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-40 transition-opacity">
+                                                <ChevronRight className="w-5 h-5 text-indigo-300" />
+                                            </div>
+                                            <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Клас</p>
+                                            <p className="text-lg font-bold text-white group-hover:text-indigo-200 transition-colors">
+                                                {className} <span className="text-slate-400 font-light ml-1">(рівень {classLevelAfter})</span>
+                                            </p>
+                                        </div>
+                                    </button>
+                                }
+                            />
+                        )}
+
+                        {effectiveSubclass && (
+                             <SubclassInfoModal 
+                                subclass={effectiveSubclass}
+                                trigger={
+                                    <button className="w-full text-left group">
+                                        <div className="glass-panel border-gradient-rpg rounded-xl p-4 bg-white/5 border-white/10 group-hover:bg-white/10 transition-all duration-300 group-hover:scale-[1.01] active:scale-[0.99] relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-40 transition-opacity">
+                                                <ChevronRight className="w-5 h-5 text-violet-300" />
+                                            </div>
+                                            <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Підклас</p>
+                                            <p className="text-lg font-bold text-white group-hover:text-violet-200 transition-colors">
+                                                {subclassTranslations[effectiveSubclass.name as keyof typeof subclassTranslations] || effectiveSubclass.name}
+                                            </p>
+                                        </div>
+                                    </button>
+                                }
+                             />
+                        )}
+                    </div>
                 </div>
 
                 {newClassFeatures.length > 0 ? (
-                    <div className="space-y-3">
-                        <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 px-1">Нові класові вміння:</h3>
-                        <div className="grid grid-cols-1 gap-2">
-                            {newClassFeatures.map((f: any) => {
-                                const featureData = {
-                                    ...f.feature,
-                                    source: "class",
-                                    sourceName: className
-                                };
-                                const isResource = f.feature?.displayType?.includes(FeatureDisplayType.CLASS_RESOURCE) || 
-                                                 f.feature?.displayType?.includes(FeatureDisplayType.RESOURCE);
-
-                                if (isResource) {
-                                    return (
-                                        <ResourceCard 
-                                            key={f.featureId} 
-                                            feature={featureData}
-                                            onInfo={() => setSelectedFeature({ name: f.feature?.name, description: f.feature?.description })}
-                                            isReadOnly={true}
-                                        />
-                                    );
-                                }
-
-                                return (
-                                    <FeatureCard 
-                                        key={f.featureId} 
-                                        feature={featureData}
-                                        onClick={() => setSelectedFeature({ name: f.feature?.name, description: f.feature?.description })}
-                                        isReadOnly={true}
-                                    />
-                                );
-                            })}
+                    <div className="space-y-4">
+                        <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400 px-1">Нові класові вміння:</h3>
+                        <div className="grid grid-cols-1 gap-3">
+                            {newClassFeatures.map((f: any) => renderFeature(f, "class"))}
                         </div>
                     </div>
                 ) : null}
 
                 {newSubclassFeatures.length > 0 ? (
-                    <div className="space-y-3">
-                        <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 px-1">Нові вміння підкласу:</h3>
-                        <div className="grid grid-cols-1 gap-2">
-                            {newSubclassFeatures.map((f: any) => {
-                                const featureData = {
-                                    ...f.feature,
-                                    source: "subclass",
-                                    sourceName: className
-                                };
-                                const isResource = f.feature?.displayType?.includes(FeatureDisplayType.CLASS_RESOURCE) || 
-                                                 f.feature?.displayType?.includes(FeatureDisplayType.RESOURCE);
-
-                                if (isResource) {
-                                    return (
-                                        <ResourceCard 
-                                            key={f.featureId} 
-                                            feature={featureData}
-                                            onInfo={() => setSelectedFeature({ name: f.feature?.name, description: f.feature?.description })}
-                                            isReadOnly={true}
-                                        />
-                                    );
-                                }
-
-                                return (
-                                    <FeatureCard 
-                                        key={f.featureId} 
-                                        feature={featureData}
-                                        onClick={() => setSelectedFeature({ name: f.feature?.name, description: f.feature?.description })}
-                                        isReadOnly={true}
-                                    />
-                                );
-                            })}
+                    <div className="space-y-4">
+                        <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400 px-1">Нові вміння підкласу:</h3>
+                        <div className="grid grid-cols-1 gap-3">
+                            {newSubclassFeatures.map((f: any) => renderFeature(f, "subclass"))}
                         </div>
                     </div>
                 ) : null}
             </CardContent>
 
-            <Dialog open={!!selectedFeature} onOpenChange={() => setSelectedFeature(null)}>
-                <DialogContent className="max-w-xl border-white/10 bg-slate-900/95 backdrop-blur text-slate-100">
-                    <DialogHeader>
-                        <DialogTitle className="text-xl font-semibold tracking-wide font-rpg-display uppercase">{selectedFeature?.name}</DialogTitle>
-                    </DialogHeader>
-                    <div className="max-h-96 overflow-y-auto pr-2 custom-scrollbar">
-                        {selectedFeature?.description && (
-                            <FormattedDescription content={selectedFeature.description} className="text-sm text-slate-300 leading-relaxed" />
-                        )}
-                    </div>
-                </DialogContent>
-            </Dialog>
+            <ControlledInfoDialog
+                open={!!selectedFeature}
+                onOpenChange={(open) => !open && setSelectedFeature(null)}
+                title={selectedFeature?.name || "Вміння"}
+            >
+                {selectedFeature?.description ? (
+                    <FormattedDescription content={selectedFeature.description} className="text-slate-300 leading-relaxed text-sm sm:text-base" />
+                ) : (
+                    <p className="text-sm text-slate-400 italic">Опис відсутній</p>
+                )}
+            </ControlledInfoDialog>
         </Card>
     );
 }
@@ -763,7 +980,7 @@ function PathStep({
                             }
                             onClick={() => selectPath("EXISTING")}
                         >
-                            Підняти рівень існуючого класу
+                            Підняти рівень наявного класу
                         </Button>
                         <Button
                             type="button"

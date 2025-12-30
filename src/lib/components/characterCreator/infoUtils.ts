@@ -20,6 +20,12 @@ import {
   damageTypeTranslations,
   raceTranslations,
   classTranslations,
+  equipmentCategoryTranslations,
+  spellcastingTypeTranslations,
+  weaponPropertyTranslations,
+  expertiseTranslations,
+  magicItemTypeTranslations,
+  rarityTranslations,
 } from "@/lib/refs/translation";
 import { MulticlassReqs, SkillProficiencies, ToolProficiencies, WeaponProficiencies } from "@/lib/types/model-types";
 
@@ -62,8 +68,14 @@ export const translateValue = (value?: string | number | null): string => {
   if (armorTypeTranslations[key as keyof typeof armorTypeTranslations]) return armorTypeTranslations[key as keyof typeof armorTypeTranslations];
   if (weaponTypeTranslations[key as keyof typeof weaponTypeTranslations]) return weaponTypeTranslations[key as keyof typeof weaponTypeTranslations];
   if (backgroundTranslations[key as keyof typeof backgroundTranslations]) return backgroundTranslations[key as keyof typeof backgroundTranslations];
+  if (expertiseTranslations[key as keyof typeof expertiseTranslations]) return expertiseTranslations[key as keyof typeof expertiseTranslations];
+  if (equipmentCategoryTranslations[key as keyof typeof equipmentCategoryTranslations]) return equipmentCategoryTranslations[key as keyof typeof equipmentCategoryTranslations];
+  if (weaponPropertyTranslations[key as keyof typeof weaponPropertyTranslations]) return weaponPropertyTranslations[key as keyof typeof weaponPropertyTranslations];
   if (spellSchoolTranslations[key as keyof typeof spellSchoolTranslations]) return spellSchoolTranslations[key as keyof typeof spellSchoolTranslations];
   if (damageTypeTranslations[key as keyof typeof damageTypeTranslations]) return damageTypeTranslations[key as keyof typeof damageTypeTranslations];
+  if (spellcastingTypeTranslations[key as keyof typeof spellcastingTypeTranslations]) return spellcastingTypeTranslations[key as keyof typeof spellcastingTypeTranslations];
+  if (magicItemTypeTranslations[key as keyof typeof magicItemTypeTranslations]) return magicItemTypeTranslations[key as keyof typeof magicItemTypeTranslations];
+  if (rarityTranslations[key as keyof typeof rarityTranslations]) return rarityTranslations[key as keyof typeof rarityTranslations];
 
   return prettifyEnum(value);
 };
@@ -170,12 +182,96 @@ export const formatRaceAC = (ac?: any | null) => {
   return `База ${ac.base}${bonus}`;
 };
 
+export const normalizeRaceASI = (asi?: any | null) => {
+  if (!asi || typeof asi !== "object") return asi;
+
+  // If this is NOT a RaceASI-like structure (no basic/tasha), keep as-is.
+  const looksLikeRaceASI = "basic" in asi || "tasha" in asi || "flexible" in asi;
+  if (!looksLikeRaceASI) {
+    const abilityKeys = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+    const entries = Object.entries(asi).filter(
+      ([k, v]) => abilityKeys.includes(String(k).toUpperCase()) && typeof v === "number" && Number(v) !== 0
+    );
+    if (!entries.length) return asi;
+
+    const simple = Object.fromEntries(
+      entries.map(([k, v]) => [String(k).toUpperCase(), Number(v)])
+    );
+
+    const byValue = new Map<number, number>();
+    for (const [, v] of entries) {
+      const n = Number(v);
+      if (!Number.isFinite(n) || n === 0) continue;
+      byValue.set(n, (byValue.get(n) ?? 0) + 1);
+    }
+
+    const tashaGroups = Array.from(byValue.entries())
+      .sort((a, b) => b[0] - a[0])
+      .map(([value, count]) => ({
+        groupName: `+${value} до ${count}`,
+        value,
+        choiceCount: count,
+        unique: true,
+      }));
+
+    return {
+      basic: { simple, flexible: { groups: [] } },
+      tasha: { flexible: { groups: tashaGroups } },
+    };
+  }
+
+  // clone (avoid mutating the source object from prisma/json)
+  let next: any;
+  try {
+    next = JSON.parse(JSON.stringify(asi));
+  } catch {
+    next = { ...asi };
+  }
+
+  // Support legacy-ish shape: { flexible: { groups } } as "basic"
+  if (!next.basic && next.flexible?.groups) {
+    next.basic = { simple: {}, flexible: next.flexible };
+  }
+
+  // If only tasha is present, treat it as basic too (MPMM / new sources fallback)
+  if (!next.basic && next.tasha?.flexible) {
+    next.basic = { simple: {}, flexible: next.tasha.flexible };
+  }
+
+  // Ensure basic.simple exists when basic exists
+  if (next.basic && !next.basic.simple) {
+    next.basic.simple = {};
+  }
+
+  return next;
+};
+
 export const formatASI = (asi?: any | null) => {
   if (!asi) return "—";
 
-  const fixedEntries = Object.entries(asi.basic?.simple || {});
-  const basicFlexible = asi.basic?.flexible?.groups || [];
-  const tashaFlexible = asi.tasha?.flexible?.groups || [];
+  // Support plain maps like { STR: 2 } (subrace.additionalASI)
+  if (
+    typeof asi === "object" &&
+    !("basic" in asi) &&
+    !("tasha" in asi) &&
+    !("flexible" in asi)
+  ) {
+    const entries = Object.entries(asi).filter(([, value]) => typeof value === "number" && Number(value) !== 0);
+    if (!entries.length) return "—";
+
+    return (
+      "Фіксовано: " +
+      entries
+        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
+        .join(", ")
+    );
+  }
+
+  const normalized = normalizeRaceASI(asi);
+
+  const fixedEntries = Object.entries(normalized?.basic?.simple || {});
+  const basicFlexible = normalized?.basic?.flexible?.groups || [];
+  const tashaFlexible = normalized?.tasha?.flexible?.groups || [];
 
   const parts: string[] = [];
 
@@ -200,7 +296,7 @@ export const formatASI = (asi?: any | null) => {
 
   if (tashaFlexible.length) {
     parts.push(
-      `За Та́шею: ${tashaFlexible
+      `За Ташею: ${tashaFlexible
         .map(
           (group: any) =>
             `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`

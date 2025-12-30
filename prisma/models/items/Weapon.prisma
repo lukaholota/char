@@ -1,25 +1,18 @@
-
 model Weapon {
-  weaponId Int            @id @default(autoincrement()) @map("weapon_id")
-  name     WeaponCategory @unique
-
-  damage     String
-  damageType DamageType @map("damage_type")
-  weaponType WeaponType @map("weapon_type")
-  sortOrder  Int        @default(999) @map("sort_order")
-
-  isRanged Boolean @map("is_ranged") @default(false)
-  isAdditional Boolean @map("is_additional") @default(false)
-
-  properties WeaponProperty[]
-
-  versatileDamage String? @map("versatile_damage")
-
-  normalRange Int? @map("normal_range")
-  longRange   Int? @map("long_range")
-
-  persWeapons                  PersWeapon[]
+  weaponId                     Int                            @id @default(autoincrement()) @map("weapon_id")
+  name                         WeaponCategory                 @unique
+  damage                       String
+  damageType                   DamageType                     @map("damage_type")
+  weaponType                   WeaponType                     @map("weapon_type")
+  properties                   WeaponProperty[]
+  versatileDamage              String?                        @map("versatile_damage")
+  normalRange                  Int?                           @map("normal_range")
+  longRange                    Int?                           @map("long_range")
+  isRanged                     Boolean                        @default(false) @map("is_ranged")
+  isAdditional                 Boolean                        @default(false) @map("is_additional")
+  sortOrder                    Int                            @default(999) @map("sort_order")
   classStartingEquipmentOption ClassStartingEquipmentOption[]
+  persWeapons                  PersWeapon[]
 
   @@map("weapon")
 }

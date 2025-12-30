@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
 import { PersWithRelations } from "@/lib/actions/pers";
-import { updateBonus, updateSkillProficiency, updateSaveProficiency } from "@/lib/actions/bonus-actions";
+import { updateBonus, updateSkillProficiency, updateSaveProficiency, updateBaseStat } from "@/lib/actions/bonus-actions";
 import { bonusTranslations, skillTranslations } from "@/lib/refs/translation";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -21,7 +21,6 @@ import {
   getSimpleBonus,
   calculateFinalStat,
   calculateFinalAC,
-  calculateFinalSpeed,
   calculateFinalInitiative,
   calculateFinalProficiency,
   calculateSpellAttack,
@@ -61,6 +60,8 @@ export default function ModifyStatModal({
 }: ModifyStatModalProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statMode, setStatMode] = useState<"BONUS" | "BASE">("BONUS");
+  const [baseStatInput, setBaseStatInput] = useState<string>("");
   
   // Local bonus states for immediate feedback
   const [localStatBonus, setLocalStatBonus] = useState(0);
@@ -76,9 +77,21 @@ export default function ModifyStatModal({
     if (!config) return;
     
     if (config.type === "stat") {
+      setStatMode("BONUS");
       setLocalStatBonus(getStatBonus(pers, config.ability));
       setLocalModifierBonus(getModifierBonus(pers, config.ability));
       setLocalSaveBonus(getSaveBonus(pers, config.ability));
+
+      const baseStatMap: Record<Ability, number> = {
+        STR: pers.str,
+        DEX: pers.dex,
+        CON: pers.con,
+        INT: pers.int,
+        WIS: pers.wis,
+        CHA: pers.cha,
+      };
+      const baseStat = baseStatMap[config.ability];
+      setBaseStatInput(String(baseStat));
       
       const savingThrows = pers.class.savingThrows ?? [];
       const additionalSaves = (pers as any).additionalSaveProficiencies as Ability[] ?? [];
@@ -115,28 +128,39 @@ export default function ModifyStatModal({
     }
   }, [config]);
 
+  const statBase = useMemo(() => {
+    if (!config || config.type !== "stat") return null;
+    const ability = config.ability;
+    const baseStatMap: Record<Ability, number> = {
+      STR: pers.str,
+      DEX: pers.dex,
+      CON: pers.con,
+      INT: pers.int,
+      WIS: pers.wis,
+      CHA: pers.cha,
+    };
+    return { ability, base: baseStatMap[ability] };
+  }, [config, pers]);
+
+  useEffect(() => {
+    // Determine title only, logic moved to initializeState and render
+  }, [config]);
+
   // Calculate preview values
   const previewValues = useMemo(() => {
     if (!config) return null;
     
     if (config.type === "stat") {
-      const ability = config.ability;
-      const baseStatMap: Record<Ability, number> = {
-        STR: pers.str,
-        DEX: pers.dex,
-        CON: pers.con,
-        INT: pers.int,
-        WIS: pers.wis,
-        CHA: pers.cha,
-      };
-      const baseStat = baseStatMap[ability];
-      const finalStat = baseStat + localStatBonus;
+      const dbBaseStat = statBase?.base ?? 10;
+
+      // In BASE mode, we use the input. In BONUS mode, we still use the input (it holds the current base).
+      // If the user hasn't touched the input, it was initialized to dbBaseStat.
+      const baseInputRaw = Number(baseStatInput);
+      const effectiveBase = Number.isFinite(baseInputRaw) ? Math.trunc(baseInputRaw) : dbBaseStat;
+      
+      const finalStat = effectiveBase + localStatBonus;
       const baseMod = getAbilityMod(finalStat);
       const finalMod = baseMod + localModifierBonus;
-      
-      const savingThrows = pers.class.savingThrows ?? [];
-      const additionalSaves = (pers as any).additionalSaveProficiencies as Ability[] ?? [];
-      const isProficient = savingThrows.includes(ability) || additionalSaves.includes(ability);
       
       // Predict preview based on local toggle if editing stat
       const effectiveIsProficient = localSaveProficiency;
@@ -146,7 +170,7 @@ export default function ModifyStatModal({
       const finalSave = baseSave + localSaveBonus;
       
       return {
-        stat: { base: baseStat, bonus: localStatBonus, final: finalStat },
+        stat: { base: effectiveBase, bonus: localStatBonus, final: finalStat },
         modifier: { base: baseMod, bonus: localModifierBonus, final: finalMod },
         save: { base: baseSave, bonus: localSaveBonus, final: finalSave, isProficient: effectiveIsProficient },
       };
@@ -165,13 +189,14 @@ export default function ModifyStatModal({
       const pb = calculateFinalProficiency(pers);
       let baseTotal = abilityMod + modBonus;
       
+      if (localProficiency === "HALF") baseTotal += Math.floor(pb / 2);
       if (localProficiency === "PROFICIENT") baseTotal += pb;
       if (localProficiency === "EXPERTISE") baseTotal += pb * 2;
       
       const finalTotal = baseTotal + localSkillBonus;
       
       return {
-        skill: { base: baseTotal - localSkillBonus, bonus: localSkillBonus, final: finalTotal },
+        skill: { base: baseTotal, bonus: localSkillBonus, final: finalTotal },
       };
     } else {
       // Simple bonus
@@ -195,12 +220,11 @@ export default function ModifyStatModal({
         default: baseValue = 0;
       }
       const finalValue = baseValue + localSimpleBonus;
-      
       return {
         simple: { base: baseValue, bonus: localSimpleBonus, final: finalValue },
       };
     }
-  }, [config, pers, localStatBonus, localModifierBonus, localSaveBonus, localSkillBonus, localSimpleBonus, localProficiency, localSaveProficiency]);
+  }, [config, pers, localStatBonus, localModifierBonus, localSaveBonus, localSkillBonus, localSimpleBonus, localProficiency, localSaveProficiency, statBase, baseStatInput]);
 
   // Apply optimistic update and save
   const handleSave = async () => {
@@ -213,12 +237,16 @@ export default function ModifyStatModal({
     
     try {
       if (config.type === "stat") {
-        // Save all three bonuses for stat
+        // Save base stat AND bonuses
         const ability = config.ability;
+        
+        const baseInputRaw = Number(baseStatInput);
+        const effectiveBase = Number.isFinite(baseInputRaw) ? Math.trunc(baseInputRaw) : (statBase?.base ?? 10);
         
         // Optimistic update
         const nextPers = {
           ...pers,
+          [ability.toLowerCase()]: effectiveBase, // Update base stat
           statBonuses: {
             ...(pers as any).statBonuses ?? {},
             [ability]: localStatBonus,
@@ -240,6 +268,7 @@ export default function ModifyStatModal({
         
         // Save to server
         const results = await Promise.all([
+          updateBaseStat(pers.persId, ability, effectiveBase),
           updateBonus(pers.persId, "stat", ability, localStatBonus),
           updateBonus(pers.persId, "statModifier", ability, localModifierBonus),
           updateBonus(pers.persId, "save", ability, localSaveBonus),
@@ -247,9 +276,10 @@ export default function ModifyStatModal({
         ]);
         
         const failed = results.find((r) => !r.success);
-        if (failed && !failed.success) {
+        if (failed) {
+          console.error(failed);
           onPersUpdate(prevPers);
-          toast.error(failed.error);
+          toast.error("Помилка при збереженні");
           return;
         }
         
@@ -257,6 +287,7 @@ export default function ModifyStatModal({
         // Store previous state for skill proficiency rollback
         const skill = config.skill;
         const persSkill = pers.skills.find(s => s.name === skill);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const prevProficiency = persSkill?.proficiencyType ?? "NONE";
 
         // Optimistic update
@@ -387,14 +418,46 @@ export default function ModifyStatModal({
         <div className="py-2 overflow-y-auto max-h-[60vh] px-1">
           {config.type === "stat" && previewValues?.stat && (
             <div className="space-y-6">
-              {/* Stat Bonus */}
-              <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30">
-                <NumberInput
-                  value={localStatBonus}
-                  onChange={setLocalStatBonus}
-                  label={bonusTranslations.statBonus}
-                  preview={previewValues.stat}
-                />
+              <div className="space-y-3">
+                <div className="text-sm font-medium text-slate-200">Режим</div>
+                <Tabs value={statMode} onValueChange={(v) => setStatMode(v as "BONUS" | "BASE")}
+                >
+                  <TabsList className="grid w-full grid-cols-2 bg-slate-800/50">
+                    <TabsTrigger value="BONUS" className="text-xs data-[state=active]:bg-slate-700">
+                      {bonusTranslations.statBonus}
+                    </TabsTrigger>
+                    <TabsTrigger value="BASE" className="text-xs data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-200">
+                      Базове значення
+                    </TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="BONUS" className="pt-3">
+                    <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30">
+                      <NumberInput
+                        value={localStatBonus}
+                        onChange={setLocalStatBonus}
+                        label={bonusTranslations.statBonus}
+                        preview={previewValues.stat}
+                      />
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="BASE" className="pt-3">
+                    <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30 space-y-2">
+                       <div className="text-sm font-medium text-slate-200">Базове значення</div>
+                      <Input
+                        type="number"
+                        value={baseStatInput}
+                        onChange={(e) => setBaseStatInput(e.target.value)}
+                        className="bg-white/5 border-white/10"
+                        disabled={isSubmitting}
+                      />
+                      {statBase ? (
+                        <div className="text-xs text-slate-400">
+                          Бонус: <span className="text-emerald-400">{localStatBonus > 0 ? `+${localStatBonus}` : localStatBonus}</span>
+                        </div>
+                      ) : null}
+                    </div>
+                  </TabsContent>
+                </Tabs>
               </div>
 
               {/* Modifier Bonus */}
@@ -436,14 +499,17 @@ export default function ModifyStatModal({
               <div className="space-y-3">
                 <div className="text-sm font-medium text-slate-200">{bonusTranslations.proficiencyLevel}</div>
                 <Tabs value={localProficiency} onValueChange={(v) => setLocalProficiency(v as SkillProficiencyType)}>
-                  <TabsList className="grid w-full grid-cols-3 bg-slate-800/50">
-                    <TabsTrigger value="NONE" className="text-xs data-[state=active]:bg-slate-700">
+                  <TabsList className="grid w-full grid-cols-4 bg-slate-800/50">
+                    <TabsTrigger value="NONE" className="text-[10px] data-[state=active]:bg-slate-700">
                       {bonusTranslations.proficiencies.NONE}
                     </TabsTrigger>
-                    <TabsTrigger value="PROFICIENT" className="text-xs data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                    <TabsTrigger value="HALF" className="text-[10px] data-[state=active]:bg-slate-700/60 text-slate-400">
+                      {bonusTranslations.proficiencies.HALF}
+                    </TabsTrigger>
+                    <TabsTrigger value="PROFICIENT" className="text-[10px] data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
                       {bonusTranslations.proficiencies.PROFICIENT}
                     </TabsTrigger>
-                    <TabsTrigger value="EXPERTISE" className="text-xs data-[state=active]:bg-amber-500/20 data-[state=active]:text-amber-400">
+                    <TabsTrigger value="EXPERTISE" className="text-[10px] data-[state=active]:bg-amber-500/20 data-[state=active]:text-amber-400">
                       {bonusTranslations.proficiencies.EXPERTISE}
                     </TabsTrigger>
                   </TabsList>
@@ -476,7 +542,7 @@ export default function ModifyStatModal({
           <Button
             onClick={handleSave}
             disabled={isSubmitting}
-            className="bg-indigo-600 hover:bg-indigo-700"
+            className="bg-indigo-600 hover:bg-indigo-700 text-slate-200"
           >
             {isSubmitting ? bonusTranslations.saving : bonusTranslations.save}
           </Button>

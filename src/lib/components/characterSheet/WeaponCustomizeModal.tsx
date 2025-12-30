@@ -12,6 +12,7 @@ import { Ability, PersWeapon } from "@prisma/client";
 import { toast } from "sonner";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { Trash2 } from "lucide-react";
+import { attributesUkrFull } from "@/lib/refs/translation";
 
 interface WeaponCustomizeModalProps {
   persWeapon: PersWeapon;
@@ -24,8 +25,8 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
   const defaultAbility = persWeapon.customDamageAbility ?? Ability.STR;
   const [formData, setFormData] = useState({
     overrideName: persWeapon.overrideName || "",
-    attackBonus: persWeapon.attackBonus || 0,
-    customDamageBonus: persWeapon.customDamageBonus as number || 0,
+    attackBonus: (persWeapon.attackBonus ?? 0).toString(),
+    customDamageBonus: (persWeapon.customDamageBonus ?? 0).toString(),
     customDamageDice: persWeapon.customDamageDice || "",
     customDamageAbility: defaultAbility,
     isMagical: persWeapon.isMagical,
@@ -38,8 +39,8 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
     if (open) {
       setFormData({
         overrideName: persWeapon.overrideName || "",
-        attackBonus: persWeapon.attackBonus || 0,
-        customDamageBonus: persWeapon.customDamageBonus as number || 0,
+        attackBonus: (persWeapon.attackBonus ?? 0).toString(),
+        customDamageBonus: (persWeapon.customDamageBonus ?? 0).toString(),
         customDamageDice: persWeapon.customDamageDice || "",
         customDamageAbility: persWeapon.customDamageAbility ?? Ability.STR,
         isMagical: persWeapon.isMagical,
@@ -52,6 +53,8 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
     startTransition(async () => {
       const res = await updateWeapon(persWeapon.persWeaponId, {
         ...formData,
+        attackBonus: parseInt(formData.attackBonus) || 0,
+        customDamageBonus: parseInt(formData.customDamageBonus) || 0,
         overrideName: formData.overrideName || null,
         customDamageAbility: formData.customDamageAbility as Ability,
       });
@@ -65,8 +68,13 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
     });
   };
 
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const handleDelete = () => {
-    if (!confirm("Ви впевнені, що хочете видалити цю зброю?")) return;
+    if (!isDeleting) {
+      setIsDeleting(true);
+      return;
+    }
     
     startTransition(async () => {
       const res = await deleteWeapon(persWeapon.persWeaponId);
@@ -75,13 +83,18 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
         onOpenChange(false);
       } else {
         toast.error(res.error || "Помилка при видаленні зброї");
+        setIsDeleting(false);
       }
     });
   };
 
+  useEffect(() => {
+    if (!open) setIsDeleting(false);
+  }, [open]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md bg-slate-900/60 backdrop-blur-xl border-white/10 text-slate-50">
+      <DialogContent className="max-w-md bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50">
         <DialogHeader>
           <DialogTitle>Налаштування зброї</DialogTitle>
         </DialogHeader>
@@ -101,32 +114,44 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
             <div className="space-y-2">
               <Label>Бонус до атаки</Label>
               <Input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 value={formData.attackBonus}
-                onChange={(e) => setFormData({ ...formData, attackBonus: parseInt(e.target.value) || 0 })}
-                className="bg-white/5 border-white/10"
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (val === "" || /^-?\d*$/.test(val)) {
+                    setFormData({ ...formData, attackBonus: val });
+                  }
+                }}
+                className="bg-white/5 border-white/10 text-slate-50"
               />
             </div>
             <div className="space-y-2">
               <Label>Бонус до шкоди</Label>
               <Input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 value={formData.customDamageBonus}
-                onChange={(e) => setFormData({ ...formData, customDamageBonus: parseInt(e.target.value) || 0 })}
-                className="bg-white/5 border-white/10"
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (val === "" || /^-?\d*$/.test(val)) {
+                    setFormData({ ...formData, customDamageBonus: val });
+                  }
+                }}
+                className="bg-white/5 border-white/10 text-slate-50"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label>Кістка шкоди (напр. 1d8)</Label>
+              <Label>Кубик шкоди (напр. 1к8)</Label>
               <Input
                 value={formData.customDamageDice}
                 onChange={(e) => setFormData({ ...formData, customDamageDice: e.target.value })}
                 className="bg-white/5 border-white/10"
-                placeholder="Напр. 1d8"
-              />
+                placeholder="Напр. 1к8"
+              />  
             </div>
             <div className="space-y-2">
               <Label>Характеристика</Label>
@@ -140,7 +165,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
                 <SelectContent>
                   {Object.values(Ability).map((a) => (
                     <SelectItem key={a} value={a}>
-                      {a}
+                      {attributesUkrFull[a as keyof typeof attributesUkrFull] || a}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -171,15 +196,20 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
           </div>
 
           <div className="flex gap-2 pt-4">
-            <Button variant="destructive" className="gap-2" onClick={handleDelete} disabled={isPending}>
+            <Button 
+                variant="destructive" 
+                className={`gap-2 transition-all duration-300 ${isDeleting ? "bg-red-600 ring-2 ring-red-400 ring-offset-2" : ""}`} 
+                onClick={handleDelete} 
+                disabled={isPending}
+            >
               <Trash2 className="w-4 h-4" />
-              Видалити
+              {isDeleting ? "Впевнені?" : "Видалити"}
             </Button>
             <div className="flex-1" />
             <Button variant="ghost" onClick={() => onOpenChange(false)}>
               Скасувати
             </Button>
-            <Button className="bg-indigo-600 hover:bg-indigo-700" onClick={handleSave} disabled={isPending}>
+            <Button className="bg-indigo-600 hover:bg-indigo-700 text-slate-200" onClick={handleSave} disabled={isPending}>
               Зберегти
             </Button>
           </div>

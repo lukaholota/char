@@ -3,7 +3,17 @@ import { FANTASY_NAMES } from "@/lib/refs/fantasyNames";
 
 export function useFantasyNameGenerator() {
   const names = useMemo(() => FANTASY_NAMES, []);
-  const [currentName, setCurrentName] = useState<string>(names[0] ?? "");
+  const [currentName, setCurrentName] = useState<string>(() => {
+    if (!names.length) return "";
+    try {
+      const arr = new Uint32Array(1);
+      crypto.getRandomValues(arr);
+      return names[arr[0] % names.length] ?? "";
+    } catch {
+      const randomIndex = Math.floor(Math.random() * names.length);
+      return names[randomIndex] ?? "";
+    }
+  });
 
   const generateName = useCallback(() => {
     if (!names.length) return "";

@@ -1,16 +1,12 @@
-
 model Armor {
-  armorId Int           @id @default(autoincrement()) @map("armor_id")
-  name    ArmorCategory @unique
-
-  armorType ArmorType @map("armor_type")
-  baseAC    Int       @map("base_ac")
-
-  strengthReq         Int?    @map("strength_req")
-  stealthDisadvantage Boolean @default(false) @map("stealth_disadvantage")
-
-  persArmor                    PersArmor[]
+  armorId                      Int                            @id @default(autoincrement()) @map("armor_id")
+  name                         ArmorCategory                  @unique
+  armorType                    ArmorType                      @map("armor_type")
+  baseAC                       Int                            @map("base_ac")
+  strengthReq                  Int?                           @map("strength_req")
+  stealthDisadvantage          Boolean                        @default(false) @map("stealth_disadvantage")
   classStartingEquipmentOption ClassStartingEquipmentOption[]
+  persArmor                    PersArmor[]
 
   @@map("armor")
 }

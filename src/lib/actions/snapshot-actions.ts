@@ -280,7 +280,7 @@ export async function activateSnapshot(snapshotId: number) {
       data: { isActive: true }
     });
 
-    revalidatePath("/pers/home");
+    revalidatePath("/char/home");
     return { success: true };
   } catch (error) {
     console.error("Snapshot activation failed:", error);

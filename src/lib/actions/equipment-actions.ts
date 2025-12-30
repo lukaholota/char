@@ -74,7 +74,7 @@ export async function addWeapon(
       },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
     return { success: true, weapon: newWeapon };
   } catch (error) {
@@ -124,7 +124,7 @@ export async function updateWeapon(
       data,
     });
 
-    revalidatePath(`/pers/${weapon.persId}`);
+    revalidatePath(`/char/${weapon.persId}`);
     revalidatePath(`/character/${weapon.persId}`);
     return { success: true, weapon: updated };
   } catch (error) {
@@ -149,7 +149,7 @@ export async function deleteWeapon(persWeaponId: number) {
       where: { persWeaponId },
     });
 
-    revalidatePath(`/pers/${weapon.persId}`);
+    revalidatePath(`/char/${weapon.persId}`);
     revalidatePath(`/character/${weapon.persId}`);
     return { success: true };
   } catch (error) {
@@ -166,6 +166,7 @@ export async function addArmor(
   persId: number,
   armorId: number | null,
   customData: {
+    overrideName?: string;
     overrideBaseAC?: number;
     miscACBonus?: number;
     isProficient?: boolean;
@@ -187,7 +188,8 @@ export async function addArmor(
     const newArmor = await prisma.persArmor.create({
       data: {
         persId,
-        armorId: armorId || 1, // Fallback
+        armorId: armorId || 1, 
+        overrideName: customData.overrideName || null,
         overrideBaseAC: customData.overrideBaseAC || null,
         miscACBonus: customData.miscACBonus || 0,
         isProficient: customData.isProficient ?? true,
@@ -195,7 +197,7 @@ export async function addArmor(
       },
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
     return { success: true, armor: newArmor };
   } catch (error) {
@@ -207,6 +209,7 @@ export async function addArmor(
 export async function updateArmor(
   persArmorId: number,
   updates: {
+    overrideName?: string | null;
     overrideBaseAC?: number | null;
     miscACBonus?: number | null;
     isProficient?: boolean;
@@ -237,7 +240,7 @@ export async function updateArmor(
       data: updates,
     });
 
-    revalidatePath(`/pers/${armor.persId}`);
+    revalidatePath(`/char/${armor.persId}`);
     revalidatePath(`/character/${armor.persId}`);
     return { success: true, armor: updated };
   } catch (error) {
@@ -262,7 +265,7 @@ export async function deleteArmor(persArmorId: number) {
       where: { persArmorId },
     });
 
-    revalidatePath(`/pers/${armor.persId}`);
+    revalidatePath(`/char/${armor.persId}`);
     revalidatePath(`/character/${armor.persId}`);
     return { success: true };
   } catch (error) {
@@ -291,7 +294,7 @@ export async function updateShieldStatus(
       data: updates,
     });
 
-    revalidatePath(`/pers/${persId}`);
+    revalidatePath(`/char/${persId}`);
     revalidatePath(`/character/${persId}`);
     return { success: true };
   } catch (error) {

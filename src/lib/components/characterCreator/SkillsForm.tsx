@@ -167,7 +167,7 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
     form.register('_classCount')
   }, [form])
 
-  const isTasha = form.watch('isTasha') ?? true
+  const isTasha = form.watch('isTasha') ?? false
   const tashaChoices = form.watch('tashaChoices') || []
   const basicChoices = form.watch('basicChoices') ?? {
     race: [],

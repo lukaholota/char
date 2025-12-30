@@ -1,4 +1,5 @@
 import { existsSync } from "node:fs";
+import { getFontsCss } from "./pdfUtils";
 
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
@@ -126,18 +127,12 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Features — ${escapeHtml(characterName)}</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-
     <style>
+      ${getFontsCss()}
       @page { size: letter portrait; margin: 16mm 12mm; }
       * { box-sizing: border-box; }
       body {
-        font-family: "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-family: "NotoSansLocal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
         color: #0f172a;
         background: #ffffff;
         margin: 0;
@@ -157,8 +152,8 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise
         column-fill: auto;
       }
       .section {
-        break-inside: avoid-column;
-        page-break-inside: avoid;
+        break-inside: auto;
+        page-break-inside: auto;
         margin-bottom: 16px;
       }
       .section-title {
@@ -175,8 +170,8 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise
         padding: 0 0 8px 0;
         margin: 0 0 10px 0;
         border-bottom: 1px solid rgba(15, 23, 42, 0.12);
-        break-inside: avoid-column;
-        page-break-inside: avoid;
+        break-inside: auto;
+        page-break-inside: auto;
       }
       .header {
         display: flex;
@@ -211,12 +206,6 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise
       .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 4px; text-align: left; font-size: 10px; }
       .desc ul, .desc ol { margin: 0 0 6px 16px; padding: 0; }
       .desc li { margin-bottom: 2px; }
-      .generated {
-        column-span: all;
-        margin-top: 14px;
-        font-size: 10px;
-        color: rgba(15,23,42,0.6);
-      }
     </style>
   </head>
   <body>
@@ -225,7 +214,6 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise
       <div class="columns">
         ${sectionsHtml.join("\n")}
       </div>
-      <div class="generated">сформовано на pers.holota.family</div>
     </div>
   </body>
 </html>`;
@@ -250,12 +238,15 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise
     });
 
     const page = await browser.newPage();
-    await page.setContent(html, { waitUntil: "networkidle0" });
+    await page.setContent(html, { waitUntil: "load", timeout: 60000 });
 
     const pdfBuffer = await page.pdf({
       printBackground: true,
+      preferCSSPageSize: true,
+      scale: 0.98,
       format: "letter",
       margin: { top: "16mm", right: "12mm", bottom: "16mm", left: "12mm" },
+      timeout: 60000,
     });
 
     return Uint8Array.from(pdfBuffer);

@@ -39,6 +39,16 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         throw new Error("Shifter race not found");
     }
 
+    const simicHybrid = await prisma.race.findFirst({ where: { name: Races.SIMIC_HYBRID_GGTR } });
+    if (!simicHybrid) {
+        throw new Error("Simic Hybrid race not found");
+    }
+
+    const koboldMPMM = await prisma.race.findFirst({ where: { name: Races.KOBOLD_MPMM } });
+    if (!koboldMPMM) {
+        throw new Error("Kobold MPMM race not found");
+    }
+
     const connectFeature = (engName: string) => ({ feature: { connect: { engName } } });
 
     const choices = [
@@ -654,6 +664,94 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     connectFeature('Shifting: Wildhunt')
+                ]
+            }
+        },
+
+        // ============ SIMIC HYBRID ENHANCEMENTS ============
+        {
+            raceId: simicHybrid.raceId,
+            subraceId: null,
+            choiceGroupName: "Тваринні вдосконалення (1 рівень)",
+            optionName: "Планерування манти",
+            description: "Manta Glide: сповільнення падіння та планерування (2 фути вбік за 1 фут вниз).",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Animal Enhancements')
+                ]
+            }
+        },
+        {
+            raceId: simicHybrid.raceId,
+            subraceId: null,
+            choiceGroupName: "Тваринні вдосконалення (1 рівень)",
+            optionName: "Вправний скелелаз",
+            description: "Nimble Climber: швидкість лазіння дорівнює вашій швидкості ходьби.",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Animal Enhancements')
+                ]
+            }
+        },
+        {
+            raceId: simicHybrid.raceId,
+            subraceId: null,
+            choiceGroupName: "Тваринні вдосконалення (1 рівень)",
+            optionName: "Підводна адаптація",
+            description: "Underwater Adaptation: швидкість плавання дорівнює вашій швидкості ходьби, ви можете дихати під водою.",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Animal Enhancements')
+                ]
+            }
+        },
+
+        // ============ KOBOLD LEGACY ============
+        {
+            raceId: koboldMPMM.raceId,
+            subraceId: null,
+            choiceGroupName: "Спадщина кобольдів",
+            optionName: "Драконяча винахідливість",
+            description: "Ви отримуєте володіння однією з навичок: Магія, Історія, Розслідування, Медицина або Виживання.",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Kobold Legacy')
+                ]
+            }
+        },
+        {
+            raceId: koboldMPMM.raceId,
+            subraceId: null,
+            choiceGroupName: "Спадщина кобольдів",
+            optionName: "Непокора",
+            description: "Ви маєте перевагу на ряткидки для уникнення або завершення стану Переляканості на собі.",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Kobold Legacy')
+                ]
+            }
+        },
+        {
+            raceId: koboldMPMM.raceId,
+            subraceId: null,
+            choiceGroupName: "Спадщина кобольдів",
+            optionName: "Драконяче чаклунство",
+            description: "Ви знаєте одне замовляння на ваш вибір зі списку заклинань чарівника.",
+            selectMultiple: false,
+            maxSelection: 1,
+            traits: {
+                create: [
+                    connectFeature('Kobold Legacy')
                 ]
             }
         }

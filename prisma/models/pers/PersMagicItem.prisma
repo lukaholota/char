@@ -1,14 +1,12 @@
-
 model PersMagicItem {
-  persMagicItemId Int @id @default(autoincrement()) @map("pers_magic_item_id")
-  persId          Int @map("pers_id")
-  magicItemId     Int @map("magic_item_id")
-
-  pers      Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade)
-  magicItem MagicItem @relation(fields: [magicItemId], references: [magicItemId], onDelete: Cascade)
-
-  // Opposite side of PersInfusion.magicItem
-  infusions PersInfusion[]
+  persMagicItemId Int            @id @default(autoincrement()) @map("pers_magic_item_id")
+  persId          Int            @map("pers_id")
+  magicItemId     Int            @map("magic_item_id")
+  infusions       PersInfusion[]
+  magicItem       MagicItem      @relation(fields: [magicItemId], references: [magicItemId], onDelete: Cascade)
+  pers            Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  isEquipped      Boolean        @default(false) @map("is_equipped")
+  isAttuned       Boolean        @default(false) @map("is_attuned")
 
   @@map("pers_magic_item")
 }

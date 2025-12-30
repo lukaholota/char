@@ -21,8 +21,9 @@ interface ArmorCustomizeModalProps {
 export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: ArmorCustomizeModalProps) {
   const [isPending, startTransition] = useTransition();
   const [formData, setFormData] = useState({
-    overrideBaseAC: persArmor.overrideBaseAC,
-    miscACBonus: persArmor.miscACBonus || 0,
+    overrideName: (persArmor as any).overrideName || "",
+    overrideBaseAC: persArmor.overrideBaseAC?.toString() ?? "",
+    miscACBonus: (persArmor.miscACBonus ?? 0).toString(),
     isProficient: persArmor.isProficient,
     equipped: persArmor.equipped,
   });
@@ -32,8 +33,9 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
   useEffect(() => {
     if (open) {
       setFormData({
-        overrideBaseAC: persArmor.overrideBaseAC,
-        miscACBonus: persArmor.miscACBonus || 0,
+        overrideName: (persArmor as any).overrideName || "",
+        overrideBaseAC: persArmor.overrideBaseAC?.toString() ?? "",
+        miscACBonus: (persArmor.miscACBonus ?? 0).toString(),
         isProficient: persArmor.isProficient,
         equipped: persArmor.equipped,
       });
@@ -43,8 +45,11 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
   const handleSave = () => {
     startTransition(async () => {
       const res = await updateArmor(persArmor.persArmorId, {
-        ...formData,
-        miscACBonus: formData.miscACBonus || 0,
+        overrideName: formData.overrideName || null,
+        overrideBaseAC: formData.overrideBaseAC === "" ? null : parseInt(formData.overrideBaseAC),
+        miscACBonus: parseInt(formData.miscACBonus) || 0,
+        isProficient: formData.isProficient,
+        equipped: formData.equipped,
       });
 
       if (res.success) {
@@ -56,8 +61,13 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
     });
   };
 
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const handleDelete = () => {
-    if (!confirm("Ви впевнені, що хочете видалити цей обладунок?")) return;
+    if (!isDeleting) {
+      setIsDeleting(true);
+      return;
+    }
     
     startTransition(async () => {
       const res = await deleteArmor(persArmor.persArmorId);
@@ -66,36 +76,62 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
         onOpenChange(false);
       } else {
         toast.error(res.error || "Помилка при видаленні обладунку");
+        setIsDeleting(false);
       }
     });
   };
 
+  useEffect(() => {
+    if (!open) setIsDeleting(false);
+  }, [open]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md bg-slate-900/60 backdrop-blur-xl border-white/10 text-slate-50">
+      <DialogContent className="max-w-md bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50">
         <DialogHeader>
           <DialogTitle>Налаштування обладунку</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4 py-4">
           <div className="space-y-2">
+            <Label>Назва (кастомна)</Label>
+            <Input
+              value={formData.overrideName}
+              onChange={(e) => setFormData({ ...formData, overrideName: e.target.value })}
+              className="bg-white/5 border-white/10 text-slate-50"
+              placeholder="Залишіть порожнім для стандартної"
+            />
+          </div>
+          <div className="space-y-2">
             <Label>Базовий КБ (залишити порожнім для стандартного)</Label>
             <Input
-              type="number"
-              value={formData.overrideBaseAC ?? ""}
-              onChange={(e) => setFormData({ ...formData, overrideBaseAC: e.target.value ? parseInt(e.target.value) : null })}
+              type="text"
+              inputMode="numeric"
+              value={formData.overrideBaseAC}
+              onChange={(e) => {
+                const val = e.target.value;
+                if (val === "" || /^-?\d*$/.test(val)) {
+                  setFormData({ ...formData, overrideBaseAC: val });
+                }
+              }}
               placeholder={persArmor.armor?.baseAC?.toString() || "10"}
-              className="bg-white/5 border-white/10"
+              className="bg-white/5 border-white/10 text-slate-50"
             />
           </div>
 
           <div className="space-y-2">
             <Label>Додатковий бонус до КБ (магічний +1 та ін.)</Label>
             <Input
-              type="number"
+              type="text"
+              inputMode="numeric"
               value={formData.miscACBonus}
-              onChange={(e) => setFormData({ ...formData, miscACBonus: parseInt(e.target.value) || 0 })}
-              className="bg-white/5 border-white/10"
+              onChange={(e) => {
+                const val = e.target.value;
+                if (val === "" || /^-?\d*$/.test(val)) {
+                  setFormData({ ...formData, miscACBonus: val });
+                }
+              }}
+              className="bg-white/5 border-white/10 text-slate-50"
             />
           </div>
 
@@ -122,15 +158,20 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
           </div>
 
           <div className="flex gap-2 pt-4">
-            <Button variant="destructive" className="gap-2" onClick={handleDelete} disabled={isPending}>
+            <Button 
+                variant="destructive" 
+                className={`gap-2 transition-all duration-300 ${isDeleting ? "bg-red-600 ring-2 ring-red-400 ring-offset-2" : ""}`} 
+                onClick={handleDelete} 
+                disabled={isPending}
+            >
               <Trash2 className="w-4 h-4" />
-              Видалити
+              {isDeleting ? "Впевнені?" : "Видалити"}
             </Button>
             <div className="flex-1" />
             <Button variant="ghost" onClick={() => onOpenChange(false)}>
               Скасувати
             </Button>
-            <Button className="bg-indigo-600 hover:bg-indigo-700" onClick={handleSave} disabled={isPending}>
+            <Button className="bg-indigo-600 hover:bg-indigo-700 text-slate-200" onClick={handleSave} disabled={isPending}>
               Зберегти
             </Button>
           </div>

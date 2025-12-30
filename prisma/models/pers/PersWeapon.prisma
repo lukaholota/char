@@ -1,34 +1,24 @@
-
 model PersWeapon {
-  persWeaponId Int @id @default(autoincrement()) @map("pers_weapon_id")
-  persId       Int @map("pers_id")
-  weaponId     Int @map("weapon_id")
+  persWeaponId          Int            @id @default(autoincrement()) @map("pers_weapon_id")
+  persId                Int            @map("pers_id")
+  weaponId              Int            @map("weapon_id")
+  overrideDamage        String?        @map("override_damage")
+  attackBonus           Int?           @map("attack_bonus")
+  overrideName          String?        @map("override_name")
+  overrideNormalRange   Int?           @map("override_normal_range")
+  overrideLongRange     Int?           @map("override_long_range")
+  overrideDamageType    DamageType?    @map("override_damage_type")
+  overrideAttackAbility Ability?       @map("override_attack_ability")
+  isProficient          Boolean        @default(true) @map("is_proficient")
+  customAttackBonus     Json?          @map("customattackbonus")
+  customDamageAbility   Ability?       @map("customdamageability")
+  customDamageBonus     Json?          @map("customdamagebonus")
+  customDamageCount     Int?           @map("customdamagecount")
+  customDamageDice      String?        @map("customdamagedice")
+  isMagical             Boolean        @default(false) @map("ismagical")
+  infusions             PersInfusion[]
+  pers                  Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  weapon                Weapon         @relation(fields: [weaponId], references: [weaponId], onDelete: Cascade)
 
-  overrideDamage        String?     @map("override_damage")
-  attackBonus           Int?        @map("attack_bonus")
-  overrideName          String?     @map("override_name")
-  overrideNormalRange   Int?        @map("override_normal_range")
-  overrideLongRange     Int?        @map("override_long_range")
-  overrideDamageType    DamageType? @map("override_damage_type")
-  overrideAttackAbility Ability?    @map("override_attack_ability")
-
-  isProficient Boolean @default(true) @map("is_proficient")
-
-  // Custom bonuses and damage customization
-  customAttackBonus   Json?    @map("customattackbonus")
-  customDamageBonus   Json?    @map("customdamagebonus")
-  customDamageCount   Int?     @map("customdamagecount")
-  customDamageDice    String?  @map("customdamagedice")
-  customDamageAbility Ability? @map("customdamageability")
-  isMagical           Boolean  @default(false) @map("ismagical")
-
-
-  pers   Pers   @relation(fields: [persId], references: [persId], onDelete: Cascade)
-  weapon Weapon @relation(fields: [weaponId], references: [weaponId], onDelete: Cascade)
-
-  // Opposite side of PersInfusion.weapon
-  infusions PersInfusion[]
-
-  // unique_pers_weapon constraint removed to allow multiple same-type weapons
   @@map("pers_weapon")
 }

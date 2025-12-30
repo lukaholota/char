@@ -5,6 +5,9 @@ import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { RestType } from "@prisma/client";
 import { getAbilityMod } from "@/lib/logic/utils";
+import { calculateCasterLevel } from "@/lib/logic/spell-logic";
+import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
+import { getCharacterFeaturesGrouped, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 
 /**
  * Helper to assert the user owns the pers and return pers data
@@ -124,7 +127,9 @@ export interface ShortRestResult {
   hpRestored: number;
   newCurrentHp: number;
   currentHitDice: Record<number, number>;
+  currentPactSlots: number;
   featuresRestored: number;
+  groupedFeatures: CharacterFeaturesGroupedResult;
 }
 
 export interface ShortRestError {
@@ -164,13 +169,10 @@ export async function shortRest(
     }
     
     // Calculate HP: roll hit dice + CON modifier per die
-    // For simplicity, use average roll (half of die max, rounded up)
-    const hitDie = maxByClass[dice.classId].hitDie;
-    const avgRoll = Math.ceil(hitDie / 2);
-    
+    const classHitDie = maxByClass[dice.classId].hitDie;
     for (let i = 0; i < dice.count; i++) {
       // Random roll between 1 and hitDie, or use average
-      const roll = Math.max(1, Math.floor(Math.random() * hitDie) + 1);
+      const roll = Math.max(1, Math.floor(Math.random() * classHitDie) + 1);
       totalHpRestored += Math.max(1, roll + conMod);
     }
     
@@ -179,6 +181,25 @@ export async function shortRest(
   
   // Calculate new HP (capped at maxHp)
   const newCurrentHp = Math.min(pers.maxHp, pers.currentHp + totalHpRestored);
+
+  const persForSlots = await prisma.pers.findUnique({
+    where: { persId },
+    include: {
+      class: { select: { name: true, spellcastingType: true } },
+      subclass: { select: { spellcastingType: true } },
+      multiclasses: {
+        include: {
+          class: { select: { name: true, spellcastingType: true } },
+          subclass: { select: { spellcastingType: true } },
+        },
+      },
+    },
+  });
+
+  const caster = persForSlots ? calculateCasterLevel(persForSlots as any) : { pactLevel: 0, casterLevel: 0 };
+  const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
+  const maxPactSlots = pactRow?.slots ? Math.max(0, Math.trunc(pactRow.slots)) : 0;
+  const newCurrentPactSlots = maxPactSlots > 0 ? maxPactSlots : (Number.isFinite(pers.currentPactSlots) ? Math.max(0, Math.trunc(pers.currentPactSlots)) : 0);
   
   // Restore SHORT_REST features
   const featuresWithShortRest = await prisma.persFeature.findMany({
@@ -226,18 +247,23 @@ export async function shortRest(
     data: {
       currentHp: newCurrentHp,
       currentHitDice: updatedDice as object,
+      currentPactSlots: newCurrentPactSlots,
     },
   });
   
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
   
+  const groupedFeatures = await getCharacterFeaturesGrouped(persId);
+
   return {
     success: true,
     hpRestored: totalHpRestored,
     newCurrentHp,
     currentHitDice: updatedDice,
+    currentPactSlots: newCurrentPactSlots,
     featuresRestored,
+    groupedFeatures: groupedFeatures!,
   };
 }
 
@@ -249,6 +275,7 @@ export interface LongRestResult {
   currentPactSlots: number;
   spellSlotsRestored: boolean;
   featuresRestored: number;
+  groupedFeatures: CharacterFeaturesGroupedResult;
 }
 
 export interface LongRestError {
@@ -319,10 +346,25 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
     }
   }
   
-  // Get max spell slots for the character's level
-  // Using standard 5e spell slot progression
-  const maxSpellSlots = getMaxSpellSlots(pers.level);
-  const maxPactSlots = getMaxPactSlots(pers.level);
+  // Get max spell slots and pact slots using robust logic
+  const persForSlots = await prisma.pers.findUnique({
+    where: { persId },
+    include: {
+      class: { select: { name: true, spellcastingType: true } },
+      subclass: { select: { spellcastingType: true } },
+      multiclasses: {
+        include: {
+          class: { select: { name: true, spellcastingType: true } },
+          subclass: { select: { spellcastingType: true } },
+        },
+      },
+    },
+  });
+
+  const caster = persForSlots ? calculateCasterLevel(persForSlots as any) : { pactLevel: 0, casterLevel: 0 };
+  const maxSpellSlots = ((SPELL_SLOT_PROGRESSION as any).FULL?.[caster.casterLevel] as number[] | undefined) ?? Array(9).fill(0);
+  const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
+  const maxPactSlots = pactRow?.slots ? Math.max(0, Math.trunc(pactRow.slots)) : 0;
   
   // Update database
   await prisma.pers.update({
@@ -339,9 +381,11 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
     },
   });
   
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
   
+  const groupedFeatures = await getCharacterFeaturesGrouped(persId);
+
   return {
     success: true,
     newCurrentHp: pers.maxHp,
@@ -350,51 +394,8 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
     currentPactSlots: maxPactSlots,
     spellSlotsRestored: true,
     featuresRestored,
+    groupedFeatures: groupedFeatures!,
   };
-}
-
-/**
- * Get standard max spell slots for a given caster level
- * This is a simplified version - in reality, depends on class
- */
-function getMaxSpellSlots(level: number): number[] {
-  const slotProgression: number[][] = [
-    [],                           // Level 0 (doesn't exist)
-    [2, 0, 0, 0, 0, 0, 0, 0, 0],  // Level 1
-    [3, 0, 0, 0, 0, 0, 0, 0, 0],  // Level 2
-    [4, 2, 0, 0, 0, 0, 0, 0, 0],  // Level 3
-    [4, 3, 0, 0, 0, 0, 0, 0, 0],  // Level 4
-    [4, 3, 2, 0, 0, 0, 0, 0, 0],  // Level 5
-    [4, 3, 3, 0, 0, 0, 0, 0, 0],  // Level 6
-    [4, 3, 3, 1, 0, 0, 0, 0, 0],  // Level 7
-    [4, 3, 3, 2, 0, 0, 0, 0, 0],  // Level 8
-    [4, 3, 3, 3, 1, 0, 0, 0, 0],  // Level 9
-    [4, 3, 3, 3, 2, 0, 0, 0, 0],  // Level 10
-    [4, 3, 3, 3, 2, 1, 0, 0, 0],  // Level 11
-    [4, 3, 3, 3, 2, 1, 0, 0, 0],  // Level 12
-    [4, 3, 3, 3, 2, 1, 1, 0, 0],  // Level 13
-    [4, 3, 3, 3, 2, 1, 1, 0, 0],  // Level 14
-    [4, 3, 3, 3, 2, 1, 1, 1, 0],  // Level 15
-    [4, 3, 3, 3, 2, 1, 1, 1, 0],  // Level 16
-    [4, 3, 3, 3, 2, 1, 1, 1, 1],  // Level 17
-    [4, 3, 3, 3, 3, 1, 1, 1, 1],  // Level 18
-    [4, 3, 3, 3, 3, 2, 1, 1, 1],  // Level 19
-    [4, 3, 3, 3, 3, 2, 2, 1, 1],  // Level 20
-  ];
-  
-  const clampedLevel = Math.max(1, Math.min(20, level));
-  return slotProgression[clampedLevel] ?? [0, 0, 0, 0, 0, 0, 0, 0, 0];
-}
-
-/**
- * Get max pact slots for Warlocks
- */
-function getMaxPactSlots(level: number): number {
-  if (level < 1) return 0;
-  if (level === 1) return 1;
-  if (level <= 10) return 2;
-  if (level <= 16) return 3;
-  return 4;
 }
 
 /**

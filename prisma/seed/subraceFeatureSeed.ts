@@ -43,7 +43,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Drow Magic',
             description: 'Ви знаєте заклинання <a href="/spell/1350">Мерехтливі вогники [Dancing Lights]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1041">Вогники фей [Faerie Fire]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою характеристикою для цих заклинань.',
             shortDescription: 'Мерехтливі вогники [Dancing Lights], Вогники фей [Faerie Fire], Темрява [Darkness]',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -67,7 +67,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Fey Step (DMG)',
             description: 'Ви можете використати заклинання <a href="/spell/1247">Туманний крок [Misty Step]</a> один раз, використовуючи цю рису. Ви відновлюєте можливість зробити це, коли завершуєте короткий або довгий відпочинок.',
             shortDescription: 'Туманний крок [Misty Step] раз на короткий відпочинок',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.SHORT_REST,
             usesCount: 1,
             givesSpells: {
@@ -106,7 +106,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Blessing of the Raven Queen',
             description: 'Бонусною дією ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Ви можете використовувати цю рису кількість разів, що дорівнює вашому бонусу майстерності, і відновлюєте всі витрачені використання, коли закінчуєте довгий відпочинок.\\n\\nПочинаючи з 3-го рівня, ви також отримуєте опір до всіх видів шкоди, коли телепортуєтеся за допомогою цієї риси. Опір триває до початку вашого наступного ходу. Протягом цього часу ви виглядаєте примарним і напівпрозорим.',
             shortDescription: 'Телепорт 30 футів + опір до всієї шкоди (з 3-го рівня)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCountDependsOnProficiencyBonus: true
         },
@@ -124,7 +124,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Blessing of the Moon Weaver',
             description: 'Ви знаєте заклинання <a href="/spell/1055">Світло [Light]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1310">Сон [Sleep]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою характеристикою для цих заклинань.',
             shortDescription: 'Світло, Сон, Невидимість',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -191,7 +191,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Duergar Magic',
             description: 'Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1289">Збільшення/Зменшення [Enlarge/Reduce]</a> на себе. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a> на себе. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Інтелект є вашою характеристикою для цих заклинань.',
             shortDescription: 'Збільшення/Зменшення та Невидимість (тільки на себе)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.PASSIVE],
             limitedUsesPer: RestType.LONG_REST,
             givesSpells: {
                 connect: [
@@ -293,7 +293,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Chromatic Warding',
             description: 'Починаючи з 5-го рівня, як дію ви можете направити свою драконячу енергію, щоб ненадовго оточити себе аурою, яка захищає ваших союзників. Аура поширюється на 10 футів від вас у всіх напрямках, але не через повне укриття. Ваші союзники в аурі отримують опір до кислотної, холодної, вогняної, блискавичної або отруйної шкоди (ви обираєте тип шкоди коли активуєте цю здібність). Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.',
             shortDescription: 'Аура захисту (опір до обраного типу шкоди)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         },
@@ -304,7 +304,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Metallic Breath Weapon',
             description: 'На 5-му рівні ви отримуєте другий різновид зброї дихання. Коли ви робите дію Breath Weapon, ви можете витратити використання свого Breath Weapon, щоб видихнути паралізуючий газ у конусі 15 футів. Кожна істота в цій області повинна зробити ряткидок Статури (СК = 8 + ваш модифікатор Статури + ваш бонус майстерності). При провалі істота паралізована до кінця вашого наступного ходу.',
             shortDescription: 'Паралізуюче дихання (конус 15 фт)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.ACTION],
             limitedUsesPer: RestType.SHORT_REST
         },
 
@@ -321,7 +321,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
             engName: 'Gem Flight',
             description: 'Починаючи з 5-го рівня, ви можете використовувати бонусну дію, щоб маніфестувати мерехтливі самоцвітні крила, які дають вам швидкість польоту 30 футів. Ці крила тривають 1 хвилину. Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.',
             shortDescription: 'Швидкість польоту 30 футів (1 хвилина)',
-            displayType: [FeatureDisplayType.RESOURCE],
+            displayType: [FeatureDisplayType.BONUSACTION],
             limitedUsesPer: RestType.LONG_REST,
             usesCount: 1
         }

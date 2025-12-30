@@ -1,22 +1,22 @@
 "use client";
-
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent } from "@/components/ui/card";
-import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
+import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Classes } from "@prisma/client";
-import { attributesUkrShort, classTranslations } from "@/lib/refs/translation";
-import { Heart, Shield, Sword, Edit3 } from "lucide-react";
+import { attributesUkrShort, classTranslations, LanguageTranslations } from "@/lib/refs/translation";
+import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { useEffect, useMemo, useState, useTransition, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { applyHpChange, reviveCharacter, setDeathSaves } from "@/lib/actions/combat-actions";
+import { applyHpChange, reviveCharacter, setDeathSaves, updateHpDirectly } from "@/lib/actions/combat-actions";
 import { updateCharacterAction } from "@/lib/actions/update-character";
-import { LanguageTranslations } from "@/lib/refs/translation";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { toast } from "sonner";
 import ModifyStatModal, { ModifyConfig } from "@/lib/components/characterSheet/ModifyStatModal";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   hasStatBonuses,
   hasSimpleBonus,
@@ -27,10 +27,6 @@ import {
   calculateFinalStat,
   calculateFinalModifier,
   calculateFinalSave,
-  getStatBonus,
-  getModifierBonus,
-  getSaveBonus,
-  getSimpleBonus,
 } from "@/lib/logic/bonus-calculator";
 
 interface MainStatsSlideProps {
@@ -52,7 +48,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   const openModify = useCallback((config: ModifyConfig) => {
     setModifyConfig(config);
     setModifyOpen(true);
-  }, []);
+  }, []); // Removed pers from dependency array as it's not used in the callback logic
 
   // Helper for pers updates
   const handlePersUpdate = useCallback((next: PersWithRelations) => {
@@ -60,8 +56,11 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   }, [onPersUpdate]);
 
   const [hpOpen, setHpOpen] = useState(false);
-  const [hpMode, setHpMode] = useState<"damage" | "heal" | "temp">("damage");
+  const [hpMode, setHpMode] = useState<"damage" | "heal" | "temp" | "edit">("damage");
   const [hpAmount, setHpAmount] = useState<string>("");
+  
+  const [editCurrentHp, setEditCurrentHp] = useState<string>("");
+  const [editMaxHp, setEditMaxHp] = useState<string>("");
 
   const [localCurrentHp, setLocalCurrentHp] = useState<number>(() => pers.currentHp);
   const [localTempHp, setLocalTempHp] = useState<number>(() => (pers as any).tempHp ?? 0);
@@ -70,8 +69,8 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   const [deathFailures, setDeathFailures] = useState<number>(() => (pers as any).deathSaveFailures ?? 0);
   const [isDead, setIsDead] = useState<boolean>(() => Boolean((pers as any).isDead));
 
-  const [detailsOpen, setDetailsOpen] = useState(false);
   const [languagesOpen, setLanguagesOpen] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const [didInitDetails, setDidInitDetails] = useState(false);
 
   useModalBackButton(hpOpen, () => setHpOpen(false));
@@ -79,6 +78,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
 
   const [draftProficiencies, setDraftProficiencies] = useState<string>(() => String((pers as any).customProficiencies ?? ""));
   const [draftLanguages, setDraftLanguages] = useState<string>(() => String((pers as any).customLanguagesKnown ?? ""));
+  const [draftEquipment, setDraftEquipment] = useState<string>(() => String((pers as any).customEquipment ?? ""));
   const [draftTraits, setDraftTraits] = useState<string>(() => String(pers.personalityTraits ?? ""));
   const [draftIdeals, setDraftIdeals] = useState<string>(() => String(pers.ideals ?? ""));
   const [draftBonds, setDraftBonds] = useState<string>(() => String(pers.bonds ?? ""));
@@ -113,6 +113,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     // Keep Detailed Info in sync if server data refreshes
     setDraftProficiencies(String((pers as any).customProficiencies ?? ""));
     setDraftLanguages(String((pers as any).customLanguagesKnown ?? ""));
+    setDraftEquipment(String((pers as any).customEquipment ?? ""));
     setDraftTraits(String(pers.personalityTraits ?? ""));
     setDraftIdeals(String(pers.ideals ?? ""));
     setDraftBonds(String(pers.bonds ?? ""));
@@ -135,7 +136,12 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
       return new Set(tokens);
     });
     setDidInitDetails(true);
-  }, [pers]);
+
+    if (!hpOpen) {
+      setEditCurrentHp(String(pers.currentHp));
+      setEditMaxHp(String(pers.maxHp));
+    }
+  }, [pers, hpOpen, setSelectedLanguages]); // Added pers and setSelectedLanguages to dependency array
 
   useEffect(() => {
     if (!didInitDetails) return;
@@ -143,6 +149,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     const isDirty =
       draftProficiencies !== String((pers as any).customProficiencies ?? "") ||
       draftLanguages !== String((pers as any).customLanguagesKnown ?? "") ||
+      draftEquipment !== String((pers as any).customEquipment ?? "") ||
       draftTraits !== String(pers.personalityTraits ?? "") ||
       draftIdeals !== String(pers.ideals ?? "") ||
       draftBonds !== String(pers.bonds ?? "") ||
@@ -167,6 +174,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
           data: {
             customProficiencies: draftProficiencies,
             customLanguagesKnown: draftLanguages,
+            customEquipment: draftEquipment,
             personalityTraits: draftTraits,
             ideals: draftIdeals,
             bonds: draftBonds,
@@ -190,6 +198,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     didInitDetails,
     draftProficiencies,
     draftLanguages,
+    draftEquipment,
     draftTraits,
     draftIdeals,
     draftBonds,
@@ -205,9 +214,9 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     draftPp,
     pers.persId,
     startDetailsTransition,
+    pers, // Added pers to dependency array
   ]);
 
-  const pb = getProficiencyBonus(pers.level);
   
   // Calculate hit dice info per class
   const hitDiceInfo = useMemo(() => {
@@ -332,7 +341,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     setHpAmount("");
 
     startHpTransition(async () => {
-      const res = await applyHpChange({ persId: pers.persId, mode: hpMode, amount });
+      const res = await applyHpChange({ persId: pers.persId, mode: hpMode as any, amount });
       if (!res.success) {
         // Rollback on failure
         setLocalCurrentHp(prev.currentHp);
@@ -350,6 +359,45 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
       setLocalMaxHp(res.maxHp);
       setDeathSuccesses(res.deathSaveSuccesses);
       setDeathFailures(res.deathSaveFailures);
+      setIsDead(res.isDead);
+      router.refresh();
+    });
+  };
+
+  const applyDirectHp = () => {
+    const nextCur = parseInt(editCurrentHp);
+    const nextMax = parseInt(editMaxHp);
+
+    if (isNaN(nextCur) || isNaN(nextMax) || nextMax < 1) {
+      toast.error("Некоректні значення HP");
+      return;
+    }
+
+    if (nextCur > nextMax) {
+      toast.error("Поточне HP не може бути більшим за максимальне");
+      return;
+    }
+
+    setHpOpen(false);
+
+    // Optimistic
+    const prev = { currentHp: localCurrentHp, maxHp: localMaxHp, isDead };
+    setLocalCurrentHp(nextCur);
+    setLocalMaxHp(nextMax);
+    if (nextCur > 0) setIsDead(false);
+
+    startHpTransition(async () => {
+      const res = await updateHpDirectly({ persId: pers.persId, currentHp: nextCur, maxHp: nextMax });
+      if (!res.success) {
+        setLocalCurrentHp(prev.currentHp);
+        setLocalMaxHp(prev.maxHp);
+        setIsDead(prev.isDead);
+        toast.error("Не вдалося оновити HP", { description: res.error });
+        router.refresh();
+        return;
+      }
+      setLocalCurrentHp(res.currentHp);
+      setLocalMaxHp(res.maxHp);
       setIsDead(res.isDead);
       router.refresh();
     });
@@ -514,7 +562,12 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
         <Card className="glass-card bg-amber-500/15 border-amber-400/40 h-16">
           <CardContent className="p-2 flex flex-col items-center justify-center h-full">
             <div className="text-[9px] font-bold uppercase tracking-wide text-amber-300">Хіт Дайси</div>
-            <div className="text-lg font-bold text-amber-50 text-center leading-tight">{hitDiceDisplay}</div>
+            <div className={cn(
+              "font-bold text-amber-50 text-center leading-tight",
+              hitDiceInfo.length > 3 ? "text-[10px]" : hitDiceInfo.length > 2 ? "text-xs" : "text-lg"
+            )}>
+              {hitDiceDisplay}
+            </div>
           </CardContent>
         </Card>
         <button 
@@ -534,12 +587,10 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
       {/* ABILITY SCORES GRID (Perfectly Balanced Layout) */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
         {attributes.map((attr) => {
-          const ability = abilityByKey[attr.key];
-          const hasSaveProficiency = savingThrows.includes(ability);
-
+          const hasSaveProficiency = savingThrows.includes(abilityByKey[attr.key]);
           return (
             <button
-              key={attr.name}
+              key={attr.key}
               type="button"
               onClick={() => !isReadOnly && openModify({ type: 'stat', ability: abilityByKey[attr.key] })}
               className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
@@ -588,58 +639,100 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
             <DialogTitle className="text-lg">Хіт Поїнти</DialogTitle>
           </DialogHeader>
 
-          <div className="space-y-3">
-            <div className="rounded-lg border border-white/10 bg-slate-900/40 p-3">
-              <div className="text-xs text-slate-300">Поточне: <span className="font-semibold text-slate-50">{localCurrentHp}</span> / {localMaxHp}</div>
-              <div className="text-xs text-slate-300">Тимчасове: <span className="font-semibold text-slate-50">{localTempHp}</span></div>
-            </div>
+          <div className="space-y-4 pt-4">
+            <Tabs value={hpMode as any} onValueChange={(v) => setHpMode(v as any)} className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-4">
+                <TabsTrigger value="damage">Змінити HP</TabsTrigger>
+                <TabsTrigger value="edit">Редагувати</TabsTrigger>
+              </TabsList>
 
-            <div className="flex items-center gap-2">
-              <Button
-                type="button"
-                variant={hpMode === "damage" ? "default" : "secondary"}
-                disabled={isHpPending}
-                onClick={() => setHpMode("damage")}
-                className={hpMode === "damage" ? "bg-rose-500/30 border text-slate-200 border-rose-400/40 hover:bg-rose-500/50" : "hover:bg-rose-500/50"}
-              >
-                <Sword className="h-4 w-4 mr-2" />
-                Шкода
-              </Button>
-              <Button
-                type="button"
-                variant={hpMode === "heal" ? "default" : "secondary"}
-                disabled={isHpPending}
-                onClick={() => setHpMode("heal")}
-                className={hpMode === "heal" ? "bg-emerald-500/25 border border-emerald-400/40 text-slate-200 hover:bg-emerald-500/50" : "hover:bg-emerald-500/50"}
-              >
-                <Heart className="h-4 w-4 mr-2" />
-                Лікування
-              </Button>
-              <Button
-                type="button"
-                variant={hpMode === "temp" ? "default" : "secondary"}
-                disabled={isHpPending}
-                onClick={() => setHpMode("temp")}
-                className={hpMode === "temp" ? "bg-blue-500/25 border border-blue-400/40 text-slate-200 hover:bg-blue-500/50" : "hover:bg-blue-500/50"}
-              >
-                <Shield className="h-4 w-4 mr-2" />
-                Тимч.
-              </Button>
-            </div>
+              <TabsContent value="damage" className="space-y-4 outline-none">
+                <div className="rounded-lg border border-white/10 bg-slate-900/40 p-3">
+                  <div className="text-xs text-slate-300">Поточне: <span className="font-semibold text-slate-50">{localCurrentHp}</span> / {localMaxHp}</div>
+                  <div className="text-xs text-slate-300">Тимчасове: <span className="font-semibold text-slate-50">{localTempHp}</span></div>
+                </div>
 
-            <div className="space-y-2">
-              <Input
-                inputMode="numeric"
-                pattern="[0-9]*"
-                placeholder="Введи число"
-                value={hpAmount}
-                onChange={(e) => setHpAmount(e.target.value)}
-                disabled={isHpPending}
-              />
-              <Button type="button" onClick={applyHp} disabled={isHpPending || !hpAmount || Number(hpAmount) <= 0} className="w-full bg-slate-300 hover:bg-slate-200 text-slate-900">
-                Застосувати
-              </Button>
-            </div>
+                <div className="flex items-center gap-2">
+                  <Button
+                    type="button"
+                    variant={hpMode === "damage" ? "default" : "secondary"}
+                    disabled={isHpPending}
+                    onClick={() => setHpMode("damage")}
+                    className={hpMode === "damage" ? "bg-rose-500/30 border text-slate-200 border-rose-400/40 hover:bg-rose-500/50" : "hover:bg-rose-500/50"}
+                  >
+                    <Sword className="h-4 w-4 mr-2" />
+                    Шкода
+                  </Button>
+                  <Button
+                    type="button"
+                    variant={hpMode === "heal" ? "default" : "secondary"}
+                    disabled={isHpPending}
+                    onClick={() => setHpMode("heal")}
+                    className={hpMode === "heal" ? "bg-emerald-500/25 border border-emerald-400/40 text-slate-200 hover:bg-emerald-500/50" : "hover:bg-emerald-500/50"}
+                  >
+                    <Heart className="h-4 w-4 mr-2" />
+                    Лікування
+                  </Button>
+                  <Button
+                    type="button"
+                    variant={hpMode === "temp" ? "default" : "secondary"}
+                    disabled={isHpPending}
+                    onClick={() => setHpMode("temp")}
+                    className={hpMode === "temp" ? "bg-blue-500/25 border border-blue-400/40 text-slate-200 hover:bg-blue-500/50" : "hover:bg-blue-500/50"}
+                  >
+                    <Shield className="h-4 w-4 mr-2" />
+                    Тимч.
+                  </Button>
+                </div>
+
+                <div className="space-y-2">
+                  <Input
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    placeholder="Введи число"
+                    value={hpAmount}
+                    onChange={(e) => setHpAmount(e.target.value)}
+                    disabled={isHpPending}
+                  />
+                  <Button type="button" onClick={applyHp} disabled={isHpPending || !hpAmount || Number(hpAmount) <= 0} className="w-full bg-slate-300 hover:bg-slate-200 text-slate-900">
+                    Застосувати
+                  </Button>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="edit" className="space-y-4 outline-none">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-xs text-slate-400 ml-1">Поточне HP</label>
+                    <Input
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      value={editCurrentHp}
+                      onChange={(e) => setEditCurrentHp(e.target.value)}
+                      disabled={isHpPending}
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs text-slate-400 ml-1">Макс. HP</label>
+                    <Input
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      value={editMaxHp}
+                      onChange={(e) => setEditMaxHp(e.target.value)}
+                      disabled={isHpPending}
+                    />
+                  </div>
+                </div>
+                <Button 
+                  type="button" 
+                  onClick={applyDirectHp} 
+                  disabled={isHpPending || !editMaxHp || parseInt(editMaxHp) < 1} 
+                  className="w-full bg-slate-300 hover:bg-slate-200 text-slate-900"
+                >
+                  Зберегти зміни
+                </Button>
+              </TabsContent>
+            </Tabs>
 
             {localCurrentHp <= 0 ? (
               <div className="rounded-lg border border-white/10 bg-slate-900/40 p-3 space-y-3">
@@ -663,50 +756,49 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                   />
                 </div>
                 {isDead && (
-                <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center">
                     <Button
-                    type="button"
-                    variant="destructive"
-                    disabled={isHpPending}
-                    onClick={() => {
-                      const prev = {
-                        currentHp: localCurrentHp,
-                        deathSaveSuccesses: deathSuccesses,
-                        deathSaveFailures: deathFailures,
-                        isDead,
-                      };
+                      type="button"
+                      variant="destructive"
+                      disabled={isHpPending}
+                      onClick={() => {
+                        const prev = {
+                          currentHp: localCurrentHp,
+                          deathSaveSuccesses: deathSuccesses,
+                          deathSaveFailures: deathFailures,
+                          isDead,
+                        };
 
-                      // Optimistic revive
-                      setLocalCurrentHp(1);
-                      setDeathSuccesses(0);
-                      setDeathFailures(0);
-                      setIsDead(false);
+                        // Optimistic revive
+                        setLocalCurrentHp(1);
+                        setDeathSuccesses(0);
+                        setDeathFailures(0);
+                        setIsDead(false);
 
-                      startHpTransition(async () => {
-                        const res = await reviveCharacter({ persId: pers.persId });
-                        if (!res.success) {
-                          // Rollback on failure
-                          setLocalCurrentHp(prev.currentHp);
-                          setDeathSuccesses(prev.deathSaveSuccesses);
-                          setDeathFailures(prev.deathSaveFailures);
-                          setIsDead(prev.isDead);
-                          toast.error("Не вдалося відродити персонажа", { description: res.error });
+                        startHpTransition(async () => {
+                          const res = await reviveCharacter({ persId: pers.persId });
+                          if (!res.success) {
+                            // Rollback on failure
+                            setLocalCurrentHp(prev.currentHp);
+                            setDeathSuccesses(prev.deathSaveSuccesses);
+                            setDeathFailures(prev.deathSaveFailures);
+                            setIsDead(prev.isDead);
+                            toast.error("Не вдалося відродити персонажа", { description: res.error });
+                            router.refresh();
+                            return;
+                          }
+                          setLocalCurrentHp(res.currentHp);
+                          setDeathSuccesses(res.deathSaveSuccesses);
+                          setDeathFailures(res.deathSaveFailures);
+                          setIsDead(res.isDead);
                           router.refresh();
-                          return;
-                        }
-                        setLocalCurrentHp(res.currentHp);
-                        setDeathSuccesses(res.deathSaveSuccesses);
-                        setDeathFailures(res.deathSaveFailures);
-                        setIsDead(res.isDead);
-                        router.refresh();
-                      });
-                    }}
-                    className="flex justify-center items-center"
-                  >
-                    Відродити (1 HP)
-                  </Button>
-                </div>
-                  
+                        });
+                      }}
+                      className="flex justify-center items-center"
+                    >
+                      Відродити (1 HP)
+                    </Button>
+                  </div>
                 )}
               </div>
             ) : null}
@@ -829,6 +921,17 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                 disabled={isDetailsPending || isReadOnly}
                 className="w-full min-h-[64px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 placeholder={isReadOnly ? "" : "Напр.: Легка/середня броня, прості мечі, інструменти злодія"}
+              />
+            </div>
+
+            <div className="space-y-1">
+              <div className="text-xs font-semibold text-slate-200">Спорядження</div>
+              <textarea
+                value={draftEquipment}
+                onChange={(e) => setDraftEquipment(e.target.value)}
+                disabled={isDetailsPending || isReadOnly}
+                className="w-full min-h-[96px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
+                placeholder={isReadOnly ? "" : "Тут автоматично зібране стартове спорядження; можна доповнювати вручну"}
               />
             </div>
 

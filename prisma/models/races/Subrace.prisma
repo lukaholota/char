@@ -1,35 +1,29 @@
-
 model Subrace {
-  subraceId     Int      @id @default(autoincrement()) @map("subrace_id")
-  raceId        Int      @map("race_id")
-  name          Subraces @unique
-  speedModifier Int?     @map("speed_modifier")
-  swimSpeed     Int?     @map("swim_speed")
-  flightSpeed   Int?     @map("flight_speed")
-  source        Source   @default(PHB)
-
-  replacesASI      Boolean   @default(false) @map("replaces_asi")
-  replacesFeatures Feature[] @relation("SubraceReplacingFeature")
-
-  additionalASI          Json?      @map("additional_asi")
-  additionalLanguages    Language[] @default([]) @map("additional_languages")
-  languagesToChooseCount Int        @default(0) @map("languages_to_choose_count")
-  cantripToChooseCount   Int        @default(0) @map("cantrip_to_choose_count")
-
-  /// [ToolProficiencies]
-  toolProficiencies   Json?       @map("tool_proficiencies")
-  toolToChooseCount   Int?        @map("tool_to_choose_count")
+  subraceId              Int                @id @default(autoincrement()) @map("subrace_id")
+  raceId                 Int                @map("race_id")
+  name                   Subraces           @unique
+  speedModifier          Int?               @map("speed_modifier")
+  source                 Source             @default(PHB)
+  replacesASI            Boolean            @default(false) @map("replaces_asi")
+  additionalASI          Json?              @map("additional_asi")
+  additionalLanguages    Language[]         @default([]) @map("additional_languages")
+  languagesToChooseCount Int                @default(0) @map("languages_to_choose_count")
   /// [SkillProficiencies]
-  skillProficiencies  Json?       @map("skill_proficiencies")
+  skillProficiencies     Json?              @map("skill_proficiencies")
+  armorProficiencies     ArmorType[]        @default([]) @map("armor_proficiencies")
+  toolToChooseCount      Int?               @map("tool_to_choose_count")
+  /// [ToolProficiencies]
+  toolProficiencies      Json?              @map("tool_proficiencies")
   /// [WeaponProficiencies]
-  weaponProficiencies Json?       @map("weapon_proficiencies")
-  armorProficiencies  ArmorType[] @default([]) @map("armor_proficiencies")
-
-  race              Race               @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
-  perses            Pers[]
-  raceChoiceOptions RaceChoiceOption[]
-
-  traits SubraceTrait[]
+  weaponProficiencies    Json?              @map("weapon_proficiencies")
+  cantripToChooseCount   Int                @default(0) @map("cantrip_to_choose_count")
+  flightSpeed            Int?               @map("flight_speed")
+  swimSpeed              Int?               @map("swim_speed")
+  perses                 Pers[]
+  raceChoiceOptions      RaceChoiceOption[]
+  race                   Race               @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
+  traits                 SubraceTrait[]
+  replacesFeatures       Feature[]          @relation("SubraceReplacingFeature")
 
   @@map("subrace")
 }

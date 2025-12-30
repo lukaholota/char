@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import clsx from "clsx";
 import { useEffect } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { SubraceInfoModal } from "@/lib/components/characterCreator/modals/SubraceInfoModal";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import { sourceTranslations, subraceTranslations, subraceTranslationsEng } from "@/lib/refs/translation";
 import {
@@ -46,60 +46,6 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
   }, [onNextDisabledChange]);
 
   const subraces = race.subraces || [];
-
-  const SubraceInfoModal = ({ subrace }: { subrace: any }) => {
-    const name = subraceTranslations[subrace.name] ?? subrace.name;
-    const rawTraits = subrace.traits || [];
-    const traitList = [...rawTraits].sort(
-      (a: any, b: any) => (a.subraceTraitId || 0) - (b.subraceTraitId || 0)
-    );
-
-    return (
-      <InfoDialog
-        title={name}
-        triggerLabel={`Показати деталі ${name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={sourceTranslations[subrace.source] ?? subrace.source} />
-          <InfoPill label="Швидкості" value={formatSpeeds(subrace)} />
-          <InfoPill label="Бонуси характеристик" value={formatASI(subrace.additionalASI)} />
-          <InfoPill
-            label="Мови"
-            value={formatLanguages(subrace.additionalLanguages, subrace.languagesToChooseCount)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(subrace.toolProficiencies)}
-          />
-          <div className="col-span-full">
-             {subrace.description ? (
-               <FormattedDescription content={subrace.description} className="text-sm text-slate-300" />
-             ) : null}
-          </div>
-        </InfoGrid>
-
-        <div className="space-y-2">
-          <InfoSectionTitle>Риси</InfoSectionTitle>
-          {traitList.length ? (
-            traitList.map((trait: any) => (
-              <div
-                key={trait.subraceTraitId}
-                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
-              >
-                <p className="text-sm font-semibold text-white">{trait.feature.name}</p>
-                <FormattedDescription
-                  content={trait.feature.description}
-                  className="text-sm leading-relaxed text-slate-200/90"
-                />
-              </div>
-            ))
-          ) : (
-            <p className="text-sm text-slate-400">Для цієї підраси ще немає опису рис.</p>
-          )}
-        </div>
-      </InfoDialog>
-    );
-  };
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">

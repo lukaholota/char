@@ -32,15 +32,15 @@ export const classSchema = z.object({
 
 export const subclassSchema = z.object({
   subclassId: z.number().optional(),
-  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  subclassChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
 });
 
 export const classChoiceOptionsSchema = z.object({
-  classChoiceSelections: z.record(z.string(), z.number().int()).default({})
+  classChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({})
 });
 
 export const featChoiceOptionsSchema = z.object({
-  featChoiceSelections: z.record(z.string(), z.number().int()).default({})
+  featChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({})
 });
 
 export const classOptionalFeaturesSchema = z.object({
@@ -59,7 +59,7 @@ const choices = z.object({
 })
 
 export const asiSchema = z.object({
-  isDefaultASI: z.boolean().default(false), // ТОБТО НЕ ТАША
+  isDefaultASI: z.boolean().default(true), // ТОБТО НЕ ТАША
 
   asiSystem: z.string().default('POINT_BUY'),
   points: z.number().default(0),
@@ -136,7 +136,7 @@ export const asiSchema = z.object({
 const skills = z.enum(SkillsEnum)
 
 export const skillsSchema  = z.object({
-  isTasha: z.boolean().default(true),
+  isTasha: z.boolean().default(false),
   tashaChoices: z.array(skills).default([]),
 
   basicChoices: z.object({
@@ -209,13 +209,13 @@ export const fullCharacterSchema = z.object({
   featId: z.number().optional(),
   classId: z.number().min(1, "Клас обов'язковий для вибору"),
   subclassId: z.number().optional(),
-  subclassChoiceSelections: z.record(z.string(), z.number().int()).default({}),
-  classChoiceSelections: z.record(z.string(), z.number().int()).default({}),
-  featChoiceSelections: z.record(z.string(), z.number().int()).default({}),
+  subclassChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
+  classChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
+  featChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({}),
   backgroundId: z.number(),
   backgroundSearch: z.string().default(''),
-  isDefaultASI: z.boolean().default(false),
+  isDefaultASI: z.boolean().default(true),
   asiSystem: z.string().default('POINT_BUY'),
   points: z.number().min(0).default(0),
   simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
@@ -239,6 +239,16 @@ export const fullCharacterSchema = z.object({
   levelUpPath: z.enum(["EXISTING", "MULTICLASS"]).optional(),
   levelUpHpIncrease: z.number().int().min(0).optional(),
 })
+
+ .superRefine((data, ctx) => {
+   if (data.subraceId != null && data.raceVariantId != null) {
+     ctx.addIssue({
+       code: z.ZodIssueCode.custom,
+       message: "Оберіть або підрасу, або варіант раси",
+       path: ["raceVariantId"],
+     });
+   }
+ })
 
 
 export type PersFormData = z.infer<typeof fullCharacterSchema>

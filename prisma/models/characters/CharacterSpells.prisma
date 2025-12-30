@@ -1,11 +1,9 @@
-
 model CharacterSpells {
-  characterSpellId Int  @id @default(autoincrement()) @map("character_spell_id")
-  characterId      Int? @map("character_id")
-  spellId          Int? @map("spell_id")
-
-  character Character? @relation(fields: [characterId], references: [characterId], onDelete: NoAction, onUpdate: NoAction)
-  spell     Spell?     @relation(fields: [spellId], references: [spellId], onDelete: Cascade, onUpdate: Cascade)
+  characterSpellId Int        @id @default(autoincrement()) @map("character_spell_id")
+  characterId      Int?       @map("character_id")
+  spellId          Int?       @map("spell_id")
+  character        Character? @relation(fields: [characterId], references: [characterId], onDelete: NoAction, onUpdate: NoAction)
+  spell            Spell?     @relation(fields: [spellId], references: [spellId], onDelete: Cascade)
 
   @@map("character_spells")
 }

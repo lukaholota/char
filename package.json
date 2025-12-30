@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:classic": "next dev",
+    "generate:spells": "tsx scripts/generate-spells.ts",
+    "generate:magic-items": "tsx scripts/generate-magic-items.ts",
+    "prebuild": "npm run generate:spells && npm run generate:magic-items",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -13,6 +16,7 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@3d-dice/dice-box": "^1.1.4",
     "@auth/prisma-adapter": "^2.11.1",
     "@hookform/resolvers": "^5.2.2",
     "@pdf-lib/fontkit": "^1.1.1",

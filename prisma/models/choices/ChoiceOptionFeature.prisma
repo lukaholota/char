@@ -1,11 +1,9 @@
-
 model ChoiceOptionFeature {
-  optionFeatureId Int @id @default(autoincrement()) @map("option_feature_id")
-  choiceOptionId  Int @map("option_id")
-  featureId       Int @map("feature_id")
-
-  option  ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
-  feature Feature      @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  optionFeatureId Int          @id @default(autoincrement()) @map("option_feature_id")
+  choiceOptionId  Int          @map("option_id")
+  featureId       Int          @map("feature_id")
+  feature         Feature      @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  option          ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
 
   @@map("choice_option_feature")
 }

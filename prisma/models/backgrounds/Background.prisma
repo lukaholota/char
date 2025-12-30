@@ -1,18 +1,15 @@
-
 model Background {
-  backgroundId Int                @id @default(autoincrement()) @map("background_id")
-  name         BackgroundCategory @unique
-
-  source                 Source         @default(PHB)
-  toolProficiencies      ToolCategory[] @default([]) @map("tool_proficiencies")
-  /// [SkillProficiencies]
-  skillProficiencies     Json?          @map("skill_proficiencies")
-  languagesToChooseCount Int            @default(0) @map("languages_to_choose_count")
+  backgroundId           Int                @id @default(autoincrement()) @map("background_id")
+  name                   BackgroundCategory @unique
+  source                 Source             @default(PHB)
+  toolProficiencies      ToolCategory[]     @default([]) @map("tool_proficiencies")
+  languagesToChooseCount Int                @default(0) @map("languages_to_choose_count")
   items                  Json?
+  description            String?
   specialAbilityName     String?
-  description            String?        @db.Text // ability description
-
-  perses Pers[]
+  /// [SkillProficiencies]
+  skillProficiencies     Json?              @map("skill_proficiencies")
+  perses                 Pers[]
 
   @@map("background")
 }

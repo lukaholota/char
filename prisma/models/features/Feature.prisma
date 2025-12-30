@@ -1,75 +1,54 @@
-
 model Feature {
-  featureId Int @id @unique @default(autoincrement()) @map("feature_id")
-
-  name             String  @db.VarChar(100)
-  engName          String  @unique @map("eng_name") @db.VarChar(100)
-  description      String  @db.Text
-  shortDescription String? @map("short_description") @db.Text
-
-  modifiesAC Json? @map("modifies_ac")
-  givesAC    Int?  @map("gives_ac") // simple +1 +2
-
-  requiresArmorForACBonus   Boolean? @map("requires_armor_for_ac_bonus")
-  noArmorOrShieldForACBonus Boolean? @map("no_armor_or_shield_for_ac_bonus")
-
-  givesSTR Int? @map("gives_str")
-  givesCON Int? @map("gives_con")
-
-  bonusToAttackRoll                 Int? @map("bonus_to_attack_roll")
-  bonusToRangedAttackRoll           Int? @map("bonus_to_ranged_attack_roll")
-  bonusToRangedDamage               Int? @map("bonus_to_ranged_damage")
-  bonusToMeleeDamage                Int? @map("bonus_to_melee_damage")
-  bonusToMeleeOneHandedWeaponDamage Int? @map("bonus_to_melee_one_handed_weapon_damage")
-  bonusToThrownDamage               Int? @map("thrown_damage_boost")
-
-  bonusToSavingThrows Json? @map("bonus_to_saving_throws")
-
-  givesManeuvres       Boolean? @default(false) @map("gives_maneuvres")
-  superiorityDiceCount Int?     @map("superiority_dice_count")
-
-  modifiesUnarmed Boolean? @map("modified_unarmed")
-  unarmedDamage   String?  @map("unarmed_damage") // '1к6 / 1к8'
-
+  featureId                          Int                                   @id @unique @default(autoincrement()) @map("feature_id")
+  name                               String                                @db.VarChar(100)
+  description                        String
+  shortDescription                   String?                               @map("short_description")
+  limitedUsesPer                     RestType?                             @map("limited_uses_per")
+  usesCount                          Int?                                  @map("uses_count")
+  displayType                        FeatureDisplayType[]                  @map("display_type")
+  createdAt                          DateTime                              @default(now()) @map("created_at")
+  updatedAt                          DateTime                              @updatedAt @map("updated_at")
+  engName                            String                                @unique @map("eng_name") @db.VarChar(100)
+  usesCountSpecial                   Json?                                 @map("uses_count_special")
+  usesCountDependsOnProficiencyBonus Boolean                               @default(false) @map("uses_count_depends_on_proficiency_bonus")
+  modifiesAC                         Json?                                 @map("modifies_ac")
   /// [SkillProficiencies]
-  skillProficiencies Json?     @map("skill_proficiencies")
-  savingThrows       Ability[] @map("saving_throws")
-  skillExpertises    Json?     @map("skill_expertises")
-
-  limitedUsesPer                     RestType? @map("limited_uses_per")
-  usesCount                          Int?      @map("uses_count")
-  usesCountSpecial                   Json?     @map("uses_count_special")
-  usesCountDependsOnProficiencyBonus Boolean   @default(false) @map("uses_count_depends_on_proficiency_bonus")
-
-  invocationsCount Int? @map("invocations_count")
-
-  languagesToChooseCount Int @default(0) @map("languages_to_choose_count")
-
-  givesSpells Spell[]
-
-  displayType FeatureDisplayType[] @map("display_type")
-
-  classFeatures    ClassFeature[]
-  subclassFeatures SubclassFeature[]
-
-  raceTraits                    RaceTrait[]
-  subraceTraits                 SubraceTrait[]
-  raceVariantTraits             RaceVariantTrait[]
-  raceChoiceOptionTraits        RaceChoiceOptionTrait[]
-  choiceOptionFeatures          ChoiceOptionFeature[]
-  classOptionalFeatures         ClassOptionalFeature[]                @relation("GrantedFeature")
-  replacedByOptionalFeatures    ClassOptionalFeatureReplacesFeature[] @relation("ReplacedByOptionalFeatures")
-  subracesReplacingFeatures     Subrace[]                             @relation("SubraceReplacingFeature")
-  raceVariantsReplacingFeatures RaceVariant[]                         @relation("RaceVariantReplacingFeature")
-
-  grantsByFeat Feat[] @relation("FeatGrantsFeature")
-
-  infusions Infusion[]
-
-  persFeatures PersFeature[]
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  skillProficiencies                 Json?                                 @map("skill_proficiencies")
+  savingThrows                       Ability[]                             @map("saving_throws")
+  languagesToChooseCount             Int                                   @default(0) @map("languages_to_choose_count")
+  skillExpertises                    Json?                                 @map("skill_expertises")
+  invocationsCount                   Int?                                  @map("invocations_count")
+  bonusToAttackRoll                  Int?                                  @map("bonus_to_attack_roll")
+  bonusToMeleeDamage                 Int?                                  @map("bonus_to_melee_damage")
+  bonusToRangedAttackRoll            Int?                                  @map("bonus_to_ranged_attack_roll")
+  bonusToRangedDamage                Int?                                  @map("bonus_to_ranged_damage")
+  bonusToSavingThrows                Json?                                 @map("bonus_to_saving_throws")
+  givesAC                            Int?                                  @map("gives_ac")
+  givesManeuvres                     Boolean?                              @default(false) @map("gives_maneuvres")
+  modifiesUnarmed                    Boolean?                              @map("modified_unarmed")
+  noArmorOrShieldForACBonus          Boolean?                              @map("no_armor_or_shield_for_ac_bonus")
+  superiorityDiceCount               Int?                                  @map("superiority_dice_count")
+  bonusToThrownDamage                Int?                                  @map("thrown_damage_boost")
+  unarmedDamage                      String?                               @map("unarmed_damage")
+  givesCON                           Int?                                  @map("gives_con")
+  givesSTR                           Int?                                  @map("gives_str")
+  requiresArmorForACBonus            Boolean?                              @map("requires_armor_for_ac_bonus")
+  bonusToMeleeOneHandedWeaponDamage  Int?                                  @map("bonus_to_melee_one_handed_weapon_damage")
+  choiceOptionFeatures               ChoiceOptionFeature[]
+  classFeatures                      ClassFeature[]
+  classOptionalFeatures              ClassOptionalFeature[]                @relation("GrantedFeature")
+  replacedByOptionalFeatures         ClassOptionalFeatureReplacesFeature[] @relation("ReplacedByOptionalFeatures")
+  infusions                          Infusion[]
+  persFeatures                       PersFeature[]
+  raceChoiceOptionTraits             RaceChoiceOptionTrait[]
+  raceTraits                         RaceTrait[]
+  raceVariantTraits                  RaceVariantTrait[]
+  subclassFeatures                   SubclassFeature[]
+  subraceTraits                      SubraceTrait[]
+  grantsByFeat                       Feat[]                                @relation("FeatGrantsFeature")
+  givesSpells                        Spell[]                               @relation("FeatureToSpell")
+  raceVariantsReplacingFeatures      RaceVariant[]                         @relation("RaceVariantReplacingFeature")
+  subracesReplacingFeatures          Subrace[]                             @relation("SubraceReplacingFeature")
 
   @@map("feature")
 }

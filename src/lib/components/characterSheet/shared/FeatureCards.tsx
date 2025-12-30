@@ -3,8 +3,7 @@
 import { Minus, Plus, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { FeatureDisplayType, RestType } from "@prisma/client";
+import { FeatureDisplayType } from "@prisma/client";
 import clsx from "clsx";
 
 export interface FeatureItemData {
@@ -18,10 +17,11 @@ export interface FeatureItemData {
   usesRemaining?: number | null;
   source?: string;
   sourceName?: string;
+  magicItem?: any;
 }
 
 // FeatureSource enum values from backend
-type FeatureSource = 'CLASS' | 'SUBCLASS' | 'RACE' | 'SUBRACE' | 'BACKGROUND' | 'FEAT' | 'PERS' | 'CHOICE' | 'RACECHOICE';
+type FeatureSource = 'CLASS' | 'SUBCLASS' | 'RACE' | 'SUBRACE' | 'BACKGROUND' | 'FEAT' | 'PERS' | 'CHOICE' | 'RACE_CHOICE' | 'INFUSION';
 
 // Normalizes various source string formats to a canonical FeatureSource
 function normalizeFeatureSource(raw: unknown): FeatureSource | null {
@@ -37,7 +37,8 @@ function normalizeFeatureSource(raw: unknown): FeatureSource | null {
   if (upper === 'FEAT') return 'FEAT';
   if (upper === 'PERS') return 'PERS';
   if (upper === 'CHOICE') return 'CHOICE';
-  if (upper === 'RACECHOICE') return 'RACECHOICE';
+  if (upper === 'RACE_CHOICE' || upper === 'RACECHOICE') return 'RACE_CHOICE';
+  if (upper === 'INFUSION') return 'INFUSION';
   
   // Legacy/alternative formats
   if (upper.includes('SUBCLASS')) return 'SUBCLASS';
@@ -62,8 +63,9 @@ function getFeatureSourceLabel(source: FeatureSource): string {
     case 'BACKGROUND': return 'Бек';
     case 'FEAT': return 'Фіт';
     case 'CHOICE':
-    case 'RACECHOICE': return 'Вибір';
+    case 'RACE_CHOICE': return 'Вибір';
     case 'PERS': return 'Кастом';
+    case 'INFUSION': return 'Вливання';
     default: return '';
   }
 }
@@ -100,64 +102,83 @@ export function ResourceCard({
   isReadOnly?: boolean
 }) {
   const hasTracker = (feature.restType || feature.usesCount !== null) && feature.usesCount !== null;
+  const normalizedSource = normalizeFeatureSource(feature.source);
+  const isClass = isClassRelatedSource(normalizedSource);
+
+  // Hide badge if source is PERS (Custom) as per user request
+  const sourceLabel = normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null;
 
   return (
-    <Card className="bg-purple-900/20 border-purple-500/30 backdrop-blur-sm overflow-hidden border-l-4 border-l-purple-500 shadow-inner group">
+    <Card className="bg-purple-900/20 border-purple-500/30 backdrop-blur-sm overflow-hidden border-l-4 border-l-purple-50 shadow-inner group transition-all hover:bg-purple-900/30">
       <CardContent className="p-3 flex items-center justify-between gap-3">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
+        <div className="flex-1 min-w-0 flex flex-col justify-center">
+          <div className="flex items-center gap-2 mb-0.5">
             <div className="font-bold text-purple-50 truncate">{feature.name}</div>
-            {onInfo && (
-              <button 
-                type="button"
-                onClick={onInfo} 
-                className="p-1 rounded-full hover:bg-white/10 text-purple-400 transition"
-              >
-                <Info className="w-3.5 h-3.5" />
-              </button>
+            {sourceLabel && (
+              <span className={clsx(
+                "text-[9px] px-1 py-0 rounded uppercase font-bold tracking-tight shrink-0",
+                isClass ? 'bg-purple-500/30 text-purple-100' : 'bg-slate-500/30 text-slate-300'
+              )}>
+                {sourceLabel}
+              </span>
             )}
           </div>
           {(feature.shortDescription || feature.description) && (
-            <div className="text-[11px] text-purple-300/80 truncate">
+            <div className="text-[11px] text-purple-300/80 truncate pr-2">
               {stripMarkdownPreview(feature.shortDescription || feature.description)}
             </div>
           )}
         </div>
 
-        {hasTracker && (
-          <div className="flex items-center gap-2 bg-black/20 rounded-lg p-1 border border-white/5">
-            {!isReadOnly && onSpend && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-7 w-7 rounded-md hover:bg-white/10 text-purple-300" 
-                onClick={onSpend}
-                disabled={isPending || (feature.usesRemaining ?? 0) <= 0}
-              >
-                <Minus className="w-4 h-4" />
-              </Button>
-            )}
-            <div className="px-2 text-center min-w-[3rem]">
-              <div className="text-xs font-bold text-white leading-none">
-                {feature.usesRemaining ?? feature.usesCount} / {feature.usesCount}
+        <div className="flex items-center gap-1.5 shrink-0">
+          {onInfo && (
+            <button 
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onInfo(); }} 
+              className="p-1.5 rounded-full hover:bg-white/10 text-purple-400 transition"
+            >
+              <Info className="w-4 h-4" />
+            </button>
+          )}
+
+          {hasTracker && (
+            <div 
+              className="flex flex-col items-center bg-black/30 rounded-lg p-1 border border-white/5 min-w-[2.8rem]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {!isReadOnly && onRestore && (
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-6 w-6 rounded-md hover:bg-white/10 text-purple-300" 
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onRestore(); }}
+                  disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) >= (feature.usesCount ?? 0)}
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                </Button>
+              )}
+              <div className="py-0.5 text-center leading-tight">
+                <div className="text-[11px] font-black text-white">
+                  {feature.usesRemaining ?? feature.usesCount}
+                </div>
+                <div className="text-[8px] font-bold text-purple-400/80 border-t border-white/10 mt-0.5 pt-0.5">
+                  {feature.usesCount}
+                </div>
               </div>
-              <div className="text-[8px] uppercase font-bold text-purple-400 mt-0.5">
-                {feature.restType === "LR" ? "LR" : feature.restType === "SR" ? "SR" : "uses"}
-              </div>
+              {!isReadOnly && onSpend && (
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-6 w-6 rounded-md hover:bg-white/10 text-purple-300" 
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSpend(); }}
+                  disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) <= 0}
+                >
+                  <Minus className="w-3.5 h-3.5" />
+                </Button>
+              )}
             </div>
-            {!isReadOnly && onRestore && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-7 w-7 rounded-md hover:bg-white/10 text-purple-300" 
-                onClick={onRestore}
-                disabled={isPending || (feature.usesRemaining ?? 0) >= (feature.usesCount ?? 0)}
-              >
-                <Plus className="w-4 h-4" />
-              </Button>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </CardContent>
     </Card>
   );
@@ -181,7 +202,9 @@ export function FeatureCard({
   const hasTracker = feature.restType && feature.usesCount !== null;
   const normalizedSource = normalizeFeatureSource(feature.source);
   const isClass = isClassRelatedSource(normalizedSource);
-  const sourceLabel = normalizedSource ? getFeatureSourceLabel(normalizedSource) : null;
+
+  // Hide badge if source is PERS (Custom) as per user request
+  const sourceLabel = normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null;
 
   return (
     <div 
@@ -194,13 +217,13 @@ export function FeatureCard({
       )}
       onClick={onClick}
     >
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex items-center justify-between gap-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-bold text-slate-100 group-hover:text-purple-200 transition">{feature.name}</span>
+            <span className="font-bold text-slate-100 group-hover:text-purple-200 transition truncate">{feature.name}</span>
             {sourceLabel && (
               <span className={clsx(
-                "text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-tight",
+                "text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-tight shrink-0",
                 isClass ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-slate-500/20 text-slate-400 border border-slate-500/30'
               )}>
                 {sourceLabel}
@@ -208,7 +231,7 @@ export function FeatureCard({
             )}
           </div>
           {feature.shortDescription || feature.description ? (
-            <div className="text-xs text-slate-400 line-clamp-2">
+            <div className="text-xs text-slate-400 line-clamp-2 pr-2">
               {stripMarkdownPreview(feature.shortDescription || feature.description)}
             </div>
           ) : (
@@ -217,36 +240,40 @@ export function FeatureCard({
         </div>
 
         {hasTracker && (
-          <div className="flex flex-col items-center gap-1.5 bg-black/30 rounded-xl p-1.5 border border-white/5 shrink-0">
-            <div className="flex items-center gap-1">
-              {!isReadOnly && onSpend && (
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="h-6 w-6 rounded-lg hover:bg-white/10 text-white" 
-                  onClick={(e) => { e.stopPropagation(); onSpend(); }}
-                  disabled={isPending || (feature.usesRemaining ?? 0) <= 0}
-                >
-                  <Minus className="w-3 h-3" />
-                </Button>
-              )}
-              <div className="px-1 text-center min-w-[2.5rem]">
-                <span className="text-xs font-black text-white">
-                  {feature.usesRemaining ?? feature.usesCount} / {feature.usesCount}
-                </span>
+          <div 
+            className="flex flex-col items-center bg-black/40 rounded-xl p-1 border border-white/5 shrink-0 min-w-[2.8rem]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {!isReadOnly && onRestore && (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-7 w-7 rounded-lg hover:bg-white/10 text-white" 
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onRestore(); }}
+                disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) >= (feature.usesCount ?? 0)}
+              >
+                <Plus className="w-4 h-4" />
+              </Button>
+            )}
+            <div className="py-1 text-center leading-tight">
+              <div className="text-sm font-black text-white">
+                {feature.usesRemaining ?? feature.usesCount}
               </div>
-              {!isReadOnly && onRestore && (
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="h-6 w-6 rounded-lg hover:bg-white/10 text-white" 
-                  onClick={(e) => { e.stopPropagation(); onRestore(); }}
-                  disabled={isPending || (feature.usesRemaining ?? 0) >= (feature.usesCount ?? 0)}
-                >
-                  <Plus className="w-3 h-3" />
-                </Button>
-              )}
+              <div className="text-[9px] font-bold text-slate-400 border-t border-white/10 mt-1 pt-1 opacity-70">
+                {feature.usesCount}
+              </div>
             </div>
+            {!isReadOnly && onSpend && (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-7 w-7 rounded-lg hover:bg-white/10 text-white" 
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSpend(); }}
+                disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) <= 0}
+              >
+                <Minus className="w-4 h-4" />
+              </Button>
+            )}
           </div>
         )}
       </div>

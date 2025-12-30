@@ -10,12 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useMemo } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import {
-  InfoDialog,
-  InfoGrid,
-  InfoPill,
-  InfoSectionTitle,
-} from "@/lib/components/characterCreator/EntityInfoDialog";
+import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import {
   formatAbilityList,
   formatArmorProficiencies,
@@ -24,7 +19,7 @@ import {
   formatSkillProficiencies,
   formatToolProficiencies,
   formatWeaponProficiencies,
-  prettifyEnum,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
@@ -35,14 +30,6 @@ interface Props {
   mode?: "flow" | "wizard"
   onClassSelected?: (classId: number) => void
 }
-
-const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
-  NONE: "Без чаклунства",
-  FULL: "Повний кастер",
-  HALF: "Половинний кастер",
-  THIRD: "Третинний кастер",
-  PACT: "Магія пакту",
-};
 
 export const ClassesForm = (
   {classes, formId, onNextDisabledChange, mode = "flow", onClassSelected}: Props
@@ -72,87 +59,6 @@ export const ClassesForm = (
     }
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenClassId]);
-
-  const ClassInfoModal = ({ cls }: { cls: ClassI }) => {
-    const features = [...(cls.features || [])].sort(
-      (a, b) => (a.levelGranted || 0) - (b.levelGranted || 0)
-    );
-
-    return (
-      <InfoDialog
-        title={classTranslations[cls.name] || cls.name}
-        triggerLabel={`Показати деталі ${classTranslations[cls.name] ?? cls.name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Кістка хітів" value={`d${cls.hitDie}`} />
-          <InfoPill
-            label="Чаклунство"
-            value={SPELLCASTING_LABELS[cls.spellcastingType] ?? "—"}
-          />
-          <InfoPill label="Підклас з рівня" value={`Рівень ${cls.subclassLevel}`} />
-          <InfoPill label="Рятунки" value={formatAbilityList(cls.savingThrows)} />
-          <InfoPill
-            label="Навички"
-            value={formatSkillProficiencies(cls.skillProficiencies)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(cls.toolProficiencies, cls.toolToChooseCount)}
-          />
-          <InfoPill
-            label="Зброя"
-            value={formatWeaponProficiencies(cls.weaponProficiencies)}
-          />
-          <InfoPill
-            label="Броня"
-            value={formatArmorProficiencies(cls.armorProficiencies)}
-          />
-          <InfoPill
-            label="Мови"
-            value={formatLanguages(cls.languages, cls.languagesToChooseCount)}
-          />
-          <InfoPill
-            label="Мультиклас"
-            value={formatMulticlassReqs(cls.multiclassReqs)}
-          />
-          {cls.primaryCastingStat ? (
-            <InfoPill
-              label="Ключова характеристика"
-              value={attributesUkrShort[cls.primaryCastingStat]}
-            />
-          ) : null}
-        </InfoGrid>
-
-        <div className="space-y-2">
-          <InfoSectionTitle>Особливості</InfoSectionTitle>
-          {features.length ? (
-            features.map((feature) => (
-              <div
-                key={feature.classFeatureId || feature.feature.featureId}
-                className="glass-panel border-gradient-rpg rounded-lg px-3 py-2.5"
-              >
-                <div className="mb-1 flex items-center justify-between gap-2">
-                  <p className="text-sm font-semibold text-white">{feature.feature.name}</p>
-                  <Badge
-                              variant="outline"
-                              className="border-white/15 bg-white/5 text-[11px] text-slate-200"
-                  >
-                    Рів. {feature.levelGranted}
-                  </Badge>
-                </div>
-                  <FormattedDescription
-                    content={feature.feature.description}
-                    className="text-sm leading-relaxed text-slate-200/90"
-                  />
-              </div>
-            ))
-          ) : (
-            <p className="text-sm text-slate-400">Наразі немає описаних умінь.</p>
-          )}
-        </div>
-      </InfoDialog>
-    );
-  };
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">

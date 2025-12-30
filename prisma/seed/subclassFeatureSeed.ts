@@ -1393,7 +1393,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Arcana Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "Додатково підготовлені: 1р. <a href=\"/spell/1045\">Виявлення магії [Detect Magic]</a>, <a href=\"/spell/1333\">Магічний дротик [Magic missile]</a>; 3р. <a href=\"/spell/1283\">Магічна зброя [Magic Weapon]</a>, <a href=\"/spell/1509\">Ністулова магічна аура [Nystul's Magic Aura]</a>; 5р. <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>, <a href=\"/spell/1231\">Магічне коло [Magic Circle]</a>; 7р. <a href=\"/spell/1205\">Арканне око [Arcane eye]</a>, <a href=\"/spell/1516\">Таємна скриня Леомунда [Leomund's Secret Chest]</a>; 9р. <a href=\"/spell/1153\">Планарне поневолення [Planar Binding]</a>, <a href=\"/spell/1163\">Коло телепортації [Teleportation Circle]</a>.\n\nКоли ви отримуєте рівень клірика, додаєте заклинання домену до підготовлених. Вони завжди підготовлені й не враховуються в обмеження підготовлених заклять.",
+        "Додатково підготовлені: 1р. <a href=\"/spell/1045\">Виявлення магії [Detect Magic]</a>, <a href=\"/spell/1333\">Магічний дротик [Magic missile]</a>;\n3р. <a href=\"/spell/1283\">Магічна зброя [Magic Weapon]</a>, <a href=\"/spell/1509\">Ністулова магічна аура [Nystul's Magic Aura]</a>;\n5р. <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>, <a href=\"/spell/1231\">Магічне коло [Magic Circle]</a>;\n7р. <a href=\"/spell/1205\">Арканне око [Arcane eye]</a>, <a href=\"/spell/1516\">Таємна скриня Леомунда [Leomund's Secret Chest]</a>;\n9р. <a href=\"/spell/1153\">Планарне поневолення [Planar Binding]</a>, <a href=\"/spell/1163\">Коло телепортації [Teleportation Circle]</a>.\n\nКоли ви отримуєте рівень клірика, додаєте заклинання домену до підготовлених. Вони завжди підготовлені й не враховуються в обмеження підготовлених заклять.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1446,7 +1446,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Death Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1304\">Удаване життя [False life]</a>, <a href=\"/spell/1499\">Промінь хвороби [Ray of Sickness]</a>; 3р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1262\">Промінь ослаблення [Ray of Enfeeblement]</a>; 5р. <a href=\"/spell/1217\">Підіймання мерців [Animate dead]</a>, <a href=\"/spell/1057\">Вампіричний дотик [Vampiric Touch]</a>; 7р. <a href=\"/spell/1179\">Усихання [Blight]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>; 9р. <a href=\"/spell/1159\">Оболонка проти живих [Antilife shell]</a>, <a href=\"/spell/1172\">Вбивча хмара [Cloudkill]</a>.\n\nЗаклинання домену завжди підготовлені для вас і не рахуються до ліміту підготовлених.",
+        "1р. <a href=\"/spell/1304\">Удаване життя [False life]</a>, <a href=\"/spell/1499\">Промінь хвороби [Ray of Sickness]</a>;\n3р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1262\">Промінь ослаблення [Ray of Enfeeblement]</a>;\n5р. <a href=\"/spell/1217\">Підіймання мерців [Animate dead]</a>, <a href=\"/spell/1057\">Вампіричний дотик [Vampiric Touch]</a>;\n7р. <a href=\"/spell/1179\">Усихання [Blight]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>;\n9р. <a href=\"/spell/1159\">Оболонка проти живих [Antilife shell]</a>, <a href=\"/spell/1172\">Вбивча хмара [Cloudkill]</a>.\n\nЗаклинання домену завжди підготовлені для вас і не рахуються до ліміту підготовлених.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1505,7 +1505,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Forge Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1316\">Розпізнавання [Identify]</a>, <a href=\"/spell/1455\">Паляча кара [Searing Smite]</a>; 3р. <a href=\"/spell/1258\">Розжарення металу [Heat Metal]</a>, <a href=\"/spell/1283\">Магічна зброя [Magic Weapon]</a>; 5р. <a href=\"/spell/1491\">Стихійна зброя [Elemental Weapon]</a>, <a href=\"/spell/1236\">Захист від енергії [Protection from Energy]</a>; 7р. <a href=\"/spell/1201\">Виготовлення [Fabricate]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>; 9р. <a href=\"/spell/1156\">Оживлення предметів [Animate objects]</a>, <a href=\"/spell/1140\">Творення [Creation]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту підготовлених.",
+        "1р. <a href=\"/spell/1316\">Розпізнавання [Identify]</a>, <a href=\"/spell/1455\">Паляча кара [Searing Smite]</a>;\n3р. <a href=\"/spell/1258\">Розжарення металу [Heat Metal]</a>, <a href=\"/spell/1283\">Магічна зброя [Magic Weapon]</a>;\n5р. <a href=\"/spell/1491\">Стихійна зброя [Elemental Weapon]</a>, <a href=\"/spell/1236\">Захист від енергії [Protection from Energy]</a>;\n7р. <a href=\"/spell/1201\">Виготовлення [Fabricate]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>;\n9р. <a href=\"/spell/1156\">Оживлення предметів [Animate objects]</a>, <a href=\"/spell/1140\">Творення [Creation]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту підготовлених.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1566,7 +1566,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Grave Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1336\">Зурочення [Bane]</a>, <a href=\"/spell/1304\">Удаване життя [False life]</a>; 3р. <a href=\"/spell/1275\">Нетлінні рештки [Gentle Repose]</a>, <a href=\"/spell/1262\">Промінь ослаблення [Ray of Enfeeblement]</a>; 5р. <a href=\"/spell/1245\">Відродження [Revivify]</a>, <a href=\"/spell/1057\">Вампіричний дотик [Vampiric Touch]</a>; 7р. <a href=\"/spell/1179\">Усихання [Blight]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>; 9р. <a href=\"/spell/1159\">Оболонка проти живих [Antilife shell]</a>, <a href=\"/spell/1157\">Оживлення мерців [Raise Dead]</a>.\n\nЗаклинання домену завжди підготовлені й не враховуються в ліміт.",
+        "1р. <a href=\"/spell/1336\">Зурочення [Bane]</a>, <a href=\"/spell/1304\">Удаване життя [False life]</a>;\n3р. <a href=\"/spell/1275\">Нетлінні рештки [Gentle Repose]</a>, <a href=\"/spell/1262\">Промінь ослаблення [Ray of Enfeeblement]</a>;\n5р. <a href=\"/spell/1245\">Відродження [Revivify]</a>, <a href=\"/spell/1057\">Вампіричний дотик [Vampiric Touch]</a>;\n7р. <a href=\"/spell/1179\">Усихання [Blight]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>;\n9р. <a href=\"/spell/1159\">Оболонка проти живих [Antilife shell]</a>, <a href=\"/spell/1157\">Оживлення мерців [Raise Dead]</a>.\n\nЗаклинання домену завжди підготовлені й не враховуються в ліміт.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1631,7 +1631,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Knowledge Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1329\">Наказ [Command]</a>, <a href=\"/spell/1316\">Розпізнавання [Identify]</a>; 3р. <a href=\"/spell/1261\">Пророкування [Augury]</a>, <a href=\"/spell/1277\">Навіювання [Suggestion]</a>; 5р. <a href=\"/spell/1224\">Невиявлення [Nondetection]</a>, <a href=\"/spell/1215\">Розмова з мертвими [Speak with Dead]</a>; 7р. <a href=\"/spell/1205\">Арканне око [Arcane eye]</a>, <a href=\"/spell/1183\">Спантеличення [Confusion]</a>; 9р. <a href=\"/spell/1164\">Знання легенд [Legend Lore]</a>, <a href=\"/spell/1144\">Стеження [Scrying]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
+        "1р. <a href=\"/spell/1329\">Наказ [Command]</a>, <a href=\"/spell/1316\">Розпізнавання [Identify]</a>;\n3р. <a href=\"/spell/1261\">Пророкування [Augury]</a>, <a href=\"/spell/1277\">Навіювання [Suggestion]</a>;\n5р. <a href=\"/spell/1224\">Невиявлення [Nondetection]</a>, <a href=\"/spell/1215\">Розмова з мертвими [Speak with Dead]</a>;\n7р. <a href=\"/spell/1205\">Арканне око [Arcane eye]</a>, <a href=\"/spell/1183\">Спантеличення [Confusion]</a>;\n9р. <a href=\"/spell/1164\">Знання легенд [Legend Lore]</a>, <a href=\"/spell/1144\">Стеження [Scrying]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1694,7 +1694,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Life Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1044\">Благословення [Bless]</a>, <a href=\"/spell/1334\">Лікування ран [Cure Wounds]</a>; 3р. <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>, <a href=\"/spell/1292\">Духовна зброя [Spiritual Weapon]</a>; 5р. <a href=\"/spell/1229\">Маяк надії [Beacon of Hope]</a>, <a href=\"/spell/1245\">Відродження [Revivify]</a>; 7р. <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>, <a href=\"/spell/1203\">Вартовий віри [Guardian of Faith]</a>; 9р. <a href=\"/spell/1161\">Масове лікування ран [Mass Cure Wounds]</a>, <a href=\"/spell/1157\">Оживлення мерців [Raise Dead]</a>.\n\nЗаклинання домену завжди підготовлені й не враховуються до ліміту.",
+        "1р. <a href=\"/spell/1044\">Благословення [Bless]</a>, <a href=\"/spell/1334\">Лікування ран [Cure Wounds]</a>;\n3р. <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>, <a href=\"/spell/1292\">Духовна зброя [Spiritual Weapon]</a>;\n5р. <a href=\"/spell/1229\">Маяк надії [Beacon of Hope]</a>, <a href=\"/spell/1245\">Відродження [Revivify]</a>;\n7р. <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>, <a href=\"/spell/1203\">Вартовий віри [Guardian of Faith]</a>;\n9р. <a href=\"/spell/1161\">Масове лікування ран [Mass Cure Wounds]</a>, <a href=\"/spell/1157\">Оживлення мерців [Raise Dead]</a>.\n\nЗаклинання домену завжди підготовлені й не враховуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1751,7 +1751,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Light Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1321\">Палючі долоні [Burning Hands]</a>, <a href=\"/spell/1041\">Вогники фей [Faerie fire]</a>; 3р. <a href=\"/spell/1271\">Палюча сфера [Flaming Sphere]</a>, <a href=\"/spell/1256\">Розпечений промінь [Scorching Ray]</a>; 5р. <a href=\"/spell/1242\">Денне світло [Daylight]</a>, <a href=\"/spell/1246\">Вогнекуля [Fireball]</a>; 7р. <a href=\"/spell/1203\">Вартовий віри [Guardian of Faith]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>; 9р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1144\">Стеження [Scrying]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
+        "1р. <a href=\"/spell/1321\">Палючі долоні [Burning Hands]</a>, <a href=\"/spell/1041\">Вогники фей [Faerie fire]</a>;\n3р. <a href=\"/spell/1271\">Палюча сфера [Flaming Sphere]</a>, <a href=\"/spell/1256\">Розпечений промінь [Scorching Ray]</a>;\n5р. <a href=\"/spell/1242\">Денне світло [Daylight]</a>, <a href=\"/spell/1246\">Вогнекуля [Fireball]</a>;\n7р. <a href=\"/spell/1203\">Вартовий віри [Guardian of Faith]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>;\n9р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1144\">Стеження [Scrying]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1811,7 +1811,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Nature Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1339\">Дружба з тваринами [Animal friendship]</a>, <a href=\"/spell/1317\">Розмова з тваринами [Speak with Animals]</a>; 3р. <a href=\"/spell/1293\">Дубова шкіра [Barkskin]</a>, <a href=\"/spell/1260\">Проростання шипів [Spike Growth]</a>; 5р. <a href=\"/spell/1213\">Ріст рослин [Plant Growth]</a>, <a href=\"/spell/1209\">Стіна вітрів [Wind Wall]</a>; 7р. <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>, <a href=\"/spell/1556\">Хапаюча лоза [Grasping Vine]</a>; 9р. <a href=\"/spell/1160\">Нашестя комах [Insect Plague]</a>, <a href=\"/spell/1171\">Деревний шлях [Tree Stride]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту підготовлених.",
+        "1р. <a href=\"/spell/1339\">Дружба з тваринами [Animal friendship]</a>, <a href=\"/spell/1317\">Розмова з тваринами [Speak with Animals]</a>;\n3р. <a href=\"/spell/1293\">Дубова шкіра [Barkskin]</a>, <a href=\"/spell/1260\">Проростання шипів [Spike Growth]</a>;\n5р. <a href=\"/spell/1213\">Ріст рослин [Plant Growth]</a>, <a href=\"/spell/1209\">Стіна вітрів [Wind Wall]</a>;\n7р. <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>, <a href=\"/spell/1556\">Хапаюча лоза [Grasping Vine]</a>;\n9р. <a href=\"/spell/1160\">Нашестя комах [Insect Plague]</a>, <a href=\"/spell/1171\">Деревний шлях [Tree Stride]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту підготовлених.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1872,7 +1872,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Order Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1329\">Наказ [Command]</a>, <a href=\"/spell/1047\">Героїзм [Heroism]</a>; 3р. <a href=\"/spell/1254\">Стримування особи [Hold Person]</a>, <a href=\"/spell/1287\">Зона правди [Zone of Truth]</a>; 5р. <a href=\"/spell/1230\">Масове цілюще слово [Mass Healing Word]</a>, <a href=\"/spell/1208\">Уповільнення [Slow]</a>; 7р. <a href=\"/spell/1186\">Примушування [Compulsion]</a>, <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>; 9р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1143\">Стримування монстра [Hold Monster]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
+        "1р. <a href=\"/spell/1329\">Наказ [Command]</a>, <a href=\"/spell/1047\">Героїзм [Heroism]</a>;\n3р. <a href=\"/spell/1254\">Стримування особи [Hold Person]</a>, <a href=\"/spell/1287\">Зона правди [Zone of Truth]</a>;\n5р. <a href=\"/spell/1230\">Масове цілюще слово [Mass Healing Word]</a>, <a href=\"/spell/1208\">Уповільнення [Slow]</a>;\n7р. <a href=\"/spell/1186\">Примушування [Compulsion]</a>, <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>;\n9р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1143\">Стримування монстра [Hold Monster]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1932,7 +1932,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Peace Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1047\">Героїзм [Heroism]</a>, <a href=\"/spell/1313\">Святилище [Sanctuary]</a>; 3р. <a href=\"/spell/1259\">Підтримка [Aid]</a>, <a href=\"/spell/1274\">Охоронний зв'язок [Warding Bond]</a>; 5р. <a href=\"/spell/1229\">Маяк надії [Beacon of Hope]</a>, <a href=\"/spell/1220\">Послання [Sending]</a>; 7р. <a href=\"/spell/1555\">Аура очищення [Aura of Purity]</a>, <a href=\"/spell/1518\">Пружна сфера Отілюка [Otiluke's Resilient Sphere]</a>; 9р. <a href=\"/spell/1173\">Більше відновлення [Greater Restoration]</a>, <a href=\"/spell/1522\">Телепатичний зв'язок Рері [Rary's Telepathic Bond]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
+        "1р. <a href=\"/spell/1047\">Героїзм [Heroism]</a>, <a href=\"/spell/1313\">Святилище [Sanctuary]</a>;\n3р. <a href=\"/spell/1259\">Підтримка [Aid]</a>, <a href=\"/spell/1274\">Охоронний зв'язок [Warding Bond]</a>;\n5р. <a href=\"/spell/1229\">Маяк надії [Beacon of Hope]</a>, <a href=\"/spell/1220\">Послання [Sending]</a>;\n7р. <a href=\"/spell/1555\">Аура очищення [Aura of Purity]</a>, <a href=\"/spell/1518\">Пружна сфера Отілюка [Otiluke's Resilient Sphere]</a>;\n9р. <a href=\"/spell/1173\">Більше відновлення [Greater Restoration]</a>, <a href=\"/spell/1522\">Телепатичний зв'язок Рері [Rary's Telepathic Bond]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -1986,7 +1986,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Tempest Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1305\">Туманна хмара [Fog Cloud]</a>, <a href=\"/spell/1043\">Громова хвиля [Thunderwave]</a>; 3р. <a href=\"/spell/1267\">Порив вітру [Gust of Wind]</a>, <a href=\"/spell/1294\">Друзки [Shatter]</a>; 5р. <a href=\"/spell/1225\">Накликання блискавки [Call Lightning]</a>, <a href=\"/spell/1238\">Завірюха [Sleet Storm]</a>; 7р. <a href=\"/spell/1191\">Контроль води [Control Water]</a>, <a href=\"/spell/1190\">Крижаний шторм [Ice Storm]</a>; 9р. <a href=\"/spell/1521\">Руйнівна хвиля [Destructive Wave]</a>, <a href=\"/spell/1160\">Нашестя комах [Insect Plague]</a>.\n\nЗаклинання домену завжди підготовлені й не враховуються до ліміту.",
+        "1р. <a href=\"/spell/1305\">Туманна хмара [Fog Cloud]</a>, <a href=\"/spell/1043\">Громова хвиля [Thunderwave]</a>;\n3р. <a href=\"/spell/1267\">Порив вітру [Gust of Wind]</a>, <a href=\"/spell/1294\">Друзки [Shatter]</a>;\n5р. <a href=\"/spell/1225\">Накликання блискавки [Call Lightning]</a>, <a href=\"/spell/1238\">Завірюха [Sleet Storm]</a>;\n7р. <a href=\"/spell/1191\">Контроль води [Control Water]</a>, <a href=\"/spell/1190\">Крижаний шторм [Ice Storm]</a>;\n9р. <a href=\"/spell/1521\">Руйнівна хвиля [Destructive Wave]</a>, <a href=\"/spell/1160\">Нашестя комах [Insect Plague]</a>.\n\nЗаклинання домену завжди підготовлені й не враховуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2044,7 +2044,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Trickery Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1318\">Причарування особи [Charm Person]</a>, <a href=\"/spell/1332\">Маскування [Disguise Self]</a>; 3р. <a href=\"/spell/1296\">Віддзеркалення [Mirror Image]</a>, <a href=\"/spell/1270\">Переміщення без сліду [Pass without Trace]</a>; 5р. <a href=\"/spell/1228\">Мерехтіння [Blink]</a>, <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>; 7р. <a href=\"/spell/1196\">Двері між вимірами [Dimension Door]</a>, <a href=\"/spell/1189\">Перевтілення [Polymorph]</a>; 9р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1165\">Зміна спогадів [Modify Memory]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
+        "1р. <a href=\"/spell/1318\">Причарування особи [Charm Person]</a>, <a href=\"/spell/1332\">Маскування [Disguise Self]</a>;\n3р. <a href=\"/spell/1296\">Віддзеркалення [Mirror Image]</a>, <a href=\"/spell/1270\">Переміщення без сліду [Pass without Trace]</a>;\n5р. <a href=\"/spell/1228\">Мерехтіння [Blink]</a>, <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>;\n7р. <a href=\"/spell/1196\">Двері між вимірами [Dimension Door]</a>, <a href=\"/spell/1189\">Перевтілення [Polymorph]</a>;\n9р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1165\">Зміна спогадів [Modify Memory]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2096,7 +2096,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "Twilight Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1041\">Вогники фей [Faerie fire]</a>, <a href=\"/spell/1310\">Сон [Sleep]</a>; 3р. <a href=\"/spell/1278\">Місячний промінь [Moonbeam]</a>, <a href=\"/spell/1299\">Бачення невидимого [See Invisibility]</a>; 5р. <a href=\"/spell/1514\">Аура живучості [Aura of Vitality]</a>, <a href=\"/spell/1513\">Леомундова крихітна хатинка [Leomund's Tiny Hut]</a>; 7р. <a href=\"/spell/1514\">Аура життя [Aura of Life]</a>, <a href=\"/spell/1204\">Більша невидимість [Greater Invisibility]</a>; 9р. <a href=\"/spell/1557\">Коло сили [Circle of Power]</a>, <a href=\"/spell/1154\">Ошуканство [Mislead]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
+        "1р. <a href=\"/spell/1041\">Вогники фей [Faerie fire]</a>, <a href=\"/spell/1310\">Сон [Sleep]</a>;\n3р. <a href=\"/spell/1278\">Місячний промінь [Moonbeam]</a>, <a href=\"/spell/1299\">Бачення невидимого [See Invisibility]</a>;\n5р. <a href=\"/spell/1514\">Аура живучості [Aura of Vitality]</a>, <a href=\"/spell/1513\">Леомундова крихітна хатинка [Leomund's Tiny Hut]</a>;\n7р. <a href=\"/spell/1514\">Аура життя [Aura of Life]</a>, <a href=\"/spell/1204\">Більша невидимість [Greater Invisibility]</a>;\n9р. <a href=\"/spell/1557\">Коло сили [Circle of Power]</a>, <a href=\"/spell/1154\">Ошуканство [Mislead]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2167,7 +2167,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
       engName: "War Domain Spells",
       shortDescription: "Дає додаткові підготовлені заклинання домену.",
       description:
-        "1р. <a href=\"/spell/1042\">Божа милість [Divine Favor]</a>, <a href=\"/spell/1301\">Щит віри [Shield of Faith]</a>; 3р. <a href=\"/spell/1283\">Магічна зброя [Magic Weapon]</a>, <a href=\"/spell/1292\">Духовна зброя [Spiritual Weapon]</a>; 5р. <a href=\"/spell/1231\">Магічне коло [Magic Circle]</a>, <a href=\"/spell/1553\">Мантія хрестоносця [Crusader's Mantle]</a>; 7р. <a href=\"/spell/1184\">Свобода рухів [Freedom of Movement]</a>, <a href=\"/spell/1192\">Кам'яна шкіра [Stoneskin]</a>; 9р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1143\">Стримування монстра [Hold Monster]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
+        "1р. <a href=\"/spell/1042\">Божа милість [Divine Favor]</a>, <a href=\"/spell/1301\">Щит віри [Shield of Faith]</a>;\n3р. <a href=\"/spell/1283\">Магічна зброя [Magic Weapon]</a>, <a href=\"/spell/1292\">Духовна зброя [Spiritual Weapon]</a>;\n5р. <a href=\"/spell/1231\">Магічне коло [Magic Circle]</a>, <a href=\"/spell/1553\">Мантія хрестоносця [Crusader's Mantle]</a>;\n7р. <a href=\"/spell/1184\">Свобода рухів [Freedom of Movement]</a>, <a href=\"/spell/1192\">Кам'яна шкіра [Stoneskin]</a>;\n9р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1143\">Стримування монстра [Hold Monster]</a>.\n\nЗаклинання домену завжди підготовлені й не рахуються до ліміту.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2224,9 +2224,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Архіфея)",
       engName: "Expanded Spell List (Archfey)",
-      shortDescription:
-        "1р. <a href=\"/spell/1041\">Вогники фей [Faerie fire]</a>, <a href=\"/spell/1310\">Сон [Sleep]</a>; 2р. <a href=\"/spell/1298\">Вгамування емоцій [Calm Emotions]</a>, <a href=\"/spell/1502\">Уявна сила [Phantasmal Force]</a>; 3р. <a href=\"/spell/1228\">Мерехтіння [Blink]</a>, <a href=\"/spell/1213\">Ріст рослин [Plant Growth]</a>; 4р. <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>, <a href=\"/spell/1204\">Більша невидимість [Greater Invisibility]</a>; 5р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1152\">Позірність [Seeming]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1041\">Вогники фей [Faerie fire]</a>, <a href=\"/spell/1310\">Сон [Sleep]</a>;\n2р. <a href=\"/spell/1298\">Вгамування емоцій [Calm Emotions]</a>, <a href=\"/spell/1502\">Уявна сила [Phantasmal Force]</a>;\n3р. <a href=\"/spell/1228\">Мерехтіння [Blink]</a>, <a href=\"/spell/1213\">Ріст рослин [Plant Growth]</a>;\n4р. <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>, <a href=\"/spell/1204\">Більша невидимість [Greater Invisibility]</a>;\n5р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1152\">Позірність [Seeming]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2275,9 +2275,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Біс)",
       engName: "Expanded Spell List (Fiend)",
-      shortDescription:
-        "1р. <a href=\"/spell/1321\">Палючі долоні [Burning Hands]</a>, <a href=\"/spell/1329\">Наказ [Command]</a>; 2р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1256\">Розпечений промінь [Scorching Ray]</a>; 3р. <a href=\"/spell/1246\">Вогнекуля [Fireball]</a>, <a href=\"/spell/1212\">Смердюча хмара [Stinking Cloud]</a>; 4р. <a href=\"/spell/1200\">Вогняний щит [Fire Shield]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>; 5р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1155\">Освячення [Hallow]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1321\">Палючі долоні [Burning Hands]</a>, <a href=\"/spell/1329\">Наказ [Command]</a>;\n2р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1256\">Розпечений промінь [Scorching Ray]</a>;\n3р. <a href=\"/spell/1246\">Вогнекуля [Fireball]</a>, <a href=\"/spell/1212\">Смердюча хмара [Stinking Cloud]</a>;\n4р. <a href=\"/spell/1200\">Вогняний щит [Fire Shield]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>;\n5р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1155\">Освячення [Hallow]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2321,9 +2321,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Древній жах)",
       engName: "Expanded Spell List (Great Old One)",
-      shortDescription:
-        "1р. <a href=\"/spell/1496\">Дисонуючий шепіт [Dissonant Whispers]</a>, <a href=\"/spell/1324\">Огидний сміх Таші [Tasha's Hideous Laughter]</a>; 2р. <a href=\"/spell/1297\">Виявлення думок [Detect Thoughts]</a>, <a href=\"/spell/1502\">Уявна сила [Phantasmal Force]</a>; 3р. <a href=\"/spell/1218\">Підглядання [Clairvoyance]</a>, <a href=\"/spell/1220\">Послання [Sending]</a>; 4р. <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>, <a href=\"/spell/1515\">Чорні щупальця Еварда [Evard's Black Tentacles]</a>; 5р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1139\">Телекінез [Telekinesis]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1496\">Дисонуючий шепіт [Dissonant Whispers]</a>, <a href=\"/spell/1324\">Огидний сміх Таші [Tasha's Hideous Laughter]</a>;\n2р. <a href=\"/spell/1297\">Виявлення думок [Detect Thoughts]</a>, <a href=\"/spell/1502\">Уявна сила [Phantasmal Force]</a>;\n3р. <a href=\"/spell/1218\">Підглядання [Clairvoyance]</a>, <a href=\"/spell/1220\">Послання [Sending]</a>;\n4р. <a href=\"/spell/1185\">Підкорення звіра [Dominate Beast]</a>, <a href=\"/spell/1515\">Чорні щупальця Еварда [Evard's Black Tentacles]</a>;\n5р. <a href=\"/spell/1149\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spell/1139\">Телекінез [Telekinesis]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2367,9 +2367,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Хексблейд)",
       engName: "Expanded Spell List (Hexblade)",
-      shortDescription:
-        "1р. <a href=\"/spell/1302\">Щит [Shield]</a>, <a href=\"/spell/1453\">Гнівна кара [Wrathful Smite]</a>; 2р. <a href=\"/spell/1252\">Таврувальна кара [Branding Smite]</a>, <a href=\"/spell/1257\">Розмиття [Blur]</a>; 3р. <a href=\"/spell/1228\">Мерехтіння [Blink]</a>, <a href=\"/spell/1491\">Стихійна зброя [Elemental Weapon]</a>; 4р. <a href=\"/spell/1177\">Фантомний вбивця [Phantasmal Killer]</a>, <a href=\"/spell/1457\">Приголомшуюча кара [Staggering Smite]</a>; 5р. <a href=\"/spell/1162\">Конус холоду [Cone of Cold]</a>, <a href=\"/spell/1521\">Руйнівна хвиля [Destructive Wave]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1302\">Щит [Shield]</a>, <a href=\"/spell/1453\">Гнівна кара [Wrathful Smite]</a>;\n2р. <a href=\"/spell/1252\">Таврувальна кара [Branding Smite]</a>, <a href=\"/spell/1257\">Розмиття [Blur]</a>;\n3р. <a href=\"/spell/1228\">Мерехтіння [Blink]</a>, <a href=\"/spell/1491\">Стихійна зброя [Elemental Weapon]</a>;\n4р. <a href=\"/spell/1177\">Фантомний вбивця [Phantasmal Killer]</a>, <a href=\"/spell/1457\">Приголомшуюча кара [Staggering Smite]</a>;\n5р. <a href=\"/spell/1162\">Конус холоду [Cone of Cold]</a>, <a href=\"/spell/1521\">Руйнівна хвиля [Destructive Wave]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2425,9 +2425,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Небесний)",
       engName: "Expanded Spell List (Celestial)",
-      shortDescription:
-        "1р. <a href=\"/spell/1334\">Лікування ран [Cure Wounds]</a>, <a href=\"/spell/1309\">Спрямований заряд [Guiding Bolt]</a>; 2р. <a href=\"/spell/1271\">Палюча сфера [Flaming Sphere]</a>, <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>; 3р. <a href=\"/spell/1242\">Денне світло [Daylight]</a>, <a href=\"/spell/1245\">Відродження [Revivify]</a>; 4р. <a href=\"/spell/1203\">Вартовий віри [Guardian of Faith]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>; 5р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1173\">Більше відновлення [Greater Restoration]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1334\">Лікування ран [Cure Wounds]</a>, <a href=\"/spell/1309\">Спрямований заряд [Guiding Bolt]</a>;\n2р. <a href=\"/spell/1271\">Палюча сфера [Flaming Sphere]</a>, <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>;\n3р. <a href=\"/spell/1242\">Денне світло [Daylight]</a>, <a href=\"/spell/1245\">Відродження [Revivify]</a>;\n4р. <a href=\"/spell/1203\">Вартовий віри [Guardian of Faith]</a>, <a href=\"/spell/1181\">Стіна вогню [Wall of Fire]</a>;\n5р. <a href=\"/spell/1151\">Полум'яний удар [Flame Strike]</a>, <a href=\"/spell/1173\">Більше відновлення [Greater Restoration]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2480,9 +2480,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Безодня)",
       engName: "Expanded Spell List (Fathomless)",
-      shortDescription:
-        "1р. <a href=\"/spell/1308\">Створення чи знищення води [Create or Destroy Water]</a>, <a href=\"/spell/1043\">Громова хвиля [Thunderwave]</a>; 2р. <a href=\"/spell/1267\">Порив вітру [Gust of Wind]</a>, <a href=\"/spell/1248\">Тиша [Silence]</a>; 3р. <a href=\"/spell/1237\">Заряд блискавки [Lightning Bolt]</a>, <a href=\"/spell/1238\">Завірюха [Sleet Storm]</a>; 4р. <a href=\"/spell/1191\">Контроль води [Control Water]</a>, <a href=\"/spell/1449\">Виклик елементаля [Summon Elemental]</a>; 5р. <a href=\"/spell/1493\">Длань Бігбі [Bigby's Hand]</a>, <a href=\"/spell/1162\">Конус холоду [Cone of Cold]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1308\">Створення чи знищення води [Create or Destroy Water]</a>, <a href=\"/spell/1043\">Громова хвиля [Thunderwave]</a>;\n2р. <a href=\"/spell/1267\">Порив вітру [Gust of Wind]</a>, <a href=\"/spell/1248\">Тиша [Silence]</a>;\n3р. <a href=\"/spell/1237\">Заряд блискавки [Lightning Bolt]</a>, <a href=\"/spell/1238\">Завірюха [Sleet Storm]</a>;\n4р. <a href=\"/spell/1191\">Контроль води [Control Water]</a>, <a href=\"/spell/1449\">Виклик елементаля [Summon Elemental]</a>;\n5р. <a href=\"/spell/1493\">Длань Бігбі [Bigby's Hand]</a>, <a href=\"/spell/1162\">Конус холоду [Cone of Cold]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2596,9 +2596,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Немрець)",
       engName: "Expanded Spell List (Undead)",
-      shortDescription:
-        "1р. <a href=\"/spell/1336\">Зурочення [Bane]</a>, <a href=\"/spell/1304\">Удаване життя [False life]</a>; 2р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1502\">Уявна сила [Phantasmal Force]</a>; 3р. <a href=\"/spell/1215\">Розмова з мертвими [Speak with Dead]</a>, <a href=\"/spell/1207\">Фантомний скакун [phantom steed]</a>; 4р. <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>, <a href=\"/spell/1204\">Більша невидимість [Greater Invisibility]</a>; 5р. <a href=\"/spell/1159\">Оболонка проти живих [Antilife shell]</a>, <a href=\"/spell/1172\">Вбивча хмара [Cloudkill]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1336\">Зурочення [Bane]</a>, <a href=\"/spell/1304\">Удаване життя [False life]</a>;\n2р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1502\">Уявна сила [Phantasmal Force]</a>;\n3р. <a href=\"/spell/1215\">Розмова з мертвими [Speak with Dead]</a>, <a href=\"/spell/1207\">Фантомний скакун [phantom steed]</a>;\n4р. <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>, <a href=\"/spell/1204\">Більша невидимість [Greater Invisibility]</a>;\n5р. <a href=\"/spell/1159\">Оболонка проти живих [Antilife shell]</a>, <a href=\"/spell/1172\">Вбивча хмара [Cloudkill]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2648,9 +2648,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання покровителя (Невмерлий)",
       engName: "Expanded Spell List (Undying)",
-      shortDescription:
-        "1р. <a href=\"/spell/1304\">Удаване життя [False life]</a>, <a href=\"/spell/1499\">Промінь хвороби [Ray of Sickness]</a>; 2р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1248\">Тиша [Silence]</a>; 3р. <a href=\"/spell/1511\">Удавана смерть [Feign Death]</a>, <a href=\"/spell/1215\">Розмова з мертвими [Speak with Dead]</a>; 4р. <a href=\"/spell/1514\">Аура життя [Aura of Life]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>; 5р. <a href=\"/spell/1169\">Зараження [Contagion]</a>, <a href=\"/spell/1164\">Знання легенд [Legend Lore]</a>.",
-      description: "Ці закляття додаються до списку доступних вам заклять чорнокнижника.",
+      shortDescription: "Дає розширений список заклять покровителя.",
+      description:
+        "1р. <a href=\"/spell/1304\">Удаване життя [False life]</a>, <a href=\"/spell/1499\">Промінь хвороби [Ray of Sickness]</a>;\n2р. <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1248\">Тиша [Silence]</a>;\n3р. <a href=\"/spell/1511\">Удавана смерть [Feign Death]</a>, <a href=\"/spell/1215\">Розмова з мертвими [Speak with Dead]</a>;\n4р. <a href=\"/spell/1514\">Аура життя [Aura of Life]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>;\n5р. <a href=\"/spell/1169\">Зараження [Contagion]</a>, <a href=\"/spell/1164\">Знання легенд [Legend Lore]</a>.\n\nЦі закляття додаються до списку доступних вам заклять чорнокнижника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2697,10 +2697,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Псіонічні закляття (Аберрантний розум)",
       engName: "Psionic Spells (Aberrant Mind)",
-      shortDescription:
-        "Додаткові відомі закляття: <a href=\"/spell/1500\">Руки Хадара [Arms of Hadar]</a>, <a href=\"/spell/1496\">Дисонуючий шепіт [Dissonant Whispers]</a>, <a href=\"/spell/1297\">Виявлення думок [Detect Thoughts]</a>, <a href=\"/spell/1298\">Вгамування емоцій [Calm Emotions]</a>, <a href=\"/spell/1512\">Голод Хадара [Hunger of Hadar]</a>, <a href=\"/spell/1220\">Послання [Sending]</a>, <a href=\"/spell/1515\">Чорні щупальця Еварда [Evard's Black Tentacles]</a>, <a href=\"/spell/1450\">Виклик аберації [Summon Aberration]</a>, <a href=\"/spell/1139\">Телекінез [Telekinesis]</a>, <a href=\"/spell/1165\">Зміна спогадів [Modify Memory]</a>, <a href=\"/spell/1522\">Телепатичний зв'язок Рері [Rary's Telepathic Bond]</a>.",
+      shortDescription: "Дає додаткові відомі псіонічні закляття.",
       description:
-        "Ви завжди знаєте наведені закляття на відповідних рівнях чародія. Вони вважаються чародійськими для вас і не рахуються до ліміту відомих заклять. Коли отримуєте новий рівень чародія, можете замінити одне з цих заклять на інше закляття чарівника/чорнокнижника/чародія з школи Ворожіння чи Причарування того ж рівня.",
+        "Додаткові відомі закляття: <a href=\"/spell/1500\">Руки Хадара [Arms of Hadar]</a>, <a href=\"/spell/1496\">Дисонуючий шепіт [Dissonant Whispers]</a>, <a href=\"/spell/1297\">Виявлення думок [Detect Thoughts]</a>, <a href=\"/spell/1298\">Вгамування емоцій [Calm Emotions]</a>, <a href=\"/spell/1512\">Голод Хадара [Hunger of Hadar]</a>, <a href=\"/spell/1220\">Послання [Sending]</a>, <a href=\"/spell/1515\">Чорні щупальця Еварда [Evard's Black Tentacles]</a>, <a href=\"/spell/1450\">Виклик аберації [Summon Aberration]</a>, <a href=\"/spell/1139\">Телекінез [Telekinesis]</a>, <a href=\"/spell/1165\">Зміна спогадів [Modify Memory]</a>, <a href=\"/spell/1522\">Телепатичний зв'язок Рері [Rary's Telepathic Bond]</a>.\n\nВи завжди знаєте наведені закляття на відповідних рівнях чародія. Вони вважаються чародійськими для вас і не рахуються до ліміту відомих заклять. Коли отримуєте новий рівень чародія, можете замінити одне з цих заклять на інше закляття чарівника/чорнокнижника/чародія з школи Ворожіння чи Причарування того ж рівня.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2754,10 +2753,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Заклинання порядку (Годинникова душа)",
       engName: "Clockwork Spells",
-      shortDescription:
-        "Додаткові закляття: <a href=\"/spell/1306\">Тривога [Alarm]</a>, <a href=\"/spell/1337\">Захист від зла й добра [Protection from Evil and Good]</a>, <a href=\"/spell/1259\">Підтримка [Aid]</a>, <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>, <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>, <a href=\"/spell/1236\">Захист від енергії [Protection from Energy]</a>, <a href=\"/spell/1184\">Свобода рухів [Freedom of Movement]</a>, <a href=\"/spell/1448\">Виклик конструкту [Summon Construct]</a>, <a href=\"/spell/1173\">Більше відновлення [Greater Restoration]</a>, <a href=\"/spell/1142\">Стіна енергії [Wall of Force]</a>.",
+      shortDescription: "Дає додаткові закляття порядку.",
       description:
-        "Ви завжди знаєте ці закляття на відповідних рівнях; вони чародійські для вас і не враховуються до ліміту відомих. Після отримання рівня чародія можете замінити одне з них на закляття того ж рівня зі школи Захисту чи Втілення зі списку чарівника.",
+        "Додаткові закляття: <a href=\"/spell/1306\">Тривога [Alarm]</a>, <a href=\"/spell/1337\">Захист від зла й добра [Protection from Evil and Good]</a>, <a href=\"/spell/1259\">Підтримка [Aid]</a>, <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>, <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>, <a href=\"/spell/1236\">Захист від енергії [Protection from Energy]</a>, <a href=\"/spell/1184\">Свобода рухів [Freedom of Movement]</a>, <a href=\"/spell/1448\">Виклик конструкту [Summon Construct]</a>, <a href=\"/spell/1173\">Більше відновлення [Greater Restoration]</a>, <a href=\"/spell/1142\">Стіна енергії [Wall of Force]</a>.\n\nВи завжди знаєте ці закляття на відповідних рівнях; вони чародійські для вас і не враховуються до ліміту відомих. Після отримання рівня чародія можете замінити одне з них на закляття того ж рівня зі школи Захисту чи Втілення зі списку чарівника.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2901,10 +2899,9 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
     {
       name: "Втілення місяця",
       engName: "Lunar Embodiment",
-      shortDescription:
-        "Додаткові закляття за фазами: Повня <a href=\"/spell/1302\">Щит [Shield]</a>, <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>, <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>, <a href=\"/spell/1522\">Телепатичний зв'язок Рері [Rary's Telepathic Bond]</a>; Новий <a href=\"/spell/1499\">Промінь хвороби [Ray of Sickness]</a>, <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1057\">Вампіричний дотик [Vampiric Touch]</a>, <a href=\"/spell/1183\">Спантеличення [Confusion]</a>, <a href=\"/spell/1143\">Стримування монстра [Hold Monster]</a>; Молодик <a href=\"/spell/1335\">Кольорові бризки [Color Spray]</a>, <a href=\"/spell/1288\">Зміна вигляду [Alter self]</a>, <a href=\"/spell/1207\">Фантомний скакун [phantom steed]</a>, <a href=\"/spell/1178\">Уявна земля [Hallucinatory Terrain]</a>, <a href=\"/spell/1154\">Ошуканство [Mislead]</a>.",
+      shortDescription: "Дає додаткові закляття за фазами місяця.",
       description:
-        "На 1 рівні ви знаєте закляття з таблиці Місячних заклять; кожне є чародійським і не рахується до ліміту відомих. Після тривалого відпочинку оберіть фазу (Повня/Новий/Молодик). Поки фаза активна, раз за тривалий відпочинок можете накласти 1-рівневе закляття цієї фази без осередку. З 6 рівня можете зробити це по одному разу для кожної фази, якщо відповідаєте фазі.",
+        "Додаткові закляття за фазами:\nПовня <a href=\"/spell/1302\">Щит [Shield]</a>, <a href=\"/spell/1281\">Мале відновлення [Lesser Restoration]</a>, <a href=\"/spell/1216\">Розвіювання магії [Dispel Magic]</a>, <a href=\"/spell/1193\">Захист від смерті [Death Ward]</a>, <a href=\"/spell/1522\">Телепатичний зв'язок Рері [Rary's Telepathic Bond]</a>;\nНовий <a href=\"/spell/1499\">Промінь хвороби [Ray of Sickness]</a>, <a href=\"/spell/1255\">Сліпота/глухота [Blindness/Deafness]</a>, <a href=\"/spell/1057\">Вампіричний дотик [Vampiric Touch]</a>, <a href=\"/spell/1183\">Спантеличення [Confusion]</a>, <a href=\"/spell/1143\">Стримування монстра [Hold Monster]</a>;\nМолодик <a href=\"/spell/1335\">Кольорові бризки [Color Spray]</a>, <a href=\"/spell/1288\">Зміна вигляду [Alter self]</a>, <a href=\"/spell/1207\">Фантомний скакун [phantom steed]</a>, <a href=\"/spell/1178\">Уявна земля [Hallucinatory Terrain]</a>, <a href=\"/spell/1154\">Ошуканство [Mislead]</a>.\n\nНа 1 рівні ви знаєте закляття з таблиці Місячних заклять; кожне є чародійським і не рахується до ліміту відомих. Після тривалого відпочинку оберіть фазу (Повня/Новий/Молодик). Поки фаза активна, раз за тривалий відпочинок можете накласти 1-рівневе закляття цієї фази без осередку. З 6 рівня можете зробити це по одному разу для кожної фази, якщо відповідаєте фазі.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {

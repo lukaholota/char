@@ -11,13 +11,13 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { FeatureCard, ResourceCard } from "@/lib/components/characterSheet/shared/FeatureCards";
+import { FeatureCard } from "@/lib/components/characterSheet/shared/FeatureCards";
+import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { toast } from "sonner";
 
 import { Badge } from "@/components/ui/badge";
@@ -39,7 +39,6 @@ import {
   formatSpeeds,
   formatToolProficiencies,
   formatWeaponProficiencies,
-  prettifyEnum,
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import {
@@ -130,6 +129,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   const [entityOpen, setEntityOpen] = useState(false);
   const [entityKind, setEntityKind] = useState<EntityDialogKind>("race");
   const [entityVariantIndex, setEntityVariantIndex] = useState(0);
+  const [magicItemToShow, setMagicItemToShow] = useState<any>(null);
 
   const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
 
@@ -202,16 +202,6 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
     return entries;
   }, [pers]);
 
-  const categories = useMemo<Category[]>(() => {
-    if (!groupedFeatures) return [];
-    return [
-      { title: "Основна дія", items: groupedFeatures.actions, kind: "action" },
-      { title: "Бонусна дія", items: groupedFeatures.bonusActions, kind: "bonus" },
-      { title: "Реакція", items: groupedFeatures.reactions, kind: "reaction" },
-      { title: "Пасивні здібності", items: groupedFeatures.passive, kind: "passive" },
-    ];
-  }, [groupedFeatures]);
-
   const allItems = useMemo(() => {
     if (!groupedFeatures) return [] as CharacterFeatureItem[];
     return [
@@ -222,19 +212,69 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
     ];
   }, [groupedFeatures]);
 
-// Redundant slot and label helpers removed
-
   const resourceItems = useMemo(() => {
     return allItems
-      .filter((it) => Array.isArray(it.displayTypes) && (it.displayTypes.includes(FeatureDisplayType.RESOURCE) || it.displayTypes.includes(FeatureDisplayType.CLASS_RESOURCE)))
-      .filter((it) => typeof it.usesPer === "number");
+      .filter((it) => Array.isArray(it.displayTypes) && (it.displayTypes.includes(FeatureDisplayType.CLASS_RESOURCE)))
+      .filter((it) => typeof it.usesPer === "number" || (it.usesRemaining !== null && it.usesRemaining !== undefined));
   }, [allItems]);
+
+  const categories = useMemo<Category[]>(() => {
+    if (!groupedFeatures) return [];
+    
+    // Filter out items that are already in resourceItems to prevent duplication
+    // Also filter out CHOICE sources as they are redundant with the features they grant
+    const resourceKeys = new Set(resourceItems.map(r => r.key));
+    const filterItems = (items: CharacterFeatureItem[]) => 
+      items
+        .filter(it => !resourceKeys.has(it.key))
+        .filter(it => it.source !== "CHOICE" && it.source !== "RACE_CHOICE");
+
+    const sortItems = (items: CharacterFeatureItem[]) => {
+      const sourcePriority: Record<string, number> = {
+        CLASS: 1,
+        SUBCLASS: 2,
+        RACE: 3,
+        SUBRACE: 4,
+        BACKGROUND: 5,
+        FEAT: 6,
+        PERS: 7, // Custom
+        INFUSION: 7.5,
+        CHOICE: 8,
+        RACE_CHOICE: 9
+      };
+
+      return [...items].sort((a, b) => {
+        // 1. Sort by Source
+        const pA = sourcePriority[a.source] ?? 99;
+        const pB = sourcePriority[b.source] ?? 99;
+        if (pA !== pB) return pA - pB;
+
+        // 2. Sort by Date/Index (using createdAt if available, or implicitly preserve order)
+        // If createdAt is present (number), sort ASC (smaller ID first).
+        if (typeof a.createdAt === 'number' && typeof b.createdAt === 'number') {
+           return a.createdAt - b.createdAt;
+        }
+        
+        return 0;
+      });
+    };
+
+    return [
+      { title: "Основна дія", items: sortItems(filterItems(groupedFeatures.actions)), kind: "action" },
+      { title: "Бонусна дія", items: sortItems(filterItems(groupedFeatures.bonusActions)), kind: "bonus" },
+      { title: "Реакція", items: sortItems(filterItems(groupedFeatures.reactions)), kind: "reaction" },
+      { title: "Пасивні здібності", items: sortItems(filterItems(groupedFeatures.passive)), kind: "passive" },
+    ];
+  }, [groupedFeatures, resourceItems]);
 
 // limitedUseGroups removed
 
   const getUsesRemaining = (item: CharacterFeatureItem) => {
     const overridden = usesOverrideByKey[item.key];
-    return typeof overridden === "number" || overridden === null ? overridden : item.usesRemaining ?? null;
+    if (typeof overridden === "number") return overridden;
+    // If no override, use actual value from item. 
+    // If item value is null (not in DB yet), default to max uses (usesPer).
+    return item.usesRemaining ?? item.usesPer ?? 0;
   };
 
   const spendOneUse = (item: CharacterFeatureItem) => {
@@ -315,7 +355,12 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
     if (entityKind === "race") {
       const race = pers.race as any;
       const rawTraits = (race.traits || []) as any[];
-      const traitList = [...rawTraits].sort((a, b) => (a.raceTraitId || 0) - (b.raceTraitId || 0));
+      const traitList = [...rawTraits].sort((a, b) => {
+        const lvlA = a.levelUnlock ?? a.levelGranted ?? 0;
+        const lvlB = b.levelUnlock ?? b.levelGranted ?? 0;
+        if (lvlA !== lvlB) return lvlA - lvlB;
+        return (a.raceTraitId || 0) - (b.raceTraitId || 0);
+      });
 
       return {
         title: raceName,
@@ -373,7 +418,12 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
 
       const name = variantTranslations[variant.name as keyof typeof variantTranslations] ?? String(variant.name);
       const rawTraits = (variant.traits || []) as any[];
-      const traitList = [...rawTraits].sort((a, b) => (a.raceVariantTraitId || 0) - (b.raceVariantTraitId || 0));
+      const traitList = [...rawTraits].sort((a, b) => {
+        const lvlA = a.levelUnlock ?? a.levelGranted ?? 0;
+        const lvlB = b.levelUnlock ?? b.levelGranted ?? 0;
+        if (lvlA !== lvlB) return lvlA - lvlB;
+        return (a.raceVariantTraitId || 0) - (b.raceVariantTraitId || 0);
+      });
 
       return {
         title: name,
@@ -433,7 +483,12 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
 
       const subrace = pers.subrace as any;
       const rawTraits = (subrace.traits || []) as any[];
-      const traitList = [...rawTraits].sort((a, b) => (a.subraceTraitId || 0) - (b.subraceTraitId || 0));
+      const traitList = [...rawTraits].sort((a, b) => {
+        const lvlA = a.levelUnlock ?? a.levelGranted ?? 0;
+        const lvlB = b.levelUnlock ?? b.levelGranted ?? 0;
+        if (lvlA !== lvlB) return lvlA - lvlB;
+        return (a.subraceTraitId || 0) - (b.subraceTraitId || 0);
+      });
 
       return {
         title: subraceName || subrace.name,
@@ -477,7 +532,22 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
       const entry = classEntries[entityVariantIndex] ?? classEntries[0];
       const cls = (entry?.cls ?? pers.class) as any;
       const rawFeatures = (cls.features || []) as any[];
-      const features = [...rawFeatures].sort((a, b) => (a.levelGranted || 0) - (b.levelGranted || 0));
+      
+      // Dedup by featureId
+      const seenFids = new Set<number>();
+      const deduped = rawFeatures.filter(f => {
+        const fid = f.feature?.featureId;
+        if (!fid || seenFids.has(fid)) return false;
+        seenFids.add(fid);
+        return true;
+      });
+
+      const features = [...deduped].sort((a, b) => {
+        const lvlA = a.levelUnlock ?? a.levelGranted ?? 0;
+        const lvlB = b.levelUnlock ?? b.levelGranted ?? 0;
+        if (lvlA !== lvlB) return lvlA - lvlB;
+        return (a.classFeatureId || 0) - (b.classFeatureId || 0);
+      });
 
       const title = classTranslations[cls.name as keyof typeof classTranslations] || cls.name;
 
@@ -498,7 +568,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
               <InfoPill label="Мови" value={formatLanguages(cls.languages, cls.languagesToChooseCount)} />
               <InfoPill label="Мультиклас" value={formatMulticlassReqs(cls.multiclassReqs)} />
               {cls.primaryCastingStat ? (
-                <InfoPill label="Ключова характеристика" value={prettifyEnum(cls.primaryCastingStat)} />
+                <InfoPill label="Ключова характеристика" value={translateValue(cls.primaryCastingStat)} />
               ) : null}
             </InfoGrid>
 
@@ -548,7 +618,22 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
 
       const subcls = entry.subclass as any;
       const rawFeatures = (subcls.features || []) as any[];
-      const featureList = [...rawFeatures].sort((a, b) => (a.levelUnlock || 0) - (b.levelUnlock || 0));
+      
+      // Dedup by featureId
+      const seenFids = new Set<number>();
+      const deduped = rawFeatures.filter(f => {
+        const fid = f.feature?.featureId;
+        if (!fid || seenFids.has(fid)) return false;
+        seenFids.add(fid);
+        return true;
+      });
+
+      const featureList = [...deduped].sort((a, b) => {
+        const lvlA = a.levelUnlock ?? a.levelGranted ?? 0;
+        const lvlB = b.levelUnlock ?? b.levelGranted ?? 0;
+        if (lvlA !== lvlB) return lvlA - lvlB;
+        return (a.subclassFeatureId || 0) - (b.subclassFeatureId || 0);
+      });
 
       const title =
         subclassTranslations[subcls.name as keyof typeof subclassTranslations] ||
@@ -562,8 +647,8 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
           <>
             <InfoGrid>
               <InfoPill label="Джерело" value={sourceTranslations[subcls.source] ?? subcls.source} />
-              <InfoPill label="Основна характеристика" value={prettifyEnum(subcls.primaryCastingStat)} />
-              <InfoPill label="Тип заклинань" value={prettifyEnum(subcls.spellcastingType)} />
+              <InfoPill label="Основна характеристика" value={translateValue(subcls.primaryCastingStat)} />
+              <InfoPill label="Тип заклинань" value={translateValue(subcls.spellcastingType)} />
               <InfoPill label="Мови" value={formatLanguages(subcls.languages, subcls.languagesToChooseCount)} />
               <InfoPill label="Інструменти" value={formatToolProficiencies(subcls.toolProficiencies, subcls.toolToChooseCount)} />
               <div className="col-span-full">
@@ -578,7 +663,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
               {featureList.length ? (
                 featureList.map((f) => (
                   <div
-                    key={f.feature?.featureId}
+                    key={f.subclassFeatureId || f.feature?.featureId}
                     className="rounded-lg border border-slate-800/80 bg-slate-900/60 px-3 py-2.5 shadow-inner"
                   >
                     <div className="flex items-center justify-between mb-1">
@@ -608,7 +693,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
 
     const background = pers.background as any;
     const items = parseItems(background.items);
-    const resolvedSource = background.source ? prettifyEnum(background.source) : "—";
+    const resolvedSource = background.source ? translateValue(background.source) : "—";
 
     return {
       title: backgroundName,
@@ -662,10 +747,10 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
           type="button"
           onClick={() => openEntity("race")}
           disabled={isReadOnly}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
         >
-          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Раса</div>
-          <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{raceName}</div>
+          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Раса</div>
+          <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{raceName}</div>
         </button>
 
         {(pers as any).raceVariants?.map((rv: any, idx: number) => {
@@ -676,10 +761,10 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
               type="button"
               onClick={() => openEntity("raceVariant", idx)}
               disabled={isReadOnly}
-              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
+              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
             >
-              <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Варіант раси</div>
-              <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{name}</div>
+              <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Варіант раси</div>
+              <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{name}</div>
             </button>
           );
         })}
@@ -691,8 +776,8 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
             disabled={isReadOnly}
             className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
           >
-            <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Підраса</div>
-            <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{subraceName}</div>
+            <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Підраса</div>
+            <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{subraceName}</div>
           </button>
         ) : null}
 
@@ -716,13 +801,13 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
               key={entry.key}
               type="button"
               onClick={() => openEntity("class", idx)}
-                className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
+                className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
             >
-                  <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">
+                  <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">
                 {entry.kind === "main" ? "Клас" : "Мультиклас"}
               </div>
-                  <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{name}</div>
-                  <div className="text-[9px] text-slate-300/70 truncate leading-none">Рівень {entry.classLevel}</div>
+                  <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{name}</div>
+                  <div className="text-[9px] text-slate-300/70 leading-none mt-0.5">Рівень {entry.classLevel}</div>
             </button>
           );
         })}
@@ -742,13 +827,13 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
               key={entry.key}
               type="button"
               onClick={() => openEntity("subclass", idx)}
-              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
+              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
             >
-                <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">
+                <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">
                 {entry.kind === "main" ? "Підклас" : "Підклас (м)"}
               </div>
-                <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{scName}</div>
-                <div className="text-[9px] text-slate-300/70 truncate leading-none">{clsName}</div>
+                <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{scName}</div>
+                <div className="text-[9px] text-slate-300/70  leading-none mt-0.5">{clsName}</div>
             </button>
           );
         })}
@@ -756,16 +841,16 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
         <button
           type="button"
           onClick={() => openEntity("background")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
         >
-          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none">Передісторія</div>
-          <div className="text-[12px] font-semibold text-slate-50 truncate leading-tight">{backgroundName}</div>
+          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Передісторія</div>
+          <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{backgroundName}</div>
         </button>
       </div>
 
       {resourceItems.length > 0 ? (
         <div className="space-y-3">
-          <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-400 px-1">Ресурси та Відпочинок</div>
+          <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-400 px-1">Ресурси класу</div>
           <div className="grid grid-cols-1 gap-2">
             {resourceItems.map((item) => {
                 const remaining = getUsesRemaining(item);
@@ -777,14 +862,17 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
                 };
 
                 return (
-                    <ResourceCard
+                    <FeatureCard
                         key={item.key}
                         feature={featureRef}
                         isPending={isPending}
                         isReadOnly={isReadOnly}
                         onSpend={() => spendOneUse(item)}
                         onRestore={() => restoreOneUse(item)}
-                        onInfo={() => setSelected(item)}
+                        onClick={() => {
+                            if (item.magicItem) setMagicItemToShow(item.magicItem);
+                            else setSelected(item);
+                        }}
                     />
                 );
             })}
@@ -815,7 +903,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
                   <span className={"ml-auto text-[10px] sm:text-xs " + variant.count}>[{total}]</span>
                 </CollapsibleTrigger>
 
-                <CollapsibleContent className="mt-3 sm:mt-4 pl-6 sm:pl-8">
+                <CollapsibleContent className="mt-3 sm:mt-4 pl-1">
                   {total === 0 ? (
                     <div className="text-xs text-slate-400">Немає в цій категорії</div>
                   ) : (
@@ -834,7 +922,10 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
                             <FeatureCard 
                                 key={item.key} 
                                 feature={featureRef} 
-                                onClick={() => setSelected(item)} 
+                                onClick={() => {
+                                    if (item.magicItem) setMagicItemToShow(item.magicItem);
+                                    else setSelected(item);
+                                }}
                                 isPending={isPending}
                                 isReadOnly={isReadOnly}
                                 onSpend={() => spendOneUse(item)}
@@ -856,11 +947,6 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">{selected?.name}</DialogTitle>
-            {selected ? (
-              <DialogDescription className="text-xs text-slate-300">
-                {selected.sourceName} • {translateValue(selected.source)}
-              </DialogDescription>
-            ) : null}
           </DialogHeader>
           {selected?.description ? (
             <div className="glass-panel rounded-xl border border-slate-800/70 p-4">
@@ -878,6 +964,12 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
       >
         {entityDialog.content}
       </ControlledInfoDialog>
+
+      <MagicItemInfoModal 
+        item={magicItemToShow || {}} 
+        open={!!magicItemToShow} 
+        onOpenChange={(open) => !open && setMagicItemToShow(null)} 
+      />
     </div>
   );
 }

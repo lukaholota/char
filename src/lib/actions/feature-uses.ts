@@ -22,9 +22,16 @@ export async function spendFeatureUse({
 
   const pers = await prisma.pers.findUnique({
     where: { persId },
-    select: { persId: true, userId: true },
+    select: { persId: true, userId: true, level: true },
   });
   if (!pers || pers.userId !== user.id) return { success: false, error: "Немає доступу до персонажа" };
+
+  // Fetch feature to know max uses if we need to initialize
+  const feature = await prisma.feature.findUnique({
+    where: { featureId },
+    select: { usesCount: true, usesCountDependsOnProficiencyBonus: true },
+  });
+  if (!feature) return { success: false, error: "Вміння не знайдено" };
 
   const pf = await prisma.persFeature.findUnique({
     where: {
@@ -36,25 +43,40 @@ export async function spendFeatureUse({
     select: { usesRemaining: true },
   });
 
-  const cur = pf?.usesRemaining;
+  // Calculate max uses
+  let max = feature.usesCount;
+  if (feature.usesCountDependsOnProficiencyBonus) {
+      max = Math.ceil(pers.level / 4) + 1;
+  }
+
+  // If no record or usesRemaining is null, start from max
+  const cur = pf?.usesRemaining ?? max;
+  
   if (typeof cur !== "number") {
     return { success: true, usesRemaining: null };
   }
 
   const next = Math.max(0, Math.trunc(cur) - 1);
 
-  const updated = await prisma.persFeature.update({
+  const updated = await prisma.persFeature.upsert({
     where: {
       persId_featureId: {
         persId,
         featureId,
       },
     },
-    data: { usesRemaining: next },
+    create: {
+      persId,
+      featureId,
+      usesRemaining: next
+    },
+    update: { 
+      usesRemaining: next 
+    },
     select: { usesRemaining: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
   return { success: true, usesRemaining: updated.usesRemaining };
@@ -78,9 +100,15 @@ export async function restoreFeatureUse({
 
   const pers = await prisma.pers.findUnique({
     where: { persId },
-    select: { persId: true, userId: true },
+    select: { persId: true, userId: true, level: true },
   });
   if (!pers || pers.userId !== user.id) return { success: false, error: "Немає доступу до персонажа" };
+
+  const feature = await prisma.feature.findUnique({
+    where: { featureId },
+    select: { usesCount: true, usesCountDependsOnProficiencyBonus: true },
+  });
+  if (!feature) return { success: false, error: "Вміння не знайдено" };
 
   const pf = await prisma.persFeature.findUnique({
     where: {
@@ -89,41 +117,43 @@ export async function restoreFeatureUse({
         featureId,
       },
     },
-    include: { 
-      feature: true,
-      pers: {
-        select: { level: true }
-      }
-    },
+    select: { usesRemaining: true },
   });
 
-  if (!pf) return { success: false, error: "Вміння не знайдено" };
-
   // Calculate max uses
-  let max = pf.feature.usesCount;
-  if (pf.feature.usesCountDependsOnProficiencyBonus) {
-      max = Math.ceil(pf.pers.level / 4) + 1;
+  let max = feature.usesCount;
+  if (feature.usesCountDependsOnProficiencyBonus) {
+      max = Math.ceil(pers.level / 4) + 1;
   }
   
-  const cur = pf.usesRemaining;
+  // If no record or usesRemaining is null, start from max
+  const cur = pf?.usesRemaining ?? max;
+
   if (typeof cur !== "number" || typeof max !== "number") {
     return { success: true, usesRemaining: null };
   }
 
   const next = Math.min(max, Math.trunc(cur) + 1);
 
-  const updated = await prisma.persFeature.update({
+  const updated = await prisma.persFeature.upsert({
     where: {
       persId_featureId: {
         persId,
         featureId,
       },
     },
-    data: { usesRemaining: next },
+    create: {
+      persId,
+      featureId,
+      usesRemaining: next
+    },
+    update: { 
+      usesRemaining: next 
+    },
     select: { usesRemaining: true },
   });
 
-  revalidatePath(`/pers/${persId}`);
+  revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
 
   return { success: true, usesRemaining: updated.usesRemaining };

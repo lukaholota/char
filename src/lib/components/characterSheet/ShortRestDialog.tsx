@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { shortRest, HitDiceToUse } from "@/lib/actions/rest-actions";
 import { restTranslations, classTranslations } from "@/lib/refs/translation";
-import { PersWithRelations } from "@/lib/actions/pers";
+import { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { getAbilityMod } from "@/lib/logic/utils";
 import { Classes } from "@prisma/client";
 import { Minus, Plus, Dice6 } from "lucide-react";
@@ -17,6 +17,7 @@ interface ShortRestDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onPersUpdate?: (next: PersWithRelations) => void;
+  onFeaturesUpdate?: (next: CharacterFeaturesGroupedResult) => void;
 }
 
 interface HitDieInfo {
@@ -27,7 +28,7 @@ interface HitDieInfo {
   max: number;
 }
 
-export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate }: ShortRestDialogProps) {
+export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate, onFeaturesUpdate }: ShortRestDialogProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -123,9 +124,14 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
           ...pers,
           currentHp: res.newCurrentHp,
           currentHitDice: res.currentHitDice as any,
+          currentPactSlots: (res as any).currentPactSlots ?? (pers as any).currentPactSlots,
         };
 
         onPersUpdate?.(nextPers);
+
+        if (res.groupedFeatures) {
+          onFeaturesUpdate?.(res.groupedFeatures);
+        }
 
         toast.success(restTranslations.shortRestComplete, {
           description: `${restTranslations.hpRestored}: ${res.hpRestored}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,

@@ -1,10 +1,20 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { UserPlus, Check, Loader2 } from "lucide-react";
 
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { getSpellForModal, type SpellForModal } from "@/lib/actions/spell-actions";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { getSpellForModal, type SpellForModal, toggleSpellForPers } from "@/lib/actions/spell-actions";
+import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
@@ -72,6 +82,12 @@ function isSpellForModalLike(value: unknown): value is SpellForModal {
   );
 }
 
+type PersIndexItem = {
+  persId: number;
+  name: string;
+  spellIds: number[];
+};
+
 export function SpellInfoModal() {
   const isLg = useMediaQuery("(min-width: 1024px)");
 
@@ -81,6 +97,11 @@ export function SpellInfoModal() {
   const [spell, setSpell] = useState<SpellForModal | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  
+  // For attach-to-character dropdown
+  const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
+  const [persDropdownOpen, setPersDropdownOpen] = useState(false);
+  const [persLoading, setPersLoading] = useState(false);
 
   useEffect(() => {
     // Patch history methods once so we can react to router pushes too.
@@ -219,78 +240,150 @@ export function SpellInfoModal() {
       }}
     >
       <DialogContent
-        className="max-h-[85vh] w-[95vw] max-w-3xl overflow-y-auto p-0 bg-gradient-to-b from-slate-950/18 to-slate-950/10"
+        className="max-h-[85vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 bg-gradient-to-b from-slate-950/18 to-slate-950/12"
       >
-        <div className="p-3 sm:p-6">
-          <div className="flex items-start justify-between gap-3">
-            <DialogTitle className="min-w-0 font-sans text-xl font-semibold uppercase tracking-[0.10em] text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400 truncate">
+        <div className="px-3 py-4 sm:px-5 sm:py-5">
+          {/* Header with title */}
+          <div className="flex items-center justify-between gap-2 pr-8">
+            <DialogTitle className="min-w-0 flex-1 font-sans text-base sm:text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400 break-words whitespace-normal text-balance leading-tight">
               {spell?.name ?? (loading ? "Завантаження…" : "Заклинання")}
             </DialogTitle>
+            
+            {/* Attach to character button - positioned in header */}
+            {spell && (
+              <DropdownMenu
+                open={persDropdownOpen}
+                onOpenChange={(next) => {
+                  setPersDropdownOpen(next);
+                  if (next && !persIndex) {
+                    setPersLoading(true);
+                    getUserPersesSpellIndex().then((data) => {
+                      setPersIndex(data);
+                      setPersLoading(false);
+                    }).catch(() => setPersLoading(false));
+                  }
+                }}
+              >
+                <DropdownMenuTrigger asChild>
+                  <button
+                    type="button"
+                    className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-slate-400 transition hover:text-teal-300 hover:bg-white/10"
+                    aria-label="Додати до персонажа"
+                  >
+                    <UserPlus className="h-4 w-4" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 z-[10000]">
+                  <DropdownMenuLabel>Додати до персонажа</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  
+                  {persLoading ? (
+                    <div className="px-2 py-2 text-xs text-slate-400 flex items-center gap-2">
+                      <Loader2 className="h-4 w-4 animate-spin" /> Завантаження…
+                    </div>
+                  ) : persIndex && persIndex.length === 0 ? (
+                    <div className="px-2 py-2 text-xs text-slate-400">Немає персонажів</div>
+                  ) : (
+                    persIndex?.map((p) => {
+                      const has = p.spellIds.includes(spell.spellId);
+                      const label = p.name || `Персонаж #${p.persId}`;
+                      return (
+                        <DropdownMenuItem
+                          key={p.persId}
+                          className="flex items-center justify-between gap-2"
+                          onSelect={async (e) => {
+                            e.preventDefault();
+                            const res = await toggleSpellForPers({ persId: p.persId, spellId: spell.spellId });
+                            if (!res.success) return;
+                            
+                            setPersIndex(
+                              (persIndex || []).map((item) =>
+                                item.persId !== p.persId
+                                  ? item
+                                  : {
+                                      ...item,
+                                      spellIds: res.added
+                                        ? Array.from(new Set([...item.spellIds, spell.spellId]))
+                                        : item.spellIds.filter((id) => id !== spell.spellId),
+                                    }
+                              )
+                            );
+                          }}
+                        >
+                          <span className="truncate">{label}</span>
+                          {has ? <Check className="h-4 w-4 text-teal-400" /> : null}
+                        </DropdownMenuItem>
+                      );
+                    })
+                  )}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
 
-          <div className="mt-2 flex flex-col gap-2 rounded-xl bg-slate-800/50 p-2 sm:p-3 glass-panel">
-            <div className="flex items-baseline justify-between gap-3">
-              <div className="min-w-0 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm text-slate-200/90">
+          <div className="mt-2 flex flex-col gap-1 rounded-lg bg-slate-800/40 p-2 glass-panel">
+            <div className="flex items-baseline justify-between gap-2">
+              <div className="min-w-0 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs sm:text-[13px] text-slate-200/90">
                 <span className="text-slate-200 font-medium">{spell ? labelForLevel(spell.level, ritualForSpell(spell)) : ""}</span>
-                {schoolLabel ? <span className="italic text-slate-300">{schoolLabel}</span> : null}
+                {schoolLabel ? <span className="italic text-slate-300/80">{schoolLabel}</span> : null}
               </div>
               {sourceLabel ? (
-                <div className="min-w-0 max-w-[45%] flex-shrink text-right text-xs text-slate-400 truncate">
+                <div className="min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs text-slate-400 truncate">
                   {sourceLabel}
                 </div>
               ) : null}
             </div>
           </div>
 
-          <div className="mt-3 grid grid-cols-2 gap-2 sm:gap-3">
-            <div className="glass-panel rounded-2xl bg-slate-900/40 border border-white/5 p-2 sm:p-3">
-              <div className="text-xs text-slate-400">Час використання</div>
-              <div className="mt-0.5 text-xs sm:text-sm text-slate-200">{spell?.castingTime ?? "—"}</div>
+          <div className="mt-2 grid grid-cols-2 gap-1.5 sm:gap-2">
+            <div className="glass-panel rounded-lg bg-slate-900/40 border border-white/5 p-2">
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Час використання</div>
+              <div className="mt-0.5 text-[11px] sm:text-xs text-slate-200 font-medium">{spell?.castingTime ?? "—"}</div>
             </div>
-            <div className="glass-panel rounded-2xl bg-slate-900/40 border border-white/5 p-2 sm:p-3">
-              <div className="text-xs text-slate-400">Тривалість</div>
-              <div className="mt-0.5 text-xs sm:text-sm text-slate-200">{spell?.duration ?? "—"}</div>
+            <div className="glass-panel rounded-lg bg-slate-900/40 border border-white/5 p-2">
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Тривалість</div>
+              <div className="mt-0.5 text-[11px] sm:text-xs text-slate-200 font-medium">{spell?.duration ?? "—"}</div>
             </div>
-            <div className="glass-panel rounded-2xl bg-slate-900/40 border border-white/5 p-2 sm:p-3">
-              <div className="text-xs text-slate-400">Дистанція</div>
-              <div className="mt-0.5 text-xs sm:text-sm text-slate-200">{spell?.range ?? "—"}</div>
+            <div className="glass-panel rounded-lg bg-slate-900/40 border border-white/5 p-2">
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Дистанція</div>
+              <div className="mt-0.5 text-[11px] sm:text-xs text-slate-200 font-medium">{spell?.range ?? "—"}</div>
             </div>
-            <div className="glass-panel rounded-2xl bg-slate-900/40 border border-white/5 p-2 sm:p-3">
-              <div className="text-xs text-slate-400">Компоненти</div>
-              <div className="mt-0.5 text-xs sm:text-sm text-slate-200">{spell?.components ?? "—"}</div>
+            <div className="glass-panel rounded-lg bg-slate-900/40 border border-white/5 p-2">
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Компоненти</div>
+              <div className="mt-0.5 text-[11px] sm:text-xs text-slate-200 font-medium">{spell?.components ?? "—"}</div>
             </div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-3">
             {loading ? (
-              <div className="glass-panel rounded-xl border border-slate-700/50 p-3 sm:p-4">
-                <div className="animate-pulse space-y-3">
-                  <div className="h-4 w-2/3 rounded bg-slate-700/40" />
-                  <div className="h-4 w-full rounded bg-slate-700/30" />
-                  <div className="h-4 w-5/6 rounded bg-slate-700/30" />
+              <div className="glass-panel rounded-lg border border-slate-700/50 p-2 sm:p-3">
+                <div className="animate-pulse space-y-2">
+                  <div className="h-3 w-2/3 rounded bg-slate-700/40" />
+                  <div className="h-3 w-full rounded bg-slate-700/30" />
+                  <div className="h-3 w-5/6 rounded bg-slate-700/30" />
                 </div>
-                <div className="mt-3 text-xs text-slate-400">Завантаження…</div>
+                <div className="mt-2 text-xs text-slate-400">Завантаження…</div>
               </div>
             ) : error ? (
-              <div className="glass-panel rounded-xl border border-slate-700/50 p-3 sm:p-4 text-sm text-slate-300">
+              <div className="glass-panel rounded-lg border border-slate-700/50 p-2 sm:p-3 text-xs sm:text-sm text-slate-300">
                 {error}
               </div>
             ) : spell ? (
-              <div className="glass-panel rounded-xl border border-slate-700/50 p-3 sm:p-4">
-                <FormattedDescription content={spell.description} className="text-slate-300" />
+              <div className="glass-panel rounded-lg border border-slate-700/50 p-2 sm:p-3 bg-slate-900/20 max-h-[35vh] overflow-y-auto max-w-full overflow-x-hidden">
+                <FormattedDescription content={spell.description} className="text-slate-300 text-xs sm:text-[13px] break-words leading-relaxed" />
               </div>
             ) : null}
           </div>
 
           {spell ? (
-            <div className="mt-5 border-t border-slate-800/70 pt-4 text-sm text-slate-300">
+            <div className="mt-3 border-t border-slate-800/70 pt-2 text-[11px] sm:text-[12px] text-slate-400">
               <div>
-                <span className="text-slate-400">Класи:</span> {classList.length ? classList.join(", ") : "—"}
+                <span className="text-slate-500">Класи:</span> <span className="text-slate-300">{classList.length ? classList.join(", ") : "—"}</span>
               </div>
               
               {raceList.length ? (
-                <div className="mt-1">
-                <span className="text-slate-400">Раси:</span> {raceList.length ? raceList.join(", ") : "—"}
+                <div className="mt-0.5">
+                <span className="text-slate-500">Раси:</span> <span className="text-slate-300">{raceList.length ? raceList.join(", ") : "—"}</span>
               </div>
               ) : null}
             </div>

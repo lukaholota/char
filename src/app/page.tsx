@@ -58,7 +58,7 @@ type HomeCard = {
 
 const cards: HomeCard[] = [
   {
-    href: "/pers/home",
+    href: "/char/home",
     title: "ПЕРСОНАЖІ",
     imageSrc: "/images/home-characters.webp",
     priority: true,

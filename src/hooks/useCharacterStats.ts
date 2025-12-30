@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { usePersFormStore } from '@/lib/stores/persFormStore';
 import { Ability, RaceVariant } from '@prisma/client';
 import { RaceI, FeatPrisma, RaceASI } from '@/lib/types/model-types';
+import { normalizeRaceASI } from '@/lib/components/characterCreator/infoUtils';
 
 const attributes = [
   { key: Ability.STR, label: 'Сила' },
@@ -42,29 +43,71 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
       scores[attr.key] = { base: baseScores[attr.key], bonus: 0, total: 0, mod: 0 };
     });
 
-    // 2. Racial Bonuses (Fixed)
-    let effectiveASI = race?.ASI as RaceASI | undefined;
-    if (raceVariant?.overridesRaceASI) {
-      effectiveASI = raceVariant.overridesRaceASI as unknown as RaceASI;
-    }
+    const subrace = (race?.subraces || []).find((sr: any) => sr.subraceId === (formData.subraceId ?? undefined));
 
-    if (effectiveASI?.basic?.simple) {
-      Object.entries(effectiveASI.basic.simple).forEach(([ability, bonus]) => {
-        if (scores[ability]) scores[ability].bonus += Number(bonus);
-      });
+    // 2. Racial Bonuses (Fixed)
+    const effectiveASI = normalizeRaceASI(
+      (raceVariant?.overridesRaceASI ?? race?.ASI) as any
+    ) as RaceASI | undefined;
+
+    if (formData.isDefaultASI) {
+      if (effectiveASI?.basic?.simple) {
+        Object.entries(effectiveASI.basic.simple).forEach(([ability, bonus]) => {
+          if (scores[ability]) scores[ability].bonus += Number(bonus);
+        });
+      }
+
+      const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
+      if (additionalASI && typeof additionalASI === 'object') {
+        Object.entries(additionalASI).forEach(([ability, bonus]) => {
+          if (scores[ability]) scores[ability].bonus += Number(bonus);
+        });
+      }
     }
 
     // 3. Racial Bonuses (Choices)
     if (formData.racialBonusChoiceSchema) {
-      const choices = formData.isDefaultASI 
-          ? formData.racialBonusChoiceSchema.basicChoices 
-          : formData.racialBonusChoiceSchema.tashaChoices;
-      
-      choices?.forEach(choice => {
-          choice.selectedAbilities.forEach(ability => {
-             if (scores[ability]) scores[ability].bonus += 1;
+      const choices = formData.isDefaultASI
+        ? formData.racialBonusChoiceSchema.basicChoices
+        : formData.racialBonusChoiceSchema.tashaChoices;
+
+      if (choices?.length) {
+        const raceGroups = formData.isDefaultASI
+          ? (effectiveASI?.basic?.flexible?.groups ?? [])
+          : (effectiveASI?.tasha?.flexible?.groups ?? []);
+
+        const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
+        const subraceGroups = !formData.isDefaultASI && additionalASI && typeof additionalASI === 'object'
+          ? (() => {
+              const byValue = new Map<number, number>();
+              Object.entries(additionalASI).forEach(([_ability, bonus]) => {
+                const value = Number(bonus);
+                if (!Number.isFinite(value) || value === 0) return;
+                byValue.set(value, (byValue.get(value) ?? 0) + 1);
+              });
+              return Array.from(byValue.entries())
+                .sort((a, b) => b[0] - a[0])
+                .map(([value, count]) => ({
+                  groupName: `+${value} до ${count}`,
+                  value,
+                  choiceCount: count,
+                  unique: true,
+                }));
+            })()
+          : [];
+
+        const allGroups = [...raceGroups, ...subraceGroups] as any[];
+
+        choices.forEach((choice) => {
+          const group = allGroups[choice.groupIndex];
+          const value = group?.value;
+          const bonusValue = typeof value === 'number' ? value : 1;
+
+          choice.selectedAbilities.forEach((ability) => {
+            if (scores[ability]) scores[ability].bonus += bonusValue;
           });
-      });
+        });
+      }
     }
 
     // 4. Feat Bonuses (Fixed)

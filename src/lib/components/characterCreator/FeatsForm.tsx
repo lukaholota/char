@@ -7,17 +7,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import clsx from "clsx";
 import { useEffect, useMemo, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { InfoDialog, InfoGrid, InfoPill } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import { sourceTranslations, featTranslations } from "@/lib/refs/translation";
-import {
-  formatASI,
-  formatLanguages,
-  formatSkillProficiencies,
-  formatToolProficiencies,
-  formatWeaponProficiencies,
-  formatArmorProficiencies,
-} from "@/lib/components/characterCreator/infoUtils";
+import { featTranslations } from "@/lib/refs/translation";
+import { FeatInfoModal } from "@/lib/components/characterCreator/modals/FeatInfoModal";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -57,43 +49,6 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange }: Props) => {
     );
   }, [feats, search]);
 
-  const FeatInfoModal = ({ feat }: { feat: Feat }) => {
-    const name = featTranslations[feat.name] ?? feat.name;
-    return (
-      <InfoDialog
-        title={name}
-        triggerLabel={`Показати деталі ${name}`}
-      >
-        <InfoGrid>
-          <InfoPill label="Джерело" value={sourceTranslations[feat.source] ?? feat.source} />
-          <InfoPill label="Бонуси характеристик" value={formatASI(feat.grantedASI)} />
-          <InfoPill
-            label="Навички"
-            value={formatSkillProficiencies(feat.grantedSkills as any)}
-          />
-           <InfoPill
-            label="Мови"
-            value={formatLanguages(feat.grantedLanguages, feat.grantedLanguageCount)}
-          />
-          <InfoPill
-            label="Інструменти"
-            value={formatToolProficiencies(feat.grantedToolProficiencies as any)}
-          />
-           <InfoPill
-            label="Зброя"
-            value={formatWeaponProficiencies(feat.grantedWeaponProficiencies as any)}
-          />
-           <InfoPill
-            label="Обладунки"
-            value={formatArmorProficiencies(feat.grantedArmorProficiencies)}
-          />
-          <div className="col-span-full">
-             <FormattedDescription content={feat.description} className="text-sm text-slate-300" />
-          </div>
-        </InfoGrid>
-      </InfoDialog>
-    );
-  };
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">

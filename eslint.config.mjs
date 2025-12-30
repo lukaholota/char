@@ -16,6 +16,7 @@ const eslintConfig = [
       "**/.next/**",
       "**/out/**",
       "**/build/**",
+      "prisma/tools/**",
       "next-env.d.ts",
       "test_pg.js",
     ],
@@ -29,6 +30,19 @@ const eslintConfig = [
         varsIgnorePattern: '^_',
         caughtErrorsIgnorePattern: '^_'
       }],
+    }
+  },
+  // Allow explicit `any` in Prisma / generated / types and certain server-side code
+  {
+    files: [
+      'src/lib/types/**',
+      'src/types/**',
+      'src/server/**',
+      'prisma/**',
+      'src/lib/components/**'
+    ],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off'
     }
   },
 ];
