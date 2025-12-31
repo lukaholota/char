@@ -6,7 +6,6 @@ import { FeatureDisplayType, SpellcastingType } from "@prisma/client";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   Dialog,
@@ -226,8 +225,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
     const resourceKeys = new Set(resourceItems.map(r => r.key));
     const filterItems = (items: CharacterFeatureItem[]) => 
       items
-        .filter(it => !resourceKeys.has(it.key))
-        .filter(it => it.source !== "CHOICE" && it.source !== "RACE_CHOICE");
+        .filter(it => !resourceKeys.has(it.key));
 
     const sortItems = (items: CharacterFeatureItem[]) => {
       const sourcePriority: Record<string, number> = {
@@ -739,7 +737,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   }, [backgroundName, classEntries, entityKind, entityVariantIndex, pers, raceName, subclassEntries, subraceName]);
 
   return (
-    <div className="h-full p-3 sm:p-4 space-y-3">
+    <div className="h-full p-3 sm:p-4 pb-24 space-y-3">
       <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
@@ -907,34 +905,32 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
                   {total === 0 ? (
                     <div className="text-xs text-slate-400">Немає в цій категорії</div>
                   ) : (
-                    <ScrollArea className="max-h-[44vh] overflow-y-auto pr-3">
-                      <div className="space-y-2">
-                        {category.items.map((item) => {
-                          const remaining = getUsesRemaining(item);
-                          const featureRef = {
-                              ...item,
-                              displayType: item.displayTypes,
-                              usesRemaining: remaining,
-                              usesCount: item.usesPer
-                          };
+                    <div className="space-y-2">
+                      {category.items.map((item) => {
+                        const remaining = getUsesRemaining(item);
+                        const featureRef = {
+                            ...item,
+                            displayType: item.displayTypes,
+                            usesRemaining: remaining,
+                            usesCount: item.usesPer
+                        };
 
-                          return (
-                            <FeatureCard 
-                                key={item.key} 
-                                feature={featureRef} 
-                                onClick={() => {
-                                    if (item.magicItem) setMagicItemToShow(item.magicItem);
-                                    else setSelected(item);
-                                }}
-                                isPending={isPending}
-                                isReadOnly={isReadOnly}
-                                onSpend={() => spendOneUse(item)}
-                                onRestore={() => restoreOneUse(item)}
-                            />
-                          );
-                        })}
-                      </div>
-                    </ScrollArea>
+                        return (
+                          <FeatureCard 
+                              key={item.key} 
+                              feature={featureRef} 
+                              onClick={() => {
+                                  if (item.magicItem) setMagicItemToShow(item.magicItem);
+                                  else setSelected(item);
+                              }}
+                              isPending={isPending}
+                              isReadOnly={isReadOnly}
+                              onSpend={() => spendOneUse(item)}
+                              onRestore={() => restoreOneUse(item)}
+                          />
+                        );
+                      })}
+                    </div>
                   )}
                 </CollapsibleContent>
               </Collapsible>
@@ -944,7 +940,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
       )}
 
       <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">{selected?.name}</DialogTitle>
           </DialogHeader>

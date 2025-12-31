@@ -34,30 +34,30 @@ async function main() {
     // await seedArmor(prisma)
     // await seedEquipmentPacks(prisma)
     // await seedBackground(prisma)
-    // await seedRaceFeatures(prisma)
+    // await _seedRaceFeatures(prisma)
     // await seedSubraceFeatures(prisma)
-    // await seedRaces(prisma)
+    // await _seedRaces(prisma)
     // await seedSubraces(prisma)
     // await seedRaceVariants(prisma)
-    // await seedRaceChoiceOptions(prisma)
+    // await _seedRaceChoiceOptions(prisma)
 
     // await seedClasses(prisma)
     // await seedSubclasses(prisma)
-    // await seedSubclassFeatures(prisma)
+    // await _seedSubclassFeatures(prisma)
     // await seedChoiceOptions(prisma)
     // await seedClassChoiceOptions(prisma)
     // await seedSubclassChoiceOptions(prisma)
     
-    await seedMagicItems(prisma) // items for infusions
+    // await seedMagicItems(prisma) // items for infusions
     // await seedInfusions(prisma)  // infusions themselves
 
     // await seedClassOptionalFeatures(prisma)
     
-    await seedFeats(prisma);
-    await seedFeatChoiceOptions(prisma);
+    // await seedFeats(prisma);
+    // await seedFeatChoiceOptions(prisma);
 
     // await seedClassFeatures(prisma)
-    // await seedInfusionFeatures(prisma) // features for infusions
+    await _seedInfusionFeatures(prisma) // features for infusions
 }
 
 main()

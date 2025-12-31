@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import clsx from "clsx";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -92,7 +93,7 @@ export function FormattedDescription({
   };
 
   return (
-    <div className={className}>
+    <div className={clsx("whitespace-pre-line", className)}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
@@ -129,7 +130,7 @@ export function FormattedDescription({
               </a>
             );
           },
-          p: ({ children }) => <div className="mb-3 text-sm leading-relaxed text-inherit last:mb-0 break-words max-w-full">{children}</div>,
+          p: ({ children }) => <div className="mb-3 text-sm leading-relaxed text-inherit last:mb-0 break-words max-w-full whitespace-pre-line">{children}</div>,
           ul: ({ children }) => <ul className="mb-3 list-disc space-y-1 pl-5 text-sm text-inherit break-words max-w-full">{children}</ul>,
           ol: ({ children }) => <ol className="mb-3 list-decimal space-y-1 pl-5 text-sm text-inherit break-words max-w-full">{children}</ol>,
           li: ({ children }) => <li className="leading-relaxed break-words">{children}</li>,

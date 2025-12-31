@@ -30,7 +30,7 @@ export default function OptionalFeaturesForm({
 }: Props) {
   const { formData, updateFormData } = usePersFormStore();
 
-  const decisions = (formData.classOptionalFeatureSelections as Record<string, boolean>) || {};
+  const decisions = useMemo(() => (formData.classOptionalFeatureSelections as Record<string, boolean>) || {}, [formData.classOptionalFeatureSelections]);
 
   const selectedChoiceIds = useMemo(() => {
     const selections = (formData.classChoiceSelections as Record<string, number>) || {};
@@ -111,7 +111,7 @@ export default function OptionalFeaturesForm({
           const key = item.optionalFeatureId.toString();
           const accepted = decisions[key];
           const title = item.title || item.feature?.name || "Додаткова опція";
-          const description = item.feature?.description || "Деталі відсутні.";
+          const description = item.feature?.description;
           const replaces =
             item.replacesFeatures
               ?.map((rep) => rep.replacedFeature?.name)
@@ -140,12 +140,14 @@ export default function OptionalFeaturesForm({
                   </Badge>
                 </div>
 
-                <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
-                  <InfoSectionTitle>Опис</InfoSectionTitle>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                    {description}
-                  </p>
-                </div>
+                {description && (
+                  <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
+                    <InfoSectionTitle>Опис</InfoSectionTitle>
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                      {description}
+                    </p>
+                  </div>
+                )}
 
                 <div className="flex flex-wrap gap-2">
                   <Button

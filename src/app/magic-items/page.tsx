@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import { Suspense } from "react";
 import { getAllMagicItems } from "@/lib/magicItemsData";
 import { MagicItemsClient, type MagicItemListItem } from "./magic-items-client";
+
+export const metadata: Metadata = {
+  title: "Магічні предмети — ДнД українською",
+  description: "База даних магічних предметів для D&D 5e українською мовою. Фільтрація за рідкістю, типом та можливістю налаштування.",
+};
 
 // Static generation
 export default async function MagicItemsPage({

@@ -336,12 +336,32 @@ export async function levelUpCharacter(persId: number, data: any) {
     await processChoiceSelections(data?.subclassChoiceSelections as Record<string, number> | undefined);
     await processChoiceSelections(featChoiceSelections);
 
-    // Optional class features (replacements)
     const optionalSelections = (data?.classOptionalFeatureSelections || {}) as Record<string, boolean>;
     const acceptedOptionalIds = Object.entries(optionalSelections)
       .filter(([, accepted]) => accepted === true)
       .map(([id]) => Number(id))
       .filter((id) => Number.isFinite(id));
+
+    // Handle replacements (Fighting Styles, Maneuvers, Invocations)
+    const replacementDisconnectIds = new Set<number>();
+    const replacementConnectIds = new Set<number>();
+
+    for (const optId of acceptedOptionalIds) {
+      const fsKey = `fightingStyleReplacement_${optId}`;
+      const manKey = `maneuverReplacement_${optId}`;
+      const invKey = `invocationReplacement_${optId}`;
+
+      const fsRep = data[fsKey];
+      const manRep = data[manKey];
+      const invRep = data[invKey];
+
+      [fsRep, manRep, invRep].forEach(rep => {
+        if (rep?.oldId && rep?.newId) {
+          replacementDisconnectIds.add(Number(rep.oldId));
+          replacementConnectIds.add(Number(rep.newId));
+        }
+      });
+    }
 
     const optionalReplacedFeatureIds = new Set<number>();
     const optionalGrantedFeatureIds = new Set<number>();
@@ -363,7 +383,32 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     for (const fid of optionalGrantedFeatureIds) featuresToAdd.add(fid);
 
-    // ===== 6) Persist =====
+    // Add features from replacement new choices
+    if (replacementConnectIds.size > 0) {
+      const repNewOptions = await prisma.choiceOption.findMany({
+        where: { choiceOptionId: { in: Array.from(replacementConnectIds) } },
+        include: { features: true },
+      });
+      for (const opt of repNewOptions) {
+        choiceOptionIds.push(opt.choiceOptionId);
+        for (const f of opt.features) featuresToAdd.add(f.featureId);
+      }
+    }
+
+    // Identify features to remove from replacement old choices
+    const featuresToRemove = new Set<number>();
+    if (replacementDisconnectIds.size > 0) {
+      const repOldOptions = await prisma.choiceOption.findMany({
+        where: { choiceOptionId: { in: Array.from(replacementDisconnectIds) } },
+        include: { features: true },
+      });
+      for (const opt of repOldOptions) {
+        for (const f of opt.features) featuresToRemove.add(f.featureId);
+      }
+    }
+
+    // Combine with other replacements
+    for (const fid of optionalReplacedFeatureIds) featuresToRemove.add(fid);
     await prisma.$transaction(async (tx) => {
       // Create snapshot before changes
       await createCharacterSnapshot(persId);
@@ -445,16 +490,19 @@ export async function levelUpCharacter(persId: number, data: any) {
         data: {
           currentSpellSlots: maxSpellSlotsRow,
           currentPactSlots: maxPactSlots,
-          choiceOptions: choiceOptionIds.length
-            ? {
-              connect: choiceOptionIds.map((id) => ({ choiceOptionId: id })),
-            }
-            : undefined,
           classOptionalFeatures: acceptedOptionalIds.length
             ? {
               connect: acceptedOptionalIds.map((optionalFeatureId) => ({ optionalFeatureId })),
             }
             : undefined,
+          choiceOptions: {
+            disconnect: replacementDisconnectIds.size > 0 
+              ? Array.from(replacementDisconnectIds).map(id => ({ choiceOptionId: id })) 
+              : undefined,
+            connect: choiceOptionIds.length
+              ? choiceOptionIds.map((id) => ({ choiceOptionId: id }))
+              : undefined,
+          }
         },
       });
 
@@ -503,11 +551,11 @@ export async function levelUpCharacter(persId: number, data: any) {
       }
 
       // Remove replaced features
-      if (optionalReplacedFeatureIds.size > 0) {
+      if (featuresToRemove.size > 0) {
         await tx.persFeature.deleteMany({
           where: {
             persId,
-            featureId: { in: Array.from(optionalReplacedFeatureIds) },
+            featureId: { in: Array.from(featuresToRemove) },
           },
         });
       }

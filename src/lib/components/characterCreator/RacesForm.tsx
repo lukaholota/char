@@ -107,7 +107,13 @@ export const RacesForm = (
     () => races
       .filter(r => !r.name.endsWith('2014'))
       .filter(r => matchesSearch(r.name))
-      .sort((a, b) => (a.sortOrder - b.sortOrder) || (a.raceId - b.raceId)),
+      .sort((a, b) => {
+        // Sort by sortOrder first (negative values like -10 come first)
+        const orderDiff = a.sortOrder - b.sortOrder;
+        if (orderDiff !== 0) return orderDiff;
+        // Then by raceId as fallback
+        return a.raceId - b.raceId;
+      }),
     [races, matchesSearch]
   );
 

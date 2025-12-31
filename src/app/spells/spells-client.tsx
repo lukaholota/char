@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
-import { classTranslations, sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
+import { classTranslations, sourceTranslations, spellSchoolTranslations, subclassTranslations } from "@/lib/refs/translation";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { toggleSpellForPers } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
@@ -102,13 +102,30 @@ function getParamSet(params: URLSearchParams, key: string): Set<string> {
 
 function setParamSet(params: URLSearchParams, key: string, values: Set<string>) {
   const nextValues = Array.from(values).filter(Boolean);
-  if (nextValues.length === 0) params.delete(key);
-  else params.set(key, nextValues.join(","));
+  if (nextValues.length === 0) {
+    // For primary filters, keep the key but set to empty string to distinguish from "not touched"
+    if (["lvl", "cls", "sub", "sch", "time", "src"].includes(key)) {
+      params.set(key, "");
+    } else {
+      params.delete(key);
+    }
+  } else {
+    params.set(key, nextValues.join(","));
+  }
 }
 
 function setBoolParam(params: URLSearchParams, key: string, value: boolean | null) {
   if (value === null) params.delete(key);
   else params.set(key, value ? "1" : "0");
+}
+
+function normalizeCastingTime(time: string): string {
+  if (!time) return "";
+  const lower = time.toLowerCase().trim();
+  if (lower.includes("реакція")) return "1 реакція";
+  if (lower.includes("бонусна дія")) return "1 бонусна дія";
+  if (lower.includes("1 дія") && !lower.includes("бонусна")) return "1 дія";
+  return time.trim();
 }
 
 function getBoolParam(params: URLSearchParams, key: string): boolean | null {
@@ -125,11 +142,34 @@ function getSearchParamsFromLocation(): URLSearchParams {
 }
 
 function parseSelectionFromParams(params: URLSearchParams): SelectionState {
+  const classes = getParamSet(params, "cls");
+  const subclasses = getParamSet(params, "sub");
+  const levels = getParamSet(params, "lvl");
+
+  // Map IDs (like ARTIFICER_2014) to names (like Винахідник) if they exist in translations
+  const mappedClasses = new Set(
+    Array.from(classes).map(c => ((classTranslations as Record<string, string>)[c] || c).toLowerCase())
+  );
+  const mappedSubclasses = new Set(
+    Array.from(subclasses).map(s => ((subclassTranslations as Record<string, string>)[s] || s).toLowerCase())
+  );
+
+  // If lvl is MISSING from params (has("lvl") is false) but maxSpellLevel is present, pre-fill.
+  // We use has("lvl") because setParamSet now sets "" if the user explicitly clears it.
+  if (!params.has("lvl") && params.get("maxSpellLevel")) {
+    const max = parseInt(params.get("maxSpellLevel")!, 10);
+    if (!isNaN(max)) {
+      for (let i = 0; i <= max; i++) {
+        levels.add(String(i));
+      }
+    }
+  }
+
   return {
-    levels: getParamSet(params, "lvl"),
-    classes: getParamSet(params, "cls"),
-    subclasses: getParamSet(params, "sub"),
-    schools: getParamSet(params, "sch"),
+    levels,
+    classes: mappedClasses,
+    subclasses: mappedSubclasses,
+    schools: new Set(Array.from(getParamSet(params, "sch")).map(x => x.toLowerCase())),
     times: getParamSet(params, "time"),
     sources: getParamSet(params, "src"),
     ritual: getBoolParam(params, "rit"),
@@ -472,7 +512,6 @@ export function SpellsClient({
   const [subclassFilter, setSubclassFilter] = useState("");
 
   // Embed mode state
-  // Embed mode state
   const [embedParams, setEmbedParams] = useState<EmbedParams>(() => {
     // Initialize from props to ensure hydration matches
     const params = new URLSearchParams();
@@ -542,6 +581,7 @@ export function SpellsClient({
       if (nextKey !== selectionKeyRef.current) {
         selectionKeyRef.current = nextKey;
         setSelection(next);
+        setEmbedParams(parseEmbedParams(getSearchParamsFromLocation()));
       }
 
       // Keep input box in sync with URL too.
@@ -596,14 +636,15 @@ export function SpellsClient({
       }
 
       if (selection.times.size > 0) {
-        if (!selection.times.has(s.castingTime)) return false;
+        const normalized = normalizeCastingTime(s.castingTime);
+        if (!selection.times.has(normalized.toLowerCase())) return false;
       }
 
       if (selection.classes.size > 0) {
-        const spellClasses = new Set(s.spellClasses.map((c) => c.className));
+        const spellClasses = new Set(s.spellClasses.map((c) => c.className.toLowerCase()));
         let ok = false;
         for (const cls of selection.classes) {
-          if (spellClasses.has(cls)) {
+          if (spellClasses.has(cls.toLowerCase())) {
             ok = true;
             break;
           }
@@ -612,15 +653,24 @@ export function SpellsClient({
       }
 
       if (selection.subclasses.size > 0) {
-        const spellClasses = new Set(s.spellClasses.map((c) => c.className));
+        const spellClasses = new Set(s.spellClasses.map((c) => c.className.toLowerCase()));
         let ok = false;
         for (const sub of selection.subclasses) {
-          if (spellClasses.has(sub)) {
+          if (spellClasses.has(sub.toLowerCase())) {
             ok = true;
             break;
           }
         }
         if (!ok) return false;
+      }
+
+      if (selection.schools.size > 0) {
+        const school = s.school?.toLowerCase();
+        if (!school || !selection.schools.has(school)) return false;
+      }
+
+      if (selection.sources.size > 0) {
+        if (!selection.sources.has(s.source)) return false;
       }
 
       if (selection.ritual !== null) {
@@ -661,8 +711,45 @@ export function SpellsClient({
   const toggleSetValue = (key: string, value: string) => {
     setParams((next) => {
       const set = getParamSet(next, key);
-      if (set.has(value)) set.delete(value);
-      else set.add(value);
+      const target = value.toLowerCase();
+
+      if (key === "lvl" && !next.has("lvl") && next.get("maxSpellLevel")) {
+        const max = parseInt(next.get("maxSpellLevel")!, 10);
+        if (!isNaN(max)) {
+          for (let i = 0; i <= max; i++) set.add(String(i));
+        }
+      }
+
+      if (key === "cls" || key === "sub" || key === "sch") {
+        const translations = 
+          key === "cls" ? classTranslations : 
+          key === "sub" ? subclassTranslations : 
+          spellSchoolTranslations;
+        
+        // Find if ANY current value maps to the target "logical" value
+        let found = false;
+        for (const raw of Array.from(set)) {
+          const mapped = ((translations as Record<string, string>)[raw] || raw).toLowerCase();
+          if (mapped === target) {
+            found = true;
+            break;
+          }
+        }
+
+        if (found) {
+          // Remove all raw values that map to this logical value
+          for (const raw of Array.from(set)) {
+            const mapped = ((translations as Record<string, string>)[raw] || raw).toLowerCase();
+            if (mapped === target) set.delete(raw);
+          }
+        } else {
+          set.add(value);
+        }
+      } else {
+        if (set.has(value)) set.delete(value);
+        else set.add(value);
+      }
+      
       setParamSet(next, key, set);
     });
   };
@@ -677,7 +764,7 @@ export function SpellsClient({
     for (const s of spells) {
       levels.add(s.level);
       if (s.school) schools.add(s.school);
-      times.add(s.castingTime);
+      times.add(normalizeCastingTime(s.castingTime));
       sources.add(s.source);
       for (const c of s.spellClasses) classes.add(c.className);
     }
@@ -704,6 +791,8 @@ export function SpellsClient({
       next.delete("src");
       next.delete("rit");
       next.delete("conc");
+      next.delete("maxSpellLevel");
+      next.delete("origin");
     });
   };
 
@@ -757,11 +846,9 @@ export function SpellsClient({
     window.open(`/api/spells/print?ids=${ids}`, "_blank", "noopener,noreferrer");
   };
 
-  // Filter by maxSpellLevel in embed mode
-  const filteredByLevel = useMemo(() => {
-    if (!isEmbedMode || embedParams.maxSpellLevel === null) return filtered;
-    return filtered.filter((s) => s.level <= (embedParams.maxSpellLevel ?? 9));
-  }, [filtered, isEmbedMode, embedParams.maxSpellLevel]);
+  // Filter by maxSpellLevel (legacy/hard filter) removed to allow user to see all spells.
+  // It is now managed via initial selection.levels.
+  const filteredByLevel = filtered;
 
   // Override grouped to use filteredByLevel in embed mode
   const finalGrouped = useMemo(() => {
@@ -1072,8 +1159,12 @@ export function SpellsClient({
                       <Badge
                         key={cls}
                         variant={active ? "default" : "outline"}
-                        className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                        onClick={() => toggleSetValue("cls", cls)}
+                        className={`h-7 px-2 py-0 text-xs font-normal border transition-colors ${
+                        selection.classes.has(cls.toLowerCase())
+                          ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/40"
+                          : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10"
+                      }`}
+                      onClick={() => toggleSetValue("cls", cls.toLowerCase())}
                         role="button"
                       >
                         {label}
@@ -1110,8 +1201,12 @@ export function SpellsClient({
                           <Badge
                             key={sub}
                             variant={active ? "default" : "outline"}
-                            className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                            onClick={() => toggleSetValue("sub", sub)}
+                            className={`h-7 px-2 py-0 text-xs font-normal border transition-colors ${
+                        selection.subclasses.has(sub.toLowerCase())
+                          ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/40"
+                          : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10"
+                      }`}
+                      onClick={() => toggleSetValue("sub", sub.toLowerCase())}
                             role="button"
                           >
                             {label}

@@ -49,6 +49,11 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         throw new Error("Kobold MPMM race not found");
     }
 
+    const customLineage = await prisma.race.findFirst({ where: { name: Races.CUSTOM_LINEAGE_TCE } });
+    if (!customLineage) {
+        throw new Error("Custom Lineage race not found");
+    }
+
     const connectFeature = (engName: string) => ({ feature: { connect: { engName } } });
 
     const choices = [
@@ -753,6 +758,51 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
                 create: [
                     connectFeature('Kobold Legacy')
                 ]
+            }
+        },
+
+        // ============ CUSTOM LINEAGE ============
+        {
+            raceId: customLineage.raceId,
+            subraceId: null,
+            choiceGroupName: "Розмір",
+            optionName: "Середній",
+            description: "Ваш розмір — Середній.",
+            selectMultiple: false,
+            maxSelection: 1,
+            // Size is already handled in the base race, but we can use this to explicitly set it if needed
+            // or just leave it as a descriptive choice.
+        },
+        {
+            raceId: customLineage.raceId,
+            subraceId: null,
+            choiceGroupName: "Розмір",
+            optionName: "Малий",
+            description: "Ваш розмір — Малий.",
+            selectMultiple: false,
+            maxSelection: 1,
+        },
+        {
+            raceId: customLineage.raceId,
+            subraceId: null,
+            choiceGroupName: "Змінна риса",
+            optionName: "Темний зір",
+            description: "Ви маєте темний зір на відстані 60 футів.",
+            selectMultiple: false,
+            maxSelection: 1,
+            // No feature connection needed - this is a simple choice that grants darkvision
+        },
+        {
+            raceId: customLineage.raceId,
+            subraceId: null,
+            choiceGroupName: "Змінна риса",
+            optionName: "Навичка",
+            description: "Ви отримуєте володіння однією навичкою на ваш вибір.",
+            selectMultiple: false,
+            maxSelection: 1,
+            skillProficiencies: {
+                choiceCount: 1,
+                options: ["ANY"]
             }
         }
     ];

@@ -58,6 +58,8 @@ export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 			engName: 'Infusion: Armor of Magical Strength',
 			description: 'Використовуйте модифікатор Інтелекту для перевірок і кидків Сили. Бонусною дією: отримайте тимчасові ОЗ = ваш модифікатор Інтелекту (кількість разів = БМ, відновлюється після довгого відпочинку).',
 			shortDescription: 'Інт для перевірок Сили; бонус. дією темп. ОЗ',
+			limitedUsesPer: RestType.LONG_REST,
+			usesCountDependsOnProficiencyBonus: true,
 			displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.BONUSACTION],
 		},
 		{
@@ -117,7 +119,7 @@ export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 		const normalized = normalizeFeatureCreateInput(f)
 		await prisma.feature.upsert( {
 			where: { engName: normalized.engName },
-			update: {},
+			update: normalized,
 			create: normalized,
 		} )
 	}

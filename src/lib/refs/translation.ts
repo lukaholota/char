@@ -78,8 +78,9 @@ export const raceTranslations = {
   THRI_KREEN_SPELLJAMMER: "Три-крін",
   KENDER_DRAGONLANCE: "Кендер",
   GRUNG_OGA: "Ґрунґ",
-  LOCATHAH_LR: "Локата"
-} as const;
+  LOCATHAH_LR: "Локата",
+  CUSTOM_LINEAGE_TCE: "Своя раса",
+};
 
 export const raceTranslationsEng = {
   AASIMAR_2024: "Aasimar",
@@ -159,8 +160,9 @@ export const raceTranslationsEng = {
   THRI_KREEN_SPELLJAMMER: "Thri-Kreen",
   KENDER_DRAGONLANCE: "Kender",
   GRUNG_OGA: "Grung",
-  LOCATHAH_LR: "Locathah"
-} as const;
+  LOCATHAH_LR: "Locathah",
+  CUSTOM_LINEAGE_TCE: "Custom Lineage",
+};
 
 export const variantTranslations = {
   HALF_ELF_VARIANT_HIGH_DESCENT_SCAG: "Високий Напівельф",

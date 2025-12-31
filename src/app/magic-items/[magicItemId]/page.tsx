@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllMagicItems, getMagicItemById, type MagicItemWithSpells } from "@/lib/magicItemsData";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { Badge } from "@/components/ui/badge";
+import { getDescriptionSnippet } from "@/lib/seo-utils";
 
 // Generate all pages at build time
 export async function generateStaticParams() {
@@ -36,9 +36,22 @@ export async function generateMetadata({
     };
   }
 
+  const title = `${item.name} — ${typeLabel(item.itemType)}`;
+  const description = getDescriptionSnippet(`${item.name} (${rarityLabel(item.rarity)}). ${item.description}`);
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://char.holota.family"}/magic-items/${magicItemId}`;
+
   return {
-    title: `${item.name} — ${typeLabel(item.itemType)}`,
-    description: `${item.name} (${rarityLabel(item.rarity)}). ${item.description.slice(0, 150)}...`,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+    },
   };
 }
 

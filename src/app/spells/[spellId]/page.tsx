@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllSpells, getSpellById, type SpellData } from "@/lib/spellsData";
 import { spellSchoolTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { getDescriptionSnippet } from "@/lib/seo-utils";
 
 // Generate all spell pages at build time
 export async function generateStaticParams() {
@@ -32,12 +33,21 @@ export async function generateMetadata({
     : "";
   const levelLabel = spell.level === 0 ? "Замовляння" : `${spell.level} рівень`;
 
+  const title = `${spell.name} — ${levelLabel}`;
+  const description = getDescriptionSnippet(`${spell.name} (${levelLabel}, ${schoolLabel}). ${spell.description}`);
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://char.holota.family"}/spells/${spellId}`;
+
   return {
-    title: `${spell.name} — ${levelLabel}`,
-    description: `${spell.name} — ${schoolLabel} ${levelLabel}. ${spell.description.slice(0, 150)}...`,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: spell.name,
-      description: `${levelLabel} • ${schoolLabel}`,
+      title,
+      description,
+      url,
+      type: "article",
     },
   };
 }

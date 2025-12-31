@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { cn } from "@/lib/utils";
 
 type CollapsibleContextValue = {
   open: boolean;
@@ -67,22 +68,33 @@ export const CollapsibleTrigger = React.forwardRef<
   );
 });
 
+import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
+
 export const CollapsibleContent = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(function CollapsibleContent({ style, hidden, ...props }, ref) {
+  HTMLMotionProps<"div">
+>(function CollapsibleContent({ children, className, ...props }, ref) {
   const ctx = React.useContext(CollapsibleContext);
   if (!ctx) {
     throw new Error("CollapsibleContent must be used within <Collapsible>");
   }
 
   return (
-    <div
-      ref={ref}
-      data-state={ctx.open ? "open" : "closed"}
-      hidden={!ctx.open || hidden}
-      style={style}
-      {...props}
-    />
+    <AnimatePresence initial={false}>
+      {ctx.open && (
+        <motion.div
+          ref={ref}
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className={cn("overflow-hidden", className)}
+          data-state={ctx.open ? "open" : "closed"}
+          {...props}
+        >
+          {children}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 });

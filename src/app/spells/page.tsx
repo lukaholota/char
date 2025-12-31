@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getAllSpells, type SpellData } from "@/lib/spellsData";
 import { SpellsClient, type SpellListItem } from "./spells-client";
+
+export const metadata: Metadata = {
+  title: "Заклинання — ДнД українською",
+  description: "Зручний пошук та фільтрація заклинань для D&D 5e українською мовою. Детальні описи, класи, школи магії та рівні.",
+};
 
 // Static generation — data comes from generated JSON
 export default async function SpellsPage({

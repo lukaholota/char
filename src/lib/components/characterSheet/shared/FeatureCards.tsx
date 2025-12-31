@@ -82,7 +82,8 @@ const stripMarkdownPreview = (value: string) => {
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
     .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
-    .replace(/\s+/g, " ")
+    .replace(/[^\S\r\n]+/g, " ") // Collapse horizontal whitespace
+    .replace(/\n\s*\n/g, "\n")   // Collapse multiple newlines
     .trim();
 };
 

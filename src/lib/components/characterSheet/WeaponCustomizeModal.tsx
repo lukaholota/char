@@ -94,7 +94,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50">
+      <DialogContent className="max-h-[90vh] max-w-md overflow-y-auto bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50">
         <DialogHeader>
           <DialogTitle>Налаштування зброї</DialogTitle>
         </DialogHeader>

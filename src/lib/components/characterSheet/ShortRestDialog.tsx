@@ -162,7 +162,7 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-h-[90vh] max-w-md overflow-y-auto">
         <DialogHeader>
           <DialogTitle>{restTranslations.shortRest}</DialogTitle>
         </DialogHeader>

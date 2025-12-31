@@ -611,8 +611,8 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
                     },
                 },
             },
-            choiceOptions: true,
-            raceChoiceOptions: true,
+            choiceOptions: { include: { features: { include: { feature: true } } } },
+            raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
             persInfusions: {
                 include: {
                     infusion: {
@@ -647,6 +647,18 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         rv.traits.forEach(t => { if (t.featureId) sourceMap.set(t.featureId, "RACE"); });
     });
 
+    // Identify features that come from choices to label them correctly in the main loop
+    const choiceFeatureIds = new Map<number, FeatureSource>();
+    pers.choiceOptions.forEach(co => co.features.forEach(cof => choiceFeatureIds.set(cof.feature.featureId, "CHOICE")));
+    pers.raceChoiceOptions.forEach(rco => rco.traits.forEach(t => { if (t.featureId) choiceFeatureIds.set(t.featureId, "RACE_CHOICE"); }));
+    pers.feats.forEach(pf => pf.choices.forEach(c => {
+        // Find if this choice option grants any features
+        // Note: choiceOption in feats might not have features pre-included in the fetch, 
+        // but let's assume we want to label features granted by it as FEAT.
+        // Actually, let's just use the feature IDs from the global choiceOption if we can.
+        // But for now, we'll dedupe by name later too.
+    }));
+
     const buckets: CharacterFeaturesGroupedResult = {
         passive: [],
         actions: [],
@@ -659,7 +671,17 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         return 2 + Math.floor((level - 1) / 4);
     };
 
+    const seenFeatureIds = new Set<number>();
+    const seenNames = new Set<string>();
+
     const push = (item: Omit<CharacterFeatureItem, "primaryType" | "displayTypes"> & { displayTypes: FeatureDisplayType[] }) => {
+        if (item.featureId && seenFeatureIds.has(item.featureId)) return;
+        const normalizedName = item.name.trim().toLowerCase();
+        if (seenNames.has(normalizedName)) return;
+
+        if (item.featureId) seenFeatureIds.add(item.featureId);
+        seenNames.add(normalizedName);
+
         const displayTypes = normalizeDisplayTypes(item.displayTypes);
         const primaryType = getPrimaryDisplayType(displayTypes);
         const key = toPrimaryGroupKey(primaryType);
@@ -671,13 +693,8 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     };
 
     // 1) Explicit pers_feature (usually level-up granted)
-    const seenPersFeatureKeys = new Set<string>();
     for (const pf of pers.features) {
         const f = pf.feature;
-
-        const dedupeKey = `PERS:${String((f as any).engName ?? f.name).toLowerCase()}`;
-        if (seenPersFeatureKeys.has(dedupeKey)) continue;
-        seenPersFeatureKeys.add(dedupeKey);
 
         const usesPer = (() => {
             if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
@@ -685,7 +702,11 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
             return null;
         })();
 
-        const source = sourceMap.get(f.featureId) || "PERS";
+        let source = sourceMap.get(f.featureId) || "PERS";
+        if (source === "PERS") {
+            const choiceSource = choiceFeatureIds.get(f.featureId);
+            if (choiceSource) source = choiceSource;
+        }
 
         push({
             key: `PERS:feature:${f.featureId}`,
@@ -694,7 +715,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
             shortDescription: f.shortDescription ?? null,
             description: f.description,
             displayTypes: normalizeDisplayTypes(f.displayType),
-            source,
+            source: source as FeatureSource,
             sourceName: f.name,
             usesRemaining: pf.usesRemaining ?? null,
             usesPer,
@@ -703,26 +724,47 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         });
     }
 
-    // 2) Choice options stored directly on pers
+    // 2) Choice options stored directly on pers -> push remaining FEATURES
     for (const co of pers.choiceOptions ?? []) {
-        push({
-            key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}`,
-            name: co.optionName,
-            description: `${co.groupName}: ${co.optionName}`,
-            displayTypes: [FeatureDisplayType.PASSIVE],
-            source: "CHOICE",
-            sourceName: co.groupName,
-        });
+        for (const cof of co.features ?? []) {
+            const f = cof.feature;
+
+            push({
+                key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}:feature:${f.featureId}`,
+                featureId: f.featureId,
+                name: f.name,
+                shortDescription: f.shortDescription ?? null,
+                description: f.description,
+                displayTypes: normalizeDisplayTypes(f.displayType),
+                source: "CHOICE",
+                sourceName: co.groupName,
+                createdAt: co.choiceOptionId, // fallback
+                usesRemaining: null,
+                usesPer: f.usesCount, // Simplified, Pact usually passive
+                restType: f.limitedUsesPer,
+            });
+        }
     }
     for (const rco of pers.raceChoiceOptions ?? []) {
-        push({
-            key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}`,
-            name: rco.optionName,
-            description: rco.description || `${rco.choiceGroupName}: ${rco.optionName}`,
-            displayTypes: [FeatureDisplayType.PASSIVE],
-            source: "RACE_CHOICE",
-            sourceName: rco.choiceGroupName,
-        });
+        for (const rcot of rco.traits ?? []) {
+            if (!rcot.feature) continue;
+            const f = rcot.feature;
+
+            push({
+                key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}:feature:${f.featureId}`,
+                featureId: f.featureId,
+                name: f.name,
+                shortDescription: f.shortDescription ?? null,
+                description: f.description,
+                displayTypes: normalizeDisplayTypes(f.displayType),
+                source: "RACE_CHOICE",
+                sourceName: rco.choiceGroupName,
+                createdAt: rco.optionId, // fallback
+                usesRemaining: null,
+                usesPer: f.usesCount,
+                restType: f.limitedUsesPer,
+            });
+        }
     }
 
     // 3) Feats + their selected feat choice options

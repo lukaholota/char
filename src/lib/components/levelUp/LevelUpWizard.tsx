@@ -20,6 +20,7 @@ import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import OptionalFeaturesForm from "@/lib/components/levelUp/OptionalFeaturesForm";
 import LevelUpHPStep from "@/lib/components/levelUp/LevelUpHPStep";
 import LevelUpInfusionsStep from "@/lib/components/levelUp/LevelUpInfusionsStep";
+import ChoiceReplacementForm from "@/lib/components/levelUp/ChoiceReplacementForm";
 import clsx from "clsx";
 import { classTranslations, subclassTranslations, classTranslationsEng, attributesUkrShort } from "@/lib/refs/translation";
 import { Ability, FeatureDisplayType, SpellcastingType } from "@prisma/client";
@@ -67,7 +68,7 @@ interface Props {
 }
 
 export default function LevelUpWizard({ info }: Props) {
-  const { resetForm, formData } = usePersFormStore();
+  const { resetForm, formData, updateFormData } = usePersFormStore();
   const [currentStep, setCurrentStep] = useState(0);
   const [nextDisabled, setNextDisabled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -211,6 +212,25 @@ export default function LevelUpWizard({ info }: Props) {
               return undefined;
             })();
 
+            const currentPact = (() => {
+                if (selectedPact) return selectedPact;
+                const fromSelections = (formData.classChoiceSelections as Record<string, number | number[]> | undefined) || {};
+                for (const [, selection] of Object.entries(fromSelections)) {
+                    const ids = Array.isArray(selection) ? selection : [selection];
+                    for (const id of ids) {
+                        const opt = options.find(o => (o.choiceOptionId || (o as any).optionId) === id);
+                        if (opt && (
+                            opt.choiceOption.groupName === 'Дар пакту' || 
+                            (opt.choiceOption as any).groupNameEng === 'Pact Boon' ||
+                            (typeof opt.choiceOption.optionNameEng === 'string' && opt.choiceOption.optionNameEng.startsWith('Pact of'))
+                        )) {
+                            return opt.choiceOption.optionNameEng;
+                        }
+                    }
+                }
+                return undefined;
+            })();
+
             const eligible = invocationOptions
               .filter((opt: any) => {
                 const id = Number(opt.choiceOptionId);
@@ -222,9 +242,9 @@ export default function LevelUpWizard({ info }: Props) {
                 if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
                   return false;
                 }
-                const pact = prereq?.pact ? String(prereq.pact) : undefined;
-                if (pact && selectedPact && pact !== selectedPact) return false;
-                if (pact && !selectedPact) return false;
+                const pactStr = prereq?.pact ? String(prereq.pact) : undefined;
+                if (pactStr && currentPact && pactStr !== currentPact) return false;
+                if (pactStr && !currentPact) return false;
                 return true;
               })
               .map((opt: any) => opt);
@@ -377,6 +397,13 @@ export default function LevelUpWizard({ info }: Props) {
                             formId="class-choice-form"
                             onNextDisabledChange={setNextDisabled}
                             pickCount={pickCount}
+                            initialPact={(() => {
+                                const p = (pers.choiceOptions || []).find((co: any) => 
+                                    typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
+                                );
+                                return p?.optionNameEng;
+                            })()}
+                            initialLevel={classLevelAfter}
                         />
                     );
                 })(),
@@ -412,7 +439,7 @@ export default function LevelUpWizard({ info }: Props) {
                 id: "asi",
                 title: "Покращення",
                 initialDisabled: true,
-                component: <LevelUpASIForm feats={feats as any} formId="asi-form" onNextDisabledChange={setNextDisabled} />,
+                component: <LevelUpASIForm feats={feats as any} formId="asi-form" onNextDisabledChange={setNextDisabled} race={pers?.race as any} subrace={pers?.subrace} raceVariant={(pers as any)?.raceVariant} />,
             });
         }
 
@@ -435,9 +462,9 @@ export default function LevelUpWizard({ info }: Props) {
             });
         }
 
-        const hasOptional = Boolean(
-            (selectedClass.classOptionalFeatures || []).some((opt) => (opt.grantedOnLevels || []).includes(classLevelAfter))
-        );
+        const optionalAtLevel = (selectedClass.classOptionalFeatures || []).filter((opt) => (opt.grantedOnLevels || []).includes(classLevelAfter));
+        const hasOptional = optionalAtLevel.length > 0;
+        
         if (hasOptional) {
             result.push({
                 id: "optional",
@@ -452,6 +479,116 @@ export default function LevelUpWizard({ info }: Props) {
                     />
                 ),
             });
+
+            // Check if any of the accepted optional features require a choice replacement
+            const selections = (formData.classOptionalFeatureSelections as Record<string, boolean>) || {};
+            
+            for (const opt of optionalAtLevel) {
+                if (selections[opt.optionalFeatureId.toString()] === true) {
+                    if (opt.replacesFightingStyle) {
+                        const current = (pers.choiceOptions || []).filter(co => co.groupName === "Бойовий стиль");
+                        if (current.length > 0) {
+                            result.push({
+                                id: `replace-fighting-style-${opt.optionalFeatureId}`,
+                                title: "Зміна стилю бою",
+                                initialDisabled: true,
+                                component: (
+                                    <ChoiceReplacementForm
+                                        title="Зміна бойового стилю"
+                                        groupName="Бойовий стиль"
+                                        currentChoices={current}
+                                        availableOptions={selectedClass.classChoiceOptions || []}
+                                        classLevel={classLevelAfter}
+                                        onSelectionChange={(rep) => {
+                                            const key = `fightingStyleReplacement_${opt.optionalFeatureId}`;
+                                            if (JSON.stringify(formData[key]) !== JSON.stringify(rep)) {
+                                                updateFormData({ [key]: rep });
+                                            }
+                                            setNextDisabled(!rep);
+                                        }}
+                                        formId={`form-replace-fs-${opt.optionalFeatureId}`}
+                                    />
+                                )
+                            });
+                        }
+                    }
+                    if (opt.replacesManeuver) {
+                        const current = (pers.choiceOptions || []).filter(co => co.groupName.toLowerCase().includes("маневри"));
+                        if (current.length > 0) {
+                            result.push({
+                                id: `replace-maneuver-${opt.optionalFeatureId}`,
+                                title: "Зміна маневру",
+                                initialDisabled: true,
+                                component: (
+                                    <ChoiceReplacementForm
+                                        title="Зміна маневру"
+                                        groupName={current[0].groupName} // Use the specific group name found
+                                        currentChoices={current}
+                                        availableOptions={effectiveSubclass?.subclassChoiceOptions || []}
+                                        classLevel={classLevelAfter}
+                                        onSelectionChange={(rep) => {
+                                            const key = `maneuverReplacement_${opt.optionalFeatureId}`;
+                                            if (JSON.stringify(formData[key]) !== JSON.stringify(rep)) {
+                                                updateFormData({ [key]: rep });
+                                            }
+                                            setNextDisabled(!rep);
+                                        }}
+                                        formId={`form-replace-man-${opt.optionalFeatureId}`}
+                                    />
+                                )
+                            });
+                        }
+                    }
+                    if (opt.replacesInvocation) {
+                        const current = (pers.choiceOptions || []).filter(co => co.groupName === WARLOCK_INVOCATION_GROUP);
+                        if (current.length > 0) {
+                            result.push({
+                                id: `replace-invocation-${opt.optionalFeatureId}`,
+                                title: "Зміна виклику",
+                                initialDisabled: true,
+                                component: (
+                                    <ChoiceReplacementForm
+                                        title="Зміна виклику"
+                                        groupName={WARLOCK_INVOCATION_GROUP}
+                                        currentChoices={current}
+                                        availableOptions={selectedClass.classChoiceOptions || []}
+                                        classLevel={classLevelAfter}
+                                        pact={(() => {
+                                            const p = (pers.choiceOptions || []).find(co => co.optionNameEng.startsWith("Pact of"));
+                                            if (p?.optionNameEng) return p.optionNameEng;
+                                            
+                                            // Check current form selections
+                                            const selections = (formData.classChoiceSelections as Record<string, number | number[]> | undefined) || {};
+                                            for (const [, selection] of Object.entries(selections)) {
+                                                const ids = Array.isArray(selection) ? selection : [selection];
+                                                for (const id of ids) {
+                                                    const opt = selectedClass?.classChoiceOptions?.find(o => (o.optionId ?? o.choiceOptionId) === id);
+                                                    if (opt && (
+                                                        opt.choiceOption.groupName === 'Дар пакту' || 
+                                                        (opt.choiceOption as any).groupNameEng === 'Pact Boon' ||
+                                                        (typeof opt.choiceOption.optionNameEng === 'string' && opt.choiceOption.optionNameEng.startsWith('Pact of'))
+                                                    )) {
+                                                        return opt.choiceOption.optionNameEng;
+                                                    }
+                                                }
+                                            }
+                                            return undefined;
+                                        })()}
+                                        onSelectionChange={(rep) => {
+                                            const key = `invocationReplacement_${opt.optionalFeatureId}`;
+                                            if (JSON.stringify(formData[key]) !== JSON.stringify(rep)) {
+                                                updateFormData({ [key]: rep });
+                                            }
+                                            setNextDisabled(!rep);
+                                        }}
+                                        formId={`form-replace-inv-${opt.optionalFeatureId}`}
+                                    />
+                                )
+                            });
+                        }
+                    }
+                }
+            }
         }
 
         result.push({
@@ -513,6 +650,7 @@ export default function LevelUpWizard({ info }: Props) {
         subclassChoiceGroups,
                 info,
         effectiveSubclass,
+        updateFormData,
     ]);
 
     const currentStepId = steps[currentStep]?.id;

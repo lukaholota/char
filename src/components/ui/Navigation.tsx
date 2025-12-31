@@ -45,7 +45,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 z-50 flex w-full flex-row items-center justify-around gap-2 border-t border-white/5 bg-slate-950/40 px-4 py-3 backdrop-blur-xl md:sticky md:top-0 md:h-screen md:w-20 md:flex-col md:justify-between md:border-t-0 md:border-r md:py-8">
+    <nav className="fixed bottom-0 left-0 z-50 flex w-full flex-row items-center justify-center gap-6 border-t border-white/5 bg-slate-950/40 px-4 py-3 backdrop-blur-xl md:sticky md:top-0 md:h-screen md:w-20 md:flex-col md:justify-between md:border-t-0 md:border-r md:py-8">
       
       {/* Top Section: Logo & Main Links */}
       <div className="flex flex-row items-center gap-4 md:flex-col md:gap-8">

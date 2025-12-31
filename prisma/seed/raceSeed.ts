@@ -469,6 +469,35 @@ export const seedRaces = async (prisma: PrismaClient) => {
             }
         },
 
+        // ============ CUSTOM LINEAGE ============
+        {
+            name: Races.CUSTOM_LINEAGE_TCE,
+            sortOrder: -10,
+            size: [Size.MEDIUM, Size.SMALL],
+            speed: 30,
+            source: Source.TCOE,
+            languages: [Language.COMMON],
+            languagesToChooseCount: 1,
+            ASI: {
+                tasha: {
+                    flexible: {
+                        groups: [
+                            {
+                                groupName: '+2 до Однієї',
+                                value: 2,
+                                choiceCount: 1,
+                                unique: true
+                            }
+                        ]
+                    }
+                }
+            },
+            traits: {
+                create: [
+                ]
+            }
+        },
+
         // ============ AARAKOCRA ============
         {
             name: Races.AARAKOCRA_MPMM,

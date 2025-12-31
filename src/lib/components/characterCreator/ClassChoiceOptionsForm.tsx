@@ -40,28 +40,36 @@ interface Props {
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
   pickCount?: number;
+  initialPact?: string;
+  initialLevel?: number;
 }
+
+import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
+import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
 
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
 
 const isEnumLike = (value?: string | null) => !!value && /^[A-Z0-9_]+$/.test(value);
 
-const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange, pickCount = 1 }: Props) => {
-  const { updateFormData, nextStep } = usePersFormStore();
+const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange, pickCount = 1, initialPact, initialLevel }: Props) => {
+  const { updateFormData, nextStep, formData } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
   const [infoTitle, setInfoTitle] = useState<string>("");
   const [infoFeatures, setInfoFeatures] = useState<Array<{ name: string; description: string; shortDescription?: string | null }>>([]);
   
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [pendingSelection, setPendingSelection] = useState<{ groupName: string; optionId: number } | null>(null);
+  const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
+
   const { form, onSubmit } = useStepForm(classChoiceOptionsSchema, (data) => {
     updateFormData({ classChoiceSelections: data.classChoiceSelections });
     nextStep();
   });
   
-  const watchedSelections = form.watch("classChoiceSelections") || {};
-  const selectionsStr = JSON.stringify(watchedSelections);
-  const selections = useMemo(() => watchedSelections, [watchedSelections]);
+  const watchedSelections = form.watch("classChoiceSelections");
+  const selections = useMemo(() => watchedSelections || {}, [watchedSelections]);
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   const optionsToUse = useMemo(() => {
@@ -78,6 +86,28 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     });
     return Object.entries(groups).map(([groupName, options]) => ({ groupName, options }));
   }, [optionsToUse]);
+
+  const charPact = useMemo(() => {
+    let pact = initialPact;
+    Object.values(selections).forEach(selection => {
+        const selectedIds = Array.isArray(selection) ? selection : [selection];
+        selectedIds.forEach(id => {
+            const o = optionsToUse.find(opt => (opt.optionId ?? opt.choiceOptionId) === id);
+            if (o && (
+                o.choiceOption.groupName === 'Дар пакту' || 
+                (o.choiceOption as any).groupNameEng === 'Pact Boon' ||
+                (typeof o.choiceOption.optionNameEng === 'string' && o.choiceOption.optionNameEng.startsWith('Pact of'))
+            )) {
+                pact = o.choiceOption.optionNameEng;
+            }
+        });
+    });
+    return pact;
+  }, [initialPact, selections, optionsToUse]);
+
+  const charLevel = useMemo(() => {
+     return initialLevel ?? (formData.classId === selectedClass?.classId ? (formData as any).level || 1 : 1);
+  }, [initialLevel, formData, selectedClass]);
 
   useEffect(() => {
     let disabled: boolean;
@@ -108,7 +138,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     updateFormData({ classChoiceSelections: selections });
   }, [selections, updateFormData]);
 
-  const selectOption = (groupName: string, optionId: number) => {
+  const finalizeSelect = (groupName: string, optionId: number) => {
     const current = selections[groupName];
     
     if (pickCount > 1) {
@@ -122,23 +152,68 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
         nextArray = [...currentArray, optionId];
       }
       
-      const next = { ...(selections || {}), [groupName]: nextArray };
+      const nextValue = nextArray.length > 0 ? nextArray : undefined;
+      const next: Record<string, number | number[]> = { ...(selections || {}) };
+      if (nextValue !== undefined) {
+        next[groupName] = nextValue;
+      } else {
+        delete next[groupName];
+      }
       form.setValue("classChoiceSelections", next, { shouldDirty: true });
     } else {
+      // Single selection: toggle on/off
+      if (current === optionId) {
+        // Deselect - remove this selection
+        const next: Record<string, number | number[]> = { ...(selections || {}) };
+        delete next[groupName];
+        form.setValue("classChoiceSelections", next, { shouldDirty: true });
+        return;
+      }
+      
+      // Select new option
       const next: Record<string, number | number[]> = { ...(selections || {}), [groupName]: optionId };
 
-      // If a flow duplicates a base group into multiple synthetic groups (e.g. "Потойбічні виклики #1/#2"),
-      // enforce uniqueness across those groups so the same option can't be picked twice.
       const base = groupName.replace(/\s+#\d+$/, "");
       for (const key of Object.keys(next)) {
         if (key === groupName) continue;
         const keyBase = key.replace(/\s+#\d+$/, "");
         if (keyBase !== base) continue;
-        if (next[key] === optionId) {
+        if (next[key] === optionId && key !== groupName) {
           delete next[key];
         }
       }
       form.setValue("classChoiceSelections", next, { shouldDirty: true });
+    }
+  };
+
+  const selectOption = (groupName: string, optionId: number, options: typeof optionsToUse) => {
+    const opt = options.find(o => (o.optionId ?? o.choiceOptionId) === optionId);
+    if (!opt) return;
+
+    // Check if already selected (for unselecting)
+    const current = selections[groupName];
+    const isAlreadySelected = pickCount > 1 
+      ? Array.isArray(current) && current.includes(optionId)
+      : current === optionId;
+
+    if (isAlreadySelected) {
+      finalizeSelect(groupName, optionId);
+      return;
+    }
+
+    // Check prerequisites
+    const prereqResult = checkPrerequisite(opt.choiceOption.prerequisites, {
+       classLevel: charLevel,
+       pact: charPact,
+       existingChoiceOptionIds: Object.values(selections).flat().filter(id => typeof id === 'number') as number[]
+    });
+
+    if (!prereqResult.met) {
+       setPrereqReason(prereqResult.reason);
+       setPendingSelection({ groupName, optionId });
+       setConfirmOpen(true);
+    } else {
+       finalizeSelect(groupName, optionId);
     }
   };
 
@@ -220,6 +295,12 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                     featureObjects.find((f) => (f.description ?? "").trim())?.description ||
                     "";
 
+                  const prereqResult = checkPrerequisite(opt.choiceOption.prerequisites, {
+                    classLevel: charLevel,
+                    pact: charPact,
+                    existingChoiceOptionIds: Object.values(selections).flat().filter(id => typeof id === 'number') as number[]
+                  });
+
                   return (
                     <Card
                       key={optionId}
@@ -233,7 +314,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                       )}
                       onClick={(e) => {
                         if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-                        selectOption(groupName, optionId)
+                        selectOption(groupName, optionId, options)
                       }}
                     >
                       <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
@@ -263,6 +344,18 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                             </div>
                           </div>
                         </div>
+
+                        {!prereqResult.met && (prereqResult.reasons?.length || prereqResult.reason) && (
+                          <div className="bg-rose-500/10 border border-rose-500/20 rounded px-2 py-1 text-[11px] font-medium text-rose-400 space-y-0.5">
+                            {prereqResult.reasons ? (
+                              prereqResult.reasons.map((r, i) => (
+                                <div key={i}>{r}</div>
+                              ))
+                            ) : (
+                              <div>{prereqResult.reason}</div>
+                            )}
+                          </div>
+                        )}
 
                         {previewText ? (
                           <p className="text-sm text-slate-400 line-clamp-2">
@@ -306,6 +399,17 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
           <div className="text-sm text-slate-400">Немає фіч</div>
         )}
       </ControlledInfoDialog>
+
+      <PrerequisiteConfirmationDialog
+        open={confirmOpen}
+        onOpenChange={setConfirmOpen}
+        reason={prereqReason}
+        onConfirm={() => {
+          if (pendingSelection) {
+            finalizeSelect(pendingSelection.groupName, pendingSelection.optionId);
+          }
+        }}
+      />
     </form>
   );
 };

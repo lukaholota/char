@@ -78,7 +78,7 @@ export const MultiStepForm = (
     if (currentStep - 1 > highestStepCompleted) {
       setHighestStepCompleted(currentStep - 1);
     }
-  }, [currentStep, isHydrated]);
+  }, [currentStep, isHydrated, formData, highestStepCompleted]);
 
   useEffect(() => {
     if (!isHydrated || !initialDataForStep) return;
@@ -144,6 +144,10 @@ export const MultiStepForm = (
     () => (cls?.subclasses || []).find((sc) => sc.subclassId === formData.subclassId),
     [cls, formData.subclassId]
   );
+  const subrace = useMemo(
+    () => (race?.subraces || []).find((sr) => sr.subraceId === formData.subraceId),
+    [race, formData.subraceId]
+  );
   const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
   const hasLevelOneChoices = useMemo(
     () => Boolean(cls?.classChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
@@ -161,8 +165,8 @@ export const MultiStepForm = (
     [race, formData.raceVariantId]
   );
   const hasFeatChoice = useMemo(() => {
-    return raceVariant?.name === 'HUMAN_VARIANT';
-  }, [raceVariant]);
+    return raceVariant?.name === 'HUMAN_VARIANT' || race?.name === 'CUSTOM_LINEAGE_TCE';
+  }, [raceVariant, race]);
   const feat = useMemo(() => feats.find(f => f.featId === formData.featId), [feats, formData.featId]);
   const hasFeatChoices = useMemo(() => (feat?.featChoiceOptions?.length ?? 0) > 0, [feat]);
 
@@ -361,6 +365,9 @@ export const MultiStepForm = (
             feats={feats}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
+            race={race}
+            subrace={subrace}
+            raceVariant={raceVariant}
           />
         );
       case "featChoices":

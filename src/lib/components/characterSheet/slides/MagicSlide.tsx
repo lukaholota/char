@@ -1,9 +1,11 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
-import { Check, Sparkles, Trash2, Info, Plus, ChevronRight, Wand2, Calculator, MessageSquare, Printer } from "lucide-react";
+import { Check, Trash2, Wand2 } from "lucide-react";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
@@ -12,12 +14,7 @@ import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { removeSpellFromPers, setSpellPrepared } from "@/lib/actions/spell-actions";
 import { spendPactSlot, spendSpellSlot, restorePactSlot, restoreSpellSlot } from "@/lib/actions/spell-slots";
 import { useRouter } from "next/navigation";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { calculateSpellAttack, calculateSpellDC } from "@/lib/logic/bonus-calculator";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
 import { Ability } from "@prisma/client";
@@ -72,22 +69,30 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
     });
   });
 
-  const [localPactSlots, setLocalPactSlots] = useState<number>(() => {
-    const v = (pers as any).currentPactSlots;
-    return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
-  });
+  const [localPactSlots, setLocalPactSlots] = useState(pers.currentPactSlots ?? 0);
+  const [openSlotLevel, setOpenSlotLevel] = useState<number | null>(null);
+  const [openPactSlots, setOpenPactSlots] = useState(false);
 
   useEffect(() => {
-    const raw = (localPers.currentSpellSlots ?? []) as number[];
+    const handleGlobalClick = () => {
+      setOpenSlotLevel(null);
+      setOpenPactSlots(false);
+    };
+    window.addEventListener("click", handleGlobalClick);
+    return () => window.removeEventListener("click", handleGlobalClick);
+  }, []);
+
+  useEffect(() => {
+    const currentSpellSlots = localPers.currentSpellSlots;
+    const currentPactSlots = (localPers as any).currentPactSlots;
     setLocalCurrentSlots(
       Array.from({ length: 9 }, (_, idx) => {
-        const v = raw[idx];
+        const v = (currentSpellSlots as number[])?.[idx];
         return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
       })
     );
-    const pact = (localPers as any).currentPactSlots;
-    setLocalPactSlots(Number.isFinite(pact) ? Math.max(0, Math.trunc(pact)) : 0);
-  }, [localPers.currentSpellSlots, (localPers as any).currentPactSlots]);
+    setLocalPactSlots(Number.isFinite(currentPactSlots) ? Math.max(0, Math.trunc(currentPactSlots)) : 0);
+  }, [localPers]);
 
   const caster = useMemo(() => calculateCasterLevel(localPers as any), [localPers]);
 
@@ -161,21 +166,13 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
         setConfirmDeleteSpellId(null);
       }}
     >
-      <AddSpellDialog 
-        pers={localPers} 
-        onPersUpdate={(next) => {
-            setLocalPers(next);
-            onPersUpdate(next);
-        }} 
-        isReadOnly={isReadOnly} 
-      />
 
       {/* Spell Stats */}
       <div className="grid grid-cols-2 gap-2">
         <Card 
             className={"glass-card bg-fuchsia-500/20 border-fuchsia-400/40 transition " + (!isReadOnly ? "cursor-pointer hover:bg-fuchsia-500/30 active:scale-[0.98]" : "")}
-            onClick={(e) => {
-                e.stopPropagation();
+            onClick={(_e) => {
+                _e.stopPropagation();
                 if (!isReadOnly) setModifyConfig({ type: "simple", field: "spellAttack" });
             }}
         >
@@ -186,8 +183,8 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
         </Card>
         <Card 
             className={"glass-card bg-fuchsia-500/20 border-fuchsia-400/40 transition " + (!isReadOnly ? "cursor-pointer hover:bg-fuchsia-500/30 active:scale-[0.98]" : "")}
-            onClick={(e) => {
-                e.stopPropagation();
+            onClick={(_e) => {
+                _e.stopPropagation();
                 if (!isReadOnly) setModifyConfig({ type: "simple", field: "spellDC" });
             }}
         >
@@ -216,147 +213,182 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
               const canRestore = cur < max;
 
               return (
-                <DropdownMenu key={level}>
-                  <DropdownMenuTrigger asChild>
-                    <button
-                      type="button"
-                      disabled={isPending || max <= 0 || isReadOnly}
-                      title={isReadOnly ? "Режим перегляду" : max > 0 ? "Натисніть, щоб керувати комірками" : "Комірки недоступні"}
-                      className={
-                        "rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-center transition " +
-                        (max > 0 && !isReadOnly ? "hover:bg-white/10 cursor-pointer" : "opacity-70 cursor-not-allowed")
+                <div key={level} className="relative">
+                  <button
+                    type="button"
+                    disabled={isPending || max <= 0 || isReadOnly}
+                    title={isReadOnly ? "Режим перегляду" : max > 0 ? "Натисніть, щоб керувати комірками" : "Комірки недоступні"}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (max > 0 && !isReadOnly) {
+                        setOpenSlotLevel(openSlotLevel === level ? null : level);
+                        setOpenPactSlots(false);
                       }
-                    >
-                      <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">{level}-й</div>
-                      <div className="text-sm font-semibold text-slate-50">
-                        {cur}/{max}
-                      </div>
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="center" className="bg-slate-900/95 border-white/10 text-slate-100 backdrop-blur-md">
-                    <DropdownMenuItem 
-                      disabled={!canSpend || isPending}
-                      className="focus:bg-white/10 focus:text-slate-50 cursor-pointer"
-                      onClick={(e) => {
-                        if (!canSpend) return;
-                        setLocalCurrentSlots((prev) => {
-                          const next = prev.slice();
-                          next[idx] = Math.max(0, (next[idx] ?? 0) - 1);
-                          return next;
-                        });
-                        startTransition(async () => {
-                          const res = await spendSpellSlot(localPers.persId, level);
-                          if (!res.success) {
-                            router.refresh();
-                            return;
-                          }
-                          setLocalCurrentSlots(
-                            Array.from({ length: 9 }, (_, j) => {
-                              const v = res.currentSpellSlots[j];
-                              return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
-                            })
-                          );
-                          router.refresh();
-                        });
-                      }}
-                    >
-                      Витратити
-                    </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      disabled={!canRestore || isPending}
-                      className="focus:bg-white/10 focus:text-slate-50 cursor-pointer"
-                      onClick={(e) => {
-                        if (!canRestore) return;
-                        setLocalCurrentSlots((prev) => {
-                          const next = prev.slice();
-                          next[idx] = Math.min(max, (next[idx] ?? 0) + 1);
-                          return next;
-                        });
-                        startTransition(async () => {
-                          const res = await restoreSpellSlot(localPers.persId, level);
-                          if (!res.success) {
-                            router.refresh();
-                            return;
-                          }
-                          setLocalCurrentSlots(
-                            Array.from({ length: 9 }, (_, j) => {
-                              const v = res.currentSpellSlots[j];
-                              return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
-                            })
-                          );
-                          router.refresh();
-                        });
-                      }}
-                    >
-                      Відновити
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                    }}
+                    className={
+                      "w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-center transition active:scale-95 touch-manipulation " +
+                      (max > 0 && !isReadOnly ? "hover:bg-white/10 cursor-pointer" : "opacity-70 cursor-not-allowed") +
+                      (openSlotLevel === level ? " ring-2 ring-indigo-500/50 bg-white/10" : "")
+                    }
+                  >
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">{level}-й</div>
+                    <div className="text-sm font-semibold text-slate-50">
+                      {cur}/{max}
+                    </div>
+                  </button>
+
+                  <AnimatePresence>
+                    {openSlotLevel === level && (
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-[60] min-w-[120px] glass-card overflow-hidden rounded-xl border border-white/10 bg-slate-900/95 p-1 text-slate-100 shadow-xl backdrop-blur-md"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <button
+                          disabled={!canSpend || isPending}
+                          className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
+                          onClick={async () => {
+                            setOpenSlotLevel(null);
+                            if (!canSpend) return;
+                            setLocalCurrentSlots((prev) => {
+                              const next = prev.slice();
+                              next[idx] = Math.max(0, (next[idx] ?? 0) - 1);
+                              return next;
+                            });
+                            startTransition(async () => {
+                              const res = await spendSpellSlot(localPers.persId, level);
+                              if (!res.success) {
+                                router.refresh();
+                                return;
+                              }
+                              setLocalCurrentSlots(
+                                Array.from({ length: 9 }, (_, j) => {
+                                  const v = res.currentSpellSlots[j];
+                                  return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
+                                })
+                              );
+                              router.refresh();
+                            });
+                          }}
+                        >
+                          Витратити
+                        </button>
+                        <button
+                          disabled={!canRestore || isPending}
+                          className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
+                          onClick={async () => {
+                            setOpenSlotLevel(null);
+                            if (!canRestore) return;
+                            setLocalCurrentSlots((prev) => {
+                              const next = prev.slice();
+                              next[idx] = Math.min(max, (next[idx] ?? 0) + 1);
+                              return next;
+                            });
+                            startTransition(async () => {
+                              const res = await restoreSpellSlot(localPers.persId, level);
+                              if (!res.success) {
+                                router.refresh();
+                                return;
+                              }
+                              setLocalCurrentSlots(
+                                Array.from({ length: 9 }, (_, j) => {
+                                  const v = res.currentSpellSlots[j];
+                                  return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
+                                })
+                              );
+                              router.refresh();
+                            });
+                          }}
+                        >
+                          Відновити
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               );
             })}
           </div>
 
           {pactInfo ? (
-            <div className="mt-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2 flex items-center justify-between">
+            <div className="mt-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2 flex items-center justify-between relative">
               <div>
                 <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Магія пакту</div>
                 <div className="text-sm font-semibold text-slate-50">
                   {localPactSlots}/{pactInfo.max} • рівень комірки: {pactInfo.slotLevel}
                 </div>
               </div>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="secondary"
-                    disabled={isPending || isReadOnly}
-                    title={isReadOnly ? "Режим перегляду" : "Натисніть, щоб керувати комірками Магії пакту"}
+              <Button
+                type="button"
+                size="sm"
+                variant="secondary"
+                disabled={isPending || isReadOnly}
+                title={isReadOnly ? "Режим перегляду" : "Натисніть, щоб керувати комірками Магії пакту"}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpenPactSlots(!openPactSlots);
+                  setOpenSlotLevel(null);
+                }}
+              >
+                Керувати
+              </Button>
+
+              <AnimatePresence>
+                {openPactSlots && (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute bottom-full right-0 mb-2 z-[60] min-w-[120px] glass-card overflow-hidden rounded-xl border border-white/10 bg-slate-900/95 p-1 text-slate-100 shadow-xl backdrop-blur-md"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    Керувати
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-slate-900/95 border-white/10 text-slate-100 backdrop-blur-md">
-                  <DropdownMenuItem
-                    disabled={localPactSlots <= 0 || isPending}
-                    className="focus:bg-white/10 focus:text-slate-50 cursor-pointer"
-                    onClick={(e) => {
-                      if (!pactInfo || localPactSlots <= 0) return;
-                      setLocalPactSlots((v) => Math.max(0, v - 1));
-                      startTransition(async () => {
-                        const res = await spendPactSlot(localPers.persId);
-                        if (!res.success) {
+                    <button
+                      disabled={localPactSlots <= 0 || isPending}
+                      className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
+                      onClick={async () => {
+                        setOpenPactSlots(false);
+                        if (!pactInfo || localPactSlots <= 0) return;
+                        setLocalPactSlots((v) => Math.max(0, v - 1));
+                        startTransition(async () => {
+                          const res = await spendPactSlot(localPers.persId);
+                          if (!res.success) {
+                            router.refresh();
+                            return;
+                          }
+                          setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
                           router.refresh();
-                          return;
-                        }
-                        setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
-                        router.refresh();
-                      });
-                    }}
-                  >
-                    Витратити
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    disabled={localPactSlots >= pactInfo.max || isPending}
-                    className="focus:bg-white/10 focus:text-slate-50 cursor-pointer"
-                    onClick={(e) => {
-                      if (!pactInfo || localPactSlots >= pactInfo.max) return;
-                      setLocalPactSlots((v) => Math.min(pactInfo.max, v + 1));
-                      startTransition(async () => {
-                        const res = await restorePactSlot(localPers.persId);
-                        if (!res.success) {
+                        });
+                      }}
+                    >
+                      Витратити
+                    </button>
+                    <button
+                      disabled={localPactSlots >= pactInfo.max || isPending}
+                      className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
+                      onClick={async () => {
+                        setOpenPactSlots(false);
+                        if (!pactInfo || localPactSlots >= pactInfo.max) return;
+                        setLocalPactSlots((v) => Math.min(pactInfo.max, v + 1));
+                        startTransition(async () => {
+                          const res = await restorePactSlot(localPers.persId);
+                          if (!res.success) {
+                            router.refresh();
+                            return;
+                          }
+                          setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
                           router.refresh();
-                          return;
-                        }
-                        setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
-                        router.refresh();
-                      });
-                    }}
-                  >
-                    Відновити
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                        });
+                      }}
+                    >
+                      Відновити
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ) : null}
         </CardContent>
@@ -369,8 +401,16 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
             <Wand2 className="w-5 h-5" />
             <span className="uppercase tracking-wide text-indigo-300">Заклинання</span>
           </CardTitle>
-          <div className="flex items-center gap-1">
-            {!isReadOnly && <AddSpellDialog pers={localPers} onPersUpdate={onPersUpdate} />}
+          <div className="flex items-center gap-1 flex-wrap justify-end">
+            {!isReadOnly && (
+              <AddSpellDialog 
+                pers={localPers} 
+                onPersUpdate={(next) => {
+                  setLocalPers(next);
+                  onPersUpdate(next);
+                }} 
+              />
+            )}
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
@@ -546,6 +586,7 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
               {spellQuery.trim() ? "Нічого не знайдено" : "Заклинання відсутні"}
             </div>
           )}
+
         </CardContent>
       </Card>
 

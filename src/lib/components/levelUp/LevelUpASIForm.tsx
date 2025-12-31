@@ -12,13 +12,17 @@ import { Check } from "lucide-react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
-import type { FeatPrisma } from "@/lib/types/model-types";
+import type { FeatPrisma, RaceI } from "@/lib/types/model-types";
 import { attributesUkrShort } from "@/lib/refs/translation";
+import { Subrace, RaceVariant } from "@prisma/client";
 
 interface Props {
   feats: FeatPrisma[];
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
+  race: RaceI;
+  subrace?: Subrace | null;
+  raceVariant?: RaceVariant | null;
 }
 
 type ChoiceType = "ASI" | "FEAT";
@@ -45,7 +49,7 @@ const toCustomAsi = (asi: AsiMap) => {
     .map(([ability, value]) => ({ ability, value: String(value) }));
 };
 
-export default function LevelUpASIForm({ feats, formId, onNextDisabledChange }: Props) {
+export default function LevelUpASIForm({ feats, formId, onNextDisabledChange, race, subrace, raceVariant }: Props) {
   const { updateFormData, formData } = usePersFormStore();
   const [choiceType, setChoiceType] = useState<ChoiceType>("ASI");
   const [featFormDisabled, setFeatFormDisabled] = useState(true);
@@ -246,7 +250,14 @@ export default function LevelUpASIForm({ feats, formId, onNextDisabledChange }: 
         </Card>
       ) : (
         <div className="space-y-4">
-          <FeatsForm feats={feats as any} formId={`${formId}-feat`} onNextDisabledChange={setFeatFormDisabled} />
+          <FeatsForm 
+            feats={feats as any} 
+            formId={`${formId}-feat`} 
+            onNextDisabledChange={setFeatFormDisabled} 
+            race={race}
+            subrace={subrace ?? undefined}
+            raceVariant={raceVariant}
+          />
 
           {featHasChoices ? (
             <FeatChoiceOptionsForm
