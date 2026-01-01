@@ -102,9 +102,26 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
     });
   };
 
-  const handleLevelUp = () => {
+  const handleLevelUp = async () => {
+      if (isLevelUpPending) return;
       setIsLevelUpPending(true);
-      router.push(`/char/${localPers.persId}/levelup`);
+
+      try {
+        await Promise.race([
+          router.push(`/char/${localPers.persId}/levelup`),
+          new Promise((_, reject) => setTimeout(() => reject(new Error("navigation-timeout")), 3000)),
+        ]);
+      } catch (err) {
+        console.warn("router.push hung or timed out, falling back to full navigation:", err);
+        // Fallback to a full-page navigation which is more reliable on some mobile Chrome builds.
+        try {
+          window.location.href = `/char/${localPers.persId}/levelup`;
+        } catch (e) {
+          console.error("Fallback navigation failed:", e);
+        }
+      } finally {
+        setIsLevelUpPending(false);
+      }
   };
 
   return (
