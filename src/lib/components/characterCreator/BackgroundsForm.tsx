@@ -40,30 +40,6 @@ const PHB_BACKGROUNDS = new Set([
   "HERMIT","NOBLE","OUTLANDER","SAGE","SAILOR","SOLDIER","URCHIN"
 ]);
 
-const SOURCE_OVERRIDES: Record<string, string> = {
-  AZORIUS_FUNCTIONARY: "Ravnica",
-  BOROS_LEGIONNAIRE: "Ravnica",
-  DIMIR_OPERATIVE: "Ravnica",
-  GOLGARI_AGENT: "Ravnica",
-  GRUUL_ANARCH: "Ravnica",
-  IZZET_ENGINEER: "Ravnica",
-  ORZHOV_REPRESENTATIVE: "Ravnica",
-  RAKDOS_CULTIST: "Ravnica",
-  SELESNYA_INITIATE: "Ravnica",
-  SIMIC_SCIENTIST: "Ravnica",
-  LOREHOLD_STUDENT: "Strixhaven",
-  PRISMARI_STUDENT: "Strixhaven",
-  QUANDRIX_STUDENT: "Strixhaven",
-  SILVERQUILL_STUDENT: "Strixhaven",
-  WITHERBLOOM_STUDENT: "Strixhaven",
-  ASTRAL_DRIFTER: "Spelljammer",
-  WILDSPACER: "Spelljammer",
-  FEYLOST: "Witchlight",
-  WITCHLIGHT_HAND: "Witchlight",
-  KNIGHT_OF_SOLAMNIA: "Dragonlance",
-  MAGE_OF_HIGH_SORCERY: "Dragonlance",
-};
-
 export const BackgroundsForm = (
   {backgrounds, formId, onNextDisabledChange}: Props
 ) => {
@@ -92,7 +68,8 @@ export const BackgroundsForm = (
   const matchesSearch = useCallback((name: string) => {
     if (!normalizedBackgroundSearch) return true;
     const ua = normalizeText(backgroundTranslations[name]);
-    return ua.includes(normalizedBackgroundSearch);
+    const en = normalizeText(backgroundTranslationsEng[name]);
+    return ua.includes(normalizedBackgroundSearch) || en.includes(normalizedBackgroundSearch);
   }, [normalizedBackgroundSearch]);
 
   const primaryBackgrounds = useMemo(

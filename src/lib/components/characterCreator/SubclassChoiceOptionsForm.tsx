@@ -61,9 +61,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     nextStep();
   });
   
-  const watchedSelections = form.watch("subclassChoiceSelections") || {};
-  const selectionsStr = JSON.stringify(watchedSelections);
-  const selections = useMemo(() => watchedSelections, [watchedSelections]);
+  const selections = useMemo(() => form.watch("subclassChoiceSelections") || {}, [form]);
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   const optionsToUse = useMemo(() => {
@@ -112,9 +110,6 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     }
   }, [groupedOptions, selections, onNextDisabledChange, pickCount]);
 
-  useEffect(() => {
-    updateFormData({ subclassChoiceSelections: selections });
-  }, [selections, updateFormData]);
 
   const selectOption = (groupName: string, optionId: number) => {
     const current = selections[groupName];

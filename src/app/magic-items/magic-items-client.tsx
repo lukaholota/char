@@ -155,17 +155,6 @@ function replaceUrlSearchParams(next: URLSearchParams) {
   else window.setTimeout(fire, 0);
 }
 
-function pushUrlSearchParams(next: URLSearchParams) {
-  if (typeof window === "undefined") return;
-  const url = new URL(window.location.href);
-  url.search = next.toString();
-  window.history.pushState({}, "", url);
-  const w = window as Window & { __locationchange_patched__?: boolean };
-  if (w.__locationchange_patched__) return;
-  const fire = () => window.dispatchEvent(new Event("locationchange"));
-  if (typeof queueMicrotask === "function") queueMicrotask(fire);
-  else window.setTimeout(fire, 0);
-}
 
 function selectionKey(sel: SelectionState): string {
   const key = (set: Set<string>) => Array.from(set).sort().join(",");
@@ -419,11 +408,6 @@ export function MagicItemsClient({
     replaceUrlSearchParams(next);
   };
 
-  const pushParams = (mutate: (next: URLSearchParams) => void) => {
-    const next = getSearchParamsFromLocation();
-    mutate(next);
-    pushUrlSearchParams(next);
-  };
 
   const toggleSetValue = (key: string, value: string) => {
     setParams((next) => {
@@ -475,7 +459,7 @@ export function MagicItemsClient({
   
   const onSelectItem = (item: MagicItemListItem) => {
     if (isDesktop) {
-      pushParams((next) => {
+      setParams((next) => {
         next.set("item", String(item.magicItemId));
       });
     } else {

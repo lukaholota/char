@@ -11,7 +11,6 @@ import { Check } from "lucide-react";
 
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
-import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
 import type { FeatPrisma, RaceI } from "@/lib/types/model-types";
 import { attributesUkrShort } from "@/lib/refs/translation";
 import { Subrace, RaceVariant } from "@prisma/client";
@@ -53,24 +52,12 @@ export default function LevelUpASIForm({ feats, formId, onNextDisabledChange, ra
   const { updateFormData, formData } = usePersFormStore();
   const [choiceType, setChoiceType] = useState<ChoiceType>("ASI");
   const [featFormDisabled, setFeatFormDisabled] = useState(true);
-  const [featOptionsDisabled, setFeatOptionsDisabled] = useState(false);
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   const asiMap = useMemo(() => normalizeAsi(formData.customAsi), [formData.customAsi]);
   const totalAsi = useMemo(
     () => Object.values(asiMap).reduce<number>((acc, val) => acc + (val ?? 0), 0),
     [asiMap]
-  );
-
-  const selectedFeat = useMemo(() => {
-    const id = formData.featId ? Number(formData.featId) : undefined;
-    if (!id) return null;
-    return feats.find((f) => f.featId === id) ?? null;
-  }, [feats, formData.featId]);
-
-  const featHasChoices = useMemo(
-    () => Boolean(selectedFeat?.featChoiceOptions?.length),
-    [selectedFeat]
   );
 
   useEffect(() => {
@@ -89,10 +76,7 @@ export default function LevelUpASIForm({ feats, formId, onNextDisabledChange, ra
 
   useEffect(() => {
     const asiValid = choiceType === "ASI" ? totalAsi === 2 : true;
-    const featValid =
-      choiceType === "FEAT"
-        ? !featFormDisabled && (!featHasChoices || !featOptionsDisabled)
-        : true;
+    const featValid = choiceType === "FEAT" ? !featFormDisabled : true;
 
     const disabled = !(asiValid && featValid);
 
@@ -100,7 +84,7 @@ export default function LevelUpASIForm({ feats, formId, onNextDisabledChange, ra
       prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
     }
-  }, [choiceType, totalAsi, featFormDisabled, featOptionsDisabled, featHasChoices, onNextDisabledChange]);
+  }, [choiceType, totalAsi, featFormDisabled, onNextDisabledChange]);
 
   const setAsiValue = (ability: Ability, value: 1 | 2) => {
     const current = asiMap[ability] ?? 0;
@@ -258,14 +242,6 @@ export default function LevelUpASIForm({ feats, formId, onNextDisabledChange, ra
             subrace={subrace ?? undefined}
             raceVariant={raceVariant}
           />
-
-          {featHasChoices ? (
-            <FeatChoiceOptionsForm
-              selectedFeat={selectedFeat as any}
-              formId={`${formId}-feat-options`}
-              onNextDisabledChange={setFeatOptionsDisabled}
-            />
-          ) : null}
         </div>
       )}
     </div>

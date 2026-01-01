@@ -69,7 +69,8 @@ async function main() {
   const roots = targetRoots.length ? targetRoots : [path.join(workspaceRoot, 'prisma', 'seed')];
 
   // <a href="/spell/1289">UA text [Detect Magic]</a>
-  const anchorRe = /<a\s+href=("|')\/spell\/(\d+)\1>([^<]*?)\[(.*?)\]<\/a>/g;
+  const anchorRe = /<a\s+href=("|')\/spells?\/(\d+)\1>([^<]*?)\[(.*?)\]<\/a>/g;
+
 
   let totalChanges = 0;
   let totalAnchors = 0;

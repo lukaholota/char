@@ -366,7 +366,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.HEXBLADE,
       description:
-        "Хексблейд черпає силу з потойбічної зброї: прокляття цілей, майстерність зброї на Харизмі й прислужники-спектри.",
+        "Відьмацький клинок черпає силу з потойбічної зброї: прокляття цілей, майстерність зброї на Харизмі й прислужники-спектри.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,

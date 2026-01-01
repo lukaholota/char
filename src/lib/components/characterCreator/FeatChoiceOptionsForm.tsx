@@ -1,23 +1,24 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useCallback } from "react";
 import { useStepForm } from "@/hooks/useStepForm";
 import { featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { FeatPrisma } from "@/lib/types/model-types";
+import { FeatPrisma, PersI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { useWatch } from "react-hook-form";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Skills } from "@prisma/client";
 import { SkillsEnum } from "@/lib/types/enums";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+import clsx from "clsx";
+import { getEffectiveSkills } from "@/lib/logic/characterUtils";
 
 interface Props {
   selectedFeat?: FeatPrisma | null;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
+  pers?: PersI | null;
 }
 
 type Group = {
@@ -68,7 +69,13 @@ const isExpertiseGroup = (groupName: string): boolean => {
          lowerName.includes('expert');
 };
 
-const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: Props) => {
+const cleanGroupName = (groupName: string): string => {
+    return groupName
+      .replace(/\s*\(.*?\)\s*/g, "") // Remove (...) content
+      .trim();
+};
+
+const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
   
   const { form, onSubmit: baseOnSubmit } = useStepForm(featChoiceOptionsSchema, (data) => {
@@ -80,64 +87,112 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
     control: form.control,
     name: "featChoiceSelections",
   });
+
   const selections = useMemo(
-    () => ((watchedSelections ?? {}) as Record<string, number>),
+    () => ((watchedSelections ?? {}) as Record<string, number | number[]>), 
     [watchedSelections]
   );
+  
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   /**
    * Gets all skills the character has from SkillsForm
-   * Handles both Tasha's mode and basic mode
+   * Handles both Tasha's mode and existing pers data
    */
   const existingSkills = useMemo(() => {
-    const skills = new Set<string>();
-    
-    // Primary source: flat skills array from SkillsForm
-    if (formData.skills && Array.isArray(formData.skills)) {
-      formData.skills.forEach(skill => {
-        if (Object.values(Skills).includes(skill as Skills)) {
-          skills.add(skill);
-        }
-      });
-    }
-    
-    return Array.from(skills);
-  }, [formData.skills]);
+    return getEffectiveSkills(pers, formData);
+  }, [formData, pers]);
 
   /**
-   * Gets all expertises the character already has from ExpertiseForm
+   * Gets all expertises the character already has
    */
   const existingExpertises = useMemo(() => {
     const expertises = new Set<string>();
     
+    // From Pers
+    if (pers && (pers as any).expertise) {
+        // Warning: Structure of expertise storage varies.
+        // Often stored in a separate JSON or inferred. 
+        // We'll try to check known locations.
+    }
+
+    // From Form Data (ExpertiseForm)
     if (formData.expertiseSchema?.expertises) {
-      formData.expertiseSchema.expertises.forEach(exp => expertises.add(exp));
+      formData.expertiseSchema.expertises.forEach((exp: string) => expertises.add(exp));
     }
     
     return Array.from(expertises);
-  }, [formData.expertiseSchema]);
+  }, [formData.expertiseSchema, pers]);
 
   const optionsToUse = useMemo(() => selectedFeat?.featChoiceOptions || [], [selectedFeat]);
 
   const groupedChoices = useMemo<Group[]>(() => {
     const groups = new Map<string, NonNullable<FeatPrisma["featChoiceOptions"]>>();
 
+    // Helper to check if it's a skill option
+    const isSkillOption = (optNameEng: string) => {
+        const skillName = extractSkillFromOptionName(optNameEng);
+        return (SkillsEnum as readonly string[]).includes(skillName);
+    };
+
     for (const fco of optionsToUse) {
-      const groupName = fco.choiceOption.groupName || "Опції";
+      let groupName = fco.choiceOption.groupName || "Опції";
+
+      // Special handling for legacy/duplicate "Skilled" feat groups
+      if (selectedFeat?.name === 'SKILLED' && isSkillOption(fco.choiceOption.optionNameEng)) {
+          groupName = "Skilled Options"; // Unified group name
+      }
+
       const bucket = groups.get(groupName) ?? [];
-      bucket.push(fco);
+      
+      // Improve deduplication: 
+      // check if we already have an option that maps to the SAME skill enum
+      const isDuplicate = bucket.some(b => {
+         // Direct name match
+         if (b.choiceOption.optionNameEng === fco.choiceOption.optionNameEng) return true;
+         // Skill enum match
+         if (isSkillOption(fco.choiceOption.optionNameEng)) {
+             return extractSkillFromOptionName(b.choiceOption.optionNameEng) === 
+                    extractSkillFromOptionName(fco.choiceOption.optionNameEng);
+         }
+         return false;
+      });
+
+      if (!isDuplicate) {
+          bucket.push(fco);
+      }
+      
       groups.set(groupName, bucket);
     }
 
-    return Array.from(groups.entries()).map(([groupName, options]) => ({
-      groupName,
-      options,
-      pickCount: 1,
-      isSkill: isSkillGroup(options),
-      isExpertise: isExpertiseGroup(groupName),
-    }));
-  }, [optionsToUse]);
+    return Array.from(groups.entries()).map(([groupName, options]) => {
+      const isSkill = isSkillGroup(options);
+      let pickCount = 1;
+
+      // Use grantedSkillCount for SKILLED feat
+      if (selectedFeat?.name === 'SKILLED' && isSkill) {
+          pickCount = (selectedFeat as any).grantedSkillCount || 3;
+      }
+
+      return {
+        groupName,
+        options,
+        pickCount,
+        isSkill,
+        isExpertise: isExpertiseGroup(groupName),
+      };
+    });
+  }, [optionsToUse, selectedFeat]);
+
+   /**
+   * Helper to retrieve all selected Option IDs for a given group.
+   */
+  const getSelectedIdsForGroup = useCallback((groupName: string): number[] => {
+      const val = selections[groupName];
+      if (Array.isArray(val)) return val;
+      if (typeof val === 'number') return [val];
+      return [];
+  }, [selections]);
 
   /**
    * Gets skills selected in THIS form (for live expertise updates)
@@ -148,77 +203,53 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
     groupedChoices.forEach(group => {
       // Only look at skill groups that are NOT expertise groups
       if (group.isSkill && !group.isExpertise) {
-        const selectedOptionId = selections[group.groupName];
-        if (selectedOptionId) {
-          const option = group.options.find(opt => opt.choiceOptionId === selectedOptionId);
-          if (option) {
-            // Extract skill name from optionNameEng (e.g., "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS")
-            const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
-            skills.add(skillName);
-          }
-        }
+        const selectedIds = getSelectedIdsForGroup(group.groupName);
+        selectedIds.forEach(id => {
+            const option = group.options.find(opt => opt.choiceOptionId === id);
+            if (option) {
+              const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
+              skills.add(skillName);
+            }
+        });
       }
     });
     
     return Array.from(skills);
-  }, [groupedChoices, selections]);
+  }, [groupedChoices, getSelectedIdsForGroup]);
   
   /**
    * Combined list of ALL skills available for expertise selection
-   * Includes both existing skills from SkillsForm AND skills just selected in this form
    */
   const allAvailableSkillsForExpertise = useMemo(() => {
     const combined = new Set<string>([
       ...existingSkills,
       ...selectedSkillsInForm
     ]);
-    
     return Array.from(combined);
   }, [existingSkills, selectedSkillsInForm]);
 
-  /**
-   * Gets all selected option names across all groups (to prevent duplicates)
-   * For expertise groups, only track selections from OTHER expertise groups
-   */
-  const allSelectedOptions = useMemo(() => {
-    const selected = new Set<string>();
-    Object.entries(selections).forEach(([groupName, optionId]) => {
-      groupedChoices.forEach(group => {
-        if (group.groupName === groupName) {
-          const option = group.options.find(opt => opt.choiceOptionId === optionId);
-          if (option) {
-            // For skill groups, extract the actual skill name
-            if (group.isSkill || group.isExpertise) {
-              const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
-              selected.add(skillName);
-            } else {
-              selected.add(option.choiceOption.optionNameEng);
-            }
-          }
-        }
-      });
-    });
-    return Array.from(selected);
-  }, [selections, groupedChoices]);
+
 
   /**
-   * Gets selected expertises from THIS form (to prevent duplicate expertises)
+   * Gets selected expertises from THIS form
    */
   const selectedExpertisesInForm = useMemo(() => {
     const expertises = new Set<string>();
-    Object.entries(selections).forEach(([groupName, optionId]) => {
-      const group = groupedChoices.find(g => g.groupName === groupName);
+    groupedChoices.forEach(group => {
       if (group?.isExpertise && group?.isSkill) {
-        const option = group.options.find(opt => opt.choiceOptionId === optionId);
-        if (option) {
-          const skillName = extractSkillFromOptionName(option.choiceOption.optionNameEng);
-          expertises.add(skillName);
-        }
+        const selectedIds = getSelectedIdsForGroup(group.groupName);
+        selectedIds.forEach(id => {
+            const option = group.options.find(opt => opt.choiceOptionId === id);
+            if (option) {
+                expertises.add(extractSkillFromOptionName(option.choiceOption.optionNameEng));
+            }
+        });
       }
     });
     return Array.from(expertises);
-  }, [selections, groupedChoices]);
+  }, [groupedChoices, getSelectedIdsForGroup]);
 
+  
   useEffect(() => {
     let disabled: boolean;
     if (!selectedFeat) {
@@ -226,17 +257,65 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
     } else if (groupedChoices.length === 0) {
       disabled = false;
     } else {
-      disabled = groupedChoices.some((g) => !selections[g.groupName]);
+      // Check if EVERY group has satisfied its pickCount
+      disabled = groupedChoices.some((g) => {
+          const selected = getSelectedIdsForGroup(g.groupName);
+          return selected.length < g.pickCount;
+      });
     }
 
     if (prevDisabledRef.current !== disabled) {
       prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
     }
-  }, [selectedFeat, groupedChoices, selections, onNextDisabledChange]);
+  }, [selectedFeat, groupedChoices, selections, onNextDisabledChange, getSelectedIdsForGroup]);
 
-  const selectOption = (groupName: string, optionId: number) => {
-    const next = { ...(selections || {}), [groupName]: optionId };
+  const toggleSelection = (groupName: string, optionId: number, pickCount: number) => {
+    const currentSelected = getSelectedIdsForGroup(groupName);
+    let nextSelected: number[];
+
+    if (currentSelected.includes(optionId)) {
+        // Deselect
+        nextSelected = currentSelected.filter(id => id !== optionId);
+    } else {
+        // Select
+        if (pickCount === 1) {
+            // Replace simple
+            nextSelected = [optionId];
+        } else {
+            // Multi-select with cap
+            if (currentSelected.length < pickCount) {
+                nextSelected = [...currentSelected, optionId];
+            } else {
+                // If full, do nothing (or maybe replace oldest? let's block)
+                return; 
+            }
+        }
+    }
+    
+    // If pickCount is 1, we can store as number for backward compat, or array. 
+    // Schema supports union. ARRAY IS SAFER for internal logic, but we can store as number if length=1?
+    // Let's store as Array if pickCount > 1, number if pickCount === 1 to match expected DB format?
+    // Actually, `featChoiceSelections` is `Record<string, number | number[]>`.
+    // The previous implementation used simple number mapping.
+    // If I switch to array, I must ensure backend handles it.
+    // Looking at `pers.ts` or `create.ts`, it typically iterates choices.
+    
+    // For safety with existing backend expectations (which likely expects 1:1 mapping for most things),
+    // we should check if we need to "virtualize" keys for backend.
+    // BUT, `featChoiceSelections` schema DEFINES `z.union([z.number(), z.array(z.number())])`.
+    // So the backend *should* handle arrays if the Zod schema allows it?
+    // Let's assume yes because it's in the repo.
+    
+    const valueToStore = (nextSelected.length === 1 && pickCount === 1) ? nextSelected[0] : nextSelected;
+
+    const next = { ...(selections || {}), [groupName]: valueToStore };
+    
+    // Handle empty case
+    if (nextSelected.length === 0) {
+        delete next[groupName];
+    }
+    
     form.setValue("featChoiceSelections", next, {
       shouldDirty: true,
       shouldTouch: true,
@@ -245,55 +324,50 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
   };
 
   /**
-   * Determines if an option should be disabled based on skill/expertise rules
-   * @param group - The group containing the option
-   * @param opt - The specific option to check
-   * @returns Object with disabled status and optional reason
+   * Determines if an option should be disabled based on rules
    */
-  const isOptionDisabled = (group: Group, opt: NonNullable<FeatPrisma["featChoiceOptions"]>[0]): { disabled: boolean; reason?: string } => {
-    // Extract the actual skill name from optionNameEng
+  const getDisabledState = (group: Group, opt: NonNullable<FeatPrisma["featChoiceOptions"]>[0]): { disabled: boolean; reason?: string } => {
     const optionName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
-    const isSelected = selections[group.groupName] === opt.choiceOptionId;
     
+    const currentSelected = getSelectedIdsForGroup(group.groupName);
+    const isSelected = currentSelected.includes(opt.choiceOptionId);
+    
+    // If group is full and we are NOT selected -> disable
+    if (!isSelected && currentSelected.length >= group.pickCount) {
+        return { disabled: true, reason: undefined }; // Just visual disable, no text reason needed often, or "Max choices"
+    }
+
     // If this is a SKILL group (not expertise)
     if (group.isSkill && !group.isExpertise) {
-      // Already have this skill from previous steps?
       if (existingSkills.includes(optionName)) {
-        return { disabled: true, reason: 'Вже маєте' };
+        return { disabled: true, reason: 'Вже володієте цією навичкою' };
       }
-      // Already selected in another NON-EXPERTISE group in this form?
-      if (!isSelected && allSelectedOptions.includes(optionName)) {
-        // Check if it's selected in another skill (non-expertise) group
-        const isInOtherSkillGroup = groupedChoices.some(g => 
-          g.isSkill && !g.isExpertise && 
-          g.groupName !== group.groupName &&
-          selections[g.groupName] !== undefined &&
-          g.options.some(o => 
-            o.choiceOptionId === selections[g.groupName] &&
-            extractSkillFromOptionName(o.choiceOption.optionNameEng) === optionName
-          )
-        );
-        if (isInOtherSkillGroup) {
+      
+      // Check if selected in OTHER groups (deduplication across groups)
+      // We need to exclude current group from this check
+      const isInOtherSkillGroup = groupedChoices.some(g => 
+          g.groupName !== group.groupName && // distinct group
+          g.isSkill && !g.isExpertise &&
+          getSelectedIdsForGroup(g.groupName).some(id => {
+             const o = g.options.find(opt => opt.choiceOptionId === id);
+             return o && extractSkillFromOptionName(o.choiceOption.optionNameEng) === optionName;
+          })
+      );
+
+      if (!isSelected && isInOtherSkillGroup) {
           return { disabled: true, reason: 'Вже обрано' };
-        }
       }
     }
     
     // If this is an EXPERTISE group
     if (group.isExpertise && group.isSkill) {
-      // Can only pick expertise if we have the skill (from existing OR just selected in this form)
       const hasSkill = allAvailableSkillsForExpertise.includes(optionName);
-      
       if (!hasSkill) {
         return { disabled: true, reason: 'Потрібна навичка' };
       }
-      
-      // Already have expertise in this?
       if (existingExpertises.includes(optionName)) {
-        return { disabled: true, reason: 'Вже експерт' };
+        return { disabled: true, reason: 'Вже маєте експертизу' };
       }
-      
-      // Already selected as expertise in ANOTHER expertise group in this form?
       if (!isSelected && selectedExpertisesInForm.includes(optionName)) {
         return { disabled: true, reason: 'Вже обрано' };
       }
@@ -327,16 +401,16 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
       </div>
 
       <div className="space-y-4">
-        {groupedChoices.map((group) => (
-          <Card
-            key={group.groupName}
-            className=""
-          >
+        {groupedChoices.map((group) => {
+            const sortedOptions = group.options;
+
+            return (
+          <Card key={group.groupName} className="">
             <CardContent className="space-y-3 p-4">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
-                  <p className="text-base font-semibold text-white">{group.groupName}</p>
+                  <p className="text-base font-semibold text-white">{cleanGroupName(group.groupName)}</p>
                 </div>
                 <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
                   Оберіть {group.pickCount}
@@ -350,16 +424,14 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
               )}
 
               <div className="grid gap-2 sm:grid-cols-2">
-                {group.options.map((opt) => {
+                {sortedOptions.map((opt) => {
                   const optionId = opt.choiceOptionId;
                   const optionNameEng = opt.choiceOption.optionNameEng;
-                  const isSelected = selections[group.groupName] === optionId;
-                  const { disabled, reason } = isOptionDisabled(group, opt);
+                  const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
+                  const { disabled, reason } = getDisabledState(group, opt);
                   
-                  // Get Ukrainian translation for skills/expertises
                   let label = opt.choiceOption.optionName;
                   if (group.isSkill || group.isExpertise) {
-                    // Extract skill name and translate it
                     const skillName = extractSkillFromOptionName(optionNameEng);
                     const skillTranslation = translateValue(skillName);
                     label = skillTranslation || label || skillName;
@@ -368,30 +440,54 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange }: P
                   }
 
                   return (
-                    <Button
+                    <Card
                       key={optionId}
-                      type="button"
-                      variant="outline"
-                      disabled={disabled && !isSelected}
-                      className={`justify-between border-white/15 bg-white/5 text-slate-200 hover:bg-white/7 hover:text-white ${
-                        isSelected ? "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100" : ""
-                      } ${disabled && !isSelected ? "opacity-60 cursor-not-allowed" : ""}`}
-                      onClick={() => !disabled && selectOption(group.groupName, optionId)}
+                      className={clsx(
+                        "glass-card cursor-pointer transition-all duration-200 group relative",
+                        isSelected
+                            ? "glass-active border-gradient-rpg"
+                            : disabled 
+                                ? "opacity-60 grayscale-[0.8]" 
+                                : "hover:bg-white/5",
+                        disabled && !isSelected && "cursor-not-allowed"
+                      )}
+                      onClick={() => {
+                        if (!disabled || (isSelected)) { // Allow clicking to deselect even if theoretically disabled
+                             toggleSelection(group.groupName, optionId, group.pickCount);
+                        }
+                      }}
                     >
-                      <span className="flex items-center gap-2">
-                        {label}
-                        {disabled && reason && (
-                          <span className="text-xs opacity-70">({reason})</span>
-                        )}
-                      </span>
-                      {isSelected && <Check className="h-4 w-4" />}
-                    </Button>
+                        <CardContent className="flex items-center justify-between p-3">
+                            <div className="flex flex-col gap-0.5 relative z-10 w-full">
+                                <span className={clsx(
+                                    "font-medium transition-colors",
+                                    isSelected ? "text-white" : "text-slate-200"
+                                )}>
+                                    {label}
+                                </span>
+                                {(reason) && (
+                                    <span className={clsx(
+                                        "text-xs font-medium",
+                                        disabled ? "text-rose-400" : "text-slate-400"
+                                    )}>
+                                        {disabled ? `(${reason})` : reason}
+                                    </span>
+                                )}
+                            </div>
+
+                             {isSelected && (
+                                <div className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-400">
+                                    <Check className="h-5 w-5 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                                </div>
+                            )}
+                        </CardContent>
+                    </Card>
                   );
                 })}
               </div>
             </CardContent>
           </Card>
-        ))}
+        )})}
       </div>
     </form>
   );

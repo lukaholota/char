@@ -87,7 +87,7 @@ export function FormattedDescription({
 
     const url = new URL(window.location.href);
     url.searchParams.set("spell", spellId);
-    window.history.pushState({}, "", url);
+    window.history.replaceState({}, "", url);
     window.dispatchEvent(new CustomEvent("spell:open", { detail: { spellId } }));
     dispatchLocationChangeAsync();
   };

@@ -22,7 +22,7 @@ interface Props {
   onNextDisabledChange?: (disabled: boolean) => void
 }
 
-type GroupName = 'race' | 'selectedClass';
+type GroupName = 'race' | 'selectedClass' | 'background';
 
 function isSkill(value: unknown): value is Skill {
   return typeof value === "string" && (SkillsEnum as readonly string[]).includes(value)
@@ -36,10 +36,16 @@ function normalizeSkillProficiencies(value: unknown): SkillProficiencies | null 
   }
 
   if (typeof value === "object") {
-    const maybe = value as { options?: unknown; choiceCount?: unknown; chooseAny?: unknown }
-    if (typeof maybe.choiceCount === "number" && Array.isArray(maybe.options)) {
-      const options = maybe.options.filter(isSkill)
+    const maybe = value as { options?: unknown; choices?: unknown; choiceCount?: unknown; chooseAny?: unknown }
+    
+    // Support both 'options' and 'choices' (legacy/seed format)
+    const optionsSource = Array.isArray(maybe.options) ? maybe.options : Array.isArray(maybe.choices) ? maybe.choices : undefined;
+    
+    if (typeof maybe.choiceCount === "number" && optionsSource) {
+      // Allow 'ANY' (used in Custom Lineage) or valid skills
+      const options = optionsSource.filter(s => isSkill(s) || s === 'ANY') as Skill[] // Cast to satisfy type (ANY treated as valid)
       const chooseAny = typeof maybe.chooseAny === "boolean" ? maybe.chooseAny : undefined
+      // Always return normalized object with 'options' key for internal consistency
       return { options, choiceCount: maybe.choiceCount, chooseAny }
     }
   }
@@ -141,6 +147,11 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
       
       // Add class choices (user-selected)
       data.basicChoices.selectedClass.forEach(s => allSkills.add(s));
+      data.basicChoices.race.forEach(s => allSkills.add(s));
+      data.basicChoices.background.forEach(s => allSkills.add(s));
+
+      // Add race option choices
+      Object.values(data.choiceOptions).flat().forEach(s => allSkills.add(s));
     }
     
     // Save both skillsSchema AND flat skills array
@@ -154,12 +165,55 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
     nextStep();
   });
 
+  const watchedChoiceOptions = form.watch('choiceOptions');
+  const choiceOptions = useMemo(() => watchedChoiceOptions ?? {}, [watchedChoiceOptions]);
+
+  // Calculate choices from RaceChoiceOptions (e.g. Custom Lineage "Skill" option)
+  const raceOptionChoices = useMemo(() => {
+    if (!race.raceChoiceOptions || !formData.raceChoiceSelections) return [];
+
+    const selections = formData.raceChoiceSelections;
+    const selectedOptionIds = Object.values(selections);
+
+    return race.raceChoiceOptions
+      .filter(opt => selectedOptionIds.includes(opt.optionId) && opt.skillProficiencies)
+      .map(opt => ({
+        option: opt,
+        proficiencies: normalizeSkillProficiencies(opt.skillProficiencies)
+      }))
+      .filter((item): item is { option: typeof item.option, proficiencies: NonNullable<typeof item.proficiencies> } => item.proficiencies !== null);
+  }, [race.raceChoiceOptions, formData.raceChoiceSelections]);
+
+  const raceOptionCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    raceOptionChoices.forEach(item => {
+        // Safe access to choiceCount
+        const prof = item.proficiencies;
+        if (prof && !Array.isArray(prof)) {
+            counts[item.option.optionId] = prof.choiceCount || 0;
+        }
+    });
+    return counts;
+  }, [raceOptionChoices]);
+  
+  // Calculate total choice count from race options
+  const raceOptionsTotalCount = raceOptionChoices.reduce((acc, curr) => {
+    // Narrow type safely
+    const prof = curr.proficiencies;
+    if (prof && !Array.isArray(prof)) {
+        return acc + (prof.choiceCount || 0);
+    }
+    return acc;
+  }, 0);
+
   populateSkills<typeof race>(race)
 
   useEffect(() => {
     form.register('basicChoices')
     form.register('basicChoices.race')
     form.register('basicChoices.selectedClass')
+    form.register('basicChoices.background' as any)
+    form.register('choiceOptions')
     form.register('tashaChoices')
     form.register('isTasha')
     form.register('_requiredCount')
@@ -169,10 +223,14 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
 
   const isTasha = form.watch('isTasha') ?? false
   const tashaChoices = form.watch('tashaChoices') || []
-  const basicChoices = form.watch('basicChoices') ?? {
+  
+  const watchedBasicChoices = form.watch('basicChoices');
+  
+  const basicChoices = useMemo(() => watchedBasicChoices ?? {
     race: [],
     selectedClass: [],
-  }
+    background: [],
+  }, [watchedBasicChoices]);
 
   // Skills shown as "locked" in UI - only in non-Tasha mode
   const lockedSkillsInUI = useMemo(() => {
@@ -191,13 +249,19 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
     return race.skillProficiencies;
   }, [race, raceVariant]);
 
+  const backgroundSkillProficiencies = useMemo(() => {
+    if (Array.isArray(background.skillProficiencies)) return null;
+    return normalizeSkillProficiencies(background.skillProficiencies) as SkillProficienciesChoice;
+  }, [background.skillProficiencies]);
+
   const raceCount = getSkillProficienciesCount(raceSkillProficiencies)
   const classCount = getSkillProficienciesCount(selectedClass.skillProficiencies)
-  const backgroundCount = getSkillProficienciesCount(background.skillProficiencies)
+  const backgroundCount = getSkillProficienciesCount(backgroundSkillProficiencies)
   const subraceCount = getSkillProficienciesCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
   const variantCount = 0
 
   // In Tasha mode, ALL skills (including fixed ones) become free choices in ONE pool
+  // Add raceChoiceOptions total count to Tasha pool as well? Usually yes, if flexible.
   const tashaChoiceCountTotal = isTasha 
     ? getTotalSkillProficienciesCount({
         raceCount,
@@ -205,41 +269,69 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
         backgroundCount,
         subraceCount,
         variantCount
-      })
+      }) + raceOptionsTotalCount
     : 0;
     
   const tashaChoiceCountCurrent = tashaChoiceCountTotal - (tashaChoices?.length ?? 0)
 
   const basicCounts = {
     race: raceCount - (basicChoices?.race?.length ?? 0),
-    selectedClass: classCount - (basicChoices?.selectedClass?.length ?? 0)
+    selectedClass: classCount - (basicChoices?.selectedClass?.length ?? 0),
+    background: backgroundCount - (basicChoices?.background?.length ?? 0)
   }
 
   const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
 
-  const skillsByGroup = {
-    race: raceSkillProficiencies as SkillProficienciesChoice,
-    selectedClass: selectedClass.skillProficiencies as SkillProficienciesChoice,
-  }
+  const skillsByGroup = useMemo(() => {
+    const groups = {
+      race: raceSkillProficiencies as SkillProficienciesChoice,
+      selectedClass: selectedClass.skillProficiencies as SkillProficienciesChoice,
+      background: backgroundSkillProficiencies as SkillProficienciesChoice,
+    };
 
-  const checkIfSelectedByOthers = (groupName: GroupName, skill: Skill) => {
-    // Check if skill is in fixed granted skills
-    if (fixedSkillsFromRaceAndBackground.includes(skill)) return true;
-    
-    const allSkillGroups = {
-      background: background.skillProficiencies,
+    // Expand ANY for all groups
+    Object.values(groups).forEach(g => {
+      if (g?.options?.includes("ANY" as any)) {
+        g.options = [...SkillsEnum] as any;
+      }
+    });
+
+    return groups;
+  }, [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies]);
+
+  const checkIfSelectedByOthers = (groupName: GroupName | string, skill: Skill) => {
+    // Check main groups
+    const mainGroups: Record<string, string[]> = {
       race: Array.isArray(race.skillProficiencies)
-        ? race.skillProficiencies
-        : basicChoices.race,
-      selectedClass: basicChoices.selectedClass
-    }
-    delete allSkillGroups[groupName]
+        ? (race.skillProficiencies as string[])
+        : (basicChoices.race as string[]),
+      selectedClass: basicChoices.selectedClass as string[],
+      background: Array.isArray(background.skillProficiencies)
+        ? (background.skillProficiencies as string[])
+        : (basicChoices.background as string[]),
+    };
 
-    return Object.values(allSkillGroups).some(value =>
-      Array.isArray(value)
-        ? value.includes(skill)
-        : value?.options?.includes(skill)
-    )
+    // Check race option groups - use copy to avoid mutation
+    const raceOptionGroups: Record<string, string[]> = { ...choiceOptions };
+
+    // Remove the current group from checking to avoid self-reference
+    // For main groups:
+    if (groupName in mainGroups) {
+       delete mainGroups[groupName as keyof typeof mainGroups];
+    }
+    // For race options:
+    if (groupName in raceOptionGroups) {
+       delete raceOptionGroups[groupName];
+    }
+
+    // Check main groups
+    const inMain = Object.values(mainGroups).some(value => value?.includes(skill));
+    if (inMain) return true;
+
+    // Check race options
+    const inRaceOptions = Object.values(raceOptionGroups).some(value => value.includes(skill));
+    
+    return inRaceOptions;
   }
 
   // Set validation metadata fields
@@ -252,19 +344,29 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
       form.setValue('_requiredCount', undefined);
       form.setValue('_raceCount', raceCount);
       form.setValue('_classCount', classCount);
+      form.setValue('_backgroundCount' as any, backgroundCount);
     }
-  }, [isTasha, tashaChoiceCountTotal, raceCount, classCount, form]);
+  }, [isTasha, tashaChoiceCountTotal, raceCount, classCount, backgroundCount, form]);
 
   // Update button state based on form validity
   useEffect(() => {
     // Skills selection is optional: allow continuing even if not all picks are filled.
     // We only guard against impossible states (over the computed limit), but UI already prevents that.
+    
+    // For race options, check if any option exceeded its specific limit
+    const isRaceOptionOverLimit = Object.entries(choiceOptions).some(([optId, selected]) => {
+      const max = raceOptionCounts[optId] || 0;
+      return selected.length > max;
+    });
+
     const isOverLimit = isTasha
       ? tashaChoices.length > tashaChoiceCountTotal
-      : (basicChoices.selectedClass ?? []).length > classCount;
+      : (basicChoices.selectedClass ?? []).length > classCount || 
+        (basicChoices.race ?? []).length > raceCount ||
+        isRaceOptionOverLimit;
 
     onNextDisabledChange?.(isOverLimit);
-  }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, onNextDisabledChange]);
+  }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, choiceOptions, raceOptionCounts, onNextDisabledChange, raceCount]);
 
   const handleToggleTashaSkill = (skill: Skill) => {
     const has = tashaChoices.includes(skill)
@@ -289,7 +391,22 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
       ? current.filter(c => c !== skill)
       : [...current, skill]
 
-    form.setValue(`basicChoices.${groupName}`, updated)
+    form.setValue(`basicChoices.${groupName}` as any, updated)
+  }
+
+  const handleToggleOptionSkill = ({skill, optionId}: { skill: Skill, optionId: string }) => {
+    const current = choiceOptions[optionId] ?? [];
+    const has = current.includes(skill);
+    const max = raceOptionCounts[optionId] || 0;
+    const currentCount = current.length;
+
+    if (!has && currentCount >= max) return;
+
+    const updated = has
+      ? current.filter(c => c !== skill)
+      : [...current, skill];
+    
+    form.setValue(`choiceOptions.${optionId}`, updated);
   }
 
   return (
@@ -306,7 +423,6 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
               onCheckedChange={(checked) => form.setValue('isTasha', checked)}
             />
             <Label htmlFor="isTasha" className="text-slate-200">Правила Таші</Label>
-            <Badge className="border border-white/15 bg-white/5 text-slate-200">Гнучкий режим</Badge>
           </div>
         </CardHeader>
 
@@ -375,12 +491,79 @@ export const SkillsForm = ({race, raceVariant, selectedClass, background, formId
                 </div>
               )}
 
+              {/* Race Options Skills (e.g. Custom Lineage Skill) */}
+              {raceOptionChoices.map((rc) => {
+                const optId = rc.option.optionId.toString();
+                // Safe access to proficiencies
+                const prof = rc.proficiencies;
+                if (!prof || Array.isArray(prof)) return null;
+
+                const max = prof.choiceCount || 0;
+                const currentSelections = choiceOptions[optId] ?? [];
+                const remaining = max - currentSelections.length;
+
+                // Handle "ANY" or specific list
+                const availableOptions = prof.options?.includes("ANY" as unknown as Skill)
+                  ? [...SkillsEnum]
+                  : prof.options || [];
+
+                return (
+                  <div key={`race-opt-${optId}`} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
+                     <div className="flex items-center justify-between text-sm text-slate-300">
+                      <div className="font-semibold text-white">
+                        {rc.option.choiceGroupName} - {rc.option.optionName}
+                      </div>
+                      <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{remaining}</span></span>
+                    </div>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      {availableOptions.map((skill: Skill, sIdx: number) => {
+                         const skillGroup = engEnumSkills.find((s) => s.eng === skill);
+                         if (!skillGroup) return null;
+                         
+                         const isSelected = currentSelections.includes(skill);
+                         const isSelectedByOthers = checkIfSelectedByOthers(optId, skill);
+                         const isMaxReached = remaining < 1;
+                         const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers;
+                         const active = isSelected || isSelectedByOthers;
+
+                         return (
+                           <Button
+                            key={sIdx}
+                            type="button"
+                            variant="outline"
+                            disabled={isDisabled}
+                            className={`justify-between ${
+                              isSelectedByOthers 
+                                ? "bg-white/3 text-slate-400 border-white/10 cursor-not-allowed" 
+                                : active 
+                                  ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-slate-100" 
+                                  : "border-white/15 bg-white/5 text-slate-200"
+                            } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
+                            onClick={() => !isSelectedByOthers && handleToggleOptionSkill({
+                              skill: skillGroup.eng as Skill, // ensure type
+                              optionId: optId
+                            })}
+                           >
+                            <span className="flex items-center gap-2">
+                              {isSelectedByOthers && <Lock className="h-3 w-3" />}
+                              {skillGroup.ukr}
+                            </span>
+                             {active && !isSelectedByOthers && <Check className="h-4 w-4" />}
+                             {isSelectedByOthers && <span className="text-xs opacity-70">(вже обрано)</span>}
+                           </Button>
+                         )
+                      })}
+                    </div>
+                  </div>
+                )
+              })}
+
               {entries.map(([groupName, choices], index) => (
                 <div key={index} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
                   {skillsByGroup[groupName]?.options && (
                     <div className="flex items-center justify-between text-sm text-slate-300">
                       <div className="font-semibold text-white">
-                        {groupName === 'race' ? 'Навички за расу' : 'Навички за клас'}
+                        {groupName === 'race' ? 'Навички за расу' : groupName === 'selectedClass' ? 'Навички за клас' : 'Навички за передісторію'}
                       </div>
                       <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
                     </div>

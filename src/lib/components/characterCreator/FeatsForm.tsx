@@ -55,10 +55,11 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
   const filteredFeats = useMemo(() => {
     const normalizedSearch = (search || "").toLowerCase().trim();
     if (!normalizedSearch) return feats;
-    return feats.filter(f => 
-      f.name.toLowerCase().includes(normalizedSearch) || 
-      f.engName.toLowerCase().includes(normalizedSearch)
-    );
+    return feats.filter(f => {
+      const name = featTranslations[f.name] ?? f.name;
+      return name.toLowerCase().includes(normalizedSearch) || 
+             f.engName.toLowerCase().includes(normalizedSearch);
+    });
   }, [feats, search]);
 
   const effectiveStats = useMemo(() => {
@@ -176,7 +177,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <Input
               type="search"
-              value={search}
+              value={search || ""}
               onChange={(e) => form.setValue("featSearch", e.target.value)}
               placeholder="Пошук риси"
               className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"

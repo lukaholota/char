@@ -30,6 +30,7 @@ import {
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 import { classTranslations, sourceTranslations, spellSchoolTranslations, subclassTranslations } from "@/lib/refs/translation";
+import { subclassParentClass } from "@/lib/refs/subclassMapping";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { toggleSpellForPers } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
@@ -260,22 +261,16 @@ function flagsLabel(spell: Pick<SpellListItem, "hasRitual" | "hasConcentration">
 }
 
 function splitClasses(values: string[]): { classes: string[]; subclasses: string[] } {
-  const isSubclass = (raw: string) => {
-    const v = raw.trim().toLowerCase();
-    if (!v) return false;
-    if (v.includes(":")) return true;
-    if (v.includes("(")) return true;
-    if (v.includes("-")) return true;
-    // Most base classes are single words; multi-word entries are typically subclass lines.
-    if (v.split(/\s+/).length > 1) return true;
-    return false;
-  };
+  const baseClasses = new Set(Object.values(classTranslations).map((c) => c.toLowerCase()));
 
   const classes: string[] = [];
   const subclasses: string[] = [];
   for (const v of values) {
-    if (isSubclass(v)) subclasses.push(v);
-    else classes.push(v);
+    if (baseClasses.has(v.toLowerCase())) {
+      classes.push(v);
+    } else {
+      subclasses.push(v);
+    }
   }
   return { classes, subclasses };
 }
@@ -1185,34 +1180,62 @@ export function SpellsClient({
                     className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
                   />
                 </div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="flex flex-wrap gap-2">
-                    {available.subclasses
-                      .filter((sub) => {
-                        const q = subclassFilter.trim().toLowerCase();
-                        if (!q) return true;
+                <div className="mt-2 max-h-56 overflow-auto pr-1">
+                  <div className="space-y-3">
+                    {(() => {
+                      const q = subclassFilter.trim().toLowerCase();
+                      
+                      // 1. Group subclasses by parent class
+                      const groups: Record<string, string[]> = {};
+                      for (const sub of available.subclasses) {
                         const label = classTranslations[sub as keyof typeof classTranslations] || sub;
-                        return `${sub} ${label}`.toLowerCase().includes(q);
-                      })
-                      .map((sub) => {
-                        const active = selection.subclasses.has(sub);
-                        const label = classTranslations[sub as keyof typeof classTranslations] || sub;
-                        return (
-                          <Badge
-                            key={sub}
-                            variant={active ? "default" : "outline"}
-                            className={`h-7 px-2 py-0 text-xs font-normal border transition-colors ${
-                        selection.subclasses.has(sub.toLowerCase())
-                          ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/40"
-                          : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10"
-                      }`}
-                      onClick={() => toggleSetValue("sub", sub.toLowerCase())}
-                            role="button"
-                          >
-                            {label}
-                          </Badge>
-                        );
-                      })}
+                        if (q && !`${sub} ${label}`.toLowerCase().includes(q)) continue;
+
+                        const parent = subclassParentClass[sub] || "Інші";
+                        if (!groups[parent]) groups[parent] = [];
+                        groups[parent].push(sub);
+                      }
+
+                      // 2. Sort classes (parents)
+                      const sortedParents = Object.keys(groups).sort((a, b) => {
+                        if (a === "Інші") return 1;
+                        if (b === "Інші") return -1;
+                        return a.localeCompare(b, "uk");
+                      });
+
+                      if (sortedParents.length === 0) {
+                        return <div className="text-xs text-slate-500 italic">Нічого не знайдено</div>;
+                      }
+
+                      return sortedParents.map((parent) => (
+                        <div key={parent}>
+                          <div className="mb-1 text-[10px] uppercase font-bold text-slate-500 tracking-wider">
+                            {parent}
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {groups[parent].sort((a, b) => a.localeCompare(b, "uk")).map((sub) => {
+                              const active = selection.subclasses.has(sub);
+                              const label = classTranslations[sub as keyof typeof classTranslations] || sub;
+                              return (
+                                <Badge
+                                  key={sub}
+                                  variant={active ? "default" : "outline"}
+                                  className={`h-7 px-2 py-0 text-xs font-normal border transition-colors ${
+                                    selection.subclasses.has(sub.toLowerCase())
+                                      ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/40"
+                                      : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10"
+                                  }`}
+                                  onClick={() => toggleSetValue("sub", sub.toLowerCase())}
+                                  role="button"
+                                >
+                                  {label}
+                                </Badge>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ));
+                    })()}
                   </div>
                 </div>
               </div>

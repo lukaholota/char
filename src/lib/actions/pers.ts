@@ -631,7 +631,29 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     if (pers.userId !== user.id) return null;
 
     // Build a map of featureId -> Source
+    // Also build a map of featureId -> ClassLevel for determining class-based scaling uses
     const sourceMap = new Map<number, "RACE" | "SUBRACE" | "CLASS" | "SUBCLASS">();
+    const featureClassLevelMap = new Map<number, number>();
+
+    const multiclassSum = pers.multiclasses.reduce((acc, current) => acc + (Number(current.classLevel) || 0), 0);
+    const mainClassLevel = Math.max(1, (Number(pers.level) || 1) - multiclassSum);
+
+    const addFeaturesToLevelMap = (features: any[], level: number) => {
+        features.forEach(f => {
+             if (f.feature?.featureId) featureClassLevelMap.set(f.feature.featureId, level);
+             else if (f.featureId) featureClassLevelMap.set(f.featureId, level);
+        });
+    };
+
+    // Main class
+    addFeaturesToLevelMap(pers.class.features, mainClassLevel);
+    if (pers.subclass) addFeaturesToLevelMap(pers.subclass.features, mainClassLevel);
+
+    pers.multiclasses.forEach(mc => {
+        const lvl = Number(mc.classLevel) || 1;
+        addFeaturesToLevelMap(mc.class.features, lvl);
+        if (mc.subclass) addFeaturesToLevelMap(mc.subclass.features, lvl);
+    });
     
     pers.race.traits.forEach(t => { if (t.featureId) sourceMap.set(t.featureId, "RACE"); });
     pers.subrace?.traits.forEach(t => { if (t.featureId) sourceMap.set(t.featureId, "SUBRACE"); });
@@ -697,6 +719,11 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         const f = pf.feature;
 
         const usesPer = (() => {
+            const special = f.usesCountSpecial as any;
+            if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
+                 return featureClassLevelMap.get(f.featureId) ?? pers.level;
+            }
+
             if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
             if (typeof f.usesCount === "number") return f.usesCount;
             return null;

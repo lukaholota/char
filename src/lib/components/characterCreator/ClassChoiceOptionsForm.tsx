@@ -92,7 +92,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     Object.values(selections).forEach(selection => {
         const selectedIds = Array.isArray(selection) ? selection : [selection];
         selectedIds.forEach(id => {
-            const o = optionsToUse.find(opt => (opt.optionId ?? opt.choiceOptionId) === id);
+            const o = optionsToUse.find(opt => opt.choiceOptionId === id);
             if (o && (
                 o.choiceOption.groupName === 'Дар пакту' || 
                 (o.choiceOption as any).groupNameEng === 'Pact Boon' ||
@@ -134,9 +134,6 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     }
   }, [selectedClass, availableOptions, groupedOptions, selections, onNextDisabledChange, pickCount]);
 
-  useEffect(() => {
-    updateFormData({ classChoiceSelections: selections });
-  }, [selections, updateFormData]);
 
   const finalizeSelect = (groupName: string, optionId: number) => {
     const current = selections[groupName];
@@ -187,7 +184,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
   };
 
   const selectOption = (groupName: string, optionId: number, options: typeof optionsToUse) => {
-    const opt = options.find(o => (o.optionId ?? o.choiceOptionId) === optionId);
+    const opt = options.find(o => o.choiceOptionId === optionId);
     if (!opt) return;
 
     // Check if already selected (for unselecting)
@@ -279,9 +276,9 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                 </Badge>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-3 grid-cols-1">
                 {options.map((opt) => {
-                  const optionId = opt.optionId ?? opt.choiceOptionId;
+                  const optionId = opt.choiceOptionId;
                   const ukrLabel = opt.choiceOption.optionName;
                   const engLabel = opt.choiceOption.optionNameEng;
                   const label = ukrLabel || (isEnumLike(engLabel) ? translateValue(engLabel) : engLabel);
@@ -318,8 +315,8 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                       }}
                     >
                       <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
-                        <div className="flex items-center justify-between gap-2">
-                          <p className="truncate text-sm font-semibold text-white">{label}</p>
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-sm font-semibold text-white break-words flex-1">{label}</p>
 
                           <div className="flex items-center gap-2">
                             <div

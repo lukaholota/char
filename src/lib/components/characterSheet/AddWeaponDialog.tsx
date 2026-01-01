@@ -98,7 +98,10 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
           <span>Додати зброю</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md bg-slate-900/60 backdrop-blur-xl border-white/10 text-slate-50 p-0 overflow-hidden flex flex-col h-[80vh]">
+      <DialogContent 
+        className="max-w-md bg-slate-900/60 backdrop-blur-xl border-white/10 text-slate-50 p-0 overflow-hidden flex flex-col h-[80vh]"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         <DialogHeader className="p-4 border-b border-white/10 shrink-0">
           <DialogTitle className="flex items-center gap-2">
             <Sword className="w-5 h-5 text-indigo-400" />
@@ -111,6 +114,7 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <Input
+                autoFocus={false}
                 placeholder="Пошук зброї..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}

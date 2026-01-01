@@ -1,0 +1,34 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Executing remote ssh commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/luka/char
+            git pull origin main
+            
+            # Use specific Node.js version if needed (assumed already set up on VPS)
+            # source ~/.nvm/nvm.sh && nvm use default
+            
+            npm install
+            npx prisma generate
+            npm run build
+            
+            # Restart services
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart char
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart nginx

@@ -142,15 +142,20 @@ export const skillsSchema  = z.object({
   basicChoices: z.object({
     race: z.array(skills).default([]),
     selectedClass: z.array(skills).default([]),
+    background: z.array(skills).default([]),
   }).default({
     race: [],
     selectedClass: [],
+    background: [],
   }),
+
+  choiceOptions: z.record(z.string(), z.array(skills)).default({}),
   
   // Metadata fields for validation (not stored in DB)
   _requiredCount: z.number().optional(),
   _raceCount: z.number().optional(),
   _classCount: z.number().optional(),
+  _backgroundCount: z.number().optional(),
 }).strict()
   .superRefine((data, ctx) => {
     // Skip validation if metadata not provided (for backward compatibility)
@@ -178,6 +183,13 @@ export const skillsSchema  = z.object({
           code: z.ZodIssueCode.custom,
           message: `Оберіть не більше ${data._classCount} навичок за клас`,
           path: ['basicChoices', 'selectedClass'],
+        });
+      }
+      if (data._backgroundCount !== undefined && data.basicChoices.background.length > data._backgroundCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Оберіть не більше ${data._backgroundCount} навичок за передісторію`,
+          path: ['basicChoices', 'background'],
         });
       }
     }

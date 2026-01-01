@@ -101,7 +101,10 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
             Додати
           </Button>
         </DialogTrigger>
-        <DialogContent className={`${confirmMode ? 'max-w-md' : 'max-w-6xl'} bg-slate-900 border-white/10 text-white p-0 overflow-hidden flex flex-col ${confirmMode ? 'h-auto' : 'h-[90vh]'} transition-all duration-300`}>
+        <DialogContent 
+          className={`${confirmMode ? 'max-w-md' : 'max-w-6xl'} bg-slate-900 border-white/10 text-white p-0 overflow-hidden flex flex-col ${confirmMode ? 'h-auto' : 'h-[90vh]'} transition-all duration-300`}
+          onOpenAutoFocus={(e) => e.preventDefault()}
+        >
           {confirmMode ? (
             <div className="p-6 space-y-6">
               <div className="space-y-2 text-center text-slate-200">

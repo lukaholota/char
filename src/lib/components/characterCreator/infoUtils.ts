@@ -96,15 +96,16 @@ export const formatSkillProficiencies = (skills?: SkillProficiencies | null) => 
     return formatList(skills);
   }
 
-  const { options, choiceCount, chooseAny } = skills;
-  const count = choiceCount ?? options.length;
+  const { options, choices, choiceCount, chooseAny } = skills;
+  const actualOptions = options || choices || [];
+  const count = choiceCount ?? actualOptions.length;
 
   if (chooseAny) {
     return `Обери будь-які ${count}`;
   }
 
-  if (!options.length) return `Обери ${count}`;
-  return `Обери ${count}: ${formatList(options)}`;
+  if (!actualOptions.length) return `Обери ${count}`;
+  return `Обери ${count}: ${formatList(actualOptions)}`;
 };
 
 export const formatToolProficiencies = (tools?: ToolProficiencies | null, chooseCount?: number | null) => {

@@ -63,6 +63,7 @@ export type SkillProficienciesArray = Skills[];
 
 export type SkillProficienciesChoice = {
   options: Skill[]; // або Skills[], якщо хочеш напряму з Prisma
+  choices?: Skill[]; // Alias for options found in some seeds
   choiceCount: number;
   chooseAny?: boolean;
 };
@@ -252,12 +253,22 @@ export type UsesCountSpecialStaticFromStat = {
   stat: Ability;
 };
 
+// Варіант 5: equalsToClassLevel
+//
+// usesCountSpecial: {
+//   equalsToClassLevel: true,
+// }
+export type UsesCountSpecialEqualsToClassLevel = {
+  equalsToClassLevel: true;
+};
+
 // Обʼєднаний тип:
 export type UsesCountSpecial =
   | UsesCountSpecialArray
   | UsesCountSpecialFormulaStatBased
   | UsesCountSpecialFormulaLevelBased
-  | UsesCountSpecialStaticFromStat;
+  | UsesCountSpecialStaticFromStat
+  | UsesCountSpecialEqualsToClassLevel;
 
 // 2.9. miscSaveBonuses
 //

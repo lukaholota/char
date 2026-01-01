@@ -27,6 +27,7 @@ import {
 import { ShareDialog } from "@/lib/components/characterSheet/ShareDialog";
 import PrintCharacterDialog from "@/lib/components/characterSheet/PrintCharacterDialog";
 import { DisintegratingCard } from "@/lib/components/ui/DisintegratingCard";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { AnimatePresence } from "framer-motion";
 
 export interface PersHomeItem {
@@ -70,6 +71,9 @@ function PersCard({
   const [printOpen, setPrintOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
   const [isRenaming, startRename] = useTransition();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useModalBackButton(menuOpen, () => setMenuOpen(false));
 
   const { ref: deleteRef, isConfirming, onClick: onConfirmClick } = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: () => onDelete(pers.persId),
@@ -106,7 +110,7 @@ function PersCard({
       }}
     >
       <div className="absolute top-3 right-2 z-10">
-        <DropdownMenu>
+        <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"

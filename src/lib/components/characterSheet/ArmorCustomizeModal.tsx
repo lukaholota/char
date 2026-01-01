@@ -87,7 +87,13 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] max-w-md overflow-y-auto bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50">
+      <DialogContent 
+        className="max-h-[90vh] max-w-md overflow-y-auto bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50"
+        onOpenAutoFocus={(e) => {
+          e.preventDefault();
+          (e.currentTarget as HTMLElement)?.focus();
+        }}
+      >
         <DialogHeader>
           <DialogTitle>Налаштування обладунку</DialogTitle>
         </DialogHeader>
@@ -96,6 +102,7 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
           <div className="space-y-2">
             <Label>Назва (кастомна)</Label>
             <Input
+              autoFocus={false}
               value={formData.overrideName}
               onChange={(e) => setFormData({ ...formData, overrideName: e.target.value })}
               className="bg-white/5 border-white/10 text-slate-50"
@@ -105,6 +112,7 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
           <div className="space-y-2">
             <Label>Базовий КБ (залишити порожнім для стандартного)</Label>
             <Input
+              autoFocus={false}
               type="text"
               inputMode="numeric"
               value={formData.overrideBaseAC}
@@ -122,6 +130,7 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
           <div className="space-y-2">
             <Label>Додатковий бонус до КБ (магічний +1 та ін.)</Label>
             <Input
+              autoFocus={false}
               type="text"
               inputMode="numeric"
               value={formData.miscACBonus}

@@ -379,6 +379,7 @@ export default function ModifyStatModal({
           <Minus className="w-4 h-4" />
         </Button>
         <Input
+          autoFocus={false}
           type="number"
           value={value}
           onChange={(e) => onChange(parseInt(e.target.value) || 0)}
@@ -410,7 +411,10 @@ export default function ModifyStatModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-sm">
+      <DialogContent 
+        className="max-w-sm"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
         </DialogHeader>
@@ -444,6 +448,7 @@ export default function ModifyStatModal({
                     <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30 space-y-2">
                        <div className="text-sm font-medium text-slate-200">Базове значення</div>
                       <Input
+                        autoFocus={false}
                         type="number"
                         value={baseStatInput}
                         onChange={(e) => setBaseStatInput(e.target.value)}

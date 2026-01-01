@@ -17,6 +17,7 @@ import { getSpellForModal, type SpellForModal, toggleSpellForPers } from "@/lib/
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 function dispatchLocationChangeAsync() {
   if (typeof window === "undefined") return;
@@ -34,7 +35,7 @@ function clearSpellParamInUrl() {
   if (typeof window === "undefined") return;
   const url = new URL(window.location.href);
   url.searchParams.delete("spell");
-  window.history.pushState({}, "", url);
+  window.history.replaceState({}, "", url);
   dispatchLocationChangeAsync();
 }
 
@@ -102,6 +103,8 @@ export function SpellInfoModal() {
   const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
   const [persDropdownOpen, setPersDropdownOpen] = useState(false);
   const [persLoading, setPersLoading] = useState(false);
+
+  useModalBackButton(persDropdownOpen, () => setPersDropdownOpen(false));
 
   useEffect(() => {
     // Patch history methods once so we can react to router pushes too.

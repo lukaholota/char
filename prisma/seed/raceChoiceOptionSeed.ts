@@ -785,7 +785,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: customLineage.raceId,
             subraceId: null,
-            choiceGroupName: "Змінна риса",
+            choiceGroupName: "Своя раса",
             optionName: "Темний зір",
             description: "Ви маєте темний зір на відстані 60 футів.",
             selectMultiple: false,
@@ -795,7 +795,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
         {
             raceId: customLineage.raceId,
             subraceId: null,
-            choiceGroupName: "Змінна риса",
+            choiceGroupName: "Своя раса",
             optionName: "Навичка",
             description: "Ви отримуєте володіння однією навичкою на ваш вибір.",
             selectMultiple: false,

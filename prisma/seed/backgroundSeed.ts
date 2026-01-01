@@ -1227,7 +1227,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
         },
         {
             name: BackgroundCategory.CUSTOM,
-            skillProficiencies: [],
+            skillProficiencies: {
+                choiceCount: 2,
+                choices: ['ANY']
+            },
             items: [],
             specialAbilityName: 'Налаштована Здібність',
             description: 'Попрацюй зі своїм DM, щоб створити унікальну здібність, яка відповідає твоїй передісторії та концепції персонажа. Ця здібність повинна бути збалансованою та відповідати твоїй історії.'

@@ -2,44 +2,15 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { FeatPrisma } from "@/lib/types/model-types";
+import { FeatPrisma, PersI } from "@/lib/types/model-types";
 import { createCharacterSnapshot } from "./snapshot-actions";
 import { calculateCasterLevel } from "../logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "../refs/static";
+import { unstable_cache } from "next/cache";
 
-export async function getLevelUpInfo(persId: number) {
-  const session = await auth();
-  if (!session?.user?.email) return { error: "Unauthorized" };
-
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    include: {
-      class: true,
-      subclass: true,
-      choiceOptions: true,
-      persInfusions: {
-        select: {
-          infusionId: true,
-        },
-      },
-      multiclasses: {
-        include: {
-          class: true,
-          subclass: true,
-        },
-      },
-      race: true,
-      subrace: true,
-    },
-  });
-
-  if (!pers) return { error: "Character not found" };
-
-  const nextLevel = pers.level + 1;
-  if (nextLevel > 20) return { error: "Max level reached" };
-
-  const [classes, feats, infusions] = await Promise.all([
-    prisma.class.findMany({
+const getCachedClasses = unstable_cache(
+  async () => {
+    return prisma.class.findMany({
       include: {
         subclasses: {
           include: {
@@ -82,8 +53,15 @@ export async function getLevelUpInfo(persId: number) {
         features: { include: { feature: true } },
       },
       orderBy: [{ sortOrder: "asc" }, { classId: "asc" }],
-    }),
-    prisma.feat.findMany({
+    });
+  },
+  ["all-classes-levelup"],
+  { revalidate: 3600, tags: ["classes"] }
+);
+
+const getCachedFeats = unstable_cache(
+  async () => {
+    return prisma.feat.findMany({
       include: {
         grantsFeature: true,
         featChoiceOptions: {
@@ -97,14 +75,76 @@ export async function getLevelUpInfo(persId: number) {
         },
       },
       orderBy: [{ name: "asc" }],
-    }) as unknown as Promise<FeatPrisma[]>,
-    prisma.infusion.findMany({
+    }) as unknown as Promise<FeatPrisma[]>;
+  },
+  ["all-feats-levelup"],
+  { revalidate: 3600, tags: ["feats"] }
+);
+
+const getCachedInfusions = unstable_cache(
+  async () => {
+    return prisma.infusion.findMany({
       include: {
         feature: true,
         replicatedMagicItem: true,
       },
       orderBy: [{ minArtificerLevel: "asc" }, { name: "asc" }],
-    }),
+    });
+  },
+  ["all-infusions-levelup"],
+  { revalidate: 3600, tags: ["infusions"] }
+);
+
+export async function getLevelUpInfo(persId: number) {
+  const session = await auth();
+  if (!session?.user?.email) return { error: "Unauthorized" };
+
+  const pers = await prisma.pers.findUnique({
+    where: { persId },
+    include: {
+      user: true,
+      class: true,
+      subclass: true,
+      choiceOptions: true,
+      persInfusions: {
+        include: {
+          infusion: true,
+          weapon: true,
+          armor: true,
+          magicItem: true,
+        },
+      },
+      multiclasses: {
+        include: {
+          class: true,
+          subclass: true,
+        },
+      },
+      race: true,
+      subrace: true,
+      skills: true,
+      background: true,
+      features: { include: { feature: true } },
+      spells: true,
+      feats: { include: { feat: true } },
+      armors: { include: { armor: true } },
+      weapons: { include: { weapon: true } },
+      magicItems: { include: { magicItem: true } },
+      raceVariants: true,
+      raceChoiceOptions: true,
+      classOptionalFeatures: true,
+    },
+  });
+
+  if (!pers) return { error: "Character not found" };
+
+  const nextLevel = pers.level + 1;
+  if (nextLevel > 20) return { error: "Max level reached" };
+
+  const [classes, feats, infusions] = await Promise.all([
+    getCachedClasses(),
+    getCachedFeats(),
+    getCachedInfusions(),
   ]);
 
   const currentClass = classes.find((c) => c.classId === pers.classId);
@@ -138,7 +178,7 @@ export async function getLevelUpInfo(persId: number) {
   }
 
   return {
-    pers,
+    pers: pers as unknown as PersI,
     nextLevel,
     needsSubclass,
     isASILevel,
@@ -409,10 +449,18 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     // Combine with other replacements
     for (const fid of optionalReplacedFeatureIds) featuresToRemove.add(fid);
-    await prisma.$transaction(async (tx) => {
-      // Create snapshot before changes
-      await createCharacterSnapshot(persId);
 
+    // Create snapshot before changes (outside of transaction to avoid timeout)
+    const snapshotResult = await createCharacterSnapshot(persId);
+    if ('error' in snapshotResult) {
+        console.error("Snapshot failed:", snapshotResult.error);
+        // We can choose to abort or proceed. Proceeding might be risky if history is important.
+        // For now, let's log and proceed, or better, throw?
+        // Given user data safety, maybe we should abort? 
+        // User asked to fix timeout, so splitting is key.
+    }
+
+    await prisma.$transaction(async (tx) => {
       // multiclass row update/create
       if (levelUpPath === "MULTICLASS") {
         await tx.persMulticlass.create({

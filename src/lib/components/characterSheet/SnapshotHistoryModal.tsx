@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useTransition } from "react";
+import React, { useState, useTransition, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   Dialog,
   DialogContent,
@@ -56,12 +57,17 @@ export function SnapshotHistoryModal({
     setSnapshots(data as any);
   };
 
-  const handleOpenChange = (open: boolean) => {
-    setIsOpen(open);
-    if (open) {
+  useEffect(() => {
+    if (isOpen) {
       loadSnapshots();
     }
+  }, [isOpen]);
+
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
   };
+
+  const router = useRouter();
 
   const handleCopy = (snapshotId: number) => {
     startTransition(async () => {
@@ -70,6 +76,7 @@ export function SnapshotHistoryModal({
         toast.success("Створено нову копію персонажа!");
         onSuccess?.(result.pers);
         setIsOpen(false); 
+        router.push(`/char/${result.pers.persId}`);
       } else {
         toast.error(result.error || "Не вдалося скопіювати знімок");
       }

@@ -57,7 +57,7 @@ interface FeaturesSlideProps {
   isReadOnly?: boolean;
 }
 
-type CategoryKind = "passive" | "action" | "bonus" | "reaction";
+type CategoryKind = "passive" | "action" | "bonus" | "reaction" | "resource";
 type Category = { title: string; items: CharacterFeatureItem[]; kind: CategoryKind };
 
 type EntityDialogKind = "race" | "raceVariant" | "subrace" | "class" | "subclass" | "background";
@@ -72,8 +72,17 @@ const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
 
 // safeText removed - no longer used
 
-function categoryVariant(kind: "passive" | "action" | "bonus" | "reaction") {
+function categoryVariant(kind: CategoryKind) {
   switch (kind) {
+    case "resource":
+      return {
+        container: "border-l-cyan-500/50 from-cyan-950/20",
+        chevron: "text-cyan-300",
+        title: "text-cyan-50",
+        count: "text-cyan-200/70",
+        cardBorder: "border-cyan-600/30 hover:border-cyan-500/60",
+        cardBg: "bg-cyan-900/25 hover:bg-cyan-900/45",
+      };
     case "action":
       return {
         container: "border-l-red-500/50 from-red-950/20",
@@ -257,12 +266,20 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
       });
     };
 
-    return [
+    const list: Category[] = [];
+
+    if (resourceItems.length > 0) {
+      list.push({ title: "Ресурси класу", items: sortItems(resourceItems), kind: "resource" });
+    }
+
+    list.push(
       { title: "Основна дія", items: sortItems(filterItems(groupedFeatures.actions)), kind: "action" },
       { title: "Бонусна дія", items: sortItems(filterItems(groupedFeatures.bonusActions)), kind: "bonus" },
       { title: "Реакція", items: sortItems(filterItems(groupedFeatures.reactions)), kind: "reaction" },
       { title: "Пасивні здібності", items: sortItems(filterItems(groupedFeatures.passive)), kind: "passive" },
-    ];
+    );
+
+    return list;
   }, [groupedFeatures, resourceItems]);
 
 // limitedUseGroups removed
@@ -737,7 +754,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   }, [backgroundName, classEntries, entityKind, entityVariantIndex, pers, raceName, subclassEntries, subraceName]);
 
   return (
-    <div className="h-full p-3 sm:p-4 pb-24 space-y-3">
+    <div className="h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-3 pb-32">
       <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
@@ -846,37 +863,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
         </button>
       </div>
 
-      {resourceItems.length > 0 ? (
-        <div className="space-y-3">
-          <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-400 px-1">Ресурси класу</div>
-          <div className="grid grid-cols-1 gap-2">
-            {resourceItems.map((item) => {
-                const remaining = getUsesRemaining(item);
-                const featureRef = {
-                    ...item,
-                    displayType: item.displayTypes,
-                    usesRemaining: remaining,
-                    usesCount: item.usesPer
-                };
 
-                return (
-                    <FeatureCard
-                        key={item.key}
-                        feature={featureRef}
-                        isPending={isPending}
-                        isReadOnly={isReadOnly}
-                        onSpend={() => spendOneUse(item)}
-                        onRestore={() => restoreOneUse(item)}
-                        onClick={() => {
-                            if (item.magicItem) setMagicItemToShow(item.magicItem);
-                            else setSelected(item);
-                        }}
-                    />
-                );
-            })}
-          </div>
-        </div>
-      ) : null}
 
       {!groupedFeatures ? (
         <div className="text-sm text-slate-400">Немає даних про фічі</div>

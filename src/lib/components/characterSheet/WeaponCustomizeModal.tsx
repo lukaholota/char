@@ -94,7 +94,13 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] max-w-md overflow-y-auto bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50">
+      <DialogContent 
+        className="max-h-[90vh] max-w-md overflow-y-auto bg-slate-900/40 backdrop-blur-xl border-white/10 text-slate-50"
+        onOpenAutoFocus={(e) => {
+          e.preventDefault();
+          (e.currentTarget as HTMLElement)?.focus();
+        }}
+      >
         <DialogHeader>
           <DialogTitle>Налаштування зброї</DialogTitle>
         </DialogHeader>
@@ -103,6 +109,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
           <div className="space-y-2">
             <Label>Назва (кастомна)</Label>
             <Input
+              autoFocus={false}
               value={formData.overrideName}
               onChange={(e) => setFormData({ ...formData, overrideName: e.target.value })}
               className="bg-white/5 border-white/10"
@@ -114,6 +121,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
             <div className="space-y-2">
               <Label>Бонус до атаки</Label>
               <Input
+                autoFocus={false}
                 type="text"
                 inputMode="numeric"
                 value={formData.attackBonus}
@@ -129,6 +137,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
             <div className="space-y-2">
               <Label>Бонус до шкоди</Label>
               <Input
+                autoFocus={false}
                 type="text"
                 inputMode="numeric"
                 value={formData.customDamageBonus}
@@ -147,6 +156,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
             <div className="space-y-2">
               <Label>Кубик шкоди (напр. 1к8)</Label>
               <Input
+                autoFocus={false}
                 value={formData.customDamageDice}
                 onChange={(e) => setFormData({ ...formData, customDamageDice: e.target.value })}
                 className="bg-white/5 border-white/10"

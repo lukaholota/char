@@ -73,12 +73,15 @@ export const MultiStepForm = (
 
   useEffect(() => {
     if (!isHydrated) return;
+    
+    // Capture state at the beginning of the step
     setInitialDataForStep(JSON.stringify(formData));
-    // When moving forward, update the highest reached step
+    
+    // When moving forward via "Next" button, currentStep-1 is considered completed
     if (currentStep - 1 > highestStepCompleted) {
       setHighestStepCompleted(currentStep - 1);
     }
-  }, [currentStep, isHydrated, formData, highestStepCompleted]);
+  }, [currentStep, isHydrated]); // Only trigger on step change or hydration
 
   useEffect(() => {
     if (!isHydrated || !initialDataForStep) return;
@@ -323,9 +326,16 @@ export const MultiStepForm = (
       return;
     }
     
-    // Allow jumping forward only to the next step OR any already completed step
-    const canJumpForward = stepOrder === currentStep + 1 || isStepCompleted(targetStep.id, formData);
-    if (canJumpForward) {
+    // Allow jumping forward only if ALL previous steps are completed
+    let allPreviousStepsDone = true;
+    for (let i = 0; i < stepOrder - 1; i++) {
+      if (!isStepCompleted(steps[i].id, formData)) {
+        allPreviousStepsDone = false;
+        break;
+      }
+    }
+
+    if (allPreviousStepsDone) {
       setCurrentStep(stepOrder);
     }
   }, [steps, currentStep, setCurrentStep, isStepCompleted, formData]);
@@ -555,9 +565,17 @@ export const MultiStepForm = (
               <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
                 {steps.map((step, index) => {
                   const stepOrder = index + 1;
-                  const isDone = stepOrder <= highestStepCompleted && isStepCompleted(step.id, formData);
+                  const isDone = isStepCompleted(step.id, formData);
                   const isActive = stepOrder === currentStep;
-                  const canJump = stepOrder <= highestStepCompleted + 1 || isStepCompleted(step.id, formData);
+
+                  // Can jump if all PREVIOUS steps are done
+                  let canJump = true;
+                  for (let i = 0; i < index; i++) {
+                    if (!isStepCompleted(steps[i].id, formData)) {
+                      canJump = false;
+                      break;
+                    }
+                  }
 
                   return (
                     <button

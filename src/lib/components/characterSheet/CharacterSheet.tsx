@@ -130,17 +130,20 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                          <Pencil className="h-4 w-4" />
                        </Button>
                      </DialogTrigger>
-                     <DialogContent className="sm:max-w-[520px] glass-card border-white/10 text-slate-100">
+                     <DialogContent 
+                        className="sm:max-w-[520px] glass-card border-white/10 text-slate-100"
+                        onOpenAutoFocus={(e) => e.preventDefault()}
+                      >
                        <DialogHeader>
                          <DialogTitle>Перейменувати персонажа</DialogTitle>
                        </DialogHeader>
 
                        <div className="space-y-3">
                          <Input
+                           autoFocus={false}
                            value={renameValue}
                            onChange={(e) => setRenameValue(e.target.value)}
                            maxLength={60}
-                           autoFocus
                          />
                          <div className="flex justify-end gap-2">
                            <Button variant="ghost" onClick={() => setRenameOpen(false)} disabled={isRenamePending}>

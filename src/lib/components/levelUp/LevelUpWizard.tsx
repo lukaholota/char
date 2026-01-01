@@ -14,6 +14,7 @@ import { ControlledInfoDialog } from "@/lib/components/characterCreator/EntityIn
 import { ChevronLeft, ChevronRight, Check, Loader2 } from "lucide-react";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
+import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
 import LevelUpASIForm from "@/lib/components/levelUp/LevelUpASIForm";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
@@ -238,16 +239,20 @@ export default function LevelUpWizard({ info }: Props) {
                 if (existingChoiceOptions.has(id)) return false;
 
                 const prereq = opt.choiceOption?.prerequisites as any;
+                
+                // Strictly enforce level prerequisite
                 const minLevel = prereq?.level ? Number(prereq.level) : undefined;
                 if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
                   return false;
                 }
+
+                // Strictly enforce pact prerequisite
                 const pactStr = prereq?.pact ? String(prereq.pact) : undefined;
                 if (pactStr && currentPact && pactStr !== currentPact) return false;
                 if (pactStr && !currentPact) return false;
+                
                 return true;
-              })
-              .map((opt: any) => opt);
+              });
 
             delete (grouped as any)[WARLOCK_INVOCATION_GROUP];
             (grouped as any)[WARLOCK_INVOCATION_GROUP] = eligible;
@@ -441,6 +446,27 @@ export default function LevelUpWizard({ info }: Props) {
                 initialDisabled: true,
                 component: <LevelUpASIForm feats={feats as any} formId="asi-form" onNextDisabledChange={setNextDisabled} race={pers?.race as any} subrace={pers?.subrace} raceVariant={(pers as any)?.raceVariant} />,
             });
+
+            // Check if we need to show feat choice options
+            // We need to look at the selected feat from formData
+            const featId = formData.featId ? Number(formData.featId) : undefined;
+            const selectedFeat = featId ? feats.find(f => f.featId === featId) : undefined;
+            
+            if (selectedFeat && selectedFeat.featChoiceOptions && selectedFeat.featChoiceOptions.length > 0) {
+                 result.push({
+                    id: "feat-options",
+                    title: "Опції риси",
+                    initialDisabled: true,
+                    component: (
+                        <FeatChoiceOptionsForm
+                            selectedFeat={selectedFeat as any}
+                            formId="feat-options-form"
+                            onNextDisabledChange={setNextDisabled}
+                            pers={pers}
+                        />
+                    ),
+                });
+            }
         }
 
         if (needsInfusions) {

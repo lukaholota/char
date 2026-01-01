@@ -44,7 +44,10 @@ export default function AddMagicItemDialog({ persId, persName }: { persId: numbe
           <span className="hidden sm:inline">Додати</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-5xl h-[90vh] p-0 border-white/10 bg-slate-950 overflow-hidden flex flex-col">
+      <DialogContent 
+        className="max-w-5xl h-[90vh] p-0 border-white/10 bg-slate-950 overflow-hidden flex flex-col"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         <DialogTitle className="sr-only">Додати магічний предмет</DialogTitle>
         <div className="flex-1 w-full bg-slate-950">
           <iframe 

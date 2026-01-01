@@ -4,7 +4,6 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { RestType } from "@prisma/client";
-import { getAbilityMod } from "@/lib/logic/utils";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { getCharacterFeaturesGrouped, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
@@ -152,10 +151,8 @@ export async function shortRest(
   const pers = owned.pers;
   const maxByClass = getMaxHitDiceByClass(pers);
   const currentByClass = getCurrentHitDiceByClass(pers, maxByClass);
-  const conMod = getAbilityMod(pers.con);
   
   // Validate dice usage
-  let totalHpRestored = 0;
   const updatedDice = { ...currentByClass };
   
   for (const dice of hitDiceToUse) {
@@ -168,19 +165,11 @@ export async function shortRest(
       return { success: false, error: `Недостатньо хіт-дайсів для класу ${dice.classId}` };
     }
     
-    // Calculate HP: roll hit dice + CON modifier per die
-    const classHitDie = maxByClass[dice.classId].hitDie;
-    for (let i = 0; i < dice.count; i++) {
-      // Random roll between 1 and hitDie, or use average
-      const roll = Math.max(1, Math.floor(Math.random() * classHitDie) + 1);
-      totalHpRestored += Math.max(1, roll + conMod);
-    }
-    
     updatedDice[dice.classId] = available - dice.count;
   }
   
-  // Calculate new HP (capped at maxHp)
-  const newCurrentHp = Math.min(pers.maxHp, pers.currentHp + totalHpRestored);
+  // HP is no longer restored automatically during short rest
+  const newCurrentHp = pers.currentHp;
 
   const persForSlots = await prisma.pers.findUnique({
     where: { persId },
@@ -258,7 +247,7 @@ export async function shortRest(
 
   return {
     success: true,
-    hpRestored: totalHpRestored,
+    hpRestored: 0,
     newCurrentHp,
     currentHitDice: updatedDice,
     currentPactSlots: newCurrentPactSlots,

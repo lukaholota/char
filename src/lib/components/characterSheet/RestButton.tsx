@@ -23,6 +23,7 @@ import { longRest } from "@/lib/actions/rest-actions";
 import { restTranslations } from "@/lib/refs/translation";
 import ShortRestDialog from "./ShortRestDialog";
 import { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 interface RestButtonProps {
   pers: PersWithRelations;
@@ -36,6 +37,9 @@ export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: Res
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shortRestOpen, setShortRestOpen] = useState(false);
   const [longRestOpen, setLongRestOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useModalBackButton(dropdownOpen, () => setDropdownOpen(false));
 
   const refreshInBackground = () => {
     startRefreshTransition(() => {
@@ -81,7 +85,7 @@ export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: Res
 
   return (
     <>
-      <DropdownMenu>
+      <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
         <DropdownMenuTrigger asChild>
           <Button
             size="sm"

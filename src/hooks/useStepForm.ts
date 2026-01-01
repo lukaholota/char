@@ -87,6 +87,19 @@ export function useStepForm<TShape extends ZodRawShape>(
         return () => subscription.unsubscribe();
     }, [form, updateFormData, isHydrated])
 
+    // Sync store changes back to form (important for multiple forms on same page)
+    useEffect(() => {
+        if (!isHydrated) return;
+        const currentValues = form.getValues();
+        Object.keys(relevantFormData).forEach(key => {
+            const storeVal = relevantFormData[key];
+            const formVal = currentValues[key as keyof Input];
+            if (JSON.stringify(storeVal) !== JSON.stringify(formVal)) {
+                form.setValue(key as any, storeVal, { shouldValidate: true });
+            }
+        });
+    }, [relevantFormData, isHydrated, form]);
+
     const friendlyMessages: Record<string, string> = {
         raceId: "Оберіть, будь ласка, расу",
         classId: "Оберіть, будь ласка, клас",
