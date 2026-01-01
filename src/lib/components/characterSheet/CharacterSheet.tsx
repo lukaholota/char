@@ -30,6 +30,7 @@ interface CharacterSheetProps {
 
 export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
+  const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const isReadOnly = isPublicView || pers.isSnapshot;
   const params = useParams();
@@ -102,7 +103,8 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   };
 
   const handleLevelUp = () => {
-    router.push(`/char/${localPers.persId}/levelup`);
+      setIsLevelUpPending(true);
+      router.push(`/char/${localPers.persId}/levelup`);
   };
 
   return (
@@ -203,9 +205,13 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                    variant="secondary"
                    className="h-8 gap-2 bg-indigo-600/20 hover:bg-indigo-600/30 border-indigo-500/30"
                    onClick={handleLevelUp}
-                   disabled={isCopyPending || isRenamePending}
+                   disabled={isLevelUpPending || isCopyPending || isRenamePending}
                  >
-                   <ArrowUpCircle className="w-4 h-4" />
+                   {isLevelUpPending ? (
+                     <Loader2 className="w-4 h-4 animate-spin" />
+                   ) : (
+                     <ArrowUpCircle className="w-4 h-4" />
+                   )}
                    <span className="hidden sm:inline">Підняти рівень</span>
                  </Button>
                )}
