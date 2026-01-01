@@ -35,7 +35,6 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   const params = useParams();
   const router = useRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
-  const [isLevelUpPending, startLevelUpTransition] = useTransition();
   const [isRenamePending, startRenameTransition] = useTransition();
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
@@ -103,9 +102,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   };
 
   const handleLevelUp = () => {
-    startLevelUpTransition(() => {
-      router.push(`/char/${localPers.persId}/levelup`);
-    });
+    router.push(`/char/${localPers.persId}/levelup`);
   };
 
   return (
@@ -206,13 +203,9 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                    variant="secondary"
                    className="h-8 gap-2 bg-indigo-600/20 hover:bg-indigo-600/30 border-indigo-500/30"
                    onClick={handleLevelUp}
-                   disabled={isLevelUpPending || isCopyPending || isRenamePending}
+                   disabled={isCopyPending || isRenamePending}
                  >
-                   {isLevelUpPending ? (
-                     <Loader2 className="w-4 h-4 animate-spin" />
-                   ) : (
-                     <ArrowUpCircle className="w-4 h-4" />
-                   )}
+                   <ArrowUpCircle className="w-4 h-4" />
                    <span className="hidden sm:inline">Підняти рівень</span>
                  </Button>
                )}
