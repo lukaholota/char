@@ -68,10 +68,17 @@ jobs:
             TIMESTAMP=$(date +%s)
             RELEASE_DIR="/home/luka/char/releases/$TIMESTAMP"
             CURRENT_DIR="/home/luka/char/current"
+            SHARED_DIR="/home/luka/char/shared"
             
             mkdir -p $RELEASE_DIR
+            mkdir -p $SHARED_DIR/cache
+            
             tar -xzf /tmp/release.tar.gz -C $RELEASE_DIR
             rm /tmp/release.tar.gz
+            
+            # Persist image cache
+            rm -rf $RELEASE_DIR/.next/cache
+            ln -sfn $SHARED_DIR/cache $RELEASE_DIR/.next/cache
             
             # Atomic symlink switch
             ln -sfn $RELEASE_DIR $CURRENT_DIR

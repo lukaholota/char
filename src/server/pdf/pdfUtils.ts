@@ -84,7 +84,17 @@ export async function getBrowser(): Promise<Browser> {
   browserInstance = await puppeteer.launch({
     args: isVercelLike
       ? [...chromium.args, "--font-render-hinting=none"]
-      : ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu", "--disable-dev-shm-usage", "--font-render-hinting=none"],
+      : [
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--disable-gpu",
+          "--disable-dev-shm-usage",
+          "--disable-setuid-sandbox",
+          "--no-first-run",
+          "--no-zygote",
+          "--single-process", // Good for small VPS
+          "--font-render-hinting=none",
+        ],
     executablePath,
     headless: true,
   });
@@ -95,7 +105,7 @@ export async function getBrowser(): Promise<Browser> {
 export async function generatePdfFromHtml(
   html: string,
   options: PDFOptions = {},
-  waitOptions: WaitForOptions = { waitUntil: "domcontentloaded", timeout: 15000 }
+  waitOptions: WaitForOptions = { waitUntil: "domcontentloaded", timeout: 30000 }
 ): Promise<Uint8Array> {
   const browser = await getBrowser();
   const page = await browser.newPage();
@@ -110,7 +120,7 @@ export async function generatePdfFromHtml(
       scale: 0.98,
       format: "letter",
       margin: { top: "16mm", right: "12mm", bottom: "16mm", left: "12mm" },
-      timeout: 20000,
+      timeout: 45000,
       ...options,
     });
 

@@ -55,7 +55,6 @@ function ensureTextFieldHasDA(form: PDFForm, fieldName: string) {
   // Some fields in the template have no /DA, which makes pdf-lib throw on setFontSize.
   // AcroForm has a valid /DA (e.g. /Helv 0 Tf 0 g), so we copy it to the field.
   try {
-    const anyForm = form as any;
     const anyField = field as any;
     const hasFieldDA = anyField?.acroField?.dict?.lookup?.(PDFName.of("DA"));
 
@@ -95,47 +94,7 @@ function compactDiceSum(value: string): string {
     .trim();
 }
 
-function multilineDiceSum(value: string): string {
-  // Use multiple lines when the field is tall enough.
-  const parts = String(value ?? "")
-    .split("+")
-    .map((p) => p.trim())
-    .filter(Boolean);
-  if (parts.length <= 1) return String(value ?? "").trim();
-  return parts.join("\n+");
-}
 
-function compressDiceExpression(value: string): string {
-  const raw = compactDiceSum(String(value ?? ""));
-  if (!raw) return "";
-
-  // Accept both Latin d and Ukrainian к.
-  const re = /(\d+)\s*(?:к|d|D)\s*(\d+)/g;
-
-  const order: number[] = [];
-  const counts = new Map<number, number>();
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(raw))) {
-    const count = Number(m[1]);
-    const die = Number(m[2]);
-    if (!Number.isFinite(count) || !Number.isFinite(die) || count <= 0 || die <= 0) continue;
-    if (!counts.has(die)) order.push(die);
-    counts.set(die, (counts.get(die) ?? 0) + count);
-  }
-
-  if (order.length === 0) return raw;
-  return order
-    .map((die) => ({ die, count: counts.get(die) ?? 0 }))
-    .filter((x) => x.count > 0)
-    .map((x) => `${x.count}к${x.die}`)
-    .join("+");
-}
-
-function truncateText(value: string, maxLen: number): string {
-  const raw = String(value ?? "").trim();
-  if (raw.length <= maxLen) return raw;
-  return raw.slice(0, Math.max(0, maxLen - 1)).trimEnd() + "…";
-}
 
 function formatHitDicePerClassLines(chunks: Array<{ current: number; max: number; die: number }>): string {
   const safeChunks = (chunks ?? [])
@@ -165,8 +124,6 @@ function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
     for (const pmi of magicItems) {
       if (!pmi.magicItem) continue;
       const name = pmi.magicItem.name;
-      const type = pmi.magicItem.itemType;
-      const rarity = pmi.magicItem.rarity;
       
       const attunementMark = pmi.isAttuned ? " (A)" : "";
       const equippedMark = pmi.isEquipped ? "[x]" : "[ ]";
@@ -1113,8 +1070,8 @@ export async function generateCharacterPdfFromData(
         const featuresDoc = await PDFDocument.load(featuresPdfBytes);
         const pages = await pdfDoc.copyPages(featuresDoc, featuresDoc.getPageIndices());
         pages.forEach((p) => pdfDoc.addPage(p));
-      } catch {
-        // ignore
+      } catch (err) {
+        console.error("Features PDF generation failed:", err);
       }
     }
   }
@@ -1128,8 +1085,8 @@ export async function generateCharacterPdfFromData(
         const spellsDoc = await PDFDocument.load(spellsPdfBytes);
         const pages = await pdfDoc.copyPages(spellsDoc, spellsDoc.getPageIndices());
         pages.forEach((p) => pdfDoc.addPage(p));
-      } catch {
-        // ignore
+      } catch (err) {
+        console.error("Spells PDF generation failed:", err);
       }
     }
   }
@@ -1146,8 +1103,8 @@ export async function generateCharacterPdfFromData(
         const magicItemsDoc = await PDFDocument.load(magicItemsPdfBytes);
         const pages = await pdfDoc.copyPages(magicItemsDoc, magicItemsDoc.getPageIndices());
         pages.forEach((p) => pdfDoc.addPage(p));
-      } catch {
-        // ignore
+      } catch (err) {
+        console.error("Magic items PDF generation failed:", err);
       }
     }
   }
