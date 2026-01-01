@@ -60,6 +60,8 @@ export function DiceSidebar() {
     diceService.clear();
 
     const sides = DIE_SIDES[dieType];
+    
+    // Simple roll using official API - library handles random spawn points
     await diceService.roll(count, sides);
     
     // Safety timeout

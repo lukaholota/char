@@ -183,3 +183,9 @@
     @apply border-border;
     }
 }
+
+/* Dice box canvas should fill the entire container */
+#dice-box canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

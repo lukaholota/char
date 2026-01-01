@@ -31,7 +31,9 @@ class DiceService {
       // Dynamic import to avoid SSR issues
       const { default: DiceBox } = await import("@3d-dice/dice-box");
 
-      this.box = new DiceBox(containerSelector, {
+      // New API: single config object with 'container' property
+      this.box = new DiceBox({
+        container: containerSelector,
         assetPath: "/assets/dice-box/",
         gravity: 2,
         mass: 1,
@@ -49,7 +51,7 @@ class DiceService {
         enableShadows: true,
         shadowTransparency: 0.8,
         theme: "default",
-        scale: 25,
+        scale: 6,
       });
 
       await this.box.init();
@@ -95,7 +97,8 @@ class DiceService {
 
     const notation = `${count}d${sides}`;
     try {
-      await this.box.roll(notation);
+      // Use newStartPoint: true to get random spawn points along box edges
+      await this.box.roll(notation, { newStartPoint: true });
     } catch (error) {
       console.error("Roll failed:", error);
     }
