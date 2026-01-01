@@ -557,7 +557,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
     for ( const it of infusions ) {
         await prisma.infusion.upsert( {
             where: { engName: it.engName },
-            update: {},
+            update: it as any,
             create: it as any,
         } );
     }
