@@ -23,13 +23,16 @@ jobs:
             cd /home/luka/char
             git pull origin main
             
-            # Use specific Node.js version if needed (assumed already set up on VPS)
-            # source ~/.nvm/nvm.sh && nvm use default
+            # Stop service only after pulling new code
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl stop char
+            
+            rm -rf .next
+            export NEXT_TELEMETRY_DISABLED=1
             
             npm ci
             npx prisma generate
             npm run build
             
-            # Restart services
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart char
+            # Start service
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl start char
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart nginx
