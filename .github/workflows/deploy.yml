@@ -37,16 +37,27 @@ jobs:
           NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
 
-      - name: Deploy to VPS using rsync
+      - name: Prepare standalone artifact
+        run: |
+          mkdir -p deploy/public
+          mkdir -p deploy/.next/static
+          cp -r .next/standalone/. deploy/
+          cp -r .next/static/. deploy/.next/static/
+          cp -r public/. deploy/public/
+          # Copy prisma files if needed for runtime migrations or seeds
+          cp -r prisma deploy/
+          tar -czf release.tar.gz -C deploy .
+
+      - name: Upload release to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ".next,public,package.json,package-lock.json,next.config.ts,prisma"
-          target: "/home/luka/char"
+          source: "release.tar.gz"
+          target: "/tmp"
 
-      - name: Finalize deployment via SSH
+      - name: Atomic Deployment via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -54,11 +65,20 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script_stop: true
           script: |
-            cd /home/luka/char
+            TIMESTAMP=$(date +%s)
+            RELEASE_DIR="/home/luka/char/releases/$TIMESTAMP"
+            CURRENT_DIR="/home/luka/char/current"
             
-            # Install production dependencies only if package.json changed
-            npm ci --omit=dev
+            mkdir -p $RELEASE_DIR
+            tar -xzf /tmp/release.tar.gz -C $RELEASE_DIR
+            rm /tmp/release.tar.gz
             
-            # Restart service (split-second downtime)
+            # Atomic symlink switch
+            ln -sfn $RELEASE_DIR $CURRENT_DIR
+            
+            # Restart service (pointing to the symlink)
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart char
-            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart nginx
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl reload nginx || sudo -S systemctl restart nginx
+            
+            # Cleanup old releases (keep latest 5)
+            cd /home/luka/char/releases && ls -1t | tail -n +6 | xargs rm -rf --
