@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import chromium from "@sparticuz/chromium";
 import puppeteer, { type Browser, type PDFOptions, type WaitForOptions } from "puppeteer-core";
@@ -7,32 +7,21 @@ let cachedFontsCss: string | null = null;
 let browserInstance: Browser | null = null;
 
 export function getFontsCss(): string {
-  if (cachedFontsCss) return cachedFontsCss;
-
   const fontPathRegular = join(process.cwd(), "public/fonts/NotoSans-Regular.ttf");
   const fontPathBold = join(process.cwd(), "public/fonts/NotoSans-Bold.ttf");
 
-  let regularBase64 = "";
-  let boldBase64 = "";
-
-  if (existsSync(fontPathRegular)) {
-    regularBase64 = readFileSync(fontPathRegular).toString("base64");
-  }
-
-  if (existsSync(fontPathBold)) {
-    boldBase64 = readFileSync(fontPathBold).toString("base64");
-  }
-
+  // We use file:// protocol because reading and converting to Base64 
+  // is too heavy for the VPS CPU and increases HTML size by 3MB.
   cachedFontsCss = `
     @font-face {
       font-family: "NotoSansLocal";
-      src: url(data:font/ttf;base64,${regularBase64}) format("truetype");
+      src: url("file://${fontPathRegular}") format("truetype");
       font-weight: 400;
       font-style: normal;
     }
     @font-face {
       font-family: "NotoSansLocal";
-      src: url(data:font/ttf;base64,${boldBase64}) format("truetype");
+      src: url("file://${fontPathBold}") format("truetype");
       font-weight: 700;
       font-style: normal;
     }
@@ -92,7 +81,8 @@ export async function getBrowser(): Promise<Browser> {
           "--disable-setuid-sandbox",
           "--no-first-run",
           "--no-zygote",
-          "--single-process", // Good for small VPS
+          "--single-process",
+          "--allow-file-access-from-files", // Crucial for loading fonts from local disk
           "--font-render-hinting=none",
         ],
     executablePath,
