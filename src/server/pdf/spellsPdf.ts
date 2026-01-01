@@ -23,11 +23,7 @@ function levelLabel(level: number) {
   return level === 0 ? "Замовляння" : `Рівень ${level}`;
 }
 
-export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8Array> {
-  if (spellIds.length === 0) {
-    throw new Error("spellIds must be a non-empty array");
-  }
-
+export async function generateSpellsHtmlContents(spellIds: number[]): Promise<string> {
   const spells = await prisma.spell.findMany({
     where: { spellId: { in: spellIds } },
     orderBy: [{ level: "asc" }, { name: "asc" }],
@@ -56,59 +52,9 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
     })
   );
 
-  const fontsCss = getFontsCss();
-
-  const html = `<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spells Print</title>
-
-    <style>
-      ${fontsCss}
-      @page { size: letter portrait; margin: 16mm 12mm; }
-      * { box-sizing: border-box; }
-      body {
-        font-family: "NotoSansLocal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        color: #0f172a;
-        background: #ffffff;
-        margin: 0;
-      }
-      .wrap { padding: 0; }
-      .columns {
-        column-count: 2;
-        column-gap: 14px;
-        column-fill: auto;
-      }
-      .spell {
-        display: block;
-        padding: 0 0 10px 0;
-        margin: 0 0 12px 0;
-        border-bottom: 1px solid rgba(15, 23, 42, 0.18);
-        break-inside: auto;
-        page-break-inside: auto;
-      }
-      .header { display:flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-      .name { font-family: "Noto Serif", Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; margin: 0; }
-      .meta { font-size: 11px; color: rgba(15,23,42,0.65); text-align: right; white-space: nowrap; }
-      .sub { margin-top: 6px; display:flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: rgba(15,23,42,0.8); }
-      .grid { margin-top: 10px; display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-      .cell { border: 1px solid rgba(15,23,42,0.12); border-radius: 10px; padding: 8px; }
-      .label { font-size: 10px; color: rgba(15,23,42,0.6); }
-      .val { margin-top: 2px; font-size: 12px; }
-      .desc { margin-top: 10px; font-size: 12px; line-height: 1.5; }
-      .desc h1 { font-size: 14px; margin: 10px 0 6px 0; font-weight: 700; }
-      .desc h2 { font-size: 13px; margin: 10px 0 6px 0; font-weight: 700; }
-      .desc h3 { font-size: 12px; margin: 10px 0 6px 0; font-weight: 700; }
-      .desc p { margin: 0 0 8px 0; }
-      .desc table { width: 100%; border-collapse: collapse; margin: 8px 0; }
-      .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 6px; text-align: left; }
-      .desc ul, .desc ol { margin: 0 0 8px 18px; }
-    </style>
-  </head>
-  <body>
+  return `
     <div class="wrap">
+      <h1 class="page-title">Заклинання</h1>
       <div class="columns">
       ${sections
         .map(
@@ -133,7 +79,82 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
         )
         .join("\n")}
       </div>
-    </div>
+    </div>`;
+}
+
+export function getSpellsStyles(): string {
+  return `
+      .spell {
+        display: block;
+        padding: 0 0 10px 0;
+        margin: 0 0 12px 0;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.18);
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .header { display:flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+      .name { font-family: "Noto Serif", Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; margin: 0; }
+      .meta { font-size: 11px; color: rgba(15,23,42,0.65); text-align: right; white-space: nowrap; }
+      .sub { margin-top: 6px; display:flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: rgba(15,23,42,0.8); }
+      .grid { margin-top: 10px; display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .cell { border: 1px solid rgba(15,23,42,0.12); border-radius: 10px; padding: 8px; }
+      .label { font-size: 10px; color: rgba(15,23,42,0.6); }
+      .val { margin-top: 2px; font-size: 12px; }
+      .desc { margin-top: 10px; font-size: 12px; line-height: 1.5; }
+      .desc h1 { font-size: 14px; margin: 10px 0 6px 0; font-weight: 700; }
+      .desc h2 { font-size: 13px; margin: 10px 0 6px 0; font-weight: 700; }
+      .desc h3 { font-size: 12px; margin: 10px 0 6px 0; font-weight: 700; }
+      .desc p { margin: 0 0 8px 0; }
+      .desc table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+      .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 6px; text-align: left; }
+      .desc ul, .desc ol { margin: 0 0 8px 18px; }
+  `;
+}
+
+export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8Array> {
+  if (spellIds.length === 0) {
+    throw new Error("spellIds must be a non-empty array");
+  }
+
+  const contentHtml = await generateSpellsHtmlContents(spellIds);
+  const fontsCss = getFontsCss();
+
+  const html = `<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spells Print</title>
+
+    <style>
+      ${fontsCss}
+      @page { size: letter portrait; margin: 16mm 12mm; }
+      * { box-sizing: border-box; }
+      body {
+        font-family: "NotoSansLocal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: #0f172a;
+        background: #ffffff;
+        margin: 0;
+      }
+      .wrap { padding: 0; }
+      .page-title {
+        font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 16px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #0f172a;
+      }
+      .columns {
+        column-count: 2;
+        column-gap: 14px;
+        column-fill: auto;
+      }
+      ${getSpellsStyles()}
+    </style>
+  </head>
+  <body>
+    ${contentHtml}
   </body>
 </html>`;
 

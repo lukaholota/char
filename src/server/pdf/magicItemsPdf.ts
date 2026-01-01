@@ -48,11 +48,7 @@ function translateType(type: MagicItemType) {
   return map[type] || type;
 }
 
-export async function generateMagicItemsPdfBytes(magicItemIds: number[]): Promise<Uint8Array> {
-  if (magicItemIds.length === 0) {
-    throw new Error("magicItemIds must be a non-empty array");
-  }
-
+export async function generateMagicItemsHtmlContents(magicItemIds: number[]): Promise<string> {
   const items = await prisma.magicItem.findMany({
     where: { magicItemId: { in: magicItemIds } },
     orderBy: { name: "asc" },
@@ -68,6 +64,63 @@ export async function generateMagicItemsPdfBytes(magicItemIds: number[]): Promis
     })
   );
 
+  return `
+    <div class="wrap">
+      <h1 class="page-title">Магічні предмети</h1>
+      <div class="columns">
+      ${sections
+        .map(
+          (s) => `
+      <section class="item">
+        <div class="header">
+          <h1 class="name">${escapeHtml(s.name)}</h1>
+          <div class="meta">${escapeHtml(translateRarity(s.rarity))}</div>
+        </div>
+        <div class="sub">
+          <div><em>${escapeHtml(translateType(s.itemType))}</em></div>
+          ${s.requiresAttunement ? `<div class="attunement">Вимагає налаштування</div>` : ""}
+        </div>
+        <div class="desc">${s.descriptionHtml}</div>
+      </section>`
+        )
+        .join("\n")}
+      </div>
+    </div>`;
+}
+
+export function getMagicItemsStyles(): string {
+  return `
+      .item {
+        display: block;
+        padding: 0 0 10px 0;
+        margin: 0 0 12px 0;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.18);
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .header { display:flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+      .name { font-family: "Noto Serif", Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; margin: 0; }
+      .meta { font-size: 11px; color: rgba(15,23,42,0.65); text-align: right; white-space: nowrap; }
+      .sub { margin-top: 6px; display:flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: rgba(15,23,42,0.8); }
+      .sub em { font-style: italic; }
+      .desc { margin-top: 10px; font-size: 12px; line-height: 1.5; }
+      .desc h1 { font-size: 14px; margin: 10px 0 6px 0; font-weight: 700; }
+      .desc h2 { font-size: 13px; margin: 10px 0 6px 0; font-weight: 700; }
+      .desc h3 { font-size: 12px; margin: 10px 0 6px 0; font-weight: 700; }
+      .desc p { margin: 0 0 8px 0; }
+      .desc table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+      .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 6px; text-align: left; }
+      .desc ul, .desc ol { margin: 0 0 8px 18px; }
+      .attunement { color: #b91c1c; font-weight: 600; font-size: 11px; margin-left: auto; }
+  `;
+}
+
+export async function generateMagicItemsPdfBytes(magicItemIds: number[]): Promise<Uint8Array> {
+  if (magicItemIds.length === 0) {
+    throw new Error("magicItemIds must be a non-empty array");
+  }
+
+  const contentHtml = await generateMagicItemsHtmlContents(magicItemIds);
   const fontsCss = getFontsCss();
 
   const html = `<!doctype html>
@@ -88,56 +141,24 @@ export async function generateMagicItemsPdfBytes(magicItemIds: number[]): Promis
         margin: 0;
       }
       .wrap { padding: 0; }
+      .page-title {
+        font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 16px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #0f172a;
+      }
       .columns {
         column-count: 2;
         column-gap: 14px;
         column-fill: auto;
       }
-      .item {
-        display: block;
-        padding: 0 0 10px 0;
-        margin: 0 0 12px 0;
-        border-bottom: 1px solid rgba(15, 23, 42, 0.18);
-        break-inside: auto;
-        page-break-inside: auto;
-      }
-      .header { display:flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-      .name { font-family: "Noto Serif", Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; margin: 0; }
-      .meta { font-size: 11px; color: rgba(15,23,42,0.65); text-align: right; white-space: nowrap; }
-      .sub { margin-top: 6px; display:flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: rgba(15,23,42,0.8); }
-      .sub em { font-style: italic; }
-      .desc { margin-top: 10px; font-size: 12px; line-height: 1.5; }
-      .desc h1 { font-size: 14px; margin: 10px 0 6px 0; font-weight: 700; }
-      .desc h2 { font-size: 13px; margin: 10px 0 6px 0; font-weight: 700; }
-      .desc h3 { font-size: 12px; margin: 10px 0 6px 0; font-weight: 700; }
-      .desc p { margin: 0 0 8px 0; }
-      .desc table { width: 100%; border-collapse: collapse; margin: 8px 0; }
-      .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 6px; text-align: left; }
-      .desc ul, .desc ol { margin: 0 0 8px 18px; }
-      .attunement { color: #b91c1c; font-weight: 600; font-size: 11px; margin-left: auto; }
+      ${getMagicItemsStyles()}
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <div class="columns">
-      ${sections
-        .map(
-          (s) => `
-      <section class="item">
-        <div class="header">
-          <h1 class="name">${escapeHtml(s.name)}</h1>
-          <div class="meta">${escapeHtml(translateRarity(s.rarity))}</div>
-        </div>
-        <div class="sub">
-          <div><em>${escapeHtml(translateType(s.itemType))}</em></div>
-          ${s.requiresAttunement ? `<div class="attunement">Вимагає налаштування</div>` : ""}
-        </div>
-        <div class="desc">${s.descriptionHtml}</div>
-      </section>`
-        )
-        .join("\n")}
-      </div>
-    </div>
+    ${contentHtml}
   </body>
 </html>`;
 
