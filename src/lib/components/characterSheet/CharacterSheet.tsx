@@ -30,12 +30,12 @@ interface CharacterSheetProps {
 
 export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
-  const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const isReadOnly = isPublicView || pers.isSnapshot;
   const params = useParams();
   const router = useRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
+  const [isLevelUpPending, startLevelUpTransition] = useTransition();
   const [isRenamePending, startRenameTransition] = useTransition();
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
@@ -102,27 +102,18 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
     });
   };
 
-  const handleLevelUp = async () => {
-      if (isLevelUpPending) return;
-      setIsLevelUpPending(true);
-
-      try {
-        await Promise.race([
-          router.push(`/char/${localPers.persId}/levelup`),
-          new Promise((_, reject) => setTimeout(() => reject(new Error("navigation-timeout")), 3000)),
-        ]);
-      } catch (err) {
-        console.warn("router.push hung or timed out, falling back to full navigation:", err);
-        // Fallback to a full-page navigation which is more reliable on some mobile Chrome builds.
-        try {
-          window.location.href = `/char/${localPers.persId}/levelup`;
-        } catch (e) {
-          console.error("Fallback navigation failed:", e);
-        }
-      } finally {
-        setIsLevelUpPending(false);
+  const handleLevelUp = () => {
+    const prevLocation = window.location.href;
+    const levelUpLocation = `/char/${localPers.persId}/levelup`;
+    startLevelUpTransition(() => {
+      router.push(levelUpLocation);
+    });
+    setTimeout(() => {
+      if (window.location.href === prevLocation && isLevelUpPending) {
+        window.location.href = levelUpLocation;
       }
-  };
+    }, 3000);
+  }
 
   return (
     <div className="h-screen w-full bg-slate-900 flex flex-col">
