@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { duplicatePers, renamePers } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
@@ -21,6 +21,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { set } from "zod";
 
 interface CharacterSheetProps {
   pers: PersWithRelations;
@@ -31,11 +32,11 @@ interface CharacterSheetProps {
 export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
+  const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
   const isReadOnly = isPublicView || pers.isSnapshot;
   const params = useParams();
   const router = useRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
-  const [isLevelUpPending, startLevelUpTransition] = useTransition();
   const [isRenamePending, startRenameTransition] = useTransition();
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
@@ -103,17 +104,13 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   };
 
   const handleLevelUp = () => {
-    const prevLocation = window.location.href;
     const levelUpLocation = `/char/${localPers.persId}/levelup`;
-    startLevelUpTransition(() => {
-      router.push(levelUpLocation);
-    });
+    setIsLevelUpPending(true);
+    router.push(levelUpLocation);
     setTimeout(() => {
-      if (window.location.href === prevLocation && isLevelUpPending) {
-        window.location.href = levelUpLocation;
-      }
+      setIsLevelUpPending(false);
     }, 3000);
-  }
+  };
 
   return (
     <div className="h-screen w-full bg-slate-900 flex flex-col">
