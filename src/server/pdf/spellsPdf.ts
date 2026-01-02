@@ -4,9 +4,10 @@ import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
+import remarkBreaks from "remark-breaks";
 
 async function markdownToHtml(markdown: string) {
-  const file = await remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).process(markdown);
+  const file = await remark().use(remarkGfm).use(remarkBreaks).use(remarkHtml, { sanitize: false }).process(markdown);
   return String(file);
 }
 
@@ -105,6 +106,15 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
       .desc table { width: 100%; border-collapse: collapse; margin: 8px 0; }
       .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 6px; text-align: left; }
       .desc ul, .desc ol { margin: 0 0 8px 18px; }
+
+      .page-title {
+        font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 16px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #0f172a;
+      }
     </style>
   </head>
   <body>

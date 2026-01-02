@@ -1,0 +1,72 @@
+import { remark } from "remark";
+import remarkGfm from "remark-gfm";
+import remarkHtml from "remark-html";
+
+const markdownProcessor = remark().use(remarkGfm).use(remarkHtml);
+
+export function escapeHtml(input: string): string {
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/**
+ * Mirrors the old react-pdf `stripHtml` behavior: convert some block tags to newlines,
+ * then remove any remaining tags and decode the most common entities.
+ */
+export function stripHtml(html: string): string {
+  return (html ?? "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/p>/gi, "\n\n")
+    .replace(/<\/li>/gi, "\n")
+    .replace(/<li>/gi, "• ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .trim();
+}
+
+export function markdownToHtml(markdown: string): string {
+  try {
+    return String(markdownProcessor.processSync(markdown ?? ""));
+  } catch {
+    // Fallback: basic escaping + preserve line breaks
+    const escaped = escapeHtml(markdown ?? "");
+    return `<p>${escaped.replace(/\n\n+/g, "</p><p>").replace(/\n/g, "<br>")}</p>`;
+  }
+}
+
+function preserveSingleLineBreaksForMarkdown(input: string): string {
+  // In Markdown, a single newline is usually ignored; "two spaces + newline" forces <br>.
+  const normalized = input.replace(/\r\n/g, "\n");
+  return normalized.replace(/([^\n])\n([^\n])/g, "$1  \n$2");
+}
+
+function looksLikeHtml(input: string): boolean {
+  // Simple heuristic: any opening tag.
+  return /<\s*[a-z][\s\S]*>/i.test(input);
+}
+
+function stripScriptAndStyleTags(html: string): string {
+  return html
+    .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, "");
+}
+
+/**
+ * If the value already looks like HTML (common for DB-stored rich text), keep it as-is.
+ * Otherwise treat it as Markdown and convert to HTML.
+ */
+export function richTextToHtml(value: string | null | undefined): string {
+  const input = String(value ?? "").trim();
+  if (!input) return "";
+  if (looksLikeHtml(input)) return stripScriptAndStyleTags(input);
+  return markdownToHtml(preserveSingleLineBreaksForMarkdown(input));
+}
