@@ -43,12 +43,19 @@ import {
 import {
   backgroundTranslations,
   classTranslations,
+  featTranslations,
   raceTranslations,
   sourceTranslations,
   subraceTranslations,
   subclassTranslations,
   variantTranslations,
 } from "@/lib/refs/translation";
+
+function translateFeatName(value: string): string {
+  const raw = String(value ?? "").trim();
+  if (!raw) return raw;
+  return featTranslations[raw] ?? featTranslations[raw.toUpperCase()] ?? raw;
+}
 
 interface FeaturesSlideProps {
   pers: PersWithRelations;
@@ -929,7 +936,9 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
       <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
         <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-xl font-bold">{selected?.name}</DialogTitle>
+            <DialogTitle className="text-xl font-bold">
+              {selected?.source === "FEAT" ? translateFeatName(selected?.name) : selected?.name}
+            </DialogTitle>
           </DialogHeader>
           {selected?.description ? (
             <div className="glass-panel rounded-xl border border-slate-800/70 p-4">

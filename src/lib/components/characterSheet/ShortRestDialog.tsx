@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { shortRest, HitDiceToUse } from "@/lib/actions/rest-actions";
 import { restTranslations, classTranslations } from "@/lib/refs/translation";
-import { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
+import { PersWithRelations } from "@/lib/actions/pers";
 import { getAbilityMod } from "@/lib/logic/utils";
 import { Classes } from "@prisma/client";
 import { Minus, Plus, Dice6 } from "lucide-react";
@@ -17,7 +17,6 @@ interface ShortRestDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onPersUpdate?: (next: PersWithRelations) => void;
-  onFeaturesUpdate?: (next: CharacterFeaturesGroupedResult) => void;
 }
 
 interface HitDieInfo {
@@ -28,7 +27,7 @@ interface HitDieInfo {
   max: number;
 }
 
-export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate, onFeaturesUpdate }: ShortRestDialogProps) {
+export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate }: ShortRestDialogProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,6 +89,16 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
     }
   }, [open, derivedHitDice]);
 
+  const totalDiceSelected = Object.values(selected).reduce((sum, count) => sum + count, 0);
+
+  // Calculate estimated HP restoration
+  const estimatedHp = hitDice.reduce((sum, hd) => {
+    const count = selected[hd.classId] ?? 0;
+    if (count === 0) return sum;
+    const avgRoll = Math.ceil(hd.hitDie / 2);
+    return sum + count * Math.max(1, avgRoll + conMod);
+  }, 0);
+
   const handleShortRest = () => {
     const hitDiceToUse: HitDiceToUse[] = Object.entries(selected)
       .filter(([, count]) => count > 0)
@@ -119,12 +128,8 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
 
         onPersUpdate?.(nextPers);
 
-        if (res.groupedFeatures) {
-          onFeaturesUpdate?.(res.groupedFeatures);
-        }
-
         toast.success(restTranslations.shortRestComplete, {
-          description: `${restTranslations.featuresRestored}: ${res.featuresRestored}`,
+          description: `${restTranslations.hpRestored}: ${res.hpRestored}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,
         });
         onOpenChange(false);
         refreshInBackground();
@@ -152,7 +157,7 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] max-w-md overflow-y-auto">
+      <DialogContent className="max-w-md">
         <DialogHeader>
           <DialogTitle>{restTranslations.shortRest}</DialogTitle>
         </DialogHeader>
@@ -169,9 +174,6 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
           {/* Hit dice selection */}
           <div className="space-y-2">
             <div className="text-sm font-medium text-slate-200">{restTranslations.selectHitDice}</div>
-            <div className="text-xs text-slate-400 mb-2">
-              Оберіть кількість хіт дайсів для витрати. Ви самостійно кидаєте кубики і додаєте відновлене HP.
-            </div>
             
             {hitDice.length === 0 ? (
               <div className="text-sm text-slate-400">{restTranslations.noHitDiceAvailable}</div>
@@ -188,7 +190,6 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
                         <div className="text-sm font-medium text-slate-100">{hd.className}</div>
                         <div className="text-xs text-slate-400">
                           {hd.current}/{hd.max} d{hd.hitDie}
-                          <span className="text-slate-500 ml-1">({conMod >= 0 ? `+${conMod}` : conMod} СТА)</span>
                         </div>
                       </div>
                     </div>
@@ -220,16 +221,23 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
                     </div>
                   </div>
                 ))}
-
-                <div className="pt-1 px-1">
-                  <div className="text-xs text-slate-400 flex items-center justify-between">
-                    <span>Бонус статури (до кожного кубика):</span>
-                    <span className="font-semibold text-slate-200">{conMod >= 0 ? `+${conMod}` : conMod}</span>
-                  </div>
-                </div>
               </div>
             )}
           </div>
+
+          {/* HP restoration preview */}
+          {totalDiceSelected > 0 && (
+            <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3">
+              <div className="text-xs text-emerald-300">
+                ≈ {restTranslations.restoreHp}:{" "}
+                <span className="font-bold text-emerald-200">+{estimatedHp}</span>
+                <span className="text-emerald-400 ml-1">(середнє)</span>
+              </div>
+              <div className="text-[10px] text-emerald-400/80 mt-1">
+                d + {conMod >= 0 ? "+" : ""}{conMod} (CON) {restTranslations.perDie}
+              </div>
+            </div>
+          )}
         </div>
 
         <DialogFooter className="gap-2 sm:gap-0">

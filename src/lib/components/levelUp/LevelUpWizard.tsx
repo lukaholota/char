@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Button } from "@/components/ui/button";
@@ -10,23 +9,21 @@ import { Badge } from "@/components/ui/badge";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { ControlledInfoDialog } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { ChevronLeft, ChevronRight, Check, Loader2 } from "lucide-react";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
-import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
 import LevelUpASIForm from "@/lib/components/levelUp/LevelUpASIForm";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import OptionalFeaturesForm from "@/lib/components/levelUp/OptionalFeaturesForm";
 import LevelUpHPStep from "@/lib/components/levelUp/LevelUpHPStep";
 import LevelUpInfusionsStep from "@/lib/components/levelUp/LevelUpInfusionsStep";
-import ChoiceReplacementForm from "@/lib/components/levelUp/ChoiceReplacementForm";
 import clsx from "clsx";
 import { classTranslations, subclassTranslations, classTranslationsEng, attributesUkrShort } from "@/lib/refs/translation";
 import { Ability, FeatureDisplayType, SpellcastingType } from "@prisma/client";
 import { ClassI, SubclassI } from "@/lib/types/model-types";
-import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { ControlledInfoDialog, InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FeatureItemData, FeatureCard, ResourceCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 import {
   formatAbilityList,
@@ -48,12 +45,6 @@ function warlockInvocationPicksAtLevel(classLevelAfter: number) {
   return 0;
 }
 
-function battleMasterManeuverPicksAtLevel(classLevelAfter: number) {
-  if (classLevelAfter === 3) return 3;
-  if ([7, 10, 15].includes(classLevelAfter)) return 2;
-  return 0;
-}
-
 const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
   NONE: "Без чаклунства",
   FULL: "Повний кастер",
@@ -69,12 +60,16 @@ interface Props {
 }
 
 export default function LevelUpWizard({ info }: Props) {
-  const { resetForm, formData, updateFormData } = usePersFormStore();
-  const [currentStep, setCurrentStep] = useState(0);
-  const [nextDisabled, setNextDisabled] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
-    const prevDisabledRef = useRef<boolean | undefined>(undefined);
+  const { resetForm, formData } = usePersFormStore();
+    const router = useRouter();
+    const [currentStep, setCurrentStep] = useState(0);
+    const [nextDisabled, setNextDisabled] = useState(true);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const lastStepIdRef = useRef<string | undefined>(undefined);
+
+    const onNextDisabledChange = useCallback((disabled: boolean) => {
+        setNextDisabled(disabled);
+    }, []);
 
   // Initialize store
   useEffect(() => {
@@ -213,25 +208,6 @@ export default function LevelUpWizard({ info }: Props) {
               return undefined;
             })();
 
-            const currentPact = (() => {
-                if (selectedPact) return selectedPact;
-                const fromSelections = (formData.classChoiceSelections as Record<string, number | number[]> | undefined) || {};
-                for (const [, selection] of Object.entries(fromSelections)) {
-                    const ids = Array.isArray(selection) ? selection : [selection];
-                    for (const id of ids) {
-                        const opt = options.find(o => (o.choiceOptionId || (o as any).optionId) === id);
-                        if (opt && (
-                            opt.choiceOption.groupName === 'Дар пакту' || 
-                            (opt.choiceOption as any).groupNameEng === 'Pact Boon' ||
-                            (typeof opt.choiceOption.optionNameEng === 'string' && opt.choiceOption.optionNameEng.startsWith('Pact of'))
-                        )) {
-                            return opt.choiceOption.optionNameEng;
-                        }
-                    }
-                }
-                return undefined;
-            })();
-
             const eligible = invocationOptions
               .filter((opt: any) => {
                 const id = Number(opt.choiceOptionId);
@@ -239,23 +215,28 @@ export default function LevelUpWizard({ info }: Props) {
                 if (existingChoiceOptions.has(id)) return false;
 
                 const prereq = opt.choiceOption?.prerequisites as any;
-                
-                // Strictly enforce level prerequisite
                 const minLevel = prereq?.level ? Number(prereq.level) : undefined;
                 if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
                   return false;
                 }
-
-                // Strictly enforce pact prerequisite
-                const pactStr = prereq?.pact ? String(prereq.pact) : undefined;
-                if (pactStr && currentPact && pactStr !== currentPact) return false;
-                if (pactStr && !currentPact) return false;
-                
+                const pact = prereq?.pact ? String(prereq.pact) : undefined;
+                if (pact && selectedPact && pact !== selectedPact) return false;
+                if (pact && !selectedPact) return false;
                 return true;
-              });
+              })
+              .map((opt: any) => opt);
 
             delete (grouped as any)[WARLOCK_INVOCATION_GROUP];
-            (grouped as any)[WARLOCK_INVOCATION_GROUP] = eligible;
+            for (let i = 1; i <= picks; i++) {
+              const name = `${WARLOCK_INVOCATION_GROUP} #${i}`;
+              (grouped as any)[name] = eligible.map((opt: any) => ({
+                ...opt,
+                choiceOption: {
+                  ...opt.choiceOption,
+                  groupName: name,
+                },
+              }));
+            }
           }
         }
 
@@ -311,107 +292,44 @@ export default function LevelUpWizard({ info }: Props) {
   }, [classes, existingClassIds, pers]);
 
     const steps = useMemo(() => {
-        const result: Array<{ id: string; title: string; initialDisabled: boolean; component: ReactNode }> = [];
+        const result: Array<{ id: string; title: string; initialDisabled: boolean }> = [];
 
         if (isError || !pers) {
             result.push({
                 id: "error",
                 title: "Помилка",
                 initialDisabled: true,
-                component: (
-                    <Card className="glass-card">
-                        <CardHeader>
-                            <CardTitle>Помилка</CardTitle>
-                        </CardHeader>
-                        <CardContent className="text-slate-200">{isError ? (info as any).error : "Невідомо"}</CardContent>
-                    </Card>
-                ),
             });
             return result;
         }
 
-    result.push({
+        result.push({
             id: "path",
             title: "Початок",
             initialDisabled: true,
-            component: (
-                <PathStep
-                    pers={pers}
-                    classes={classes as unknown as ClassI[]}
-                    eligibleMulticlassClasses={eligibleMulticlassClasses}
-                    mainClassLevel={mainClassLevel}
-                    onNextDisabledChange={(disabled) => {
-                        if (prevDisabledRef.current !== disabled) {
-                            prevDisabledRef.current = disabled;
-                            setNextDisabled(disabled);
-                        }
-                    }}
-                />
-            ),
         });
 
-    if (!selectedClassId || !selectedClass) return result;
+        if (!selectedClassId || !selectedClass) return result;
 
-    result.push({
+        result.push({
             id: "summary",
             title: "Огляд",
             initialDisabled: false,
-            component: (
-                <SummaryStep
-                    totalLevel={nextLevel}
-                    className={selectedClassName}
-                    classLevelAfter={classLevelAfter}
-                    newClassFeatures={newClassFeatures}
-                    newSubclassFeatures={newSubclassFeatures}
-                    selectedClass={selectedClass as unknown as ClassI}
-                    effectiveSubclass={effectiveSubclass as unknown as SubclassI}
-                />
-            ),
         });
 
-    if (needsSubclass) {
-      result.push({
+        if (needsSubclass) {
+            result.push({
                 id: "subclass",
                 title: "Підклас",
                 initialDisabled: true,
-                component: (
-                    <SubclassForm cls={selectedClass as unknown as ClassI} formId="subclass-form" onNextDisabledChange={setNextDisabled} />
-                ),
-      });
-    }
+            });
+        }
 
         if (Object.keys(classChoiceGroups).length > 0) {
             result.push({
                 id: "class-choices",
                 title: "Опції класу",
                 initialDisabled: true,
-                component: (() => {
-                    const groupNames = Object.keys(classChoiceGroups);
-                    // Currently we support pickCount per form. If multiple groups have different pickCounts, 
-                    // we might need separate steps or a smarter form.
-                    // For now, if it's Warlock Invocations, use the calculated pickCount.
-                    let pickCount = 1;
-                    if (selectedClass.name === "WARLOCK_2014" && groupNames.includes(WARLOCK_INVOCATION_GROUP)) {
-                        pickCount = warlockInvocationPicksAtLevel(classLevelAfter);
-                    }
-
-                    return (
-                        <ClassChoiceOptionsForm
-                            selectedClass={selectedClass as unknown as ClassI}
-                            availableOptions={Object.values(classChoiceGroups).flat()}
-                            formId="class-choice-form"
-                            onNextDisabledChange={setNextDisabled}
-                            pickCount={pickCount}
-                            initialPact={(() => {
-                                const p = (pers.choiceOptions || []).find((co: any) => 
-                                    typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
-                                );
-                                return p?.optionNameEng;
-                            })()}
-                            initialLevel={classLevelAfter}
-                        />
-                    );
-                })(),
             });
         }
 
@@ -420,22 +338,6 @@ export default function LevelUpWizard({ info }: Props) {
                 id: "subclass-choices",
                 title: "Опції підкласу",
                 initialDisabled: true,
-                component: (() => {
-                    const groupNames = Object.keys(subclassChoiceGroups);
-                    let pickCount = 1;
-                    if (effectiveSubclass?.name === "BATTLE_MASTER" && groupNames.some(g => g.toLowerCase().includes("маневри"))) {
-                        pickCount = battleMasterManeuverPicksAtLevel(classLevelAfter);
-                    }
-
-                    return (
-                        <SubclassChoiceOptionsForm
-                            availableOptions={Object.values(subclassChoiceGroups).flat()}
-                            formId="subclass-choice-form"
-                            onNextDisabledChange={setNextDisabled}
-                            pickCount={pickCount}
-                        />
-                    );
-                })(),
             });
         }
 
@@ -444,296 +346,217 @@ export default function LevelUpWizard({ info }: Props) {
                 id: "asi",
                 title: "Покращення",
                 initialDisabled: true,
-                component: <LevelUpASIForm feats={feats as any} formId="asi-form" onNextDisabledChange={setNextDisabled} race={pers?.race as any} subrace={pers?.subrace} raceVariant={(pers as any)?.raceVariant} />,
             });
-
-            // Check if we need to show feat choice options
-            // We need to look at the selected feat from formData
-            const featId = formData.featId ? Number(formData.featId) : undefined;
-            const selectedFeat = featId ? feats.find(f => f.featId === featId) : undefined;
-            
-            if (selectedFeat && selectedFeat.featChoiceOptions && selectedFeat.featChoiceOptions.length > 0) {
-                 result.push({
-                    id: "feat-options",
-                    title: "Опції риси",
-                    initialDisabled: true,
-                    component: (
-                        <FeatChoiceOptionsForm
-                            selectedFeat={selectedFeat as any}
-                            formId="feat-options-form"
-                            onNextDisabledChange={setNextDisabled}
-                            pers={pers}
-                        />
-                    ),
-                });
-            }
         }
 
         if (needsInfusions) {
-            const known = (pers as any)?.persInfusions?.map((pi: any) => Number(pi?.infusionId)).filter((v: any) => Number.isFinite(v)) ?? [];
             result.push({
                 id: "infusions",
                 title: "Вливання",
                 initialDisabled: true,
-                component: (
-                    <LevelUpInfusionsStep
-                        infusions={(info as any).infusions || []}
-                        artificerLevelAfter={classLevelAfter}
-                        alreadyKnownInfusionIds={known}
-                        requiredCount={4}
-                        formId="infusions-form"
-                        onNextDisabledChange={setNextDisabled}
-                    />
-                ),
             });
         }
 
-        const optionalAtLevel = (selectedClass.classOptionalFeatures || []).filter((opt) => (opt.grantedOnLevels || []).includes(classLevelAfter));
-        const hasOptional = optionalAtLevel.length > 0;
-        
+        const hasOptional = Boolean(
+            (selectedClass.classOptionalFeatures || []).some((opt) => (opt.grantedOnLevels || []).includes(classLevelAfter))
+        );
         if (hasOptional) {
             result.push({
                 id: "optional",
                 title: "Заміни",
                 initialDisabled: true,
-                component: (
-                    <OptionalFeaturesForm
-                        selectedClass={selectedClass}
-                        classLevel={classLevelAfter}
-                        formId="optional-features"
-                        onNextDisabledChange={setNextDisabled}
-                    />
-                ),
             });
-
-            // Check if any of the accepted optional features require a choice replacement
-            const selections = (formData.classOptionalFeatureSelections as Record<string, boolean>) || {};
-            
-            for (const opt of optionalAtLevel) {
-                if (selections[opt.optionalFeatureId.toString()] === true) {
-                    if (opt.replacesFightingStyle) {
-                        const current = (pers.choiceOptions || []).filter(co => co.groupName === "Бойовий стиль");
-                        if (current.length > 0) {
-                            result.push({
-                                id: `replace-fighting-style-${opt.optionalFeatureId}`,
-                                title: "Зміна стилю бою",
-                                initialDisabled: true,
-                                component: (
-                                    <ChoiceReplacementForm
-                                        title="Зміна бойового стилю"
-                                        groupName="Бойовий стиль"
-                                        currentChoices={current}
-                                        availableOptions={selectedClass.classChoiceOptions || []}
-                                        classLevel={classLevelAfter}
-                                        onSelectionChange={(rep) => {
-                                            const key = `fightingStyleReplacement_${opt.optionalFeatureId}`;
-                                            if (JSON.stringify(formData[key]) !== JSON.stringify(rep)) {
-                                                updateFormData({ [key]: rep });
-                                            }
-                                            setNextDisabled(!rep);
-                                        }}
-                                        formId={`form-replace-fs-${opt.optionalFeatureId}`}
-                                    />
-                                )
-                            });
-                        }
-                    }
-                    if (opt.replacesManeuver) {
-                        const current = (pers.choiceOptions || []).filter(co => co.groupName.toLowerCase().includes("маневри"));
-                        if (current.length > 0) {
-                            result.push({
-                                id: `replace-maneuver-${opt.optionalFeatureId}`,
-                                title: "Зміна маневру",
-                                initialDisabled: true,
-                                component: (
-                                    <ChoiceReplacementForm
-                                        title="Зміна маневру"
-                                        groupName={current[0].groupName} // Use the specific group name found
-                                        currentChoices={current}
-                                        availableOptions={effectiveSubclass?.subclassChoiceOptions || []}
-                                        classLevel={classLevelAfter}
-                                        onSelectionChange={(rep) => {
-                                            const key = `maneuverReplacement_${opt.optionalFeatureId}`;
-                                            if (JSON.stringify(formData[key]) !== JSON.stringify(rep)) {
-                                                updateFormData({ [key]: rep });
-                                            }
-                                            setNextDisabled(!rep);
-                                        }}
-                                        formId={`form-replace-man-${opt.optionalFeatureId}`}
-                                    />
-                                )
-                            });
-                        }
-                    }
-                    if (opt.replacesInvocation) {
-                        const current = (pers.choiceOptions || []).filter(co => co.groupName === WARLOCK_INVOCATION_GROUP);
-                        if (current.length > 0) {
-                            result.push({
-                                id: `replace-invocation-${opt.optionalFeatureId}`,
-                                title: "Зміна виклику",
-                                initialDisabled: true,
-                                component: (
-                                    <ChoiceReplacementForm
-                                        title="Зміна виклику"
-                                        groupName={WARLOCK_INVOCATION_GROUP}
-                                        currentChoices={current}
-                                        availableOptions={selectedClass.classChoiceOptions || []}
-                                        classLevel={classLevelAfter}
-                                        pact={(() => {
-                                            const p = (pers.choiceOptions || []).find(co => co.optionNameEng.startsWith("Pact of"));
-                                            if (p?.optionNameEng) return p.optionNameEng;
-                                            
-                                            // Check current form selections
-                                            const selections = (formData.classChoiceSelections as Record<string, number | number[]> | undefined) || {};
-                                            for (const [, selection] of Object.entries(selections)) {
-                                                const ids = Array.isArray(selection) ? selection : [selection];
-                                                for (const id of ids) {
-                                                    const opt = selectedClass?.classChoiceOptions?.find(o => (o.optionId ?? o.choiceOptionId) === id);
-                                                    if (opt && (
-                                                        opt.choiceOption.groupName === 'Дар пакту' || 
-                                                        (opt.choiceOption as any).groupNameEng === 'Pact Boon' ||
-                                                        (typeof opt.choiceOption.optionNameEng === 'string' && opt.choiceOption.optionNameEng.startsWith('Pact of'))
-                                                    )) {
-                                                        return opt.choiceOption.optionNameEng;
-                                                    }
-                                                }
-                                            }
-                                            return undefined;
-                                        })()}
-                                        onSelectionChange={(rep) => {
-                                            const key = `invocationReplacement_${opt.optionalFeatureId}`;
-                                            if (JSON.stringify(formData[key]) !== JSON.stringify(rep)) {
-                                                updateFormData({ [key]: rep });
-                                            }
-                                            setNextDisabled(!rep);
-                                        }}
-                                        formId={`form-replace-inv-${opt.optionalFeatureId}`}
-                                    />
-                                )
-                            });
-                        }
-                    }
-                }
-            }
         }
 
         result.push({
             id: "hp",
             title: "HP",
             initialDisabled: true,
-            component: (
-                <LevelUpHPStep
-                    hitDie={selectedClass.hitDie}
-                    baseStats={{
-                        str: pers.str,
-                        dex: pers.dex,
-                        con: pers.con,
-                        int: pers.int,
-                        wis: pers.wis,
-                        cha: pers.cha,
-                    }}
-                    feats={feats as any}
-                    formId="hp-form"
-                    onNextDisabledChange={setNextDisabled}
-                />
-            ),
         });
 
         result.push({
             id: "confirm",
             title: "Підтвердження",
             initialDisabled: false,
-            component: (
-                <ConfirmStep
-                    totalLevel={nextLevel}
-                    className={selectedClassName}
-                    classLevelAfter={classLevelAfter}
-                    formData={formData}
-                />
-            ),
         });
 
         return result;
     }, [
         classChoiceGroups,
         classLevelAfter,
-        classes,
-        eligibleMulticlassClasses,
-        feats,
-        formData,
         isASILevel,
-                isError,
+        isError,
         needsInfusions,
-        mainClassLevel,
         needsSubclass,
-        newClassFeatures,
-        newSubclassFeatures,
-        nextLevel,
-                pers,
+        pers,
         selectedClass,
         selectedClassId,
-        selectedClassName,
         subclassChoiceGroups,
-                info,
-        effectiveSubclass,
-        updateFormData,
     ]);
+
+    const renderStepContent = (stepId: string) => {
+        if (isError || !pers) {
+            return (
+                <Card className="glass-card">
+                    <CardHeader>
+                        <CardTitle>Помилка</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-slate-200">{isError ? (info as any).error : "Невідомо"}</CardContent>
+                </Card>
+            );
+        }
+
+        switch (stepId) {
+            case "path":
+                return (
+                    <PathStep
+                        pers={pers}
+                        classes={classes as unknown as ClassI[]}
+                        eligibleMulticlassClasses={eligibleMulticlassClasses}
+                        mainClassLevel={mainClassLevel}
+                        onNextDisabledChange={onNextDisabledChange}
+                    />
+                );
+            case "summary":
+                return (
+                    <SummaryStep
+                        totalLevel={nextLevel}
+                        className={selectedClassName}
+                        classLevelAfter={classLevelAfter}
+                        newClassFeatures={newClassFeatures}
+                        newSubclassFeatures={newSubclassFeatures}
+                        selectedClass={selectedClass as unknown as ClassI}
+                        effectiveSubclass={effectiveSubclass as unknown as SubclassI}
+                    />
+                );
+            case "subclass":
+                return <SubclassForm cls={selectedClass as unknown as ClassI} formId="subclass-form" onNextDisabledChange={onNextDisabledChange} />;
+            case "class-choices":
+                return (
+                    <ClassChoiceOptionsForm
+                        selectedClass={selectedClass as unknown as ClassI}
+                        availableOptions={Object.values(classChoiceGroups).flat()}
+                        formId="class-choice-form"
+                        onNextDisabledChange={onNextDisabledChange}
+                    />
+                );
+            case "subclass-choices":
+                return (
+                    <SubclassChoiceOptionsForm
+                        availableOptions={Object.values(subclassChoiceGroups).flat()}
+                        formId="subclass-choice-form"
+                        onNextDisabledChange={onNextDisabledChange}
+                    />
+                );
+            case "asi":
+                return <LevelUpASIForm feats={feats as any} race={pers.race as any} formId="asi-form" onNextDisabledChange={onNextDisabledChange} />;
+            case "infusions": {
+                const known = (pers as any)?.persInfusions?.map((pi: any) => Number(pi?.infusionId)).filter((v: any) => Number.isFinite(v)) ?? [];
+                return (
+                    <LevelUpInfusionsStep
+                        infusions={(info as any).infusions || []}
+                        artificerLevelAfter={classLevelAfter}
+                        alreadyKnownInfusionIds={known}
+                        requiredCount={4}
+                        formId="infusions-form"
+                        onNextDisabledChange={onNextDisabledChange}
+                    />
+                );
+            }
+            case "optional":
+                return (
+                    <OptionalFeaturesForm
+                        selectedClass={selectedClass!}
+                        persChoiceOptions={(pers as any)?.choiceOptions || []}
+                        classLevel={classLevelAfter}
+                        formId="optional-features"
+                        onNextDisabledChange={onNextDisabledChange}
+                    />
+                );
+            case "hp":
+                return (
+                    <LevelUpHPStep
+                        hitDie={selectedClass!.hitDie}
+                        baseStats={{
+                            str: pers.str,
+                            dex: pers.dex,
+                            con: pers.con,
+                            int: pers.int,
+                            wis: pers.wis,
+                            cha: pers.cha,
+                        }}
+                        feats={feats as any}
+                        formId="hp-form"
+                        onNextDisabledChange={onNextDisabledChange}
+                    />
+                );
+            case "confirm":
+                return (
+                    <ConfirmStep
+                        totalLevel={nextLevel}
+                        className={selectedClassName}
+                        classLevelAfter={classLevelAfter}
+                        formData={formData}
+                    />
+                );
+            default:
+                return null;
+        }
+    };
 
     const currentStepId = steps[currentStep]?.id;
 
     useEffect(() => {
-        const initial = steps[currentStep]?.initialDisabled ?? true;
-        setNextDisabled(initial);
-        prevDisabledRef.current = undefined;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentStep, currentStepId]);
+        if (lastStepIdRef.current !== currentStepId) {
+            const initial = steps[currentStep]?.initialDisabled ?? true;
+            setNextDisabled(initial);
+            lastStepIdRef.current = currentStepId;
+        }
+    }, [currentStep, currentStepId, steps]);
 
-  const handleNext = async () => {
-      if (currentStep < steps.length - 1) {
-          setCurrentStep(prev => prev + 1);
-          const next = steps[currentStep + 1];
-          setNextDisabled(next?.initialDisabled ?? true);
-      } else {
-          // Submit
-          setIsSubmitting(true);
-          try {
-              if (!pers) throw new Error("Missing pers");
-              const result = await levelUpCharacter(pers.persId, formData);
-              if ('error' in result) {
-                  toast.error(result.error);
-              } else {
-                  toast.success("Рівень підвищено!");
-                  router.push(`/char/${pers.persId}`);
-              }
-          } catch {
-              toast.error("Помилка при збереженні");
-          } finally {
-              setIsSubmitting(false);
-          }
-      }
-  };
+    const handleNext = async () => {
+        if (currentStep < steps.length - 1) {
+            setCurrentStep(prev => prev + 1);
+        } else {
+            if (isSubmitting || !pers) return;
+            setIsSubmitting(true);
+            try {
+                const res = await levelUpCharacter(pers.persId, formData as any);
+                if ('error' in res) {
+                    toast.error(res.error || "Помилка при збереженні");
+                } else {
+                    toast.success("Рівень підвищено!");
+                    router.push(`/char/${pers.persId}`);
+                }
+            } catch (err) {
+                console.error(err);
+                toast.error("Сталася помилка");
+            } finally {
+                setIsSubmitting(false);
+            }
+        }
+    };
 
-  const handlePrev = () => {
-      if (currentStep > 0) {
-          setCurrentStep(prev => prev - 1);
-          const prev = steps[currentStep - 1];
-          setNextDisabled(prev?.initialDisabled ?? true);
-      }
-  };
+    const handlePrev = () => {
+        if (currentStep > 0) {
+            setCurrentStep(prev => prev - 1);
+        }
+    };
 
-  const CurrentComponent = steps[currentStep].component;
+  const CurrentComponent = renderStepContent(steps[currentStep].id);
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-[calc(7.5rem+env(safe-area-inset-bottom))] sm:px-4 md:gap-6 md:px-0 md:py-6">
+    <div className="container mx-auto py-8 px-4 max-w-6xl">
       <div className="space-y-4">
-        <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-4 py-3 sm:py-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="space-y-0.5">
-              <h1 className="font-rpg-display text-xl sm:text-2xl font-semibold uppercase tracking-widest text-slate-200">
-                Рівень {nextLevel}
+        <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
+            <div className="space-y-1">
+              <h1 className="font-rpg-display text-xl font-semibold uppercase tracking-widest text-slate-200 sm:text-2xl md:text-3xl">
+                Підвищення рівня
               </h1>
-              <div className="text-[11px] uppercase tracking-wider text-slate-400">Підвищення рівня</div>
+              <div className="text-sm text-slate-400">До {nextLevel}-го рівня</div>
             </div>
+
           </div>
         </div>
 
@@ -743,13 +566,13 @@ export default function LevelUpWizard({ info }: Props) {
               {CurrentComponent}
             </div>
 
-            <aside className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
+            <aside className="hidden glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4 md:block">
               <div className="sticky top-14 sm:top-16">
                 <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
                   <span className="font-medium text-slate-200">Ваш прогрес</span>
-                  <Badge variant="outline" className="border-white/15 bg-white/5 text-[11px] text-slate-200 sm:text-xs">
-                    {steps.length > 1 ? Math.floor((currentStep / (steps.length - 1)) * 100) : 10}% готово
-                  </Badge>
+                  <span>
+                    {currentStep + 1}/{steps.length}
+                  </span>
                 </div>
 
                 <div className="mt-3 space-y-2">
@@ -780,25 +603,18 @@ export default function LevelUpWizard({ info }: Props) {
                     );
                   })}
                 </div>
-
-                <div className="mt-4 h-1.5 rounded-full bg-white/10 sm:mt-5 sm:h-2">
-                  <div
-                    className="h-1.5 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all sm:h-2"
-                    style={{ width: `${steps.length > 1 ? Math.floor((currentStep / (steps.length - 1)) * 100) : 10}%` }}
-                  />
-                </div>
               </div>
             </aside>
           </CardContent>
         </Card>
 
-        <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
+        <div className="fixed bottom-[calc(70px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
           <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
             <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
               <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
                 Крок {currentStep + 1} / {steps.length}
               </Badge>
-              <span className="hidden text-slate-400 sm:inline">Прогрес {steps.length > 1 ? Math.floor((currentStep / (steps.length - 1)) * 100) : 10}%</span>
+              <span className="hidden sm:inline">{steps[currentStep]?.title}</span>
             </div>
 
             <div className="flex items-center gap-2">
@@ -812,11 +628,7 @@ export default function LevelUpWizard({ info }: Props) {
                 Назад
               </Button>
 
-              <Button
-                onClick={handleNext}
-                disabled={nextDisabled || isSubmitting}
-                className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-sm text-white shadow-lg shadow-indigo-500/20 sm:text-base"
-              >
+              <Button onClick={handleNext} disabled={nextDisabled || isSubmitting}>
                 {currentStep === steps.length - 1 ? (
                   <>
                     {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -958,7 +770,12 @@ function SummaryStep({
                 title={selectedFeature?.name || "Вміння"}
             >
                 {selectedFeature?.description ? (
-                    <FormattedDescription content={selectedFeature.description} className="text-slate-300 leading-relaxed text-sm sm:text-base" />
+                    <div className="glass-panel border-gradient-rpg rounded-xl border border-white/10 p-5 bg-white/5">
+                        <FormattedDescription 
+                            content={selectedFeature.description} 
+                            className="text-base text-slate-300 leading-relaxed" 
+                        />
+                    </div>
                 ) : (
                     <p className="text-sm text-slate-400 italic">Опис відсутній</p>
                 )}

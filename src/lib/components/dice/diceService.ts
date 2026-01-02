@@ -31,9 +31,8 @@ class DiceService {
       // Dynamic import to avoid SSR issues
       const { default: DiceBox } = await import("@3d-dice/dice-box");
 
-      // New API: single config object with 'container' property
-      this.box = new DiceBox({
-        container: containerSelector,
+      // dice-box@1.1.x API: (DOM selector, config)
+      this.box = new DiceBox(containerSelector, {
         assetPath: "/assets/dice-box/",
         gravity: 2,
         mass: 1,

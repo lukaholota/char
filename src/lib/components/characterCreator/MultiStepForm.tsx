@@ -73,15 +73,12 @@ export const MultiStepForm = (
 
   useEffect(() => {
     if (!isHydrated) return;
-    
-    // Capture state at the beginning of the step
     setInitialDataForStep(JSON.stringify(formData));
-    
-    // When moving forward via "Next" button, currentStep-1 is considered completed
+    // When moving forward, update the highest reached step
     if (currentStep - 1 > highestStepCompleted) {
       setHighestStepCompleted(currentStep - 1);
     }
-  }, [currentStep, isHydrated]); // Only trigger on step change or hydration
+  }, [currentStep, isHydrated]);
 
   useEffect(() => {
     if (!isHydrated || !initialDataForStep) return;
@@ -147,10 +144,6 @@ export const MultiStepForm = (
     () => (cls?.subclasses || []).find((sc) => sc.subclassId === formData.subclassId),
     [cls, formData.subclassId]
   );
-  const subrace = useMemo(
-    () => (race?.subraces || []).find((sr) => sr.subraceId === formData.subraceId),
-    [race, formData.subraceId]
-  );
   const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
   const hasLevelOneChoices = useMemo(
     () => Boolean(cls?.classChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
@@ -168,8 +161,8 @@ export const MultiStepForm = (
     [race, formData.raceVariantId]
   );
   const hasFeatChoice = useMemo(() => {
-    return raceVariant?.name === 'HUMAN_VARIANT' || race?.name === 'CUSTOM_LINEAGE_TCE';
-  }, [raceVariant, race]);
+    return raceVariant?.name === 'HUMAN_VARIANT';
+  }, [raceVariant]);
   const feat = useMemo(() => feats.find(f => f.featId === formData.featId), [feats, formData.featId]);
   const hasFeatChoices = useMemo(() => (feat?.featChoiceOptions?.length ?? 0) > 0, [feat]);
 
@@ -326,16 +319,9 @@ export const MultiStepForm = (
       return;
     }
     
-    // Allow jumping forward only if ALL previous steps are completed
-    let allPreviousStepsDone = true;
-    for (let i = 0; i < stepOrder - 1; i++) {
-      if (!isStepCompleted(steps[i].id, formData)) {
-        allPreviousStepsDone = false;
-        break;
-      }
-    }
-
-    if (allPreviousStepsDone) {
+    // Allow jumping forward only to the next step OR any already completed step
+    const canJumpForward = stepOrder === currentStep + 1 || isStepCompleted(targetStep.id, formData);
+    if (canJumpForward) {
       setCurrentStep(stepOrder);
     }
   }, [steps, currentStep, setCurrentStep, isStepCompleted, formData]);
@@ -375,9 +361,6 @@ export const MultiStepForm = (
             feats={feats}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
-            race={race}
-            subrace={subrace}
-            raceVariant={raceVariant}
           />
         );
       case "featChoices":
@@ -565,17 +548,9 @@ export const MultiStepForm = (
               <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
                 {steps.map((step, index) => {
                   const stepOrder = index + 1;
-                  const isDone = isStepCompleted(step.id, formData);
+                  const isDone = stepOrder <= highestStepCompleted && isStepCompleted(step.id, formData);
                   const isActive = stepOrder === currentStep;
-
-                  // Can jump if all PREVIOUS steps are done
-                  let canJump = true;
-                  for (let i = 0; i < index; i++) {
-                    if (!isStepCompleted(steps[i].id, formData)) {
-                      canJump = false;
-                      break;
-                    }
-                  }
+                  const canJump = stepOrder <= highestStepCompleted + 1 || isStepCompleted(step.id, formData);
 
                   return (
                     <button

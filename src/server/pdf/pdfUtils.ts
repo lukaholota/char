@@ -1,33 +1,14 @@
 import { existsSync } from "node:fs";
-import { join } from "node:path";
 import chromium from "@sparticuz/chromium";
 import puppeteer, { type Browser, type PDFOptions, type WaitForOptions } from "puppeteer-core";
 
-let cachedFontsCss: string | null = null;
+import { getFontsCss as getFontsCssFromFile } from "./fonts";
+
 let browserInstance: Browser | null = null;
+let browserInitPromise: Promise<Browser> | null = null;
 
 export function getFontsCss(): string {
-  const fontPathRegular = join(process.cwd(), "public/fonts/NotoSans-Regular.ttf");
-  const fontPathBold = join(process.cwd(), "public/fonts/NotoSans-Bold.ttf");
-
-  // We use file:// protocol because reading and converting to Base64 
-  // is too heavy for the VPS CPU and increases HTML size by 3MB.
-  cachedFontsCss = `
-    @font-face {
-      font-family: "NotoSansLocal";
-      src: url("file://${fontPathRegular}") format("truetype");
-      font-weight: 400;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: "NotoSansLocal";
-      src: url("file://${fontPathBold}") format("truetype");
-      font-weight: 700;
-      font-style: normal;
-    }
-  `;
-
-  return cachedFontsCss;
+  return getFontsCssFromFile();
 }
 
 function getLocalPuppeteerExecutablePath() {
@@ -61,46 +42,81 @@ export async function getBrowser(): Promise<Browser> {
     return browserInstance;
   }
 
-  const isVercelLike = Boolean(process.env.VERCEL) || Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
-  const executablePath = isVercelLike ? await chromium.executablePath() : getLocalPuppeteerExecutablePath();
+  if (browserInitPromise) return browserInitPromise;
 
-  if (!executablePath) {
-    throw new Error(
-      "Puppeteer не знайшов браузер. Для локальної розробки встанови Chrome/Chromium або задай PUPPETEER_EXECUTABLE_PATH."
-    );
+  browserInitPromise = (async () => {
+    const isVercelLike = Boolean(process.env.VERCEL) || Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
+    const executablePath = isVercelLike ? await chromium.executablePath() : getLocalPuppeteerExecutablePath();
+
+    if (!executablePath) {
+      throw new Error(
+        "Puppeteer не знайшов браузер. Для локальної розробки встанови Chrome/Chromium або задай PUPPETEER_EXECUTABLE_PATH."
+      );
+    }
+
+    const commonArgs = [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--single-process",
+      "--no-zygote",
+      "--disable-gpu",
+      "--disable-background-networking",
+      "--font-render-hinting=none",
+    ];
+
+    const disableDevShmUsage = process.env.PUPPETEER_DISABLE_DEV_SHM_USAGE !== "0";
+    const localArgs = [
+      ...commonArgs,
+      ...(disableDevShmUsage ? ["--disable-dev-shm-usage"] : []),
+    ];
+
+    browserInstance = await puppeteer.launch({
+      args: isVercelLike ? [...chromium.args, ...commonArgs] : localArgs,
+      executablePath,
+      headless: true,
+    });
+
+    return browserInstance;
+  })();
+
+  try {
+    return await browserInitPromise;
+  } finally {
+    browserInitPromise = null;
   }
-
-  browserInstance = await puppeteer.launch({
-    args: isVercelLike
-      ? [...chromium.args, "--font-render-hinting=none"]
-      : [
-          "--no-sandbox",
-          "--disable-setuid-sandbox",
-          "--disable-gpu",
-          "--disable-dev-shm-usage",
-          "--disable-setuid-sandbox",
-          "--no-first-run",
-          "--no-zygote",
-          "--single-process",
-          "--allow-file-access-from-files", // Crucial for loading fonts from local disk
-          "--font-render-hinting=none",
-        ],
-    executablePath,
-    headless: true,
-  });
-
-  return browserInstance;
 }
 
 export async function generatePdfFromHtml(
   html: string,
   options: PDFOptions = {},
-  waitOptions: WaitForOptions = { waitUntil: "domcontentloaded", timeout: 30000 }
+  waitOptions: WaitForOptions = { waitUntil: "domcontentloaded", timeout: 15000 }
 ): Promise<Uint8Array> {
   const browser = await getBrowser();
   const page = await browser.newPage();
 
   try {
+    await page.setJavaScriptEnabled(false);
+    await page.emulateMediaType("print");
+
+    // Block any outbound network and heavy resources.
+    await page.setRequestInterception(true);
+    page.on("request", (req) => {
+      const url = req.url();
+      const type = req.resourceType();
+
+      if (url.startsWith("http://") || url.startsWith("https://")) {
+        void req.abort();
+        return;
+      }
+
+      if (type === "image" || type === "media" || type === "font") {
+        void req.abort();
+        return;
+      }
+
+      void req.continue();
+    });
+
     // We use domcontentloaded because we embed all resources (fonts, etc) directly in HTML
     await page.setContent(html, waitOptions);
 
@@ -110,7 +126,7 @@ export async function generatePdfFromHtml(
       scale: 0.98,
       format: "letter",
       margin: { top: "16mm", right: "12mm", bottom: "16mm", left: "12mm" },
-      timeout: 45000,
+      timeout: 20000,
       ...options,
     });
 

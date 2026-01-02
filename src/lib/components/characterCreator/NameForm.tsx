@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState, forwardRef } from "react";
+import React, { useEffect, useMemo, useRef, useState, forwardRef } from "react";
 import { nameSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useStepForm } from "@/hooks/useStepForm";
 import { Input } from "@/components/ui/input";
@@ -117,6 +117,24 @@ const SimpleClickableItem = forwardRef<HTMLDivElement, { children: React.ReactNo
 SimpleClickableItem.displayName = "SimpleClickableItem";
 
 const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }) => {
+  const [openKey, setOpenKey] = useState<string | null>(null);
+  const openRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!openKey) return;
+
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (openRef.current && !openRef.current.contains(target)) {
+        setOpenKey(null);
+      }
+    };
+
+    window.addEventListener("pointerdown", onPointerDown);
+    return () => window.removeEventListener("pointerdown", onPointerDown);
+  }, [openKey]);
+
   const attributes = [
     { key: 'STR', label: 'СИЛ' },
     { key: 'DEX', label: 'СПР' },
@@ -126,32 +144,73 @@ const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }
     { key: 'CHA', label: 'ХАР' },
   ];
 
+  const formatSigned = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
+
   return (
     <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
       {attributes.map((attr) => {
         const stat = stats[attr.key];
+        const breakdown = (stat as any)?.breakdown as Array<{ source: string; value: number }> | undefined;
+        const rows = (breakdown || []).filter((x) => Number(x.value) !== 0);
         return (
-          <div key={attr.key} className="flex flex-col items-center rounded-lg border border-white/10 bg-white/5 p-2">
-            <span className="text-[10px] font-bold uppercase text-slate-500">{attr.label}</span>
-            <div className="flex items-baseline gap-1">
-              <span className="text-xl font-bold text-white">{stat.total}</span>
-              {stat.bonus > 0 && (
-                <span
-                  className="text-[10px] text-indigo-400"
-                  title={`База: ${stat.base}, Бонус: +${stat.bonus}`}
+          <div
+            key={attr.key}
+            className="relative"
+            ref={(node) => {
+              if (openKey === attr.key) openRef.current = node;
+            }}
+          >
+            <div
+              role="button"
+              tabIndex={0}
+              className="flex flex-col items-center rounded-lg border border-white/10 bg-white/5 p-2 cursor-pointer hover:bg-white/7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/30"
+              onClick={() => setOpenKey((prev) => (prev === attr.key ? null : attr.key))}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setOpenKey((prev) => (prev === attr.key ? null : attr.key));
+                }
+              }}
+              aria-label={`Деталі характеристики ${attr.label}`}
+            >
+              <span className="text-[10px] font-bold uppercase text-slate-500">{attr.label}</span>
+              <div className="flex items-baseline gap-1">
+                <span className="text-xl font-bold text-white">{stat.total}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Badge
+                  variant="outline"
+                  className={clsx(
+                    "h-5 px-1 text-[10px]",
+                    stat.mod >= 0 ? "border-emerald-500/30 text-emerald-400" : "border-red-500/30 text-red-400"
+                  )}
                 >
-                  (+{stat.bonus})
-                </span>
-              )}
+                  {stat.mod >= 0 ? `+${stat.mod}` : stat.mod}
+                </Badge>
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <Badge variant="outline" className={clsx(
-                "h-5 px-1 text-[10px]",
-                stat.mod >= 0 ? "border-emerald-500/30 text-emerald-400" : "border-red-500/30 text-red-400"
-              )}>
-                {stat.mod >= 0 ? `+${stat.mod}` : stat.mod}
-              </Badge>
-            </div>
+
+            {openKey === attr.key ? (
+              <div className="absolute left-1/2 top-full z-50 mt-2 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm shadow-xl">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
+                  Разом: {stat.total}
+                </div>
+                <div className="mt-2 space-y-1 text-sm">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">База</span>
+                    <span className="text-slate-200">{stat.base}</span>
+                  </div>
+                  {rows.length
+                    ? rows.map((x) => (
+                        <div key={x.source} className="flex items-center justify-between">
+                          <span className="text-slate-400">{x.source}</span>
+                          <span className="text-slate-200">{formatSigned(Number(x.value))}</span>
+                        </div>
+                      ))
+                    : null}
+                </div>
+              </div>
+            ) : null}
           </div>
         );
       })}
@@ -253,13 +312,17 @@ export const NameForm = ({ formId, race, raceVariant, selectedClass, background,
 
   const resolveClassChoiceLabel = (optionId: number) => {
     const list = (selectedClass?.classChoiceOptions || []) as any[];
-    const found = list.find((x) => Number(x.optionId ?? x.choiceOptionId) === Number(optionId));
+    const found = list.find(
+      (x) => Number(x.choiceOptionId) === Number(optionId) || Number(x.optionId) === Number(optionId)
+    );
     return found;
   };
 
   const resolveSubclassChoiceLabel = (optionId: number) => {
     const list = ((subclass as any)?.subclassChoiceOptions || []) as any[];
-    const found = list.find((x) => Number(x.optionId ?? x.choiceOptionId) === Number(optionId));
+    const found = list.find(
+      (x) => Number(x.choiceOptionId) === Number(optionId) || Number(x.optionId) === Number(optionId)
+    );
     return found;
   };
 

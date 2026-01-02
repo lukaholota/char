@@ -22,24 +22,19 @@ import { useRouter } from "next/navigation";
 import { longRest } from "@/lib/actions/rest-actions";
 import { restTranslations } from "@/lib/refs/translation";
 import ShortRestDialog from "./ShortRestDialog";
-import { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
+import { PersWithRelations } from "@/lib/actions/pers";
 
 interface RestButtonProps {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
-  onFeaturesUpdate?: (next: CharacterFeaturesGroupedResult) => void;
 }
 
-export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: RestButtonProps) {
+export default function RestButton({ pers, onPersUpdate }: RestButtonProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shortRestOpen, setShortRestOpen] = useState(false);
   const [longRestOpen, setLongRestOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  useModalBackButton(dropdownOpen, () => setDropdownOpen(false));
 
   const refreshInBackground = () => {
     startRefreshTransition(() => {
@@ -69,10 +64,6 @@ export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: Res
         isDead: false as any,
       });
 
-      if (res.groupedFeatures) {
-        onFeaturesUpdate?.(res.groupedFeatures);
-      }
-
       toast.success(restTranslations.longRestComplete, {
         description: `HP: ${res.newCurrentHp}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,
       });
@@ -85,7 +76,7 @@ export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: Res
 
   return (
     <>
-      <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
+      <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             size="sm"
@@ -115,7 +106,6 @@ export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: Res
         open={shortRestOpen}
         onOpenChange={setShortRestOpen}
         onPersUpdate={onPersUpdate ? (next) => onPersUpdate(next) : undefined}
-        onFeaturesUpdate={onFeaturesUpdate}
       />
 
       <Dialog open={longRestOpen} onOpenChange={setLongRestOpen}>
@@ -137,7 +127,7 @@ export default function RestButton({ pers, onPersUpdate, onFeaturesUpdate }: Res
             <Button
               onClick={handleLongRest}
               disabled={isSubmitting}
-              className="bg-indigo-600 hover:bg-indigo-700 text-slate-200"
+              className="bg-indigo-600 hover:bg-indigo-700"
             >
               {isSubmitting || isRefreshing ? restTranslations.takingLongRest : restTranslations.confirm}
             </Button>

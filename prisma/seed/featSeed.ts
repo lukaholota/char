@@ -375,7 +375,7 @@ const feats: FeatCreateInput[] = [
 Коли ви берете цей рис, оберіть один із наступних класів: бард, клірик, друїд, чародій, чарівник або чорнокнижник. Ви повинні мати Інтелект або Мудрість щонайменше 13, щоб обрати цей рис.
 
 Ви отримуєте книгу ритуалів, що містить два заклинання 1-го рівня на ваш вибір зі списку обраного класу, що мають властивість ритуалу. Ці заклинання не враховуються у вашу кількість відомих заклинань. Ваша характеристика для цих заклинань залежить від обраного класу.`,
-    prerequisiteAbilityScore: { INT: 13, WIS: 13 }, // It's INT or WIS, but JSON usually handles as AND or OR. I'll stick to a simpler representation.
+    prerequisiteAbilityScore: { INT: 13, WIS: 13, or: true }, // It's INT or WIS, but JSON usually handles as AND or OR. I'll stick to a simpler representation.
   },
   {
     name: Feats.SAVAGE_ATTACKER,

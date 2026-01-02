@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
 import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { Ability } from "@prisma/client";
 import type { FeatPrisma } from "@/lib/types/model-types";
 
 type Mode = "AVERAGE" | "RANDOM" | "MANUAL";
@@ -52,16 +53,29 @@ const applyFeatAsi = (
   if (!feat?.grantedASI) return stats;
 
   const next = { ...stats };
+
+  const abilityKeys = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
+  const apply = (ability: string, bonus: unknown) => {
+    const upper = String(ability).toUpperCase();
+    if (!abilityKeys.has(upper)) return;
+    const key = upper.toLowerCase() as keyof Props["baseStats"];
+    const val = Number(bonus);
+    if (key in next && Number.isFinite(val)) {
+      next[key] = next[key] + val;
+      if (next[key] > 20) next[key] = 20;
+    }
+  };
+
   const featASI = feat.grantedASI as any;
   const simple = featASI?.basic?.simple;
   if (simple && typeof simple === "object") {
-    Object.entries(simple).forEach(([ability, bonus]) => {
-      const key = ability.toLowerCase() as keyof Props["baseStats"];
-      const val = Number(bonus);
-      if (key in next && Number.isFinite(val)) {
-        next[key] = next[key] + val;
-      }
-    });
+    Object.entries(simple).forEach(([ability, bonus]) => apply(ability, bonus));
+    return next;
+  }
+
+  // Plain map: { INT: 1 }
+  if (featASI && typeof featASI === "object" && !Array.isArray(featASI)) {
+    Object.entries(featASI).forEach(([ability, bonus]) => apply(ability, bonus));
   }
 
   return next;
@@ -110,7 +124,7 @@ export default function LevelUpHPStep({
   }, [hpIncrease, mode]);
 
   useEffect(() => {
-    const disabled = typeof hpIncrease !== "number" || !Number.isFinite(hpIncrease) || hpIncrease < 0 || hpIncrease > 1000;
+    const disabled = typeof hpIncrease !== "number" || !Number.isFinite(hpIncrease) || hpIncrease < 0;
     onNextDisabledChange?.(disabled);
   }, [hpIncrease, onNextDisabledChange]);
 
@@ -200,11 +214,6 @@ export default function LevelUpHPStep({
             <p className="text-xs text-slate-400">
               Статура враховується автоматично й оновлюється після ASI/риси.
             </p>
-            {typeof hpIncrease === "number" && hpIncrease > 1000 && (
-              <p className="text-xs text-red-500 font-semibold animate-pulse">
-                Максимально допустимий приріст — 1000 HP
-              </p>
-            )}
           </div>
 
           <div className="flex flex-wrap gap-2">

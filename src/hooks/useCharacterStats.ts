@@ -23,7 +23,16 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
   const { formData } = usePersFormStore();
 
   const stats = useMemo(() => {
-    const scores: Record<string, { base: number; bonus: number; total: number; mod: number }> = {};
+    const scores: Record<
+      string,
+      {
+        base: number;
+        bonus: number;
+        total: number;
+        mod: number;
+        breakdown: Array<{ source: string; value: number }>;
+      }
+    > = {};
 
     // 1. Base Scores
     const baseScores: Record<string, number> = {
@@ -39,9 +48,20 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
     }
 
     // Initialize result structure
-    attributes.forEach(attr => {
-      scores[attr.key] = { base: baseScores[attr.key], bonus: 0, total: 0, mod: 0 };
+    attributes.forEach((attr) => {
+      scores[attr.key] = { base: baseScores[attr.key], bonus: 0, total: 0, mod: 0, breakdown: [] };
     });
+
+    const addBonus = (ability: string, value: number, source: string) => {
+      if (!scores[ability]) return;
+      const n = Number(value);
+      if (!Number.isFinite(n) || n === 0) return;
+      scores[ability].bonus += n;
+
+      const existing = scores[ability].breakdown.find((x) => x.source === source);
+      if (existing) existing.value += n;
+      else scores[ability].breakdown.push({ source, value: n });
+    };
 
     const subrace = (race?.subraces || []).find((sr: any) => sr.subraceId === (formData.subraceId ?? undefined));
 
@@ -53,14 +73,14 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
     if (formData.isDefaultASI) {
       if (effectiveASI?.basic?.simple) {
         Object.entries(effectiveASI.basic.simple).forEach(([ability, bonus]) => {
-          if (scores[ability]) scores[ability].bonus += Number(bonus);
+          addBonus(ability, Number(bonus), "за расу");
         });
       }
 
       const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
       if (additionalASI && typeof additionalASI === 'object') {
         Object.entries(additionalASI).forEach(([ability, bonus]) => {
-          if (scores[ability]) scores[ability].bonus += Number(bonus);
+          addBonus(ability, Number(bonus), "за підрасу");
         });
       }
     }
@@ -103,8 +123,10 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
           const value = group?.value;
           const bonusValue = typeof value === 'number' ? value : 1;
 
+          const source = choice.groupIndex < raceGroups.length ? "за расу" : "за підрасу";
+
           choice.selectedAbilities.forEach((ability) => {
-            if (scores[ability]) scores[ability].bonus += bonusValue;
+            addBonus(ability, bonusValue, source);
           });
         });
       }
@@ -112,11 +134,18 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
 
     // 4. Feat Bonuses (Fixed)
     if (feat?.grantedASI) {
+       const abilityKeys = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
        const featASI = feat.grantedASI as any;
-       if (featASI?.basic?.simple) {
-         Object.entries(featASI.basic.simple).forEach(([ability, bonus]) => {
-            if (scores[ability]) scores[ability].bonus += Number(bonus);
-         });
+       const apply = (ability: string, bonus: unknown) => {
+         const upper = String(ability).toUpperCase();
+         if (!abilityKeys.has(upper)) return;
+         addBonus(upper, Number(bonus), "за рису");
+       };
+
+       if (featASI?.basic?.simple && typeof featASI.basic.simple === "object") {
+         Object.entries(featASI.basic.simple).forEach(([ability, bonus]) => apply(ability, bonus));
+       } else if (featASI && typeof featASI === "object" && !Array.isArray(featASI)) {
+         Object.entries(featASI).forEach(([ability, bonus]) => apply(ability, bonus));
        }
     }
 
@@ -134,12 +163,12 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
                 // In seed: "Resilient (Strength)" -> optionNameEng
                 
                 const nameEng = option.choiceOption.optionNameEng;
-                if (nameEng.includes('Strength')) scores['STR'].bonus += 1;
-                else if (nameEng.includes('Dexterity')) scores['DEX'].bonus += 1;
-                else if (nameEng.includes('Constitution')) scores['CON'].bonus += 1;
-                else if (nameEng.includes('Intelligence')) scores['INT'].bonus += 1;
-                else if (nameEng.includes('Wisdom')) scores['WIS'].bonus += 1;
-                else if (nameEng.includes('Charisma')) scores['CHA'].bonus += 1;
+                if (nameEng.includes('Strength')) addBonus('STR', 1, "за рису");
+                else if (nameEng.includes('Dexterity')) addBonus('DEX', 1, "за рису");
+                else if (nameEng.includes('Constitution')) addBonus('CON', 1, "за рису");
+                else if (nameEng.includes('Intelligence')) addBonus('INT', 1, "за рису");
+                else if (nameEng.includes('Wisdom')) addBonus('WIS', 1, "за рису");
+                else if (nameEng.includes('Charisma')) addBonus('CHA', 1, "за рису");
             }
         });
     }

@@ -29,6 +29,50 @@ type Group = {
   isExpertise: boolean;
 };
 
+const SIMPLE_ABILITY_KEYS = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
+
+const ABILITY_NAME_ENG = new Set([
+  "Strength",
+  "Dexterity",
+  "Constitution",
+  "Intelligence",
+  "Wisdom",
+  "Charisma",
+  "STR",
+  "DEX",
+  "CON",
+  "INT",
+  "WIS",
+  "CHA",
+]);
+
+const hasCompositeGrantedASI = (grantedASI: unknown): boolean => {
+  if (!grantedASI || typeof grantedASI !== "object" || Array.isArray(grantedASI)) return false;
+
+  const obj = grantedASI as any;
+  const map: Record<string, unknown> | null =
+    obj?.basic?.simple && typeof obj.basic.simple === "object" && !Array.isArray(obj.basic.simple)
+      ? (obj.basic.simple as Record<string, unknown>)
+      : (obj as Record<string, unknown>);
+
+  if (!map) return false;
+
+  for (const [key, value] of Object.entries(map)) {
+    if (typeof value !== "number") continue;
+    if (!SIMPLE_ABILITY_KEYS.has(key)) return true;
+  }
+
+  return false;
+};
+
+const isAbilityOptionGroup = (options: NonNullable<FeatPrisma["featChoiceOptions"]>): boolean => {
+  return options.every((opt) => {
+    const name = (opt.choiceOption?.optionNameEng || opt.choiceOption?.optionName || "").trim();
+    const extracted = extractSkillFromOptionName(name);
+    return ABILITY_NAME_ENG.has(extracted);
+  });
+};
+
 /**
  * Extracts skill enum value from optionNameEng
  * Handles formats like "Skill Expert Proficiency (ATHLETICS)" -> "ATHLETICS"
@@ -73,6 +117,18 @@ const cleanGroupName = (groupName: string): string => {
     return groupName
       .replace(/\s*\(.*?\)\s*/g, "") // Remove (...) content
       .trim();
+};
+
+const localizeGroupName = (groupName: string, featKey?: string | null): string => {
+  const cleaned = cleanGroupName(groupName);
+  if (!featKey) return cleaned;
+
+  const localizedFeat = translateValue(featKey);
+  if (!localizedFeat || localizedFeat === featKey) return cleaned;
+
+  // Replace occurrences like "... OBSERVANT" with localized feat name.
+  // Keep the surrounding text (often already Ukrainian).
+  return cleaned.split(featKey).join(localizedFeat);
 };
 
 const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers }: Props) => {
@@ -126,7 +182,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
   const optionsToUse = useMemo(() => selectedFeat?.featChoiceOptions || [], [selectedFeat]);
 
-  const groupedChoices = useMemo<Group[]>(() => {
+  const { groupedChoices, groupAliases } = useMemo(() => {
     const groups = new Map<string, NonNullable<FeatPrisma["featChoiceOptions"]>>();
 
     // Helper to check if it's a skill option
@@ -165,13 +221,13 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       groups.set(groupName, bucket);
     }
 
-    return Array.from(groups.entries()).map(([groupName, options]) => {
+    const prelim = Array.from(groups.entries()).map(([groupName, options]) => {
       const isSkill = isSkillGroup(options);
       let pickCount = 1;
 
       // Use grantedSkillCount for SKILLED feat
-      if (selectedFeat?.name === 'SKILLED' && isSkill) {
-          pickCount = (selectedFeat as any).grantedSkillCount || 3;
+      if (selectedFeat?.name === "SKILLED" && isSkill) {
+        pickCount = (selectedFeat as any).grantedSkillCount || 3;
       }
 
       return {
@@ -180,19 +236,92 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
         pickCount,
         isSkill,
         isExpertise: isExpertiseGroup(groupName),
-      };
+      } as Group;
     });
+
+    // If feat has composite grantedASI (e.g. STR_OR_DEX) and ALSO has non-ability choice groups,
+    // do not force the user to pick an ability here (those are artifacts; real picks are via explicit options).
+    const composite = hasCompositeGrantedASI((selectedFeat as any)?.grantedASI);
+    const hasNonAbilityGroups = prelim.some((g) => !isAbilityOptionGroup(g.options));
+    const filtered = composite && hasNonAbilityGroups ? prelim.filter((g) => !isAbilityOptionGroup(g.options)) : prelim;
+
+    // Deduplicate groups that are the same options under different group names.
+    // Keep a canonical groupName and remember aliases so stored selections still work.
+    const aliases: Record<string, string[]> = {};
+    const bySig = new Map<string, Group[]>();
+    const makeSig = (g: Group) => {
+      const names = g.options
+        .map((o) => (o.choiceOption?.optionNameEng || o.choiceOption?.optionName || "").trim())
+        .sort();
+      return `${g.pickCount}|${g.isSkill ? "S" : "_"}${g.isExpertise ? "E" : "_"}|${names.join("|")}`;
+    };
+
+    for (const g of filtered) {
+      const sig = makeSig(g);
+      bySig.set(sig, [...(bySig.get(sig) ?? []), g]);
+    }
+
+    const nameScore = (name: string) => {
+      let score = 0;
+      if (/[А-Яа-яІіЇїЄєҐґ]/.test(name)) score += 10;
+      if (selectedFeat?.name && name !== selectedFeat.name) score += 2;
+      if (!/^[A-Z_]+$/.test(name)) score += 1;
+      return score;
+    };
+
+    const deduped: Group[] = [];
+    for (const groupList of bySig.values()) {
+      if (groupList.length === 1) {
+        const only = groupList[0];
+        aliases[only.groupName] = [only.groupName];
+        deduped.push(only);
+        continue;
+      }
+
+      const canonical = [...groupList].sort((a, b) => nameScore(b.groupName) - nameScore(a.groupName))[0];
+      const mergedOptions = groupList.flatMap((g) => g.options);
+
+      // keep options unique by choiceOptionId
+      const seen = new Set<number>();
+      const uniqueOptions = mergedOptions.filter((o) => {
+        if (seen.has(o.choiceOptionId)) return false;
+        seen.add(o.choiceOptionId);
+        return true;
+      });
+
+      const canonicalGroup: Group = {
+        ...canonical,
+        options: uniqueOptions,
+      };
+
+      aliases[canonical.groupName] = groupList.map((g) => g.groupName);
+      deduped.push(canonicalGroup);
+    }
+
+    return {
+      groupedChoices: deduped,
+      groupAliases: aliases,
+    };
   }, [optionsToUse, selectedFeat]);
 
    /**
    * Helper to retrieve all selected Option IDs for a given group.
    */
   const getSelectedIdsForGroup = useCallback((groupName: string): number[] => {
-      const val = selections[groupName];
-      if (Array.isArray(val)) return val;
-      if (typeof val === 'number') return [val];
-      return [];
-  }, [selections]);
+      const aliasNames = groupAliases[groupName] ?? [groupName];
+      const ids = new Set<number>();
+
+      for (const alias of aliasNames) {
+        const val = selections[alias];
+        if (Array.isArray(val)) {
+          val.forEach((v) => typeof v === "number" && ids.add(v));
+        } else if (typeof val === "number") {
+          ids.add(val);
+        }
+      }
+
+      return Array.from(ids);
+  }, [selections, groupAliases]);
 
   /**
    * Gets skills selected in THIS form (for live expertise updates)
@@ -310,6 +439,12 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     const valueToStore = (nextSelected.length === 1 && pickCount === 1) ? nextSelected[0] : nextSelected;
 
     const next = { ...(selections || {}), [groupName]: valueToStore };
+
+    // Remove any legacy alias keys for this group so validation doesn't get confused.
+    const aliasNames = groupAliases[groupName] ?? [];
+    for (const alias of aliasNames) {
+      if (alias !== groupName) delete next[alias];
+    }
     
     // Handle empty case
     if (nextSelected.length === 0) {
@@ -410,7 +545,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
-                  <p className="text-base font-semibold text-white">{cleanGroupName(group.groupName)}</p>
+                  <p className="text-base font-semibold text-white">{localizeGroupName(group.groupName, selectedFeat?.name)}</p>
                 </div>
                 <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
                   Оберіть {group.pickCount}

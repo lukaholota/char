@@ -2,15 +2,20 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { FeatPrisma, PersI } from "@/lib/types/model-types";
+import { FeatPrisma } from "@/lib/types/model-types";
 import { createCharacterSnapshot } from "./snapshot-actions";
-import { calculateCasterLevel } from "../logic/spell-logic";
-import { SPELL_SLOT_PROGRESSION } from "../refs/static";
 import { unstable_cache } from "next/cache";
+import { ArmorType, Language, SkillProficiencyType, Skills } from "@prisma/client";
+import {
+  formatArmorProficiencies,
+  formatToolProficiencies,
+  formatWeaponProficiencies,
+  translateValue,
+} from "@/lib/components/characterCreator/infoUtils";
 
-const getCachedClasses = unstable_cache(
-  async () => {
-    return prisma.class.findMany({
+const getAllClassesCached = unstable_cache(
+  async () =>
+    prisma.class.findMany({
       include: {
         subclasses: {
           include: {
@@ -24,14 +29,6 @@ const getCachedClasses = unstable_cache(
                 },
               },
             },
-            expandedSpells: true,
-          },
-        },
-        startingEquipmentOption: {
-          include: {
-            equipmentPack: true,
-            weapon: true,
-            armor: true,
           },
         },
         classChoiceOptions: {
@@ -53,15 +50,14 @@ const getCachedClasses = unstable_cache(
         features: { include: { feature: true } },
       },
       orderBy: [{ sortOrder: "asc" }, { classId: "asc" }],
-    });
-  },
-  ["all-classes-levelup"],
-  { revalidate: 3600, tags: ["classes"] }
+    }),
+  ["levelup:classes:v3"],
+  { revalidate: 60 * 60 * 24 }
 );
 
-const getCachedFeats = unstable_cache(
-  async () => {
-    return prisma.feat.findMany({
+const getAllFeatsCached = unstable_cache(
+  async () =>
+    (prisma.feat.findMany({
       include: {
         grantsFeature: true,
         featChoiceOptions: {
@@ -75,24 +71,26 @@ const getCachedFeats = unstable_cache(
         },
       },
       orderBy: [{ name: "asc" }],
-    }) as unknown as Promise<FeatPrisma[]>;
-  },
-  ["all-feats-levelup"],
-  { revalidate: 3600, tags: ["feats"] }
+    }) as unknown as Promise<FeatPrisma[]>),
+  ["levelup:feats:v3"],
+  { revalidate: 60 * 60 * 24 }
 );
 
-const getCachedInfusions = unstable_cache(
-  async () => {
-    return prisma.infusion.findMany({
+const getAllInfusionsCached = unstable_cache(
+  async () =>
+    prisma.infusion.findMany({
       include: {
-        feature: true,
-        replicatedMagicItem: true,
+        feature: {
+          select: {
+            name: true,
+            description: true,
+          },
+        },
       },
       orderBy: [{ minArtificerLevel: "asc" }, { name: "asc" }],
-    });
-  },
-  ["all-infusions-levelup"],
-  { revalidate: 3600, tags: ["infusions"] }
+    }),
+  ["levelup:infusions:v3"],
+  { revalidate: 60 * 60 * 24 }
 );
 
 export async function getLevelUpInfo(persId: number) {
@@ -102,16 +100,12 @@ export async function getLevelUpInfo(persId: number) {
   const pers = await prisma.pers.findUnique({
     where: { persId },
     include: {
-      user: true,
       class: true,
       subclass: true,
       choiceOptions: true,
       persInfusions: {
-        include: {
-          infusion: true,
-          weapon: true,
-          armor: true,
-          magicItem: true,
+        select: {
+          infusionId: true,
         },
       },
       multiclasses: {
@@ -122,17 +116,6 @@ export async function getLevelUpInfo(persId: number) {
       },
       race: true,
       subrace: true,
-      skills: true,
-      background: true,
-      features: { include: { feature: true } },
-      spells: true,
-      feats: { include: { feat: true } },
-      armors: { include: { armor: true } },
-      weapons: { include: { weapon: true } },
-      magicItems: { include: { magicItem: true } },
-      raceVariants: true,
-      raceChoiceOptions: true,
-      classOptionalFeatures: true,
     },
   });
 
@@ -142,9 +125,9 @@ export async function getLevelUpInfo(persId: number) {
   if (nextLevel > 20) return { error: "Max level reached" };
 
   const [classes, feats, infusions] = await Promise.all([
-    getCachedClasses(),
-    getCachedFeats(),
-    getCachedInfusions(),
+    getAllClassesCached(),
+    getAllFeatsCached(),
+    getAllInfusionsCached(),
   ]);
 
   const currentClass = classes.find((c) => c.classId === pers.classId);
@@ -178,7 +161,7 @@ export async function getLevelUpInfo(persId: number) {
   }
 
   return {
-    pers: pers as unknown as PersI,
+    pers,
     nextLevel,
     needsSubclass,
     isASILevel,
@@ -254,6 +237,13 @@ export async function levelUpCharacter(persId: number, data: any) {
       CHA: "cha",
     };
 
+    const clampStats = () => {
+      for (const k of Object.keys(newStats) as Array<keyof typeof newStats>) {
+        const v = newStats[k];
+        if (typeof v === "number" && Number.isFinite(v)) newStats[k] = Math.min(20, v);
+      }
+    };
+
     if (Array.isArray(data?.customAsi)) {
       for (const asi of data.customAsi as Array<{ ability?: string; value?: string }>) {
         const ability = String(asi?.ability || "");
@@ -274,12 +264,29 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     let featFeatureIds: number[] = [];
     let featGrantedASI: any = null;
+    let featGrantedSkills: unknown = null;
+    let featGrantedLanguageCount = 0;
+    let featGrantedLanguages: Language[] = [];
+    let featGrantedArmorProficiencies: ArmorType[] = [];
+    let featGrantedToolProficiencies: unknown = null;
+    let featGrantedWeaponProficiencies: unknown = null;
+    let featChoiceOptions: Array<{ choiceOptionId: number; choiceOption?: { optionNameEng?: string | null } | null }> = [];
+
+    const skillsToAdd = new Set<Skills>();
+    const skillsToExpertise = new Set<Skills>();
 
     if (featId) {
       const feat = await prisma.feat.findUnique({
         where: { featId },
         include: {
           grantsFeature: true,
+          featChoiceOptions: {
+            include: {
+              choiceOption: {
+                select: { choiceOptionId: true, optionNameEng: true },
+              },
+            },
+          },
         },
       });
 
@@ -287,16 +294,77 @@ export async function levelUpCharacter(persId: number, data: any) {
       featFeatureIds = feat.grantsFeature.map((f) => f.featureId);
       featGrantedASI = feat.grantedASI as any;
 
-      if (featGrantedASI?.basic?.simple) {
+      featGrantedSkills = (feat as any).grantedSkills;
+      featGrantedLanguageCount = Number((feat as any).grantedLanguageCount ?? 0) || 0;
+      featGrantedLanguages = Array.isArray((feat as any).grantedLanguages) ? ((feat as any).grantedLanguages as Language[]) : [];
+      featGrantedArmorProficiencies = Array.isArray((feat as any).grantedArmorProficiencies)
+        ? ((feat as any).grantedArmorProficiencies as ArmorType[])
+        : [];
+      featGrantedToolProficiencies = (feat as any).grantedToolProficiencies;
+      featGrantedWeaponProficiencies = (feat as any).grantedWeaponProficiencies;
+      featChoiceOptions = (feat as any).featChoiceOptions ?? [];
+
+      const abilityKeys = new Set(Object.keys(abilityToStatKey));
+      const applyAsiEntry = (ability: string, bonus: unknown) => {
+        const upper = String(ability).toUpperCase();
+        if (!abilityKeys.has(upper)) return;
+        const key = abilityToStatKey[upper];
+        const delta = Number(bonus);
+        if (!key) return;
+        if (!Number.isFinite(delta)) return;
+        newStats[key] += delta;
+      };
+
+      // grantedASI supports both nested RaceASI-like and plain maps
+      if (featGrantedASI?.basic?.simple && typeof featGrantedASI.basic.simple === "object") {
         for (const [ability, bonus] of Object.entries(featGrantedASI.basic.simple as Record<string, unknown>)) {
-          const key = abilityToStatKey[String(ability)];
-          const delta = Number(bonus);
-          if (!key) continue;
-          if (!Number.isFinite(delta)) continue;
-          newStats[key] += delta;
+          applyAsiEntry(ability, bonus);
+        }
+      } else if (featGrantedASI && typeof featGrantedASI === "object" && !Array.isArray(featGrantedASI)) {
+        for (const [ability, bonus] of Object.entries(featGrantedASI as Record<string, unknown>)) {
+          applyAsiEntry(ability, bonus);
+        }
+      }
+
+      // Apply ability choices embedded in feat choice options (e.g., Skill Expert ability pick)
+      for (const choiceOptionId of featChoiceOptionIds) {
+        const opt = featChoiceOptions.find((o) => Number(o.choiceOptionId) === choiceOptionId);
+        const nameEng = opt?.choiceOption?.optionNameEng || "";
+        if (nameEng.includes("Strength")) applyAsiEntry("STR", 1);
+        else if (nameEng.includes("Dexterity")) applyAsiEntry("DEX", 1);
+        else if (nameEng.includes("Constitution")) applyAsiEntry("CON", 1);
+        else if (nameEng.includes("Intelligence")) applyAsiEntry("INT", 1);
+        else if (nameEng.includes("Wisdom")) applyAsiEntry("WIS", 1);
+        else if (nameEng.includes("Charisma")) applyAsiEntry("CHA", 1);
+      }
+
+      // Skills from feat.grantedSkills (fixed)
+      if (Array.isArray(featGrantedSkills)) {
+        for (const s of featGrantedSkills as unknown[]) {
+          const raw = String(s);
+          if (Object.values(Skills).includes(raw as Skills)) skillsToAdd.add(raw as Skills);
+        }
+      }
+
+      // Skills from feat choice selections
+      const extractSkill = (nameEng?: string | null) => {
+        if (!nameEng) return null;
+        const match = nameEng.match(/\(([A-Z_]+)\)$/);
+        return match ? match[1] : nameEng;
+      };
+
+      for (const choiceOptionId of featChoiceOptionIds) {
+        const opt = featChoiceOptions.find((o) => Number(o.choiceOptionId) === choiceOptionId);
+        const nameEng = opt?.choiceOption?.optionNameEng;
+        const skillCode = extractSkill(nameEng);
+        if (skillCode && Object.values(Skills).includes(skillCode as Skills)) {
+          if (String(nameEng || "").includes("Expertise")) skillsToExpertise.add(skillCode as Skills);
+          else if (String(nameEng || "").includes("Proficiency")) skillsToAdd.add(skillCode as Skills);
         }
       }
     }
+
+    clampStats();
 
     // ===== 3) HP increase (from wizard) =====
     const hpIncreaseFromWizard = Number(data?.levelUpHpIncrease);
@@ -345,30 +413,17 @@ export async function levelUpCharacter(persId: number, data: any) {
     // Feat features
     for (const fid of featFeatureIds) featuresToAdd.add(fid);
 
-    const processChoiceSelections = async (selections: Record<string, number | number[]> | undefined) => {
+    const processChoiceSelections = async (selections: Record<string, number> | undefined) => {
       if (!selections) return;
       for (const optionIdRaw of Object.values(selections)) {
-        if (Array.isArray(optionIdRaw)) {
-          for (const raw of optionIdRaw) {
-            const optionId = Number(raw);
-            if (!Number.isFinite(optionId)) continue;
-            choiceOptionIds.push(optionId);
-            const choiceFeatures = await prisma.choiceOptionFeature.findMany({
-              where: { choiceOptionId: optionId },
-              select: { featureId: true },
-            });
-            for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
-          }
-        } else {
-          const optionId = Number(optionIdRaw);
-          if (!Number.isFinite(optionId)) continue;
-          choiceOptionIds.push(optionId);
-          const choiceFeatures = await prisma.choiceOptionFeature.findMany({
-            where: { choiceOptionId: optionId },
-            select: { featureId: true },
-          });
-          for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
-        }
+        const optionId = Number(optionIdRaw);
+        if (!Number.isFinite(optionId)) continue;
+        choiceOptionIds.push(optionId);
+        const choiceFeatures = await prisma.choiceOptionFeature.findMany({
+          where: { choiceOptionId: optionId },
+          select: { featureId: true },
+        });
+        for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
       }
     };
 
@@ -376,35 +431,26 @@ export async function levelUpCharacter(persId: number, data: any) {
     await processChoiceSelections(data?.subclassChoiceSelections as Record<string, number> | undefined);
     await processChoiceSelections(featChoiceSelections);
 
+    // Optional class features (replacements)
     const optionalSelections = (data?.classOptionalFeatureSelections || {}) as Record<string, boolean>;
     const acceptedOptionalIds = Object.entries(optionalSelections)
       .filter(([, accepted]) => accepted === true)
       .map(([id]) => Number(id))
       .filter((id) => Number.isFinite(id));
 
-    // Handle replacements (Fighting Styles, Maneuvers, Invocations)
-    const replacementDisconnectIds = new Set<number>();
-    const replacementConnectIds = new Set<number>();
-
-    for (const optId of acceptedOptionalIds) {
-      const fsKey = `fightingStyleReplacement_${optId}`;
-      const manKey = `maneuverReplacement_${optId}`;
-      const invKey = `invocationReplacement_${optId}`;
-
-      const fsRep = data[fsKey];
-      const manRep = data[manKey];
-      const invRep = data[invKey];
-
-      [fsRep, manRep, invRep].forEach(rep => {
-        if (rep?.oldId && rep?.newId) {
-          replacementDisconnectIds.add(Number(rep.oldId));
-          replacementConnectIds.add(Number(rep.newId));
-        }
-      });
-    }
+    const optionalReplacementSelections =
+      (data?.classOptionalFeatureReplacementSelections || {}) as Record<
+        string,
+        { removeChoiceOptionId?: number; addChoiceOptionId?: number }
+      >;
 
     const optionalReplacedFeatureIds = new Set<number>();
     const optionalGrantedFeatureIds = new Set<number>();
+
+    const replacementChoiceOptionDisconnectIds: number[] = [];
+    const replacementChoiceOptionConnectIds: number[] = [];
+    const replacementFeatureIdsToRemove = new Set<number>();
+    const replacementFeatureIdsToAdd = new Set<number>();
     if (acceptedOptionalIds.length) {
       const optionalRecords = await prisma.classOptionalFeature.findMany({
         where: { optionalFeatureId: { in: acceptedOptionalIds } },
@@ -418,49 +464,111 @@ export async function levelUpCharacter(persId: number, data: any) {
         for (const rep of opt.replacesFeatures) {
           optionalReplacedFeatureIds.add(rep.replacedFeatureId);
         }
+
+        const needsSwap = Boolean(opt.replacesInvocation || opt.replacesFightingStyle || opt.replacesManeuver);
+        if (!needsSwap) continue;
+
+        const sel = optionalReplacementSelections[String(opt.optionalFeatureId)] || {};
+        const removeChoiceOptionId = Number(sel.removeChoiceOptionId);
+        const addChoiceOptionId = Number(sel.addChoiceOptionId);
+
+        if (!Number.isFinite(removeChoiceOptionId) || !Number.isFinite(addChoiceOptionId) || removeChoiceOptionId === addChoiceOptionId) {
+          return { error: "Оберіть що замінюєте і на що міняєте" };
+        }
+
+        // Validate remove is currently owned
+        const ownedChoiceOptionIds = new Set<number>(
+          (pers.choiceOptions || [])
+            .map((co: any) => Number(co?.choiceOptionId))
+            .filter((v: any) => Number.isFinite(v))
+        );
+        if (!ownedChoiceOptionIds.has(removeChoiceOptionId)) {
+          return { error: "Обрана опція для заміни не належить персонажу" };
+        }
+
+        // Validate groups
+        const groupName = opt.replacesInvocation
+          ? "Потойбічні виклики"
+          : opt.replacesFightingStyle
+            ? "Бойовий стиль"
+            : opt.replacesManeuver
+              ? "Маневри майстра бою"
+              : undefined;
+
+        if (!groupName) {
+          return { error: "Невідомий тип заміни" };
+        }
+
+        const ownedGroup = (pers.choiceOptions || []).find((co: any) => Number(co?.choiceOptionId) === removeChoiceOptionId)?.groupName;
+        if (String(ownedGroup || "") !== groupName) {
+          return { error: "Обрана опція для заміни не з тієї групи" };
+        }
+
+        // Validate add choice option exists and belongs to group
+        const addChoiceOption = await prisma.choiceOption.findUnique({
+          where: { choiceOptionId: addChoiceOptionId },
+          select: { choiceOptionId: true, groupName: true, prerequisites: true, optionNameEng: true },
+        });
+        if (!addChoiceOption) {
+          return { error: "Нова опція не знайдена" };
+        }
+        if (String(addChoiceOption.groupName || "") !== groupName) {
+          return { error: "Нова опція не з тієї групи" };
+        }
+
+        // Prevent duplicates (except the one being replaced)
+        const ownedWithoutRemoved = new Set(ownedChoiceOptionIds);
+        ownedWithoutRemoved.delete(removeChoiceOptionId);
+        if (ownedWithoutRemoved.has(addChoiceOptionId)) {
+          return { error: "Ця опція вже обрана персонажем" };
+        }
+
+        // Invocation prerequisites: level and pact
+        if (groupName === "Потойбічні виклики") {
+          const prereq = (addChoiceOption.prerequisites || {}) as any;
+          const minLevel = prereq?.level ? Number(prereq.level) : undefined;
+          if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
+            return { error: "Цей виклик недоступний на цьому рівні" };
+          }
+          const pact = prereq?.pact ? String(prereq.pact) : undefined;
+          if (pact) {
+            const persPact = (pers.choiceOptions || []).find(
+              (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
+            )?.optionNameEng;
+            if (!persPact) return { error: "Спершу оберіть Пакт" };
+            if (String(persPact) !== pact) return { error: "Цей виклик вимагає іншого Пакту" };
+          }
+        }
+
+        replacementChoiceOptionDisconnectIds.push(removeChoiceOptionId);
+        replacementChoiceOptionConnectIds.push(addChoiceOptionId);
+
+        // Features to remove/add for replacement choice options
+        const [removeFeatures, addFeatures] = await Promise.all([
+          prisma.choiceOptionFeature.findMany({
+            where: { choiceOptionId: removeChoiceOptionId },
+            select: { featureId: true },
+          }),
+          prisma.choiceOptionFeature.findMany({
+            where: { choiceOptionId: addChoiceOptionId },
+            select: { featureId: true },
+          }),
+        ]);
+
+        for (const f of removeFeatures) replacementFeatureIdsToRemove.add(f.featureId);
+        for (const f of addFeatures) replacementFeatureIdsToAdd.add(f.featureId);
       }
     }
 
     for (const fid of optionalGrantedFeatureIds) featuresToAdd.add(fid);
 
-    // Add features from replacement new choices
-    if (replacementConnectIds.size > 0) {
-      const repNewOptions = await prisma.choiceOption.findMany({
-        where: { choiceOptionId: { in: Array.from(replacementConnectIds) } },
-        include: { features: true },
-      });
-      for (const opt of repNewOptions) {
-        choiceOptionIds.push(opt.choiceOptionId);
-        for (const f of opt.features) featuresToAdd.add(f.featureId);
-      }
-    }
+    for (const fid of replacementFeatureIdsToAdd) featuresToAdd.add(fid);
 
-    // Identify features to remove from replacement old choices
-    const featuresToRemove = new Set<number>();
-    if (replacementDisconnectIds.size > 0) {
-      const repOldOptions = await prisma.choiceOption.findMany({
-        where: { choiceOptionId: { in: Array.from(replacementDisconnectIds) } },
-        include: { features: true },
-      });
-      for (const opt of repOldOptions) {
-        for (const f of opt.features) featuresToRemove.add(f.featureId);
-      }
-    }
-
-    // Combine with other replacements
-    for (const fid of optionalReplacedFeatureIds) featuresToRemove.add(fid);
-
-    // Create snapshot before changes (outside of transaction to avoid timeout)
-    const snapshotResult = await createCharacterSnapshot(persId);
-    if ('error' in snapshotResult) {
-        console.error("Snapshot failed:", snapshotResult.error);
-        // We can choose to abort or proceed. Proceeding might be risky if history is important.
-        // For now, let's log and proceed, or better, throw?
-        // Given user data safety, maybe we should abort? 
-        // User asked to fix timeout, so splitting is key.
-    }
-
+    // ===== 6) Persist =====
     await prisma.$transaction(async (tx) => {
+      // Create snapshot before changes
+      await createCharacterSnapshot(persId);
+
       // multiclass row update/create
       if (levelUpPath === "MULTICLASS") {
         await tx.persMulticlass.create({
@@ -504,7 +612,11 @@ export async function levelUpCharacter(persId: number, data: any) {
         });
       }
 
-      const updatedPers = await tx.pers.update({
+      // Update Pers core
+      const disconnectIds = Array.from(new Set(replacementChoiceOptionDisconnectIds));
+      const connectIds = Array.from(new Set([...choiceOptionIds, ...replacementChoiceOptionConnectIds]));
+
+      await tx.pers.update({
         where: { persId },
         data: {
           level: nextLevel,
@@ -514,45 +626,96 @@ export async function levelUpCharacter(persId: number, data: any) {
             ? { subclassId: chosenSubclassIdRaw ?? pers.subclassId ?? null }
             : {}),
           ...newStats,
-        },
-        include: {
-          class: true,
-          subclass: true,
-          multiclasses: {
-            include: {
-              class: true,
-              subclass: true,
-            },
-          },
-        },
-      });
+          ...(featId
+            ? (() => {
+              const mergeLines = (base: unknown, extras: string[]) => {
+                const baseText = typeof base === "string" ? base : "";
+                const baseLines = baseText
+                  .split(/\r?\n/)
+                  .map((l) => l.trim())
+                  .filter(Boolean);
+                const set = new Set(baseLines);
+                for (const line of extras.map((l) => String(l).trim()).filter(Boolean)) {
+                  set.add(line);
+                }
+                return Array.from(set).join("\n");
+              };
 
-      // Recalculate spell slots and restore to max
-      const caster = calculateCasterLevel(updatedPers as any);
-      const maxSpellSlotsRow = ((SPELL_SLOT_PROGRESSION as any).FULL?.[caster.casterLevel] as number[] | undefined) ?? Array(9).fill(0);
-      const pactInfo = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
-      const maxPactSlots = pactInfo?.slots ? Math.max(0, Math.trunc(pactInfo.slots)) : 0;
+              const languageExtras: string[] = [];
+              for (const l of featGrantedLanguages) languageExtras.push(translateValue(String(l)));
+              if (featGrantedLanguageCount > 0) languageExtras.push(`Обери ще ${featGrantedLanguageCount}`);
 
-      await tx.pers.update({
-        where: { persId },
-        data: {
-          currentSpellSlots: maxSpellSlotsRow,
-          currentPactSlots: maxPactSlots,
+              const profExtras: string[] = [];
+              const armorText = formatArmorProficiencies(featGrantedArmorProficiencies);
+              if (armorText && armorText !== "—") profExtras.push(armorText);
+              const toolText = formatToolProficiencies(featGrantedToolProficiencies as any, null);
+              if (toolText && toolText !== "—") profExtras.push(toolText);
+              const weaponText = formatWeaponProficiencies(featGrantedWeaponProficiencies as any);
+              if (weaponText && weaponText !== "—") profExtras.push(weaponText);
+
+              return {
+                customLanguagesKnown: mergeLines((pers as any).customLanguagesKnown, languageExtras),
+                customProficiencies: mergeLines((pers as any).customProficiencies, profExtras),
+              };
+            })()
+            : {}),
+          choiceOptions:
+            disconnectIds.length || connectIds.length
+              ? {
+                ...(disconnectIds.length
+                  ? { disconnect: disconnectIds.map((choiceOptionId) => ({ choiceOptionId })) }
+                  : {}),
+                ...(connectIds.length
+                  ? { connect: connectIds.map((choiceOptionId) => ({ choiceOptionId })) }
+                  : {}),
+              }
+              : undefined,
           classOptionalFeatures: acceptedOptionalIds.length
             ? {
               connect: acceptedOptionalIds.map((optionalFeatureId) => ({ optionalFeatureId })),
             }
             : undefined,
-          choiceOptions: {
-            disconnect: replacementDisconnectIds.size > 0 
-              ? Array.from(replacementDisconnectIds).map(id => ({ choiceOptionId: id })) 
-              : undefined,
-            connect: choiceOptionIds.length
-              ? choiceOptionIds.map((id) => ({ choiceOptionId: id }))
-              : undefined,
-          }
         },
       });
+
+      // Apply feat skill proficiencies/expertise
+      if (skillsToAdd.size > 0) {
+        const rows = Array.from(skillsToAdd).map((skillEnum) => {
+          const idx = Object.values(Skills).indexOf(skillEnum);
+          return {
+            persId,
+            name: skillEnum,
+            skillId: idx + 1,
+            proficiencyType: SkillProficiencyType.PROFICIENT,
+          };
+        }).filter((r) => r.skillId > 0);
+
+        if (rows.length) {
+          await tx.persSkill.createMany({ data: rows, skipDuplicates: true });
+        }
+      }
+
+      if (skillsToExpertise.size > 0) {
+        for (const skillEnum of skillsToExpertise) {
+          const idx = Object.values(Skills).indexOf(skillEnum);
+          if (idx < 0) continue;
+          await tx.persSkill.upsert({
+            where: {
+              persId_name: {
+                persId,
+                name: skillEnum,
+              },
+            },
+            update: { proficiencyType: SkillProficiencyType.EXPERTISE },
+            create: {
+              persId,
+              name: skillEnum,
+              skillId: idx + 1,
+              proficiencyType: SkillProficiencyType.EXPERTISE,
+            },
+          });
+        }
+      }
 
       // Artificer Infusions (known) at level 2
       if (selectedClass?.name === "ARTIFICER_2014" && classLevelAfter === 2) {
@@ -599,11 +762,21 @@ export async function levelUpCharacter(persId: number, data: any) {
       }
 
       // Remove replaced features
-      if (featuresToRemove.size > 0) {
+      if (optionalReplacedFeatureIds.size > 0) {
         await tx.persFeature.deleteMany({
           where: {
             persId,
-            featureId: { in: Array.from(featuresToRemove) },
+            featureId: { in: Array.from(optionalReplacedFeatureIds) },
+          },
+        });
+      }
+
+      // Remove features from swapped choice options (invocations/styles/maneuvers)
+      if (replacementFeatureIdsToRemove.size > 0) {
+        await tx.persFeature.deleteMany({
+          where: {
+            persId,
+            featureId: { in: Array.from(replacementFeatureIdsToRemove) },
           },
         });
       }

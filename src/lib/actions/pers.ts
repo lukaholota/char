@@ -673,13 +673,7 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
     const choiceFeatureIds = new Map<number, FeatureSource>();
     pers.choiceOptions.forEach(co => co.features.forEach(cof => choiceFeatureIds.set(cof.feature.featureId, "CHOICE")));
     pers.raceChoiceOptions.forEach(rco => rco.traits.forEach(t => { if (t.featureId) choiceFeatureIds.set(t.featureId, "RACE_CHOICE"); }));
-    pers.feats.forEach(pf => pf.choices.forEach(c => {
-        // Find if this choice option grants any features
-        // Note: choiceOption in feats might not have features pre-included in the fetch, 
-        // but let's assume we want to label features granted by it as FEAT.
-        // Actually, let's just use the feature IDs from the global choiceOption if we can.
-        // But for now, we'll dedupe by name later too.
-    }));
+
 
     const buckets: CharacterFeaturesGroupedResult = {
         passive: [],
@@ -799,16 +793,18 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         const featName = pf.feat.name;
         const displayTypes = [FeatureDisplayType.PASSIVE];
 
-        // If a feat has no explicit choices, still show it as a single item
+        // Always show the feat itself as a trait item
+        push({
+            key: `FEAT:${pf.featId}`,
+            name: featName,
+            description: pf.feat.description,
+            displayTypes,
+            source: "FEAT",
+            sourceName: featName,
+        });
+
+        // Additionally show selected choices (if any)
         if (!pf.choices || pf.choices.length === 0) {
-            push({
-                key: `FEAT:${pf.featId}`,
-                name: featName,
-                description: pf.feat.description,
-                displayTypes,
-                source: "FEAT",
-                sourceName: featName,
-            });
             continue;
         }
 

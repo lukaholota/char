@@ -2,12 +2,13 @@
 
 import { Logo } from "@/lib/components/icons/Logo";
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Home, Sparkles, LogIn, LogOut, Dices, WandSparkles } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import { useEffect, useState } from "react";
 import { useTwoStepConfirm } from "@/hooks/useTwoStepConfirm";
 import Image from "next/image";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -25,7 +26,6 @@ export const Navigation = () => {
 
   const isEmbed = (pathname.startsWith("/spells") || pathname.startsWith("/magic-items")) && searchParams.get("origin") === "character";
   
-  // Also hide if inside iframe to be sure
   const [isIframe, setIsIframe] = useState(false);
   useEffect(() => {
     if (typeof window !== "undefined" && window.self !== window.top) {
@@ -45,14 +45,14 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 z-50 flex w-full flex-row items-center justify-center gap-6 border-t border-white/5 bg-slate-950/40 px-4 py-3 backdrop-blur-xl md:sticky md:top-0 md:h-screen md:w-20 md:flex-col md:justify-between md:border-t-0 md:border-r md:py-8">
+    <nav className="fixed bottom-0 left-0 z-50 flex w-full flex-row items-center justify-around gap-2 border-t border-white/5 bg-slate-950/40 px-4 py-3 backdrop-blur-xl md:sticky md:top-0 md:h-screen md:w-20 md:flex-col md:justify-between md:border-t-0 md:border-r md:py-8">
       
       {/* Top Section: Logo & Main Links */}
       <div className="flex flex-row items-center gap-4 md:flex-col md:gap-8">
         <Link
           href="/"
           aria-label="Головна"
-          className="hidden md:flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-violet-500/20 shadow-lg ring-1 ring-white/10 transition-transform hover:scale-105 active:scale-95 md:h-12 md:w-12"
+          className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-violet-500/20 shadow-lg ring-1 ring-white/10 transition-transform hover:scale-105 active:scale-95 md:h-12 md:w-12"
         >
           <Logo className="h-7 w-7 md:h-8 md:w-8" />
         </Link>

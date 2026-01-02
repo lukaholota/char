@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import clsx from "clsx";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -68,6 +67,21 @@ const sanitizeSchema = {
   },
 } as const;
 
+function preserveSingleLineBreaks(markdown: string): string {
+  const normalized = markdown.replace(/\r\n/g, "\n");
+  if (!normalized.includes("\n")) return normalized;
+
+  // Preserve formatting inside fenced code blocks.
+  const parts = normalized.split(/```/);
+  return parts
+    .map((part, idx) => {
+      if (idx % 2 === 1) return part;
+      // Convert single newlines to Markdown hard breaks.
+      return part.replace(/([^\n])\n(?!\n)/g, "$1  \n");
+    })
+    .join("```");
+}
+
 export function FormattedDescription({
   content,
   className,
@@ -87,13 +101,13 @@ export function FormattedDescription({
 
     const url = new URL(window.location.href);
     url.searchParams.set("spell", spellId);
-    window.history.replaceState({}, "", url);
+    window.history.pushState({}, "", url);
     window.dispatchEvent(new CustomEvent("spell:open", { detail: { spellId } }));
     dispatchLocationChangeAsync();
   };
 
   return (
-    <div className={clsx("whitespace-pre-line", className)}>
+    <div className={className}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
@@ -130,24 +144,24 @@ export function FormattedDescription({
               </a>
             );
           },
-          p: ({ children }) => <div className="mb-3 text-sm leading-relaxed text-inherit last:mb-0 break-words max-w-full whitespace-pre-line">{children}</div>,
-          ul: ({ children }) => <ul className="mb-3 list-disc space-y-1 pl-5 text-sm text-inherit break-words max-w-full">{children}</ul>,
-          ol: ({ children }) => <ol className="mb-3 list-decimal space-y-1 pl-5 text-sm text-inherit break-words max-w-full">{children}</ol>,
-          li: ({ children }) => <li className="leading-relaxed break-words">{children}</li>,
+          p: ({ children }) => <p className="mb-3 text-sm leading-relaxed text-inherit last:mb-0">{children}</p>,
+          ul: ({ children }) => <ul className="mb-3 list-disc space-y-1 pl-5 text-sm text-inherit">{children}</ul>,
+          ol: ({ children }) => <ol className="mb-3 list-decimal space-y-1 pl-5 text-sm text-inherit">{children}</ol>,
+          li: ({ children }) => <li className="leading-relaxed">{children}</li>,
           table: ({ children }) => (
-             <div className="mb-3 w-full overflow-x-hidden">
-               <table className="w-full table-fixed border-collapse text-sm">{children}</table>
-             </div>
-           ),
+            <div className="mb-3 overflow-x-auto">
+              <table className="w-full border-collapse text-sm">{children}</table>
+            </div>
+          ),
           thead: ({ children }) => <thead className="bg-slate-950/40">{children}</thead>,
           tr: ({ children }) => <tr className="border-b border-slate-600/60">{children}</tr>,
           th: ({ children }) => (
-            <th className="border border-slate-600 px-2 py-2 text-left font-semibold text-inherit break-words whitespace-normal align-top">{children}</th>
+            <th className="border border-slate-600 px-3 py-2 text-left font-semibold text-inherit">{children}</th>
           ),
-          td: ({ children }) => <td className="border border-slate-600 px-2 py-2 text-inherit break-words whitespace-normal align-top">{children}</td>,
+          td: ({ children }) => <td className="border border-slate-600 px-3 py-2 text-inherit">{children}</td>,
         }}
       >
-        {content}
+        {preserveSingleLineBreaks(content)}
       </ReactMarkdown>
     </div>
   );

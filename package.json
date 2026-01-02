@@ -6,8 +6,7 @@
     "dev": "next dev --turbopack",
     "dev:classic": "next dev",
     "generate:spells": "tsx scripts/generate-spells.ts",
-    "generate:magic-items": "tsx scripts/generate-magic-items.ts",
-    "prebuild": "npm run generate:spells && npm run generate:magic-items",
+    "prebuild": "npm run generate:spells",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

@@ -15,17 +15,17 @@ import {
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
-import { PDFDocument, PDFName, PDFString, type PDFFont, type PDFForm } from "pdf-lib";
+import { PDFDocument, PDFName, PDFString, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
 
 import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations } from "@/lib/refs/translation";
 
 import type { CharacterPdfData, PersSpellWithSpell, PrintConfig, PrintSection } from "./types";
-import { generateSpellsHtmlContents, getSpellsStyles } from "./spellsPdf";
-import { generateFeaturesHtmlContents, getFeaturesStyles } from "./featuresPdf";
-import { generateMagicItemsHtmlContents, getMagicItemsStyles } from "./magicItemsPdf";
-import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
+import { CHARACTER_SHEET_OVERLAY, type OverlayFieldKey, type OverlayText } from "./overlayLayout";
+import { generateSpellsPdfBytes } from "./spellsPdf";
+import { generateFeaturesPdfBytes } from "./featuresPdf";
+import { generateMagicItemsPdfBytes } from "./magicItemsPdf";
 
 type Maybe<T> = T | null | undefined;
 
@@ -55,6 +55,7 @@ function ensureTextFieldHasDA(form: PDFForm, fieldName: string) {
   // Some fields in the template have no /DA, which makes pdf-lib throw on setFontSize.
   // AcroForm has a valid /DA (e.g. /Helv 0 Tf 0 g), so we copy it to the field.
   try {
+    const anyForm = form as any;
     const anyField = field as any;
     const hasFieldDA = anyField?.acroField?.dict?.lookup?.(PDFName.of("DA"));
 
@@ -94,7 +95,47 @@ function compactDiceSum(value: string): string {
     .trim();
 }
 
+function multilineDiceSum(value: string): string {
+  // Use multiple lines when the field is tall enough.
+  const parts = String(value ?? "")
+    .split("+")
+    .map((p) => p.trim())
+    .filter(Boolean);
+  if (parts.length <= 1) return String(value ?? "").trim();
+  return parts.join("\n+");
+}
 
+function compressDiceExpression(value: string): string {
+  const raw = compactDiceSum(String(value ?? ""));
+  if (!raw) return "";
+
+  // Accept both Latin d and Ukrainian к.
+  const re = /(\d+)\s*(?:к|d|D)\s*(\d+)/g;
+
+  const order: number[] = [];
+  const counts = new Map<number, number>();
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(raw))) {
+    const count = Number(m[1]);
+    const die = Number(m[2]);
+    if (!Number.isFinite(count) || !Number.isFinite(die) || count <= 0 || die <= 0) continue;
+    if (!counts.has(die)) order.push(die);
+    counts.set(die, (counts.get(die) ?? 0) + count);
+  }
+
+  if (order.length === 0) return raw;
+  return order
+    .map((die) => ({ die, count: counts.get(die) ?? 0 }))
+    .filter((x) => x.count > 0)
+    .map((x) => `${x.count}к${x.die}`)
+    .join("+");
+}
+
+function truncateText(value: string, maxLen: number): string {
+  const raw = String(value ?? "").trim();
+  if (raw.length <= maxLen) return raw;
+  return raw.slice(0, Math.max(0, maxLen - 1)).trimEnd() + "…";
+}
 
 function formatHitDicePerClassLines(chunks: Array<{ current: number; max: number; die: number }>): string {
   const safeChunks = (chunks ?? [])
@@ -124,6 +165,8 @@ function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
     for (const pmi of magicItems) {
       if (!pmi.magicItem) continue;
       const name = pmi.magicItem.name;
+      const type = pmi.magicItem.itemType;
+      const rarity = pmi.magicItem.rarity;
       
       const attunementMark = pmi.isAttuned ? " (A)" : "";
       const equippedMark = pmi.isEquipped ? "[x]" : "[ ]";
@@ -468,6 +511,13 @@ function setMultilineTextIfPresent(form: PDFForm, name: string, value: string) {
   }
 }
 
+function tryGetCheckBox(form: PDFForm, name: string) {
+  try {
+    return form.getCheckBox(name);
+  } catch {
+    return null;
+  }
+}
 
 function setTextFieldWithOverflow(
   form: PDFForm,
@@ -852,6 +902,106 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   }
 }
 
+interface CreatedFieldDef {
+  key: OverlayFieldKey;
+  value: string;
+  needsOverflow?: boolean;
+}
+
+function createTextFieldOnPage(
+  form: PDFForm,
+  page: PDFPage,
+  name: string,
+  rect: OverlayText,
+  value: string,
+  font: PDFFont,
+  needsTwoLines: boolean = false
+) {
+  const lineHeight = rect.height;
+  let adjustedY = rect.y;
+  let adjustedHeight = rect.height;
+
+  if (needsTwoLines) {
+    adjustedHeight = rect.height * 2;
+    adjustedY = rect.y - rect.height;
+  }
+
+  const textField = form.createTextField(name);
+  textField.addToPage(page, {
+    x: rect.x,
+    y: adjustedY,
+    width: rect.width,
+    height: adjustedHeight,
+  });
+
+  if (needsTwoLines) {
+    textField.enableMultiline();
+  }
+
+  textField.setText(value);
+
+  if (rect.align === "center") {
+    textField.setAlignment(TextAlignment.Center);
+  } else if (rect.align === "right") {
+    textField.setAlignment(TextAlignment.Right);
+  } else {
+    textField.setAlignment(TextAlignment.Left);
+  }
+}
+
+function createFieldsFromOverlay(
+  pdfDoc: PDFDocument,
+  form: PDFForm,
+  page: PDFPage,
+  data: CharacterPdfData,
+  font: PDFFont
+) {
+  const { pers } = data;
+  const extras = getPersExtras(pers);
+
+  const fieldDefs: CreatedFieldDef[] = [
+    { key: "characterName", value: safeText(pers.name), needsOverflow: true },
+    { key: "classLevel", value: buildClassLevelString(pers), needsOverflow: true },
+    { key: "background", value: safeText(pers.background?.name) },
+    { key: "playerName", value: safeText(pers.user?.name ?? pers.user?.email), needsOverflow: true },
+    { key: "race", value: safeText(pers.race?.name), needsOverflow: true },
+    { key: "alignment", value: safeText(extras.alignment) },
+    { key: "xp", value: safeText(extras.xp) },
+    { key: "ac", value: safeText(calculateFinalAC(pers)) },
+    { key: "initiative", value: formatModifier(calculateFinalInitiative(pers)) },
+    { key: "speed", value: safeText(calculateFinalSpeed(pers)) },
+    { key: "proficiencyBonus", value: formatModifier(calculateFinalProficiency(pers)) },
+    { key: "hpMax", value: safeText(calculateFinalMaxHP(pers)) },
+    { key: "hpCurrent", value: safeText(pers.currentHp) },
+    { key: "hpTemp", value: safeText(extras.tempHp ?? 0) },
+  ];
+
+  const abilities: Ability[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+  for (const ability of abilities) {
+    const score = calculateFinalStat(pers, ability);
+    const mod = calculateFinalModifier(pers, ability);
+    fieldDefs.push({ key: `stat:${ability}:score`, value: safeText(score) });
+    fieldDefs.push({ key: `stat:${ability}:mod`, value: formatModifier(mod) });
+  }
+
+  for (const def of fieldDefs) {
+    const rect = CHARACTER_SHEET_OVERLAY[def.key];
+    if (!rect) continue;
+    if (rect.pageIndex !== 0) continue;
+
+    const fontSize = rect.size ?? 10;
+    const textWidth = font.widthOfTextAtSize(def.value, fontSize);
+    const needsTwoLines = def.needsOverflow && textWidth > rect.width;
+
+    let valueToSet = def.value;
+    if (needsTwoLines) {
+      const { line1, line2 } = splitTextTwoLines(def.value, font, fontSize, rect.width);
+      valueToSet = line2 ? `${line1}\n${line2}` : line1;
+    }
+
+    createTextFieldOnPage(form, page, def.key, rect, valueToSet, font, needsTwoLines);
+  }
+}
 
 async function embedNotoSansFonts(pdfDoc: PDFDocument): Promise<{ regular: PDFFont; bold: PDFFont }> {
   const fs = await import("fs/promises");
@@ -945,9 +1095,7 @@ export async function generateCharacterPdfFromData(
     }
   }
 
-  // 2. Collect HTML for all remaining sections
-  const htmlSections: string[] = [];
-  
+  // 2. Мерджимо FEATURES (як і було)
   if (normalized.sections.includes("FEATURES")) {
     const hasAnyFeatureItems =
       (data.features?.passive?.length ?? 0) +
@@ -955,83 +1103,52 @@ export async function generateCharacterPdfFromData(
         (data.features?.bonusActions?.length ?? 0) +
         (data.features?.reactions?.length ?? 0) >
       0;
+
     if (hasAnyFeatureItems) {
-      const featuresHtml = await generateFeaturesHtmlContents({
-        characterName: data.pers.name ?? "Character",
-        features: data.features,
-      });
-      if (featuresHtml) htmlSections.push(featuresHtml);
+      try {
+        const featuresPdfBytes = await generateFeaturesPdfBytes({
+          characterName: data.pers.name ?? "Character",
+          features: data.features,
+        });
+        const featuresDoc = await PDFDocument.load(featuresPdfBytes);
+        const pages = await pdfDoc.copyPages(featuresDoc, featuresDoc.getPageIndices());
+        pages.forEach((p) => pdfDoc.addPage(p));
+      } catch {
+        // ignore
+      }
     }
   }
 
+  // 3. Мерджимо SPELLS (як і було)
   if (normalized.sections.includes("SPELLS")) {
     const spellIds = (data.pers.persSpells ?? []).map(ps => ps.spellId).filter((id): id is number => id != null);
     if (spellIds.length > 0) {
-      const spellsHtml = await generateSpellsHtmlContents(spellIds);
-      if (spellsHtml) htmlSections.push(spellsHtml);
+      try {
+        const spellsPdfBytes = await generateSpellsPdfBytes(spellIds);
+        const spellsDoc = await PDFDocument.load(spellsPdfBytes);
+        const pages = await pdfDoc.copyPages(spellsDoc, spellsDoc.getPageIndices());
+        pages.forEach((p) => pdfDoc.addPage(p));
+      } catch {
+        // ignore
+      }
     }
   }
 
+  // 4. Мерджимо MAGIC ITEMS
   if (normalized.sections.includes("MAGIC_ITEMS")) {
     const magicItemIds = (data.pers?.magicItems ?? [])
       .map((mi) => mi.magicItemId)
       .filter((id): id is number => id != null);
+
     if (magicItemIds.length > 0) {
-      const magicItemsHtml = await generateMagicItemsHtmlContents(magicItemIds);
-      if (magicItemsHtml) htmlSections.push(magicItemsHtml);
-    }
-  }
-
-  // 3. Render all HTML sections in ONE pass if any exist
-  if (htmlSections.length > 0) {
-    try {
-      const combinedHtml = `<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Character Sheet Additions — ${data.pers.name}</title>
-    <style>
-      ${getFontsCss()}
-      @page { size: letter portrait; margin: 16mm 12mm; }
-      * { box-sizing: border-box; }
-      body {
-        font-family: "NotoSansLocal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        color: #0f172a;
-        background: #ffffff;
-        margin: 0;
+      try {
+        const magicItemsPdfBytes = await generateMagicItemsPdfBytes(magicItemIds);
+        const magicItemsDoc = await PDFDocument.load(magicItemsPdfBytes);
+        const pages = await pdfDoc.copyPages(magicItemsDoc, magicItemsDoc.getPageIndices());
+        pages.forEach((p) => pdfDoc.addPage(p));
+      } catch {
+        // ignore
       }
-      .wrap { padding: 0; page-break-before: always; }
-      .wrap:first-child { page-break-before: avoid; }
-      .page-title {
-        font-family: "Noto Serif", Georgia, "Times New Roman", serif;
-        font-size: 22px;
-        font-weight: 700;
-        margin: 0 0 16px 0;
-        padding-bottom: 8px;
-        border-bottom: 2px solid #0f172a;
-      }
-      .columns {
-        column-count: 2;
-        column-gap: 14px;
-        column-fill: auto;
-      }
-      ${getFeaturesStyles()}
-      ${getSpellsStyles()}
-      ${getMagicItemsStyles()}
-    </style>
-  </head>
-  <body>
-    ${htmlSections.join("\n")}
-  </body>
-</html>`;
-
-      const extraPdfBytes = await generatePdfFromHtml(combinedHtml, { timeout: 60000 });
-      const extraDoc = await PDFDocument.load(extraPdfBytes);
-      const pages = await pdfDoc.copyPages(extraDoc, extraDoc.getPageIndices());
-      pages.forEach((p) => pdfDoc.addPage(p));
-    } catch (err) {
-      console.error("Combined HTML PDF generation failed:", err);
     }
   }
 

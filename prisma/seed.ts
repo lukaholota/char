@@ -48,7 +48,7 @@ async function main() {
     // await seedClassChoiceOptions(prisma)
     // await seedSubclassChoiceOptions(prisma)
     
-    await seedMagicItems(prisma) // items for infusions
+    // await seedMagicItems(prisma) // items for infusions
     // await seedInfusions(prisma)  // infusions themselves
 
     // await seedClassOptionalFeatures(prisma)
@@ -56,7 +56,7 @@ async function main() {
     // await seedFeats(prisma);
     // await seedFeatChoiceOptions(prisma);
 
-    // await _seedClassFeatures(prisma)
+    await _seedClassFeatures(prisma)
     // await _seedInfusionFeatures(prisma) // features for infusions
 }
 

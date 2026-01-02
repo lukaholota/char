@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
-import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-import { duplicatePers, renamePers } from "@/lib/actions/pers";
+import { useEffect, useState } from "react";
+import { PersWithRelations } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
 import { Button } from "@/components/ui/button";
-import { ArrowUpCircle, Loader2, Pencil, Copy } from "lucide-react";
+import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
+import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import RestButton from "./RestButton";
 import { Badge } from "@/components/ui/badge";
 import { ShareDialog } from "./ShareDialog";
 import { useParams, useRouter } from "next/navigation";
 import { copyPersByToken } from "@/lib/actions/share-actions";
+import { Copy } from "lucide-react";
 import { toast } from "sonner";
+import { useTransition } from "react";
 import PrintCharacterDialog from "./PrintCharacterDialog";
 import {
   Dialog,
@@ -21,6 +23,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { renamePers } from "@/lib/actions/pers";
 
 interface CharacterSheetProps {
   pers: PersWithRelations;
@@ -30,7 +33,6 @@ interface CharacterSheetProps {
 
 export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
-  const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const isReadOnly = isPublicView || pers.isSnapshot;
   const params = useParams();
   const router = useRouter();
@@ -47,10 +49,6 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   }, [pers]);
 
   useEffect(() => {
-    setLocalGroupedFeatures(groupedFeatures);
-  }, [groupedFeatures]);
-
-  useEffect(() => {
     setRenameValue(pers.name);
   }, [pers.name]);
 
@@ -65,18 +63,6 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
             router.push(`/char/${result.persId}`);
         } else {
             toast.error(result.error || "Не вдалося скопіювати персонажа");
-        }
-    });
-  };
-
-  const handleDuplicateSnapshot = () => {
-    startCopyTransition(async () => {
-        const result = await duplicatePers(pers.persId);
-        if (result.success && result.pers) {
-            toast.success("Знімок скопійовано у новий повноцінний персонаж!");
-            router.push(`/char/${result.pers.persId}`);
-        } else {
-            toast.error(result.error || "Не вдалося скопіювати знімок");
         }
     });
   };
@@ -130,20 +116,17 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                          <Pencil className="h-4 w-4" />
                        </Button>
                      </DialogTrigger>
-                     <DialogContent 
-                        className="sm:max-w-[520px] glass-card border-white/10 text-slate-100"
-                        onOpenAutoFocus={(e) => e.preventDefault()}
-                      >
+                     <DialogContent className="sm:max-w-[520px] glass-card border-white/10 text-slate-100">
                        <DialogHeader>
                          <DialogTitle>Перейменувати персонажа</DialogTitle>
                        </DialogHeader>
 
                        <div className="space-y-3">
                          <Input
-                           autoFocus={false}
                            value={renameValue}
                            onChange={(e) => setRenameValue(e.target.value)}
                            maxLength={60}
+                           autoFocus
                          />
                          <div className="flex justify-end gap-2">
                            <Button variant="ghost" onClick={() => setRenameOpen(false)} disabled={isRenamePending}>
@@ -169,29 +152,17 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
            </div>
            <div className="flex items-center gap-2">
                {isPublicView && (
-                    <Button 
-                        size="sm" 
-                        variant="secondary" 
-                        className="h-8 gap-2 bg-emerald-600/20 hover:bg-emerald-600/30 border-emerald-500/30 text-emerald-400"
-                        onClick={handleCopyToProfile}
-                        disabled={isCopyPending}
-                    >
-                        <Copy className="w-4 h-4" />
-                        <span className="hidden sm:inline">Копіювати до себе</span>
-                    </Button>
-                )}
-                {!isPublicView && pers.isSnapshot && (
-                    <Button 
-                        size="sm" 
-                        variant="secondary" 
-                        className="h-8 gap-2 bg-emerald-600/20 hover:bg-emerald-600/30 border-emerald-500/30 text-emerald-400"
-                        onClick={handleDuplicateSnapshot}
-                        disabled={isCopyPending}
-                    >
-                        <Copy className="w-4 h-4" />
-                        <span className="hidden sm:inline">Копіювати</span>
-                    </Button>
-                )}
+                   <Button 
+                       size="sm" 
+                       variant="secondary" 
+                       className="h-8 gap-2 bg-emerald-600/20 hover:bg-emerald-600/30 border-emerald-500/30 text-emerald-400"
+                       onClick={handleCopyToProfile}
+                       disabled={isCopyPending}
+                   >
+                       <Copy className="w-4 h-4" />
+                       <span className="hidden sm:inline">Копіювати до себе</span>
+                   </Button>
+               )}
               <PrintCharacterDialog
                 persId={localPers.persId}
                 characterName={localPers.name ?? "character"}
@@ -199,7 +170,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
                 shareToken={isPublicView ? shareToken : undefined}
               />
                {!isReadOnly && <ShareDialog persId={localPers.persId} initialToken={localPers.shareToken} />}
-               {!isReadOnly && <RestButton pers={localPers} onPersUpdate={setLocalPers} onFeaturesUpdate={setLocalGroupedFeatures} />}
+               {!isReadOnly && <RestButton pers={localPers} onPersUpdate={setLocalPers} />}
                {!isReadOnly && (
                  <Button
                    size="sm"
@@ -220,8 +191,9 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
        </div>
       
       <div className="flex-1 overflow-hidden">
-        <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} />
+        <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} />
       </div>
     </div>
   );
 }
+

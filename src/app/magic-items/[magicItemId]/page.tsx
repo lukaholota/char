@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { getAllMagicItems, getMagicItemById, type MagicItemWithSpells } from "@/lib/magicItemsData";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -126,7 +127,7 @@ export default async function MagicItemDetailPage({
       {/* Header with back button */}
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/20 backdrop-blur-xl">
         <div className="mx-auto max-w-2xl px-4 py-3">
-          <a
+          <Link
             href="/magic-items"
             className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300 hover:bg-white/10 transition"
           >
@@ -134,7 +135,7 @@ export default async function MagicItemDetailPage({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Назад до предметів
-          </a>
+          </Link>
         </div>
       </div>
       

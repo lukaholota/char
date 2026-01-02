@@ -25,10 +25,7 @@ const DialogOverlay = React.forwardRef<
       "fixed inset-0 z-[9999] bg-slate-950/45 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
     )}
-    {...props}
-    onPointerDown={(e) => {
-      props.onPointerDown?.(e);
-
+    onPointerDown={() => {
       // Prevent click-through to underlying UI when closing a dialog via overlay click.
       // Radix closes on pointerdown/outside; the subsequent click event may land on the element
       // that was behind the overlay if the dialog unmounts between pointerdown and click.
@@ -45,9 +42,15 @@ const DialogOverlay = React.forwardRef<
         document.removeEventListener("click", handler, true);
       }, 800);
     }}
+    {...props}
   />
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+
+function isFromAnyDialogLayer(target: EventTarget | null) {
+  if (!(target instanceof Element)) return false;
+  return Boolean(target.closest("[data-rpg-dialog-content], [data-rpg-dialog-overlay]"));
+}
 
 function isFromAnyDialogContent(target: EventTarget | null) {
   if (!(target instanceof Element)) return false;
@@ -83,15 +86,8 @@ const DialogContent = React.forwardRef<
         "fixed left-[50%] top-[50%] z-[9999] grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 rounded-2xl border border-white/10 bg-gradient-to-b from-slate-950/28 to-slate-950/18 p-6 text-slate-50 backdrop-blur-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
         className
       )}
-      onPointerDown={(e) => {
-        // We only want to stop propagation for pointer down if it's actually handled by this content
-        // But Radix handles its own layering. Standard shadcn/radix doesn't have these.
-        // Removing them to fix outside-click issues for nested portals.
-        props.onPointerDown?.(e);
-      }}
-      onClick={(e) => {
-        props.onClick?.(e);
-      }}
+      onPointerDown={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
       onPointerDownOutside={(e) => {
         // If another dialog is stacked on top, interactions with it should NOT dismiss this one.
         // Allow clicking the overlay to dismiss; only block clicks inside another dialog content.

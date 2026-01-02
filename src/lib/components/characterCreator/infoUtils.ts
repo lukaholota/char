@@ -257,7 +257,10 @@ export const formatASI = (asi?: any | null) => {
     !("tasha" in asi) &&
     !("flexible" in asi)
   ) {
-    const entries = Object.entries(asi).filter(([, value]) => typeof value === "number" && Number(value) !== 0);
+    const abilityKeys = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+    const entries = Object.entries(asi).filter(
+      ([key, value]) => abilityKeys.includes(String(key).toUpperCase()) && typeof value === "number" && Number(value) !== 0
+    );
     if (!entries.length) return "—";
 
     return (

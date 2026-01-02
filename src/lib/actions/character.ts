@@ -16,6 +16,12 @@ import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 
 type UnknownRecord = Record<string, unknown>;
 
+const ABILITY_KEYS = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
+
+function isAbilityKey(value: string): boolean {
+  return ABILITY_KEYS.has(String(value).toUpperCase());
+}
+
 function isRecord(value: unknown): value is UnknownRecord {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -33,6 +39,7 @@ function getSimpleBonuses(asi: unknown): Record<string, number> {
 
   const out: Record<string, number> = {};
   for (const [ability, rawBonus] of Object.entries(simple)) {
+    if (!isAbilityKey(ability)) continue;
     const bonus =
       typeof rawBonus === "number"
         ? rawBonus
@@ -49,6 +56,7 @@ function getPlainBonuses(map: unknown): Record<string, number> {
   if ("basic" in map || "tasha" in map || "flexible" in map) return {};
   const out: Record<string, number> = {};
   for (const [key, raw] of Object.entries(map)) {
+    if (!isAbilityKey(key)) continue;
     const bonus = typeof raw === "number" ? raw : typeof raw === "string" ? Number(raw) : NaN;
     if (Number.isFinite(bonus) && bonus !== 0) out[String(key)] = bonus;
   }
@@ -501,6 +509,12 @@ export async function createCharacter(data: PersFormData) {
         allSkills.add(String(skill));
       }
     }
+  }
+
+  // Clamp base ability scores (creation) to max 20
+  for (const k of ["STR", "DEX", "CON", "INT", "WIS", "CHA"] as const) {
+    const v = scores[k];
+    if (typeof v === "number" && Number.isFinite(v)) scores[k] = Math.min(20, v);
   }
 
   const languagesKnown = new Set<string>();

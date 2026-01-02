@@ -11,7 +11,6 @@ import {
   Check,
   Loader2,
   X,
-  Trash2,
 } from "lucide-react";
 import { Virtuoso } from "react-virtuoso";
 
@@ -29,8 +28,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
-import { classTranslations, sourceTranslations, spellSchoolTranslations, subclassTranslations } from "@/lib/refs/translation";
-import { subclassParentClass } from "@/lib/refs/subclassMapping";
+import { classTranslations, sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { toggleSpellForPers } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
@@ -103,30 +101,13 @@ function getParamSet(params: URLSearchParams, key: string): Set<string> {
 
 function setParamSet(params: URLSearchParams, key: string, values: Set<string>) {
   const nextValues = Array.from(values).filter(Boolean);
-  if (nextValues.length === 0) {
-    // For primary filters, keep the key but set to empty string to distinguish from "not touched"
-    if (["lvl", "cls", "sub", "sch", "time", "src"].includes(key)) {
-      params.set(key, "");
-    } else {
-      params.delete(key);
-    }
-  } else {
-    params.set(key, nextValues.join(","));
-  }
+  if (nextValues.length === 0) params.delete(key);
+  else params.set(key, nextValues.join(","));
 }
 
 function setBoolParam(params: URLSearchParams, key: string, value: boolean | null) {
   if (value === null) params.delete(key);
   else params.set(key, value ? "1" : "0");
-}
-
-function normalizeCastingTime(time: string): string {
-  if (!time) return "";
-  const lower = time.toLowerCase().trim();
-  if (lower.includes("реакція")) return "1 реакція";
-  if (lower.includes("бонусна дія")) return "1 бонусна дія";
-  if (lower.includes("1 дія") && !lower.includes("бонусна")) return "1 дія";
-  return time.trim();
 }
 
 function getBoolParam(params: URLSearchParams, key: string): boolean | null {
@@ -143,34 +124,11 @@ function getSearchParamsFromLocation(): URLSearchParams {
 }
 
 function parseSelectionFromParams(params: URLSearchParams): SelectionState {
-  const classes = getParamSet(params, "cls");
-  const subclasses = getParamSet(params, "sub");
-  const levels = getParamSet(params, "lvl");
-
-  // Map IDs (like ARTIFICER_2014) to names (like Винахідник) if they exist in translations
-  const mappedClasses = new Set(
-    Array.from(classes).map(c => ((classTranslations as Record<string, string>)[c] || c).toLowerCase())
-  );
-  const mappedSubclasses = new Set(
-    Array.from(subclasses).map(s => ((subclassTranslations as Record<string, string>)[s] || s).toLowerCase())
-  );
-
-  // If lvl is MISSING from params (has("lvl") is false) but maxSpellLevel is present, pre-fill.
-  // We use has("lvl") because setParamSet now sets "" if the user explicitly clears it.
-  if (!params.has("lvl") && params.get("maxSpellLevel")) {
-    const max = parseInt(params.get("maxSpellLevel")!, 10);
-    if (!isNaN(max)) {
-      for (let i = 0; i <= max; i++) {
-        levels.add(String(i));
-      }
-    }
-  }
-
   return {
-    levels,
-    classes: mappedClasses,
-    subclasses: mappedSubclasses,
-    schools: new Set(Array.from(getParamSet(params, "sch")).map(x => x.toLowerCase())),
+    levels: getParamSet(params, "lvl"),
+    classes: getParamSet(params, "cls"),
+    subclasses: getParamSet(params, "sub"),
+    schools: getParamSet(params, "sch"),
     times: getParamSet(params, "time"),
     sources: getParamSet(params, "src"),
     ritual: getBoolParam(params, "rit"),
@@ -261,16 +219,22 @@ function flagsLabel(spell: Pick<SpellListItem, "hasRitual" | "hasConcentration">
 }
 
 function splitClasses(values: string[]): { classes: string[]; subclasses: string[] } {
-  const baseClasses = new Set(Object.values(classTranslations).map((c) => c.toLowerCase()));
+  const isSubclass = (raw: string) => {
+    const v = raw.trim().toLowerCase();
+    if (!v) return false;
+    if (v.includes(":")) return true;
+    if (v.includes("(")) return true;
+    if (v.includes("-")) return true;
+    // Most base classes are single words; multi-word entries are typically subclass lines.
+    if (v.split(/\s+/).length > 1) return true;
+    return false;
+  };
 
   const classes: string[] = [];
   const subclasses: string[] = [];
   for (const v of values) {
-    if (baseClasses.has(v.toLowerCase())) {
-      classes.push(v);
-    } else {
-      subclasses.push(v);
-    }
+    if (isSubclass(v)) subclasses.push(v);
+    else classes.push(v);
   }
   return { classes, subclasses };
 }
@@ -508,13 +472,8 @@ export function SpellsClient({
 
   // Embed mode state
   const [embedParams, setEmbedParams] = useState<EmbedParams>(() => {
-    // Initialize from props to ensure hydration matches
-    const params = new URLSearchParams();
-    for (const [key, value] of Object.entries(initialSearchParams)) {
-      const v = Array.isArray(value) ? value[0] : value;
-      if (typeof v === "string") params.set(key, v);
-    }
-    return parseEmbedParams(params);
+    if (typeof window === "undefined") return { origin: null, persId: null, persName: null, maxSpellLevel: null };
+    return parseEmbedParams(new URLSearchParams(window.location.search));
   });
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
   const [persSpellIds, setPersSpellIds] = useState<Set<number>>(() => new Set());
@@ -576,7 +535,6 @@ export function SpellsClient({
       if (nextKey !== selectionKeyRef.current) {
         selectionKeyRef.current = nextKey;
         setSelection(next);
-        setEmbedParams(parseEmbedParams(getSearchParamsFromLocation()));
       }
 
       // Keep input box in sync with URL too.
@@ -631,15 +589,14 @@ export function SpellsClient({
       }
 
       if (selection.times.size > 0) {
-        const normalized = normalizeCastingTime(s.castingTime);
-        if (!selection.times.has(normalized.toLowerCase())) return false;
+        if (!selection.times.has(s.castingTime)) return false;
       }
 
       if (selection.classes.size > 0) {
-        const spellClasses = new Set(s.spellClasses.map((c) => c.className.toLowerCase()));
+        const spellClasses = new Set(s.spellClasses.map((c) => c.className));
         let ok = false;
         for (const cls of selection.classes) {
-          if (spellClasses.has(cls.toLowerCase())) {
+          if (spellClasses.has(cls)) {
             ok = true;
             break;
           }
@@ -648,24 +605,15 @@ export function SpellsClient({
       }
 
       if (selection.subclasses.size > 0) {
-        const spellClasses = new Set(s.spellClasses.map((c) => c.className.toLowerCase()));
+        const spellClasses = new Set(s.spellClasses.map((c) => c.className));
         let ok = false;
         for (const sub of selection.subclasses) {
-          if (spellClasses.has(sub.toLowerCase())) {
+          if (spellClasses.has(sub)) {
             ok = true;
             break;
           }
         }
         if (!ok) return false;
-      }
-
-      if (selection.schools.size > 0) {
-        const school = s.school?.toLowerCase();
-        if (!school || !selection.schools.has(school)) return false;
-      }
-
-      if (selection.sources.size > 0) {
-        if (!selection.sources.has(s.source)) return false;
       }
 
       if (selection.ritual !== null) {
@@ -680,7 +628,15 @@ export function SpellsClient({
     });
   }, [spells, selection]);
 
-
+  const grouped = useMemo(() => {
+    const map = new Map<number, SpellListItem[]>();
+    for (const s of filtered) {
+      const arr = map.get(s.level) ?? [];
+      arr.push(s);
+      map.set(s.level, arr);
+    }
+    return Array.from(map.entries()).sort(([a], [b]) => a - b);
+  }, [filtered]);
 
   const selectedSpell = useMemo(() => {
     const byParam = selection.spell
@@ -706,45 +662,8 @@ export function SpellsClient({
   const toggleSetValue = (key: string, value: string) => {
     setParams((next) => {
       const set = getParamSet(next, key);
-      const target = value.toLowerCase();
-
-      if (key === "lvl" && !next.has("lvl") && next.get("maxSpellLevel")) {
-        const max = parseInt(next.get("maxSpellLevel")!, 10);
-        if (!isNaN(max)) {
-          for (let i = 0; i <= max; i++) set.add(String(i));
-        }
-      }
-
-      if (key === "cls" || key === "sub" || key === "sch") {
-        const translations = 
-          key === "cls" ? classTranslations : 
-          key === "sub" ? subclassTranslations : 
-          spellSchoolTranslations;
-        
-        // Find if ANY current value maps to the target "logical" value
-        let found = false;
-        for (const raw of Array.from(set)) {
-          const mapped = ((translations as Record<string, string>)[raw] || raw).toLowerCase();
-          if (mapped === target) {
-            found = true;
-            break;
-          }
-        }
-
-        if (found) {
-          // Remove all raw values that map to this logical value
-          for (const raw of Array.from(set)) {
-            const mapped = ((translations as Record<string, string>)[raw] || raw).toLowerCase();
-            if (mapped === target) set.delete(raw);
-          }
-        } else {
-          set.add(value);
-        }
-      } else {
-        if (set.has(value)) set.delete(value);
-        else set.add(value);
-      }
-      
+      if (set.has(value)) set.delete(value);
+      else set.add(value);
       setParamSet(next, key, set);
     });
   };
@@ -759,7 +678,7 @@ export function SpellsClient({
     for (const s of spells) {
       levels.add(s.level);
       if (s.school) schools.add(s.school);
-      times.add(normalizeCastingTime(s.castingTime));
+      times.add(s.castingTime);
       sources.add(s.source);
       for (const c of s.spellClasses) classes.add(c.className);
     }
@@ -786,8 +705,6 @@ export function SpellsClient({
       next.delete("src");
       next.delete("rit");
       next.delete("conc");
-      next.delete("maxSpellLevel");
-      next.delete("origin");
     });
   };
 
@@ -801,20 +718,12 @@ export function SpellsClient({
     selection.ritual !== null ||
     selection.conc !== null;
 
-  // Use Next.js router for spell navigation (enables intercepting routes on mobile)
+  // Use Next.js router for spell navigation (enables intercepting routes)
   const router = useRouter();
-  const isDesktop = typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches;
   
   const onSelectSpell = (spell: SpellListItem) => {
-    if (isDesktop) {
-      // Desktop: update URL param to show in side panel
-      pushParams((next) => {
-        next.set("spell", String(spell.spellId));
-      });
-    } else {
-      // Mobile: navigate to /spells/[id] — intercepting route will show modal
-      router.push(`/spells/${spell.spellId}`);
-    }
+    // Navigate to /spells/[id] — intercepting route will show modal
+    router.push(`/spells/${spell.spellId}`);
   };
 
   const baseTitleRef = useRef<string>("");
@@ -833,7 +742,14 @@ export function SpellsClient({
     if (s?.name) document.title = s.name;
   }, [selection.spell, spells]);
 
-
+  const flatRows = useMemo(() => {
+    return grouped.flatMap(([lvl, items]) => {
+      return [
+        { kind: "header" as const, lvl, count: items.length },
+        ...items.map((spell) => ({ kind: "spell" as const, lvl, spell })),
+      ];
+    });
+  }, [grouped]);
 
   const doPrint = () => {
     if (printIds.length === 0) return;
@@ -841,9 +757,11 @@ export function SpellsClient({
     window.open(`/api/spells/print?ids=${ids}`, "_blank", "noopener,noreferrer");
   };
 
-  // Filter by maxSpellLevel (legacy/hard filter) removed to allow user to see all spells.
-  // It is now managed via initial selection.levels.
-  const filteredByLevel = filtered;
+  // Filter by maxSpellLevel in embed mode
+  const filteredByLevel = useMemo(() => {
+    if (!isEmbedMode || embedParams.maxSpellLevel === null) return filtered;
+    return filtered.filter((s) => s.level <= (embedParams.maxSpellLevel ?? 9));
+  }, [filtered, isEmbedMode, embedParams.maxSpellLevel]);
 
   // Override grouped to use filteredByLevel in embed mode
   const finalGrouped = useMemo(() => {
@@ -929,48 +847,19 @@ export function SpellsClient({
                 </Button>
               ) : null}
 
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    className="h-9 gap-2 border-0 bg-transparent hover:bg-white/5"
-                    disabled={printIds.length === 0}
-                  >
-                    <Printer className="h-4 w-4" />
-                    <span className="hidden sm:inline">Друк</span>
-                    <span className="text-xs text-slate-300">({printIds.length})</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuLabel>Обрано заклять: {printIds.length}</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={doPrint} className="gap-2 cursor-pointer">
-                    <Printer className="h-4 w-4" />
-                    <span>Друкувати</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => setPrintIds([])}
-                    className="gap-2 text-red-300 focus:text-red-300 focus:bg-red-500/10 cursor-pointer"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                    <span>Очистити список</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <Button
+                type="button"
+                variant="secondary"
+                className="h-9 gap-2 border-0 bg-transparent hover:bg-white/5"
+                onClick={doPrint}
+                disabled={printIds.length === 0}
+              >
+                <Printer className="h-4 w-4" />
+                <span className="hidden sm:inline">Друк</span>
+                <span className="text-xs text-slate-300">({printIds.length})</span>
+              </Button>
             </div>
           </div>
-          {isEmbedMode && (selection.classes.size > 0 || embedParams.maxSpellLevel !== null) && (
-            <div className="mt-2 text-xs text-teal-300/60 flex items-center gap-1.5 px-2">
-              <span className="font-semibold text-teal-300/80">Фільтри джерела:</span>
-              <span>
-                {[
-                  selection.classes.size > 0 && Array.from(selection.classes).map(c => classTranslations[c as keyof typeof classTranslations] || c).join(", "),
-                  embedParams.maxSpellLevel !== null && `Макс. рівень ${embedParams.maxSpellLevel}`
-                ].filter(Boolean).join(" • ")}
-              </span>
-            </div>
-          )}
         </div>
       </div>
 
@@ -1154,12 +1043,8 @@ export function SpellsClient({
                       <Badge
                         key={cls}
                         variant={active ? "default" : "outline"}
-                        className={`h-7 px-2 py-0 text-xs font-normal border transition-colors ${
-                        selection.classes.has(cls.toLowerCase())
-                          ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/40"
-                          : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10"
-                      }`}
-                      onClick={() => toggleSetValue("cls", cls.toLowerCase())}
+                        className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
+                        onClick={() => toggleSetValue("cls", cls)}
                         role="button"
                       >
                         {label}
@@ -1180,62 +1065,30 @@ export function SpellsClient({
                     className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
                   />
                 </div>
-                <div className="mt-2 max-h-56 overflow-auto pr-1">
-                  <div className="space-y-3">
-                    {(() => {
-                      const q = subclassFilter.trim().toLowerCase();
-                      
-                      // 1. Group subclasses by parent class
-                      const groups: Record<string, string[]> = {};
-                      for (const sub of available.subclasses) {
+                <div className="mt-2 max-h-44 overflow-auto pr-1">
+                  <div className="flex flex-wrap gap-2">
+                    {available.subclasses
+                      .filter((sub) => {
+                        const q = subclassFilter.trim().toLowerCase();
+                        if (!q) return true;
                         const label = classTranslations[sub as keyof typeof classTranslations] || sub;
-                        if (q && !`${sub} ${label}`.toLowerCase().includes(q)) continue;
-
-                        const parent = subclassParentClass[sub] || "Інші";
-                        if (!groups[parent]) groups[parent] = [];
-                        groups[parent].push(sub);
-                      }
-
-                      // 2. Sort classes (parents)
-                      const sortedParents = Object.keys(groups).sort((a, b) => {
-                        if (a === "Інші") return 1;
-                        if (b === "Інші") return -1;
-                        return a.localeCompare(b, "uk");
-                      });
-
-                      if (sortedParents.length === 0) {
-                        return <div className="text-xs text-slate-500 italic">Нічого не знайдено</div>;
-                      }
-
-                      return sortedParents.map((parent) => (
-                        <div key={parent}>
-                          <div className="mb-1 text-[10px] uppercase font-bold text-slate-500 tracking-wider">
-                            {parent}
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {groups[parent].sort((a, b) => a.localeCompare(b, "uk")).map((sub) => {
-                              const active = selection.subclasses.has(sub);
-                              const label = classTranslations[sub as keyof typeof classTranslations] || sub;
-                              return (
-                                <Badge
-                                  key={sub}
-                                  variant={active ? "default" : "outline"}
-                                  className={`h-7 px-2 py-0 text-xs font-normal border transition-colors ${
-                                    selection.subclasses.has(sub.toLowerCase())
-                                      ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/40"
-                                      : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10"
-                                  }`}
-                                  onClick={() => toggleSetValue("sub", sub.toLowerCase())}
-                                  role="button"
-                                >
-                                  {label}
-                                </Badge>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      ));
-                    })()}
+                        return `${sub} ${label}`.toLowerCase().includes(q);
+                      })
+                      .map((sub) => {
+                        const active = selection.subclasses.has(sub);
+                        const label = classTranslations[sub as keyof typeof classTranslations] || sub;
+                        return (
+                          <Badge
+                            key={sub}
+                            variant={active ? "default" : "outline"}
+                            className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
+                            onClick={() => toggleSetValue("sub", sub)}
+                            role="button"
+                          >
+                            {label}
+                          </Badge>
+                        );
+                      })}
                   </div>
                 </div>
               </div>
@@ -1353,6 +1206,10 @@ export function SpellsClient({
                   Застосувати
                 </Button>
               </div>
+            </div>
+
+            <div className="mt-4 text-xs text-slate-500">
+              Порада: відкрий заклинання з URL параметром <span className="text-slate-300">?spell=ID</span>.
             </div>
           </div>
         </DialogContent>

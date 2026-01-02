@@ -2,6 +2,7 @@
 
 import { signIn, useSession } from "next-auth/react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import Script from "next/script";
 
 type GsiInitConfig = {
@@ -40,7 +41,8 @@ declare global {
 }
 
 export default function GoogleOneTap() {
-  const { data: session, status } = useSession();
+  const { data: session, status, update } = useSession();
+  const router = useRouter();
   const [ ready, setReady ] = useState(false);
   const initialized = useRef(false);
 
@@ -59,12 +61,15 @@ export default function GoogleOneTap() {
 
       if (result?.error) {
         console.error("Sing in error", result.error);
+      } else {
+        await update();
+        router.refresh();
       }
 
     } catch (error) {
       console.error("Sing in failed", error);
     }
-  }, []);
+  }, [router, update]);
 
   const init = useCallback(() => {
     if (!window.google || session || status === 'loading') return;

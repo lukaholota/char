@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FeatureDisplayType } from "@prisma/client";
 import clsx from "clsx";
+import { featTranslations } from "@/lib/refs/translation";
 
 export interface FeatureItemData {
   featureId?: number;
@@ -61,13 +62,19 @@ function getFeatureSourceLabel(source: FeatureSource): string {
     case 'RACE': return 'Раса';
     case 'SUBRACE': return 'Субраса';
     case 'BACKGROUND': return 'Бек';
-    case 'FEAT': return 'Фіт';
+    case 'FEAT': return 'Риса';
     case 'CHOICE':
     case 'RACE_CHOICE': return 'Вибір';
     case 'PERS': return 'Кастом';
     case 'INFUSION': return 'Вливання';
     default: return '';
   }
+}
+
+function translateFeatName(value: string): string {
+  const raw = String(value ?? "").trim();
+  if (!raw) return raw;
+  return featTranslations[raw] ?? featTranslations[raw.toUpperCase()] ?? raw;
 }
 
 // Check if source is class-related for styling
@@ -106,6 +113,8 @@ export function ResourceCard({
   const normalizedSource = normalizeFeatureSource(feature.source);
   const isClass = isClassRelatedSource(normalizedSource);
 
+  const displayName = normalizedSource === 'FEAT' ? translateFeatName(feature.name) : feature.name;
+
   // Hide badge if source is PERS (Custom) as per user request
   const sourceLabel = normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null;
 
@@ -114,7 +123,7 @@ export function ResourceCard({
       <CardContent className="p-3 flex items-center justify-between gap-3">
         <div className="flex-1 min-w-0 flex flex-col justify-center">
           <div className="flex items-center gap-2 mb-0.5">
-            <div className="font-bold text-purple-50 truncate">{feature.name}</div>
+            <div className="font-bold text-purple-50 truncate">{displayName}</div>
             {sourceLabel && (
               <span className={clsx(
                 "text-[9px] px-1 py-0 rounded uppercase font-bold tracking-tight shrink-0",
@@ -204,6 +213,8 @@ export function FeatureCard({
   const normalizedSource = normalizeFeatureSource(feature.source);
   const isClass = isClassRelatedSource(normalizedSource);
 
+  const displayName = normalizedSource === 'FEAT' ? translateFeatName(feature.name) : feature.name;
+
   // Hide badge if source is PERS (Custom) as per user request
   const sourceLabel = normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null;
 
@@ -221,7 +232,7 @@ export function FeatureCard({
       <div className="flex items-center justify-between gap-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-bold text-slate-100 group-hover:text-purple-200 transition truncate">{feature.name}</span>
+            <span className="font-bold text-slate-100 group-hover:text-purple-200 transition truncate">{displayName}</span>
             {sourceLabel && (
               <span className={clsx(
                 "text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-tight shrink-0",
