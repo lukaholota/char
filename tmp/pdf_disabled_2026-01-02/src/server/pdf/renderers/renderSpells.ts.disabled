@@ -1,0 +1,75 @@
+import type { SpellData } from "../types";
+import { escapeHtml, richTextToHtml } from "./html";
+
+function levelLabel(level: number): string {
+  return level === 0 ? "Замовляння" : `Рівень ${level}`;
+}
+
+export function renderSpellsHTML(spells: SpellData[]): string {
+  const byLevel = new Map<number, SpellData[]>();
+  for (const s of spells ?? []) {
+    const level = Number.isFinite(s.level) ? s.level : 0;
+    const list = byLevel.get(level) ?? [];
+    list.push(s);
+    byLevel.set(level, list);
+  }
+
+  const levels = Array.from(byLevel.keys()).sort((a, b) => a - b);
+
+  return levels
+    .map((level) => {
+      const list = (byLevel.get(level) ?? []).slice().sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
+      const sectionTitle = levelLabel(level);
+
+      const cards = list
+        .map((spell) => {
+          const school = spell.school ? escapeHtml(spell.school) : "";
+          const src = spell.source ? escapeHtml(String(spell.source)) : "";
+          const descHtml = richTextToHtml(spell.description ?? "");
+
+          // Name format: "Українська назва [English Name]" like in screenshot
+          const ukrName = escapeHtml(spell.name ?? "");
+          const engName = spell.engName ? ` <span class="card-title-eng">[${escapeHtml(spell.engName)}]</span>` : "";
+
+          // Spell subtitle: "Замовляння  Втілення" or "Рівень 1  Перетворення"
+          const levelType = level === 0 ? "Замовляння" : `Рівень ${level}`;
+          const subtitle = school ? `${levelType}  ${school}` : levelType;
+
+          return `
+<div class="spell-card">
+  <div class="card-header">
+    <span class="card-title">${ukrName}${engName}</span>
+    <span class="card-source">${src}</span>
+  </div>
+  <div class="subtitle-row">
+    <span><strong>${escapeHtml(subtitle)}</strong></span>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-label">Час використання</div>
+      <div class="stat-value">${escapeHtml(spell.castingTime ?? "")}</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Тривалість</div>
+      <div class="stat-value">${escapeHtml(spell.duration ?? "")}</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Дистанція</div>
+      <div class="stat-value">${escapeHtml(spell.range ?? "")}</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Компоненти</div>
+      <div class="stat-value">${escapeHtml(spell.components ?? "—")}</div>
+    </div>
+  </div>
+  <div class="description">${descHtml}</div>
+</div>`;
+        })
+        .join("\n");
+
+      return `
+<div class="section-title">${escapeHtml(sectionTitle)}</div>
+${cards}`;
+    })
+    .join("\n");
+}

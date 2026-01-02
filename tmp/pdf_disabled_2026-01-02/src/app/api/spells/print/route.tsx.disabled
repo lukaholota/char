@@ -1,0 +1,106 @@
+import { NextResponse } from "next/server";
+
+import { prisma } from "@/lib/prisma";
+import { loadBaseTemplate, generatePdfFromHtml } from "@/server/pdf/generatePdfFromHtml";
+import { renderSpellsHTML } from "@/server/pdf/renderers/renderSpells";
+import type { SpellData } from "@/server/pdf/types";
+
+export const runtime = "nodejs";
+
+type Body = {
+  spellIds?: unknown;
+};
+
+function parseSpellIdsFromUnknown(value: unknown): number[] {
+  if (!Array.isArray(value) || value.length === 0) return [];
+  return value
+    .map((v) => Number(v))
+    .filter((n) => Number.isFinite(n))
+    .map((n) => Math.trunc(n));
+}
+
+function parseSpellIdsFromQuery(url: URL): number[] {
+  const raw = url.searchParams.get("ids") ?? url.searchParams.get("spellIds") ?? "";
+  if (!raw.trim()) return [];
+  return raw
+    .split(",")
+    .map((v) => Number(v.trim()))
+    .filter((n) => Number.isFinite(n))
+    .map((n) => Math.trunc(n));
+}
+
+export async function POST(req: Request) {
+  let body: Body;
+  try {
+    body = (await req.json()) as Body;
+  } catch {
+    return NextResponse.json({ error: "Невалідний JSON" }, { status: 400 });
+  }
+
+  const spellIds = parseSpellIdsFromUnknown(body.spellIds);
+  if (spellIds.length === 0) {
+    return NextResponse.json({ error: "spellIds має бути непорожнім масивом" }, { status: 400 });
+  }
+
+  return generatePdfResponse(spellIds);
+}
+
+export async function GET(req: Request) {
+  const url = new URL(req.url);
+  const spellIds = parseSpellIdsFromQuery(url);
+  if (spellIds.length === 0) {
+    return NextResponse.json({ error: "ids має бути непорожнім списком (через кому)" }, { status: 400 });
+  }
+
+  return generatePdfResponse(spellIds);
+}
+
+async function generatePdfResponse(spellIds: number[]) {
+  try {
+    // Fetch spell data manually like we do in generateCharacterPdf
+    const spells = await prisma.spell.findMany({
+      where: { spellId: { in: spellIds } },
+      orderBy: [{ level: "asc" }, { name: "asc" }],
+      select: {
+        spellId: true,
+        name: true,
+        engName: true,
+        level: true,
+        school: true,
+        castingTime: true,
+        range: true,
+        duration: true,
+        components: true,
+        description: true,
+        source: true,
+      },
+    });
+
+    const baseTemplate = await loadBaseTemplate();
+    const spellData: SpellData[] = spells.map((s) => ({
+      ...s,
+      source: String(s.source ?? ""),
+    }));
+
+    const spellsHtml = renderSpellsHTML(spellData);
+
+    const fullHtml = baseTemplate
+      .replaceAll("{{TITLE}}", "Заклинання")
+      .replace("{{CONTENT}}", `<div class="two-column">${spellsHtml}</div>`);
+
+    const pdfBuffer = await generatePdfFromHtml(fullHtml);
+    const body = new Uint8Array(pdfBuffer);
+
+    return new NextResponse(body, {
+      status: 200,
+      headers: {
+        "content-type": "application/pdf",
+        "content-disposition": "inline; filename=spells.pdf",
+        "cache-control": "no-store",
+      },
+    });
+  } catch (error) {
+    console.error("PDF generation failed:", error);
+    return NextResponse.json({ error: "Не вдалося згенерувати PDF" }, { status: 500 });
+  }
+}

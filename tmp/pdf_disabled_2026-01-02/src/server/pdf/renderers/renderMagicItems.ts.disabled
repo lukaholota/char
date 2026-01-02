@@ -1,0 +1,59 @@
+import type { MagicItemData } from "../types";
+import { ItemRarity, MagicItemType } from "@prisma/client";
+import { escapeHtml, richTextToHtml } from "./html";
+
+function translateRarity(rarity: ItemRarity): string {
+  const map: Partial<Record<ItemRarity, string>> = {
+    COMMON: "Звичайний",
+    UNCOMMON: "Незвичайний",
+    RARE: "Рідкісний",
+    VERY_RARE: "Дуже рідкісний",
+    LEGENDARY: "Легендарний",
+    ARTIFACT: "Артефакт",
+  };
+  return map[rarity] || rarity;
+}
+
+function translateType(type: MagicItemType): string {
+  const map: Partial<Record<MagicItemType, string>> = {
+    ARMOR: "Обладунок",
+    POTION: "Зілля",
+    RING: "Кільце",
+    ROD: "Жезл",
+    SCROLL: "Сувій",
+    STAFF: "Посох",
+    WAND: "Чарівна паличка",
+    WEAPON: "Зброя",
+    WONDROUS_ITEM: "Дивовижний предмет",
+  };
+  return map[type] || type;
+}
+
+export function renderMagicItemsHTML(items: MagicItemData[]): string {
+  const sorted = (items ?? []).slice().sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
+
+  return sorted
+    .map((item) => {
+      const rarity = translateRarity(item.rarity);
+      const type = translateType(item.itemType);
+      const descHtml = richTextToHtml(item.description ?? "");
+
+      const attuneTag = item.requiresAttunement
+        ? `<span class="usage-tag">Вимагає налаштування</span>`
+        : "";
+
+      return `
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">${escapeHtml(item.name ?? "")}</span>
+    <span class="card-source">${escapeHtml(rarity)}</span>
+  </div>
+  ${attuneTag}
+  <div class="description">
+    <div><strong>Тип:</strong> ${escapeHtml(type)}</div>
+    ${descHtml}
+  </div>
+</div>`;
+    })
+    .join("\n");
+}

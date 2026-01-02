@@ -1,96 +1,81 @@
-
-import { generateFeaturesPdfBytes } from "../src/server/pdf/featuresPdf";
-import { generateSpellsPdfBytes } from "../src/server/pdf/spellsPdf";
-import { prisma } from "../src/lib/prisma";
+import { generateCharacterPdfFromData } from "../src/server/pdf/generateCharacterPdf";
 import fs from "fs/promises";
 import path from "path";
 
-async function testSpellsPdf() {
-  console.log("Testing Spells PDF...");
-  try {
-    // Get first 3 spells
-    const spells = await prisma.spell.findMany({ take: 3, select: { spellId: true } });
-    if (spells.length === 0) {
-      console.log("No spells found in DB, skipping spells PDF test.");
-      return;
-    }
-    const spellIds = spells.map(s => s.spellId);
-    
-    const start = Date.now();
-    const pdfBytes = await generateSpellsPdfBytes(spellIds);
-    const duration = Date.now() - start;
-    
-    console.log(`Spells PDF generated in ${duration}ms. Size: ${pdfBytes.length} bytes.`);
-    await fs.writeFile(path.join(process.cwd(), "test-spells.pdf"), pdfBytes);
-  } catch (e) {
-    console.warn("⚠️  Skipping Spells PDF test due to DB error (likely connection issue):", e instanceof Error ? e.message : String(e));
-  }
-}
+async function main() {
+  console.log("Mocking character data...");
 
-async function testFeaturesPdf() {
-  console.log("Testing Features PDF...");
-  const mockInput = {
-    characterName: "Test Character",
-    features: {
-      passive: [
-        { 
-          name: "Test Passive", 
-          description: "This is a **bold** description.", 
-          sourceName: "Test Source",
-          key: "test-passive",
-          displayTypes: ["Passive"],
-          primaryType: "Passive",
-          source: "Test Rulebook"
-        }
-      ],
-      actions: [
-        { 
-          name: "Test Action", 
-          description: "Action *description*", 
-          sourceName: "Test Source", 
-          usesPer: 1, 
-          usesRemaining: 1, 
-          restType: "LR",
-          key: "test-action",
-          displayTypes: ["Action"],
-          primaryType: "Action",
-          source: "Test Rulebook"
-        }
-      ],
-      bonusActions: [],
-      reactions: []
-    } as any
+  // Mock Data
+  const persMock = {
+    persId: 1,
+    name: "React PDF Tester",
+    race: { name: "Human" },
+    class: { name: "Wizard", savingThrows: ["INT", "WIS"] },
+    background: { name: "Sage" },
+    user: { name: "Tester", email: "test@example.com" },
+    currentHp: 20,
+    strength: 10,
+    dexterity: 14,
+    constitution: 12,
+    intelligence: 16,
+    wisdom: 10,
+    charisma: 8,
+    armors: [],
+    feats: [],
+    skills: [],
+    weapons: [],
+    classOptionalFeatures: [],
+    multiclasses: [],
+    subrace: null,
+    persSpells: [
+      { spellId: 101, spell: { name: "Fireball", level: 3 } },
+      { spellId: 102, spell: { name: "Magic Missile", level: 1 } },
+    ],
+    magicItems: [
+      { magicItemId: 201, magicItem: { name: "Wand of Testing", rarity: "RARE" } }
+    ]
   };
 
-  const start = Date.now();
-  const pdfBytes = await generateFeaturesPdfBytes(mockInput);
-  const duration = Date.now() - start;
+  const featuresMock = {
+    passive: [
+      { name: "Keen Mind", description: "You know where north is.", sourceName: "Feat" },
+      { name: "Arcane Recovery", description: "Regain spell slots on short rest.", sourceName: "Class" }
+    ],
+    actions: [
+      { name: "Attack", description: "Hit things.", sourceName: "General" }
+    ],
+    bonusActions: [],
+    reactions: [
+      { name: "Shield", description: "+5 AC", sourceName: "Spell" }
+    ]
+  };
 
-  console.log(`Features PDF generated in ${duration}ms. Size: ${pdfBytes.length} bytes.`);
-  await fs.writeFile(path.join(process.cwd(), "test-features.pdf"), pdfBytes);
-}
+  const spellsByLevelMock = {
+    1: [{ spellId: 102, spell: { name: "Magic Missile", level: 1 } }],
+    3: [{ spellId: 101, spell: { name: "Fireball", level: 3 } }]
+  };
 
-async function main() {
+  console.log("Generating PDF...");
+  const startTime = Date.now();
+
   try {
-    console.log("Starting PDF generation stress test...");
-    
-    // Warmup / Single run
-    await testFeaturesPdf();
-    await testSpellsPdf();
+    const pdfBytes = await generateCharacterPdfFromData(
+      { pers: persMock as any, features: featuresMock as any, spellsByLevel: spellsByLevelMock as any },
+      {
+        sections: ["CHARACTER", "FEATURES", "SPELLS", "MAGIC_ITEMS"],
+        flattenCharacterSheet: true,
+      }
+    );
 
-    console.log("--- Loop Test (5 iterations) ---");
-    for (let i = 0; i < 5; i++) {
-        process.stdout.write(`Iteration ${i + 1}... `);
-        const t0 = Date.now();
-        await testFeaturesPdf();
-        await testSpellsPdf();
-        console.log(`Done in ${Date.now() - t0}ms`);
-    }
+    const endTime = Date.now();
+    console.timeEnd("PDF Generation");
+    console.log(`PDF generated in ${endTime - startTime}ms`);
 
-    console.log("✅ PDF Generation Verification Passed!");
-  } catch (e) {
-    console.error("❌ PDF Generation Failed:", e);
-    process.exit(1);
+    const outputPath = path.resolve(__dirname, "../test-character.pdf");
+    await fs.writeFile(outputPath, pdfBytes);
+    console.log(`Saved to ${outputPath}`);
+  } catch (err) {
+    console.error("PDF Generation failed:", err);
   }
 }
 

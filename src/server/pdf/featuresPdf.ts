@@ -56,12 +56,13 @@ function formatUsageInfo(item: CharacterFeatureItem): string {
   return `[${used}${restLabel}]`;
 }
 
-export async function generateFeaturesHtmlContents(input: FeaturesPdfInput): Promise<string> {
+export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise<Uint8Array> {
   const { characterName, features } = input;
+
   const sections = groupFeaturesByType(features);
 
   if (sections.length === 0) {
-    return "";
+    throw new Error("No features to render");
   }
 
   const sectionsHtml = await Promise.all(
@@ -91,17 +92,37 @@ export async function generateFeaturesHtmlContents(input: FeaturesPdfInput): Pro
     })
   );
 
-  return `
-    <div class="wrap">
-      <h1 class="page-title">Здібності — ${escapeHtml(characterName)}</h1>
-      <div class="columns">
-        ${sectionsHtml.join("\n")}
-      </div>
-    </div>`;
-}
+  const html = `<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Features — ${escapeHtml(characterName)}</title>
 
-export function getFeaturesStyles(): string {
-  return `
+    <style>
+      ${getFontsCss()}
+      @page { size: letter portrait; margin: 16mm 12mm; }
+      * { box-sizing: border-box; }
+      body {
+        font-family: "NotoSansLocal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: #0f172a;
+        background: #ffffff;
+        margin: 0;
+      }
+      .wrap { padding: 0; }
+      .page-title {
+        font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 16px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #0f172a;
+      }
+      .columns {
+        column-count: 2;
+        column-gap: 14px;
+        column-fill: auto;
+      }
       .section {
         break-inside: auto;
         page-break-inside: auto;
@@ -121,8 +142,8 @@ export function getFeaturesStyles(): string {
         padding: 0 0 8px 0;
         margin: 0 0 10px 0;
         border-bottom: 1px solid rgba(15, 23, 42, 0.12);
-        break-inside: avoid;
-        page-break-inside: avoid;
+        break-inside: auto;
+        page-break-inside: auto;
       }
       .header {
         display: flex;
@@ -157,48 +178,15 @@ export function getFeaturesStyles(): string {
       .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 4px; text-align: left; font-size: 10px; }
       .desc ul, .desc ol { margin: 0 0 6px 16px; padding: 0; }
       .desc li { margin-bottom: 2px; }
-  `;
-}
-
-export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise<Uint8Array> {
-  const contentHtml = await generateFeaturesHtmlContents(input);
-
-  const html = `<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Features — ${escapeHtml(input.characterName)}</title>
-
-    <style>
-      ${getFontsCss()}
-      @page { size: letter portrait; margin: 16mm 12mm; }
-      * { box-sizing: border-box; }
-      body {
-        font-family: "NotoSansLocal", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        color: #0f172a;
-        background: #ffffff;
-        margin: 0;
-      }
-      .wrap { padding: 0; }
-      .page-title {
-        font-family: "Noto Serif", Georgia, "Times New Roman", serif;
-        font-size: 22px;
-        font-weight: 700;
-        margin: 0 0 16px 0;
-        padding-bottom: 8px;
-        border-bottom: 2px solid #0f172a;
-      }
-      .columns {
-        column-count: 2;
-        column-gap: 14px;
-        column-fill: auto;
-      }
-      ${getFeaturesStyles()}
     </style>
   </head>
   <body>
-    ${contentHtml}
+    <div class="wrap">
+      <h1 class="page-title">Здібності — ${escapeHtml(characterName)}</h1>
+      <div class="columns">
+        ${sectionsHtml.join("\n")}
+      </div>
+    </div>
   </body>
 </html>`;
 

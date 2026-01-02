@@ -1,0 +1,144 @@
+import type { CharacterFeatureItem, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
+import { FeatureDisplayType } from "@prisma/client";
+import {
+  classTranslations,
+  featTranslations,
+  raceTranslations,
+  restTranslations,
+  skillTranslations,
+  sourceTranslations,
+  subclassTranslations,
+} from "@/lib/refs/translation";
+import { escapeHtml, richTextToHtml } from "./html";
+
+function getTranslation(key: string): string | null {
+  if (!key) return null;
+  if (key in skillTranslations) return skillTranslations[key];
+  if (key.toUpperCase() in skillTranslations) return skillTranslations[key.toUpperCase()];
+  if (key in featTranslations) return featTranslations[key];
+  if (key in subclassTranslations) return subclassTranslations[key as keyof typeof subclassTranslations];
+  if (key in classTranslations) return classTranslations[key as keyof typeof classTranslations];
+  if (key in raceTranslations) return raceTranslations[key as keyof typeof raceTranslations];
+  if (key in sourceTranslations) return sourceTranslations[key as keyof typeof sourceTranslations];
+  return null;
+}
+
+interface FeatureSection {
+  title: string;
+  items: CharacterFeatureItem[];
+}
+
+const SOURCE_PRIORITY: Record<string, number> = {
+  CLASS: 1,
+  SUBCLASS: 2,
+  RACE: 3,
+  SUBRACE: 4,
+  BACKGROUND: 5,
+  FEAT: 6,
+  PERS: 7,
+  INFUSION: 7.5,
+  CHOICE: 8,
+  RACE_CHOICE: 9,
+};
+
+function sortFeatureItems(items: CharacterFeatureItem[]): CharacterFeatureItem[] {
+  return [...items].sort((a, b) => {
+    const pA = SOURCE_PRIORITY[a.source] ?? 99;
+    const pB = SOURCE_PRIORITY[b.source] ?? 99;
+    if (pA !== pB) return pA - pB;
+    if (typeof a.createdAt === "number" && typeof b.createdAt === "number") return a.createdAt - b.createdAt;
+    return 0;
+  });
+}
+
+function groupFeaturesByType(features: CharacterFeaturesGroupedResult): FeatureSection[] {
+  const allItemsMap = new Map<string, CharacterFeatureItem>();
+  [...features.passive, ...features.actions, ...features.bonusActions, ...features.reactions].forEach((it) => {
+    if (it.key) allItemsMap.set(it.key, it);
+  });
+  const allItems = Array.from(allItemsMap.values());
+
+  const resourceItems = allItems.filter(
+    (it) => (it.displayTypes || []).includes(FeatureDisplayType.CLASS_RESOURCE) &&
+      (typeof it.usesPer === "number" || it.usesRemaining != null)
+  );
+  const resourceKeys = new Set(resourceItems.map((r) => r.key));
+  const remaining = allItems.filter((it) => !resourceKeys.has(it.key));
+
+  const passives: CharacterFeatureItem[] = [];
+  const actions: CharacterFeatureItem[] = [];
+  const reactions: CharacterFeatureItem[] = [];
+  const bonusActions: CharacterFeatureItem[] = [];
+
+  remaining.forEach((it) => {
+    const types = it.displayTypes || [];
+    if (types.includes(FeatureDisplayType.PASSIVE)) passives.push(it);
+    else if (types.includes(FeatureDisplayType.BONUSACTION)) bonusActions.push(it);
+    else if (types.includes(FeatureDisplayType.REACTION)) reactions.push(it);
+    else if (types.includes(FeatureDisplayType.ACTION)) actions.push(it);
+    else passives.push(it);
+  });
+
+  const sections: FeatureSection[] = [];
+  if (passives.length > 0) sections.push({ title: "Пасивні здібності", items: sortFeatureItems(passives) });
+  if (actions.length > 0) sections.push({ title: "Дії", items: sortFeatureItems(actions) });
+  if (bonusActions.length > 0) sections.push({ title: "Бонусні дії", items: sortFeatureItems(bonusActions) });
+  if (reactions.length > 0) sections.push({ title: "Реакції", items: sortFeatureItems(reactions) });
+  if (resourceItems.length > 0) sections.push({ title: "Ресурси класу", items: sortFeatureItems(resourceItems) });
+
+  return sections;
+}
+
+function formatUsageInfo(item: CharacterFeatureItem): string {
+  if (typeof item.usesPer !== "number") return "";
+  const used = typeof item.usesRemaining === "number" ? `${item.usesRemaining}/${item.usesPer}` : `/${item.usesPer}`;
+  let restLabel = "";
+  if (item.restType) {
+    if (item.restType === "LONG_REST") restLabel = " (ТВ)";
+    else if (item.restType === "SHORT_REST") restLabel = " (КВ)";
+    else if (restTranslations[item.restType as keyof typeof restTranslations]) {
+      restLabel = ` (${restTranslations[item.restType as keyof typeof restTranslations]})`;
+    } else restLabel = ` ${item.restType}`;
+  }
+  return `[${used}${restLabel}]`;
+}
+
+function renderFeatureCard(item: CharacterFeatureItem): string {
+  const usageInfo = formatUsageInfo(item);
+
+  let displayName = item.name;
+
+  const nameTrans = getTranslation(item.name);
+  if (nameTrans) displayName = nameTrans;
+
+  const usageTag = usageInfo ? `<span class="usage-tag">${escapeHtml(usageInfo)}</span>` : "";
+
+  const descHtml = richTextToHtml(item.description || "");
+
+  return `
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">${escapeHtml(displayName)}</span>
+    ${usageTag}
+  </div>
+  <div class="description">${descHtml}</div>
+</div>`;
+}
+
+export function renderFeaturesHTML(characterName: string, features: CharacterFeaturesGroupedResult): string {
+  const sections = groupFeaturesByType(features);
+
+  const body = sections
+    .map((section) => {
+      const cards = section.items
+        .map((item) => renderFeatureCard(item))
+        .join("\n");
+      return `
+<div class="section-title">${escapeHtml(section.title)}</div>
+${cards}`;
+    })
+    .join("\n");
+
+  // Title is provided by the base template ({{TITLE}})
+  return body;
+}
