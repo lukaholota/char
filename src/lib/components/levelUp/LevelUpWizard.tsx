@@ -24,7 +24,6 @@ import { Ability, FeatureDisplayType, SpellcastingType } from "@prisma/client";
 import { Races } from "@prisma/client";
 import { ClassI, SubclassI } from "@/lib/types/model-types";
 import { ControlledInfoDialog, InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FeatureItemData, FeatureCard, ResourceCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 import {
   formatAbilityList,
@@ -38,12 +37,117 @@ import {
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 
-const WARLOCK_INVOCATION_GROUP = "Потойбічні виклики";
+import {
+    CHOICE_GROUPS,
+    baseChoiceGroupName,
+    getChoicePoolRule,
+} from "@/lib/logic/choicePoolRules";
 
-function warlockInvocationPicksAtLevel(classLevelAfter: number) {
-  if (classLevelAfter === 2) return 2;
-  if ([5, 7, 9, 12, 15, 18].includes(classLevelAfter)) return 1;
-  return 0;
+const stripSyntheticSuffix = (groupName: string) => baseChoiceGroupName(groupName);
+
+type ChoiceSelections = Record<string, number | number[]>;
+
+function detectSelectedPact(args: {
+    pers: any;
+    optionsAtThisLevel: any[];
+    selections: ChoiceSelections | undefined;
+}) {
+    const fromPers = (args.pers?.choiceOptions || []).find(
+        (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
+    );
+    if (fromPers?.optionNameEng) return String(fromPers.optionNameEng);
+
+    const selectedIds = Object.values(args.selections || {})
+        .flatMap((v) => (Array.isArray(v) ? v : [v]))
+        .map((v) => Number(v))
+        .filter((v) => Number.isFinite(v));
+
+    for (const opt of args.optionsAtThisLevel) {
+        if (!selectedIds.includes(opt.choiceOptionId)) continue;
+        if (typeof opt.choiceOption?.optionNameEng === "string" && opt.choiceOption.optionNameEng.startsWith("Pact of")) {
+            return String(opt.choiceOption.optionNameEng);
+        }
+    }
+
+    return undefined;
+}
+
+function applyChoicePoolRulesToGroupedOptions(args: {
+    scope: "class" | "subclass";
+    grouped: Record<string, any[]>;
+    levelAfter: number;
+    className?: string;
+    subclassName?: string;
+    pers: any;
+    optionsAtThisLevel: any[];
+    selections: ChoiceSelections | undefined;
+}) {
+    const out: Record<string, any[]> = { ...args.grouped };
+    const groupPickCounts: Record<string, number> = {};
+
+    // Default all groups to 1 pick unless a pool rule overrides it.
+    for (const groupName of Object.keys(args.grouped)) {
+        groupPickCounts[groupName] = 1;
+    }
+
+    const existingChoiceOptionIds = new Set<number>();
+    (args.pers?.choiceOptions || []).forEach((co: any) => {
+        if (typeof co?.choiceOptionId === "number") existingChoiceOptionIds.add(co.choiceOptionId);
+    });
+
+    for (const [groupName, options] of Object.entries(args.grouped)) {
+        const rule = getChoicePoolRule({
+            scope: args.scope,
+            groupName,
+            className: args.className,
+            subclassName: args.subclassName,
+        });
+
+        if (!rule) continue;
+
+        const picks = Number(rule.picksAtLevel(args.levelAfter)) || 0;
+        if (picks <= 0 || !Array.isArray(options) || !options.length) continue;
+
+        const baseGroup = stripSyntheticSuffix(groupName);
+        groupPickCounts[baseGroup] = picks;
+
+        // Always prevent picking already-known options for pool-style groups.
+        let eligible = options.filter((opt: any) => {
+            const id = Number(opt.choiceOptionId);
+            if (!Number.isFinite(id)) return false;
+            if (existingChoiceOptionIds.has(id)) return false;
+            return true;
+        });
+
+        // Warlock invocations: apply pact/level prerequisites at the pool level.
+        if (rule.scope === "class" && rule.className === "WARLOCK_2014" && baseGroup === CHOICE_GROUPS.WARLOCK_INVOCATIONS) {
+            const selectedPact = detectSelectedPact({
+                pers: args.pers,
+                optionsAtThisLevel: args.optionsAtThisLevel,
+                selections: args.selections,
+            });
+
+            eligible = eligible.filter((opt: any) => {
+                const prereq = opt.choiceOption?.prerequisites as any;
+                const minLevel = prereq?.level ? Number(prereq.level) : undefined;
+                if (typeof minLevel === "number" && Number.isFinite(minLevel) && args.levelAfter < minLevel) {
+                    return false;
+                }
+                const pact = prereq?.pact ? String(prereq.pact) : undefined;
+                if (pact && selectedPact && pact !== selectedPact) return false;
+                if (pact && !selectedPact) return false;
+                return true;
+            });
+        }
+
+        // Replace group with eligible list (no synthetic splitting; UI handles multi-pick)
+        if (groupName !== baseGroup) {
+            delete (out as any)[groupName];
+        }
+        (out as any)[baseGroup] = eligible;
+    }
+
+    return { grouped: out, groupPickCounts };
 }
 
 const SPELLCASTING_LABELS: Record<SpellcastingType, string> = {
@@ -144,6 +248,14 @@ export default function LevelUpWizard({ info }: Props) {
         return (pers.multiclasses || []).find((m: any) => m.classId === selectedClassId) ?? null;
     }, [pers, selectedClassId]);
 
+    const persPactBoon = useMemo(() => {
+        if (!pers) return undefined;
+        const fromPers = (pers.choiceOptions || []).find(
+            (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
+        );
+        return fromPers?.optionNameEng ? String(fromPers.optionNameEng) : undefined;
+    }, [pers]);
+
     const classLevelBefore = useMemo(() => {
         if (!pers || !selectedClassId) return 0;
         if (selectedClassId === pers.classId) return mainClassLevel;
@@ -190,8 +302,8 @@ export default function LevelUpWizard({ info }: Props) {
         return classLevelAfter === 2;
     }, [selectedClass, classLevelAfter]);
 
-    const classChoiceGroups = useMemo(() => {
-        if (!selectedClass) return {} as Record<string, any[]>;
+    const classChoiceGroupsResult = useMemo(() => {
+        if (!selectedClass) return { grouped: {} as Record<string, any[]>, groupPickCounts: {} as Record<string, number> };
         const options = (selectedClass.classChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(classLevelAfter));
         const grouped = options.reduce((acc, opt) => {
             const group = opt.choiceOption.groupName;
@@ -200,82 +312,43 @@ export default function LevelUpWizard({ info }: Props) {
             return acc;
         }, {} as Record<string, typeof options>);
 
-        // Warlock: Eldritch Invocations are a multi-pick group. We model it as N synthetic groups
-        // ("Потойбічні виклики #1", "... #2", etc) so we can reuse existing single-pick UI/schema.
-        if (selectedClass.name === "WARLOCK_2014") {
-          const picks = warlockInvocationPicksAtLevel(classLevelAfter);
-          const invocationOptions = grouped[WARLOCK_INVOCATION_GROUP];
-          if (picks > 0 && Array.isArray(invocationOptions) && invocationOptions.length) {
-            const existingChoiceOptions = new Set<number>();
-            (pers?.choiceOptions || []).forEach((co: any) => {
-              if (typeof co?.choiceOptionId === "number") existingChoiceOptions.add(co.choiceOptionId);
-            });
+                return applyChoicePoolRulesToGroupedOptions({
+                    scope: "class",
+                    grouped: grouped as any,
+                    levelAfter: classLevelAfter,
+                    className: selectedClass.name,
+                    pers,
+                    optionsAtThisLevel: options as any,
+                    selections: formData.classChoiceSelections as ChoiceSelections | undefined,
+                });
+        }, [selectedClass, classLevelAfter, pers, formData.classChoiceSelections]);
 
-            const selectedPact = (() => {
-              // Pact boon is stored as a ChoiceOption (e.g. Pact of the Blade)
-              const fromPers = (pers?.choiceOptions || []).find((co: any) =>
-                typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
-              );
-              if (fromPers?.optionNameEng) return String(fromPers.optionNameEng);
+    const classChoiceGroups = classChoiceGroupsResult.grouped;
+    const classChoiceGroupPickCounts = classChoiceGroupsResult.groupPickCounts;
 
-              const fromSelections = (formData.classChoiceSelections as Record<string, number> | undefined) || {};
-              const selectedIds = Object.values(fromSelections)
-                .map((v) => Number(v))
-                .filter((v) => Number.isFinite(v));
-              for (const opt of options) {
-                if (!selectedIds.includes(opt.choiceOptionId)) continue;
-                if (typeof opt.choiceOption?.optionNameEng === "string" && opt.choiceOption.optionNameEng.startsWith("Pact of")) {
-                  return String(opt.choiceOption.optionNameEng);
-                }
-              }
-              return undefined;
-            })();
-
-            const eligible = invocationOptions
-              .filter((opt: any) => {
-                const id = Number(opt.choiceOptionId);
-                if (!Number.isFinite(id)) return false;
-                if (existingChoiceOptions.has(id)) return false;
-
-                const prereq = opt.choiceOption?.prerequisites as any;
-                const minLevel = prereq?.level ? Number(prereq.level) : undefined;
-                if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
-                  return false;
-                }
-                const pact = prereq?.pact ? String(prereq.pact) : undefined;
-                if (pact && selectedPact && pact !== selectedPact) return false;
-                if (pact && !selectedPact) return false;
-                return true;
-              })
-              .map((opt: any) => opt);
-
-            delete (grouped as any)[WARLOCK_INVOCATION_GROUP];
-            for (let i = 1; i <= picks; i++) {
-              const name = `${WARLOCK_INVOCATION_GROUP} #${i}`;
-              (grouped as any)[name] = eligible.map((opt: any) => ({
-                ...opt,
-                choiceOption: {
-                  ...opt.choiceOption,
-                  groupName: name,
-                },
-              }));
-            }
-          }
-        }
-
-        return grouped;
-    }, [selectedClass, classLevelAfter, pers, formData.classChoiceSelections]);
-
-    const subclassChoiceGroups = useMemo(() => {
-        if (!effectiveSubclass) return {} as Record<string, any[]>;
+        const subclassChoiceGroupsResult = useMemo(() => {
+                if (!effectiveSubclass) return { grouped: {} as Record<string, any[]>, groupPickCounts: {} as Record<string, number> };
         const options = (effectiveSubclass.subclassChoiceOptions || []).filter((opt) => (opt.levelsGranted || []).includes(classLevelAfter));
-        return options.reduce((acc, opt) => {
+        const grouped = options.reduce((acc, opt) => {
             const group = opt.choiceOption.groupName;
             if (!acc[group]) acc[group] = [];
             acc[group].push(opt);
             return acc;
         }, {} as Record<string, typeof options>);
-    }, [effectiveSubclass, classLevelAfter]);
+
+        return applyChoicePoolRulesToGroupedOptions({
+          scope: "subclass",
+          grouped: grouped as any,
+          levelAfter: classLevelAfter,
+          subclassName: effectiveSubclass.name,
+          pers,
+          optionsAtThisLevel: options as any,
+                    selections: formData.subclassChoiceSelections as ChoiceSelections | undefined,
+        });
+        }, [effectiveSubclass, classLevelAfter, pers, formData.subclassChoiceSelections]);
+
+        const subclassChoiceGroups = subclassChoiceGroupsResult.grouped;
+        const subclassChoiceGroupPickCounts = subclassChoiceGroupsResult.groupPickCounts;
 
     const newClassFeatures = useMemo(() => {
         if (!selectedClass) return [] as any[];
@@ -459,6 +532,9 @@ export default function LevelUpWizard({ info }: Props) {
                     <ClassChoiceOptionsForm
                         selectedClass={selectedClass as unknown as ClassI}
                         availableOptions={Object.values(classChoiceGroups).flat()}
+                        groupPickCounts={classChoiceGroupPickCounts}
+                        initialLevel={classLevelAfter}
+                        initialPact={persPactBoon}
                         formId="class-choice-form"
                         onNextDisabledChange={onNextDisabledChange}
                     />
@@ -467,6 +543,7 @@ export default function LevelUpWizard({ info }: Props) {
                 return (
                     <SubclassChoiceOptionsForm
                         availableOptions={Object.values(subclassChoiceGroups).flat()}
+                        groupPickCounts={subclassChoiceGroupPickCounts}
                         formId="subclass-choice-form"
                         onNextDisabledChange={onNextDisabledChange}
                     />

@@ -40,6 +40,7 @@ interface Props {
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
   pickCount?: number;
+  groupPickCounts?: Record<string, number>;
   initialPact?: string;
   initialLevel?: number;
 }
@@ -52,7 +53,7 @@ const displayName = (cls?: ClassI | null) =>
 
 const isEnumLike = (value?: string | null) => !!value && /^[A-Z0-9_]+$/.test(value);
 
-const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange, pickCount = 1, initialPact, initialLevel }: Props) => {
+const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange, pickCount = 1, groupPickCounts, initialPact, initialLevel }: Props) => {
   const { updateFormData, nextStep, formData } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
@@ -120,9 +121,10 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
       disabled = false;
     } else {
       disabled = groupedOptions.some(({ groupName }) => {
+        const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
         const selected = selections[groupName];
         if (Array.isArray(selected)) {
-          return selected.length < pickCount;
+          return selected.length < required;
         }
         return !selected;
       });
@@ -132,20 +134,21 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
       prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
     }
-  }, [selectedClass, availableOptions, groupedOptions, selections, onNextDisabledChange, pickCount]);
+  }, [selectedClass, availableOptions, groupedOptions, selections, onNextDisabledChange, pickCount, groupPickCounts]);
 
 
   const finalizeSelect = (groupName: string, optionId: number) => {
+    const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
     const current = selections[groupName];
     
-    if (pickCount > 1) {
+    if (required > 1) {
       const currentArray = Array.isArray(current) ? current : (current ? [current as number] : []);
       let nextArray: number[];
       
       if (currentArray.includes(optionId)) {
         nextArray = currentArray.filter(id => id !== optionId);
       } else {
-        if (currentArray.length >= pickCount) return;
+        if (currentArray.length >= required) return;
         nextArray = [...currentArray, optionId];
       }
       
@@ -187,9 +190,11 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     const opt = options.find(o => o.choiceOptionId === optionId);
     if (!opt) return;
 
+    const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
+
     // Check if already selected (for unselecting)
     const current = selections[groupName];
-    const isAlreadySelected = pickCount > 1 
+    const isAlreadySelected = required > 1 
       ? Array.isArray(current) && current.includes(optionId)
       : current === optionId;
 
@@ -266,15 +271,26 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
             className=""
           >
             <CardContent className="space-y-3 p-4">
+              {(() => {
+                const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
+                const selectedCount = Array.isArray(selections[groupName])
+                  ? (selections[groupName] as number[]).length
+                  : selections[groupName]
+                    ? 1
+                    : 0;
+
+                return (
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
                   <p className="text-base font-semibold text-white">{groupName}</p>
                 </div>
                 <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
-                  Обрано: {Array.isArray(selections[groupName]) ? (selections[groupName] as number[]).length : (selections[groupName] ? 1 : 0)}/{pickCount}
+                  Обрано: {selectedCount}/{required}
                 </Badge>
               </div>
+                );
+              })()}
 
               <div className="grid gap-3 grid-cols-1">
                 {options.map((opt) => {
@@ -303,11 +319,17 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
                       key={optionId}
                       className={clsx(
                         "glass-card cursor-pointer transition-all duration-200",
-                        pickCount > 1 
-                          ? (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).includes(optionId))
-                            ? "glass-active"
-                            : (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).length >= pickCount) && "opacity-50 grayscale-[0.5]"
-                          : (selections[groupName] === optionId) && "glass-active"
+                        (() => {
+                          const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
+                          const isMulti = required > 1;
+                          const selectedArray = Array.isArray(selections[groupName]) ? (selections[groupName] as number[]) : [];
+                          const isSelected = isMulti ? selectedArray.includes(optionId) : selections[groupName] === optionId;
+                          const atLimit = isMulti ? selectedArray.length >= required : false;
+
+                          if (isSelected) return "glass-active";
+                          if (isMulti && atLimit) return "opacity-50 grayscale-[0.5]";
+                          return false;
+                        })()
                       )}
                       onClick={(e) => {
                         if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;

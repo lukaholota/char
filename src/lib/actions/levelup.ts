@@ -13,6 +13,8 @@ import {
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 
+import { baseChoiceGroupName, CHOICE_GROUPS, getChoicePoolRule } from "@/lib/logic/choicePoolRules";
+
 const getAllClassesCached = unstable_cache(
   async () =>
     prisma.class.findMany({
@@ -419,6 +421,176 @@ export async function levelUpCharacter(persId: number, data: any) {
       ? (selectedClass.subclasses || []).find((s: any) => s.subclassId === subclassIdForSelectedClass) ?? null
       : null;
 
+    type SelectionsRecord = Record<string, number | number[]> | undefined;
+
+    const flattenSelections = (selections: SelectionsRecord): number[] => {
+      if (!selections) return [];
+      const out: number[] = [];
+      for (const value of Object.values(selections)) {
+        if (Array.isArray(value)) {
+          for (const v of value) {
+            const id = Number(v);
+            if (Number.isFinite(id)) out.push(id);
+          }
+        } else {
+          const id = Number(value);
+          if (Number.isFinite(id)) out.push(id);
+        }
+      }
+      return out;
+    };
+
+    const selectionIdsByBaseGroup = (selections: SelectionsRecord) => {
+      const map = new Map<string, number[]>();
+      if (!selections) return map;
+      for (const [groupName, raw] of Object.entries(selections)) {
+        const base = baseChoiceGroupName(groupName);
+        const ids = Array.isArray(raw) ? raw : [raw];
+        for (const v of ids) {
+          const id = Number(v);
+          if (!Number.isFinite(id)) continue;
+          const arr = map.get(base) ?? [];
+          arr.push(id);
+          map.set(base, arr);
+        }
+      }
+      return map;
+    };
+
+    const validateChoiceSelections = async (args: {
+      scope: "class" | "subclass";
+      selections: SelectionsRecord;
+      allowedOptionsAtLevel: any[];
+      className?: string;
+      subclassName?: string;
+    }) => {
+      const ids = flattenSelections(args.selections);
+      if (!ids.length) {
+        // If there are allowed options at this level, missing selections should be rejected.
+        if (args.allowedOptionsAtLevel.length) return { error: "Дооберіть опції" } as const;
+        return null;
+      }
+
+      const ownedChoiceOptionIds = new Set<number>(
+        (pers.choiceOptions || [])
+          .map((co: any) => Number(co?.choiceOptionId))
+          .filter((v: any) => Number.isFinite(v))
+      );
+
+      const allowedIds = new Set<number>();
+      const allowedGroups = new Map<string, Set<number>>();
+      for (const opt of args.allowedOptionsAtLevel) {
+        const id = Number(opt.choiceOptionId);
+        if (!Number.isFinite(id)) continue;
+        allowedIds.add(id);
+        const base = baseChoiceGroupName(opt.choiceOption?.groupName || "Опції");
+        const set = allowedGroups.get(base) ?? new Set<number>();
+        set.add(id);
+        allowedGroups.set(base, set);
+      }
+
+      // Validate each selected id is allowed and not already owned.
+      for (const id of ids) {
+        if (!allowedIds.has(id)) {
+          return { error: "Обрана опція недоступна на цьому рівні" } as const;
+        }
+        if (ownedChoiceOptionIds.has(id)) {
+          return { error: "Ця опція вже обрана персонажем" } as const;
+        }
+      }
+
+      // Enforce required pick-count per base group (pool rules; default 1 per group).
+      const selectedByGroup = selectionIdsByBaseGroup(args.selections);
+      for (const [baseGroup, allowedSet] of allowedGroups.entries()) {
+        const rule = getChoicePoolRule({
+          scope: args.scope,
+          groupName: baseGroup,
+          className: args.className,
+          subclassName: args.subclassName,
+        });
+
+        const expected = rule ? Number(rule.picksAtLevel(classLevelAfter)) || 0 : 1;
+        const selected = selectedByGroup.get(baseGroup) ?? [];
+
+        // If a rule exists but returns 0, treat as non-required (defensive), but still validate ids.
+        if (expected > 0) {
+          if (selected.length !== expected) {
+            return { error: `Оберіть ${expected} опц.` } as const;
+          }
+        }
+
+        // Prevent duplicates inside a group.
+        const unique = new Set(selected);
+        if (unique.size !== selected.length) {
+          return { error: "Опції в групі мають бути різними" } as const;
+        }
+
+        // Extra defense: ensure selected IDs belong to that group’s allowed set.
+        for (const id of selected) {
+          if (!allowedSet.has(id)) return { error: "Обрана опція не з тієї групи" } as const;
+        }
+      }
+
+      // Warlock invocation prerequisites (server-side).
+      const invocationGroup = CHOICE_GROUPS.WARLOCK_INVOCATIONS;
+      const isWarlock = args.scope === "class" && args.className === "WARLOCK_2014";
+      if (isWarlock) {
+        const invSelected = selectedByGroup.get(invocationGroup) ?? [];
+        if (invSelected.length) {
+          const persPact = (pers.choiceOptions || []).find(
+            (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
+          )?.optionNameEng;
+
+          const invOptions = await prisma.choiceOption.findMany({
+            where: { choiceOptionId: { in: invSelected } },
+            select: { choiceOptionId: true, prerequisites: true },
+          });
+
+          for (const opt of invOptions) {
+            const prereq = (opt.prerequisites || {}) as any;
+            const minLevel = prereq?.level ? Number(prereq.level) : undefined;
+            if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
+              return { error: "Цей виклик недоступний на цьому рівні" } as const;
+            }
+            const pact = prereq?.pact ? String(prereq.pact) : undefined;
+            if (pact) {
+              if (!persPact) return { error: "Спершу оберіть Пакт" } as const;
+              if (String(persPact) !== pact) return { error: "Цей виклик вимагає іншого Пакту" } as const;
+            }
+          }
+        }
+      }
+
+      return null;
+    };
+
+    const classChoiceSelections = data?.classChoiceSelections as SelectionsRecord;
+    const subclassChoiceSelections = data?.subclassChoiceSelections as SelectionsRecord;
+
+    const allowedClassOptionsAtLevel = (selectedClass.classChoiceOptions || []).filter((opt: any) =>
+      (opt.levelsGranted || []).includes(classLevelAfter)
+    );
+
+    const allowedSubclassOptionsAtLevel = selectedSubclass
+      ? (selectedSubclass.subclassChoiceOptions || []).filter((opt: any) => (opt.levelsGranted || []).includes(classLevelAfter))
+      : [];
+
+    const classValidation = await validateChoiceSelections({
+      scope: "class",
+      selections: classChoiceSelections,
+      allowedOptionsAtLevel: allowedClassOptionsAtLevel,
+      className: selectedClass.name,
+    });
+    if (classValidation) return classValidation;
+
+    const subclassValidation = await validateChoiceSelections({
+      scope: "subclass",
+      selections: subclassChoiceSelections,
+      allowedOptionsAtLevel: allowedSubclassOptionsAtLevel,
+      subclassName: selectedSubclass?.name,
+    });
+    if (subclassValidation) return subclassValidation;
+
     // ===== 5) Features + choices =====
     const featuresToAdd = new Set<number>();
     const choiceOptionIds: number[] = [];
@@ -438,22 +610,25 @@ export async function levelUpCharacter(persId: number, data: any) {
     // Feat features
     for (const fid of featFeatureIds) featuresToAdd.add(fid);
 
-    const processChoiceSelections = async (selections: Record<string, number> | undefined) => {
+    const processChoiceSelections = async (selections: Record<string, number | number[]> | undefined) => {
       if (!selections) return;
       for (const optionIdRaw of Object.values(selections)) {
-        const optionId = Number(optionIdRaw);
-        if (!Number.isFinite(optionId)) continue;
-        choiceOptionIds.push(optionId);
-        const choiceFeatures = await prisma.choiceOptionFeature.findMany({
-          where: { choiceOptionId: optionId },
-          select: { featureId: true },
-        });
-        for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
+        const ids = Array.isArray(optionIdRaw) ? optionIdRaw : [optionIdRaw];
+        for (const v of ids) {
+          const optionId = Number(v);
+          if (!Number.isFinite(optionId)) continue;
+          choiceOptionIds.push(optionId);
+          const choiceFeatures = await prisma.choiceOptionFeature.findMany({
+            where: { choiceOptionId: optionId },
+            select: { featureId: true },
+          });
+          for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
+        }
       }
     };
 
-    await processChoiceSelections(data?.classChoiceSelections as Record<string, number> | undefined);
-    await processChoiceSelections(data?.subclassChoiceSelections as Record<string, number> | undefined);
+    await processChoiceSelections(classChoiceSelections);
+    await processChoiceSelections(subclassChoiceSelections);
     await processChoiceSelections(featChoiceSelections);
 
     // Optional class features (replacements)

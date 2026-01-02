@@ -19,6 +19,7 @@ interface Props {
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
   pickCount?: number; // Added pickCount prop
+  groupPickCounts?: Record<string, number>;
 }
 
 const previewTextFromFeatures = (
@@ -49,7 +50,7 @@ const previewTextFromFeatures = (
   return stripMarkdownPreview(String(first.shortDescription || first.description));
 };
 
-const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange, pickCount = 1 }: Props) => {
+const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange, pickCount = 1, groupPickCounts }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
@@ -95,9 +96,10 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
       disabled = false;
     } else {
       const allGroupsSelected = groupedOptions.every(({ groupName }) => {
+        const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
         const selected = selections[groupName];
         if (Array.isArray(selected)) {
-          return selected.length === pickCount;
+          return selected.length === required;
         }
         return selected !== undefined;
       });
@@ -108,13 +110,14 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
       onNextDisabledChange?.(disabled);
       prevDisabledRef.current = disabled;
     }
-  }, [groupedOptions, selections, onNextDisabledChange, pickCount]);
+  }, [groupedOptions, selections, onNextDisabledChange, pickCount, groupPickCounts]);
 
 
   const selectOption = (groupName: string, optionId: number) => {
+    const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
     const current = selections[groupName];
     
-    if (pickCount > 1) {
+    if (required > 1) {
       // Multi-select logic
       const currentArray = Array.isArray(current) ? current : (current ? [current as number] : []);
       let nextArray: number[];
@@ -122,7 +125,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
       if (currentArray.includes(optionId)) {
         nextArray = currentArray.filter(id => id !== optionId);
       } else {
-        if (currentArray.length >= pickCount) {
+        if (currentArray.length >= required) {
           // If we are at the limit, we could either do nothing or replace the last one.
           // Let's do nothing (user must unselect first) or we could auto-replace if pickCount is 1.
           // But here pickCount > 1, so the user should actively manage their picks.
@@ -169,25 +172,26 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
         <div key={groupName} className="space-y-3">
           <div className="flex items-center justify-between gap-3">
             <InfoSectionTitle>{groupName}</InfoSectionTitle>
-            {pickCount > 1 && (
+            {Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1) > 1 && (
               <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
-                Обрано: {(selections[groupName] as number[] | undefined)?.length || 0}/{pickCount}
+                Обрано: {(selections[groupName] as number[] | undefined)?.length || 0}/{Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1)}
               </Badge>
             )}
           </div>
           <div className="grid grid-cols-1 gap-3">
             {options.map((opt) => {
               const preview = previewTextFromFeatures(opt.choiceOption.features);
+              const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
 
               return (
                 <Card
                   key={opt.choiceOption.choiceOptionId}
                   className={clsx(
                     "glass-card cursor-pointer transition-all duration-200",
-                    pickCount > 1 
+                    required > 1 
                       ? (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).includes(opt.choiceOption.choiceOptionId))
                         ? "glass-active"
-                        : (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).length >= pickCount) && "opacity-50 grayscale-[0.5]"
+                        : (Array.isArray(selections[groupName]) && (selections[groupName] as number[]).length >= required) && "opacity-50 grayscale-[0.5]"
                       : (selections[groupName] === opt.choiceOption.choiceOptionId) && "glass-active"
                   )}
                   onClick={(e) => {

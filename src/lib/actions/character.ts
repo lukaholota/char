@@ -206,6 +206,7 @@ export async function createCharacter(data: PersFormData) {
     select: {
       name: true,
       spellcastingType: true,
+      savingThrows: true,
       armorProficiencies: true,
       weaponProficiencies: true,
       toolProficiencies: true,
