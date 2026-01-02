@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import path from "path";
+import { prisma } from "@/lib/prisma";
 import { Ability } from "@prisma/client";
 
 // tsx scripts do not automatically load Next.js env files.
