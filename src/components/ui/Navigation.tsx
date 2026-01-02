@@ -52,7 +52,7 @@ export const Navigation = () => {
         <Link
           href="/"
           aria-label="Головна"
-          className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-violet-500/20 shadow-lg ring-1 ring-white/10 transition-transform hover:scale-105 active:scale-95 md:h-12 md:w-12"
+          className="hidden h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-violet-500/20 shadow-lg ring-1 ring-white/10 transition-transform hover:scale-105 active:scale-95 md:flex md:h-12 md:w-12"
         >
           <Logo className="h-7 w-7 md:h-8 md:w-8" />
         </Link>

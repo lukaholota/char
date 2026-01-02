@@ -4,6 +4,8 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { FeatureDisplayType, RestType, MagicItem } from "@prisma/client";
+import { featTranslations } from "@/lib/refs/translation";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 
 async function getCurrentUserId() {
     const session = await auth();
@@ -216,6 +218,10 @@ export async function duplicatePers(persId: number) {
                 }
             });
 
+            const weaponIdMap = new Map<number, number>();
+            const armorIdMap = new Map<number, number>();
+            const magicItemIdMap = new Map<number, number>();
+
             if (pers.skills.length > 0) {
                 await tx.persSkill.createMany({
                     data: pers.skills.map(s => ({
@@ -271,31 +277,46 @@ export async function duplicatePers(persId: number) {
             }
 
             if (pers.weapons.length > 0) {
-                await tx.persWeapon.createMany({
-                    data: pers.weapons.map(w => ({
-                        persId: newPers.persId,
-                        weaponId: w.weaponId,
-                        overrideName: w.overrideName,
-                        customDamageDice: w.customDamageDice,
-                        customDamageAbility: w.customDamageAbility,
-                        customDamageBonus: w.customDamageBonus as any,
-                        isProficient: w.isProficient,
-                    }))
-                });
+                for (const w of pers.weapons) {
+                    const created = await tx.persWeapon.create({
+                        data: {
+                            persId: newPers.persId,
+                            weaponId: w.weaponId,
+                            overrideDamage: w.overrideDamage,
+                            attackBonus: w.attackBonus,
+                            overrideName: w.overrideName,
+                            overrideNormalRange: w.overrideNormalRange,
+                            overrideLongRange: w.overrideLongRange,
+                            overrideDamageType: w.overrideDamageType,
+                            overrideAttackAbility: w.overrideAttackAbility,
+                            isProficient: w.isProficient,
+                            customAttackBonus: w.customAttackBonus as any,
+                            customDamageAbility: w.customDamageAbility,
+                            customDamageBonus: w.customDamageBonus as any,
+                            customDamageCount: w.customDamageCount,
+                            customDamageDice: w.customDamageDice,
+                            isMagical: w.isMagical,
+                        }
+                    });
+                    weaponIdMap.set(w.persWeaponId, created.persWeaponId);
+                }
             }
 
             if (pers.armors.length > 0) {
-                await tx.persArmor.createMany({
-                    data: pers.armors.map(a => ({
-                        persId: newPers.persId,
-                        armorId: a.armorId,
-                        overrideBaseAC: a.overrideBaseAC,
-                        overrideName: a.overrideName,
-                        isProficient: a.isProficient,
-                        equipped: a.equipped,
-                        miscACBonus: a.miscACBonus,
-                    }))
-                });
+                for (const a of pers.armors) {
+                    const created = await tx.persArmor.create({
+                        data: {
+                            persId: newPers.persId,
+                            armorId: a.armorId,
+                            overrideBaseAC: a.overrideBaseAC,
+                            overrideName: a.overrideName,
+                            isProficient: a.isProficient,
+                            equipped: a.equipped,
+                            miscACBonus: a.miscACBonus,
+                        }
+                    });
+                    armorIdMap.set(a.persArmorId, created.persArmorId);
+                }
             }
 
             if (pers.multiclasses.length > 0) {
@@ -310,12 +331,17 @@ export async function duplicatePers(persId: number) {
             }
 
             if (pers.magicItems.length > 0) {
-                await tx.persMagicItem.createMany({
-                    data: pers.magicItems.map(mi => ({
-                        persId: newPers.persId,
-                        magicItemId: mi.magicItemId,
-                    }))
-                });
+                for (const mi of pers.magicItems) {
+                    const created = await tx.persMagicItem.create({
+                        data: {
+                            persId: newPers.persId,
+                            magicItemId: mi.magicItemId,
+                            isEquipped: mi.isEquipped,
+                            isAttuned: mi.isAttuned,
+                        }
+                    });
+                    magicItemIdMap.set(mi.persMagicItemId, created.persMagicItemId);
+                }
             }
 
             if (pers.persInfusions.length > 0) {
@@ -323,9 +349,10 @@ export async function duplicatePers(persId: number) {
                     data: pers.persInfusions.map(i => ({
                         persId: newPers.persId,
                         infusionId: i.infusionId,
-                        persArmorId: i.persArmorId,
-                        persWeaponId: i.persWeaponId,
-                        persMagicItemId: i.persMagicItemId,
+                        persArmorId: i.persArmorId ? (armorIdMap.get(i.persArmorId) ?? null) : null,
+                        persWeaponId: i.persWeaponId ? (weaponIdMap.get(i.persWeaponId) ?? null) : null,
+                        persMagicItemId: i.persMagicItemId ? (magicItemIdMap.get(i.persMagicItemId) ?? null) : null,
+                        expiresAt: i.expiresAt,
                     }))
                 });
             }
@@ -460,7 +487,11 @@ export async function getPersById(id: number) {
             skills: true,
             feats: { 
                 include: { 
-                    feat: true,
+                    feat: {
+                        include: {
+                            grantsFeature: true,
+                        },
+                    },
                     choices: {
                         include: {
                             choiceOption: true,
@@ -483,8 +514,9 @@ export async function getPersById(id: number) {
                 }
             },
             features: { include: { feature: true } },
-            choiceOptions: true,
-            raceChoiceOptions: true,
+            classOptionalFeatures: { include: { feature: true } },
+            choiceOptions: { include: { features: { include: { feature: true } } } },
+            raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
             spells: true,
             persSpells: {
                 include: {
@@ -793,6 +825,20 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
         const featName = pf.feat.name;
         const displayTypes = [FeatureDisplayType.PASSIVE];
 
+        const normalizeFeatKey = (value: string) =>
+            String(value ?? "")
+                .trim()
+                .replace(/[^A-Za-z0-9]+/g, "_")
+                .replace(/_+/g, "_")
+                .replace(/^_+|_+$/g, "")
+                .toUpperCase();
+
+        const translatedFeatName =
+            featTranslations[featName as keyof typeof featTranslations] ||
+            featTranslations[String(featName).toUpperCase() as keyof typeof featTranslations] ||
+            featTranslations[normalizeFeatKey(featName) as keyof typeof featTranslations] ||
+            featName;
+
         // Always show the feat itself as a trait item
         push({
             key: `FEAT:${pf.featId}`,
@@ -810,10 +856,26 @@ export async function getCharacterFeaturesGrouped(persId: number): Promise<Chara
 
         for (const choice of pf.choices) {
             if (!choice.choiceOption) continue;
+
+            const rawGroupName = String(choice.choiceOption.groupName || "");
+
+            const translateEmbeddedTokens = (text: string) => {
+                if (!text) return text;
+                return text
+                    .replace(/\b[A-Z][A-Z0-9_]{2,}\b/g, (token) => translateValue(token))
+                    .replace(/\b[a-z][a-z0-9_]{2,}\b/g, (token) => translateValue(token.toUpperCase()));
+            };
+
+            const groupNameRawTranslated = translateEmbeddedTokens(rawGroupName);
+            const groupName = groupNameRawTranslated
+                ? groupNameRawTranslated.split(featName).join(translatedFeatName)
+                : groupNameRawTranslated;
+            const optionName = translateValue(choice.choiceOption.optionName);
+
             push({
                 key: `FEAT:${pf.featId}:choice:${choice.choiceOptionId}`,
-                name: choice.choiceOption.optionName,
-                description: `${choice.choiceOption.groupName}: ${choice.choiceOption.optionName}`,
+                name: optionName,
+                description: groupName ? `${groupName}: ${optionName}` : optionName,
                 displayTypes,
                 source: "FEAT",
                 sourceName: featName,

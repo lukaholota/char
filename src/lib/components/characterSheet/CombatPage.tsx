@@ -142,6 +142,8 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
   const [removingMagicItemIds, setRemovingMagicItemIds] = useState<Set<number>>(() => new Set());
   const [isPending, startTransition] = useTransition();
 
+  const magicItems = pers.magicItems ?? [];
+
   const router = useRouter();
 
   useEffect(() => {
@@ -163,6 +165,7 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
     const res = await updateShieldStatus(pers.persId, { wearsShield: val });
     if (res.success) {
       toast.success(val ? "Щит екіпіровано" : "Щит знято");
+      router.refresh();
     } else {
       setWearsShield(!val); // Revert on failure
       toast.error(res.error);
@@ -280,6 +283,7 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
                     const res = await updateArmor(pa.persArmorId, { equipped: true });
                     if (res.success) {
                       toast.success(`Екіпіровано: ${pa.overrideName || pa.armor?.name || "Обладунок"}`);
+                      router.refresh();
                     } else {
                       toast.error(res.error);
                     }
@@ -426,8 +430,8 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
           </div>
         </CardHeader>
         <CardContent className="p-2 space-y-0">
-           {pers.magicItems.length > 0 ? (
-             pers.magicItems.map(pmi => (
+           {magicItems.length > 0 ? (
+             magicItems.map(pmi => (
                <MagicItemRow 
                  key={pmi.persMagicItemId} 
                  pmi={pmi} 

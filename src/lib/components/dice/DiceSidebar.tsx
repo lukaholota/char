@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { diceService } from "./diceService";
 import { Dices, X, Plus, Minus } from "lucide-react";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -29,6 +29,41 @@ export function DiceSidebar() {
   const [lastResult, setLastResult] = useState<number | null>(null);
   const [isReady, setIsReady] = useState(false);
 
+  const isOpenRef = useRef(isOpen);
+  const isRollingRef = useRef(isRolling);
+  const safetyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rollIdRef = useRef(0);
+  const ignoreNextResultRef = useRef(false);
+
+  useEffect(() => {
+    isOpenRef.current = isOpen;
+  }, [isOpen]);
+
+  useEffect(() => {
+    isRollingRef.current = isRolling;
+  }, [isRolling]);
+
+  const clearSafetyTimer = useCallback(() => {
+    if (safetyTimerRef.current) {
+      clearTimeout(safetyTimerRef.current);
+      safetyTimerRef.current = null;
+    }
+  }, []);
+
+  const resetRollState = useCallback(() => {
+    clearSafetyTimer();
+
+    // If the user closes mid-roll, ignore the eventual late result.
+    if (isRollingRef.current) {
+      ignoreNextResultRef.current = true;
+    }
+
+    rollIdRef.current += 1; // invalidate any in-flight callbacks
+    setIsRolling(false);
+    setLastResult(null);
+    diceService.clear();
+  }, [clearSafetyTimer]);
+
   useEffect(() => {
     const checkReady = () => {
       setIsReady(diceService.isInitialized());
@@ -37,37 +72,70 @@ export function DiceSidebar() {
     const interval = setInterval(checkReady, 500);
 
     diceService.onRollComplete((result) => {
+      clearSafetyTimer();
+
+      // If the sidebar is closed, always unlock but don't show results.
+      if (!isOpenRef.current) {
+        ignoreNextResultRef.current = false;
+        setIsRolling(false);
+        return;
+      }
+
+      // Only accept a completion if we currently have an active roll.
+      // This prevents late/stale results from appearing after close/reopen.
+      if (!isRollingRef.current) {
+        ignoreNextResultRef.current = false;
+        return;
+      }
+
+      // Ignore the next completion if we explicitly cancelled by closing.
+      if (ignoreNextResultRef.current) {
+        ignoreNextResultRef.current = false;
+        setIsRolling(false);
+        return;
+      }
+
       setLastResult(result.total);
       setIsRolling(false);
     });
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearInterval(interval);
+      clearSafetyTimer();
+    };
+  }, [clearSafetyTimer]);
 
   // Clear dice when sidebar is closed
   useEffect(() => {
     if (!isOpen) {
-      diceService.clear();
-      setLastResult(null);
+      resetRollState();
     }
-  }, [isOpen]);
+  }, [isOpen, resetRollState]);
 
-  const handleRoll = async () => {
+  const handleRoll = () => {
     if (!isReady || isRolling) return;
+
+    // Starting a new roll should always allow showing its result.
+    ignoreNextResultRef.current = false;
 
     setIsRolling(true);
     setLastResult(null);
     diceService.clear();
 
-    const sides = DIE_SIDES[dieType];
-    
-    // Simple roll using official API - library handles random spawn points
-    await diceService.roll(count, sides);
-    
-    // Safety timeout
-    setTimeout(() => {
+    const thisRollId = (rollIdRef.current += 1);
+
+    // Safety timeout: always schedule immediately so we don't get stuck
+    // if the underlying promise never resolves (e.g., sidebar closed mid-roll).
+    clearSafetyTimer();
+    safetyTimerRef.current = setTimeout(() => {
+      if (thisRollId !== rollIdRef.current) return;
       setIsRolling(false);
     }, 6000);
+
+    const sides = DIE_SIDES[dieType];
+
+    // Fire-and-forget: completion is handled by diceService.onRollComplete.
+    void diceService.roll(count, sides);
   };
 
   return (

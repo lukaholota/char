@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-import { duplicatePers, renamePers } from "@/lib/actions/pers";
+import { renamePers } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
 import { Button } from "@/components/ui/button";
 import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
-import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import RestButton from "./RestButton";
 import { Badge } from "@/components/ui/badge";
 import { ShareDialog } from "./ShareDialog";
@@ -14,7 +13,6 @@ import { useParams, useRouter } from "next/navigation";
 import { copyPersByToken } from "@/lib/actions/share-actions";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
-import { useTransition } from "react";
 import PrintCharacterDialog from "./PrintCharacterDialog";
 import {
   Dialog,
@@ -24,7 +22,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { set } from "zod";
 
 interface CharacterSheetProps {
   pers: PersWithRelations;

@@ -27,9 +27,16 @@ interface Props {
   race: RaceI | undefined;
   subrace: Subrace | undefined;
   raceVariant: RaceVariant | undefined | null;
+
+  prereqContext?: {
+    level?: number;
+    stats?: Record<Ability, number>;
+    hasSpellcasting?: boolean;
+    race?: Races;
+  };
 }
 
-export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, raceVariant }: Props) => {
+export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, raceVariant, prereqContext }: Props) => {
   const { updateFormData, nextStep, formData } = usePersFormStore();
   
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -37,7 +44,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
   const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
 
   const { form, onSubmit } = useStepForm(featSchema, (data) => {
-    updateFormData({ featId: data.featId });
+    updateFormData({ featId: data.featId, featChoiceSelections: {} } as any);
     nextStep();
   });
   
@@ -61,6 +68,10 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
              f.engName.toLowerCase().includes(normalizedSearch);
     });
   }, [feats, search]);
+
+  const prereqLevel = prereqContext?.level ?? 1;
+  const prereqHasSpellcasting = prereqContext?.hasSpellcasting ?? false;
+  const prereqRace = prereqContext?.race ?? ((formData as any).raceName as Races | undefined);
 
   const effectiveStats = useMemo(() => {
     // 1. Base Stats from ASI Form selection
@@ -143,15 +154,28 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
     return stats as Record<Ability, number>;
   }, [formData, race, subrace, raceVariant]);
 
+  const prereqStats = prereqContext?.stats ?? effectiveStats;
+
+  const featPrereqs = useMemo(() => {
+    const map = new Map<number, ReturnType<typeof checkFeatPrerequisites>>();
+    for (const feat of filteredFeats) {
+      map.set(
+        feat.featId,
+        checkFeatPrerequisites(feat as any, {
+          level: prereqLevel,
+          stats: prereqStats,
+          hasSpellcasting: prereqHasSpellcasting,
+          race: prereqRace,
+        })
+      );
+    }
+    return map;
+  }, [filteredFeats, prereqLevel, prereqStats, prereqHasSpellcasting, prereqRace]);
+
   const selectFeat = (feat: Feat) => {
     if (feat.featId === chosenFeatId) return;
 
-    const prereqResult = checkFeatPrerequisites(feat as any, {
-      level: 1, // Creation is level 1
-      stats: effectiveStats,
-      hasSpellcasting: false, // Heuristic: during creation we usually don't have it yet, or check class?
-      race: (formData as any).raceName as Races, // Need race enum
-    });
+    const prereqResult = featPrereqs.get(feat.featId) ?? { met: true as const };
 
     if (!prereqResult.met) {
       setPrereqReason(prereqResult.reason);
@@ -159,6 +183,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
       setConfirmOpen(true);
     } else {
       form.setValue("featId", feat.featId);
+      updateFormData({ featId: feat.featId, featChoiceSelections: {} } as any);
     }
   };
 
@@ -199,12 +224,16 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
       <div className="grid gap-3 sm:grid-cols-2">
         {filteredFeats.map((feat) => {
           const name = featTranslations[feat.name] ?? feat.name;
+          const prereq = featPrereqs.get(feat.featId);
+          const isMet = prereq?.met ?? true;
+          const showUnavailable = !isMet && feat.featId !== chosenFeatId;
           return (
           <Card
             key={feat.featId}
             className={clsx(
-              "glass-card cursor-pointer transition-all duration-200",
-              feat.featId === chosenFeatId && "glass-active"
+              "glass-card cursor-pointer transition-all duration-200 relative",
+              feat.featId === chosenFeatId && "glass-active",
+              showUnavailable && "border-rose-500/30 opacity-70"
             )}
             onClick={(e) => {
               if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
@@ -212,10 +241,18 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
             }}
           >
             <CardContent className="relative flex items-center justify-between p-4">
-              <FeatInfoModal feat={feat} />
+              {showUnavailable ? (
+                <div className="pointer-events-none absolute inset-0 bg-black/25" />
+              ) : null}
+              <FeatInfoModal feat={feat} triggerClassName="-right-4 -top-4 sm:-right-5 sm:-top-5" />
               <div>
                 <div className="text-lg font-semibold text-white">{name}</div>
                 <div className="text-xs text-slate-400">{feat.engName}</div>
+                {!isMet && prereq?.reason ? (
+                  <div className="mt-2 text-[10px] text-rose-400 font-medium bg-rose-500/10 px-1.5 py-0.5 rounded border border-rose-500/20">
+                    {prereq.reason}
+                  </div>
+                ) : null}
               </div>
               <SourceBadge code={feat.source} active={feat.featId === chosenFeatId} />
             </CardContent>
@@ -230,6 +267,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
         onConfirm={() => {
           if (pendingFeatId) {
             form.setValue("featId", pendingFeatId);
+            updateFormData({ featId: pendingFeatId, featChoiceSelections: {} } as any);
           }
         }}
       />

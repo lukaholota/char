@@ -5,8 +5,35 @@ import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { useModalBackButton } from "@/hooks/useModalBackButton"
 
-const Dialog = DialogPrimitive.Root
+type DialogProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root> & {
+  enableBackButtonClose?: boolean;
+}
+
+function Dialog({
+  open: openProp,
+  defaultOpen,
+  onOpenChange,
+  enableBackButtonClose = true,
+  ...props
+}: DialogProps) {
+  const isControlled = typeof openProp === "boolean"
+  const [internalOpen, setInternalOpen] = React.useState<boolean>(defaultOpen ?? false)
+  const open = isControlled ? openProp : internalOpen
+
+  const handleOpenChange = React.useCallback(
+    (nextOpen: boolean) => {
+      if (!isControlled) setInternalOpen(nextOpen)
+      onOpenChange?.(nextOpen)
+    },
+    [isControlled, onOpenChange]
+  )
+
+  useModalBackButton(Boolean(enableBackButtonClose && open), () => handleOpenChange(false))
+
+  return <DialogPrimitive.Root open={open} onOpenChange={handleOpenChange} {...props} />
+}
 
 const DialogTrigger = DialogPrimitive.Trigger
 

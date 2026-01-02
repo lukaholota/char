@@ -42,7 +42,21 @@ export const ClassesForm = (
       return;
     }
 
-    updateFormData({ classId: data.classId });
+    const prev = usePersFormStore.getState().formData.classId;
+    const prevId = typeof prev === "number" ? prev : typeof prev === "string" ? Number(prev) : NaN;
+    const changed = !Number.isFinite(prevId) || prevId !== data.classId;
+
+    updateFormData(
+      changed
+        ? ({
+            classId: data.classId,
+            subclassId: undefined,
+            subclassChoiceSelections: {},
+            classChoiceSelections: {},
+            classOptionalFeatureSelections: {},
+          } as any)
+        : ({ classId: data.classId } as any)
+    );
     nextStep();
   });
 
@@ -81,6 +95,23 @@ export const ClassesForm = (
               onClick={(e) => {
                 if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
                 form.setValue('classId', c.classId);
+
+                const prev = usePersFormStore.getState().formData.classId;
+                const prevId = typeof prev === "number" ? prev : typeof prev === "string" ? Number(prev) : NaN;
+                const changed = !Number.isFinite(prevId) || prevId !== c.classId;
+
+                if (changed) {
+                  updateFormData({
+                    classId: c.classId,
+                    subclassId: undefined,
+                    subclassChoiceSelections: {},
+                    classChoiceSelections: {},
+                    classOptionalFeatureSelections: {},
+                  } as any);
+                } else {
+                  updateFormData({ classId: c.classId } as any);
+                }
+
                 if (mode === "wizard") onClassSelected?.(c.classId);
               }}
             >

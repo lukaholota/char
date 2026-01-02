@@ -15,7 +15,7 @@ export type MagicItemDetail = {
   shortDescription?: string | null;
   bonusToAC?: number | null;
   bonusToRangedDamage?: number | null;
-  bonusToSavingThrows?: number | null;
+  bonusToSavingThrows?: unknown;
   noArmorOrShieldForACBonus?: boolean | null;
   givesSpells?: {
     spellId: number;
@@ -34,6 +34,13 @@ const rarityLabel = (rarity: string) => itemRarityTranslations[rarity as keyof t
 const typeLabel = (type: string) => magicItemTypeTranslations[type as keyof typeof magicItemTypeTranslations] || type;
 
 export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { className?: string }) {
+  const savingThrowsBonus =
+    typeof item.bonusToSavingThrows === "number"
+      ? item.bonusToSavingThrows
+      : typeof item.bonusToSavingThrows === "string" && item.bonusToSavingThrows.trim() !== "" && !Number.isNaN(Number(item.bonusToSavingThrows))
+        ? Number(item.bonusToSavingThrows)
+        : null;
+
   return (
     <div className={`glass-card border border-white/10 bg-slate-950/15 p-4 shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10 backdrop-blur-xl sm:p-6 lg:max-w-3xl lg:mx-auto ${isEmbedMode ? "h-full overflow-y-auto" : ""} ${className || ""}`}>
       <div className="min-w-0">
@@ -66,7 +73,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
       </div>
 
       {/* Stats Grid if any */}
-      {(item.bonusToAC || item.bonusToRangedDamage || !!item.bonusToSavingThrows) && (
+      {(item.bonusToAC || item.bonusToRangedDamage || savingThrowsBonus !== null) && (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {item.bonusToAC && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
@@ -81,10 +88,10 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
               <div className="mt-1 text-lg font-bold text-teal-300">+{item.bonusToRangedDamage}</div>
             </div>
           )}
-          {item.bonusToSavingThrows && (
+          {savingThrowsBonus !== null && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
               <div className="text-xs text-slate-400 uppercase tracking-wider">Рятівні кидки</div>
-              <div className="mt-1 text-lg font-bold text-teal-300">+{item.bonusToSavingThrows}</div>
+              <div className="mt-1 text-lg font-bold text-teal-300">+{savingThrowsBonus}</div>
             </div>
           )}
         </div>

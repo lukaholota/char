@@ -2,10 +2,10 @@
 
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent } from "@/components/ui/card";
-import { getAbilityMod, formatModifier, getProficiencyBonus } from "@/lib/logic/utils";
+import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Classes } from "@prisma/client";
 import { attributesUkrShort, classTranslations } from "@/lib/refs/translation";
-import { Heart, Shield, Sword, Edit3 } from "lucide-react";
+import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 import { applyHpChange, reviveCharacter, setDeathSaves } from "@/lib/actions/combat-actions";
 import { updateCharacterAction } from "@/lib/actions/update-character";
 import { LanguageTranslations } from "@/lib/refs/translation";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { toast } from "sonner";
 import ModifyStatModal, { ModifyConfig } from "@/lib/components/characterSheet/ModifyStatModal";
 import {
@@ -27,10 +26,6 @@ import {
   calculateFinalStat,
   calculateFinalModifier,
   calculateFinalSave,
-  getStatBonus,
-  getModifierBonus,
-  getSaveBonus,
-  getSimpleBonus,
 } from "@/lib/logic/bonus-calculator";
 
 interface MainStatsSlideProps {
@@ -41,6 +36,7 @@ interface MainStatsSlideProps {
 
 export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainStatsSlideProps) {
   const router = useRouter();
+  const persId = pers.persId;
   const [isHpPending, startHpTransition] = useTransition();
   const [isDetailsPending, startDetailsTransition] = useTransition();
 
@@ -73,9 +69,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [languagesOpen, setLanguagesOpen] = useState(false);
   const [didInitDetails, setDidInitDetails] = useState(false);
-
-  useModalBackButton(hpOpen, () => setHpOpen(false));
-  useModalBackButton(languagesOpen, () => setLanguagesOpen(false));
 
   const [draftProficiencies, setDraftProficiencies] = useState<string>(() => String((pers as any).customProficiencies ?? ""));
   const [draftLanguages, setDraftLanguages] = useState<string>(() => String((pers as any).customLanguagesKnown ?? ""));
@@ -166,7 +159,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
       // Save in background; don't block HP modal UX.
       startDetailsTransition(async () => {
         await updateCharacterAction({
-          persId: pers.persId,
+          persId,
           data: {
             customProficiencies: draftProficiencies,
             customLanguagesKnown: draftLanguages,
@@ -208,11 +201,10 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     draftSp,
     draftGp,
     draftPp,
-    pers.persId,
+    pers,
+    persId,
     startDetailsTransition,
   ]);
-
-  const pb = getProficiencyBonus(pers.level);
   
   // Calculate hit dice info per class
   const hitDiceInfo = useMemo(() => {
@@ -264,8 +256,22 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     return hitDiceInfo.map(hd => `${hd.current}/${hd.max}d${hd.hitDie}`).join(' | ');
   }, [hitDiceInfo]);
 
-  // Get saving throw proficiencies
-  const savingThrows: Ability[] = pers.class.savingThrows ?? [];
+  // Save proficiency source-of-truth
+  const additionalSaveProficiencies = useMemo(() => {
+    const raw = (pers as any).additionalSaveProficiencies as unknown;
+    if (!Array.isArray(raw)) return [] as Ability[];
+    return raw
+      .map((v) => {
+        if (typeof v !== "string") return null;
+        // Prisma enum values come back as strings.
+        return (Object.values(Ability) as string[]).includes(v) ? (v as Ability) : null;
+      })
+      .filter(Boolean) as Ability[];
+  }, [pers]);
+
+  const proficientSaves = useMemo(() => {
+    return new Set<Ability>(additionalSaveProficiencies);
+  }, [additionalSaveProficiencies]);
 
   const attributes = [
     { name: attributesUkrShort.STR, fullName: "Сила", score: pers.str, key: "str", borderColor: "border-red-500/40" },
@@ -540,7 +546,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
       <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
         {attributes.map((attr) => {
           const ability = abilityByKey[attr.key];
-          const hasSaveProficiency = savingThrows.includes(ability);
+          const hasSaveProficiency = proficientSaves.has(ability);
 
           return (
             <button
@@ -573,7 +579,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                       <span className={`text-xs font-bold ${
                         hasSaveProficiency ? "text-indigo-400" : "text-slate-400"
                       }`}>
-                        {formatModifier(calculateFinalSave(pers, abilityByKey[attr.key], savingThrows))}
+                        {formatModifier(calculateFinalSave(pers, abilityByKey[attr.key]))}
                       </span>
                       {hasSaveProficiency && (
                         <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_5px_rgba(99,102,241,0.5)]" />

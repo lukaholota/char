@@ -13,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WeaponKindType } from "@/lib/types/enums";
 import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { HelpCircle } from "lucide-react";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 
@@ -84,8 +83,6 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
   const [packInfoTitle, setPackInfoTitle] = useState<string>("");
   const [packInfoDescription, setPackInfoDescription] = useState<string>("");
   const [packInfoItems, setPackInfoItems] = useState<Array<{ name: string; quantity: number }>>([]);
-
-  useModalBackButton(weaponDialogOpen, () => setWeaponDialogOpen(false));
 
   const chooseOption = (optionGroup: StartingEquipmentOptionLike[]) => {
     const choiceGroup = optionGroup[0].choiceGroup

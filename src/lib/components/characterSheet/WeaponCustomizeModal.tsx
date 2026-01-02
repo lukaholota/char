@@ -10,7 +10,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { updateWeapon, deleteWeapon } from "@/lib/actions/equipment-actions";
 import { Ability, PersWeapon } from "@prisma/client";
 import { toast } from "sonner";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { Trash2 } from "lucide-react";
 import { attributesUkrFull } from "@/lib/refs/translation";
 
@@ -32,8 +31,6 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
     isMagical: persWeapon.isMagical,
     isProficient: persWeapon.isProficient,
   });
-
-  useModalBackButton(open, () => onOpenChange(false));
 
   useEffect(() => {
     if (open) {

@@ -3,7 +3,6 @@
 import { ReactNode } from "react";
 import { CircleHelp } from "lucide-react";
 import clsx from "clsx";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 import {
   Dialog,
@@ -143,8 +142,6 @@ export const ControlledInfoDialog = ({
   children: ReactNode;
   contentClassName?: string;
 }) => {
-  useModalBackButton(open, () => onOpenChange(false));
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <InfoDialogContent title={title} subtitle={subtitle} className={contentClassName}>

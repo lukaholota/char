@@ -9,7 +9,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 export type EntityInfoKind = "race" | "class" | "background";
 
@@ -39,8 +38,6 @@ export function EntityInfoDialog({
   children,
 }: EntityInfoDialogProps) {
   const description = (entity?.description ?? "").toString().trim();
-
-  useModalBackButton(isOpen, onClose);
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>

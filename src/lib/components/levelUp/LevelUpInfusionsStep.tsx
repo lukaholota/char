@@ -19,7 +19,21 @@ type InfusionListItem = {
   targetType: string;
   requiresAttunement: boolean;
   feature?: { name: string; description: string; shortDescription?: string | null } | null;
-  replicatedMagicItem?: { name: string; description: string; engName: string } | null;
+  replicatedMagicItem?: {
+    magicItemId: number;
+    name: string;
+    engName: string;
+    itemType: string;
+    rarity: string;
+    requiresAttunement: boolean;
+    description: string;
+    shortDescription?: string | null;
+    bonusToAC?: number | null;
+    bonusToRangedDamage?: number | null;
+    bonusToSavingThrows?: any;
+    noArmorOrShieldForACBonus?: boolean | null;
+    givesSpells?: { spellId: number; name: string; engName: string; level: number }[];
+  } | null;
 };
 
 interface Props {
@@ -116,7 +130,18 @@ export default function LevelUpInfusionsStep({
                 const selected = selectedIds.includes(inf.infusionId);
                 const disabled = !selected && selectedIds.length >= requiredCount;
                 const title = inf.name || inf.engName;
-                const shortDesc = inf.feature?.shortDescription || (inf.feature?.description ? (inf.feature.description.length > 100 ? inf.feature.description.substring(0, 100) + "..." : inf.feature.description) : "");
+                const shortDesc =
+                  inf.feature?.shortDescription ||
+                  inf.replicatedMagicItem?.shortDescription ||
+                  (inf.feature?.description
+                    ? inf.feature.description.length > 100
+                      ? inf.feature.description.substring(0, 100) + "..."
+                      : inf.feature.description
+                    : inf.replicatedMagicItem?.description
+                      ? inf.replicatedMagicItem.description.length > 100
+                        ? inf.replicatedMagicItem.description.substring(0, 100) + "..."
+                        : inf.replicatedMagicItem.description
+                      : "");
                 const targetUkr = infusionTargetTranslations[inf.targetType as keyof typeof infusionTargetTranslations] || inf.targetType;
 
                 return (
@@ -149,6 +174,11 @@ export default function LevelUpInfusionsStep({
                           {inf.requiresAttunement && (
                             <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
                               Налаштування
+                            </span>
+                          )}
+                          {inf.replicatedMagicItem && (
+                            <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-200 border border-indigo-500/20">
+                              Репліка: {inf.replicatedMagicItem.name}
                             </span>
                           )}
                         </div>

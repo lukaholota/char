@@ -13,7 +13,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FeatureCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
@@ -54,7 +53,12 @@ import {
 function translateFeatName(value: string): string {
   const raw = String(value ?? "").trim();
   if (!raw) return raw;
-  return featTranslations[raw] ?? featTranslations[raw.toUpperCase()] ?? raw;
+  const normalized = raw
+    .replace(/[^A-Za-z0-9]+/g, "_")
+    .replace(/_+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .toUpperCase();
+  return featTranslations[raw] ?? featTranslations[raw.toUpperCase()] ?? featTranslations[normalized] ?? raw;
 }
 
 interface FeaturesSlideProps {
@@ -139,8 +143,6 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   const [isPending, startTransition] = useTransition();
 
   const [selected, setSelected] = useState<CharacterFeatureItem | null>(null);
-
-  useModalBackButton(!!selected, () => setSelected(null));
   const [entityOpen, setEntityOpen] = useState(false);
   const [entityKind, setEntityKind] = useState<EntityDialogKind>("race");
   const [entityVariantIndex, setEntityVariantIndex] = useState(0);

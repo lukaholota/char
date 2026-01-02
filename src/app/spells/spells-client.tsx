@@ -487,8 +487,6 @@ export function SpellsClient({
     });
   }, [isEmbedMode, embedParams.persId]);
 
-  useModalBackButton(filtersOpen, () => setFiltersOpen(false));
-
   const [printIds, setPrintIds] = useState<number[]>([]);
 
   const initialQ = useMemo(() => {

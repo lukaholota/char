@@ -30,12 +30,14 @@ export default function SpellsPage({ pers }: { pers: PersWithRelations }) {
     const pactSlotLevel = pactSlotInfo?.level || 0;
     const currentPactSlots = typeof pers.currentPactSlots === 'number' ? pers.currentPactSlots : 0;
 
-    const spellsByLevel = pers.spells.reduce((acc, ps) => {
+    const spells = pers.spells ?? [];
+
+    const spellsByLevel = spells.reduce((acc, ps) => {
         const level = ps.level;
         if (!acc[level]) acc[level] = [];
         acc[level].push(ps);
         return acc;
-    }, {} as Record<number, typeof pers.spells>);
+    }, {} as Record<number, typeof spells>);
 
     const levels = Object.keys(spellsByLevel).map(Number).sort((a, b) => a - b);
     // Ensure levels with slots are shown even if no spells are known at that level

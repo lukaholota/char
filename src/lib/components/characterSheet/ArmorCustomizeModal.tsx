@@ -8,9 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { updateArmor, deleteArmor } from "@/lib/actions/equipment-actions";
 import { toast } from "sonner";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { PersArmorWithArmor } from "@/lib/actions/pers";
 import { Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface ArmorCustomizeModalProps {
   persArmor: PersArmorWithArmor;
@@ -19,6 +19,7 @@ interface ArmorCustomizeModalProps {
 }
 
 export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: ArmorCustomizeModalProps) {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [formData, setFormData] = useState({
     overrideName: (persArmor as any).overrideName || "",
@@ -27,8 +28,6 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
     isProficient: persArmor.isProficient,
     equipped: persArmor.equipped,
   });
-
-  useModalBackButton(open, () => onOpenChange(false));
 
   useEffect(() => {
     if (open) {
@@ -55,6 +54,7 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
       if (res.success) {
         toast.success("Обладунок оновлено");
         onOpenChange(false);
+        router.refresh();
       } else {
         toast.error(res.error || "Помилка при оновленні обладунку");
       }
@@ -74,6 +74,7 @@ export default function ArmorCustomizeModal({ persArmor, open, onOpenChange }: A
       if (res.success) {
         toast.success("Обладунок видалено");
         onOpenChange(false);
+        router.refresh();
       } else {
         toast.error(res.error || "Помилка при видаленні обладунку");
         setIsDeleting(false);

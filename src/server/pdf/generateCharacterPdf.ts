@@ -605,7 +605,6 @@ function fillAbility(form: PDFForm, ability: Ability, score: number, mod: number
 }
 
 function fillSavingThrows(form: PDFForm, pers: CharacterPdfData["pers"]) {
-  const classSavingThrows = pers.class.savingThrows ?? [];
   const extras = getPersExtras(pers);
 
   const mapping: Record<Ability, { value: string[]; proficient?: string[] }> = {
@@ -618,12 +617,10 @@ function fillSavingThrows(form: PDFForm, pers: CharacterPdfData["pers"]) {
   };
 
   for (const ability of Object.keys(mapping) as Ability[]) {
-    const total = calculateFinalSave(pers, ability, classSavingThrows);
+    const total = calculateFinalSave(pers, ability);
     for (const name of mapping[ability].value) setTextIfPresent(form, name, formatModifier(total));
 
-    const isProficient =
-      classSavingThrows.includes(ability) ||
-      (Array.isArray(extras.additionalSaveProficiencies) && extras.additionalSaveProficiencies.includes(ability));
+    const isProficient = Array.isArray(extras.additionalSaveProficiencies) && extras.additionalSaveProficiencies.includes(ability);
     for (const chk of mapping[ability].proficient ?? []) setCheckIfPresent(form, chk, Boolean(isProficient));
   }
 }

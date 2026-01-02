@@ -116,9 +116,15 @@ export async function getPersByShareToken(token: string) {
                 },
             },
         },
+        magicItems: {
+          include: {
+            magicItem: true,
+          },
+        },
         features: { include: { feature: true } },
         choiceOptions: true,
         raceChoiceOptions: true,
+        spells: true,
         persSpells: {
             include: {
                 spell: true,

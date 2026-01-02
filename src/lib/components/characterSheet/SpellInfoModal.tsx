@@ -213,6 +213,7 @@ export function SpellInfoModal() {
 
   return (
     <Dialog
+      enableBackButtonClose={false}
       open={open}
       onOpenChange={(nextOpen) => {
         if (!nextOpen) onClose();

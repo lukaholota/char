@@ -4,7 +4,7 @@ import { useStepForm } from "@/hooks/useStepForm";
 import { Ability, Classes } from "@prisma/client";
 import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { classAbilityScores } from "@/lib/refs/classesBaseASI";
 import { ClassI, RaceI, RaceASI } from "@/lib/types/model-types";
@@ -18,6 +18,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { RaceVariant } from "@prisma/client";
 import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
+import { toast } from "sonner";
 
 
 interface Props {
@@ -60,6 +61,9 @@ export const ASIForm = (
 ) => {
   const { updateFormData, nextStep } = usePersFormStore();
 
+  const racialBonusesCardRef = useRef<HTMLDivElement | null>(null);
+  const [highlightRacialBonuses, setHighlightRacialBonuses] = useState(false);
+
   const subraceId = usePersFormStore((s) => s.formData.subraceId);
   const storeRaceVariantId = usePersFormStore((s) => s.formData.raceVariantId);
 
@@ -75,14 +79,67 @@ export const ASIForm = (
   }, [race, raceVariant]);
 
   const subraceFixedAsi = useMemo(() => {
-    const map = (subrace as any)?.additionalASI as Record<string, number> | undefined;
+    const map = (subrace as any)?.additionalASI as Record<string, unknown> | undefined;
     if (!map || typeof map !== "object") return {} as Record<string, number>;
-    return Object.fromEntries(
-      Object.entries(map).filter(([, v]) => typeof v === "number" && Number(v) !== 0)
-    ) as Record<string, number>;
+
+    const abilityKeys = new Set(Object.values(Ability));
+    const entries = Object.entries(map)
+      .filter(([k]) => abilityKeys.has(k as Ability))
+      .map(([k, raw]) => {
+        const value =
+          typeof raw === "number"
+            ? raw
+            : typeof raw === "string"
+              ? Number(raw)
+              : NaN;
+        return [k, value] as const;
+      })
+      .filter(([, v]) => Number.isFinite(v) && Number(v) !== 0);
+
+    return Object.fromEntries(entries) as Record<string, number>;
   }, [subrace]);
 
+  const scrollToRacialBonuses = () => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+    racialBonusesCardRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+
+    setHighlightRacialBonuses(true);
+    window.setTimeout(() => setHighlightRacialBonuses(false), 1800);
+  };
+
   const { form, onSubmit } = useStepForm(asiSchema, (data) => {
+    // Custom validation: if the race has flexible ASI groups, user must allocate all of them.
+    const groups: Array<{
+      groupIndex: number;
+      choiceCount: number;
+      selectedAbilities: Ability[];
+    }> = form.getValues(racialBonusSchemaPath as any) || [];
+
+    const hasRacialChoices = (racialBonusGroups?.length ?? 0) > 0;
+    const missingSomeChoice = hasRacialChoices && (racialBonusGroups ?? []).some((group: any, groupIndex: number) => {
+      const current = groups.find((g) => g.groupIndex === groupIndex);
+      const selectedCount = (current?.selectedAbilities ?? []).length;
+      return selectedCount < Number(group.choiceCount ?? 0);
+    });
+
+    if (missingSomeChoice) {
+      form.setError("racialBonusChoiceSchema", {
+        type: "manual",
+        message: "Оберіть потрібну кількість расових бонусів.",
+      });
+      toast.error("Оберіть расові бонуси", {
+        description: "Потрібно заповнити всі варіанти бонусів до статів.",
+      });
+      scrollToRacialBonuses();
+      return;
+    }
+
     // Save the entire ASI data object
     updateFormData({
       isDefaultASI: data.isDefaultASI,
@@ -90,7 +147,7 @@ export const ASIForm = (
       points: data.points,
       simpleAsi: data.simpleAsi,
       asi: data.asi,
-      racialBonusChoiceSchema: data.racialBonusChoiceSchema
+      racialBonusChoiceSchema: data.racialBonusChoiceSchema,
     });
     nextStep();
   });
@@ -121,6 +178,11 @@ export const ASIForm = (
   }, [asiSystem, points, onNextDisabledChange])
 
   const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
+
+  const watchedRacialBonusChoices = useWatch({
+    control: form.control,
+    name: racialBonusSchemaPath as any,
+  })
 
   const sortedSimpleAsi = useMemo(() => {
     if (!watchedSimpleAsi || watchedSimpleAsi.length === 0) {
@@ -364,6 +426,35 @@ export const ASIForm = (
     return baseGroups;
   }, [isDefaultASI, raceAsi, subraceAsiGroups])
 
+  const isRacialBonusComplete = useMemo(() => {
+    if (!(racialBonusGroups?.length ?? 0)) return true;
+    const groups: Array<{ groupIndex: number; selectedAbilities: Ability[] }> =
+      (watchedRacialBonusChoices as any) || [];
+
+    return (racialBonusGroups ?? []).every((group: any, groupIndex: number) => {
+      const current = groups.find((g) => g.groupIndex === groupIndex);
+      const selectedCount = (current?.selectedAbilities ?? []).length;
+      return selectedCount >= Number(group.choiceCount ?? 0);
+    });
+  }, [racialBonusGroups, watchedRacialBonusChoices]);
+
+  useEffect(() => {
+    if (form.formState.errors.racialBonusChoiceSchema && isRacialBonusComplete) {
+      form.clearErrors('racialBonusChoiceSchema');
+    }
+  }, [form, form.formState.errors.racialBonusChoiceSchema, isRacialBonusComplete]);
+
+  const lastSubmitCountRef = useRef(0);
+  useEffect(() => {
+    const submitCount = form.formState.submitCount;
+    if (submitCount <= lastSubmitCountRef.current) return;
+    lastSubmitCountRef.current = submitCount;
+
+    if (form.formState.errors.racialBonusChoiceSchema) {
+      scrollToRacialBonuses();
+    }
+  }, [form.formState.submitCount, form.formState.errors.racialBonusChoiceSchema]);
+
   const systemCopy: Record<string, string> = {
     [asiSystems.POINT_BUY]: 'Розподіляйте бюджет очок і отримайте контроль над кожною характеристикою.',
     [asiSystems.SIMPLE]: 'Швидкий старт — пересувайте значення вгору та вниз без калькулятора.',
@@ -571,7 +662,14 @@ export const ASIForm = (
         </CardContent>
       </Card>
 
-      <Card className="shadow-xl">
+      <Card
+        ref={racialBonusesCardRef}
+        className={
+          highlightRacialBonuses
+            ? "shadow-xl ring-2 ring-red-500/40"
+            : "shadow-xl"
+        }
+      >
         <CardHeader>
           <CardTitle className="text-white">Расові бонуси</CardTitle>
         </CardHeader>

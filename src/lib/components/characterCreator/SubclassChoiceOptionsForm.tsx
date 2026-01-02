@@ -61,7 +61,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     nextStep();
   });
   
-  const selections = useMemo(() => form.watch("subclassChoiceSelections") || {}, [form]);
+  const selections = (form.watch("subclassChoiceSelections") || {}) as Record<string, number | number[]>;
   const prevDisabledRef = useRef<boolean | undefined>(undefined);
 
   const optionsToUse = useMemo(() => {

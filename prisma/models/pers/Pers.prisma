@@ -37,7 +37,7 @@ model Pers {
   ep                          String                 @default("0")
   gp                          String                 @default("0")
   pp                          String                 @default("0")
-  additionalSaveProficiencies Ability[]              @default([]) @map("additional_save_proficiencies")
+  additionalSaveProficiencies Ability[]              @default([]) @map("additional_save_proficiencies") // now not additional but base
   miscSaveBonuses             Json?                  @map("misc_save_bonuses")
   createdAt                   DateTime               @default(now()) @map("created_at")
   updatedAt                   DateTime               @updatedAt @map("updated_at")

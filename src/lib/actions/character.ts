@@ -627,6 +627,9 @@ export async function createCharacter(data: PersFormData) {
           customLanguagesKnown,
           customProficiencies,
 
+          // Save proficiency source-of-truth (prefill from class at creation)
+          additionalSaveProficiencies: cls.savingThrows ?? [],
+
           str: scores.STR,
           dex: scores.DEX,
           con: scores.CON,

@@ -1,7 +1,6 @@
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import { MagicItemDetailPane } from "@/lib/components/magicItems/MagicItemDetailPane";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 interface Props {
   item: any;
@@ -10,8 +9,6 @@ interface Props {
 }
 
 export function MagicItemInfoModal({ item, open, onOpenChange }: Props) {
-  useModalBackButton(open, () => onOpenChange(false));
-
   if (!item) return null;
 
   return (

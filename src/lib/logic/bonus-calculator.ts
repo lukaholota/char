@@ -4,6 +4,7 @@
  */
 
 import { Ability, Skills, SkillProficiencyType, ArmorType, WeaponProperty } from "@prisma/client";
+import type { Feature } from "@prisma/client";
 import { PersWithRelations, PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { getAbilityMod, getProficiencyBonus, skillAbilityMap } from "./utils";
 import { StatBonuses, SkillBonuses, SimpleBonusValue } from "@/lib/types/model-types";
@@ -130,6 +131,86 @@ function getMagicItemRangedDamageBonus(pers: PersWithRelations): number {
 }
 
 // ============================================================================
+// Feature Helpers
+// ============================================================================
+
+function collectActiveFeatures(pers: PersWithRelations): Feature[] {
+  const byId = new Map<number, Feature>();
+  const add = (feature?: Feature | null) => {
+    if (!feature) return;
+    byId.set(feature.featureId, feature);
+  };
+
+  // Pers-added features (explicit)
+  for (const pf of pers.features ?? []) {
+    add((pf as any).feature);
+  }
+
+  // Race / subrace / variant traits
+  for (const t of pers.race?.traits ?? []) add((t as any).feature);
+  for (const t of pers.subrace?.traits ?? []) add((t as any).feature);
+  for (const rv of pers.raceVariants ?? []) {
+    for (const t of rv.traits ?? []) add((t as any).feature);
+  }
+
+  // Race choice options (traits)
+  for (const opt of pers.raceChoiceOptions ?? []) {
+    for (const t of (opt as any).traits ?? []) add((t as any).feature);
+  }
+
+  // Base class / subclass features (level-gated)
+  for (const cf of pers.class?.features ?? []) {
+    if ((cf as any).levelGranted <= pers.level) add((cf as any).feature);
+  }
+  for (const sf of pers.subclass?.features ?? []) {
+    if ((sf as any).levelGranted <= pers.level) add((sf as any).feature);
+  }
+
+  // Multiclass features (level-gated by classLevel)
+  for (const mc of pers.multiclasses ?? []) {
+    const classLevel = (mc as any).classLevel ?? 0;
+    for (const cf of (mc as any).class?.features ?? []) {
+      if ((cf as any).levelGranted <= classLevel) add((cf as any).feature);
+    }
+    for (const sf of (mc as any).subclass?.features ?? []) {
+      if ((sf as any).levelGranted <= classLevel) add((sf as any).feature);
+    }
+  }
+
+  // Choice options can grant features (e.g. Fighting Style: Defense)
+  for (const opt of pers.choiceOptions ?? []) {
+    for (const ofeat of (opt as any).features ?? []) add((ofeat as any).feature);
+  }
+
+  // Class optional features chosen for the character
+  for (const cof of (pers as any).classOptionalFeatures ?? []) add((cof as any).feature);
+
+  // Feats can grant features
+  for (const pf of pers.feats ?? []) {
+    for (const f of (pf as any).feat?.grantsFeature ?? []) add(f as Feature);
+  }
+
+  return [...byId.values()];
+}
+
+function getFeatureACBonus(pers: PersWithRelations, hasArmor: boolean, hasShield: boolean): number {
+  const features = collectActiveFeatures(pers);
+  let bonus = 0;
+
+  for (const feature of features) {
+    const gives = feature.givesAC;
+    if (typeof gives !== "number" || !Number.isFinite(gives) || gives === 0) continue;
+
+    if (feature.requiresArmorForACBonus && !hasArmor) continue;
+    if (feature.noArmorOrShieldForACBonus && (hasArmor || hasShield)) continue;
+
+    bonus += gives;
+  }
+
+  return bonus;
+}
+
+// ============================================================================
 // Final Value Calculators
 // ============================================================================
 
@@ -162,11 +243,11 @@ export function calculateFinalModifier(pers: PersWithRelations, ability: Ability
 export function calculateFinalSave(
   pers: PersWithRelations,
   ability: Ability,
-  classSavingThrows: Ability[] // Renamed parameter to avoid conflict with local variable
+  _classSavingThrows?: Ability[] // kept for backward compatibility; not used
 ): number {
   const mod = calculateFinalModifier(pers, ability);
   const additionalSaves = (pers as any).additionalSaveProficiencies as Ability[] ?? [];
-  const isProficient = classSavingThrows.includes(ability) || additionalSaves.includes(ability);
+  const isProficient = additionalSaves.includes(ability);
   const pb = isProficient ? calculateFinalProficiency(pers) : 0;
   const saveBonus = getSaveBonus(pers, ability);
   
@@ -249,6 +330,9 @@ export function calculateFinalAC(pers: PersWithRelations): number {
   
   // 3. Add custom AC bonuses from simple bonus system
   baseAC += getSimpleBonus(pers, "ac");
+
+  // 3.5 Add AC bonuses granted by active features (e.g., Defense)
+  baseAC += getFeatureACBonus(pers, hasArmor, hasShield);
 
   // 4. Add Magic Items AC bonus
   baseAC += getMagicItemACBonus(pers, hasArmor, hasShield);

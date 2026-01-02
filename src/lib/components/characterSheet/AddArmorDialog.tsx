@@ -12,7 +12,6 @@ import {
 import { armorTranslations, armorTypeTranslations } from "@/lib/refs/translation";
 import { Armor, ArmorType } from "@prisma/client";
 import { toast } from "sonner";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 interface AddArmorDialogProps {
   persId: number;
@@ -26,8 +25,6 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
   const [typeFilter, setTypeFilter] = useState<ArmorType | "ALL">("ALL");
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
-
-  useModalBackButton(open, () => setOpen(false));
 
   useEffect(() => {
     if (open) {

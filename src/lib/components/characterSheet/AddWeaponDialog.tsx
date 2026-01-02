@@ -12,7 +12,6 @@ import {
 import { weaponTranslations, damageTypeTranslations } from "@/lib/refs/translation";
 import { Weapon, Ability } from "@prisma/client";
 import { toast } from "sonner";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 interface AddWeaponDialogProps {
   persId: number;
@@ -27,8 +26,6 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
   const [rangedFilter, setRangedFilter] = useState<boolean | null>(null);
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
-
-  useModalBackButton(open, () => setOpen(false));
 
   useEffect(() => {
     if (open) {

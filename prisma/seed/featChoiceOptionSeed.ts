@@ -200,6 +200,21 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
   // ========================================================================
   const martialAdept = await findFeat(Feats.MARTIAL_ADEPT);
   if (martialAdept) {
+    // Cleanup legacy/incorrect links that created duplicate maneuver groups in UI.
+    // We only want to reuse canonical Battle Master maneuvers ("...(Maneuver)")
+    // from the shared group.
+    await prisma.featChoiceOption.deleteMany({
+      where: {
+        featId: martialAdept.featId,
+        choiceOption: {
+          OR: [
+            { groupName: { not: CHOICE_GROUPS.BATTLE_MASTER_MANEUVERS } },
+            { optionNameEng: { not: { contains: "(Maneuver)" } } },
+          ],
+        },
+      },
+    });
+
     const maneuverOptions = await prisma.choiceOption.findMany({
       where: {
         groupName: CHOICE_GROUPS.BATTLE_MASTER_MANEUVERS,
@@ -216,6 +231,27 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
         await linkFeatChoice(martialAdept.featId, opt.choiceOptionId);
       }
       console.log(`✅ Martial Adept: Linked ${maneuverOptions.length} maneuvers`);
+    }
+  }
+
+  // ========================================================================
+  // ELDRITCH ADEPT (Потойбічний адепт)
+  // Choose one Warlock invocation (from existing choice options)
+  // ========================================================================
+  const eldritchAdept = await findFeat(Feats.ELDRITCH_ADEPT);
+  if (eldritchAdept) {
+    const invocationGroupName = "Потойбічні виклики";
+    const invocationOptions = await prisma.choiceOption.findMany({
+      where: { groupName: invocationGroupName },
+    });
+
+    if (invocationOptions.length === 0) {
+      console.warn("⚠️ Eldritch Adept: No invocations found! Run choiceOptionSeed/classChoiceOptionSeed first.");
+    } else {
+      for (const opt of invocationOptions) {
+        await linkFeatChoice(eldritchAdept.featId, opt.choiceOptionId);
+      }
+      console.log(`✅ Eldritch Adept: Linked ${invocationOptions.length} invocations`);
     }
   }
 

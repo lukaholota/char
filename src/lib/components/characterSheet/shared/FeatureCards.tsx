@@ -74,7 +74,12 @@ function getFeatureSourceLabel(source: FeatureSource): string {
 function translateFeatName(value: string): string {
   const raw = String(value ?? "").trim();
   if (!raw) return raw;
-  return featTranslations[raw] ?? featTranslations[raw.toUpperCase()] ?? raw;
+  const normalized = raw
+    .replace(/[^A-Za-z0-9]+/g, "_")
+    .replace(/_+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .toUpperCase();
+  return featTranslations[raw] ?? featTranslations[raw.toUpperCase()] ?? featTranslations[normalized] ?? raw;
 }
 
 // Check if source is class-related for styling

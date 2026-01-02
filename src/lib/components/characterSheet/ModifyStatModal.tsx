@@ -70,6 +70,7 @@ export default function ModifyStatModal({
   const [localSkillBonus, setLocalSkillBonus] = useState(0);
   const [localSimpleBonus, setLocalSimpleBonus] = useState(0);
   const [localProficiency, setLocalProficiency] = useState<SkillProficiencyType>("NONE");
+  // Custom save proficiency (stored in Pers.additionalSaveProficiencies)
   const [localSaveProficiency, setLocalSaveProficiency] = useState(false);
   
   // Initialize local state when modal opens
@@ -93,9 +94,10 @@ export default function ModifyStatModal({
       const baseStat = baseStatMap[config.ability];
       setBaseStatInput(String(baseStat));
       
-      const savingThrows = pers.class.savingThrows ?? [];
       const additionalSaves = (pers as any).additionalSaveProficiencies as Ability[] ?? [];
-      setLocalSaveProficiency(savingThrows.includes(config.ability) || additionalSaves.includes(config.ability));
+      // The toggle controls only custom proficiency; base (class) proficiency can't be disabled here.
+      // If the character is already proficient from class, we still show proficiency in preview via class saves.
+      setLocalSaveProficiency(additionalSaves.includes(config.ability));
     } else if (config.type === "skill") {
       setLocalSkillBonus(getSkillBonus(pers, config.skill));
       const persSkill = pers.skills.find((ps) => ps.name === config.skill);
@@ -162,7 +164,7 @@ export default function ModifyStatModal({
       const baseMod = getAbilityMod(finalStat);
       const finalMod = baseMod + localModifierBonus;
       
-      // Predict preview based on local toggle if editing stat
+      // Proficiency is controlled solely via Pers.additionalSaveProficiencies
       const effectiveIsProficient = localSaveProficiency;
       
       const pb = calculateFinalProficiency(pers);
@@ -226,6 +228,7 @@ export default function ModifyStatModal({
     }
   }, [config, pers, localStatBonus, localModifierBonus, localSaveBonus, localSkillBonus, localSimpleBonus, localProficiency, localSaveProficiency, statBase, baseStatInput]);
 
+
   // Apply optimistic update and save
   const handleSave = async () => {
     if (!config || isSubmitting) return;
@@ -265,23 +268,35 @@ export default function ModifyStatModal({
         } as unknown as PersWithRelations;
         
         onPersUpdate(nextPers);
-        
-        // Save to server
-        const results = await Promise.all([
+
+        // Close immediately; persist in background.
+        onOpenChange(false);
+
+        void Promise.all([
           updateBaseStat(pers.persId, ability, effectiveBase),
           updateBonus(pers.persId, "stat", ability, localStatBonus),
           updateBonus(pers.persId, "statModifier", ability, localModifierBonus),
           updateBonus(pers.persId, "save", ability, localSaveBonus),
           updateSaveProficiency(pers.persId, ability, localSaveProficiency),
-        ]);
-        
-        const failed = results.find((r) => !r.success);
-        if (failed) {
-          console.error(failed);
-          onPersUpdate(prevPers);
-          toast.error("Помилка при збереженні");
-          return;
-        }
+        ])
+          .then((results) => {
+            const failed = results.find((r) => !r.success);
+            if (failed) {
+              console.error(failed);
+              onPersUpdate(prevPers);
+              toast.error("Помилка при збереженні");
+              router.refresh();
+              return;
+            }
+            router.refresh();
+          })
+          .catch((err) => {
+            console.error(err);
+            onPersUpdate(prevPers);
+            toast.error("Помилка при збереженні");
+            router.refresh();
+          });
+        return;
         
       } else if (config.type === "skill") {
         // Store previous state for skill proficiency rollback
@@ -303,18 +318,29 @@ export default function ModifyStatModal({
         // If skill doesn't exist in the list, we'd need to add it, but currently assuming it exists or handled by server
         
         onPersUpdate(nextPers);
-        
-        const results = await Promise.all([
+
+        onOpenChange(false);
+        void Promise.all([
           updateBonus(pers.persId, "skill", skill, localSkillBonus),
           updateSkillProficiency(pers.persId, skill, localProficiency),
-        ]);
-        
-        const failed = results.find((r) => !r.success);
-        if (failed && !failed.success) {
-          onPersUpdate(prevPers);
-          toast.error(failed.error);
-          return;
-        }
+        ])
+          .then((results) => {
+            const failed = results.find((r) => !r.success) as any;
+            if (failed && !failed.success) {
+              onPersUpdate(prevPers);
+              toast.error(failed.error);
+              router.refresh();
+              return;
+            }
+            router.refresh();
+          })
+          .catch((err) => {
+            console.error(err);
+            onPersUpdate(prevPers);
+            toast.error("Помилка при збереженні");
+            router.refresh();
+          });
+        return;
         
       } else {
         // Simple bonus
@@ -335,19 +361,26 @@ export default function ModifyStatModal({
         } as PersWithRelations;
         
         onPersUpdate(nextPers);
-        
-        const res = await updateBonus(pers.persId, config.field, null, localSimpleBonus);
-        if (!res.success) {
-          onPersUpdate(prevPers);
-          toast.error(res.error);
-          return;
-        }
+
+        onOpenChange(false);
+        void updateBonus(pers.persId, config.field, null, localSimpleBonus)
+          .then((res) => {
+            if (!res.success) {
+              onPersUpdate(prevPers);
+              toast.error(res.error);
+              router.refresh();
+              return;
+            }
+            router.refresh();
+          })
+          .catch((err) => {
+            console.error(err);
+            onPersUpdate(prevPers);
+            toast.error("Помилка при збереженні");
+            router.refresh();
+          });
+        return;
       }
-      
-      onOpenChange(false);
-      // Background refresh
-      router.refresh();
-      
     } finally {
       setIsSubmitting(false);
     }

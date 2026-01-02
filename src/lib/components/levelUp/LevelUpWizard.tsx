@@ -21,6 +21,7 @@ import LevelUpInfusionsStep from "@/lib/components/levelUp/LevelUpInfusionsStep"
 import clsx from "clsx";
 import { classTranslations, subclassTranslations, classTranslationsEng, attributesUkrShort } from "@/lib/refs/translation";
 import { Ability, FeatureDisplayType, SpellcastingType } from "@prisma/client";
+import { Races } from "@prisma/client";
 import { ClassI, SubclassI } from "@/lib/types/model-types";
 import { ControlledInfoDialog, InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -98,6 +99,28 @@ export default function LevelUpWizard({ info }: Props) {
         const extras = (pers.multiclasses || []).reduce((acc: number, m: any) => acc + (m.classLevel || 0), 0);
         const computed = pers.level - extras;
         return computed > 0 ? computed : 1;
+    }, [pers]);
+
+    const featPrereqStats = useMemo(() => {
+        if (!pers) return undefined;
+        return {
+            STR: pers.str,
+            DEX: pers.dex,
+            CON: pers.con,
+            INT: pers.int,
+            WIS: pers.wis,
+            CHA: pers.cha,
+        } as Record<Ability, number>;
+    }, [pers]);
+
+    const hasSpellcasting = useMemo(() => {
+        if (!pers) return false;
+        const main = (pers as any)?.class?.spellcastingType as SpellcastingType | undefined;
+        if (main && main !== SpellcastingType.NONE) return true;
+        const multi = ((pers as any)?.multiclasses || [])
+            .map((m: any) => m?.class?.spellcastingType as SpellcastingType | undefined)
+            .filter(Boolean);
+        return multi.some((t: any) => t && t !== SpellcastingType.NONE);
     }, [pers]);
 
     const selectedClassId = useMemo(() => {
@@ -449,7 +472,20 @@ export default function LevelUpWizard({ info }: Props) {
                     />
                 );
             case "asi":
-                return <LevelUpASIForm feats={feats as any} race={pers.race as any} formId="asi-form" onNextDisabledChange={onNextDisabledChange} />;
+                return (
+                    <LevelUpASIForm
+                        feats={feats as any}
+                        race={pers.race as any}
+                        subrace={(pers as any).subrace ?? null}
+                        formId="asi-form"
+                        onNextDisabledChange={onNextDisabledChange}
+                        levelAfter={nextLevel}
+                        baseStats={featPrereqStats}
+                        hasSpellcasting={hasSpellcasting}
+                        raceName={((pers as any)?.race?.name as Races | undefined) ?? undefined}
+                        pers={pers as any}
+                    />
+                );
             case "infusions": {
                 const known = (pers as any)?.persInfusions?.map((pi: any) => Number(pi?.infusionId)).filter((v: any) => Number.isFinite(v)) ?? [];
                 return (
@@ -504,7 +540,14 @@ export default function LevelUpWizard({ info }: Props) {
         }
     };
 
-    const currentStepId = steps[currentStep]?.id;
+    const safeCurrentStep = steps.length > 0 ? Math.min(currentStep, steps.length - 1) : 0;
+    const currentStepId = steps[safeCurrentStep]?.id;
+
+    useEffect(() => {
+        if (currentStep !== safeCurrentStep) {
+            setCurrentStep(safeCurrentStep);
+        }
+    }, [currentStep, safeCurrentStep]);
 
     useEffect(() => {
         if (lastStepIdRef.current !== currentStepId) {
@@ -515,8 +558,8 @@ export default function LevelUpWizard({ info }: Props) {
     }, [currentStep, currentStepId, steps]);
 
     const handleNext = async () => {
-        if (currentStep < steps.length - 1) {
-            setCurrentStep(prev => prev + 1);
+        if (safeCurrentStep < steps.length - 1) {
+            setCurrentStep(safeCurrentStep + 1);
         } else {
             if (isSubmitting || !pers) return;
             setIsSubmitting(true);
@@ -526,6 +569,8 @@ export default function LevelUpWizard({ info }: Props) {
                     toast.error(res.error || "Помилка при збереженні");
                 } else {
                     toast.success("Рівень підвищено!");
+                    resetForm();
+                    usePersFormStore.persist.clearStorage();
                     router.push(`/char/${pers.persId}`);
                 }
             } catch (err) {
@@ -538,12 +583,12 @@ export default function LevelUpWizard({ info }: Props) {
     };
 
     const handlePrev = () => {
-        if (currentStep > 0) {
-            setCurrentStep(prev => prev - 1);
+        if (safeCurrentStep > 0) {
+            setCurrentStep(safeCurrentStep - 1);
         }
     };
 
-  const CurrentComponent = renderStepContent(steps[currentStep].id);
+  const CurrentComponent = currentStepId ? renderStepContent(currentStepId) : null;
 
   return (
     <div className="container mx-auto py-8 px-4 max-w-6xl">
@@ -571,14 +616,14 @@ export default function LevelUpWizard({ info }: Props) {
                 <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
                   <span className="font-medium text-slate-200">Ваш прогрес</span>
                   <span>
-                    {currentStep + 1}/{steps.length}
+                                        {safeCurrentStep + 1}/{steps.length}
                   </span>
                 </div>
 
                 <div className="mt-3 space-y-2">
                   {steps.map((s, i) => {
-                    const isActive = i === currentStep;
-                    const isDone = i < currentStep;
+                    const isActive = i === safeCurrentStep;
+                    const isDone = i < safeCurrentStep;
                     return (
                       <button
                         key={s.id}
@@ -591,9 +636,9 @@ export default function LevelUpWizard({ info }: Props) {
                           isDone && "hover:bg-white/7"
                         )}
                         onClick={() => {
-                          if (i <= currentStep) setCurrentStep(i);
+                                                    if (i <= safeCurrentStep) setCurrentStep(i);
                         }}
-                        disabled={i > currentStep}
+                                                disabled={i > safeCurrentStep}
                       >
                         <span className="truncate pr-2 text-xs sm:text-sm">{s.title}</span>
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[11px] text-slate-200">
@@ -612,9 +657,9 @@ export default function LevelUpWizard({ info }: Props) {
           <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
             <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
               <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
-                Крок {currentStep + 1} / {steps.length}
+                                Крок {safeCurrentStep + 1} / {steps.length}
               </Badge>
-              <span className="hidden sm:inline">{steps[currentStep]?.title}</span>
+                            <span className="hidden sm:inline">{steps[safeCurrentStep]?.title}</span>
             </div>
 
             <div className="flex items-center gap-2">

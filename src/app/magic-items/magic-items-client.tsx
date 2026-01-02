@@ -296,8 +296,6 @@ export function MagicItemsClient({
   });
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
 
-  useModalBackButton(filtersOpen, () => setFiltersOpen(false));
-  
   const [printIds, setPrintIds] = useState<number[]>([]);
 
   const initialQ = useMemo(() => {

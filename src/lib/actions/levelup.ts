@@ -84,6 +84,31 @@ const getAllInfusionsCached = unstable_cache(
           select: {
             name: true,
             description: true,
+            shortDescription: true,
+          },
+        },
+        replicatedMagicItem: {
+          select: {
+            magicItemId: true,
+            name: true,
+            engName: true,
+            itemType: true,
+            rarity: true,
+            requiresAttunement: true,
+            description: true,
+            shortDescription: true,
+            bonusToAC: true,
+            bonusToRangedDamage: true,
+            bonusToSavingThrows: true,
+            noArmorOrShieldForACBonus: true,
+            givesSpells: {
+              select: {
+                spellId: true,
+                name: true,
+                engName: true,
+                level: true,
+              },
+            },
           },
         },
       },

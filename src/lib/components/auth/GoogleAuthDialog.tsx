@@ -5,7 +5,6 @@ import { signIn, useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import {
   Dialog,
   DialogContent,
@@ -39,8 +38,6 @@ const GoogleAuthDialog = ({
   const shouldRenderTrigger = typeof open === "undefined";
   const effectiveOpen = typeof open === "boolean" ? open : internalOpen;
   const handleOpenChange = onOpenChange ?? setInternalOpen;
-
-  useModalBackButton(effectiveOpen, () => handleOpenChange(false));
 
   const getCurrentUrl = () => {
     if (typeof window === "undefined") return pathname || "/";

@@ -1,4 +1,13 @@
 import { Ability, Races, Subraces } from "@prisma/client";
+import { raceTranslations, subraceTranslations } from "@/lib/refs/translation";
+
+const translateRace = (race: Races) => {
+  return (raceTranslations as Record<string, string>)[race] || String(race);
+};
+
+const translateSubrace = (subrace: Subraces) => {
+  return (subraceTranslations as Record<string, string>)[subrace] || String(subrace);
+};
 
 export interface PrerequisiteResult {
   met: boolean;
@@ -67,7 +76,16 @@ export function checkPrerequisite(
   // 5. Race Restriction
   if (prereq.raceRestriction && prereq.raceRestriction.length > 0) {
     if (!charData.race || !prereq.raceRestriction.includes(charData.race)) {
-      failedReasons.push('Ваша раса не відповідає вимогам');
+      const required = (prereq.raceRestriction as Races[])
+        .map((r) => translateRace(r))
+        .filter(Boolean);
+      if (required.length === 1) {
+        failedReasons.push(`Ваша раса не відповідає вимогам - має бути: ${required[0]}`);
+      } else if (required.length > 1) {
+        failedReasons.push(`Ваша раса не відповідає вимогам - має бути одна з: ${required.join(", ")}`);
+      } else {
+        failedReasons.push('Ваша раса не відповідає вимогам');
+      }
     }
   }
 
@@ -134,7 +152,28 @@ export function checkFeatPrerequisites(
   // Race
   if (feat.raceRestriction && feat.raceRestriction.length > 0) {
     if (!charData.race || !feat.raceRestriction.includes(charData.race)) {
+      const required = feat.raceRestriction.map((r) => translateRace(r)).filter(Boolean);
+      if (required.length === 1) {
+        return { met: false, reason: `Ваша раса не відповідає вимогам - має бути: ${required[0]}` };
+      }
+      if (required.length > 1) {
+        return { met: false, reason: `Ваша раса не відповідає вимогам - має бути одна з: ${required.join(", ")}` };
+      }
       return { met: false, reason: 'Ваша раса не відповідає вимогам' };
+    }
+  }
+
+  // Subrace
+  if (feat.subraceRestriction && feat.subraceRestriction.length > 0) {
+    if (!charData.subrace || !feat.subraceRestriction.includes(charData.subrace)) {
+      const required = feat.subraceRestriction.map((s) => translateSubrace(s)).filter(Boolean);
+      if (required.length === 1) {
+        return { met: false, reason: `Ваша підраса не відповідає вимогам - має бути: ${required[0]}` };
+      }
+      if (required.length > 1) {
+        return { met: false, reason: `Ваша підраса не відповідає вимогам - має бути одна з: ${required.join(", ")}` };
+      }
+      return { met: false, reason: 'Ваша підраса не відповідає вимогам' };
     }
   }
 

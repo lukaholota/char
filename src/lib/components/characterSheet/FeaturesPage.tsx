@@ -8,7 +8,6 @@ import { InfoDialog, InfoGrid, InfoPill, InfoSectionTitle } from "@/lib/componen
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { FeatureDisplayType, RestType } from "@prisma/client";
 import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";
 import { toast } from "sonner";
@@ -49,8 +48,6 @@ interface FeatureItem {
 export default function FeaturesPage({ pers }: { pers: PersWithRelations }) {
   const [selectedFeature, setSelectedFeature] = useState<{ name: string; description: string } | null>(null);
   const [isPending, startTransition] = useTransition();
-
-  useModalBackButton(!!selectedFeature, () => setSelectedFeature(null));
   
   const raceName = raceTranslations[pers.race.name as keyof typeof raceTranslations] || pers.race.name;
   const className = classTranslations[pers.class.name as keyof typeof classTranslations] || pers.class.name;

@@ -73,6 +73,22 @@ export const MultiStepForm = (
 
   useEffect(() => {
     if (!isHydrated) return;
+
+    // If the persisted store contains keys that only exist in Level Up flow,
+    // wipe it to avoid leaking invocations/choices into character creation.
+    const fd: any = formData as any;
+    const hasLevelUpOnlyKeys =
+      fd &&
+      (fd.levelUpPath !== undefined ||
+        fd.infusionSelections !== undefined ||
+        fd.levelUpHpIncrease !== undefined ||
+        fd.classOptionalFeatureReplacementSelections !== undefined);
+    if (hasLevelUpOnlyKeys) {
+      resetForm();
+      usePersFormStore.persist.clearStorage();
+      return;
+    }
+
     setInitialDataForStep(JSON.stringify(formData));
     // When moving forward, update the highest reached step
     if (currentStep - 1 > highestStepCompleted) {
@@ -128,6 +144,8 @@ export const MultiStepForm = (
       } else if (result.success) {
         toast.success("Персонажа створено!");
         resetForm();
+        // Clear persisted draft so future creations start clean
+        usePersFormStore.persist.clearStorage();
         router.push(`/char/${result.persId}`);
       }
     } catch (e) {
@@ -139,6 +157,10 @@ export const MultiStepForm = (
   }
 
   const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
+  const subrace = useMemo(
+    () => (race?.subraces || []).find((sr) => sr.subraceId === formData.subraceId),
+    [race, formData.subraceId]
+  );
   const cls = useMemo(() => classes.find(c => c.classId === formData.classId) as ClassI, [classes, formData.classId])
   const subclass = useMemo(
     () => (cls?.subclasses || []).find((sc) => sc.subclassId === formData.subclassId),
@@ -359,6 +381,9 @@ export const MultiStepForm = (
         return (
           <FeatsForm
             feats={feats}
+            race={race}
+            subrace={subrace}
+            raceVariant={raceVariant}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
           />

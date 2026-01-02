@@ -67,8 +67,9 @@ const sanitizeSchema = {
   },
 } as const;
 
-function preserveSingleLineBreaks(markdown: string): string {
-  const normalized = markdown.replace(/\r\n/g, "\n");
+function preserveSingleLineBreaks(markdown?: string | null): string {
+  const safe = typeof markdown === "string" ? markdown : "";
+  const normalized = safe.replace(/\r\n/g, "\n");
   if (!normalized.includes("\n")) return normalized;
 
   // Preserve formatting inside fenced code blocks.
@@ -86,7 +87,7 @@ export function FormattedDescription({
   content,
   className,
 }: {
-  content: string;
+  content?: string | null;
   className?: string;
 }) {
   const dispatchLocationChangeAsync = () => {

@@ -25,6 +25,7 @@ async function assertOwnsPers(persId: number) {
     select: {
       persId: true,
       userId: true,
+      additionalSaveProficiencies: true,
       statBonuses: true,
       statModifierBonuses: true,
       saveBonuses: true,

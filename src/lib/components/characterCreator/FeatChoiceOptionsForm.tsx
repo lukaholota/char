@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useCallback } from "react";
+import { useEffect, useMemo, useRef, useCallback, useState } from "react";
 import { useStepForm } from "@/hooks/useStepForm";
 import { featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { FeatPrisma, PersI } from "@/lib/types/model-types";
@@ -13,6 +13,11 @@ import { SkillsEnum } from "@/lib/types/enums";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import clsx from "clsx";
 import { getEffectiveSkills } from "@/lib/logic/characterUtils";
+import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
+import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
 
 interface Props {
   selectedFeat?: FeatPrisma | null;
@@ -27,6 +32,8 @@ type Group = {
   pickCount: number;
   isSkill: boolean;
   isExpertise: boolean;
+  isManeuver: boolean;
+  isInvocation: boolean;
 };
 
 const SIMPLE_ABILITY_KEYS = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
@@ -133,6 +140,10 @@ const localizeGroupName = (groupName: string, featKey?: string | null): string =
 
 const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
+
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [infoTitle, setInfoTitle] = useState<string>("");
+  const [infoFeatures, setInfoFeatures] = useState<Array<{ name: string; description: string; shortDescription?: string | null }>>([]);
   
   const { form, onSubmit: baseOnSubmit } = useStepForm(featChoiceOptionsSchema, (data) => {
     updateFormData({ featChoiceSelections: data.featChoiceSelections });
@@ -182,6 +193,95 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
   const optionsToUse = useMemo(() => selectedFeat?.featChoiceOptions || [], [selectedFeat]);
 
+  const existingChoiceOptionIds = useMemo(() => {
+    const ids = new Set<number>();
+
+    // From existing character (level-up / edit flows)
+    const persChoiceOptions = (pers as any)?.choiceOptions as any[] | undefined;
+    if (Array.isArray(persChoiceOptions)) {
+      for (const co of persChoiceOptions) {
+        const id = Number(co?.choiceOptionId);
+        if (Number.isFinite(id)) ids.add(id);
+      }
+    }
+
+    // From current form selections (class/subclass choices selected earlier in creation flow)
+    const addFromRecord = (rec: unknown) => {
+      if (!rec || typeof rec !== "object") return;
+      for (const v of Object.values(rec as Record<string, unknown>)) {
+        if (Array.isArray(v)) {
+          for (const x of v) {
+            const id = Number(x);
+            if (Number.isFinite(id)) ids.add(id);
+          }
+        } else {
+          const id = Number(v);
+          if (Number.isFinite(id)) ids.add(id);
+        }
+      }
+    };
+
+    addFromRecord((formData as any)?.classChoiceSelections);
+    addFromRecord((formData as any)?.subclassChoiceSelections);
+
+    return ids;
+  }, [formData, pers]);
+
+  const isManeuverOption = useCallback((optNameEng: string, groupName?: string) => {
+    if ((groupName || "").toLowerCase().includes("манев")) return true;
+    return /\(Maneuver\)\s*$/.test((optNameEng || "").trim());
+  }, []);
+
+  const isInvocationGroupName = useCallback((groupName: string) => {
+    const name = (groupName || "").trim();
+    return name === "Потойбічні виклики" || name.startsWith("Потойбічні виклики #");
+  }, []);
+
+  const stripMarkdownPreview = useCallback((value: string) => {
+    return value
+      .replace(/\r\n/g, "\n")
+      .replace(/<a\s+[^>]*>(.*?)<\/a>/gi, "$1")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+      .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/__([^_]+)__/g, "$1")
+      .replace(/\*([^*]+)\*/g, "$1")
+      .replace(/_([^_]+)_/g, "$1")
+      .replace(/^#{1,6}\s+/gm, "")
+      .replace(/^>\s?/gm, "")
+      .replace(/^\s*[-*+]\s+/gm, "")
+      .replace(/^\s*\d+\.\s+/gm, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }, []);
+
+  const previewTextFromChoiceOption = useCallback(
+    (features?: any[]) => {
+      const list = (features || []).map((x) => x?.feature).filter(Boolean) as any[];
+      const first = list.find((f) => (f.shortDescription || f.description) && String(f.shortDescription || f.description).trim());
+      if (!first) return "";
+      return stripMarkdownPreview(String(first.shortDescription || first.description));
+    },
+    [stripMarkdownPreview]
+  );
+
+  const openFeaturesInfo = useCallback((title: string, features?: any[]) => {
+    const normalized = (features || [])
+      .map((item: any) => item?.feature)
+      .filter(Boolean)
+      .map((feat: any) => ({
+        name: String(feat?.name ?? ""),
+        description: String(feat?.description ?? ""),
+        shortDescription: feat?.shortDescription ?? null,
+      }))
+      .filter((f: any) => f.name.trim() || f.description.trim() || (f.shortDescription ?? "").toString().trim());
+
+    setInfoTitle(title);
+    setInfoFeatures(normalized);
+    setInfoOpen(true);
+  }, []);
+
   const { groupedChoices, groupAliases } = useMemo(() => {
     const groups = new Map<string, NonNullable<FeatPrisma["featChoiceOptions"]>>();
 
@@ -193,6 +293,15 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
     for (const fco of optionsToUse) {
       let groupName = fco.choiceOption.groupName || "Опції";
+
+      // Martial Adept: hide legacy/incorrect maneuver options that caused duplicate groups.
+      // Canonical Battle Master maneuvers are the ones with "...(Maneuver)" suffix.
+      if (selectedFeat?.name === "MARTIAL_ADEPT") {
+        const isManeuverish = isManeuverOption(fco.choiceOption.optionNameEng, groupName);
+        if (isManeuverish && !/\(Maneuver\)\s*$/.test((fco.choiceOption.optionNameEng || "").trim())) {
+          continue;
+        }
+      }
 
       // Special handling for legacy/duplicate "Skilled" feat groups
       if (selectedFeat?.name === 'SKILLED' && isSkillOption(fco.choiceOption.optionNameEng)) {
@@ -230,12 +339,22 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
         pickCount = (selectedFeat as any).grantedSkillCount || 3;
       }
 
+      const isManeuver = options.every((opt) => isManeuverOption(opt.choiceOption.optionNameEng, groupName));
+      const isInvocation = isInvocationGroupName(groupName);
+
+      // Feat-specific pick count overrides.
+      if (selectedFeat?.name === "MARTIAL_ADEPT" && isManeuver) {
+        pickCount = 2;
+      }
+
       return {
         groupName,
         options,
         pickCount,
         isSkill,
         isExpertise: isExpertiseGroup(groupName),
+        isManeuver,
+        isInvocation,
       } as Group;
     });
 
@@ -302,7 +421,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       groupedChoices: deduped,
       groupAliases: aliases,
     };
-  }, [optionsToUse, selectedFeat]);
+  }, [optionsToUse, selectedFeat, isInvocationGroupName, isManeuverOption]);
 
    /**
    * Helper to retrieve all selected Option IDs for a given group.
@@ -466,6 +585,43 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     
     const currentSelected = getSelectedIdsForGroup(group.groupName);
     const isSelected = currentSelected.includes(opt.choiceOptionId);
+
+    // Prevent duplicates for maneuver/invocation-like groups.
+    if ((group.isManeuver || group.isInvocation) && !isSelected && existingChoiceOptionIds.has(opt.choiceOptionId)) {
+      return { disabled: true, reason: "Вже маєте" };
+    }
+
+    // Invocation prerequisites: disable if unmet.
+    if (group.isInvocation && !isSelected) {
+      // For Eldritch Adept specifically, prerequisites are special in 5e rules.
+      // We implement a safe baseline: if a prerequisite exists, require meeting it.
+      // (Warlock level/pact is unknown during character creation; in level-up flows `pers` can provide it.)
+      const warlockLevel = (() => {
+        const p = pers as any;
+        const mainIsWarlock = p?.class?.name === "WARLOCK_2014";
+        if (mainIsWarlock) return Number(p?.level) || 0;
+        const multi = (p?.multiclasses || []).find((m: any) => m?.class?.name === "WARLOCK_2014");
+        if (multi) return Number(multi?.classLevel) || 0;
+        return 0;
+      })();
+
+      const pact = (() => {
+        // Pact boon is stored as a ChoiceOption with optionNameEng starting with "Pact of"
+        const p = pers as any;
+        const co = (p?.choiceOptions || []).find((x: any) => typeof x?.optionNameEng === "string" && x.optionNameEng.startsWith("Pact of"));
+        return co?.optionNameEng ? String(co.optionNameEng) : undefined;
+      })();
+
+      const prereqResult = checkPrerequisite(opt.choiceOption.prerequisites, {
+        classLevel: warlockLevel,
+        pact,
+        existingChoiceOptionIds: Array.from(existingChoiceOptionIds),
+      });
+
+      if (!prereqResult.met) {
+        return { disabled: true, reason: prereqResult.reason || "Не виконані вимоги" };
+      }
+    }
     
     // If group is full and we are NOT selected -> disable
     if (!isSelected && currentSelected.length >= group.pickCount) {
@@ -539,6 +695,15 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
         {groupedChoices.map((group) => {
             const sortedOptions = group.options;
 
+            const hasFeatureDetails = sortedOptions.some((o) => {
+              const features = (o as any)?.choiceOption?.features;
+              if (!Array.isArray(features) || features.length === 0) return false;
+              const first = features.map((x: any) => x?.feature).find((f: any) => (f?.shortDescription || f?.description) && String(f.shortDescription || f.description).trim());
+              return Boolean(first);
+            });
+
+            const useDetailedCards = hasFeatureDetails && (group.isManeuver || group.isInvocation);
+
             return (
           <Card key={group.groupName} className="">
             <CardContent className="space-y-3 p-4">
@@ -558,72 +723,179 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                 </p>
               )}
 
-              <div className="grid gap-2 sm:grid-cols-2">
-                {sortedOptions.map((opt) => {
-                  const optionId = opt.choiceOptionId;
-                  const optionNameEng = opt.choiceOption.optionNameEng;
-                  const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
-                  const { disabled, reason } = getDisabledState(group, opt);
-                  
-                  let label = opt.choiceOption.optionName;
-                  if (group.isSkill || group.isExpertise) {
-                    const skillName = extractSkillFromOptionName(optionNameEng);
-                    const skillTranslation = translateValue(skillName);
-                    label = skillTranslation || label || skillName;
-                  } else {
-                    label = translateValue(label || optionNameEng);
-                  }
+              {useDetailedCards ? (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <InfoSectionTitle>{localizeGroupName(group.groupName, selectedFeat?.name)}</InfoSectionTitle>
+                    {group.pickCount > 1 ? (
+                      <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
+                        Обрано: {getSelectedIdsForGroup(group.groupName).length}/{group.pickCount}
+                      </Badge>
+                    ) : null}
+                  </div>
 
-                  return (
-                    <Card
-                      key={optionId}
-                      className={clsx(
-                        "glass-card cursor-pointer transition-all duration-200 group relative",
-                        isSelected
-                            ? "glass-active border-gradient-rpg"
-                            : disabled 
-                                ? "opacity-60 grayscale-[0.8]" 
-                                : "hover:bg-white/5",
-                        disabled && !isSelected && "cursor-not-allowed"
-                      )}
-                      onClick={() => {
-                        if (!disabled || (isSelected)) { // Allow clicking to deselect even if theoretically disabled
-                             toggleSelection(group.groupName, optionId, group.pickCount);
-                        }
-                      }}
-                    >
-                        <CardContent className="flex items-center justify-between p-3">
-                            <div className="flex flex-col gap-0.5 relative z-10 w-full">
-                                <span className={clsx(
-                                    "font-medium transition-colors",
-                                    isSelected ? "text-white" : "text-slate-200"
-                                )}>
+                  <div className="grid grid-cols-1 gap-3">
+                    {sortedOptions.map((opt) => {
+                      const optionId = opt.choiceOptionId;
+                      const optionNameEng = opt.choiceOption.optionNameEng;
+                      const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
+                      const { disabled, reason } = getDisabledState(group, opt);
+
+                      const label = opt.choiceOption.optionName || translateValue(optionNameEng);
+                      const preview = previewTextFromChoiceOption((opt as any)?.choiceOption?.features);
+
+                      return (
+                        <Card
+                          key={optionId}
+                          className={clsx(
+                            "glass-card cursor-pointer transition-all duration-200",
+                            isSelected ? "glass-active" : "",
+                            disabled && !isSelected && "opacity-60 grayscale-[0.8] cursor-not-allowed"
+                          )}
+                          onClick={(e) => {
+                            if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                            if (!disabled || isSelected) toggleSelection(group.groupName, optionId, group.pickCount);
+                          }}
+                        >
+                          <CardContent className="relative flex items-start justify-between gap-4 p-4">
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-start justify-between gap-3">
+                                <div className="min-w-0">
+                                  <div className="truncate text-lg font-semibold text-white">
                                     {label}
-                                </span>
-                                {(reason) && (
-                                    <span className={clsx(
-                                        "text-xs font-medium",
-                                        disabled ? "text-rose-400" : "text-slate-400"
-                                    )}>
-                                        {disabled ? `(${reason})` : reason}
-                                    </span>
-                                )}
-                            </div>
-
-                             {isSelected && (
-                                <div className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-400">
-                                    <Check className="h-5 w-5 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                                  </div>
+                                  {preview ? (
+                                    <div className="mt-1 line-clamp-2 text-sm text-slate-300">{preview}</div>
+                                  ) : null}
+                                  {reason ? (
+                                    <div className={clsx("mt-1 text-xs font-medium", disabled ? "text-rose-400" : "text-slate-400")}>
+                                      {disabled ? `(${reason})` : reason}
+                                    </div>
+                                  ) : null}
                                 </div>
-                            )}
+
+                                <div className="flex items-center gap-2">
+                                  {isSelected ? (
+                                    <div className="text-cyan-400">
+                                      <Check className="h-5 w-5 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                                    </div>
+                                  ) : null}
+
+                                  <Button
+                                    type="button"
+                                    size="icon"
+                                    variant="ghost"
+                                    className="h-8 w-8 text-slate-300 hover:text-white"
+                                    data-stop-card-click
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      openFeaturesInfo(label, (opt as any)?.choiceOption?.features);
+                                    }}
+                                    aria-label={`Деталі: ${label}`}
+                                  >
+                                    <HelpCircle className="h-5 w-5" />
+                                  </Button>
+                                </div>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : (
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {sortedOptions.map((opt) => {
+                    const optionId = opt.choiceOptionId;
+                    const optionNameEng = opt.choiceOption.optionNameEng;
+                    const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
+                    const { disabled, reason } = getDisabledState(group, opt);
+
+                    let label = opt.choiceOption.optionName;
+                    if (group.isSkill || group.isExpertise) {
+                      const skillName = extractSkillFromOptionName(optionNameEng);
+                      const skillTranslation = translateValue(skillName);
+                      label = skillTranslation || label || skillName;
+                    } else {
+                      label = translateValue(label || optionNameEng);
+                    }
+
+                    return (
+                      <Card
+                        key={optionId}
+                        className={clsx(
+                          "glass-card cursor-pointer transition-all duration-200 group relative",
+                          isSelected
+                            ? "glass-active border-gradient-rpg"
+                            : disabled
+                              ? "opacity-60 grayscale-[0.8]"
+                              : "hover:bg-white/5",
+                          disabled && !isSelected && "cursor-not-allowed"
+                        )}
+                        onClick={() => {
+                          if (!disabled || isSelected) {
+                            toggleSelection(group.groupName, optionId, group.pickCount);
+                          }
+                        }}
+                      >
+                        <CardContent className="flex items-center justify-between p-3">
+                          <div className="flex flex-col gap-0.5 relative z-10 w-full">
+                            <span
+                              className={clsx(
+                                "font-medium transition-colors",
+                                isSelected ? "text-white" : "text-slate-200"
+                              )}
+                            >
+                              {label}
+                            </span>
+                            {reason ? (
+                              <span
+                                className={clsx(
+                                  "text-xs font-medium",
+                                  disabled ? "text-rose-400" : "text-slate-400"
+                                )}
+                              >
+                                {disabled ? `(${reason})` : reason}
+                              </span>
+                            ) : null}
+                          </div>
+
+                          {isSelected ? (
+                            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-400">
+                              <Check className="h-5 w-5 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                            </div>
+                          ) : null}
                         </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
+                      </Card>
+                    );
+                  })}
+                </div>
+              )}
             </CardContent>
           </Card>
         )})}
       </div>
+
+      <ControlledInfoDialog open={infoOpen} onOpenChange={setInfoOpen} title={infoTitle}>
+        <div className="space-y-4">
+          {infoFeatures.length === 0 ? (
+            <p className="text-sm text-slate-300">Немає деталей для показу.</p>
+          ) : (
+            infoFeatures.map((f) => (
+              <div key={f.name} className="glass-panel rounded-xl border border-slate-800/70 p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-sm font-semibold text-white">{f.name}</p>
+                </div>
+                {f.description ? (
+                  <FormattedDescription content={f.description} className="mt-2 text-slate-200/90" />
+                ) : null}
+              </div>
+            ))
+          )}
+        </div>
+      </ControlledInfoDialog>
     </form>
   );
 };
