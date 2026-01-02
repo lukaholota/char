@@ -1,6 +1,7 @@
 import { FeatureDisplayType, RestType } from "@prisma/client";
 
 import type { CharacterFeatureGroupKey, CharacterFeatureItem, CharacterFeaturesGroupedResult, FeatureSource } from "@/lib/actions/pers";
+import { translatePdfText } from "./translatePdfText";
 
 function normalizeDisplayTypes(input: unknown): FeatureDisplayType[] {
   if (Array.isArray(input)) {
@@ -89,11 +90,13 @@ export function groupCharacterFeaturesForPdf(pers: {
   }
 
   for (const co of pers.choiceOptions ?? []) {
-    const sourceName = co.groupName;
+    const groupName = translatePdfText(co.groupName);
+    const optionName = translatePdfText(co.optionName);
+    const sourceName = groupName;
     push({
       key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}`,
-      name: co.optionName,
-      description: `${co.groupName}: ${co.optionName}`,
+      name: optionName,
+      description: `${groupName}: ${optionName}`,
       displayTypes: [FeatureDisplayType.PASSIVE],
       source: "CHOICE" as FeatureSource,
       sourceName,
@@ -101,11 +104,13 @@ export function groupCharacterFeaturesForPdf(pers: {
   }
 
   for (const rco of pers.raceChoiceOptions ?? []) {
-    const sourceName = rco.choiceGroupName;
+    const groupName = translatePdfText(rco.choiceGroupName);
+    const optionName = translatePdfText(rco.optionName);
+    const sourceName = groupName;
     push({
       key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}`,
-      name: rco.optionName,
-      description: rco.description || `${rco.choiceGroupName}: ${rco.optionName}`,
+      name: optionName,
+      description: rco.description ? translatePdfText(rco.description) : `${groupName}: ${optionName}`,
       displayTypes: [FeatureDisplayType.PASSIVE],
       source: "RACE_CHOICE" as FeatureSource,
       sourceName,
@@ -130,10 +135,13 @@ export function groupCharacterFeaturesForPdf(pers: {
 
     for (const choice of pf.choices) {
       if (!choice.choiceOption) continue;
+
+      const groupName = translatePdfText(choice.choiceOption.groupName);
+      const optionName = translatePdfText(choice.choiceOption.optionName);
       push({
         key: `FEAT:${pf.featId}:choice:${choice.choiceOptionId}`,
-        name: choice.choiceOption.optionName,
-        description: `${choice.choiceOption.groupName}: ${choice.choiceOption.optionName}`,
+        name: optionName,
+        description: `${groupName}: ${optionName}`,
         displayTypes,
         source: "FEAT" as FeatureSource,
         sourceName: featName,

@@ -20,6 +20,7 @@ import { PDFDocument, PDFName, PDFString, type PDFFont, type PDFPage, type PDFFo
 import fontkit from "@pdf-lib/fontkit";
 
 import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations } from "@/lib/refs/translation";
+import { translatePdfText } from "./translatePdfText";
 
 import type { CharacterPdfData, PersSpellWithSpell, PrintConfig, PrintSection } from "./types";
 import { CHARACTER_SHEET_OVERLAY, type OverlayFieldKey, type OverlayText } from "./overlayLayout";
@@ -274,6 +275,10 @@ function buildFeaturesListText(data: CharacterPdfData): string {
     for (const item of group ?? []) {
       const name = String((item as any).name ?? "").trim();
       if (!name) continue;
+
+      const displayName = translatePdfText(name).trim();
+      if (!displayName) continue;
+
       const dedupKey = String((item as any).key ?? name).toLowerCase();
       if (seen.has(dedupKey)) continue;
       seen.add(dedupKey);
@@ -287,8 +292,8 @@ function buildFeaturesListText(data: CharacterPdfData): string {
       const ord = meta?.displayOrder ?? 0;
 
       // sortKey keeps ordering stable
-      const sortKey = `${String(baseOrder).padStart(2, "0")}:${String(lvl).padStart(2, "0")}:${String(ord).padStart(3, "0")}:${name.toLowerCase()}`;
-      items.push({ name, source, featureId, sortKey });
+      const sortKey = `${String(baseOrder).padStart(2, "0")}:${String(lvl).padStart(2, "0")}:${String(ord).padStart(3, "0")}:${displayName.toLowerCase()}`;
+      items.push({ name: displayName, source, featureId, sortKey });
     }
   }
 
@@ -302,7 +307,7 @@ function splitToBulletedLines(value: string): string {
 
   const parts = raw
     .split(/[\n,]+/g)
-    .map((p) => p.trim())
+    .map((p) => translatePdfText(p.trim()))
     .filter(Boolean);
 
   if (parts.length === 0) return "";

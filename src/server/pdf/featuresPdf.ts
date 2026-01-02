@@ -3,6 +3,7 @@ import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
+import remarkBreaks from "remark-breaks";
 
 import type { CharacterFeaturesGroupedResult, CharacterFeatureItem } from "@/lib/actions/pers";
 
@@ -17,7 +18,7 @@ interface FeatureSection {
 }
 
 async function markdownToHtml(markdown: string) {
-  const file = await remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).process(markdown);
+  const file = await remark().use(remarkGfm).use(remarkBreaks).use(remarkHtml, { sanitize: false }).process(markdown);
   return String(file);
 }
 
@@ -51,9 +52,25 @@ function groupFeaturesByType(features: CharacterFeaturesGroupedResult): FeatureS
 
 function formatUsageInfo(item: CharacterFeatureItem): string {
   if (typeof item.usesPer !== "number") return "";
-  const used = typeof item.usesRemaining === "number" ? `${item.usesRemaining}/${item.usesPer}` : `/${item.usesPer}`;
-  const restLabel = item.restType ? ` ${item.restType}` : "";
+
+  // If usesRemaining isn't tracked (null/undefined), assume it's full.
+  // This avoids odd labels like "/1" and keeps the output consistently "x/y".
+  const rawRemaining = typeof item.usesRemaining === "number" ? item.usesRemaining : item.usesPer;
+  const remaining = Number.isFinite(rawRemaining) ? Math.max(0, Math.min(item.usesPer, rawRemaining)) : item.usesPer;
+
+  const used = `${remaining}/${item.usesPer}`;
+  const restLabel = item.restType ? ` ${translateRestType(item.restType)}` : "";
   return `[${used}${restLabel}]`;
+}
+
+function translateRestType(restType: unknown): string {
+  const v = String(restType ?? "");
+
+  // Covers common enum/string variants.
+  if (v === "LONG_REST" || v.toLowerCase() === "long rest" || v.toLowerCase() === "long_rest") return "трив. відп.";
+  if (v === "SHORT_REST" || v.toLowerCase() === "short rest" || v.toLowerCase() === "short_rest") return "кор. відп.";
+
+  return v;
 }
 
 export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise<Uint8Array> {
