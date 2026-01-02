@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { PersWithRelations } from "@/lib/actions/pers";
+import { useEffect, useRef, useState, useTransition } from "react";
+import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
+import { duplicatePers, renamePers } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
 import { Button } from "@/components/ui/button";
 import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
@@ -23,7 +24,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { renamePers } from "@/lib/actions/pers";
+import { set } from "zod";
 
 interface CharacterSheetProps {
   pers: PersWithRelations;
@@ -33,11 +34,12 @@ interface CharacterSheetProps {
 
 export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
+  const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
+  const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
   const isReadOnly = isPublicView || pers.isSnapshot;
   const params = useParams();
   const router = useRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
-  const [isLevelUpPending, startLevelUpTransition] = useTransition();
   const [isRenamePending, startRenameTransition] = useTransition();
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
@@ -89,9 +91,12 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   };
 
   const handleLevelUp = () => {
-    startLevelUpTransition(() => {
-      router.push(`/char/${localPers.persId}/levelup`);
-    });
+    const levelUpLocation = `/char/${localPers.persId}/levelup`;
+    setIsLevelUpPending(true);
+    router.push(levelUpLocation);
+    setTimeout(() => {
+      setIsLevelUpPending(false);
+    }, 3000);
   };
 
   return (

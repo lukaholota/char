@@ -425,8 +425,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
 
 
         // ===== ELDRITCH INVOCATIONS =====
-
-// БЕЗ ПЕРЕДУМОВ
         {
             groupName: 'Потойбічні виклики',
             optionName: '+ХАР до шкоди кожного променя',
@@ -555,8 +553,6 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
                 create: [{ feature: { connect: { engName: 'Lance of Lethargy' } } }]
             },
         },
-
-// ПЕРЕДУМОВИ: 5+ РІВЕНЬ
         {
             groupName: 'Потойбічні виклики',
             optionName: 'Друга атака пактовою зброєю',
@@ -579,7 +575,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             groupName: 'Потойбічні виклики',
             optionName: '+1 до пактової зброї, можна лук',
             optionNameEng: 'Improved Pact Weapon',
-            prerequisites: { level: 5, pact: 'Pact of the Blade' },
+            prerequisites: { pact: 'Pact of the Blade' },
             features: {
                 create: [{ feature: { connect: { engName: 'Improved Pact Weapon' } } }]
             },
