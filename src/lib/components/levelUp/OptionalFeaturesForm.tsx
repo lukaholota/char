@@ -10,11 +10,12 @@ import { Button } from "@/components/ui/button";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { ClassI } from "@/lib/types/model-types";
+import { ClassI, SubclassI } from "@/lib/types/model-types";
 import ChoiceReplacementForm from "@/lib/components/levelUp/ChoiceReplacementForm";
 
 interface Props {
   selectedClass?: ClassI | null;
+  effectiveSubclass?: SubclassI | null;
   persChoiceOptions?: Array<any>;
   classLevel: number;
   formId: string;
@@ -26,6 +27,7 @@ const displayName = (cls?: ClassI | null) =>
 
 export default function OptionalFeaturesForm({
   selectedClass,
+  effectiveSubclass,
   persChoiceOptions,
   classLevel,
   formId,
@@ -171,7 +173,9 @@ export default function OptionalFeaturesForm({
                 : undefined;
 
           const currentChoices = (persChoiceOptions || []).filter((co: any) => String(co?.groupName || "") === groupName);
-          const availableOptions = Object.values((selectedClass as any)?.classChoiceOptions || {});
+          const availableClassOptions = Object.values((selectedClass as any)?.classChoiceOptions || {});
+          const availableSubclassOptions = Object.values((effectiveSubclass as any)?.subclassChoiceOptions || {});
+          const availableOptions = [...availableClassOptions, ...availableSubclassOptions];
 
           return (
             <Card

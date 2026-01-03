@@ -580,6 +580,7 @@ export default function LevelUpWizard({ info }: Props) {
                 return (
                     <OptionalFeaturesForm
                         selectedClass={selectedClass!}
+                        effectiveSubclass={effectiveSubclass}
                         persChoiceOptions={(pers as any)?.choiceOptions || []}
                         classLevel={classLevelAfter}
                         formId="optional-features"
