@@ -7,6 +7,11 @@ import remarkHtml from "remark-html";
 import remarkBreaks from "remark-breaks";
 
 import type { CharacterFeaturesGroupedResult, CharacterFeatureItem } from "@/lib/actions/pers";
+import { 
+  normalizeFeatureSource, 
+  getFeatureSourceLabel, 
+  getFeatureDisplayName 
+} from "@/lib/utils/features";
 
 export interface FeaturesPdfInput {
   characterName: string;
@@ -89,12 +94,18 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
         section.items.map(async (item) => {
           const descriptionHtml = await markdownToHtml(item.description || "");
           const usageInfo = formatUsageInfo(item);
-          const sourceNote = item.sourceName && item.sourceName !== item.name ? `(${escapeHtml(item.sourceName)})` : "";
+          
+          const normalizedSource = normalizeFeatureSource(item.source);
+          const displayName = getFeatureDisplayName(item.name, item.source);
+          
+          // Use shared source label logic
+          const sourceLabel = normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null;
+          const sourceNote = sourceLabel ? `(${sourceLabel})` : "";
 
           return `
           <article class="feature">
             <div class="header">
-              <h2 class="name">${escapeHtml(item.name)} ${sourceNote}</h2>
+              <h2 class="name">${escapeHtml(displayName)} ${escapeHtml(sourceNote)}</h2>
               ${usageInfo ? `<span class="usage">${escapeHtml(usageInfo)}</span>` : ""}
             </div>
             <div class="desc">${descriptionHtml}</div>

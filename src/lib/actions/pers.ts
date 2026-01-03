@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { FeatureDisplayType, RestType, MagicItem } from "@prisma/client";
 import { featTranslations } from "@/lib/refs/translation";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+import { FeatureSource } from "@/lib/utils/features";
 
 async function getCurrentUserId() {
     const session = await auth();
@@ -552,8 +553,6 @@ export async function getPersById(id: number) {
 export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersById>>>;
 export type PersWeaponWithWeapon = PersWithRelations['weapons'][number];
 export type PersArmorWithArmor = PersWithRelations['armors'][number];
-
-export type FeatureSource = "CLASS" | "SUBCLASS" | "RACE" | "SUBRACE" | "BACKGROUND" | "FEAT" | "PERS" | "CHOICE" | "RACE_CHOICE" | "INFUSION";
 
 export type CharacterFeatureGroupKey = "passive" | "actions" | "bonusActions" | "reactions";
 

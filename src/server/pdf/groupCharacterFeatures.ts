@@ -1,6 +1,7 @@
 import { FeatureDisplayType, RestType } from "@prisma/client";
 
-import type { CharacterFeatureGroupKey, CharacterFeatureItem, CharacterFeaturesGroupedResult, FeatureSource } from "@/lib/actions/pers";
+import type { CharacterFeatureGroupKey, CharacterFeatureItem, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
+import { FeatureSource } from "@/lib/utils/features";
 import { translatePdfText } from "./translatePdfText";
 
 function normalizeDisplayTypes(input: unknown): FeatureDisplayType[] {
