@@ -51,6 +51,18 @@ sudo systemctl daemon-reload
 sudo systemctl restart char
 ```
 
+Verify which environment variables systemd actually passes to the process:
+
+```bash
+sudo systemctl cat char
+systemctl show char -p Environment
+```
+
+Note on precedence: `EnvironmentFile=` and `Environment=` are applied in order. If your unit has `EnvironmentFile=/home/luka/char/.env` and `.env.local` AFTER your `Environment=...` lines, the files can override values. Either:
+
+- Put the `EnvironmentFile=` lines first, then the explicit `Environment=...` lines after, OR
+- Keep only `EnvironmentFile=` in the unit and move all `PUPPETEER_*` / `PDF_*` variables into the env file.
+
 If you prefer not to install a browser on the OS, omit `PUPPETEER_EXECUTABLE_PATH` and use:
 
 ```ini

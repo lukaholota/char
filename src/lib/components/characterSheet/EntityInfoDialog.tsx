@@ -41,7 +41,7 @@ export function EntityInfoDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[85vh] w-[95vw] max-w-2xl overflow-y-auto shadow-2xl ring-1 ring-white/20">
+          <DialogContent className="max-h-[90vh] w-[95vw] max-w-2xl overflow-y-auto shadow-2xl ring-1 ring-white/20">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">{title}</DialogTitle>
           <DialogDescription className="text-xs text-slate-300">

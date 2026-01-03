@@ -242,7 +242,7 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
   if (eldritchAdept) {
     const invocationGroupName = "Потойбічні виклики";
     const invocationOptions = await prisma.choiceOption.findMany({
-      where: { groupName: invocationGroupName },
+      where: { groupName: { startsWith: invocationGroupName } },
     });
 
     if (invocationOptions.length === 0) {

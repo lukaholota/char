@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Weapon } from "@prisma/client";
+import { SpellcastingType } from "@prisma/client";
 import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
 import {usePersFormStore} from "@/lib/stores/persFormStore";
@@ -166,6 +167,15 @@ export const MultiStepForm = (
     () => (cls?.subclasses || []).find((sc) => sc.subclassId === formData.subclassId),
     [cls, formData.subclassId]
   );
+
+  const hasSpellcasting = useMemo(() => {
+    const classType = (cls as any)?.spellcastingType as SpellcastingType | undefined;
+    const subclassType = (subclass as any)?.spellcastingType as SpellcastingType | undefined;
+    return Boolean(
+      (classType && classType !== SpellcastingType.NONE) ||
+        (subclassType && subclassType !== SpellcastingType.NONE)
+    );
+  }, [cls, subclass]);
   const bg = useMemo(() => backgrounds.find(b => b.backgroundId === formData.backgroundId) as BackgroundI, [backgrounds, formData.backgroundId])
   const hasLevelOneChoices = useMemo(
     () => Boolean(cls?.classChoiceOptions?.some((opt) => (opt.levelsGranted || []).includes(1))),
@@ -386,6 +396,9 @@ export const MultiStepForm = (
             raceVariant={raceVariant}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
+            prereqContext={{
+              hasSpellcasting,
+            }}
           />
         );
       case "featChoices":

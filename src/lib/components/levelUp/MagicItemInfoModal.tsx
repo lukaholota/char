@@ -14,7 +14,7 @@ export function MagicItemInfoModal({ item, open, onOpenChange }: Props) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
-        className="max-h-[85vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent shadow-none selection:bg-teal-500/30"
+        className="max-h-[90vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent shadow-none selection:bg-teal-500/30"
         showClose={false}
       >
         <div className="sr-only">

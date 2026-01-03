@@ -753,7 +753,7 @@ export function MagicItemsClient({
       </div>
 
       <Dialog open={filtersOpen} onOpenChange={setFiltersOpen}>
-        <DialogContent className="max-h-[85vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
+        <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
           <div className="p-4 sm:p-6">
             <div className="flex items-start justify-between gap-3">
               <DialogTitle className="font-rpg-display text-2xl font-semibold tracking-wide text-teal-400">Фільтри</DialogTitle>

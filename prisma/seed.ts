@@ -54,9 +54,9 @@ async function main() {
     // await seedClassOptionalFeatures(prisma)
     
     // await seedFeats(prisma);
-    // await seedFeatChoiceOptions(prisma);
+    await seedFeatChoiceOptions(prisma);
 
-    await _seedClassFeatures(prisma)
+    // await _seedClassFeatures(prisma)
     // await _seedInfusionFeatures(prisma) // features for infusions
 }
 

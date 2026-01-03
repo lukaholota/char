@@ -107,7 +107,7 @@ function MagicItemModalRenderer({ magicItemId }: { magicItemId: string }) {
   return (
     <Dialog enableBackButtonClose={false} open onOpenChange={(open) => !open && handleClose()}>
       <DialogContent 
-        className="max-h-[85vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent" 
+        className="max-h-[90vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent" 
         showClose={false}
       >
         <DialogTitle className="sr-only">{item.name}</DialogTitle>

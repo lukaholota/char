@@ -32,6 +32,7 @@ import { classTranslations, sourceTranslations, spellSchoolTranslations } from "
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { toggleSpellForPers } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
+import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
 export type SpellListItem = {
   spellId: number;
@@ -718,9 +719,18 @@ export function SpellsClient({
 
   // Use Next.js router for spell navigation (enables intercepting routes)
   const router = useRouter();
+
+  const isLg = useMediaQuery("(min-width: 1024px)");
   
   const onSelectSpell = (spell: SpellListItem) => {
-    // Navigate to /spells/[id] — intercepting route will show modal
+    if (isLg) {
+      pushParams((next) => {
+        next.set("spell", String(spell.spellId));
+      });
+      return;
+    }
+
+    // Navigate to /spells/[id] — intercepting route will show modal (mobile)
     router.push(`/spells/${spell.spellId}`);
   };
 
@@ -978,7 +988,7 @@ export function SpellsClient({
       </div>
 
       <Dialog open={filtersOpen} onOpenChange={setFiltersOpen}>
-        <DialogContent className="max-h-[85vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
+        <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
           <div className="p-4 sm:p-6">
             <div className="flex items-start justify-between gap-3">
               <DialogTitle className="font-rpg-display text-2xl font-semibold tracking-wide text-teal-400">Фільтри</DialogTitle>

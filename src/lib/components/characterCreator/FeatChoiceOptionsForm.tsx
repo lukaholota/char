@@ -18,6 +18,7 @@ import { HelpCircle } from "lucide-react";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
+import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 
 interface Props {
   selectedFeat?: FeatPrisma | null;
@@ -144,6 +145,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
   const [infoOpen, setInfoOpen] = useState(false);
   const [infoTitle, setInfoTitle] = useState<string>("");
   const [infoFeatures, setInfoFeatures] = useState<Array<{ name: string; description: string; shortDescription?: string | null }>>([]);
+
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [pendingPick, setPendingPick] = useState<{ groupName: string; optionId: number; pickCount: number } | null>(null);
+  const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
   
   const { form, onSubmit: baseOnSubmit } = useStepForm(featChoiceOptionsSchema, (data) => {
     updateFormData({ featChoiceSelections: data.featChoiceSelections });
@@ -580,7 +585,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
   /**
    * Determines if an option should be disabled based on rules
    */
-  const getDisabledState = (group: Group, opt: NonNullable<FeatPrisma["featChoiceOptions"]>[0]): { disabled: boolean; reason?: string } => {
+  const getDisabledState = (
+    group: Group,
+    opt: NonNullable<FeatPrisma["featChoiceOptions"]>[0]
+  ): { disabled: boolean; prereqUnmet?: boolean; reason?: string } => {
     const optionName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
     
     const currentSelected = getSelectedIdsForGroup(group.groupName);
@@ -591,7 +599,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       return { disabled: true, reason: "Вже маєте" };
     }
 
-    // Invocation prerequisites: disable if unmet.
+    // Invocation prerequisites: mark as unavailable if unmet.
     if (group.isInvocation && !isSelected) {
       // For Eldritch Adept specifically, prerequisites are special in 5e rules.
       // We implement a safe baseline: if a prerequisite exists, require meeting it.
@@ -619,7 +627,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       });
 
       if (!prereqResult.met) {
-        return { disabled: true, reason: prereqResult.reason || "Не виконані вимоги" };
+        return { disabled: false, prereqUnmet: true, reason: prereqResult.reason || "Не виконані вимоги" };
       }
     }
     
@@ -693,7 +701,29 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
       <div className="space-y-4">
         {groupedChoices.map((group) => {
-            const sortedOptions = group.options;
+            const sortedOptions = [...group.options].sort((a, b) => {
+              const aSelected = getSelectedIdsForGroup(group.groupName).includes(a.choiceOptionId);
+              const bSelected = getSelectedIdsForGroup(group.groupName).includes(b.choiceOptionId);
+
+              if (aSelected !== bSelected) return aSelected ? -1 : 1;
+
+              const aState = getDisabledState(group, a);
+              const bState = getDisabledState(group, b);
+
+              const weight = (s: { disabled: boolean; prereqUnmet?: boolean }) => {
+                if (s.disabled) return 2;
+                if (s.prereqUnmet) return 1;
+                return 0;
+              };
+
+              const aw = weight(aState);
+              const bw = weight(bState);
+              if (aw !== bw) return aw - bw;
+
+              const aLabel = String(a.choiceOption?.optionName || a.choiceOption?.optionNameEng || "");
+              const bLabel = String(b.choiceOption?.optionName || b.choiceOption?.optionNameEng || "");
+              return aLabel.localeCompare(bLabel, "uk");
+            });
 
             const hasFeatureDetails = sortedOptions.some((o) => {
               const features = (o as any)?.choiceOption?.features;
@@ -739,7 +769,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                       const optionId = opt.choiceOptionId;
                       const optionNameEng = opt.choiceOption.optionNameEng;
                       const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
-                      const { disabled, reason } = getDisabledState(group, opt);
+                      const { disabled, prereqUnmet, reason } = getDisabledState(group, opt);
 
                       const label = opt.choiceOption.optionName || translateValue(optionNameEng);
                       const preview = previewTextFromChoiceOption((opt as any)?.choiceOption?.features);
@@ -750,11 +780,25 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                           className={clsx(
                             "glass-card cursor-pointer transition-all duration-200",
                             isSelected ? "glass-active" : "",
-                            disabled && !isSelected && "opacity-60 grayscale-[0.8] cursor-not-allowed"
+                            disabled && !isSelected && "opacity-60 grayscale-[0.8] cursor-not-allowed",
+                            prereqUnmet && !isSelected && "border-rose-500/30 opacity-80"
                           )}
                           onClick={(e) => {
                             if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-                            if (!disabled || isSelected) toggleSelection(group.groupName, optionId, group.pickCount);
+
+                            if (disabled) return;
+                            if (isSelected) {
+                              toggleSelection(group.groupName, optionId, group.pickCount);
+                              return;
+                            }
+                            if (prereqUnmet) {
+                              setPrereqReason(reason);
+                              setPendingPick({ groupName: group.groupName, optionId, pickCount: group.pickCount });
+                              setConfirmOpen(true);
+                              return;
+                            }
+
+                            toggleSelection(group.groupName, optionId, group.pickCount);
                           }}
                         >
                           <CardContent className="relative flex items-start justify-between gap-4 p-4">
@@ -768,8 +812,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                                     <div className="mt-1 line-clamp-2 text-sm text-slate-300">{preview}</div>
                                   ) : null}
                                   {reason ? (
-                                    <div className={clsx("mt-1 text-xs font-medium", disabled ? "text-rose-400" : "text-slate-400")}>
-                                      {disabled ? `(${reason})` : reason}
+                                    <div className={clsx("mt-1 text-xs font-medium", disabled || prereqUnmet ? "text-rose-400" : "text-slate-400")}>
+                                      {disabled || prereqUnmet ? `(${reason})` : reason}
                                     </div>
                                   ) : null}
                                 </div>
@@ -811,7 +855,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                     const optionId = opt.choiceOptionId;
                     const optionNameEng = opt.choiceOption.optionNameEng;
                     const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
-                    const { disabled, reason } = getDisabledState(group, opt);
+                    const { disabled, prereqUnmet, reason } = getDisabledState(group, opt);
 
                     let label = opt.choiceOption.optionName;
                     if (group.isSkill || group.isExpertise) {
@@ -832,12 +876,22 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                             : disabled
                               ? "opacity-60 grayscale-[0.8]"
                               : "hover:bg-white/5",
-                          disabled && !isSelected && "cursor-not-allowed"
+                          disabled && !isSelected && "cursor-not-allowed",
+                          prereqUnmet && !isSelected && "border-rose-500/30 opacity-80"
                         )}
                         onClick={() => {
-                          if (!disabled || isSelected) {
+                          if (disabled) return;
+                          if (isSelected) {
                             toggleSelection(group.groupName, optionId, group.pickCount);
+                            return;
                           }
+                          if (prereqUnmet) {
+                            setPrereqReason(reason);
+                            setPendingPick({ groupName: group.groupName, optionId, pickCount: group.pickCount });
+                            setConfirmOpen(true);
+                            return;
+                          }
+                          toggleSelection(group.groupName, optionId, group.pickCount);
                         }}
                       >
                         <CardContent className="flex items-center justify-between p-3">
@@ -854,10 +908,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                               <span
                                 className={clsx(
                                   "text-xs font-medium",
-                                  disabled ? "text-rose-400" : "text-slate-400"
+                                  disabled || prereqUnmet ? "text-rose-400" : "text-slate-400"
                                 )}
                               >
-                                {disabled ? `(${reason})` : reason}
+                                {disabled || prereqUnmet ? `(${reason})` : reason}
                               </span>
                             ) : null}
                           </div>
@@ -896,6 +950,18 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
           )}
         </div>
       </ControlledInfoDialog>
+
+      <PrerequisiteConfirmationDialog
+        open={confirmOpen}
+        onOpenChange={setConfirmOpen}
+        reason={prereqReason}
+        onConfirm={() => {
+          if (!pendingPick) return;
+          toggleSelection(pendingPick.groupName, pendingPick.optionId, pendingPick.pickCount);
+          setPendingPick(null);
+          setPrereqReason(undefined);
+        }}
+      />
     </form>
   );
 };
