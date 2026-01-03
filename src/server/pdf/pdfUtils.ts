@@ -94,6 +94,10 @@ export async function getBrowser(): Promise<Browser> {
       "--font-render-hinting=none",
     ];
 
+    const launchTimeoutFromEnv = Number(process.env.PUPPETEER_LAUNCH_TIMEOUT_MS ?? "");
+    const launchTimeoutMs = Number.isFinite(launchTimeoutFromEnv) && launchTimeoutFromEnv > 0 ? launchTimeoutFromEnv : 120000;
+    const dumpio = process.env.PUPPETEER_DUMPIO === "1";
+
     const disableDevShmUsage = process.env.PUPPETEER_DISABLE_DEV_SHM_USAGE !== "0";
     const localArgs = [
       ...commonArgs,
@@ -106,13 +110,32 @@ export async function getBrowser(): Promise<Browser> {
       executablePath,
       disableDevShmUsage,
       argsCount: (isVercelLike ? [...chromium.args, ...commonArgs] : localArgs).length,
+      launchTimeoutMs,
+      dumpio,
     });
 
-    browserInstance = await puppeteer.launch({
-      args: useSparticuz ? [...chromium.args, ...commonArgs] : localArgs,
-      executablePath,
-      headless: true,
-    });
+    try {
+      browserInstance = await puppeteer.launch({
+        args: useSparticuz ? [...chromium.args, ...commonArgs] : localArgs,
+        executablePath,
+        headless: true,
+        timeout: launchTimeoutMs,
+        dumpio,
+      });
+    } catch (err) {
+      const launchEnd = takeUsageSnapshot();
+      log.error("browser.launch.error", {
+        isVercelLike,
+        useSparticuz,
+        executablePath,
+        disableDevShmUsage,
+        launchTimeoutMs,
+        dumpio,
+        ...diffUsage(launchStart, launchEnd),
+        err,
+      });
+      throw err;
+    }
 
     const launchEnd = takeUsageSnapshot();
     log.info("browser.launch.end", {

@@ -1105,6 +1105,8 @@ export async function generateCharacterPdfFromData(
 ): Promise<Uint8Array> {
   const normalized = normalizePrintConfig(config);
 
+  const strictSections = process.env.PDF_STRICT_SECTIONS === "1";
+
   const log = createLogger("pdf.character.data").child({
     jobId: logCtx.jobId,
     persId: (data as any)?.pers?.persId,
@@ -1202,6 +1204,7 @@ export async function generateCharacterPdfFromData(
         pages.forEach((p) => pdfDoc.addPage(p));
       } catch (err) {
         log.warn("features.failed", { err });
+        if (strictSections) throw err;
       }
     }
   }
@@ -1219,6 +1222,7 @@ export async function generateCharacterPdfFromData(
         pages.forEach((p) => pdfDoc.addPage(p));
       } catch (err) {
         log.warn("spells.failed", { err });
+        if (strictSections) throw err;
       }
     }
   }
@@ -1239,6 +1243,7 @@ export async function generateCharacterPdfFromData(
         pages.forEach((p) => pdfDoc.addPage(p));
       } catch (err) {
         log.warn("magicItems.failed", { err });
+        if (strictSections) throw err;
       }
     }
   }
