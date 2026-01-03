@@ -1316,6 +1316,21 @@ export async function generateCharacterPdfFromData(
     }
   }
 
+  // 1.5 Мерджимо DETAILS
+  if (normalized.sections.includes("DETAILS")) {
+    try {
+      const detailsPath = path.resolve(process.cwd(), "public", "CharacterDetails.pdf");
+      const detailsBytes = await fs.readFile(detailsPath);
+      const detailsDoc = await PDFDocument.load(detailsBytes);
+      const pages = await pdfDoc.copyPages(detailsDoc, detailsDoc.getPageIndices());
+      pages.forEach((p) => pdfDoc.addPage(p));
+      log.info("details.added", { pagesCount: pages.length });
+    } catch (err) {
+      log.warn("details.failed", { err });
+      if (strictSections) throw err;
+    }
+  }
+
   // 2. Мерджимо SPELL_SHEET
   if (normalized.sections.includes("SPELL_SHEET")) {
     try {

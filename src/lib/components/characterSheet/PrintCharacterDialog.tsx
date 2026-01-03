@@ -53,6 +53,7 @@ export default function PrintCharacterDialog({
   const [includeFeatures, setIncludeFeatures] = useState(() => !initialSections || initialSections.includes("FEATURES"));
   const [includeSpells, setIncludeSpells] = useState(() => !initialSections || initialSections.includes("SPELLS"));
   const [includeSpellSheet, setIncludeSpellSheet] = useState(() => !initialSections || initialSections.includes("SPELL_SHEET"));
+  const [includeDetails, setIncludeDetails] = useState(() => initialSections?.includes("DETAILS") ?? false);
   const [includeMagicItems, setIncludeMagicItems] = useState(() => !initialSections || initialSections.includes("MAGIC_ITEMS"));
 
   useEffect(() => {
@@ -61,6 +62,7 @@ export default function PrintCharacterDialog({
       setIncludeFeatures(initialSections.includes("FEATURES"));
       setIncludeSpells(initialSections.includes("SPELLS"));
       setIncludeSpellSheet(initialSections.includes("SPELL_SHEET"));
+      setIncludeDetails(initialSections.includes("DETAILS"));
       setIncludeMagicItems(initialSections.includes("MAGIC_ITEMS"));
     }
   }, [open, initialSections]);
@@ -70,10 +72,11 @@ export default function PrintCharacterDialog({
     if (includeCharacter) sections.push("CHARACTER");
     if (includeFeatures) sections.push("FEATURES");
     if (includeSpellSheet) sections.push("SPELL_SHEET");
+    if (includeDetails) sections.push("DETAILS");
     if (includeSpells) sections.push("SPELLS");
     if (includeMagicItems) sections.push("MAGIC_ITEMS");
     return { sections };
-  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeMagicItems]);
+  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeDetails, includeMagicItems]);
 
   const handleDownload = () => {
     startTransition(async () => {
@@ -132,13 +135,18 @@ export default function PrintCharacterDialog({
             </div>
 
             <div className="flex items-center gap-2">
-              <Checkbox checked={includeFeatures} onCheckedChange={(v) => setIncludeFeatures(Boolean(v))} id="print-features" />
-              <Label htmlFor="print-features">Здібності</Label>
+              <Checkbox checked={includeDetails} onCheckedChange={(v) => setIncludeDetails(Boolean(v))} id="print-details" />
+              <Label htmlFor="print-details">Бланк подробиць</Label>
             </div>
 
             <div className="flex items-center gap-2">
               <Checkbox checked={includeSpellSheet} onCheckedChange={(v) => setIncludeSpellSheet(Boolean(v))} id="print-spell-sheet" />
               <Label htmlFor="print-spell-sheet">Лист заклинань (таблиця)</Label>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Checkbox checked={includeFeatures} onCheckedChange={(v) => setIncludeFeatures(Boolean(v))} id="print-features" />
+              <Label htmlFor="print-features">Здібності</Label>
             </div>
 
             <div className="flex items-center gap-2">

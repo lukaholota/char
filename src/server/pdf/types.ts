@@ -1,7 +1,7 @@
 import type { PersWithRelations } from "@/lib/actions/pers";
 import type { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 
-export type PrintSection = "CHARACTER" | "FEATURES" | "SPELLS" | "SPELL_SHEET" | "MAGIC_ITEMS";
+export type PrintSection = "CHARACTER" | "FEATURES" | "SPELLS" | "SPELL_SHEET" | "MAGIC_ITEMS" | "DETAILS";
 
 export interface PrintConfig {
   sections: PrintSection[];
