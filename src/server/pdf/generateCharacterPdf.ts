@@ -188,7 +188,7 @@ function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
       const attunementMark = pmi.isAttuned ? " (A)" : "";
       const equippedMark = pmi.isEquipped ? "[x]" : "[ ]";
       
-      parts.push(`• ${equippedMark} ${name} ${attunementMark}`);
+      parts.push(`· ${equippedMark} ${name} ${attunementMark}`);
     }
   }
 
@@ -231,7 +231,7 @@ function buildArmorAndShieldText(pers: CharacterPdfData["pers"]): string {
 
       const totalAC = base + misc + dexPart;
       const stealthNote = pa?.armor?.stealthDisadvantage ? " перешкода на Непомітність" : "";
-      lines.push(`• ${equipped ? "[x]" : "[ ]"} ${name} — ${totalAC} (${formula})${stealthNote}`);
+      lines.push(`· ${equipped ? "[x]" : "[ ]"} ${name} — ${totalAC} (${formula})${stealthNote}`);
     }
   }
 
@@ -314,7 +314,7 @@ function buildFeaturesListText(data: CharacterPdfData): string {
   }
 
   items.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
-  return items.map((it) => `• ${it.name}`).join("\n");
+  return items.map((it) => `· ${it.name}`).join("\n");
 }
 
 function getWeaponAttackBonus(pers: CharacterPdfData["pers"], pw: any): number {
@@ -827,7 +827,7 @@ function splitToBulletedLines(value: string): string {
       .filter(Boolean);
 
   if (parts.length === 0) return "";
-  return parts.map((p) => `• ${p}`).join("\n");
+  return parts.map((p) => `· ${p}`).join("\n");
 }
 
 function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
@@ -1346,11 +1346,14 @@ export async function generateCharacterPdfFromData(
       const form = spellSheetDoc.getForm();
       fillSpellSheet(form, data, spellSheetFont);
 
+      try {
+        form.updateFieldAppearances(spellSheetFont);
+      } catch (err) {
+        log.warn("spellSheet.updateAppearances.failed", { err });
+      }
+
       if (normalized.flattenCharacterSheet) {
         try {
-          // IMPORTANT: must provide font to updateFieldAppearances or set as default on form
-          // so flatten() can render Cyrillic correctly.
-          form.updateFieldAppearances(spellSheetFont);
           form.flatten();
         } catch (err) {
           log.warn("spellSheet.flatten.failed", { err });

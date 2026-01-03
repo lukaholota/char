@@ -55,6 +55,7 @@ export default function PrintCharacterDialog({
   const [includeSpellSheet, setIncludeSpellSheet] = useState(() => !initialSections || initialSections.includes("SPELL_SHEET"));
   const [includeDetails, setIncludeDetails] = useState(() => initialSections?.includes("DETAILS") ?? false);
   const [includeMagicItems, setIncludeMagicItems] = useState(() => !initialSections || initialSections.includes("MAGIC_ITEMS"));
+  const [flatten, setFlatten] = useState(true);
 
   useEffect(() => {
     if (open && initialSections) {
@@ -75,8 +76,8 @@ export default function PrintCharacterDialog({
     if (includeDetails) sections.push("DETAILS");
     if (includeSpells) sections.push("SPELLS");
     if (includeMagicItems) sections.push("MAGIC_ITEMS");
-    return { sections };
-  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeDetails, includeMagicItems]);
+    return { sections, flattenCharacterSheet: flatten };
+  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeDetails, includeMagicItems, flatten]);
 
   const handleDownload = () => {
     startTransition(async () => {
@@ -157,6 +158,16 @@ export default function PrintCharacterDialog({
             <div className="flex items-center gap-2">
               <Checkbox checked={includeMagicItems} onCheckedChange={(v) => setIncludeMagicItems(Boolean(v))} id="print-magic-items" />
               <Label htmlFor="print-magic-items">Магічні предмети</Label>
+            </div>
+
+            <div className="pt-2 border-t">
+              <div className="flex items-center gap-2">
+                <Checkbox checked={!flatten} onCheckedChange={(v) => setFlatten(!Boolean(v))} id="print-editable" />
+                <Label htmlFor="print-editable">Редагований PDF (експериментально)</Label>
+              </div>
+              <p className="text-[10px] text-muted-foreground ml-6">
+                Дозволяє редагувати поля після завантаження. Може некоректно відображатися в деяких переглядачах.
+              </p>
             </div>
 
             <div className="flex justify-end gap-2 pt-2">
