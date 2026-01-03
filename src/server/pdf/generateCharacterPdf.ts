@@ -12,15 +12,20 @@ import {
   calculateFinalMaxHP,
   calculateWeaponAttackBonus,
   calculateWeaponDamageBonus,
+  calculateSpellAttack,
+  calculateSpellDC,
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
-import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
+import { Classes, Ability, Skills, SkillProficiencyType } from "@prisma/client";
 import { PDFDocument, PDFName, PDFString, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
 
-import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations } from "@/lib/refs/translation";
+import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations, abilityTranslations } from "@/lib/refs/translation";
 import { translatePdfText } from "./translatePdfText";
+
+import { calculateCasterLevel } from "@/lib/logic/spell-logic";
+import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 
 import { createLogger, hashPII } from "@/server/logging/logger";
 import { formatBytes, withStep } from "@/server/logging/perf";
@@ -669,6 +674,120 @@ function fillDeathSaves(form: PDFForm, pers: CharacterPdfData["pers"]) {
   }
 }
 
+function getSpellcastingAbility(pers: CharacterPdfData["pers"]): Ability | null {
+  // Use primaryCastingStat from the first class that has one
+  const mainClassStat = pers.class?.primaryCastingStat;
+  if (mainClassStat) return mainClassStat;
+
+  // Fallback for multiclassing: find any class with casting stat
+  for (const mc of pers.multiclasses ?? []) {
+    if (mc.class?.primaryCastingStat) return mc.class.primaryCastingStat;
+  }
+
+  return null;
+}
+
+function getSpellSlots(pers: CharacterPdfData["pers"], level: number): { standard: number; pact: number } {
+  const caster = calculateCasterLevel(pers as any);
+  
+  if (level < 1 || level > 9) return { standard: 0, pact: 0 };
+  
+  const standardSlotsArray = (SPELL_SLOT_PROGRESSION as any).FULL?.[caster.casterLevel] as number[] | undefined;
+  const standard = standardSlotsArray ? (standardSlotsArray[level - 1] ?? 0) : 0;
+
+  const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
+  const pact = (pactRow && pactRow.level === level) ? pactRow.slots : 0;
+
+  return { standard, pact };
+}
+
+function formatSpellSlots(standard: number, pact: number): string {
+  if (standard > 0 && pact > 0) return `${standard} + ${pact}`;
+  if (pact > 0) return String(pact);
+  if (standard > 0) return String(standard);
+  return "";
+}
+
+function fillSpellSheet(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
+  const { pers, spellsByLevel } = data;
+
+  // Header
+  setTextForFirstPresent(form, ["Spellcasting Class 2", "SpellcastingClass"], buildClassLevelString(pers));
+  trySetFontSize(form, "Spellcasting Class 2", 11);
+
+  const ability = getSpellcastingAbility(pers);
+  if (ability) {
+    const abilityName = abilityTranslations[ability] || ability;
+    setTextForFirstPresent(form, ["SpellcastingAbility 2", "Spellcasting Ability 2", "SpellcastingAbility"], abilityName);
+    trySetFontSize(form, "SpellcastingAbility 2", 11);
+    
+    const dc = calculateSpellDC(pers, ability);
+    setTextForFirstPresent(form, ["SpellSaveDC  2", "Spell Save DC  2", "SpellSaveDC"], safeText(dc));
+    trySetFontSize(form, "SpellSaveDC  2", 11);
+
+    const bonus = calculateSpellAttack(pers, ability);
+    setTextForFirstPresent(form, ["SpellAtkBonus 2", "Spell Attack Bonus 2", "SpellAttackBonus"], formatModifier(bonus));
+    trySetFontSize(form, "SpellAtkBonus 2", 11);
+  }
+
+  const spellFontSize = 9;
+
+  // Spells
+  // Рівень 0
+  const cantrips = spellsByLevel[0] || [];
+  const cantripNames = ["Spells 1014", "Spells 1016", "Spells 1017", "Spells 1018", "Spells 1019", "Spells 1020", "Spells 1021", "Spells 1022"];
+  cantrips.forEach((ps, i) => {
+    if (i < cantripNames.length) {
+      const fieldName = cantripNames[i];
+      setTextIfPresent(form, fieldName, ps.spell.name);
+      trySetFontSize(form, fieldName, spellFontSize);
+    }
+  });
+
+  // Рівні 1-9
+  const levelNamesMap: Record<number, string[]> = {
+    1: ["Spells 1015", "Spells 1023", "Spells 1024", "Spells 1025", "Spells 1026", "Spells 1027", "Spells 1028", "Spells 1029", "Spells 1030", "Spells 1031", "Spells 1032", "Spells 1033"],
+    2: ["Spells 1046", "Spells 1034", "Spells 1035", "Spells 1036", "Spells 1037", "Spells 1038", "Spells 1039", "Spells 1040", "Spells 1041", "Spells 1042", "Spells 1043", "Spells 1044", "Spells 1045"],
+    3: ["Spells 1048", "Spells 1047", "Spells 1049", "Spells 1050", "Spells 1051", "Spells 1052", "Spells 1053", "Spells 1054", "Spells 1055", "Spells 1056", "Spells 1057", "Spells 1058", "Spells 1059"],
+    4: ["Spells 1061", "Spells 1060", "Spells 1062", "Spells 1063", "Spells 1064", "Spells 1065", "Spells 1066", "Spells 1067", "Spells 1068", "Spells 1069", "Spells 1070", "Spells 1071", "Spells 1072"],
+    5: ["Spells 1074", "Spells 1073", "Spells 1075", "Spells 1076", "Spells 1077", "Spells 1078", "Spells 1079", "Spells 1080", "Spells 1081"],
+    6: ["Spells 1083", "Spells 1082", "Spells 1084", "Spells 1085", "Spells 1086", "Spells 1087", "Spells 1088", "Spells 1089", "Spells 1090"],
+    7: ["Spells 1092", "Spells 1091", "Spells 1093", "Spells 1094", "Spells 1095", "Spells 1096", "Spells 1097", "Spells 1098", "Spells 1099"],
+    8: ["Spells 10101", "Spells 10100", "Spells 10102", "Spells 10103", "Spells 10104", "Spells 10105", "Spells 10106"],
+    9: ["Spells 10108", "Spells 10107", "Spells 10109", "Spells 101010", "Spells 101011", "Spells 101012", "Spells 101013"],
+  };
+
+  const slotsTotalNamesMap: Record<number, string[]> = {
+    1: ["SlotsTotal 19", "SlotsTotal1"],
+    2: ["SlotsTotal 20", "SlotsTotal2"],
+    3: ["SlotsTotal 21", "SlotsTotal3"],
+    4: ["SlotsTotal 22", "SlotsTotal4"],
+    5: ["SlotsTotal 23", "SlotsTotal5"],
+    6: ["SlotsTotal 24", "SlotsTotal6"],
+    7: ["SlotsTotal 25", "SlotsTotal7"],
+    8: ["SlotsTotal 26", "SlotsTotal8"],
+    9: ["SlotsTotal 27", "SlotsTotal9"],
+  };
+
+  for (let level = 1; level <= 9; level++) {
+    const { standard, pact } = getSpellSlots(pers, level);
+    const slotsText = formatSpellSlots(standard, pact);
+    if (slotsText) {
+      setTextForFirstPresent(form, slotsTotalNamesMap[level], slotsText);
+    }
+
+    const levelSpells = spellsByLevel[level] || [];
+    const names = levelNamesMap[level];
+    levelSpells.forEach((ps, i) => {
+      if (i < names.length) {
+        const fieldName = names[i];
+        setTextIfPresent(form, fieldName, ps.spell.name);
+        trySetFontSize(form, fieldName, spellFontSize);
+      }
+    });
+  }
+}
+
 const OVERFLOW_FIELDS: Array<{
   fieldName: string;
   maxWidth: number;
@@ -1180,6 +1299,7 @@ export async function generateCharacterPdfFromData(
 
         if (normalized.flattenCharacterSheet) {
           try {
+            form.updateFieldAppearances(notoSansRegular);
             form.flatten();
           } catch (err) {
             log.warn("character.flatten.failed", { err });
@@ -1196,7 +1316,42 @@ export async function generateCharacterPdfFromData(
     }
   }
 
-  // 2. Мерджимо FEATURES (як і було)
+  // 2. Мерджимо SPELL_SHEET
+  if (normalized.sections.includes("SPELL_SHEET")) {
+    try {
+      const spellSheetPath = path.resolve(process.cwd(), "public", "CharacterSpells_fixed.pdf");
+      const spellSheetBytes = await fs.readFile(spellSheetPath);
+      const spellSheetDoc = await PDFDocument.load(spellSheetBytes);
+
+      spellSheetDoc.registerFontkit(fontkit);
+      const regularPath = path.resolve(process.cwd(), "public", "fonts", "NotoSans-Regular.ttf");
+      const regularBytes = await fs.readFile(regularPath);
+      const spellSheetFont = await spellSheetDoc.embedFont(regularBytes, { subset: true });
+      
+      const form = spellSheetDoc.getForm();
+      fillSpellSheet(form, data, spellSheetFont);
+
+      if (normalized.flattenCharacterSheet) {
+        try {
+          // IMPORTANT: must provide font to updateFieldAppearances or set as default on form
+          // so flatten() can render Cyrillic correctly.
+          form.updateFieldAppearances(spellSheetFont);
+          form.flatten();
+        } catch (err) {
+          log.warn("spellSheet.flatten.failed", { err });
+        }
+      }
+
+      const [spellSheetPage] = await pdfDoc.copyPages(spellSheetDoc, [0]);
+      pdfDoc.addPage(spellSheetPage);
+      log.info("spellSheet.added");
+    } catch (err) {
+      log.warn("spellSheet.failed", { err });
+      if (strictSections) throw err;
+    }
+  }
+
+  // 3. Мерджимо FEATURES (як і було)
   if (normalized.sections.includes("FEATURES")) {
     const hasAnyFeatureItems =
       (data.features?.passive?.length ?? 0) +
