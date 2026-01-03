@@ -164,7 +164,11 @@ function formatHitDicePerClassLines(chunks: Array<{ current: number; max: number
 function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
   const parts: string[] = [];
 
-  const customEquipment = String((pers as any).customEquipment ?? "").trim();
+  const customEquipment = String((pers as any).customEquipment ?? "")
+    .trim()
+    .replace(/ x1\n/g, '\n')
+    .replace(/\n/g, ', ');
+  console.log('customEquipment', customEquipment);
   if (customEquipment) parts.push(customEquipment);
 
   const magicItems = (pers.magicItems ?? []) as any[];
@@ -306,19 +310,6 @@ function buildFeaturesListText(data: CharacterPdfData): string {
 
   items.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
   return items.map((it) => `• ${it.name}`).join("\n");
-}
-
-function splitToBulletedLines(value: string): string {
-  const raw = String(value ?? "").trim();
-  if (!raw) return "";
-
-  const parts = raw
-    .split(/[\n,]+/g)
-    .map((p) => translatePdfText(p.trim()))
-    .filter(Boolean);
-
-  if (parts.length === 0) return "";
-  return parts.map((p) => `• ${p}`).join("\n");
 }
 
 function getWeaponAttackBonus(pers: CharacterPdfData["pers"], pw: any): number {
@@ -689,6 +680,37 @@ const OVERFLOW_FIELDS: Array<{
   { fieldName: "PlayerName", maxWidth: 180, fontSize: 10 },
 ];
 
+function getProfAndLang(extras: PersExtraFields) {
+  const profs = splitToBulletedLines(safeText(extras.customProficiencies));
+  const langs = splitToBulletedLines(safeText(extras.customLanguagesKnown));
+
+  const parts: string[] = [];
+  if (profs) {
+    parts.push("Володіння (броня/зброя/інструменти):");
+    parts.push(profs);
+  }
+  if (langs) {
+    parts.push("Мови:");
+    parts.push(langs);
+  }
+
+  const profAndLang = parts.join("\n");
+  return profAndLang;
+}
+
+function splitToBulletedLines(value: string): string {
+  const raw = String(value ?? "").trim();
+  if (!raw) return "";
+
+  const parts = raw
+      .split(/[\n]+/g)
+      .map((p) => translatePdfText(p.trim()))
+      .filter(Boolean);
+
+  if (parts.length === 0) return "";
+  return parts.map((p) => `• ${p}`).join("\n");
+}
+
 function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
   const { pers } = data;
   const extras = getPersExtras(pers);
@@ -750,10 +772,10 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   }
 
   // Equipment box is dense; keep it smaller.
-  trySetFontSize(form, "Equipment", 8);
+  trySetFontSize(form, "Equipment", 7);
 
   for (const name of ["Features and Traits", "Proficiencies", "Languages", "ProficienciesLang"]) {
-    trySetFontSize(form, name, 8);
+    trySetFontSize(form, name, 7);
   }
 
   // This field is text-heavy; keep it compact.
@@ -843,21 +865,23 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   setTextIfPresent(form, "Speed", safeText(calculateFinalSpeed(pers)));
 
   setTextIfPresent(form, "HPMax", safeText(calculateFinalMaxHP(pers)));
-  setTextIfPresent(form, "HPCurrent", safeText(pers.currentHp));
-  setTextIfPresent(form, "HPTemp", safeText(extras.tempHp ?? 0));
+  // Don't print current HP and temporary HP
+  // setTextIfPresent(form, "HPCurrent", safeText(pers.currentHp));
+  // setTextIfPresent(form, "HPTemp", safeText(extras.tempHp ?? 0));
 
   const hitDice = buildHitDiceInfoFromPers(pers);
   for (const name of ["HitDiceTotal", "HDTotal"]) {
     trySetFontSize(form, name, 6);
     setTextIfPresent(form, name, compactDiceSum(formatDiceUkr(hitDice.totalString)));
   }
-  for (const name of ["HitDiceCurrent", "HD"]) {
-    // Show per-class current/max (e.g. 1/2к8). Multiline is OK here if font is small and lines are short.
-    tryEnableMultiline(form, name);
-    trySetFontSize(form, name, 5);
-    const perClass = formatHitDicePerClassLines(hitDice.chunks);
-    setTextIfPresent(form, name, perClass);
-  }
+  // Don't print current hit dice
+  // for (const name of ["HitDiceCurrent", "HD"]) {
+  //   // Show per-class current/max (e.g. 1/2к8). Multiline is OK here if font is small and lines are short.
+  //   tryEnableMultiline(form, name);
+  //   trySetFontSize(form, name, 5);
+  //   const perClass = formatHitDicePerClassLines(hitDice.chunks);
+  //   setTextIfPresent(form, name, perClass);
+  // }
 
   fillDeathSaves(form, pers);
   fillSavingThrows(form, pers);
@@ -875,10 +899,7 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
 
   setMultilineTextIfPresent(form, "Backstory", safeText(extras.backstory));
   setMultilineTextIfPresent(form, "Notes", safeText(extras.notes));
-  const profAndLangRaw = [safeText(extras.customProficiencies), safeText(extras.customLanguagesKnown)]
-    .filter(Boolean)
-    .join("\n");
-  const profAndLang = splitToBulletedLines(profAndLangRaw);
+  const profAndLang = getProfAndLang(extras);
 
   for (const name of ["Proficiencies", "Languages", "ProficienciesLang"]) {
     setMultilineTextIfPresent(form, name, profAndLang);
@@ -890,11 +911,12 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   // Coins and equipment (armor + shield)
   const equipmentText = buildEquipmentText(pers);
   setMultilineTextIfPresent(form, "Equipment", equipmentText);
-  setTextForFirstPresent(form, ["CP"], safeText((pers as any).cp));
-  setTextForFirstPresent(form, ["SP"], safeText((pers as any).sp));
-  setTextForFirstPresent(form, ["EP"], safeText((pers as any).ep));
-  setTextForFirstPresent(form, ["GP"], safeText((pers as any).gp));
-  setTextForFirstPresent(form, ["PP"], safeText((pers as any).pp));
+  // Don't print coins
+  // setTextForFirstPresent(form, ["CP"], safeText((pers as any).cp));
+  // setTextForFirstPresent(form, ["SP"], safeText((pers as any).sp));
+  // setTextForFirstPresent(form, ["EP"], safeText((pers as any).ep));
+  // setTextForFirstPresent(form, ["GP"], safeText((pers as any).gp));
+  // setTextForFirstPresent(form, ["PP"], safeText((pers as any).pp));
 
   // "Уміння та Особливості" -> Features and Traits
   const featuresList = buildFeaturesListText(data);
@@ -981,8 +1003,9 @@ function createFieldsFromOverlay(
     { key: "speed", value: safeText(calculateFinalSpeed(pers)) },
     { key: "proficiencyBonus", value: formatModifier(calculateFinalProficiency(pers)) },
     { key: "hpMax", value: safeText(calculateFinalMaxHP(pers)) },
-    { key: "hpCurrent", value: safeText(pers.currentHp) },
-    { key: "hpTemp", value: safeText(extras.tempHp ?? 0) },
+    // Don't print current HP and temporary HP
+    // { key: "hpCurrent", value: safeText(pers.currentHp) },
+    // { key: "hpTemp", value: safeText(extras.tempHp ?? 0) },
   ];
 
   const abilities: Ability[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
