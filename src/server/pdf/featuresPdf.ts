@@ -1,4 +1,5 @@
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
+import type { PdfLogContext } from "./pdfUtils";
 
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
@@ -73,7 +74,7 @@ function translateRestType(restType: unknown): string {
   return v;
 }
 
-export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise<Uint8Array> {
+export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: PdfLogContext = {}): Promise<Uint8Array> {
   const { characterName, features } = input;
 
   const sections = groupFeaturesByType(features);
@@ -207,5 +208,5 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput): Promise
   </body>
 </html>`;
 
-  return generatePdfFromHtml(html);
+  return generatePdfFromHtml(html, {}, undefined, { ...logCtx, tag: logCtx.tag ?? "features" });
 }

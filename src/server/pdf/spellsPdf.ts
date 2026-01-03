@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
+import type { PdfLogContext } from "./pdfUtils";
 
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
@@ -24,7 +25,7 @@ function levelLabel(level: number) {
   return level === 0 ? "Замовляння" : `Рівень ${level}`;
 }
 
-export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8Array> {
+export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogContext = {}): Promise<Uint8Array> {
   if (spellIds.length === 0) {
     throw new Error("spellIds must be a non-empty array");
   }
@@ -147,5 +148,5 @@ export async function generateSpellsPdfBytes(spellIds: number[]): Promise<Uint8A
   </body>
 </html>`;
 
-  return generatePdfFromHtml(html);
+  return generatePdfFromHtml(html, {}, undefined, { ...logCtx, tag: logCtx.tag ?? "spells" });
 }

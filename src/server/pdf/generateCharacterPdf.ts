@@ -22,11 +22,18 @@ import fontkit from "@pdf-lib/fontkit";
 import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations } from "@/lib/refs/translation";
 import { translatePdfText } from "./translatePdfText";
 
+import { createLogger, hashPII } from "@/server/logging/logger";
+import { formatBytes, withStep } from "@/server/logging/perf";
+
 import type { CharacterPdfData, PersSpellWithSpell, PrintConfig, PrintSection } from "./types";
 import { CHARACTER_SHEET_OVERLAY, type OverlayFieldKey, type OverlayText } from "./overlayLayout";
 import { generateSpellsPdfBytes } from "./spellsPdf";
 import { generateFeaturesPdfBytes } from "./featuresPdf";
 import { generateMagicItemsPdfBytes } from "./magicItemsPdf";
+
+export type CharacterPdfLogContext = {
+  jobId?: string;
+};
 
 type Maybe<T> = T | null | undefined;
 
@@ -1027,38 +1034,100 @@ async function embedNotoSansFonts(pdfDoc: PDFDocument): Promise<{ regular: PDFFo
 export async function generateCharacterPdf(
   persId: number,
   userEmail: string,
-  config: PrintConfig
+  config: PrintConfig,
+  logCtx: CharacterPdfLogContext = {}
 ): Promise<Uint8Array> {
   const normalized = normalizePrintConfig(config);
+
+  const log = createLogger("pdf.character").child({
+    jobId: logCtx.jobId,
+    persId,
+    sections: normalized.sections,
+    user: { emailHash: hashPII(userEmail) },
+  });
+
+  log.info("start", {
+    flattenCharacterSheet: (normalized as any).flattenCharacterSheet,
+  });
 
   const session = await auth();
   if (!session?.user?.email) throw new Error("Unauthorized");
   if (session.user.email !== userEmail) throw new Error("Unauthorized");
 
-  const pers = await getPersById(persId);
+  const pers = await withStep(
+    "db.getPersById",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+    async () => getPersById(persId)
+  );
   if (!pers) throw new Error("Not found");
 
   const features =
-    (await getCharacterFeaturesGrouped(persId)) ??
+    (await withStep(
+      "db.getCharacterFeaturesGrouped",
+      (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+      async () => getCharacterFeaturesGrouped(persId)
+    )) ??
     ({ passive: [], actions: [], bonusActions: [], reactions: [] } as unknown as CharacterPdfData["features"]);
 
-  const spellsByLevel = groupPersSpellsByLevel(pers.persSpells ?? []);
+  const spellsByLevel = await withStep(
+    "compute.groupSpellsByLevel",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+    async () => groupPersSpellsByLevel(pers.persSpells ?? [])
+  );
+
+  log.info("data.ready", {
+    characterName: pers.name,
+    spellsCount: (pers.persSpells ?? []).length,
+    featuresCount:
+      (features?.passive?.length ?? 0) +
+      (features?.actions?.length ?? 0) +
+      (features?.bonusActions?.length ?? 0) +
+      (features?.reactions?.length ?? 0),
+    magicItemsCount: (pers.magicItems ?? []).length,
+  });
+
   const data: CharacterPdfData = { pers, features, spellsByLevel };
 
-  return generateCharacterPdfFromData(data, normalized);
+  const pdfBytes = await withStep(
+    "pdf.generateFromData",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+    async () => generateCharacterPdfFromData(data, normalized, logCtx)
+  );
+
+  log.info("end", { pdfBytes: pdfBytes.byteLength, pdfBytesFmt: formatBytes(pdfBytes.byteLength) });
+  return pdfBytes;
 }
 
 export async function generateCharacterPdfFromData(
   data: CharacterPdfData,
-  config: PrintConfig
+  config: PrintConfig,
+  logCtx: CharacterPdfLogContext = {}
 ): Promise<Uint8Array> {
   const normalized = normalizePrintConfig(config);
+
+  const log = createLogger("pdf.character.data").child({
+    jobId: logCtx.jobId,
+    persId: (data as any)?.pers?.persId,
+    characterName: (data as any)?.pers?.name,
+    sections: normalized.sections,
+  });
+
   const fs = await import("fs/promises");
   const path = await import("path");
 
   const templatePath = path.resolve(process.cwd(), "public", "CharacterSheet_fixed.pdf");
-  const templateBytes = await fs.readFile(templatePath);
-  const pdfDoc = await PDFDocument.load(templateBytes);
+  const templateBytes = await withStep(
+    "fs.readTemplate",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", { ...fields, templatePath })),
+    async () => fs.readFile(templatePath)
+  );
+  log.info("template.loaded", { templateBytes: templateBytes.byteLength, templateBytesFmt: formatBytes(templateBytes.byteLength) });
+
+  const pdfDoc = await withStep(
+    "pdf.loadTemplate",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+    async () => PDFDocument.load(templateBytes)
+  );
 
   // 1. Створюємо НОВИЙ документ і копіюємо тільки ПЕРШУ сторінку (фікс порожніх сторінок)
   for (let i = pdfDoc.getPageCount() - 1; i > 0; i--) {
@@ -1070,24 +1139,29 @@ export async function generateCharacterPdfFromData(
   }
 
   // Завантажуємо шрифти
-  const { regular: notoSansRegular } = await embedNotoSansFonts(pdfDoc);
+  const { regular: notoSansRegular } = await withStep(
+    "pdf.embedFonts",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+    async () => embedNotoSansFonts(pdfDoc)
+  );
 
   if (normalized.sections.includes("CHARACTER")) {
-    const form = pdfDoc.getForm();
-    
-    // Готуємо дані для оверлею
-    fillFirstPageUsingExistingFields(form, data, notoSansRegular);
+    await withStep(
+      "pdf.fillCharacterSheet",
+      (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+      async () => {
+        const form = pdfDoc.getForm();
+        fillFirstPageUsingExistingFields(form, data, notoSansRegular);
 
-    // Додаємо характеристики
-
-    // МАЛЮЄМО ТЕКСТ (замість створення полів форми)
-    if (normalized.flattenCharacterSheet) {
-      try {
-        form.flatten();
-      } catch {
-        // ignore
+        if (normalized.flattenCharacterSheet) {
+          try {
+            form.flatten();
+          } catch (err) {
+            log.warn("character.flatten.failed", { err });
+          }
+        }
       }
-    }
+    );
   } else {
     // Якщо персонаж НЕ обраний, видаляємо ПЕРШУ сторінку (шаблон чарника)
     try {
@@ -1108,15 +1182,26 @@ export async function generateCharacterPdfFromData(
 
     if (hasAnyFeatureItems) {
       try {
-        const featuresPdfBytes = await generateFeaturesPdfBytes({
+        log.info("features.start", {
+          passive: data.features?.passive?.length ?? 0,
+          actions: data.features?.actions?.length ?? 0,
+          bonusActions: data.features?.bonusActions?.length ?? 0,
+          reactions: data.features?.reactions?.length ?? 0,
+        });
+
+        const featuresPdfBytes = await generateFeaturesPdfBytes(
+          {
           characterName: data.pers.name ?? "Character",
           features: data.features,
-        });
+          },
+          { jobId: logCtx.jobId, tag: "features" }
+        );
+        log.info("features.generated", { bytes: featuresPdfBytes.byteLength, bytesFmt: formatBytes(featuresPdfBytes.byteLength) });
         const featuresDoc = await PDFDocument.load(featuresPdfBytes);
         const pages = await pdfDoc.copyPages(featuresDoc, featuresDoc.getPageIndices());
         pages.forEach((p) => pdfDoc.addPage(p));
-      } catch {
-        // ignore
+      } catch (err) {
+        log.warn("features.failed", { err });
       }
     }
   }
@@ -1126,12 +1211,14 @@ export async function generateCharacterPdfFromData(
     const spellIds = (data.pers.persSpells ?? []).map(ps => ps.spellId).filter((id): id is number => id != null);
     if (spellIds.length > 0) {
       try {
-        const spellsPdfBytes = await generateSpellsPdfBytes(spellIds);
+        log.info("spells.start", { spellIdsCount: spellIds.length });
+        const spellsPdfBytes = await generateSpellsPdfBytes(spellIds, { jobId: logCtx.jobId, tag: "spells" });
+        log.info("spells.generated", { bytes: spellsPdfBytes.byteLength, bytesFmt: formatBytes(spellsPdfBytes.byteLength) });
         const spellsDoc = await PDFDocument.load(spellsPdfBytes);
         const pages = await pdfDoc.copyPages(spellsDoc, spellsDoc.getPageIndices());
         pages.forEach((p) => pdfDoc.addPage(p));
-      } catch {
-        // ignore
+      } catch (err) {
+        log.warn("spells.failed", { err });
       }
     }
   }
@@ -1144,15 +1231,24 @@ export async function generateCharacterPdfFromData(
 
     if (magicItemIds.length > 0) {
       try {
-        const magicItemsPdfBytes = await generateMagicItemsPdfBytes(magicItemIds);
+        log.info("magicItems.start", { magicItemIdsCount: magicItemIds.length });
+        const magicItemsPdfBytes = await generateMagicItemsPdfBytes(magicItemIds, { jobId: logCtx.jobId, tag: "magicItems" });
+        log.info("magicItems.generated", { bytes: magicItemsPdfBytes.byteLength, bytesFmt: formatBytes(magicItemsPdfBytes.byteLength) });
         const magicItemsDoc = await PDFDocument.load(magicItemsPdfBytes);
         const pages = await pdfDoc.copyPages(magicItemsDoc, magicItemsDoc.getPageIndices());
         pages.forEach((p) => pdfDoc.addPage(p));
-      } catch {
-        // ignore
+      } catch (err) {
+        log.warn("magicItems.failed", { err });
       }
     }
   }
 
-  return pdfDoc.save();
+  const out = await withStep(
+    "pdf.save",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", { ...fields, pages: pdfDoc.getPageCount() })),
+    async () => pdfDoc.save()
+  );
+
+  log.info("result", { bytes: out.byteLength, bytesFmt: formatBytes(out.byteLength), pages: pdfDoc.getPageCount() });
+  return out;
 }

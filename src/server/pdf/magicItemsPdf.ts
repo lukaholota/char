@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
+import type { PdfLogContext } from "./pdfUtils";
 
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
@@ -49,7 +50,7 @@ function translateType(type: MagicItemType) {
   return map[type] || type;
 }
 
-export async function generateMagicItemsPdfBytes(magicItemIds: number[]): Promise<Uint8Array> {
+export async function generateMagicItemsPdfBytes(magicItemIds: number[], logCtx: PdfLogContext = {}): Promise<Uint8Array> {
   if (magicItemIds.length === 0) {
     throw new Error("magicItemIds must be a non-empty array");
   }
@@ -152,5 +153,5 @@ export async function generateMagicItemsPdfBytes(magicItemIds: number[]): Promis
   </body>
 </html>`;
 
-  return generatePdfFromHtml(html);
+  return generatePdfFromHtml(html, {}, undefined, { ...logCtx, tag: logCtx.tag ?? "magicItems" });
 }
