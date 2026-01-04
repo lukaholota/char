@@ -1,8 +1,4 @@
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
-import LevelUpData from "@/app/char/[id]/levelup/wizard-data";
-
-function LevelUpFallback() {
+export default function Loading() {
   return (
     <div className="container mx-auto py-8 px-4 max-w-6xl">
       <div className="space-y-4">
@@ -15,17 +11,5 @@ function LevelUpFallback() {
         <div className="rounded-xl border border-white/10 bg-white/5 h-[60vh] animate-pulse" />
       </div>
     </div>
-  );
-}
-
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
-  const { id: idStr } = await params;
-  const id = parseInt(idStr);
-  if (isNaN(id)) notFound();
-
-  return (
-    <Suspense fallback={<LevelUpFallback />}>
-      <LevelUpData id={id} />
-    </Suspense>
   );
 }

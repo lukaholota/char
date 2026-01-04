@@ -31,6 +31,16 @@ const constToCamel: Record<string, WeaponKindType> = {
 
 export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledChange}: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
+
+  const formatDiceUkr = (value: string): string => {
+    return String(value ?? "").replaceAll("d", "к").replaceAll("D", "к");
+  };
+
+  const formatWeaponDamageLabel = (weapon: Pick<Weapon, "damage" | "versatileDamage">): string => {
+    const base = formatDiceUkr(weapon.damage);
+    const versatile = weapon.versatileDamage ? formatDiceUkr(weapon.versatileDamage) : "";
+    return versatile ? `${base}/${versatile}` : base;
+  };
   
   const {form, onSubmit} = useStepForm(equipmentSchema, (data) => {
     updateFormData({ equipmentSchema: data });
@@ -230,7 +240,7 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
             >
               {list.map((w) => (
                 <option key={w.weaponId} value={w.weaponId} title={weaponTranslationsEng[w.name]}>
-                  {weaponTranslations[w.name]}
+                  {weaponTranslations[w.name]} ({formatWeaponDamageLabel(w)})
                 </option>
               ))}
             </select>

@@ -28,11 +28,28 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
-import { classTranslations, sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
+import { classTranslations, classTranslationsEng, sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
+import { subclassParentClass } from "@/lib/refs/subclassMapping";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { toggleSpellForPers } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+
+const BASE_CLASS_NAMES_UA: Set<string> = new Set<string>(Object.values(classTranslations));
+const CLASS_KEY_TO_UA: Record<string, string> = classTranslations as unknown as Record<string, string>;
+
+const CLASS_ENG_TO_UA: Record<string, string> = Object.fromEntries(
+  Object.entries(classTranslationsEng as unknown as Record<string, string>).map(([key, eng]) => [eng, CLASS_KEY_TO_UA[key] || eng])
+);
+
+function normalizeBaseClassValue(raw: string): string {
+  const v = (raw || "").trim();
+  if (!v) return "";
+  if (BASE_CLASS_NAMES_UA.has(v)) return v;
+  if (v in CLASS_KEY_TO_UA) return CLASS_KEY_TO_UA[v];
+  if (v in CLASS_ENG_TO_UA) return CLASS_ENG_TO_UA[v];
+  return v;
+}
 
 export type SpellListItem = {
   spellId: number;
@@ -125,12 +142,24 @@ function getSearchParamsFromLocation(): URLSearchParams {
 }
 
 function parseSelectionFromParams(params: URLSearchParams): SelectionState {
+  const normalizedClasses = new Set(
+    Array.from(getParamSet(params, "cls"))
+      .map(normalizeBaseClassValue)
+      .filter(Boolean)
+  );
+
+  const normalizedTimes = new Set(
+    Array.from(getParamSet(params, "time"))
+      .map(normalizeCastingTimeValue)
+      .filter(Boolean)
+  );
+
   return {
     levels: getParamSet(params, "lvl"),
-    classes: getParamSet(params, "cls"),
+    classes: normalizedClasses,
     subclasses: getParamSet(params, "sub"),
     schools: getParamSet(params, "sch"),
-    times: getParamSet(params, "time"),
+    times: normalizedTimes,
     sources: getParamSet(params, "src"),
     ritual: getBoolParam(params, "rit"),
     conc: getBoolParam(params, "conc"),
@@ -219,25 +248,13 @@ function flagsLabel(spell: Pick<SpellListItem, "hasRitual" | "hasConcentration">
   return flags.length ? flags.join(" • ") : "";
 }
 
-function splitClasses(values: string[]): { classes: string[]; subclasses: string[] } {
-  const isSubclass = (raw: string) => {
-    const v = raw.trim().toLowerCase();
-    if (!v) return false;
-    if (v.includes(":")) return true;
-    if (v.includes("(")) return true;
-    if (v.includes("-")) return true;
-    // Most base classes are single words; multi-word entries are typically subclass lines.
-    if (v.split(/\s+/).length > 1) return true;
-    return false;
-  };
-
-  const classes: string[] = [];
-  const subclasses: string[] = [];
-  for (const v of values) {
-    if (isSubclass(v)) subclasses.push(v);
-    else classes.push(v);
-  }
-  return { classes, subclasses };
+function normalizeCastingTimeValue(raw: string): string {
+  const v = (raw || "").trim();
+  if (!v) return "";
+  const lower = v.toLowerCase();
+  // Collapse all reaction variants into one filter option.
+  if (lower.startsWith("1 реакц")) return "1 реакція";
+  return v;
 }
 
 type PersIndexItem = {
@@ -588,7 +605,18 @@ export function SpellsClient({
       }
 
       if (selection.times.size > 0) {
-        if (!selection.times.has(s.castingTime)) return false;
+        const cast = (s.castingTime || "").trim();
+        const castNorm = normalizeCastingTimeValue(cast);
+        let ok = false;
+        for (const t of selection.times) {
+          const tt = (t || "").trim();
+          if (!tt) continue;
+          if (cast.includes(tt) || castNorm === tt) {
+            ok = true;
+            break;
+          }
+        }
+        if (!ok) return false;
       }
 
       if (selection.classes.size > 0) {
@@ -669,6 +697,7 @@ export function SpellsClient({
 
   const available = useMemo(() => {
     const classes = new Set<string>();
+    const subclasses = new Set<string>();
     const schools = new Set<string>();
     const times = new Set<string>();
     const sources = new Set<string>();
@@ -677,17 +706,41 @@ export function SpellsClient({
     for (const s of spells) {
       levels.add(s.level);
       if (s.school) schools.add(s.school);
-      times.add(s.castingTime);
+      times.add(normalizeCastingTimeValue(s.castingTime));
       sources.add(s.source);
-      for (const c of s.spellClasses) classes.add(c.className);
+      for (const c of s.spellClasses) {
+        const name = (c.className || "").trim();
+        if (!name) continue;
+        if (BASE_CLASS_NAMES_UA.has(name)) classes.add(name);
+        else subclasses.add(name);
+      }
     }
 
-    const split = splitClasses(Array.from(classes));
+    const subclassesByClassRecord: Record<string, string[]> = {};
+    for (const sub of subclasses) {
+      const parent = subclassParentClass[sub] || "Інше";
+      if (!subclassesByClassRecord[parent]) subclassesByClassRecord[parent] = [];
+      subclassesByClassRecord[parent].push(sub);
+    }
+
+    const subclassesByClass = Object.entries(subclassesByClassRecord)
+      .map(([className, subs]) => {
+        const uniq = Array.from(new Set(subs));
+        uniq.sort((a, b) => a.localeCompare(b, "uk"));
+        return { className, subclasses: uniq };
+      })
+      .sort((a, b) => {
+        const aIsOther = a.className === "Інше";
+        const bIsOther = b.className === "Інше";
+        if (aIsOther && !bIsOther) return 1;
+        if (!aIsOther && bIsOther) return -1;
+        return a.className.localeCompare(b.className, "uk");
+      });
 
     return {
       levels: Array.from(levels).sort((a, b) => a - b),
-      classes: split.classes.sort((a, b) => a.localeCompare(b, "uk")),
-      subclasses: split.subclasses.sort((a, b) => a.localeCompare(b, "uk")),
+      classes: Array.from(classes).sort((a, b) => a.localeCompare(b, "uk")),
+      subclassesByClass,
       schools: Array.from(schools).sort((a, b) => a.localeCompare(b, "uk")),
       times: Array.from(times).sort((a, b) => a.localeCompare(b, "uk")),
       sources: Array.from(sources).sort((a, b) => a.localeCompare(b, "uk")),
@@ -1074,29 +1127,38 @@ export function SpellsClient({
                   />
                 </div>
                 <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="flex flex-wrap gap-2">
-                    {available.subclasses
-                      .filter((sub) => {
+                  <div className="space-y-3">
+                    {available.subclassesByClass
+                      .map(({ className, subclasses }) => {
                         const q = subclassFilter.trim().toLowerCase();
-                        if (!q) return true;
-                        const label = classTranslations[sub as keyof typeof classTranslations] || sub;
-                        return `${sub} ${label}`.toLowerCase().includes(q);
-                      })
-                      .map((sub) => {
-                        const active = selection.subclasses.has(sub);
-                        const label = classTranslations[sub as keyof typeof classTranslations] || sub;
+                        const visible = !q
+                          ? subclasses
+                          : subclasses.filter((sub) => sub.toLowerCase().includes(q));
+                        if (visible.length === 0) return null;
+
                         return (
-                          <Badge
-                            key={sub}
-                            variant={active ? "default" : "outline"}
-                            className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                            onClick={() => toggleSetValue("sub", sub)}
-                            role="button"
-                          >
-                            {label}
-                          </Badge>
+                          <div key={className} className="space-y-2">
+                            <div className="text-xs font-semibold text-slate-400">{className}:</div>
+                            <div className="flex flex-wrap gap-2">
+                              {visible.map((sub) => {
+                                const active = selection.subclasses.has(sub);
+                                return (
+                                  <Badge
+                                    key={sub}
+                                    variant={active ? "default" : "outline"}
+                                    className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
+                                    onClick={() => toggleSetValue("sub", sub)}
+                                    role="button"
+                                  >
+                                    {sub}
+                                  </Badge>
+                                );
+                              })}
+                            </div>
+                          </div>
                         );
-                      })}
+                      })
+                      .filter(Boolean)}
                   </div>
                 </div>
               </div>

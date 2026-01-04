@@ -153,7 +153,14 @@ export const formatWeaponProficiencies = (
   return parts.length ? parts.join(" • ") : "—";
 };
 
-export const formatArmorProficiencies = (armor?: ArmorType[] | null) => formatList(armor);
+export const formatArmorProficiencies = (armor?: ArmorType[] | null) => {
+  if (!armor?.length) return "—";
+  // Avoid ambiguity with Size.MEDIUM translation (“Середній”).
+  // ArmorType.MEDIUM should be “Середні обладунки”.
+  return armor
+    .map((a) => armorTypeTranslations[a as unknown as keyof typeof armorTypeTranslations] ?? String(a))
+    .join(", ");
+};
 
 export const formatAbilityList = (abilities?: Ability[] | null) => formatList(abilities);
 

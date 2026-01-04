@@ -352,3 +352,38 @@ export async function updateBaseStat(
     return { success: false, error: "Помилка при збереженні характеристики" };
   }
 }
+
+/**
+ * Update base AC override (highest-priority base AC).
+ * Use `null` to clear the override.
+ */
+export async function updateBaseACOverride(
+  persId: number,
+  value: number | null
+): Promise<{ success: true } | { success: false; error: string }> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  if (value !== null) {
+    if (!Number.isFinite(value) || value < 0) {
+      return { success: false, error: "Невірне значення базового КБ" };
+    }
+  }
+
+  const next = value === null ? null : Math.trunc(value);
+
+  try {
+    await prisma.pers.update({
+      where: { persId },
+      data: { overrideBaseAC: next },
+    });
+
+    revalidatePath(`/char/${persId}`);
+    revalidatePath(`/character/${persId}`);
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating base AC override:", error);
+    return { success: false, error: "Помилка при збереженні базового КБ" };
+  }
+}

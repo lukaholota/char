@@ -3,7 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { fullCharacterSchema, PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { auth } from "@/lib/auth";
-import { ArmorType, Language, SkillProficiencyType, Skills } from "@prisma/client";
+import { Ability, ArmorType, Feats, Language, SkillProficiencyType, Skills } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import {
   formatArmorProficiencies,
@@ -185,6 +185,11 @@ export async function createCharacter(data: PersFormData) {
   const race = await prisma.race.findUnique({ where: { raceId: validData.raceId } });
   if (!race) return { error: "Race not found" };
 
+  // If race defines a Warforged-style static AC bonus (consistent bonus), initialize toggleable pers field.
+    // Race static AC bonuses (e.g. Warforged +1) must be explicitly enabled via the UI toggle.
+    // So we initialize it to 0 even if the race defines a consistentBonus.
+    const initialRaceStaticAcBonus = 0;
+
   let effectiveASI: unknown = race.ASI;
 
   const variant = validData.raceVariantId
@@ -245,21 +250,54 @@ export async function createCharacter(data: PersFormData) {
   }
 
   if (feat) {
+    const isResilient = feat.name === Feats.RESILIENT;
+    let resilientSaveAbility: Ability | null = null;
+
     addBonuses(scores, getPlainBonuses(feat.grantedASI));
     addBonuses(scores, getSimpleBonuses(feat.grantedASI));
 
     const entries = Object.values(validData.featChoiceSelections ?? {});
     for (const choiceOptionId of entries) {
       const option = feat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
-      const nameEng = option?.choiceOption?.optionNameEng;
-      if (!nameEng) continue;
+      const co: any = option?.choiceOption;
+      const nameEng = String(co?.optionNameEng ?? "");
 
-      if (nameEng.includes("Strength")) scores.STR += 1;
-      else if (nameEng.includes("Dexterity")) scores.DEX += 1;
-      else if (nameEng.includes("Constitution")) scores.CON += 1;
-      else if (nameEng.includes("Intelligence")) scores.INT += 1;
-      else if (nameEng.includes("Wisdom")) scores.WIS += 1;
-      else if (nameEng.includes("Charisma")) scores.CHA += 1;
+      const effectKind = String(co?.effectKind ?? "").trim();
+      if (effectKind === "ASI") {
+        const ability = String(co?.effectAbility ?? "").trim();
+        if (isAbilityKey(ability)) {
+          scores[ability.toUpperCase() as keyof typeof scores] += Number(co?.effectAmount ?? 1) || 1;
+          if (isResilient) resilientSaveAbility = ability.toUpperCase() as Ability;
+          continue;
+        }
+      }
+
+      // Legacy fallback
+      if (!nameEng) continue;
+      if (nameEng.includes("Strength")) {
+        scores.STR += 1;
+        if (isResilient) resilientSaveAbility = Ability.STR;
+      } else if (nameEng.includes("Dexterity")) {
+        scores.DEX += 1;
+        if (isResilient) resilientSaveAbility = Ability.DEX;
+      } else if (nameEng.includes("Constitution")) {
+        scores.CON += 1;
+        if (isResilient) resilientSaveAbility = Ability.CON;
+      } else if (nameEng.includes("Intelligence")) {
+        scores.INT += 1;
+        if (isResilient) resilientSaveAbility = Ability.INT;
+      } else if (nameEng.includes("Wisdom")) {
+        scores.WIS += 1;
+        if (isResilient) resilientSaveAbility = Ability.WIS;
+      } else if (nameEng.includes("Charisma")) {
+        scores.CHA += 1;
+        if (isResilient) resilientSaveAbility = Ability.CHA;
+      }
+    }
+
+    // Persist Resilient save proficiency at creation time.
+    if (isResilient && resilientSaveAbility) {
+      cls.savingThrows = Array.from(new Set([...(cls.savingThrows ?? []), resilientSaveAbility]));
     }
   }
 
@@ -411,7 +449,10 @@ export async function createCharacter(data: PersFormData) {
                     include: { equipmentPack: true }
               });
               if (opt) {
-                  if (opt.weaponId) weaponsToCreate.push({ weaponId: opt.weaponId });
+                  if (opt.weaponId) {
+                    const qty = Number.isFinite(opt.quantity) ? Math.max(1, Math.trunc(opt.quantity)) : 1;
+                    for (let i = 0; i < qty; i++) weaponsToCreate.push({ weaponId: opt.weaponId });
+                  }
                   if (opt.armorId) armorsToCreate.push({ armorId: opt.armorId });
                   if (typeof opt.item === "string" && opt.item.trim()) {
                     const qty = Number.isFinite(opt.quantity) ? opt.quantity : 1;
@@ -625,6 +666,8 @@ export async function createCharacter(data: PersFormData) {
           currentSpellSlots: initialCurrentSpellSlots,
           currentPactSlots: initialCurrentPactSlots,
 
+          raceStaticAcBonus: initialRaceStaticAcBonus,
+
           customLanguagesKnown,
           customProficiencies,
 
@@ -778,14 +821,135 @@ export async function createCharacter(data: PersFormData) {
 
       // Save armors AFTER Pers exists
       if (armorsToCreate.length > 0) {
+        const armorMetas = await tx.armor.findMany({
+          where: { armorId: { in: armorsToCreate.map((a) => a.armorId) } },
+          select: { armorId: true, abilityBonuses: true, abilityBonusType: true },
+        });
+        const metaById = new Map<number, { abilityBonuses: any; abilityBonusType: any }>(
+          armorMetas.map((m) => [m.armorId, { abilityBonuses: (m as any).abilityBonuses ?? [], abilityBonusType: (m as any).abilityBonusType }])
+        );
+
         await tx.persArmor.createMany({
           data: armorsToCreate.map((a, index) => ({
             persId: createdPers.persId,
             armorId: a.armorId,
-            equipped: index === 0,
+            abilityBonuses: metaById.get(a.armorId)?.abilityBonuses ?? [],
+            abilityBonusType: metaById.get(a.armorId)?.abilityBonusType,
+            equipped: (race as any).name === "TORTLE_MPMM" ? false : index === 0,
           })),
           skipDuplicates: true,
         });
+      }
+
+      // Explicit AC sources as equipable armor entries (seeded, translated)
+      // Tortle: 17.
+      // Monk UD: 10 + DEX + WIS.
+      // Barbarian UD: 10 + DEX + CON.
+      // Some races: natural armor base formula (e.g., 13+DEX, 12+DEX, 12+CON).
+      try {
+        const isTortle = (race as any).name === "TORTLE_MPMM";
+
+        const raceAc = (race as any).ac as any;
+        const getSeededNaturalArmorName = (): string | null => {
+          if (!raceAc || typeof raceAc !== "object") return null;
+          if (typeof raceAc.base === "number") {
+            const base = Math.trunc(raceAc.base);
+            const bonus = raceAc.bonus;
+            if (base === 17 && (bonus === null || bonus === undefined)) return "NATURAL_ARMOR_TORTLE";
+            if (base === 13 && bonus === "DEX") return "NATURAL_ARMOR_13_DEX";
+            if (base === 12 && bonus === "DEX") return "NATURAL_ARMOR_12_DEX";
+            if (base === 12 && bonus === "CON") return "NATURAL_ARMOR_12_CON";
+          }
+          return null;
+        };
+
+        const seededArmorNames = new Set<string>();
+
+        const naturalArmorName = getSeededNaturalArmorName();
+        if (naturalArmorName) seededArmorNames.add(naturalArmorName);
+        if (cls.name === "MONK_2014") seededArmorNames.add("UNARMORED_DEFENSE_MONK");
+        if (cls.name === "BARBARIAN_2014") seededArmorNames.add("UNARMORED_DEFENSE_BARBARIAN");
+
+        if (seededArmorNames.size > 0) {
+          const rows = await tx.armor.findMany({
+            where: { name: { in: Array.from(seededArmorNames) as any } },
+            select: { armorId: true, name: true, abilityBonuses: true, abilityBonusType: true },
+          });
+
+          const byName = new Map<string, { armorId: number; abilityBonuses: any; abilityBonusType: any }>(
+            rows.map((r) => [String(r.name), { armorId: r.armorId, abilityBonuses: (r as any).abilityBonuses ?? [], abilityBonusType: (r as any).abilityBonusType }])
+          );
+
+          const specialArmorsToCreate: Array<{
+            persId: number;
+            armorId: number;
+            abilityBonuses: any;
+            abilityBonusType: any;
+            miscACBonus: number;
+            isProficient: boolean;
+            equipped: boolean;
+          }> = [];
+
+          // Race natural armor
+          if (naturalArmorName && byName.has(naturalArmorName)) {
+            const meta = byName.get(naturalArmorName)!;
+            specialArmorsToCreate.push({
+              persId: createdPers.persId,
+              armorId: meta.armorId,
+              abilityBonuses: meta.abilityBonuses,
+              abilityBonusType: meta.abilityBonusType,
+              miscACBonus: 0,
+              isProficient: true,
+              equipped: isTortle,
+            });
+          }
+
+          // Class unarmored defenses
+          if (cls.name === "MONK_2014" && byName.has("UNARMORED_DEFENSE_MONK")) {
+            const meta = byName.get("UNARMORED_DEFENSE_MONK")!;
+            specialArmorsToCreate.push({
+              persId: createdPers.persId,
+              armorId: meta.armorId,
+              abilityBonuses: meta.abilityBonuses,
+              abilityBonusType: meta.abilityBonusType,
+              miscACBonus: 0,
+              isProficient: true,
+              equipped: !isTortle && armorsToCreate.length === 0,
+            });
+          }
+          if (cls.name === "BARBARIAN_2014" && byName.has("UNARMORED_DEFENSE_BARBARIAN")) {
+            const meta = byName.get("UNARMORED_DEFENSE_BARBARIAN")!;
+            specialArmorsToCreate.push({
+              persId: createdPers.persId,
+              armorId: meta.armorId,
+              abilityBonuses: meta.abilityBonuses,
+              abilityBonusType: meta.abilityBonusType,
+              miscACBonus: 0,
+              isProficient: true,
+              equipped: !isTortle && armorsToCreate.length === 0,
+            });
+          }
+
+          // If we have a non-tortle natural armor and the character otherwise has no armor,
+          // equip the natural armor by default.
+          if (!isTortle && armorsToCreate.length === 0 && naturalArmorName && naturalArmorName !== "NATURAL_ARMOR_TORTLE") {
+            const idx = specialArmorsToCreate.findIndex((a) => {
+              const name = Array.from(byName.entries()).find(([, meta]) => meta.armorId === a.armorId)?.[0];
+              return name === naturalArmorName;
+            });
+            if (idx >= 0) {
+              specialArmorsToCreate[idx] = { ...specialArmorsToCreate[idx], equipped: true };
+            }
+          }
+
+          if (specialArmorsToCreate.length > 0) {
+            await tx.persArmor.createMany({
+              data: specialArmorsToCreate,
+            });
+          }
+        }
+      } catch {
+        // Best-effort; character creation should not fail if we can't create special AC sources.
       }
 
       // Update HP based on Class and CON mod

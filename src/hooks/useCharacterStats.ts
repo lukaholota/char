@@ -156,13 +156,79 @@ export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStats
             // Find the option in the feat's options
             const option = feat.featChoiceOptions.find(o => o.choiceOptionId === optionId);
             if (option) {
-                // Check if the option name corresponds to an ability
-                // We seeded them as "Strength", "Dexterity", etc. or localized "Сила", "Спритність"
-                // Let's check both or use a map.
-                // In seed: "Skill Expert Ability (Strength)" -> optionNameEng
-                // In seed: "Resilient (Strength)" -> optionNameEng
-                
-                const nameEng = option.choiceOption.optionNameEng;
+                const co: any = option.choiceOption;
+                const effectKind = String(co?.effectKind ?? "").trim();
+
+                if (effectKind === "ASI") {
+                  const abilityRaw = String(co?.effectAbility ?? "").trim();
+                  const amount = Number(co?.effectAmount ?? 1);
+                  const toAbility = (value: string): string | null => {
+                    const v = String(value || "").trim();
+                    const upper = v.toUpperCase();
+                    if (upper === "STR" || upper === "DEX" || upper === "CON" || upper === "INT" || upper === "WIS" || upper === "CHA") {
+                      return upper;
+                    }
+                    switch (v) {
+                      case "Strength":
+                        return "STR";
+                      case "Dexterity":
+                        return "DEX";
+                      case "Constitution":
+                        return "CON";
+                      case "Intelligence":
+                        return "INT";
+                      case "Wisdom":
+                        return "WIS";
+                      case "Charisma":
+                        return "CHA";
+                      default:
+                        return null;
+                    }
+                  };
+
+                  const ability = toAbility(abilityRaw);
+                  if (ability) addBonus(ability, Number.isFinite(amount) ? amount : 1, "за рису");
+                  return;
+                }
+
+                const nameEng = co.optionNameEng;
+
+                const tail = (() => {
+                  const match = String(nameEng).match(/\(([^)]+)\)\s*$/);
+                  return (match?.[1] ?? "").trim();
+                })();
+
+                const toAbility = (value: string): string | null => {
+                  const v = String(value || "").trim();
+                  const upper = v.toUpperCase();
+                  if (upper === "STR" || upper === "DEX" || upper === "CON" || upper === "INT" || upper === "WIS" || upper === "CHA") {
+                    return upper;
+                  }
+                  switch (v) {
+                    case "Strength":
+                      return "STR";
+                    case "Dexterity":
+                      return "DEX";
+                    case "Constitution":
+                      return "CON";
+                    case "Intelligence":
+                      return "INT";
+                    case "Wisdom":
+                      return "WIS";
+                    case "Charisma":
+                      return "CHA";
+                    default:
+                      return null;
+                  }
+                };
+
+                const abilityFromTail = toAbility(tail);
+                if (abilityFromTail) {
+                  addBonus(abilityFromTail, 1, "за рису");
+                  return;
+                }
+
+                // Backward compat fallback
                 if (nameEng.includes('Strength')) addBonus('STR', 1, "за рису");
                 else if (nameEng.includes('Dexterity')) addBonus('DEX', 1, "за рису");
                 else if (nameEng.includes('Constitution')) addBonus('CON', 1, "за рису");

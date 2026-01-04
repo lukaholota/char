@@ -13,6 +13,7 @@ import { ChevronLeft, ChevronRight, Check, Loader2 } from "lucide-react";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
+import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
 import LevelUpASIForm from "@/lib/components/levelUp/LevelUpASIForm";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import OptionalFeaturesForm from "@/lib/components/levelUp/OptionalFeaturesForm";
@@ -189,6 +190,22 @@ export default function LevelUpWizard({ info }: Props) {
     const nextLevel = isError ? 0 : info.nextLevel;
     const classes = useMemo(() => info?.classes || [], [info?.classes]);
     const feats = useMemo(() => info?.feats || [], [info?.feats]);
+
+    const selectedFeatId = useMemo(() => {
+        const raw = (formData as any)?.featId;
+        const id = typeof raw === "number" ? raw : typeof raw === "string" ? Number(raw) : NaN;
+        return Number.isFinite(id) ? (id as number) : undefined;
+    }, [formData]);
+
+    const selectedFeat = useMemo(() => {
+        if (!selectedFeatId) return undefined;
+        return (feats as any[])?.find((f: any) => Number(f?.featId) === selectedFeatId);
+    }, [feats, selectedFeatId]);
+
+    const selectedFeatHasChoices = useMemo(() => {
+        const n = (selectedFeat as any)?.featChoiceOptions?.length ?? 0;
+        return n > 0;
+    }, [selectedFeat]);
 
     const existingClassIds = useMemo(() => {
         const ids = new Set<number>();
@@ -443,6 +460,14 @@ export default function LevelUpWizard({ info }: Props) {
                 title: "Покращення",
                 initialDisabled: true,
             });
+
+            if (selectedFeatId && selectedFeatHasChoices) {
+                result.push({
+                    id: "feat-choices",
+                    title: "Опції риси",
+                    initialDisabled: true,
+                });
+            }
         }
 
         if (needsInfusions) {
@@ -453,12 +478,32 @@ export default function LevelUpWizard({ info }: Props) {
             });
         }
 
-        const hasOptional = Boolean(
-            (selectedClass.classOptionalFeatures || []).some((opt) => (opt.grantedOnLevels || []).includes(classLevelAfter))
+        const optionalAtLevel = (selectedClass.classOptionalFeatures || []).filter((opt: any) =>
+            (opt.grantedOnLevels || []).includes(classLevelAfter)
         );
-        if (hasOptional) {
+
+        const isReplacementOptional = (opt: any) =>
+            Boolean(
+                opt?.replacesInvocation ||
+                    opt?.replacesFightingStyle ||
+                    opt?.replacesManeuver ||
+                    (Array.isArray(opt?.replacesFeatures) && opt.replacesFeatures.length > 0)
+            );
+
+        const hasReplacements = optionalAtLevel.some(isReplacementOptional);
+        const hasOptionalFeaturesOnly = optionalAtLevel.some((opt: any) => !isReplacementOptional(opt));
+
+        if (hasOptionalFeaturesOnly) {
             result.push({
-                id: "optional",
+                id: "optional-features",
+                title: "Опціональні фічі",
+                initialDisabled: true,
+            });
+        }
+
+        if (hasReplacements) {
+            result.push({
+                id: "replacements",
                 title: "Заміни",
                 initialDisabled: true,
             });
@@ -484,6 +529,8 @@ export default function LevelUpWizard({ info }: Props) {
         isError,
         needsInfusions,
         needsSubclass,
+        selectedFeatHasChoices,
+        selectedFeatId,
         pers,
         selectedClass,
         selectedClassId,
@@ -561,8 +608,18 @@ export default function LevelUpWizard({ info }: Props) {
                         hasSpellcasting={hasSpellcasting}
                         raceName={((pers as any)?.race?.name as Races | undefined) ?? undefined}
                         pers={pers as any}
+                        renderFeatChoicesInline={false}
                     />
                 );
+            case "feat-choices":
+                return selectedFeat ? (
+                    <FeatChoiceOptionsForm
+                        selectedFeat={selectedFeat as any}
+                        formId="feat-choices-form"
+                        onNextDisabledChange={onNextDisabledChange}
+                        pers={pers as any}
+                    />
+                ) : null;
             case "infusions": {
                 const known = (pers as any)?.persInfusions?.map((pi: any) => Number(pi?.infusionId)).filter((v: any) => Number.isFinite(v)) ?? [];
                 return (
@@ -576,7 +633,7 @@ export default function LevelUpWizard({ info }: Props) {
                     />
                 );
             }
-            case "optional":
+            case "optional-features":
                 return (
                     <OptionalFeaturesForm
                         selectedClass={selectedClass!}
@@ -584,6 +641,19 @@ export default function LevelUpWizard({ info }: Props) {
                         persChoiceOptions={(pers as any)?.choiceOptions || []}
                         classLevel={classLevelAfter}
                         formId="optional-features"
+                        mode="OPTIONAL"
+                        onNextDisabledChange={onNextDisabledChange}
+                    />
+                );
+            case "replacements":
+                return (
+                    <OptionalFeaturesForm
+                        selectedClass={selectedClass!}
+                        effectiveSubclass={effectiveSubclass}
+                        persChoiceOptions={(pers as any)?.choiceOptions || []}
+                        classLevel={classLevelAfter}
+                        formId="replacements"
+                        mode="REPLACEMENT"
                         onNextDisabledChange={onNextDisabledChange}
                     />
                 );
@@ -647,9 +717,12 @@ export default function LevelUpWizard({ info }: Props) {
                     toast.error(res.error || "Помилка при збереженні");
                 } else {
                     toast.success("Рівень підвищено!");
-                    resetForm();
-                    usePersFormStore.persist.clearStorage();
                     router.push(`/char/${pers.persId}`);
+                    // Clear level-up selections after navigation starts to avoid UI flash.
+                    requestAnimationFrame(() => {
+                      resetForm();
+                      usePersFormStore.persist.clearStorage();
+                    });
                 }
             } catch (err) {
                 console.error(err);
@@ -976,7 +1049,7 @@ function ConfirmStep({
                     {optionalChosen ? (
                         <div className="flex items-center gap-2">
                             <Check className="h-4 w-4 text-emerald-400" />
-                            <span className="text-sm text-slate-200">Прийнято заміни вмінь</span>
+                            <span className="text-sm text-slate-200">Опціональні фічі / заміни обрано</span>
                         </div>
                     ) : null}
 

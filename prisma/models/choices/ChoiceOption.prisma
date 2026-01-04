@@ -3,6 +3,10 @@ model ChoiceOption {
   groupName             String                 @map("group_name") @db.VarChar(100)
   optionName            String                 @map("option_name") @db.VarChar(100)
   optionNameEng         String                 @unique @map("option_name_eng") @db.VarChar(100)
+  effectKind            ChoiceOptionEffectKind? @map("effect_kind")
+  effectAbility         Ability?                @map("effect_ability")
+  effectSkill           Skills?                 @map("effect_skill")
+  effectAmount          Int?                    @map("effect_amount")
   prerequisites         Json?
   features              ChoiceOptionFeature[]
   classChoiceOptions    ClassChoiceOption[]

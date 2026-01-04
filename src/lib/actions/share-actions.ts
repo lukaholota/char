@@ -172,8 +172,8 @@ export async function copyPersByToken(token: string) {
     if (!sourcePers) return { error: "Персонажа не знайдено за цим токеном" };
 
     const newPersId = await prisma.$transaction(async (tx) => {
-      const newPers = await tx.pers.create({
-        data: {
+      // Use a variable to avoid TS excess-property checks before Prisma Client is regenerated.
+      const data = {
           userId: user.id,
           name: `${sourcePers.name} (Копія)`,
           level: sourcePers.level,
@@ -221,6 +221,8 @@ export async function copyPersByToken(token: string) {
           wearsShield: sourcePers.wearsShield,
           additionalShieldBonus: sourcePers.additionalShieldBonus,
           armorBonus: sourcePers.armorBonus,
+          overrideBaseAC: sourcePers.overrideBaseAC ?? undefined,
+          raceStaticAcBonus: (sourcePers as any).raceStaticAcBonus ?? undefined,
           wearsNaturalArmor: sourcePers.wearsNaturalArmor,
           statBonuses: sourcePers.statBonuses || undefined,
           statModifierBonuses: sourcePers.statModifierBonuses || undefined,
@@ -243,7 +245,10 @@ export async function copyPersByToken(token: string) {
           choiceOptions: { connect: sourcePers.choiceOptions.map(co => ({ choiceOptionId: co.choiceOptionId })) },
           classOptionalFeatures: { connect: sourcePers.classOptionalFeatures.map(cof => ({ optionalFeatureId: cof.optionalFeatureId })) },
           spells: { connect: sourcePers.spells.map(s => ({ spellId: s.spellId })) },
-        }
+        };
+
+      const newPers = await tx.pers.create({
+        data,
       });
 
       if (sourcePers.skills.length > 0) {
@@ -316,7 +321,10 @@ export async function copyPersByToken(token: string) {
           data: sourcePers.armors.map(a => ({
             persId: newPers.persId,
             armorId: a.armorId,
+            overrideName: a.overrideName,
             overrideBaseAC: a.overrideBaseAC,
+            abilityBonuses: (a as any).abilityBonuses ?? [],
+            abilityBonusType: (a as any).abilityBonusType ?? undefined,
             isProficient: a.isProficient,
             equipped: a.equipped,
             miscACBonus: a.miscACBonus,

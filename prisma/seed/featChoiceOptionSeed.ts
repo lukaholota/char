@@ -41,13 +41,44 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
     groupName: string,
     optionName: string,
     optionNameEng: string,
-    features: { engName: string }[] = []
+    features: { engName: string }[] = [],
+    effect?: {
+      kind?: "ASI" | "SKILL_PROFICIENCY" | "SKILL_EXPERTISE";
+      ability?: Ability;
+      skill?: Skills;
+      amount?: number;
+    }
   ) => {
     const existing = await prisma.choiceOption.findUnique({
       where: { optionNameEng }
     });
 
-    if (existing) return existing;
+    if (existing) {
+      // Keep already-seeded records in sync with canonical display names.
+      // This helps rename legacy group titles without changing IDs.
+      const ex: any = existing;
+      const data: Prisma.ChoiceOptionUpdateInput = {};
+
+      if (existing.groupName !== groupName) data.groupName = groupName;
+      if (existing.optionName !== optionName) data.optionName = optionName;
+
+      // Backfill effect metadata onto already-seeded records (prefer not to overwrite).
+      if (effect?.kind) {
+        if (ex.effectKind == null) data.effectKind = effect.kind as any;
+        if (effect.ability && ex.effectAbility == null) data.effectAbility = effect.ability as any;
+        if (effect.skill && ex.effectSkill == null) data.effectSkill = effect.skill as any;
+        if (effect.amount != null && ex.effectAmount == null) data.effectAmount = effect.amount;
+      }
+
+      if (Object.keys(data).length > 0) {
+        return await prisma.choiceOption.update({
+          where: { choiceOptionId: existing.choiceOptionId },
+          data,
+        });
+      }
+
+      return existing;
+    }
 
     // Find features to connect
     const featureConnects: Prisma.ChoiceOptionFeatureCreateWithoutOptionInput[] = [];
@@ -65,6 +96,10 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
         groupName,
         optionName,
         optionNameEng,
+        effectKind: (effect?.kind ?? null) as any,
+        effectAbility: (effect?.ability ?? null) as any,
+        effectSkill: (effect?.skill ?? null) as any,
+        effectAmount: effect?.amount ?? null,
         features: {
           create: featureConnects
         }
@@ -108,7 +143,8 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
         "Resilient (здібність)",
         ukrainianName,
         `Resilient (${ability})`,
-        []
+        [],
+        { kind: "ASI", ability, amount: 1 }
       );
       await linkFeatChoice(resilient.featId, option.choiceOptionId);
     }
@@ -256,6 +292,27 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
   }
 
   // ========================================================================
+  // FIGHTING INITIATE (Посвячений у бій)
+  // Choose one Fighting Style (reuses existing ChoiceOptions: group "Бойовий стиль")
+  // ========================================================================
+  const fightingInitiate = await findFeat(Feats.FIGHTING_INITIATE);
+  if (fightingInitiate) {
+    const fightingStyleGroupName = "Бойовий стиль";
+    const fightingStyleOptions = await prisma.choiceOption.findMany({
+      where: { groupName: fightingStyleGroupName },
+    });
+
+    if (fightingStyleOptions.length === 0) {
+      console.warn("⚠️ Fighting Initiate: No fighting styles found! Run choiceOptionSeed first.");
+    } else {
+      for (const opt of fightingStyleOptions) {
+        await linkFeatChoice(fightingInitiate.featId, opt.choiceOptionId);
+      }
+      console.log(`✅ Fighting Initiate: Linked ${fightingStyleOptions.length} fighting styles`);
+    }
+  }
+
+  // ========================================================================
   // SKILL EXPERT (Майстер навичок)
   // 1. Increase one ability score by 1
   // 2. Gain proficiency in one skill
@@ -268,10 +325,11 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
       const ukrainianName = attributesUkrFull[ability];
       
       const option = await createChoiceOption(
-        "Характеристика Майстра навичок",
+        "Характеристика для Експерта у навичках",
         ukrainianName,
         `Skill Expert (${ability})`,
-        []
+        [],
+        { kind: "ASI", ability, amount: 1 }
       );
       await linkFeatChoice(skillExpert.featId, option.choiceOptionId);
     }
@@ -284,7 +342,8 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
         "Навичка Майстра навичок",
         skillTranslation,
         `Skill Expert Proficiency (${skill})`,
-        []
+        [],
+        { kind: "SKILL_PROFICIENCY", skill, amount: 1 }
       );
       await linkFeatChoice(skillExpert.featId, option.choiceOptionId);
     }
@@ -297,7 +356,8 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
         "Експертиза Майстра навичок",
         skillTranslation,
         `Skill Expert Expertise (${skill})`,
-        []
+        [],
+        { kind: "SKILL_EXPERTISE", skill, amount: 1 }
       );
       await linkFeatChoice(skillExpert.featId, option.choiceOptionId);
     }

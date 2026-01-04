@@ -27,6 +27,13 @@ interface Props {
   raceVariant?: RaceVariant | null;
   pers?: PersPrisma;
 
+  /**
+   * When true (default), renders feat choice options inline on the same screen.
+   * For level-up wizard parity with character creation, this can be set to false
+   * and rendered as a separate step.
+   */
+  renderFeatChoicesInline?: boolean;
+
   levelAfter?: number;
   baseStats?: Record<Ability, number>;
   hasSpellcasting?: boolean;
@@ -57,6 +64,15 @@ const toCustomAsi = (asi: AsiMap) => {
     .map(([ability, value]) => ({ ability, value: String(value) }));
 };
 
+const abilityToPersKey: Record<Ability, "str" | "dex" | "con" | "int" | "wis" | "cha"> = {
+  STR: "str",
+  DEX: "dex",
+  CON: "con",
+  INT: "int",
+  WIS: "wis",
+  CHA: "cha",
+};
+
 export default function LevelUpASIForm({
   feats,
   formId,
@@ -65,6 +81,7 @@ export default function LevelUpASIForm({
   subrace,
   raceVariant,
   pers,
+  renderFeatChoicesInline = true,
   levelAfter,
   baseStats,
   hasSpellcasting,
@@ -98,7 +115,9 @@ export default function LevelUpASIForm({
 
   useEffect(() => {
     const asiValid = choiceType === "ASI" ? totalAsi === 2 : true;
-    const featValid = choiceType === "FEAT" ? !featFormDisabled && !featOptionsDisabled : true;
+    const featValid = choiceType === "FEAT"
+      ? (!featFormDisabled && (renderFeatChoicesInline ? !featOptionsDisabled : true))
+      : true;
 
     const disabled = !(asiValid && featValid);
 
@@ -106,7 +125,7 @@ export default function LevelUpASIForm({
       prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
     }
-  }, [choiceType, totalAsi, featFormDisabled, featOptionsDisabled, onNextDisabledChange]);
+  }, [choiceType, totalAsi, featFormDisabled, featOptionsDisabled, renderFeatChoicesInline, onNextDisabledChange]);
 
   const selectedFeatId = useMemo(() => {
     const raw = (formData as { featId?: unknown }).featId;
@@ -131,13 +150,13 @@ export default function LevelUpASIForm({
       setFeatOptionsDisabled(true);
       return;
     }
-    if (!selectedFeatHasChoices) {
+    if (!selectedFeatHasChoices || !renderFeatChoicesInline) {
       setFeatOptionsDisabled(false);
     } else {
       // Will be controlled by FeatChoiceOptionsForm via onNextDisabledChange.
       setFeatOptionsDisabled(true);
     }
-  }, [choiceType, selectedFeatHasChoices, selectedFeatId]);
+  }, [choiceType, selectedFeatHasChoices, selectedFeatId, renderFeatChoicesInline]);
 
   const setAsiValue = (ability: Ability, value: 1 | 2) => {
     const current = asiMap[ability] ?? 0;
@@ -174,6 +193,18 @@ export default function LevelUpASIForm({
     if (nextTotal > 2) return;
 
     updateFormData({ customAsi: toCustomAsi(next) as any });
+  };
+
+  const getBaseScore = (ability: Ability): number => {
+    const fromBaseStats = baseStats?.[ability];
+    if (typeof fromBaseStats === "number" && Number.isFinite(fromBaseStats)) return fromBaseStats;
+
+    const key = abilityToPersKey[ability];
+    const p: any = pers;
+    const fromPers = p && typeof p[key] === "number" ? p[key] : undefined;
+    if (typeof fromPers === "number" && Number.isFinite(fromPers)) return fromPers;
+
+    return 0;
   };
 
   const isDisabledButton = (ability: Ability, value: 1 | 2) => {
@@ -239,6 +270,10 @@ export default function LevelUpASIForm({
               {ABILITIES.map((ability) => {
                 const attr = attributesUkrShort[ability];
                 const current = asiMap[ability] ?? 0;
+                const base = getBaseScore(ability);
+                const plus1 = base + 1;
+                const plus2 = base + 2;
+                const after = base + (current || 0);
 
                 return (
                   <div
@@ -248,6 +283,14 @@ export default function LevelUpASIForm({
                     <div>
                       <p className="text-sm font-semibold text-white">{attr}</p>
                       <p className="text-xs text-slate-400">{ability}</p>
+                      <p className="mt-0.5 text-xs text-slate-300">
+                        Зараз: <span className="font-semibold text-slate-100">{base}</span>
+                        {current ? (
+                          <>
+                            {" "}→ <span className="font-semibold text-slate-100">{after}</span>
+                          </>
+                        ) : null}
+                      </p>
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -262,7 +305,7 @@ export default function LevelUpASIForm({
                         disabled={isDisabledButton(ability, 1)}
                         onClick={() => setAsiValue(ability, 1)}
                       >
-                        +1 {current === 1 ? <Check className="ml-2 h-4 w-4" /> : null}
+                        +1 → {plus1} {current === 1 ? <Check className="ml-2 h-4 w-4" /> : null}
                       </Button>
 
                       <Button
@@ -276,7 +319,7 @@ export default function LevelUpASIForm({
                         disabled={isDisabledButton(ability, 2)}
                         onClick={() => setAsiValue(ability, 2)}
                       >
-                        +2 {current === 2 ? <Check className="ml-2 h-4 w-4" /> : null}
+                        +2 → {plus2} {current === 2 ? <Check className="ml-2 h-4 w-4" /> : null}
                       </Button>
                     </div>
                   </div>
@@ -302,7 +345,7 @@ export default function LevelUpASIForm({
             }}
           />
 
-          {selectedFeat && selectedFeatHasChoices ? (
+          {renderFeatChoicesInline && selectedFeat && selectedFeatHasChoices ? (
             <FeatChoiceOptionsForm
               selectedFeat={selectedFeat as any}
               formId={`${formId}-feat-choices`}

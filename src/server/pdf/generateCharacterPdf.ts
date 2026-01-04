@@ -16,7 +16,7 @@ import {
   calculateSpellDC,
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
-import { Classes, Ability, Skills, SkillProficiencyType } from "@prisma/client";
+import { Classes, Ability, AbilityBonusType, Skills, SkillProficiencyType } from "@prisma/client";
 import { PDFDocument, PDFName, PDFString, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
@@ -198,7 +198,14 @@ function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
 function buildArmorAndShieldText(pers: CharacterPdfData["pers"]): string {
   const lines: string[] = [];
 
-  const dexMod = calculateFinalModifier(pers as any, Ability.DEX);
+  const uaAbilityShort: Record<string, string> = {
+    STR: "Сил",
+    DEX: "Спр",
+    CON: "Ст",
+    INT: "Інт",
+    WIS: "Муд",
+    CHA: "Хар",
+  };
 
   const armors = (pers.armors ?? []) as any[];
   if (armors.length > 0) {
@@ -212,24 +219,46 @@ function buildArmorAndShieldText(pers: CharacterPdfData["pers"]): string {
       if (!name) continue;
       const equipped = Boolean(pa?.equipped);
 
-      const armorType = String(pa?.armor?.armorType ?? "").toUpperCase();
       const base = Number.isFinite(pa?.overrideBaseAC) ? Number(pa.overrideBaseAC) : Number(pa?.armor?.baseAC ?? 0);
       const misc = Number.isFinite(pa?.miscACBonus) ? Number(pa.miscACBonus) : 0;
 
-      let dexPart = 0;
-      let formula = "";
-      if (armorType === "LIGHT") {
-        dexPart = dexMod;
-        formula = `КБ: ${base}${misc ? `+${misc}` : ""} + Спр`;
-      } else if (armorType === "MEDIUM") {
-        dexPart = Math.min(dexMod, 2);
-        formula = `КБ: ${base}${misc ? `+${misc}` : ""} + полов. Спр (max +2)`;
-      } else {
-        dexPart = 0;
-        formula = `КБ: ${base}${misc ? `+${misc}` : ""}`;
+      const persAbilities: Ability[] = Array.isArray((pa as any).abilityBonuses) ? (((pa as any).abilityBonuses as Ability[]) ?? []) : [];
+      const armorAbilities: Ability[] = Array.isArray((pa?.armor as any)?.abilityBonuses)
+        ? ((((pa.armor as any).abilityBonuses as Ability[]) ?? []) as Ability[])
+        : [];
+
+      const persType = (pa as any).abilityBonusType as AbilityBonusType | undefined;
+      const armorType = (pa?.armor as any)?.abilityBonusType as AbilityBonusType | undefined;
+      let type: AbilityBonusType = persType ?? armorType ?? AbilityBonusType.FULL;
+      if (armorType && persType === AbilityBonusType.FULL && persAbilities.length === 0) {
+        type = armorType;
       }
 
-      const totalAC = base + misc + dexPart;
+      const abilities = type === AbilityBonusType.NONE ? persAbilities : (persAbilities.length > 0 ? persAbilities : armorAbilities);
+      const unique = Array.from(new Set(abilities));
+
+      let bonus = 0;
+      for (const ab of unique) {
+        let mod = calculateFinalModifier(pers as any, ab);
+        if (type === AbilityBonusType.MAX2 && ab === Ability.DEX) {
+          mod = Math.min(mod, 2);
+        }
+        bonus += mod;
+      }
+
+      const totalAC = base + misc + bonus;
+
+      const parts: string[] = [`КБ: ${base}`];
+      if (misc) parts.push(`+${misc}`);
+      if (unique.length > 0 && type !== AbilityBonusType.NONE) {
+        const labels = unique.map((ab) => uaAbilityShort[String(ab)] ?? String(ab));
+        parts.push(`+ ${labels.join(" + ")}`);
+        if (type === AbilityBonusType.MAX2 && unique.includes(Ability.DEX)) {
+          parts.push("(Спр max +2)");
+        }
+      }
+
+      const formula = parts.join(" ");
       const stealthNote = pa?.armor?.stealthDisadvantage ? " перешкода на Непомітність" : "";
       lines.push(`· ${equipped ? "[x]" : "[ ]"} ${name} — ${totalAC} (${formula})${stealthNote}`);
     }

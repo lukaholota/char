@@ -31,7 +31,9 @@ export function useStepForm<TShape extends ZodRawShape>(
     type Input = z.input<typeof schema>
     type Output = z.output<typeof schema>
 
-    const { formData, updateFormData, nextStep, isHydrated } = usePersFormStore();
+    const { formData, updateFormData, nextStep, isHydrated, resetNonce } = usePersFormStore();
+
+    const resetNonceAtMountRef = useRef(resetNonce);
 
     const schemaDefaults = useMemo(() => {
         const result = schema.safeParse({});
@@ -73,6 +75,13 @@ export function useStepForm<TShape extends ZodRawShape>(
     useEffect(() => {
         return () => {
             if (!isHydrated) return;
+
+            // If the user triggered a global reset while this step was mounted,
+            // do NOT write the old values back into the store during unmount.
+            // This was causing "name" (and other fields) to survive reset.
+            const currentResetNonce = usePersFormStore.getState().resetNonce;
+            if (currentResetNonce !== resetNonceAtMountRef.current) return;
+
             const values = form.getValues();
             updateFormData(values);
         };

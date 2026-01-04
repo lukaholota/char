@@ -8,6 +8,7 @@ interface FormStore {
   prevRaceId: number | null
   totalSteps: number
   isHydrated: boolean
+  resetNonce: number
 
   updateFormData: (data: Partial<PersFormData>) => void
   setCurrentStep: (step: number) => void
@@ -27,6 +28,7 @@ export const usePersFormStore = create<FormStore>()(
       prevRaceId: null,
       totalSteps: 7,
       isHydrated: false,
+      resetNonce: 0,
 
       updateFormData: (data) =>
         set((state) => {
@@ -56,7 +58,14 @@ export const usePersFormStore = create<FormStore>()(
       setCurrentStep: (step: number) => set({currentStep: step}),
       setTotalSteps: (total: number) => set({ totalSteps: total }),
 
-      resetForm: () => set({formData: {}, currentStep: 1, prevRaceId: null, totalSteps: 7}),
+      resetForm: () =>
+        set((state) => ({
+          formData: {},
+          currentStep: 1,
+          prevRaceId: null,
+          totalSteps: 7,
+          resetNonce: state.resetNonce + 1,
+        })),
 
       nextStep: () =>
         set((state) => ({

@@ -39,8 +39,8 @@ export async function createCharacterSnapshot(persId: number) {
     // Deep copy logic
     const snapshot = await prisma.$transaction(async (tx) => {
       // 1. Create the base character record
-      const newPers = await tx.pers.create({
-        data: {
+      // Use a variable to avoid TS excess-property checks before Prisma Client is regenerated.
+      const data = {
           userId: pers.userId,
           name: `${pers.name} (Рівень ${pers.level})`,
           level: pers.level,
@@ -88,6 +88,8 @@ export async function createCharacterSnapshot(persId: number) {
           wearsShield: pers.wearsShield,
           additionalShieldBonus: pers.additionalShieldBonus,
           armorBonus: pers.armorBonus,
+          overrideBaseAC: pers.overrideBaseAC ?? undefined,
+          raceStaticAcBonus: (pers as any).raceStaticAcBonus ?? undefined,
           wearsNaturalArmor: pers.wearsNaturalArmor,
           statBonuses: pers.statBonuses || undefined,
           statModifierBonuses: pers.statModifierBonuses || undefined,
@@ -115,7 +117,10 @@ export async function createCharacterSnapshot(persId: number) {
           choiceOptions: { connect: pers.choiceOptions.map(co => ({ choiceOptionId: co.choiceOptionId })) },
           classOptionalFeatures: { connect: pers.classOptionalFeatures.map(cof => ({ optionalFeatureId: cof.optionalFeatureId })) },
           spells: { connect: pers.spells.map(s => ({ spellId: s.spellId })) },
-        }
+        };
+
+      const newPers = await tx.pers.create({
+        data,
       });
 
       // 2. Create related records (Deep Clone)
@@ -199,7 +204,10 @@ export async function createCharacterSnapshot(persId: number) {
           data: pers.armors.map(a => ({
             persId: newPers.persId,
             armorId: a.armorId,
+            overrideName: a.overrideName,
             overrideBaseAC: a.overrideBaseAC,
+            abilityBonuses: (a as any).abilityBonuses ?? [],
+            abilityBonusType: (a as any).abilityBonusType ?? undefined,
             isProficient: a.isProficient,
             equipped: a.equipped,
             miscACBonus: a.miscACBonus,

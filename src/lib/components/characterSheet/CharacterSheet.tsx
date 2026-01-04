@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
-import { renamePers } from "@/lib/actions/pers";
+import { getCharacterFeaturesGrouped, renamePers } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
 import { Button } from "@/components/ui/button";
 import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
@@ -38,6 +38,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   const router = useRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
   const [isRenamePending, startRenameTransition] = useTransition();
+  const [, startFeaturesTransition] = useTransition();
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
 
@@ -46,6 +47,26 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
   useEffect(() => {
     setLocalPers(pers);
   }, [pers]);
+
+  useEffect(() => {
+    setLocalGroupedFeatures(groupedFeatures);
+  }, [groupedFeatures]);
+
+  useEffect(() => {
+    // When the page streams/loads without grouped features, fetch them in the background.
+    if (localGroupedFeatures) return;
+    if (!localPers?.persId) return;
+
+    startFeaturesTransition(async () => {
+      try {
+        const gf = await getCharacterFeaturesGrouped(localPers.persId);
+        setLocalGroupedFeatures(gf);
+      } catch (e) {
+        console.error(e);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localPers?.persId]);
 
   useEffect(() => {
     setRenameValue(pers.name);
@@ -193,7 +214,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
        </div>
       
       <div className="flex-1 overflow-hidden">
-        <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} />
+        <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} />
       </div>
     </div>
   );

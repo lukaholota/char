@@ -875,7 +875,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
 
 
       {!groupedFeatures ? (
-        <div className="text-sm text-slate-400">Немає даних про фічі</div>
+        <div className="text-sm text-slate-400">Завантаження фіч…</div>
       ) : (
         <div className="space-y-2">
           {categories.map((category) => {

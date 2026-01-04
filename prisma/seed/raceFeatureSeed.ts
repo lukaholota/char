@@ -1584,7 +1584,12 @@ export const seedRaceFeatures = async (prisma: PrismaClient) => {
             description: 'Ваше тіло має вбудовані захисні шари, які визначають ваш Клас Броні. Ви отримуєте бонус +1 до Класу Броні. Ви можете носити лише обладунок, для якого маєте Володіння. Щоб надягнути обладунок, ви повинні інтегрувати його в своє тіло протягом 1 години, впродовж якої ви залишаєтеся в контакті з обладунком. Щоб зняти обладунок, ви повинні провести 1 годину, знімаючи його. Ви можете відпочивати, поки надягаєте або знімаєте обладунок таким чином. Поки ви живі, ваш обладунок не можна зняти з вашого тіла проти вашої волі.',
             shortDescription: '+1 КБ + 1 год для надягання/зняття обладунку',
             displayType: [FeatureDisplayType.PASSIVE],
-            givesAC: 1,
+            // AC bonus is represented via Race.ac.consistentBonus + the toggleable pers.raceStaticAcBonus.
+            // Keep this feature descriptive only.
+            givesAC: null,
+            modifiesAC: undefined,
+            requiresArmorForACBonus: null,
+            noArmorOrShieldForACBonus: null,
         },
         {
             name: 'Спеціалізований дизайн',

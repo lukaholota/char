@@ -22,16 +22,16 @@ import { seedRaceChoiceOptions as _seedRaceChoiceOptions } from "./seed/raceChoi
 
 import { seedInfusionFeatures as _seedInfusionFeatures } from "./seed/infusionFeaturesSeed";
 import { seedInfusions as _seedInfusions } from "./seed/infusionSeed";
-import { seedMagicItems } from "./seed/magicItemSeed";
-import { seedFeats } from "./seed/featSeed";
-import { seedFeatChoiceOptions } from "./seed/featChoiceOptionSeed";
+import { seedMagicItems as _seedMagicItems } from "./seed/magicItemSeed";
+import { seedFeats as _seedFeats } from "./seed/featSeed";
+import { seedFeatChoiceOptions as _seedFeatChoiceOptions } from "./seed/featChoiceOptionSeed";
 
 async function main() {
     console.log('Starting seed...')
     console.log('ВАЖЛИВО‼️‼️‼️‼️‼️ ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД!')
     // ВАЖЛИВО! ЧЕРЕЗ SEEDINDEX НОВІ ФІЧІ МОЖНА ДОДАВАТИ ЛИШЕ В КІНЕЦЬ ФАЙЛУ! АБО ПЕРЕД ІНДЕКСУВАННЯМ ВСЕ ВИДАЛИТИ З БД! поки стосується лише classEquipment та classOptionalFeature
     // await seedWeapons(prisma)
-    // await seedArmor(prisma)
+    // await _seedArmor(prisma)
     // await seedEquipmentPacks(prisma)
     // await _seedBackground(prisma)
     // await _seedRaceFeatures(prisma)
@@ -42,8 +42,10 @@ async function main() {
     // await _seedRaceChoiceOptions(prisma)
 
     // await seedClasses(prisma)
+    // await _seedClassEquipment(prisma) 
     // await _seedSubclasses(prisma)
     // await _seedSubclassFeatures(prisma)
+    // await _seedSubclassChoiceOptions(prisma)
     // await _seedChoiceOptions(prisma)
     // await seedClassChoiceOptions(prisma)
     // await seedSubclassChoiceOptions(prisma)
@@ -54,7 +56,7 @@ async function main() {
     // await seedClassOptionalFeatures(prisma)
     
     // await seedFeats(prisma);
-    await seedFeatChoiceOptions(prisma);
+    await _seedFeatChoiceOptions(prisma);
 
     // await _seedClassFeatures(prisma)
     // await _seedInfusionFeatures(prisma) // features for infusions

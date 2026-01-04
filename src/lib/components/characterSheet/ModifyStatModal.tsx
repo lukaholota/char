@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
 import { PersWithRelations } from "@/lib/actions/pers";
-import { updateBonus, updateSkillProficiency, updateSaveProficiency, updateBaseStat } from "@/lib/actions/bonus-actions";
+import { updateBonus, updateSkillProficiency, updateSaveProficiency, updateBaseStat, updateBaseACOverride } from "@/lib/actions/bonus-actions";
 import { bonusTranslations, skillTranslations } from "@/lib/refs/translation";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -62,6 +62,7 @@ export default function ModifyStatModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statMode, setStatMode] = useState<"BONUS" | "BASE">("BONUS");
   const [baseStatInput, setBaseStatInput] = useState<string>("");
+  const [baseACInput, setBaseACInput] = useState<string>("");
   
   // Local bonus states for immediate feedback
   const [localStatBonus, setLocalStatBonus] = useState(0);
@@ -104,6 +105,12 @@ export default function ModifyStatModal({
       setLocalProficiency(persSkill?.proficiencyType ?? "NONE");
     } else if (config.type === "simple") {
       setLocalSimpleBonus(getSimpleBonus(pers, config.field));
+
+      if (config.field === "ac") {
+        setStatMode("BONUS");
+        const current = pers.overrideBaseAC;
+        setBaseACInput(typeof current === "number" && Number.isFinite(current) ? String(current) : "");
+      }
     }
   }, [config, pers]);
   
@@ -203,9 +210,21 @@ export default function ModifyStatModal({
     } else {
       // Simple bonus
       let baseValue = 0;
+      const effectivePers: PersWithRelations = (() => {
+        if (config.field !== "ac") return pers;
+
+        const raw = baseACInput.trim();
+        if (raw === "") return pers;
+
+        const parsed = Number(raw);
+        if (!Number.isFinite(parsed)) return pers;
+
+        return { ...pers, overrideBaseAC: Math.trunc(parsed) };
+      })();
+
       switch (config.field) {
         case "hp": baseValue = pers.maxHp; break;
-        case "ac": baseValue = calculateFinalAC(pers) - getSimpleBonus(pers, "ac"); break;
+        case "ac": baseValue = calculateFinalAC(effectivePers) - getSimpleBonus(pers, "ac"); break;
         case "speed": baseValue = 30; break;
         case "proficiency": baseValue = getProficiencyBonus(pers.level); break;
         case "initiative": baseValue = calculateFinalInitiative(pers) - getSimpleBonus(pers, "initiative"); break;
@@ -226,7 +245,7 @@ export default function ModifyStatModal({
         simple: { base: baseValue, bonus: localSimpleBonus, final: finalValue },
       };
     }
-  }, [config, pers, localStatBonus, localModifierBonus, localSaveBonus, localSkillBonus, localSimpleBonus, localProficiency, localSaveProficiency, statBase, baseStatInput]);
+  }, [config, pers, localStatBonus, localModifierBonus, localSaveBonus, localSkillBonus, localSimpleBonus, localProficiency, localSaveProficiency, statBase, baseStatInput, baseACInput]);
 
 
   // Apply optimistic update and save
@@ -355,11 +374,55 @@ export default function ModifyStatModal({
         };
         
         const field = fieldMap[config.field];
+
+        if (config.field === "ac") {
+          const raw = baseACInput.trim();
+          const nextOverride = raw === "" ? null : Number(raw);
+
+          if (nextOverride !== null && (!Number.isFinite(nextOverride) || nextOverride < 0)) {
+            toast.error("Невірне значення базового КБ");
+            return;
+          }
+
+          const nextOverrideInt = nextOverride === null ? null : Math.trunc(nextOverride);
+
+          const nextPers = {
+            ...pers,
+            overrideBaseAC: nextOverrideInt,
+            [field]: localSimpleBonus === 0 ? null : { value: localSimpleBonus },
+          } as unknown as PersWithRelations;
+
+          onPersUpdate(nextPers);
+          onOpenChange(false);
+
+          void Promise.all([
+            updateBaseACOverride(pers.persId, nextOverrideInt),
+            updateBonus(pers.persId, config.field, null, localSimpleBonus),
+          ])
+            .then((results) => {
+              const failed = results.find((r) => !r.success) as any;
+              if (failed && !failed.success) {
+                onPersUpdate(prevPers);
+                toast.error(failed.error);
+                router.refresh();
+                return;
+              }
+              router.refresh();
+            })
+            .catch((err) => {
+              console.error(err);
+              onPersUpdate(prevPers);
+              toast.error("Помилка при збереженні");
+              router.refresh();
+            });
+          return;
+        }
+
         const nextPers = {
           ...pers,
           [field]: localSimpleBonus === 0 ? null : { value: localSimpleBonus },
         } as PersWithRelations;
-        
+
         onPersUpdate(nextPers);
 
         onOpenChange(false);
@@ -564,12 +627,57 @@ export default function ModifyStatModal({
           )}
 
           {config.type === "simple" && previewValues?.simple && (
-            <NumberInput
-              value={localSimpleBonus}
-              onChange={setLocalSimpleBonus}
-              label={bonusTranslations.fieldNames[config.field as keyof typeof bonusTranslations.fieldNames]}
-              preview={previewValues.simple}
-            />
+            config.field === "ac" ? (
+              <div className="space-y-6">
+                <div className="space-y-3">
+                  <div className="text-sm font-medium text-slate-200">Режим</div>
+                  <Tabs value={statMode} onValueChange={(v) => setStatMode(v as "BONUS" | "BASE")}>
+                    <TabsList className="grid w-full grid-cols-2 bg-slate-800/50">
+                      <TabsTrigger value="BONUS" className="text-xs data-[state=active]:bg-slate-700">
+                        {bonusTranslations.statBonus}
+                      </TabsTrigger>
+                      <TabsTrigger value="BASE" className="text-xs data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-200">
+                        Базове значення
+                      </TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="BONUS" className="pt-3">
+                      <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30">
+                        <NumberInput
+                          value={localSimpleBonus}
+                          onChange={setLocalSimpleBonus}
+                          label={bonusTranslations.fieldNames[config.field as keyof typeof bonusTranslations.fieldNames]}
+                          preview={previewValues.simple}
+                        />
+                      </div>
+                    </TabsContent>
+                    <TabsContent value="BASE" className="pt-3">
+                      <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30 space-y-2">
+                        <div className="text-sm font-medium text-slate-200">Базовий КБ (оверрайд)</div>
+                        <Input
+                          autoFocus={false}
+                          type="number"
+                          value={baseACInput}
+                          onChange={(e) => setBaseACInput(e.target.value)}
+                          placeholder={String(previewValues.simple.base)}
+                          className="bg-white/5 border-white/10"
+                          disabled={isSubmitting}
+                        />
+                        <div className="text-xs text-slate-400">
+                          Залиши порожнім, щоб використовувати автоматичний розрахунок.
+                        </div>
+                      </div>
+                    </TabsContent>
+                  </Tabs>
+                </div>
+              </div>
+            ) : (
+              <NumberInput
+                value={localSimpleBonus}
+                onChange={setLocalSimpleBonus}
+                label={bonusTranslations.fieldNames[config.field as keyof typeof bonusTranslations.fieldNames]}
+                preview={previewValues.simple}
+              />
+            )
           )}
         </div>
 

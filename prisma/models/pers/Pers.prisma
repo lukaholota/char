@@ -43,6 +43,8 @@ model Pers {
   updatedAt                   DateTime               @updatedAt @map("updated_at")
   additionalShieldBonus       Int                    @default(0) @map("additional_shield_bonus")
   armorBonus                  Int                    @default(0) @map("armor_bonus")
+  overrideBaseAC              Int?                   @map("override_base_ac")
+  raceStaticAcBonus           Int                    @default(0) @map("race_static_ac_bonus")
   wearsNaturalArmor           Boolean                @default(false) @map("wears_natural_armor")
   wearsShield                 Boolean                @default(false) @map("wears_shield")
   currentPactSlots            Int                    @default(0) @map("current_pact_slots")

@@ -1,8 +1,4 @@
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
-import CharacterSheetData from "@/app/char/[id]/sheet-data";
-
-function CharacterSheetFallback() {
+export default function Loading() {
   return (
     <div className="h-screen w-full bg-slate-900 flex flex-col">
       <div className="p-3 px-4 border-b border-white/10 flex justify-between items-center bg-slate-900/70 backdrop-blur sticky top-0 z-20">
@@ -17,17 +13,5 @@ function CharacterSheetFallback() {
         </div>
       </div>
     </div>
-  );
-}
-
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
-  const { id: idStr } = await params;
-  const id = parseInt(idStr);
-  if (isNaN(id)) notFound();
-
-  return (
-    <Suspense fallback={<CharacterSheetFallback />}>
-      <CharacterSheetData id={id} />
-    </Suspense>
   );
 }

@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { FeatPrisma } from "@/lib/types/model-types";
 import { createCharacterSnapshot } from "./snapshot-actions";
 import { unstable_cache } from "next/cache";
-import { ArmorType, Language, SkillProficiencyType, Skills } from "@prisma/client";
+import { Ability, ArmorType, Feats, Language, SkillProficiencyType, Skills } from "@prisma/client";
 import {
   formatArmorProficiencies,
   formatToolProficiencies,
@@ -74,7 +74,7 @@ const getAllFeatsCached = unstable_cache(
       },
       orderBy: [{ name: "asc" }],
     }) as unknown as Promise<FeatPrisma[]>),
-  ["levelup:feats:v3"],
+  ["levelup:feats:v4"],
   { revalidate: 60 * 60 * 24 }
 );
 
@@ -130,6 +130,7 @@ export async function getLevelUpInfo(persId: number) {
       class: true,
       subclass: true,
       choiceOptions: true,
+      skills: true,
       persInfusions: {
         select: {
           infusionId: true,
@@ -301,6 +302,8 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     const skillsToAdd = new Set<Skills>();
     const skillsToExpertise = new Set<Skills>();
+    const saveProficienciesToAdd = new Set<Ability>();
+    let nextAdditionalSaveProficiencies: Ability[] | null = null;
 
     if (featId) {
       const feat = await prisma.feat.findUnique({
@@ -309,15 +312,14 @@ export async function levelUpCharacter(persId: number, data: any) {
           grantsFeature: true,
           featChoiceOptions: {
             include: {
-              choiceOption: {
-                select: { choiceOptionId: true, optionNameEng: true },
-              },
+              choiceOption: true,
             },
           },
         },
       });
 
       if (!feat) return { error: "Рису не знайдено" };
+      const isResilient = feat.name === Feats.RESILIENT;
       featFeatureIds = feat.grantsFeature.map((f) => f.featureId);
       featGrantedASI = feat.grantedASI as any;
 
@@ -353,16 +355,93 @@ export async function levelUpCharacter(persId: number, data: any) {
         }
       }
 
-      // Apply ability choices embedded in feat choice options (e.g., Skill Expert ability pick)
+      const toAbility = (value: string): string | null => {
+        const v = String(value || "").trim();
+        const upper = v.toUpperCase();
+        if (upper === "STR" || upper === "DEX" || upper === "CON" || upper === "INT" || upper === "WIS" || upper === "CHA") {
+          return upper;
+        }
+        switch (v) {
+          case "Strength":
+            return "STR";
+          case "Dexterity":
+            return "DEX";
+          case "Constitution":
+            return "CON";
+          case "Intelligence":
+            return "INT";
+          case "Wisdom":
+            return "WIS";
+          case "Charisma":
+            return "CHA";
+          default:
+            return null;
+        }
+      };
+
+      // Apply effects from feat choice selections (prefer DB-driven metadata; fallback to legacy name parsing)
       for (const choiceOptionId of featChoiceOptionIds) {
         const opt = featChoiceOptions.find((o) => Number(o.choiceOptionId) === choiceOptionId);
-        const nameEng = opt?.choiceOption?.optionNameEng || "";
+        const co: any = opt?.choiceOption;
+        const effectKind = String(co?.effectKind ?? "").trim();
+
+        if (effectKind === "ASI") {
+          const ability = toAbility(String(co?.effectAbility ?? ""));
+          const amount = Number(co?.effectAmount ?? 1);
+          if (ability) {
+            applyAsiEntry(ability, Number.isFinite(amount) ? amount : 1);
+            if (isResilient) saveProficienciesToAdd.add(ability as Ability);
+          }
+          continue;
+        }
+
+        if (effectKind === "SKILL_PROFICIENCY" || effectKind === "SKILL_EXPERTISE") {
+          const skillCode = String(co?.effectSkill ?? "").trim();
+          const skill = Object.values(Skills).includes(skillCode as Skills) ? (skillCode as Skills) : null;
+          if (skill) {
+            if (effectKind === "SKILL_EXPERTISE") skillsToExpertise.add(skill);
+            else skillsToAdd.add(skill);
+          }
+          continue;
+        }
+
+        // ===== Legacy parsing fallback =====
+        const nameEng = String(co?.optionNameEng ?? "");
+
+        // Ability choices embedded in optionNameEng (e.g., "Resilient (STR)")
+        const tail = (() => {
+          const match = String(nameEng).match(/\(([^)]+)\)\s*$/);
+          return (match?.[1] ?? "").trim();
+        })();
+        const abilityFromTail = toAbility(tail);
+        if (abilityFromTail) {
+          applyAsiEntry(abilityFromTail, 1);
+          if (isResilient && nameEng.includes("Resilient")) saveProficienciesToAdd.add(abilityFromTail as Ability);
+          continue;
+        }
         if (nameEng.includes("Strength")) applyAsiEntry("STR", 1);
         else if (nameEng.includes("Dexterity")) applyAsiEntry("DEX", 1);
         else if (nameEng.includes("Constitution")) applyAsiEntry("CON", 1);
         else if (nameEng.includes("Intelligence")) applyAsiEntry("INT", 1);
         else if (nameEng.includes("Wisdom")) applyAsiEntry("WIS", 1);
         else if (nameEng.includes("Charisma")) applyAsiEntry("CHA", 1);
+
+        if (isResilient && nameEng.includes("Resilient")) {
+          if (nameEng.includes("Strength")) saveProficienciesToAdd.add(Ability.STR);
+          else if (nameEng.includes("Dexterity")) saveProficienciesToAdd.add(Ability.DEX);
+          else if (nameEng.includes("Constitution")) saveProficienciesToAdd.add(Ability.CON);
+          else if (nameEng.includes("Intelligence")) saveProficienciesToAdd.add(Ability.INT);
+          else if (nameEng.includes("Wisdom")) saveProficienciesToAdd.add(Ability.WIS);
+          else if (nameEng.includes("Charisma")) saveProficienciesToAdd.add(Ability.CHA);
+        }
+
+        // Skills embedded in optionNameEng (e.g., "Skill Expert Expertise (ATHLETICS)")
+        const match = nameEng.match(/\(([^)]+)\)\s*$/);
+        const skillMaybe = (match?.[1] ?? nameEng).trim();
+        if (Object.values(Skills).includes(skillMaybe as Skills)) {
+          if (nameEng.includes("Expertise")) skillsToExpertise.add(skillMaybe as Skills);
+          else if (nameEng.includes("Proficiency")) skillsToAdd.add(skillMaybe as Skills);
+        }
       }
 
       // Skills from feat.grantedSkills (fixed)
@@ -373,25 +452,19 @@ export async function levelUpCharacter(persId: number, data: any) {
         }
       }
 
-      // Skills from feat choice selections
-      const extractSkill = (nameEng?: string | null) => {
-        if (!nameEng) return null;
-        const match = nameEng.match(/\(([A-Z_]+)\)$/);
-        return match ? match[1] : nameEng;
-      };
-
-      for (const choiceOptionId of featChoiceOptionIds) {
-        const opt = featChoiceOptions.find((o) => Number(o.choiceOptionId) === choiceOptionId);
-        const nameEng = opt?.choiceOption?.optionNameEng;
-        const skillCode = extractSkill(nameEng);
-        if (skillCode && Object.values(Skills).includes(skillCode as Skills)) {
-          if (String(nameEng || "").includes("Expertise")) skillsToExpertise.add(skillCode as Skills);
-          else if (String(nameEng || "").includes("Proficiency")) skillsToAdd.add(skillCode as Skills);
-        }
-      }
+      // Skills from feat choice selections are handled above (effect metadata / parsing fallback).
     }
 
     clampStats();
+
+      nextAdditionalSaveProficiencies = saveProficienciesToAdd.size
+        ? Array.from(
+          new Set([
+            ...(((pers as any).additionalSaveProficiencies as Ability[]) ?? []),
+            ...Array.from(saveProficienciesToAdd),
+          ])
+        )
+        : null;
 
     // ===== 3) HP increase (from wizard) =====
     const hpIncreaseFromWizard = Number(data?.levelUpHpIncrease);
@@ -826,6 +899,7 @@ export async function levelUpCharacter(persId: number, data: any) {
             ? { subclassId: chosenSubclassIdRaw ?? pers.subclassId ?? null }
             : {}),
           ...newStats,
+          ...(nextAdditionalSaveProficiencies ? { additionalSaveProficiencies: nextAdditionalSaveProficiencies } : {}),
           ...(featId
             ? (() => {
               const mergeLines = (base: unknown, extras: string[]) => {

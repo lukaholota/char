@@ -144,7 +144,7 @@ export async function duplicatePers(persId: number) {
         }
 
         const duplicate = await prisma.$transaction(async (tx) => {
-            const newPers = await tx.pers.create({
+                const newPers = await tx.pers.create({
                 data: {
                     userId: pers.userId,
                     name: `${pers.name} (Копія)`,
@@ -193,6 +193,8 @@ export async function duplicatePers(persId: number) {
                     wearsShield: pers.wearsShield,
                     additionalShieldBonus: pers.additionalShieldBonus,
                     armorBonus: pers.armorBonus,
+                    overrideBaseAC: pers.overrideBaseAC ?? undefined,
+                    raceStaticAcBonus: (pers as any).raceStaticAcBonus ?? undefined,
                     wearsNaturalArmor: pers.wearsNaturalArmor,
                     statBonuses: pers.statBonuses || undefined,
                     statModifierBonuses: pers.statModifierBonuses || undefined,
@@ -216,7 +218,7 @@ export async function duplicatePers(persId: number) {
                     choiceOptions: { connect: pers.choiceOptions.map(co => ({ choiceOptionId: co.choiceOptionId })) },
                     classOptionalFeatures: { connect: pers.classOptionalFeatures.map(cof => ({ optionalFeatureId: cof.optionalFeatureId })) },
                     spells: { connect: pers.spells.map(s => ({ spellId: s.spellId })) },
-                }
+                } as any,
             });
 
             const weaponIdMap = new Map<number, number>();
@@ -311,6 +313,8 @@ export async function duplicatePers(persId: number) {
                             armorId: a.armorId,
                             overrideBaseAC: a.overrideBaseAC,
                             overrideName: a.overrideName,
+                            abilityBonuses: (a as any).abilityBonuses ?? [],
+                            abilityBonusType: (a as any).abilityBonusType ?? undefined,
                             isProficient: a.isProficient,
                             equipped: a.equipped,
                             miscACBonus: a.miscACBonus,

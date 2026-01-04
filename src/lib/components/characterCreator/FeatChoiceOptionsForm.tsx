@@ -33,11 +33,11 @@ type Group = {
   pickCount: number;
   isSkill: boolean;
   isExpertise: boolean;
+  isAbility: boolean;
   isManeuver: boolean;
   isInvocation: boolean;
+  isFightingStyle: boolean;
 };
-
-const SIMPLE_ABILITY_KEYS = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
 
 const ABILITY_NAME_ENG = new Set([
   "Strength",
@@ -54,26 +54,76 @@ const ABILITY_NAME_ENG = new Set([
   "CHA",
 ]);
 
-const hasCompositeGrantedASI = (grantedASI: unknown): boolean => {
-  if (!grantedASI || typeof grantedASI !== "object" || Array.isArray(grantedASI)) return false;
+const SIMPLE_ABILITY_MAP = {
+  STR: true,
+  DEX: true,
+  CON: true,
+  INT: true,
+  WIS: true,
+  CHA: true,
+} as const;
 
-  const obj = grantedASI as any;
-  const map: Record<string, unknown> | null =
-    obj?.basic?.simple && typeof obj.basic.simple === "object" && !Array.isArray(obj.basic.simple)
-      ? (obj.basic.simple as Record<string, unknown>)
-      : (obj as Record<string, unknown>);
+const toAbilityKey = (value: string): keyof typeof SIMPLE_ABILITY_MAP | null => {
+  const v = (value || "").trim();
+  if (v in SIMPLE_ABILITY_MAP) return v as keyof typeof SIMPLE_ABILITY_MAP;
+  switch (v) {
+    case "Strength":
+      return "STR";
+    case "Dexterity":
+      return "DEX";
+    case "Constitution":
+      return "CON";
+    case "Intelligence":
+      return "INT";
+    case "Wisdom":
+      return "WIS";
+    case "Charisma":
+      return "CHA";
+    default:
+      return null;
+  }
+};
 
-  if (!map) return false;
+const getChoiceOptionEffect = (
+  opt: NonNullable<FeatPrisma["featChoiceOptions"]>[number]
+):
+  | { kind: "ASI"; ability: keyof typeof SIMPLE_ABILITY_MAP; amount: number }
+  | { kind: "SKILL_PROFICIENCY" | "SKILL_EXPERTISE"; skill: string; amount: number }
+  | null => {
+  const co: any = opt?.choiceOption;
+  const kind = String(co?.effectKind ?? "").trim();
 
-  for (const [key, value] of Object.entries(map)) {
-    if (typeof value !== "number") continue;
-    if (!SIMPLE_ABILITY_KEYS.has(key)) return true;
+  if (kind === "ASI") {
+    const ability = String(co?.effectAbility ?? "").trim();
+    const abilityKey = toAbilityKey(ability);
+    if (!abilityKey) return null;
+    const amount = Number(co?.effectAmount ?? 1);
+    return { kind: "ASI", ability: abilityKey, amount: Number.isFinite(amount) ? amount : 1 };
   }
 
-  return false;
+  if (kind === "SKILL_PROFICIENCY" || kind === "SKILL_EXPERTISE") {
+    const skill = String(co?.effectSkill ?? "").trim();
+    if (!skill) return null;
+    const amount = Number(co?.effectAmount ?? 1);
+    return {
+      kind: kind as "SKILL_PROFICIENCY" | "SKILL_EXPERTISE",
+      skill,
+      amount: Number.isFinite(amount) ? amount : 1,
+    };
+  }
+
+  return null;
 };
 
 const isAbilityOptionGroup = (options: NonNullable<FeatPrisma["featChoiceOptions"]>): boolean => {
+  // Prefer explicit effect metadata if present.
+  const allHaveAsiEffect = options.every((opt) => {
+    const eff = getChoiceOptionEffect(opt);
+    return eff?.kind === "ASI";
+  });
+  if (allHaveAsiEffect) return true;
+
+  // Fallback to legacy string heuristics.
   return options.every((opt) => {
     const name = (opt.choiceOption?.optionNameEng || opt.choiceOption?.optionName || "").trim();
     const extracted = extractSkillFromOptionName(name);
@@ -89,7 +139,7 @@ const isAbilityOptionGroup = (options: NonNullable<FeatPrisma["featChoiceOptions
  */
 const extractSkillFromOptionName = (optionNameEng: string): string => {
   // Try to extract skill from parentheses
-  const match = optionNameEng.match(/\(([A-Z_]+)\)$/);
+  const match = optionNameEng.match(/\(([^)]+)\)\s*$/);
   if (match) {
     return match[1];
   }
@@ -102,8 +152,15 @@ const extractSkillFromOptionName = (optionNameEng: string): string => {
  * @returns true if all options are from Skills enum
  */
 const isSkillGroup = (options: NonNullable<FeatPrisma["featChoiceOptions"]>): boolean => {
-  return options.every(opt => {
-    // Extract skill name from optionNameEng before checking
+  // Prefer explicit effect metadata if present.
+  const allHaveSkillEffect = options.every((opt) => {
+    const eff = getChoiceOptionEffect(opt);
+    return eff?.kind === "SKILL_PROFICIENCY";
+  });
+  if (allHaveSkillEffect) return true;
+
+  // Fallback to legacy string heuristics.
+  return options.every((opt) => {
     const skillName = extractSkillFromOptionName(opt.choiceOption.optionNameEng);
     return (SkillsEnum as readonly string[]).includes(skillName);
   });
@@ -180,21 +237,79 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
    */
   const existingExpertises = useMemo(() => {
     const expertises = new Set<string>();
-    
-    // From Pers
-    if (pers && (pers as any).expertise) {
-        // Warning: Structure of expertise storage varies.
-        // Often stored in a separate JSON or inferred. 
-        // We'll try to check known locations.
+
+    // From Pers skills (preferred)
+    const persSkills = (pers as any)?.skills as any[] | undefined;
+    if (Array.isArray(persSkills)) {
+      for (const s of persSkills) {
+        const name = String(s?.name ?? "").trim();
+        const prof = String(s?.proficiencyType ?? "").trim();
+        if (!name) continue;
+        if (prof === "EXPERTISE") expertises.add(name);
+      }
     }
 
     // From Form Data (ExpertiseForm)
     if (formData.expertiseSchema?.expertises) {
       formData.expertiseSchema.expertises.forEach((exp: string) => expertises.add(exp));
     }
-    
+
     return Array.from(expertises);
   }, [formData.expertiseSchema, pers]);
+
+  const currentAbilityScores = useMemo(() => {
+    // Level-up / edit flows: use actual persisted scores.
+    if (pers) {
+      const p: any = pers;
+      return {
+        STR: Number(p.str) || 0,
+        DEX: Number(p.dex) || 0,
+        CON: Number(p.con) || 0,
+        INT: Number(p.int) || 0,
+        WIS: Number(p.wis) || 0,
+        CHA: Number(p.cha) || 0,
+      } as Record<keyof typeof SIMPLE_ABILITY_MAP, number>;
+    }
+
+    // Character creation flow: best-effort preview from current ASI step inputs.
+    const base: Record<keyof typeof SIMPLE_ABILITY_MAP, number> = {
+      STR: 10,
+      DEX: 10,
+      CON: 10,
+      INT: 10,
+      WIS: 10,
+      CHA: 10,
+    };
+
+    const asiSystem = (formData as any)?.asiSystem;
+    if (asiSystem === "POINT_BUY") {
+      const arr = (formData as any)?.asi as Array<{ ability: keyof typeof SIMPLE_ABILITY_MAP; value: number }> | undefined;
+      if (Array.isArray(arr)) {
+        for (const s of arr) {
+          const k = s?.ability;
+          if (k && k in base) base[k] = Number(s.value) || base[k];
+        }
+      }
+    } else if (asiSystem === "SIMPLE") {
+      const arr = (formData as any)?.simpleAsi as Array<{ ability: keyof typeof SIMPLE_ABILITY_MAP; value: number }> | undefined;
+      if (Array.isArray(arr)) {
+        for (const s of arr) {
+          const k = s?.ability;
+          if (k && k in base) base[k] = Number(s.value) || base[k];
+        }
+      }
+    } else if (asiSystem === "CUSTOM") {
+      const arr = (formData as any)?.customAsi as Array<{ ability: keyof typeof SIMPLE_ABILITY_MAP; value: number }> | undefined;
+      if (Array.isArray(arr)) {
+        for (const s of arr) {
+          const k = s?.ability;
+          if (k && k in base) base[k] = Number(s.value) || base[k];
+        }
+      }
+    }
+
+    return base;
+  }, [pers, formData]);
 
   const optionsToUse = useMemo(() => selectedFeat?.featChoiceOptions || [], [selectedFeat]);
 
@@ -239,7 +354,24 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
   const isInvocationGroupName = useCallback((groupName: string) => {
     const name = (groupName || "").trim();
-    return name === "Потойбічні виклики" || name.startsWith("Потойбічні виклики #");
+    return (
+      name === "Потойбічні виклики" ||
+      name.startsWith("Потойбічні виклики #") ||
+      name === "Eldritch Invocations" ||
+      name.startsWith("Eldritch Invocations #")
+    );
+  }, []);
+
+  const isFightingStyleGroupName = useCallback((groupName: string) => {
+    const name = (groupName || "").trim();
+    return (
+      name === "Бойовий стиль" ||
+      name.startsWith("Бойовий стиль #") ||
+      name === "Fighting Style" ||
+      name.startsWith("Fighting Style #") ||
+      name === "Fighting Styles" ||
+      name.startsWith("Fighting Styles #")
+    );
   }, []);
 
   const stripMarkdownPreview = useCallback((value: string) => {
@@ -337,6 +469,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
     const prelim = Array.from(groups.entries()).map(([groupName, options]) => {
       const isSkill = isSkillGroup(options);
+      const isAbility = isAbilityOptionGroup(options);
+      const isExpertiseByEffect = options.every((opt) => getChoiceOptionEffect(opt)?.kind === "SKILL_EXPERTISE");
       let pickCount = 1;
 
       // Use grantedSkillCount for SKILLED feat
@@ -346,6 +480,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
       const isManeuver = options.every((opt) => isManeuverOption(opt.choiceOption.optionNameEng, groupName));
       const isInvocation = isInvocationGroupName(groupName);
+      const isFightingStyle = isFightingStyleGroupName(groupName);
 
       // Feat-specific pick count overrides.
       if (selectedFeat?.name === "MARTIAL_ADEPT" && isManeuver) {
@@ -357,27 +492,40 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
         options,
         pickCount,
         isSkill,
-        isExpertise: isExpertiseGroup(groupName),
+        isExpertise: isExpertiseByEffect || isExpertiseGroup(groupName),
+        isAbility,
         isManeuver,
         isInvocation,
+        isFightingStyle,
       } as Group;
     });
 
-    // If feat has composite grantedASI (e.g. STR_OR_DEX) and ALSO has non-ability choice groups,
-    // do not force the user to pick an ability here (those are artifacts; real picks are via explicit options).
-    const composite = hasCompositeGrantedASI((selectedFeat as any)?.grantedASI);
-    const hasNonAbilityGroups = prelim.some((g) => !isAbilityOptionGroup(g.options));
-    const filtered = composite && hasNonAbilityGroups ? prelim.filter((g) => !isAbilityOptionGroup(g.options)) : prelim;
+    // Ability choice groups are explicitly seeded via featChoiceOptions.
+    const filtered = prelim;
 
     // Deduplicate groups that are the same options under different group names.
     // Keep a canonical groupName and remember aliases so stored selections still work.
     const aliases: Record<string, string[]> = {};
     const bySig = new Map<string, Group[]>();
+    const normalizeForSig = (g: Group, opt: NonNullable<FeatPrisma["featChoiceOptions"]>[number]) => {
+      const eff = getChoiceOptionEffect(opt);
+      if ((g.isSkill || g.isExpertise) && eff && (eff.kind === "SKILL_PROFICIENCY" || eff.kind === "SKILL_EXPERTISE")) {
+        return `SKILL:${eff.skill}`;
+      }
+      if (g.isAbility && eff && eff.kind === "ASI") {
+        return `ABILITY:${eff.ability}`;
+      }
+
+      const raw = (opt.choiceOption?.optionNameEng || opt.choiceOption?.optionName || "").trim();
+      const extracted = extractSkillFromOptionName(raw);
+      if (g.isSkill || g.isExpertise) return `SKILL:${extracted}`;
+      if (g.isAbility) return `ABILITY:${toAbilityKey(extracted) ?? extracted}`;
+      return `RAW:${raw}`;
+    };
+
     const makeSig = (g: Group) => {
-      const names = g.options
-        .map((o) => (o.choiceOption?.optionNameEng || o.choiceOption?.optionName || "").trim())
-        .sort();
-      return `${g.pickCount}|${g.isSkill ? "S" : "_"}${g.isExpertise ? "E" : "_"}|${names.join("|")}`;
+      const names = g.options.map((o) => normalizeForSig(g, o)).sort();
+      return `${g.pickCount}|${g.isSkill ? "S" : "_"}${g.isExpertise ? "E" : "_"}${g.isAbility ? "A" : "_"}|${names.join("|")}`;
     };
 
     for (const g of filtered) {
@@ -405,11 +553,24 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       const canonical = [...groupList].sort((a, b) => nameScore(b.groupName) - nameScore(a.groupName))[0];
       const mergedOptions = groupList.flatMap((g) => g.options);
 
-      // keep options unique by choiceOptionId
-      const seen = new Set<number>();
+      // keep options unique by semantic meaning (ability/skill), not by choiceOptionId
+      const seen = new Set<string>();
       const uniqueOptions = mergedOptions.filter((o) => {
-        if (seen.has(o.choiceOptionId)) return false;
-        seen.add(o.choiceOptionId);
+        let key = `ID:${o.choiceOptionId}`;
+        const eff = getChoiceOptionEffect(o);
+        if ((canonical.isSkill || canonical.isExpertise) && eff && (eff.kind === "SKILL_PROFICIENCY" || eff.kind === "SKILL_EXPERTISE")) {
+          key = `SKILL:${eff.skill}`;
+        } else if (canonical.isAbility && eff && eff.kind === "ASI") {
+          key = `ABILITY:${eff.ability}`;
+        } else {
+          const raw = (o.choiceOption?.optionNameEng || o.choiceOption?.optionName || "").trim();
+          const extracted = extractSkillFromOptionName(raw);
+          if (canonical.isSkill || canonical.isExpertise) key = `SKILL:${extracted}`;
+          else if (canonical.isAbility) key = `ABILITY:${toAbilityKey(extracted) ?? extracted}`;
+        }
+
+        if (seen.has(key)) return false;
+        seen.add(key);
         return true;
       });
 
@@ -426,7 +587,20 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       groupedChoices: deduped,
       groupAliases: aliases,
     };
-  }, [optionsToUse, selectedFeat, isInvocationGroupName, isManeuverOption]);
+  }, [optionsToUse, selectedFeat, isInvocationGroupName, isManeuverOption, isFightingStyleGroupName]);
+
+  // Keep group option ordering stable (non-reactive sorting).
+  // We only compute the order once per selected feat and group.
+  const frozenOrderRef = useRef<Record<string, number[]>>({});
+  const frozenForFeatRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const featId = selectedFeat?.featId ?? null;
+    if (frozenForFeatRef.current !== featId) {
+      frozenForFeatRef.current = featId;
+      frozenOrderRef.current = {};
+    }
+  }, [selectedFeat?.featId]);
 
    /**
    * Helper to retrieve all selected Option IDs for a given group.
@@ -595,7 +769,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     const isSelected = currentSelected.includes(opt.choiceOptionId);
 
     // Prevent duplicates for maneuver/invocation-like groups.
-    if ((group.isManeuver || group.isInvocation) && !isSelected && existingChoiceOptionIds.has(opt.choiceOptionId)) {
+    if ((group.isManeuver || group.isInvocation || group.isFightingStyle) && !isSelected && existingChoiceOptionIds.has(opt.choiceOptionId)) {
       return { disabled: true, reason: "Вже маєте" };
     }
 
@@ -701,29 +875,43 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
       <div className="space-y-4">
         {groupedChoices.map((group) => {
-            const sortedOptions = [...group.options].sort((a, b) => {
-              const aSelected = getSelectedIdsForGroup(group.groupName).includes(a.choiceOptionId);
-              const bSelected = getSelectedIdsForGroup(group.groupName).includes(b.choiceOptionId);
+            const groupKey = group.groupName;
+            const existingFrozen = frozenOrderRef.current[groupKey];
 
-              if (aSelected !== bSelected) return aSelected ? -1 : 1;
-
-              const aState = getDisabledState(group, a);
-              const bState = getDisabledState(group, b);
-
+            if (!existingFrozen) {
               const weight = (s: { disabled: boolean; prereqUnmet?: boolean }) => {
                 if (s.disabled) return 2;
                 if (s.prereqUnmet) return 1;
                 return 0;
               };
 
-              const aw = weight(aState);
-              const bw = weight(bState);
-              if (aw !== bw) return aw - bw;
+              const initial = [...group.options].sort((a, b) => {
+                const aState = getDisabledState(group, a);
+                const bState = getDisabledState(group, b);
+                const aw = weight(aState);
+                const bw = weight(bState);
+                if (aw !== bw) return aw - bw;
 
-              const aLabel = String(a.choiceOption?.optionName || a.choiceOption?.optionNameEng || "");
-              const bLabel = String(b.choiceOption?.optionName || b.choiceOption?.optionNameEng || "");
-              return aLabel.localeCompare(bLabel, "uk");
-            });
+                const aLabel = String(a.choiceOption?.optionName || a.choiceOption?.optionNameEng || "");
+                const bLabel = String(b.choiceOption?.optionName || b.choiceOption?.optionNameEng || "");
+                return aLabel.localeCompare(bLabel, "uk");
+              });
+
+              frozenOrderRef.current[groupKey] = initial.map((o) => o.choiceOptionId);
+            }
+
+            const frozenIds = frozenOrderRef.current[groupKey] ?? [];
+            const byId = new Map(group.options.map((o) => [o.choiceOptionId, o] as const));
+            const sortedOptions = [
+              ...frozenIds.map((id) => byId.get(id)).filter(Boolean),
+              ...group.options
+                .filter((o) => !frozenIds.includes(o.choiceOptionId))
+                .sort((a, b) => {
+                  const aLabel = String(a.choiceOption?.optionName || a.choiceOption?.optionNameEng || "");
+                  const bLabel = String(b.choiceOption?.optionName || b.choiceOption?.optionNameEng || "");
+                  return aLabel.localeCompare(bLabel, "uk");
+                }),
+            ] as typeof group.options;
 
             const hasFeatureDetails = sortedOptions.some((o) => {
               const features = (o as any)?.choiceOption?.features;
@@ -732,7 +920,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
               return Boolean(first);
             });
 
-            const useDetailedCards = hasFeatureDetails && (group.isManeuver || group.isInvocation);
+            const useDetailedCards = hasFeatureDetails && !group.isSkill;
 
             return (
           <Card key={group.groupName} className="">
@@ -769,9 +957,37 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                       const optionId = opt.choiceOptionId;
                       const optionNameEng = opt.choiceOption.optionNameEng;
                       const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
+                      const isOwned = (group.isManeuver || group.isInvocation || group.isFightingStyle) && existingChoiceOptionIds.has(optionId);
                       const { disabled, prereqUnmet, reason } = getDisabledState(group, opt);
 
-                      const label = opt.choiceOption.optionName || translateValue(optionNameEng);
+                      let label = opt.choiceOption.optionName || translateValue(optionNameEng);
+                      if (group.isSkill || group.isExpertise) {
+                        const eff = getChoiceOptionEffect(opt);
+                        const skillName =
+                          eff && (eff.kind === "SKILL_PROFICIENCY" || eff.kind === "SKILL_EXPERTISE")
+                            ? eff.skill
+                            : extractSkillFromOptionName(optionNameEng);
+                        const skillTranslation = translateValue(skillName);
+                        label = skillTranslation || label || skillName;
+                      } else {
+                        const eff = getChoiceOptionEffect(opt);
+                        const raw = extractSkillFromOptionName(optionNameEng || label || "");
+                        const abilityKey = group.isAbility
+                          ? (eff && eff.kind === "ASI" ? eff.ability : toAbilityKey(raw))
+                          : null;
+
+                        const translated = translateValue(label || optionNameEng);
+                        if (abilityKey && currentAbilityScores) {
+                          const score = currentAbilityScores[abilityKey];
+                          const amount = eff && eff.kind === "ASI" ? eff.amount : 1;
+                          const next = Math.min(20, score + amount);
+                          const title = translateValue(abilityKey) || translated;
+                          label = `${title}: ${score} → ${next}`;
+                        } else {
+                          label = translated;
+                        }
+                      }
+
                       const preview = previewTextFromChoiceOption((opt as any)?.choiceOption?.features);
 
                       return (
@@ -819,17 +1035,17 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                                 </div>
 
                                 <div className="flex items-center gap-2">
-                                  {isSelected ? (
-                                    <div className="text-cyan-400">
-                                      <Check className="h-5 w-5 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                                  {isSelected || isOwned ? (
+                                    <div className={clsx(isSelected ? "text-cyan-400" : "text-slate-400")}> 
+                                      <Check className={clsx("h-5 w-5", isSelected && "drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]")} />
                                     </div>
                                   ) : null}
 
                                   <Button
                                     type="button"
                                     size="icon"
-                                    variant="ghost"
-                                    className="h-8 w-8 text-slate-300 hover:text-white"
+                                    variant="secondary"
+                                    className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
                                     data-stop-card-click
                                     onClick={(e) => {
                                       e.preventDefault();
@@ -855,15 +1071,34 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                     const optionId = opt.choiceOptionId;
                     const optionNameEng = opt.choiceOption.optionNameEng;
                     const isSelected = getSelectedIdsForGroup(group.groupName).includes(optionId);
+                    const isOwned = (group.isManeuver || group.isInvocation || group.isFightingStyle) && existingChoiceOptionIds.has(optionId);
                     const { disabled, prereqUnmet, reason } = getDisabledState(group, opt);
 
                     let label = opt.choiceOption.optionName;
                     if (group.isSkill || group.isExpertise) {
-                      const skillName = extractSkillFromOptionName(optionNameEng);
+                      const eff = getChoiceOptionEffect(opt);
+                      const skillName =
+                        eff && (eff.kind === "SKILL_PROFICIENCY" || eff.kind === "SKILL_EXPERTISE")
+                          ? eff.skill
+                          : extractSkillFromOptionName(optionNameEng);
                       const skillTranslation = translateValue(skillName);
                       label = skillTranslation || label || skillName;
                     } else {
-                      label = translateValue(label || optionNameEng);
+                      const eff = getChoiceOptionEffect(opt);
+                      const raw = extractSkillFromOptionName(optionNameEng || label || "");
+                      const abilityKey = group.isAbility
+                        ? (eff && eff.kind === "ASI" ? eff.ability : toAbilityKey(raw))
+                        : null;
+                      const translated = translateValue(label || optionNameEng);
+                      if (abilityKey && currentAbilityScores) {
+                        const score = currentAbilityScores[abilityKey];
+                        const amount = eff && eff.kind === "ASI" ? eff.amount : 1;
+                        const next = Math.min(20, score + amount);
+                        const title = translateValue(abilityKey) || translated;
+                        label = `${title}: ${score} → ${next}`;
+                      } else {
+                        label = translated;
+                      }
                     }
 
                     return (
@@ -916,9 +1151,12 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                             ) : null}
                           </div>
 
-                          {isSelected ? (
-                            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-400">
-                              <Check className="h-5 w-5 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                          {isSelected || isOwned ? (
+                            <div className={clsx(
+                              "absolute right-3 top-1/2 -translate-y-1/2",
+                              isSelected ? "text-cyan-400" : "text-slate-400"
+                            )}>
+                              <Check className={clsx("h-5 w-5", isSelected && "drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]")} />
                             </div>
                           ) : null}
                         </CardContent>

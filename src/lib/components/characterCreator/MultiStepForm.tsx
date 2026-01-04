@@ -144,10 +144,12 @@ export const MultiStepForm = (
         }
       } else if (result.success) {
         toast.success("Персонажа створено!");
-        resetForm();
-        // Clear persisted draft so future creations start clean
-        usePersFormStore.persist.clearStorage();
         router.push(`/char/${result.persId}`);
+        // Clear draft after navigation starts to avoid a visible "form reset" flash.
+        requestAnimationFrame(() => {
+          resetForm();
+          usePersFormStore.persist.clearStorage();
+        });
       }
     } catch (e) {
       toast.error("Щось пішло не так...");

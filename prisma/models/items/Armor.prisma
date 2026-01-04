@@ -3,6 +3,8 @@ model Armor {
   name                         ArmorCategory                  @unique
   armorType                    ArmorType                      @map("armor_type")
   baseAC                       Int                            @map("base_ac")
+  abilityBonuses               Ability[]                      @default([DEX]) @map("ability_bonuses")
+  abilityBonusType             AbilityBonusType               @default(FULL) @map("ability_bonus_type")
   strengthReq                  Int?                           @map("strength_req")
   stealthDisadvantage          Boolean                        @default(false) @map("stealth_disadvantage")
   classStartingEquipmentOption ClassStartingEquipmentOption[]

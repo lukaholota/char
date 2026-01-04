@@ -877,6 +877,286 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             class: { connect: { name: Classes.WIZARD_2014 } },
             quantity: 1,
             description: 'Кинджал (1к4)'
+        },
+
+
+        // ===== DRUID STARTING EQUIPMENT =====
+        // You start with the following equipment, in addition to the equipment granted by your background:
+        // • (a) a wooden shield or (b) any simple weapon
+        // • (a) a scimitar or (b) any simple melee weapon
+        // • Leather armor, an explorer's pack, and a druidic focus
+
+        // ГРУПА 1: Щит або проста зброя
+        {
+            choiceGroup: 1,
+            option: 'a',
+            armor: { connect: { name: ArmorCategory.SHIELD } },
+            class: { connect: { name: Classes.DRUID_2014 } },
+            quantity: 1,
+            description: 'Дерев’яний щит (+2 КБ)'
+        },
+        {
+            choiceGroup: 1,
+            option: 'b',
+            chooseAnyWeapon: true,
+            weaponType: WeaponType.SIMPLE_WEAPON,
+            weaponCount: 1,
+            class: { connect: { name: Classes.DRUID_2014 } },
+            quantity: 1,
+            description: 'Будь-яка проста зброя на вибір'
+        },
+
+        // ГРУПА 2: Шабля або проста рукопашна зброя
+        {
+            choiceGroup: 2,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.SCIMITAR } },
+            class: { connect: { name: Classes.DRUID_2014 } },
+            quantity: 1,
+            description: 'Шабля (1к6, фехтувальна, легка)'
+        },
+        {
+            choiceGroup: 2,
+            option: 'b',
+            chooseAnyWeapon: true,
+            weaponType: WeaponType.SIMPLE_WEAPON,
+            weaponCount: 1,
+            class: { connect: { name: Classes.DRUID_2014 } },
+            quantity: 1,
+            description: 'Будь-яка проста рукопашна зброя на вибір'
+        },
+
+        // ГРУПА 3: Фіксоване спорядження (завжди)
+        {
+            choiceGroup: 3,
+            option: 'a',
+            armor: { connect: { name: ArmorCategory.LEATHER } },
+            class: { connect: { name: Classes.DRUID_2014 } },
+            quantity: 1,
+            description: 'Шкіряна броня (11 + СПР КБ)'
+        },
+        {
+            choiceGroup: 3,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            class: { connect: { name: Classes.DRUID_2014 } },
+            quantity: 1,
+            description: 'Набір мандрівника'
+        },
+        {
+            choiceGroup: 3,
+            option: 'a',
+            class: { connect: { name: Classes.DRUID_2014 } },
+            quantity: 1,
+            item: 'Друїдичний фокус',
+            description: 'Друїдичний фокус (druidic focus)'
+        },
+
+
+        // ===== BARD STARTING EQUIPMENT =====
+        // You start with the following equipment, in addition to the equipment granted by your background:
+        // (a) a rapier, (b) a longsword, or (c) any simple weapon
+        // (a) a diplomat's pack or (b) an entertainer's pack
+        // (a) a lute or (b) any other musical instrument
+        // Leather armor and a dagger
+
+        // ГРУПА 1: Зброя
+        {
+            choiceGroup: 1,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.RAPIER } },
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            description: 'Рапіра (1к8, фехтувальна)'
+        },
+        {
+            choiceGroup: 1,
+            option: 'b',
+            weapon: { connect: { name: WeaponCategory.LONGSWORD } },
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            description: 'Довгий меч (1к8/1к10)'
+        },
+        {
+            choiceGroup: 1,
+            option: 'c',
+            chooseAnyWeapon: true,
+            weaponType: WeaponType.SIMPLE_WEAPON,
+            weaponCount: 1,
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            description: 'Будь-яка проста зброя на вибір'
+        },
+
+        // ГРУПА 2: Набір спорядження
+        {
+            choiceGroup: 2,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.DIPLOMATS_PACK } },
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            description: 'Набір дипломата'
+        },
+        {
+            choiceGroup: 2,
+            option: 'b',
+            equipmentPack: { connect: { name: EquipmentPackCategory.ENTERTAINERS_PACK } },
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            description: 'Набір артиста'
+        },
+
+        // ГРУПА 3: Музичний інструмент
+        {
+            choiceGroup: 3,
+            option: 'a',
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            item: 'Лютня',
+            description: 'Лютня'
+        },
+        {
+            choiceGroup: 3,
+            option: 'b',
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            item: 'Музичний інструмент',
+            description: 'Будь-який інший музичний інструмент'
+        },
+
+        // ГРУПА 4: Фіксоване спорядження (завжди)
+        {
+            choiceGroup: 4,
+            option: 'a',
+            armor: { connect: { name: ArmorCategory.LEATHER } },
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            description: 'Шкіряна броня (11 + СПР КБ)'
+        },
+        {
+            choiceGroup: 4,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.DAGGER } },
+            class: { connect: { name: Classes.BARD_2014 } },
+            quantity: 1,
+            description: 'Кинджал (1к4, фехтувальна, легка, метальна)'
+        },
+
+
+        // ===== CLERIC STARTING EQUIPMENT =====
+        // You start with the following equipment, in addition to the equipment granted by your background:
+        // (a) a mace or (b) a warhammer (if proficient)
+        // (a) scale mail, (b) leather armor, or (c) chain mail (if proficient)
+        // (a) a light crossbow and 20 bolts or (b) any simple weapon
+        // (a) a priest's pack or (b) an explorer's pack
+        // A shield and a holy symbol
+
+        // ГРУПА 1: Зброя
+        {
+            choiceGroup: 1,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.MACE } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Булава (1к6)'
+        },
+        {
+            choiceGroup: 1,
+            option: 'b',
+            weapon: { connect: { name: WeaponCategory.WARHAMMER } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Бойовий молот (1к8/1к10) — якщо є володіння'
+        },
+
+        // ГРУПА 2: Броня
+        {
+            choiceGroup: 2,
+            option: 'a',
+            armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Лускова броня (14 + СПР [макс 2] КБ)'
+        },
+        {
+            choiceGroup: 2,
+            option: 'b',
+            armor: { connect: { name: ArmorCategory.LEATHER } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Шкіряна броня (11 + СПР КБ)'
+        },
+        {
+            choiceGroup: 2,
+            option: 'c',
+            armor: { connect: { name: ArmorCategory.CHAIN_MAIL } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Кольчуга (16 КБ) — якщо є володіння'
+        },
+
+        // ГРУПА 3: Дальня/проста зброя
+        {
+            choiceGroup: 3,
+            option: 'a',
+            weapon: { connect: { name: WeaponCategory.LIGHT_CROSSBOW } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Легкий арбалет (1к8)'
+        },
+        {
+            choiceGroup: 3,
+            option: 'a',
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 20,
+            item: 'Болти',
+            description: '20 болтів для арбалета'
+        },
+        {
+            choiceGroup: 3,
+            option: 'b',
+            chooseAnyWeapon: true,
+            weaponType: WeaponType.SIMPLE_WEAPON,
+            weaponCount: 1,
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Будь-яка проста зброя на вибір'
+        },
+
+        // ГРУПА 4: Набір спорядження
+        {
+            choiceGroup: 4,
+            option: 'a',
+            equipmentPack: { connect: { name: EquipmentPackCategory.PRIESTS_PACK } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Набір священика'
+        },
+        {
+            choiceGroup: 4,
+            option: 'b',
+            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Набір мандрівника'
+        },
+
+        // ГРУПА 5: Фіксоване спорядження (завжди)
+        {
+            choiceGroup: 5,
+            option: 'a',
+            armor: { connect: { name: ArmorCategory.SHIELD } },
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            description: 'Щит (+2 до КБ)'
+        },
+        {
+            choiceGroup: 5,
+            option: 'a',
+            class: { connect: { name: Classes.CLERIC_2014 } },
+            quantity: 1,
+            item: 'Святий символ',
+            description: 'Святий символ (holy symbol)'
         }
     ];
 

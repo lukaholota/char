@@ -1313,7 +1313,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
             source: Source.SPELLJAMMER,
             languages: [Language.COMMON],
             languagesToChooseCount: 1,
-            ac: {base: 17, bonus: Ability.DEX}, // base AC 13 + DEX from Chameleon Carapace
+            ac: {base: 13, bonus: Ability.DEX}, // base AC 13 + DEX from Chameleon Carapace
             ASI: MPMMBaseASI,
             traits: {
                 create: [
@@ -1745,7 +1745,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
                 create: [
                     { feature: { connect: { engName: 'Constructed Resilience' } } }, // poison adv, no eat/drink/breathe/sleep
                     { feature: { connect: { engName: 'Sentry\'s Rest' } } },
-                    { feature: { connect: { engName: 'Integrated Protection' } } }, // AC bonus + can integrate armor
+                    { feature: { connect: { engName: ' ' } } }, // AC bonus + can integrate armor
                     { feature: { connect: { engName: 'Warforged Specialized Design' } } } // 1 skill + 1 tool proficiency
                 ]
             }

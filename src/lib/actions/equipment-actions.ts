@@ -3,7 +3,7 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { Ability, Prisma } from "@prisma/client";
+import { Ability, AbilityBonusType, Prisma } from "@prisma/client";
 
 /**
  * Helper to assert the user owns the pers
@@ -168,6 +168,8 @@ export async function addArmor(
   customData: {
     overrideName?: string;
     overrideBaseAC?: number;
+    abilityBonuses?: Ability[];
+    abilityBonusType?: AbilityBonusType;
     miscACBonus?: number;
     isProficient?: boolean;
     equipped?: boolean;
@@ -177,6 +179,28 @@ export async function addArmor(
   if (!owned.ok) return { success: false, error: owned.error };
 
   try {
+    const resolvedArmorId = armorId
+      ? armorId
+      : (
+          await prisma.armor.findUnique({
+            where: { name: "HOMEBREW" as any },
+            select: { armorId: true },
+          })
+        )?.armorId ?? 1;
+
+    const armorDefaults = await prisma.armor.findUnique({
+      where: { armorId: resolvedArmorId },
+      select: { abilityBonuses: true, abilityBonusType: true },
+    });
+
+    const defaultAbilityBonuses =
+      customData.abilityBonuses !== undefined ? customData.abilityBonuses : (armorDefaults?.abilityBonuses ?? []);
+
+    const defaultAbilityBonusType =
+      customData.abilityBonusType !== undefined
+        ? customData.abilityBonusType
+        : (armorDefaults?.abilityBonusType ?? AbilityBonusType.FULL);
+
     // If equipping new armor, unequip others
     if (customData.equipped) {
       await prisma.persArmor.updateMany({
@@ -188,12 +212,14 @@ export async function addArmor(
     const newArmor = await prisma.persArmor.create({
       data: {
         persId,
-        armorId: armorId || 1, 
+        armorId: resolvedArmorId,
         overrideName: customData.overrideName || null,
-        overrideBaseAC: customData.overrideBaseAC || null,
-        miscACBonus: customData.miscACBonus || 0,
+        overrideBaseAC: customData.overrideBaseAC ?? null,
+        abilityBonuses: Array.from(new Set(defaultAbilityBonuses ?? [])),
+        abilityBonusType: defaultAbilityBonusType,
+        miscACBonus: customData.miscACBonus ?? 0,
         isProficient: customData.isProficient ?? true,
-        equipped: customData.equipped || false,
+        equipped: customData.equipped ?? false,
       },
     });
 
@@ -211,6 +237,8 @@ export async function updateArmor(
   updates: {
     overrideName?: string | null;
     overrideBaseAC?: number | null;
+    abilityBonuses?: Ability[];
+    abilityBonusType?: AbilityBonusType;
     miscACBonus?: number | null;
     isProficient?: boolean;
     equipped?: boolean;
@@ -237,7 +265,10 @@ export async function updateArmor(
 
     const updated = await prisma.persArmor.update({
       where: { persArmorId },
-      data: updates,
+      data: {
+        ...updates,
+        abilityBonuses: updates.abilityBonuses ? Array.from(new Set(updates.abilityBonuses)) : undefined,
+      },
     });
 
     revalidatePath(`/char/${armor.persId}`);
@@ -246,6 +277,27 @@ export async function updateArmor(
   } catch (error) {
     console.error("Error updating armor:", error);
     return { success: false, error: "Помилка при оновленні обладунку" };
+  }
+}
+
+export async function updateRaceStaticAcBonus(persId: number, value: number) {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const next = Number.isFinite(value) ? Math.trunc(value) : 0;
+
+  try {
+    const updated = await prisma.pers.update({
+      where: { persId },
+      data: { raceStaticAcBonus: next },
+    });
+
+    revalidatePath(`/char/${persId}`);
+    revalidatePath(`/character/${persId}`);
+    return { success: true, pers: updated };
+  } catch (error) {
+    console.error("Error updating raceStaticAcBonus:", error);
+    return { success: false, error: "Помилка при оновленні бонусу раси до КБ" };
   }
 }
 

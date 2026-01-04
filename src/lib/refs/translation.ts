@@ -873,6 +873,12 @@ export const armorTranslations = {
   SPLINT: "Шинний",
   PLATE: "Лати",
   SHIELD: "Щит",
+  UNARMORED_DEFENSE_MONK: "Захист без обладунків (монах)",
+  UNARMORED_DEFENSE_BARBARIAN: "Захист без обладунків (варвар)",
+  NATURAL_ARMOR_TORTLE: "Природний обладунок (17)",
+  NATURAL_ARMOR_13_DEX: "Природний обладунок (13 + СПР)",
+  NATURAL_ARMOR_12_DEX: "Природний обладунок (12 + СПР)",
+  NATURAL_ARMOR_12_CON: "Природний обладунок (12 + СТА)",
   HOMEBREW: "Хоумбрю"
 } as const;
 
@@ -890,6 +896,12 @@ export const armorTranslationsEng = {
   SPLINT: "Splint",
   PLATE: "Plate",
   SHIELD: "Shield",
+  UNARMORED_DEFENSE_MONK: "Unarmored Defense (Monk)",
+  UNARMORED_DEFENSE_BARBARIAN: "Unarmored Defense (Barbarian)",
+  NATURAL_ARMOR_TORTLE: "Natural Armor (17)",
+  NATURAL_ARMOR_13_DEX: "Natural Armor (13 + DEX)",
+  NATURAL_ARMOR_12_DEX: "Natural Armor (12 + DEX)",
+  NATURAL_ARMOR_12_CON: "Natural Armor (12 + CON)",
   HOMEBREW: "Homebrew"
 } as const;
 

@@ -1,4 +1,0 @@
-﻿-- Add sort order columns for PHB ordering
-ALTER TABLE "race" ADD COLUMN "sort_order" INTEGER NOT NULL DEFAULT 999;
-ALTER TABLE "class" ADD COLUMN "sort_order" INTEGER NOT NULL DEFAULT 999;
-ALTER TABLE "weapon" ADD COLUMN "sort_order" INTEGER NOT NULL DEFAULT 999;

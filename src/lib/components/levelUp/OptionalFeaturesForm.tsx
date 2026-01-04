@@ -20,6 +20,7 @@ interface Props {
   classLevel: number;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
+  mode?: "OPTIONAL" | "REPLACEMENT";
 }
 
 const displayName = (cls?: ClassI | null) =>
@@ -32,6 +33,7 @@ export default function OptionalFeaturesForm({
   classLevel,
   formId,
   onNextDisabledChange,
+  mode,
 }: Props) {
   const { formData, updateFormData } = usePersFormStore();
 
@@ -67,6 +69,15 @@ export default function OptionalFeaturesForm({
       .filter((item) => Boolean(item.optionalFeatureId));
   }, [selectedClass, classLevel]);
 
+  const isReplacement = (item: any) => {
+    return Boolean(
+      item?.replacesInvocation ||
+        item?.replacesFightingStyle ||
+        item?.replacesManeuver ||
+        (Array.isArray(item?.replacesFeatures) && item.replacesFeatures.length > 0)
+    );
+  };
+
   const visibleOptional = useMemo(() => {
     return optionalAtLevel
       .filter((item) => {
@@ -74,8 +85,13 @@ export default function OptionalFeaturesForm({
         if (!deps.length) return true;
         return deps.some((choice: any) => selectedChoiceIds.includes(choice.choiceOptionId));
       })
+      .filter((item) => {
+        if (mode === "REPLACEMENT") return isReplacement(item);
+        if (mode === "OPTIONAL") return !isReplacement(item);
+        return true;
+      })
       .filter((item) => Boolean(item.optionalFeatureId));
-  }, [optionalAtLevel, selectedChoiceIds]);
+  }, [optionalAtLevel, selectedChoiceIds, mode]);
 
   const selectedPact = useMemo(() => {
     // Pact boon is stored as a ChoiceOption (e.g. Pact of the Blade)
@@ -130,22 +146,31 @@ export default function OptionalFeaturesForm({
   }
 
   if (!visibleOptional.length) {
+    const noun = mode === "REPLACEMENT" ? "замін" : mode === "OPTIONAL" ? "опціональних фіч" : "опцій";
     return (
       <Card className="glass-card p-4 text-center text-slate-200">
-        На рівні {classLevel} {displayName(selectedClass)} не пропонує замін. Можна продовжувати.
+        На рівні {classLevel} {displayName(selectedClass)} не пропонує {noun}. Можна продовжувати.
       </Card>
     );
   }
+
+  const heading = mode === "REPLACEMENT" ? "Заміни" : mode === "OPTIONAL" ? "Опціональні фічі" : "Додаткові опції класу";
+  const subheading =
+    mode === "REPLACEMENT"
+      ? "За бажанням можна замінити деякі вміння (стилі бою, маневри тощо) на альтернативні."
+      : mode === "OPTIONAL"
+        ? "За бажанням можна взяти додаткові фічі класу."
+        : "За бажанням можна замінити деякі вміння (стилі бою, маневри тощо) на альтернативні.";
 
   return (
     <form id={formId} className="space-y-4">
       <div className="space-y-1 text-center">
         <p className="text-sm font-semibold text-slate-300">Рівень {classLevel}</p>
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
-          Додаткові опції класу
+          {heading}
         </h2>
         <p className="text-sm text-slate-400">
-          За бажанням можна замінити деякі вміння (стилі бою, маневри тощо) на альтернативні.
+          {subheading}
         </p>
       </div>
 
@@ -218,7 +243,7 @@ export default function OptionalFeaturesForm({
                     )}
                     onClick={() => setDecision(item.optionalFeatureId!, true)}
                   >
-                    Прийняти заміну
+                    {mode === "OPTIONAL" ? "Взяти" : "Прийняти заміну"}
                   </Button>
                   <Button
                     type="button"
@@ -230,7 +255,7 @@ export default function OptionalFeaturesForm({
                     )}
                     onClick={() => setDecision(item.optionalFeatureId!, false)}
                   >
-                    Залишити як є
+                    {mode === "OPTIONAL" ? "Пропустити" : "Залишити як є"}
                   </Button>
                 </div>
 

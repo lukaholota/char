@@ -4,7 +4,7 @@ export const CHOICE_GROUPS = {
   BATTLE_MASTER_MANEUVERS: "Маневри майстра бою",
   ARCANE_SHOTS: "Арканні постріли",
   RUNE_KNIGHT_RUNES: "Руни велетнів",
-  FOUR_ELEMENTS_DISCIPLINES: "Стихійні дисципліни",
+  FOUR_ELEMENTS_DISCIPLINES: "Дисципліни чотирьох елементів",
 } as const;
 
 export type ChoicePoolScope = "class" | "subclass";

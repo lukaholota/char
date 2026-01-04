@@ -4,6 +4,8 @@ model PersArmor {
   persId         Int            @map("pers_id")
   overrideName   String?        @map("override_name")
   overrideBaseAC Int?           @map("override_base_ac")
+  abilityBonuses Ability[]      @default([]) @map("ability_bonuses")
+  abilityBonusType AbilityBonusType @default(FULL) @map("ability_bonus_type")
   miscACBonus    Int?           @map("misc_ac_bonus")
   isProficient   Boolean        @default(true) @map("is_proficient")
   equipped       Boolean        @default(false)

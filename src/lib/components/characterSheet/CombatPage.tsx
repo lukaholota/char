@@ -18,7 +18,7 @@ import AddArmorDialog from "./AddArmorDialog";
 import WeaponCustomizeModal from "./WeaponCustomizeModal";
 import ArmorCustomizeModal from "./ArmorCustomizeModal";
 import { Button } from "@/components/ui/button";
-import { updateShieldStatus, updateArmor, deleteArmor } from "@/lib/actions/equipment-actions";
+import { updateShieldStatus, updateArmor, deleteArmor, updateRaceStaticAcBonus } from "@/lib/actions/equipment-actions";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
@@ -29,6 +29,8 @@ import AddMagicItemDialog from "./AddMagicItemDialog";
 import { updateMagicItem, deleteMagicItem } from "@/lib/actions/magic-item-actions";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
+import { Ability, AbilityBonusType, ArmorCategory, ArmorType } from "@prisma/client";
+import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 
 
 function MagicItemRow({ 
@@ -154,11 +156,29 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
   }, []);
 
   const [wearsShield, setWearsShield] = useState(pers.wearsShield);
+  const [raceStaticAcBonus, setRaceStaticAcBonus] = useState<number>((pers as any).raceStaticAcBonus ?? 0);
+
+  const configuredRaceStaticBonus = useMemo(() => {
+    const ac = (pers as any).race?.ac;
+    if (ac && typeof ac === "object" && typeof (ac as any).consistentBonus === "number") {
+      return Math.trunc((ac as any).consistentBonus);
+    }
+    return 0;
+  }, [pers]);
+
+  const showRaceStaticAcBonusToggle = useMemo(() => {
+    if (configuredRaceStaticBonus !== 0) return true;
+    return typeof raceStaticAcBonus === "number" && Number.isFinite(raceStaticAcBonus) && raceStaticAcBonus !== 0;
+  }, [configuredRaceStaticBonus, raceStaticAcBonus]);
 
   // Sync state if prop changes (e.g. from other updates)
   useEffect(() => {
     setWearsShield(pers.wearsShield);
   }, [pers.wearsShield]);
+
+  useEffect(() => {
+    setRaceStaticAcBonus((pers as any).raceStaticAcBonus ?? 0);
+  }, [(pers as any).raceStaticAcBonus]);
 
   const handleShieldToggle = async (val: boolean) => {
     setWearsShield(val); // Optimistic update
@@ -168,6 +188,19 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
       router.refresh();
     } else {
       setWearsShield(!val); // Revert on failure
+      toast.error(res.error);
+    }
+  };
+
+  const handleRaceStaticAcBonusToggle = async (val: boolean) => {
+    const next = val ? configuredRaceStaticBonus : 0;
+    setRaceStaticAcBonus(next);
+    const res = await updateRaceStaticAcBonus(pers.persId, next);
+    if (res.success) {
+      toast.success(val ? "Бонус раси до КБ увімкнено" : "Бонус раси до КБ вимкнено");
+      router.refresh();
+    } else {
+      setRaceStaticAcBonus((pers as any).raceStaticAcBonus ?? 0);
       toast.error(res.error);
     }
   };
@@ -197,6 +230,79 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
 
   const getDamageBonus = (pw: PersWeaponWithWeapon) => calculateWeaponDamageBonus(pers, pw);
 
+  const getDisplayedArmorBaseAC = (pa: PersArmorWithArmor): number => {
+    const armorBase = pa.overrideBaseAC ?? pa.armor?.baseAC ?? 10;
+    const misc = pa.miscACBonus ?? 0;
+
+    const persAbilities: Ability[] = Array.isArray((pa as any).abilityBonuses) ? (((pa as any).abilityBonuses as Ability[]) ?? []) : [];
+    const armorAbilities: Ability[] = Array.isArray((pa.armor as any)?.abilityBonuses)
+      ? ((((pa.armor as any).abilityBonuses as Ability[]) ?? []) as Ability[])
+      : [];
+
+    const persType = (pa as any).abilityBonusType as AbilityBonusType | undefined;
+    const armorType = (pa.armor as any)?.abilityBonusType as AbilityBonusType | undefined;
+    let type = persType ?? armorType ?? AbilityBonusType.FULL;
+    if (armorType && persType === AbilityBonusType.FULL && persAbilities.length === 0) {
+      type = armorType;
+    }
+
+    const abilities: Ability[] =
+      type === AbilityBonusType.NONE ? persAbilities : (persAbilities.length > 0 ? persAbilities : armorAbilities);
+
+    const unique = Array.from(new Set(abilities));
+    let bonus = 0;
+    for (const ability of unique) {
+      let mod = calculateFinalModifier(pers, ability);
+      if (type === AbilityBonusType.MAX2 && ability === Ability.DEX) {
+        mod = Math.min(mod, 2);
+      }
+      bonus += mod;
+    }
+
+    return armorBase + bonus + misc;
+  };
+
+  const weaponRows = useMemo(() => {
+    const isPlain = (pw: PersWeaponWithWeapon) => {
+      const hasOverrideName = !!pw.overrideName && pw.overrideName.trim() !== "";
+      const hasCustomDice = !!pw.customDamageDice;
+      const hasCustomAbility = !!pw.customDamageAbility;
+      const hasCustomBonus = typeof pw.customDamageBonus === "number" ? pw.customDamageBonus !== 0 : !!pw.customDamageBonus;
+      const hasAttackBonus = typeof (pw as any).attackBonus === "number" ? (pw as any).attackBonus !== 0 : false;
+      return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !pw.isMagical;
+    };
+
+    const byWeaponId = new Map<number, PersWeaponWithWeapon[]>();
+    for (const pw of pers.weapons) {
+      if (!pw.weaponId || !isPlain(pw)) continue;
+      const list = byWeaponId.get(pw.weaponId) ?? [];
+      list.push(pw);
+      byWeaponId.set(pw.weaponId, list);
+    }
+
+    const used = new Set<number>();
+    const out: Array<
+      | { kind: "single"; pw: PersWeaponWithWeapon }
+      | { kind: "group"; pw: PersWeaponWithWeapon; count: number }
+    > = [];
+
+    for (const pw of pers.weapons) {
+      if (used.has(pw.persWeaponId)) continue;
+
+      const group = pw.weaponId ? byWeaponId.get(pw.weaponId) : null;
+      if (group && group.length > 3) {
+        for (const g of group) used.add(g.persWeaponId);
+        out.push({ kind: "group", pw: group[0], count: group.length });
+        continue;
+      }
+
+      used.add(pw.persWeaponId);
+      out.push({ kind: "single", pw });
+    }
+
+    return out;
+  }, [pers.weapons]);
+
   return (
     <div className="space-y-4 pb-8">
       {/* Redundant stats grid removed - they are already visible in global stats and header */}
@@ -212,14 +318,22 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
         </CardHeader>
         <CardContent className="p-2 space-y-2">
           {pers.weapons.length > 0 ? (
-            pers.weapons.map((pw) => (
+            weaponRows.map((row) => {
+              const pw = row.pw;
+              const qty = row.kind === "group" ? row.count : 1;
+              return (
               <div 
-                key={pw.persWeaponId}
+                key={row.kind === "group" ? `group-${pw.weaponId}` : pw.persWeaponId}
                 className="flex items-center justify-between p-3 rounded-lg border border-white/5 bg-slate-800/40 hover:bg-slate-800/60 transition group"
               >
                 <div className="flex-1 min-w-0">
                   <div className="font-bold text-slate-50 flex items-center gap-2">
                     <span className="truncate">{pw.overrideName || (weaponTranslations[pw.weapon?.name as keyof typeof weaponTranslations] || pw.weapon?.name)}</span>
+                    {qty > 1 && (
+                      <span className="text-[10px] bg-white/5 text-slate-200 px-1.5 py-0.5 rounded border border-white/10 flex-shrink-0">
+                        x{qty}
+                      </span>
+                    )}
                     {pw.isMagical && <span className="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30 flex-shrink-0">MAG</span>}
                   </div>
                   <div className="text-xs text-slate-400 flex items-center gap-2 mt-0.5">
@@ -254,7 +368,8 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
                   )}
                 </div>
               </div>
-            ))
+            );
+            })
           ) : (
             <div className="text-center py-6 text-slate-500 text-sm">Зброя не додана</div>
           )}
@@ -313,7 +428,7 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
                     <div className="text-center mr-2">
                       <div className="text-[10px] uppercase font-bold text-slate-500 line-height-none mb-0.5">баз. КБ</div>
                       <div className="text-xl font-black text-slate-50 leading-none">
-                        {pa.overrideBaseAC ?? pa.armor?.baseAC}
+                        {getDisplayedArmorBaseAC(pa as PersArmorWithArmor)}
                       </div>
                     </div>
                   {!isReadOnly && (
@@ -413,6 +528,29 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
                 disabled={isReadOnly}
               />
             </div>
+
+            {showRaceStaticAcBonusToggle && (
+              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-800/60 border border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-lg ${raceStaticAcBonus ? 'bg-indigo-500 text-white' : 'bg-white/5 text-slate-400'}`}>
+                    <Shield className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <Label className="font-bold text-slate-50 flex items-center gap-2">
+                      Бонус раси до КБ
+                    </Label>
+                    <p className="text-xs text-slate-400">
+                      Додає {configuredRaceStaticBonus >= 0 ? "+" : ""}{configuredRaceStaticBonus} до КБ
+                    </p>
+                  </div>
+                </div>
+                <Switch
+                  checked={!!raceStaticAcBonus}
+                  onCheckedChange={!isReadOnly ? handleRaceStaticAcBonusToggle : undefined}
+                  disabled={isReadOnly}
+                />
+              </div>
+            )}
           </div>
         </CardContent>
 
