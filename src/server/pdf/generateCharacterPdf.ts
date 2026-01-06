@@ -17,7 +17,7 @@ import {
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { Classes, Ability, AbilityBonusType, Skills, SkillProficiencyType } from "@prisma/client";
-import { PDFDocument, PDFName, PDFString, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
+import { PDFDocument, PDFName, PDFString, PDFTextField, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
 
@@ -26,6 +26,7 @@ import { translatePdfText } from "./translatePdfText";
 
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
+import { SKILL_ORDER_UA_SHEET } from "@/lib/logic/skillOrder";
 
 import { createLogger, hashPII } from "@/server/logging/logger";
 import { formatBytes, withStep } from "@/server/logging/perf";
@@ -90,6 +91,25 @@ function trySetFontSize(form: PDFForm, fieldName: string, size: number) {
     const field = ensureTextFieldHasDA(form, fieldName);
     if (!field) return;
     field.setFontSize(size);
+  } catch {
+    // ignore
+  }
+}
+
+function ensureAllTextFieldsHaveDA(form: PDFForm) {
+  try {
+    for (const f of form.getFields()) {
+      if (!(f instanceof PDFTextField)) continue;
+      try {
+        const anyField = f as any;
+        const hasFieldDA = anyField?.acroField?.dict?.lookup?.(PDFName.of("DA"));
+        if (!hasFieldDA) {
+          anyField.acroField.dict.set(PDFName.of("DA"), PDFString.of("/Helv 0 Tf 0 g"));
+        }
+      } catch {
+        // ignore
+      }
+    }
   } catch {
     // ignore
   }
@@ -679,7 +699,10 @@ function fillSkills(form: PDFForm, pers: CharacterPdfData["pers"]) {
     [Skills.SURVIVAL]: { mod: ["Survival"], prof: ["Check Box 40"] },
   };
 
-  for (const skill of Object.keys(skillFieldNames) as unknown as Skills[]) {
+  const ordered = SKILL_ORDER_UA_SHEET.filter((s) => Boolean(skillFieldNames[s]));
+  const remaining = (Object.keys(skillFieldNames) as unknown as Skills[]).filter((s) => !ordered.includes(s));
+
+  for (const skill of [...ordered, ...remaining]) {
     const mapping = skillFieldNames[skill];
     if (!mapping) continue;
 
@@ -829,8 +852,8 @@ const OVERFLOW_FIELDS: Array<{
 ];
 
 function getProfAndLang(extras: PersExtraFields) {
-  const profs = splitToBulletedLines(safeText(extras.customProficiencies));
-  const langs = splitToBulletedLines(safeText(extras.customLanguagesKnown));
+  const profs = splitToBulletedLines(safeText(extras.customProficiencies), { kind: "profs" });
+  const langs = splitToBulletedLines(safeText(extras.customLanguagesKnown), { kind: "langs" });
 
   const parts: string[] = [];
   if (profs) {
@@ -846,13 +869,25 @@ function getProfAndLang(extras: PersExtraFields) {
   return profAndLang;
 }
 
-function splitToBulletedLines(value: string): string {
+function normalizeToolChoiceText(value: string): string {
+  return String(value ?? "").replace(/\b[Оо]бери\s+(\d+)\b/g, (match, rawCount) => {
+    const n = Number(rawCount);
+    if (!Number.isFinite(n) || n <= 0) return match;
+    return n === 1 ? "Інструменти на вибір" : `Інструменти на вибір (${Math.trunc(n)})`;
+  });
+}
+
+function splitToBulletedLines(value: string, opts?: { kind?: "profs" | "langs" }): string {
   const raw = String(value ?? "").trim();
   if (!raw) return "";
 
   const parts = raw
       .split(/[\n]+/g)
-      .map((p) => translatePdfText(p.trim()))
+      .map((p) => {
+        const trimmed = p.trim();
+        const normalized = opts?.kind === "profs" ? normalizeToolChoiceText(trimmed) : trimmed;
+        return translatePdfText(normalized);
+      })
       .filter(Boolean);
 
   if (parts.length === 0) return "";
@@ -1075,9 +1110,11 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   setMultilineTextIfPresent(form, "AttacksSpellcasting", armorAndShield);
 
   try {
+    ensureAllTextFieldsHaveDA(form);
     form.updateFieldAppearances(font);
   } catch {
-    return;
+    // Some PDF viewers may still show values without refreshed appearances.
+    // Don't abort generation; the caller may still flatten successfully.
   }
 }
 

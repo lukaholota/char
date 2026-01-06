@@ -2,13 +2,12 @@
 
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getAbilityMod, formatModifier, getProficiencyBonus, skillAbilityMap } from "@/lib/logic/utils";
+import { getAbilityMod, formatModifier } from "@/lib/logic/utils";
 import { Badge } from "@/components/ui/badge";
 import { Skills } from "@prisma/client";
+import { calculateFinalSkill } from "@/lib/logic/bonus-calculator";
 
 export default function StatsPage({ pers }: { pers: PersWithRelations }) {
-  const pb = getProficiencyBonus(pers.level);
-
   // Group all skills by ability score
   const skillsByAbility = {
     STR: [
@@ -49,20 +48,6 @@ export default function StatsPage({ pers }: { pers: PersWithRelations }) {
     { ability: "CHA", name: "Харизма", score: pers.cha }
   ] as const;
 
-  const getSkillProficiency = (skillName: Skills) => {
-    const persSkill = pers.skills.find(ps => ps.name === skillName);
-    return persSkill?.proficiencyType || 'NONE';
-  };
-
-  const calculateSkillModifier = (skillName: Skills, abilityScore: number) => {
-    const abilityMod = getAbilityMod(abilityScore);
-    const proficiency = getSkillProficiency(skillName);
-    let total = abilityMod;
-    if (proficiency === 'PROFICIENT') total += pb;
-    if (proficiency === 'EXPERTISE') total += pb * 2;
-    return { total, proficiency };
-  };
-
   return (
     <div className="space-y-3">
       {abilityGroups.map(({ ability, name, score }) => (
@@ -75,7 +60,7 @@ export default function StatsPage({ pers }: { pers: PersWithRelations }) {
           </CardHeader>
           <CardContent className="space-y-1">
             {skillsByAbility[ability as keyof typeof skillsByAbility].map(({ skill, name: skillName }) => {
-              const { total, proficiency } = calculateSkillModifier(skill, score);
+              const { total, proficiency } = calculateFinalSkill(pers, skill);
               const isProficient = proficiency !== 'NONE';
               
               return (

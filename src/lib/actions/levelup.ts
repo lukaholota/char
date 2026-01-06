@@ -13,7 +13,48 @@ import {
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 
+import { calculateCasterLevel } from "@/lib/logic/spell-logic";
+import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
+
 import { baseChoiceGroupName, CHOICE_GROUPS, getChoicePoolRule } from "@/lib/logic/choicePoolRules";
+
+function normalizeSlotArray(raw: unknown): number[] {
+  const arr = Array.isArray(raw) ? (raw as unknown[]) : [];
+  return Array.from({ length: 9 }, (_, idx) => {
+    const v = arr[idx];
+    const n = typeof v === "number" ? v : Number(v);
+    return Number.isFinite(n) ? Math.max(0, Math.trunc(n)) : 0;
+  });
+}
+
+function getMaxStandardSlots(persLike: unknown): number[] {
+  const caster = calculateCasterLevel(persLike as any);
+  const casterLevel = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
+  const row = (SPELL_SLOT_PROGRESSION as any).FULL?.[casterLevel] as number[] | undefined;
+  if (!Array.isArray(row)) return Array.from({ length: 9 }, () => 0);
+  return Array.from({ length: 9 }, (_, idx) => {
+    const v = row[idx];
+    return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
+  });
+}
+
+function getMaxPactSlots(persLike: unknown): number {
+  const caster = calculateCasterLevel(persLike as any);
+  const pactLevel = Math.max(0, Math.min(20, Math.trunc(caster.pactLevel || 0)));
+  const pact = (SPELL_SLOT_PROGRESSION as any).PACT?.[pactLevel] as { slots: number; level: number } | undefined;
+  return pact ? Math.max(0, Math.trunc(pact.slots)) : 0;
+}
+
+function applyMaxDeltaToCurrent(current: number[], beforeMax: number[], afterMax: number[]): number[] {
+  return Array.from({ length: 9 }, (_, idx) => {
+    const cur = current[idx] ?? 0;
+    const before = beforeMax[idx] ?? 0;
+    const after = afterMax[idx] ?? 0;
+    const delta = after - before;
+    const next = Math.trunc(cur + delta);
+    return Math.max(0, Math.min(after, next));
+  });
+}
 
 const getAllClassesCached = unstable_cache(
   async () =>
@@ -837,6 +878,11 @@ export async function levelUpCharacter(persId: number, data: any) {
 
     for (const fid of replacementFeatureIdsToAdd) featuresToAdd.add(fid);
 
+    // Spell slots: when max slots increase on level-up (incl. getting spellcasting via subclass like Eldritch Knight),
+    // add the gained slots to current slots instead of leaving them at 0.
+    const beforeMaxStandard = getMaxStandardSlots(pers as any);
+    const beforeMaxPact = getMaxPactSlots(pers as any);
+
     // ===== 6) Persist =====
     await prisma.$transaction(async (tx) => {
       // Create snapshot before changes
@@ -900,6 +946,32 @@ export async function levelUpCharacter(persId: number, data: any) {
             : {}),
           ...newStats,
           ...(nextAdditionalSaveProficiencies ? { additionalSaveProficiencies: nextAdditionalSaveProficiencies } : {}),
+          ...((chosenSubclassIdRaw && selectedSubclass)
+            ? (() => {
+              const mergeLines = (base: unknown, extras: string[]) => {
+                const baseText = typeof base === "string" ? base : "";
+                const baseLines = baseText
+                  .split(/\r?\n/)
+                  .map((l) => l.trim())
+                  .filter(Boolean);
+                const set = new Set(baseLines);
+                for (const line of extras.map((l) => String(l).trim()).filter(Boolean)) {
+                  set.add(line);
+                }
+                return Array.from(set).join("\n");
+              };
+
+              const profExtras: string[] = [];
+              const armorText = formatArmorProficiencies(((selectedSubclass as any).armorProficiencies ?? []) as ArmorType[]);
+              if (armorText && armorText !== "—") profExtras.push(armorText);
+              const weaponText = formatWeaponProficiencies((selectedSubclass as any).weaponProficiencies as any);
+              if (weaponText && weaponText !== "—") profExtras.push(weaponText);
+
+              return {
+                customProficiencies: mergeLines((pers as any).customProficiencies, profExtras),
+              };
+            })()
+            : {}),
           ...(featId
             ? (() => {
               const mergeLines = (base: unknown, extras: string[]) => {
@@ -951,6 +1023,47 @@ export async function levelUpCharacter(persId: number, data: any) {
             : undefined,
         },
       });
+
+      // After pers + multiclass/subclass updates, compute new max slots and top up current slots by delta.
+      const afterPers = await tx.pers.findUnique({
+        where: { persId },
+        include: {
+          class: true,
+          subclass: true,
+          multiclasses: {
+            include: {
+              class: true,
+              subclass: true,
+            },
+          },
+        },
+      });
+
+      if (afterPers) {
+        const afterMaxStandard = getMaxStandardSlots(afterPers as any);
+        const afterMaxPact = getMaxPactSlots(afterPers as any);
+
+        const curStandard = normalizeSlotArray(afterPers.currentSpellSlots);
+        const nextStandard = applyMaxDeltaToCurrent(curStandard, beforeMaxStandard, afterMaxStandard);
+
+        const curPact = Number.isFinite(afterPers.currentPactSlots)
+          ? Math.max(0, Math.trunc(afterPers.currentPactSlots))
+          : 0;
+        const nextPact = Math.max(0, Math.min(afterMaxPact, Math.trunc(curPact + (afterMaxPact - beforeMaxPact))));
+
+        const shouldUpdateStandard = nextStandard.some((v, i) => v !== curStandard[i]);
+        const shouldUpdatePact = nextPact !== curPact;
+
+        if (shouldUpdateStandard || shouldUpdatePact) {
+          await tx.pers.update({
+            where: { persId },
+            data: {
+              ...(shouldUpdateStandard ? { currentSpellSlots: nextStandard } : {}),
+              ...(shouldUpdatePact ? { currentPactSlots: nextPact } : {}),
+            },
+          });
+        }
+      }
 
       // Apply feat skill proficiencies/expertise
       if (skillsToAdd.size > 0) {

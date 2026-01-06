@@ -193,6 +193,17 @@ function collectActiveFeatures(pers: PersWithRelations): Feature[] {
   return [...byId.values()];
 }
 
+function hasFeatureByEngName(pers: PersWithRelations, engName: string): boolean {
+  if (!engName) return false;
+  const features = collectActiveFeatures(pers);
+  return features.some((f) => String((f as any).engName ?? "").trim() === engName);
+}
+
+function hasJackOfAllTrades(pers: PersWithRelations): boolean {
+  // Hardcode by engName to avoid locale/name collisions.
+  return hasFeatureByEngName(pers, "Jack of All Trades");
+}
+
 function getFeatureACBonus(pers: PersWithRelations, hasArmor: boolean, hasShield: boolean): number {
   const features = collectActiveFeatures(pers);
   let bonus = 0;
@@ -330,6 +341,10 @@ export function calculateFinalSkill(
 
   const pb = calculateFinalProficiency(pers);
   let total = abilityMod + modBonus;
+
+  // Bard feature: add half proficiency bonus (floor) to checks that don't already add PB.
+  // Applies to skills where the character is NOT proficient/expertise/half.
+  if (proficiency === "NONE" && hasJackOfAllTrades(pers)) total += Math.floor(pb / 2);
 
   if (proficiency === SkillProficiencyType.HALF) total += Math.floor(pb / 2);
   if (proficiency === SkillProficiencyType.PROFICIENT) total += pb;

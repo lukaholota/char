@@ -211,6 +211,10 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
     if (pers.class?.armorProficiencies) {
       (pers.class.armorProficiencies as string[]).forEach(p => profs.add(p));
     }
+    // Subclass (e.g., Hexblade)
+    if ((pers as any).subclass?.armorProficiencies) {
+      (((pers as any).subclass.armorProficiencies as string[]) || []).forEach((p: string) => profs.add(p));
+    }
     // Race
     if (pers.race?.armorProficiencies) {
       (pers.race.armorProficiencies as string[]).forEach(p => profs.add(p));
@@ -220,6 +224,9 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
       pers.multiclasses.forEach((mc: any) => {
         if (mc.class?.armorProficiencies) {
           (mc.class.armorProficiencies as string[]).forEach((p: string) => profs.add(p));
+        }
+        if (mc.subclass?.armorProficiencies) {
+          (mc.subclass.armorProficiencies as string[]).forEach((p: string) => profs.add(p));
         }
       });
     }

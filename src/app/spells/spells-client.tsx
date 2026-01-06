@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
-import { classTranslations, classTranslationsEng, sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
+import { classTranslations, classTranslationsEng, sourceTranslations, spellSchoolTranslations, subclassTranslations } from "@/lib/refs/translation";
 import { subclassParentClass } from "@/lib/refs/subclassMapping";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { toggleSpellForPers } from "@/lib/actions/spell-actions";
@@ -41,6 +41,12 @@ const CLASS_KEY_TO_UA: Record<string, string> = classTranslations as unknown as 
 const CLASS_ENG_TO_UA: Record<string, string> = Object.fromEntries(
   Object.entries(classTranslationsEng as unknown as Record<string, string>).map(([key, eng]) => [eng, CLASS_KEY_TO_UA[key] || eng])
 );
+
+const VIRTUAL_SUBCLASSES: string[] = [subclassTranslations.ELDRITCH_KNIGHT, subclassTranslations.ARCANE_TRICKSTER];
+const SUBCLASS_FILTER_FALLBACK_CLASS: Record<string, string> = {
+  [subclassTranslations.ELDRITCH_KNIGHT]: classTranslations.WIZARD_2014,
+  [subclassTranslations.ARCANE_TRICKSTER]: classTranslations.WIZARD_2014,
+};
 
 function normalizeBaseClassValue(raw: string): string {
   const v = (raw || "").trim();
@@ -178,7 +184,32 @@ function initSelectionFromInitialSearchParams(initialSearchParams: InitialSearch
       params.set(key, value);
     }
   }
-  return parseSelectionFromParams(params);
+
+  const selection = parseSelectionFromParams(params);
+
+  // Embed helper: if maxSpellLevel is provided (character iframe use-case) and there is
+  // no explicit lvl filter yet, initialize lvl filters so users can remove/adjust them.
+  const hasExplicitLvl = Boolean(params.get("lvl")?.trim());
+  const maxRaw = params.get("maxSpellLevel");
+  const max = maxRaw ? parseInt(maxRaw, 10) : NaN;
+  if (!hasExplicitLvl && Number.isFinite(max) && max >= 0) {
+    selection.levels = new Set(Array.from({ length: max + 1 }, (_, i) => String(i)));
+  }
+
+  return selection;
+}
+
+function initEmbedParamsFromInitialSearchParams(initialSearchParams: InitialSearchParams): EmbedParams {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(initialSearchParams)) {
+    if (Array.isArray(value)) {
+      const v = value[0];
+      if (typeof v === "string") params.set(key, v);
+    } else if (typeof value === "string") {
+      params.set(key, value);
+    }
+  }
+  return parseEmbedParams(params);
 }
 
 function replaceUrlSearchParams(next: URLSearchParams) {
@@ -488,11 +519,11 @@ export function SpellsClient({
   const [classFilter, setClassFilter] = useState("");
   const [subclassFilter, setSubclassFilter] = useState("");
 
-  // Embed mode state
-  const [embedParams, setEmbedParams] = useState<EmbedParams>(() => {
-    if (typeof window === "undefined") return { origin: null, persId: null, persName: null, maxSpellLevel: null };
-    return parseEmbedParams(new URLSearchParams(window.location.search));
-  });
+  // Embed mode state (derived from server-provided params to avoid SSR/CSR mismatch)
+  const embedParams = useMemo(
+    () => initEmbedParamsFromInitialSearchParams(initialSearchParams),
+    [initialSearchParams]
+  );
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
   const [persSpellIds, setPersSpellIds] = useState<Set<number>>(() => new Set());
 
@@ -519,8 +550,25 @@ export function SpellsClient({
     initSelectionFromInitialSearchParams(initialSearchParams)
   );
   const selectionKeyRef = useRef<string>(selectionKey(initSelectionFromInitialSearchParams(initialSearchParams)));
+  const embedDefaultsAppliedRef = useRef(false);
 
   useEffect(() => {
+    // One-time embed helper: if maxSpellLevel is provided (character iframe use-case) and there is
+    // no explicit lvl filter yet, write lvl=0..max into the URL so users can remove/adjust it.
+    // Important: apply only once so clearing lvl later doesn't get re-applied.
+    if (!embedDefaultsAppliedRef.current) {
+      embedDefaultsAppliedRef.current = true;
+      const params = getSearchParamsFromLocation();
+      const hasExplicitLvl = Boolean(params.get("lvl")?.trim());
+      const maxRaw = params.get("maxSpellLevel");
+      const max = maxRaw ? parseInt(maxRaw, 10) : NaN;
+      if (!hasExplicitLvl && Number.isFinite(max) && max >= 0) {
+        const lvlSet = new Set(Array.from({ length: max + 1 }, (_, i) => String(i)));
+        setParamSet(params, "lvl", lvlSet);
+        replaceUrlSearchParams(params);
+      }
+    }
+
     // Patch history methods once so we can react to other code using pushState/replaceState.
     const w = window as Window & { __locationchange_patched__?: boolean };
     if (typeof window !== "undefined" && !w.__locationchange_patched__) {
@@ -585,6 +633,25 @@ export function SpellsClient({
     };
   }, [qInput]);
 
+  const spellClassUniverse = useMemo(() => {
+    const baseClasses = new Set<string>();
+    const subclasses = new Set<string>();
+
+    for (const s of spells) {
+      for (const c of s.spellClasses) {
+        const name = (c.className || "").trim();
+        if (!name) continue;
+        if (BASE_CLASS_NAMES_UA.has(name)) baseClasses.add(name);
+        else subclasses.add(name);
+      }
+    }
+
+    // Virtual subclasses should also be treated as valid subclass filters.
+    for (const v of VIRTUAL_SUBCLASSES) subclasses.add(v);
+
+    return { baseClasses, subclasses };
+  }, [spells]);
+
   const filtered = useMemo(() => {
     return spells.filter((s) => {
       if (selection.q) {
@@ -619,25 +686,38 @@ export function SpellsClient({
         if (!ok) return false;
       }
 
-      if (selection.classes.size > 0) {
+      // Classes & subclasses should work as a union (OR): if multiple are selected, show spells
+      // that match ANY selected class/subclass (not intersection).
+      const effectiveClasses = new Set(
+        Array.from(selection.classes).filter((cls) => spellClassUniverse.baseClasses.has(cls))
+      );
+      const effectiveSubclasses = new Set(
+        Array.from(selection.subclasses).filter(
+          (sub) => spellClassUniverse.subclasses.has(sub) || Boolean(SUBCLASS_FILTER_FALLBACK_CLASS[sub])
+        )
+      );
+
+      if (effectiveClasses.size > 0 || effectiveSubclasses.size > 0) {
         const spellClasses = new Set(s.spellClasses.map((c) => c.className));
         let ok = false;
-        for (const cls of selection.classes) {
+        for (const cls of effectiveClasses) {
           if (spellClasses.has(cls)) {
             ok = true;
             break;
           }
         }
-        if (!ok) return false;
-      }
+        if (!ok) {
+          for (const sub of effectiveSubclasses) {
+            if (spellClasses.has(sub)) {
+              ok = true;
+              break;
+            }
 
-      if (selection.subclasses.size > 0) {
-        const spellClasses = new Set(s.spellClasses.map((c) => c.className));
-        let ok = false;
-        for (const sub of selection.subclasses) {
-          if (spellClasses.has(sub)) {
-            ok = true;
-            break;
+            const fallback = SUBCLASS_FILTER_FALLBACK_CLASS[sub];
+            if (fallback && spellClasses.has(fallback)) {
+              ok = true;
+              break;
+            }
           }
         }
         if (!ok) return false;
@@ -653,7 +733,7 @@ export function SpellsClient({
 
       return true;
     });
-  }, [spells, selection]);
+  }, [spells, selection, spellClassUniverse]);
 
   const grouped = useMemo(() => {
     const map = new Map<number, SpellListItem[]>();
@@ -689,8 +769,20 @@ export function SpellsClient({
   const toggleSetValue = (key: string, value: string) => {
     setParams((next) => {
       const set = getParamSet(next, key);
-      if (set.has(value)) set.delete(value);
-      else set.add(value);
+      if (key === "cls") {
+        const normalized = normalizeBaseClassValue(value);
+        let had = false;
+        for (const token of Array.from(set)) {
+          if (normalizeBaseClassValue(token) === normalized) {
+            set.delete(token);
+            had = true;
+          }
+        }
+        if (!had) set.add(normalized);
+      } else {
+        if (set.has(value)) set.delete(value);
+        else set.add(value);
+      }
       setParamSet(next, key, set);
     });
   };
@@ -715,6 +807,10 @@ export function SpellsClient({
         else subclasses.add(name);
       }
     }
+
+    // Virtual subclasses: show them in filters even if spells data doesn't explicitly reference them.
+    // These are treated as Wizard spell list in filtering.
+    for (const v of VIRTUAL_SUBCLASSES) subclasses.add(v);
 
     const subclassesByClassRecord: Record<string, string[]> = {};
     for (const sub of subclasses) {
@@ -818,33 +914,10 @@ export function SpellsClient({
     window.open(`/api/spells/print?ids=${ids}`, "_blank", "noopener,noreferrer");
   };
 
-  // Filter by maxSpellLevel in embed mode
-  const filteredByLevel = useMemo(() => {
-    if (!isEmbedMode || embedParams.maxSpellLevel === null) return filtered;
-    return filtered.filter((s) => s.level <= (embedParams.maxSpellLevel ?? 9));
-  }, [filtered, isEmbedMode, embedParams.maxSpellLevel]);
-
-  // Override grouped to use filteredByLevel in embed mode
-  const finalGrouped = useMemo(() => {
-    const source = isEmbedMode ? filteredByLevel : filtered;
-    const map = new Map<number, SpellListItem[]>();
-    for (const s of source) {
-      const arr = map.get(s.level) ?? [];
-      arr.push(s);
-      map.set(s.level, arr);
-    }
-    return Array.from(map.entries()).sort(([a], [b]) => a - b);
-  }, [filtered, filteredByLevel, isEmbedMode]);
-
-  // Use finalGrouped for flatRows
-  const finalFlatRows = useMemo(() => {
-    return finalGrouped.flatMap(([lvl, items]) => {
-      return [
-        { kind: "header" as const, lvl, count: items.length },
-        ...items.map((spell) => ({ kind: "spell" as const, lvl, spell })),
-      ];
-    });
-  }, [finalGrouped]);
+  // In embed mode we only *suggest* filters via URL params; do not hard-lock results.
+  // Users should be able to remove/change class/level filters in the UI.
+  const finalGrouped = grouped;
+  const finalFlatRows = flatRows;
 
   return (
     <div className="h-full w-full bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)]">
@@ -858,7 +931,7 @@ export function SpellsClient({
                 <span>
                   Додавання заклять для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
                   {embedParams.maxSpellLevel !== null && (
-                    <span className="ml-1 text-teal-300/70">(макс. рівень: {embedParams.maxSpellLevel})</span>
+                    <span className="ml-1 text-teal-300/70">(рекоменд. макс. рівень: {embedParams.maxSpellLevel})</span>
                   )}
                 </span>
               </div>

@@ -29,11 +29,10 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
   const [token, setToken] = useState<string | null>(initialToken || null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [origin, setOrigin] = useState("");
 
-  React.useEffect(() => {
-    setOrigin(window.location.origin);
-  }, []);
+  // Use a stable origin to avoid layout shift on open (SSR -> hydration).
+  // Keep consistent with other places in the app (e.g. sitemap/robots).
+  const origin = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://char.holota.family").replace(/\/$/, "");
 
   const handleGenerate = async () => {
     setIsGenerating(true);
@@ -67,7 +66,7 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
         </DialogTrigger>
       )}
       <DialogContent 
-        className="sm:max-w-[425px] glass-card border-white/10 text-slate-100"
+        className="w-[calc(100%-2rem)] max-w-[425px] overflow-hidden glass-card border-white/10 text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
         <DialogHeader>
@@ -77,15 +76,15 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
           </DialogTitle>
         </DialogHeader>
         
-        <div className="py-4 space-y-4">
+        <div className="w-full py-4 space-y-4 max-w-full">
           <p className="text-sm text-slate-400">
             Згенеруйте публічне посилання, щоб інші могли переглянути вашого персонажа (тільки для читання).
           </p>
           
           {token ? (
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 p-2 bg-black/30 rounded border border-white/10">
-                <code className="text-xs truncate flex-1 text-indigo-300">
+            <div className="w-full space-y-3 max-w-full">
+              <div className="w-full flex min-w-0 max-w-full items-center gap-2 overflow-hidden p-2 bg-black/30 rounded border border-white/10">
+                <code className="block min-w-0 max-w-full flex-1 truncate text-xs text-indigo-300">
                   {origin}/char/share/{token.slice(0, 8)}...
                 </code>
                 <Button size="icon" variant="ghost" className="h-8 w-8" onClick={copyToClipboard}>

@@ -35,7 +35,7 @@ async function main() {
     // await seedEquipmentPacks(prisma)
     // await _seedBackground(prisma)
     // await _seedRaceFeatures(prisma)
-    // await seedSubraceFeatures(prisma)
+    // await _seedSubraceFeatures(prisma)
     // await _seedRaces(prisma)
     // await seedSubraces(prisma)
     // await seedRaceVariants(prisma)
@@ -56,9 +56,9 @@ async function main() {
     // await seedClassOptionalFeatures(prisma)
     
     // await seedFeats(prisma);
-    await _seedFeatChoiceOptions(prisma);
+    // await _seedFeatChoiceOptions(prisma);
 
-    // await _seedClassFeatures(prisma)
+    await _seedClassFeatures(prisma)
     // await _seedInfusionFeatures(prisma) // features for infusions
 }
 

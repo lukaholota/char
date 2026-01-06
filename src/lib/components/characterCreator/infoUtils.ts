@@ -115,8 +115,9 @@ export const formatToolProficiencies = (tools?: ToolProficiencies | null, choose
     parts.push(formatList(tools));
   }
 
-  if (chooseCount) {
-    parts.push(`Обери ${chooseCount}`);
+  const toChoose = typeof chooseCount === "number" && Number.isFinite(chooseCount) ? Math.max(0, Math.trunc(chooseCount)) : 0;
+  if (toChoose > 0) {
+    parts.push(toChoose === 1 ? "Інструменти на вибір" : `Інструменти на вибір (${toChoose})`);
   }
 
   return parts.length ? parts.join(" • ") : "—";

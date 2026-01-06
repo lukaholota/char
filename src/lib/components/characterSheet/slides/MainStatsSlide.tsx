@@ -746,7 +746,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                   onChange={(e) => setDraftAlignment(e.target.value)}
                   disabled={isDetailsPending || isReadOnly}
                   className="bg-slate-950/40 border-white/10 text-slate-100"
-                  placeholder={isReadOnly ? "" : "Напр.: Законний добрий"}
+                  placeholder={isReadOnly ? "" : "Напр.: Законно добрий"}
                   maxLength={100}
                 />
               </div>
@@ -833,7 +833,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
             </div>
 
             <div className="space-y-1">
-              <div className="text-xs font-semibold text-slate-200">Профіцієнції (броня/зброя/інструменти)</div>
+              <div className="text-xs font-semibold text-slate-200">Володіння (броня/зброя/інструменти)</div>
               <textarea
                 value={draftProficiencies}
                 onChange={(e) => setDraftProficiencies(e.target.value)}

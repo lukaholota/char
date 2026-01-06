@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
-import { Check, Trash2, Wand2 } from "lucide-react";
+import { Check, ChevronDown, Trash2, Wand2 } from "lucide-react";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,8 @@ import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
 import { Ability } from "@prisma/client";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import AddSpellDialog from "../AddSpellDialog";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { formatSpellCountValue, getSpellcastingCountsLines } from "@/lib/logic/spellcasting-progression";
 
 interface MagicSlideProps {
   pers: PersWithRelations;
@@ -95,6 +97,10 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
   }, [localPers]);
 
   const caster = useMemo(() => calculateCasterLevel(localPers as any), [localPers]);
+
+  const spellcastingCounts = useMemo(() => {
+	return getSpellcastingCountsLines(localPers);
+  }, [localPers]);
 
   const maxSlots = useMemo(() => {
     const level = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
@@ -414,6 +420,37 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
+          {spellcastingCounts.length > 0 && (
+            <Collapsible defaultOpen={false} className="rounded-lg border border-white/10 bg-white/5">
+              <CollapsibleTrigger className="w-full flex items-center justify-between gap-3 px-3 py-2 text-left">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wide text-slate-300">
+                    Кількість відомих/підготовлених
+                  </div>
+                  <div className="text-xs text-slate-400">Залежить від рівня класу та модифікатора</div>
+                </div>
+                <ChevronDown className="h-4 w-4 text-slate-300" />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="px-3 pb-3">
+                <div className="space-y-2">
+                  {spellcastingCounts.map((line) => (
+                    <div key={line.key} className="rounded-md border border-white/10 bg-white/5 px-3 py-2">
+                      <div className="text-sm font-semibold text-slate-100">
+                        {line.name} <span className="text-xs font-normal text-slate-400">(рів. {line.level})</span>
+                      </div>
+                      <div className="text-xs text-slate-200/80">
+                        Замовлянь: <span className="font-semibold text-slate-100">{line.cantrips}</span>
+                        {", "}
+                        {line.spellsLabel}: <span className="font-semibold text-slate-100">{formatSpellCountValue(line.spells)}</span>
+                        {line.spellsNote ? ` ${line.spellsNote}` : null}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          )}
+
           <Input
             value={spellQuery}
             onChange={(e) => setSpellQuery(e.target.value)}

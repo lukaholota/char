@@ -3,6 +3,9 @@ model Subclass {
   classId                Int                    @map("class_id")
   description            String?
   grantsSpells           Boolean                @default(false) @map("grants_spells")
+  armorProficiencies     ArmorType[]            @default([]) @map("armor_proficiencies")
+  /// [WeaponProficiencies]
+  weaponProficiencies    Json?                  @map("weapon_proficiencies")
   languagesToChooseCount Int                    @default(0) @map("languages_to_choose_count")
   languages              Language[]             @default([])
   toolProficiencies      ToolCategory[]         @default([]) @map("tool_proficiencies")

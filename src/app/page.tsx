@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { HomeDescriptionSection } from "@/components/home/HomeDescriptionSection";
 
 const containerVariants = {
   hidden: {
@@ -74,15 +75,14 @@ const cards: HomeCard[] = [
 ];
 
 export default function Page() {
-
   return (
     <motion.main
-      className="h-[100dvh] w-full overflow-hidden"
+      className="min-h-[100dvh] w-full overflow-x-hidden"
       variants={containerVariants}
       initial="hidden"
       animate="show"
     >
-      <div className="flex h-full flex-col md:flex-row">
+      <div className="flex h-[100dvh] w-full flex-col md:flex-row">
         {cards.map((card, index) => (
           <Link key={card.href} href={card.href} className="group relative flex-1 overflow-hidden">
             <motion.div className="h-full" variants={cardVariants}>
@@ -111,6 +111,8 @@ export default function Page() {
           </Link>
         ))}
       </div>
+
+      <HomeDescriptionSection />
     </motion.main>
   );
 }

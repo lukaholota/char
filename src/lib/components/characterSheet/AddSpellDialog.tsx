@@ -14,7 +14,7 @@ import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { classTranslations } from "@/lib/refs/translation";
+import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
 
 // We need a server action to fetch the base spells list
 // Let's assume we'll add getBaseSpells to spell-actions.ts or similar
@@ -36,15 +36,26 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
   // Calculate max spell level for embed mode
   const maxSpellLevel = useMemo(() => {
     const caster = calculateCasterLevel(pers as any);
-    const level = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
-    if (level <= 0) return 0;
-    const row = (SPELL_SLOT_PROGRESSION as any).FULL?.[level] as number[] | undefined;
-    if (!Array.isArray(row)) return 0;
-    // Find highest slot level with slots > 0
-    for (let i = row.length - 1; i >= 0; i--) {
-      if (row[i] > 0) return i + 1;
+    const casterLevel = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
+    const pactLevel = Math.max(0, Math.min(20, Math.trunc(caster.pactLevel || 0)));
+
+    let standardMax = 0;
+    if (casterLevel > 0) {
+      const row = (SPELL_SLOT_PROGRESSION as any).FULL?.[casterLevel] as number[] | undefined;
+      if (Array.isArray(row)) {
+        for (let i = row.length - 1; i >= 0; i--) {
+          if (row[i] > 0) {
+            standardMax = i + 1;
+            break;
+          }
+        }
+      }
     }
-    return 0;
+
+    const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[pactLevel] as { slots: number; level: number } | undefined;
+    const pactMax = pactRow?.level ? Math.max(0, Math.min(9, Math.trunc(pactRow.level))) : 0;
+
+    return Math.max(standardMax, pactMax);
   }, [pers]);
 
   const buildSpellsUrl = useCallback((applyFilters: boolean) => {
@@ -57,11 +68,31 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
       if (maxSpellLevel > 0) params.set("maxSpellLevel", String(maxSpellLevel));
       // Add class filter
       const classNames: string[] = [];
-      if (pers.class?.name) classNames.push(pers.class.name);
+      if (pers.class?.name) {
+        const key = pers.class.name as keyof typeof classTranslations;
+        classNames.push(classTranslations[key] || String(pers.class.name));
+      }
       pers.multiclasses?.forEach((mc: any) => {
-        if (mc.class?.name) classNames.push(mc.class.name);
+        if (mc.class?.name) {
+          const key = mc.class.name as keyof typeof classTranslations;
+          classNames.push(classTranslations[key] || String(mc.class.name));
+        }
       });
       if (classNames.length > 0) params.set("cls", classNames.join(","));
+
+      // Add subclass filter (spells page expects translated subclass names in `sub`)
+      const subclassNames: string[] = [];
+      if ((pers as any).subclass?.name) {
+        const key = (pers as any).subclass.name as keyof typeof subclassTranslations;
+        subclassNames.push(subclassTranslations[key] || String((pers as any).subclass.name));
+      }
+      pers.multiclasses?.forEach((mc: any) => {
+        if (mc.subclass?.name) {
+          const key = mc.subclass.name as keyof typeof subclassTranslations;
+          subclassNames.push(subclassTranslations[key] || String(mc.subclass.name));
+        }
+      });
+      if (subclassNames.length > 0) params.set("sub", Array.from(new Set(subclassNames)).join(","));
     }
     
     return `/spells?${params.toString()}`;
@@ -76,6 +107,21 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
       if (mc.class?.name) names.push(classTranslations[mc.class.name as keyof typeof classTranslations] || mc.class.name);
     });
     return names;
+  }, [pers]);
+
+  const subclassList = useMemo(() => {
+    const names: string[] = [];
+    if ((pers as any).subclass?.name) {
+      const key = (pers as any).subclass.name as keyof typeof subclassTranslations;
+      names.push(subclassTranslations[key] || String((pers as any).subclass.name));
+    }
+    pers.multiclasses?.forEach((mc: any) => {
+      if (mc.subclass?.name) {
+        const key = mc.subclass.name as keyof typeof subclassTranslations;
+        names.push(subclassTranslations[key] || String(mc.subclass.name));
+      }
+    });
+    return Array.from(new Set(names));
   }, [pers]);
 
   useEffect(() => {
@@ -121,6 +167,10 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
                   <span className="font-semibold text-indigo-300">{classList.join(", ") || "—"}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
+                  <span className="text-slate-400">Підкласи:</span>
+                  <span className="font-semibold text-indigo-300">{subclassList.join(", ") || "—"}</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-400">Макс. рівень:</span>
                   <span className="font-semibold text-indigo-300">{maxSpellLevel > 0 ? maxSpellLevel : "Замовляння"}</span>
                 </div>
@@ -150,7 +200,7 @@ export default function AddSpellDialog({ pers, onPersUpdate, isReadOnly }: AddSp
             </div>
           ) : (
             <>
-              <DialogHeader className="p-4 border-b border-white/10">
+              <DialogHeader className="p-4 pr-14 border-b border-white/10">
                 <div className="flex items-center justify-between gap-3">
                   <DialogTitle className="text-xl font-bold flex items-center gap-2">
                     <Search className="w-5 h-5 text-indigo-400" />

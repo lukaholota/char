@@ -1,4 +1,4 @@
-import { Ability, Classes, Prisma, PrismaClient, SpellcastingType, Subclasses } from "@prisma/client"
+import { Ability, ArmorType, Classes, Prisma, PrismaClient, SpellcastingType, Subclasses, WeaponType } from "@prisma/client"
 
 type SubclassSeed = Omit<Prisma.SubclassCreateInput, "class" | "name"> & {
   name: Subclasses
@@ -370,6 +370,8 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
+      armorProficiencies: [ArmorType.MEDIUM, ArmorType.SHIELD],
+      weaponProficiencies: [WeaponType.MARTIAL_WEAPON],
       classConnect: Classes.WARLOCK_2014,
       expandedSpells: { connect: [] },
     },

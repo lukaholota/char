@@ -223,6 +223,22 @@ export async function createCharacter(data: PersFormData) {
   });
   if (!cls) return { error: "Class not found" };
 
+  const subclass = validData.subclassId
+    ? await prisma.subclass.findUnique({
+        where: { subclassId: validData.subclassId },
+        select: {
+          subclassId: true,
+          classId: true,
+          armorProficiencies: true,
+          weaponProficiencies: true,
+        },
+      })
+    : null;
+
+  if (subclass && subclass.classId !== validData.classId) {
+    return { error: "Підклас не належить обраному класу" };
+  }
+
   const feat = validData.featId
     ? await prisma.feat.findUnique({
         where: { featId: validData.featId },
@@ -421,6 +437,35 @@ export async function createCharacter(data: PersFormData) {
   const armorsToCreate: { armorId: number }[] = [];
   const customEquipmentLines: string[] = [];
 
+  const moneyFromBackground = { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 };
+  const applyMoneyToken = (name: string, quantity: number): boolean => {
+    const key = String(name || "").trim().toLowerCase();
+    const qty = Number.isFinite(quantity) ? Math.max(0, Math.trunc(quantity)) : 0;
+    if (!qty) return false;
+    // UA abbreviations in seeds: зм=gp, см=sp, мм=cp, ем=ep, пм=pp
+    if (key === "зм") {
+      moneyFromBackground.gp += qty;
+      return true;
+    }
+    if (key === "см") {
+      moneyFromBackground.sp += qty;
+      return true;
+    }
+    if (key === "мм") {
+      moneyFromBackground.cp += qty;
+      return true;
+    }
+    if (key === "ем") {
+      moneyFromBackground.ep += qty;
+      return true;
+    }
+    if (key === "пм") {
+      moneyFromBackground.pp += qty;
+      return true;
+    }
+    return false;
+  };
+
   const backgroundItems = (background as any).items;
   if (Array.isArray(backgroundItems)) {
     for (const item of backgroundItems as unknown[]) {
@@ -433,7 +478,10 @@ export async function createCharacter(data: PersFormData) {
             ? Number(item.quantity)
             : NaN;
       if (name && Number.isFinite(quantity)) {
-        customEquipmentLines.push(`${name} x${quantity}`);
+        // Persist starting money separately (Pers.gp/sp/...) instead of storing coins as "equipment".
+        if (!applyMoneyToken(name, quantity)) {
+          customEquipmentLines.push(`${name} x${quantity}`);
+        }
       }
     }
   }
@@ -595,6 +643,7 @@ export async function createCharacter(data: PersFormData) {
   const armorAll = [
     ...(race.armorProficiencies ?? []),
     ...((cls.armorProficiencies ?? []) as ArmorType[]),
+    ...(((subclass as any)?.armorProficiencies ?? []) as ArmorType[]),
     ...(((subrace as any)?.armorProficiencies ?? []) as ArmorType[]),
     ...(((feat as any)?.grantedArmorProficiencies ?? []) as ArmorType[]),
   ];
@@ -618,6 +667,7 @@ export async function createCharacter(data: PersFormData) {
   const weaponTextParts = [
     formatWeaponProficiencies((race as any).weaponProficiencies),
     formatWeaponProficiencies((cls as any).weaponProficiencies),
+    formatWeaponProficiencies((subclass as any)?.weaponProficiencies),
     formatWeaponProficiencies((subrace as any)?.weaponProficiencies),
     formatWeaponProficiencies((feat as any)?.grantedWeaponProficiencies),
   ].filter((x) => x && x !== "—");
@@ -670,6 +720,13 @@ export async function createCharacter(data: PersFormData) {
 
           customLanguagesKnown,
           customProficiencies,
+
+          // Starting money from background
+          cp: String(moneyFromBackground.cp),
+          sp: String(moneyFromBackground.sp),
+          ep: String(moneyFromBackground.ep),
+          gp: String(moneyFromBackground.gp),
+          pp: String(moneyFromBackground.pp),
 
           // Save proficiency source-of-truth (prefill from class at creation)
           additionalSaveProficiencies: cls.savingThrows ?? [],
