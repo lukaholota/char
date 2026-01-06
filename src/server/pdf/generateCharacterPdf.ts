@@ -678,25 +678,28 @@ function fillSavingThrows(form: PDFForm, pers: CharacterPdfData["pers"]) {
 }
 
 function fillSkills(form: PDFForm, pers: CharacterPdfData["pers"]) {
+
+  // Назви полів у шаблоні pdf абсолютно прокляті. В мене чомусь не вийшло їх виправити, тому
+  // не дивуйтеся, що назви скілів не відповідають назвам полів.
   const skillFieldNames: Partial<Record<Skills, { mod: string[]; prof?: string[] }>> = {
     [Skills.ACROBATICS]: { mod: ["Acrobatics"], prof: ["Check Box 23"] },
-    [Skills.ANIMAL_HANDLING]: { mod: ["Animal"], prof: ["Check Box 24"] },
-    [Skills.ARCANA]: { mod: ["Arcana"], prof: ["Check Box 25"] },
+    [Skills.INSIGHT]: { mod: ["Animal"], prof: ["Check Box 24"] },
+    [Skills.PERFORMANCE]: { mod: ["Arcana"], prof: ["Check Box 25"] },
     [Skills.ATHLETICS]: { mod: ["Athletics"], prof: ["Check Box 26"] },
-    [Skills.DECEPTION]: { mod: ["Deception", "Deception "], prof: ["Check Box 27"] },
-    [Skills.HISTORY]: { mod: ["History", "History "], prof: ["Check Box 28"] },
-    [Skills.INSIGHT]: { mod: ["Insight"], prof: ["Check Box 29"] },
-    [Skills.INTIMIDATION]: { mod: ["Intimidation"], prof: ["Check Box 30"] },
-    [Skills.INVESTIGATION]: { mod: ["Investigation", "Investigation "], prof: ["Check Box 31"] },
-    [Skills.MEDICINE]: { mod: ["Medicine"], prof: ["Check Box 32"] },
-    [Skills.NATURE]: { mod: ["Nature"], prof: ["Check Box 33"] },
-    [Skills.PERCEPTION]: { mod: ["Perception", "Perception "], prof: ["Check Box 34"] },
-    [Skills.PERFORMANCE]: { mod: ["Performance"], prof: ["Check Box 35"] },
-    [Skills.PERSUASION]: { mod: ["Persuasion"], prof: ["Check Box 36"] },
+    [Skills.SURVIVAL]: { mod: ["Deception", "Deception "], prof: ["Check Box 27"] },
+    [Skills.ANIMAL_HANDLING]: { mod: ["History", "History "], prof: ["Check Box 28"] },
+    [Skills.INTIMIDATION]: { mod: ["Insight"], prof: ["Check Box 29"] },
+    [Skills.HISTORY]: { mod: ["Intimidation"], prof: ["Check Box 30"] },
+    [Skills.MEDICINE]: { mod: ["Investigation", "Investigation "], prof: ["Check Box 31"] },
+    [Skills.ARCANA]: { mod: ["Medicine"], prof: ["Check Box 32"] },
+    [Skills.DECEPTION]: { mod: ["Nature"], prof: ["Check Box 33"] },
+    [Skills.INVESTIGATION]: { mod: ["Perception", "Perception "], prof: ["Check Box 34"] },
+    [Skills.PERSUASION]: { mod: ["Performance"], prof: ["Check Box 35"] },
+    [Skills.NATURE]: { mod: ["Persuasion"], prof: ["Check Box 36"] },
     [Skills.RELIGION]: { mod: ["Religion"], prof: ["Check Box 37"] },
-    [Skills.SLEIGHT_OF_HAND]: { mod: ["SleightofHand"], prof: ["Check Box 38"] },
-    [Skills.STEALTH]: { mod: ["Stealth", "Stealth "], prof: ["Check Box 39"] },
-    [Skills.SURVIVAL]: { mod: ["Survival"], prof: ["Check Box 40"] },
+    [Skills.STEALTH]: { mod: ["SleightofHand"], prof: ["Check Box 38"] },
+    [Skills.SLEIGHT_OF_HAND]: { mod: ["Stealth", "Stealth "], prof: ["Check Box 39"] },
+    [Skills.PERCEPTION]: { mod: ["Survival"], prof: ["Check Box 40"] },
   };
 
   const ordered = SKILL_ORDER_UA_SHEET.filter((s) => Boolean(skillFieldNames[s]));
