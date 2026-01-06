@@ -169,7 +169,8 @@ function parseSelectionFromParams(params: URLSearchParams): SelectionState {
     sources: getParamSet(params, "src"),
     ritual: getBoolParam(params, "rit"),
     conc: getBoolParam(params, "conc"),
-    q: params.get("q")?.trim().toLowerCase() || "",
+    // Keep raw user input; normalize only when filtering.
+    q: params.get("q") ?? "",
     spell: params.get("spell")?.trim() || "",
   };
 }
@@ -620,9 +621,10 @@ export function SpellsClient({
     if (debounceRef.current) window.clearTimeout(debounceRef.current);
     debounceRef.current = window.setTimeout(() => {
       const next = getSearchParamsFromLocation();
-      const trimmed = qInput.trim();
-      if (!trimmed) next.delete("q");
-      else next.set("q", trimmed);
+      // Don't mutate what the user typed in the input; only strip for behavior.
+      const normalized = qInput.trim();
+      if (!normalized) next.delete("q");
+      else next.set("q", qInput);
 
       // Zero-latency: only update URL (no Next navigation).
       replaceUrlSearchParams(next);
@@ -653,10 +655,11 @@ export function SpellsClient({
   }, [spells]);
 
   const filtered = useMemo(() => {
+    const q = selection.q.trim().toLowerCase();
     return spells.filter((s) => {
-      if (selection.q) {
+      if (q) {
         const hay = `${s.name} ${s.engName}`.toLowerCase();
-        if (!hay.includes(selection.q)) return false;
+        if (!hay.includes(q)) return false;
       }
 
       if (selection.levels.size > 0) {

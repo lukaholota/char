@@ -125,7 +125,8 @@ function parseSelectionFromParams(params: URLSearchParams): SelectionState {
     rarities: getParamSet(params, "rar"),
     types: getParamSet(params, "type"),
     attunement: getBoolParam(params, "attn"),
-    q: params.get("q")?.trim().toLowerCase() || "",
+    // Keep raw user input; normalize only when filtering.
+    q: params.get("q") ?? "",
     item: params.get("item")?.trim() || "",
   };
 }
@@ -357,9 +358,10 @@ export function MagicItemsClient({
     if (debounceRef.current) window.clearTimeout(debounceRef.current);
     debounceRef.current = window.setTimeout(() => {
       const next = getSearchParamsFromLocation();
-      const trimmed = qInput.trim();
-      if (!trimmed) next.delete("q");
-      else next.set("q", trimmed);
+      // Don't mutate what the user typed in the input; only strip for behavior.
+      const normalized = qInput.trim();
+      if (!normalized) next.delete("q");
+      else next.set("q", qInput);
       replaceUrlSearchParams(next);
     }, 250);
 
@@ -369,10 +371,11 @@ export function MagicItemsClient({
   }, [qInput]);
 
   const filtered = useMemo(() => {
+    const q = selection.q.trim().toLowerCase();
     return items.filter((item) => {
-      if (selection.q) {
+      if (q) {
         const hay = `${item.name} ${item.engName}`.toLowerCase();
-        if (!hay.includes(selection.q)) return false;
+        if (!hay.includes(q)) return false;
       }
 
       if (selection.rarities.size > 0) {
