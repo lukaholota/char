@@ -49,7 +49,7 @@ export const Navigation = () => {
 					<Logo className="h-7 w-7 md:h-8 md:w-8" />
 				</Link>
 
-				<div className="flex flex-row gap-1 md:flex-col md:gap-4">
+				<div className="flex flex-row gap-3 md:flex-col md:gap-4">
 					{navLinks.map((link) => {
 						const isActive =
 							link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -60,7 +60,7 @@ export const Navigation = () => {
 								href={link.href}
 								aria-label={link.label}
 								className={cn(
-										"relative flex w-14 flex-col items-center justify-center gap-1 rounded-xl py-2 transition-all duration-300 md:w-16",
+									"relative flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 transition-all duration-300 md:w-16",
 									link.desktopOnly ? "hidden md:flex" : "flex",
 									isActive
 										? "bg-teal-500/10 text-teal-400 ring-1 ring-teal-500/30 shadow-[inset_0_0_10px_rgba(45,212,191,0.2)]"
@@ -100,12 +100,12 @@ export const Navigation = () => {
 			</div>
 
 			{/* Bottom Section: Dice & Extra menu */}
-			<div className="flex flex-row gap-0 md:flex-col md:gap-4">
+			<div className="flex flex-row gap-3 md:flex-col md:gap-4">
 				{/* Dice Roller */}
 				<button
 					aria-label="Кубики"
 					onClick={toggle}
-					className="flex w-14 flex-col items-center justify-center gap-1 rounded-xl py-2 text-amber-400/80 transition-all hover:bg-amber-500/10 hover:text-amber-400 md:w-16"
+					className="flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 text-amber-400/80 transition-all hover:bg-amber-500/10 hover:text-amber-400 md:w-16"
 				>
 					<Dices className="h-6 w-6" />
 					<span className="text-[11px] leading-none">Кубики</span>

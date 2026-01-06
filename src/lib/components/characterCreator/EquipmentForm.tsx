@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { WeaponKindType } from "@/lib/types/enums";
 import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
 import { HelpCircle } from "lucide-react";
@@ -233,17 +234,21 @@ export const EquipmentForm = ({selectedClass, weapons, formId, onNextDisabledCha
 
           <div className="space-y-2">
             <label className="text-sm text-slate-200">{isMartial ? 'Бойова ' : 'Проста '}Зброя</label>
-            <select
-              className="w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-white"
-              value={selectedWeaponId ?? ''}
-              onChange={(e) => setSelectedWeaponId(Number(e.target.value))}
+            <Select
+              value={selectedWeaponId != null ? String(selectedWeaponId) : undefined}
+              onValueChange={(val) => setSelectedWeaponId(Number(val))}
             >
-              {list.map((w) => (
-                <option key={w.weaponId} value={w.weaponId} title={weaponTranslationsEng[w.name]}>
-                  {weaponTranslations[w.name]} ({formatWeaponDamageLabel(w)})
-                </option>
-              ))}
-            </select>
+              <SelectTrigger className="w-full border-white/10 bg-white/5 text-white">
+                <SelectValue placeholder="Оберіть зброю" />
+              </SelectTrigger>
+              <SelectContent className="border-white/10">
+                {list.map((w) => (
+                  <SelectItem key={w.weaponId} value={String(w.weaponId)} title={weaponTranslationsEng[w.name]}>
+                    {weaponTranslations[w.name]} ({formatWeaponDamageLabel(w)})
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           <DialogFooter className="mt-4 flex justify-end gap-2">

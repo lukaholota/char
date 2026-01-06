@@ -63,7 +63,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
           aria-haspopup="menu"
           onClick={toggle}
           className={cn(
-            "flex w-14 flex-col items-center justify-center gap-1 rounded-xl py-2 text-slate-400 transition-all hover:bg-white/5 hover:text-slate-200 md:w-16",
+            "flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 text-slate-400 transition-all hover:bg-white/5 hover:text-slate-200 md:w-16",
             open && "bg-white/5 text-slate-200"
           )}
         >
