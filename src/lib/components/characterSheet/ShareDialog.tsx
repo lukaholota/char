@@ -76,7 +76,7 @@ export function ShareDialog({ persId, initialToken, open: openOverride, onOpenCh
           </DialogTitle>
         </DialogHeader>
         
-        <div className="w-full py-4 space-y-4 max-w-full">
+        <div className="w-full py-4 space-y-4 max-w-full min-w-0">
           <p className="text-sm text-slate-400">
             Згенеруйте публічне посилання, щоб інші могли переглянути вашого персонажа (тільки для читання).
           </p>
