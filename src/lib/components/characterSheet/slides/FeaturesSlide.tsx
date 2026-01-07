@@ -763,7 +763,7 @@ export default function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: Fea
   }, [backgroundName, classEntries, entityKind, entityVariantIndex, pers, raceName, subclassEntries, subraceName]);
 
   return (
-    <div className="h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-3 pb-32">
+    <div className="h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-3">
       <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">

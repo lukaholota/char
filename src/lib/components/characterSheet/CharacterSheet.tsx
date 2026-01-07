@@ -213,7 +213,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView }: 
            </div>
        </div>
       
-      <div className="flex-1 md:pb-0 md:overflow-hidden">
+      <div className="flex-1 pb-8 md:pb-0 md:overflow-hidden">
         <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} />
       </div>
     </div>
