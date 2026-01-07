@@ -106,21 +106,21 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
   };
 
   return (
-    <div className="h-full flex flex-col overflow-hidden">
+    <div className="flex flex-col">
       {/* Content */}
-      <div className="flex-1 relative overflow-hidden">
+      <div className="relative">
         <div
-          className="absolute inset-0 px-3 pt-3 pb-2 md:px-4 md:pt-4"
+          className="px-3 pt-3 pb-2 md:px-4 md:pt-4"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          <div className="h-full grid gap-3 md:gap-4" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
+          <div className="grid gap-3 md:gap-4" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
             {visibleSlides.map((slide) => (
               <div
                 key={`${slide.id}-${slide.index}`}
-                className="h-full bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden"
+                className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden"
               >
-                <div className="h-full overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
+                <div style={{ scrollBehavior: "smooth" }}>
                   {renderSlide(slide.id)}
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
           {/* Side navigation arrows (all breakpoints) */}
           <Button
             onClick={handlePrevious}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
             aria-label="Previous slide"
           >
@@ -138,7 +138,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
           </Button>
           <Button
             onClick={handleNext}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/90 hover:bg-slate-800/95 backdrop-blur-sm border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
             aria-label="Next slide"
           >
@@ -148,7 +148,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
       </div>
 
       {/* Bottom navigation (always visible) */}
-      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
+      <div className="sticky bottom-[60px] md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
         <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
           {allSlides.map((s, idx) => {
             const active = idx === currentIndex;
