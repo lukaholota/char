@@ -19,6 +19,7 @@ import {
 } from "@/lib/components/characterCreator/infoUtils";
 import { BackgroundI } from "@/lib/types/model-types";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import {Source} from "@prisma/client";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -80,6 +81,7 @@ export const BackgroundsForm = (
   );
   const otherBackgrounds = useMemo(
     () => backgrounds
+      .filter(b => b.source !== Source.PHB_2024)
       .filter(b => !PHB_BACKGROUNDS.has(b.name))
       .filter(b => matchesSearch(b.name)),
     [backgrounds, matchesSearch]
