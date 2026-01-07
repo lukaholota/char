@@ -188,6 +188,25 @@ export function HomeDescriptionSection({ className }: { className?: string }) {
         >
           Щиро дякуємо littlegenius666 за допомогу з перекладами заклинань!
         </motion.div>
+        <motion.div
+          className="space-y-4 pt-8 text-center text-xs leading-relaxed text-slate-400"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <div className="mx-auto max-w-3xl space-y-4">
+            <p>
+              Матеріали на цьому сайті не змінюють необхідності придбання офіційних матеріалів. Система{" "}
+              <em>Dungeons & Dragons</em> є власністю <em>Wizards of the Coast</em>.
+            </p>
+
+            <p>
+              This site is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by
+              Wizards. Materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
