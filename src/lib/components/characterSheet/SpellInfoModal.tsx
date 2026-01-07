@@ -222,9 +222,9 @@ export function SpellInfoModal() {
       <DialogContent
         className="max-h-[90vh] w-[95vw] max-w-2xl overflow-y-auto p-0 bg-gradient-to-b from-slate-950/18 to-slate-950/12"
       >
-        <div className="px-4 py-5 sm:p-6">
+        <div className="px-4 py-5 sm:p-6 min-w-0">
           <div className="flex items-start justify-between gap-3 pr-6 sm:pr-0">
-            <DialogTitle className="min-w-0 font-sans text-lg sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400 truncate">
+            <DialogTitle className="min-w-0 font-sans text-lg sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400">
               {spell?.name ?? (loading ? "Завантаження…" : "Заклинання")}
             </DialogTitle>
           </div>
