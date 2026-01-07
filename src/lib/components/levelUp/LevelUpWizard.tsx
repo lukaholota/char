@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, useCallback } from "react";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Button } from "@/components/ui/button";
@@ -478,6 +478,31 @@ export default function LevelUpWizard({ info }: Props) {
             });
         }
 
+        const choiceOptionIdsAfter = (() => {
+            const ids = new Set<number>();
+
+            (pers as any)?.choiceOptions?.forEach((co: any) => {
+                const n = Number(co?.choiceOptionId);
+                if (Number.isFinite(n)) ids.add(n);
+            });
+
+            const collect = (sel: any) => {
+                if (!sel) return;
+                for (const v of Object.values(sel)) {
+                    const arr = Array.isArray(v) ? v : [v];
+                    for (const raw of arr) {
+                        const n = Number(raw);
+                        if (Number.isFinite(n)) ids.add(n);
+                    }
+                }
+            };
+            collect((formData as any)?.classChoiceSelections);
+            collect((formData as any)?.subclassChoiceSelections);
+            collect((formData as any)?.featChoiceSelections);
+
+            return ids;
+        })();
+
         const optionalAtLevel = (selectedClass.classOptionalFeatures || []).filter((opt: any) =>
             (opt.grantedOnLevels || []).includes(classLevelAfter)
         );
@@ -490,10 +515,29 @@ export default function LevelUpWizard({ info }: Props) {
                     (Array.isArray(opt?.replacesFeatures) && opt.replacesFeatures.length > 0)
             );
 
-        const hasReplacements = optionalAtLevel.some(isReplacementOptional);
-        const hasOptionalFeaturesOnly = optionalAtLevel.some((opt: any) => !isReplacementOptional(opt));
+        const isAutoGrantedConditional = (opt: any) => {
+            const deps = opt?.appearsOnlyIfChoicesTaken || [];
+            return !isReplacementOptional(opt) && Boolean(opt?.featureId) && Array.isArray(deps) && deps.length > 0;
+        };
 
-        if (hasOptionalFeaturesOnly) {
+        const passesChoiceGate = (opt: any) => {
+            const deps = opt?.appearsOnlyIfChoicesTaken || [];
+            if (!Array.isArray(deps) || deps.length === 0) return true;
+            return deps.some((co: any) => choiceOptionIdsAfter.has(Number(co?.choiceOptionId)));
+        };
+
+        const visibleOptionalSelectable = optionalAtLevel
+            .filter((opt: any) => Boolean(opt?.optionalFeatureId))
+            .filter(passesChoiceGate)
+            .filter((opt: any) => !isReplacementOptional(opt))
+            .filter((opt: any) => !isAutoGrantedConditional(opt));
+
+        const visibleReplacements = optionalAtLevel
+            .filter((opt: any) => Boolean(opt?.optionalFeatureId))
+            .filter(passesChoiceGate)
+            .filter(isReplacementOptional);
+
+        if (visibleOptionalSelectable.length > 0) {
             result.push({
                 id: "optional-features",
                 title: "Опціональні фічі",
@@ -501,7 +545,7 @@ export default function LevelUpWizard({ info }: Props) {
             });
         }
 
-        if (hasReplacements) {
+        if (visibleReplacements.length > 0) {
             result.push({
                 id: "replacements",
                 title: "Заміни",
@@ -525,6 +569,7 @@ export default function LevelUpWizard({ info }: Props) {
     }, [
         classChoiceGroups,
         classLevelAfter,
+        formData,
         isASILevel,
         isError,
         needsInfusions,
@@ -697,7 +742,7 @@ export default function LevelUpWizard({ info }: Props) {
         }
     }, [currentStep, safeCurrentStep]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (lastStepIdRef.current !== currentStepId) {
             const initial = steps[currentStep]?.initialDisabled ?? true;
             setNextDisabled(initial);

@@ -57,11 +57,24 @@ export default function OptionalFeaturesForm({
   };
 
   const selectedChoiceIds = useMemo(() => {
-    const selections = (formData.classChoiceSelections as Record<string, number>) || {};
-    return Object.values(selections)
-      .map((value) => Number(value))
-      .filter((value) => !Number.isNaN(value));
-  }, [formData.classChoiceSelections]);
+    const ids = new Set<number>();
+
+    const selections = (formData.classChoiceSelections as Record<string, number | number[]>) || {};
+    for (const value of Object.values(selections)) {
+      const arr = Array.isArray(value) ? value : [value];
+      for (const v of arr) {
+        const n = Number(v);
+        if (Number.isFinite(n)) ids.add(n);
+      }
+    }
+
+    for (const co of (persChoiceOptions || []) as any[]) {
+      const n = Number(co?.choiceOptionId);
+      if (Number.isFinite(n)) ids.add(n);
+    }
+
+    return Array.from(ids);
+  }, [formData.classChoiceSelections, persChoiceOptions]);
 
   const optionalAtLevel = useMemo(() => {
     return (selectedClass?.classOptionalFeatures || [])
@@ -88,6 +101,16 @@ export default function OptionalFeaturesForm({
       .filter((item) => {
         if (mode === "REPLACEMENT") return isReplacement(item);
         if (mode === "OPTIONAL") return !isReplacement(item);
+        return true;
+      })
+      .filter((item) => {
+        // Features that are only gated by previously-taken choices (like Deft Explorer follow-ups)
+        // are treated as auto-granted, not something the user should accept/decline again.
+        if (mode === "OPTIONAL") {
+          const deps = (item as any)?.appearsOnlyIfChoicesTaken || [];
+          const autoGrantedConditional = !isReplacement(item) && Boolean(item?.featureId) && Array.isArray(deps) && deps.length > 0;
+          if (autoGrantedConditional) return false;
+        }
         return true;
       })
       .filter((item) => Boolean(item.optionalFeatureId));

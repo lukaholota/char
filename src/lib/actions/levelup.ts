@@ -752,6 +752,54 @@ export async function levelUpCharacter(persId: number, data: any) {
       .map(([id]) => Number(id))
       .filter((id) => Number.isFinite(id));
 
+    // Auto-grant conditional optionals that depend on previously-taken choices
+    // (e.g. Deft Explorer follow-ups at later levels).
+    const choiceOptionIdsAfter = new Set<number>(
+      (pers.choiceOptions || [])
+        .map((co: any) => Number(co?.choiceOptionId))
+        .filter((v: any) => Number.isFinite(v))
+    );
+    const addFromSelections = (sel: Record<string, number | number[]> | undefined) => {
+      if (!sel) return;
+      for (const raw of Object.values(sel)) {
+        const arr = Array.isArray(raw) ? raw : [raw];
+        for (const v of arr) {
+          const n = Number(v);
+          if (Number.isFinite(n)) choiceOptionIdsAfter.add(n);
+        }
+      }
+    };
+    addFromSelections(classChoiceSelections as any);
+    addFromSelections(subclassChoiceSelections as any);
+    addFromSelections(featChoiceSelections as any);
+
+    const acceptedOptionalSet = new Set<number>(acceptedOptionalIds);
+    for (const opt of (selectedClass.classOptionalFeatures || []) as any[]) {
+      if (!(opt?.grantedOnLevels || []).includes(classLevelAfter)) continue;
+      if (!opt?.optionalFeatureId) continue;
+
+      const isReplacement = Boolean(
+        opt?.replacesInvocation ||
+          opt?.replacesFightingStyle ||
+          opt?.replacesManeuver ||
+          (Array.isArray(opt?.replacesFeatures) && opt.replacesFeatures.length > 0)
+      );
+      if (isReplacement) continue;
+
+      const deps = opt?.appearsOnlyIfChoicesTaken || [];
+      if (!Array.isArray(deps) || deps.length === 0) continue;
+
+      // Only auto-grant entries that directly grant a feature.
+      if (!opt?.featureId) continue;
+
+      const eligible = deps.some((co: any) => choiceOptionIdsAfter.has(Number(co?.choiceOptionId)));
+      if (!eligible) continue;
+
+      acceptedOptionalSet.add(Number(opt.optionalFeatureId));
+    }
+
+    const acceptedOptionalIdsFinal = Array.from(acceptedOptionalSet);
+
     const optionalReplacementSelections =
       (data?.classOptionalFeatureReplacementSelections || {}) as Record<
         string,
@@ -765,9 +813,9 @@ export async function levelUpCharacter(persId: number, data: any) {
     const replacementChoiceOptionConnectIds: number[] = [];
     const replacementFeatureIdsToRemove = new Set<number>();
     const replacementFeatureIdsToAdd = new Set<number>();
-    if (acceptedOptionalIds.length) {
+    if (acceptedOptionalIdsFinal.length) {
       const optionalRecords = await prisma.classOptionalFeature.findMany({
-        where: { optionalFeatureId: { in: acceptedOptionalIds } },
+        where: { optionalFeatureId: { in: acceptedOptionalIdsFinal } },
         include: {
           replacesFeatures: true,
         },
@@ -1016,9 +1064,9 @@ export async function levelUpCharacter(persId: number, data: any) {
                   : {}),
               }
               : undefined,
-          classOptionalFeatures: acceptedOptionalIds.length
+          classOptionalFeatures: acceptedOptionalIdsFinal.length
             ? {
-              connect: acceptedOptionalIds.map((optionalFeatureId) => ({ optionalFeatureId })),
+              connect: acceptedOptionalIdsFinal.map((optionalFeatureId) => ({ optionalFeatureId })),
             }
             : undefined,
         },

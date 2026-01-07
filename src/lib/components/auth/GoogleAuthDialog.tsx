@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Loader2, LogIn, ShieldCheck } from "lucide-react";
+import { ExternalLink, Loader2, LogIn, ShieldCheck } from "lucide-react";
 
 interface Props {
   open?: boolean;
@@ -34,6 +34,26 @@ const GoogleAuthDialog = ({
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
 
+  const detectEmbeddedWebView = () => {
+    if (typeof window === "undefined") return false;
+
+    const ua = window.navigator.userAgent || "";
+
+    // Meta / in-app browsers
+    const metaInApp = /(FBAN|FBAV|FB_IAB|FB4A|FBMD|Instagram|Threads)/i.test(ua);
+    // Android WebView often includes "; wv" or Version/x.y without Chrome
+    const androidWebView = /;\s?wv\b/i.test(ua) || (/Android/i.test(ua) && /Version\//i.test(ua) && !/Chrome\//i.test(ua));
+    // iOS WebView: AppleWebKit present but "Safari" token missing
+    const iosWebView = /iP(hone|od|ad)/i.test(ua) && /AppleWebKit/i.test(ua) && !/Safari/i.test(ua);
+
+    return metaInApp || androidWebView || iosWebView;
+  };
+
+  const [isEmbeddedWebView, setIsEmbeddedWebView] = useState(false);
+  useEffect(() => {
+    setIsEmbeddedWebView(detectEmbeddedWebView());
+  }, []);
+
   const [internalOpen, setInternalOpen] = useState(false);
   const shouldRenderTrigger = typeof open === "undefined";
   const effectiveOpen = typeof open === "boolean" ? open : internalOpen;
@@ -42,6 +62,25 @@ const GoogleAuthDialog = ({
   const getCurrentUrl = () => {
     if (typeof window === "undefined") return pathname || "/";
     return `${window.location.pathname}${window.location.search}`;
+  };
+
+  const shareUrl = useMemo(() => {
+    if (typeof window === "undefined") return undefined;
+    return window.location.href;
+  }, []);
+
+  const handleCopyLink = async () => {
+    if (!shareUrl) return;
+    try {
+      await window.navigator.clipboard.writeText(shareUrl);
+      toast.success("Посилання скопійовано", {
+        description: "Відкрийте його у Safari або Chrome.",
+      });
+    } catch {
+      toast.error("Не вдалося скопіювати", {
+        description: "Спробуйте виділити адресу в адресному рядку та скопіювати вручну.",
+      });
+    }
   };
 
   const handleSignIn = async () => {
@@ -106,6 +145,34 @@ const GoogleAuthDialog = ({
               <span>Ви вже увійшли як {session.user.email}</span>
               <ShieldCheck className="h-4 w-4" />
             </div>
+          ) : isEmbeddedWebView ? (
+            <div className="space-y-3">
+              <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
+                <div className="mb-1 flex items-center gap-2 text-white">
+                  <ExternalLink className="h-4 w-4" />
+                  Google-логін не працює у вбудованому браузері
+                </div>
+                <div className="text-slate-300">
+                  Через політику безпеки Google авторизація блокується всередині Threads/Instagram/Facebook та інших
+                  вбудованих браузерів.
+                  <br />
+                  Відкрийте сайт у системному браузері (Safari/Chrome): натисніть меню (⋯) у додатку → “Open in
+                  Browser” / “Відкрити в браузері”.
+                </div>
+              </div>
+
+              <Button onClick={handleCopyLink} variant="secondary" className="w-full">
+                Скопіювати посилання
+              </Button>
+
+              <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-xs text-slate-400">
+                {shareUrl ? (
+                  <span className="break-all">{shareUrl}</span>
+                ) : (
+                  <span>Посилання буде доступне після завантаження сторінки.</span>
+                )}
+              </div>
+            </div>
           ) : (
             <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
               Авторизація потрібна для збереження персонажів та синхронізації між пристроями.
@@ -114,7 +181,7 @@ const GoogleAuthDialog = ({
 
           <Button
             onClick={handleSignIn}
-            disabled={loading || status === "loading" || !!session}
+            disabled={loading || status === "loading" || !!session || isEmbeddedWebView}
             className="w-full bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
           >
             {loading ? (
@@ -124,6 +191,8 @@ const GoogleAuthDialog = ({
               </>
             ) : session ? (
               "Ви вже авторизовані"
+            ) : isEmbeddedWebView ? (
+              "Відкрийте у Safari/Chrome"
             ) : (
               <>
                 <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[11px] font-semibold text-slate-900">
