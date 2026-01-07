@@ -10,10 +10,19 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
-import { useEffect, useMemo, useCallback } from "react";
+import { useEffect, useMemo, useCallback, useRef, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { RaceInfoModal } from "@/lib/components/characterCreator/modals/RaceInfoModal";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { toast } from "sonner";
+import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
 import {
   formatArmorProficiencies,
   formatASI,
@@ -66,12 +75,62 @@ export const RacesForm = (
   {races, formId, onNextDisabledChange}: Props
 ) => {
   const { updateFormData, nextStep } = usePersFormStore();
+
+  const pendingNextRef = useRef<null | (() => void)>(null);
+  const [webViewWarningOpen, setWebViewWarningOpen] = useState(false);
+  const [isWebView] = useState(() => isEmbeddedWebView());
+
+  const webViewShareUrl = useMemo(() => {
+    if (typeof window === "undefined") return undefined;
+    return `${window.location.origin}/char`;
+  }, []);
+
+  const handleCopyLink = useCallback(async () => {
+    if (!webViewShareUrl || typeof window === "undefined") return;
+    try {
+      await window.navigator.clipboard.writeText(webViewShareUrl);
+      toast.success("Посилання скопійовано", {
+        description: "Відкрийте його у Safari або Chrome.",
+      });
+    } catch {
+      toast.error("Не вдалося скопіювати", {
+        description: "Спробуйте скопіювати адресу вручну.",
+      });
+    }
+  }, [webViewShareUrl]);
+
+  const shouldShowWebViewWarning = useCallback(() => {
+    if (!isWebView) return false;
+    if (typeof window === "undefined") return false;
+    try {
+      return window.sessionStorage.getItem("webview-warning-after-race") !== "1";
+    } catch {
+      return true;
+    }
+  }, [isWebView]);
+
+  const markWebViewWarningShown = () => {
+    if (typeof window === "undefined") return;
+    try {
+      window.sessionStorage.setItem("webview-warning-after-race", "1");
+    } catch {
+      // ignore
+    }
+  };
   
   const {form, onSubmit} = useStepForm(raceSchema, (data) => {
-    updateFormData({ 
+    updateFormData({
       raceId: data.raceId,
-      raceSearch: data.raceSearch 
+      raceSearch: data.raceSearch,
     });
+
+    if (shouldShowWebViewWarning()) {
+      markWebViewWarningShown();
+      pendingNextRef.current = () => nextStep();
+      setWebViewWarningOpen(true);
+      return;
+    }
+
     nextStep();
   });
 
@@ -121,7 +180,8 @@ export const RacesForm = (
   const forceOpenOther = Boolean(normalizedRaceSearch);
 
   return (
-    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+    <>
+      <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
           Оберіть расу
@@ -257,7 +317,49 @@ export const RacesForm = (
           },
         })}
       />
-    </form>
+      </form>
+
+      <Dialog open={webViewWarningOpen} onOpenChange={setWebViewWarningOpen}>
+        <DialogContent className="sm:max-w-[460px] border border-slate-800/70 bg-slate-950/90 backdrop-blur">
+          <DialogHeader>
+            <DialogTitle className="text-white">Краще відкрити у браузері зараз</DialogTitle>
+            <DialogDescription className="text-slate-400">
+              Ви відкрили сайт у вбудованому браузері (Threads/Instagram/Facebook тощо). Google-логін тут може не
+              працювати.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-3 text-sm text-slate-300">
+            <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2">
+              Рекомендуємо відкрити сторінку у Safari/Chrome прямо зараз, тому що якщо ви перейдете в браузер пізніше,
+              прогрес створення персонажа з цього вбудованого браузера не перенесеться.
+            </div>
+
+            <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-xs text-slate-400">
+              {webViewShareUrl ? <span className="break-all">{webViewShareUrl}</span> : null}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <Button type="button" variant="secondary" onClick={handleCopyLink}>
+                Скопіювати посилання
+              </Button>
+              <Button
+                type="button"
+                onClick={() => {
+                  setWebViewWarningOpen(false);
+                  const fn = pendingNextRef.current;
+                  pendingNextRef.current = null;
+                  fn?.();
+                }}
+                className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white"
+              >
+                Продовжити тут
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   )
 };
 

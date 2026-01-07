@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ExternalLink, Loader2, LogIn, ShieldCheck } from "lucide-react";
+import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
 
 interface Props {
   open?: boolean;
@@ -33,26 +34,7 @@ const GoogleAuthDialog = ({
   const { data: session, status } = useSession();
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
-
-  const detectEmbeddedWebView = () => {
-    if (typeof window === "undefined") return false;
-
-    const ua = window.navigator.userAgent || "";
-
-    // Meta / in-app browsers
-    const metaInApp = /(FBAN|FBAV|FB_IAB|FB4A|FBMD|Instagram|Threads)/i.test(ua);
-    // Android WebView often includes "; wv" or Version/x.y without Chrome
-    const androidWebView = /;\s?wv\b/i.test(ua) || (/Android/i.test(ua) && /Version\//i.test(ua) && !/Chrome\//i.test(ua));
-    // iOS WebView: AppleWebKit present but "Safari" token missing
-    const iosWebView = /iP(hone|od|ad)/i.test(ua) && /AppleWebKit/i.test(ua) && !/Safari/i.test(ua);
-
-    return metaInApp || androidWebView || iosWebView;
-  };
-
-  const [isEmbeddedWebView, setIsEmbeddedWebView] = useState(false);
-  useEffect(() => {
-    setIsEmbeddedWebView(detectEmbeddedWebView());
-  }, []);
+  const [isEmbeddedWebViewDetected] = useState(() => isEmbeddedWebView());
 
   const [internalOpen, setInternalOpen] = useState(false);
   const shouldRenderTrigger = typeof open === "undefined";
@@ -66,6 +48,10 @@ const GoogleAuthDialog = ({
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return undefined;
+    const { origin, pathname: currentPath } = window.location;
+    if (currentPath === "/char/home") {
+      return `${origin}/char`;
+    }
     return window.location.href;
   }, []);
 
@@ -145,7 +131,7 @@ const GoogleAuthDialog = ({
               <span>Ви вже увійшли як {session.user.email}</span>
               <ShieldCheck className="h-4 w-4" />
             </div>
-          ) : isEmbeddedWebView ? (
+          ) : isEmbeddedWebViewDetected ? (
             <div className="space-y-3">
               <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
                 <div className="mb-1 flex items-center gap-2 text-white">
@@ -181,7 +167,7 @@ const GoogleAuthDialog = ({
 
           <Button
             onClick={handleSignIn}
-            disabled={loading || status === "loading" || !!session || isEmbeddedWebView}
+            disabled={loading || status === "loading" || !!session || isEmbeddedWebViewDetected}
             className="w-full bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
           >
             {loading ? (
@@ -191,7 +177,7 @@ const GoogleAuthDialog = ({
               </>
             ) : session ? (
               "Ви вже авторизовані"
-            ) : isEmbeddedWebView ? (
+            ) : isEmbeddedWebViewDetected ? (
               "Відкрийте у Safari/Chrome"
             ) : (
               <>
