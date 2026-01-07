@@ -725,7 +725,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
         </DialogContent>
       </Dialog>
 
-      <div className="mt-auto">
+      <div>
         <Button
           type="button"
           variant="secondary"
