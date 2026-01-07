@@ -104,8 +104,8 @@ export default function RootLayout(
     <Providers>
       <Suspense fallback={null}>
         <RootGrid>
-          <Navigation/>
           <App>{ children }</App>
+          <Navigation/>
         </RootGrid>
       </Suspense>
       <Suspense fallback={null}>

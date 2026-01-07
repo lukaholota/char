@@ -106,21 +106,21 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col md:h-full md:overflow-hidden">
       {/* Content */}
-      <div className="relative">
+      <div className="relative md:flex-1 md:overflow-hidden">
         <div
-          className="px-3 pt-3 pb-2 md:px-4 md:pt-4"
+          className="px-3 pt-3 pb-2 md:px-4 md:pt-4 md:absolute md:inset-0"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          <div className="grid gap-3 md:gap-4" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
+          <div className="grid gap-3 md:gap-4 md:h-full" style={{ gridTemplateColumns: `repeat(${visibleCount}, 1fr)` }}>
             {visibleSlides.map((slide) => (
               <div
                 key={`${slide.id}-${slide.index}`}
-                className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden"
+                className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 overflow-hidden md:h-full"
               >
-                <div style={{ scrollBehavior: "smooth" }}>
+                <div className="md:h-full md:overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
                   {renderSlide(slide.id)}
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
       </div>
 
       {/* Bottom navigation (always visible) */}
-      <div className="sticky bottom-[60px] md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
+      <div className="fixed bottom-[75px] left-0 w-full md:sticky md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
         <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
           {allSlides.map((s, idx) => {
             const active = idx === currentIndex;
