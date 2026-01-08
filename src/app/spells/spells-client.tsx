@@ -388,6 +388,10 @@ function EmbedAddButton({
           else next.delete(spellId);
           return next;
         });
+        // Notify parent if embedded
+        if (window.parent !== window) {
+          window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+        }
       }
     } finally {
       setIsPending(false);
@@ -495,6 +499,10 @@ function SpellbookDropdown({
                           }
                     )
                   );
+                  // Notify parent if embedded
+                  if (window.parent !== window) {
+                    window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+                  }
                 }}
               >
                 <span className="truncate">{label}</span>

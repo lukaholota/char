@@ -411,10 +411,6 @@ export default function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlid
             {!isReadOnly && (
               <AddSpellDialog 
                 pers={localPers} 
-                onPersUpdate={(next) => {
-                  setLocalPers(next);
-                  onPersUpdate(next);
-                }} 
               />
             )}
           </div>
