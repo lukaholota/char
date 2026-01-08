@@ -1,12 +1,24 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { Check, Loader2, UserPlus } from "lucide-react";
 
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { getSpellForModal, type SpellForModal } from "@/lib/actions/spell-actions";
+import { useParams } from "next/navigation";
+import { toggleSpellForPers, getSpellForModal, type SpellForModal } from "@/lib/actions/spell-actions";
+import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 function dispatchLocationChangeAsync() {
   if (typeof window === "undefined") return;
@@ -72,8 +84,157 @@ function isSpellForModalLike(value: unknown): value is SpellForModal {
   );
 }
 
+type PersIndexItem = {
+  persId: number;
+  name: string;
+  spellIds: number[];
+};
+
+function AddToPersDropdown({ spellId }: { spellId: number }) {
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
+
+  useModalBackButton(open, () => setOpen(false));
+
+  const load = async () => {
+    if (persIndex) return;
+    setLoading(true);
+    try {
+      const data = await getUserPersesSpellIndex();
+      setPersIndex(data);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <DropdownMenu
+      open={open}
+      onOpenChange={(next) => {
+        setOpen(next);
+        if (next) void load();
+      }}
+    >
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300"
+          aria-label="Додати до персонажа"
+        >
+          <UserPlus className="h-4 w-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-64">
+        <DropdownMenuLabel>Додати до персонажа</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+
+        {loading ? (
+          <div className="px-2 py-2 text-xs text-slate-400 flex items-center gap-2">
+            <Loader2 className="h-4 w-4 animate-spin" /> Завантаження…
+          </div>
+        ) : persIndex && persIndex.length === 0 ? (
+          <div className="px-2 py-2 text-xs text-slate-400">Немає персонажів</div>
+        ) : (
+          persIndex?.map((p) => {
+            const has = p.spellIds.includes(spellId);
+            const label = p.name || `Персонаж #${p.persId}`;
+            return (
+              <DropdownMenuItem
+                key={p.persId}
+                className="flex items-center justify-between gap-2"
+                onSelect={async (e) => {
+                  e.preventDefault();
+                  const res = await toggleSpellForPers({ persId: p.persId, spellId });
+                  if (!res.success) return;
+
+                  setPersIndex(
+                    (persIndex || []).map((item) =>
+                      item.persId !== p.persId
+                        ? item
+                        : {
+                            ...item,
+                            spellIds: res.added
+                              ? Array.from(new Set([...item.spellIds, spellId]))
+                              : item.spellIds.filter((id) => id !== spellId),
+                          }
+                    )
+                  );
+                  // Notify parent if embedded
+                  if (window.parent !== window) {
+                    window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+                  }
+                }}
+              >
+                <span className="truncate">{label}</span>
+                {has ? <Check className="h-4 w-4 text-teal-400" /> : null}
+              </DropdownMenuItem>
+            );
+          })
+        )}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+function AddToSinglePersButton({ spellId, persId }: { spellId: number; persId: number }) {
+  const [loading, setLoading] = useState(false);
+  const [has, setHas] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    async function check() {
+      setLoading(true);
+      try {
+        const data = await getUserPersesSpellIndex();
+        const p = data.find((item) => item.persId === persId);
+        setHas(p ? p.spellIds.includes(spellId) : false);
+      } finally {
+        setLoading(false);
+      }
+    }
+    void check();
+  }, [spellId, persId]);
+
+  const handleToggle = async () => {
+    if (loading) return;
+    setLoading(true);
+    try {
+      const res = await toggleSpellForPers({ persId, spellId });
+      if (res.success) {
+        setHas(res.added);
+        if (window.parent !== window) {
+          window.parent.postMessage({ type: "SPELL_TOGGLED" }, "*");
+        }
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleToggle}
+      disabled={loading}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300 disabled:opacity-50"
+      aria-label="Додати до персонажа"
+    >
+      {loading ? (
+        <Loader2 className="h-4 w-4 animate-spin" />
+      ) : has ? (
+        <Check className="h-4 w-4 text-teal-400" />
+      ) : (
+        <UserPlus className="h-4 w-4" />
+      )}
+    </button>
+  );
+}
+
 export function SpellInfoModal() {
   const isLg = useMediaQuery("(min-width: 1024px)");
+  const params = useParams();
+  const currentPersId = params?.id ? Number(params.id) : null;
+  const isIdValid = currentPersId !== null && !isNaN(currentPersId);
 
   const [spellParam, setSpellParam] = useState<string>(() => getSpellParamFromLocation());
   const open = Boolean(spellParam) && !(isLg && typeof window !== "undefined" && window.location.pathname === "/spells");
@@ -227,6 +388,11 @@ export function SpellInfoModal() {
             <DialogTitle className="min-w-0 font-sans text-lg sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400">
               {spell?.name ?? (loading ? "Завантаження…" : "Заклинання")}
             </DialogTitle>
+            {spell && (
+              isIdValid 
+                ? <AddToSinglePersButton spellId={spell.spellId} persId={currentPersId as number} />
+                : <AddToPersDropdown spellId={spell.spellId} />
+            )}
           </div>
 
           <div className="mt-2 flex flex-col gap-1.5 rounded-lg bg-slate-800/40 p-2 sm:p-3 glass-panel">
