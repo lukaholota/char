@@ -9,7 +9,7 @@ import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useEffect, useMemo, useState, useTransition, useCallback } from "react";
+import { useEffect, useMemo, useState, useTransition, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { applyHpChange, reviveCharacter, setDeathSaves } from "@/lib/actions/combat-actions";
 import { updateCharacterAction } from "@/lib/actions/update-character";
@@ -87,6 +87,9 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
   const [draftGp, setDraftGp] = useState<string>(() => String((pers as any).gp ?? "0"));
   const [draftPp, setDraftPp] = useState<string>(() => String((pers as any).pp ?? "0"));
 
+  // Track the version of data currently in drafts to avoid "blinking" during sync
+  const lastSavedDataRef = useRef<any>(null);
+
   const [selectedLanguages, setSelectedLanguages] = useState<Set<string>>(() => {
     const raw = String((pers as any).customLanguagesKnown ?? "");
     const tokens = raw
@@ -104,33 +107,81 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     setDeathFailures(Number.isFinite((pers as any).deathSaveFailures) ? Math.max(0, Math.trunc((pers as any).deathSaveFailures)) : 0);
     setIsDead(Boolean((pers as any).isDead));
 
-    // Keep Detailed Info in sync if server data refreshes
-    setDraftProficiencies(String((pers as any).customProficiencies ?? ""));
-    setDraftLanguages(String((pers as any).customLanguagesKnown ?? ""));
-    setDraftEquipment(String((pers as any).customEquipment ?? ""));
-    setDraftTraits(String(pers.personalityTraits ?? ""));
-    setDraftIdeals(String(pers.ideals ?? ""));
-    setDraftBonds(String(pers.bonds ?? ""));
-    setDraftFlaws(String(pers.flaws ?? ""));
-    setDraftBackstory(String(pers.backstory ?? ""));
-    setDraftNotes(String(pers.notes ?? ""));
-    setDraftAlignment(String((pers as any).alignment ?? ""));
-    setDraftXp(String((pers as any).xp ?? 0));
-    setDraftCp(String((pers as any).cp ?? "0"));
-    setDraftEp(String((pers as any).ep ?? "0"));
-    setDraftSp(String((pers as any).sp ?? "0"));
-    setDraftGp(String((pers as any).gp ?? "0"));
-    setDraftPp(String((pers as any).pp ?? "0"));
-    setSelectedLanguages(() => {
-      const raw = String((pers as any).customLanguagesKnown ?? "");
-      const tokens = raw
-        .split(/[\n,]/g)
-        .map((s) => s.trim())
-        .filter(Boolean);
-      return new Set(tokens);
-    });
+    // Keep Detailed Info in sync if server data refreshes, but ONLY if we are NOT currently saving
+    // AND only if the incoming data is actually DIFFERENT from what we last saved.
+    // This prevents the "blink" where local state is overwritten by old server data
+    // before the server data has had a chance to update.
+    if (!isDetailsPending) {
+      const serverProf = String((pers as any).customProficiencies ?? "");
+      const serverLang = String((pers as any).customLanguagesKnown ?? "");
+      const serverEquip = String((pers as any).customEquipment ?? "");
+      const serverTraits = String(pers.personalityTraits ?? "");
+      const serverIdeals = String(pers.ideals ?? "");
+      const serverBonds = String(pers.bonds ?? "");
+      const serverFlaws = String(pers.flaws ?? "");
+      const serverBackstory = String(pers.backstory ?? "");
+      const serverNotes = String(pers.notes ?? "");
+      const serverAlign = String((pers as any).alignment ?? "");
+      const serverXp = String((pers as any).xp ?? 0);
+      const serverCp = String((pers as any).cp ?? "0");
+      const serverEp = String((pers as any).ep ?? "0");
+      const serverSp = String((pers as any).sp ?? "0");
+      const serverGp = String((pers as any).gp ?? "0");
+      const serverPp = String((pers as any).pp ?? "0");
+
+      const isSameAsLastSaved = lastSavedDataRef.current &&
+        lastSavedDataRef.current.customProficiencies === serverProf &&
+        lastSavedDataRef.current.customLanguagesKnown === serverLang &&
+        lastSavedDataRef.current.customEquipment === serverEquip &&
+        lastSavedDataRef.current.personalityTraits === serverTraits &&
+        lastSavedDataRef.current.ideals === serverIdeals &&
+        lastSavedDataRef.current.bonds === serverBonds &&
+        lastSavedDataRef.current.flaws === serverFlaws &&
+        lastSavedDataRef.current.backstory === serverBackstory &&
+        lastSavedDataRef.current.notes === serverNotes &&
+        lastSavedDataRef.current.alignment === serverAlign &&
+        String(lastSavedDataRef.current.xp) === serverXp &&
+        String(lastSavedDataRef.current.cp) === serverCp &&
+        String(lastSavedDataRef.current.ep) === serverEp &&
+        String(lastSavedDataRef.current.sp) === serverSp &&
+        String(lastSavedDataRef.current.gp) === serverGp &&
+        String(lastSavedDataRef.current.pp) === serverPp;
+
+      // If we just saved something, and the server still has the OLD data, don't sync yet.
+      // We know it's old if it doesn't match lastSavedDataRef.
+      if (!lastSavedDataRef.current || isSameAsLastSaved) {
+        setDraftProficiencies(serverProf);
+        setDraftLanguages(serverLang);
+        setDraftEquipment(serverEquip);
+        setDraftTraits(serverTraits);
+        setDraftIdeals(serverIdeals);
+        setDraftBonds(serverBonds);
+        setDraftFlaws(serverFlaws);
+        setDraftBackstory(serverBackstory);
+        setDraftNotes(serverNotes);
+        setDraftAlignment(serverAlign);
+        setDraftXp(serverXp);
+        setDraftCp(serverCp);
+        setDraftEp(serverEp);
+        setDraftSp(serverSp);
+        setDraftGp(serverGp);
+        setDraftPp(serverPp);
+        setSelectedLanguages(() => {
+          const tokens = serverLang
+            .split(/[\n,]/g)
+            .map((s) => s.trim())
+            .filter(Boolean);
+          return new Set(tokens);
+        });
+        
+        // Clear the ref once we've successfully synced with the new data
+        if (isSameAsLastSaved) {
+          lastSavedDataRef.current = null;
+        }
+      }
+    }
     setDidInitDetails(true);
-  }, [pers]);
+  }, [pers, isDetailsPending]);
 
   useEffect(() => {
     if (!didInitDetails) return;
@@ -156,31 +207,37 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
     if (!isDirty) return;
 
     const handle = window.setTimeout(() => {
+      const dataToSave = {
+        customProficiencies: draftProficiencies,
+        customLanguagesKnown: draftLanguages,
+        customEquipment: draftEquipment,
+        personalityTraits: draftTraits,
+        ideals: draftIdeals,
+        bonds: draftBonds,
+        flaws: draftFlaws,
+        backstory: draftBackstory,
+        notes: draftNotes,
+        alignment: draftAlignment,
+        xp: parseInt(draftXp) || 0,
+        cp: draftCp,
+        ep: draftEp,
+        sp: draftSp,
+        gp: draftGp,
+        pp: draftPp,
+      };
+
       // Save in background; don't block HP modal UX.
       startDetailsTransition(async () => {
-        await updateCharacterAction({
+        lastSavedDataRef.current = dataToSave;
+        const res = await updateCharacterAction({
           persId,
-          data: {
-            customProficiencies: draftProficiencies,
-            customLanguagesKnown: draftLanguages,
-            customEquipment: draftEquipment,
-            personalityTraits: draftTraits,
-            ideals: draftIdeals,
-            bonds: draftBonds,
-            flaws: draftFlaws,
-            backstory: draftBackstory,
-            notes: draftNotes,
-            alignment: draftAlignment,
-            xp: parseInt(draftXp) || 0,
-            cp: draftCp,
-            ep: draftEp,
-            sp: draftSp,
-            gp: draftGp,
-            pp: draftPp,
-          },
+          data: dataToSave,
         });
+        if (res && !res.success) {
+          lastSavedDataRef.current = null;
+        }
       });
-    }, 2000);
+    }, 1000);
 
     return () => window.clearTimeout(handle);
   }, [
@@ -744,7 +801,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                 <Input
                   value={draftAlignment}
                   onChange={(e) => setDraftAlignment(e.target.value)}
-                  disabled={isDetailsPending || isReadOnly}
+                  disabled={isReadOnly}
                   className="bg-slate-950/40 border-white/10 text-slate-100"
                   placeholder={isReadOnly ? "" : "Напр.: Законно добрий"}
                   maxLength={100}
@@ -757,7 +814,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                   inputMode="numeric"
                   value={draftXp}
                   onChange={(e) => setDraftXp(e.target.value)}
-                  disabled={isDetailsPending || isReadOnly}
+                  disabled={isReadOnly}
                   className="bg-slate-950/40 border-white/10 text-slate-100"
                   placeholder="0"
                   min={0}
@@ -776,7 +833,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                     inputMode="numeric"
                     value={draftCp}
                     onChange={(e) => setDraftCp(e.target.value)}
-                    disabled={isDetailsPending || isReadOnly}
+                    disabled={isReadOnly}
                     className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
                     min={0}
                   />
@@ -788,7 +845,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                     inputMode="numeric"
                     value={draftEp}
                     onChange={(e) => setDraftEp(e.target.value)}
-                    disabled={isDetailsPending || isReadOnly}
+                    disabled={isReadOnly}
                     className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
                     min={0}
                   />
@@ -800,7 +857,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                     inputMode="numeric"
                     value={draftSp}
                     onChange={(e) => setDraftSp(e.target.value)}
-                    disabled={isDetailsPending || isReadOnly}
+                    disabled={isReadOnly}
                     className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
                     min={0}
                   />
@@ -812,7 +869,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                     inputMode="numeric"
                     value={draftGp}
                     onChange={(e) => setDraftGp(e.target.value)}
-                    disabled={isDetailsPending || isReadOnly}
+                    disabled={isReadOnly}
                     className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
                     min={0}
                   />
@@ -824,7 +881,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                     inputMode="numeric"
                     value={draftPp}
                     onChange={(e) => setDraftPp(e.target.value)}
-                    disabled={isDetailsPending || isReadOnly}
+                    disabled={isReadOnly}
                     className="bg-slate-950/40 border-white/10 text-slate-100 text-center text-sm px-1"
                     min={0}
                   />
@@ -837,7 +894,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
               <textarea
                 value={draftProficiencies}
                 onChange={(e) => setDraftProficiencies(e.target.value)}
-                disabled={isDetailsPending || isReadOnly}
+                disabled={isReadOnly}
                 className="w-full min-h-[64px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 placeholder={isReadOnly ? "" : "Напр.: Легка/середня броня, прості мечі, інструменти злодія"}
               />
@@ -848,7 +905,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
               <textarea
                 value={draftEquipment}
                 onChange={(e) => setDraftEquipment(e.target.value)}
-                disabled={isDetailsPending || isReadOnly}
+                disabled={isReadOnly}
                 className="w-full min-h-[96px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 placeholder={isReadOnly ? "" : "Тут автоматично зібране стартове спорядження; можна доповнювати вручну"}
               />
@@ -864,7 +921,7 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
               <textarea
                 value={draftLanguages}
                 onChange={(e) => setDraftLanguages(e.target.value)}
-                disabled={isDetailsPending || isReadOnly}
+                disabled={isReadOnly}
                 className="w-full min-h-[56px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 placeholder={isReadOnly ? "" : "Напр.: Загальна, Ельфійська"}
               />
@@ -876,7 +933,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                 <textarea
                   value={draftTraits}
                   onChange={(e) => setDraftTraits(e.target.value)}
-                  disabled={isDetailsPending}
                   className="w-full min-h-[64px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 />
               </div>
@@ -885,7 +941,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                 <textarea
                   value={draftIdeals}
                   onChange={(e) => setDraftIdeals(e.target.value)}
-                  disabled={isDetailsPending}
                   className="w-full min-h-[64px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 />
               </div>
@@ -894,7 +949,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                 <textarea
                   value={draftBonds}
                   onChange={(e) => setDraftBonds(e.target.value)}
-                  disabled={isDetailsPending}
                   className="w-full min-h-[64px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 />
               </div>
@@ -903,7 +957,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
                 <textarea
                   value={draftFlaws}
                   onChange={(e) => setDraftFlaws(e.target.value)}
-                  disabled={isDetailsPending}
                   className="w-full min-h-[64px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
                 />
               </div>
@@ -914,7 +967,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
               <textarea
                 value={draftBackstory}
                 onChange={(e) => setDraftBackstory(e.target.value)}
-                disabled={isDetailsPending}
                 className="w-full min-h-[120px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
               />
             </div>
@@ -924,7 +976,6 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
               <textarea
                 value={draftNotes}
                 onChange={(e) => setDraftNotes(e.target.value)}
-                disabled={isDetailsPending}
                 className="w-full min-h-[120px] rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
               />
             </div>
