@@ -147,9 +147,30 @@ export default function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainS
         String(lastSavedDataRef.current.gp) === serverGp &&
         String(lastSavedDataRef.current.pp) === serverPp;
 
+      // Check if local drafts have changed since we last started a save
+      const isLocalDirtySinceSave = lastSavedDataRef.current && (
+        draftProficiencies !== lastSavedDataRef.current.customProficiencies ||
+        draftLanguages !== lastSavedDataRef.current.customLanguagesKnown ||
+        draftEquipment !== lastSavedDataRef.current.customEquipment ||
+        draftTraits !== lastSavedDataRef.current.personalityTraits ||
+        draftIdeals !== lastSavedDataRef.current.ideals ||
+        draftBonds !== lastSavedDataRef.current.bonds ||
+        draftFlaws !== lastSavedDataRef.current.flaws ||
+        draftBackstory !== lastSavedDataRef.current.backstory ||
+        draftNotes !== lastSavedDataRef.current.notes ||
+        draftAlignment !== lastSavedDataRef.current.alignment ||
+        draftXp !== String(lastSavedDataRef.current.xp) ||
+        draftCp !== lastSavedDataRef.current.cp ||
+        draftEp !== lastSavedDataRef.current.ep ||
+        draftSp !== lastSavedDataRef.current.sp ||
+        draftGp !== lastSavedDataRef.current.gp ||
+        draftPp !== lastSavedDataRef.current.pp
+      );
+
       // If we just saved something, and the server still has the OLD data, don't sync yet.
       // We know it's old if it doesn't match lastSavedDataRef.
-      if (!lastSavedDataRef.current || isSameAsLastSaved) {
+      // ALSO: If the user has typed more (isLocalDirtySinceSave), don't overwrite with stale server data.
+      if (!isLocalDirtySinceSave && (!lastSavedDataRef.current || isSameAsLastSaved)) {
         setDraftProficiencies(serverProf);
         setDraftLanguages(serverLang);
         setDraftEquipment(serverEquip);
