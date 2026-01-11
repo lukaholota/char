@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
 import { RaceI, RaceASI } from "@/lib/types/model-types";
 import { Subrace, RaceVariant, Ability, Races } from "@prisma/client";
+import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 import { checkFeatPrerequisites } from "@/lib/logic/prerequisiteUtils";
 
 interface Props {
@@ -37,6 +38,10 @@ interface Props {
 
 export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, raceVariant, prereqContext }: Props) => {
   const { updateFormData, nextStep, formData } = usePersFormStore();
+
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [pendingFeatId, setPendingFeatId] = useState<number | null>(null);
+  const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
   
   const { form, onSubmit } = useStepForm(backgroundFeatSchema, (data) => {
     updateFormData({ backgroundFeatId: data.backgroundFeatId, backgroundFeatChoiceSelections: {} } as any);
@@ -64,102 +69,207 @@ export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race,
     });
   }, [feats, search]);
 
+  const prereqLevel = prereqContext?.level ?? 1;
+  const prereqHasSpellcasting = prereqContext?.hasSpellcasting ?? false;
+  const prereqRace = prereqContext?.race ?? ((formData as any).raceName as Races | undefined);
+
+  const effectiveStats = useMemo(() => {
+    // 1. Base Stats from ASI Form selection
+    const system = formData.asiSystem || 'POINT_BUY';
+    const stats: Record<string, number> = { STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10 };
+    
+    let sourceArray: { ability: string; value: number | string }[] = [];
+    if (system === 'POINT_BUY') sourceArray = formData.asi || [];
+    else if (system === 'SIMPLE') sourceArray = formData.simpleAsi || [];
+    else if (system === 'CUSTOM') sourceArray = formData.customAsi || [];
+
+    sourceArray.forEach(item => {
+      stats[item.ability] = Number(item.value) || 10;
+    });
+
+    // 2. Racial Bonuses
+    if (race) {
+      const isDefaultASI = formData.isDefaultASI ?? true;
+      const raceAsi = raceVariant?.overridesRaceASI 
+        ? normalizeRaceASI(raceVariant.overridesRaceASI) as unknown as RaceASI
+        : normalizeRaceASI(race.ASI) as RaceASI;
+
+      // Fixed bonuses (only if Default ASI is active)
+      if (isDefaultASI) {
+         const simple = raceAsi.basic?.simple || {};
+         Object.entries(simple).forEach(([ability, val]) => {
+           stats[ability] = (stats[ability] || 0) + (val as number || 0);
+         });
+
+         // Fixed subrace bonuses
+         if (subrace) {
+            const subraceAsi = (subrace as any).additionalASI || {};
+            Object.entries(subraceAsi).forEach(([ability, val]) => {
+              if (typeof val === 'number') {
+                 stats[ability] = (stats[ability] || 0) + val;
+              }
+            });
+         }
+      }
+
+      // Choice bonuses (from formData)
+      const bonusPath = isDefaultASI ? 'basicChoices' : 'tashaChoices';
+      const selectedGroups = formData.racialBonusChoiceSchema?.[bonusPath] || [];
+      
+      selectedGroups.forEach(group => {
+         group.selectedAbilities.forEach((ability: string) => {
+             let groupDef;
+             if (isDefaultASI) {
+               groupDef = raceAsi.basic?.flexible?.groups?.find((g, i) => i === group.groupIndex);
+             } else {
+               const baseGroups = raceAsi.tasha?.flexible?.groups || [];
+               groupDef = baseGroups.find((g, i) => i === group.groupIndex);
+             }
+             
+             const val = groupDef?.value || 1;
+             stats[ability] = (stats[ability] || 0) + val;
+         });
+      });
+    }
+
+    return stats as Record<Ability, number>;
+  }, [formData, race, subrace, raceVariant]);
+
+  const prereqStats = prereqContext?.stats ?? effectiveStats;
+
+  const featPrereqs = useMemo(() => {
+    const map = new Map<number, ReturnType<typeof checkFeatPrerequisites>>();
+    for (const feat of filteredFeats) {
+      map.set(
+        feat.featId,
+        checkFeatPrerequisites(feat as any, {
+          level: prereqLevel,
+          stats: prereqStats,
+          hasSpellcasting: prereqHasSpellcasting,
+          race: prereqRace,
+        })
+      );
+    }
+    return map;
+  }, [filteredFeats, prereqLevel, prereqStats, prereqHasSpellcasting, prereqRace]);
+
+  const selectFeat = (feat: Feat) => {
+    if (feat.featId === chosenFeatId) return;
+
+    const prereqResult = featPrereqs.get(feat.featId) ?? { met: true as const };
+
+    if (!prereqResult.met) {
+      setPrereqReason(prereqResult.reason);
+      setPendingFeatId(feat.featId);
+      setConfirmOpen(true);
+    } else {
+      form.setValue("backgroundFeatId", feat.featId);
+      updateFormData({ backgroundFeatId: feat.featId, backgroundFeatChoiceSelections: {} } as any);
+    }
+  };
+
+
   return (
-    <form id={formId} onSubmit={onSubmit} className="space-y-6">
-      <div className="space-y-1 text-center">
+    <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
+      <div className="space-y-2 text-center">
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
           Риса за походженням
         </h2>
-        <p className="text-sm text-slate-400">
-          Ваша передісторія надає вам додаткову рису.
-        </p>
+        <p className="text-sm text-slate-400">Додаткова риса для вашого персонажа</p>
       </div>
 
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
-        <Input 
-          {...form.register("backgroundFeatSearch")}
-          placeholder="Пошук риси за назвою..."
-          className="pl-10 border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
-        />
-        {search && (
-          <button 
-            type="button"
-            onClick={() => form.setValue("backgroundFeatSearch", "")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+      <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
+        <div className="relative w-full">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+            <Input
+              type="search"
+              value={search || ""}
+              onChange={(e) => form.setValue("backgroundFeatSearch", e.target.value)}
+              placeholder="Пошук риси"
+              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
+            />
+             {search && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="absolute right-1.5 top-1/2 h-7 w-7 -translate-y-1/2 text-slate-400 hover:text-white"
+                onClick={() => form.setValue("backgroundFeatSearch", '')}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            )}
+        </div>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        {filteredFeats.map((feat) => {
+          const name = featTranslations[feat.name] ?? feat.name;
+          const prereq = featPrereqs.get(feat.featId);
+          const isMet = prereq?.met ?? true;
+          const showUnavailable = !isMet && feat.featId !== chosenFeatId;
+          return (
+          <Card
+            key={feat.featId}
+            className={clsx(
+              "glass-card cursor-pointer transition-all duration-200 relative",
+              feat.featId === chosenFeatId && "glass-active",
+              showUnavailable && "border-rose-500/30 opacity-70"
+            )}
+            onClick={(e) => {
+              if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+              selectFeat(feat);
+            }}
           >
-            <X className="h-4 w-4" />
-          </button>
+            <CardContent className="relative flex items-center justify-between p-4">
+              {showUnavailable ? (
+                <div className="pointer-events-none absolute inset-0 bg-black/25" />
+              ) : null}
+              <FeatInfoModal feat={feat} triggerClassName="-right-4 -top-4 sm:-right-5 sm:-top-5" />
+              <div>
+                <div className="text-lg font-semibold text-white">{name}</div>
+                <div className="text-xs text-slate-400">{feat.engName}</div>
+                {!isMet && prereq?.reason ? (
+                  <div className="mt-2 text-[10px] text-rose-400 font-medium bg-rose-500/10 px-1.5 py-0.5 rounded border border-rose-500/20">
+                    {prereq.reason}
+                  </div>
+                ) : null}
+              </div>
+              <SourceBadge code={feat.source} active={feat.featId === chosenFeatId} />
+            </CardContent>
+          </Card>
+        )})}
+        {filteredFeats.length === 0 && (
+          <div className="col-span-full py-12 text-center text-slate-500 text-sm">
+            Риси не знайдено
+          </div>
         )}
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredFeats.map((f) => {
-          const isActive = chosenFeatId === f.featId;
-          const ukrName = featTranslations[f.name] ?? f.name;
-
-          return (
-            <Card
-              key={f.featId}
-              className={clsx(
-                "glass-card cursor-pointer transition-all duration-200",
-                isActive ? "glass-active" : "hover:bg-white/5"
-              )}
-              onClick={() => form.setValue("backgroundFeatId", f.featId)}
-            >
-              <CardContent className="flex h-full flex-col justify-between p-4 relative">
-                <div className="space-y-2">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="space-y-0.5">
-                      <p className="text-lg font-semibold text-white leading-tight">
-                        {ukrName}
-                      </p>
-                      <p className="text-xs text-slate-400 italic">
-                        {f.engName}
-                      </p>
-                    </div>
-                    <SourceBadge code={f.source} active={isActive} />
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {f.category && (
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-cyan-400/80">
-                            {f.category}
-                        </span>
-                    )}
-                  </div>
-                </div>
-
-                <div className="mt-4 flex items-center justify-between">
-                  <FeatInfoModal feat={f as any} trigger={(
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      className="h-8 px-2 text-xs text-slate-400 hover:text-white"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Детальніше
-                    </Button>
-                  )} />
-
-                  <div className={clsx(
-                    "flex h-6 w-6 items-center justify-center rounded-full border transition-colors",
-                    isActive ? "bg-emerald-500 border-emerald-400 text-white" : "border-white/10 bg-white/5"
-                  )}>
-                    {isActive && <Check className="h-4 w-4" />}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          );
+      <PrerequisiteConfirmationDialog
+        open={confirmOpen}
+        onOpenChange={setConfirmOpen}
+        reason={prereqReason}
+        onConfirm={() => {
+          if (pendingFeatId) {
+            form.setValue("backgroundFeatId", pendingFeatId);
+            updateFormData({ backgroundFeatId: pendingFeatId, backgroundFeatChoiceSelections: {} } as any);
+          }
+        }}
+      />
+      <input
+        type="hidden"
+        {...form.register("backgroundFeatId", {
+          setValueAs: (value) => {
+            if (value === "" || value === undefined || value === null) return undefined;
+            const num = typeof value === "number" ? value : Number(value);
+            return Number.isFinite(num) ? num : undefined;
+          },
         })}
-      </div>
-
-      {filteredFeats.length === 0 && (
-        <div className="py-12 text-center text-slate-500">
-          <p>Ничего не найдено по вашему запросу :(</p>
-        </div>
-      )}
+      />
     </form>
   );
 };
+
+export default BackgroundFeatsForm;
+

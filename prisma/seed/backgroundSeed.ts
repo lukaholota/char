@@ -953,8 +953,8 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Дорожній одяг', quantity: 1 },
                 { name: 'зм', quantity: 10 }
             ],
-            specialAbilityName: 'Космічний Мандрівник',
-            description: 'Твої подорожі дикоюпростором дали тобі знання про різні світи та космічні явища. Інші космічні мандрівники визнають тебе як досвідченого подорожнього та можуть поділитися інформацією. Твій досвід у космосі змінив твоє розуміння реальності.',
+            specialAbilityName: 'Адаптація до Дикого Простору',
+            description: 'Твої подорожі диким простором дали тобі знання про різні світи та космічні явища. Інші космічні мандрівники визнають тебе як досвідченого подорожнього та можуть поділитися інформацією.\n\n**Адаптація до Дикого Простору (Wildspace Adaptation):** Ви отримуєте рису «Здоровань». Крім того, ви навчилися пристосовуватися до нульової гравітації. Перебування в невагомості не дає вам перешкоди на кидки атак ближнього бою.',
             gainsFeats: {
                 connect: [{ name: Feats.TOUGH }]
             }
@@ -1003,7 +1003,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 10 }
             ],
             specialAbilityName: 'Високе Чаклунство',
-            description: 'Твоє навчання в Ордені Високого Чаклунства дало тобі глибоке розуміння магії. Ти маєш доступ до бібліотек та ресурсів ордену, а інші чарівники визнають твою освіту. Твоє розуміння архіканних мистецтв виділяє тебе серед звичайних чарівників.',
+            description: 'Твоє навчання в Ордені Високого Чаклунства дало тобі глибоке розуміння магії. Ти маєш доступ до бібліотек та ресурсів ордену, а інші чарівники визнають твою освіту. Твоє розуміння архіканних мистецтв виділяє тебе серед звичайних чарівників. \n\n **Надає рису** "Посвячений у Високе Чародійство"',
             gainsFeats: {
                 connect: [{ name: Feats.INITIATE_OF_HIGH_SORCERY }]
             }
@@ -1254,6 +1254,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
         },
         {
             name: BackgroundCategory.REWARDED,
+            source: Source.BOMT,
             skillProficiencies: [Skills.INSIGHT, Skills.PERSUASION],
             languagesToChooseCount: 1,
             toolProficiencies: [ToolCategory.GAMING_SET],
@@ -1267,7 +1268,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 18 }
             ],
             specialAbilityName: 'Прихильність Удачі',
-            description: 'Незалежно від обставин, ви залишили щоденні злидні свого колишнього життя позаду на користь життя, сповненого пригод та азарту. Ваші колишні борги сплачено, обов’язки, які ви вважали неминучими, залишилися в минулому, або ви раптом опанували рідкісні та незвичайні навички, невідомі звичайним людям.\n\n**Прихильність Удачі (Fortune’s Favor):** Ви отримуєте одну з наступних рис на свій вибір: Удачливий, Умілий або Магічний присвячений.',
+            description: 'Незалежно від обставин, ви залишили щоденні злидні свого колишнього життя позаду на користь життя, сповненого пригод та азарту. Ваші колишні борги сплачено, обов’язки, які ви вважали неминучими, залишилися в минулому, або ви раптом опанували рідкісні та незвичайні навички, невідомі звичайним людям.\n\n**Прихильність Удачі (Fortune’s Favor):** Ви отримуєте одну з наступних рис на свій вибір: Щасливчик, Умілець або Посвячений у магію.',
             gainsFeats: {
                 connect: [
                     { name: Feats.LUCKY },
@@ -1278,6 +1279,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
         },
         {
             name: BackgroundCategory.RUINED,
+            source: Source.BOMT,
             skillProficiencies: [Skills.STEALTH, Skills.SURVIVAL],
             languagesToChooseCount: 1,
             toolProficiencies: [ToolCategory.GAMING_SET],
@@ -1291,7 +1293,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 13 }
             ],
             specialAbilityName: 'Вцілілий',
-            description: 'Все йшло так добре! Ви жили в розкоші, любові та комфорті, коли раптом втратили все. Можливо, вас підставили за злочини, яких ви не вчиняли, і ви втратили свою репутацію, статки та кар’єру.\n\n**Вцілілий (Still Standing):** Ви отримуєте одну з наступних рис на свій вибір: Напоготові, Умілий або Міцний.',
+            description: 'Все йшло так добре! Ви жили в розкоші, любові та комфорті, коли раптом втратили все. Можливо, вас підставили за злочини, яких ви не вчиняли, і ви втратили свою репутацію, статки та кар’єру.\n\n**Вцілілий (Still Standing):** Ви отримуєте одну з наступних рис на свій вибір: Пильний, Умілець або Здоровань.',
             gainsFeats: {
                 connect: [
                     { name: Feats.SKILLED },
@@ -1302,6 +1304,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
         },
         {
             name: BackgroundCategory.GIANT_FOUNDLING,
+            source: Source.BPGOTG,
             skillProficiencies: [Skills.INTIMIDATION, Skills.SURVIVAL],
             languagesToChooseCount: 2,
             items: [
@@ -1318,6 +1321,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
         },
         {
             name: BackgroundCategory.RUNE_CARVER,
+            source: Source.BPGOTG,
             skillProficiencies: [Skills.HISTORY, Skills.PERCEPTION],
             languagesToChooseCount: 1,
             toolProficiencies: [ToolCategory.ARTISAN_TOOLS],
@@ -1336,6 +1340,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
         },
         {
             name: BackgroundCategory.GATE_WARDEN,
+            source: Source.PAITM,
             skillProficiencies: [Skills.PERSUASION, Skills.SURVIVAL],
             languagesToChooseCount: 2,
             items: [
@@ -1354,6 +1359,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
         },
         {
             name: BackgroundCategory.PLANAR_PHILOSOPHER,
+            source: Source.PAITM,
             skillProficiencies: [Skills.ARCANA, Skills.PERSUASION],
             languagesToChooseCount: 2,
             items: [

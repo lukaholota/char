@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import Script from "next/script";
 import { Cinzel, Forum, Inter, JetBrains_Mono } from "next/font/google";
 import { Metadata, Viewport } from "next";
 import './globals.css'
@@ -77,6 +78,11 @@ export default function RootLayout(
     <html lang={ 'uk' } className="h-full w-full dark" suppressHydrationWarning>
     <body
       className={ `${ jetBrainsMono.variable } ${ inter.variable } ${ cinzel.variable } ${ rpgDisplay.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden antialiased` }>
+    <Script
+      src="https://cloud.umami.is/script.js"
+      data-website-id="527c4413-3d86-4a9e-a886-a9e2548838c3"
+      strategy="afterInteractive"
+    />
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <div className="absolute inset-0 bg-slate-950" />
       {/* Mesh gradient layers */}

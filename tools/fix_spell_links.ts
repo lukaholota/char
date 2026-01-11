@@ -84,15 +84,15 @@ async function main() {
       const sampleChanges: Array<{ currentId: string; expectedId: number; name: string }> = [];
       const updated = original.replace(anchorRe, (full, quote, idOrSlug, textContent, engName) => {
         totalAnchors += 1;
-        const normalizedEngName = engName ? normalizeSpellName(engName) : null;
         
         let expectedId: number | undefined;
         
-        if (normalizedEngName) {
-          expectedId = spellIdByEngName.get(normalizedEngName);
+        // 1. Determine expected ID from engName (in brackets)
+        if (engName) {
+          expectedId = spellIdByEngName.get(normalizeSpellName(engName));
         }
 
-        // Try to identify by slug if eng name not in brackets or not found
+        // 2. If no engName or not found, try to determine from slug
         if (!expectedId && isNaN(Number(idOrSlug))) {
           const slugAsName = idOrSlug.replace(/-/g, ' ');
           expectedId = spellIdByEngName.get(normalizeSpellName(slugAsName));
@@ -103,14 +103,32 @@ async function main() {
         const spellEntry = spells.find(s => s.spell_id === expectedId);
         if (!spellEntry) return full;
 
-        const newText = spellEntry.name;
-        const newHref = `/spell/${expectedId}`;
-        const newAnchor = `<a href=${quote}${newHref}${quote}>${newText}</a>`;
+        const expectedIdStr = String(expectedId);
+        const currentIdStr = String(idOrSlug);
 
-        if (full === newAnchor) return full;
+        const correctHref = `/spell/${expectedIdStr}`;
+        const currentHref = full.match(/href=(?:"|')([^"']+)(?:"|')/)?.[1];
+        
+        const isIdCorrect = currentIdStr === expectedIdStr;
+        const isHrefCorrect = currentHref === correctHref;
+        const hasBrackets = !!engName;
+
+        // Якщо ID вже правильний і шлях /spell/ теж — нічого не чіпаємо,
+        // щоб зберегти відмінки та авторське форматування тексту.
+        if (isIdCorrect && isHrefCorrect && hasBrackets) {
+          return full;
+        }
 
         fileChanges += 1;
         totalChanges += 1;
+        
+        // Реконструюємо ЛИШЕ якщо ID був невірний або це був slug.
+        // Зберігаємо оригінальний textContent (разом з пробілами).
+        const finalUkText = textContent || ''; 
+        const finalEngName = spellEntry.eng_name;
+        
+        const newAnchor = `<a href=${quote}${correctHref}${quote}>${finalUkText}[${finalEngName}]</a>`;
+        
         if (!write && sampleChanges.length < 5) {
           sampleChanges.push({ currentId: idOrSlug, expectedId, name: spellEntry.eng_name });
         }

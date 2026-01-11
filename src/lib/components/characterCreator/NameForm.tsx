@@ -452,7 +452,7 @@ export const NameForm = ({
                  </div>
                  {hasTough && (
                    <p className="mt-1 text-xs text-emerald-400/80">
-                     Риса МОГУТНІСТЬ [Tough] при отриманні дає рівень (1) * 2 хп = +2 хп
+                     Риса Здоровань [Tough] при отриманні дає рівень (1) * 2 хп = +2 хп
                    </p>
                  )}
                </div>

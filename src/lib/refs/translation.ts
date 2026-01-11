@@ -640,10 +640,16 @@ export const backgroundTranslations = {
   MERCHANT_2024: "Торговець 2024",
   NOBLE_2024: "Аристократ 2024",
   SAGE_2024: "Мудрець 2024",
-  SAILOR_2024: "Моря 2024к",
+  SAILOR_2024: "Моряк 2024",
   SCRIBE_2024: "Писар 2024",
   SOLDIER_2024: "Солдат 2024",
   WAYFARER_2024: "Мандрівник 2024",
+  REWARDED: "Винагороджений",
+  RUINED: "Розорений",
+  GIANT_FOUNDLING: "Знайда велетнів",
+  RUNE_CARVER: "Різьбяр рун",
+  GATE_WARDEN: "Вартовий брами",
+  PLANAR_PHILOSOPHER: "Планарний філософ",
   CUSTOM: "Власна"
 } as const;
 
@@ -731,6 +737,12 @@ export const backgroundTranslationsEng = {
   SCRIBE_2024: "Scribe 2024",
   SOLDIER_2024: "Soldier 2024",
   WAYFARER_2024: "Wayfarer 2024",
+  REWARDED: "Rewarded",
+  RUINED: "Ruined",
+  GIANT_FOUNDLING: "Giant Foundling",
+  RUNE_CARVER: "Rune Carver",
+  GATE_WARDEN: "Gate Warden",
+  PLANAR_PHILOSOPHER: "Planar Philosopher",
   CUSTOM: "Custom"
 } as const;
 
@@ -824,7 +836,9 @@ export const sourceTranslations = {
   DMG_2024: "Посібник Майстра (2024)",
   MM_2024: "Бестіарій (2024)",
   OGA: "Один Ґрунґ Вище",
-  LR: "Схід Локати"
+  LR: "Схід Локати",
+  BOMT: "Книга Багатьох Речей",
+  PAITM: "Плейнскейп: Пригоди в Мультивсесвіті"
 } as const;
 
 export const sourceTranslationsEng = {
@@ -856,7 +870,9 @@ export const sourceTranslationsEng = {
   DMG_2024: "Dungeon Master's Guide (2024)",
   MM_2024: "Monster Manual (2024)",
   OGA: "One Grung Above",
-  LR: "Locathah Rising"
+  LR: "Locathah Rising",
+  BOMT: "The Book of Many Things",
+  PAITM: "Planescape: Adventures in the Multiverse"
 } as const;
 
 export const armorTranslations = {
@@ -1225,6 +1241,15 @@ export const featTranslations: Record<string, string> = {
   KEENNESS_OF_GIANTS: "Проникливість велетнів",
   SOUL_OF_GIANTS: "Душа велетнів",
   VIGOR_OF_GIANTS: "Сила велетнів",
+  SQUIRE_OF_SOLAMNIA: "Зброєносець Соламнії",
+  INITIATE_OF_HIGH_SORCERY: "Посвячений у Високе Чародійство",
+  RUNE_SHAPER: "Формувальник рун",
+  STRIXHAVEN_INITIATE_SILVERQUILL: "Посвячений Стріксхейвена (Сілверквіл)",
+  STRIXHAVEN_INITIATE_WITHERBLOOM: "Посвячений Стріксхейвена (Візерблум)",
+  STRIXHAVEN_INITIATE_QUANDRIX: "Посвячений Стріксхейвена (Квандрікс)",
+  STRIXHAVEN_INITIATE_PRISMARI: "Посвячений Стріксхейвена (Прізмарі)",
+  STRIXHAVEN_INITIATE_LOREHOLD: "Посвячений Стріксхейвена (Лорхолд)",
+  SCION_OF_THE_OUTER_PLANES: "Нащадок Зовнішніх Планів",
 };
 
 export const toolTranslations: Record<string, string> = {

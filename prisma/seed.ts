@@ -54,9 +54,9 @@ async function main() {
 
     // await seedClassOptionalFeatures(prisma)
     
-    await _seedFeats(prisma);
+    // await _seedFeats(prisma);
     await _seedBackground(prisma);
-    await _seedSubclassFeatures(prisma);
+    // await _seedSubclassFeatures(prisma);
     // await _seedFeatChoiceOptions(prisma);
 
     // await _seedClassFeatures(prisma)

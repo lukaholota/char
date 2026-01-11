@@ -1051,11 +1051,11 @@ function ConfirmStep({
     const takingTough = formData.featId && allFeats.find(f => f.featId === Number(formData.featId))?.name === "TOUGH";
     const hpIncrease = Number(formData.levelUpHpIncrease) || 0;
     
-    let toughText = null;
+    let toughText = null as string | null;
     if (takingTough) {
-        toughText = `Риса МОГУТНІСТЬ [Tough] при отриманні дає рівень (${totalLevel}) * 2 хп = +${totalLevel * 2} хп. Фінальний приріст: ${hpIncrease}`;
+        toughText = `Риса Здоровань [Tough] при отриманні дає рівень (${totalLevel}) * 2 хп = +${totalLevel * 2} хп. Фінальний приріст: ${hpIncrease}`;
     } else if (alreadyHasTough) {
-        toughText = `Риса МОГУТНІСТЬ [Tough] дає +2 хп за новий рівень. Фінальний приріст: ${hpIncrease}`;
+        toughText = `Риса Здоровань [Tough] дає +2 хп за новий рівень. Фінальний приріст: ${hpIncrease}`;
     }
 
     const optionalChosen =

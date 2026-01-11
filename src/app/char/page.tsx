@@ -119,7 +119,11 @@ export default async function Page() {
         { classId: 'asc' }
       ]
     }) as unknown as Promise<ClassI[]>,
-    prisma.background.findMany() as Promise<BackgroundI[]>,
+    prisma.background.findMany({
+      include: {
+        gainsFeats: true,
+      }
+    }) as Promise<BackgroundI[]>,
     prisma.weapon.findMany({
       orderBy: [
         { sortOrder: 'asc' },

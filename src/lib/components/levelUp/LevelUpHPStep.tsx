@@ -198,7 +198,7 @@ export default function LevelUpHPStep({
             </Badge>
             {toughBonus > 0 && (
               <Badge variant="outline" className="border-emerald-500/30 bg-emerald-500/10 text-emerald-300">
-                За рису Могутність: +{toughBonus}
+                За рису Здоровань: +{toughBonus}
               </Badge>
             )}
           </div>
