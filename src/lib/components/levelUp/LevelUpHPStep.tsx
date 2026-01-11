@@ -17,6 +17,8 @@ interface Props {
   hitDie: number; // e.g. 10 for d10
   baseStats: { str: number; dex: number; con: number; int: number; wis: number; cha: number };
   feats: FeatPrisma[];
+  persFeats?: any[];
+  nextLevel: number;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
 }
@@ -85,6 +87,8 @@ export default function LevelUpHPStep({
   hitDie,
   baseStats,
   feats,
+  persFeats,
+  nextLevel,
   formId,
   onNextDisabledChange,
 }: Props) {
@@ -98,6 +102,14 @@ export default function LevelUpHPStep({
     if (!id) return null;
     return feats.find((f) => f.featId === id) ?? null;
   }, [feats, formData.featId]);
+
+  const toughBonus = useMemo(() => {
+    const hasTough = (persFeats || []).some((pf: any) => pf.feat?.name === "TOUGH");
+    const takingTough = selectedFeat?.name === "TOUGH";
+    if (takingTough) return 2 * nextLevel;
+    if (hasTough) return 2;
+    return 0;
+  }, [persFeats, selectedFeat, nextLevel]);
 
   const effectiveStats = useMemo(() => {
     const withAsi = applyAsiFromStore(baseStats, formData.customAsi);
@@ -139,13 +151,13 @@ export default function LevelUpHPStep({
 
   const applyAverage = () => {
     setMode("AVERAGE");
-    setHpIncrease(avg + conMod);
+    setHpIncrease(avg + conMod + toughBonus);
   };
 
   const applyRandom = () => {
     setMode("RANDOM");
     const roll = Math.floor(Math.random() * hitDie) + 1;
-    setHpIncrease(roll + conMod);
+    setHpIncrease(roll + conMod + toughBonus);
   };
 
   const enableManual = () => {
@@ -184,6 +196,11 @@ export default function LevelUpHPStep({
             <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-100">
               Мод. Статури: {conMod >= 0 ? `+${conMod}` : conMod}
             </Badge>
+            {toughBonus > 0 && (
+              <Badge variant="outline" className="border-emerald-500/30 bg-emerald-500/10 text-emerald-300">
+                За рису Могутність: +{toughBonus}
+              </Badge>
+            )}
           </div>
 
           <div className="space-y-2">

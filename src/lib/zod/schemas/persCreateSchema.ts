@@ -24,6 +24,15 @@ export const featSchema = z.object({
   featSearch: z.string().default('')
 });
 
+export const backgroundFeatSchema = z.object({
+  backgroundFeatId: z.number().min(1, "Оберіть рису за походженням!"),
+  backgroundFeatSearch: z.string().default('')
+});
+
+export const backgroundFeatChoiceOptionsSchema = z.object({
+  backgroundFeatChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({})
+});
+
 export const classSchema = z.object({
   classId: z
     .number({ message: "Клас обов'язковий для вибору" })
@@ -224,6 +233,8 @@ export const fullCharacterSchema = z.object({
   subclassChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   classChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   featChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
+  backgroundFeatId: z.number().optional(),
+  backgroundFeatChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({}),
   backgroundId: z.number(),
   backgroundSearch: z.string().default(''),

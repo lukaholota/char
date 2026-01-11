@@ -27,6 +27,7 @@ import RaceChoiceOptionsForm from "@/lib/components/characterCreator/RaceChoiceO
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
 import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
+import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 
 import { createCharacter } from "@/lib/actions/character";
@@ -199,6 +200,9 @@ export const MultiStepForm = (
   }, [raceVariant]);
   const feat = useMemo(() => feats.find(f => f.featId === formData.featId), [feats, formData.featId]);
   const hasFeatChoices = useMemo(() => (feat?.featChoiceOptions?.length ?? 0) > 0, [feat]);
+  const hasBackgroundFeatChoice = useMemo(() => (bg?.gainsFeats?.length ?? 0) > 0, [bg]);
+  const backgroundFeat = useMemo(() => feats.find(f => f.featId === formData.backgroundFeatId), [feats, formData.backgroundFeatId]);
+  const hasBackgroundFeatChoices = useMemo(() => (backgroundFeat?.featChoiceOptions?.length ?? 0) > 0, [backgroundFeat]);
 
   const hasSubclasses = useMemo(() => {
     if (!cls) return false;
@@ -274,6 +278,13 @@ export const MultiStepForm = (
       dynamicSteps.push({ id: "featChoices", name: "Опції риси", component: "featChoices" });
     }
 
+    if (hasBackgroundFeatChoice) {
+      dynamicSteps.push({ id: "backgroundFeat", name: "Риса походження", component: "backgroundFeat" });
+    }
+    if (hasBackgroundFeatChoices) {
+      dynamicSteps.push({ id: "backgroundFeatChoices", name: "Опції риси походження", component: "backgroundFeatChoices" });
+    }
+
     dynamicSteps.push(
       { id: "equipment", name: "Спорядження", component: "equipment" },
       { id: "name", name: "Імʼя", component: "name" },
@@ -337,6 +348,8 @@ export const MultiStepForm = (
       case "expertise": return !!(data.expertiseSchema?.expertises?.length);
       case "feat": return !!data.featId;
       case "featChoices": return Object.keys(data.featChoiceSelections || {}).length > 0;
+      case "backgroundFeat": return !!data.backgroundFeatId;
+      case "backgroundFeatChoices": return Object.keys(data.backgroundFeatChoiceSelections || {}).length > 0;
       case "equipment": return !!(data.equipmentSchema?.choiceGroupToId);
       case "name": return !!data.name;
       default: return false;
@@ -409,6 +422,30 @@ export const MultiStepForm = (
             selectedFeat={feat}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
+            mode="race"
+          />
+        );
+      case "backgroundFeat":
+        return (
+          <BackgroundFeatsForm
+            feats={bg?.gainsFeats || []}
+            race={race}
+            subrace={subrace as any}
+            raceVariant={raceVariant}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+            prereqContext={{
+              hasSpellcasting,
+            }}
+          />
+        );
+      case "backgroundFeatChoices":
+        return (
+          <FeatChoiceOptionsForm
+            selectedFeat={backgroundFeat as any}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+            mode="background"
           />
         );
       case "class":
@@ -531,6 +568,7 @@ export const MultiStepForm = (
             raceVariant={raceVariant}
             selectedClass={cls}
             background={bg}
+            backgroundFeat={backgroundFeat as any}
             feat={feat}
             weapons={weapons}
             onSuccess={handleFinalSubmit}

@@ -622,6 +622,7 @@ export interface BackgroundI
   extends Omit<BackgroundPrisma, 'skillProficiencies' | 'toolProficiencies'> {
   skillProficiencies: SkillProficiencies;
   toolProficiencies: ToolProficiencies;
+  gainsFeats?: FeatPrisma[];
 }
 
 // 4.4. FeatureI — тільки ті JSON-поля, які ти реально використовуєш

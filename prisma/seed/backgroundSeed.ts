@@ -1,4 +1,4 @@
-import { PrismaClient, BackgroundCategory, ToolCategory, Skills, Source, Prisma } from "@prisma/client";
+import { PrismaClient, BackgroundCategory, ToolCategory, Skills, Source, Prisma, Feats } from "@prisma/client";
 
 export const seedBackground = async (prisma: PrismaClient) => {
     console.log('Seeding backgrounds...')
@@ -732,7 +732,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 15 }
             ],
             specialAbilityName: 'Історичні Знання',
-            description: 'Як студент Лорхолда, ти маєш доступ до архівів коледжу та можеш досліджувати історичні записи. Інші історики та археологи визнають твою освіту. Твоє розуміння минулого дає тобі унікальний погляд на сучасні події.'
+            description: 'Як студент Лорхолда, ти маєш доступ до архівів коледжу та можеш досліджувати історичні записи. Інші історики та археологи визнають твою освіту. Твоє розуміння минулого дає тобі унікальний погляд на сучасні події.',
+            gainsFeats: {
+                connect: [{ name: Feats.STRIXHAVEN_INITIATE_LOREHOLD }]
+            }
         },
         {
             name: BackgroundCategory.PRISMARI_STUDENT,
@@ -748,7 +751,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 10 }
             ],
             specialAbilityName: 'Артистична Експресія',
-            description: 'Твоя освіта в Прізмарі дала тобі розуміння мистецтва та магії. Ти можеш виступати в коледжі та маєш доступ до студій та творчих просторів. Твоя здатність поєднувати магію та мистецтво створює вражаючі результати.'
+            description: 'Твоя освіта в Прізмарі дала тобі розуміння мистецтва та магії. Ти можеш виступати в коледжі та маєш доступ до студій та творчих просторів. Твоя здатність поєднувати магію та мистецтво створює вражаючі результати.',
+            gainsFeats: {
+                connect: [{ name: Feats.STRIXHAVEN_INITIATE_PRISMARI }]
+            }
         },
         {
             name: BackgroundCategory.QUANDRIX_STUDENT,
@@ -765,7 +771,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 15 }
             ],
             specialAbilityName: 'Математична Точність',
-            description: 'Твоє навчання в Квандриксі дало тобі глибоке розуміння математики та природних законів. Ти маєш доступ до наукових лабораторій та бібліотек коледжу. Твоє розуміння патернів та чисел дає тобі перевагу в аналітичних задачах.'
+            description: 'Твоє навчання в Квандриксі дало тобі глибоке розуміння математики та природних законів. Ти маєш доступ до наукових лабораторій та бібліотек коледжу. Твоє розуміння патернів та чисел дає тобі перевагу в аналітичних задачах.',
+            gainsFeats: {
+                connect: [{ name: Feats.STRIXHAVEN_INITIATE_QUANDRIX }]
+            }
         },
         {
             name: BackgroundCategory.SILVERQUILL_STUDENT,
@@ -781,7 +790,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 15 }
             ],
             specialAbilityName: 'Риторична Майстерність',
-            description: 'Як студент Срібного Пера, ти навчений мистецтву переконання та красномовства. Твої слова мають вагу, і ти маєш доступ до літературних ресурсів коледжу. Твоя здатність формулювати аргументи та впливати на інших високо цінується.'
+            description: 'Як студент Срібного Пера, ти навчений мистецтву переконання та красномовства. Твої слова мають вагу, і ти маєш доступ до літературних ресурсів коледжу. Твоя здатність формулювати аргументи та впливати на інших високо цінується.',
+            gainsFeats: {
+                connect: [{ name: Feats.STRIXHAVEN_INITIATE_SILVERQUILL }]
+            }
         },
         {
             name: BackgroundCategory.WITHERBLOOM_STUDENT,
@@ -798,7 +810,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 15 }
             ],
             specialAbilityName: 'Знання Життя та Смерті',
-            description: 'Твоє навчання в Візерблум дало тобі розуміння життєвої сили та некромантії. Ти маєш доступ до ботанічних садів, алхімічних лабораторій та гербаріїв. Твоє розуміння балансу між життям та смертю дає тобі унікальні можливості.'
+            description: 'Твоє навчання в Візерблум дало тобі розуміння життєвої сили та некромантії. Ти маєш доступ до ботанічних садів, алхімічних лабораторій та гербаріїв. Твоє розуміння балансу між життям та смертю дає тобі унікальні можливості.',
+            gainsFeats: {
+                connect: [{ name: Feats.STRIXHAVEN_INITIATE_WITHERBLOOM }]
+            }
         },
         {
             name: BackgroundCategory.ASTRAL_DRIFTER,
@@ -813,7 +828,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 10 }
             ],
             specialAbilityName: 'Божественне Прозріння',
-            description: 'Твої подорожі астральним планом дали тобі унікальний погляд на мультивсесвіт. Час від часу ти отримуєш прозріння або видіння, які можуть вказати шлях або попередити про небезпеку. Твій досвід у астральній площині змінив твоє сприйняття реальності.'
+            description: 'Твої подорожі астральним планом дали тобі унікальний погляд на мультивсесвіт. Час від часу ти отримуєш прозріння або видіння, які можуть вказати шлях або попередити про небезпеку. Твій досвід у астральній площині змінив твоє сприйняття реальності.',
+            gainsFeats: {
+                connect: [{ name: Feats.MAGIC_INITIATE }]
+            }
         },
         {
             name: BackgroundCategory.FACELESS,
@@ -936,7 +954,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 10 }
             ],
             specialAbilityName: 'Космічний Мандрівник',
-            description: 'Твої подорожі дикоюпростором дали тобі знання про різні світи та космічні явища. Інші космічні мандрівники визнають тебе як досвідченого подорожнього та можуть поділитися інформацією. Твій досвід у космосі змінив твоє розуміння реальності.'
+            description: 'Твої подорожі дикоюпростором дали тобі знання про різні світи та космічні явища. Інші космічні мандрівники визнають тебе як досвідченого подорожнього та можуть поділитися інформацією. Твій досвід у космосі змінив твоє розуміння реальності.',
+            gainsFeats: {
+                connect: [{ name: Feats.TOUGH }]
+            }
         },
         {
             name: BackgroundCategory.WITCHLIGHT_HAND,
@@ -965,7 +986,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 10 }
             ],
             specialAbilityName: 'Лицарський Кодекс',
-            description: 'Як лицар Соламнії, ти зв\'язаний клятвою честі та маєш повагу серед тих, хто знає про лицарів. Інші лицарі та ті, хто поважає закон, надають тобі допомогу та підтримку. Твоя відданість честі та справедливості визначає твої дії.'
+            description: 'Як лицар Соламнії, ти зв\'язаний клятвою честі та маєш повагу серед тих, хто знає про лицарів. Інші лицарі та ті, хто поважає закон, надають тобі допомогу та підтримку. Твоя відданість честі та справедливості визначає твої дії.',
+            gainsFeats: {
+                connect: [{ name: Feats.SQUIRE_OF_SOLAMNIA }]
+            }
         },
         {
             name: BackgroundCategory.MAGE_OF_HIGH_SORCERY,
@@ -979,7 +1003,10 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 10 }
             ],
             specialAbilityName: 'Високе Чаклунство',
-            description: 'Твоє навчання в Ордені Високого Чаклунства дало тобі глибоке розуміння магії. Ти маєш доступ до бібліотек та ресурсів ордену, а інші чарівники визнають твою освіту. Твоє розуміння архіканних мистецтв виділяє тебе серед звичайних чарівників.'
+            description: 'Твоє навчання в Ордені Високого Чаклунства дало тобі глибоке розуміння магії. Ти маєш доступ до бібліотек та ресурсів ордену, а інші чарівники визнають твою освіту. Твоє розуміння архіканних мистецтв виділяє тебе серед звичайних чарівників.',
+            gainsFeats: {
+                connect: [{ name: Feats.INITIATE_OF_HIGH_SORCERY }]
+            }
         },
         {
             name: BackgroundCategory.HOUSE_AGENT,
@@ -1226,6 +1253,122 @@ export const seedBackground = async (prisma: PrismaClient) => {
             description: 'Твій досвід подорожей дав тобі знання про дороги, шляхи та безпечні місця відпочинку. Ти можеш знайти безкоштовне житло серед мандрівників та знаєш, як уникнути небезпек на дорозі. Інші мандрівники визнають тебе як досвідченого подорожнього.'
         },
         {
+            name: BackgroundCategory.REWARDED,
+            skillProficiencies: [Skills.INSIGHT, Skills.PERSUASION],
+            languagesToChooseCount: 1,
+            toolProficiencies: [ToolCategory.GAMING_SET],
+            items: [
+                { name: 'Пляшечка чорнила', quantity: 1 },
+                { name: 'Перо', quantity: 1 },
+                { name: 'Папір (чисті аркуші)', quantity: 5 },
+                { name: 'Ігровий набір (на вибір)', quantity: 1 },
+                { name: 'Перстень-печатка', quantity: 1 },
+                { name: 'Гарний одяг', quantity: 1 },
+                { name: 'зм', quantity: 18 }
+            ],
+            specialAbilityName: 'Прихильність Удачі',
+            description: 'Незалежно від обставин, ви залишили щоденні злидні свого колишнього життя позаду на користь життя, сповненого пригод та азарту. Ваші колишні борги сплачено, обов’язки, які ви вважали неминучими, залишилися в минулому, або ви раптом опанували рідкісні та незвичайні навички, невідомі звичайним людям.\n\n**Прихильність Удачі (Fortune’s Favor):** Ви отримуєте одну з наступних рис на свій вибір: Удачливий, Умілий або Магічний присвячений.',
+            gainsFeats: {
+                connect: [
+                    { name: Feats.LUCKY },
+                    { name: Feats.SKILLED },
+                    { name: Feats.MAGIC_INITIATE }
+                ]
+            }
+        },
+        {
+            name: BackgroundCategory.RUINED,
+            skillProficiencies: [Skills.STEALTH, Skills.SURVIVAL],
+            languagesToChooseCount: 1,
+            toolProficiencies: [ToolCategory.GAMING_SET],
+            items: [
+                { name: 'Тріснутий пісочний годинник', quantity: 1 },
+                { name: 'Іржаві кайдани', quantity: 1 },
+                { name: 'Напівпорожня пляшка', quantity: 1 },
+                { name: 'Мисливська пастка', quantity: 1 },
+                { name: 'Ігровий набір (на вибір)', quantity: 1 },
+                { name: 'Дорожній одяг', quantity: 1 },
+                { name: 'зм', quantity: 13 }
+            ],
+            specialAbilityName: 'Вцілілий',
+            description: 'Все йшло так добре! Ви жили в розкоші, любові та комфорті, коли раптом втратили все. Можливо, вас підставили за злочини, яких ви не вчиняли, і ви втратили свою репутацію, статки та кар’єру.\n\n**Вцілілий (Still Standing):** Ви отримуєте одну з наступних рис на свій вибір: Напоготові, Умілий або Міцний.',
+            gainsFeats: {
+                connect: [
+                    { name: Feats.SKILLED },
+                    { name: Feats.TOUGH },
+                    { name: Feats.ALERT }
+                ]
+            }
+        },
+        {
+            name: BackgroundCategory.GIANT_FOUNDLING,
+            skillProficiencies: [Skills.INTIMIDATION, Skills.SURVIVAL],
+            languagesToChooseCount: 2,
+            items: [
+                { name: 'Рюкзак', quantity: 1 },
+                { name: 'Дорожній одяг', quantity: 1 },
+                { name: 'Маленький камінь або гілочка з дому', quantity: 1 },
+                { name: 'зм', quantity: 10 }
+            ],
+            specialAbilityName: 'Удар Велетнів',
+            description: 'Щось у вашому оточенні — можливо, їжа чи вода, яка вас підтримувала, стихійна магія, властива місцю вашого дому, або якесь зелене благословення росту, накладене на вас — спричинило те, що ви виросли до вражаючих розмірів для свого роду.\n\n**Удар Велетнів (Strike of the Giants):** Ви отримуєте рису «Удар Велетнів».',
+            gainsFeats: {
+                connect: [{ name: Feats.STRIKE_OF_THE_GIANTS }]
+            }
+        },
+        {
+            name: BackgroundCategory.RUNE_CARVER,
+            skillProficiencies: [Skills.HISTORY, Skills.PERCEPTION],
+            languagesToChooseCount: 1,
+            toolProficiencies: [ToolCategory.ARTISAN_TOOLS],
+            items: [
+                { name: 'Інструменти ремісника (на вибір)', quantity: 1 },
+                { name: 'Маленький ніж', quantity: 1 },
+                { name: 'Точильний камінь', quantity: 1 },
+                { name: 'Звичайний одяг', quantity: 1 },
+                { name: 'зм', quantity: 10 }
+            ],
+            specialAbilityName: 'Різьбяр Рун',
+            description: 'Кожен різьбяр рун має свій унікальний стиль і улюблений матеріал. Наукові пошуки, стародавні таємниці або фатальна зустріч можуть надихнути персонажа піти шляхом таємниць різьбяра рун.\n\n**Різьбяр Рун (Rune Shaper):** Ви отримуєте рису «Різьбяр Рун».',
+            gainsFeats: {
+                connect: [{ name: Feats.RUNE_SHAPER }]
+            }
+        },
+        {
+            name: BackgroundCategory.GATE_WARDEN,
+            skillProficiencies: [Skills.PERSUASION, Skills.SURVIVAL],
+            languagesToChooseCount: 2,
+            items: [
+                { name: 'Кільце з ключами до невідомих замків', quantity: 1 },
+                { name: 'Чиста книга', quantity: 1 },
+                { name: 'Перо', quantity: 1 },
+                { name: 'Чорне чорнило', quantity: 1 },
+                { name: 'Дорожній одяг', quantity: 1 },
+                { name: 'зм', quantity: 10 }
+            ],
+            specialAbilityName: 'Планарне Вливання',
+            description: 'Ви провели значну кількість часу в місці, що перебуває під впливом потужних планарних сил або порталу до іншого плану існування. Ви звикли до досвіду, який змусив би інших здригатися від жаху або бути зачарованими потойбічною красою.\n\n**Планарне Вливання (Planar Infusion):** Ви отримуєте рису «Нащадок Зовнішніх Планів».',
+            gainsFeats: {
+                connect: [{ name: Feats.SCION_OF_THE_OUTER_PLANES }]
+            }
+        },
+        {
+            name: BackgroundCategory.PLANAR_PHILOSOPHER,
+            skillProficiencies: [Skills.ARCANA, Skills.PERSUASION],
+            languagesToChooseCount: 2,
+            items: [
+                { name: 'Ключ від порталу', quantity: 1 },
+                { name: 'Маніфест вашої філософії', quantity: 1 },
+                { name: 'Звичайний одяг у стилі фракції', quantity: 1 },
+                { name: 'зм', quantity: 10 }
+            ],
+            specialAbilityName: 'Переконання',
+            description: 'Ви притримуєтеся філософії, яка прагне зрозуміти природу планів або певну приховану істину мультивсесвіту. Ви черпаєте силу зі своїх переконань і, можливо, з мережі однодумців.\n\n**Переконання (Conviction):** Ви отримуєте рису «Нащадок Зовнішніх Планів».',
+            gainsFeats: {
+                connect: [{ name: Feats.SCION_OF_THE_OUTER_PLANES }]
+            }
+        },
+        {
             name: BackgroundCategory.CUSTOM,
             skillProficiencies: {
                 choiceCount: 2,
@@ -1238,11 +1381,23 @@ export const seedBackground = async (prisma: PrismaClient) => {
     ];
 
     // Збереження в БД через upsert
-    for (const background of backgrounds) {
-        await prisma.background.upsert({
-            where: { name: background.name },
-            update: background,
-            create: background
+    for (const backgroundData of backgrounds) {
+        const { gainsFeats, ...rest } = backgroundData as any;
+        await (prisma.background as any).upsert({
+            where: { name: rest.name },
+            update: {
+                ...rest,
+                gainsFeats: (gainsFeats as any)?.connect ? {
+                    set: [],
+                    connect: (gainsFeats as any).connect
+                } : undefined
+            },
+            create: {
+                ...rest,
+                gainsFeats: (gainsFeats as any)?.connect ? {
+                    connect: (gainsFeats as any).connect
+                } : undefined
+            }
         })
     }
 

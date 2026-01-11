@@ -4,6 +4,7 @@ import path from 'node:path';
 type SpellEntry = {
   spell_id: number;
   eng_name: string;
+  name: string;
 };
 
 type DictionaryJson = {
@@ -39,7 +40,7 @@ async function collectTsFiles(rootPath: string): Promise<string[]> {
   return files;
 }
 
-async function loadSpellIdByNameMap(workspaceRoot: string): Promise<Map<string, number>> {
+async function loadSpells(workspaceRoot: string): Promise<SpellEntry[]> {
   const dictPath = path.join(workspaceRoot, 'src', 'lib', 'refs', 'dictionary.json');
   const raw = await fs.readFile(dictPath, 'utf8');
   const json = JSON.parse(raw) as DictionaryJson;
@@ -48,14 +49,7 @@ async function loadSpellIdByNameMap(workspaceRoot: string): Promise<Map<string, 
     throw new Error(`No SPELLS[] found in ${dictPath}`);
   }
 
-  const map = new Map<string, number>();
-  for (const spell of json.SPELLS) {
-    if (!spell?.eng_name || typeof spell.spell_id !== 'number') continue;
-    const key = normalizeSpellName(spell.eng_name);
-    if (!map.has(key)) map.set(key, spell.spell_id);
-  }
-
-  return map;
+  return json.SPELLS;
 }
 
 async function main() {
@@ -64,13 +58,16 @@ async function main() {
   const targetRoots = args.filter((a) => a !== '--write');
 
   const workspaceRoot = process.cwd();
-  const spellIdByName = await loadSpellIdByNameMap(workspaceRoot);
+  const spells = await loadSpells(workspaceRoot);
+  const spellIdByEngName = new Map<string, number>();
+  for (const s of spells) {
+    spellIdByEngName.set(normalizeSpellName(s.eng_name), s.spell_id);
+  }
 
   const roots = targetRoots.length ? targetRoots : [path.join(workspaceRoot, 'prisma', 'seed')];
 
-  // <a href="/spell/1289">UA text [Detect Magic]</a>
-  const anchorRe = /<a\s+href=("|')\/spells?\/(\d+)\1>([^<]*?)\[(.*?)\]<\/a>/g;
-
+  // Modified to match slugs and optional brackets
+  const anchorRe = /<a\s+href=("|')\/spells?\/([^"']+)\1>([^<]*?)(?:\[(.*?)\])?<\/a>/g;
 
   let totalChanges = 0;
   let totalAnchors = 0;
@@ -84,22 +81,40 @@ async function main() {
       const original = await fs.readFile(filePath, 'utf8');
 
       let fileChanges = 0;
-      const sampleChanges: Array<{ currentId: number; expectedId: number; name: string }> = [];
-      const updated = original.replace(anchorRe, (full, quote, idStr, beforeBracket, engName) => {
+      const sampleChanges: Array<{ currentId: string; expectedId: number; name: string }> = [];
+      const updated = original.replace(anchorRe, (full, quote, idOrSlug, textContent, engName) => {
         totalAnchors += 1;
-        const currentId = Number(idStr);
-        const normalizedName = normalizeSpellName(engName);
-        const expectedId = spellIdByName.get(normalizedName);
+        const normalizedEngName = engName ? normalizeSpellName(engName) : null;
+        
+        let expectedId: number | undefined;
+        
+        if (normalizedEngName) {
+          expectedId = spellIdByEngName.get(normalizedEngName);
+        }
+
+        // Try to identify by slug if eng name not in brackets or not found
+        if (!expectedId && isNaN(Number(idOrSlug))) {
+          const slugAsName = idOrSlug.replace(/-/g, ' ');
+          expectedId = spellIdByEngName.get(normalizeSpellName(slugAsName));
+        }
 
         if (!expectedId) return full;
-        if (expectedId === currentId) return full;
+        
+        const spellEntry = spells.find(s => s.spell_id === expectedId);
+        if (!spellEntry) return full;
+
+        const newText = spellEntry.name;
+        const newHref = `/spell/${expectedId}`;
+        const newAnchor = `<a href=${quote}${newHref}${quote}>${newText}</a>`;
+
+        if (full === newAnchor) return full;
 
         fileChanges += 1;
         totalChanges += 1;
-        if (!write && sampleChanges.length < 10) {
-          sampleChanges.push({ currentId, expectedId, name: engName });
+        if (!write && sampleChanges.length < 5) {
+          sampleChanges.push({ currentId: idOrSlug, expectedId, name: spellEntry.eng_name });
         }
-        return `<a href=${quote}/spell/${expectedId}${quote}>${beforeBracket}[${engName}]</a>`;
+        return newAnchor;
       });
 
       if (fileChanges > 0) {

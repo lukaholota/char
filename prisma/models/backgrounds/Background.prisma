@@ -9,6 +9,7 @@ model Background {
   specialAbilityName     String?
   /// [SkillProficiencies]
   skillProficiencies     Json?              @map("skill_proficiencies")
+  gainsFeats             Feat[]             @relation("BackgroundToFeat")
   perses                 Pers[]
 
   @@map("background")

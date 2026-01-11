@@ -230,6 +230,16 @@ export default function CombatPage({ pers, onPersUpdate, isReadOnly }: CombatPag
         }
       });
     }
+
+    // Feats
+    if (pers.feats) {
+      pers.feats.forEach((pf: any) => {
+        if (pf.feat?.grantedArmorProficiencies) {
+          (pf.feat.grantedArmorProficiencies as string[]).forEach((p: string) => profs.add(p));
+        }
+      });
+    }
+
     return profs.has("SHIELD");
   }, [pers]);
 

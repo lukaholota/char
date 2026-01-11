@@ -59,6 +59,7 @@ interface Props {
   raceVariant?: RaceVariant | null;
   selectedClass?: ClassI;
   background?: BackgroundI;
+  backgroundFeat?: FeatPrisma | null;
   feat?: FeatPrisma | null;
   weapons?: Weapon[];
   onSuccess?: () => void;
@@ -218,7 +219,17 @@ const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }
   );
 };
 
-export const NameForm = ({ formId, race, raceVariant, selectedClass, background, feat, weapons, onSuccess }: Props) => {
+export const NameForm = ({
+  formId,
+  race,
+  raceVariant,
+  selectedClass,
+  background,
+  backgroundFeat,
+  feat,
+  weapons,
+  onSuccess,
+}: Props) => {
   const { form, onSubmit } = useStepForm(nameSchema, (data) => {
     const trimmed = String(data?.name ?? "").trim();
     if (!trimmed && currentName) {
@@ -229,6 +240,10 @@ export const NameForm = ({ formId, race, raceVariant, selectedClass, background,
   const stats = useCharacterStats({ race, raceVariant, feat });
   const { currentName, generateName } = useFantasyNameGenerator();
   const formData = usePersFormStore((s) => s.formData);
+
+  const hasTough = useMemo(() => {
+    return (feat?.name === "TOUGH") || (backgroundFeat?.name === "TOUGH");
+  }, [feat, backgroundFeat]);
 
   const [packInfoOpen, setPackInfoOpen] = useState(false);
   const [currentPack, setCurrentPack] = useState<any>(null);
@@ -426,6 +441,22 @@ export const NameForm = ({ formId, race, raceVariant, selectedClass, background,
           <div className="space-y-2">
              <h3 className="text-sm font-medium text-slate-300">Фінальні характеристики</h3>
              <StatsSummary stats={stats} />
+             
+             {selectedClass && (
+               <div className="glass-panel rounded-xl border border-white/10 bg-white/5 p-3">
+                 <div className="flex items-center justify-between">
+                   <div className="text-xs uppercase tracking-[0.14em] text-slate-400">Максимум HP</div>
+                   <div className="text-xl font-bold text-emerald-400">
+                     {selectedClass.hitDie + stats.CON.mod + (hasTough ? 2 : 0)}
+                   </div>
+                 </div>
+                 {hasTough && (
+                   <p className="mt-1 text-xs text-emerald-400/80">
+                     Риса МОГУТНІСТЬ [Tough] при отриманні дає рівень (1) * 2 хп = +2 хп
+                   </p>
+                 )}
+               </div>
+             )}
           </div>
 
           <div className="grid gap-3 md:grid-cols-2">

@@ -29,6 +29,7 @@ model Feat {
   featChoiceOptions          FeatChoiceOption[]
   perses                     PersFeat[]
   grantsFeature              Feature[]          @relation("FeatGrantsFeature")
+  gainsByBackgrounds         Background[]       @relation("BackgroundToFeat")
 
   @@map("feat")
 }

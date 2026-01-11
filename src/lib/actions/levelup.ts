@@ -185,6 +185,11 @@ export async function getLevelUpInfo(persId: number) {
       },
       race: true,
       subrace: true,
+      feats: {
+        include: {
+          feat: true
+        }
+      }
     },
   });
 
@@ -517,8 +522,19 @@ export async function levelUpCharacter(persId: number, data: any) {
         return Math.floor(pers.class.hitDie / 2) + 1 + conMod;
       })();
 
-    const newMaxHp = pers.maxHp + hpIncrease;
-    const newCurrentHp = pers.currentHp + hpIncrease;
+    // Tough logic
+    const alreadyHasTough = (pers as any).feats?.some((pf: any) => pf.feat?.name === Feats.TOUGH);
+    const takingTough = (featId && (feats.find(f => f.featId === featId)?.name === Feats.TOUGH));
+
+    let toughBonus = 0;
+    if (takingTough) {
+      toughBonus = 2 * nextLevel;
+    } else if (alreadyHasTough) {
+      toughBonus = 2;
+    }
+
+    const newMaxHp = pers.maxHp + hpIncrease + toughBonus;
+    const newCurrentHp = pers.currentHp + hpIncrease + toughBonus;
 
     // ===== 4) Subclass selection for the selected class =====
     const chosenSubclassIdRaw = data?.subclassId ? Number(data.subclassId) : undefined;

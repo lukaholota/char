@@ -715,6 +715,8 @@ export default function LevelUpWizard({ info }: Props) {
                             cha: pers.cha,
                         }}
                         feats={feats as any}
+                        persFeats={(pers as any).feats}
+                        nextLevel={nextLevel}
                         formId="hp-form"
                         onNextDisabledChange={onNextDisabledChange}
                     />
@@ -726,6 +728,8 @@ export default function LevelUpWizard({ info }: Props) {
                         className={selectedClassName}
                         classLevelAfter={classLevelAfter}
                         formData={formData}
+                        pers={pers}
+                        allFeats={feats}
                     />
                 );
             default:
@@ -1030,14 +1034,30 @@ function ConfirmStep({
     className,
     classLevelAfter,
     formData,
+    pers,
+    allFeats,
 }: {
     totalLevel: number;
     className: string;
     classLevelAfter: number;
     formData: any;
+    pers: any;
+    allFeats: any[];
 }) {
     const asiChosen = Array.isArray(formData.customAsi) && formData.customAsi.length > 0;
     const featChosen = Boolean(formData.featId);
+    
+    const alreadyHasTough = (pers?.feats || []).some((pf: any) => pf.feat?.name === "TOUGH");
+    const takingTough = formData.featId && allFeats.find(f => f.featId === Number(formData.featId))?.name === "TOUGH";
+    const hpIncrease = Number(formData.levelUpHpIncrease) || 0;
+    
+    let toughText = null;
+    if (takingTough) {
+        toughText = `Риса МОГУТНІСТЬ [Tough] при отриманні дає рівень (${totalLevel}) * 2 хп = +${totalLevel * 2} хп. Фінальний приріст: ${hpIncrease}`;
+    } else if (alreadyHasTough) {
+        toughText = `Риса МОГУТНІСТЬ [Tough] дає +2 хп за новий рівень. Фінальний приріст: ${hpIncrease}`;
+    }
+
     const optionalChosen =
         formData.classOptionalFeatureSelections &&
         Object.values(formData.classOptionalFeatureSelections as Record<string, boolean>).some((v) => v === true);
@@ -1053,6 +1073,14 @@ function ConfirmStep({
                     <p className="text-lg font-semibold text-white">{totalLevel}</p>
                     <p className="text-[10px] uppercase tracking-widest text-slate-400 mt-2 mb-1">Підвищується:</p>
                     <p className="text-lg font-semibold text-white">{className} (рівень {classLevelAfter})</p>
+                    
+                    {toughText && (
+                        <div className="mt-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                            <p className="text-xs text-emerald-400 font-medium">
+                                {toughText}
+                            </p>
+                        </div>
+                    )}
                 </div>
 
                 <div className="space-y-2">

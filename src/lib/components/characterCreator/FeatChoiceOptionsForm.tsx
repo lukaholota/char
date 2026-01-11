@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useCallback, useState } from "react";
 import { useStepForm } from "@/hooks/useStepForm";
-import { featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { FeatPrisma, PersI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,12 +18,14 @@ import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/charact
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
+import { backgroundFeatChoiceOptionsSchema, featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 
 interface Props {
   selectedFeat?: FeatPrisma | null;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
   pers?: PersI | null;
+  mode?: 'race' | 'background';
 }
 
 type Group = {
@@ -196,7 +197,7 @@ const localizeGroupName = (groupName: string, featKey?: string | null): string =
   return cleaned.split(featKey).join(localizedFeat);
 };
 
-const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers }: Props) => {
+const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers, mode = 'race' }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
@@ -206,15 +207,18 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [pendingPick, setPendingPick] = useState<{ groupName: string; optionId: number; pickCount: number } | null>(null);
   const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
+
+  const schema = mode === 'race' ? featChoiceOptionsSchema : backgroundFeatChoiceOptionsSchema;
+  const storageKey = mode === 'race' ? 'featChoiceSelections' : 'backgroundFeatChoiceSelections';
   
-  const { form, onSubmit: baseOnSubmit } = useStepForm(featChoiceOptionsSchema, (data) => {
-    updateFormData({ featChoiceSelections: data.featChoiceSelections });
+  const { form, onSubmit: baseOnSubmit } = useStepForm(schema, (data) => {
+    updateFormData({ [storageKey]: (data as any)[storageKey] });
     nextStep();
   });
   
   const watchedSelections = useWatch({
     control: form.control,
-    name: "featChoiceSelections",
+    name: storageKey as any,
   });
 
   const selections = useMemo(
@@ -749,7 +753,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
         delete next[groupName];
     }
     
-    form.setValue("featChoiceSelections", next, {
+    form.setValue(storageKey as any, next, {
       shouldDirty: true,
       shouldTouch: true,
       shouldValidate: true,

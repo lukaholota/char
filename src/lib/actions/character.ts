@@ -250,6 +250,17 @@ export async function createCharacter(data: PersFormData) {
       })
     : null;
 
+  const backgroundFeat = validData.backgroundFeatId
+    ? await prisma.feat.findUnique({
+        where: { featId: validData.backgroundFeatId },
+        include: {
+          featChoiceOptions: {
+            include: { choiceOption: true },
+          },
+        },
+      })
+    : null;
+
   if (validData.isDefaultASI) {
     addBonuses(scores, getSimpleBonuses(normalizeASI(effectiveASI)));
     if (subrace) addBonuses(scores, getPlainBonuses(subrace.additionalASI));
@@ -275,6 +286,58 @@ export async function createCharacter(data: PersFormData) {
     const entries = Object.values(validData.featChoiceSelections ?? {});
     for (const choiceOptionId of entries) {
       const option = feat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
+      const co: any = option?.choiceOption;
+      const nameEng = String(co?.optionNameEng ?? "");
+
+      const effectKind = String(co?.effectKind ?? "").trim();
+      if (effectKind === "ASI") {
+        const ability = String(co?.effectAbility ?? "").trim();
+        if (isAbilityKey(ability)) {
+          scores[ability.toUpperCase() as keyof typeof scores] += Number(co?.effectAmount ?? 1) || 1;
+          if (isResilient) resilientSaveAbility = ability.toUpperCase() as Ability;
+          continue;
+        }
+      }
+
+      // Legacy fallback
+      if (!nameEng) continue;
+      if (nameEng.includes("Strength")) {
+        scores.STR += 1;
+        if (isResilient) resilientSaveAbility = Ability.STR;
+      } else if (nameEng.includes("Dexterity")) {
+        scores.DEX += 1;
+        if (isResilient) resilientSaveAbility = Ability.DEX;
+      } else if (nameEng.includes("Constitution")) {
+        scores.CON += 1;
+        if (isResilient) resilientSaveAbility = Ability.CON;
+      } else if (nameEng.includes("Intelligence")) {
+        scores.INT += 1;
+        if (isResilient) resilientSaveAbility = Ability.INT;
+      } else if (nameEng.includes("Wisdom")) {
+        scores.WIS += 1;
+        if (isResilient) resilientSaveAbility = Ability.WIS;
+      } else if (nameEng.includes("Charisma")) {
+        scores.CHA += 1;
+        if (isResilient) resilientSaveAbility = Ability.CHA;
+      }
+    }
+
+    // Persist Resilient save proficiency at creation time.
+    if (isResilient && resilientSaveAbility) {
+      cls.savingThrows = Array.from(new Set([...(cls.savingThrows ?? []), resilientSaveAbility]));
+    }
+  }
+
+  if (backgroundFeat) {
+    const isResilient = backgroundFeat.name === Feats.RESILIENT;
+    let resilientSaveAbility: Ability | null = null;
+
+    addBonuses(scores, getPlainBonuses(backgroundFeat.grantedASI));
+    addBonuses(scores, getSimpleBonuses(backgroundFeat.grantedASI));
+
+    const entries = Object.values(validData.backgroundFeatChoiceSelections ?? {});
+    for (const choiceOptionId of entries) {
+      const option = backgroundFeat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
       const co: any = option?.choiceOption;
       const nameEng = String(co?.optionNameEng ?? "");
 
@@ -361,6 +424,35 @@ export async function createCharacter(data: PersFormData) {
 
       for (const choiceOptionId of Object.values(validData.featChoiceSelections)) {
         const featChoice = feat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
+        const option = featChoice?.choiceOption;
+        if (!option) continue;
+
+        const skillCode = extractSkill(option.optionNameEng);
+        if (skillCode && Object.values(Skills).includes(skillCode as Skills)) {
+          if (option.optionNameEng.includes("Expertise")) {
+            expertiseFromFeat.add(skillCode);
+          } else if (option.optionNameEng.includes("Proficiency")) {
+            allSkills.add(skillCode);
+          }
+        }
+      }
+    }
+  }
+
+  if (backgroundFeat) {
+    if (backgroundFeat.grantedSkills && Array.isArray(backgroundFeat.grantedSkills)) {
+      (backgroundFeat.grantedSkills as string[]).forEach((s) => allSkills.add(s));
+    }
+
+    if (validData.backgroundFeatChoiceSelections) {
+      const extractSkill = (nameEng?: string | null) => {
+        if (!nameEng) return null;
+        const match = nameEng.match(/\(([A-Z_]+)\)$/);
+        return match ? match[1] : nameEng;
+      };
+
+      for (const choiceOptionId of Object.values(validData.backgroundFeatChoiceSelections)) {
+        const featChoice = backgroundFeat.featChoiceOptions?.find((fco) => fco.choiceOptionId === Number(choiceOptionId));
         const option = featChoice?.choiceOption;
         if (!option) continue;
 
@@ -612,6 +704,7 @@ export async function createCharacter(data: PersFormData) {
   (cls.languages ?? []).forEach((l) => languagesKnown.add(translateValue(String(l))));
   (subrace?.additionalLanguages ?? []).forEach((l: Language) => languagesKnown.add(translateValue(String(l))));
   (feat?.grantedLanguages ?? []).forEach((l: Language) => languagesKnown.add(translateValue(String(l))));
+  (backgroundFeat?.grantedLanguages ?? []).forEach((l: Language) => languagesKnown.add(translateValue(String(l))));
 
   for (const opt of raceChoiceOptions) {
     ((opt as any).languages ?? []).forEach((l: Language) => languagesKnown.add(translateValue(String(l))));
@@ -627,6 +720,7 @@ export async function createCharacter(data: PersFormData) {
   appendChoiceCount((subrace as any)?.languagesToChooseCount);
   appendChoiceCount((background as any)?.languagesToChooseCount);
   appendChoiceCount((feat as any)?.grantedLanguageCount);
+  appendChoiceCount((backgroundFeat as any)?.grantedLanguageCount);
   appendChoiceCount((cls as any).languagesToChooseCount);
   for (const opt of raceChoiceOptions) {
     appendChoiceCount((opt as any).languagesToChooseCount);
@@ -646,6 +740,7 @@ export async function createCharacter(data: PersFormData) {
     ...(((subclass as any)?.armorProficiencies ?? []) as ArmorType[]),
     ...(((subrace as any)?.armorProficiencies ?? []) as ArmorType[]),
     ...(((feat as any)?.grantedArmorProficiencies ?? []) as ArmorType[]),
+    ...(((backgroundFeat as any)?.grantedArmorProficiencies ?? []) as ArmorType[]),
   ];
   const armorText = formatArmorProficiencies(Array.from(new Set(armorAll)));
   if (armorText && armorText !== "—") profLines.push(armorText);
@@ -661,6 +756,7 @@ export async function createCharacter(data: PersFormData) {
           .join(", ")
       : "—",
     formatToolProficiencies((feat as any)?.grantedToolProficiencies, undefined),
+    formatToolProficiencies((backgroundFeat as any)?.grantedToolProficiencies, undefined),
   ].filter((x) => x && x !== "—");
   if (toolTextParts.length) profLines.push(toolTextParts.join("\n"));
 
@@ -670,6 +766,7 @@ export async function createCharacter(data: PersFormData) {
     formatWeaponProficiencies((subclass as any)?.weaponProficiencies),
     formatWeaponProficiencies((subrace as any)?.weaponProficiencies),
     formatWeaponProficiencies((feat as any)?.grantedWeaponProficiencies),
+    formatWeaponProficiencies((backgroundFeat as any)?.grantedWeaponProficiencies),
   ].filter((x) => x && x !== "—");
   if (weaponTextParts.length) profLines.push(weaponTextParts.join("\n"));
 
@@ -807,6 +904,30 @@ export async function createCharacter(data: PersFormData) {
               .filter((choiceOptionId) => Number.isFinite(choiceOptionId) && choiceOptionId > 0)
               .map((choiceOptionId) => ({
                 persFeatId: persFeat.persFeatId,
+                choiceOptionId,
+              })),
+            skipDuplicates: true,
+          });
+        }
+      }
+
+      // Save Background Feat + choices
+      if (validData.backgroundFeatId) {
+        const persBgFeat = await tx.persFeat.create({
+          data: {
+            persId: createdPers.persId,
+            featId: validData.backgroundFeatId,
+          },
+        });
+
+        const bgEntries = Object.entries(validData.backgroundFeatChoiceSelections ?? {});
+        if (bgEntries.length > 0) {
+          await tx.persFeatChoice.createMany({
+            data: bgEntries
+              .map(([, choiceOptionId]) => Number(choiceOptionId))
+              .filter((choiceOptionId) => Number.isFinite(choiceOptionId) && choiceOptionId > 0)
+              .map((choiceOptionId) => ({
+                persFeatId: persBgFeat.persFeatId,
                 choiceOptionId,
               })),
             skipDuplicates: true,
@@ -1012,7 +1133,13 @@ export async function createCharacter(data: PersFormData) {
       // Update HP based on Class and CON mod
       const conMod = Math.floor((scores.CON - 10) / 2);
       const hitDie = cls.hitDie;
-      const maxHp = hitDie + conMod;
+      let maxHp = hitDie + conMod;
+
+      const hasTough = (feat?.name === Feats.TOUGH) || (backgroundFeat?.name === Feats.TOUGH);
+      if (hasTough) {
+        maxHp += 2;
+      }
+
       await tx.pers.update({
         where: { persId: createdPers.persId },
         data: {
