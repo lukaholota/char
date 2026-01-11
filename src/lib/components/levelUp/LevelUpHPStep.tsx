@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,10 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { Ability } from "@prisma/client";
 import type { FeatPrisma } from "@/lib/types/model-types";
-
-type Mode = "AVERAGE" | "RANDOM" | "MANUAL";
 
 interface Props {
   hitDie: number; // e.g. 10 for d10
@@ -93,8 +90,9 @@ export default function LevelUpHPStep({
   onNextDisabledChange,
 }: Props) {
   const { formData, updateFormData } = usePersFormStore();
-  const [mode, setMode] = useState<Mode>("AVERAGE");
-  const [hpInput, setHpInput] = useState<string>("");
+  
+  const mode = formData.levelUpHpMode || "AVERAGE";
+  const hpInput = formData.levelUpHpManualInput || "";
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const selectedFeat = useMemo(() => {
@@ -126,58 +124,53 @@ export default function LevelUpHPStep({
   }, [formData.levelUpHpIncrease]);
 
   useEffect(() => {
-    // Keep input in sync when value is set programmatically (average/random).
-    // Do not override while user is actively typing unless value is cleared.
-    if (typeof hpIncrease === "number") {
-      setHpInput(String(hpIncrease));
-    } else if (hpIncrease === undefined && mode === "MANUAL") {
-      setHpInput("");
-    }
-  }, [hpIncrease, mode]);
-
-  useEffect(() => {
     const disabled = typeof hpIncrease !== "number" || !Number.isFinite(hpIncrease) || hpIncrease < 0;
     onNextDisabledChange?.(disabled);
   }, [hpIncrease, onNextDisabledChange]);
 
-  const setHpIncrease = (value: number) => {
-    const safe = Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
-    updateFormData({ levelUpHpIncrease: safe });
-  };
-
-  const clearHpIncrease = () => {
-    updateFormData({ levelUpHpIncrease: undefined });
-  };
-
   const applyAverage = () => {
-    setMode("AVERAGE");
-    setHpIncrease(avg + conMod + toughBonus);
+    updateFormData({ 
+        levelUpHpMode: "AVERAGE",
+        levelUpHpIncrease: avg 
+    });
   };
 
   const applyRandom = () => {
-    setMode("RANDOM");
     const roll = Math.floor(Math.random() * hitDie) + 1;
-    setHpIncrease(roll + conMod + toughBonus);
+    updateFormData({ 
+        levelUpHpMode: "RANDOM",
+        levelUpHpIncrease: roll 
+    });
   };
 
   const enableManual = () => {
-    setMode("MANUAL");
+    updateFormData({ 
+      levelUpHpMode: "MANUAL",
+      levelUpHpManualInput: formData.levelUpHpManualInput || (typeof hpIncrease === 'number' ? String(hpIncrease) : "")
+    });
     queueMicrotask(() => inputRef.current?.focus());
   };
 
-  // If user is in AVERAGE mode, keep value synced when CON changes (ASI/feat from previous step).
+  // If user is in AVERAGE mode, keep value synced when hitdie might change (unlikely here but good for consistency)
   useEffect(() => {
-    if (mode !== "AVERAGE") return;
-    applyAverage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conMod, avg, mode]);
+    if (mode === "AVERAGE" && hpIncrease !== avg) {
+        updateFormData({ levelUpHpIncrease: avg });
+    }
+  }, [avg, mode, hpIncrease, updateFormData]);
 
   useEffect(() => {
     // Initialize default once.
-    if (typeof hpIncrease === "number") return;
+    if (formData.levelUpHpMode) return;
     applyAverage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const oldConMod = useMemo(() => getAbilityMod(baseStats.con), [baseStats.con]);
+  const newConMod = conMod;
+  const conModDiff = newConMod - oldConMod;
+  const retroactiveConHp = conModDiff > 0 ? conModDiff * (nextLevel - 1) : 0;
+
+  const totalIncrease = typeof hpIncrease === "number" ? hpIncrease + newConMod + toughBonus + retroactiveConHp : null;
 
   return (
     <form id={formId} className="space-y-4">
@@ -204,7 +197,7 @@ export default function LevelUpHPStep({
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm text-slate-300">Приріст HP за рівень</label>
+            <label className="text-sm text-slate-300">Параметр Кидка (Кістка хітів)</label>
             <Input
               ref={inputRef}
               type="number"
@@ -212,24 +205,24 @@ export default function LevelUpHPStep({
               min={0}
               value={mode === "MANUAL" ? hpInput : typeof hpIncrease === "number" ? String(hpIncrease) : ""}
               onChange={(e) => {
-                setMode("MANUAL");
                 const next = e.target.value;
-                setHpInput(next);
-                if (next.trim() === "") {
-                  clearHpIncrease();
-                  return;
-                }
-                const val = Number(next);
-                if (!Number.isFinite(val)) {
-                  clearHpIncrease();
-                  return;
-                }
-                setHpIncrease(val);
+                const val = next.trim() === "" ? undefined : Number(next);
+                updateFormData({ 
+                    levelUpHpMode: "MANUAL",
+                    levelUpHpManualInput: next,
+                    levelUpHpIncrease: (val !== undefined && Number.isFinite(val)) ? val : undefined
+                });
               }}
               className="border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
             />
-            <p className="text-xs text-slate-400">
-              Статура враховується автоматично й оновлюється після ASI/риси.
+            <div className="mt-2 flex items-center justify-between rounded-lg bg-white/5 p-3 text-sm">
+                <span className="text-slate-400">Разом приріст:</span>
+                <span className="font-bold text-cyan-400 text-lg">
+                    {totalIncrease !== null ? `+${totalIncrease}` : "?"}
+                </span>
+            </div>
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
+              Формула: Кістка ({hpIncrease || 0}) + Статура ({newConMod}) {toughBonus > 0 ? `+ Здоровань (${toughBonus})` : ""} {retroactiveConHp > 0 ? `+ Статура за мин. рівні (${retroactiveConHp})` : ""}
             </p>
           </div>
 

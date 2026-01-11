@@ -208,7 +208,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
   const [pendingPick, setPendingPick] = useState<{ groupName: string; optionId: number; pickCount: number } | null>(null);
   const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
 
-  const schema = mode === 'race' ? featChoiceOptionsSchema : backgroundFeatChoiceOptionsSchema;
+  const schema = (mode === 'race' ? featChoiceOptionsSchema : backgroundFeatChoiceOptionsSchema) as any;
   const storageKey = mode === 'race' ? 'featChoiceSelections' : 'backgroundFeatChoiceSelections';
   
   const { form, onSubmit: baseOnSubmit } = useStepForm(schema, (data) => {

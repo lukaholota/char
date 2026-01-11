@@ -257,7 +257,7 @@ export async function levelUpCharacter(persId: number, data: any) {
     const info = await getLevelUpInfo(persId);
     if ("error" in info) return info;
 
-    const { pers, classes } = info;
+    const { pers, classes, feats } = info;
 
     const nextLevel = pers.level + 1;
     if (nextLevel > 20) return { error: "Max level reached" };
@@ -513,14 +513,16 @@ export async function levelUpCharacter(persId: number, data: any) {
         : null;
 
     // ===== 3) HP increase (from wizard) =====
-    const hpIncreaseFromWizard = Number(data?.levelUpHpIncrease);
-    const hpIncrease = Number.isFinite(hpIncreaseFromWizard)
+    const hpIncreaseFromWizard = data?.levelUpHpIncrease;
+    const oldConMod = Math.floor((pers.con - 10) / 2);
+    const newConMod = Math.floor((newStats.con - 10) / 2);
+    const conModDiff = newConMod - oldConMod;
+
+    // levelUpHpIncrease should contain ONLY the hit die portion (avg or roll)
+    const classToLevelUp = selectedClass || pers.class;
+    const hitDiePart = typeof hpIncreaseFromWizard === "number" && Number.isFinite(hpIncreaseFromWizard)
       ? Math.max(0, Math.trunc(hpIncreaseFromWizard))
-      : (() => {
-        // fallback: average
-        const conMod = Math.floor((newStats.con - 10) / 2);
-        return Math.floor(pers.class.hitDie / 2) + 1 + conMod;
-      })();
+      : (Math.floor(classToLevelUp.hitDie / 2) + 1);
 
     // Tough logic
     const alreadyHasTough = (pers as any).feats?.some((pf: any) => pf.feat?.name === Feats.TOUGH);
@@ -533,8 +535,13 @@ export async function levelUpCharacter(persId: number, data: any) {
       toughBonus = 2;
     }
 
-    const newMaxHp = pers.maxHp + hpIncrease + toughBonus;
-    const newCurrentHp = pers.currentHp + hpIncrease + toughBonus;
+    // CON increase is retroactive
+    const retroactiveConHp = conModDiff * pers.level;
+
+    const hpSumToAdd = hitDiePart + newConMod + toughBonus + retroactiveConHp;
+
+    const newMaxHp = pers.maxHp + hpSumToAdd;
+    const newCurrentHp = pers.currentHp + hpSumToAdd;
 
     // ===== 4) Subclass selection for the selected class =====
     const chosenSubclassIdRaw = data?.subclassId ? Number(data.subclassId) : undefined;

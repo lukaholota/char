@@ -261,6 +261,8 @@ export const fullCharacterSchema = z.object({
   // -------------------------------------------------------------------------
   levelUpPath: z.enum(["EXISTING", "MULTICLASS"]).optional(),
   levelUpHpIncrease: z.number().int().min(0).optional(),
+  levelUpHpMode: z.enum(["AVERAGE", "RANDOM", "MANUAL"]).optional(),
+  levelUpHpManualInput: z.string().optional(),
 })
 
  .superRefine((data, ctx) => {
