@@ -18,6 +18,30 @@ const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/magicItems.json');
 // KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
 export const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
+/**
+ * Нижня межа каталогу. src/lib/generated/magicItems.json у .gitignore і з git НЕ
+ * відновлюється, тому запис коротшого файла знищує каталог назавжди разом із
+ * публічними адресами /magic-items/NNNN. У робочій базі станом на 2026-08-22 лежить
+ * 248 рядків проти 473 у prisma/seed/magicItemSeed.ts — тобто без цієї перевірки
+ * будь-який `bun run build` тут-таки викидає 225 предметів.
+ *
+ * Межу ПІДНІМАЮТЬ після того, як власник прогнав `bun run seed:magic-items:prod`,
+ * а не прибирають. Полагодити недобір можна тільки сідом, не генератором.
+ */
+const MINIMUM_EXPECTED_ITEMS = 472;
+
+export function failOnShrunkCatalog(actual: number, minimum = MINIMUM_EXPECTED_ITEMS): void {
+  if (actual >= minimum) return;
+
+  throw new Error(
+    `Каталог магічних предметів схлопнувся: база віддала ${actual}, очікували щонайменше ${minimum}.\n` +
+      "Файл НЕ перезаписано. Спершу прожени сід у цільову базу:\n" +
+      "  bun run seed:magic-items:test   (перевірка)\n" +
+      "  bun run seed:magic-items:prod   (застосовує власник)\n" +
+      "Пояснення — docs/o14-magic-items-aidedd/kr14.1-single-source.md.",
+  );
+}
+
 export function buildMagicItemsForGenerationQuery() {
   return {
     where: { ruleset: ACTIVE_RULESET },
@@ -68,6 +92,8 @@ async function main() {
       weaponProficienciesSpecial: item.weaponProficienciesSpecial ?? undefined,
       bonusToSavingThrows: item.bonusToSavingThrows ?? undefined,
     }));
+
+    failOnShrunkCatalog(data.length);
 
     // Ensure directory exists
     mkdirSync(dirname(OUTPUT_PATH), { recursive: true });

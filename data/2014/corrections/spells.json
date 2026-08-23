@@ -1,0 +1,210 @@
+{
+  "_": "Механічні виправлення каталогу заклинань 2014, знайдені звіркою KR16.2 проти 5etools. Кожен запис перевіряється тестом tests/content/spell-corrections-2014.test.ts: після застосування розібрані факти мусять збігтися з пінованим корпусом. Файл — вхід сідера prisma/seed/spellCorrections2014.ts, а не документація.",
+  "_revision": "e5f3e77b303a92df10487207857200245e71957c",
+  "_scope": "Тільки механіка: рівень, школа, ритуал, концентрація, тривалість, дальність, компоненти, базовий перелік класів. Текст описів не перекладається — виняток один, і він числовий (Disintegrate).",
+  "_gated": "Класи з розширених списків TCE/XGE (46 заклинань) сюди не входять: власник вирішив їх брати, але з показом книги, а колонки під це в spell_classes ще немає — див. db/changes/2026-08-23-spell-classes-source.sql.",
+  "_notADefect": "Monk у переліку Astral Projection — не дефект: 5etools зараховує до списку класу й ті заклинання, які дає фіча (Empty Body, 18 рівень). Списку заклинань у Монаха немає, тож у нас цього рядка бути не повинно.",
+  "corrections": [
+    {
+      "engName": "Staggering Smite",
+      "why": "PHB: заклинання 4-го рівня, у нас 1",
+      "set": { "level": 4 }
+    },
+    {
+      "engName": "Contact Other Plane",
+      "why": "PHB: ритуал",
+      "set": { "hasRitual": "так" }
+    },
+    {
+      "engName": "Wristpocket",
+      "why": "TCE: школа Conjuration",
+      "set": { "school": "Виклик" }
+    },
+    {
+      "engName": "Summon Undead",
+      "why": "TCE: школа Necromancy; компоненти V, S, M — «С» у нас записана латиницею, тому читалася як відсутня",
+      "set": {
+        "school": "Некромантія",
+        "components": "В, С, М (позолочений череп вартістю не менше 300 зм)"
+      }
+    },
+    {
+      "engName": "Wall of Water",
+      "why": "EGW: школа Evocation",
+      "set": { "school": "Втілення" }
+    },
+    {
+      "engName": "Pulse Wave",
+      "why": "EGW: школа Evocation, компоненти V, S",
+      "set": { "school": "Втілення", "components": "В, С" }
+    },
+    {
+      "engName": "Gravity Sinkhole",
+      "why": "EGW: школа Evocation",
+      "set": { "school": "Втілення" }
+    },
+    {
+      "engName": "Gravity Fissure",
+      "why": "EGW: школа Evocation, дальність — 100-футова лінія від себе, компоненти V, S, M, тривалість миттєва",
+      "set": {
+        "school": "Втілення",
+        "range": "На себе (100-футова лінія)",
+        "components": "В, С, М (жменя залізних ошурок)",
+        "duration": "Миттєво"
+      }
+    },
+    {
+      "engName": "Reality Break",
+      "why": "EGW: школа Conjuration",
+      "set": { "school": "Виклик" }
+    },
+    {
+      "engName": "Dark Star",
+      "why": "EGW: школа Evocation",
+      "set": { "school": "Втілення" }
+    },
+    {
+      "engName": "Ravenous Void",
+      "why": "EGW: школа Evocation",
+      "set": { "school": "Втілення" }
+    },
+    {
+      "engName": "Mighty Fortress",
+      "why": "XGE: тривалість миттєва, концентрації немає",
+      "set": { "duration": "Миттєво", "hasConcentration": "ні" }
+    },
+    {
+      "engName": "Mental Prison",
+      "why": "XGE: концентрація до 1 хвилини, не до години",
+      "set": { "duration": "Концентрація, до 1 хвилини" }
+    },
+    {
+      "engName": "Booming Blade",
+      "why": "TCE: дальність — 5-футовий радіус від себе (як у Green-Flame Blade і Sword Burst), компоненти S, M",
+      "set": {
+        "range": "На себе (радіус 5 футів)",
+        "components": "С, М (зброя ближнього бою, що коштує принаймні 1 см)"
+      }
+    },
+    {
+      "engName": "Green-Flame Blade",
+      "why": "TCE: компоненти S, M",
+      "set": { "components": "С, М (зброя ближнього бою, що коштує принаймні 1 см)" }
+    },
+    {
+      "engName": "Lightning Lure",
+      "why": "TCE: дальність — 15-футовий радіус від себе, а не 15 футів",
+      "set": { "range": "На себе (радіус 15 футів)" }
+    },
+    {
+      "engName": "See Invisibility",
+      "why": "PHB: дальність «На себе», не «Дотик»",
+      "set": { "range": "На себе" }
+    },
+    {
+      "engName": "Shapechange",
+      "why": "PHB: дальність «На себе», не «Дотик»",
+      "set": { "range": "На себе" }
+    },
+    {
+      "engName": "Fortune's Favor",
+      "why": "EGW: дальність 60 футів, не «Дотик»",
+      "set": { "range": "60 футів" }
+    },
+    {
+      "engName": "Crusader's Mantle",
+      "why": "PHB: 30-футовий радіус від себе (як в Aura of Life і Aura of Purity)",
+      "set": { "range": "На себе (30-футовий радіус)" }
+    },
+    {
+      "engName": "Absorb Elements",
+      "why": "XGE: компонент S; у нас стояла латинська «C», тому читалася як відсутність компонентів",
+      "set": { "components": "С" }
+    },
+    {
+      "engName": "Nathair's Mischief",
+      "why": "FTD: компоненти S, M — вербального немає",
+      "set": { "components": "С, М (шматочок скоринки від яблучного пирога)" }
+    },
+    {
+      "engName": "Rime's Binding Ice",
+      "why": "FTD: компоненти S, M — вербального немає",
+      "set": { "components": "С, М (флакон із талою водою)" }
+    },
+    {
+      "engName": "Steel Wind Strike",
+      "why": "XGE: компоненти S, M — вербального немає",
+      "set": { "components": "С, М (зброя ближнього бою вартістю не менше 1 см)" }
+    },
+    {
+      "engName": "Negative Energy Flood",
+      "why": "XGE: компоненти V, M — соматичного немає",
+      "set": { "components": "В, М (зламана кістка та квадрат чорного шовку)" }
+    },
+    {
+      "engName": "Whirlwind",
+      "why": "XGE: компоненти V, M — соматичного немає",
+      "set": { "components": "В, М (соломинка)" }
+    },
+    {
+      "engName": "Maddening Darkness",
+      "why": "XGE: компоненти V, M — соматичного немає",
+      "set": { "components": "В, М (крапля смоли, змішана з краплею ртуті)" }
+    },
+    {
+      "engName": "Holy Weapon",
+      "why": "XGE: компоненти V, S — матеріального немає",
+      "set": { "components": "В, С" }
+    },
+    {
+      "engName": "Disintegrate",
+      "why": "PHB: на вищих рівнях ушкодження зростають на 3к6 за чарунку, а не на 1к10",
+      "replaceInDescription": [["на 1к10 за кожну чарунку", "на 3к6 за кожну чарунку"]]
+    },
+    {
+      "engName": "Sword Burst",
+      "why": "TCE: заклинання є в базовому переліку Винахідника",
+      "addClasses": ["Винахідник"]
+    },
+    {
+      "engName": "Invisibility",
+      "why": "TCE: заклинання є в базовому переліку Винахідника",
+      "addClasses": ["Винахідник"]
+    },
+    {
+      "engName": "Web",
+      "why": "TCE: заклинання є в базовому переліку Винахідника",
+      "addClasses": ["Винахідник"]
+    },
+    {
+      "engName": "Spider Climb",
+      "why": "TCE: заклинання є в базовому переліку Винахідника",
+      "addClasses": ["Винахідник"]
+    },
+    {
+      "engName": "Stoneskin",
+      "why": "TCE: заклинання є в базовому переліку Винахідника",
+      "addClasses": ["Винахідник"]
+    },
+    {
+      "engName": "Mordenkainen's Private Sanctum",
+      "why": "TCE: заклинання є в базовому переліку Винахідника",
+      "addClasses": ["Винахідник"]
+    },
+    {
+      "engName": "Leomund's Secret Chest",
+      "why": "TCE: заклинання є в базовому переліку Винахідника",
+      "addClasses": ["Винахідник"]
+    },
+    {
+      "engName": "Skill Empowerment",
+      "why": "XGE: Друїда в переліку немає — ні в базовому, ні в розширеному",
+      "removeClasses": ["Друїд"]
+    },
+    {
+      "engName": "Mass Polymorph",
+      "why": "XGE: Чорнокнижника в переліку немає — ні в базовому, ні в розширеному",
+      "removeClasses": ["Чорнокнижник"]
+    }
+  ]
+}

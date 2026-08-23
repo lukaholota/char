@@ -40,7 +40,7 @@ export function buildSpellsForGenerationQuery() {
       source: true,
       hasRitual: true,
       hasConcentration: true,
-      spellClasses: { select: { className: true } },
+      spellClasses: { select: { className: true, source: true } },
       spellRaces: { select: { raceName: true } },
     },
   };
