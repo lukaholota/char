@@ -1,8 +1,8 @@
 /**
- * KR6.3 Крок 3 — 2024 Species/Races seed
+ * KR6.3 / KR7.1 — 2024 Species/Races seed with traits & features
  */
 
-import { PrismaClient, Source, Size } from "@prisma/client";
+import { PrismaClient, Source, Size, FeatureDisplayType } from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -10,6 +10,7 @@ type Trait2024 = {
   engName: string;
   name: string;
   descriptionEng: string;
+  description?: string;
 };
 
 type Species2024 = {
@@ -37,8 +38,9 @@ export const seedRaces2024 = async (prisma: PrismaClient) => {
   );
   const species: Species2024[] = JSON.parse(raw);
 
-  console.log(`🐾 Seeding ${species.length} 2024 species…`);
-  let upserted = 0;
+  console.log(`🐾 Seeding ${species.length} 2024 species and their traits…`);
+  let upsertedRaces = 0;
+  let upsertedFeatures = 0;
   let errors = 0;
 
   for (const sp of species) {
@@ -55,12 +57,55 @@ export const seedRaces2024 = async (prisma: PrismaClient) => {
     };
 
     try {
-      await (prisma.race as any).upsert({
+      const raceRecord = await (prisma.race as any).upsert({
         where: { name_ruleset: { name: nameEnum, ruleset: "RULES_2024" } },
         update: payload,
         create: payload,
       });
-      upserted++;
+      upsertedRaces++;
+
+      // Seed species traits as Features & connect via RaceTrait
+      for (const trait of sp.traits) {
+        const featureEngName = `${sp.engName}: ${trait.engName} (2024)`;
+        const traitDescription = trait.description || trait.descriptionEng;
+
+        const feature = await prisma.feature.upsert({
+          where: { engName: featureEngName },
+          update: {
+            name: trait.name,
+            description: traitDescription,
+            shortDescription: trait.name,
+            ruleset: "RULES_2024",
+            displayType: [FeatureDisplayType.PASSIVE],
+          },
+          create: {
+            name: trait.name,
+            engName: featureEngName,
+            description: traitDescription,
+            shortDescription: trait.name,
+            ruleset: "RULES_2024",
+            displayType: [FeatureDisplayType.PASSIVE],
+          },
+        });
+        upsertedFeatures++;
+
+        const existingTrait = await prisma.raceTrait.findFirst({
+          where: {
+            raceId: raceRecord.raceId,
+            featureId: feature.featureId,
+          },
+        });
+
+        if (!existingTrait) {
+          await prisma.raceTrait.create({
+            data: {
+              raceId: raceRecord.raceId,
+              featureId: feature.featureId,
+              ruleset: "RULES_2024",
+            },
+          });
+        }
+      }
     } catch (err: unknown) {
       errors++;
       const e = err as { code?: string; message?: string };
@@ -70,5 +115,7 @@ export const seedRaces2024 = async (prisma: PrismaClient) => {
     }
   }
 
-  console.log(`✅ 2024 Species/Races: ${upserted} upserted, ${errors} errors`);
+  console.log(
+    `✅ 2024 Species/Races: ${upsertedRaces} races upserted, ${upsertedFeatures} features upserted, ${errors} errors`
+  );
 };

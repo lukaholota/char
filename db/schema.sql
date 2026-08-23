@@ -753,7 +753,22 @@ CREATE TYPE public."Source" AS ENUM (
     'OGA',
     'LR',
     'BOMT',
-    'PAITM'
+    'PAITM',
+    'ESSENTIALS_KIT',
+    'WDH',
+    'TOD',
+    'VEOR',
+    'DDB',
+    'AL',
+    'DRAGON_MAG',
+    'TOA',
+    'SKT',
+    'CM',
+    'WDMM',
+    'QFTIS',
+    'POTA',
+    'CHAINS_OF_ASMODEUS',
+    'HOMEBREW'
 );
 
 
@@ -1744,8 +1759,56 @@ CREATE TABLE public.creature (
     lair_info character varying,
     region_effects character varying,
     xp character varying,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    initiative character varying,
+    gear character varying,
+    bonus_actions character varying,
+    damage_vulnerability character varying,
+    xp_in_lair character varying,
+    image_url character varying
 );
+
+
+--
+-- Name: COLUMN creature.initiative; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.creature.initiative IS 'Статблок 2024: «+7 (17)». У 2014 порожнє.';
+
+
+--
+-- Name: COLUMN creature.gear; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.creature.gear IS 'Статблок 2024: спорядження істоти. У 2014 порожнє.';
+
+
+--
+-- Name: COLUMN creature.bonus_actions; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.creature.bonus_actions IS 'Статблок 2024: секція «Бонусні дії», HTML як і решта секцій.';
+
+
+--
+-- Name: COLUMN creature.damage_vulnerability; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.creature.damage_vulnerability IS 'Вразливість до ушкоджень. Є в обох редакціях, колонки бракувало з самого початку.';
+
+
+--
+-- Name: COLUMN creature.xp_in_lair; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.creature.xp_in_lair IS 'Друге число CR 2024: «or 7,200 in lair».';
+
+
+--
+-- Name: COLUMN creature.image_url; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.creature.image_url IS 'Картинка істоти. Заповнюється в KR12.4.';
 
 
 --
@@ -2990,8 +3053,16 @@ CREATE TABLE public.spell_classes (
     class_id integer NOT NULL,
     spell_id integer NOT NULL,
     class_name character varying(255) NOT NULL,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    source public."Source"
 );
+
+
+--
+-- Name: COLUMN spell_classes.source; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.spell_classes.source IS 'Книга розширеного списку заклинань, що дала класу це заклинання. NULL — базовий перелік.';
 
 
 --
@@ -4515,6 +4586,13 @@ CREATE UNIQUE INDEX pers_feature_pers_id_feature_id_key ON public.pers_feature U
 
 
 --
+-- Name: pers_folder_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_folder_id_idx ON public.pers USING btree (folder_id);
+
+
+--
 -- Name: pers_folder_member_folder_id_user_id_key; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -4561,6 +4639,13 @@ CREATE INDEX pers_folder_user_id_idx ON public.pers_folder USING btree (user_id)
 --
 
 CREATE UNIQUE INDEX pers_multiclass_pers_id_class_id_key ON public.pers_multiclass USING btree (pers_id, class_id);
+
+
+--
+-- Name: pers_parentpersid_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_parentpersid_idx ON public.pers USING btree (parentpersid);
 
 
 --
@@ -4617,6 +4702,13 @@ CREATE INDEX pers_spell_pers_id_idx ON public.pers_spell USING btree (pers_id);
 --
 
 CREATE UNIQUE INDEX pers_spell_pers_id_spell_id_key ON public.pers_spell USING btree (pers_id, spell_id);
+
+
+--
+-- Name: pers_user_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_user_id_idx ON public.pers USING btree (user_id);
 
 
 --

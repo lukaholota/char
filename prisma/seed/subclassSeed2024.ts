@@ -2,7 +2,7 @@
  * KR6.3 Крок 3 — 2024 Subclasses seed
  */
 
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, FeatureDisplayType } from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -10,6 +10,11 @@ type SubclassFeature2024 = {
   level: number;
   name: string;
   description?: string;
+};
+
+type SubclassFeatureEng2024 = {
+  level: number;
+  name: string;
 };
 
 type SubclassJson2024 = {
@@ -22,6 +27,7 @@ type SubclassJson2024 = {
   tagline?: string;
   flavorText?: string;
   features?: SubclassFeature2024[];
+  featuresEng?: SubclassFeatureEng2024[];
   source: string;
 };
 
@@ -41,6 +47,7 @@ export const seedSubclasses2024 = async (prisma: PrismaClient) => {
 
   console.log(`✨ Seeding ${subclasses.length} 2024 subclasses…`);
   let upserted = 0;
+  let upsertedFeatures = 0;
   let errors = 0;
 
   for (const sc of subclasses) {
@@ -71,7 +78,7 @@ export const seedSubclasses2024 = async (prisma: PrismaClient) => {
     };
 
     try {
-      await (prisma.subclass as any).upsert({
+      const subclassRecord = await (prisma.subclass as any).upsert({
         where: {
           classId_name: {
             classId: classRecord.classId,
@@ -82,6 +89,8 @@ export const seedSubclasses2024 = async (prisma: PrismaClient) => {
         create: payload,
       });
       upserted++;
+
+      upsertedFeatures += await seedSubclassFeatures(prisma, sc, subclassRecord.subclassId);
     } catch (err: unknown) {
       errors++;
       const e = err as { code?: string; message?: string };
@@ -91,5 +100,56 @@ export const seedSubclasses2024 = async (prisma: PrismaClient) => {
     }
   }
 
-  console.log(`✅ 2024 Subclasses: ${upserted} upserted, ${errors} errors`);
+  console.log(
+    `✅ 2024 Subclasses: ${upserted} upserted, ${upsertedFeatures} features upserted, ${errors} errors`
+  );
 };
+
+async function seedSubclassFeatures(
+  prisma: PrismaClient,
+  sc: SubclassJson2024,
+  subclassId: number
+) {
+  let upserted = 0;
+
+  for (const [index, feature] of (sc.features ?? []).entries()) {
+    const engName = sc.featuresEng?.[index]?.name ?? feature.name;
+    const featureEngName = `${sc.engName}: ${engName} (2024)`;
+    const description = feature.description ?? feature.name;
+
+    const featureRecord = await prisma.feature.upsert({
+      where: { engName: featureEngName },
+      update: {
+        name: feature.name,
+        description,
+        shortDescription: feature.name,
+        ruleset: "RULES_2024",
+        displayType: [FeatureDisplayType.PASSIVE],
+      },
+      create: {
+        name: feature.name,
+        engName: featureEngName,
+        description,
+        shortDescription: feature.name,
+        ruleset: "RULES_2024",
+        displayType: [FeatureDisplayType.PASSIVE],
+      },
+    });
+    upserted++;
+
+    await prisma.subclassFeature.upsert({
+      where: {
+        subclassId_featureId: { subclassId, featureId: featureRecord.featureId },
+      },
+      update: { levelGranted: feature.level, ruleset: "RULES_2024" },
+      create: {
+        subclassId,
+        featureId: featureRecord.featureId,
+        levelGranted: feature.level,
+        ruleset: "RULES_2024",
+      },
+    });
+  }
+
+  return upserted;
+}
