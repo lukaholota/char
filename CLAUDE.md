@@ -104,9 +104,20 @@ runner works, not that the assertion bites.
 (`rg` by concept, not by filename). A duplicated component is a regression, not a feature.
 This codebase's worst failures come from divergent copies of the same widget.
 
-**Translations.** When translating seed data, terms come from `dictionary.json`. UI strings come
-from `src/lib/refs/translation.ts`. Never introduce a new constant for a term that already exists
-in `translation.ts`.
+**Translations — one file to look in: `src/lib/refs/dictionary.json`.** It holds three top-level
+keys: `DND_DICTIONARY` (the concept glossary — mechanics, conditions, damage types, equipment),
+`SPELLS` (501 ratified spell names), and `CONTENT_TRANSLATIONS` (33 enum-keyed maps — races,
+classes, subclasses, backgrounds, feats, weapons, armor, tools, languages, **sources**… 918 terms).
+
+`CONTENT_TRANSLATIONS` is a **mirror** of `src/lib/refs/translation.ts`, which stays the source of
+truth for UI strings and the file components import. Regenerate the mirror with
+`npx tsx scripts/sync-dictionary-from-translation.ts`; `tests/content/dictionary-mirrors-translation.test.ts`
+fails if the two drift. Never introduce a new constant for a term that already exists in either.
+
+Why the mirror exists: the split cost a real mistake. A translation batch looked for
+«Monster Manual» in `dictionary.json`, did not find it, and concluded the term did not exist —
+while `translation.ts` had held `MM: "Бестіарій (2014)"` all along. **Grep `dictionary.json`
+before deciding a term is missing, and never invent one that grep would have found.**
 
 **Schema workflow — the database is the source of truth.** There are no migrations and none are
 wanted. To change the schema:
@@ -141,6 +152,11 @@ breaks `source` in `scripts/lib/pg.sh`. Do not move the `beforeEach` reset into 
 that would drag the pure tests into Postgres. Never name a test helper `useSomething`:
 `react-hooks/rules-of-hooks` treats the `use` prefix as a React hook and fails the lint with an
 error, not a warning.
+
+Run them through **`bun run test`**, never a bare `vitest run`. The npm scripts wrap vitest in
+`scripts/with-test-db-lock.sh`, a machine-wide lock on `spells_test`: the suite truncates user
+tables, so two sessions testing at once wipe each other's fixtures and go red for no reason. The
+lock waits, prints who holds it, and clears itself if the holding process dies.
 
 **Code style.** Follow the global style rules (minimal comments, verb-named functions, coordinator
 function on top reading as named steps, details in small helpers below). Applied here that means:
