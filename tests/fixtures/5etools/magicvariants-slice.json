@@ -1,0 +1,79 @@
+{
+ "magicvariant": [
+  {
+   "name": "+1 Ammunition",
+   "referenceSources": [
+    "CoA",
+    "ToA"
+   ],
+   "edition": "classic",
+   "type": "GV|DMG",
+   "requires": [
+    {
+     "type": "A"
+    },
+    {
+     "type": "AF|DMG"
+    },
+    {
+     "type": "A|XPHB"
+    },
+    {
+     "type": "AF|XDMG"
+    }
+   ],
+   "ammo": true,
+   "inherits": {
+    "namePrefix": "+1 ",
+    "source": "DMG",
+    "page": 150,
+    "srd": true,
+    "reprintedAs": [
+     "+1 Ammunition|XDMG"
+    ],
+    "tier": "minor",
+    "rarity": "uncommon",
+    "bonusWeapon": "+1",
+    "entries": [
+     "You have a {=bonusWeapon} bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical."
+    ],
+    "lootTables": [
+     "Magic Item Table B"
+    ]
+   }
+  },
+  {
+   "name": "+1 Ammunition",
+   "type": "GV|XDMG",
+   "requires": [
+    {
+     "type": "A|XPHB"
+    },
+    {
+     "type": "AF|XDMG"
+    }
+   ],
+   "ammo": true,
+   "entries": [
+    "You have a +1 bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical.",
+    "This ammunition is typically found or sold in quantities of ten or twenty pieces. Ten pieces of this ammunition are equivalent in value to a potion of the same rarity {@note ({@table Magic Item Values by Rarity; Magic Item Rarities and Values|XDMG|200 GP})}."
+   ],
+   "inherits": {
+    "namePrefix": "+1 ",
+    "source": "XDMG",
+    "page": 228,
+    "srd52": true,
+    "basicRules2024": true,
+    "rarity": "uncommon",
+    "bonusWeapon": "+1",
+    "entries": [
+     "You have a {=bonusWeapon} bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical."
+    ],
+    "lootTables": [
+     "Armaments - Uncommon|XDMG",
+     "Implements - Uncommon|XDMG"
+    ]
+   }
+  }
+ ]
+}

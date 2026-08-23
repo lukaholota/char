@@ -1,0 +1,134 @@
+{
+ "spell": [
+  {
+   "name": "Chill Touch",
+   "source": "PHB",
+   "page": 221,
+   "srd": true,
+   "referenceSources": [
+    "CRCotN",
+    "IDRotF"
+   ],
+   "reprintedAs": [
+    "Chill Touch|XPHB"
+   ],
+   "level": 0,
+   "school": "N",
+   "time": [
+    {
+     "number": 1,
+     "unit": "action"
+    }
+   ],
+   "range": {
+    "type": "point",
+    "distance": {
+     "type": "feet",
+     "amount": 120
+    }
+   },
+   "components": {
+    "v": true,
+    "s": true
+   },
+   "duration": [
+    {
+     "type": "timed",
+     "duration": {
+      "type": "round",
+      "amount": 1
+     }
+    }
+   ],
+   "entries": [
+    "You create a ghostly, skeletal hand in the space of a creature within range. Make a ranged spell attack against the creature to assail it with the chill of the grave. On a hit, the target takes {@damage 1d8} necrotic damage, and it can't regain hit points until the start of your next turn. Until then, the hand clings to the target.",
+    "If you hit an undead target, it also has disadvantage on attack rolls against you until the end of your next turn.",
+    "This spell's damage increases by {@damage 1d8} when you reach 5th level ({@damage 2d8}), 11th level ({@damage 3d8}), and 17th level ({@damage 4d8})."
+   ],
+   "scalingLevelDice": {
+    "label": "necrotic damage",
+    "scaling": {
+     "1": "1d8",
+     "5": "2d8",
+     "11": "3d8",
+     "17": "4d8"
+    }
+   },
+   "damageInflict": [
+    "necrotic"
+   ],
+   "spellAttack": [
+    "R"
+   ],
+   "miscTags": [
+    "SCL"
+   ],
+   "areaTags": [
+    "ST"
+   ]
+  },
+  {
+   "name": "Chill Touch",
+   "source": "XPHB",
+   "page": 249,
+   "srd52": true,
+   "basicRules2024": true,
+   "level": 0,
+   "school": "N",
+   "time": [
+    {
+     "number": 1,
+     "unit": "action"
+    }
+   ],
+   "range": {
+    "type": "point",
+    "distance": {
+     "type": "touch"
+    }
+   },
+   "components": {
+    "v": true,
+    "s": true
+   },
+   "duration": [
+    {
+     "type": "instant"
+    }
+   ],
+   "entries": [
+    "Channeling the chill of the grave, make a melee spell attack against a target within reach. On a hit, the target takes {@damage 1d10} Necrotic damage, and it can't regain {@variantrule Hit Points|XPHB} until the end of your next turn."
+   ],
+   "entriesHigherLevel": [
+    {
+     "type": "entries",
+     "name": "Cantrip Upgrade",
+     "entries": [
+      "The damage increases by {@damage 1d10} when you reach levels 5 ({@damage 2d10}), 11 ({@damage 3d10}), and 17 ({@damage 4d10})."
+     ]
+    }
+   ],
+   "scalingLevelDice": {
+    "label": "Necrotic damage",
+    "scaling": {
+     "1": "1d10",
+     "5": "2d10",
+     "11": "3d10",
+     "17": "4d10"
+    }
+   },
+   "damageInflict": [
+    "necrotic"
+   ],
+   "spellAttack": [
+    "M"
+   ],
+   "miscTags": [
+    "SCL"
+   ],
+   "areaTags": [
+    "ST"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,535 @@
+{
+ "monster": [
+  {
+   "name": "Goblin",
+   "source": "MM",
+   "page": 166,
+   "srd": true,
+   "basicRules": true,
+   "referenceSources": [
+    "BGDIA",
+    "BMT",
+    "CRCotN",
+    "DSotDQ",
+    "EFR",
+    "EGW",
+    "ERLW",
+    "GoS",
+    "HftT",
+    "IDRotF",
+    "KKW",
+    "LMoP",
+    "OotA",
+    "OoW",
+    "PaBTSO",
+    "PotA",
+    "RMBRE",
+    "SatO",
+    "SKT",
+    "TCE",
+    "TftYP",
+    "TftYP-TSC",
+    "ToA",
+    "US",
+    "WBtW",
+    "WDH",
+    "WDMM"
+   ],
+   "reprintedAs": [
+    "Goblin Warrior|XMM"
+   ],
+   "size": [
+    "S"
+   ],
+   "type": {
+    "type": "humanoid",
+    "tags": [
+     "goblinoid"
+    ]
+   },
+   "alignment": [
+    "N",
+    "E"
+   ],
+   "ac": [
+    {
+     "ac": 15,
+     "from": [
+      "{@item leather armor|phb}",
+      "{@item shield|phb}"
+     ]
+    }
+   ],
+   "hp": {
+    "average": 7,
+    "formula": "2d6"
+   },
+   "speed": {
+    "walk": 30
+   },
+   "str": 8,
+   "dex": 14,
+   "con": 10,
+   "int": 10,
+   "wis": 8,
+   "cha": 8,
+   "skill": {
+    "stealth": "+6"
+   },
+   "senses": [
+    "darkvision 60 ft."
+   ],
+   "passive": 9,
+   "languages": [
+    "Common",
+    "Goblin"
+   ],
+   "cr": "1/4",
+   "trait": [
+    {
+     "name": "Nimble Escape",
+     "entries": [
+      "The goblin can take the {@action Disengage} or {@action Hide} action as a bonus action on each of its turns."
+     ]
+    }
+   ],
+   "action": [
+    {
+     "name": "Scimitar",
+     "entries": [
+      "{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6 + 2}) slashing damage."
+     ]
+    },
+    {
+     "name": "Shortbow",
+     "entries": [
+      "{@atk rw} {@hit 4} to hit, range 80/320 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
+     ]
+    }
+   ],
+   "environment": [
+    "underdark",
+    "grassland",
+    "forest",
+    "hill"
+   ],
+   "soundClip": {
+    "type": "internal",
+    "path": "bestiary/goblin.opus"
+   },
+   "altArt": [
+    {
+     "name": "Goblin",
+     "source": "RMBRE"
+    }
+   ],
+   "attachedItems": [
+    "scimitar|phb",
+    "shortbow|phb"
+   ],
+   "senseTags": [
+    "D"
+   ],
+   "languageTags": [
+    "C",
+    "GO"
+   ],
+   "damageTags": [
+    "P",
+    "S"
+   ],
+   "miscTags": [
+    "MLW",
+    "MW",
+    "RNG",
+    "RW"
+   ],
+   "hasToken": true,
+   "hasFluff": true,
+   "hasFluffImages": true
+  },
+  {
+   "name": "Werebat",
+   "group": [
+    "Lycanthropes"
+   ],
+   "source": "WDMM",
+   "page": 317,
+   "size": [
+    "S"
+   ],
+   "type": {
+    "type": "humanoid",
+    "tags": [
+     "goblinoid",
+     "shapechanger"
+    ]
+   },
+   "alignment": [
+    "N",
+    "E"
+   ],
+   "ac": [
+    13
+   ],
+   "hp": {
+    "average": 24,
+    "formula": "7d6"
+   },
+   "speed": {
+    "walk": {
+     "number": 30,
+     "condition": "(climb 30 ft. fly 60 ft. in bat or hybrid form)"
+    }
+   },
+   "str": 8,
+   "dex": 17,
+   "con": 10,
+   "int": 10,
+   "wis": 12,
+   "cha": 8,
+   "skill": {
+    "perception": "+3",
+    "stealth": "+5"
+   },
+   "senses": [
+    "darkvision 60 ft."
+   ],
+   "passive": 13,
+   "immune": [
+    {
+     "immune": [
+      "bludgeoning",
+      "piercing",
+      "slashing"
+     ],
+     "note": "from nonmagical attacks that aren't silvered",
+     "cond": true
+    }
+   ],
+   "languages": [
+    "Goblin (can't speak in bat form)"
+   ],
+   "cr": "2",
+   "trait": [
+    {
+     "name": "Shapechanger",
+     "entries": [
+      "The werebat can use its action to polymorph into a Medium bat-humanoid hybrid, or into a Large giant bat, or back into its true form, which is humanoid. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+     ]
+    },
+    {
+     "name": "Echolocation (Bat or Hybrid Form Only)",
+     "entries": [
+      "The werebat has blindsight out to a range of 60 feet as long as it's not {@condition deafened}."
+     ]
+    },
+    {
+     "name": "Keen Hearing",
+     "entries": [
+      "The werebat has advantage on Wisdom ({@skill Perception}) checks that rely on hearing."
+     ]
+    },
+    {
+     "name": "Nimble Escape (Humanoid Form Only)",
+     "entries": [
+      "The werebat can take the {@action Disengage} or {@action Hide} action as a bonus action on each of its turns."
+     ]
+    },
+    {
+     "name": "Sunlight Sensitivity",
+     "entries": [
+      "While in sunlight, the werebat has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
+     ]
+    }
+   ],
+   "action": [
+    {
+     "name": "Multiattack (Humanoid or Hybrid Form Only)",
+     "entries": [
+      "In humanoid form, the werebat makes two scimitar attacks or two shortbow attacks. In hybrid form, it can make one bite attack and one scimitar attack."
+     ]
+    },
+    {
+     "name": "Bite (Bat or Hybrid Form Only)",
+     "entries": [
+      "{@atk mw} {@hit 5} to hit, reach 5 ft., one creature. {@h}6 ({@damage 1d6 + 3}) piercing damage, and the werebat gains temporary hit points equal to the damage dealt. If the target is a humanoid, it must succeed on a {@dc 10} Constitution saving throw or be cursed with werebat {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
+     ]
+    },
+    {
+     "name": "Scimitar (Humanoid or Hybrid Form Only)",
+     "entries": [
+      "{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage."
+     ]
+    },
+    {
+     "name": "Shortbow (Humanoid or Hybrid Form Only)",
+     "entries": [
+      "{@atk rw} {@hit 5} to hit, range 80/320 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage."
+     ]
+    }
+   ],
+   "attachedItems": [
+    "scimitar|phb",
+    "shortbow|phb"
+   ],
+   "traitTags": [
+    "Keen Senses",
+    "Shapechanger",
+    "Sunlight Sensitivity"
+   ],
+   "senseTags": [
+    "D"
+   ],
+   "actionTags": [
+    "Multiattack"
+   ],
+   "languageTags": [
+    "CS",
+    "GO"
+   ],
+   "damageTags": [
+    "P",
+    "S"
+   ],
+   "miscTags": [
+    "CUR",
+    "MLW",
+    "MW",
+    "RNG",
+    "RW"
+   ],
+   "savingThrowForced": [
+    "constitution"
+   ],
+   "hasToken": true,
+   "hasFluff": true,
+   "hasFluffImages": true
+  },
+  {
+   "name": "Animated Object",
+   "source": "XPHB",
+   "page": 240,
+   "srd52": true,
+   "summonedBySpell": "Animate Objects|XPHB",
+   "summonedBySpellLevel": 5,
+   "size": [
+    "T",
+    "S",
+    "M",
+    "L",
+    "H"
+   ],
+   "type": "construct",
+   "alignment": [
+    "U"
+   ],
+   "ac": [
+    15
+   ],
+   "hp": {
+    "special": "10 (Medium or smaller), 20 (Large), 40 (Huge)"
+   },
+   "speed": {
+    "walk": 30
+   },
+   "str": 16,
+   "dex": 10,
+   "con": 10,
+   "int": 3,
+   "wis": 3,
+   "cha": 1,
+   "senses": [
+    "Blindsight 30 ft."
+   ],
+   "passive": 6,
+   "languages": [
+    "understands the languages you know"
+   ],
+   "pbNote": "equals your Proficiency Bonus",
+   "action": [
+    {
+     "name": "Slam",
+     "entries": [
+      "{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}Force damage equal to {@damage (summonSpellLevel - 4)d4 + 3|1d4 + 3}, {@damage (summonSpellLevel - 3)d6 + 3|2d6 + 3} + your spellcasting ability modifier (Large), or {@damage (summonSpellLevel - 3)d12 + 3|2d12 + 3} + your spellcasting ability modifier (Huge)."
+     ]
+    }
+   ],
+   "foundryTokenScale": 1.3,
+   "senseTags": [
+    "B"
+   ],
+   "miscTags": [
+    "MA"
+   ],
+   "hasToken": true,
+   "hasFluffImages": true,
+   "_versions": [
+    {
+     "name": "Animated Object (Huge)",
+     "source": "XPHB",
+     "hp": {
+      "special": "40"
+     },
+     "action": [
+      {
+       "name": "Slam",
+       "entries": [
+        "{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}Force damage equal to {@damage (summonSpellLevel - 3)d12 + 3|2d12 + 3} + your spellcasting ability modifier."
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Animated Object (Large)",
+     "source": "XPHB",
+     "hp": {
+      "special": "20"
+     },
+     "action": [
+      {
+       "name": "Slam",
+       "entries": [
+        "{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}Force damage equal to {@damage (summonSpellLevel - 3)d6 + 3|2d6 + 3} + your spellcasting ability modifier."
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Animated Object (Medium or Smaller)",
+     "source": "XPHB",
+     "hp": {
+      "special": "10"
+     },
+     "action": [
+      {
+       "name": "Slam",
+       "entries": [
+        "{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}Force damage equal to {@damage (summonSpellLevel - 4)d4 + 3|1d4 + 3} + your spellcasting ability modifier."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Goblin Warrior",
+   "group": [
+    "Goblinoids"
+   ],
+   "source": "XMM",
+   "page": 142,
+   "srd52": true,
+   "basicRules2024": true,
+   "referenceSources": [
+    "BQGT",
+    "DrDe",
+    "DrDe-BD",
+    "FRAiF",
+    "HotB",
+    "RHW"
+   ],
+   "size": [
+    "S"
+   ],
+   "type": {
+    "type": "fey",
+    "tags": [
+     "goblinoid"
+    ]
+   },
+   "alignment": [
+    "C",
+    "N"
+   ],
+   "ac": [
+    15
+   ],
+   "hp": {
+    "average": 10,
+    "formula": "3d6"
+   },
+   "speed": {
+    "walk": 30
+   },
+   "str": 8,
+   "dex": 15,
+   "con": 10,
+   "int": 10,
+   "wis": 8,
+   "cha": 8,
+   "skill": {
+    "stealth": "+6"
+   },
+   "senses": [
+    "Darkvision 60 ft."
+   ],
+   "passive": 9,
+   "languages": [
+    "Common",
+    "Goblin"
+   ],
+   "cr": "1/4",
+   "gear": [
+    "leather armor|xphb",
+    "scimitar|xphb",
+    "shield|xphb",
+    "shortbow|xphb"
+   ],
+   "action": [
+    {
+     "name": "Scimitar",
+     "entries": [
+      "{@atkr m} {@hit 4}, reach 5 ft. {@h}5 ({@damage 1d6 + 2}) Slashing damage, plus 2 ({@damage 1d4}) Slashing damage if the attack roll had {@variantrule Advantage|XPHB}."
+     ]
+    },
+    {
+     "name": "Shortbow",
+     "entries": [
+      "{@atkr r} {@hit 4}, range 80/320 ft. {@h}5 ({@damage 1d6 + 2}) Piercing damage, plus 2 ({@damage 1d4}) Piercing damage if the attack roll had {@variantrule Advantage|XPHB}."
+     ]
+    }
+   ],
+   "bonus": [
+    {
+     "name": "Nimble Escape",
+     "entries": [
+      "The goblin takes the {@action Disengage|XPHB} or {@action Hide|XPHB} action."
+     ]
+    }
+   ],
+   "environment": [
+    "forest",
+    "grassland",
+    "hill",
+    "planar, acheron",
+    "planar, feywild",
+    "underdark"
+   ],
+   "treasure": [
+    "implements",
+    "individual"
+   ],
+   "senseTags": [
+    "D"
+   ],
+   "languageTags": [
+    "C",
+    "GO"
+   ],
+   "damageTags": [
+    "P",
+    "S"
+   ],
+   "miscTags": [
+    "MA",
+    "MLW",
+    "RA",
+    "RNG"
+   ],
+   "hasToken": true,
+   "hasFluff": true,
+   "hasFluffImages": true
+  }
+ ]
+}

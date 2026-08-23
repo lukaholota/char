@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import {
+  subclassTranslations,
+  subclassTranslationsEng,
+  featTranslations,
+  featCategoryTranslations,
+} from "@/lib/refs/translation";
 
 const NORMALIZED_DIR = join(process.cwd(), "data/2024/normalized");
 
@@ -78,6 +84,15 @@ describe("KR6.2 — no new terminology is invented outside dictionary.json", () 
     }
   });
 
+  it("every feat prerequisite is translated to Ukrainian (no English Level/Feature markers) or null", () => {
+    const feats = readJson("feats.json") as Array<{ prerequisite?: string | null; engName: string }>;
+    for (const f of feats) {
+      if (f.prerequisite) {
+        expect(/\b(level|feat|strength|dexterity|constitution|intelligence|wisdom|charisma|training|feature|spellcasting)\b/i.test(f.prerequisite), f.engName).toBe(false);
+      }
+    }
+  });
+
   it("every subclass has a resolved Ukrainian name, and every non-reused one traces to dictionary.json", () => {
     const subclasses = readJson("subclasses.json") as Array<{
       name: string | null;
@@ -95,7 +110,32 @@ describe("KR6.2 — no new terminology is invented outside dictionary.json", () 
       }
     }
   });
+
+  it("every 2024 subclass exists in subclassTranslations and subclassTranslationsEng", () => {
+    const subclasses = readJson("subclasses.json") as Array<{ engName: string; name: string }>;
+    for (const s of subclasses) {
+      const enumKey = `${s.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}_2024` as keyof typeof subclassTranslations;
+      expect(subclassTranslations[enumKey], `subclassTranslations[${enumKey}]`).toBe(s.name);
+      expect(subclassTranslationsEng[enumKey], `subclassTranslationsEng[${enumKey}]`).toBe(s.engName);
+    }
+  });
+
+  it("every 2024 feat exists in featTranslations", () => {
+    const feats = readJson("feats.json") as Array<{ engName: string; name: string }>;
+    for (const f of feats) {
+      const key = f.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_");
+      expect(featTranslations[key], `featTranslations[${key}]`).toBe(f.name);
+    }
+  });
+
+  it("featCategoryTranslations aligns with dictionary.json canonical category names", () => {
+    expect(featCategoryTranslations.ORIGIN).toBe("Риса походження");
+    expect(featCategoryTranslations.GENERAL).toBe("Загальна риса");
+    expect(featCategoryTranslations.EPIC_BOON).toBe("Епічний дар");
+    expect(featCategoryTranslations.FIGHTING_STYLE).toBe("Бойовий стиль");
+  });
 });
+
 
 describe("KR6.2 — the 15 existing *_2024 backgrounds keep their production background_id", () => {
   it("has exactly the 15 background_id values verified read-only against production 2026-08-15", () => {

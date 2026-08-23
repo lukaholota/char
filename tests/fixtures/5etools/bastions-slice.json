@@ -1,0 +1,54 @@
+{
+ "facility": [
+  {
+   "name": "Amethyst Dragon Den",
+   "source": "FRHoF",
+   "page": 173,
+   "facilityType": "special",
+   "level": 5,
+   "prerequisite": [
+    {
+     "membership": [
+      "Purple Dragon Knights"
+     ]
+    }
+   ],
+   "space": [
+    "vast"
+   ],
+   "hirelings": [
+    {
+     "exact": 1
+    }
+   ],
+   "orders": [
+    "empower"
+   ],
+   "entries": [
+    "This den for an amethyst dragon is an enclosed open chamber with a pool, and one of its entrances is underwater. The facility's hireling maintains the den and helps any visiting amethyst dragons feel comfortable.",
+    {
+     "type": "entries",
+     "name": "Empower: Psionic Defenses",
+     "entries": [
+      "When you issue the {@book Empower|XDMG|7|Empower} order to this facility, latent draconic power fills the facility, allowing you to train in psionic combat. This training takes 8 hours per day for 7 days, after which you gain {@variantrule Resistance|XPHB} to Psychic damage. This benefit lasts for 7 days."
+     ]
+    }
+   ],
+   "hasFluffImages": true
+  },
+  {
+   "name": "Bedroom",
+   "source": "XDMG",
+   "page": 335,
+   "facilityType": "basic",
+   "space": [
+    "cramped",
+    "roomy",
+    "vast"
+   ],
+   "entries": [
+    "A basic facility comes with nonmagical furnishings and decor appropriate for that facility."
+   ]
+  }
+ ]
+}
