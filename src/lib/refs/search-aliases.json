@@ -1,0 +1,2466 @@
+{
+  "_": "Пошукові аліаси, НЕ термінологія. Канон живе в src/lib/refs/dictionary.json і translation.ts і цим файлом не змінюється. Тут записано лише те, ЯК ЛЮДИ ШУКАЮТЬ.",
+  "_criterion": {
+    "назва": "Критерій «аліас потрібен» — KR13.4, відкрите питання 3",
+    "правило": "Варіант потрапляє в таблицю, тільки якщо проходить УСІ ворота K1–K4. K5 — не ворота, а мітка.",
+    "K1_походження": {
+      "опис": "Варіант мусить мати одне з чотирьох походжень, інакше він вигаданий і не додається.",
+      "K1-a": "Власник назвав його дослівно (нотатка 19.08.2026 або текст KR13.4). Не переглядається.",
+      "K1-b": "Проєкт уже вживає цей рядок для тієї самої сутності — у дужках у назві 2014-запису, якої немає в 2024-запису, або у власному тексті UI/сідів. Джерело — сам репозиторій.",
+      "K1-c": "Кириличний запис англійської назви (транслітерація), коли канон — не транслітерат. Перевіряється машинно: кирилиця→латиниця, порівняння приголосних скелетів, відстань Левенштейна ≤42% довжини.",
+      "K1-d": "Зафіксовано в українських джерелах: один систематичний опублікований глосарій/локалізація (5esrd.kyiv.ua, локалізація BG3 від SBT/Шлякбитраф, фікс-мод спільноти зі Steam, вікі «Таверна Гримлячі Кістки») АБО щонайменше дві разові згадки (блог, форумний тред, назва відео).",
+      "K1-e": "Поняття, якого в цій редакції не існує, але яке шукають за звичкою з іншої редакції чи з іншої гри («вільна дія», «weapon mastery»). Аліас веде на найближчу за змістом чинну статтю. Перевіряється машинно: запит дає РІВНО НУЛЬ влучань по всьому індексу — інакше поняття вже знаходиться і аліас не потрібен."
+    },
+    "K2_новизна": "Відкидається, якщо варіант уже є підрядком канонічної назви, слуга або англійської назви цієї ж сутності — підрядковий пошук і так його знаходить.",
+    "K3_не_дублює_нормалізацію": "Відкидається, якщо відрізняється від уже індексованого рядка лише г/ґ/х, і/и/ї, дефісом або пробілом. Це закриває нормалізація ЗАПИТУ (пункт 2 KR13.4), а не таблиця. «беголдер» сюди не пишеться, «бехолдер» пишеться.",
+    "K4_довжина": "Мінімум 4 символи. Коротше — підрядок надто багатьох назв. Виняток лише за прямою вказівкою власника (тому «маг» і «плут» усередині).",
+    "застосування": "Критерій застосовано скриптом, не на око. Із 361 кандидата пройшло 321, відхилено 40. Розкладка відхилень і перелік колізій — у docs/o13-2024-completeness/kr13.4-aliases-report.md.",
+    "K5_мітка_колізії": "Якщо варіант є підрядком назви ІНШОЇ сутності в індексі, запис отримує ambiguousVariants. ≥5 чужих влучань — потрібне рішення власника."
+  },
+  "_ownerDecisions": [
+    {
+      "питання": "«маг» вказує на два класи (відкрите питання 2 в KR13.4)",
+      "стан": "ВИРІШЕНО 2026-08-22 — власник: «хай показує обидва лол))»",
+      "рішення": "«маг» лишається аліасом і Чародія, і Чарівника; видача показує обидва класи, жоден не прибирається",
+      "порядок": [
+        "sorcerer",
+        "wizard"
+      ],
+      "щоЦеЗначить": "порядок лишився як був — власник просив показувати обидва, а не ранжувати один вище. Масив читає споживач; переставити його можна без інших правок.",
+      "закріплено": "tests/content/omni-search.test.ts — «маг» віддає обидва класи в обох редакціях",
+      "додатково": "«маг» дає 59–60 чужих влучань (магія, магічний, Домен магії…), бо пошук підрядковий. Вимірювання 2026-08-22: запит «маг» у 2014 віддає 50 результатів, класи Чародій і Чарівник стоять другим і третім, вище — істота «Маг» точним збігом назви."
+    }
+  ],
+  "_dependencies": [
+    {
+      "slug": "other-activity-on-your-turn",
+      "edition": "2014",
+      "стан": "підрозділу ще нема в src/lib/rulesData.ts",
+      "залежить від": "KR12.7 — імпорт правил 2014 (order-of-combat → other-activity-on-your-turn)"
+    },
+    {
+      "slug": "weapon-mastery",
+      "edition": "2024",
+      "стан": "статті ще нема",
+      "залежить від": "KR12.6 — імпорт правил 2024"
+    },
+    {
+      "slug": "origin-feats",
+      "edition": "2024",
+      "стан": "статті ще нема",
+      "залежить від": "KR12.6"
+    },
+    {
+      "slug": "epic-boons",
+      "edition": "2024",
+      "стан": "статті ще нема",
+      "залежить від": "KR12.6"
+    },
+    {
+      "slug": "search-and-use-action",
+      "edition": "2014",
+      "стан": "підрозділ існує, але підрозділи ще не індексуються",
+      "залежить від": "індексація subsections у buildOmniSearchIndex (KR13.4, пункт 5)"
+    }
+  ],
+  "aliases": [
+    {
+      "canonical": "Варвар",
+      "entityType": "class",
+      "slug": "barbarian",
+      "edition": "both",
+      "variants": [
+        "барбар",
+        "барбаріан"
+      ]
+    },
+    {
+      "canonical": "Воїн",
+      "entityType": "class",
+      "slug": "fighter",
+      "edition": "both",
+      "variants": [
+        "боєць",
+        "файтер"
+      ],
+      "ambiguousVariants": [
+        "боєць"
+      ]
+    },
+    {
+      "canonical": "Монах",
+      "entityType": "class",
+      "slug": "monk",
+      "edition": "both",
+      "variants": [
+        "монк"
+      ]
+    },
+    {
+      "canonical": "Слідопит",
+      "entityType": "class",
+      "slug": "ranger",
+      "edition": "both",
+      "variants": [
+        "рейнджер",
+        "рейнжер"
+      ]
+    },
+    {
+      "canonical": "Пройдисвіт",
+      "entityType": "class",
+      "slug": "rogue",
+      "edition": "both",
+      "variants": [
+        "спритник",
+        "злодій",
+        "плут",
+        "роуг"
+      ],
+      "ambiguousVariants": [
+        "спритник",
+        "злодій",
+        "плут"
+      ]
+    },
+    {
+      "canonical": "Чародій",
+      "entityType": "class",
+      "slug": "sorcerer",
+      "edition": "both",
+      "variants": [
+        "маг",
+        "сорсерер",
+        "заклинач"
+      ],
+      "ambiguousVariants": [
+        "маг",
+        "сорсерер",
+        "заклинач"
+      ]
+    },
+    {
+      "canonical": "Чорнокнижник",
+      "entityType": "class",
+      "slug": "warlock",
+      "edition": "both",
+      "variants": [
+        "чаклун",
+        "варлок",
+        "ворлок"
+      ],
+      "ambiguousVariants": [
+        "чаклун"
+      ]
+    },
+    {
+      "canonical": "Чарівник",
+      "entityType": "class",
+      "slug": "wizard",
+      "edition": "both",
+      "variants": [
+        "маг",
+        "візард"
+      ],
+      "ambiguousVariants": [
+        "маг"
+      ]
+    },
+    {
+      "canonical": "Винахідник",
+      "entityType": "class",
+      "slug": "artificer",
+      "edition": "2014",
+      "variants": [
+        "артифісер",
+        "артифайсер"
+      ]
+    },
+    {
+      "canonical": "Аазимар",
+      "entityType": "species",
+      "slug": "aasimar",
+      "edition": "2024",
+      "variants": [
+        "аасімар",
+        "асімар",
+        "аасимар"
+      ]
+    },
+    {
+      "canonical": "Дракононароджений",
+      "entityType": "species",
+      "slug": "dragonborn",
+      "edition": "2024",
+      "variants": [
+        "драконич",
+        "драконородний",
+        "драконборн"
+      ]
+    },
+    {
+      "canonical": "Дворф",
+      "entityType": "species",
+      "slug": "dwarf",
+      "edition": "2024",
+      "variants": [
+        "карлик",
+        "дварф"
+      ]
+    },
+    {
+      "canonical": "Голіаф",
+      "entityType": "species",
+      "slug": "goliath",
+      "edition": "2024",
+      "variants": [
+        "голіат"
+      ]
+    },
+    {
+      "canonical": "Напіврослик",
+      "entityType": "species",
+      "slug": "halfling",
+      "edition": "2024",
+      "variants": [
+        "гафлінг",
+        "халфлінг"
+      ]
+    },
+    {
+      "canonical": "Тифлінг",
+      "entityType": "species",
+      "slug": "tiefling",
+      "edition": "2024",
+      "variants": [
+        "бісин",
+        "бісинка"
+      ]
+    },
+    {
+      "canonical": "Дворф",
+      "entityType": "race",
+      "slug": "dwarf",
+      "edition": "2014",
+      "variants": [
+        "карлик",
+        "дварф"
+      ]
+    },
+    {
+      "canonical": "Напіврослик",
+      "entityType": "race",
+      "slug": "halfling",
+      "edition": "2014",
+      "variants": [
+        "гафлінг",
+        "халфлінг"
+      ]
+    },
+    {
+      "canonical": "Тифлінг",
+      "entityType": "race",
+      "slug": "tiefling",
+      "edition": "2014",
+      "variants": [
+        "бісин",
+        "бісинка"
+      ]
+    },
+    {
+      "canonical": "Дракононароджений",
+      "entityType": "race",
+      "slug": "dragonborn",
+      "edition": "2014",
+      "variants": [
+        "драконич",
+        "драконородний",
+        "драконборн"
+      ]
+    },
+    {
+      "canonical": "Аазимар",
+      "entityType": "race",
+      "slug": "aasimar",
+      "edition": "2014",
+      "variants": [
+        "аасімар",
+        "асімар",
+        "аасимар"
+      ]
+    },
+    {
+      "canonical": "Напівельф",
+      "entityType": "race",
+      "slug": "half-elf",
+      "edition": "2014",
+      "variants": [
+        "халфельф"
+      ]
+    },
+    {
+      "canonical": "Напіворк",
+      "entityType": "race",
+      "slug": "half-orc",
+      "edition": "2014",
+      "variants": [
+        "халфорк"
+      ]
+    },
+    {
+      "canonical": "Голіаф",
+      "entityType": "race",
+      "slug": "goliath",
+      "edition": "2014",
+      "variants": [
+        "голіат"
+      ]
+    },
+    {
+      "canonical": "Ведмебай",
+      "entityType": "race",
+      "slug": "bugbear",
+      "edition": "2014",
+      "variants": [
+        "багбер",
+        "багбір",
+        "баґбер"
+      ]
+    },
+    {
+      "canonical": "Черепаха",
+      "entityType": "race",
+      "slug": "tortle",
+      "edition": "2014",
+      "variants": [
+        "черепахоїд",
+        "тортл"
+      ],
+      "ambiguousVariants": [
+        "тортл"
+      ]
+    },
+    {
+      "canonical": "Воєнокований",
+      "entityType": "race",
+      "slug": "warforged",
+      "edition": "2014",
+      "variants": [
+        "викований",
+        "варфорджед"
+      ]
+    },
+    {
+      "canonical": "Змінник",
+      "entityType": "race",
+      "slug": "changeling",
+      "edition": "2014",
+      "variants": [
+        "чейнджлінг"
+      ]
+    },
+    {
+      "canonical": "Перевертень",
+      "entityType": "race",
+      "slug": "shifter",
+      "edition": "2014",
+      "variants": [
+        "виверт",
+        "шифтер"
+      ]
+    },
+    {
+      "canonical": "Ящеролюд",
+      "entityType": "race",
+      "slug": "lizardfolk",
+      "edition": "2014",
+      "variants": [
+        "лізардфолк"
+      ],
+      "ambiguousVariants": [
+        "лізардфолк"
+      ]
+    },
+    {
+      "canonical": "Совин",
+      "entityType": "race",
+      "slug": "owlin",
+      "edition": "2014",
+      "variants": [
+        "овлін",
+        "оулін"
+      ]
+    },
+    {
+      "canonical": "Глибинний гном",
+      "entityType": "race",
+      "slug": "deep-gnome",
+      "edition": "2014",
+      "variants": [
+        "свірфнеблін",
+        "свирфнеблін"
+      ]
+    },
+    {
+      "canonical": "Дуергар",
+      "entityType": "race",
+      "slug": "duergar",
+      "edition": "2014",
+      "variants": [
+        "дверґар",
+        "сірий дворф"
+      ],
+      "ambiguousVariants": [
+        "сірий дворф"
+      ]
+    },
+    {
+      "canonical": "Фея",
+      "entityType": "race",
+      "slug": "fairy",
+      "edition": "2014",
+      "variants": [
+        "фейрі"
+      ]
+    },
+    {
+      "canonical": "Геназі повітря",
+      "entityType": "race",
+      "slug": "air-genasi",
+      "edition": "2014",
+      "variants": [
+        "дженазі повітря",
+        "дженазі"
+      ]
+    },
+    {
+      "canonical": "Геназі землі",
+      "entityType": "race",
+      "slug": "earth-genasi",
+      "edition": "2014",
+      "variants": [
+        "дженазі землі"
+      ]
+    },
+    {
+      "canonical": "Геназі вогню",
+      "entityType": "race",
+      "slug": "fire-genasi",
+      "edition": "2014",
+      "variants": [
+        "дженазі вогню",
+        "дженазі полум'я"
+      ]
+    },
+    {
+      "canonical": "Геназі води",
+      "entityType": "race",
+      "slug": "water-genasi",
+      "edition": "2014",
+      "variants": [
+        "дженазі води"
+      ]
+    },
+    {
+      "canonical": "Ґітьянкі",
+      "entityType": "race",
+      "slug": "githyanki",
+      "edition": "2014",
+      "variants": [
+        "гітіанкі"
+      ]
+    },
+    {
+      "canonical": "Ґітцерай",
+      "entityType": "race",
+      "slug": "githzerai",
+      "edition": "2014",
+      "variants": [
+        "ґітзерай",
+        "гітзерай"
+      ],
+      "ambiguousVariants": [
+        "ґітзерай"
+      ]
+    },
+    {
+      "canonical": "Тритон",
+      "entityType": "race",
+      "slug": "triton",
+      "edition": "2014",
+      "variants": [
+        "трайтон"
+      ]
+    },
+    {
+      "canonical": "Юань-ті",
+      "entityType": "race",
+      "slug": "yuan-ti",
+      "edition": "2014",
+      "variants": [
+        "юаньті",
+        "юанті"
+      ]
+    },
+    {
+      "canonical": "Шадар-Кай",
+      "entityType": "race",
+      "slug": "shadar-kai",
+      "edition": "2014",
+      "variants": [
+        "шадаркай"
+      ]
+    },
+    {
+      "canonical": "Дампір",
+      "entityType": "race",
+      "slug": "dhampir",
+      "edition": "2014",
+      "variants": [
+        "дхампір"
+      ]
+    },
+    {
+      "canonical": "Відьмокров",
+      "entityType": "race",
+      "slug": "hexblood",
+      "edition": "2014",
+      "variants": [
+        "гексблад",
+        "плюндрокровний"
+      ]
+    },
+    {
+      "canonical": "Переродженець",
+      "entityType": "race",
+      "slug": "reborn",
+      "edition": "2014",
+      "variants": [
+        "реборн",
+        "відроджений"
+      ]
+    },
+    {
+      "canonical": "Кентавр",
+      "entityType": "race",
+      "slug": "centaur",
+      "edition": "2014",
+      "variants": [
+        "центавр"
+      ]
+    },
+    {
+      "canonical": "Симічний гібрид",
+      "entityType": "race",
+      "slug": "simic-hybrid",
+      "edition": "2014",
+      "variants": [
+        "гібрид симіків",
+        "сімік гібрид"
+      ]
+    },
+    {
+      "canonical": "Ведалкен",
+      "entityType": "race",
+      "slug": "vedalken",
+      "edition": "2014",
+      "variants": [
+        "ведалкін"
+      ]
+    },
+    {
+      "canonical": "Астральний ельф",
+      "entityType": "race",
+      "slug": "astral-elf",
+      "edition": "2014",
+      "variants": [
+        "астрал ельф"
+      ]
+    },
+    {
+      "canonical": "Автогном",
+      "entityType": "race",
+      "slug": "autognome",
+      "edition": "2014",
+      "variants": [
+        "автоном",
+        "аутогном"
+      ]
+    },
+    {
+      "canonical": "Хадозі",
+      "entityType": "race",
+      "slug": "hadozee",
+      "edition": "2014",
+      "variants": [
+        "хадозе"
+      ]
+    },
+    {
+      "canonical": "Три-крін",
+      "entityType": "race",
+      "slug": "thri-kreen",
+      "edition": "2014",
+      "variants": [
+        "трикрін",
+        "трікрін"
+      ]
+    },
+    {
+      "canonical": "Локата",
+      "entityType": "race",
+      "slug": "locathah",
+      "edition": "2014",
+      "variants": [
+        "локатах"
+      ]
+    },
+    {
+      "canonical": "Морський ельф",
+      "entityType": "race",
+      "slug": "sea-elf",
+      "edition": "2014",
+      "variants": [
+        "сі елф"
+      ]
+    },
+    {
+      "canonical": "Своя раса",
+      "entityType": "race",
+      "slug": "custom-lineage",
+      "edition": "2014",
+      "variants": [
+        "кастом лінідж"
+      ]
+    },
+    {
+      "canonical": "Темний ельф (Дроу)",
+      "entityType": "race",
+      "slug": "dark-elf-drow",
+      "edition": "2014",
+      "variants": [
+        "драу"
+      ]
+    },
+    {
+      "canonical": "Високий ельф",
+      "entityType": "race",
+      "slug": "high-elf",
+      "edition": "2014",
+      "variants": [
+        "хай елф"
+      ]
+    },
+    {
+      "canonical": "Лісовий ельф",
+      "entityType": "race",
+      "slug": "wood-elf",
+      "edition": "2014",
+      "variants": [
+        "вуд елф"
+      ]
+    },
+    {
+      "canonical": "Блідий ельф",
+      "entityType": "race",
+      "slug": "pallid-elf",
+      "edition": "2014",
+      "variants": [
+        "паллід ельф"
+      ]
+    },
+    {
+      "canonical": "Пагорбовий дворф",
+      "entityType": "race",
+      "slug": "hill-dwarf",
+      "edition": "2014",
+      "variants": [
+        "хілл дворф"
+      ]
+    },
+    {
+      "canonical": "Гірський дворф",
+      "entityType": "race",
+      "slug": "mountain-dwarf",
+      "edition": "2014",
+      "variants": [
+        "маунтін дворф"
+      ]
+    },
+    {
+      "canonical": "Легконогий напіврослик",
+      "entityType": "race",
+      "slug": "lightfoot-halfling",
+      "edition": "2014",
+      "variants": [
+        "лайтфут"
+      ]
+    },
+    {
+      "canonical": "Кремезний напіврослик",
+      "entityType": "race",
+      "slug": "stout-halfling",
+      "edition": "2014",
+      "variants": [
+        "стаут"
+      ]
+    },
+    {
+      "canonical": "Примарний напіврослик",
+      "entityType": "race",
+      "slug": "ghostwise-halfling",
+      "edition": "2014",
+      "variants": [
+        "гоствайз"
+      ]
+    },
+    {
+      "canonical": "Скельний гном",
+      "entityType": "race",
+      "slug": "rock-gnome",
+      "edition": "2014",
+      "variants": [
+        "рок гном"
+      ]
+    },
+    {
+      "canonical": "Лісовий гном",
+      "entityType": "race",
+      "slug": "forest-gnome",
+      "edition": "2014",
+      "variants": [
+        "форест гном"
+      ]
+    },
+    {
+      "canonical": "Майстер бойових мистецтв",
+      "entityType": "subclass",
+      "slug": "battle-master",
+      "edition": "both",
+      "variants": [
+        "батл мастер",
+        "батлмайстер"
+      ]
+    },
+    {
+      "canonical": "Потойбічний лицар",
+      "entityType": "subclass",
+      "slug": "eldritch-knight",
+      "edition": "both",
+      "variants": [
+        "елдрич найт"
+      ]
+    },
+    {
+      "canonical": "Містичний спритник",
+      "entityType": "subclass",
+      "slug": "arcane-trickster",
+      "edition": "both",
+      "variants": [
+        "аркан трікстер"
+      ]
+    },
+    {
+      "canonical": "Ніж душі",
+      "entityType": "subclass",
+      "slug": "soulknife",
+      "edition": "both",
+      "variants": [
+        "соулнайф"
+      ]
+    },
+    {
+      "canonical": "Шибайголова",
+      "entityType": "subclass",
+      "slug": "swashbuckler",
+      "edition": "2014",
+      "variants": [
+        "свошбаклер"
+      ]
+    },
+    {
+      "canonical": "Клятвопорушник",
+      "entityType": "subclass",
+      "slug": "oathbreaker",
+      "edition": "2014",
+      "variants": [
+        "оутбрейкер"
+      ]
+    },
+    {
+      "canonical": "Відьмацький клинок",
+      "entityType": "subclass",
+      "slug": "hexblade",
+      "edition": "2014",
+      "variants": [
+        "гексблейд",
+        "хексблейд"
+      ]
+    },
+    {
+      "canonical": "Почвара",
+      "entityType": "subclass",
+      "slug": "fiend",
+      "edition": "both",
+      "variants": [
+        "ф'єнд",
+        "фієнд"
+      ]
+    },
+    {
+      "canonical": "Прадавній",
+      "entityType": "subclass",
+      "slug": "great-old-one",
+      "edition": "both",
+      "variants": [
+        "грейт олд ван"
+      ]
+    },
+    {
+      "canonical": "Архіфея",
+      "entityType": "subclass",
+      "slug": "archfey",
+      "edition": "both",
+      "variants": [
+        "арчфі"
+      ]
+    },
+    {
+      "canonical": "Небожитель",
+      "entityType": "subclass",
+      "slug": "celestial",
+      "edition": "both",
+      "variants": [
+        "селестіал",
+        "небесник"
+      ]
+    },
+    {
+      "canonical": "Безодня",
+      "entityType": "subclass",
+      "slug": "fathomless",
+      "edition": "2014",
+      "variants": [
+        "фатомлес"
+      ]
+    },
+    {
+      "canonical": "Драконячий родовід",
+      "entityType": "subclass",
+      "slug": "draconic-bloodline",
+      "edition": "2014",
+      "variants": [
+        "драконік"
+      ]
+    },
+    {
+      "canonical": "Дика магія",
+      "entityType": "subclass",
+      "slug": "wild-magic",
+      "edition": "both",
+      "variants": [
+        "вайлд меджик"
+      ]
+    },
+    {
+      "canonical": "Шлях берсерка",
+      "entityType": "subclass",
+      "slug": "path-of-the-berserker",
+      "edition": "both",
+      "variants": [
+        "берсеркер"
+      ]
+    },
+    {
+      "canonical": "Звіролов",
+      "entityType": "subclass",
+      "slug": "beast-master",
+      "edition": "2024",
+      "variants": [
+        "біст мастер"
+      ]
+    },
+    {
+      "canonical": "Конклав звіролова",
+      "entityType": "subclass",
+      "slug": "beast-master-conclave",
+      "edition": "2014",
+      "variants": [
+        "біст мастер"
+      ]
+    },
+    {
+      "canonical": "Сутінковий Мисливець",
+      "entityType": "subclass",
+      "slug": "gloom-stalker",
+      "edition": "2024",
+      "variants": [
+        "глум сталкер"
+      ]
+    },
+    {
+      "canonical": "Конклав сутінкового мисливця",
+      "entityType": "subclass",
+      "slug": "gloom-stalker-conclave",
+      "edition": "2014",
+      "variants": [
+        "глум сталкер"
+      ]
+    },
+    {
+      "canonical": "Убивця",
+      "entityType": "subclass",
+      "slug": "assassin",
+      "edition": "both",
+      "variants": [
+        "асасин",
+        "ассасін"
+      ],
+      "ambiguousVariants": [
+        "асасин"
+      ]
+    },
+    {
+      "canonical": "Псі-воїн",
+      "entityType": "subclass",
+      "slug": "psi-warrior",
+      "edition": "both",
+      "variants": [
+        "псіонік",
+        "псионік"
+      ]
+    },
+    {
+      "canonical": "Школа втілення",
+      "entityType": "subclass",
+      "slug": "school-of-evocation",
+      "edition": "2014",
+      "variants": [
+        "евокейшн"
+      ]
+    },
+    {
+      "canonical": "Школа огородження",
+      "entityType": "subclass",
+      "slug": "school-of-abjuration",
+      "edition": "2014",
+      "variants": [
+        "абджурація",
+        "віднадження"
+      ]
+    },
+    {
+      "canonical": "Школа некромантії",
+      "entityType": "subclass",
+      "slug": "school-of-necromancy",
+      "edition": "2014",
+      "variants": [
+        "некромансер"
+      ]
+    },
+    {
+      "canonical": "Школа заклику",
+      "entityType": "subclass",
+      "slug": "school-of-conjuration",
+      "edition": "2014",
+      "variants": [
+        "конджурація"
+      ]
+    },
+    {
+      "canonical": "Школа віщування",
+      "entityType": "subclass",
+      "slug": "school-of-divination",
+      "edition": "2014",
+      "variants": [
+        "дивінація"
+      ]
+    },
+    {
+      "canonical": "Школа чарування",
+      "entityType": "subclass",
+      "slug": "school-of-enchantment",
+      "edition": "2014",
+      "variants": [
+        "енчантмент"
+      ]
+    },
+    {
+      "canonical": "Школа перетворення",
+      "entityType": "subclass",
+      "slug": "school-of-transmutation",
+      "edition": "2014",
+      "variants": [
+        "трансмутація"
+      ]
+    },
+    {
+      "canonical": "Школа співу клинків",
+      "entityType": "subclass",
+      "slug": "school-of-bladesinging",
+      "edition": "2014",
+      "variants": [
+        "блейдсінгер"
+      ]
+    },
+    {
+      "canonical": "Заклинач Стихій",
+      "entityType": "subclass",
+      "slug": "evoker",
+      "edition": "2024",
+      "variants": [
+        "евокер"
+      ],
+      "ambiguousVariants": [
+        "евокер"
+      ]
+    },
+    {
+      "canonical": "Заборонець",
+      "entityType": "subclass",
+      "slug": "abjurer",
+      "edition": "2024",
+      "variants": [
+        "абджурер",
+        "абджурація"
+      ]
+    },
+    {
+      "canonical": "Провидець",
+      "entityType": "subclass",
+      "slug": "diviner",
+      "edition": "2024",
+      "variants": [
+        "дивайнер",
+        "дивінація"
+      ]
+    },
+    {
+      "canonical": "Ілюзіоніст",
+      "entityType": "subclass",
+      "slug": "illusionist",
+      "edition": "2024",
+      "variants": [
+        "ілюжніст"
+      ]
+    },
+    {
+      "canonical": "Войовник Відкритої Долоні",
+      "entityType": "subclass",
+      "slug": "warrior-of-the-open-hand",
+      "edition": "2024",
+      "variants": [
+        "опен хенд"
+      ]
+    },
+    {
+      "canonical": "Войовник Тіні",
+      "entityType": "subclass",
+      "slug": "warrior-of-shadow",
+      "edition": "2024",
+      "variants": [
+        "шедоу монк"
+      ]
+    },
+    {
+      "canonical": "Вогнекуля",
+      "entityType": "spell",
+      "slug": "fireball",
+      "edition": "both",
+      "variants": [
+        "фаєрбол",
+        "файербол",
+        "вогняна куля"
+      ]
+    },
+    {
+      "canonical": "Магічний дротик",
+      "entityType": "spell",
+      "slug": "magic-missile",
+      "edition": "both",
+      "variants": [
+        "меджик місайл",
+        "магічна стріла"
+      ]
+    },
+    {
+      "canonical": "Позамежний заряд",
+      "entityType": "spell",
+      "slug": "eldritch-blast",
+      "edition": "both",
+      "variants": [
+        "елдрич бласт",
+        "ельдріч бласт"
+      ]
+    },
+    {
+      "canonical": "Контрчари",
+      "entityType": "spell",
+      "slug": "counterspell",
+      "edition": "both",
+      "variants": [
+        "каунтерспел"
+      ]
+    },
+    {
+      "canonical": "Туманний крок",
+      "entityType": "spell",
+      "slug": "misty-step",
+      "edition": "both",
+      "variants": [
+        "місті степ"
+      ]
+    },
+    {
+      "canonical": "Проклін",
+      "entityType": "spell",
+      "slug": "hex",
+      "edition": "both",
+      "variants": [
+        "гекс",
+        "хекс"
+      ]
+    },
+    {
+      "canonical": "Мисливська мітка",
+      "entityType": "spell",
+      "slug": "hunters-mark",
+      "edition": "both",
+      "variants": [
+        "хантерс марк"
+      ]
+    },
+    {
+      "canonical": "Цілюще слово",
+      "entityType": "spell",
+      "slug": "healing-word",
+      "edition": "both",
+      "variants": [
+        "хілінг ворд"
+      ]
+    },
+    {
+      "canonical": "Лікування ран",
+      "entityType": "spell",
+      "slug": "cure-wounds",
+      "edition": "both",
+      "variants": [
+        "к'юр вундс"
+      ]
+    },
+    {
+      "canonical": "Магічна рука",
+      "entityType": "spell",
+      "slug": "mage-hand",
+      "edition": "both",
+      "variants": [
+        "мейдж хенд"
+      ]
+    },
+    {
+      "canonical": "Штукарство",
+      "entityType": "spell",
+      "slug": "prestidigitation",
+      "edition": "both",
+      "variants": [
+        "престидижитація"
+      ]
+    },
+    {
+      "canonical": "Перевтілення",
+      "entityType": "spell",
+      "slug": "polymorph",
+      "edition": "both",
+      "variants": [
+        "поліморф"
+      ]
+    },
+    {
+      "canonical": "Благословення",
+      "entityType": "spell",
+      "slug": "bless",
+      "edition": "both",
+      "variants": [
+        "блес"
+      ],
+      "ambiguousVariants": [
+        "блес"
+      ]
+    },
+    {
+      "canonical": "Настанова",
+      "entityType": "spell",
+      "slug": "guidance",
+      "edition": "both",
+      "variants": [
+        "гайденс"
+      ]
+    },
+    {
+      "canonical": "Злісне глузування",
+      "entityType": "spell",
+      "slug": "vicious-mockery",
+      "edition": "both",
+      "variants": [
+        "вішес мокері"
+      ]
+    },
+    {
+      "canonical": "Виявлення магії",
+      "entityType": "spell",
+      "slug": "detect-magic",
+      "edition": "both",
+      "variants": [
+        "детект меджик"
+      ]
+    },
+    {
+      "canonical": "Прискорення",
+      "entityType": "spell",
+      "slug": "haste",
+      "edition": "both",
+      "variants": [
+        "хейст"
+      ]
+    },
+    {
+      "canonical": "Невидимість",
+      "entityType": "spell",
+      "slug": "invisibility",
+      "edition": "both",
+      "variants": [
+        "інвізібіліті"
+      ]
+    },
+    {
+      "canonical": "Розвіювання магії",
+      "entityType": "spell",
+      "slug": "dispel-magic",
+      "edition": "both",
+      "variants": [
+        "диспел меджик"
+      ]
+    },
+    {
+      "canonical": "Духи захисники",
+      "entityType": "spell",
+      "slug": "spirit-guardians",
+      "edition": "both",
+      "variants": [
+        "спірит гардіанс"
+      ]
+    },
+    {
+      "canonical": "Духовна зброя",
+      "entityType": "spell",
+      "slug": "spiritual-weapon",
+      "edition": "both",
+      "variants": [
+        "спірічуал віпон"
+      ]
+    },
+    {
+      "canonical": "Відродження",
+      "entityType": "spell",
+      "slug": "revivify",
+      "edition": "both",
+      "variants": [
+        "ревівіфай"
+      ]
+    },
+    {
+      "canonical": "Рій метеорів",
+      "entityType": "spell",
+      "slug": "meteor-swarm",
+      "edition": "both",
+      "variants": [
+        "метеор сворм"
+      ]
+    },
+    {
+      "canonical": "Длань Бігбі",
+      "entityType": "spell",
+      "slug": "bigbys-hand",
+      "edition": "both",
+      "variants": [
+        "арканна рука",
+        "arcane hand"
+      ]
+    },
+    {
+      "canonical": "Меч Морденкайнена",
+      "entityType": "spell",
+      "slug": "mordenkainens-sword",
+      "edition": "both",
+      "variants": [
+        "арканний меч",
+        "arcane sword"
+      ]
+    },
+    {
+      "canonical": "Зжирач розуму",
+      "entityType": "creature",
+      "slug": "mind-flayer",
+      "edition": "2024",
+      "variants": [
+        "іллітид",
+        "майнд флаєр",
+        "іллітід"
+      ]
+    },
+    {
+      "canonical": "Сововедмідь",
+      "entityType": "creature",
+      "slug": "owlbear",
+      "edition": "both",
+      "variants": [
+        "ведмесич",
+        "ведмесова",
+        "оулбер"
+      ]
+    },
+    {
+      "canonical": "Спостерігач",
+      "entityType": "creature",
+      "slug": "beholder",
+      "edition": "2014",
+      "variants": [
+        "бехолдер"
+      ]
+    },
+    {
+      "canonical": "Желатиновий куб",
+      "entityType": "creature",
+      "slug": "gelatinous-cube",
+      "edition": "both",
+      "variants": [
+        "драглистий куб"
+      ]
+    },
+    {
+      "canonical": "Вайт",
+      "entityType": "creature",
+      "slug": "wight",
+      "edition": "both",
+      "variants": [
+        "помрець",
+        "курганний мерло"
+      ]
+    },
+    {
+      "canonical": "Ропер",
+      "entityType": "creature",
+      "slug": "roper",
+      "edition": "both",
+      "variants": [
+        "мотузник",
+        "хапач"
+      ]
+    },
+    {
+      "canonical": "Іржавий монстр",
+      "entityType": "creature",
+      "slug": "rust-monster",
+      "edition": "both",
+      "variants": [
+        "іржавник",
+        "раст монстр"
+      ]
+    },
+    {
+      "canonical": "Тараск",
+      "entityType": "creature",
+      "slug": "tarrasque",
+      "edition": "both",
+      "variants": [
+        "тарраск"
+      ]
+    },
+    {
+      "canonical": "Дії в бою",
+      "entityType": "rule",
+      "slug": "actions-in-combat",
+      "edition": "both",
+      "variants": [
+        "бонусна дія",
+        "бонус екшн",
+        "екшн"
+      ]
+    },
+    {
+      "canonical": "Верховий та підводний бій",
+      "entityType": "rule",
+      "slug": "mounted-and-underwater-combat",
+      "edition": "2014",
+      "variants": [
+        "бій верхи",
+        "їзда верхи",
+        "маунтед комбат"
+      ]
+    },
+    {
+      "canonical": "Короткий та Довгий відпочинок",
+      "entityType": "rule",
+      "slug": "resting-rules",
+      "edition": "both",
+      "variants": [
+        "шорт рест",
+        "лонг рест"
+      ]
+    },
+    {
+      "canonical": "Правила Концентрації",
+      "entityType": "rule",
+      "slug": "concentration-rules",
+      "edition": "both",
+      "variants": [
+        "концентрейшн"
+      ]
+    },
+    {
+      "canonical": "Клас небезпеки (Challenge Rating / CR)",
+      "entityType": "rule",
+      "slug": "challenge-rating",
+      "edition": "both",
+      "variants": [
+        "челендж рейтинг"
+      ]
+    },
+    {
+      "canonical": "Налаштування (Attunement)",
+      "entityType": "rule",
+      "slug": "attunement-rules",
+      "edition": "both",
+      "variants": [
+        "атюнмент",
+        "аттюнмент"
+      ]
+    },
+    {
+      "canonical": "Значення та модифікатори характеристик",
+      "entityType": "rule",
+      "slug": "ability-modifiers",
+      "edition": "both",
+      "variants": [
+        "абіліті скор"
+      ]
+    },
+    {
+      "canonical": "Слоти заклинань (Spell Slots)",
+      "entityType": "rule",
+      "slug": "spell-slots",
+      "edition": "both",
+      "variants": [
+        "чарунка",
+        "спелслот"
+      ]
+    },
+    {
+      "canonical": "Інша активність у ході",
+      "entityType": "rule",
+      "slug": "other-activity-on-your-turn",
+      "edition": "2014",
+      "variants": [
+        "вільна дія",
+        "безкоштовна дія"
+      ]
+    },
+    {
+      "canonical": "Пошук та Використання предмета",
+      "entityType": "rule",
+      "slug": "search-and-use-action",
+      "edition": "2014",
+      "variants": [
+        "використати предмет",
+        "use an object"
+      ]
+    },
+    {
+      "canonical": "Майстерність зброї",
+      "entityType": "rule",
+      "slug": "weapon-mastery",
+      "edition": "2024",
+      "variants": [
+        "вепон мастері"
+      ]
+    },
+    {
+      "canonical": "Риси походження",
+      "entityType": "rule",
+      "slug": "origin-feats",
+      "edition": "2024",
+      "variants": [
+        "риса походження",
+        "оріджин фіт"
+      ]
+    },
+    {
+      "canonical": "Ваш хід у бою",
+      "entityType": "rule",
+      "slug": "your-turn",
+      "edition": "2014",
+      "variants": [
+        "вільна дія",
+        "безкоштовна взаємодія"
+      ]
+    },
+    {
+      "canonical": "Епічні блага",
+      "entityType": "rule",
+      "slug": "epic-boons",
+      "edition": "2024",
+      "variants": [
+        "епічне благо"
+      ]
+    },
+    {
+      "canonical": "Простолюдин",
+      "entityType": "creature",
+      "slug": "commoner",
+      "edition": "2024",
+      "variants": [
+        "селянин"
+      ]
+    },
+    {
+      "canonical": "Крук",
+      "entityType": "creature",
+      "slug": "raven",
+      "edition": "2024",
+      "variants": [
+        "ворон"
+      ],
+      "ambiguousVariants": [
+        "ворон"
+      ]
+    },
+    {
+      "canonical": "Стерв'ятник",
+      "entityType": "creature",
+      "slug": "vulture",
+      "edition": "2024",
+      "variants": [
+        "гриф"
+      ],
+      "ambiguousVariants": [
+        "гриф"
+      ]
+    },
+    {
+      "canonical": "Розбійник",
+      "entityType": "creature",
+      "slug": "bandit",
+      "edition": "2024",
+      "variants": [
+        "бандит"
+      ],
+      "ambiguousVariants": [
+        "бандит"
+      ]
+    },
+    {
+      "canonical": "Крилатий змій",
+      "entityType": "creature",
+      "slug": "flying-snake",
+      "edition": "2024",
+      "variants": [
+        "флаїнг снейк"
+      ]
+    },
+    {
+      "canonical": "Вартовий",
+      "entityType": "creature",
+      "slug": "guard",
+      "edition": "2024",
+      "variants": [
+        "стражник"
+      ]
+    },
+    {
+      "canonical": "Мастиф",
+      "entityType": "creature",
+      "slug": "mastiff",
+      "edition": "2024",
+      "variants": [
+        "сторожовий пес"
+      ]
+    },
+    {
+      "canonical": "Мул",
+      "entityType": "creature",
+      "slug": "mule",
+      "edition": "2024",
+      "variants": [
+        "віслюк"
+      ]
+    },
+    {
+      "canonical": "Шляхтич",
+      "entityType": "creature",
+      "slug": "noble",
+      "edition": "2024",
+      "variants": [
+        "дворянин"
+      ]
+    },
+    {
+      "canonical": "Стирж",
+      "entityType": "creature",
+      "slug": "stirge",
+      "edition": "2024",
+      "variants": [
+        "кровосос"
+      ]
+    },
+    {
+      "canonical": "Дретч",
+      "entityType": "creature",
+      "slug": "dretch",
+      "edition": "2024",
+      "variants": [
+        "нижчий демон"
+      ]
+    },
+    {
+      "canonical": "Гігантська стонога",
+      "entityType": "creature",
+      "slug": "giant-centipede",
+      "edition": "2024",
+      "variants": [
+        "центипеда"
+      ]
+    },
+    {
+      "canonical": "Гігантська жаба",
+      "entityType": "creature",
+      "slug": "giant-frog",
+      "edition": "2024",
+      "variants": [
+        "жаба-бик"
+      ]
+    },
+    {
+      "canonical": "Пантера",
+      "entityType": "creature",
+      "slug": "panther",
+      "edition": "2024",
+      "variants": [
+        "леопард"
+      ]
+    },
+    {
+      "canonical": "Спрайт",
+      "entityType": "creature",
+      "slug": "sprite",
+      "edition": "2024",
+      "variants": [
+        "піксі-воїн"
+      ]
+    },
+    {
+      "canonical": "Фіолетовий гриб",
+      "entityType": "creature",
+      "slug": "violet-fungus",
+      "edition": "2024",
+      "variants": [
+        "віолет фангус"
+      ]
+    },
+    {
+      "canonical": "Даркмантл",
+      "entityType": "creature",
+      "slug": "darkmantle",
+      "edition": "2024",
+      "variants": [
+        "темна мантія"
+      ]
+    },
+    {
+      "canonical": "Іржавий монстр",
+      "entityType": "creature",
+      "slug": "rust-monster",
+      "edition": "2024",
+      "variants": [
+        "раст монстр"
+      ]
+    },
+    {
+      "canonical": "Розвідник",
+      "entityType": "creature",
+      "slug": "scout",
+      "edition": "2024",
+      "variants": [
+        "скаут"
+      ]
+    },
+    {
+      "canonical": "Ворг",
+      "entityType": "creature",
+      "slug": "worg",
+      "edition": "2024",
+      "variants": [
+        "злий вовк"
+      ]
+    },
+    {
+      "canonical": "Латунний дракончик",
+      "entityType": "creature",
+      "slug": "brass-dragon-wyrmling",
+      "edition": "2024",
+      "variants": [
+        "брасс вирмлінг"
+      ]
+    },
+    {
+      "canonical": "Мідний дракончик",
+      "entityType": "creature",
+      "slug": "copper-dragon-wyrmling",
+      "edition": "2024",
+      "variants": [
+        "коппер вирмлінг"
+      ]
+    },
+    {
+      "canonical": "Двоголовий пес",
+      "entityType": "creature",
+      "slug": "death-dog",
+      "edition": "2024",
+      "variants": [
+        "дез дог"
+      ]
+    },
+    {
+      "canonical": "Лютий вовк",
+      "entityType": "creature",
+      "slug": "dire-wolf",
+      "edition": "2024",
+      "variants": [
+        "жахливий вовк"
+      ]
+    },
+    {
+      "canonical": "Гуль",
+      "entityType": "creature",
+      "slug": "ghoul",
+      "edition": "2024",
+      "variants": [
+        "упир"
+      ],
+      "ambiguousVariants": [
+        "упир"
+      ]
+    },
+    {
+      "canonical": "Імп",
+      "entityType": "creature",
+      "slug": "imp",
+      "edition": "2024",
+      "variants": [
+        "бісеня"
+      ]
+    },
+    {
+      "canonical": "Квазіт",
+      "entityType": "creature",
+      "slug": "quasit",
+      "edition": "2024",
+      "variants": [
+        "біс-демон"
+      ]
+    },
+    {
+      "canonical": "Привид",
+      "entityType": "creature",
+      "slug": "specter",
+      "edition": "2024",
+      "variants": [
+        "спектр"
+      ]
+    },
+    {
+      "canonical": "Шпигун",
+      "entityType": "creature",
+      "slug": "spy",
+      "edition": "2024",
+      "variants": [
+        "розвідник"
+      ],
+      "ambiguousVariants": [
+        "розвідник"
+      ]
+    },
+    {
+      "canonical": "Бронзовий дракончик",
+      "entityType": "creature",
+      "slug": "bronze-dragon-wyrmling",
+      "edition": "2024",
+      "variants": [
+        "вирмлінг"
+      ],
+      "ambiguousVariants": [
+        "вирмлінг"
+      ]
+    },
+    {
+      "canonical": "Еттеркап",
+      "entityType": "creature",
+      "slug": "ettercap",
+      "edition": "2024",
+      "variants": [
+        "павуколюдина"
+      ]
+    },
+    {
+      "canonical": "Ґаст",
+      "entityType": "creature",
+      "slug": "ghast",
+      "edition": "2024",
+      "variants": [
+        "вищий упир"
+      ]
+    },
+    {
+      "canonical": "Гігантський удав",
+      "entityType": "creature",
+      "slug": "giant-constrictor-snake",
+      "edition": "2024",
+      "variants": [
+        "констриктор"
+      ],
+      "ambiguousVariants": [
+        "констриктор"
+      ]
+    },
+    {
+      "canonical": "Бурмочучий ротожуй",
+      "entityType": "creature",
+      "slug": "gibbering-mouther",
+      "edition": "2024",
+      "variants": [
+        "гібберінг маусер"
+      ]
+    },
+    {
+      "canonical": "Грік",
+      "entityType": "creature",
+      "slug": "grick",
+      "edition": "2024",
+      "variants": [
+        "хижак скель"
+      ]
+    },
+    {
+      "canonical": "Акула-мисливець",
+      "entityType": "creature",
+      "slug": "hunter-shark",
+      "edition": "2024",
+      "variants": [
+        "велика біла акула"
+      ]
+    },
+    {
+      "canonical": "Мерроу",
+      "entityType": "creature",
+      "slug": "merrow",
+      "edition": "2024",
+      "variants": [
+        "водяний огр"
+      ]
+    },
+    {
+      "canonical": "Охристе желе",
+      "entityType": "creature",
+      "slug": "ochre-jelly",
+      "edition": "2024",
+      "variants": [
+        "охре джеллі"
+      ]
+    },
+    {
+      "canonical": "Полярний ведмідь",
+      "entityType": "creature",
+      "slug": "polar-bear",
+      "edition": "2024",
+      "variants": [
+        "печерний ведмідь"
+      ]
+    },
+    {
+      "canonical": "Священник",
+      "entityType": "creature",
+      "slug": "priest",
+      "edition": "2024",
+      "variants": [
+        "жрець"
+      ],
+      "ambiguousVariants": [
+        "жрець"
+      ]
+    },
+    {
+      "canonical": "Морська відьма",
+      "entityType": "creature",
+      "slug": "sea-hag",
+      "edition": "2024",
+      "variants": [
+        "сі хег"
+      ]
+    },
+    {
+      "canonical": "Шпичастий диявол",
+      "entityType": "creature",
+      "slug": "spined-devil",
+      "edition": "2024",
+      "variants": [
+        "спінагон"
+      ]
+    },
+    {
+      "canonical": "Щур-перевертень",
+      "entityType": "creature",
+      "slug": "wererat",
+      "edition": "2024",
+      "variants": [
+        "веррет"
+      ]
+    },
+    {
+      "canonical": "Бородатий диявол",
+      "entityType": "creature",
+      "slug": "bearded-devil",
+      "edition": "2024",
+      "variants": [
+        "барбазу"
+      ]
+    },
+    {
+      "canonical": "Зелена відьма",
+      "entityType": "creature",
+      "slug": "green-hag",
+      "edition": "2024",
+      "variants": [
+        "грін хег"
+      ]
+    },
+    {
+      "canonical": "Пекельний гончак",
+      "entityType": "creature",
+      "slug": "hell-hound",
+      "edition": "2024",
+      "variants": [
+        "хелл хаунд"
+      ]
+    },
+    {
+      "canonical": "Косатка",
+      "entityType": "creature",
+      "slug": "killer-whale",
+      "edition": "2024",
+      "variants": [
+        "кілер вейл"
+      ]
+    },
+    {
+      "canonical": "Кошмар",
+      "entityType": "creature",
+      "slug": "nightmare",
+      "edition": "2024",
+      "variants": [
+        "нічна кобила",
+        "найтмер"
+      ]
+    },
+    {
+      "canonical": "Сововедмідь",
+      "entityType": "creature",
+      "slug": "owlbear",
+      "edition": "2024",
+      "variants": [
+        "оулбер"
+      ]
+    },
+    {
+      "canonical": "Фазовий павук",
+      "entityType": "creature",
+      "slug": "phase-spider",
+      "edition": "2024",
+      "variants": [
+        "фейз спайдер"
+      ]
+    },
+    {
+      "canonical": "Глядач",
+      "entityType": "creature",
+      "slug": "spectator",
+      "edition": "2024",
+      "variants": [
+        "спостерігач-страж"
+      ]
+    },
+    {
+      "canonical": "Вовк-перевертень",
+      "entityType": "creature",
+      "slug": "werewolf",
+      "edition": "2024",
+      "variants": [
+        "вервульф"
+      ]
+    },
+    {
+      "canonical": "Вайт",
+      "entityType": "creature",
+      "slug": "wight",
+      "edition": "2024",
+      "variants": [
+        "курганний мерло"
+      ]
+    },
+    {
+      "canonical": "Єті",
+      "entityType": "creature",
+      "slug": "yeti",
+      "edition": "2024",
+      "variants": [
+        "снігова людина"
+      ]
+    },
+    {
+      "canonical": "Куатль",
+      "entityType": "creature",
+      "slug": "couatl",
+      "edition": "2024",
+      "variants": [
+        "коатль"
+      ],
+      "ambiguousVariants": [
+        "коатль"
+      ]
+    },
+    {
+      "canonical": "Еттін",
+      "entityType": "creature",
+      "slug": "ettin",
+      "edition": "2024",
+      "variants": [
+        "двоголовий велетень"
+      ]
+    },
+    {
+      "canonical": "Примара",
+      "entityType": "creature",
+      "slug": "ghost",
+      "edition": "2024",
+      "variants": [
+        "полтергейст"
+      ],
+      "ambiguousVariants": [
+        "полтергейст"
+      ]
+    },
+    {
+      "canonical": "Червоний дракончик",
+      "entityType": "creature",
+      "slug": "red-dragon-wyrmling",
+      "edition": "2024",
+      "variants": [
+        "вирмлінг"
+      ],
+      "ambiguousVariants": [
+        "вирмлінг"
+      ]
+    },
+    {
+      "canonical": "Вепр-перевертень",
+      "entityType": "creature",
+      "slug": "wereboar",
+      "edition": "2024",
+      "variants": [
+        "вербоар"
+      ]
+    },
+    {
+      "canonical": "Тигр-перевертень",
+      "entityType": "creature",
+      "slug": "weretiger",
+      "edition": "2024",
+      "variants": [
+        "вертайгер"
+      ]
+    },
+    {
+      "canonical": "Булетта",
+      "entityType": "creature",
+      "slug": "bulette",
+      "edition": "2024",
+      "variants": [
+        "сухопутний акула"
+      ]
+    },
+    {
+      "canonical": "Гігантська акула",
+      "entityType": "creature",
+      "slug": "giant-shark",
+      "edition": "2024",
+      "variants": [
+        "мегалодон"
+      ]
+    },
+    {
+      "canonical": "Гірський велетень",
+      "entityType": "creature",
+      "slug": "hill-giant",
+      "edition": "2024",
+      "variants": [
+        "хілл джайент"
+      ]
+    },
+    {
+      "canonical": "Нічна відьма",
+      "entityType": "creature",
+      "slug": "night-hag",
+      "edition": "2024",
+      "variants": [
+        "найт хег"
+      ]
+    },
+    {
+      "canonical": "Отиуг",
+      "entityType": "creature",
+      "slug": "otyugh",
+      "edition": "2024",
+      "variants": [
+        "отіюг"
+      ]
+    },
+    {
+      "canonical": "Ропер",
+      "entityType": "creature",
+      "slug": "roper",
+      "edition": "2024",
+      "variants": [
+        "хапач"
+      ]
+    },
+    {
+      "canonical": "Саламандра",
+      "entityType": "creature",
+      "slug": "salamander",
+      "edition": "2024",
+      "variants": [
+        "вогняна змія"
+      ],
+      "ambiguousVariants": [
+        "вогняна змія"
+      ]
+    },
+    {
+      "canonical": "Блукаючий курган",
+      "entityType": "creature",
+      "slug": "shambling-mound",
+      "edition": "2024",
+      "variants": [
+        "шамблінг маунд"
+      ]
+    },
+    {
+      "canonical": "Вампірське поріддя",
+      "entityType": "creature",
+      "slug": "vampire-spawn",
+      "edition": "2024",
+      "variants": [
+        "вампір-слуга"
+      ]
+    },
+    {
+      "canonical": "Ведмідь-перевертень",
+      "entityType": "creature",
+      "slug": "werebear",
+      "edition": "2024",
+      "variants": [
+        "вербер"
+      ]
+    },
+    {
+      "canonical": "Ксорн",
+      "entityType": "creature",
+      "slug": "xorn",
+      "edition": "2024",
+      "variants": [
+        "кам'яний пожирач"
+      ]
+    },
+    {
+      "canonical": "Піратський капітан",
+      "entityType": "creature",
+      "slug": "pirate-captain",
+      "edition": "2024",
+      "variants": [
+        "головоріз морів"
+      ]
+    },
+    {
+      "canonical": "Врок",
+      "entityType": "creature",
+      "slug": "vrock",
+      "edition": "2024",
+      "variants": [
+        "гриф-демон"
+      ]
+    },
+    {
+      "canonical": "Щитовий страж",
+      "entityType": "creature",
+      "slug": "shield-guardian",
+      "edition": "2024",
+      "variants": [
+        "щитоносець"
+      ]
+    },
+    {
+      "canonical": "Кам'яний велетень",
+      "entityType": "creature",
+      "slug": "stone-giant",
+      "edition": "2024",
+      "variants": [
+        "стоун джайент"
+      ]
+    },
+    {
+      "canonical": "Асасин",
+      "entityType": "creature",
+      "slug": "assassin",
+      "edition": "2024",
+      "variants": [
+        "найманий вбивця"
+      ]
+    },
+    {
+      "canonical": "Ланцюговий диявол",
+      "entityType": "creature",
+      "slug": "chain-devil",
+      "edition": "2024",
+      "variants": [
+        "китон"
+      ]
+    },
+    {
+      "canonical": "Клоакер",
+      "entityType": "creature",
+      "slug": "cloaker",
+      "edition": "2024",
+      "variants": [
+        "плащевик"
+      ]
+    },
+    {
+      "canonical": "Морозний велетень",
+      "entityType": "creature",
+      "slug": "frost-giant",
+      "edition": "2024",
+      "variants": [
+        "фрост джайент"
+      ]
+    },
+    {
+      "canonical": "Хезроу",
+      "entityType": "creature",
+      "slug": "hezrou",
+      "edition": "2024",
+      "variants": [
+        "жабодемон"
+      ]
+    },
+    {
+      "canonical": "Духовна нага",
+      "entityType": "creature",
+      "slug": "spirit-naga",
+      "edition": "2024",
+      "variants": [
+        "спіріт нага"
+      ]
+    },
+    {
+      "canonical": "Тиранозавр Рекс",
+      "entityType": "creature",
+      "slug": "tyrannosaurus-rex",
+      "edition": "2024",
+      "variants": [
+        "t-rex"
+      ]
+    },
+    {
+      "canonical": "Кістяний диявол",
+      "entityType": "creature",
+      "slug": "bone-devil",
+      "edition": "2024",
+      "variants": [
+        "осілос"
+      ]
+    },
+    {
+      "canonical": "Хмарний велетень",
+      "entityType": "creature",
+      "slug": "cloud-giant",
+      "edition": "2024",
+      "variants": [
+        "клауд джайент"
+      ]
+    },
+    {
+      "canonical": "Вогняний велетень",
+      "entityType": "creature",
+      "slug": "fire-giant",
+      "edition": "2024",
+      "variants": [
+        "фаєр джайент"
+      ]
+    },
+    {
+      "canonical": "Глабрезу",
+      "entityType": "creature",
+      "slug": "glabrezu",
+      "edition": "2024",
+      "variants": [
+        "чотирирукий демон"
+      ]
+    },
+    {
+      "canonical": "Древній",
+      "entityType": "creature",
+      "slug": "treant",
+      "edition": "2024",
+      "variants": [
+        "треант"
+      ]
+    },
+    {
+      "canonical": "Дева",
+      "entityType": "creature",
+      "slug": "deva",
+      "edition": "2024",
+      "variants": [
+        "ангел"
+      ],
+      "ambiguousVariants": [
+        "ангел"
+      ]
+    },
+    {
+      "canonical": "Нага-охоронниця",
+      "entityType": "creature",
+      "slug": "guardian-naga",
+      "edition": "2024",
+      "variants": [
+        "гардіан нага"
+      ]
+    },
+    {
+      "canonical": "Ефрит",
+      "entityType": "creature",
+      "slug": "efreeti",
+      "edition": "2024",
+      "variants": [
+        "ефріті"
+      ]
+    },
+    {
+      "canonical": "Рогатий диявол",
+      "entityType": "creature",
+      "slug": "horned-devil",
+      "edition": "2024",
+      "variants": [
+        "корнугон"
+      ]
+    },
+    {
+      "canonical": "Нальфешні",
+      "entityType": "creature",
+      "slug": "nalfeshnee",
+      "edition": "2024",
+      "variants": [
+        "кабанодемон"
+      ]
+    },
+    {
+      "canonical": "Штормовий велетень",
+      "entityType": "creature",
+      "slug": "storm-giant",
+      "edition": "2024",
+      "variants": [
+        "сторм джайент"
+      ]
+    },
+    {
+      "canonical": "Вампір",
+      "entityType": "creature",
+      "slug": "vampire",
+      "edition": "2024",
+      "variants": [
+        "лорд ночі"
+      ]
+    },
+    {
+      "canonical": "Крижаний диявол",
+      "entityType": "creature",
+      "slug": "ice-devil",
+      "edition": "2024",
+      "variants": [
+        "гелугон"
+      ]
+    },
+    {
+      "canonical": "Маріліт",
+      "entityType": "creature",
+      "slug": "marilith",
+      "edition": "2024",
+      "variants": [
+        "шестирука демониця"
+      ]
+    },
+    {
+      "canonical": "Планетар",
+      "entityType": "creature",
+      "slug": "planetar",
+      "edition": "2024",
+      "variants": [
+        "вищий ангел"
+      ]
+    },
+    {
+      "canonical": "Драконяча черепаха",
+      "entityType": "creature",
+      "slug": "dragon-turtle",
+      "edition": "2024",
+      "variants": [
+        "драгон тьортл"
+      ]
+    },
+    {
+      "canonical": "Балор",
+      "entityType": "creature",
+      "slug": "balor",
+      "edition": "2024",
+      "variants": [
+        "лорд демонів"
+      ]
+    },
+    {
+      "canonical": "Диявол Ями",
+      "entityType": "creature",
+      "slug": "pit-fiend",
+      "edition": "2024",
+      "variants": [
+        "пекельний генерал"
+      ]
+    },
+    {
+      "canonical": "Солар",
+      "entityType": "creature",
+      "slug": "solar",
+      "edition": "2024",
+      "variants": [
+        "верховний серафим"
+      ]
+    }
+  ]
+}

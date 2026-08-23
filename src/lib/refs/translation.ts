@@ -437,6 +437,56 @@ export const subclassTranslations = {
   ORDER_OF_SCRIBES: "Орден писарів",
   SCHOOL_OF_TRANSMUTATION: "Школа перетворення",
   SCHOOL_OF_WAR_MAGIC: "Школа бойової магії",
+
+  // 2024 Subclasses
+  PATH_OF_THE_BERSERKER_2024: "Шлях берсерка",
+  PATH_OF_THE_WILD_HEART_2024: "Шлях Дикого Серця",
+  PATH_OF_THE_WORLD_TREE_2024: "Шлях Світового Дерева",
+  PATH_OF_THE_ZEALOT_2024: "Шлях фанатика",
+  COLLEGE_OF_DANCE_2024: "Колегія Танцю",
+  COLLEGE_OF_GLAMOUR_2024: "Колегія гламуру",
+  COLLEGE_OF_LORE_2024: "Колегія знань",
+  COLLEGE_OF_VALOR_2024: "Колегія доблесті",
+  LIFE_DOMAIN_2024: "Домен життя",
+  LIGHT_DOMAIN_2024: "Домен світла",
+  TRICKERY_DOMAIN_2024: "Домен підступності",
+  WAR_DOMAIN_2024: "Домен війни",
+  CIRCLE_OF_THE_LAND_2024: "Коло землі",
+  CIRCLE_OF_THE_MOON_2024: "Коло місяця",
+  CIRCLE_OF_THE_SEA_2024: "Коло Моря",
+  CIRCLE_OF_THE_STARS_2024: "Коло зірок",
+  BATTLE_MASTER_2024: "Майстер бойових мистецтв",
+  CHAMPION_2024: "Чемпіон",
+  ELDRITCH_KNIGHT_2024: "Потойбічний лицар",
+  PSI_WARRIOR_2024: "Псі-воїн",
+  WARRIOR_OF_MERCY_2024: "Войовник Милосердя",
+  WARRIOR_OF_SHADOW_2024: "Войовник Тіні",
+  WARRIOR_OF_THE_ELEMENTS_2024: "Войовник Стихій",
+  WARRIOR_OF_THE_OPEN_HAND_2024: "Войовник Відкритої Долоні",
+  OATH_OF_DEVOTION_2024: "Клятва відданості",
+  OATH_OF_GLORY_2024: "Клятва слави",
+  OATH_OF_THE_ANCIENTS_2024: "Клятва прадавніх",
+  OATH_OF_VENGEANCE_2024: "Клятва помсти",
+  BEAST_MASTER_2024: "Звіролов",
+  FEY_WANDERER_2024: "Мандрівник Фей",
+  GLOOM_STALKER_2024: "Сутінковий Мисливець",
+  HUNTER_2024: "Мисливець",
+  ARCANE_TRICKSTER_2024: "Містичний спритник",
+  ASSASSIN_2024: "Убивця",
+  SOULKNIFE_2024: "Ніж душі",
+  THIEF_2024: "Злодій",
+  ABERRANT_SORCERY_2024: "Абераційна Магія",
+  CLOCKWORK_SORCERY_2024: "Механічна Магія",
+  DRACONIC_SORCERY_2024: "Драконяча Магія",
+  WILD_MAGIC_SORCERY_2024: "Дика Магія",
+  ARCHFEY_PATRON_2024: "Патрон-Архіфея",
+  CELESTIAL_PATRON_2024: "Патрон-Небожитель",
+  FIEND_PATRON_2024: "Патрон-Почвара",
+  GREAT_OLD_ONE_PATRON_2024: "Патрон-Прадавній",
+  ABJURER_2024: "Заборонець",
+  DIVINER_2024: "Провидець",
+  EVOKER_2024: "Заклинач Стихій",
+  ILLUSIONIST_2024: "Ілюзіоніст",
 } as const;
 
 export const subclassTranslationsEng = {
@@ -583,6 +633,56 @@ export const subclassTranslationsEng = {
   ORDER_OF_SCRIBES: "Order of Scribes",
   SCHOOL_OF_TRANSMUTATION: "School of Transmutation",
   SCHOOL_OF_WAR_MAGIC: "School of War Magic",
+
+  // 2024 Subclasses
+  PATH_OF_THE_BERSERKER_2024: "Path of the Berserker",
+  PATH_OF_THE_WILD_HEART_2024: "Path of the Wild Heart",
+  PATH_OF_THE_WORLD_TREE_2024: "Path of the World Tree",
+  PATH_OF_THE_ZEALOT_2024: "Path of the Zealot",
+  COLLEGE_OF_DANCE_2024: "College of Dance",
+  COLLEGE_OF_GLAMOUR_2024: "College of Glamour",
+  COLLEGE_OF_LORE_2024: "College of Lore",
+  COLLEGE_OF_VALOR_2024: "College of Valor",
+  LIFE_DOMAIN_2024: "Life Domain",
+  LIGHT_DOMAIN_2024: "Light Domain",
+  TRICKERY_DOMAIN_2024: "Trickery Domain",
+  WAR_DOMAIN_2024: "War Domain",
+  CIRCLE_OF_THE_LAND_2024: "Circle of the Land",
+  CIRCLE_OF_THE_MOON_2024: "Circle of the Moon",
+  CIRCLE_OF_THE_SEA_2024: "Circle of the Sea",
+  CIRCLE_OF_THE_STARS_2024: "Circle of the Stars",
+  BATTLE_MASTER_2024: "Battle Master",
+  CHAMPION_2024: "Champion",
+  ELDRITCH_KNIGHT_2024: "Eldritch Knight",
+  PSI_WARRIOR_2024: "Psi Warrior",
+  WARRIOR_OF_MERCY_2024: "Warrior of Mercy",
+  WARRIOR_OF_SHADOW_2024: "Warrior of Shadow",
+  WARRIOR_OF_THE_ELEMENTS_2024: "Warrior of the Elements",
+  WARRIOR_OF_THE_OPEN_HAND_2024: "Warrior of the Open Hand",
+  OATH_OF_DEVOTION_2024: "Oath of Devotion",
+  OATH_OF_GLORY_2024: "Oath of Glory",
+  OATH_OF_THE_ANCIENTS_2024: "Oath of the Ancients",
+  OATH_OF_VENGEANCE_2024: "Oath of Vengeance",
+  BEAST_MASTER_2024: "Beast Master",
+  FEY_WANDERER_2024: "Fey Wanderer",
+  GLOOM_STALKER_2024: "Gloom Stalker",
+  HUNTER_2024: "Hunter",
+  ARCANE_TRICKSTER_2024: "Arcane Trickster",
+  ASSASSIN_2024: "Assassin",
+  SOULKNIFE_2024: "Soulknife",
+  THIEF_2024: "Thief",
+  ABERRANT_SORCERY_2024: "Aberrant Sorcery",
+  CLOCKWORK_SORCERY_2024: "Clockwork Sorcery",
+  DRACONIC_SORCERY_2024: "Draconic Sorcery",
+  WILD_MAGIC_SORCERY_2024: "Wild Magic Sorcery",
+  ARCHFEY_PATRON_2024: "Archfey Patron",
+  CELESTIAL_PATRON_2024: "Celestial Patron",
+  FIEND_PATRON_2024: "Fiend Patron",
+  GREAT_OLD_ONE_PATRON_2024: "Great Old One Patron",
+  ABJURER_2024: "Abjurer",
+  DIVINER_2024: "Diviner",
+  EVOKER_2024: "Evoker",
+  ILLUSIONIST_2024: "Illusionist",
 } as const;
 
 
@@ -864,7 +964,8 @@ export const sourceTranslations = {
   OGA: "Один Ґрунґ Вище",
   LR: "Схід Локати",
   BOMT: "Книга Багатьох Речей",
-  PAITM: "Плейнскейп: Пригоди в Мультивсесвіті"
+  PAITM: "Плейнскейп: Пригоди в Мультивсесвіті",
+  HOMEBREW: "Хоумбрю"
 } as const;
 
 export const sourceTranslationsEng = {
@@ -898,7 +999,8 @@ export const sourceTranslationsEng = {
   OGA: "One Grung Above",
   LR: "Locathah Rising",
   BOMT: "The Book of Many Things",
-  PAITM: "Planescape: Adventures in the Multiverse"
+  PAITM: "Planescape: Adventures in the Multiverse",
+  HOMEBREW: "Homebrew"
 } as const;
 
 export const armorTranslations = {
@@ -987,6 +1089,9 @@ export const weaponTranslations = {
   LONGBOW: "Довгий лук",
   NET: "Сітка",
   HOMEBREW: "Хоумбрю",
+
+  // PHB 2024 Firearms
+  PISTOL: "Пістоль",
 
   // Renaissance Firearms
   PISTOL_RENAISSANCE: "Пістоль (Ренесанс)",
@@ -1098,6 +1203,27 @@ export const LanguageTranslations: Record<string, string> = {
   VEDALKEN: "Ведалкенська",
   QUORI: "Куорійська",
   LEONIN: "Леонінська",
+  AARAKOCRA: "Ааракокрійська",
+  SLAAD: "Слаадська",
+  AURAN: "Авранська",
+  BLINK_DOG: "Мерехтлива",
+  TERRAN: "Терранська",
+  IGNAN: "Ігнанська",
+  BULLYWUG: "Булівузька",
+  TROGLODYTE: "Троглодитська",
+  GNOLL: "Гнольська",
+  SAHUAGIN: "Сахуагінська",
+  WORG: "Воргська",
+  THRI_KREEN: "Три-крінська",
+  GITH: "Ґітська",
+  HOOK_HORROR: "Гачкожахівська",
+  YETI: "Єті",
+  UMBER_HULK: "Амбер-халкська",
+  OTYUGH: "Отиузька",
+  VEGEPYGMY: "Вегепігмейська",
+  GRELL: "Ґреллівська",
+  WINTER_WOLF: "Мова зимових вовків",
+  SPHINX: "Сфінксова",
 };
 
 export const subraceTranslations = {
@@ -1276,6 +1402,35 @@ export const featTranslations: Record<string, string> = {
   STRIXHAVEN_INITIATE_PRISMARI: "Посвячений Стріксхейвена (Прізмарі)",
   STRIXHAVEN_INITIATE_LOREHOLD: "Посвячений Стріксхейвена (Лорхолд)",
   SCION_OF_THE_OUTER_PLANES: "Нащадок Зовнішніх Планів",
+
+  // 2024 Feats
+  ABILITY_SCORE_IMPROVEMENT: "Покращення Характеристик",
+  ARCHERY: "Стрільба з лука",
+  BLIND_FIGHTING: "Бій наосліп",
+  BOON_OF_COMBAT_PROWESS: "Дар Бойової Майстерності",
+  BOON_OF_DIMENSIONAL_TRAVEL: "Дар Мандрів Вимірами",
+  BOON_OF_ENERGY_RESISTANCE: "Дар Опору Стихіям",
+  BOON_OF_FATE: "Дар Долі",
+  BOON_OF_FORTITUDE: "Дар Витривалості",
+  BOON_OF_IRRESISTIBLE_OFFENSE: "Дар Незворотного Нападу",
+  BOON_OF_RECOVERY: "Дар Відновлення",
+  BOON_OF_SKILL: "Дар Майстерності",
+  BOON_OF_SPEED: "Дар Швидкості",
+  BOON_OF_SPELL_RECALL: "Дар Пригадування Заклинань",
+  BOON_OF_THE_NIGHT_SPIRIT: "Дар Духу Ночі",
+  BOON_OF_TRUESIGHT: "Дар Істинного Зору",
+  CRAFTER: "Ремісник",
+  DEFENSE: "Оборона",
+  DUELING: "Дуель",
+  GREAT_WEAPON_FIGHTING: "Бій великою зброєю",
+  INTERCEPTION: "Перехоплення",
+  MARTIAL_WEAPON_TRAINING: "Тренування з Бойовою Зброєю",
+  MUSICIAN: "Музикант",
+  PROTECTION: "Захист",
+  SPEEDY: "Швидкий",
+  THROWN_WEAPON_FIGHTING: "Бій метальною зброєю",
+  TWO_WEAPON_FIGHTING: "Бій двома зброями",
+  UNARMED_FIGHTING: "Рукопашний бій",
 };
 
 export const toolTranslations: Record<string, string> = {
@@ -1299,6 +1454,7 @@ export const toolTranslations: Record<string, string> = {
   CARTOGRAPHERS_TOOLS: "Інструменти картографа",
   VEHICLES_LAND: "Наземний транспорт",
   VEHICLES_WATER: "Водний транспорт",
+  HOLY_SYMBOL: "Священний символ",
 };
 
 export const armorTypeTranslations: Record<string, string> = {
@@ -1345,10 +1501,10 @@ export const weaponPropertyTranslations: Record<string, string> = {
 };
 
 export const spellSchoolTranslations: Record<string, string> = {
-  ABJURATION: "Огородження",
-  CONJURATION: "Заклик",
-  DIVINATION: "Віщування",
-  ENCHANTMENT: "Чарування",
+  ABJURATION: "Захист",
+  CONJURATION: "Виклик",
+  DIVINATION: "Ворожіння",
+  ENCHANTMENT: "Причарування",
   EVOCATION: "Втілення",
   ILLUSION: "Ілюзія",
   NECROMANCY: "Некромантія",
@@ -1552,3 +1708,10 @@ export const rarityTranslations = {
 } as const;
 
 export const itemRarityTranslations = rarityTranslations;
+
+export const featCategoryTranslations = {
+  ORIGIN: "Риса походження",
+  GENERAL: "Загальна риса",
+  EPIC_BOON: "Епічний дар",
+  FIGHTING_STYLE: "Бойовий стиль",
+} as const;
