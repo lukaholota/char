@@ -7,14 +7,15 @@ import { Navigation } from "@/components/ui/Navigation";
 import { App } from "@/components/ui/App";
 import { Providers } from "@/app/providers";
 import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
+import { OmniSearchDialog } from "@/components/search/OmniSearchDialog";
 import { DiceOverlay } from "@/lib/components/dice/DiceOverlay";
 import { DiceSidebar } from "@/lib/components/dice/DiceSidebar";
 import { RootGrid } from "@/components/ui/RootGrid";
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 const jetBrainsMono = JetBrains_Mono({
@@ -117,6 +118,7 @@ export default function RootLayout(
       <Suspense fallback={null}>
         <SpellInfoModal />
       </Suspense>
+      <OmniSearchDialog />
       {/* Dice overlay - mounted globally, stays on top of everything */}
       <DiceOverlay />
       <DiceSidebar />

@@ -68,7 +68,7 @@ export function HomeDescriptionSection({ className }: { className?: string }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className={cn("w-full px-6 pb-24 pt-16 md:px-10", className)}>
+    <section className={cn("w-full px-6 pt-16 md:px-10", className)}>
       <div className="mx-auto w-full max-w-6xl">
         {/* Hero text */}
         <motion.div
@@ -99,6 +99,18 @@ export function HomeDescriptionSection({ className }: { className?: string }) {
               className="inline-flex items-center justify-center rounded-2xl bg-white/5 px-5 py-2.5 text-sm font-semibold text-slate-200 ring-1 ring-white/10 transition-colors hover:bg-white/10"
             >
               Зазирнути в Гримуар
+            </Link>
+            <Link
+              href="/rules"
+              className="inline-flex items-center justify-center rounded-2xl bg-white/5 px-5 py-2.5 text-sm font-semibold text-slate-200 ring-1 ring-white/10 transition-colors hover:bg-white/10"
+            >
+              Довідник правил
+            </Link>
+            <Link
+              href="/backgrounds"
+              className="inline-flex items-center justify-center rounded-2xl bg-white/5 px-5 py-2.5 text-sm font-semibold text-slate-200 ring-1 ring-white/10 transition-colors hover:bg-white/10"
+            >
+              Каталог походжень
             </Link>
           </div>
         </motion.div>

@@ -1,11 +1,9 @@
 "use client";
 
-import { raceTranslations, raceTranslationsEng, sourceTranslations } from "@/lib/refs/translation";
-import clsx from "clsx";
+import { raceTranslations, raceTranslationsEng } from "@/lib/refs/translation";
 import { useStepForm } from "@/hooks/useStepForm";
 import { raceSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { RaceAC, RaceASI, RaceI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/components/ui/card";
+import { RaceI } from "@/lib/types/model-types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +11,6 @@ import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useCallback, useRef, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { RaceInfoModal } from "@/lib/components/characterCreator/modals/RaceInfoModal";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import {
   Dialog,
   DialogContent,
@@ -23,17 +20,8 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
-import {
-  formatArmorProficiencies,
-  formatASI,
-  formatList,
-  formatLanguages,
-  formatSkillProficiencies,
-  formatToolProficiencies,
-  formatWeaponProficiencies,
-  translateValue,
-} from "@/lib/components/characterCreator/infoUtils";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { CreationCard } from "@/components/characterCreator/CreationCard";
+import { getRaceVisual } from "@/components/characterCreator/creation-visuals";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -42,33 +30,18 @@ const normalizeText = (value?: string) =>
     .toLowerCase()
     .trim();
 
-const formatSpeeds = (race: RaceI) => {
-  const speeds = [
-    { label: "Ходьба", value: race.speed },
-    { label: "Лазіння", value: race.climbSpeed },
-    { label: "Плавання", value: race.swimSpeed },
-    { label: "Політ", value: race.flightSpeed },
-    { label: "Риття", value: race.burrowSpeed },
-  ].filter((item) => (item.value ?? 0) > 0 || (item.label === "Ходьба" && item.value != null));
-
-  return speeds
-    .map((item) => `${item.label}: ${item.value} фт`)
-    .join(" • ");
-};
-
-const formatRaceAC = (ac?: RaceAC | null) => {
-  if (!ac) return "10";
-  if ("consistentBonus" in ac) {
-    return `+${ac.consistentBonus} до КБ`;
+const getRaceBadges = (race: RaceI): string[] => {
+  const badges: string[] = [];
+  if (race.subraces?.length) {
+    badges.push(`${race.subraces.length} ${race.subraces.length === 1 ? "підраса" : "підраси"}`);
   }
-  const bonus = ac.bonus ? ` + ${ac.bonus}` : "";
-  return `База ${ac.base}${bonus}`;
+  return badges;
 };
 
 interface Props {
-  races: RaceI[]
-  formId: string
-  onNextDisabledChange?: (disabled: boolean) => void
+  races: RaceI[];
+  formId: string;
+  onNextDisabledChange?: (disabled: boolean) => void;
 }
 
 export const RacesForm = (
@@ -134,9 +107,9 @@ export const RacesForm = (
     nextStep();
   });
 
-  const chosenRaceId = form.watch('raceId') || 0
-  const raceSearch = form.watch('raceSearch') || ''
-  const normalizedRaceSearch = useMemo(() => normalizeText(raceSearch), [raceSearch])
+  const chosenRaceId = form.watch('raceId') || 0;
+  const raceSearch = form.watch('raceSearch') || '';
+  const normalizedRaceSearch = useMemo(() => normalizeText(raceSearch), [raceSearch]);
 
   useEffect(() => {
     if (!chosenRaceId) {
@@ -167,10 +140,8 @@ export const RacesForm = (
       .filter(r => !r.name.endsWith('2014'))
       .filter(r => matchesSearch(r.name))
       .sort((a, b) => {
-        // Sort by sortOrder first (negative values like -10 come first)
         const orderDiff = a.sortOrder - b.sortOrder;
         if (orderDiff !== 0) return orderDiff;
-        // Then by raceId as fallback
         return a.raceId - b.raceId;
       }),
     [races, is2024, matchesSearch]
@@ -178,6 +149,20 @@ export const RacesForm = (
 
   const hasNoResults = !coreRaces.length && !otherRaces.length;
   const forceOpenOther = Boolean(normalizedRaceSearch);
+
+  const handleRaceSelect = (r: RaceI) => {
+    if (r.raceId !== chosenRaceId) {
+      updateFormData({
+        subraceId: undefined,
+        raceVariantId: null,
+        raceChoiceSelections: {},
+        featId: undefined,
+        featChoiceSelections: {},
+        racialBonusChoiceSchema: undefined,
+      });
+    }
+    form.setValue('raceId', r.raceId);
+  };
 
   return (
     <>
@@ -222,45 +207,28 @@ export const RacesForm = (
         <p className="text-center text-sm text-slate-400">Нічого не знайдено.</p>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         <div>
-          <div className="mb-2 flex items-center justify-between">
+          <div className="mb-2.5 flex items-center justify-between">
             <p className="text-sm font-semibold text-white">{is2024 ? "PHB 2024" : "PHB 2014"}</p>
             <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">Джерело</Badge>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {coreRaces.map(r =>  (
-              <Card
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+            {coreRaces.map(r => (
+              <CreationCard
                 key={r.raceId}
-                data-testid={`race-${r.name}`}
-                className={clsx(
-                  "glass-card cursor-pointer transition-all duration-200",
-                  r.raceId === chosenRaceId && "glass-active"
-                )}
+                testId={`race-${r.name}`}
+                title={raceTranslations[r.name] ?? r.name}
+                englishTitle={raceTranslationsEng[r.name]}
+                visual={getRaceVisual(r.name)}
+                isSelected={r.raceId === chosenRaceId}
+                badges={getRaceBadges(r)}
+                infoModal={<RaceInfoModal race={r} />}
                 onClick={(e) => {
                   if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-                  if (r.raceId !== chosenRaceId) {
-                    updateFormData({
-                      subraceId: undefined,
-                      raceVariantId: null,
-                      raceChoiceSelections: {},
-                      featId: undefined,
-                      featChoiceSelections: {},
-                      racialBonusChoiceSchema: undefined,
-                    });
-                  }
-                  form.setValue('raceId', r.raceId);
+                  handleRaceSelect(r);
                 }}
-              >
-                <CardContent className="relative flex items-center justify-between p-4">
-                  <RaceInfoModal race={r} />
-                  <div>
-                    <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
-                    <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
-                  </div>
-                  <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
-                </CardContent>
-              </Card>
+              />
             ))}
           </div>
         </div>
@@ -270,44 +238,27 @@ export const RacesForm = (
             <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
               Інші джерела
             </summary>
-            <div className="border-t border-white/10 p-3">
-              <div className="grid gap-3 sm:grid-cols-2">
-                {otherRaces.map(r =>  (
-              <Card
-                key={r.raceId}
-                data-testid={`race-${r.name}`}
-                className={clsx(
-                    "glass-card cursor-pointer transition-all duration-200",
-                    r.raceId === chosenRaceId && "glass-active"
-                  )}
-                  onClick={(e) => {
-                    if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-                    if (r.raceId !== chosenRaceId) {
-                      updateFormData({
-                        subraceId: undefined,
-                        raceVariantId: null,
-                        raceChoiceSelections: {},
-                        featId: undefined,
-                        featChoiceSelections: {},
-                        racialBonusChoiceSchema: undefined,
-                      });
-                    }
-                    form.setValue('raceId', r.raceId);
-                  }}
-                >
-                  <CardContent className="relative flex items-center justify-between p-4">
-                    <RaceInfoModal race={r} />
-                    <div>
-                      <div className="text-lg font-semibold text-white">{raceTranslations[r.name]}</div>
-                      <div className="text-xs text-slate-400">{raceTranslationsEng[r.name]}</div>
-                    </div>
-                    <SourceBadge code={r.source} active={r.raceId === chosenRaceId} />
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="border-t border-white/10 p-3.5">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+                {otherRaces.map(r => (
+                  <CreationCard
+                    key={r.raceId}
+                    testId={`race-${r.name}`}
+                    title={raceTranslations[r.name] ?? r.name}
+                    englishTitle={raceTranslationsEng[r.name]}
+                    visual={getRaceVisual(r.name)}
+                    isSelected={r.raceId === chosenRaceId}
+                    badges={getRaceBadges(r)}
+                    infoModal={<RaceInfoModal race={r} />}
+                    onClick={(e) => {
+                      if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+                      handleRaceSelect(r);
+                    }}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </details>
+          </details>
         )}
       </div>
 

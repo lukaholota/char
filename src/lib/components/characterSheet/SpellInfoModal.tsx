@@ -5,12 +5,8 @@ import { Check, Loader2, UserPlus } from "lucide-react";
 
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  DropdownMenu, DropdownMenuContent, DropdownMenuItem,
+  DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { useParams } from "next/navigation";
@@ -52,9 +48,7 @@ function labelForLevel(level: number, isRitual: boolean) {
 }
 
 function uniqSorted(values: Array<string | null | undefined>) {
-  return Array.from(
-    new Set(values.map((value) => (value ?? "").trim()).filter(Boolean))
-  ).sort((a, b) => a.localeCompare(b, "uk"));
+  return Array.from(new Set(values.map((v) => (v ?? "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b, "uk"));
 }
 
 function ritualForSpell(spell: SpellForModal | null): boolean {
@@ -70,17 +64,10 @@ function isSpellForModalLike(value: unknown): value is SpellForModal {
   if (!value || typeof value !== "object") return false;
   const v = value as Record<string, unknown>;
   return (
-    typeof v.spellId === "number" &&
-    typeof v.name === "string" &&
-    typeof v.engName === "string" &&
-    typeof v.level === "number" &&
-    typeof v.castingTime === "string" &&
-    typeof v.duration === "string" &&
-    typeof v.range === "string" &&
-    typeof v.description === "string" &&
-    typeof v.source === "string" &&
-    Array.isArray(v.spellClasses) &&
-    Array.isArray(v.spellRaces)
+    typeof v.spellId === "number" && typeof v.name === "string" && typeof v.engName === "string" &&
+    typeof v.level === "number" && typeof v.castingTime === "string" && typeof v.duration === "string" &&
+    typeof v.range === "string" && typeof v.description === "string" && typeof v.source === "string" &&
+    Array.isArray(v.spellClasses) && Array.isArray(v.spellRaces)
   );
 }
 
@@ -238,7 +225,12 @@ export function SpellInfoModal() {
   const isIdValid = currentPersId !== null && !isNaN(currentPersId);
 
   const [spellParam, setSpellParam] = useState<string>(() => getSpellParamFromLocation());
-  const open = Boolean(spellParam) && !(isLg && typeof window !== "undefined" && window.location.pathname === "/spells");
+  const isSpellCatalogPage = typeof window !== "undefined" && (
+    window.location.pathname === "/spells" ||
+    window.location.pathname === "/2024/spells" ||
+    window.location.pathname.endsWith("/spells")
+  );
+  const open = Boolean(spellParam) && !(isLg && isSpellCatalogPage);
 
   const [spell, setSpell] = useState<SpellForModal | null>(null);
   const [loading, setLoading] = useState(false);

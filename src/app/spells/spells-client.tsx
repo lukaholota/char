@@ -1,33 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ComponentType } from "react";
+import { useMemo, useState } from "react";
 import {
-  Filter,
   Printer,
-  Search,
   UserPlus,
   Check,
   Loader2,
-  X,
+  Trash2,
+  Wand2,
   Sparkles,
-  WandSparkles,
   Clock3,
-  BookOpen,
-  Flame,
-  Skull,
-  Shield,
-  Eye,
-  Heart,
-  Ghost,
-  Atom,
-  CircleDashed,
 } from "lucide-react";
-import { Virtuoso } from "react-virtuoso";
-
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,23 +20,45 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
-
-import { classTranslations, classTranslationsEng, sourceTranslations, spellSchoolTranslations, subclassTranslations } from "@/lib/refs/translation";
+import {
+  classTranslations,
+  classTranslationsEng,
+  sourceTranslations,
+  spellSchoolTranslations,
+  subclassTranslations,
+} from "@/lib/refs/translation";
 import { subclassParentClass } from "@/lib/refs/subclassMapping";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
 import { setSpellPresenceForPers } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
-import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
+import {
+  getParamSet,
+  setParamSet,
+  getBoolParam,
+  setBoolParam,
+  getSearchParamsFromLocation,
+  replaceUrlSearchParams,
+} from "@/lib/catalog-url-helpers";
+import { ContentListPage } from "@/components/catalogs/ContentListPage";
+import { getSpellSchoolVisual } from "@/components/catalogs/catalog-visuals";
+import { SpellDetailCard } from "@/components/spells/SpellDetailCard";
+import { SpellModalCard } from "@/components/spells/SpellModalCard";
+import { SpellsFilterDialog } from "@/components/spells/SpellsFilterDialog";
+import { SpellData } from "@/lib/spellsData";
+import { Ruleset } from "@prisma/client";
+import { cn } from "@/lib/utils";
 
 const BASE_CLASS_NAMES_UA: Set<string> = new Set<string>(Object.values(classTranslations));
 const CLASS_KEY_TO_UA: Record<string, string> = classTranslations as unknown as Record<string, string>;
 
 const CLASS_ENG_TO_UA: Record<string, string> = Object.fromEntries(
-  Object.entries(classTranslationsEng as unknown as Record<string, string>).map(([key, eng]) => [eng, CLASS_KEY_TO_UA[key] || eng])
+  Object.entries(classTranslationsEng as unknown as Record<string, string>).map(([key, eng]) => [
+    eng,
+    CLASS_KEY_TO_UA[key] || eng,
+  ])
 );
 
-const VIRTUAL_SUBCLASSES: string[] = [subclassTranslations.ELDRITCH_KNIGHT, subclassTranslations.ARCANE_TRICKSTER];
 const SUBCLASS_FILTER_FALLBACK_CLASS: Record<string, string> = {
   [subclassTranslations.ELDRITCH_KNIGHT]: classTranslations.WIZARD_2014,
   [subclassTranslations.ARCANE_TRICKSTER]: classTranslations.WIZARD_2014,
@@ -83,6 +89,9 @@ export type SpellListItem = {
   hasConcentration: string | null;
   spellClasses: { className: string }[];
   spellRaces: { raceName: string | null }[];
+  kind?: "new" | "changed" | "same";
+  differsFrom2014?: boolean;
+  note?: string | null;
 };
 
 type InitialSearchParams = Record<string, string | string[] | undefined>;
@@ -100,7 +109,6 @@ type SelectionState = {
   spell: string;
 };
 
-// Embed mode params
 type EmbedParams = {
   origin: string | null;
   persId: number | null;
@@ -137,150 +145,29 @@ function parseEmbedParams(params: URLSearchParams): EmbedParams {
   };
 }
 
-function getParamSet(params: URLSearchParams, key: string): Set<string> {
-  const raw = params.get(key);
-  if (!raw) return new Set();
-  return new Set(
-    raw
-      .split(",")
-      .map((v) => v.trim())
-      .filter(Boolean)
-  );
-}
-
-function setParamSet(params: URLSearchParams, key: string, values: Set<string>) {
-  const nextValues = Array.from(values).filter(Boolean);
-  if (nextValues.length === 0) params.delete(key);
-  else params.set(key, nextValues.join(","));
-}
-
-function setBoolParam(params: URLSearchParams, key: string, value: boolean | null) {
-  if (value === null) params.delete(key);
-  else params.set(key, value ? "1" : "0");
-}
-
-function getBoolParam(params: URLSearchParams, key: string): boolean | null {
-  const raw = params.get(key);
-  if (raw === null) return null;
-  if (raw === "1") return true;
-  if (raw === "0") return false;
-  return null;
-}
-
-function getSearchParamsFromLocation(): URLSearchParams {
-  if (typeof window === "undefined") return new URLSearchParams();
-  return new URLSearchParams(window.location.search);
-}
-
-function parseSelectionFromParams(params: URLSearchParams): SelectionState {
-  const normalizedClasses = new Set(
-    Array.from(getParamSet(params, "cls"))
-      .map(normalizeBaseClassValue)
-      .filter(Boolean)
-  );
-
-  const normalizedTimes = new Set(
-    Array.from(getParamSet(params, "time"))
-      .map(normalizeCastingTimeValue)
-      .filter(Boolean)
-  );
-
+const parseSelection = (params: URLSearchParams): SelectionState => {
   return {
     levels: getParamSet(params, "lvl"),
-    classes: normalizedClasses,
+    classes: getParamSet(params, "cls"),
     subclasses: getParamSet(params, "sub"),
     schools: getParamSet(params, "sch"),
-    times: normalizedTimes,
+    times: getParamSet(params, "time"),
     sources: getParamSet(params, "src"),
     ritual: getBoolParam(params, "rit"),
     conc: getBoolParam(params, "conc"),
-    // Keep raw user input; normalize only when filtering.
     q: params.get("q") ?? "",
     spell: params.get("spell")?.trim() || "",
   };
+};
+
+function isYesFlag(value: string | null | undefined): boolean {
+  const v = (value ?? "").trim().toLowerCase();
+  if (!v) return false;
+  return v === "так" || v === "yes" || v === "true" || v === "1";
 }
 
-function initSelectionFromInitialSearchParams(initialSearchParams: InitialSearchParams): SelectionState {
-  const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(initialSearchParams)) {
-    if (Array.isArray(value)) {
-      const v = value[0];
-      if (typeof v === "string") params.set(key, v);
-    } else if (typeof value === "string") {
-      params.set(key, value);
-    }
-  }
-
-  const selection = parseSelectionFromParams(params);
-
-  // Embed helper: if maxSpellLevel is provided (character iframe use-case) and there is
-  // no explicit lvl filter yet, initialize lvl filters so users can remove/adjust them.
-  const hasExplicitLvl = Boolean(params.get("lvl")?.trim());
-  const maxRaw = params.get("maxSpellLevel");
-  const max = maxRaw ? parseInt(maxRaw, 10) : NaN;
-  if (!hasExplicitLvl && Number.isFinite(max) && max >= 0) {
-    selection.levels = new Set(Array.from({ length: max + 1 }, (_, i) => String(i)));
-  }
-
-  return selection;
-}
-
-function initEmbedParamsFromInitialSearchParams(initialSearchParams: InitialSearchParams): EmbedParams {
-  const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(initialSearchParams)) {
-    if (Array.isArray(value)) {
-      const v = value[0];
-      if (typeof v === "string") params.set(key, v);
-    } else if (typeof value === "string") {
-      params.set(key, value);
-    }
-  }
-  return parseEmbedParams(params);
-}
-
-function replaceUrlSearchParams(next: URLSearchParams) {
-  if (typeof window === "undefined") return;
-  const url = new URL(window.location.href);
-  url.search = next.toString();
-  window.history.replaceState({}, "", url);
-  const w = window as Window & { __locationchange_patched__?: boolean };
-  if (w.__locationchange_patched__) return;
-  const fire = () => window.dispatchEvent(new Event("locationchange"));
-  if (typeof queueMicrotask === "function") queueMicrotask(fire);
-  else window.setTimeout(fire, 0);
-}
-
-function pushUrlSearchParams(next: URLSearchParams) {
-  if (typeof window === "undefined") return;
-  const url = new URL(window.location.href);
-  url.search = next.toString();
-  window.history.pushState({}, "", url);
-  const w = window as Window & { __locationchange_patched__?: boolean };
-  if (w.__locationchange_patched__) return;
-  const fire = () => window.dispatchEvent(new Event("locationchange"));
-  if (typeof queueMicrotask === "function") queueMicrotask(fire);
-  else window.setTimeout(fire, 0);
-}
-
-function selectionKey(sel: SelectionState): string {
-  const key = (set: Set<string>) => Array.from(set).sort().join(",");
-  return [
-    `lvl=${key(sel.levels)}`,
-    `cls=${key(sel.classes)}`,
-    `sub=${key(sel.subclasses)}`,
-    `sch=${key(sel.schools)}`,
-    `time=${key(sel.times)}`,
-    `src=${key(sel.sources)}`,
-    `rit=${String(sel.ritual)}`,
-    `conc=${String(sel.conc)}`,
-    `q=${sel.q}`,
-    `spell=${sel.spell}`,
-  ].join("|");
-}
-
-function levelLabel(level: number, isRitual: boolean) {
-  const base = level === 0 ? "Замовляння" : `Рівень ${level}`;
-  return isRitual ? `${base} (ритуал)` : base;
+function levelHeaderLabel(level: number) {
+  return level === 0 ? "Замовляння" : `Рівень ${level}`;
 }
 
 function schoolLabel(school: string | null) {
@@ -288,257 +175,11 @@ function schoolLabel(school: string | null) {
   return spellSchoolTranslations[school as keyof typeof spellSchoolTranslations] || school;
 }
 
-function sourceLabel(source: string) {
-  return sourceTranslations[source as keyof typeof sourceTranslations] || source;
-}
-
-function normalizeFlag(value: string | null | undefined): boolean {
-  const v = (value ?? "").trim().toLowerCase();
-  if (!v) return false;
-  return v === "так" || v === "yes" || v === "true" || v === "1";
-}
-
-function normalizeCastingTimeValue(raw: string): string {
-  const v = (raw || "").trim();
-  if (!v) return "";
-  const lower = v.toLowerCase();
-  // Collapse all reaction variants into one filter option.
-  if (lower.startsWith("1 реакц")) return "1 реакція";
-  return v;
-}
-
-type SchoolVisual = {
-  icon: ComponentType<{ className?: string }>;
-  iconWrap: string;
-  iconColor: string;
-  badgeClass: string;
-};
-
-const DEFAULT_SCHOOL_VISUAL: SchoolVisual = {
-  icon: CircleDashed,
-  iconWrap: "bg-slate-900/65 border-slate-600/60",
-  iconColor: "text-slate-300",
-  badgeClass: "border-slate-600/60 bg-slate-900/55",
-};
-
-function schoolVisualByValue(school: string | null | undefined): SchoolVisual {
-  const key = String(school ?? "").toLowerCase();
-
-  if (key.includes("evocation") || key.includes("втілен")) {
-    return {
-      icon: Flame,
-      iconWrap: "bg-rose-950/55 border-rose-800/50",
-      iconColor: "text-rose-300",
-      badgeClass: "border-rose-800/50 bg-rose-950/40",
-    };
-  }
-  if (key.includes("necromancy") || key.includes("некром")) {
-    return {
-      icon: Skull,
-      iconWrap: "bg-emerald-950/55 border-emerald-800/45",
-      iconColor: "text-emerald-300",
-      badgeClass: "border-emerald-800/45 bg-emerald-950/35",
-    };
-  }
-  if (key.includes("abjuration") || key.includes("огородж") || key.includes("захист")) {
-    return {
-      icon: Shield,
-      iconWrap: "bg-sky-950/55 border-sky-800/45",
-      iconColor: "text-sky-300",
-      badgeClass: "border-sky-800/45 bg-sky-950/35",
-    };
-  }
-  if (key.includes("conjuration") || key.includes("виклик")) {
-    return {
-      icon: WandSparkles,
-      iconWrap: "bg-teal-950/55 border-teal-800/45",
-      iconColor: "text-teal-300",
-      badgeClass: "border-teal-800/45 bg-teal-950/35",
-    };
-  }
-  if (key.includes("divination") || key.includes("віщ") || key.includes("ворож")) {
-    return {
-      icon: Eye,
-      iconWrap: "bg-amber-950/55 border-amber-800/50",
-      iconColor: "text-amber-300",
-      badgeClass: "border-amber-800/50 bg-amber-950/35",
-    };
-  }
-  if (key.includes("enchantment") || key.includes("зачар") || key.includes("причар")) {
-    return {
-      icon: Heart,
-      iconWrap: "bg-pink-950/55 border-pink-800/50",
-      iconColor: "text-pink-300",
-      badgeClass: "border-pink-800/50 bg-pink-950/35",
-    };
-  }
-  if (key.includes("illusion") || key.includes("ілюз")) {
-    return {
-      icon: Ghost,
-      iconWrap: "bg-cyan-950/55 border-cyan-800/45",
-      iconColor: "text-cyan-100",
-      badgeClass: "border-cyan-800/45 bg-cyan-950/35",
-    };
-  }
-  if (key.includes("transmutation") || key.includes("перетвор")) {
-    return {
-      icon: Atom,
-      iconWrap: "bg-purple-950/60 border-purple-800/50",
-      iconColor: "text-purple-300",
-      badgeClass: "border-purple-800/50 bg-purple-950/40",
-    };
-  }
-
-  return DEFAULT_SCHOOL_VISUAL;
-}
-
-function levelShortLabel(level: number): string {
-  return level === 0 ? "Замовляння" : `${level} рівень`;
-}
-
 type PersIndexItem = {
   persId: number;
   name: string;
   spellIds: number[];
 };
-
-function SpellDetailPane({ spell }: { spell: SpellListItem }) {
-  const classList = useMemo(() => {
-    const uniq = new Set(spell.spellClasses.map((c) => c.className).filter(Boolean));
-    return Array.from(uniq).sort((a, b) => a.localeCompare(b, "uk"));
-  }, [spell.spellClasses]);
-
-  const raceList = useMemo(() => {
-    const uniq = new Set(spell.spellRaces.map((r) => r.raceName || "").filter(Boolean));
-    return Array.from(uniq).sort((a, b) => a.localeCompare(b, "uk"));
-  }, [spell.spellRaces]);
-
-  return (
-    <div className="glass-card border border-white/10 bg-slate-950/60 p-4 shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10 backdrop-blur-xl sm:p-6">
-      <div className="min-w-0">
-        <h2 className="font-sans text-xl font-semibold uppercase tracking-[0.16em] text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400 truncate">
-          {spell.name}
-        </h2>
-      </div>
-
-      <div className="mt-4 rounded-2xl bg-white/5 p-3 glass-panel border border-white/10">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-            <span className="text-slate-300">{levelLabel(spell.level, normalizeFlag(spell.hasRitual))}</span>
-            <span className="italic text-slate-300">{schoolLabel(spell.school)}</span>
-          </div>
-
-          <div className="min-w-0 max-w-[45%] flex-shrink text-right text-xs text-slate-400 truncate">
-            {sourceLabel(spell.source)}
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
-          <div className="text-xs text-slate-400">Час використання</div>
-          <div className="mt-1 text-sm text-slate-200">{spell.castingTime || "—"}</div>
-        </div>
-        <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
-          <div className="text-xs text-slate-400">Тривалість</div>
-          <div className="mt-1 text-sm text-slate-200">{spell.duration || "—"}</div>
-        </div>
-        <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
-          <div className="text-xs text-slate-400">Дистанція</div>
-          <div className="mt-1 text-sm text-slate-200">{spell.range || "—"}</div>
-        </div>
-        <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
-          <div className="text-xs text-slate-400">Компоненти</div>
-          <div className="mt-1 text-sm text-slate-200">{spell.components || "—"}</div>
-        </div>
-      </div>
-
-      <div className="mt-5 glass-panel rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-        <FormattedDescription content={spell.description} className="text-slate-300" />
-      </div>
-
-      <div className="mt-5 border-t border-slate-800/70 pt-4 text-sm text-slate-300">
-        <div>
-          <span className="text-slate-400">Класи:</span> {classList.length ? classList.join(", ") : "—"}
-        </div>
-        <div className="mt-1">
-          <span className="text-slate-400">Раси:</span> {raceList.length ? raceList.join(", ") : "—"}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Embed mode: simple add button for a specific character
-function EmbedAddButton({
-  spellId,
-  spellLevel,
-  persId,
-  persSpellIds,
-  setPersSpellIds,
-  markPersSpellIdsMutated,
-}: {
-  spellId: number;
-  spellLevel: number;
-  persId: number;
-  persSpellIds: Set<number>;
-  setPersSpellIds: React.Dispatch<React.SetStateAction<Set<number>>>;
-  markPersSpellIdsMutated: () => void;
-}) {
-  const [isPending, setIsPending] = useState(false);
-  const has = persSpellIds.has(spellId);
-
-  const handleToggle = async () => {
-    if (isPending) return;
-    const nextHas = !has;
-    markPersSpellIdsMutated();
-    setIsPending(true);
-    try {
-      const res = await setSpellPresenceForPers({ persId, spellId, present: nextHas });
-      if (res.success) {
-        setPersSpellIds((prev) => {
-          const next = new Set(prev);
-          if (res.present) next.add(spellId);
-          else next.delete(spellId);
-          return next;
-        });
-        // Notify parent if embedded
-        if (window.parent !== window) {
-          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.present }, "*");
-        }
-      }
-    } finally {
-      setIsPending(false);
-    }
-  };
-
-  return (
-    <button
-      type="button"
-      disabled={isPending}
-      onClick={(event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        void handleToggle();
-      }}
-      className={
-        "inline-flex h-9 w-9 items-center justify-center rounded-xl transition " +
-        (has
-          ? "bg-teal-500/20 text-teal-300 border border-teal-500/30"
-          : "text-slate-400 hover:text-teal-300 hover:bg-white/5")
-      }
-      aria-label={has ? "Видалити з персонажа" : "Додати до персонажа"}
-    >
-      {isPending ? (
-        <Loader2 className="h-4 w-4 animate-spin" />
-      ) : has ? (
-        <Check className="h-4 w-4" />
-      ) : (
-        <UserPlus className="h-4 w-4" />
-      )}
-    </button>
-  );
-}
 
 function SpellbookDropdown({
   spellId,
@@ -576,7 +217,7 @@ function SpellbookDropdown({
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:text-teal-300"
           aria-label="Додати до персонажа"
         >
           <UserPlus className="h-4 w-4" />
@@ -599,10 +240,15 @@ function SpellbookDropdown({
             return (
               <DropdownMenuItem
                 key={p.persId}
-                className="flex items-center justify-between gap-2"
+                className="flex items-center justify-between gap-2 cursor-pointer"
                 onSelect={async (e) => {
                   e.preventDefault();
-                  const res = await setSpellPresenceForPers({ persId: p.persId, spellId, present: !has });
+                  const nextPresence = !has;
+                  const res = await setSpellPresenceForPers({
+                    persId: p.persId,
+                    spellId,
+                    present: nextPresence,
+                  });
                   if (!res.success) return;
 
                   setPersIndex(
@@ -611,16 +257,12 @@ function SpellbookDropdown({
                         ? item
                         : {
                             ...item,
-                            spellIds: res.present
-                              ? Array.from(new Set([...item.spellIds, spellId]))
+                            spellIds: nextPresence
+                              ? [...item.spellIds, spellId]
                               : item.spellIds.filter((id) => id !== spellId),
                           }
                     )
                   );
-                  // Notify parent if embedded
-                  if (window.parent !== window) {
-                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, added: res.present }, "*");
-                  }
                 }}
               >
                 <span className="truncate">{label}</span>
@@ -634,262 +276,99 @@ function SpellbookDropdown({
   );
 }
 
+type RowItem =
+  | { kind: "header"; level: number; count: number }
+  | { kind: "spell"; spell: SpellListItem };
+
 export function SpellsClient({
   spells,
-  initialSearchParams,
+  initialSearchParams = {},
+  ruleset = "RULES_2014",
 }: {
   spells: SpellListItem[];
-  initialSearchParams: InitialSearchParams;
+  initialSearchParams?: InitialSearchParams;
+  ruleset?: Ruleset | string;
 }) {
+  const is2024 = ruleset === "RULES_2024";
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
-  const [classFilter, setClassFilter] = useState("");
-  const [subclassFilter, setSubclassFilter] = useState("");
-
-  // Embed mode state (derived from server-provided params to avoid SSR/CSR mismatch)
-  const embedParams = useMemo(
-    () => initEmbedParamsFromInitialSearchParams(initialSearchParams),
-    [initialSearchParams]
-  );
-  const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
-  const [persSpellIds, setPersSpellIds] = useState<Set<number>>(() => new Set());
-  const persSpellIdsVersionRef = useRef(0);
-
-  // Load persSpellIds when in embed mode
-  useEffect(() => {
-    if (!isEmbedMode || !embedParams.persId) return;
-    let cancelled = false;
-    const requestVersion = persSpellIdsVersionRef.current;
-
-    getUserPersesSpellIndex().then((data) => {
-      if (cancelled) return;
-      if (requestVersion !== persSpellIdsVersionRef.current) return;
-      const found = data.find((p) => p.persId === embedParams.persId);
-      if (found) setPersSpellIds(new Set(found.spellIds));
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [isEmbedMode, embedParams.persId]);
-
+  const [selectedModalSpell, setSelectedModalSpell] = useState<SpellListItem | null>(null);
   const [printIds, setPrintIds] = useState<number[]>([]);
 
-  const initialQ = useMemo(() => {
-    const raw = initialSearchParams.q;
-    return Array.isArray(raw) ? raw[0] ?? "" : raw ?? "";
-  }, [initialSearchParams.q]);
+  // Embed mode state
+  const [embedParams] = useState<EmbedParams>(() => {
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(initialSearchParams)) {
+      const v = Array.isArray(value) ? value[0] : value;
+      if (typeof v === "string") params.set(key, v);
+    }
+    return parseEmbedParams(params);
+  });
+  const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
 
-  const [qInput, setQInput] = useState(initialQ);
-  const debounceRef = useRef<number | null>(null);
-
-  const [selection, setSelection] = useState<SelectionState>(() =>
-    initSelectionFromInitialSearchParams(initialSearchParams)
+  const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
+    initialSearchParams,
+    parseSelection
   );
-  const selectionKeyRef = useRef<string>(selectionKey(initSelectionFromInitialSearchParams(initialSearchParams)));
-  const embedDefaultsAppliedRef = useRef(false);
-
-  useEffect(() => {
-    // One-time embed helper: if maxSpellLevel is provided (character iframe use-case) and there is
-    // no explicit lvl filter yet, write lvl=0..max into the URL so users can remove/adjust it.
-    // Important: apply only once so clearing lvl later doesn't get re-applied.
-    if (!embedDefaultsAppliedRef.current) {
-      embedDefaultsAppliedRef.current = true;
-      const params = getSearchParamsFromLocation();
-      const hasExplicitLvl = Boolean(params.get("lvl")?.trim());
-      const maxRaw = params.get("maxSpellLevel");
-      const max = maxRaw ? parseInt(maxRaw, 10) : NaN;
-      if (!hasExplicitLvl && Number.isFinite(max) && max >= 0) {
-        const lvlSet = new Set(Array.from({ length: max + 1 }, (_, i) => String(i)));
-        setParamSet(params, "lvl", lvlSet);
-        replaceUrlSearchParams(params);
-      }
-    }
-
-    // Patch history methods once so we can react to other code using pushState/replaceState.
-    const w = window as Window & { __locationchange_patched__?: boolean };
-    if (typeof window !== "undefined" && !w.__locationchange_patched__) {
-      w.__locationchange_patched__ = true;
-
-      const dispatchLocationChangeAsync = () => {
-        const fire = () => window.dispatchEvent(new Event("locationchange"));
-        if (typeof queueMicrotask === "function") queueMicrotask(fire);
-        else window.setTimeout(fire, 0);
-      };
-
-      const wrap = (type: "pushState" | "replaceState") => {
-        const original = window.history[type];
-        return function (this: History, ...args: unknown[]) {
-          const result = (original as unknown as (...a: unknown[]) => unknown).apply(this, args);
-          dispatchLocationChangeAsync();
-          return result;
-        };
-      };
-
-      window.history.pushState = wrap("pushState");
-      window.history.replaceState = wrap("replaceState");
-    }
-
-    const sync = () => {
-      const next = parseSelectionFromParams(getSearchParamsFromLocation());
-      const nextKey = selectionKey(next);
-      if (nextKey !== selectionKeyRef.current) {
-        selectionKeyRef.current = nextKey;
-        setSelection(next);
-      }
-
-      // Keep input box in sync with URL too.
-      const nextQ = next.q || "";
-      setQInput((prev) => (prev === nextQ ? prev : nextQ));
-    };
-
-    window.addEventListener("popstate", sync);
-    window.addEventListener("locationchange", sync);
-    sync();
-
-    return () => {
-      window.removeEventListener("popstate", sync);
-      window.removeEventListener("locationchange", sync);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (debounceRef.current) window.clearTimeout(debounceRef.current);
-    debounceRef.current = window.setTimeout(() => {
-      const next = getSearchParamsFromLocation();
-      // Don't mutate what the user typed in the input; only strip for behavior.
-      const normalized = qInput.trim();
-      if (!normalized) next.delete("q");
-      else next.set("q", qInput);
-
-      // Zero-latency: only update URL (no Next navigation).
-      replaceUrlSearchParams(next);
-    }, 250);
-
-    return () => {
-      if (debounceRef.current) window.clearTimeout(debounceRef.current);
-    };
-  }, [qInput]);
-
-  const spellClassUniverse = useMemo(() => {
-    const baseClasses = new Set<string>();
-    const subclasses = new Set<string>();
-
-    for (const s of spells) {
-      for (const c of s.spellClasses) {
-        const name = (c.className || "").trim();
-        if (!name) continue;
-        if (BASE_CLASS_NAMES_UA.has(name)) baseClasses.add(name);
-        else subclasses.add(name);
-      }
-    }
-
-    // Virtual subclasses should also be treated as valid subclass filters.
-    for (const v of VIRTUAL_SUBCLASSES) subclasses.add(v);
-
-    return { baseClasses, subclasses };
-  }, [spells]);
 
   const filtered = useMemo(() => {
     const q = selection.q.trim().toLowerCase();
-    return spells.filter((s) => {
+    return spells.filter((spell) => {
       if (q) {
-        const hay = `${s.name} ${s.engName}`.toLowerCase();
+        const hay = `${spell.name} ${spell.engName}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
 
-      if (selection.levels.size > 0) {
-        if (!selection.levels.has(String(s.level))) return false;
+      if (selection.levels.size > 0 && !selection.levels.has(String(spell.level))) {
+        return false;
       }
 
-      if (selection.schools.size > 0) {
-        if (!s.school || !selection.schools.has(s.school)) return false;
+      if (selection.schools.size > 0 && (!spell.school || !selection.schools.has(spell.school))) {
+        return false;
       }
 
-      if (selection.sources.size > 0) {
-        if (!selection.sources.has(s.source)) return false;
+      if (selection.times.size > 0 && !selection.times.has(spell.castingTime)) {
+        return false;
       }
 
-      if (selection.times.size > 0) {
-        const cast = (s.castingTime || "").trim();
-        const castNorm = normalizeCastingTimeValue(cast);
-        let ok = false;
-        for (const t of selection.times) {
-          const tt = (t || "").trim();
-          if (!tt) continue;
-          if (cast.includes(tt) || castNorm === tt) {
-            ok = true;
-            break;
-          }
-        }
-        if (!ok) return false;
+      if (selection.sources.size > 0 && !selection.sources.has(spell.source)) {
+        return false;
       }
 
-      // Classes & subclasses should work as a union (OR): if multiple are selected, show spells
-      // that match ANY selected class/subclass (not intersection).
-      const effectiveClasses = new Set(
-        Array.from(selection.classes).filter((cls) => spellClassUniverse.baseClasses.has(cls))
-      );
-      const effectiveSubclasses = new Set(
-        Array.from(selection.subclasses).filter(
-          (sub) => spellClassUniverse.subclasses.has(sub) || Boolean(SUBCLASS_FILTER_FALLBACK_CLASS[sub])
-        )
-      );
-
-      if (effectiveClasses.size > 0 || effectiveSubclasses.size > 0) {
-        const spellClasses = new Set(s.spellClasses.map((c) => c.className));
-        let ok = false;
-        for (const cls of effectiveClasses) {
-          if (spellClasses.has(cls)) {
-            ok = true;
-            break;
-          }
-        }
-        if (!ok) {
-          for (const sub of effectiveSubclasses) {
-            if (spellClasses.has(sub)) {
-              ok = true;
-              break;
-            }
-
-            const fallback = SUBCLASS_FILTER_FALLBACK_CLASS[sub];
-            if (fallback && spellClasses.has(fallback)) {
-              ok = true;
-              break;
-            }
-          }
-        }
-        if (!ok) return false;
+      if (selection.ritual !== null && isYesFlag(spell.hasRitual) !== selection.ritual) {
+        return false;
       }
 
-      if (selection.ritual !== null) {
-        if (normalizeFlag(s.hasRitual) !== selection.ritual) return false;
+      if (selection.conc !== null && isYesFlag(spell.hasConcentration) !== selection.conc) {
+        return false;
       }
 
-      if (selection.conc !== null) {
-        if (normalizeFlag(s.hasConcentration) !== selection.conc) return false;
+      if (selection.classes.size > 0) {
+        const hasClass = spell.spellClasses.some((c) =>
+          selection.classes.has(normalizeBaseClassValue(c.className))
+        );
+        if (!hasClass) return false;
+      }
+
+      if (selection.subclasses.size > 0) {
+        const hasSubclass = spell.spellClasses.some((c) => selection.subclasses.has(c.className));
+        if (!hasSubclass) return false;
       }
 
       return true;
     });
-  }, [spells, selection, spellClassUniverse]);
-
-  const grouped = useMemo(() => {
-    const map = new Map<number, SpellListItem[]>();
-    for (const s of filtered) {
-      const arr = map.get(s.level) ?? [];
-      arr.push(s);
-      map.set(s.level, arr);
-    }
-    return Array.from(map.entries()).sort(([a], [b]) => a - b);
-  }, [filtered]);
+  }, [spells, selection]);
 
   const selectedSpell = useMemo(() => {
-    const byParam = selection.spell
-      ? spells.find((s) => String(s.spellId) === selection.spell || s.engName === selection.spell || s.name === selection.spell)
-      : null;
-
-    if (byParam) return byParam;
+    if (selection.spell) {
+      const byParam = spells.find(
+        (s) =>
+          String(s.spellId) === selection.spell ||
+          s.engName.toLowerCase() === selection.spell.toLowerCase() ||
+          s.name.toLowerCase() === selection.spell.toLowerCase()
+      );
+      if (byParam) return byParam;
+    }
     return filtered[0] ?? null;
   }, [filtered, selection.spell, spells]);
 
@@ -899,78 +378,50 @@ export function SpellsClient({
     replaceUrlSearchParams(next);
   };
 
-  const pushParams = (mutate: (next: URLSearchParams) => void) => {
-    const next = getSearchParamsFromLocation();
-    mutate(next);
-    pushUrlSearchParams(next);
-  };
-
   const toggleSetValue = (key: string, value: string) => {
     setParams((next) => {
       const set = getParamSet(next, key);
-      if (key === "cls") {
-        const normalized = normalizeBaseClassValue(value);
-        let had = false;
-        for (const token of Array.from(set)) {
-          if (normalizeBaseClassValue(token) === normalized) {
-            set.delete(token);
-            had = true;
-          }
-        }
-        if (!had) set.add(normalized);
-      } else {
-        if (set.has(value)) set.delete(value);
-        else set.add(value);
-      }
+      if (set.has(value)) set.delete(value);
+      else set.add(value);
       setParamSet(next, key, set);
     });
   };
 
   const available = useMemo(() => {
+    const levels = new Set<number>();
     const classes = new Set<string>();
     const subclasses = new Set<string>();
     const schools = new Set<string>();
     const times = new Set<string>();
     const sources = new Set<string>();
-    const levels = new Set<number>();
 
     for (const s of spells) {
       levels.add(s.level);
       if (s.school) schools.add(s.school);
-      times.add(normalizeCastingTimeValue(s.castingTime));
-      sources.add(s.source);
+      if (s.castingTime) times.add(s.castingTime);
+      if (s.source) sources.add(s.source);
+
       for (const c of s.spellClasses) {
-        const name = (c.className || "").trim();
-        if (!name) continue;
-        if (BASE_CLASS_NAMES_UA.has(name)) classes.add(name);
-        else subclasses.add(name);
+        const norm = normalizeBaseClassValue(c.className);
+        if (norm) classes.add(norm);
+        if (!BASE_CLASS_NAMES_UA.has(c.className)) subclasses.add(c.className);
       }
     }
 
-    // Virtual subclasses: show them in filters even if spells data doesn't explicitly reference them.
-    // These are treated as Wizard spell list in filtering.
-    for (const v of VIRTUAL_SUBCLASSES) subclasses.add(v);
-
-    const subclassesByClassRecord: Record<string, string[]> = {};
+    const subclassesByClass: { className: string; subclasses: string[] }[] = [];
+    const groupedSubs = new Map<string, string[]>();
     for (const sub of subclasses) {
-      const parent = subclassParentClass[sub] || "Інше";
-      if (!subclassesByClassRecord[parent]) subclassesByClassRecord[parent] = [];
-      subclassesByClassRecord[parent].push(sub);
+      const parent = subclassParentClass[sub] || SUBCLASS_FILTER_FALLBACK_CLASS[sub] || "Інші";
+      const arr = groupedSubs.get(parent) ?? [];
+      arr.push(sub);
+      groupedSubs.set(parent, arr);
     }
-
-    const subclassesByClass = Object.entries(subclassesByClassRecord)
-      .map(([className, subs]) => {
-        const uniq = Array.from(new Set(subs));
-        uniq.sort((a, b) => a.localeCompare(b, "uk"));
-        return { className, subclasses: uniq };
-      })
-      .sort((a, b) => {
-        const aIsOther = a.className === "Інше";
-        const bIsOther = b.className === "Інше";
-        if (aIsOther && !bIsOther) return 1;
-        if (!aIsOther && bIsOther) return -1;
-        return a.className.localeCompare(b.className, "uk");
+    for (const [clsName, subs] of groupedSubs.entries()) {
+      subclassesByClass.push({
+        className: clsName,
+        subclasses: subs.sort((a, b) => a.localeCompare(b, "uk")),
       });
+    }
 
     return {
       levels: Array.from(levels).sort((a, b) => a - b),
@@ -1005,506 +456,304 @@ export function SpellsClient({
     selection.ritual !== null ||
     selection.conc !== null;
 
-  const isLg = useMediaQuery("(min-width: 1024px)");
-  
-  const onSelectSpell = (spell: SpellListItem) => {
-    pushParams((next) => {
-      next.set("spell", String(spell.spellId));
-    });
-
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent("spell:open", { detail: { spellId: String(spell.spellId), spell } }));
-    }
-
-    if (isLg) return;
-  };
-
-  const baseTitleRef = useRef<string>("");
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    if (!baseTitleRef.current) baseTitleRef.current = document.title;
-
-    if (!selection.spell) {
-      document.title = baseTitleRef.current;
-      return;
-    }
-
-    const s = spells.find(
-      (it) => String(it.spellId) === selection.spell || it.engName === selection.spell || it.name === selection.spell
-    );
-    if (s?.name) document.title = s.name;
-  }, [selection.spell, spells]);
-
-  const flatRows = useMemo(() => {
-    return grouped.flatMap(([lvl, items]) => {
-      return [
-        { kind: "header" as const, lvl, count: items.length },
-        ...items.map((spell) => ({ kind: "spell" as const, lvl, spell })),
-      ];
-    });
-  }, [grouped]);
-
   const doPrint = () => {
     if (printIds.length === 0) return;
     const ids = encodeURIComponent(printIds.join(","));
     window.open(`/api/spells/print?ids=${ids}`, "_blank", "noopener,noreferrer");
   };
 
-  // In embed mode we only *suggest* filters via URL params; do not hard-lock results.
-  // Users should be able to remove/change class/level filters in the UI.
-  const finalGrouped = grouped;
-  const finalFlatRows = flatRows;
+  const flatRows = useMemo<RowItem[]>(() => {
+    const grouped = new Map<number, SpellListItem[]>();
+    for (const spell of filtered) {
+      const arr = grouped.get(spell.level) ?? [];
+      arr.push(spell);
+      grouped.set(spell.level, arr);
+    }
+
+    const sortedLevels = Array.from(grouped.keys()).sort((a, b) => a - b);
+    return sortedLevels.flatMap((lvl) => {
+      const list = grouped.get(lvl) || [];
+      list.sort((a, b) => a.name.localeCompare(b.name, "uk"));
+      return [
+        { kind: "header" as const, level: lvl, count: list.length },
+        ...list.map((spell) => ({ kind: "spell" as const, spell })),
+      ];
+    });
+  }, [filtered]);
 
   return (
-    <div className="flex h-full min-h-0 w-full flex-col bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)]">
-      <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/40 backdrop-blur-xl">
-        <div className="mx-auto w-full max-w-6xl px-2 py-2 sm:px-4 sm:py-3">
-          <div className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 p-1.5 backdrop-blur-xl sm:gap-2 sm:rounded-2xl sm:p-2">
-            <div className="flex items-center gap-2 px-1.5 text-slate-400 sm:px-2">
-              <Search className="h-4 w-4" />
+    <ContentListPage<SpellListItem, RowItem>
+      title={is2024 ? "Заклинання 2024" : "Заклинання"}
+      is2024={is2024}
+      topBanner={
+        isEmbedMode && (
+          <div className="mb-4 rounded-xl border border-teal-500/30 bg-teal-500/10 p-2.5 backdrop-blur-xl">
+            <div className="flex items-center gap-2 text-sm text-teal-200">
+              <UserPlus className="h-4 w-4" />
+              <span>
+                Додавання заклинань для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
+              </span>
             </div>
-            <Input
-              value={qInput}
-              onChange={(e) => setQInput(e.target.value)}
-              placeholder="Пошук заклинань…"
-              className="h-8 border-0 bg-transparent px-0 text-sm text-slate-200 placeholder:text-slate-500 focus-visible:ring-0 sm:h-9 sm:text-base"
-            />
-
-            <div className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 p-1 sm:rounded-xl">
+          </div>
+        )
+      }
+      searchQuery={qInput}
+      onSearchChange={setQInput}
+      searchPlaceholder="Пошук заклинань..."
+      hasActiveFilters={hasActiveFilters}
+      activeFiltersCount={
+        selection.levels.size +
+        selection.classes.size +
+        selection.subclasses.size +
+        selection.schools.size +
+        selection.times.size +
+        selection.sources.size +
+        (selection.ritual !== null ? 1 : 0) +
+        (selection.conc !== null ? 1 : 0)
+      }
+      onOpenFilters={() => setFiltersOpen(true)}
+      onClearFilters={clearFilters}
+      headerActions={
+        !isEmbedMode && (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
               <Button
                 type="button"
-                variant="secondary"
-                className={
-                  "h-8 gap-1.5 border-0 bg-transparent px-2 hover:bg-white/5 sm:h-9 sm:gap-2 sm:px-3 " +
-                  (hasActiveFilters ? "text-teal-200 bg-teal-500/10" : "")
-                }
-                onClick={() => setFiltersOpen(true)}
-              >
-                <Filter className="h-4 w-4" />
-                <span className="hidden sm:inline">Фільтри</span>
-              </Button>
-
-              {hasActiveFilters ? (
-                <Button
-                  type="button"
-                  variant="secondary"
-                  className="h-8 gap-1.5 border-0 bg-transparent px-2 hover:bg-white/5 text-slate-200 sm:h-9 sm:gap-2 sm:px-3"
-                  onClick={clearFilters}
-                  aria-label="Очистити фільтри"
-                >
-                  <X className="h-4 w-4" />
-                  <span className="hidden sm:inline">Очистити</span>
-                </Button>
-              ) : null}
-
-              <Button
-                type="button"
-                variant="secondary"
-                className="h-8 gap-1.5 border-0 bg-transparent px-2 hover:bg-white/5 sm:h-9 sm:gap-2 sm:px-3"
-                onClick={doPrint}
+                variant="outline"
+                size="sm"
+                className="h-9 gap-1.5 rounded-xl border-white/10 bg-slate-900/60 text-xs"
                 disabled={printIds.length === 0}
               >
-                <Printer className="h-4 w-4" />
+                <Printer className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">Друк</span>
-                <span className="text-xs text-slate-300">({printIds.length})</span>
+                <span className="text-xs text-slate-400">({printIds.length})</span>
               </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mx-auto grid min-h-0 flex-1 w-full max-w-6xl grid-cols-1 gap-3 px-2 py-3 sm:gap-4 sm:px-4 sm:py-4 lg:grid-cols-5">
-        <div className="lg:col-span-2 h-full">
-          <div className="custom-scrollbar relative h-full">
-            {finalGrouped.length === 0 ? (
-              <div className="glass-panel rounded-2xl border border-white/10 p-4 text-sm text-slate-400">
-                Нічого не знайдено
-              </div>
-            ) : (
-              <Virtuoso
-                style={{ height: "100%" }}
-                data={finalFlatRows}
-                itemContent={(index, row) => {
-                  if (row.kind === "header") {
-                    return (
-                      <div className="pt-4 px-1">
-                        <div className="glass-panel rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-base text-slate-200 backdrop-blur-xl">
-                          <span className="font-semibold">{levelLabel(row.lvl, false)}</span>
-                          <span className="ml-2 text-sm text-slate-400">({row.count})</span>
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  const spell = row.spell;
-                  const active = selectedSpell?.spellId === spell.spellId;
-                  const inPrint = printIds.includes(spell.spellId);
-
-                  return (
-                    <div className="pt-1.5 px-1">
-                      <div
-                        className={
-                          "glass-panel group relative overflow-hidden rounded-lg border p-3 transition-all duration-300 " +
-                          (active
-                            ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white"
-                            : "border-white/10 bg-slate-950/40 text-slate-300 hover:border-white/20 hover:bg-white/5")
-                        }
-                      >
-                        {(() => {
-                          const schoolVisual = schoolVisualByValue(spell.school);
-                          const SchoolIcon = schoolVisual.icon;
-                          const hasRitual = normalizeFlag(spell.hasRitual);
-
-                          return (
-                        <div className="flex items-start justify-between gap-3">
-                          <button
-                            type="button"
-                            className="min-w-0 flex-1 text-left"
-                            onClick={() => onSelectSpell(spell)}
-                          >
-                            <div className="flex min-w-0 items-start gap-3">
-                              <div className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-md border ${schoolVisual.iconWrap}`}>
-                                <SchoolIcon className={`h-5 w-5 ${schoolVisual.iconColor}`} />
-                              </div>
-
-                              <div className="min-w-0 flex-1">
-                                <div className="truncate font-serif text-lg leading-tight text-slate-100 transition-colors group-hover:text-white">
-                                  {spell.name}
-                                </div>
-
-                                <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-400">
-                                  <span className="inline-flex items-center gap-1">
-                                    <Sparkles className="h-3 w-3 text-slate-500" />
-                                    {levelShortLabel(spell.level)}
-                                  </span>
-                                  <span className="inline-flex items-center gap-1">
-                                    <Clock3 className="h-3 w-3 text-slate-500" />
-                                    {spell.castingTime}
-                                  </span>
-
-                                  <span className={`inline-flex items-center rounded-sm border bg-gradient-to-br from-white/10 to-transparent px-1.5 py-[2px] font-mono text-[9px] tracking-wide text-slate-50 ${schoolVisual.badgeClass}`}>
-                                    {schoolLabel(spell.school)}
-                                  </span>
-
-                                  {hasRitual ? (
-                                    <span className="inline-flex items-center rounded-sm border border-amber-800/50 bg-amber-950/40 px-1.5 py-0.5 font-mono text-[10px] tracking-wide text-amber-400">
-                                      <BookOpen className="mr-1 h-3 w-3" />
-                                      РИТУАЛ
-                                    </span>
-                                  ) : null}
-
-                                </div>
-                              </div>
-                            </div>
-                          </button>
-
-                          <div className="flex flex-shrink-0 items-center gap-1">
-                            <button
-                              type="button"
-                              className={
-                                "inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition " +
-                                (inPrint ? "text-teal-300" : "hover:text-teal-300")
-                              }
-                              onClick={() => {
-                                setPrintIds((prev) =>
-                                  prev.includes(spell.spellId)
-                                    ? prev.filter((id) => id !== spell.spellId)
-                                    : [...prev, spell.spellId]
-                                );
-                              }}
-                              aria-label={inPrint ? "Прибрати з друку" : "Додати до друку"}
-                            >
-                              <Printer className="h-4 w-4" />
-                            </button>
-
-                            {isEmbedMode && embedParams.persId ? (
-                              <EmbedAddButton
-                                spellId={spell.spellId}
-                                spellLevel={spell.level}
-                                persId={embedParams.persId}
-                                persSpellIds={persSpellIds}
-                                setPersSpellIds={setPersSpellIds}
-                                markPersSpellIdsMutated={() => {
-                                  persSpellIdsVersionRef.current += 1;
-                                }}
-                              />
-                            ) : (
-                              <SpellbookDropdown
-                                spellId={spell.spellId}
-                                persIndex={persIndex}
-                                setPersIndex={setPersIndex}
-                              />
-                            )}
-                          </div>
-                        </div>
-                          );
-                        })()}
-                      </div>
-                    </div>
-                  );
-                }}
-              />
-            )}
-          </div>
-        </div>
-
-        <div className="hidden lg:col-span-3 lg:block h-full overflow-hidden">
-          <div className="custom-scrollbar h-full overflow-auto pr-1">
-            {selectedSpell ? (
-              <SpellDetailPane spell={selectedSpell} />
-            ) : (
-              <div className="glass-panel rounded-2xl border border-white/10 p-6 text-sm text-slate-400">
-                Обери заклинання зі списку
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <Dialog open={filtersOpen} onOpenChange={setFiltersOpen}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
-          <div className="p-4 sm:p-6">
-            <div className="flex items-start justify-between gap-3">
-              <DialogTitle className="font-rpg-display text-2xl font-semibold tracking-wide text-teal-400">Фільтри</DialogTitle>
-              <button
-                type="button"
-                onClick={() => setFiltersOpen(false)}
-                className="glass-panel inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90 hover:text-teal-300"
-                aria-label="Закрити"
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuLabel>Обрано заклинань: {printIds.length}</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={doPrint} className="gap-2 cursor-pointer">
+                <Printer className="h-4 w-4" />
+                <span>Друкувати</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => setPrintIds([])}
+                className="gap-2 text-red-300 focus:text-red-300 focus:bg-red-500/10 cursor-pointer"
               >
-                <X className="h-4 w-4" />
-              </button>
+                <Trash2 className="h-4 w-4" />
+                <span>Очистити список</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )
+      }
+      data={flatRows}
+      emptyState={
+        <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
+          <Wand2 className="h-10 w-10 text-slate-600 mb-2" />
+          <p className="text-sm font-medium text-slate-400">Заклинань не знайдено</p>
+          <p className="text-xs text-slate-500 mt-1">Спробуйте змінити фільтри або пошуковий запит</p>
+          {hasActiveFilters && (
+            <Button variant="outline" size="sm" onClick={clearFilters} className="mt-4 rounded-xl text-xs">
+              Скинути всі фільтри
+            </Button>
+          )}
+        </div>
+      }
+      renderItem={(_index, row) => {
+        if (row.kind === "header") {
+          return (
+            <div className="pt-3 pb-1 px-1">
+              <div
+                className={cn(
+                  "rounded-xl border bg-slate-900/70 px-3.5 py-2 text-slate-200 backdrop-blur-xl flex items-center justify-between shadow-sm",
+                  is2024 ? "border-amber-500/20" : "border-teal-500/20"
+                )}
+              >
+                <span
+                  className={cn(
+                    "font-sans text-sm sm:text-base font-semibold tracking-wide text-transparent bg-clip-text",
+                    is2024
+                      ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
+                      : "bg-gradient-to-r from-teal-300 via-teal-100 to-teal-400"
+                  )}
+                >
+                  {levelHeaderLabel(row.level)}
+                </span>
+                <span className="text-xs font-mono font-medium text-slate-400">({row.count})</span>
+              </div>
             </div>
+          );
+        }
 
-            <div className="mt-4 space-y-4">
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Рівні</div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="flex flex-wrap gap-2">
-                    {available.levels.map((lvl) => {
-                      const active = selection.levels.has(String(lvl));
-                      return (
-                        <Badge
-                          key={lvl}
-                          variant={active ? "default" : "outline"}
-                          className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                          onClick={() => toggleSetValue("lvl", String(lvl))}
-                          role="button"
-                        >
-                          {lvl}
-                        </Badge>
-                      );
-                    })}
+        const spell = row.spell;
+        const isSelected = selectedSpell?.spellId === spell.spellId;
+        const inPrint = printIds.includes(spell.spellId);
+        const visual = getSpellSchoolVisual(spell.school);
+        const Icon = visual.icon;
+
+        return (
+          <div key={spell.spellId} className="pt-2 pb-0.5 px-0.5">
+            <div
+              onClick={() => {
+                setParams((next) => next.set("spell", String(spell.spellId)));
+                if (typeof window !== "undefined" && window.innerWidth < 1024) {
+                  setSelectedModalSpell(spell);
+                }
+              }}
+              className={cn(
+                "glass-panel group relative overflow-hidden rounded-xl border p-3 transition-all duration-300 cursor-pointer",
+                isSelected
+                  ? is2024
+                    ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                  : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
+              )}
+            >
+              <div className="flex items-center justify-between gap-3">
+                {/* Left school icon badge */}
+                <div className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border", visual.iconWrap)}>
+                  <Icon className={cn("h-5 w-5", visual.iconColor)} />
+                </div>
+
+                {/* Center spell info */}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-baseline gap-2">
+                    <span
+                      className={cn(
+                        "truncate text-[15px] font-semibold transition-colors",
+                        isSelected
+                          ? is2024 ? "text-amber-300" : "text-teal-300"
+                          : "text-slate-100 group-hover:text-white"
+                      )}
+                    >
+                      {spell.name} {spell.engName && <span className="font-normal text-slate-400 text-sm ml-1">[{spell.engName}]</span>}
+                    </span>
+                    {is2024 && spell.kind === "new" && (
+                      <span className="rounded px-1.5 py-0.5 text-[9px] font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 shrink-0">
+                        Нове
+                      </span>
+                    )}
+                    {is2024 && spell.differsFrom2014 && (
+                      <span className="rounded px-1.5 py-0.5 text-[9px] font-medium border border-amber-500/30 bg-amber-500/10 text-amber-300 shrink-0">
+                        Змінено
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-slate-400">
+                    <span className="flex items-center gap-1">
+                      <Sparkles className="h-3.5 w-3.5 text-slate-400" />
+                      {spell.level === 0 ? "Замовляння" : `Рівень ${spell.level}`}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock3 className="h-3.5 w-3.5 text-slate-400" />
+                      {spell.castingTime || "—"}
+                    </span>
+                    {spell.school && (
+                      <span className={cn("rounded-md px-2 py-0.5 text-[11px] font-medium border", visual.badgeClass)}>
+                        {schoolLabel(spell.school)}
+                      </span>
+                    )}
+                    {isYesFlag(spell.hasRitual) && (
+                      <span className="rounded px-1.5 py-0.5 text-[10px] font-medium border border-cyan-500/30 bg-cyan-500/10 text-cyan-300">
+                        Ритуал
+                      </span>
+                    )}
+                    {isYesFlag(spell.hasConcentration) && (
+                      <span className="rounded px-1.5 py-0.5 text-[10px] font-medium border border-indigo-500/30 bg-indigo-500/10 text-indigo-300">
+                        Концентрація
+                      </span>
+                    )}
                   </div>
                 </div>
-              </div>
 
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Класи</div>
-                <div className="mt-2">
-                  <Input
-                    value={classFilter}
-                    onChange={(e) => setClassFilter(e.target.value)}
-                    placeholder="Пошук класів…"
-                    className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
-                  />
-                </div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="flex flex-wrap gap-2">
-                    {available.classes
-                      .filter((cls) => {
-                        const q = classFilter.trim().toLowerCase();
-                        if (!q) return true;
-                        const label = classTranslations[cls as keyof typeof classTranslations] || cls;
-                        return `${cls} ${label}`.toLowerCase().includes(q);
-                      })
-                      .map((cls) => {
-                    const active = selection.classes.has(cls);
-                    const label = classTranslations[cls as keyof typeof classTranslations] || cls;
-                    return (
-                      <Badge
-                        key={cls}
-                        variant={active ? "default" : "outline"}
-                        className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                        onClick={() => toggleSetValue("cls", cls)}
-                        role="button"
+                {/* Right actions */}
+                <div className="flex flex-shrink-0 items-center gap-1" onClick={(e) => e.stopPropagation()}>
+                  {!isEmbedMode && (
+                    <>
+                      <button
+                        type="button"
+                        className={cn(
+                          "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300 hover:bg-white/5",
+                          inPrint && "text-teal-300 bg-teal-500/10"
+                        )}
+                        onClick={() => {
+                          setPrintIds((prev) =>
+                            prev.includes(spell.spellId)
+                              ? prev.filter((id) => id !== spell.spellId)
+                              : [...prev, spell.spellId]
+                          );
+                        }}
+                        aria-label={inPrint ? "Прибрати з друку" : "Додати до друку"}
                       >
-                        {label}
-                      </Badge>
-                    );
-                  })}
-                  </div>
+                        <Printer className="h-4 w-4" />
+                      </button>
+
+                      <SpellbookDropdown
+                        spellId={spell.spellId}
+                        persIndex={persIndex}
+                        setPersIndex={setPersIndex}
+                      />
+                    </>
+                  )}
                 </div>
               </div>
-
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Підкласи</div>
-                <div className="mt-2">
-                  <Input
-                    value={subclassFilter}
-                    onChange={(e) => setSubclassFilter(e.target.value)}
-                    placeholder="Пошук підкласів…"
-                    className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
-                  />
-                </div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="space-y-3">
-                    {available.subclassesByClass
-                      .map(({ className, subclasses }) => {
-                        const q = subclassFilter.trim().toLowerCase();
-                        const visible = !q
-                          ? subclasses
-                          : subclasses.filter((sub) => sub.toLowerCase().includes(q));
-                        if (visible.length === 0) return null;
-
-                        return (
-                          <div key={className} className="space-y-2">
-                            <div className="text-xs font-semibold text-slate-400">{className}:</div>
-                            <div className="flex flex-wrap gap-2">
-                              {visible.map((sub) => {
-                                const active = selection.subclasses.has(sub);
-                                return (
-                                  <Badge
-                                    key={sub}
-                                    variant={active ? "default" : "outline"}
-                                    className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                                    onClick={() => toggleSetValue("sub", sub)}
-                                    role="button"
-                                  >
-                                    {sub}
-                                  </Badge>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        );
-                      })
-                      .filter(Boolean)}
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Школи</div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="flex flex-wrap gap-2">
-                    {available.schools.map((sch) => {
-                      const active = selection.schools.has(sch);
-                      return (
-                        <Badge
-                          key={sch}
-                          variant={active ? "default" : "outline"}
-                          className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                          onClick={() => toggleSetValue("sch", sch)}
-                          role="button"
-                        >
-                          {spellSchoolTranslations[sch as keyof typeof spellSchoolTranslations] || sch}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Час касту</div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="flex flex-wrap gap-2">
-                    {available.times.map((t) => {
-                      const active = selection.times.has(t);
-                      return (
-                        <Badge
-                          key={t}
-                          variant={active ? "default" : "outline"}
-                          className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                          onClick={() => toggleSetValue("time", t)}
-                          role="button"
-                        >
-                          {t}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Джерела</div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="flex flex-wrap gap-2">
-                    {available.sources.map((src) => {
-                      const active = selection.sources.has(src);
-                      return (
-                        <Badge
-                          key={src}
-                          variant={active ? "default" : "outline"}
-                          className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                          onClick={() => toggleSetValue("src", src)}
-                          role="button"
-                        >
-                          {sourceLabel(src)}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Особливості</div>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <Badge
-                    variant={selection.conc === true ? "default" : "outline"}
-                    className={selection.conc === true ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                    onClick={() =>
-                      setParams((next) =>
-                        setBoolParam(next, "conc", selection.conc === true ? null : true)
-                      )
-                    }
-                    role="button"
-                  >
-                    Концентрація
-                  </Badge>
-                  <Badge
-                    variant={selection.ritual === true ? "default" : "outline"}
-                    className={selection.ritual === true ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                    onClick={() =>
-                      setParams((next) =>
-                        setBoolParam(next, "rit", selection.ritual === true ? null : true)
-                      )
-                    }
-                    role="button"
-                  >
-                    Ритуал
-                  </Badge>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between gap-2">
-                <Button
-                  type="button"
-                  variant="secondary"
-                  className="border border-white/10 bg-slate-900/40"
-                  onClick={clearFilters}
-                >
-                  Очистити
-                </Button>
-                <Button
-                  type="button"
-                  className="bg-teal-500/15 text-teal-300 border border-teal-500/30"
-                  onClick={() => setFiltersOpen(false)}
-                >
-                  Застосувати
-                </Button>
-              </div>
-            </div>
-
-            <div className="mt-4 text-xs text-slate-500">
-              Порада: відкрий заклинання з URL параметром <span className="text-slate-300">?spell=ID</span>.
             </div>
           </div>
-        </DialogContent>
-      </Dialog>
-    </div>
+        );
+      }}
+      desktopDetailView={
+        selectedSpell ? (
+          <SpellDetailCard spell={selectedSpell as unknown as SpellData} is2024={is2024} />
+        ) : (
+          <div className="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
+            <p className="text-sm text-slate-400">Оберіть заклинання для перегляду деталей</p>
+          </div>
+        )
+      }
+      selectedModalItem={selectedModalSpell}
+      onCloseModal={() => setSelectedModalSpell(null)}
+      modalTitle={selectedModalSpell?.name || "Деталі заклинання"}
+      renderModalContent={(spell) => (
+        <SpellModalCard
+          spell={spell as unknown as SpellData}
+          onClose={() => setSelectedModalSpell(null)}
+          is2024={is2024}
+        />
+      )}
+      filterDialogOpen={filtersOpen}
+      onFilterDialogClose={() => setFiltersOpen(false)}
+      filterDialogContent={
+        <SpellsFilterDialog
+          open={filtersOpen}
+          onOpenChange={setFiltersOpen}
+          is2024={is2024}
+          availableLevels={available.levels}
+          availableClasses={available.classes}
+          availableSubclassesByClass={available.subclassesByClass}
+          availableSchools={available.schools}
+          availableTimes={available.times}
+          availableSources={available.sources}
+          selectedLevels={selection.levels}
+          selectedClasses={selection.classes}
+          selectedSubclasses={selection.subclasses}
+          selectedSchools={selection.schools}
+          selectedTimes={selection.times}
+          selectedSources={selection.sources}
+          selectedConc={selection.conc}
+          selectedRitual={selection.ritual}
+          toggleLevel={(lvl) => toggleSetValue("lvl", lvl)}
+          toggleClass={(cls) => toggleSetValue("cls", cls)}
+          toggleSubclass={(sub) => toggleSetValue("sub", sub)}
+          toggleSchool={(sch) => toggleSetValue("sch", sch)}
+          toggleTime={(t) => toggleSetValue("time", t)}
+          toggleSource={(src) => toggleSetValue("src", src)}
+          toggleConc={() => setParams((next) => setBoolParam(next, "conc", selection.conc === true ? null : true))}
+          toggleRitual={() => setParams((next) => setBoolParam(next, "rit", selection.ritual === true ? null : true))}
+          clearFilters={clearFilters}
+        />
+      }
+    />
   );
 }

@@ -89,7 +89,7 @@ export const MultiStepForm = (
     if (newRuleset === currentRuleset) return;
     resetForm();
     updateFormData({ ruleset: newRuleset });
-    router.push(`/char?ruleset=${newRuleset}`);
+    router.push(newRuleset === "RULES_2024" ? "/2024/char" : "/char");
   }, [currentRuleset, resetForm, updateFormData, router]);
 
   useEffect(() => {

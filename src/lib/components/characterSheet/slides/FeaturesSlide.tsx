@@ -16,6 +16,8 @@ import {
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FeatureCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
+import { FeatsSheetManagerModal } from "@/lib/components/characterSheet/FeatsSheetManagerModal";
+import { FeaturesHeaderCards } from "@/lib/components/characterSheet/slides/FeaturesHeaderCards";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { toast } from "sonner";
@@ -40,12 +42,10 @@ import {
 } from "@/lib/components/characterCreator/infoUtils";
 import {
   backgroundTranslations,
-  classTranslations,
   featTranslations,
   raceTranslations,
   sourceTranslations,
   subraceTranslations,
-  subclassTranslations,
   variantTranslations,
 } from "@/lib/refs/translation";
 
@@ -137,6 +137,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
   const [entityKind, setEntityKind] = useState<EntityDialogKind>("race");
   const [entityVariantIndex, setEntityVariantIndex] = useState(0);
   const [magicItemToShow, setMagicItemToShow] = useState<any>(null);
+  const [featsManagerOpen, setFeatsManagerOpen] = useState(false);
 
   const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
   const [usesOverrideByPoolKey, setUsesOverrideByPoolKey] = useState<Record<string, number | null>>({});
@@ -676,108 +677,17 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
       >
         <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
-        <button
-          type="button"
-          onClick={() => openEntity("race")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-        >
-          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Раса</div>
-          <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{raceName}</div>
-        </button>
-
-        {(pers as any).raceVariants?.map((rv: any, idx: number) => {
-          const name = variantTranslations[rv.name as keyof typeof variantTranslations] ?? String(rv.name);
-          return (
-            <button
-              key={rv.raceVariantId ?? idx}
-              type="button"
-              onClick={() => openEntity("raceVariant", idx)}
-              className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-            >
-              <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Варіант раси</div>
-              <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{name}</div>
-            </button>
-          );
-        })}
-
-        {pers.subrace ? (
-          <button
-            type="button"
-            onClick={() => openEntity("subrace")}
-            className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-0.5 text-center flex flex-col items-center justify-center h-12"
-          >
-            <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Підраса</div>
-            <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{subraceName}</div>
-          </button>
-        ) : null}
-
-        {classEntries.map((entry) => {
-          const name =
-            classTranslations[entry.cls?.name as keyof typeof classTranslations] ||
-            entry.cls?.name ||
-            "Клас";
-
-          return (
-            <ClassInfoModal
-              key={entry.key}
-              cls={entry.cls}
-              asyncFetchSubclasses={true}
-              trigger={
-                <button
-                  type="button"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-                >
-                  <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">
-                    {entry.kind === "main" ? "Клас" : "Мультиклас"}
-                  </div>
-                  <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{name}</div>
-                  <div className="text-[9px] text-slate-300/70 leading-none mt-0.5">Рівень {entry.classLevel}</div>
-                </button>
-              }
-            />
-          );
-        })}
-
-        {subclassEntries.map((entry) => {
-          const clsName =
-            classTranslations[entry.cls?.name as keyof typeof classTranslations] ||
-            entry.cls?.name ||
-            "Клас";
-          const scName =
-            subclassTranslations[entry.subclass?.name as keyof typeof subclassTranslations] ||
-            entry.subclass?.name ||
-            "Підклас";
-
-          return (
-            <SubclassInfoModal
-              key={entry.key}
-              subclass={entry.subclass}
-              trigger={
-                <button
-                  type="button"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-                >
-                  <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">
-                    {entry.kind === "main" ? "Підклас" : "Підклас (м)"}
-                  </div>
-                  <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{scName}</div>
-                  <div className="text-[9px] text-slate-300/70  leading-none mt-0.5">{clsName}</div>
-                </button>
-              }
-            />
-          );
-        })}
-
-        <button
-          type="button"
-          onClick={() => openEntity("background")}
-          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-        >
-          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Передісторія</div>
-          <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{backgroundName}</div>
-        </button>
-      </div>
+        <FeaturesHeaderCards
+          raceName={raceName}
+          subraceName={subraceName}
+          backgroundName={backgroundName}
+          raceVariants={(pers as any).raceVariants || []}
+          classEntries={classEntries}
+          subclassEntries={subclassEntries}
+          featsCount={pers.feats?.length || 0}
+          openEntity={openEntity}
+          onOpenFeatsManager={() => setFeatsManagerOpen(true)}
+        />
 
 
 
@@ -870,6 +780,15 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
           item={magicItemToShow || {}} 
           open={!!magicItemToShow} 
           onOpenChange={(open) => !open && setMagicItemToShow(null)} 
+        />
+
+        <FeatsSheetManagerModal
+          persId={pers.persId}
+          ruleset={pers.ruleset}
+          persFeats={(pers as any).feats ?? []}
+          open={featsManagerOpen}
+          onOpenChange={setFeatsManagerOpen}
+          isReadOnly={isReadOnly}
         />
       </div>
     </div>

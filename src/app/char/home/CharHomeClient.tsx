@@ -89,6 +89,7 @@ export interface PersHomeItem {
   shareToken?: string | null;
   folderId?: number | null;
   isPinned?: boolean;
+  ruleset?: string | null;
   classNames?: string[];
   subclassNames?: string[];
 }
@@ -108,6 +109,7 @@ interface Props {
   persLinkResolver?: (pers: PersHomeItem) => string | null;
   extraHeaderActions?: React.ReactNode;
   rootHref?: string;
+  createHref?: string;
 }
 
 function stopCardClick(e: React.MouseEvent) {
@@ -120,14 +122,9 @@ function stopCardKeyDown(e: React.KeyboardEvent) {
 }
 
 const FOLDER_COLORS = [
-  { name: "Sky", value: "#38bdf8" },
-  { name: "Mint", value: "#34d399" },
-  { name: "Amber", value: "#fbbf24" },
-  { name: "Rose", value: "#fb7185" },
-  { name: "Violet", value: "#a78bfa" },
-  { name: "Slate", value: "#94a3b8" },
-  { name: "Lime", value: "#a3e635" },
-  { name: "Teal", value: "#2dd4bf" },
+  { name: "Sky", value: "#38bdf8" }, { name: "Mint", value: "#34d399" }, { name: "Amber", value: "#fbbf24" },
+  { name: "Rose", value: "#fb7185" }, { name: "Violet", value: "#a78bfa" }, { name: "Slate", value: "#94a3b8" },
+  { name: "Lime", value: "#a3e635" }, { name: "Teal", value: "#2dd4bf" },
 ];
 
 const LEVEL_OPTIONS = Array.from({ length: 20 }, (_, idx) => String(idx + 1));
@@ -519,46 +516,34 @@ function PersCard({
               <span>Перейменувати</span>
             </DropdownMenuItem>
             
-            <DropdownMenuItem 
-              onClick={() => onDuplicate(pers.persId)}
-            >
+            <DropdownMenuItem onClick={() => onDuplicate(pers.persId)}>
               <Copy className="mr-2 h-4 w-4" />
               <span>Копіювати</span>
             </DropdownMenuItem>
 
-            <DropdownMenuItem 
-              onClick={() => onMove(pers)}
-            >
+            <DropdownMenuItem onClick={() => onMove(pers)}>
               <FolderOpen className="mr-2 h-4 w-4" />
               <span>Перемістити</span>
             </DropdownMenuItem>
 
-            <DropdownMenuItem 
-              onClick={() => onTogglePin(pers.persId, !pers.isPinned)}
-            >
+            <DropdownMenuItem onClick={() => onTogglePin(pers.persId, !pers.isPinned)}>
               {pers.isPinned ? <PinOff className="mr-2 h-4 w-4" /> : <Pin className="mr-2 h-4 w-4" />}
               <span>{pers.isPinned ? "Відкріпити" : "Закріпити"}</span>
             </DropdownMenuItem>
 
-            <DropdownMenuItem 
-              onClick={() => setHistoryOpen(true)}
-            >
+            <DropdownMenuItem onClick={() => setHistoryOpen(true)}>
               <History className="mr-2 h-4 w-4" />
               <span>Історія</span>
             </DropdownMenuItem>
 
             <DropdownMenuSeparator className="bg-white/5" />
 
-            <DropdownMenuItem 
-              onClick={() => setShareOpen(true)}
-            >
+            <DropdownMenuItem onClick={() => setShareOpen(true)}>
               <Share2 className="mr-2 h-4 w-4" />
               <span>Поширити</span>
             </DropdownMenuItem>
 
-            <DropdownMenuItem 
-              onClick={() => setPrintOpen(true)}
-            >
+            <DropdownMenuItem onClick={() => setPrintOpen(true)}>
               <Printer className="mr-2 h-4 w-4" />
               <span>Друк</span>
             </DropdownMenuItem>
@@ -649,6 +634,11 @@ function PersCard({
         )}
         <CardTitle className={cn("pr-12 text-xl leading-tight flex items-center gap-2", selectionMode && "pl-6")}>
           <span className="truncate">{pers.name}</span>
+          {pers.ruleset === "RULES_2024" && (
+            <Badge variant="outline" className="border-amber-500/40 bg-amber-500/10 text-[10px] text-amber-300 font-normal px-1.5 py-0">
+              2024
+            </Badge>
+          )}
           {pers.isPinned && <Pin className="h-4 w-4 text-amber-300" />}
         </CardTitle>
         <CardDescription>
@@ -679,6 +669,7 @@ export function CharHomeClient({
   persLinkResolver,
   extraHeaderActions,
   rootHref,
+  createHref,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
@@ -1098,9 +1089,10 @@ export function CharHomeClient({
 
   const handleCreate = useCallback(() => {
     startCreate(() => {
-      router.push("/char");
+      const targetCreateHref = createHref ?? (pathname.startsWith("/2024") ? "/2024/char" : "/char/create");
+      router.push(targetCreateHref);
     });
-  }, [router]);
+  }, [router, createHref, pathname]);
 
   const openCreateFolder = useCallback(() => {
     setFolderDialogMode("create");
@@ -1612,7 +1604,7 @@ export function CharHomeClient({
         : "У вас ще немає персонажів. Створіть першого!";
 
   return (
-    <div className={cn("container mx-auto py-8 px-4 pb-24 sm:pb-8", selectionMode && "pt-24")}>
+    <div className={cn("container mx-auto py-8 px-4 pb-28 md:pb-8 pb-[calc(7rem+env(safe-area-inset-bottom,0px))] md:pb-8", selectionMode && "pt-24")}>
       <div className="flex flex-col gap-4 mb-8">
         <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-500">
           {currentFolderId && (
