@@ -73,10 +73,13 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
-      # Мусить іти перед tsc: src/lib/spellsData.ts імпортує згенерований spells.json,
-      # а той у .gitignore. Без цього кроку tsc падає з TS2307 на чистому клоні.
-      - name: Generate spells.json
-        run: bun run generate:spells
+      # Мусить іти перед tsc: spellsData.ts / magicItemsData.ts / featsData.ts /
+      # backgroundsData.ts / armorData.ts / weaponsData.ts / infusionsData.ts /
+      # invocationsData.ts імпортують згенеровані JSON, а ті в .gitignore. Без цього кроку
+      # tsc падає з TS2307 на чистому клоні. Генераторів зараз вісім: додати девʼятий каталог
+      # і забути крок — це впасти не тут, а десь усередині Next.
+      - name: Generate content JSON
+        run: bun run generate:content
         env:
           DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
@@ -133,10 +136,10 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 
-      # spells.json у .gitignore, тож у свіжому клоні його немає, а Dockerfile без нього
+      # Похідні з бази JSON у .gitignore, тож у свіжому клоні їх немає, а Dockerfile без них
       # відмовляється збиратись. Має стояти перед docker build, не після.
-      - name: Generate spells.json
-        run: bun run generate:spells
+      - name: Generate content JSON
+        run: bun run generate:content
         env:
           DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
 

@@ -9,7 +9,7 @@
 # у шарах образу він не осідає. Збирати достатньо проти будь-якої бази з тим самим
 # контентом: spells_test підходить, ходити в прод заради збірки не обов'язково.
 #
-#   bun run generate:spells
+#   bun run generate:content
 #   docker build --secret id=database_url,env=DATABASE_URL -t char:local .
 
 # Один базовий образ на всі стадії — навмисно. Перша редакція тягнула два (oven/bun:1-debian
@@ -28,10 +28,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# spells.json у .gitignore і генерується з бази. Без нього збірка падає на TS2307 десь
+# Ці вісім JSON у .gitignore і генеруються з бази. Без них збірка падає на TS2307 десь
 # усередині Next — краще впасти тут із текстом, який каже, що робити.
-RUN test -s src/lib/generated/spells.json \
-  || { echo "ВІДМОВА: немає src/lib/generated/spells.json — спершу 'bun run generate:spells'"; exit 1; }
+RUN for f in spells magicItems feats backgrounds armor weapons infusions invocations; do \
+      test -s "src/lib/generated/$f.json" \
+        || { echo "ВІДМОВА: немає src/lib/generated/$f.json — спершу 'bun run generate:content'"; exit 1; }; \
+    done
 
 # prisma.config.ts кидає помилку, якщо DATABASE_URL не визначений, хоча сам `generate` нікуди
 # не підключається. `.env` у образ не потрапляє (див. .dockerignore), тож підставляємо завідомо

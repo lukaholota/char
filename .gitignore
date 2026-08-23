@@ -50,10 +50,31 @@ next-env.d.ts
 .idea
 .venv
 repomix-output.xml
+# Похідні з бази: джерело істини — БД (Р2), тому в git їх немає, їх робить
+# `bun run generate:content` на збірці.
 src/lib/generated/spells.json
+src/lib/generated/magicItems.json
+src/lib/generated/feats.json
+src/lib/generated/backgrounds.json
+src/lib/generated/armor.json
+src/lib/generated/weapons.json
+src/lib/generated/infusions.json
+src/lib/generated/invocations.json
+src/lib/generated/rules-2024.json
 
 /spell-list
+
+# Сирий кеш сторінок aidedd — відтворюється scripts/aidedd/fetch-pages.ts.
+# Переліки (lists/) і реєстр термінів у git лишаються, бо це вхід для рев'ю.
+data/aidedd/raw/
+# Сирий корпус 5etools — відтворюється scripts/5etools/fetch-source.ts за пінутою
+# ревізією дзеркала. Чужі дані й десятки мегабайт; замок (source-lock.json) у git лишається.
+data/5etools/raw/
 # Дампи БД — реальні дані користувачів, у git їм не місце.
 backups/
 *.dump
 /tmp
+
+# логи автономних прогонів партій KR12.3
+logs/
+data/aidedd/briefings/
