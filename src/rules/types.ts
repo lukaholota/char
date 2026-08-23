@@ -62,3 +62,6 @@ export type BackgroundASIChoice =
   | { mode: "+2/+1"; plusTwo: AbilityKey; plusOne: AbilityKey }
   | { mode: "+1/+1/+1"; abilities: [AbilityKey, AbilityKey, AbilityKey] | AbilityKey[] };
 
+export type Ruleset = "RULES_2014" | "RULES_2024";
+
+

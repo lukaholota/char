@@ -130,7 +130,7 @@ export type SpellForModal = {
   source: string;
   hasRitual: string | null;
   hasConcentration: string | null;
-  spellClasses: { className: string }[];
+  spellClasses: { className: string; source: string | null }[];
   spellRaces: { raceName: string | null }[];
 };
 
@@ -164,7 +164,7 @@ export async function getSpellForModal(spellIdOrSlug: string): Promise<SpellForM
       source: true,
       hasRitual: true,
       hasConcentration: true,
-      spellClasses: { select: { className: true } },
+      spellClasses: { select: { className: true, source: true } },
       spellRaces: { select: { raceName: true } },
     },
   });

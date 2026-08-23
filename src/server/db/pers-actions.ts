@@ -3,22 +3,16 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { FeatureDisplayType, RestType, MagicItem, Prisma } from "@prisma/client";
+import { FeatureDisplayType, RestType, MagicItem, Prisma, Ruleset } from "@prisma/client";
 import { featTranslations } from "@/lib/refs/translation";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { FeatureSource } from "@/lib/utils/features";
 import { clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
+import { buildVisiblePersFilter, buildVisibleFolderFilter } from "@/server/db/pers-access-filters";
+import { findCurrentUserId } from "@/server/db/current-user";
 
 async function getCurrentUserId() {
-    const session = await auth();
-    if (!session?.user?.email) return null;
-
-    const user = await prisma.user.findUnique({
-        where: { email: session.user.email },
-        select: { id: true },
-    });
-
-    return user?.id ?? null;
+    return findCurrentUserId();
 }
 
 export async function canEditPers(persId: number, userId: number) {
@@ -113,22 +107,7 @@ export async function getUserPerses() {
     if (!user) return [];
 
     return prisma.pers.findMany({
-        where: {
-            AND: [
-                {
-                    OR: [
-                        { userId: user.id },
-                        { additionalUsers: { some: { userId: user.id } } },
-                    ],
-                },
-                {
-                    OR: [
-                        { isSnapshot: false },
-                        { isSnapshot: true, isActive: true },
-                    ],
-                },
-            ],
-        },
+        where: buildVisiblePersFilter(user.id),
         include: {
             race: true,
             class: true,
@@ -138,7 +117,7 @@ export async function getUserPerses() {
     });
 }
 
-export async function getUserPersHomeData() {
+export async function getUserPersHomeData(options?: { ruleset?: Ruleset }) {
     const userId = await getCurrentUserId();
     if (!userId) return { perses: [], folders: [] };
 
@@ -146,18 +125,8 @@ export async function getUserPersHomeData() {
         prisma.pers.findMany({
             where: {
                 AND: [
-                    {
-                        OR: [
-                            { userId },
-                            { additionalUsers: { some: { userId } } },
-                        ],
-                    },
-                    {
-                        OR: [
-                            { isSnapshot: false },
-                            { isSnapshot: true, isActive: true },
-                        ],
-                    },
+                    buildVisiblePersFilter(userId),
+                    ...(options?.ruleset ? [{ ruleset: options.ruleset }] : []),
                 ],
             },
             include: {
@@ -175,12 +144,7 @@ export async function getUserPersHomeData() {
             orderBy: { createdAt: "desc" },
         }),
         prisma.persFolder.findMany({
-            where: {
-                OR: [
-                    { userId },
-                    { members: { some: { userId } } },
-                ],
-            },
+            where: buildVisibleFolderFilter(userId),
             select: {
                 folderId: true,
                 name: true,
