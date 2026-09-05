@@ -9,7 +9,7 @@ import { join } from "path";
 
 /// Слуги aidedd, яким власного запису в каталозі не треба: текст уже стоїть на записах,
 /// перелічених у значенні. Таких випадків два. Перший — сторінка ширша за наш запис:
-/// вона об'єднує те, що в каталозі живе окремими варіантами (`weapon-1-2-or-3`). Другий —
+/// вона обʼєднує те, що в каталозі живе окремими варіантами (`weapon-1-2-or-3`). Другий —
 /// сторінка вужча: Basic Rules друкують один варіант того, що SRD подає таблицею, і наш
 /// запис уже містить його рядком (`ring-of-poison-resistance` ⊂ `Ring of Resistance`).
 export const COVERED_BY_EXISTING_ENTRIES: Record<string, string[]> = {
@@ -104,6 +104,27 @@ export const SOURCE_ITEM_TYPE_OVERRIDES: Record<string, string> = {
   "sword-of-kas": "WEAPON",
 };
 
+type TerminologyCorrection = {
+  name?: string;
+  replaceInDescription?: Array<[from: string, to: string]>;
+};
+
+/// Рішення власника з O14, 2026-08-23. Це окремий шар, бо два записи не мають власної
+/// aidedd-партії: один живе лише в baseline, другий — усередині довгого bundle-опису.
+export const MAGIC_ITEM_TERMINOLOGY_CORRECTIONS: Record<string, TerminologyCorrection> = {
+  "Quiver of Ehlonna": { name: "Колчан Елони [Quiver of Ehlonna]" },
+  "Nolzur's Marvelous Pigments": {
+    name: "Дивовижні пігменти Нолзура [Nolzur's Marvelous Pigments]",
+  },
+  "Figurine of Wondrous Power (Ivory Goats)": {
+    name:
+      "Фігурка дивовижної сили (Кози зі слонової кістки) [Figurine of Wondrous Power (Ivory Goats)]",
+  },
+  "Figurine of Wondrous Power": {
+    replaceInDescription: [["**Слонові кози (рідкісні).**", "**Кози зі слонової кістки (рідкісні).**"]],
+  },
+};
+
 export type MagicItemBatchRow = {
   magicItemId: number;
   engName: string;
@@ -139,6 +160,7 @@ export function readMagicItemBatches(): MagicItemBatchRow[] {
 export function applyBatchesToBaseline(
   baseline: Prisma.MagicItemUncheckedCreateInput[],
   batches: MagicItemBatchRow[],
+  options: { requireAllTerminologyCorrections?: boolean } = {},
 ): { items: Prisma.MagicItemUncheckedCreateInput[]; updated: number; added: number } {
   const byEngName = new Map(baseline.map((item) => [item.engName, item]));
   let updated = 0;
@@ -158,7 +180,47 @@ export function applyBatchesToBaseline(
     }
   }
 
-  return { items: [...byEngName.values()], updated, added };
+  return {
+    items: applyTerminologyCorrections(
+      [...byEngName.values()],
+      options.requireAllTerminologyCorrections === true,
+    ),
+    updated,
+    added,
+  };
+}
+
+function applyTerminologyCorrections(
+  items: Prisma.MagicItemUncheckedCreateInput[],
+  requireAll: boolean,
+): Prisma.MagicItemUncheckedCreateInput[] {
+  const correctionsLeft = new Set(Object.keys(MAGIC_ITEM_TERMINOLOGY_CORRECTIONS));
+
+  const corrected = items.map((item) => {
+    const correction = MAGIC_ITEM_TERMINOLOGY_CORRECTIONS[item.engName];
+    if (!correction) return item;
+    correctionsLeft.delete(item.engName);
+
+    let description = String(item.description ?? "");
+    for (const [from, to] of correction.replaceInDescription ?? []) {
+      if (!description.includes(from)) {
+        throw new Error(`«${item.engName}»: не знайдено термінологічний фрагмент «${from}».`);
+      }
+      description = description.split(from).join(to);
+    }
+
+    return {
+      ...item,
+      ...(correction.name ? { name: correction.name } : {}),
+      description,
+    };
+  });
+
+  if (requireAll && correctionsLeft.size > 0) {
+    throw new Error(`Немає предметів для термінологічних правок: ${[...correctionsLeft].join(", ")}.`);
+  }
+
+  return corrected;
 }
 
 function buildTranslatedItem(row: MagicItemBatchRow): Prisma.MagicItemUncheckedCreateInput {

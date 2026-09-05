@@ -22,6 +22,7 @@ type ExistingBg2024 = {
     note: string | null;
   };
   originFeat: { engName: string; nameUa: string };
+  equipmentPackage: Array<{ name: string; quantity: number }>;
   grantsGoldInstead: number;
   source: string;
   existingBackgroundId: number;
@@ -70,10 +71,7 @@ export const update15ExistingBackgrounds2024 = async (prisma: PrismaClient) => {
       ? await resolveOriginFeatId(prisma, bg.originFeat.engName)
       : null;
 
-    const toolProficiencies =
-      bg.toolProficiency?.toolCategory && !bg.toolProficiency.isChoice
-        ? [bg.toolProficiency.toolCategory]
-        : [];
+    const toolProficiencies = bg.toolProficiency?.toolCategory ? [bg.toolProficiency.toolCategory] : [];
 
     try {
       await (prisma.background as any).update({
@@ -88,6 +86,7 @@ export const update15ExistingBackgrounds2024 = async (prisma: PrismaClient) => {
           abilityOptions: bg.abilityOptions as any,
           originFeatId,
           grantsGoldInstead: bg.grantsGoldInstead,
+          items: bg.equipmentPackage,
         },
       });
       updated++;

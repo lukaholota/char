@@ -49,7 +49,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
         },
     };
 
-        // На повторних запусках seed-а в "subrace_trait" могли з’явитися дублікати.
+        // На повторних запусках seed-а в "subrace_trait" могли зʼявитися дублікати.
         // Прибираємо їх, залишаючи найменший subrace_trait_id для кожної пари (subrace_id, feature_id).
         await prisma.$executeRaw`
                 DELETE FROM "subrace_trait" a
@@ -126,7 +126,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
                 category: [WeaponCategory.SPEAR, WeaponCategory.TRIDENT, WeaponCategory.LIGHT_CROSSBOW, WeaponCategory.NET]
             },
             additionalLanguages: [Language.AQUAN],
-            traitEngNames: ['Child of the Sea', 'Friend of the Sea']
+            traitEngNames: ['Child of the Sea (Sea Elf Subrace)', 'Friend of the Sea (Sea Elf Subrace)']
         },
         // ============ SHADAR-KAI (MPMM) ============
         {
@@ -135,7 +135,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             source: Source.MPMM,
             replacesASI: true,
             additionalASI: MPMM_ASI,
-            traitEngNames: ['Necrotic Resistance', 'Blessing of the Raven Queen', 'Keen Senses']
+            traitEngNames: ['Necrotic Resistance (Shadar-kai Subrace)', 'Blessing of the Raven Queen (Shadar-kai Subrace)', 'Keen Senses']
         },
         // ============ PALLID ELF (EGTW) ============
         {
@@ -152,7 +152,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.DWARF_HILL_2014,
             source: Source.PHB,
             additionalASI: { WIS: 1 },
-            traitEngNames: ['Dwarven Toughness']
+            traitEngNames: ['Dwarven Toughness (Hill Dwarf Subrace)']
         },
         // ============ MOUNTAIN DWARF (PHB) ============
         {
@@ -161,7 +161,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             source: Source.PHB,
             additionalASI: { STR: 2 },
             armorProficiencies: [ArmorType.LIGHT, ArmorType.MEDIUM],
-            traitEngNames: ['Dwarven Armor Training']
+            traitEngNames: ['Dwarven Armor Training (Mountain Dwarf Subrace)']
         },
         // ============ DUERGAR (GRAY DWARF) (SCAG) ============
         {
@@ -169,7 +169,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.DWARF_DUERGAR_GRAY_SCAG,
             source: Source.SCAG,
             additionalASI: { STR: 1 },
-            traitEngNames: ['Superior Darkvision (Duergar)', 'Duergar Resilience', 'Duergar Magic', 'Sunlight Sensitivity']
+            traitEngNames: ['Superior Darkvision (Duergar)', 'Duergar Resilience (Duergar Subrace)', 'Duergar Magic (Duergar Subrace)', 'Sunlight Sensitivity']
         },
         
         // ============ LIGHTFOOT HALFLING (PHB) ============
@@ -222,7 +222,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             name: Subraces.GNOME_DEEP_SCAG,
             source: Source.SCAG,
             additionalASI: { DEX: 1 },
-            traitEngNames: ['Superior Darkvision (Deep Gnome)', 'Stone Camouflage']
+            traitEngNames: ['Superior Darkvision (Deep Gnome)', 'Stone Camouflage (Deep Gnome Subrace)']
         },
         
     ];
@@ -251,7 +251,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
 
         const desiredFeatureIds = desiredFeatureRows.map(f => f.featureId);
 
-        // Видаляємо зв’язки, яких більше не має бути
+        // Видаляємо звʼязки, яких більше не має бути
         await prisma.subraceTrait.deleteMany({
             where: {
                 subraceId: saved.subraceId,
@@ -261,7 +261,7 @@ export const seedSubraces = async (prisma: PrismaClient) => {
             }
         });
 
-        // Додаємо відсутні зв’язки
+        // Додаємо відсутні звʼязки
         if (desiredFeatureIds.length) {
             const existing = await prisma.subraceTrait.findMany({
                 where: { subraceId: saved.subraceId, featureId: { in: desiredFeatureIds } },

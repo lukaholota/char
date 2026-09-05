@@ -3,6 +3,7 @@
  */
 
 import { PrismaClient, Source, Size, FeatureDisplayType } from "@prisma/client";
+import { LINEAGE_OPTION_FEATURE_ENG_NAMES } from "./speciesChoices2024";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -88,6 +89,9 @@ export const seedRaces2024 = async (prisma: PrismaClient) => {
           },
         });
         upsertedFeatures++;
+
+        // Родовід — це вибір, а не безумовна риса: фіча потрібна, звʼязок із видом — ні.
+        if (LINEAGE_OPTION_FEATURE_ENG_NAMES.includes(featureEngName)) continue;
 
         const existingTrait = await prisma.raceTrait.findFirst({
           where: {

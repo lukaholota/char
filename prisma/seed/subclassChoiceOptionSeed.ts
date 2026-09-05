@@ -137,11 +137,11 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     { groupName: "Дисципліни чотирьох елементів", optionName: "Ікла вогняної змії", optionNameEng: "Fangs of the Fire Snake (Elemental Discipline)", featureEngName: "Fangs of the Fire Snake" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Кулак чотирьох громів", optionNameEng: "Fist of Four Thunders (Elemental Discipline)", featureEngName: "Fist of Four Thunders" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Кулак непорушного повітря", optionNameEng: "Fist of Unbroken Air (Elemental Discipline)", featureEngName: "Fist of Unbroken Air" },
-    { groupName: "Дисципліни чотирьох елементів", optionName: "Полум'я фенікса", optionNameEng: "Flames of the Phoenix (Elemental Discipline)", featureEngName: "Flames of the Phoenix" },
+    { groupName: "Дисципліни чотирьох елементів", optionName: "Полумʼя фенікса", optionNameEng: "Flames of the Phoenix (Elemental Discipline)", featureEngName: "Flames of the Phoenix" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Гонг вершини", optionNameEng: "Gong of the Summit (Elemental Discipline)", featureEngName: "Gong of the Summit" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Стійка туману", optionNameEng: "Mist Stance (Elemental Discipline)", featureEngName: "Mist Stance" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Осідлати вітер", optionNameEng: "Ride the Wind (Elemental Discipline)", featureEngName: "Ride the Wind" },
-    { groupName: "Дисципліни чотирьох елементів", optionName: "Ріка голодного полум'я", optionNameEng: "River of Hungry Flame (Elemental Discipline)", featureEngName: "River of Hungry Flame" },
+    { groupName: "Дисципліни чотирьох елементів", optionName: "Ріка голодного полумʼя", optionNameEng: "River of Hungry Flame (Elemental Discipline)", featureEngName: "River of Hungry Flame" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Натиск духів бурі", optionNameEng: "Rush of the Gale Spirits (Elemental Discipline)", featureEngName: "Rush of the Gale Spirits" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Надання форми плинній ріці", optionNameEng: "Shape the Flowing River (Elemental Discipline)", featureEngName: "Shape the Flowing River" },
     { groupName: "Дисципліни чотирьох елементів", optionName: "Розмашистий попелястий удар", optionNameEng: "Sweeping Cinder Strike (Elemental Discipline)", featureEngName: "Sweeping Cinder Strike" },
@@ -317,7 +317,7 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
       },
     })
 
-    // пересоздаємо зв’язок feature <-> choiceOption, щоб уникнути дублікатів
+    // пересоздаємо звʼязок feature <-> choiceOption, щоб уникнути дублікатів
     await prisma.choiceOptionFeature.deleteMany({ where: { choiceOptionId: choice.choiceOptionId } })
     await prisma.choiceOptionFeature.create({
       data: {
@@ -327,7 +327,7 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
     })
   }
 
-  // Окремо додаємо прив’язки до підкласів
+  // Окремо додаємо привʼязки до підкласів
   for (const link of subclassLinks) {
     const subclass = await prisma.subclass.findFirst({ where: { name: link.subclass } })
     const choiceOption = await prisma.choiceOption.findUnique({ where: { optionNameEng: link.optionNameEng } })

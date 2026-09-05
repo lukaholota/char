@@ -17,6 +17,7 @@ type BgToolProficiency = {
   note: string | null;
 };
 type BgOriginFeat = { engName: string; nameUa: string };
+type BgStartingItem = { name: string; quantity: number };
 type Background2024 = {
   ruleset: string;
   engName: string;
@@ -28,6 +29,7 @@ type Background2024 = {
   toolProficiency: BgToolProficiency;
   originFeat: BgOriginFeat;
   equipmentEngText: string;
+  equipmentPackage: BgStartingItem[];
   grantsGoldInstead: number;
   source: string;
 };
@@ -73,10 +75,7 @@ export const seedBackgrounds2024 = async (prisma: PrismaClient) => {
       ? await resolveOriginFeatId(prisma, bg.originFeat.engName)
       : null;
 
-    const toolProficiencies =
-      bg.toolProficiency?.toolCategory && !bg.toolProficiency.isChoice
-        ? [bg.toolProficiency.toolCategory]
-        : [];
+    const toolProficiencies = bg.toolProficiency?.toolCategory ? [bg.toolProficiency.toolCategory] : [];
 
     const payload = {
       name: nameEnum,
@@ -89,7 +88,7 @@ export const seedBackgrounds2024 = async (prisma: PrismaClient) => {
       originFeatId,
       grantsGoldInstead: bg.grantsGoldInstead,
       languagesToChooseCount: 0,
-      items: null,
+      items: bg.equipmentPackage,
       specialAbilityName: null,
     };
 

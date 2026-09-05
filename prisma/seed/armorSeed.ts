@@ -1,4 +1,6 @@
-import { PrismaClient, Prisma, ArmorCategory, ArmorType, Ability, AbilityBonusType } from "@prisma/client";
+import { PrismaClient, Prisma, ArmorCategory, ArmorType, Ability, AbilityBonusType, Ruleset } from "@prisma/client";
+
+const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedArmor = async (prisma: PrismaClient) => {
     console.log('Seeding armor...')
@@ -201,7 +203,7 @@ export const seedArmor = async (prisma: PrismaClient) => {
 
     for (const armor of armors) {
         await prisma.armor.upsert({
-            where: {name: armor.name},
+            where: {name_ruleset: {name: armor.name, ruleset: ACTIVE_RULESET}},
             update: armor,
             create: armor
         })

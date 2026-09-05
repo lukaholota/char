@@ -481,7 +481,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             skillProficiencies: [Skills.HISTORY, Skills.PERCEPTION],
             toolProficiencies: [ToolCategory.ARTISAN_TOOLS, ToolCategory.VEHICLES_WATER],
             items: [
-                { name: 'Теслярські інструменти', quantity: 1 },
+                { name: 'Інструменти тесляра', quantity: 1 },
                 { name: 'Дорожній одяг', quantity: 1 },
                 { name: 'зм', quantity: 10 }
             ],
@@ -711,7 +711,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             toolProficiencies: [ToolCategory.VEHICLES_LAND],
             languagesToChooseCount: 1,
             items: [
-                { name: 'Бронзовий диск або шкіряний м’яч', quantity: 1 },
+                { name: 'Бронзовий диск або шкіряний мʼяч', quantity: 1 },
                 { name: 'Подарунок від шанувальника', quantity: 1 },
                 { name: 'Дорожній одяг', quantity: 1 },
                 { name: 'зм', quantity: 10 }
@@ -902,7 +902,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Сундук', quantity: 1 },
                 { name: 'Лом', quantity: 1 },
                 { name: 'Молоток', quantity: 1 },
-                { name: 'Дерев’яні кілки', quantity: 3 },
+                { name: 'Деревʼяні кілки', quantity: 3 },
                 { name: 'Святе символічне зображення', quantity: 1 },
                 { name: 'Фляга святої води', quantity: 1 },
                 { name: 'Набір кайданів', quantity: 1 },
@@ -1085,7 +1085,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
             toolProficiencies: [ToolCategory.ARTISAN_TOOLS],
             items: [
                 { name: 'Серп', quantity: 1 },
-                { name: 'Теслярські інструменти', quantity: 1 },
+                { name: 'Інструменти тесляра', quantity: 1 },
                 { name: 'Набір цілителя', quantity: 10 },
                 { name: 'Залізний казан', quantity: 1 },
                 { name: 'Лопата', quantity: 1 },
@@ -1270,7 +1270,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 18 }
             ],
             specialAbilityName: 'Прихильність Удачі',
-            description: 'Незалежно від обставин, ви залишили щоденні злидні свого колишнього життя позаду на користь життя, сповненого пригод та азарту. Ваші колишні борги сплачено, обов’язки, які ви вважали неминучими, залишилися в минулому, або ви раптом опанували рідкісні та незвичайні навички, невідомі звичайним людям.\n\n**Прихильність Удачі (Fortune’s Favor):** Ви отримуєте одну з наступних рис на свій вибір: Щасливчик, Умілець або Посвячений у магію.',
+            description: 'Незалежно від обставин, ви залишили щоденні злидні свого колишнього життя позаду на користь життя, сповненого пригод та азарту. Ваші колишні борги сплачено, обовʼязки, які ви вважали неминучими, залишилися в минулому, або ви раптом опанували рідкісні та незвичайні навички, невідомі звичайним людям.\n\n**Прихильність Удачі (Fortune’s Favor):** Ви отримуєте одну з наступних рис на свій вибір: Щасливчик, Умілець або Посвячений у магію.',
             gainsFeats: {
                 connect: [
                     { name_ruleset: { name: Feats.LUCKY, ruleset: ACTIVE_RULESET } },
@@ -1295,7 +1295,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'зм', quantity: 13 }
             ],
             specialAbilityName: 'Вцілілий',
-            description: 'Все йшло так добре! Ви жили в розкоші, любові та комфорті, коли раптом втратили все. Можливо, вас підставили за злочини, яких ви не вчиняли, і ви втратили свою репутацію, статки та кар’єру.\n\n**Вцілілий (Still Standing):** Ви отримуєте одну з наступних рис на свій вибір: Пильний, Умілець або Здоровань.',
+            description: 'Все йшло так добре! Ви жили в розкоші, любові та комфорті, коли раптом втратили все. Можливо, вас підставили за злочини, яких ви не вчиняли, і ви втратили свою репутацію, статки та карʼєру.\n\n**Вцілілий (Still Standing):** Ви отримуєте одну з наступних рис на свій вибір: Пильний, Умілець або Здоровань.',
             gainsFeats: {
                 connect: [
                     { name_ruleset: { name: Feats.SKILLED, ruleset: ACTIVE_RULESET } },

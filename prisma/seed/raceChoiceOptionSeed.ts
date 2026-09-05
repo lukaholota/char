@@ -559,7 +559,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             maxSelection: 1,
             traits: {
                 create: [
-                    connectFeature('Child of the Sea')
+                    connectFeature('Child of the Sea (Sea Elf Subrace)')
                 ]
             }
         },
@@ -606,7 +606,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             maxSelection: 1,
             traits: {
                 create: [
-                    connectFeature('Radiant Soul')
+                    connectFeature('Radiant Soul (Aasimar)')
                 ]
             }
         },

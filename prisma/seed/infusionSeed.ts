@@ -1,4 +1,10 @@
-import { InfusionTargetType, Prisma, PrismaClient } from "@prisma/client"
+import { InfusionTargetType, Prisma, PrismaClient, Ruleset } from "@prisma/client"
+
+/// Вливання артифісера — правила 2014, а `magic_item.eng_name` після KR12.5 унікальний уже в
+/// парі з редакцією: назву предмета 2014 носить і предмет 2024.
+const findReplicatedItem = ( engName: string ) => ( {
+    connect: { engName_ruleset: { engName, ruleset: Ruleset.RULES_2014 } },
+} );
 
 export const seedInfusions = async ( prisma: PrismaClient ) => {
     console.log( "🧪 Додаємо Вливання (Infusions)..." );
@@ -56,7 +62,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             feature: { connect: { engName: "Infusion: Repeating Shot" } },
         },
         {
-            name: "Промениста зброя",
+            name: "Променева зброя",
             engName: "Radiant Weapon",
             minArtificerLevel: 6,
             targetType: InfusionTargetType.WEAPON,
@@ -147,7 +153,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Bag of Holding" } },
+            replicatedMagicItem: findReplicatedItem("Bag of Holding"),
         },
         {
             name: "Репліка: Ковпак дихання водою",
@@ -155,7 +161,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Cap of Water Breathing" } },
+            replicatedMagicItem: findReplicatedItem("Cap of Water Breathing"),
         },
         {
             name: "Репліка: Окуляри ночі",
@@ -163,7 +169,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Goggles of Night" } },
+            replicatedMagicItem: findReplicatedItem("Goggles of Night"),
         },
         {
             name: "Репліка: Протез кінцівки",
@@ -171,7 +177,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Prosthetic Limb" } },
+            replicatedMagicItem: findReplicatedItem("Prosthetic Limb"),
         },
         {
             name: "Репліка: Мотузка лазіння",
@@ -179,7 +185,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Rope of Climbing" } },
+            replicatedMagicItem: findReplicatedItem("Rope of Climbing"),
         },
         {
             name: "Репліка: Камені послання",
@@ -187,7 +193,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Sending Stones" } },
+            replicatedMagicItem: findReplicatedItem("Sending Stones"),
         },
         {
             name: "Репліка: Жезл виявлення магії",
@@ -195,7 +201,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Wand of Magic Detection" } },
+            replicatedMagicItem: findReplicatedItem("Wand of Magic Detection"),
         },
         {
             name: "Репліка: Жезл таємниць",
@@ -203,7 +209,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 2,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Wand of Secrets" } },
+            replicatedMagicItem: findReplicatedItem("Wand of Secrets"),
         },
         // Replicate Magic Item (6th-level)
         {
@@ -212,7 +218,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Boots of Elvenkind" } },
+            replicatedMagicItem: findReplicatedItem("Boots of Elvenkind"),
         },
         {
             name: "Репліка: Плащ ельфів",
@@ -220,7 +226,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Cloak of Elvenkind" } },
+            replicatedMagicItem: findReplicatedItem("Cloak of Elvenkind"),
         },
         {
             name: "Репліка: Плащ манти",
@@ -228,7 +234,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Cloak of the Manta Ray" } },
+            replicatedMagicItem: findReplicatedItem("Cloak of the Manta Ray"),
         },
         {
             name: "Репліка: Очі чарування",
@@ -236,7 +242,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Eyes of Charming" } },
+            replicatedMagicItem: findReplicatedItem("Eyes of Charming"),
         },
         {
             name: "Репліка: Рукавички злодія",
@@ -244,7 +250,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Gloves of Thievery" } },
+            replicatedMagicItem: findReplicatedItem("Gloves of Thievery"),
         },
         {
             name: "Репліка: Ліхтар викриття",
@@ -252,7 +258,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Lantern of Revealing" } },
+            replicatedMagicItem: findReplicatedItem("Lantern of Revealing"),
         },
         {
             name: "Репліка: Свистки жаху",
@@ -260,7 +266,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Pipes of Haunting" } },
+            replicatedMagicItem: findReplicatedItem("Pipes of Haunting"),
         },
         {
             name: "Репліка: Перстень ходіння по воді",
@@ -268,7 +274,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 6,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Ring of Water Walking" } },
+            replicatedMagicItem: findReplicatedItem("Ring of Water Walking"),
         },
         // Replicate Magic Item (10th-level)
         {
@@ -277,7 +283,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Boots of Striding and Springing" } },
+            replicatedMagicItem: findReplicatedItem("Boots of Striding and Springing"),
         },
         {
             name: "Репліка: Чоботи Зимокраю",
@@ -285,7 +291,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Boots of the Winterlands" } },
+            replicatedMagicItem: findReplicatedItem("Boots of the Winterlands"),
         },
         {
             name: "Репліка: Налучники стрільця",
@@ -293,7 +299,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Bracers of Archery" } },
+            replicatedMagicItem: findReplicatedItem("Bracers of Archery"),
         },
         {
             name: "Репліка: Брошка захисту",
@@ -301,7 +307,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Brooch of Shielding" } },
+            replicatedMagicItem: findReplicatedItem("Brooch of Shielding"),
         },
         {
             name: "Репліка: Плащ захисту",
@@ -309,7 +315,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Cloak of Protection" } },
+            replicatedMagicItem: findReplicatedItem("Cloak of Protection"),
         },
         {
             name: "Репліка: Очі орла",
@@ -317,7 +323,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Eyes of the Eagle" } },
+            replicatedMagicItem: findReplicatedItem("Eyes of the Eagle"),
         },
         {
             name: "Репліка: Рукавиці сили огра",
@@ -325,7 +331,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Gauntlets of Ogre Power" } },
+            replicatedMagicItem: findReplicatedItem("Gauntlets of Ogre Power"),
         },
         {
             name: "Репліка: Рукавиці перехоплення",
@@ -333,7 +339,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Gloves of Missile Snaring" } },
+            replicatedMagicItem: findReplicatedItem("Gloves of Missile Snaring"),
         },
         {
             name: "Репліка: Рукавиці плавання й лазіння",
@@ -341,7 +347,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Gloves of Swimming and Climbing" } },
+            replicatedMagicItem: findReplicatedItem("Gloves of Swimming and Climbing"),
         },
         {
             name: "Репліка: Капелюх маскування",
@@ -349,7 +355,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Hat of Disguise" } },
+            replicatedMagicItem: findReplicatedItem("Hat of Disguise"),
         },
         {
             name: "Репліка: Обруч інтелекту",
@@ -357,7 +363,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Headband of Intellect" } },
+            replicatedMagicItem: findReplicatedItem("Headband of Intellect"),
         },
         {
             name: "Репліка: Шолом телепатії",
@@ -365,7 +371,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Helm of Telepathy" } },
+            replicatedMagicItem: findReplicatedItem("Helm of Telepathy"),
         },
         {
             name: "Репліка: Медальйон думок",
@@ -373,7 +379,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Medallion of Thoughts" } },
+            replicatedMagicItem: findReplicatedItem("Medallion of Thoughts"),
         },
         {
             name: "Репліка: Оберіг пристосування",
@@ -381,7 +387,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Necklace of Adaptation" } },
+            replicatedMagicItem: findReplicatedItem("Necklace of Adaptation"),
         },
         {
             name: "Репліка: Амулет загоєння",
@@ -389,7 +395,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Periapt of Wound Closure" } },
+            replicatedMagicItem: findReplicatedItem("Periapt of Wound Closure"),
         },
         {
             name: "Репліка: Свистки каналізації",
@@ -397,7 +403,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Pipes of the Sewers" } },
+            replicatedMagicItem: findReplicatedItem("Pipes of the Sewers"),
         },
         {
             name: "Репліка: Колчан Елонни",
@@ -405,7 +411,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Quiver of Ehlonna" } },
+            replicatedMagicItem: findReplicatedItem("Quiver of Ehlonna"),
         },
         {
             name: "Репліка: Перстень стрибка",
@@ -413,7 +419,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Ring of Jumping" } },
+            replicatedMagicItem: findReplicatedItem("Ring of Jumping"),
         },
         {
             name: "Репліка: Перстень захисту розуму",
@@ -421,7 +427,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Ring of Mind Shielding" } },
+            replicatedMagicItem: findReplicatedItem("Ring of Mind Shielding"),
         },
         {
             name: "Репліка: Капці павучого лазіння",
@@ -429,7 +435,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Slippers of Spider Climbing" } },
+            replicatedMagicItem: findReplicatedItem("Slippers of Spider Climbing"),
         },
         {
             name: "Репліка: Вентиляційні легені",
@@ -437,7 +443,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Ventilating Lungs" } },
+            replicatedMagicItem: findReplicatedItem("Ventilating Lungs"),
         },
         {
             name: "Репліка: Крилаті чоботи",
@@ -445,7 +451,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 10,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Winged Boots" } },
+            replicatedMagicItem: findReplicatedItem("Winged Boots"),
         },
         // Replicate Magic Item (14th-level)
         {
@@ -454,7 +460,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Amulet of Health" } },
+            replicatedMagicItem: findReplicatedItem("Amulet of Health"),
         },
         {
             name: "Репліка: Арканна пропульсійна рука",
@@ -462,7 +468,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Arcane Propulsion Arm" } },
+            replicatedMagicItem: findReplicatedItem("Arcane Propulsion Arm"),
         },
         {
             name: "Репліка: Пояс сили пагорбового велетня",
@@ -470,7 +476,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Belt of Hill Giant Strength" } },
+            replicatedMagicItem: findReplicatedItem("Belt of Hill Giant Strength"),
         },
         {
             name: "Репліка: Чоботи левітації",
@@ -478,7 +484,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Boots of Levitation" } },
+            replicatedMagicItem: findReplicatedItem("Boots of Levitation"),
         },
         {
             name: "Репліка: Чоботи швидкості",
@@ -486,7 +492,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Boots of Speed" } },
+            replicatedMagicItem: findReplicatedItem("Boots of Speed"),
         },
         {
             name: "Репліка: Наручі захисту",
@@ -494,7 +500,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Bracers of Defense" } },
+            replicatedMagicItem: findReplicatedItem("Bracers of Defense"),
         },
         {
             name: "Репліка: Плащ кажана",
@@ -502,7 +508,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Cloak of the Bat" } },
+            replicatedMagicItem: findReplicatedItem("Cloak of the Bat"),
         },
         {
             name: "Репліка: Вимірні кайдани",
@@ -510,7 +516,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Dimensional Shackles" } },
+            replicatedMagicItem: findReplicatedItem("Dimensional Shackles"),
         },
         {
             name: "Репліка: Самоцвіт бачення",
@@ -518,7 +524,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Gem of Seeing" } },
+            replicatedMagicItem: findReplicatedItem("Gem of Seeing"),
         },
         {
             name: "Репліка: Ріг вибуху",
@@ -526,7 +532,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: false,
-            replicatedMagicItem: { connect: { engName: "Horn of Blasting" } },
+            replicatedMagicItem: findReplicatedItem("Horn of Blasting"),
         },
         {
             name: "Репліка: Перстень вільної дії",
@@ -534,7 +540,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Ring of Free Action" } },
+            replicatedMagicItem: findReplicatedItem("Ring of Free Action"),
         },
         {
             name: "Репліка: Перстень захисту",
@@ -542,7 +548,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Ring of Protection" } },
+            replicatedMagicItem: findReplicatedItem("Ring of Protection"),
         },
         {
             name: "Репліка: Перстень барана",
@@ -550,7 +556,7 @@ export const seedInfusions = async ( prisma: PrismaClient ) => {
             minArtificerLevel: 14,
             targetType: InfusionTargetType.ANY,
             requiresAttunement: true,
-            replicatedMagicItem: { connect: { engName: "Ring of the Ram" } },
+            replicatedMagicItem: findReplicatedItem("Ring of the Ram"),
         },
     ];
 

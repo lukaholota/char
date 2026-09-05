@@ -1,9 +1,10 @@
 import { FeatureDisplayType, PrismaClient, RestType } from "@prisma/client"
 import { normalizeFeatureCreateInput, type SeedFeatureCreateInput } from "./helpers/featureDisplayType"
 
-export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
-	console.log( '🧪 Додаємо Feature для Вливань...' )
-	const features: SeedFeatureCreateInput[] = [
+/// Дані лежать на рівні модуля, бо їх читає ще й адресний синк тексту
+/// `subclassFeatureText2014.ts`. Другого примірника рядка бути не може — саме розбіжність
+/// копій ховала зняті форми термінів у корпусі.
+const INFUSION_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
 		{
 			name: 'Покращений арканний фокус',
 			engName: 'Infusion: Enhanced Arcane Focus',
@@ -40,7 +41,7 @@ export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 			displayType: [FeatureDisplayType.PASSIVE],
 		},
 		{
-			name: 'Промениста зброя',
+			name: 'Променева зброя',
 			engName: 'Infusion: Radiant Weapon',
 			description: 'Ця магічна зброя надає **+1** до кидків атаки та шкоди. Тримаючи її, той, хто нею користується, може здійснити бонусну дію, щоб вона випромінювала яскраве світло на відстань 30 футів та тьмяне світло на додаткові 30 футів. Той, хто нею користується, може гасити світло бонусною дією.\n\nЗброя має 4 заряди. Реакцією одразу після того, як бути вражений атакою, той, хто нею користується, може витратити 1 заряд, щоб ослепити нападника до кінця його наступного ходу, якщо нападник провалить рятувальний кидок Статури проти СК рятування вашого заклинання. Зброя отримує 1к4 витрачених зарядів щодня на світанку.',
 			shortDescription: '+1; світло; реакцією ослепити',
@@ -81,7 +82,7 @@ export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 		{
 			name: 'Стійка броня',
 			engName: 'Infusion: Resistant Armor',
-			description: 'Під час носіння цієї броні істота отримує опір одному з наступних типів шкоди, який ви обираєте, коли робите вливання: кислотна, холодна, вогняна, силовим полем, блискавична, некротична, отруйна, психічна, світлом чи громова.',
+			description: 'Під час носіння цієї броні істота отримує опір одному з наступних типів шкоди, який ви обираєте, коли робите вливання: кислотна, холодна, вогняна, силовим полем, блискавична, некротична, отруйна, психічна, променева чи громова.',
 			shortDescription: 'Опір до обраного типу шкоди',
 			displayType: [FeatureDisplayType.PASSIVE],
 		},
@@ -113,7 +114,15 @@ export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
 			shortDescription: 'Створює гомункула-супутника',
 			displayType: [FeatureDisplayType.PASSIVE],
 		},
-	]
+];
+
+export function readInfusionFeatureSeedInputs(): SeedFeatureCreateInput[] {
+  return INFUSION_FEATURE_SEED_INPUTS;
+}
+
+export const seedInfusionFeatures = async ( prisma: PrismaClient ) => {
+	console.log( '🧪 Додаємо Feature для Вливань...' )
+	const features = INFUSION_FEATURE_SEED_INPUTS;
 
 	for ( const f of features ) {
 		const normalized = normalizeFeatureCreateInput(f)

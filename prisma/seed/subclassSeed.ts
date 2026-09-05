@@ -17,10 +17,10 @@ type SubclassSeed = Omit<Prisma.SubclassCreateInput, "class" | "name"> & {
 
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
-export const seedSubclasses = async (prisma: PrismaClient) => {
-  console.log("Створюємо підкласи...");
-
-  const subclasses: SubclassSeed[] = [
+/// Дані лежать на рівні модуля, бо їх читає ще й адресний синк тексту
+/// `subclassFeatureText2014.ts`. Другого примірника рядка бути не може — саме розбіжність
+/// копій ховала зняті форми термінів у корпусі.
+const SUBCLASS_SEED_INPUTS: SubclassSeed[] = [
     // ==== Artificer ====
     {
       name: Subclasses.ALCHEMIST,
@@ -158,7 +158,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.PATH_OF_THE_BEAST,
       description:
-        "Звірячий шлях вивільняє первісну іскру: під час люті тіло змінюється, з’являються пазурі, хвости чи щелепи.",
+        "Звірячий шлях вивільняє первісну іскру: під час люті тіло змінюється, зʼявляються пазурі, хвости чи щелепи.",
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.BARBARIAN_2014,
       expandedSpells: { connect: [] },
@@ -206,7 +206,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.PATH_OF_THE_ZEALOT,
       description:
-        "Ревний воїн сповнений божественного гніву: додаткова радіантна чи некротична шкода, стійкість до смерті й натхнення союзників.",
+        "Ревний воїн сповнений божественного гніву: додаткова променева чи некротична шкода, стійкість до смерті й натхнення союзників.",
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.BARBARIAN_2014,
       expandedSpells: { connect: [] },
@@ -276,7 +276,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.LIGHT_DOMAIN,
       description:
-        "Домен світла бореться з темрявою: засліплення ворогів, промениста шкода й контролювання битви ясним сяйвом.",
+        "Домен світла бореться з темрявою: засліплення ворогів, променева шкода й контролювання битви ясним сяйвом.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -306,7 +306,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.PEACE_DOMAIN,
       description:
-        "Домен миру зцілює й підтримує союзників через містичні зв’язки, гармонію й захист від конфліктів.",
+        "Домен миру зцілює й підтримує союзників через містичні звʼязки, гармонію й захист від конфліктів.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -400,7 +400,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.CELESTIAL,
       description:
-        "Ваш покровитель — могутня істота з Верхніх планів, що дозволяє вам торкнутися священного світла, яке осяює мультивсесвіт. Його дари несуть зцілення, променисту міць і захист від смерті.",
+        "Ваш покровитель — могутня істота з Верхніх планів, що дозволяє вам торкнутися священного світла, яке осяює мультивсесвіт. Його дари несуть зцілення, променеву міць і захист від смерті.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -410,7 +410,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.FATHOMLESS,
       description:
-        "Ваш пакт пов’язує вас із безоднею океану, Планом Стихії Води чи іншою потойбічною морською сутністю. Вона кличе вас до глибин і наділяє щупальцями, морською витривалістю та водяною магією.",
+        "Ваш пакт повʼязує вас із безоднею океану, Планом Стихії Води чи іншою потойбічною морською сутністю. Вона кличе вас до глибин і наділяє щупальцями, морською витривалістю та водяною магією.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.PACT,
       grantsSpells: true,
@@ -534,7 +534,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.SCHOOL_OF_ABJURATION,
       description:
-        "Школа захисту зміцнює магічні бар’єри: покращені контрчари, захисний резерв і стійкість проти заклять.",
+        "Школа захисту зміцнює магічні барʼєри: покращені контрчари, захисний резерв і стійкість проти заклять.",
       primaryCastingStat: Ability.INT,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -564,7 +564,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.SCHOOL_OF_CONJURATION,
       description:
-        "Школа виклику створює й переносить об’єкти та істот: миттєві предмети, телепортація, надійні виклики.",
+        "Школа виклику створює й переносить обʼєкти та істот: миттєві предмети, телепортація, надійні виклики.",
       primaryCastingStat: Ability.INT,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -676,7 +676,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.CIRCLE_OF_THE_LAND,
       description:
-        "Коло землі прив’язане до певного біому: додаткові закляття землі, швидке відновлення магії, вільний рух крізь хащі та захист природи.",
+        "Коло землі привʼязане до певного біому: додаткові закляття землі, швидке відновлення магії, вільний рух крізь хащі та захист природи.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -716,7 +716,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.CIRCLE_OF_STARS,
       description:
-        "Коло зірок читає небесні знаки: зоряна мапа, сузір’я, що дають стрілу, кубок чи дракона, космічні передвістя та сяйво, що захищає.",
+        "Коло зірок читає небесні знаки: зоряна мапа, сузірʼя, що дають стрілу, кубок чи дракона, космічні передвістя та сяйво, що захищає.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -726,7 +726,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.CIRCLE_OF_WILDFIRE,
       description:
-        "Дике полум’я балансує руйнування й оновлення: дух вогню, додаткові вогняні й лікувальні закляття, запечатані спалахи та відродження з попелу.",
+        "Дике полумʼя балансує руйнування й оновлення: дух вогню, додаткові вогняні й лікувальні закляття, запечатані спалахи та відродження з попелу.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -738,7 +738,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.OATH_OF_THE_ANCIENTS,
       description:
-        "Клятва древніх зобов’язує паладина берегти світло й життя, захищаючи природу та радість від темряви.",
+        "Клятва древніх зобовʼязує паладина берегти світло й життя, захищаючи природу та радість від темряви.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.HALF,
       grantsSpells: true,
@@ -758,7 +758,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.OATH_OF_THE_CROWN,
       description:
-        "Клятва корони присвячує паладина служінню закону, монарху або цивілізації, ставлячи обов’язок вище за все.",
+        "Клятва корони присвячує паладина служінню закону, монарху або цивілізації, ставлячи обовʼязок вище за все.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.HALF,
       grantsSpells: true,
@@ -830,7 +830,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.BEAST_MASTER_CONCLAVE,
       description:
-        "Володар звірів формує містичний зв’язок із вірним звіром-супутником, котрий б’ється пліч-о-пліч із слідопитом.",
+        "Володар звірів формує містичний звʼязок із вірним звіром-супутником, котрий бʼється пліч-о-пліч із слідопитом.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.HALF,
       grantsSpells: true,
@@ -840,7 +840,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.DRAKEWARDEN,
       description:
-        "Драконячий охоронець пов’язує свою душу з духом дракона, викликаючи дрейка-супутника та володіючи силою дихання.",
+        "Драконячий охоронець повʼязує свою душу з духом дракона, викликаючи дрейка-супутника та володіючи силою дихання.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.HALF,
       grantsSpells: true,
@@ -972,7 +972,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.COLLEGE_OF_VALOR,
       description:
-        "Барди Колегії доблесті — відважні скальди, що зберігають пам’ять про великих героїв минулого й сучасності. Їхні пісні надихають інших на подвиги, а самі вони без вагань стають до бою.",
+        "Барди Колегії доблесті — відважні скальди, що зберігають памʼять про великих героїв минулого й сучасності. Їхні пісні надихають інших на подвиги, а самі вони без вагань стають до бою.",
       primaryCastingStat: Ability.CHA,
       spellcastingType: SpellcastingType.FULL,
       grantsSpells: true,
@@ -1034,7 +1034,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.PHANTOM,
       description:
-        "Фантом має зв'язок зі світом мертвих, використовуючи енергію смерті для атак та отримання знань від духів.",
+        "Фантом має звʼязок зі світом мертвих, використовуючи енергію смерті для атак та отримання знань від духів.",
       primaryCastingStat: Ability.DEX,
       spellcastingType: SpellcastingType.NONE,
       grantsSpells: false,
@@ -1054,7 +1054,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.SOULKNIFE,
       description:
-        "Душевний ніж викликає леза з чистої психічної енергії та використовує свій розум для посилення власних можливостей та зв'язку з іншими.",
+        "Душевний ніж викликає леза з чистої психічної енергії та використовує свій розум для посилення власних можливостей та звʼязку з іншими.",
       primaryCastingStat: Ability.DEX,
       spellcastingType: SpellcastingType.NONE,
       grantsSpells: false,
@@ -1112,7 +1112,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.WAY_OF_THE_DRUNKEN_MASTER,
       description:
-        "Шлях п'яного майстра навчає рухатися з непередбачуваною грацією п'яниці. Монах хитається й ухиляється, збиваючи ворогів з пантелику та завдаючи швидких ударів.",
+        "Шлях пʼяного майстра навчає рухатися з непередбачуваною грацією пʼяниці. Монах хитається й ухиляється, збиваючи ворогів з пантелику та завдаючи швидких ударів.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.MONK_2014,
@@ -1121,7 +1121,7 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.WAY_OF_THE_FOUR_ELEMENTS,
       description:
-        "Шлях чотирьох стихій дозволяє монаху керувати вогнем, водою, повітрям і землею. Вони використовують свою ци, щоб створювати вибухи полум'я, крижані стіни та пориви вітру.",
+        "Шлях чотирьох стихій дозволяє монаху керувати вогнем, водою, повітрям і землею. Вони використовують свою ци, щоб створювати вибухи полумʼя, крижані стіни та пориви вітру.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.MONK_2014,
@@ -1166,13 +1166,22 @@ export const seedSubclasses = async (prisma: PrismaClient) => {
     {
       name: Subclasses.WAY_OF_THE_SUN_SOUL,
       description:
-        "Шлях сонячної душі дозволяє каналізувати внутрішнє світло. Монахи вистрілюють променями радіантної енергії та створюють вибухи світла, спалюючи темряву.",
+        "Шлях сонячної душі дозволяє каналізувати внутрішнє світло. Монахи вистрілюють променями променевої енергії та створюють вибухи світла, спалюючи темряву.",
       primaryCastingStat: Ability.WIS,
       spellcastingType: SpellcastingType.NONE,
       classConnect: Classes.MONK_2014,
       expandedSpells: { connect: [] },
     },
-  ];
+];
+
+export function readSubclassSeedInputs(): SubclassSeed[] {
+  return SUBCLASS_SEED_INPUTS;
+}
+
+export const seedSubclasses = async (prisma: PrismaClient) => {
+  console.log("Створюємо підкласи...");
+
+  const subclasses = SUBCLASS_SEED_INPUTS;
 
   for (const subclass of subclasses) {
     const { classConnect, ...data } = subclass;

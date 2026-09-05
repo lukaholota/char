@@ -607,7 +607,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
             },
             traits: {
                 create: [
-                    { feature: { connect: { engName: 'Shapechanger' } } }
+                    { feature: { connect: { engName: 'Shapechanger (Changeling)' } } }
                 ]
             }
         },
@@ -648,9 +648,9 @@ export const seedRaces = async (prisma: PrismaClient) => {
                 create: [
                     { feature: { connect: { engName: 'Superior Darkvision' } } },
                     { feature: { connect: { engName: 'Dwarven Resilience' } } },
-                    { feature: { connect: { engName: 'Duergar Resilience' } } },
+                    { feature: { connect: { engName: 'Duergar Resilience (Duergar Race)' } } },
                     { feature: { connect: { engName: 'Psionic Fortitude' } } },
-                    { feature: { connect: { engName: 'Duergar Magic' } } }
+                    { feature: { connect: { engName: 'Duergar Magic (Duergar Race)' } } }
                 ]
             }
         },
@@ -1063,9 +1063,9 @@ export const seedRaces = async (prisma: PrismaClient) => {
                     { feature: { connect: { engName: 'Darkvision' } } },
                     { feature: { connect: { engName: 'Fey Ancestry' } } },
                     { feature: { connect: { engName: 'Trance' } } },
-                    { feature: { connect: { engName: 'Child of the Sea' } } },
+                    { feature: { connect: { engName: 'Child of the Sea (Sea Elf Race)' } } },
                     { feature: { connect: { engName: 'Keen Senses' } } },
-                    { feature: { connect: { engName: 'Friend of the Sea' } } },
+                    { feature: { connect: { engName: 'Friend of the Sea (Sea Elf Race)' } } },
                 ]
             }
         },
@@ -1086,8 +1086,8 @@ export const seedRaces = async (prisma: PrismaClient) => {
                     { feature: { connect: { engName: 'Fey Ancestry' } } },
                     { feature: { connect: { engName: 'Trance' } } },
                     { feature: { connect: { engName: 'Keen Senses' } } },
-                    { feature: { connect: { engName: 'Blessing of the Raven Queen' } } },
-                    { feature: { connect: { engName: 'Necrotic Resistance' } } }
+                    { feature: { connect: { engName: 'Blessing of the Raven Queen (Shadar-kai Race)' } } },
+                    { feature: { connect: { engName: 'Necrotic Resistance (Shadar-kai Race)' } } }
                 ]
             }
         },

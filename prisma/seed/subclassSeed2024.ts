@@ -2,7 +2,7 @@
  * KR6.3 Крок 3 — 2024 Subclasses seed
  */
 
-import { PrismaClient, FeatureDisplayType } from "@prisma/client";
+import { Ability, FeatureDisplayType, PrismaClient, SpellcastingType } from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -29,6 +29,9 @@ type SubclassJson2024 = {
   features?: SubclassFeature2024[];
   featuresEng?: SubclassFeatureEng2024[];
   source: string;
+  /** Лише в підкласів, що дають чаклування класу без нього: Лицар-Чаклун і Таємний Пройдисвіт. */
+  spellcastingType?: SpellcastingType;
+  primaryCastingStat?: Ability;
 };
 
 function toSubclassEnum(engName: string): string {
@@ -71,6 +74,8 @@ export const seedSubclasses2024 = async (prisma: PrismaClient) => {
       name: scEnum as any,
       ruleset: "RULES_2024" as const,
       description,
+      spellcastingType: sc.spellcastingType ?? SpellcastingType.NONE,
+      primaryCastingStat: sc.primaryCastingStat ?? null,
       grantsSpells: false,
       languagesToChooseCount: 0,
       toolProficiencies: [],

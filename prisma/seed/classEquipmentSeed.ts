@@ -15,7 +15,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.CHAIN_MAIL } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.CHAIN_MAIL, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'кольчуга (16 КБ)'
@@ -23,7 +23,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'b',
-            armor: { connect: { name: ArmorCategory.LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'шкіряна (11 + СПР КБ)'
@@ -61,7 +61,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.SHIELD } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.SHIELD, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Щит (+2 до КБ)'
@@ -112,7 +112,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DUNGEONEERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
@@ -121,7 +121,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.FIGHTER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -181,7 +181,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.BARBARIAN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -224,7 +224,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DUNGEONEERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
@@ -233,7 +233,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.MONK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -260,7 +260,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.SCALE_MAIL, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Лускова броня (14 + СПР [макс 2] КБ)'
@@ -269,7 +269,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'b',
-            armor: { connect: { name: ArmorCategory.LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
@@ -302,7 +302,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DUNGEONEERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
@@ -311,7 +311,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.RANGER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -358,7 +358,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.SHIELD } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.SHIELD, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Щит (+2 КБ)'
@@ -402,7 +402,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.PRIESTS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.PRIESTS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір священика'
@@ -411,7 +411,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -422,7 +422,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.CHAIN_MAIL } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.CHAIN_MAIL, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.PALADIN_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Кольчуга (16 КБ)'
@@ -495,7 +495,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.BURGLARS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.BURGLARS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір грабіжника'
@@ -504,7 +504,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DUNGEONEERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
@@ -513,7 +513,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'c',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -524,7 +524,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.ROGUE_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
@@ -608,7 +608,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.SCHOLARS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.SCHOLARS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір вченого'
@@ -617,7 +617,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DUNGEONEERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
@@ -628,7 +628,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.WARLOCK_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
@@ -701,7 +701,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.STUDDED_LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.STUDDED_LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Клепана шкіряна броня (12 + СПР КБ)'
@@ -709,7 +709,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.SCALE_MAIL, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Лускова броня (14 + СПР [макс 2] КБ)'
@@ -719,7 +719,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DUNGEONEERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.ARTIFICER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
@@ -767,10 +767,10 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.COMPONENT_POUCH } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.COMPONENT_POUCH, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
-            description: 'Сумка з компонентами'
+            description: 'Мішечок компонентів'
         },
         {
             choiceGroup: 2,
@@ -785,7 +785,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DUNGEONEERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DUNGEONEERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дослідника підземель'
@@ -793,7 +793,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.SORCERER_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -832,10 +832,10 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.COMPONENT_POUCH } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.COMPONENT_POUCH, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
-            description: 'Сумка з компонентами'
+            description: 'Мішечок компонентів'
         },
         {
             choiceGroup: 2,
@@ -850,7 +850,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.SCHOLARS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.SCHOLARS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір ученого'
@@ -858,7 +858,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -868,7 +868,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.SPELLBOOK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.SPELLBOOK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Книга Чарів чарівника'
@@ -893,10 +893,10 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 1,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.SHIELD } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.SHIELD, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
-            description: 'Дерев’яний щит (+2 КБ)'
+            description: 'Деревʼяний щит (+2 КБ)'
         },
         {
             choiceGroup: 1,
@@ -933,7 +933,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
@@ -941,7 +941,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 3,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.DRUID_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -995,7 +995,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.DIPLOMATS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.DIPLOMATS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір дипломата'
@@ -1003,7 +1003,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.ENTERTAINERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.ENTERTAINERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір артиста'
@@ -1031,7 +1031,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.BARD_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
@@ -1076,7 +1076,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.SCALE_MAIL } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.SCALE_MAIL, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Лускова броня (14 + СПР [макс 2] КБ)'
@@ -1084,7 +1084,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'b',
-            armor: { connect: { name: ArmorCategory.LEATHER } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.LEATHER, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Шкіряна броня (11 + СПР КБ)'
@@ -1092,7 +1092,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 2,
             option: 'c',
-            armor: { connect: { name: ArmorCategory.CHAIN_MAIL } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.CHAIN_MAIL, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Кольчуга (16 КБ) — якщо є володіння'
@@ -1130,7 +1130,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'a',
-            equipmentPack: { connect: { name: EquipmentPackCategory.PRIESTS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.PRIESTS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір священика'
@@ -1138,7 +1138,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 4,
             option: 'b',
-            equipmentPack: { connect: { name: EquipmentPackCategory.EXPLORERS_PACK } },
+            equipmentPack: { connect: { name_ruleset: { name: EquipmentPackCategory.EXPLORERS_PACK, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Набір мандрівника'
@@ -1148,7 +1148,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
         {
             choiceGroup: 5,
             option: 'a',
-            armor: { connect: { name: ArmorCategory.SHIELD } },
+            armor: { connect: { name_ruleset: { name: ArmorCategory.SHIELD, ruleset: ACTIVE_RULESET } } },
             class: { connect: { name_ruleset: { name: Classes.CLERIC_2014, ruleset: ACTIVE_RULESET } } },
             quantity: 1,
             description: 'Щит (+2 до КБ)'

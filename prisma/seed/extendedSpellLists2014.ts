@@ -87,7 +87,7 @@ export function readExtendedListBindings(): ExtendedListBinding[] {
   const parsed: unknown = JSON.parse(readFileSync(join(process.cwd(), BINDINGS_PATH), "utf-8"));
 
   if (parsed === null || typeof parsed !== "object" || !("bindings" in parsed)) {
-    throw new Error(`${BINDINGS_PATH}: очікували об'єкт із ключем bindings`);
+    throw new Error(`${BINDINGS_PATH}: очікували обʼєкт із ключем bindings`);
   }
 
   const bindings = (parsed as { bindings: unknown }).bindings;

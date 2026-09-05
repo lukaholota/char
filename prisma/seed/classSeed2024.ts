@@ -8,6 +8,8 @@ import {
   FeatureDisplayType,
   PrismaClient,
   SpellcastingType,
+  WeaponCategory,
+  WeaponProperty,
   WeaponType,
 } from "@prisma/client";
 import { readFileSync } from "node:fs";
@@ -36,6 +38,8 @@ type ClassJson2024 = {
   isPhbCore: boolean;
   note: string | null;
   source: string;
+  weaponMasteryProgression?: number[];
+  skillProficiencies: { choiceCount: number; options: string[] };
   features?: ClassFeature2024[];
   featuresEng?: ClassFeatureEng2024[];
 };
@@ -50,6 +54,9 @@ const CLASS_CONFIGS: Record<
     savingThrows: Ability[];
     armorProficiencies: ArmorType[];
     weaponProficiencies: Record<string, unknown>;
+    /// SRD 5.2: «Simple weapons and Martial weapons that have the Finesse or Light property».
+    /// Список конкретної зброї не пишеться руками — він розкривається з каталогу 2024.
+    martialWeaponsWithProperty?: WeaponProperty[];
     sortOrder: number;
   }
 > = {
@@ -108,6 +115,7 @@ const CLASS_CONFIGS: Record<
     savingThrows: [Ability.STR, Ability.DEX],
     armorProficiencies: [],
     weaponProficiencies: { type: [WeaponType.SIMPLE_WEAPON] },
+    martialWeaponsWithProperty: [WeaponProperty.LIGHT],
     sortOrder: 6,
   },
   Paladin: {
@@ -137,6 +145,7 @@ const CLASS_CONFIGS: Record<
     savingThrows: [Ability.DEX, Ability.INT],
     armorProficiencies: [ArmorType.LIGHT],
     weaponProficiencies: { type: [WeaponType.SIMPLE_WEAPON] },
+    martialWeaponsWithProperty: [WeaponProperty.FINESSE, WeaponProperty.LIGHT],
     sortOrder: 9,
   },
   Sorcerer: {
@@ -187,6 +196,7 @@ export const seedClasses2024 = async (prisma: PrismaClient) => {
     "utf-8"
   );
   const classesList: ClassJson2024[] = JSON.parse(raw);
+  const martialWeaponsByProperty = collectMartialWeaponsByProperty();
 
   console.log(`🛡️ Seeding ${classesList.length} 2024 classes…`);
   let upserted = 0;
@@ -208,8 +218,11 @@ export const seedClasses2024 = async (prisma: PrismaClient) => {
       epicBoonLevel: cls.epicBoonLevel,
       multiclassReqs: config.multiclassReqs,
       savingThrows: config.savingThrows,
+      skillProficiencies: cls.skillProficiencies,
       armorProficiencies: config.armorProficiencies,
       weaponProficiencies: config.weaponProficiencies,
+      weaponProficienciesSpecial: buildSpecialWeaponProficiencies(config, martialWeaponsByProperty),
+      weapon_mastery_progression: readMasteryProgression(cls),
       sortOrder: config.sortOrder,
     };
 
@@ -234,6 +247,59 @@ export const seedClasses2024 = async (prisma: PrismaClient) => {
     `✅ 2024 Classes: ${upserted} upserted, ${upsertedFeatures} features upserted, ${errors} errors`
   );
 };
+
+/**
+ * Ємність майстерності — рядок класової таблиці, а не константа в коді. Порожня прогресія у
+ * джерелі означала б, що клас не дає майстерності, і мовчки прирівнялася б до Монаха, тому
+ * відсутність двадцяти значень — помилка сіду, а не дефолт.
+ */
+function readMasteryProgression(cls: ClassJson2024): number[] {
+  const progression = cls.weaponMasteryProgression ?? [];
+  if (progression.length !== 20) {
+    throw new Error(
+      `${cls.engName}: weaponMasteryProgression має ${progression.length} значень замість 20 — дані класу неповні.`
+    );
+  }
+  return progression;
+}
+
+type MartialWeaponsByProperty = Map<WeaponProperty, WeaponCategory[]>;
+
+/**
+ * «Martial weapons that have the Finesse or Light property» — предикат, а не список. Розкриваємо
+ * його з каталогу зброї 2024, щоб нова зброя потрапляла у володіння сама.
+ */
+function collectMartialWeaponsByProperty(): MartialWeaponsByProperty {
+  const weapons: Array<{ engName: string; properties: string; weaponCategory: string }> = JSON.parse(
+    readFileSync(join(process.cwd(), "data/2024/normalized/weapons.json"), "utf-8")
+  );
+  const byProperty: MartialWeaponsByProperty = new Map();
+
+  for (const weapon of weapons) {
+    if (weapon.weaponCategory === "SIMPLE") continue;
+    const category = weapon.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "") as WeaponCategory;
+    for (const property of [WeaponProperty.FINESSE, WeaponProperty.LIGHT]) {
+      if (!weapon.properties.toLowerCase().includes(property.toLowerCase())) continue;
+      byProperty.set(property, [...(byProperty.get(property) ?? []), category]);
+    }
+  }
+
+  return byProperty;
+}
+
+function buildSpecialWeaponProficiencies(
+  config: { martialWeaponsWithProperty?: WeaponProperty[] },
+  martialWeaponsByProperty: MartialWeaponsByProperty
+): { specific: WeaponCategory[] } | null {
+  if (!config.martialWeaponsWithProperty?.length) return null;
+
+  const specific = new Set<WeaponCategory>();
+  for (const property of config.martialWeaponsWithProperty) {
+    for (const weapon of martialWeaponsByProperty.get(property) ?? []) specific.add(weapon);
+  }
+
+  return { specific: [...specific] };
+}
 
 /**
  * Назва фічі не унікальна в межах класу — Варвар має "Improved Brutal Strike" на 13 і 17 рівнях.

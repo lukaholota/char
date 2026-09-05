@@ -918,7 +918,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             create: optionData,
         });
 
-        // Перевіряємо та створюємо зв'язки, якщо їх ще немає
+        // Перевіряємо та створюємо звʼязки, якщо їх ще немає
         for (const engName of featureNames) {
             const feature = await prisma.feature.findUnique({ where: { engName } });
             if (!feature) {

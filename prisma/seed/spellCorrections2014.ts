@@ -58,7 +58,7 @@ export function readSpellCorrections2014(): SpellCorrection[] {
   const parsed: unknown = JSON.parse(raw);
 
   if (parsed === null || typeof parsed !== "object" || !("corrections" in parsed)) {
-    throw new Error(`${CORRECTIONS_PATH}: очікували об'єкт із ключем corrections`);
+    throw new Error(`${CORRECTIONS_PATH}: очікували обʼєкт із ключем corrections`);
   }
 
   const corrections = (parsed as { corrections: unknown }).corrections;

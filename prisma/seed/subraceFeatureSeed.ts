@@ -95,7 +95,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     // --- SEA ELF ---
     {
       name: "Дитя моря",
-      engName: "Child of the Sea",
+      engName: "Child of the Sea (Sea Elf Subrace)",
       description:
         "Ви маєте швидкість плавання 30 футів, і ви можете дихати повітрям і водою.",
       shortDescription: "Плавання 30 футів, амфібія",
@@ -103,7 +103,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     },
     {
       name: "Друг моря",
-      engName: "Friend of the Sea",
+      engName: "Friend of the Sea (Sea Elf Subrace)",
       description:
         "Використовуючи жести та звуки, ви можете спілкуватися з будь-яким звіром, який має вроджену швидкість плавання.",
       shortDescription: "Спілкування з морськими звірами",
@@ -113,14 +113,14 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     // --- SHADAR-KAI ---
     {
       name: "Опір некротичній енергії",
-      engName: "Necrotic Resistance",
+      engName: "Necrotic Resistance (Shadar-kai Subrace)",
       description: "Ви маєте опір до некротичної шкоди.",
       shortDescription: "Опір до некротичної шкоди",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
       name: "Благословення Королеви Воронів",
-      engName: "Blessing of the Raven Queen",
+      engName: "Blessing of the Raven Queen (Shadar-kai Subrace)",
       description:
         "Бонусною дією ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Ви можете використовувати цю рису кількість разів, що дорівнює вашому бонусу майстерності, і відновлюєте всі витрачені використання, коли закінчуєте довгий відпочинок.\\n\\nПочинаючи з 3-го рівня, ви також отримуєте опір до всіх видів шкоди, коли телепортуєтеся за допомогою цієї риси. Опір триває до початку вашого наступного ходу. Протягом цього часу ви виглядаєте примарним і напівпрозорим.",
       shortDescription:
@@ -179,7 +179,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     // --- HILL DWARF ---
     {
       name: "Дварфська витривалість",
-      engName: "Dwarven Toughness",
+      engName: "Dwarven Toughness (Hill Dwarf Subrace)",
       description:
         "Максимум ваших хіт-поінтів збільшується на 1, і він збільшується на 1 додатково щоразу, коли ви отримуєте рівень.",
       shortDescription: "+1 HP на рівень",
@@ -189,7 +189,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     // --- MOUNTAIN DWARF ---
     {
       name: "Дварфське бронарське навчання",
-      engName: "Dwarven Armor Training",
+      engName: "Dwarven Armor Training (Mountain Dwarf Subrace)",
       description: "Ви володієте легкими та середніми обладунками.",
       shortDescription: "Володіння легкими та середніми обладунками",
       displayType: [FeatureDisplayType.PASSIVE],
@@ -205,7 +205,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     },
     {
       name: "Стійкість дуергара",
-      engName: "Duergar Resilience",
+      engName: "Duergar Resilience (Duergar Subrace)",
       description:
         "Ви маєте перевагу на ряткидки проти ілюзій та проти того, щоб бути зачарованим або паралізованим.",
       shortDescription:
@@ -214,7 +214,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     },
     {
       name: "Магія дуергара",
-      engName: "Duergar Magic",
+      engName: "Duergar Magic (Duergar Subrace)",
       description:
         'Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1289">Збільшення/Зменшення [Enlarge/Reduce]</a> на себе. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a> на себе. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Інтелект є вашою характеристикою для цих заклинань.',
       shortDescription: "Збільшення/Зменшення та Невидимість (тільки на себе)",
@@ -285,7 +285,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Знання ремісника",
       engName: "Artificer's Lore",
       description:
-        "Коли ви робите перевірку Інтелекту (Історія [History]), пов'язану з магічними предметами, алхімічними об'єктами або технологічними пристроями, ви можете додати подвійний бонус майстерності замість будь-якого бонуса майстерності, який ви зазвичай застосовуєте.",
+        "Коли ви робите перевірку Інтелекту (Історія [History]), повʼязану з магічними предметами, алхімічними обʼєктами або технологічними пристроями, ви можете додати подвійний бонус майстерності замість будь-якого бонуса майстерності, який ви зазвичай застосовуєте.",
       shortDescription:
         "Подвійна майстерність на Історію про магічні/технологічні предмети",
       displayType: [FeatureDisplayType.PASSIVE],
@@ -308,11 +308,11 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
-      name: "Кам'яний камуфляж",
-      engName: "Stone Camouflage",
+      name: "Камʼяний камуфляж",
+      engName: "Stone Camouflage (Deep Gnome Subrace)",
       description:
-        "Ви маєте перевагу на перевірки Спритності (Непомітність [Stealth]), щоб сховатися в кам'янистій місцевості.",
-      shortDescription: "Перевага на Непомітність у кам'янистій місцевості",
+        "Ви маєте перевагу на перевірки Спритності (Непомітність [Stealth]), щоб сховатися в камʼянистій місцевості.",
+      shortDescription: "Перевага на Непомітність у камʼянистій місцевості",
       displayType: [FeatureDisplayType.PASSIVE],
     },
 
