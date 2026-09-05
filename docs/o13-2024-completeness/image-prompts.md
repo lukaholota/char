@@ -8,6 +8,13 @@
 повторюються дослівно**. Змінюється тільки останній абзац — сюжет і акцентний колір.
 Не переписуй базу «своїми словами» під окрему картинку: тоді набір знову розповзеться.
 
+**Плитки «Раси» й «Класи» та довідник правил — окремий файл:**
+[image-prompts-home-tiles-and-rules.md](image-prompts-home-tiles-and-rules.md). Дві плитки лежать
+у 16:9 замість 3:4 і тому зливаються; сім розділів правил не мають власного арту взагалі.
+
+**Походження — окремий файл.** Їх арт іде у стилі рас і класів (16:9, кінематографічна
+сцена), а не в стилі цього набору: [image-prompts-backgrounds.md](image-prompts-backgrounds.md).
+
 ## Звідки взято стиль
 
 Описано з наявних файлів, а не вигадано. Спільний знаменник більшості
@@ -24,7 +31,11 @@
 
 Два файли з набору випадають зі стилю (`ancestral_species_hall`, `heroes_war_table` —
 мальована концепт-арт у синьо-золотому) і `home-characters.webp` (вільний фіолетовий
-живопис). Якщо власник хоче повну узгодженість — їх теж перемальовувати, промпти нижче є.
+живопис). Промпти на заміну перших двох — `races.webp` і `classes.webp` — нижче.
+
+**Виміряно 2026-08-28:** `feats.webp` — це кроп тієї самої сцени з воєнним столом, що й
+`heroes_war_table.webp` (класи), тож на головній дві картки виглядали однаково. Промпт на
+нову `feats.webp` теж нижче.
 
 ## Акцентні кольори по набору
 
@@ -44,7 +55,12 @@
 | invocations | фіолетовий |
 | rules | золото |
 | infusions | латунь + бірюзова іскра |
-| actions | вогняний помаранчевий |
+| bastions | золото вогнища в бійницях |
+| races | холодна бірюза |
+| classes | ембер-золото |
+
+**«Дії» окремою карткою не буде** — рішення власника 2026-08-28: дії живуть усередині
+довідника правил, тож ні маршрут, ні обкладинка їм не потрібні. `actions.webp` видалено.
 
 ## Спільний негативний промпт
 
@@ -186,15 +202,53 @@ Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in 
 Subject: an artificer's workbench seen close and from above, dominated by a half-finished brass and steel gauntlet clamped in a vice, its knuckle housings open and a channel of energy being poured into them from a glass ampoule on a stand. Brass gears, calipers, coiled copper wire and a clockwork beetle lie around it; an unlabelled technical drawing with only lines and no lettering is pinned behind. Accent colour: brass with a cyan spark.
 ```
 
-## `public/images/categories/actions.webp` — Дії
+## `public/images/categories/bastions.webp` — Бастіони
 
 ```
 Dark high-fantasy cover art, cinematic photoreal render. Near-black background, heavy chiaroscuro, a single dominant light source carving the subject out of darkness. Ornate late-gothic and baroque craftsmanship — engraved metal, filigree, aged patina, worn stone, weathered leather and parchment. Desaturated brown-black base palette lifted by exactly one saturated accent colour. Volumetric light shafts, drifting dust motes and floating embers, shallow depth of field with a softly blurred background, strong dark vignette on all four edges. Dense micro-detail on every surface, wet specular highlights on metal and stone. Sombre, reverent, weighty mood — no comedy, no bright daylight, no pastel colours.
 
 Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in the upper two thirds of the frame; the bottom third is deliberately quiet and dark — floor, table surface, shadow or fog — so a caption bar and a dark gradient can be laid over it without covering anything important. Nothing important touches the outer 6% of any edge. Absolutely no text, no letters, no numerals, no runic writing that resembles legible script, no logos, no watermarks, no borders or frames drawn into the image.
 
-Subject: a single armoured fighter frozen at the apex of a lunge in a torchlit dungeon corridor, shield braced across the body, sword arm fully extended past the viewer's eye line. The path of the blade is drawn as a clean crescent of light, and sparks fly where it has just struck stone. Dust and grit hang in the air; the flagstones below are in deep shadow. Accent colour: ember orange.
+Subject: a fortified stronghold keep standing alone on a black rock outcrop at night, seen from the courtyard gate looking up along the tower. Squat late-gothic masonry with buttresses, arrow slits and a barbican; every window and slit burns with warm hearth light from inside, so the keep reads as lived-in rather than ruined. A raised portcullis, a heavy iron-bound gate standing open, unmarked banners with plain heraldic shapes and no lettering hanging from the wall, a stone well and a stack of supply barrels in the near courtyard. Thin mist over the cobbles, embers drifting from a brazier out of frame. Accent colour: hearth gold spilling from the arrow slits.
 ```
+
+
+## `public/images/categories/races.webp` — Раси / Види  *(заміна `ancestral_species_hall.webp`)*
+
+Перемальовка. Стара картинка показувала расu як **портрети на стінах галереї** — сутність виду читалася з рами, а не з істоти. Тут вони стоять живими, і різницю несе силует.
+
+```
+Dark high-fantasy cover art, cinematic photoreal render. Near-black background, heavy chiaroscuro, a single dominant light source carving the subject out of darkness. Ornate late-gothic and baroque craftsmanship — engraved metal, filigree, aged patina, worn stone, weathered leather and parchment. Desaturated brown-black base palette lifted by exactly one saturated accent colour. Volumetric light shafts, drifting dust motes and floating embers, shallow depth of field with a softly blurred background, strong dark vignette on all four edges. Dense micro-detail on every surface, wet specular highlights on metal and stone. Sombre, reverent, weighty mood — no comedy, no bright daylight, no pastel colours.
+
+Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in the upper two thirds of the frame; the bottom third is deliberately quiet and dark — floor, table surface, shadow or fog — so a caption bar and a dark gradient can be laid over it without covering anything important. Nothing important touches the outer 6% of any edge. Absolutely no text, no letters, no numerals, no runic writing that resembles legible script, no logos, no watermarks, no borders or frames drawn into the image.
+
+Subject: a line-up of six figures of different peoples standing shoulder to shoulder in a torchlit stone hall, seen slightly from below so the silhouettes read against the darkness — a broad bearded dwarf in scale, a tall slender elf, a horned tiefling in a heavy cloak, a scaled dragonborn, a small halfling standing forward of the rest, and a hooded human. Height, build, horns, ears and tails differ sharply so the group reads as different peoples at a glance. Faces half in shadow, one warm lantern above and behind them. No portraits, no picture frames, no gallery walls. Accent colour: cold cyan light from a brazier at the left.
+```
+
+## `public/images/categories/classes.webp` — Класи  *(заміна `heroes_war_table.webp`)*
+
+Перемальовка. Стара картинка — та сама сцена з воєнним столом, що й `feats.webp`, тож на головній «Класи» і «Риси» виглядали однаково.
+
+```
+Dark high-fantasy cover art, cinematic photoreal render. Near-black background, heavy chiaroscuro, a single dominant light source carving the subject out of darkness. Ornate late-gothic and baroque craftsmanship — engraved metal, filigree, aged patina, worn stone, weathered leather and parchment. Desaturated brown-black base palette lifted by exactly one saturated accent colour. Volumetric light shafts, drifting dust motes and floating embers, shallow depth of field with a softly blurred background, strong dark vignette on all four edges. Dense micro-detail on every surface, wet specular highlights on metal and stone. Sombre, reverent, weighty mood — no comedy, no bright daylight, no pastel colours.
+
+Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in the upper two thirds of the frame; the bottom third is deliberately quiet and dark — floor, table surface, shadow or fog — so a caption bar and a dark gradient can be laid over it without covering anything important. Nothing important touches the outer 6% of any edge. Absolutely no text, no letters, no numerals, no runic writing that resembles legible script, no logos, no watermarks, no borders or frames drawn into the image.
+
+Subject: the working gear of six adventuring professions laid out in rows on a long stone bench under one hanging lantern, each set on its own worn cloth — a two-handed sword with a battered shield, an open spellbook with a focus crystal on a brass stand, a lute with a travelling cloak folded beneath it, a mace with a holy symbol on a chain, a longbow with a quiver of fletched arrows, and a set of blackened throwing knives on a rolled belt. Nothing is held by anyone; the bench is the subject. Accent colour: ember gold from the lantern.
+```
+
+## `public/images/categories/feats.webp` — Риси  *(перегенерація, стара дублює класи)*
+
+Стара `feats.webp` — кроп тієї самої сцени з воєнним столом, що й обкладинка класів.
+
+```
+Dark high-fantasy cover art, cinematic photoreal render. Near-black background, heavy chiaroscuro, a single dominant light source carving the subject out of darkness. Ornate late-gothic and baroque craftsmanship — engraved metal, filigree, aged patina, worn stone, weathered leather and parchment. Desaturated brown-black base palette lifted by exactly one saturated accent colour. Volumetric light shafts, drifting dust motes and floating embers, shallow depth of field with a softly blurred background, strong dark vignette on all four edges. Dense micro-detail on every surface, wet specular highlights on metal and stone. Sombre, reverent, weighty mood — no comedy, no bright daylight, no pastel colours.
+
+Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in the upper two thirds of the frame; the bottom third is deliberately quiet and dark — floor, table surface, shadow or fog — so a caption bar and a dark gradient can be laid over it without covering anything important. Nothing important touches the outer 6% of any edge. Absolutely no text, no letters, no numerals, no runic writing that resembles legible script, no logos, no watermarks, no borders or frames drawn into the image.
+
+Subject: a night training yard: a heavy scarred wooden pell post deeply gouged by years of blade work, a rack of practice weapons behind it, a straw dummy with a spear still buried in its shoulder, and chalk footwork arcs worn into the wet flagstones — shapes and curves only, never letters or numerals. One lantern on a post throws a long shadow across the yard; nobody is in frame. Accent colour: gold lantern light.
+```
+
 
 ---
 

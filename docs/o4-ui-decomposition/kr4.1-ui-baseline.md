@@ -11,12 +11,12 @@ components.
 
 ## Baseline
 
-| Метрика | Baseline | Guard |
-|---|---:|---|
-| `.tsx` | 137 | scanner читає весь `src` |
-| `.tsx` понад 400 рядків | 19 | ceiling 400; рівно 19 historical paths у `config/ui-decomposition-guard.json` мають exact current ceiling, тож збільшення або новий файл падає |
-| JSX nesting | max 14 (`spells-client`) | TypeScript AST; baseline ceiling 14, тож більша nesting падає; ціль ≤4 лишається KR4.4 |
-| UI clones | 4 pairs, 235 lines, 0.74% (189 sources) | `jscpd` для всіх production UI roots: `src/app`, `src/components`, `src/lib/components`; `tsx`, ≥40 lines / ≥200 tokens; нова pair або збільшення історичної pair падає |
+| Метрика                 |                                Baseline | Guard                                                                                                                                                                   |
+| ----------------------- | --------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.tsx`                  |                                     137 | scanner читає весь `src`                                                                                                                                                |
+| `.tsx` понад 400 рядків |                                      19 | ceiling 400; рівно 19 historical paths у `config/ui-decomposition-guard.json` мають exact current ceiling, тож збільшення або новий файл падає                          |
+| JSX nesting             |                max 14 (`spells-client`) | TypeScript AST; baseline ceiling 14, тож більша nesting падає; ціль ≤4 лишається KR4.4                                                                                  |
+| UI clones               | 4 pairs, 235 lines, 0.74% (189 sources) | `jscpd` для всіх production UI roots: `src/app`, `src/components`, `src/lib/components`; `tsx`, ≥40 lines / ≥200 tokens; нова pair або збільшення історичної pair падає |
 
 Короткий clone allowlist (обидва owner `KR4.3`, added 2026-08-15):
 

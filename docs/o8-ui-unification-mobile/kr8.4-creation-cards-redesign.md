@@ -44,3 +44,7 @@
 - **2026-08-17**: Оновлено `RacesForm.tsx`, `ClassesForm.tsx` та `SubracesForm.tsx` на нову адаптивну 1-2-3 колонкову сітку карток `CreationCard`.
 - **2026-08-17**: Додано тести у `tests/content/creation-visuals.test.ts`. Усі тести та перевірки успішно пройдено.
 
+**2026-08-28.** Картка переведена на `OrnateFrame` через спільний `FramedIllustration`: фаска,
+металевий кант, затемнення по краях і `font-rpg-display` у назві. Виділення більше не `ring` —
+`clip-path` його зрізав би, тому кант обраної картки малює сама рамка. Деталі —
+[KR15.6](../o15-ui-overhaul/kr15.6-races-classes-catalogs.md), запис від 2026-08-28.

@@ -39,7 +39,7 @@ azuracast (інтернет-радіо), gitea і телеграм-бот спо
 | ---------------- | ---------- | ------------- | ---------------------------- |
 | `spells`         | `char_app` | `en_US.utf8`  | наш прод                     |
 | `spells_test`    | `char_app` | `en_US.utf8`  | локальні тести власника      |
-| `spells_ci_test` | `char_app` | `en_US.utf8`  | тільки CI ([Р8](DECISIONS.md#р8)) |
+| `spells_ci_test` | `char_app` | `en_US.utf8`  | **нічия — під дроп** ([Р32](DECISIONS.md#р32)) |
 | `giteadb`        | `gitea`    | `C.utf8`      | чужа, gitea                  |
 | `fence`          | `fence`    | `C.utf8`      | **чужа, призначення невідоме** |
 

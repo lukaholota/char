@@ -38,3 +38,4 @@
 - **2026-08-16**: Оновлено `Navigation.tsx` для динамічного визначення адреси «Персонажі» (`/2024/char/home` або `/char/home`) та підсвічування активного стану для створення і листів персонажів.
 - **2026-08-16**: Оновлено картку «ПЕРСОНАЖІ 2024» у `Home2024Client.tsx` для навігації на `/2024/char/home`.
 - **2026-08-16**: Додано тести `tests/routes/character-spaces-redirect.test.ts` та оновлено `tests/routes/platform-segregation.test.ts`. Усі перевірки (`test`, `tsc`, `lint`, `check:db-boundary`, `check:ui-decomposition`) пройдено успішно.
+- **2026-09-02**: Дубль знято — `src/app/char/page.tsx` видалено, `/char` і `/no-ai/char` тепер 308 на `/char/create` через `src/middleware.ts`; перемикач редакцій переводить `/char/create` ↔ `/2024/char` парою ([Р36](../DECISIONS.md#р36)).

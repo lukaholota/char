@@ -49,14 +49,16 @@ every class, background ASI). If you are not certain which edition a rule belong
 Domain vocabulary in code: **`Pers`** = a player character (Ukrainian «персонаж»). `Character*`
 and `Pers*` names both exist and mean the same thing; prefer `Pers` in new code to match the schema.
 
-Production data scale, measured 2026-08-07 — these are real people's characters, not a toy dataset:
+Production data scale, measured 2026-09-01 — these are real people's characters, not a toy dataset:
 
 | Table | Rows |
 |---|---|
-| `pers_spell` | 24 942 |
-| `pers` | 8 344 |
-| `user` / `account` | 803 |
-| `spell` | 501 |
+| `pers_spell` | 26 892 |
+| `pers` | 9 394 — **all `RULES_2014`**; 705 of them multiclass |
+| `pers_feat` | 4 526 |
+| `user` / `account` | 895 |
+| `spell` | 916 (525 in 2014, 391 in 2024) |
+| `pers_multiclass` | 786 |
 
 ## Known state of the codebase — do not be surprised by this
 
@@ -106,8 +108,8 @@ This codebase's worst failures come from divergent copies of the same widget.
 
 **Translations — one file to look in: `src/lib/refs/dictionary.json`.** It holds three top-level
 keys: `DND_DICTIONARY` (the concept glossary — mechanics, conditions, damage types, equipment),
-`SPELLS` (501 ratified spell names), and `CONTENT_TRANSLATIONS` (33 enum-keyed maps — races,
-classes, subclasses, backgrounds, feats, weapons, armor, tools, languages, **sources**… 918 terms).
+`SPELLS` (525 ratified spell names), and `CONTENT_TRANSLATIONS` (36 enum-keyed maps — races,
+classes, subclasses, backgrounds, feats, weapons, armor, tools, languages, **sources**… 955 terms).
 
 `CONTENT_TRANSLATIONS` is a **mirror** of `src/lib/refs/translation.ts`, which stays the source of
 truth for UI strings and the file components import. Regenerate the mirror with
@@ -118,6 +120,53 @@ Why the mirror exists: the split cost a real mistake. A translation batch looked
 «Monster Manual» in `dictionary.json`, did not find it, and concluded the term did not exist —
 while `translation.ts` had held `MM: "Бестіарій (2014)"` all along. **Grep `dictionary.json`
 before deciding a term is missing, and never invent one that grep would have found.**
+
+**Апостроф усередині слова — тільки `ʼ` (U+02BC).** Рішення власника 2026-08-30; прохід
+2026-09-02 звів усі носії контенту, словник і базу разом, бо словник цитується каталогами
+дослівно. Правило одне — `src/lib/refs/ukrainian-apostrophe.ts`; гейт
+`tests/content/ukrainian-apostrophe.test.ts` не пускає `'` і `’` між кирилицею та я/ю/є/ї назад
+у `data/`, `prisma/seed/`, `src/lib/refs/`, `src/lib/generated/`. У базу пише
+`bun run seed:apostrophe:test|prod` (перевірка без прапорця, `--apply` — запис) по таблицях
+контенту; дані гравців не чіпає. Поки прод не пройдений, будь-який `generate:*` з проду
+повертає `'` у `src/lib/generated/` і червонить гейт — не «лагодити» тест, а прогнати прод-крок.
+
+**Неоднозначний термін несе оригінал поруч — `термін{{English}}`.** Рішення власника
+2026-08-25, [Р20](docs/DECISIONS.md#р20). Українська дає кілька правильних синонімів на кожен
+термін D&D, і читач сторінки не може звірити переклад із книгою, не вгадуючи оригінал. Тому
+термін, який довелося **обирати** (коінований, транслітерований, поза ратифікованими
+реєстрами), пишеться як `променевої{{radiant}}`. `FormattedDescription` розгортає це в підказку
+на наведення й натискання. Визначення одне — `src/lib/refs/glossary-marker.ts`, його читають і
+рендерер, і гейти; свого не заводити. Тільки в прозі: механічні поля статблока малюються
+звичайним текстом і покажуть сирі дужки. Ширина: у прозі — стільки слів, скільки в оригіналі;
+на назві секції статблока (`<b>…{{X}}.</b>`) — увесь жирний шматок; коли українських слів
+більше, ніж в оригіналі, — парна форма `{{Пасивний аналіз поведінки|Passive Insight}}`, і
+гейт у `tests/content/glossary-marker.test.ts` її вимагає там, де словникова форма довша. **Ратифікація маркера не знімає** (власник,
+2026-09-02): маркер — інструмент звірки для читача, а не ознака сумніву перекладача, і назва
+риси чи дії несе його на першій згадці в записі незалежно від того, є вона у словнику чи ні.
+Стани й типи шкоди — ні: їх 28 на весь корпус, гравець вивчає їх раз, а повторюються вони в
+кожному статблоці.
+
+**Термін виправляється у файлі-джерелі, а не проходом по базі — [Р33](docs/DECISIONS.md#р33).**
+Має запис файл (партія, сід-модуль, `data/2024/normalized/*.json`)? Правити файл і перелити
+сідом. Коригувальний прохід, що переписує текст уже в базі, дозволений рівно там, де файлу
+немає взагалі — це **тільки заклинання 2014** (`data/2014/corrections/`, 28 записів `radiant`).
+Прохід поверх сіду робить текст у базі таким, що не дорівнює жодному файлу, і мовчки ламає
+кожну звірку «файл → база»: так `magic-items-seeded` червонів на шести цілком правильних
+предметах. Якщо звірка файлів із базою впала на тексті — шукати новий прохід поверх сіду, а не
+вчити звірку про нього.
+
+Дві пастки поруч. Партії предметів **генеруються** з `data/aidedd/magic-items-2014.json`
+(`scripts/build-magic-item-seed-batch.ts`) — правка лише в `prisma/seed/magic-items/batch-*.json`
+повернеться назад при регенерації. І запис із корекційного файлу видаляється **тим самим
+комітом**, що й правка джерела: `applyRadiantReplacements` падає, коли в тексті немає ні старої,
+ні нової форми.
+
+**CI бази не має — [Р32](docs/DECISIONS.md#р32).** `bun run test` іде із завідомо мертвою
+адресою (`bun run test:no-db` підставляє її явно, і саме цим ганяється CI). Тест, якому потрібна
+база, належить `vitest.integration.config.mts` і ганяється **локально** через
+`bun run test:integration`. Не додавати запит до бази у файл, що лежить у `vitest.config.mts`:
+крок тестів у CI впаде й назве цей файл. `spells_ci_test` більше не існує як робочий інструмент —
+не писати нових звʼязків із нею.
 
 **Schema workflow — the database is the source of truth.** There are no migrations and none are
 wanted. To change the schema:
@@ -130,14 +179,34 @@ write SQL into db/changes/ → owner applies it to the DB → bun run db:pull �
 so it refreshes `prisma/schema.prisma`, the generated client and `db/schema.sql` in one go. It is
 idempotent — running it twice produces byte-identical files.
 
-`prisma/schema.prisma` is a **generated artefact** — never hand-edit it. The one exception is
-`///` documentation comments: introspection preserves them, plain `//` comments it deletes. So
-anything worth keeping in the schema must be written as `///`. Applied SQL is filed in
+`prisma/schema.prisma` is a **generated artefact** — never hand-edit it. There are exactly two
+exceptions, both because introspection preserves them across runs:
+
+1. `///` documentation comments (plain `//` comments it deletes), so anything worth keeping in
+   the schema must be written as `///`;
+2. **renames** — a model or field renamed by hand keeps its name on the next `db pull`, which is
+   why the schema reads `PersSpell { persId Int @map("pers_id") } @@map("pers_spell")` while the
+   database is snake_case. A newly introspected table arrives snake_case and must be renamed once
+   to match; verified 2026-09-01 by re-pulling `PersBastion*` and `PersWildshape` unchanged
+   ([Р2](docs/DECISIONS.md#р2)).
+
+Columns, types and constraints still come only from the database. Applied SQL is filed in
 `db/changes/` as a log of what was done, not as a sequence to be replayed. No `migrate dev`, no
 up/down, no rollback. See [docs/DECISIONS.md](docs/DECISIONS.md) Р2.
 
 Never run `prisma db push`. Never write SQL directly against production yourself — hand the script
 to the owner.
+
+**The owner applies SQL to production only. `spells_test` is yours to sync — do it yourself.**
+Owner decision, 2026-08-24: "I didn't create this test database so that every DDL has to be
+synced with it; if you're working with it, do it." Nothing on `spells_test` is unreproducible —
+it is a clone plus seeds. Use `./scripts/apply-db-change.sh <file.sql>`, which reads the target
+from `.env.test` and refuses any database not ending in `_test`/`_staging`/`_dev`/`_scratch`.
+
+Why this is written down: the KR17.3 seed died on `P2007 invalid input value for enum "Source"`
+weeks-of-tokens after the DDL was applied, because `prisma/schema.prisma` and `db/schema.sql` are
+artefacts of the **working** database — a clean diff there says nothing about the clone. **A green
+schema diff is not evidence that `spells_test` has the change.** Check the clone itself.
 
 **Cloning the database.** `./scripts/db-clone.sh <target> [content|full|schema]` copies the
 production DB into another database on the same server. Targets must end in
@@ -153,10 +222,23 @@ that would drag the pure tests into Postgres. Never name a test helper `useSomet
 `react-hooks/rules-of-hooks` treats the `use` prefix as a React hook and fails the lint with an
 error, not a warning.
 
-Run them through **`bun run test`**, never a bare `vitest run`. The npm scripts wrap vitest in
-`scripts/with-test-db-lock.sh`, a machine-wide lock on `spells_test`: the suite truncates user
-tables, so two sessions testing at once wipe each other's fixtures and go red for no reason. The
-lock waits, prints who holds it, and clears itself if the holding process dies.
+**Замок на `spells_test` тепер бере сам vitest.** Набір робить `TRUNCATE` користувацьких
+таблиць, тож два прогони одночасно витирають одне одному фікстури й дають фальшиву червону
+збірку. Межу тримає `globalSetup: ["tests/global-setup-db-lock.ts"]` у
+`vitest.integration.config.mts` — один раз на прогін, тому її бачить і прямий
+`bunx vitest run --config vitest.integration.config.mts <файл>`.
+`scripts/with-test-db-lock.sh` лишається для npm-скриптів; замок **той самий** (спільний
+каталог у `TMPDIR`, той самий pid-файл і ті самі правила протухання), а `TEST_DB_LOCK_HELD`
+не дає `bun run test:integration` заблокувати сам себе. Правити один бік, не правлячи другий,
+не можна — вийдуть два незалежні замки, і межі не стане взагалі.
+
+Чого замок **не** покриває: сідів. `bun run seed:2024:test` і решта пишуть у `spells_test` повз
+нього. Якщо прогін падає сотнею `Foreign key constraint violated` і «record required but not
+found» на `pers*` — це чужий запис у базу, а не регресія; перевіряти файли поодинці.
+
+У юніт-конфізі цього гака немає навмисно: після [Р32](docs/DECISIONS.md#р32) той набір бази не
+торкається. Не додавати замок у `tests/setup.ts` — він виконується для **кожного** файлу, тобто
+лишав би вікно між ними, і заразом серіалізував би 144 чисті тести.
 
 **Code style.** Follow the global style rules (minimal comments, verb-named functions, coordinator
 function on top reading as named steps, details in small helpers below). Applied here that means:

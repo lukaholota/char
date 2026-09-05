@@ -1,0 +1,724 @@
+[
+  {
+    "id": "142207720",
+    "shortId": "JAVASCRIPT-NEXTJS-S",
+    "title": "Error: Failed to find Server Action. This request might be from an older or newer deployment.",
+    "culprit": "POST /page",
+    "level": "error",
+    "status": "unresolved",
+    "count": "9",
+    "userCount": 0,
+    "firstSeen": "2026-08-22T07:36:41.443000Z",
+    "lastSeen": "2026-08-28T09:35:40.544000Z",
+    "permalink": "https://char-da.sentry.io/issues/142207720/",
+    "metadata": {
+      "value": "Failed to find Server Action. This request might be from an older or newer deployment.\nRead more: https://nextjs.org/docs/messages/failed-to-find-server-action",
+      "type": "Error",
+      "filename": "app:///_next/server/chunks/ssr/_e0723bb0._.js",
+      "function": "m",
+      "in_app_frame_mix": "mixed",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "143317901",
+    "shortId": "JAVASCRIPT-NEXTJS-X",
+    "title": "PrismaClientKnownRequestError: ",
+    "culprit": "POST /spells",
+    "level": "error",
+    "status": "unresolved",
+    "count": "6",
+    "userCount": 0,
+    "firstSeen": "2026-08-27T20:36:24.167000Z",
+    "lastSeen": "2026-08-27T20:37:01.277000Z",
+    "permalink": "https://char-da.sentry.io/issues/143317901/",
+    "metadata": {
+      "value": "\nInvalid `prisma.persSpell.create()` invocation:\n\n\nForeign key constraint violated on the constraint: `pers_spell_spell_id_fkey`",
+      "type": "PrismaClientKnownRequestError",
+      "filename": "app:///_next/server/chunks/ssr/[root-of-the-server]__26cfd8be._.js",
+      "function": "r",
+      "in_app_frame_mix": "mixed",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "143317896",
+    "shortId": "JAVASCRIPT-NEXTJS-W",
+    "title": "Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the...",
+    "culprit": "/spells",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 0,
+    "firstSeen": "2026-08-27T20:36:22.453000Z",
+    "lastSeen": "2026-08-27T20:36:22.453000Z",
+    "permalink": "https://char-da.sentry.io/issues/143317896/",
+    "metadata": {
+      "value": "An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.",
+      "type": "Error",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75
+    }
+  },
+  {
+    "id": "143197129",
+    "shortId": "JAVASCRIPT-NEXTJS-V",
+    "title": "TypeError: F(...).loadTheme is not a function",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 0,
+    "firstSeen": "2026-08-27T10:15:48.536000Z",
+    "lastSeen": "2026-08-27T10:15:48.536000Z",
+    "permalink": "https://char-da.sentry.io/issues/143197129/",
+    "metadata": {
+      "value": "F(...).loadTheme is not a function",
+      "type": "TypeError",
+      "filename": "app:///_next/static/chunks/0506b0273472af87.js",
+      "function": "U.loadTheme",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75
+    }
+  },
+  {
+    "id": "140152449",
+    "shortId": "JAVASCRIPT-NEXTJS-A",
+    "title": "<unknown>",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "29",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T20:44:04.923000Z",
+    "lastSeen": "2026-08-25T18:46:43.917000Z",
+    "permalink": "https://char-da.sentry.io/issues/140152449/",
+    "metadata": {
+      "value": "TypeError: undefined is not an object (evaluating 'ye.setValue')",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140466950",
+    "shortId": "JAVASCRIPT-NEXTJS-E",
+    "title": "TypeError: Cannot read properties of undefined (reading 'M_ID')",
+    "culprit": "/char/home",
+    "level": "error",
+    "status": "unresolved",
+    "count": "233",
+    "userCount": 0,
+    "firstSeen": "2026-08-13T10:45:43.377000Z",
+    "lastSeen": "2026-08-22T18:11:12.548000Z",
+    "permalink": "https://char-da.sentry.io/issues/140466950/",
+    "metadata": {
+      "value": "Cannot read properties of undefined (reading 'M_ID')",
+      "type": "TypeError",
+      "filename": "app:///executors/200.js",
+      "function": "Z",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140084261",
+    "shortId": "JAVASCRIPT-NEXTJS-8",
+    "title": "<unknown>",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "16",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T13:34:16.402000Z",
+    "lastSeen": "2026-08-22T15:02:00.850000Z",
+    "permalink": "https://char-da.sentry.io/issues/140084261/",
+    "metadata": {
+      "value": "Uncaught TypeError: Cannot read properties of undefined (reading 'setValue')",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "142207722",
+    "shortId": "JAVASCRIPT-NEXTJS-T",
+    "title": "TypeError: Failed to parse body as FormData.",
+    "culprit": "POST /_not-found/page",
+    "level": "error",
+    "status": "unresolved",
+    "count": "7",
+    "userCount": 0,
+    "firstSeen": "2026-08-22T07:36:41.384000Z",
+    "lastSeen": "2026-08-22T07:49:26.655000Z",
+    "permalink": "https://char-da.sentry.io/issues/142207722/",
+    "metadata": {
+      "value": "Failed to parse body as FormData.",
+      "type": "TypeError",
+      "filename": "app:///_next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_a1a354ff.js",
+      "function": "m",
+      "in_app_frame_mix": "mixed",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140130222",
+    "shortId": "JAVASCRIPT-NEXTJS-9",
+    "title": "i: Failed to connect to MetaMask",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "28",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T17:46:55.184000Z",
+    "lastSeen": "2026-08-22T05:33:46.089000Z",
+    "permalink": "https://char-da.sentry.io/issues/140130222/",
+    "metadata": {
+      "value": "Failed to connect to MetaMask",
+      "type": "i",
+      "filename": "app:///scripts/inpage.js",
+      "function": "Object.connect",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "141105966",
+    "shortId": "JAVASCRIPT-NEXTJS-K",
+    "title": "TypeError: Cannot read properties of undefined (reading 'M_ID')",
+    "culprit": "/",
+    "level": "error",
+    "status": "unresolved",
+    "count": "2",
+    "userCount": 0,
+    "firstSeen": "2026-08-17T10:02:30.235000Z",
+    "lastSeen": "2026-08-21T21:08:39.351000Z",
+    "permalink": "https://char-da.sentry.io/issues/141105966/",
+    "metadata": {
+      "value": "Cannot read properties of undefined (reading 'M_ID')",
+      "type": "TypeError",
+      "filename": "app:///executors/200.js",
+      "function": "Z",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "142124292",
+    "shortId": "JAVASCRIPT-NEXTJS-R",
+    "title": "Error: Rendered more hooks than during the previous render.",
+    "culprit": "/spells",
+    "level": "error",
+    "status": "unresolved",
+    "count": "3",
+    "userCount": 0,
+    "firstSeen": "2026-08-21T18:11:25.210000Z",
+    "lastSeen": "2026-08-21T18:36:02.852000Z",
+    "permalink": "https://char-da.sentry.io/issues/142124292/",
+    "metadata": {
+      "value": "Rendered more hooks than during the previous render.",
+      "type": "Error",
+      "filename": "app:///_next/static/chunks/5398d011f723ac80.js",
+      "function": "iN",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140058966",
+    "shortId": "JAVASCRIPT-NEXTJS-7",
+    "title": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.",
+    "culprit": "/spells",
+    "level": "error",
+    "status": "unresolved",
+    "count": "11",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T11:52:38.949000Z",
+    "lastSeen": "2026-08-21T18:36:02.724000Z",
+    "permalink": "https://char-da.sentry.io/issues/140058966/",
+    "metadata": {
+      "value": "Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.",
+      "type": "NotFoundError",
+      "filename": "app:///_next/static/chunks/5398d011f723ac80.js",
+      "function": "l6",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140250089",
+    "shortId": "JAVASCRIPT-NEXTJS-B",
+    "title": "Error: Error invoking post: Method not found",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "101",
+    "userCount": 0,
+    "firstSeen": "2026-08-12T10:14:39.654964Z",
+    "lastSeen": "2026-08-21T15:59:45.789000Z",
+    "permalink": "https://char-da.sentry.io/issues/140250089/",
+    "metadata": {
+      "value": "Error invoking post: Method not found",
+      "type": "Error",
+      "filename": "app:///_next/static/chunks/5398d011f723ac80.js",
+      "function": "n",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "141929853",
+    "shortId": "JAVASCRIPT-NEXTJS-Q",
+    "title": "PrismaClientKnownRequestError: ",
+    "culprit": "GET /char/home",
+    "level": "error",
+    "status": "unresolved",
+    "count": "4",
+    "userCount": 0,
+    "firstSeen": "2026-08-20T20:59:19.929000Z",
+    "lastSeen": "2026-08-20T20:59:56.983000Z",
+    "permalink": "https://char-da.sentry.io/issues/141929853/",
+    "metadata": {
+      "value": "\nInvalid `prisma.user.findUnique()` invocation:\n\n\nAuthentication failed against the database server, the provided database credentials for `char_app` are not valid",
+      "type": "PrismaClientKnownRequestError",
+      "filename": "app:///_next/server/chunks/ssr/src_2a94be78._.js",
+      "function": "n",
+      "in_app_frame_mix": "mixed",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "141650450",
+    "shortId": "JAVASCRIPT-NEXTJS-P",
+    "title": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.",
+    "culprit": "/char",
+    "level": "error",
+    "status": "unresolved",
+    "count": "2",
+    "userCount": 0,
+    "firstSeen": "2026-08-19T16:11:00.267000Z",
+    "lastSeen": "2026-08-19T16:11:15.935000Z",
+    "permalink": "https://char-da.sentry.io/issues/141650450/",
+    "metadata": {
+      "value": "Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.",
+      "type": "NotFoundError",
+      "filename": "app:///_next/static/chunks/5398d011f723ac80.js",
+      "function": "l6",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "141188762",
+    "shortId": "JAVASCRIPT-NEXTJS-M",
+    "title": "<unknown>",
+    "culprit": "/spells",
+    "level": "error",
+    "status": "unresolved",
+    "count": "18",
+    "userCount": 0,
+    "firstSeen": "2026-08-17T16:00:15.535000Z",
+    "lastSeen": "2026-08-18T22:01:53.665000Z",
+    "permalink": "https://char-da.sentry.io/issues/141188762/",
+    "metadata": {
+      "value": "Uncaught NetworkError: Failed to execute 'importScripts' on 'WorkerGlobalScope': The script at 'blob:https://char.holota.family/2b6f6cb4-ccd7-4a32-ae50-db0517101e52' failed to load.",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "141388000",
+    "shortId": "JAVASCRIPT-NEXTJS-N",
+    "title": "TypeError: Failed to fetch",
+    "culprit": "/spells",
+    "level": "error",
+    "status": "unresolved",
+    "count": "2",
+    "userCount": 0,
+    "firstSeen": "2026-08-18T14:03:56.889000Z",
+    "lastSeen": "2026-08-18T14:03:58.117000Z",
+    "permalink": "https://char-da.sentry.io/issues/141388000/",
+    "metadata": {
+      "value": "Failed to fetch",
+      "type": "TypeError",
+      "filename": "app:///dist/contentScripts/early-page.js",
+      "function": "wrapFetch2",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140258262",
+    "shortId": "JAVASCRIPT-NEXTJS-C",
+    "title": "UnrecognizedActionError: Server Action \"60b30136e3055d30d950e42125d06e3d50a9a2b624\" was not found on the server. ",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "14",
+    "userCount": 0,
+    "firstSeen": "2026-08-12T10:52:28.991000Z",
+    "lastSeen": "2026-08-16T16:07:45.369000Z",
+    "permalink": "https://char-da.sentry.io/issues/140258262/",
+    "metadata": {
+      "value": "Server Action \"60b30136e3055d30d950e42125d06e3d50a9a2b624\" was not found on the server. \nRead more: https://nextjs.org/docs/messages/failed-to-find-server-action",
+      "type": "UnrecognizedActionError",
+      "filename": "app:///docs/messages/failed-to-find-server-action",
+      "function": "Read more: ",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140978256",
+    "shortId": "JAVASCRIPT-NEXTJS-J",
+    "title": "PrismaClientKnownRequestError: ",
+    "culprit": "GET /char",
+    "level": "error",
+    "status": "unresolved",
+    "count": "12",
+    "userCount": 0,
+    "firstSeen": "2026-08-16T14:32:07.125000Z",
+    "lastSeen": "2026-08-16T14:41:21.656000Z",
+    "permalink": "https://char-da.sentry.io/issues/140978256/",
+    "metadata": {
+      "value": "\nInvalid `prisma.weapon.findMany()` invocation:\n\n\nValue 'PISTOL' not found in enum 'WeaponCategory'",
+      "type": "PrismaClientKnownRequestError",
+      "filename": "app:///_next/server/chunks/ssr/[root-of-the-server]__61f62fe6._.js",
+      "function": "h",
+      "in_app_frame_mix": "mixed",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140965107",
+    "shortId": "JAVASCRIPT-NEXTJS-H",
+    "title": "TypeError: Load failed",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 0,
+    "firstSeen": "2026-08-16T12:23:32.426000Z",
+    "lastSeen": "2026-08-16T12:23:32.426000Z",
+    "permalink": "https://char-da.sentry.io/issues/140965107/",
+    "metadata": {
+      "value": "Load failed",
+      "type": "TypeError",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75
+    }
+  },
+  {
+    "id": "140965105",
+    "shortId": "JAVASCRIPT-NEXTJS-G",
+    "title": "TypeError: Load failed",
+    "culprit": "/spells",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 0,
+    "firstSeen": "2026-08-16T12:23:32.377000Z",
+    "lastSeen": "2026-08-16T12:23:32.377000Z",
+    "permalink": "https://char-da.sentry.io/issues/140965105/",
+    "metadata": {
+      "value": "Load failed",
+      "type": "TypeError",
+      "filename": "app:///_next/static/chunks/225c52c88c8d0a51.js",
+      "function": "O",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75
+    }
+  },
+  {
+    "id": "140817621",
+    "shortId": "JAVASCRIPT-NEXTJS-F",
+    "title": "TypeError: network error",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 0,
+    "firstSeen": "2026-08-15T06:33:33.119000Z",
+    "lastSeen": "2026-08-15T06:33:33.119000Z",
+    "permalink": "https://char-da.sentry.io/issues/140817621/",
+    "metadata": {
+      "value": "network error",
+      "type": "TypeError",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75
+    }
+  },
+  {
+    "id": "140453530",
+    "shortId": "JAVASCRIPT-NEXTJS-D",
+    "title": "TypeError: Failed to fetch",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "2",
+    "userCount": 0,
+    "firstSeen": "2026-08-13T09:45:51.543000Z",
+    "lastSeen": "2026-08-13T09:47:19.065000Z",
+    "permalink": "https://char-da.sentry.io/issues/140453530/",
+    "metadata": {
+      "value": "Failed to fetch",
+      "type": "TypeError",
+      "filename": "app:///_next/static/chunks/225c52c88c8d0a51.js",
+      "function": "O",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140002578",
+    "shortId": "JAVASCRIPT-NEXTJS-6",
+    "title": "TypeError: Cannot read properties of undefined (reading 'emit')",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "4",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T07:41:55.977000Z",
+    "lastSeen": "2026-08-11T07:41:56.093000Z",
+    "permalink": "https://char-da.sentry.io/issues/140002578/",
+    "metadata": {
+      "value": "Cannot read properties of undefined (reading 'emit')",
+      "type": "TypeError",
+      "filename": "app:///inpage.js",
+      "function": "ExtendedBroadcastMessage.<anonymous>",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "140002577",
+    "shortId": "JAVASCRIPT-NEXTJS-5",
+    "title": "TypeError: Cannot read properties of undefined (reading 'addListener')",
+    "culprit": "/char/:id",
+    "level": "error",
+    "status": "unresolved",
+    "count": "21",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T07:41:55.979000Z",
+    "lastSeen": "2026-08-11T07:41:56.010000Z",
+    "permalink": "https://char-da.sentry.io/issues/140002577/",
+    "metadata": {
+      "value": "Cannot read properties of undefined (reading 'addListener')",
+      "type": "TypeError",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "139992574",
+    "shortId": "JAVASCRIPT-NEXTJS-4",
+    "title": "Error: Sentry перевірка: навмисна клієнтська помилка в обробнику",
+    "culprit": "/sentry-check",
+    "level": "error",
+    "status": "unresolved",
+    "count": "2",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T06:53:52.627000Z",
+    "lastSeen": "2026-08-11T06:53:55.288000Z",
+    "permalink": "https://char-da.sentry.io/issues/139992574/",
+    "metadata": {
+      "value": "Sentry перевірка: навмисна клієнтська помилка в обробнику",
+      "type": "Error",
+      "filename": "app:///_next/static/chunks/e4f0cf1d42497fac.js",
+      "function": "onClick",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75,
+      "title": null
+    }
+  },
+  {
+    "id": "139992560",
+    "shortId": "JAVASCRIPT-NEXTJS-3",
+    "title": "Error: Sentry перевірка: навмисна клієнтська помилка рендера",
+    "culprit": "/sentry-check",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T06:53:44.407000Z",
+    "lastSeen": "2026-08-11T06:53:44.407000Z",
+    "permalink": "https://char-da.sentry.io/issues/139992560/",
+    "metadata": {
+      "value": "Sentry перевірка: навмисна клієнтська помилка рендера",
+      "type": "Error",
+      "filename": "app:///_next/static/chunks/e4f0cf1d42497fac.js",
+      "function": "s",
+      "in_app_frame_mix": "in-app-only",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75
+    }
+  },
+  {
+    "id": "139988129",
+    "shortId": "JAVASCRIPT-NEXTJS-2",
+    "title": "Error: Sentry перевірка: навмисна серверна помилка",
+    "culprit": "GET /api/sentry-check",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 0,
+    "firstSeen": "2026-08-11T06:29:40.284000Z",
+    "lastSeen": "2026-08-11T06:29:40.284000Z",
+    "permalink": "https://char-da.sentry.io/issues/139988129/",
+    "metadata": {
+      "value": "Sentry перевірка: навмисна серверна помилка",
+      "type": "Error",
+      "filename": "app:///_next/server/chunks/[root-of-the-server]__22740493._.js",
+      "function": "E",
+      "in_app_frame_mix": "mixed",
+      "sdk": {
+        "name": "sentry.javascript.nextjs",
+        "name_normalized": "sentry.javascript.nextjs"
+      },
+      "initial_priority": 75
+    }
+  },
+  {
+    "id": "139979089",
+    "shortId": "JAVASCRIPT-NEXTJS-1",
+    "title": "TypeError: Object [object Object] has no method 'updateFrom'",
+    "culprit": "../../sentry/scripts/views.js in poll",
+    "level": "error",
+    "status": "unresolved",
+    "count": "1",
+    "userCount": 1,
+    "firstSeen": "2026-08-11T05:39:56.278000Z",
+    "lastSeen": "2026-08-11T05:39:56.278000Z",
+    "permalink": "https://char-da.sentry.io/issues/139979089/",
+    "metadata": {
+      "value": "Object [object Object] has no method 'updateFrom'",
+      "type": "TypeError",
+      "filename": "../../sentry/scripts/views.js",
+      "function": "poll",
+      "in_app_frame_mix": "mixed",
+      "initial_priority": 75
+    }
+  }
+]
