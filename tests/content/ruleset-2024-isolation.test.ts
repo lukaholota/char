@@ -11,7 +11,7 @@
 import { afterAll, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
-import { loadCharacterCreatorOptions } from "@/server/db/creation-content";
+import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { getSpellsList } from "@/server/db/spell-actions";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -83,7 +83,7 @@ describe("KR6.3 Step 3 — 2024 Content Isolation", () => {
   });
 
   it("does not leak RULES_2024 records into default creator options", async () => {
-    const [races, classes, backgrounds, weapons, feats] = await loadCharacterCreatorOptions();
+    const { races, classes, backgrounds, weapons, feats } = findCharacterCreatorOptions("RULES_2014");
 
     // Verify creator options only contain RULES_2014 content
     for (const race of races) {

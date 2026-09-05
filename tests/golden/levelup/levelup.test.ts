@@ -27,6 +27,7 @@ describe("KR2.3 — golden-тести levelUpCharacter (чистий applyLevelU
         const nextLevel = i + 2;
 
         const beforeState: LevelUpState = {
+          ruleset: "RULES_2014",
           level: prev.level,
           scores: {
             STR: prev.scores.str,
@@ -105,6 +106,7 @@ describe("KR2.3 — golden-тести levelUpCharacter (чистий applyLevelU
 describe("KR2.3 — Class.multiclassReqs перевіряється лише клієнтом", () => {
   it("Fighter STR15/CHA8 → MULTICLASS у Paladin (вимагає STR13 І CHA13) обробляється applyLevelUp без помилок", () => {
     const before: LevelUpState = {
+      ruleset: "RULES_2014",
       level: 1,
       scores: { STR: 15, DEX: 10, CON: 14, INT: 10, WIS: 10, CHA: 8 },
       maxHp: 12,

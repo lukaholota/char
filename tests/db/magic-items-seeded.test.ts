@@ -1,5 +1,5 @@
 /**
- * KR14.5 — б'є по spells_test, а не по JSON: доводить, що сід предметів реально доїхав
+ * KR14.5 — бʼє по spells_test, а не по JSON: доводить, що сід предметів реально доїхав
  * у базу. tests/content/magic-items-2014.test.ts перевіряє каталожний JSON і тому діри
  * «сід не прогнали» не бачить — прямий урок O13.
  */
@@ -8,35 +8,44 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { ItemRarity, MagicItemType } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
-import { readMagicItemBatches } from "../../prisma/seed/magicItemBatches";
+import { readMagicItemBaseline } from "../../prisma/seed/magicItemBaseline";
+import {
+  applyBatchesToBaseline,
+  readMagicItemBatches,
+} from "../../prisma/seed/magicItemBatches";
 
-/// Числа зняті з бази 2026-08-22 після партії 10. Перекладений корпус росте партіями,
-/// залишок старого перекладу тільки зменшується — обидві межі тут навмисно точні.
-const SEEDED_ROWS = 475;
-const TRANSLATED_ROWS = 268;
-const UNTRANSLATED_ROWS = 207;
-const UNTRANSLATED_WITHOUT_SHORT_DESCRIPTION = 124;
+/// Числа зняті з `spells_test` 2026-08-27 після партії 18 (KR16.4). Перекладений корпус
+/// росте партіями, залишок старого перекладу тільки зменшується — обидві межі тут навмисно
+/// точні. Попередній зріз (після партії 10 O14): 475 рядків, 268 перекладених, 207 залишку,
+/// 124 без підпису. KR16.4 доклав 191 рядок — 146 нових і 45 переписаних, — тому каталог
+/// 475 → 621, а залишок 207 → 162.
+const SEEDED_ROWS = 621;
+/// Каталог 2024 — data/2024/normalized/magic-items.json, залитий KR12.5.
+const CATALOG_2024_ROWS = 445;
+const TRANSLATED_ROWS = 459;
+const UNTRANSLATED_ROWS = 162;
+const UNTRANSLATED_WITHOUT_SHORT_DESCRIPTION = 82;
 const UNTRANSLATED_WITH_URON = 27;
 
 const ITEM_TYPE_DISTRIBUTION: Record<MagicItemType, number> = {
-  ARMOR: 38,
-  POTION: 51,
-  RING: 22,
-  ROD: 11,
+  ARMOR: 55,
+  POTION: 52,
+  RING: 26,
+  ROD: 12,
   SCROLL: 12,
-  STAFF: 26,
-  WAND: 18,
-  WEAPON: 63,
-  WONDROUS_ITEM: 234,
+  STAFF: 30,
+  WAND: 21,
+  WEAPON: 98,
+  WONDROUS_ITEM: 315,
 };
 
 const RARITY_DISTRIBUTION: Record<ItemRarity, number> = {
-  COMMON: 56,
-  UNCOMMON: 125,
-  RARE: 129,
-  VERY_RARE: 96,
-  LEGENDARY: 61,
-  ARTIFACT: 8,
+  COMMON: 61,
+  UNCOMMON: 156,
+  RARE: 174,
+  VERY_RARE: 127,
+  LEGENDARY: 81,
+  ARTIFACT: 22,
 };
 
 /// Затверджене написання — «ХП»; «хіт поїнт» лишився тільки в неперекладеному залишку.
@@ -61,6 +70,18 @@ type SeededItem = {
 
 const batchRows = readMagicItemBatches();
 const translatedIds = new Set(batchRows.map((row) => row.magicItemId));
+const effectiveTranslatedRows = applyBatchesToBaseline(
+  readMagicItemBaseline(),
+  batchRows,
+  { requireAllTerminologyCorrections: true },
+).items.filter((row) => translatedIds.has(Number(row.magicItemId)));
+
+/// Ця звірка навмисно порівнює базу з файлами **напряму**, без жодного проходу поверх.
+/// 2026-09-01 вона падала на шести променевих предметах, бо `seed:radiant-terminology`
+/// правив текст уже після партій. Правильним виявилося не вчити звірку про той прохід, а
+/// прибрати прохід: правки влиті в партії, предметів у корекційному файлі більше немає
+/// ([Р33](../../docs/DECISIONS.md#р33)). Якщо цей тест знову почервоніє на тексті — шукати
+/// новий прохід поверх сіду, а не додавати сюди його копію.
 
 let seeded: SeededItem[] = [];
 let translated: SeededItem[] = [];
@@ -101,9 +122,14 @@ function countBy<T extends string>(items: SeededItem[], readKey: (item: SeededIt
 }
 
 describe("сід магічних предметів у базі", () => {
-  it("база містить увесь корпус 2014 і жодного предмета іншої редакції", async () => {
+  /// До KR12.5 тут стояло «і жодного предмета іншої редакції»: таблиця тримала лише 2014.
+  /// Тепер поруч лежить каталог 2024 ([Р28]), і сенс перевірки інший — сід 2014 не має ні
+  /// залазити в чужу редакцію, ні недораховувати свою. Рядки 2024 живуть у власному тесті
+  /// tests/db/magic-items-2024-seeded.test.ts.
+  it("корпус 2014 повний, а редакції не перемішані", async () => {
     expect(seeded.length).toBe(SEEDED_ROWS);
-    expect(await prisma.magicItem.count()).toBe(SEEDED_ROWS);
+    expect(await prisma.magicItem.count({ where: { ruleset: "RULES_2014" } })).toBe(SEEDED_ROWS);
+    expect(await prisma.magicItem.count()).toBe(SEEDED_ROWS + CATALOG_2024_ROWS);
   });
 
   it("engName і magicItemId унікальні в межах RULES_2014", () => {
@@ -115,10 +141,11 @@ describe("сід магічних предметів у базі", () => {
     const byId = new Map(seeded.map((item) => [item.magicItemId, item]));
     const mismatched: string[] = [];
 
-    for (const row of batchRows) {
-      const item = byId.get(row.magicItemId);
+    for (const row of effectiveTranslatedRows) {
+      const magicItemId = Number(row.magicItemId);
+      const item = byId.get(magicItemId);
       if (!item) {
-        mismatched.push(`${row.magicItemId} ${row.engName}: у базі немає`);
+        mismatched.push(`${magicItemId} ${row.engName}: у базі немає`);
         continue;
       }
       const differences = [
@@ -127,12 +154,12 @@ describe("сід магічних предметів у базі", () => {
         item.itemType === row.itemType ? null : "itemType",
         item.rarity === row.rarity ? null : "rarity",
         item.requiresAttunement === row.requiresAttunement ? null : "requiresAttunement",
-        (item.shortDescription ?? "") === row.shortDescription ? null : "shortDescription",
+        (item.shortDescription ?? "") === (row.shortDescription ?? "") ? null : "shortDescription",
         item.description === row.description ? null : "description",
       ].filter(Boolean);
 
       if (differences.length > 0) {
-        mismatched.push(`${row.magicItemId} ${row.engName}: ${differences.join(", ")}`);
+        mismatched.push(`${magicItemId} ${row.engName}: ${differences.join(", ")}`);
       }
     }
 

@@ -82,7 +82,7 @@ describe("KR14.2 — парсер сторінки предмета aidedd", () 
     expect(item.descriptionEng.match(/\| d8 \| Creature \|/g)).toHaveLength(3);
   });
 
-  it("порожні клітинки-роздільники лишаються рядками таблиці, а не з'їдаються", () => {
+  it("порожні клітинки-роздільники лишаються рядками таблиці, а не зʼїдаються", () => {
     const item = readFixture("deck-of-illusions");
 
     expect(item.tables).toHaveLength(1);

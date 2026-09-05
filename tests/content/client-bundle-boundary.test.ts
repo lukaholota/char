@@ -1,0 +1,187 @@
+import { readdirSync, readFileSync, statSync } from "node:fs";
+import { dirname, join, relative, resolve } from "node:path";
+import { describe, expect, it } from "vitest";
+
+const SRC = resolve(__dirname, "../../src");
+
+/// Дефект №9 у docs/STATE.md: одного імпорту значення з каталожного модуля досить, щоб у
+/// клієнтський бандл поїхав увесь його JSON. `SRD_2024_ATTRIBUTION` з `rules2024Data` привіз на
+/// головну 612 КіБ правил заради пʼяти рядків ліцензії; `findSourceLabel` з `bestiaryData` — 4,7 МіБ
+/// істот на кожну з 1 490 сторінок бестіарію заради одного підпису; модалки заклинань і предметів
+/// шукали запис по id у себе в браузері, тримаючи для цього весь каталог.
+///
+/// Гейт іде від кожного `"use client"` модуля тим самим графом, яким іде збірка. Каталог у графі —
+/// це або справжня потреба (список, який фільтрують у браузері), або помилка. Перше живе в
+/// таблиці нижче з причиною; усе інше падає.
+const CLIENT_CATALOG_HOLDERS: Record<string, string> = {
+  "app/spells/spells-client.tsx": "каталог заклинань фільтрується в браузері",
+  "components/armor/ArmorClient.tsx": "каталог обладунків фільтрується в браузері",
+  "components/feats/FeatsClient.tsx": "каталог рис фільтрується в браузері",
+  "components/infusions/InfusionsClient.tsx": "каталог інфузій фільтрується в браузері",
+  "components/invocations/InvocationsClient.tsx": "каталог викликів фільтрується в браузері",
+  "components/weapons/WeaponsClient.tsx": "каталог зброї фільтрується в браузері",
+  "components/search/OmniSearchPanel.tsx": "омні-індекс; панель вантажиться динамічно з OmniSearchDialog",
+};
+
+const HEAVY_CATALOG = /^lib\/generated\/.+\.json$/;
+
+const IMPORT_CLAUSE = /(?:^|\n)\s*(?:import|export)\s+(?!type\s)([^;]*?)from\s*["']([^"']+)["']/g;
+const BARE_IMPORT = /(?:^|\n)\s*import\s*["']([^"']+)["']/g;
+
+/// Тільки те, що доживає до бандла: `import type` і суто типові фігурні дужки збірка стирає, тож
+/// `import type { CreatureData } from "@/lib/bestiaryData"` каталогу не тягне — і ребром не є.
+function findValueSpecifiers(source: string): string[] {
+  const specifiers: string[] = [];
+
+  IMPORT_CLAUSE.lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = IMPORT_CLAUSE.exec(source))) {
+    if (!isTypeOnlyClause(match[1])) specifiers.push(match[2]);
+  }
+
+  BARE_IMPORT.lastIndex = 0;
+  while ((match = BARE_IMPORT.exec(source))) specifiers.push(match[1]);
+
+  return specifiers;
+}
+
+function isTypeOnlyClause(clause: string): boolean {
+  if (/\*\s+as/.test(clause)) return false;
+  const named = clause.match(/\{([\s\S]*)\}/);
+  if (!named) return false;
+  if (/^\s*[\w$]+\s*,/.test(clause)) return false;
+  return named[1]
+    .split(",")
+    .every((specifier) => !specifier.trim() || /^type\s/.test(specifier.trim()));
+}
+
+function isFile(candidate: string): boolean {
+  try {
+    return statSync(candidate).isFile();
+  } catch {
+    return false;
+  }
+}
+
+const resolvedSpecifiers = new Map<string, string | null>();
+
+function resolveInsideSrc(specifier: string, fromFile: string): string | null {
+  const key = `${dirname(fromFile)}\u0000${specifier}`;
+  const cached = resolvedSpecifiers.get(key);
+  if (cached !== undefined) return cached;
+
+  const resolved = resolveFresh(specifier, fromFile);
+  resolvedSpecifiers.set(key, resolved);
+  return resolved;
+}
+
+function resolveFresh(specifier: string, fromFile: string): string | null {
+  const base = specifier.startsWith("@/")
+    ? join(SRC, specifier.slice(2))
+    : specifier.startsWith(".")
+      ? resolve(dirname(fromFile), specifier)
+      : null;
+  if (!base) return null;
+
+  for (const candidate of [base, `${base}.ts`, `${base}.tsx`, join(base, "index.ts")]) {
+    if (isFile(candidate)) return candidate;
+  }
+  return null;
+}
+
+/// Модуль із `"use server"` на клієнт не їде — збірка лишає замість нього RPC-заглушку. Тож
+/// серверна дія, яка читає каталог, бандла не важчає, і граф на ній обривається.
+function isServerAction(source: string): boolean {
+  return /^\s*["']use server["']/.test(source);
+}
+
+/// Гейт обходить граф від кожного клієнтського модуля, тож той самий файл трапляється сотні разів.
+/// Без кешу це десятки секунд читання дерева — і широке вікно, щоб паралельна робота змінила файл
+/// посеред прогону.
+const parsedFiles = new Map<string, { serverAction: boolean; imports: string[] }>();
+
+function readParsed(file: string): { serverAction: boolean; imports: string[] } {
+  const cached = parsedFiles.get(file);
+  if (cached) return cached;
+
+  const source = readFileSync(file, "utf8");
+  const parsed = { serverAction: isServerAction(source), imports: findValueSpecifiers(source) };
+  parsedFiles.set(file, parsed);
+  return parsed;
+}
+
+function collectReachableFiles(entry: string): Map<string, string> {
+  const reachedVia = new Map<string, string>([[entry, entry]]);
+  const queue = [entry];
+
+  while (queue.length) {
+    const file = queue.shift()!;
+    if (file.endsWith(".json")) continue;
+
+    const parsed = readParsed(file);
+    if (file !== entry && parsed.serverAction) continue;
+
+    for (const specifier of parsed.imports) {
+      const resolved = resolveInsideSrc(specifier, file);
+      if (!resolved || reachedVia.has(resolved)) continue;
+      reachedVia.set(resolved, file);
+      queue.push(resolved);
+    }
+  }
+  return reachedVia;
+}
+
+function describeImportChain(reachedVia: Map<string, string>, target: string): string {
+  const chain: string[] = [];
+  let current: string | undefined = target;
+  while (current && chain.length < 20) {
+    chain.unshift(relative(SRC, current));
+    const parent: string | undefined = reachedVia.get(current);
+    if (!parent || parent === current) break;
+    current = parent;
+  }
+  return chain.join(" → ");
+}
+
+function findClientModules(dir: string, found: string[] = []): string[] {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) findClientModules(path, found);
+    else if (/\.tsx?$/.test(entry.name) && /^\s*["']use client["']/.test(readFileSync(path, "utf8")))
+      found.push(path);
+  }
+  return found;
+}
+
+describe("KR20.6 — клієнтські модулі не тягнуть каталоги в бандл", () => {
+  const clientModules = findClientModules(SRC);
+
+  it("їх узагалі видно — інакше гейт зелений через порожній список", () => {
+    expect(clientModules.length).toBeGreaterThan(100);
+  });
+
+  it("жоден не дістає каталогу, крім перелічених у CLIENT_CATALOG_HOLDERS", () => {
+    const offenders: string[] = [];
+
+    for (const clientModule of clientModules) {
+      const name = relative(SRC, clientModule);
+      if (name in CLIENT_CATALOG_HOLDERS) continue;
+
+      const reachedVia = collectReachableFiles(clientModule);
+      for (const file of reachedVia.keys()) {
+        if (HEAVY_CATALOG.test(relative(SRC, file))) offenders.push(describeImportChain(reachedVia, file));
+      }
+    }
+
+    expect(offenders).toEqual([]);
+  });
+
+  it("кожен запис CLIENT_CATALOG_HOLDERS ще потрібен", () => {
+    const stale = Object.keys(CLIENT_CATALOG_HOLDERS).filter((name) => {
+      const reachedVia = collectReachableFiles(join(SRC, name));
+      return ![...reachedVia.keys()].some((file) => HEAVY_CATALOG.test(relative(SRC, file)));
+    });
+
+    expect(stale, "ці вже не тягнуть каталог — прибери з таблиці").toEqual([]);
+  });
+});

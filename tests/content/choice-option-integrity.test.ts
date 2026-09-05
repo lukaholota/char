@@ -64,7 +64,7 @@ async function findNoOpOptions(): Promise<Array<Context & { optionNameEng: strin
 }
 
 describe("KR2.1+ — цілісність ChoiceOption: жоден вибір не має бути порожнім", () => {
-  it("нові безрезультатні вибори не з'являються поза зафіксованим списком BUG-004/BUG-005", async () => {
+  it("нові безрезультатні вибори не зʼявляються поза зафіксованим списком BUG-004/BUG-005", async () => {
     const found = await findNoOpOptions();
     const foundIds = new Set(found.map((r) => r.choiceOptionId));
     const knownIds = new Set(knownNoOps.map((r) => r.choiceOptionId));
@@ -90,5 +90,19 @@ describe("KR2.1+ — цілісність ChoiceOption: жоден вибір н
 
     expect(newOnes).toEqual([]);
     expect(resolvedOnes).toEqual([]);
+  });
+
+  // KR18.3: опція, чия фіча висить і на рисі, тепер дає цю рису (так 2024 бере бойовий стиль).
+  // У 2014 таких перетинів немає жодного — саме тому правило там нічого не міняє.
+  it("у 2014 жодна опція вибору не ділить фічу з рисою — інакше персонажі 2014 почали б отримувати риси", async () => {
+    const overlapping = await prisma.choiceOption.findMany({
+      where: {
+        ruleset: "RULES_2014",
+        features: { some: { feature: { grantsByFeat: { some: { ruleset: "RULES_2014" } } } } },
+      },
+      select: { optionNameEng: true },
+    });
+
+    expect(overlapping).toEqual([]);
   });
 });

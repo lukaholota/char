@@ -8,7 +8,7 @@ const ASI_LEVELS = new Set([4, 8, 12, 16]);
 
 export const sequence: LevelUpSequence = {
   id: "artificer-1-to-18",
-  why: "Артифайсер 1→18 — емпірична перевірка знахідки з розвідки KR2.3: інфузії обробляються лише на classLevelAfter===2 (levelup.ts:1357-1399), тоді як TCoE дає ще на 6/10/14/18. Golden-знімки на цих рівнях мають показати, чи росте persInfusions чи лишається заморожений на 4 з 2 рівня. Alchemist обраний як підклас, бо не має жодних subclassChoiceOptions — жодних додаткових зобов'язань, крім самих інфузій.",
+  why: "Артифайсер 1→18 — емпірична перевірка знахідки з розвідки KR2.3: інфузії обробляються лише на classLevelAfter===2 (levelup.ts:1357-1399), тоді як TCoE дає ще на 6/10/14/18. Golden-знімки на цих рівнях мають показати, чи росте persInfusions чи лишається заморожений на 4 з 2 рівня. Alchemist обраний як підклас, бо не має жодних subclassChoiceOptions — жодних додаткових зобовʼязань, крім самих інфузій.",
   maxLevel: 18,
   async startForm() {
     const [race, cls, background] = await Promise.all([

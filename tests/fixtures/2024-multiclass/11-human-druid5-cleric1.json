@@ -1,0 +1,132 @@
+{
+  "id": "11-human-druid5-cleric1",
+  "title": "Людина, Друїд 5 / Клірик 1 (рівень 6)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §11",
+  "why": "Друга риса Людини, «Посвячений у магію» двічі з різними списками, шість джерел заклинань.",
+  "input": {
+    "species": "HUMAN_2024",
+    "startingClass": "DRUID_2024",
+    "background": "ACOLYTE",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 12,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 15,
+      "CHA": 13
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "WIS",
+      "plusOne": "CHA"
+    },
+    "originFeat": "MAGIC_INITIATE",
+    "originFeatChoices": [
+      {
+        "choice": "Список заклинань",
+        "option": "Cleric"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Риса походження",
+        "option": "Magic Initiate"
+      }
+    ],
+    "speciesFeatChoices": [
+      {
+        "choice": "Список заклинань",
+        "option": "Wizard"
+      }
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "DRUID_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "DRUID_2024",
+        "isNewClass": false,
+        "subclass": "CIRCLE_OF_THE_SEA"
+      },
+      {
+        "characterLevel": 4,
+        "class": "DRUID_2024",
+        "isNewClass": false,
+        "feat": "WAR_CASTER",
+        "featAbility": "WIS"
+      },
+      {
+        "characterLevel": 5,
+        "class": "DRUID_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "CLERIC_2024",
+        "isNewClass": true
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 6,
+    "startingClass": "DRUID_2024",
+    "classLevels": {
+      "DRUID_2024": 5,
+      "CLERIC_2024": 1
+    },
+    "subclassByClass": {
+      "DRUID_2024": "CIRCLE_OF_THE_SEA",
+      "CLERIC_2024": null
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 12,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 18,
+      "CHA": 14
+    },
+    "feats": [
+      "MAGIC_INITIATE",
+      "MAGIC_INITIATE",
+      "WAR_CASTER"
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d8": 6
+    },
+    "casterLevel": 6,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 3,
+    "pactSlots": null,
+    "classSpellSources": [
+      {
+        "source": "DRUID_2024",
+        "ability": "WIS"
+      },
+      {
+        "source": "CLERIC_2024",
+        "ability": "WIS"
+      }
+    ],
+    "preparedSpellLineClasses": [
+      "DRUID_2024",
+      "CLERIC_2024"
+    ],
+    "maxPreparableSpellLevelByClass": {
+      "DRUID_2024": 3,
+      "CLERIC_2024": 1
+    },
+    "magicInitiateLists": [
+      "Cleric",
+      "Wizard"
+    ],
+    "bastionFacilityLimit": 2,
+    "bastionFacilityMatches": {
+      "Sanctuary": "met"
+    }
+  }
+}

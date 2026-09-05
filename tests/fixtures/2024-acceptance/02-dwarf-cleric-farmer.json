@@ -1,0 +1,82 @@
+{
+  "id": "02-dwarf-cleric-farmer",
+  "title": "Dwarf Cleric 5 — Farmer",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.2",
+  "why": "Складання похідних величин із кількох джерел: Dwarven Toughness + риса Tough + кубик життя жерця.",
+  "input": {
+    "species": "DWARF_2024",
+    "class": "CLERIC_2024",
+    "background": "FARMER_2024",
+    "subclass": "LIFE_DOMAIN",
+    "baseAbilityScores": {
+      "STR": 14,
+      "DEX": 8,
+      "CON": 13,
+      "INT": 10,
+      "WIS": 15,
+      "CHA": 12
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "WIS",
+      "plusOne": "CON"
+    },
+    "originFeat": "TOUGH",
+    "speciesChoices": [],
+    "levelUps": [
+      {
+        "level": 2
+      },
+      {
+        "level": 3,
+        "subclass": "LIFE_DOMAIN"
+      },
+      {
+        "level": 4,
+        "asi": [
+          {
+            "ability": "WIS",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 5
+      }
+    ],
+    "classEquipment": "a"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 14,
+      "DEX": 8,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 19,
+      "CHA": 12
+    },
+    "feats": [
+      "TOUGH"
+    ],
+    "requiredFeatures": [
+      "Dwarf: Dwarven Toughness (2024)",
+      "Dwarf: Darkvision (2024)",
+      "Cleric: Channel Divinity (2024)",
+      "Cleric: Spellcasting (2024)"
+    ],
+    "characterLevelGatedGrants": [],
+    "weaponMastery": {
+      "capacity": 0
+    },
+    "maxHp": 53,
+    "maxHpBreakdown": "d8 5 рівнів із CON +2 = 38, Tough +10, Dwarven Toughness +5",
+    "spellSources": [
+      {
+        "source": "CLERIC_2024",
+        "ability": "WIS"
+      }
+    ],
+    "grantedSpells": [],
+    "bastionUnlocked": true
+  }
+}

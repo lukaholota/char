@@ -9,12 +9,14 @@ import {
   getConditionById,
 } from "@/lib/rulesData";
 import dictionary from "@/lib/refs/dictionary.json";
+import { getConditions2024 } from "@/lib/rules2024Data";
+import { getRuleArticles2014ByCategory } from "@/lib/rules2014Data";
 
 describe("KR10.1 — D&D Rules Wiki / SRD Reference Data & Segregation", () => {
   describe("Rule Categories", () => {
-    it("provides all 6 core SRD rule categories", () => {
+    it("provides all 7 core SRD rule categories", () => {
       const categories = getAllRuleCategories();
-      expect(categories.length).toBe(6);
+      expect(categories.length).toBe(7);
 
       const keys = categories.map((c) => c.key);
       expect(keys).toContain("combat");
@@ -22,6 +24,7 @@ describe("KR10.1 — D&D Rules Wiki / SRD Reference Data & Segregation", () => {
       expect(keys).toContain("abilities");
       expect(keys).toContain("conditions");
       expect(keys).toContain("adventuring");
+      expect(keys).toContain("equipment");
       expect(keys).toContain("gamemaster");
     });
 
@@ -42,12 +45,15 @@ describe("KR10.1 — D&D Rules Wiki / SRD Reference Data & Segregation", () => {
   });
 
   describe("Rule Articles (2014 & 2024)", () => {
+    /// Після KR20.4 ці функції віддають лише те, що видно в довіднику: поглинуті рукописні
+    /// статті з них зникли, а весь бій 2014 тепер тримає SRD — тому категорію «Бій» перевіряємо
+    /// через редакційний шар, а не через рукописний.
     it("loads 2014 articles with all required categories populated", () => {
       const articles2014 = getAllRuleArticles("RULES_2014");
       expect(articles2014.length).toBeGreaterThanOrEqual(6);
       expect(articles2014.every((a) => a.ruleset === "RULES_2014")).toBe(true);
 
-      const combatArticles = getRuleArticlesByCategory("combat", "RULES_2014");
+      const combatArticles = getRuleArticles2014ByCategory("combat");
       expect(combatArticles.length).toBeGreaterThan(0);
       expect(combatArticles.some((a) => a.slug === "actions-in-combat")).toBe(true);
 
@@ -55,17 +61,13 @@ describe("KR10.1 — D&D Rules Wiki / SRD Reference Data & Segregation", () => {
       expect(spellArticles.length).toBeGreaterThan(0);
       expect(spellArticles.some((a) => a.slug === "rules-of-magic")).toBe(true);
 
-      const gmArticles = getRuleArticlesByCategory("gamemaster", "RULES_2014");
-      expect(gmArticles.length).toBe(8);
-      const gmSlugs = gmArticles.map((a) => a.slug);
-      expect(gmSlugs).toContain("diseases");
-      expect(gmSlugs).toContain("madness");
-      expect(gmSlugs).toContain("traps");
-      expect(gmSlugs).toContain("poisons");
-      expect(gmSlugs).toContain("objects");
-      expect(gmSlugs).toContain("monster-rules");
-      expect(gmSlugs).toContain("sentient-magic-items");
-      expect(gmSlugs).toContain("magic-items-rules");
+      const gmSlugs = getRuleArticlesByCategory("gamemaster", "RULES_2014").map((a) => a.slug);
+      expect(gmSlugs).toEqual(["monster-rules", "magic-items-rules"]);
+
+      const gmVisible = getRuleArticles2014ByCategory("gamemaster").map((a) => a.slug);
+      for (const slug of ["diseases", "madness", "traps", "poisons", "objects", "sentient-magic"]) {
+        expect(gmVisible, slug).toContain(slug);
+      }
     });
 
     it("loads 2024 articles with PHB 2024 specific mechanics", () => {
@@ -118,14 +120,23 @@ describe("KR10.1 — D&D Rules Wiki / SRD Reference Data & Segregation", () => {
       expect(conditions2014.some((c) => c.name === dictConditions.unconscious)).toBe(true);
     });
 
-    it("includes 2024 conditions (such as Bloodied) when RULES_2024 is requested", () => {
-      const conditions2024 = getAllConditions("RULES_2024");
-      expect(conditions2024.length).toBeGreaterThan(15);
+    it("бере стани 2024 з корпусу SRD, а не з масиву 2014 (KR20.4)", () => {
+      const conditions2024 = getConditions2024();
+      expect(conditions2024.length).toBe(16);
+      expect(conditions2024.every((condition) => condition.ruleset === "RULES_2024")).toBe(true);
 
-      const bloodied = getConditionById("bloodied", "RULES_2024");
-      expect(bloodied).toBeDefined();
+      const poisoned = conditions2024.find((condition) => condition.engName === "Poisoned");
+      expect(poisoned?.name).toBe("Отруєний");
+      expect(poisoned?.bulletPoints.length).toBeGreaterThan(0);
+
+      const bloodied = conditions2024.find((condition) => condition.engName === "Bloodied");
       expect(bloodied?.name).toBe("Закривавлений");
-      expect(bloodied?.engName).toBe("Bloodied");
+    });
+
+    it("рукописний масив станів більше не віддає стани 2014 під виглядом 2024", () => {
+      const handwritten2024 = getAllConditions("RULES_2024");
+      expect(handwritten2024.every((condition) => condition.ruleset === "RULES_2024")).toBe(true);
+      expect(getConditionById("blinded", "RULES_2024")).toBeUndefined();
     });
   });
 });

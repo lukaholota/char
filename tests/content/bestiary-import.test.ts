@@ -8,6 +8,7 @@ import {
   getAllCreatureTypes,
   getAllCreatureSizes,
   getAllCreatureCRs,
+  getAllCreatureSources,
 } from "@/lib/bestiaryData";
 import {
   generateStaticParams as generateBestiary2014Params,
@@ -114,6 +115,23 @@ describe("KR11.3 — Хелпери фільтрації, Slug Lookup та SSG �
     expect(crs2014).toContain("17");
   });
 
+  it("provides unique creature sources ordered by their Ukrainian name", () => {
+    const sources2014 = getAllCreatureSources("RULES_2014");
+    expect(sources2014).toContain("MM");
+    expect(sources2014).toContain("MPMM");
+    expect(new Set(sources2014).size).toBe(sources2014.length);
+    expect(sources2014.indexOf("MM")).toBeLessThan(sources2014.indexOf("MPMM"));
+
+    const sources2024 = getAllCreatureSources("RULES_2024");
+    expect(sources2024).toContain("MM_2024");
+    expect(sources2024).not.toContain("MM");
+
+    const creatures = getAllCreatures("RULES_2014");
+    for (const source of sources2014) {
+      expect(creatures.some((c) => c.source === source)).toBe(true);
+    }
+  });
+
   it("finds creatures by ID or slug/name in getCreatureByIdOrSlug", () => {
     const byId = getCreatureByIdOrSlug("101", "RULES_2014");
     expect(byId).toBeDefined();
@@ -195,10 +213,46 @@ describe("KR11.4 — Розширений бестіарій WotC (Volo's, Fizba
 
     // Партія 22 KR12.3 перевела Shoosuva, і aidedd цитує його як Monsters of the Multiverse,
     // тож запис пішов із VGM у MPMM: 15 → 14. Партія 23 зробила те саме з Froghemoth: 14 → 13.
-    // Партія 25 — з Ki-rin і Boneclaw одразу: 13 → 11.
-    expect(countBySource("VGM")).toBeGreaterThanOrEqual(11);
-    expect(countBySource("FTD")).toBeGreaterThanOrEqual(15);
-    expect(countBySource("MMotM")).toBeGreaterThanOrEqual(15);
+    // Партія 25 — з Ki-rin і Boneclaw одразу: 13 → 11. Партія 1 KR16.3 взяла Gnoll Witherling
+    // із MPMM (та сама істота лежить у корпусі двічі, береться перевидання): 11 → 10.
+    // Партія 2 KR16.3 зробила те саме з Gnoll Flesh Gnawer і Maw Demon: 10 → 8.
+    // Партія 5 KR16.3 забрала звідси ще один: `Hobgoblin Devastator` пішов VGM → MPMM.
+    // Партія 6 забрала ще три: `Yuan-ti Mind Whisperer`, `Yuan-ti Nightmare Speaker` і
+    // `Mindwitness` пішли VGM → MPMM.
+    // Партія 8: VGM 4 → 3 (`Korred` пішов VGM → MPMM), MMotM 16 → 15
+    // (`Shadar-kai Shadow Dancer` туди ж), FTD 17 → 16 (`Young Topaz Dragon` → FTOD).
+    // Партія 9: FTD 16 → 11 (пʼять заступлених записів Fizban's пішли під канонічний FTOD —
+    // `Eyedrake`, `Hoard Mimic` і три `Young` самоцвітні дракони), MMotM 15 → 14
+    // (`Shadar-kai Gloom Weaver` → MPMM). VGM партія не чіпала.
+    // Партія 10: MMotM 14 → 10 — усі чотири заступлені записи (`Autumn Eladrin`,
+    // `Elder Oblex`, `Githyanki Gish`, `Githzerai Enlightened`) пішли MMotM → MPMM.
+    // VGM і FTD партія не чіпала.
+    // Ратифікація «Мізкожера» (питання 30) розблокувала `Ulitharid` і `Alhoon`: обидва пішли
+    // VGM 3 → 2 і MMotM 10 → 9, бо конвеєр бере перевидання MPMM.
+    // Партія 11: VGM 2 → 1 (`Yuan-ti Anathema` → MPMM), MMotM 9 → 7
+    // (`Shadar-kai Soul Monger` і `Githyanki Kith'rak` → MPMM), FTD 11 → 9
+    // (`Adult Crystal Dragon` і `Adult Topaz Dragon` → канонічний FTOD).
+    // Записів не втрачено: MPMM 210 → 219, FTOD 43 → 45, BPGOTG 29 → 38.
+    // Партія 12: FTD 9 → 8 (`Adult Emerald Dragon` → канонічний FTOD), MMotM 7 → 6
+    // (`Githyanki Supreme Commander` → MPMM). VGM партія не чіпала.
+    // Записів не втрачено: MPMM 219 → 228, FTOD 45 → 48, BPGOTG 38 → 41, BGDIA 10 → 11,
+    // WDH 1 → 3, WDMM 1 → 2.
+    // Партія 13: FTD 8 → 6 (`Adult Sapphire Dragon` і `Adult Amethyst Dragon` → канонічний
+    // FTOD), MMotM 6 → 5 (`Githzerai Anarch` → MPMM). VGM партія не чіпала.
+    // Записів не втрачено: FTOD 48 → 52, MPMM 228 → 235, BPGOTG 41 → 48, WDH 3 → 4,
+    // і вперше зʼявився `COS` (0 → 1, `Strahd von Zarovich`).
+    // Партія 14: FTD 6 → 3 (`Ancient Crystal Dragon`, `Ancient Topaz Dragon` і
+    // `Ancient Emerald Dragon` → канонічний FTOD). VGM і MMotM партія не чіпала.
+    // Записів не втрачено: FTOD 52 → 57, MPMM 235 → 238, BPGOTG 48 → 53,
+    // і вперше зʼявилися `POTA` (0 → 4), `QFTIS` (0 → 1), `WBTW` (0 → 1).
+    // Партія 15: FTD 3 → **0**. Три останні записи під успадкованим ключем Fizban's
+    // (`Ancient Sapphire Dragon`, `Ancient Amethyst Dragon`, `Elder Brain Dragon`) пішли під
+    // канонічний FTOD, і ключ спорожнів остаточно. Поріг `>= 0` нічого не стеріг би, тож
+    // замість нього стоїть **точне** число: щойно застарілий FTD десь повернеться, перевірка
+    // впаде. Записів не втрачено: FTOD 57 → 61, MPMM 238 → 246, BPGOTG 53 → 58.
+    expect(countBySource("VGM")).toBeGreaterThanOrEqual(1);
+    expect(countBySource("FTD")).toBe(0);
+    expect(countBySource("MMotM")).toBeGreaterThanOrEqual(5);
   });
 
   it("contains the signature Volo's Guide monsters", () => {
@@ -270,8 +324,49 @@ describe("KR11.4 — Розширений бестіарій WotC (Volo's, Fizba
     // Githzerai Zerth (MMotM → MM), 63 → 61 (VGM 16 → 15, MMotM 23 → 22); партія 22 перевела
     // Shoosuva (VGM → MPMM), 61 → 60 (VGM 15 → 14); партія 23 перевела Froghemoth (VGM → MPMM),
     // 60 → 59 (VGM 14 → 13); партія 25 перевела Ki-rin і Boneclaw (обидва VGM → MPMM),
-    // 59 → 57 (VGM 13 → 11).
-    expect(imported.length).toBeGreaterThanOrEqual(57);
+    // 59 → 57 (VGM 13 → 11); партія 1 KR16.3 взяла Gnoll Witherling, Oblex Spawn і
+    // Young Kruthik із MPMM, 57 → 54 (VGM 11 → 10, MMotM 22 → 20); партія 2 взяла
+    // Gnoll Flesh Gnawer і Maw Demon із MPMM, 54 → 52 (VGM 10 → 8); партія 3 взяла
+    // Adult Kruthik із MPMM (MMotM → MPMM) і три записи Fizban's — Crystal Dragon Wyrmling,
+    // Dragonnel, Emerald Dragon Wyrmling — під канонічним FTOD, 52 → 48 (FTD 24 → 21,
+    // MMotM 20 → 19); партія 4 взяла Topaz Dragon Wyrmling під FTOD, 48 → 47 (FTD 21 → 20).
+    // Shadow Mastiff пішов MM → MPMM і в цьому наборі не був.
+    //
+    // Поріг спадає, бо `VGM`/`FTD`/`MMotM` — це успадковані рядки джерела, яких сама схема не
+    // знає: enum `Source` тримає `FTOD`, і саме його ставлять обидва конвеєри. Тобто набір
+    // цього тесту звужується з кожною партією за задумом, а не через утрату записів —
+    // `Draconian Foot Soldier` і `Deep Dragon Wyrmling` партії 2 приїхали під `FTOD`.
+    // Партія 5: 47 → 44. `Hobgoblin Devastator` пішов VGM → MPMM, а `Sapphire` і
+    // `Amethyst Dragon Wyrmling` — FTD → канонічний FTOD. Записів не втрачено: FTOD 15 → 19.
+    // Партія 6: 44 → 38. Три записи пішли VGM → MPMM, три MMotM → MPMM, а три записи
+    // Fizban's — FTD → канонічний FTOD. Записів не втрачено: MPMM 163 → 171, FTOD 19 → 22.
+    // Партія 7: 38 → 37. Один запис пішов FTD → канонічний FTOD — `Young Crystal Dragon`
+    // (FTD 18 → 17). Записів не втрачено: FTOD 22 → 28, MPMM 171 → 175.
+    // Партія 8: 37 → 34. Три заступлені записи пішли під ключі, які знає схема:
+    // `Korred` VGM → MPMM, `Shadar-kai Shadow Dancer` MMotM → MPMM,
+    // `Young Topaz Dragon` FTD → FTOD. Записів не втрачено: MPMM 175 → 188, FTOD 28 → 32.
+    // Партія 9: 34 → 28. Шість заступлених записів пішли під ключі, які знає схема:
+    // пʼять FTD → FTOD і `Shadar-kai Gloom Weaver` MMotM → MPMM. Записів не втрачено:
+    // FTOD 32 → 39, MPMM 190 → 196, BPGOTG 21 → 25, IDROTF 10 → 11.
+    // Партія 10: 28 → 24. Чотири заступлені записи пішли MMotM → MPMM. Записів не втрачено:
+    // MPMM 196 → 208, FTOD 39 → 43, BPGOTG 25 → 29.
+    // Ратифікація «Мізкожера»: 24 → 22, бо `Ulitharid` і `Alhoon` пішли VGM/MMotM → MPMM.
+    // Партія 11: 22 → 17. Пʼять заступлених записів пішли під ключі, які знає схема:
+    // `Yuan-ti Anathema` VGM → MPMM, `Shadar-kai Soul Monger` і `Githyanki Kith'rak`
+    // MMotM → MPMM, `Adult Crystal Dragon` і `Adult Topaz Dragon` FTD → FTOD.
+    // Записів не втрачено: MPMM 210 → 219, FTOD 43 → 45, BPGOTG 29 → 38.
+    // Партія 12: 17 → 15. Два заступлені записи пішли під ключі, які знає схема:
+    // `Adult Emerald Dragon` FTD → FTOD і `Githyanki Supreme Commander` MMotM → MPMM.
+    // Записів не втрачено: MPMM 219 → 228, FTOD 45 → 48, BPGOTG 38 → 41.
+    // Партія 13: 15 → 12. Три заступлені записи пішли під ключі, які знає схема:
+    // `Adult Sapphire Dragon` і `Adult Amethyst Dragon` FTD → FTOD, `Githzerai Anarch`
+    // MMotM → MPMM. Записів не втрачено: MPMM 228 → 235, FTOD 48 → 52, BPGOTG 41 → 48.
+    // Партія 14: 12 → 9. Три заступлені записи пішли FTD → канонічний FTOD:
+    // `Ancient Crystal Dragon`, `Ancient Topaz Dragon`, `Ancient Emerald Dragon`.
+    // Записів не втрачено: FTOD 52 → 57, MPMM 235 → 238, BPGOTG 48 → 53.
+    // Партія 15: 9 → 6. Три заступлені записи пішли FTD → канонічний FTOD, і успадкований
+    // ключ Fizban's спорожнів; лишилися тільки VGM (1) і MMotM (5).
+    expect(imported.length).toBeGreaterThanOrEqual(6);
 
     for (const creature of imported) {
       expect(creature.name).toMatch(/[Ѐ-ӿ]/);
@@ -301,7 +396,10 @@ describe("KR11.4 — Розширений бестіарій WotC (Volo's, Fizba
 
     const ancientEmerald = getCreatureByIdOrSlug("ancient-emerald-dragon", "RULES_2014");
     expect(ancientEmerald?.name).toBe("Стародавній смарагдовий дракон");
-    expect(ancientEmerald?.challenge).toBe("23");
+    // Партія 14 KR16.3 заступила цей запис текстом FTOD: спадковий рядок ніс показник
+    // небезпеки 23 (50 000 XP) замість книжкових 21 (33 000 XP) — пара коректна за таблицею,
+    // тож перевірка [7] гейта її не бачила, і зловила тільки звірка з джерелом.
+    expect(ancientEmerald?.challenge).toBe("21");
 
     const alhoon = buildOmniSearchIndex("RULES_2014").find((item) => item.subtitle === "Alhoon");
     expect(alhoon?.href).toBe("/bestiary/alhoon");

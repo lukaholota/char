@@ -30,6 +30,33 @@ describe("KR8.4 — Creation Visuals & Card Presets", () => {
       expect(visual.imageSrc).toBe("/images/races/tiefling.webp");
     });
 
+    it("returns thematic visual for Fairy", () => {
+      const visual = getRaceVisual("FAIRY_MPMM");
+      expect(visual).toBeDefined();
+      expect(visual.bgGradient).toContain("from-pink-950");
+      expect(visual.imageSrc).toBe("/images/races/fairy.webp");
+    });
+
+    it("returns thematic visual for Hobgoblin", () => {
+      const visual = getRaceVisual("HOBGOBLIN_MPMM");
+      expect(visual).toBeDefined();
+      expect(visual.bgGradient).toContain("from-red-950");
+      expect(visual.imageSrc).toBe("/images/races/hobgoblin.webp");
+    });
+
+    it("returns thematic visual for Custom Lineage", () => {
+      const visual = getRaceVisual("CUSTOM_LINEAGE_TCE");
+      expect(visual).toBeDefined();
+      expect(visual.bgGradient).toContain("from-violet-950");
+      expect(visual.imageSrc).toBe("/images/races/custom_lineage.webp");
+    });
+
+    it("returns specific visual for chromatic dragonborn", () => {
+      const visual = getRaceVisual("DRAGONBORN_CHROMATIC");
+      expect(visual).toBeDefined();
+      expect(visual.imageSrc).toBe("/images/races/dragonborn_chromatic.webp");
+    });
+
     it("returns default fallback for unknown race", () => {
       const visual = getRaceVisual("UNKNOWN_CUSTOM_RACE");
       expect(visual).toBeDefined();
@@ -73,9 +100,9 @@ describe("KR8.4 — Creation Visuals & Card Presets", () => {
     });
 
     it("returns primary ability statistics summary", () => {
-      expect(getClassPrimaryStats("BARBARIAN_2014")).toBe("СИЛ • ТІЛ");
-      expect(getClassPrimaryStats("WIZARD_2014")).toBe("ІНТ • ТІЛ");
-      expect(getClassPrimaryStats("BARD_2014")).toBe("ХАР • ЛОВ");
+      expect(getClassPrimaryStats("BARBARIAN_2014")).toBe("СИЛ • СТА");
+      expect(getClassPrimaryStats("WIZARD_2014")).toBe("ІНТ • СТА");
+      expect(getClassPrimaryStats("BARD_2014")).toBe("ХАР • СПР");
     });
   });
 });

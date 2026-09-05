@@ -3,6 +3,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import { ItemRarity, MagicItemType, Prisma } from "@prisma/client";
 import { readMagicItemBaseline } from "../../prisma/seed/magicItemBaseline";
+import { readItemPlan } from "../../scripts/5etools/item-batches";
 import {
   applyBatchesToBaseline,
   readMagicItemBatches,
@@ -28,16 +29,31 @@ function buildBaseline(
 }
 
 describe("KR14.1 — партії перекладу предметів живуть у сідах", () => {
-  it("сід-партії покривають кожен перекладений слуг маніфесту рівно раз", () => {
+  /// Партії читають два конвеєри: aidedd (O14, статус `translated` у маніфесті) і 5etools
+  /// (KR16.4, план `data/5etools/item-batches.json`). Слуг, який не належить жодному з них,
+  /// означає сід-партію, що приїхала нізвідки.
+  it("сід-партії покривають рівно слуги двох конвеєрів, по разу кожен", () => {
     const manifest = JSON.parse(
       readFileSync(join(process.cwd(), "data/aidedd/magic-items-manifest.json"), "utf-8")
     ) as Array<{ slug: string; status: string }>;
 
-    const translatedSlugs = manifest.filter((row) => row.status === "translated").map((row) => row.slug);
     const covered = Object.keys(COVERED_BY_EXISTING_ENTRIES);
-    const expected = translatedSlugs.filter((slug) => !covered.includes(slug)).sort();
+    const fromAidedd = manifest
+      .filter((row) => row.status === "translated" && !covered.includes(row.slug))
+      .map((row) => row.slug);
+    const from5etools = readItemPlan()
+      .batches.flatMap((batch) => batch.items)
+      .filter((row) => row.status === "ready")
+      .map((row) => row.slug);
+    const built = new Set(batches.map((row) => row.slug));
 
-    expect(batches.map((row) => row.slug).sort()).toEqual(expected);
+    const unexpected = [...built].filter(
+      (slug) => !fromAidedd.includes(slug) && !from5etools.includes(slug)
+    );
+    const missingFromAidedd = fromAidedd.filter((slug) => !built.has(slug));
+
+    expect({ unexpected, missingFromAidedd }).toEqual({ unexpected: [], missingFromAidedd: [] });
+    expect(built.size).toBe(batches.length);
   });
 
   it("жоден предмет не трапляється у двох партіях", () => {
@@ -54,15 +70,28 @@ describe("KR14.1 — партії перекладу предметів живу
     }
   });
 
-  /// Каталог росте тільки свідомо: цей перелік доводиться правити руками, і саме тому
-  /// новий предмет не може заїхати в каталог непоміченим разом із партією перекладу.
+  /// Каталог росте тільки свідомо. O14 додав рівно три предмети й тримає їх поіменно; KR16.4
+  /// додає ті рядки маніфесту, яких у базовому корпусі немає, і їхнє число — літерал, який
+  /// сесія піднімає рукою за кожну закриту партію. Тобто зайвий предмет валить перевірку, а
+  /// не заїжджає в каталог разом із перекладом.
   it("каталог росте лише на поіменно дозволені предмети", () => {
+    const addedByAidedd = ["1304 Unbreakable Arrow", "1331 Psi Crystal", "1391 Arrow of Slaying"];
+    const from5etools = new Set(
+      readItemPlan()
+        .batches.flatMap((batch) => batch.items)
+        .filter((row) => row.isNewToCatalog)
+        .map((row) => row.slug)
+    );
+    const baselineEngNames = new Set(readMagicItemBaseline().map((item) => item.engName));
+
     const added = batches.filter((row) => row.isNewToCatalog);
-    expect(added.map((row) => `${row.magicItemId} ${row.engName}`)).toEqual([
-      "1304 Unbreakable Arrow",
-      "1331 Psi Crystal",
-      "1391 Arrow of Slaying",
-    ]);
+    const notPlanned = added
+      .filter((row) => !addedByAidedd.includes(`${row.magicItemId} ${row.engName}`))
+      .filter((row) => !from5etools.has(row.slug) || baselineEngNames.has(row.engName))
+      .map((row) => `${row.magicItemId} ${row.engName}`);
+
+    expect(notPlanned).toEqual([]);
+    expect(added.length).toBe(149);
   });
 
   it("злиті слуги не створюють зайвого запису — кожен покритий наявними варіантами", () => {

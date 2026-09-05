@@ -4,10 +4,10 @@
 import { afterAll, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
-import { loadCharacterCreatorOptions } from "@/server/db/creation-content";
+import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { getBaseEquipment } from "@/server/db/equipment-actions";
 import { loadFightingStyleOptions } from "@/server/db/progression-content";
-import { getSpellForModal, getSpellsList } from "@/server/db/spell-actions";
+import { getSpellsList } from "@/server/db/spell-actions";
 import { buildSpellsForGenerationQuery } from "../../scripts/generate-spells";
 import { buildMagicItemsForGenerationQuery } from "../../scripts/generate-magic-items";
 
@@ -16,7 +16,7 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: 
 
 afterAll(disconnectDatabase);
 
-describe("KR6.3 — loadCharacterCreatorOptions", () => {
+describe("KR6.3 — findCharacterCreatorOptions (файл, не база — KR22.5)", () => {
   it("виключає RULES_2024 рядки на кожній з 5 каталогових таблиць", async () => {
     const [race2024, class2024, bg2024, weapon2024, feat2024] = await Promise.all([
       prisma.race.findFirstOrThrow({ where: { ruleset: "RULES_2024" } }),
@@ -26,7 +26,7 @@ describe("KR6.3 — loadCharacterCreatorOptions", () => {
       prisma.feat.findFirstOrThrow({ where: { ruleset: "RULES_2024" } }),
     ]);
 
-    const [races, classes, backgrounds, weapons, feats] = await loadCharacterCreatorOptions();
+    const { races, classes, backgrounds, weapons, feats } = findCharacterCreatorOptions("RULES_2014");
 
     expect(races.some((r) => r.raceId === race2024.raceId)).toBe(false);
     expect(classes.some((c) => c.classId === class2024.classId)).toBe(false);
@@ -51,18 +51,16 @@ describe("KR6.3 — levelup-content (клас/риса/інфузія катал
     expect(feats.some((f) => f.featId === feat2024.featId)).toBe(false);
   });
 
-  it("інфузія з RULES_2024 не потрапляє у loadLevelUpBaseContent", async () => {
-    const infusion = await prisma.infusion.findFirstOrThrow({ orderBy: { infusionId: "asc" } });
+  // До KR22.5 цей тест перемикав редакцію рядка в базі й чекав, що вибірка його втратить. Після
+  // переходу на файл база рівню більше нічого не каже, тож перевіряється сама гарантія: у
+  // левелапі редакції немає жодної інфузії чужої редакції. Інфузій 2024 у грі й немає —
+  // артифісера в PHB 2024 нема, тому каталог 2024 порожній, і це теж стверджується.
+  it("інфузії левелапу належать своїй редакції", () => {
+    const { infusions } = findCharacterCreatorOptions("RULES_2014");
+    expect(infusions.length).toBeGreaterThan(0);
+    expect(infusions.every((infusion) => infusion.ruleset === "RULES_2014")).toBe(true);
 
-    // Infusions do not have 2024 content yet, so flip and revert safely
-    await prisma.infusion.update({ where: { infusionId: infusion.infusionId }, data: { ruleset: "RULES_2024" } });
-    try {
-      const { loadLevelUpBaseContent } = await import("@/server/db/levelup-content");
-      const { infusions } = await loadLevelUpBaseContent(-1);
-      expect(infusions.some((i) => i.infusionId === infusion.infusionId)).toBe(false);
-    } finally {
-      await prisma.infusion.update({ where: { infusionId: infusion.infusionId }, data: { ruleset: "RULES_2014" } });
-    }
+    expect(findCharacterCreatorOptions("RULES_2024").infusions).toHaveLength(0);
   });
 });
 
@@ -99,12 +97,10 @@ describe("KR6.3 — loadFightingStyleOptions", () => {
 });
 
 describe("KR6.3 — spell-actions", () => {
-  it("getSpellForModal не знаходить заклинання з RULES_2024 ні за id, ні за engName", async () => {
-    const spell2024 = await prisma.spell.findFirstOrThrow({ where: { ruleset: "RULES_2024" } });
-
-    expect(await getSpellForModal(String(spell2024.spellId))).toBeNull();
-  });
-
+  /// `getSpellForModal` тут більше немає: KR25.1 прибрала її разом із запитом у базу — модалка
+  /// читає генерований каталог обох редакцій. Межу редакцій тепер тримає
+  /// tests/components/spell-link.test.tsx, і тримає її з іншого боку: не «2024 не знаходиться»,
+  /// а «за адресою 2024 знаходиться саме заклинання 2024».
   it("getSpellsList виключає заклинання з RULES_2024", async () => {
     const spell2024 = await prisma.spell.findFirstOrThrow({ where: { ruleset: "RULES_2024" } });
 
@@ -121,15 +117,15 @@ describe("KR6.3 — generate-spells.ts / generate-magic-items.ts (build-time SSG
     expect(spells.some((s) => s.spellId === spell2024.spellId)).toBe(false);
   });
 
+  /// Раніше тест на час перевірки перекидав справжній предмет 2014 у RULES_2024 і вертав
+  /// назад. Після KR12.5 у таблиці лежить каталог 2024 з тими самими англійськими назвами
+  /// (всі 445 із 445 збігаються з назвами 2014), тому таке перекидання падає на
+  /// `UNIQUE (eng_name, ruleset)`. Тепер тест бере справжній рядок 2024 — так само, як
+  /// сусідній тест на заклинання, — і нічого не мутує.
   it("buildMagicItemsForGenerationQuery виключає предмет з RULES_2024", async () => {
-    const magicItem = await prisma.magicItem.findFirstOrThrow({ orderBy: { magicItemId: "asc" } });
+    const magicItem2024 = await prisma.magicItem.findFirstOrThrow({ where: { ruleset: "RULES_2024" } });
 
-    await prisma.magicItem.update({ where: { magicItemId: magicItem.magicItemId }, data: { ruleset: "RULES_2024" } });
-    try {
-      const items = await prisma.magicItem.findMany(buildMagicItemsForGenerationQuery());
-      expect(items.some((i) => i.magicItemId === magicItem.magicItemId)).toBe(false);
-    } finally {
-      await prisma.magicItem.update({ where: { magicItemId: magicItem.magicItemId }, data: { ruleset: "RULES_2014" } });
-    }
+    const items = await prisma.magicItem.findMany(buildMagicItemsForGenerationQuery());
+    expect(items.some((i) => i.magicItemId === magicItem2024.magicItemId)).toBe(false);
   });
 });

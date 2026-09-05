@@ -31,7 +31,7 @@ describe("KR2.4 — бонуси атаки й шкоди від фіч і magic
     const [archery, dueling, bracers, longbow, longsword] = await Promise.all([
       prisma.feature.findUniqueOrThrow({ where: { engName: "Archery" }, select: { featureId: true } }),
       prisma.feature.findUniqueOrThrow({ where: { engName: "Dueling" }, select: { featureId: true } }),
-      prisma.magicItem.findUniqueOrThrow({ where: { engName: "Bracers of Archery" }, select: { magicItemId: true } }),
+      prisma.magicItem.findUniqueOrThrow({ where: { engName_ruleset: { engName: "Bracers of Archery", ruleset: "RULES_2014" } }, select: { magicItemId: true } }),
       prisma.weapon.findUniqueOrThrow({ where: { name_ruleset: { name: WeaponCategory.LONGBOW, ruleset: ACTIVE_RULESET } } }),
       prisma.weapon.findUniqueOrThrow({ where: { name_ruleset: { name: WeaponCategory.LONGSWORD, ruleset: ACTIVE_RULESET } } }),
     ]);

@@ -1,0 +1,123 @@
+{
+  "id": "07-human-paladin-noble",
+  "title": "Human Paladin 5 — Noble",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.7",
+  "why": "Дві риси з двох різних джерел на 1-му рівні, і одна з них сама породжує три вибори навичок.",
+  "input": {
+    "species": "HUMAN_2024",
+    "class": "PALADIN_2024",
+    "background": "NOBLE_2024",
+    "subclass": "OATH_OF_DEVOTION",
+    "baseAbilityScores": {
+      "STR": 15,
+      "DEX": 10,
+      "CON": 13,
+      "INT": 8,
+      "WIS": 12,
+      "CHA": 14
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "STR",
+      "plusOne": "CHA"
+    },
+    "originFeat": "SKILLED",
+    "originFeatChoices": [
+      {
+        "choice": "Володіння",
+        "option": "ARCANA"
+      },
+      {
+        "choice": "Володіння",
+        "option": "INSIGHT"
+      },
+      {
+        "choice": "Володіння",
+        "option": "RELIGION"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Origin Feat",
+        "option": "Tough"
+      }
+    ],
+    "levelUps": [
+      {
+        "level": 2,
+        "classChoices": [
+          {
+            "choice": "Бойовий стиль",
+            "option": "Defense"
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "subclass": "OATH_OF_DEVOTION"
+      },
+      {
+        "level": 4,
+        "asi": [
+          {
+            "ability": "STR",
+            "value": 1
+          },
+          {
+            "ability": "CHA",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 5
+      }
+    ],
+    "weaponMastery": [
+      "Longsword",
+      "Javelin"
+    ],
+    "classEquipment": "b"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 18,
+      "DEX": 10,
+      "CON": 13,
+      "INT": 8,
+      "WIS": 12,
+      "CHA": 16
+    },
+    "feats": [
+      "SKILLED",
+      "TOUGH",
+      "DEFENSE"
+    ],
+    "requiredFeatures": [
+      "Human: Versatile (2024)",
+      "Human: Skillful (2024)",
+      "Paladin: Weapon Mastery (2024)",
+      "Paladin: Spellcasting (2024)",
+      "Paladin: Extra Attack (2024)",
+      "Fighting Style: Defense (2024)"
+    ],
+    "characterLevelGatedGrants": [],
+    "weaponMastery": {
+      "capacity": 2,
+      "weapons": [
+        "Longsword",
+        "Javelin"
+      ]
+    },
+    "maxHp": 49,
+    "maxHpBreakdown": "d10 5 рівнів із CON +1 = 39, Здоровань від вибору виду +10",
+    "spellSources": [
+      {
+        "source": "PALADIN_2024",
+        "ability": "CHA"
+      }
+    ],
+    "grantedSpells": [],
+    "bastionUnlocked": true
+  }
+}

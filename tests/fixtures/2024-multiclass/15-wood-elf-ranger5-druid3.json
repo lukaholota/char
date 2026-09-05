@@ -1,0 +1,161 @@
+{
+  "id": "15-wood-elf-ranger5-druid3",
+  "title": "Ельф (Лісовий), Слідопит 5 / Друїд 3 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §15",
+  "why": "Кілька джерел заклинань з однією характеристикою; половинний заклинач округлюється вгору.",
+  "input": {
+    "species": "ELF_2024",
+    "startingClass": "RANGER_2024",
+    "background": "WAYFARER_2024",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 15,
+      "CON": 13,
+      "INT": 10,
+      "WIS": 14,
+      "CHA": 12
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "DEX",
+      "plusOne": "WIS"
+    },
+    "originFeat": "LUCKY",
+    "speciesChoices": [
+      {
+        "choice": "Ельфійський родовід",
+        "option": "Wood Elf"
+      },
+      {
+        "choice": "Базова характеристика заклинань",
+        "option": "WIS"
+      }
+    ],
+    "weaponMastery": [
+      "Shortsword",
+      "Longbow"
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "RANGER_2024",
+        "isNewClass": false,
+        "classChoices": [
+          {
+            "choice": "Бойовий стиль",
+            "option": "Archery"
+          }
+        ]
+      },
+      {
+        "characterLevel": 3,
+        "class": "RANGER_2024",
+        "isNewClass": false,
+        "subclass": "FEY_WANDERER"
+      },
+      {
+        "characterLevel": 4,
+        "class": "RANGER_2024",
+        "isNewClass": false,
+        "feat": "FEY_TOUCHED",
+        "featAbility": "WIS"
+      },
+      {
+        "characterLevel": 5,
+        "class": "RANGER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "DRUID_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 7,
+        "class": "DRUID_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 8,
+        "class": "DRUID_2024",
+        "isNewClass": false,
+        "subclass": "CIRCLE_OF_THE_LAND"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "RANGER_2024",
+    "classLevels": {
+      "RANGER_2024": 5,
+      "DRUID_2024": 3
+    },
+    "subclassByClass": {
+      "RANGER_2024": "FEY_WANDERER",
+      "DRUID_2024": "CIRCLE_OF_THE_LAND"
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 17,
+      "CON": 13,
+      "INT": 10,
+      "WIS": 16,
+      "CHA": 12
+    },
+    "feats": [
+      "LUCKY",
+      "ARCHERY",
+      "FEY_TOUCHED"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Longstrider",
+        "kind": "spell",
+        "characterLevel": 3
+      },
+      {
+        "name": "Pass without Trace",
+        "kind": "spell",
+        "characterLevel": 5
+      }
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d10": 5,
+      "d8": 3
+    },
+    "casterLevel": 6,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 3,
+    "pactSlots": null,
+    "classSpellSources": [
+      {
+        "source": "RANGER_2024",
+        "ability": "WIS"
+      },
+      {
+        "source": "DRUID_2024",
+        "ability": "WIS"
+      }
+    ],
+    "preparedSpellLineClasses": [
+      "RANGER_2024",
+      "DRUID_2024"
+    ],
+    "maxPreparableSpellLevelByClass": {
+      "RANGER_2024": 2,
+      "DRUID_2024": 2
+    },
+    "weaponMastery": {
+      "capacity": 2,
+      "weapons": [
+        "Shortsword",
+        "Longbow"
+      ]
+    },
+    "bastionFacilityLimit": 2,
+    "bastionFacilityMatches": {
+      "Sanctuary": "met"
+    }
+  }
+}

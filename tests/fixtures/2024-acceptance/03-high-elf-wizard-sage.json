@@ -1,0 +1,117 @@
+{
+  "id": "03-high-elf-wizard-sage",
+  "title": "High Elf Wizard 5 — Sage",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.3",
+  "why": "Три незалежні джерела заклинань: книга чарівника, Magic Initiate і родовід високого ельфа.",
+  "input": {
+    "species": "ELF_2024",
+    "class": "WIZARD_2024",
+    "background": "SAGE_2024",
+    "subclass": "EVOKER",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 12,
+      "CON": 13,
+      "INT": 15,
+      "WIS": 14,
+      "CHA": 10
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "INT",
+      "plusOne": "CON"
+    },
+    "originFeat": "MAGIC_INITIATE",
+    "originFeatChoices": [
+      {
+        "choice": "Список заклинань",
+        "option": "Wizard"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Elven Lineage",
+        "option": "High Elf"
+      },
+      {
+        "choice": "Lineage Spellcasting Ability",
+        "option": "INT"
+      }
+    ],
+    "levelUps": [
+      {
+        "level": 2
+      },
+      {
+        "level": 3,
+        "subclass": "EVOKER"
+      },
+      {
+        "level": 4,
+        "asi": [
+          {
+            "ability": "INT",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 5
+      }
+    ],
+    "classEquipment": "a"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 12,
+      "CON": 14,
+      "INT": 19,
+      "WIS": 14,
+      "CHA": 10
+    },
+    "feats": [
+      "MAGIC_INITIATE"
+    ],
+    "requiredFeatures": [
+      "Elf: Elven Lineage (2024)",
+      "Elf: Keen Senses (2024)",
+      "Wizard: Spellcasting (2024)"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Detect Magic",
+        "kind": "spell",
+        "characterLevel": 3
+      },
+      {
+        "name": "Misty Step",
+        "kind": "spell",
+        "characterLevel": 5
+      }
+    ],
+    "weaponMastery": {
+      "capacity": 0
+    },
+    "spellSources": [
+      {
+        "source": "WIZARD_2024",
+        "ability": "INT"
+      },
+      {
+        "source": "MAGIC_INITIATE",
+        "ability": "INT"
+      },
+      {
+        "source": "Elf: Elven Lineage (2024)",
+        "ability": "INT"
+      }
+    ],
+    "grantedSpells": [
+      "Detect Magic",
+      "Misty Step",
+      "Prestidigitation"
+    ],
+    "bastionUnlocked": true
+  }
+}

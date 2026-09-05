@@ -50,11 +50,11 @@
     },
     "restored": {
       "success": true,
-      "usesRemaining": 1
+      "usesRemaining": 3
     },
     "afterManualRestore": {
       "poolKey": "SORCERY_POINTS",
-      "usesRemaining": 1
+      "usesRemaining": 3
     },
     "restResult": {
       "success": true,
@@ -79,10 +79,9 @@
     },
     "afterRest": {
       "poolKey": "SORCERY_POINTS",
-      "usesRemaining": 1
+      "usesRemaining": 3
     },
-    "expectedPoolMaximum": 3,
-    "KNOWN_BUG": "BUG-011"
+    "expectedPoolMaximum": 3
   },
   "bardicInspiration": {
     "feature": {
@@ -165,7 +164,8 @@
     "afterRest": {
       "poolKey": "WILD_SHAPE",
       "usesRemaining": 2
-    }
+    },
+    "expectedPoolMaximum": 2
   },
   "channelDivinity": {
     "feature": {
@@ -174,19 +174,19 @@
     },
     "spent": {
       "success": true,
-      "usesRemaining": 0
+      "usesRemaining": 1
     },
     "afterSpend": {
       "poolKey": "CHANNEL_DIVINITY",
-      "usesRemaining": 0
+      "usesRemaining": 1
     },
     "restored": {
       "success": true,
-      "usesRemaining": 1
+      "usesRemaining": 2
     },
     "afterManualRestore": {
       "poolKey": "CHANNEL_DIVINITY",
-      "usesRemaining": 1
+      "usesRemaining": 2
     },
     "restResult": {
       "success": true,
@@ -202,8 +202,7 @@
       "poolKey": "CHANNEL_DIVINITY",
       "usesRemaining": 2
     },
-    "expectedPoolMaximum": 2,
-    "KNOWN_BUG": "BUG-011"
+    "expectedPoolMaximum": 2
   },
   "superiorityDice": {
     "feature": {
@@ -284,19 +283,19 @@
     },
     "spent": {
       "success": true,
-      "usesRemaining": 0
+      "usesRemaining": 3
     },
     "afterSpend": {
       "poolKey": "PSIONIC_ENERGY",
-      "usesRemaining": 0
+      "usesRemaining": 3
     },
     "restored": {
       "success": true,
-      "usesRemaining": 1
+      "usesRemaining": 4
     },
     "afterManualRestore": {
       "poolKey": "PSIONIC_ENERGY",
-      "usesRemaining": 1
+      "usesRemaining": 4
     },
     "restResult": {
       "success": true,
@@ -321,9 +320,8 @@
     },
     "afterRest": {
       "poolKey": "PSIONIC_ENERGY",
-      "usesRemaining": 1
+      "usesRemaining": 4
     },
-    "expectedPoolMaximum": 4,
-    "KNOWN_BUG": "BUG-011"
+    "expectedPoolMaximum": 4
   }
 }

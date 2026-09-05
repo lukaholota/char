@@ -5,7 +5,7 @@ import type { Build } from "./types";
 
 export const build: Build = {
   id: "rogue-expertise",
-  why: "Некастер (SpellcastingType.NONE) з Expertise на 1 рівні. Перевірено проти реальних сідів: Rogue 'Expertise' у ClassFeature має mechanicType PASSIVE, не CHOICE_EXPERTISE — тобто вибір навички під експертизу йде виключно через вільне поле expertiseSchema, без прив'язки до класу. Цей білд фіксує саме це.",
+  why: "Некастер (SpellcastingType.NONE) з Expertise на 1 рівні. Перевірено проти реальних сідів: Rogue 'Expertise' у ClassFeature має mechanicType PASSIVE, не CHOICE_EXPERTISE — тобто вибір навички під експертизу йде виключно через вільне поле expertiseSchema, без привʼязки до класу. Цей білд фіксує саме це.",
   async form() {
     const [race, cls, background] = await Promise.all([
       raceByName(Races.HUMAN_2014),

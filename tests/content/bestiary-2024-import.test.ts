@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { getAllCreatures, CreatureData } from "@/lib/bestiaryData";
 import { buildOmniSearchIndex } from "@/lib/omniSearchData";
 import dictionaryFile from "@/lib/refs/dictionary.json";
+import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 import {
   LanguageTranslations,
   armorTranslations,
@@ -10,6 +11,9 @@ import {
   weaponTranslations,
 } from "@/lib/refs/translation";
 import { parseChallengeRating } from "../../scripts/aidedd/statblock-fields";
+import { findSourceKey2024 } from "../../scripts/aidedd/build-creature-record";
+import { parseMonster2024 } from "../../scripts/aidedd/parse-monster-2024";
+import { readFileSync, readdirSync } from "node:fs";
 import manifest from "../../data/aidedd/import-manifest.json";
 import batchOne from "../../data/aidedd/translations/monsters-2024/batch-01.json";
 import batchTwo from "../../data/aidedd/translations/monsters-2024/batch-02.json";
@@ -49,7 +53,28 @@ const FIFTEENTH_BATCH_FIRST_ID = 20444;
 const SIXTEENTH_BATCH_FIRST_ID = 20474;
 const SEVENTEENTH_BATCH_FIRST_ID = 20504;
 const SEVENTEENTH_BATCH_SIZE = 28;
-const TRANSLATED_CREATURE_COUNT = 491;
+/// 491 → 507: партія 18 KR16.3 довезла з 5etools шістнадцять рядків, які aidedd відклав
+/// (див. `RECOVERED_FROM_5ETOOLS`). Число рахує **всі** імпортовані записи 2024, а не лише
+/// партії aidedd, тож джерело приросту тут одне й назване.
+const TRANSLATED_CREATURE_COUNT = 508;
+
+/// Статблок, прикликаний заклинанням, показника небезпеки не має, отже й досвіду — рішення
+/// власника 2026-08-19 уже назвало цей показ. Обидва записи привела партія 18 KR16.3.
+const NO_EXPERIENCE_NAMES = new Set(["Animated Object", "Giant Insect", "Reanimated Companion"]);
+
+/// Ініціативу друкує статблок 2024, але не кожен: у корпусі 5etools поля `initiative` немає
+/// в цих восьми записах узагалі. Перелік знято прогоном, а не оцінено.
+const NO_INITIATIVE_NAMES = new Set([
+  "Reanimated Companion",
+  "Drow of Lolth",
+  "Bulette Pup",
+  "Drow Elite Warrior of Lolth",
+  "Flesh Golem",
+  "Drow Mage of Lolth",
+  "Drow Priestess of Lolth",
+  "Animated Object",
+  "Giant Insect",
+]);
 
 /// aidedd genuinely lists this creature's Traits/Actions by name only, with no mechanical text
 /// anywhere on the page (verified against the raw cached HTML) — the same terse cross-reference
@@ -150,6 +175,34 @@ const DEFERRED_SLUGS = new Set([
   "giant-insect",
   "ranimated-companion",
 ]);
+
+/// Шістнадцять рядків, які aidedd відклав, довезла партія 18 KR16.3 з 5etools, а сімнадцятий —
+/// партія 19 (`Reanimated Companion`, книга `RHW`, рішення власника 2026-08-29). Тобто
+/// «відкладений aidedd-ом» більше не означає ні «немає в каталозі», ні «pending»: усі
+/// сімнадцять закриті, і маніфест позначає їх `existing`. Перелік названий поіменно, а не
+/// знятий: він і далі валить перевірку, якщо котрийсь рядок із каталогу зникне.
+const RECOVERED_FROM_5ETOOLS = new Set(DEFERRED_SLUGS);
+
+/// aidedd загубив першу літеру назви, і каталог тримає її правильною. Пара названа тут, щоб
+/// звірка за назвою не мʼякшала для всіх — вона лишається побуквеною для решти шістнадцяти.
+const CATALOGUE_NAME_BY_SLUG: Record<string, string> = {
+  "ranimated-companion": "Reanimated Companion",
+};
+
+function expectDeferredStatuses(rows: Array<{ slug: string; status: string }>): void {
+  for (const row of rows) {
+    expect(row.status, row.slug).toBe(RECOVERED_FROM_5ETOOLS.has(row.slug) ? "existing" : "pending");
+  }
+}
+
+function expectDeferredRow(catalogued: Map<number, CreatureData>, row: { slug: string; creatureId: number; nameEng: string }): void {
+  if (!RECOVERED_FROM_5ETOOLS.has(row.slug)) {
+    expect(catalogued.has(row.creatureId)).toBe(false);
+    return;
+  }
+  expect(catalogued.get(row.creatureId)?.nameEng).toBe(CATALOGUE_NAME_BY_SLUG[row.slug] ?? row.nameEng);
+  expect(catalogued.get(row.creatureId)?.ruleset).toBe("RULES_2024");
+}
 
 /// aidedd genuinely has no lore paragraph for these — verified against the raw cached HTML
 /// (empty `<div class='description'></div>`), not a parser gap. Listing them by name keeps the
@@ -425,7 +478,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = third.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(1);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = third.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -435,7 +488,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.nameEng).toBe(row.nameEng);
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     expect(readBatchRows(4).length).toBe(BATCH_SIZE);
@@ -492,7 +545,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = seventh.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(1);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = seventh.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -502,7 +555,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.nameEng).toBe(row.nameEng);
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     expect(readBatchRows(8).length).toBe(BATCH_SIZE);
@@ -571,7 +624,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = eleventh.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(2);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = eleventh.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -582,7 +635,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.ruleset).toBe("RULES_2024");
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     expect(readBatchRows(12).length).toBe(BATCH_SIZE);
@@ -615,7 +668,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = thirteenth.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(4);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = thirteenth.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -626,7 +679,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.ruleset).toBe("RULES_2024");
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     expect(readBatchRows(14).length).toBe(BATCH_SIZE);
@@ -641,7 +694,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = fourteenth.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(1);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = fourteenth.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -652,7 +705,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.ruleset).toBe("RULES_2024");
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     expect(readBatchRows(15).length).toBe(BATCH_SIZE);
@@ -667,7 +720,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = fifteenth.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(1);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = fifteenth.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -678,7 +731,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.ruleset).toBe("RULES_2024");
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     expect(readBatchRows(16).length).toBe(BATCH_SIZE);
@@ -693,7 +746,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = sixteenth.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(1);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = sixteenth.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -704,7 +757,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.ruleset).toBe("RULES_2024");
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     expect(readBatchRows(17).length).toBe(SEVENTEENTH_BATCH_SIZE);
@@ -719,7 +772,7 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
 
     const deferred = seventeenth.filter((row) => DEFERRED_SLUGS.has(row.slug));
     expect(deferred.length).toBe(6);
-    expect(deferred.every((row) => row.status === "pending")).toBe(true);
+    expectDeferredStatuses(deferred);
 
     const translated = seventeenth.filter((row) => !DEFERRED_SLUGS.has(row.slug));
     expect(translated.every((row) => row.status === "translated")).toBe(true);
@@ -730,18 +783,46 @@ describe("KR12.2 — маніфест партій імпорту 2024", () => {
       expect(catalogued.get(row.creatureId)?.ruleset).toBe("RULES_2024");
     }
     for (const row of deferred) {
-      expect(catalogued.has(row.creatureId)).toBe(false);
+      expectDeferredRow(catalogued, row);
     }
 
     // Batch 17 is the last batch — the import queue closes here, not at a batch 18.
     expect(manifest2024.every((row) => row.batch <= 17)).toBe(true);
   });
 
-  it("виводить 13 істот, які каталог мав до імпорту, з черги партій", () => {
+  /// Двадцять девʼять, а не тринадцять: до тринадцяти істот, які каталог мав до імпорту, додалися
+  /// шістнадцять рядків, що aidedd відклав дефектом «гола назва дії», а закрив партією 18 імпорт
+  /// 5etools. Рішення власника 2026-08-29: не переімпортовувати їх з aidedd — статблоки вже в
+  /// каталозі й секційно збігаються зі сторінкою, тож переімпорт означав би перекласти вдруге те
+  /// саме. Номер партії їм лишили: він каже, яка партія рядок відклала, і нуль тут означав би
+  /// «до партій не потрапляв», що для цих шістнадцяти неправда.
+  it("виводить із черги 29 істот: 13 доімпортних плюс 16, які закрив 5etools", () => {
     const existing = manifest2024.filter((row) => row.status === "existing");
-    expect(existing.length).toBe(13);
-    expect(existing.every((row) => row.batch === 0)).toBe(true);
-    expect(existing.every((row) => row.creatureId < FIRST_IMPORT_ID)).toBe(true);
+    expect(existing.length).toBe(30);
+
+    const beforeImport = existing.filter((row) => row.creatureId < FIRST_IMPORT_ID);
+    expect(beforeImport.length).toBe(13);
+    expect(beforeImport.every((row) => row.batch === 0)).toBe(true);
+
+    const closedBy5etools = existing.filter((row) => row.creatureId >= FIRST_IMPORT_ID);
+    expect(new Set(closedBy5etools.map((row) => row.slug))).toEqual(RECOVERED_FROM_5ETOOLS);
+    expect(closedBy5etools.every((row) => row.batch > 0)).toBe(true);
+  });
+  /// aidedd загубив першу літеру назви — «Ranimated Companion», — і саме тому цей рядок не
+  /// закрився разом із шістнадцятьма іншими в партії 18: звірка за слагом його не бачила.
+  /// Істота приїхала партією 19 з 5etools під правильним написанням, а маніфест звів рядок
+  /// за `creatureId`. Пінимо обидва написання: якщо джерело колись виправить друкарську
+  /// помилку, тест назве це, а не проковтне.
+  it("зводить рядок із загубленою літерою за id: «Ranimated» у маніфесті, «Reanimated» у каталозі", () => {
+    const row = manifest2024.find((entry) => entry.slug === "ranimated-companion");
+    expect(row?.nameEng).toBe("Ranimated Companion");
+    expect(row?.status).toBe("existing");
+    expect(row?.creatureId).toBe(20531);
+
+    const creature = getAllCreatures("RULES_2024").find((entry) => entry.creatureId === 20531);
+    expect(creature?.nameEng).toBe("Reanimated Companion");
+    expect(creature?.name).toBe("Оживлений супутник");
+    expect(creature?.source).toBe("RHW");
   });
 });
 
@@ -766,7 +847,12 @@ describe("KR12.2 — записи перекладених партій", () => 
     expect(batchSixteen.length).toBe(BATCH_SIZE - 1);
     expect(batchSeventeen.length).toBe(SEVENTEENTH_BATCH_SIZE - 6);
     expect(imported().every((creature) => creature.ruleset === "RULES_2024")).toBe(true);
-    expect(imported().every((creature) => creature.source === "MM_2024")).toBe(true);
+    /// До партії 18 весь імпорт 2024 приходив з однієї книги, і перевірка стверджувала це
+    /// одним `every`. Партія 18 привела `FRAiF` (сім записів) і `XPHB` (два), тож розподіл
+    /// пінується поіменно — інакше нова книга заходила б у каталог непоміченою.
+    const bySource = new Map<string, number>();
+    for (const creature of imported()) bySource.set(creature.source, (bySource.get(creature.source) ?? 0) + 1);
+    expect(Object.fromEntries([...bySource].sort())).toEqual({ FRAiF: 7, MM_2024: 498, PHB_2024: 2, RHW: 1 });
   });
 
   it("тримає ID і слаги унікальними В МЕЖАХ редакції 2024", () => {
@@ -786,9 +872,17 @@ describe("KR12.2 — записи перекладених партій", () => 
         expect(creature.description).toMatch(/[Ѐ-ӿ]/);
       }
       expect(creature.senses).toMatch(/[Ѐ-ӿ]/);
-      expect(creature.xp).toMatch(/^\d+ XP$/);
       expect(creature.proficiencyBonus).toMatch(/^\+\d+$/);
-      expect(creature.initiative).toMatch(/^[+-]\d+ \(\d+\)$/);
+
+      /// Сторінка aidedd завжди друкує повний статблок, тож усі 491 запис її імпорту мають і
+      /// досвід, і ініціативу. Корпус 5etools обидва поля подеколи не має взагалі, і партія 18
+      /// привезла перші такі записи. Тому винятки пінуються **поіменно**, а не послаблюються:
+      /// будь-який новий запис без цих полів валить перевірку.
+      if (NO_EXPERIENCE_NAMES.has(creature.nameEng)) expect(creature.xp).toBe("");
+      else expect(creature.xp).toMatch(/^\d+ XP$/);
+
+      if (NO_INITIATIVE_NAMES.has(creature.nameEng)) expect(creature.initiative ?? "").toBe("");
+      else expect(creature.initiative).toMatch(/^[+-]\d+ \(\d+\)$/);
 
       const sections = [
         creature.specialAbilities,
@@ -823,7 +917,11 @@ describe("KR12.2 — записи перекладених партій", () => 
         creature.description,
       ].join(" ");
 
-      const withoutMarkupAndOriginals = ukrainianFields
+      /// Маркер [Р20] `термін{{English}}` знімається **тим самим кодом**, яким його розгортає
+      /// сторінка, — інакше перевірка й UI розійшлися б копіями. Це знадобилося з партією 18
+      /// KR16.3: перші записи 2024, які несуть маркери, приїхали з 5etools, а цей тест писався
+      /// під партії aidedd, старші за Р20.
+      const withoutMarkupAndOriginals = stripGlossaryMarkers(ukrainianFields)
         .replace(/<[^>]*>/g, "")
         .replace(/\[[^\]]*\]/g, "");
       expect(withoutMarkupAndOriginals).not.toMatch(/[a-zA-Z]/);
@@ -1001,6 +1099,63 @@ describe("KR12.2 — позначка редакції у видачі бест�
     expect(badger2014?.href).toBe("/bestiary/badger");
     expect(badger2024?.href).toBe("/2024/bestiary/badger");
     expect(badger2014?.id).not.toBe(badger2024?.id);
+  });
+});
+
+/// aidedd пише присвійний апостроф гострим наголосом («Player´s Handbook 2024»), і патерн із
+/// прямим апострофом його не бачив: 15 сторінок корпусу читалися як «Невідоме джерело», хоча
+/// `PHB_2024` стоїть в enum від KR12.1. На боці 2014 цю саму ваду закрив аудит 2026-08-19 —
+/// там усі патерни пишуться `dungeon master.{0,2}s guide`. Тут паритет наздогнали 2026-08-29.
+describe("KR12.2 — джерела 2024 читаються попри гострий наголос", () => {
+  const readCachedSources = () =>
+    readdirSync("data/aidedd/raw/monsters-2024")
+      .filter((file) => file.endsWith(".html"))
+      .map((file) =>
+        parseMonster2024(
+          readFileSync(`data/aidedd/raw/monsters-2024/${file}`, "utf-8"),
+          file.replace(/\.html$/, "")
+        ).source
+      );
+
+  it("бере PHB 2024 і з наголосом, і з прямим апострофом, і з позначкою (BR)", () => {
+    for (const source of [
+      "Player´s Handbook 2024",
+      "Player´s Handbook 2024 (BR)",
+      "Player's Handbook 2024",
+    ]) {
+      expect(findSourceKey2024(source)).toBe("PHB_2024");
+    }
+  });
+
+  it("не ламає того, що працювало: Monster Manual в обох формах", () => {
+    expect(findSourceKey2024("Monster Manual 2024")).toBe("MM_2024");
+    expect(findSourceKey2024("Monster Manual 2024 (BR)")).toBe("MM_2024");
+  });
+
+  it("бере DMG 2024 з наголосом — сторінок такого джерела в кеші ще немає, патерн наперед", () => {
+    expect(findSourceKey2024("Dungeon Master´s Guide 2024")).toBe("DMG_2024");
+  });
+
+  /// `FRAiF` уже стоїть і в Prisma-enum, і в `CANONICAL_SOURCE_KEYS` — бракувало самого патерну,
+  /// тож це той самий клас, що «Curse of Strahd» у партії 27: рішення власника не потрібне.
+  it("бере Forgotten Realms: Adventures in Faerûn — значення enum було, патерна не було", () => {
+    expect(findSourceKey2024("Forgotten Realms: Adventures in Faerûn")).toBe("FRAiF");
+  });
+
+  it("і далі падає на джерелі, якого в enum немає", () => {
+    expect(() => findSourceKey2024("Unearthed Arcana 5.5")).toThrow(/Невідоме джерело/);
+  });
+
+  it("у кеші 2024 лишається рівно одне нечитане джерело — плейтестова сторінка", () => {
+    const unreadable = [...new Set(readCachedSources())].filter((source) => {
+      try {
+        findSourceKey2024(source);
+        return false;
+      } catch {
+        return true;
+      }
+    });
+    expect(unreadable).toEqual(["Unearthed Arcana 5.5"]);
   });
 });
 

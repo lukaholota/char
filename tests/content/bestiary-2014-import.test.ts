@@ -770,8 +770,20 @@ const GLEANED_BY_BATCHES_33_34 = new Set(
 
 /// Тому в старих партіях тепер співіснують обидва стани: відкладене дефектом джерела лишається
 /// pending, а те, що тримав словниковий гейт, уже translated.
-const expectedStatusAfterGleaning = (slug: string) =>
-  GLEANED_BY_BATCHES_33_34.has(slug) ? "translated" : "pending";
+/// Третій вихід із `pending`, відкритий партією 20: рядок закривається не перекладом і не
+/// добіркою, а **іншим конвеєром**. По цих трьох слагах aidedd публікує лише збірну сторінку
+/// без статблока, а 15 поіменних прадраконів приїхали з корпусу 5etools (книга FTD).
+const COLLECTIVE_PAGES_COVERED_BY_5ETOOLS = new Set([
+  "gem-greatwyrm",
+  "chromatic-greatwyrm",
+  "metallic-greatwyrm",
+]);
+
+const expectedStatusAfterGleaning = (slug: string) => {
+  if (GLEANED_BY_BATCHES_33_34.has(slug)) return "translated";
+  if (COLLECTIVE_PAGES_COVERED_BY_5ETOOLS.has(slug)) return "existing";
+  return "pending";
+};
 
 const byNameEng = (list: CreatureData[]) =>
   new Map(list.map((creature) => [creature.nameEng, creature]));
@@ -1381,10 +1393,10 @@ describe("KR12.3 — добірка партій 33–34 у зібраному �
     );
   });
 
-  it("тримає fields-обходи духів: КЗ, хіти з кістками хітів і три родини драконів у резисті", () => {
+  it("тримає fields-обходи духів: КЗ, хіти з Кубиками Здоровʼя і три родини драконів у резисті", () => {
     expect(catalog.get("Aberrant Spirit")?.ac).toBe("11 + рівень заклинання (природний обладунок)");
     expect(catalog.get("Draconic Spirit")?.hp).toBe(
-      "50 + 10 за кожен рівень заклинання, вищий за 5 (дракон має стільки кісток хітів [к10], скільки рівень заклинання)"
+      "50 + 10 за кожен рівень заклинання, вищий за 5 (дракон має стільки Кубиків Здоровʼя [к10], скільки рівень заклинання)"
     );
     expect(catalog.get("Draconic Spirit")?.damageResistance).toContain(
       "(тільки Хроматичний і Металевий)"
@@ -1413,9 +1425,9 @@ describe("KR12.3 — добірка партій 33–34 у зібраному �
     const actions = catalog.get("Yuan-ti Malison")?.actions ?? "";
     expect((actions.match(/<b>/g) ?? []).length).toBe(11);
     for (const type of [1, 2, 3]) {
-      expect(actions).toContain(`<b>Мультиатака (Тип ${type}, лише в подобі юань-ті).</b>`);
+      expect(actions).toContain(`<b>Мультиатака{{Multiattack}} (Тип ${type}, лише в подобі юань-ті).</b>`);
     }
-    expect(actions).toContain("<b>Здушення (Тип 3).</b>");
+    expect(actions).toContain("<b>Здушення{{Constrict}} (Тип 3).</b>");
     expect(catalog.get("Yuan-ti Malison")?.specialAbilities).toContain(
       "Тип 1: людське тіло зі зміїною головою"
     );
@@ -1451,7 +1463,74 @@ describe("KR12.3 — добірка партій 33–34 у зібраному �
 
   it("три перевикористані id замінюють спадкові записи, а не додаються до них", () => {
     const list = getAllCreatures("RULES_2014");
-    expect(list.length).toBe(687);
+    // Партія 1 KR16.3 додала 17 істот із 5etools і заступила три спадкові записи
+    // (Gnoll Witherling, Oblex Spawn, Young Kruthik), тобто 687 → 704.
+    // Партія 2 додала 18 і заступила два (Gnoll Flesh Gnawer, Maw Demon), тобто 704 → 722.
+    // Партія 3 додала 16 і заступила чотири (Adult Kruthik, Crystal Dragon Wyrmling,
+    // Dragonnel, Emerald Dragon Wyrmling), тобто 722 → 738.
+    // Партія 4 додала 18 і заступила два (Shadow Mastiff, Topaz Dragon Wyrmling), тобто
+    // 738 → 756. Двадцятий рядок партії — `Uthgardt Shaman` — спершу було відкладено з
+    // названим словниковим blocker-ом (мова `Bothii`); власник ратифікував «Ботійську» того
+    // ж дня (питання 26), і запис поїхав у каталог разом із партією.
+    // 756 → 773: партія 5 привела 17 нових і заступила три спадкові записи
+    // (Hobgoblin Devastator, Sapphire Dragon Wyrmling, Amethyst Dragon Wyrmling).
+    // 773 → 787: партія 6 привела 14 нових і заступила шість спадкових записів — найбільше з
+    // усіх партій (Yuan-ti Mind Whisperer, Yuan-ti Nightmare Speaker, Adult Oblex,
+    // Kruthik Hive Lord, Mindwitness, Spawn of Kyuss).
+    // 787 → 804: партія 7 привела 17 нових і заступила один спадковий запис
+    // (`Young Crystal Dragon` — ПС 6 і 2 300 XP замість 5 і 1 800). Два рядки партії
+    // відкладено з названими словниковими blocker-ами: `Tlincalli` (мова) і
+    // `Mouth of Grolantor` (тег типу «hill giant») — питання 28 і 29.
+    // 804 → 821: партія 8 привела 17 нових і заступила три спадкові записи
+    // (`Korred`, `Shadar-kai Shadow Dancer`, `Young Topaz Dragon`). Blocker-ів партія 8 не
+    // мала — усі реєстри, яких вона торкнулася, виявилися заповненими.
+    // 821 → 823: власник ратифікував обидва терміни, на яких стояла партія 7
+    // (питання 28 і 29), і `Tlincalli` (847) та `Mouth of Grolantor` (873) доїхали в каталог.
+    // `EXPECTED_BLOCKERS` знову порожній.
+    // 823 → 835: партія 9 привела 12 нових і заступила шість спадкових записів
+    // (`Eyedrake`, `Hoard Mimic`, `Young Emerald Dragon`, `Young Sapphire Dragon`,
+    // `Young Amethyst Dragon`, `Shadar-kai Gloom Weaver`). Два рядки партії відкладено з
+    // названим blocker-ом: `Ulitharid` і `Alhoon` несуть тег типу «mind flayer» — питання 30.
+    // 835 → 851: партія 10 привела 16 нових і заступила чотири спадкові записи
+    // (`Autumn Eladrin`, `Elder Oblex`, `Githyanki Gish`, `Githzerai Enlightened`).
+    // Blocker-ів партія 10 не мала — усі реєстри, яких вона торкнулася, виявилися заповненими.
+    // 851 → 866: партія 11 привела 15 нових і заступила пʼять спадкових записів
+    // (`Shadar-kai Soul Monger`, `Adult Crystal Dragon`, `Githyanki Kith'rak`,
+    // `Yuan-ti Anathema`, `Adult Topaz Dragon`). Приріст 15, а не 20, бо `Githyanki Kith'rak`
+    // прийшов у маніфесті під id 967, тоді як каталог тримав його під 549; рядок плану
+    // перепіновано на 549, інакше в каталозі стояли б два записи з однією назвою.
+    // Blocker-ів партія 11 не мала.
+    // Партія 12 KR16.3: +17 нових і 2 заступлені спадкові записи (`Adult Emerald Dragon`
+    // 491, `Githyanki Supreme Commander` 550). `Wersten Kern` (998) відкладено з названим
+    // blocker-ом — мова `Solamnic` поза реєстром `LanguageTranslations`.
+    // Партія 13 KR16.3: +17 нових і 3 заступлені спадкові записи (`Adult Sapphire Dragon` 495,
+    // `Adult Amethyst Dragon` 499, `Githzerai Anarch` 553). У двох перших спадковий запис ніс
+    // показник небезпеки й досвід, зсунуті рівно на один щабель униз (14/11 500 замість
+    // 15/13 000 і 15/13 000 замість 16/15 000) — узгоджено між собою, тож перевірка [7] їх
+    // не бачила. Blocker-ів партія 13 не мала.
+    // 900 → 918: партія 14 KR16.3 привела 17 нових і заступила три спадкові записи
+    // (`Ancient Crystal Dragon` 484, `Ancient Topaz Dragon` 488, `Ancient Emerald Dragon` 492),
+    // плюс `Wersten Kern` 998 — рядок партії 12, розблокований ратифікацією «Соламнійської»
+    // (питання 34). В `Ancient Emerald Dragon` спадковий запис ніс показник небезпеки й досвід,
+    // зсунуті на два щаблі вгору (23/50 000 замість 21/33 000) — узгоджено між собою, тож
+    // перевірка [7] його не бачила. Blocker-ів партія 14 не мала.
+    // 918 → 935: партія 15 KR16.3 привела 17 нових і заступила три спадкові записи
+    // (`Ancient Sapphire Dragon` 496, `Ancient Amethyst Dragon` 500, `Elder Brain Dragon` 504).
+    // Blocker-ів партія 15 не мала — жодного терміна закритого реєстру в ній не бракує.
+    // 935 → 955: партія 16 KR16.3 привела 20 нових записів і **не заступила жодного** —
+    // перша партія без заступлених за всі шістнадцять. Позаписний diff проти зрізу, знятого
+    // до партії: додано 20, видалено 0, змінено 0. Blocker-ів партія 16 не мала.
+    // 955 → 959: партія 17 KR16.3 — хвіст черги 2014. Записів чотири, а не двадцять, бо
+    // pending-рядків із повним статблоком у корпусі стільки й лишалося: три «Greatwyrm»
+    // маніфесту 5etools розписує по кольорах, а `Ranimated Companion` — помилка назви.
+    // Заступлених знову жодного. Позаписний diff проти зрізу, знятого до партії: додано 4,
+    // видалено 0, змінено 0. Blocker-ів партія 17 не мала — усі шість закритих реєстрів,
+    // яких вона торкнулася, заповнені.
+    // 959 → 974: партія 20 KR16.3 — 15 поіменних прадраконів книги FTD. Це перша партія, чиї
+    // рядки не походять із маніфесту aidedd: він дає три збірні сторінки `*-greatwyrm` без
+    // статблоків, а корпус 5etools тримає всі пʼятнадцять. Заступлених жодного; позаписний
+    // diff проти зрізу, знятого до партії: додано 15, видалено 0, змінено 0.
+    expect(list.length).toBe(974);
     for (const [creatureId, nameEng] of [
       [159, "Winter Wolf"],
       [292, "Gynosphinx"],
@@ -1462,11 +1541,78 @@ describe("KR12.3 — добірка партій 33–34 у зібраному �
     }
   });
 
-  it("після добірки 2014 має 607 перекладених і 327 pending — усі pending з дефекту джерела", () => {
+  it("після добірки 2014 має 607 перекладених, 324 pending і 3 закриті 5etools", () => {
     expect(manifest2014.filter((row) => row.status === "translated").length).toBe(607);
     const pending = manifest2014.filter((row) => row.status === "pending");
-    expect(pending.length).toBe(327);
+    expect(pending.length).toBe(324);
     expect(pending.some((row) => GLEANED_BY_BATCHES_33_34.has(row.slug))).toBe(false);
+
+    /// 327 → 324: партія 20 закрила три збірні сторінки `*-greatwyrm`. Вони не перекладені й
+    /// ніколи не будуть — aidedd не має по них статблока, — тож `existing` тут означає рівно
+    /// «покрито іншим джерелом», а не «переклад зроблено».
+    const closedElsewhere = manifest2014.filter((row) => row.status === "existing");
+    expect(closedElsewhere.map((row) => row.slug).sort()).toEqual(
+      [...COLLECTIVE_PAGES_COVERED_BY_5ETOOLS].sort()
+    );
+  });
+});
+
+/// Витік знайдено скануванням каталогу в партії 20 і жодною партією не полагоджено: партії
+/// одноразові, а три записи належать партіям 6 і 8. Дужку «blind beyond this radius» ковтає
+/// `translateDistance` — вона міняє лише `ft.`, а решту віддає дослівно. Структурні вади
+/// конвертора не чіпаються без команди власника (правило KR12.1), тож обхід — `fields.senses`.
+describe("KR12.3 — чуття 2014 без латиниці", () => {
+  const catalog = getAllCreatures("RULES_2014");
+  const byName = byNameEng(catalog);
+
+  it("жоден запис каталогу 2014 не тримає латиниці в чуттях", () => {
+    const leaking = catalog.filter((creature) => /[A-Za-z]{3,}/.test(creature.senses ?? ""));
+    expect(leaking.map((creature) => creature.nameEng)).toEqual([]);
+  });
+
+  it("три записи з дужкою «blind beyond this radius» читаються як решта корпусу", () => {
+    expect(byName.get("Needle Blight")?.senses).toBe(
+      "Сліпозір 60 фт. (сліпий за межами цього радіусу), Пасивна уважність 9"
+    );
+    expect(byName.get("Vine Blight")?.senses).toBe(
+      "Сліпозір 60 фт. (сліпий за межами цього радіусу), Пасивна уважність 10"
+    );
+    expect(byName.get("Nupperibo")?.senses).toBe(
+      "Сліпозір 20 фт. (сліпий за межами цього радіусу), Пасивна уважність 11"
+    );
+  });
+
+  it("needle-blight і twig-blight мають однакове джерело, тож і однаковий рядок чуттів", () => {
+    const readSenses = (slug: string) =>
+      parseMonster2014(readFileSync(`data/aidedd/raw/monsters-2014/${slug}.html`, "utf-8"), slug)
+        .senses;
+    expect(readSenses("needle-blight")).toBe(readSenses("twig-blight"));
+    expect(byName.get("Needle Blight")?.senses).toBe(byName.get("Twig Blight")?.senses);
+  });
+
+  it("дужка стоїть у 29 записах — три нові приєднуються до наявних 26", () => {
+    const withParenthetical = catalog.filter((creature) =>
+      (creature.senses ?? "").includes("(сліпий за межами цього радіусу)")
+    );
+    expect(withParenthetical.length).toBe(29);
+  });
+
+  /// Не дрейф: aidedd друкує цим двом «blind beyond this distance», а не «...radius», тож
+  /// успадкований рядок перекладає своє джерело точно. Третій облекс має в джерелі «radius» —
+  /// і читається як решта корпусу. Тест стоїть, щоб наступна сесія не «уніфікувала» правильне.
+  it("два облекси кажуть «цієї відстані» слідом за джерелом, третій — «цього радіусу»", () => {
+    const readSourceSenses = (slug: string) =>
+      parseMonster2014(readFileSync(`data/aidedd/raw/monsters-2014/${slug}.html`, "utf-8"), slug)
+        .senses;
+    for (const [slug, nameEng] of [
+      ["adult-oblex", "Adult Oblex"],
+      ["elder-oblex", "Elder Oblex"],
+    ] as Array<[string, string]>) {
+      expect(readSourceSenses(slug)).toContain("blind beyond this distance");
+      expect(byName.get(nameEng)?.senses).toContain("(сліпий за межами цієї відстані)");
+    }
+    expect(readSourceSenses("oblex-spawn")).toContain("blind beyond this radius");
+    expect(byName.get("Oblex Spawn")?.senses).toContain("(сліпий за межами цього радіусу)");
   });
 });
 
@@ -1518,11 +1664,11 @@ describe("KR12.3 — партія 32 у зібраному каталозі 2014
     for (let level = 1; level <= 6; level += 1) {
       expect(catalog.get(`Warrior (lvl ${level})`)?.name).toBe(`Воїн (${level} рівень)`);
     }
-    expect(catalog.get("Warrior (lvl 6)")?.specialAbilities).toContain("<b>Додаткова атака.</b>");
-    expect(catalog.get("Warrior (lvl 4)")?.reactions).toContain("<b>Захист (тільки Захисник).</b>");
+    expect(catalog.get("Warrior (lvl 6)")?.specialAbilities).toContain("<b>Додаткова атака{{Extra Attack}}.</b>");
+    expect(catalog.get("Warrior (lvl 4)")?.reactions).toContain("<b>Захист{{Protection}} (тільки Захисник).</b>");
   });
 
-  it("словник б'є сід: `Wildfire Spirit` — дух дикого вогню за `CIRCLE_OF_WILDFIRE`", () => {
+  it("словник бʼє сід: `Wildfire Spirit` — дух дикого вогню за `CIRCLE_OF_WILDFIRE`", () => {
     expect(subclassTranslations.CIRCLE_OF_WILDFIRE).toBe("Коло дикого вогню");
     expect(catalog.get("Wildfire Spirit")?.name).toBe("Дух дикого вогню");
     expect(catalog.get("Wildfire Spirit")?.name).not.toContain("полум");
@@ -1532,8 +1678,8 @@ describe("KR12.3 — партія 32 у зібраному каталозі 2014
   });
 
   it("складає дві нові назви дій духа з уже затвердженого корпусу", () => {
-    expect(catalog.get("Wildfire Spirit")?.actions).toContain("<b>Полум'яне насіння.</b>");
-    expect(catalog.get("Wildfire Spirit")?.actions).toContain("<b>Вогняна телепортація.</b>");
+    expect(catalog.get("Wildfire Spirit")?.actions).toContain("<b>Полумʼяне насіння{{Flame Seed}}.</b>");
+    expect(catalog.get("Wildfire Spirit")?.actions).toContain("<b>Вогняна телепортація{{Fiery Teleportation}}.</b>");
     expect(catalog.get("Wildfire Spirit")?.actions).toContain("1к6 + БМ вогняних ушкоджень");
   });
 
@@ -1605,13 +1751,13 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
     );
     expect(catalog.get("Dancing Item")?.hp).toBe("10 + 5 × рівень барда");
     expect(catalog.get("Drake Companion")?.hp).toBe(
-      "5 + 5 × рівень слідопита (драк має стільки кісток хітів [к10], скільки у вас рівнів слідопита)"
+      "5 + 5 × рівень слідопита (драк має стільки Кубиків Здоровʼя [к10], скільки у вас рівнів слідопита)"
     );
     expect(catalog.get("Steel Defender")?.hp).toBe(
-      "2 + ваш модифікатор Інтелекту + 5 × ваш рівень винахідника (захисник має стільки кісток хітів [к8], скільки у вас рівнів винахідника)"
+      "2 + ваш модифікатор Інтелекту + 5 × ваш рівень винахідника (захисник має стільки Кубиків Здоровʼя [к8], скільки у вас рівнів винахідника)"
     );
     expect(catalog.get("Homunculus Servant")?.hp).toBe(
-      "1 + ваш модифікатор Інтелекту + ваш рівень винахідника (гомункул має стільки кісток хітів [к4], скільки у вас рівнів винахідника)"
+      "1 + ваш модифікатор Інтелекту + ваш рівень винахідника (гомункул має стільки Кубиків Здоровʼя [к4], скільки у вас рівнів винахідника)"
     );
     for (const nameEng of [
       "Bestial Spirit",
@@ -1718,7 +1864,7 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
 
   it("тримає три fields-обходи резисту, імунітету й станів, яких словник не бере списком", () => {
     expect(catalog.get("Elemental Spirit")?.damageResistance).toBe(
-      "Кислотна (тільки Водний); Блискавична і Громова (тільки Повітряний); Коляча і Рубляча (тільки Земляний)"
+      "Кислотна (тільки Водний); Блискавична і Громова (тільки Повітряний); Колюча і Рубляча (тільки Земляний)"
     );
     expect(catalog.get("Elemental Spirit")?.damageImmunity).toBe(
       "Отруйна; Вогняна (тільки Вогняний)"
@@ -1737,7 +1883,7 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
 
   it("дописує дванадцять списків заклинань соратників, які губить парсер", () => {
     expect(catalog.get("Spellcaster (lvl 1)")?.specialAbilities).toContain(
-      "Замовляння (необмежено): Настанова [Guidance], Священне полум'я [Sacred Flame]"
+      "Замовляння (необмежено): Настанова [Guidance], Священне полумʼя [Sacred Flame]"
     );
     expect(catalog.get("Spellcaster (lvl 1)")?.specialAbilities).toContain(
       "1 рівень (2 слоти): Лікування ран [Cure Wounds]"
@@ -1762,8 +1908,8 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
     );
     for (let level = 1; level <= 6; level += 1) {
       const entry = catalog.get(`Spellcaster (lvl ${level})`)?.specialAbilities ?? "";
-      expect(entry).toContain("<b>Чаклування (Цілитель).</b>");
-      expect(entry).toContain("<b>Чаклування (Маг).</b>");
+      expect(entry).toContain("<b>Чаротворення{{Spellcasting}} (Цілитель).</b>");
+      expect(entry).toContain("<b>Чаротворення{{Spellcasting}} (Маг).</b>");
       expect(entry).toContain("Замовляння (необмежено):");
     }
   });
@@ -1776,7 +1922,7 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
     }
   });
 
-  it("перевикористовує п'ять id духів, замінюючи, а не додаючи до успадкованого каталогу", () => {
+  it("перевикористовує пʼять id духів, замінюючи, а не додаючи до успадкованого каталогу", () => {
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     for (const [nameEng, creatureId, name] of [
@@ -1817,13 +1963,13 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
     }
   });
 
-  it("словник б'є 2024-двійника: `Fiendish Spirit` — дух почвари, а не дух бестії", () => {
+  it("словник бʼє 2024-двійника: `Fiendish Spirit` — дух почвари, а не дух бестії", () => {
     expect(catalog.get("Fiendish Spirit")?.name).toBe("Дух почвари");
     expect(catalog.get("Fiendish Spirit")?.name).not.toContain("бестії");
     expect(catalog.get("Fiendish Spirit")?.type).toBe("Почвара");
   });
 
-  it("корпус б'є інтуїцію: `Drake Companion` — драк за прецедентом Драка-охоронця", () => {
+  it("корпус бʼє інтуїцію: `Drake Companion` — драк за прецедентом Драка-охоронця", () => {
     expect(catalog.get("Drake Companion")?.name).toBe("Драк-супутник");
     expect(catalog.get("Drake Companion")?.name).not.toContain("Дрейк");
     expect(catalog.get("Guard Drake")?.name).toBe("Драк-охоронець");
@@ -1831,57 +1977,57 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
 
   it("бере назви рис зі словника, ратифікованого глосарію, сідів гравця й корпусу 2014", () => {
     expect(catalog.get("Bestial Spirit")?.specialAbilities).toContain(
-      "<b>Виліт без атаки нагоди (тільки Повітряний).</b>"
+      "<b>Виліт без атаки нагоди{{Flyby}} (тільки Повітряний).</b>"
     );
-    expect(catalog.get("Bestial Spirit")?.actions).toContain("<b>Дворучний молот.</b>");
+    expect(catalog.get("Bestial Spirit")?.actions).toContain("<b>Дворучний молот{{Maul}}.</b>");
     expect(catalog.get("Construct Spirit")?.specialAbilities).toContain(
-      "<b>Розпечене тіло (тільки Метал).</b>"
+      "<b>Розпечене тіло{{Heated Body}} (тільки Метал).</b>"
     );
-    expect(catalog.get("Spellcaster (lvl 1)")?.actions).toContain("<b>Палиця.</b>");
-    expect(catalog.get("Expert (lvl 3)")?.specialAbilities).toContain("<b>Експертиза.</b>");
-    expect(catalog.get("Expert (lvl 2)")?.specialAbilities).toContain("<b>Хитра дія.</b>");
-    expect(catalog.get("Expert (lvl 6)")?.specialAbilities).toContain("<b>Додаткова атака.</b>");
-    expect(catalog.get("Warrior (lvl 2)")?.specialAbilities).toContain("<b>Друге дихання.</b>");
+    expect(catalog.get("Spellcaster (lvl 1)")?.actions).toContain("<b>Палиця{{Quarterstaff}}.</b>");
+    expect(catalog.get("Expert (lvl 3)")?.specialAbilities).toContain("<b>Експертиза{{Expertise}}.</b>");
+    expect(catalog.get("Expert (lvl 2)")?.specialAbilities).toContain("<b>Хитра дія{{Cunning Action}}.</b>");
+    expect(catalog.get("Expert (lvl 6)")?.specialAbilities).toContain("<b>Додаткова атака{{Extra Attack}}.</b>");
+    expect(catalog.get("Warrior (lvl 2)")?.specialAbilities).toContain("<b>Друге дихання{{Second Wind}}.</b>");
     expect(catalog.get("Warrior (lvl 3)")?.specialAbilities).toContain(
-      "<b>Покращений критичний удар.</b>"
+      "<b>Покращений критичний удар{{Improved Critical}}.</b>"
     );
-    expect(catalog.get("Warrior (lvl 1)")?.reactions).toContain("<b>Захист (тільки Захисник).</b>");
-    expect(catalog.get("Homunculus Servant")?.specialAbilities).toContain("<b>Ухилення.</b>");
-    expect(catalog.get("Fey Spirit")?.bonusActions).toContain("<b>Фейський крок.</b>");
+    expect(catalog.get("Warrior (lvl 1)")?.reactions).toContain("<b>Захист{{Protection}} (тільки Захисник).</b>");
+    expect(catalog.get("Homunculus Servant")?.specialAbilities).toContain("<b>Ухилення{{Evasion}}.</b>");
+    expect(catalog.get("Fey Spirit")?.bonusActions).toContain("<b>Фейський крок{{Fey Step}}.</b>");
     expect(catalog.get("Fiendish Spirit")?.specialAbilities).toContain(
-      "<b>Передсмертні корчі (тільки Демон).</b>"
+      "<b>Передсмертні корчі{{Death Throes}} (тільки Демон).</b>"
     );
     expect(catalog.get("Fiendish Spirit")?.actions).toContain(
-      "<b>Метання полум'я (тільки Диявол).</b>"
+      "<b>Метання полумʼя{{Hurl Flame}} (тільки Диявол).</b>"
     );
     expect(catalog.get("Shadow Spirit")?.bonusActions).toContain(
-      "<b>Тіньова непомітність (тільки Страх).</b>"
+      "<b>Тіньова непомітність{{Shadow Stealth}} (тільки Страх).</b>"
     );
     expect(catalog.get("Undead Spirit")?.actions).toContain(
-      "<b>Могильний заряд (тільки Скелетний).</b>"
+      "<b>Могильний заряд{{Grave Bolt}} (тільки Скелетний).</b>"
     );
     expect(catalog.get("Mighty Servant of Leuk-O")?.specialAbilities).toContain(
-      "<b>Стрибок з місця.</b>"
+      "<b>Стрибок з місця{{Standing Leap}}.</b>"
     );
   });
 
   it("розводить `Force` і `Force-Empowered`: прямий силовий удар проти удару силовим полем", () => {
-    expect(catalog.get("Homunculus Servant")?.actions).toContain("<b>Силовий удар.</b>");
-    expect(catalog.get("Dancing Item")?.actions).toContain("<b>Удар силовим полем.</b>");
-    expect(catalog.get("Steel Defender")?.actions).toContain("<b>Роздирання силовим полем.</b>");
+    expect(catalog.get("Homunculus Servant")?.actions).toContain("<b>Силовий удар{{Force Strike}}.</b>");
+    expect(catalog.get("Dancing Item")?.actions).toContain("<b>Удар силовим полем{{Force-Empowered Slam}}.</b>");
+    expect(catalog.get("Steel Defender")?.actions).toContain("<b>Роздирання силовим полем{{Force-Empowered Rend}}.</b>");
     expect(catalog.get("Dancing Item")?.actions).not.toContain("<b>Силовий удар.</b>");
   });
 
   it("розводить `Crushing` і `Destructive` у могутнього слуги", () => {
-    expect(catalog.get("Mighty Servant of Leuk-O")?.actions).toContain("<b>Руйнівний кулак.</b>");
-    expect(catalog.get("Mighty Servant of Leuk-O")?.actions).toContain("<b>Нищівний стрибок.</b>");
+    expect(catalog.get("Mighty Servant of Leuk-O")?.actions).toContain("<b>Руйнівний кулак{{Destructive Fist}}.</b>");
+    expect(catalog.get("Mighty Servant of Leuk-O")?.actions).toContain("<b>Нищівний стрибок{{Crushing Leap}}.</b>");
     expect(catalog.get("Mighty Servant of Leuk-O")?.actions).not.toContain("Нищівний кулак");
   });
 
   it("розводить `Rotting` і `Putrid`: гниючий кіготь при трупному вигляді духа", () => {
-    expect(catalog.get("Undead Spirit")?.actions).toContain("<b>Гниючий кіготь (тільки Трупний).</b>");
+    expect(catalog.get("Undead Spirit")?.actions).toContain("<b>Гниючий кіготь{{Rotting Claw}} (тільки Трупний).</b>");
     expect(catalog.get("Undead Spirit")?.specialAbilities).toContain(
-      "<b>Гнійна аура (тільки Трупний).</b>"
+      "<b>Гнійна аура{{Festering Aura}} (тільки Трупний).</b>"
     );
   });
 
@@ -1929,30 +2075,30 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
     }
   });
 
-  it("тримає п'ять fields-обходів імунітету, де «nonmagical» ламає список типів ушкоджень", () => {
+  it("тримає пʼять fields-обходів імунітету, де «nonmagical» ламає список типів ушкоджень", () => {
     expect(catalog.get("Demogorgon")?.damageImmunity).toBe(
-      "Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Vecna the Archlich")?.damageImmunity).toBe(
-      "Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Orcus")?.damageImmunity).toBe(
-      "Некротична, Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Некротична, Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Tarrasque")?.damageImmunity).toBe(
-      "Вогняна, Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Вогняна, Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Tiamat")?.damageImmunity).toBe(
-      "Кислотна, Холодна, Вогняна, Блискавична, Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Холодна, Вогняна, Блискавична, Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     for (const nameEng of ["Demogorgon", "Vecna the Archlich", "Orcus", "Tarrasque", "Tiamat"]) {
       expect(catalog.get(nameEng)?.damageImmunity).not.toMatch(/[A-Za-z]{3}/);
     }
   });
 
-  it("тримає fields-обхід резисту Заріель зі Світлом і не посрібленою зброєю", () => {
+  it("тримає fields-обхід резисту Заріель із Променевою і не посрібленою зброєю", () => {
     expect(catalog.get("Zariel")?.damageResistance).toBe(
-      "Холодна, Вогняна, Світлом; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна, Вогняна, Променева; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Zariel")?.damageResistance).not.toMatch(/[A-Za-z]{3}/);
   });
@@ -1986,13 +2132,13 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
   it("тримає чотири fields-обходи хітів — новий слот `hp` у `TranslatedFields`", () => {
     expect(catalog.get("Avatar of Death")?.hp).toBe("половина максимуму хітів того, хто його викликав");
     expect(catalog.get("Beast of the Land")?.hp).toBe(
-      "5 + 5 × рівень слідопита (звір має стільки кісток хітів [к8], скільки у вас рівнів слідопита)"
+      "5 + 5 × рівень слідопита (звір має стільки Кубиків Здоровʼя [к8], скільки у вас рівнів слідопита)"
     );
     expect(catalog.get("Beast of the Sea")?.hp).toBe(
-      "5 + 5 × рівень слідопита (звір має стільки кісток хітів [к8], скільки у вас рівнів слідопита)"
+      "5 + 5 × рівень слідопита (звір має стільки Кубиків Здоровʼя [к8], скільки у вас рівнів слідопита)"
     );
     expect(catalog.get("Beast of the Sky")?.hp).toBe(
-      "4 + 4 × рівень слідопита (звір має стільки кісток хітів [к6], скільки у вас рівнів слідопита)"
+      "4 + 4 × рівень слідопита (звір має стільки Кубиків Здоровʼя [к6], скільки у вас рівнів слідопита)"
     );
     for (const nameEng of [
       "Avatar of Death",
@@ -2016,7 +2162,7 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
     expect(catalog.get("Vecna the Archlich")?.actions).toContain(
       "Планарний перехід [Plane Shift] (лише на себе)"
     );
-    expect(catalog.get("Zariel")?.actions).toContain("Клинковий бар'єр [Blade Barrier]");
+    expect(catalog.get("Zariel")?.actions).toContain("Клинковий барʼєр [Blade Barrier]");
   });
 
   it("перевикористовує id тараска, замінюючи, а не додаючи до успадкованого каталогу", () => {
@@ -2027,7 +2173,7 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
     expect(catalog.get("Tarrasque")?.name).toBe("Тараск (Tarrasque)");
   });
 
-  it("додає дев'ять нових записів партії 30", () => {
+  it("додає девʼять нових записів партії 30", () => {
     expect(catalog.get("Demogorgon")?.name).toBe("Демогоргон");
     expect(catalog.get("Orcus")?.name).toBe("Оркус");
     expect(catalog.get("Vecna the Archlich")?.name).toBe("Векна Архіліч");
@@ -2040,25 +2186,25 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника, ратифікованого глосарію й корпусу 2014", () => {
-    expect(catalog.get("Orcus")?.actions).toContain("<b>Паличка Оркуса.</b>");
-    expect(catalog.get("Zariel")?.actions).toContain("<b>Бойовий ціп.</b>");
-    expect(catalog.get("Beast of the Land")?.actions).toContain("<b>Дворучний молот.</b>");
-    expect(catalog.get("Demogorgon")?.actions).toContain("<b>3-4: Спантеличливий погляд.</b>");
-    expect(catalog.get("Demogorgon")?.actions).toContain("<b>5-6: Гіпнотичний погляд.</b>");
-    expect(catalog.get("Tarrasque")?.specialAbilities).toContain("<b>Облогове чудовисько.</b>");
-    expect(catalog.get("Avatar of Death")?.specialAbilities).toContain("<b>Імунітет до вигнання.</b>");
+    expect(catalog.get("Orcus")?.actions).toContain("<b>Паличка Оркуса{{Wand of Orcus}}.</b>");
+    expect(catalog.get("Zariel")?.actions).toContain("<b>Бойовий ціп{{Flail}}.</b>");
+    expect(catalog.get("Beast of the Land")?.actions).toContain("<b>Дворучний молот{{Maul}}.</b>");
+    expect(catalog.get("Demogorgon")?.actions).toContain("<b>3-4: Спантеличливий погляд{{3-4: Confusing Gaze}}.</b>");
+    expect(catalog.get("Demogorgon")?.actions).toContain("<b>5-6: Гіпнотичний погляд{{5-6: Hypnotic Gaze}}.</b>");
+    expect(catalog.get("Tarrasque")?.specialAbilities).toContain("<b>Облогове чудовисько{{Siege Monster}}.</b>");
+    expect(catalog.get("Avatar of Death")?.specialAbilities).toContain("<b>Імунітет до вигнання{{Turning Immunity}}.</b>");
     expect(catalog.get("Tiamat")?.legendaryActions).toContain(
-      "<b>Голова зеленого дракона: Отруйний подих (коштує 2 дії).</b>"
+      "<b>Голова зеленого дракона: Отруйний подих{{Green Dragon Head: Poison Breath}} (коштує 2 дії).</b>"
     );
   });
 
   it("розводить `Shred` і `Rend`: звір неба дістає шматування, а не роздирання", () => {
-    expect(catalog.get("Beast of the Sky")?.actions).toContain("<b>Шматування.</b>");
+    expect(catalog.get("Beast of the Sky")?.actions).toContain("<b>Шматування{{Shred}}.</b>");
     expect(catalog.get("Beast of the Sky")?.actions).not.toContain("Роздирання");
   });
 
   it("розводить `Conjure` і `Summon`: Оркус прикликає нежить, а не викликає її", () => {
-    expect(catalog.get("Orcus")?.actions).toContain("<b>Прикликання нежиті (1 раз на день).</b>");
+    expect(catalog.get("Orcus")?.actions).toContain("<b>Прикликання нежиті{{Conjure Undead}} (1 раз на день).</b>");
     expect(catalog.get("Orcus")?.actions).not.toContain("Виклик нежиті");
   });
 
@@ -2070,14 +2216,14 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
   it("перетирає легасі-конспект тараска, заради чого KR12.3 і існує", () => {
     expect(catalog.get("Tarrasque")?.specialAbilities).not.toContain("Облоговий монстр");
     expect(catalog.get("Tarrasque")?.specialAbilities).toContain(
-      "<b>Легендарний опір (3 рази на день).</b>"
+      "<b>Легендарний опір{{Legendary Resistance}} (3 рази на день).</b>"
     );
     expect(catalog.get("Tarrasque")?.specialAbilities).not.toContain("Легендарний опір (3/день)");
-    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Кіготь.</b>");
+    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Кіготь{{Claw}}.</b>");
     expect(catalog.get("Tarrasque")?.actions).not.toContain("<b>Кігті.</b>");
-    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Жахлива присутність.</b>");
-    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Проковтування.</b>");
-    expect(catalog.get("Tarrasque")?.legendaryActions).toContain("<b>Хрускіт щелеп (коштує 2 дії).</b>");
+    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Жахлива присутність{{Frightful Presence}}.</b>");
+    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Проковтування{{Swallow}}.</b>");
+    expect(catalog.get("Tarrasque")?.legendaryActions).toContain("<b>Хрускіт щелеп{{Chomp}} (коштує 2 дії).</b>");
   });
 
   it("двадцять відкладених записів лишається pending, блокувань поза дефектом немає", () => {
@@ -2117,20 +2263,20 @@ describe("KR12.3 — партія 29 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту солара — той самий рядок, що в деви й планетара", () => {
     expect(catalog.get("Solar")?.damageResistance).toBe(
-      "Світлом; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Променева; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Solar")?.damageResistance).not.toMatch(/[A-Za-z]{3}/);
   });
 
   it("тримає три fields-обходи імунітету — емпірея, Джублекса й кракена", () => {
     expect(catalog.get("Empyrean")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Juiblex")?.damageImmunity).toBe(
-      "Кислотна, Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Kraken")?.damageImmunity).toBe(
-      "Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     for (const nameEng of ["Empyrean", "Juiblex", "Kraken"]) {
       expect(catalog.get(nameEng)?.damageImmunity).not.toMatch(/[A-Za-z]{3}/);
@@ -2145,7 +2291,7 @@ describe("KR12.3 — партія 29 у зібраному каталозі 2014
   });
 
   it("дописує три списки заклинань, які губить парсер", () => {
-    expect(catalog.get("Solar")?.specialAbilities).toContain("Клинковий бар'єр [Blade Barrier]");
+    expect(catalog.get("Solar")?.specialAbilities).toContain("Клинковий барʼєр [Blade Barrier]");
     expect(catalog.get("Solar")?.specialAbilities).toContain("Контроль погоди [Control Weather]");
     expect(catalog.get("Empyrean")?.specialAbilities).toContain("Вогняний шторм [Fire Storm]");
     expect(catalog.get("Empyrean")?.specialAbilities).toContain(
@@ -2176,22 +2322,22 @@ describe("KR12.3 — партія 29 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника, ратифікованого глосарію й 2024-двійника", () => {
-    expect(catalog.get("Solar")?.actions).toContain("<b>Дворучний меч.</b>");
-    expect(catalog.get("Solar")?.actions).toContain("<b>Летючий меч.</b>");
-    expect(catalog.get("Solar")?.actions).toContain("<b>Смертоносний довгий лук.</b>");
+    expect(catalog.get("Solar")?.actions).toContain("<b>Дворучний меч{{Greatsword}}.</b>");
+    expect(catalog.get("Solar")?.actions).toContain("<b>Летючий меч{{Flying Sword}}.</b>");
+    expect(catalog.get("Solar")?.actions).toContain("<b>Смертоносний довгий лук{{Slaying Longbow}}.</b>");
     expect(catalog.get("Solar")?.legendaryActions).toContain(
-      "<b>Засліплювальний погляд (коштує 3 дії).</b>"
+      "<b>Засліплювальний погляд{{Blinding Gaze}} (коштує 3 дії).</b>"
     );
-    expect(catalog.get("Empyrean")?.actions).toContain("<b>Дворучний молот.</b>");
-    expect(catalog.get("Empyrean")?.legendaryActions).toContain("<b>Зміцнення.</b>");
+    expect(catalog.get("Empyrean")?.actions).toContain("<b>Дворучний молот{{Maul}}.</b>");
+    expect(catalog.get("Empyrean")?.legendaryActions).toContain("<b>Зміцнення{{Bolster}}.</b>");
     expect(catalog.get("Kraken")?.legendaryActions).toContain(
-      "<b>Чорнильна хмара (коштує 3 дії).</b>"
+      "<b>Чорнильна хмара{{Ink Cloud}} (коштує 3 дії).</b>"
     );
-    expect(catalog.get("Ancient Silver Dragon")?.actions).toContain("<b>Паралітичний подих.</b>");
+    expect(catalog.get("Ancient Silver Dragon")?.actions).toContain("<b>Паралітичний подих{{Paralyzing Breath}}.</b>");
   });
 
   it("розводить `Lash` і `Whip`: Джублекс дістає хльост, а не батіг", () => {
-    expect(catalog.get("Juiblex")?.actions).toContain("<b>Кислотний хльост.</b>");
+    expect(catalog.get("Juiblex")?.actions).toContain("<b>Кислотний хльост{{Acid Lash}}.</b>");
     expect(catalog.get("Juiblex")?.actions).not.toContain("Кислотний батіг");
   });
 
@@ -2200,11 +2346,11 @@ describe("KR12.3 — партія 29 у зібраному каталозі 2014
     expect(catalog.get("Solar")?.actions).not.toContain("Лук знищення");
     expect(catalog.get("Solar")?.legendaryActions).not.toContain("Промінь світла");
     expect(catalog.get("Kraken")?.specialAbilities).not.toContain("Руйнівник кораблів");
-    expect(catalog.get("Kraken")?.specialAbilities).toContain("<b>Облогове чудовисько.</b>");
+    expect(catalog.get("Kraken")?.specialAbilities).toContain("<b>Облогове чудовисько{{Siege Monster}}.</b>");
     expect(catalog.get("Kraken")?.legendaryActions).not.toContain("Скриня чорнил");
     expect(catalog.get("Ancient Red Dragon")?.actions).not.toContain("Вогняне дихання");
     expect(catalog.get("Ancient Red Dragon")?.actions).toContain(
-      "<b>Вогняний подих (перезарядка 5–6).</b>"
+      "<b>Вогняний подих{{Fire Breath}} (перезарядка 5–6).</b>"
     );
   });
 
@@ -2249,19 +2395,19 @@ describe("KR12.3 — партія 28 у зібраному каталозі 2014
   it("тримає шість fields-обходів резисту, де «nonmagical attacks» ламає список", () => {
     for (const nameEng of ["Balor", "Belaphoss"]) {
       expect(catalog.get(nameEng)?.damageResistance).toBe(
-        "Холодна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+        "Холодна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
       );
     }
     for (const nameEng of ["Red Abishai", "Pit Fiend"]) {
       expect(catalog.get(nameEng)?.damageResistance).toBe(
-        "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+        "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
       );
     }
     expect(catalog.get("Nightwalker")?.damageResistance).toBe(
-      "Кислотна, Холодна, Вогняна, Блискавична, Громова; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Холодна, Вогняна, Блискавична, Громова; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Astral Dreadnought")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     for (const nameEng of [
       "Balor",
@@ -2277,14 +2423,14 @@ describe("KR12.3 — партія 28 у зібраному каталозі 2014
 
   it("тримає два fields-обходи ліча — імунітет і мови", () => {
     expect(catalog.get("Lich")?.damageImmunity).toBe(
-      "Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
-    expect(catalog.get("Lich")?.languages).toBe("Загальна плюс до п'яти інших мов");
+    expect(catalog.get("Lich")?.languages).toBe("Загальна плюс до пʼяти інших мов");
     expect(catalog.get("Lich")?.damageImmunity).not.toMatch(/[A-Za-z]{3}/);
     expect(catalog.get("Lich")?.languages).not.toMatch(/[A-Za-z]{3}/);
   });
 
-  it("двадцять дев'ятий запис дефекту «список заклинань поза <p>-абзацом» — три списки за spells.json", () => {
+  it("двадцять девʼятий запис дефекту «список заклинань поза <p>-абзацом» — три списки за spells.json", () => {
     expect(catalog.get("Pit Fiend")?.specialAbilities).toContain("Стіна вогню [Wall of Fire]");
     expect(catalog.get("Lich")?.specialAbilities).toContain("Слово сили: Смерть [Power Word Kill]");
     expect(catalog.get("Drow Matron Mother")?.actions).toContain("Брама [Gate]");
@@ -2321,22 +2467,22 @@ describe("KR12.3 — партія 28 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника, ратифікованого глосарію й 2024-двійника", () => {
-    expect(catalog.get("Balor")?.actions).toContain("<b>Довгий меч.</b>");
-    expect(catalog.get("Belaphoss")?.actions).toContain("<b>Велика сокира.</b>");
-    expect(catalog.get("Drow Matron Mother")?.actions).toContain("<b>Жезл щупалець.</b>");
-    expect(catalog.get("Balor")?.specialAbilities).toContain("<b>Передсмертні корчі.</b>");
-    expect(catalog.get("Lich")?.legendaryActions).toContain("<b>Жахливий погляд (коштує 2 дії).</b>");
-    expect(catalog.get("Lich")?.legendaryActions).toContain("<b>Порушення життя (коштує 3 дії).</b>");
-    expect(catalog.get("Ancient Copper Dragon")?.actions).toContain("<b>Зміна подоби.</b>");
+    expect(catalog.get("Balor")?.actions).toContain("<b>Довгий меч{{Longsword}}.</b>");
+    expect(catalog.get("Belaphoss")?.actions).toContain("<b>Велика сокира{{Greataxe}}.</b>");
+    expect(catalog.get("Drow Matron Mother")?.actions).toContain("<b>Жезл щупалець{{Tentacle Rod}}.</b>");
+    expect(catalog.get("Balor")?.specialAbilities).toContain("<b>Передсмертні корчі{{Death Throes}}.</b>");
+    expect(catalog.get("Lich")?.legendaryActions).toContain("<b>Жахливий погляд{{Frightening Gaze}} (коштує 2 дії).</b>");
+    expect(catalog.get("Lich")?.legendaryActions).toContain("<b>Порушення життя{{Disrupt Life}} (коштує 3 дії).</b>");
+    expect(catalog.get("Ancient Copper Dragon")?.actions).toContain("<b>Зміна подоби{{Change Shape}}.</b>");
   });
 
   it("тримає «Аура страху» піт фінда за 2014-корпусом, а не «Аура жаху» 2024-двійника", () => {
-    expect(catalog.get("Pit Fiend")?.specialAbilities).toContain("<b>Аура страху.</b>");
+    expect(catalog.get("Pit Fiend")?.specialAbilities).toContain("<b>Аура страху{{Fear Aura}}.</b>");
     expect(catalog.get("Pit Fiend")?.specialAbilities).not.toContain("Аура жаху");
   });
 
   it("тримає «Паралізуючий дотик» ліча за 2014-корпусом, а не «Паралізувальний» 2024-двійника", () => {
-    expect(catalog.get("Lich")?.actions).toContain("<b>Паралізуючий дотик.</b>");
+    expect(catalog.get("Lich")?.actions).toContain("<b>Паралізуючий дотик{{Paralyzing Touch}}.</b>");
     expect(catalog.get("Lich")?.actions).not.toContain("Паралізувальний");
     expect(catalog.get("Lich")?.legendaryActions).not.toContain("Паралізувальний");
   });
@@ -2345,13 +2491,13 @@ describe("KR12.3 — партія 28 у зібраному каталозі 2014
     expect(catalog.get("Balor")?.actions).not.toContain("Меч блискавки");
     expect(catalog.get("Balor")?.actions).not.toContain("Вогняний батіг");
     expect(catalog.get("Balor")?.specialAbilities).not.toContain("Передсмертний вибух");
-    expect(catalog.get("Pit Fiend")?.actions).toContain("<b>Хвіст.</b>");
+    expect(catalog.get("Pit Fiend")?.actions).toContain("<b>Хвіст{{Tail}}.</b>");
     expect(catalog.get("Lich")?.specialAbilities).not.toContain("Філактерія");
-    expect(catalog.get("Lich")?.specialAbilities).toContain("<b>Відродження.</b>");
+    expect(catalog.get("Lich")?.specialAbilities).toContain("<b>Відродження{{Rejuvenation}}.</b>");
     expect(catalog.get("Lich")?.specialAbilities).not.toContain("Легендарний опір (3/день)");
   });
 
-  it("дев'ятнадцять відкладених лишаються pending, а блокований закрила добірка", () => {
+  it("девʼятнадцять відкладених лишаються pending, а блокований закрила добірка", () => {
     for (const slug of [
       ...BATCH_TWENTY_EIGHT_DEFERRED_SLUGS,
       ...BATCH_TWENTY_EIGHT_BLOCKED_SLUGS,
@@ -2392,7 +2538,7 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
     expect(catalog.get("Iron Golem")?.languages).toBe(
       "розуміє мови свого творця, але не може говорити"
     );
-    expect(catalog.get("Nagpa")?.languages).toBe("Загальна плюс до п'яти інших мов");
+    expect(catalog.get("Nagpa")?.languages).toBe("Загальна плюс до пʼяти інших мов");
     for (const nameEng of ["Iron Golem", "Nagpa"]) {
       expect(catalog.get(nameEng)?.languages).not.toMatch(/[A-Za-z]{3}/);
     }
@@ -2401,14 +2547,14 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
   it("тримає чотири fields-обходи резисту, де «nonmagical attacks» ламає список", () => {
     for (const nameEng of ["Marilith", "Goristro"]) {
       expect(catalog.get(nameEng)?.damageResistance).toBe(
-        "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+        "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
       );
     }
     expect(catalog.get("Planetar")?.damageResistance).toBe(
-      "Світлом; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Променева; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Blue Abishai")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     for (const nameEng of ["Marilith", "Goristro", "Planetar", "Blue Abishai"]) {
       expect(catalog.get(nameEng)?.damageResistance).not.toMatch(/[A-Za-z]{3}/);
@@ -2417,17 +2563,17 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
 
   it("тримає перший за ціль резист «від магічної зброї» — напівліч", () => {
     expect(catalog.get("Demilich")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від магічної зброї"
+      "Дробляча, Колюча, Рубляча від магічної зброї"
     );
     expect(catalog.get("Demilich")?.damageResistance).not.toMatch(/[A-Za-z]{3}/);
   });
 
   it("тримає два fields-обходи імунітету партії 27", () => {
     expect(catalog.get("Iron Golem")?.damageImmunity).toBe(
-      "Вогняна, Отруйна, Психічна; Дробляча, Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Вогняна, Отруйна, Психічна; Дробляча, Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
     expect(catalog.get("Demilich")?.damageImmunity).toBe(
-      "Некротична, Отруйна, Психічна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Некротична, Отруйна, Психічна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     for (const nameEng of ["Iron Golem", "Demilich"]) {
       expect(catalog.get(nameEng)?.damageImmunity).not.toMatch(/[A-Za-z]{3}/);
@@ -2440,7 +2586,7 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
   });
 
   it("двадцять восьмий запис дефекту «список заклинань поза <p>-абзацом» — шість списків за spells.json", () => {
-    expect(catalog.get("Planetar")?.specialAbilities).toContain("Клинковий бар'єр [Blade Barrier]");
+    expect(catalog.get("Planetar")?.specialAbilities).toContain("Клинковий барʼєр [Blade Barrier]");
     expect(catalog.get("Blue Abishai")?.actions).toContain("Стіна енергії [Wall of Force]");
     expect(catalog.get("Death Knight")?.specialAbilities).toContain("Паляча кара [Searing Smite]");
     expect(catalog.get("Laeral Silverhand")?.specialAbilities).toContain("Зупинка часу [Time Stop]");
@@ -2452,7 +2598,7 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
     expect(catalog.get("Planetar")?.specialAbilities).toContain("Оживлення мерців [Raise Dead]");
   });
 
-  it("дев'ята прогалина findSpellNames — новий підклас: порожній <a> Лаерал", () => {
+  it("девʼята прогалина findSpellNames — новий підклас: порожній <a> Лаерал", () => {
     expect(catalog.get("Laeral Silverhand")?.specialAbilities).toContain(
       "Штукарство [Prestidigitation]"
     );
@@ -2466,7 +2612,7 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
 
   it("повертає загублені парсером пункти Чаклунського вогню в текст самої дії", () => {
     const actions = catalog.get("Laeral Silverhand")?.actions ?? "";
-    expect(actions).toContain("Чаклунський вогонь (перезаряджається після тривалого відпочинку)");
+    expect(actions).toContain("Чаклунський вогонь{{Spellfire}} (перезаряджається після тривалого відпочинку)");
     expect(actions).toContain("• Вона може дихати під водою.");
     expect(actions).toContain("Відродження [Revivify]");
     expect(actions).toContain("Лікування ран [Cure Wounds]");
@@ -2497,36 +2643,36 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника, ратифікованого глосарію й 2024-двійника", () => {
-    expect(catalog.get("Planetar")?.actions).toContain("<b>Дворучний меч.</b>");
-    expect(catalog.get("Planetar")?.specialAbilities).toContain("<b>Божественна обізнаність.</b>");
-    expect(catalog.get("Marilith")?.specialAbilities).toContain("<b>Реактивна майстерність.</b>");
-    expect(catalog.get("Marilith")?.reactions).toContain("<b>Парирування.</b>");
-    expect(catalog.get("Death Knight")?.specialAbilities).toContain("<b>Шикування нежиті.</b>");
-    expect(catalog.get("Death Knight")?.actions).toContain("Сфера пекельного вогню (1 раз на день)");
-    expect(catalog.get("Demilich")?.legendaryActions).toContain("Виснаження енергії (коштує 2 дії)");
-    expect(catalog.get("Drow Favored Consort")?.actions).toContain("<b>Шабля.</b>");
-    expect(catalog.get("Goristro")?.actions).toContain("<b>Копито.</b>");
-    expect(catalog.get("Goristro")?.actions).toContain("<b>Удар рогами.</b>");
+    expect(catalog.get("Planetar")?.actions).toContain("<b>Дворучний меч{{Greatsword}}.</b>");
+    expect(catalog.get("Planetar")?.specialAbilities).toContain("<b>Божественна обізнаність{{Divine Awareness}}.</b>");
+    expect(catalog.get("Marilith")?.specialAbilities).toContain("<b>Реактивна майстерність{{Reactive}}.</b>");
+    expect(catalog.get("Marilith")?.reactions).toContain("<b>Парирування{{Parry}}.</b>");
+    expect(catalog.get("Death Knight")?.specialAbilities).toContain("<b>Шикування нежиті{{Marshal Undead}}.</b>");
+    expect(catalog.get("Death Knight")?.actions).toContain("Сфера пекельного вогню{{Hellfire Orb}} (1 раз на день)");
+    expect(catalog.get("Demilich")?.legendaryActions).toContain("Виснаження енергії{{Energy Drain}} (коштує 2 дії)");
+    expect(catalog.get("Drow Favored Consort")?.actions).toContain("<b>Шабля{{Scimitar}}.</b>");
+    expect(catalog.get("Goristro")?.actions).toContain("<b>Копито{{Hoof}}.</b>");
+    expect(catalog.get("Goristro")?.actions).toContain("<b>Удар рогами{{Gore}}.</b>");
   });
 
   it("тримає «подих» замість «дихання» для обох подихів партії", () => {
-    expect(catalog.get("Iron Golem")?.actions).toContain("Отруйний подих (перезарядка 6)");
+    expect(catalog.get("Iron Golem")?.actions).toContain("Отруйний подих{{Poison Breath}} (перезарядка 6)");
     expect(catalog.get("Iron Golem")?.actions).not.toContain("Отруйне дихання");
-    expect(catalog.get("Dragon Turtle")?.actions).toContain("Паровий подих (перезарядка 5–6)");
+    expect(catalog.get("Dragon Turtle")?.actions).toContain("Паровий подих{{Steam Breath}} (перезарядка 5–6)");
   });
 
   it("розводить Avoidance і Evasion, що обидва читаються як ухилення", () => {
-    expect(catalog.get("Demilich")?.specialAbilities).toContain("<b>Ухиляння.</b>");
+    expect(catalog.get("Demilich")?.specialAbilities).toContain("<b>Ухиляння{{Avoidance}}.</b>");
     expect(catalog.get("Demilich")?.specialAbilities).not.toContain("Ухилення");
   });
 
   it("перетирає легасі-назви рис, заради чого KR12.3 і існує", () => {
-    expect(catalog.get("Dragon Turtle")?.specialAbilities).toContain("<b>Земноводність.</b>");
+    expect(catalog.get("Dragon Turtle")?.specialAbilities).toContain("<b>Земноводність{{Amphibious}}.</b>");
     expect(catalog.get("Dragon Turtle")?.specialAbilities).not.toContain("Амфібія");
-    expect(catalog.get("Dragon Turtle")?.actions).toContain("<b>Кіготь.</b>");
+    expect(catalog.get("Dragon Turtle")?.actions).toContain("<b>Кіготь{{Claw}}.</b>");
     expect(catalog.get("Dragon Turtle")?.actions).not.toContain("<b>Кігті.</b>");
     expect(catalog.get("Planetar")?.actions).not.toContain("Великий меч");
-    expect(catalog.get("Planetar")?.actions).toContain("Цілющий доторк (4 рази на день)");
+    expect(catalog.get("Planetar")?.actions).toContain("Цілющий доторк{{Healing Touch}} (4 рази на день)");
     expect(catalog.get("Planetar")?.specialAbilities).not.toContain("Божественне усвідомлення");
     expect(catalog.get("Marilith")?.reactions).not.toContain("Парування");
     expect(catalog.get("Iron Golem")?.actions).not.toContain("(перезарядка 5-6)");
@@ -2580,23 +2726,23 @@ describe("KR12.3 — партія 26 у зібраному каталозі 2014
     }
   });
 
-  it("тримає п'ять fields-обходів резисту, де «nonmagical attacks» ламає список", () => {
+  it("тримає пʼять fields-обходів резисту, де «nonmagical attacks» ламає список", () => {
     for (const nameEng of ["Ultroloth", "Nabassu"]) {
       expect(catalog.get(nameEng)?.damageResistance).toBe(
-        "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+        "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
       );
     }
     expect(catalog.get("Vampire")?.damageResistance).toBe(
-      "Некротична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Некротична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Ice Devil")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Green Abishai")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Skull Lord")?.damageResistance).toBe(
-      "Холодна, Некротична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Некротична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     for (const nameEng of ["Ultroloth", "Nabassu", "Vampire", "Ice Devil", "Green Abishai", "Skull Lord"]) {
       expect(catalog.get(nameEng)?.damageResistance).not.toMatch(/[A-Za-z]{3}/);
@@ -2605,10 +2751,10 @@ describe("KR12.3 — партія 26 у зібраному каталозі 2014
 
   it("тримає два fields-обходи імунітету партії 26", () => {
     expect(catalog.get("Rakshasa")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Retriever")?.damageImmunity).toBe(
-      "Некротична, Отруйна, Психічна; Дробляча, Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Некротична, Отруйна, Психічна; Дробляча, Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
     for (const nameEng of ["Rakshasa", "Retriever"]) {
       expect(catalog.get(nameEng)?.damageImmunity).not.toMatch(/[A-Za-z]{3}/);
@@ -2617,7 +2763,7 @@ describe("KR12.3 — партія 26 у зібраному каталозі 2014
 
   it("тримає перший за ціль fields-обхід вразливості — ракшаса", () => {
     expect(catalog.get("Rakshasa")?.damageVulnerability).toBe(
-      "Коляча від магічної зброї в руках добрих істот"
+      "Колюча від магічної зброї в руках добрих істот"
     );
     expect(catalog.get("Rakshasa")?.damageVulnerability).not.toMatch(/[A-Za-z]{3}/);
   });
@@ -2643,7 +2789,7 @@ describe("KR12.3 — партія 26 у зібраному каталозі 2014
 
   it("розводить Paralyzing Ray і Paralyzing Beam, що стали в одній партії", () => {
     expect(catalog.get("Death Tyrant")?.actions).toContain("2- Паралізуючий промінь");
-    expect(catalog.get("Retriever")?.actions).toContain("Паралітичний промінь (перезарядка 5–6)");
+    expect(catalog.get("Retriever")?.actions).toContain("Паралітичний промінь{{Paralyzing Beam}} (перезарядка 5–6)");
     expect(catalog.get("Retriever")?.actions).not.toContain("Паралізуючий промінь");
   });
 
@@ -2673,46 +2819,46 @@ describe("KR12.3 — партія 26 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника, ратифікованого глосарію й 2024-двійника", () => {
-    expect(catalog.get("Storm Giant")?.actions).toContain("<b>Дворучний меч.</b>");
-    expect(catalog.get("Storm Giant")?.actions).toContain("Блискавичний удар (перезарядка 5–6)");
-    expect(catalog.get("Ultroloth")?.actions).toContain("<b>Довгий меч.</b>");
-    expect(catalog.get("Ultroloth")?.actions).toContain("<b>Гіпнотичний погляд.</b>");
-    expect(catalog.get("Vampire")?.specialAbilities).toContain("<b>Туманна втеча.</b>");
-    expect(catalog.get("Young Red Shadow Dragon")?.specialAbilities).toContain("<b>Жива тінь.</b>");
-    expect(catalog.get("Death Tyrant")?.specialAbilities).toContain("<b>Конус негативної енергії.</b>");
-    expect(catalog.get("Retriever")?.actions).toContain("<b>Передня лапа.</b>");
-    expect(catalog.get("Skull Lord")?.actions).toContain("<b>Смертоносний промінь.</b>");
-    expect(catalog.get("Purple Worm")?.actions).toContain("<b>Жало хвоста.</b>");
+    expect(catalog.get("Storm Giant")?.actions).toContain("<b>Дворучний меч{{Greatsword}}.</b>");
+    expect(catalog.get("Storm Giant")?.actions).toContain("Блискавичний удар{{Lightning Strike}} (перезарядка 5–6)");
+    expect(catalog.get("Ultroloth")?.actions).toContain("<b>Довгий меч{{Longsword}}.</b>");
+    expect(catalog.get("Ultroloth")?.actions).toContain("<b>Гіпнотичний погляд{{Hypnotic Gaze}}.</b>");
+    expect(catalog.get("Vampire")?.specialAbilities).toContain("<b>Туманна втеча{{Misty Escape}}.</b>");
+    expect(catalog.get("Young Red Shadow Dragon")?.specialAbilities).toContain("<b>Жива тінь{{Living Shadow}}.</b>");
+    expect(catalog.get("Death Tyrant")?.specialAbilities).toContain("<b>Конус негативної енергії{{Negative Energy Cone}}.</b>");
+    expect(catalog.get("Retriever")?.actions).toContain("<b>Передня лапа{{Foreleg}}.</b>");
+    expect(catalog.get("Skull Lord")?.actions).toContain("<b>Смертоносний промінь{{Deathly Ray}}.</b>");
+    expect(catalog.get("Purple Worm")?.actions).toContain("<b>Жало хвоста{{Tail Stinger}}.</b>");
   });
 
   it("тримає «подих» для тіньового дракона всупереч «диханню» 2024-двійника", () => {
     expect(catalog.get("Young Red Shadow Dragon")?.actions).toContain(
-      "Тіньовий подих (перезарядка 5–6)"
+      "Тіньовий подих{{Shadow Breath}} (перезарядка 5–6)"
     );
     expect(catalog.get("Young Red Shadow Dragon")?.actions).not.toContain("Тіньове дихання");
   });
 
   it("тримає обмеження за подобою в назвах дій вампіра", () => {
     const actions = catalog.get("Vampire")?.actions ?? "";
-    expect(actions).toContain("Мультиатака (лише в подобі вампіра)");
-    expect(actions).toContain("Беззбройний удар (лише в подобі вампіра)");
-    expect(actions).toContain("Укус (лише в подобі кажана чи вампіра)");
-    expect(actions).toContain("Діти ночі (1 раз на день)");
-    expect(catalog.get("Vampire")?.legendaryActions).toContain("Укус (коштує 2 дії)");
+    expect(actions).toContain("Мультиатака{{Multiattack}} (лише в подобі вампіра)");
+    expect(actions).toContain("Беззбройний удар{{Unarmed Strike}} (лише в подобі вампіра)");
+    expect(actions).toContain("Укус{{Bite}} (лише в подобі кажана чи вампіра)");
+    expect(actions).toContain("Діти ночі{{Children of the Night}} (1 раз на день)");
+    expect(catalog.get("Vampire")?.legendaryActions).toContain("Укус{{Bite}} (коштує 2 дії)");
   });
 
   it("перетирає легасі-назви рис, заради чого KR12.3 і існує", () => {
-    expect(catalog.get("Vampire")?.specialAbilities).toContain("<b>Зміна подоби.</b>");
+    expect(catalog.get("Vampire")?.specialAbilities).toContain("<b>Зміна подоби{{Shapechanger}}.</b>");
     expect(catalog.get("Vampire")?.specialAbilities).not.toContain("Зміна форми");
-    expect(catalog.get("Vampire")?.specialAbilities).toContain("Легендарний опір (3 рази на день)");
+    expect(catalog.get("Vampire")?.specialAbilities).toContain("Легендарний опір{{Legendary Resistance}} (3 рази на день)");
     expect(catalog.get("Vampire")?.specialAbilities).not.toContain("(3/день)");
     expect(catalog.get("Vampire")?.actions).not.toContain("Зачарування");
-    expect(catalog.get("Storm Giant")?.specialAbilities).toContain("<b>Земноводність.</b>");
+    expect(catalog.get("Storm Giant")?.specialAbilities).toContain("<b>Земноводність{{Amphibious}}.</b>");
     expect(catalog.get("Storm Giant")?.specialAbilities).not.toContain("Амфібія");
     expect(catalog.get("Storm Giant")?.actions).not.toContain("Розряд блискавки");
     expect(catalog.get("Storm Giant")?.actions).not.toContain("Великий меч");
-    expect(catalog.get("Ice Devil")?.specialAbilities).toContain("<b>Диявольський зір.</b>");
-    expect(catalog.get("Ice Devil")?.actions).toContain("<b>Кігті.</b>");
+    expect(catalog.get("Ice Devil")?.specialAbilities).toContain("<b>Диявольський зір{{Devil's Sight}}.</b>");
+    expect(catalog.get("Ice Devil")?.actions).toContain("<b>Кігті{{Claws}}.</b>");
     expect(catalog.get("Ice Devil")?.actions).not.toContain("спис льоду");
   });
 
@@ -2767,17 +2913,17 @@ describe("KR12.3 — партія 25 у зібраному каталозі 2014
   it("тримає шість fields-обходів резисту, де «nonmagical attacks» ламає список", () => {
     for (const nameEng of ["Yagnoloth", "Arcanaloth", "Nalfeshnee"]) {
       expect(catalog.get(nameEng)?.damageResistance).toBe(
-        "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+        "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
       );
     }
     expect(catalog.get("Eidolon")?.damageResistance).toBe(
-      "Кислотна, Вогняна, Блискавична, Громова; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Вогняна, Блискавична, Громова; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Erinyes")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Narzugon")?.damageResistance).toBe(
-      "Кислотна, Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Кислотна, Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     for (const nameEng of ["Yagnoloth", "Arcanaloth", "Nalfeshnee", "Eidolon", "Erinyes", "Narzugon"]) {
       expect(catalog.get(nameEng)?.damageResistance).not.toMatch(/[A-Za-z]{3}/);
@@ -2786,7 +2932,7 @@ describe("KR12.3 — партія 25 у зібраному каталозі 2014
 
   it("тримає резист архімага, єдиний за ціль «damage from spells»", () => {
     expect(catalog.get("Archmage")?.damageResistance).toBe(
-      "Ушкодження від заклинань; Дробляча, Коляча, Рубляча від немагічної зброї (від Кам'яної шкіри [Stoneskin])"
+      "Ушкодження від заклинань; Дробляча, Колюча, Рубляча від немагічної зброї (від Камʼяної шкіри [Stoneskin])"
     );
   });
 
@@ -2812,7 +2958,7 @@ describe("KR12.3 — партія 25 у зібраному каталозі 2014
     expect(catalog.get("Arcanaloth")?.specialAbilities).not.toContain("counterspeiiJear");
   });
 
-  it("перевикористовує id п'яти записів партії 25, замінюючи, а не додаючи до успадкованого каталогу", () => {
+  it("перевикористовує id пʼяти записів партії 25, замінюючи, а не додаючи до успадкованого каталогу", () => {
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 133).length).toBe(1);
@@ -2840,25 +2986,25 @@ describe("KR12.3 — партія 25 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника, ратифікованого глосарію й 2024-двійника", () => {
-    expect(catalog.get("Archdruid")?.actions).toContain("<b>Посох.</b>");
-    expect(catalog.get("Archdruid")?.actions).toContain("<b>Дикий вогонь.</b>");
-    expect(catalog.get("Warlord")?.actions).toContain("<b>Дворучний меч.</b>");
+    expect(catalog.get("Archdruid")?.actions).toContain("<b>Посох{{Staff}}.</b>");
+    expect(catalog.get("Archdruid")?.actions).toContain("<b>Дикий вогонь{{Wildfire}}.</b>");
+    expect(catalog.get("Warlord")?.actions).toContain("<b>Дворучний меч{{Greatsword}}.</b>");
     expect(catalog.get("Warlord")?.actions).not.toContain("Великий меч");
-    expect(catalog.get("Nalfeshnee")?.actions).toContain("Аура жаху (перезарядка 5–6)");
-    expect(catalog.get("Ki-rin")?.legendaryActions).toContain("<b>Кара.</b>");
+    expect(catalog.get("Nalfeshnee")?.actions).toContain("Аура жаху{{Horror Nimbus}} (перезарядка 5–6)");
+    expect(catalog.get("Ki-rin")?.legendaryActions).toContain("<b>Кара{{Smite}}.</b>");
     expect(catalog.get("Boneclaw")?.bonusActions).toContain("Тіньова непомітність");
   });
 
   it("тримає ратифіковані обмеження за подобою дроу-арахноманта разом із перезарядкою", () => {
-    expect(catalog.get("Drow Arachnomancer")?.actions).toContain("Укус (лише в подобі павука)");
+    expect(catalog.get("Drow Arachnomancer")?.actions).toContain("Укус{{Bite}} (лише в подобі павука)");
     expect(catalog.get("Drow Arachnomancer")?.actions).toContain(
-      "Отруйний дотик (лише в подобі гуманоїда)"
+      "Отруйний дотик{{Poisonous Touch}} (лише в подобі гуманоїда)"
     );
     expect(catalog.get("Drow Arachnomancer")?.actions).toContain(
-      "Павутина (лише в подобі павука; перезарядка 5–6)"
+      "Павутина{{Web}} (лише в подобі павука; перезарядка 5–6)"
     );
     expect(catalog.get("Drow Arachnomancer")?.bonusActions).toContain(
-      "Зміна подоби (перезаряджається після короткого чи тривалого відпочинку)"
+      "Зміна подоби{{Change Shape}} (перезаряджається після короткого чи тривалого відпочинку)"
     );
   });
 
@@ -2872,31 +3018,31 @@ describe("KR12.3 — партія 25 у зібраному каталозі 2014
       "5- Промінь виснаження",
       "6- Телекінетичний промінь",
       "7- Сонний промінь",
-      "8- Промінь окам'яніння",
+      "8- Промінь окамʼяніння",
       "9- Промінь дезінтеграції",
       "10- Промінь смерті",
     ]) {
       expect(actions).toContain(ray);
     }
-    expect(catalog.get("Beholder")?.legendaryActions).toContain("<b>Очний промінь.</b>");
+    expect(catalog.get("Beholder")?.legendaryActions).toContain("<b>Очний промінь{{Eye Ray}}.</b>");
   });
 
   it("перетирає легасі-назви рис, заради чого KR12.3 і існує", () => {
     expect(catalog.get("Archmage")?.specialAbilities).not.toContain("Чаклування (Чарівник 18 рівня)");
     expect(catalog.get("Ki-rin")?.specialAbilities).toContain("Магічний опір");
     expect(catalog.get("Ki-rin")?.specialAbilities).not.toContain("Опір магії");
-    expect(catalog.get("Ki-rin")?.actions).toContain("<b>Копито.</b>");
+    expect(catalog.get("Ki-rin")?.actions).toContain("<b>Копито{{Hoof}}.</b>");
     expect(catalog.get("Ki-rin")?.actions).not.toContain("Небесна кара");
-    expect(catalog.get("Boneclaw")?.actions).toContain("<b>Колючий кіготь.</b>");
+    expect(catalog.get("Boneclaw")?.actions).toContain("<b>Колючий кіготь{{Piercing Claw}}.</b>");
     expect(catalog.get("Boneclaw")?.actions).not.toContain("Тіньовий кіготь");
     expect(catalog.get("Boneclaw")?.specialAbilities).not.toContain("Пасивна невидимість");
-    expect(catalog.get("Nalfeshnee")?.actions).toContain("<b>Кіготь.</b>");
+    expect(catalog.get("Nalfeshnee")?.actions).toContain("<b>Кіготь{{Claw}}.</b>");
     expect(catalog.get("Nalfeshnee")?.actions).not.toContain("Сяйво жаху");
-    expect(catalog.get("Beholder")?.actions).toContain("<b>Очні промені.</b>");
+    expect(catalog.get("Beholder")?.actions).toContain("<b>Очні промені{{Eye Rays}}.</b>");
     expect(catalog.get("Beholder")?.actions).not.toContain("Промінь чарування, паралічу");
   });
 
-  it("п'ятнадцять відкладених записів лишаються pending, блокувань поза дефектом немає", () => {
+  it("пʼятнадцять відкладених записів лишаються pending, блокувань поза дефектом немає", () => {
     for (const slug of [
       ...BATCH_TWENTY_FIVE_DEFERRED_SLUGS,
       ...BATCH_TWENTY_FIVE_BLOCKED_SLUGS,
@@ -2928,7 +3074,7 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
     }
   });
 
-  it("тримає fields-обхід мов кам'яного голема", () => {
+  it("тримає fields-обхід мов камʼяного голема", () => {
     expect(catalog.get("Stone Golem")?.languages).toBe(
       "розуміє мови свого творця, але не може говорити"
     );
@@ -2937,13 +3083,13 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
 
   it("тримає fields-обхід імунітету й резисту, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Stone Golem")?.damageImmunity).toBe(
-      "Отруйна, Психічна; Дробляча, Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Отруйна, Психічна; Дробляча, Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
     expect(catalog.get("Yochlol")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Horned Devil")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Stone Golem")?.damageImmunity).not.toMatch(/[A-Za-z]{3}/);
     for (const nameEng of ["Yochlol", "Horned Devil"]) {
@@ -2951,7 +3097,7 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
     }
   });
 
-  it("двадцять п'ятий запис дефекту «список заклинань поза <p>-абзацом» — сім списків за spells.json", () => {
+  it("двадцять пʼятий запис дефекту «список заклинань поза <p>-абзацом» — сім списків за spells.json", () => {
     expect(catalog.get("Winter Eladrin")?.actions).toContain("Завірюха [Sleet Storm]");
     expect(catalog.get("Yochlol")?.specialAbilities).toContain(
       "Підкорення особистості [Dominate Person]"
@@ -2965,16 +3111,16 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
 
   it("тримає уточнювачі стихійників за дужками назви заклинання", () => {
     expect(catalog.get("Dao")?.specialAbilities).toContain(
-      "З'ява стихійника [Conjure Elemental] (лише земляний елементаль)"
+      "Зʼява стихійника [Conjure Elemental] (лише земляний елементаль)"
     );
     expect(catalog.get("Djinni")?.specialAbilities).toContain(
-      "З'ява стихійника [Conjure Elemental] (лише повітряний елементаль)"
+      "Зʼява стихійника [Conjure Elemental] (лише повітряний елементаль)"
     );
     expect(catalog.get("Efreeti")?.specialAbilities).toContain(
-      "З'ява стихійника [Conjure Elemental] (лише вогняний елементаль)"
+      "Зʼява стихійника [Conjure Elemental] (лише вогняний елементаль)"
     );
     expect(catalog.get("Marid")?.specialAbilities).toContain(
-      "З'ява стихійника [Conjure Elemental] (лише водяний елементаль)"
+      "Зʼява стихійника [Conjure Elemental] (лише водяний елементаль)"
     );
     expect(catalog.get("Drow Shadowblade")?.actions).toContain(
       "Левітація [Levitate] (лише на себе)"
@@ -3009,15 +3155,15 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника, ратифікованого глосарію, 2024-двійника й сідів фіч гравця", () => {
-    expect(catalog.get("Stone Golem")?.actions).toContain("Уповільнення (перезарядка 5–6)");
+    expect(catalog.get("Stone Golem")?.actions).toContain("Уповільнення{{Slow}} (перезарядка 5–6)");
     expect(catalog.get("Djinni")?.actions).toContain("Створення вихору");
     expect(catalog.get("Marid")?.actions).toContain("Водяний струмінь");
     expect(catalog.get("Dao")?.specialAbilities).toContain("Земляне ковзання");
     expect(catalog.get("Young Gold Dragon")?.actions).toContain("Послаблюючий подих");
-    expect(catalog.get("Efreeti")?.actions).toContain("Метання полум'я");
-    expect(catalog.get("Horned Devil")?.actions).toContain("Метання полум'я");
+    expect(catalog.get("Efreeti")?.actions).toContain("Метання полумʼя");
+    expect(catalog.get("Horned Devil")?.actions).toContain("Метання полумʼя");
     for (const nameEng of ["Summer Eladrin", "Winter Eladrin"]) {
-      expect(catalog.get(nameEng)?.bonusActions).toContain("Фейський крок (перезарядка 4–6)");
+      expect(catalog.get(nameEng)?.bonusActions).toContain("Фейський крок{{Fey Step}} (перезарядка 4–6)");
     }
   });
 
@@ -3036,13 +3182,13 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
   it("перетирає легасі-назви рис, заради чого KR12.3 і існує", () => {
     expect(catalog.get("Stone Golem")?.specialAbilities).toContain("Незмінна форма");
     expect(catalog.get("Stone Golem")?.specialAbilities).toContain("Магічна зброя");
-    expect(catalog.get("Djinni")?.actions).toContain("<b>Шабля.</b>");
+    expect(catalog.get("Djinni")?.actions).toContain("<b>Шабля{{Scimitar}}.</b>");
     expect(catalog.get("Djinni")?.actions).not.toContain("Сцимітар");
     expect(catalog.get("Efreeti")?.actions).not.toContain("Сцимітар");
-    expect(catalog.get("Efreeti")?.actions).not.toContain("Удар полум'ям");
+    expect(catalog.get("Efreeti")?.actions).not.toContain("Удар полумʼям");
     expect(catalog.get("Horned Devil")?.actions).not.toContain("Вогняна куля");
-    expect(catalog.get("Remorhaz")?.actions).toContain("<b>Проковтування.</b>");
-    expect(catalog.get("Young Red Dragon")?.actions).toContain("<b>Кіготь.</b>");
+    expect(catalog.get("Remorhaz")?.actions).toContain("<b>Проковтування{{Swallow}}.</b>");
+    expect(catalog.get("Young Red Dragon")?.actions).toContain("<b>Кіготь{{Claw}}.</b>");
     expect(catalog.get("Young Red Dragon")?.actions).not.toContain("Вогняне дихання");
     expect(catalog.get("Young Gold Dragon")?.actions).toContain("Вогняний подих");
     expect(catalog.get("Young Gold Dragon")?.actions).not.toContain("Послаблююче дихання");
@@ -3090,13 +3236,13 @@ describe("KR12.3 — партія 23 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Glabrezu")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Nycaloth")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Deva")?.damageResistance).toBe(
-      "Світлом; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Променева; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     for (const nameEng of ["Glabrezu", "Nycaloth", "Deva"]) {
       expect(catalog.get(nameEng)?.damageResistance).not.toMatch(/[A-Za-z]{3}/);
@@ -3118,7 +3264,7 @@ describe("KR12.3 — партія 23 у зібраному каталозі 2014
     expect(catalog.get("War Priest")?.actions).toContain("Вартовий віри [Guardian of Faith]");
   });
 
-  it("дописує дві назви, які губить findSpellNames — четверте й п'яте спрацювання прогалини", () => {
+  it("дописує дві назви, які губить findSpellNames — четверте й пʼяте спрацювання прогалини", () => {
     expect(catalog.get("War Priest")?.actions).toContain(
       "Мале відновлення [Lesser Restoration], Відродження [Revivify]"
     );
@@ -3157,14 +3303,14 @@ describe("KR12.3 — партія 23 у зібраному каталозі 2014
     expect(catalog.get("War Priest")?.actions).toContain("Дворучний молот");
     expect(catalog.get("Gray Slaad")?.actions).toContain("Дворучний меч");
     expect(catalog.get("Nycaloth")?.actions).toContain("Велика сокира");
-    expect(catalog.get("Treant")?.actions).toContain("Оживлення дерев (1 раз на день)");
+    expect(catalog.get("Treant")?.actions).toContain("Оживлення дерев{{Animate Trees}} (1 раз на день)");
     expect(catalog.get("Deva")?.specialAbilities).toContain("Ангельська зброя");
     expect(catalog.get("Young Silver Dragon")?.actions).toContain("Паралітичний подих");
-    expect(catalog.get("Necromancer Wizard")?.reactions).toContain("Похмурі жнива (1 раз на хід)");
+    expect(catalog.get("Necromancer Wizard")?.reactions).toContain("Похмурі жнива{{Grim Harvest}} (1 раз на хід)");
   });
 
   it("розводить морозний подих саламандри й крижаний подих срібного дракона за англійським коренем", () => {
-    expect(catalog.get("Frost Salamander")?.actions).toContain("Морозний подих (перезарядка 6)");
+    expect(catalog.get("Frost Salamander")?.actions).toContain("Морозний подих{{Freezing Breath}} (перезарядка 6)");
     expect(catalog.get("Young Silver Dragon")?.actions).toContain("Крижаний подих");
     expect(catalog.get("Frost Salamander")?.actions).not.toContain("Крижаний подих");
   });
@@ -3175,23 +3321,23 @@ describe("KR12.3 — партія 23 у зібраному каталозі 2014
     expect(catalog.get("Treant")?.specialAbilities).toContain("Облогове чудовисько");
     expect(catalog.get("Treant")?.specialAbilities).not.toContain("Облоговий монстр");
     expect(catalog.get("Treant")?.actions).not.toContain("Удар стовбуром");
-    expect(catalog.get("Glabrezu")?.actions).toContain("<b>Кліщі.</b>");
+    expect(catalog.get("Glabrezu")?.actions).toContain("<b>Кліщі{{Pincer}}.</b>");
     expect(catalog.get("Glabrezu")?.actions).not.toContain("Клішня");
-    expect(catalog.get("Guardian Naga")?.specialAbilities).toContain("<b>Відродження.</b>");
+    expect(catalog.get("Guardian Naga")?.specialAbilities).toContain("<b>Відродження{{Rejuvenation}}.</b>");
     expect(catalog.get("Guardian Naga")?.specialAbilities).not.toContain("Безсмертне відродження");
     expect(catalog.get("Froghemoth")?.specialAbilities).toContain("Земноводність");
     expect(catalog.get("Froghemoth")?.specialAbilities).not.toContain("Амфібія");
     expect(catalog.get("Young Blue Dragon")?.actions).toContain(
-      "Блискавичний подих (перезарядка 5–6)"
+      "Блискавичний подих{{Lightning Breath}} (перезарядка 5–6)"
     );
     expect(catalog.get("Young Blue Dragon")?.actions).not.toContain("Дихання блискавки");
-    expect(catalog.get("Deva")?.actions).toContain("Цілющий доторк (3 рази на день)");
+    expect(catalog.get("Deva")?.actions).toContain("Цілющий доторк{{Healing Touch}} (3 рази на день)");
   });
 
   it("тримає обмеження за подобою в назвах дій обох слаадів", () => {
     for (const nameEng of ["Gray Slaad", "Death Slaad"]) {
-      expect(catalog.get(nameEng)?.actions).toContain("Укус (лише в подобі слаада)");
-      expect(catalog.get(nameEng)?.actions).toContain("Кігті (лише в подобі слаада)");
+      expect(catalog.get(nameEng)?.actions).toContain("Укус{{Bite}} (лише в подобі слаада)");
+      expect(catalog.get(nameEng)?.actions).toContain("Кігті{{Claws}} (лише в подобі слаада)");
     }
   });
 
@@ -3237,13 +3383,13 @@ describe("KR12.3 — партія 22 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту й імунітету, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Hezrou")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Bone Devil")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Clay Golem")?.damageImmunity).toBe(
-      "Кислотна, Отруйна, Психічна; Дробляча, Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Кислотна, Отруйна, Психічна; Дробляча, Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
   });
 
@@ -3284,7 +3430,7 @@ describe("KR12.3 — партія 22 у зібраному каталозі 2014
       "Мале відновлення [Lesser Restoration]"
     );
     expect(catalog.get("Drow Priestess of Lolth")?.specialAbilities).toContain(
-      "З'ява тварин [Conjure Animals] (2 гігантські павуки)"
+      "Зʼява тварин [Conjure Animals] (2 гігантські павуки)"
     );
   });
 
@@ -3327,25 +3473,25 @@ describe("KR12.3 — партія 22 у зібраному каталозі 2014
     expect(catalog.get("Hydra")?.specialAbilities).toContain("Реактивні голови");
     expect(catalog.get("Shoosuva")?.actions).toContain("Жало хвоста");
     expect(catalog.get("Clay Golem")?.specialAbilities).toContain("Поглинання кислоти");
-    expect(catalog.get("Clay Golem")?.actions).toContain("Прискорення (перезарядка 5–6)");
+    expect(catalog.get("Clay Golem")?.actions).toContain("Прискорення{{Haste}} (перезарядка 5–6)");
   });
 
   it("бере назви фіч гравця зі спадкових сідів класів", () => {
-    expect(catalog.get("Champion")?.specialAbilities).toContain("Непохитність (2 рази на день)");
+    expect(catalog.get("Champion")?.specialAbilities).toContain("Непохитність{{Indomitable}} (2 рази на день)");
     expect(catalog.get("Champion")?.bonusActions).toContain(
-      "Друге дихання (перезаряджається після короткого чи тривалого відпочинку)"
+      "Друге дихання{{Second Wind}} (перезаряджається після короткого чи тривалого відпочинку)"
     );
   });
 
   it("розводить бич жриці й батіг капітана, перетираючи легасі-«Батіг із живими зміями»", () => {
-    expect(catalog.get("Drow Priestess of Lolth")?.actions).toContain("<b>Бич.</b>");
+    expect(catalog.get("Drow Priestess of Lolth")?.actions).toContain("<b>Бич{{Scourge}}.</b>");
     expect(catalog.get("Drow Priestess of Lolth")?.actions).not.toContain("Батіг із живими зміями");
-    expect(catalog.get("Drow House Captain")?.actions).toContain("<b>Батіг.</b>");
+    expect(catalog.get("Drow House Captain")?.actions).toContain("<b>Батіг{{Whip}}.</b>");
   });
 
   it("тримає обмеження за подобою в назвах дій зеленого слаада", () => {
-    expect(catalog.get("Green Slaad")?.actions).toContain("Укус (лише в подобі слаада)");
-    expect(catalog.get("Green Slaad")?.actions).toContain("Кіготь (лише в подобі слаада)");
+    expect(catalog.get("Green Slaad")?.actions).toContain("Укус{{Bite}} (лише в подобі слаада)");
+    expect(catalog.get("Green Slaad")?.actions).toContain("Кіготь{{Claw}} (лише в подобі слаада)");
   });
 
   it("одинадцять відкладених записів лишаються pending, блокувань поза дефектом немає", () => {
@@ -3377,7 +3523,7 @@ describe("KR12.3 — партія 21 у зібраному каталозі 2014
     }
   });
 
-  it("тримає fields-обхід мов для п'яти рядків, що виходять за просте перелічення", () => {
+  it("тримає fields-обхід мов для пʼяти рядків, що виходять за просте перелічення", () => {
     expect(catalog.get("Shield Guardian")?.languages).toBe(
       "розуміє накази, віддані будь-якою мовою, але не може говорити"
     );
@@ -3394,10 +3540,10 @@ describe("KR12.3 — партія 21 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту для двох рядків, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Grick alpha")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Chain Devil")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
   });
 
@@ -3412,7 +3558,7 @@ describe("KR12.3 — партія 21 у зібраному каталозі 2014
     expect(catalog.get("Warlock of the Fiend")?.actions).toContain("Вигнання [Banishment]");
     expect(catalog.get("Blackguard")?.actions).toContain("Пошук скакуна [Find Steed]");
     expect(catalog.get("Diviner Wizard")?.actions).toContain(
-      "Телепатичний зв'язок Рері [Rary's Telepathic Bond]"
+      "Телепатичний звʼязок Рері [Rary's Telepathic Bond]"
     );
   });
 
@@ -3430,10 +3576,10 @@ describe("KR12.3 — партія 21 у зібраному каталозі 2014
     expect(catalog.get("Assassin")?.creatureId).toBe(130);
     expect(catalog.get("Chain Devil")?.creatureId).toBe(286);
     expect(catalog.get("Cloaker")?.creatureId).toBe(297);
-    expect(catalog.get("Mind Flayer")?.name).toBe("Зжирач розуму (Іллітід / Майнд Флаєр)");
+    expect(catalog.get("Mind Flayer")?.name).toBe("Мізкожер (Іллітід / Майнд Флаєр)");
   });
 
-  it("додає п'ять нових записів партії 21", () => {
+  it("додає пʼять нових записів партії 21", () => {
     expect(catalog.get("Drow Mage")?.name).toBe("Дроу-маг");
     expect(catalog.get("Grick alpha")?.name).toBe("Грік-альфа");
     expect(catalog.get("Oni")?.name).toBe("Оні");
@@ -3446,7 +3592,7 @@ describe("KR12.3 — партія 21 у зібраному каталозі 2014
     expect(catalog.get("Warlock of the Fiend")?.actions).toContain("Шабля");
     expect(catalog.get("Yuan-ti Abomination")?.actions).toContain("Довгий лук");
     expect(catalog.get("Blackguard")?.bonusActions).toContain("Штовхання");
-    expect(catalog.get("Shield Guardian")?.specialAbilities).toContain("Прив'язаність");
+    expect(catalog.get("Shield Guardian")?.specialAbilities).toContain("Привʼязаність");
     expect(catalog.get("Shield Guardian")?.specialAbilities).toContain("Зберігання заклинання");
     expect(catalog.get("Mind Flayer")?.actions).toContain("Видобування мозку");
     expect(catalog.get("Chain Devil")?.actions).toContain("Ланцюг");
@@ -3460,22 +3606,22 @@ describe("KR12.3 — партія 21 у зібраному каталозі 2014
     expect(catalog.get("Assassin")?.specialAbilities).not.toContain("Потайний удар");
     expect(catalog.get("Assassin")?.specialAbilities).toContain("Вбивство");
     expect(catalog.get("Assassin")?.specialAbilities).toContain("Ухилення");
-    expect(catalog.get("Diviner Wizard")?.reactions).toContain("Провіщення (3 рази на день)");
+    expect(catalog.get("Diviner Wizard")?.reactions).toContain("Провіщення{{Portent}} (3 рази на день)");
     expect(catalog.get("Warlock of the Fiend")?.specialAbilities).toContain("Власна удача бісів");
     expect(catalog.get("Blackguard")?.actions).toContain("Жахливий вигляд");
   });
 
   it("тримає обмеження за подобою в назвах дій оні та юань-ті", () => {
-    expect(catalog.get("Oni")?.actions).toContain("Кіготь (лише в подобі оні)");
+    expect(catalog.get("Oni")?.actions).toContain("Кіготь{{Claw}} (лише в подобі оні)");
     expect(catalog.get("Yuan-ti Abomination")?.actions).toContain(
-      "Мультиатака (лише в подобі абомінації)"
+      "Мультиатака{{Multiattack}} (лише в подобі абомінації)"
     );
     expect(catalog.get("Yuan-ti Abomination")?.specialAbilities).toContain(
-      "Вроджене чаклування (лише в подобі абомінації)"
+      "Вроджене чаклування{{Innate Spellcasting}} (лише в подобі абомінації)"
     );
   });
 
-  it("п'ятнадцять відкладених записів лишаються pending, блокувань поза дефектом немає", () => {
+  it("пʼятнадцять відкладених записів лишаються pending, блокувань поза дефектом немає", () => {
     for (const slug of BATCH_TWENTY_ONE_DEFERRED_SLUGS) {
       const row = manifest.find((r) => r.edition === "RULES_2014" && r.slug === slug);
       expect(row?.status).toBe(expectedStatusAfterGleaning(slug));
@@ -3512,21 +3658,21 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
     expect(catalog.get("Invisible Stalker")?.languages).not.toMatch(/[A-Za-z]{3}/);
   });
 
-  it("тримає fields-обхід резисту для п'яти рядків, де «nonmagical attacks» ламає список", () => {
+  it("тримає fields-обхід резисту для пʼяти рядків, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Galeb Duhr")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Invisible Stalker")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Vrock")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("White Abishai")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Black Abishai")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
   });
 
@@ -3540,7 +3686,7 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
     expect(catalog.get("Blue Slaad")?.skills).toBe("Уважність +1");
   });
 
-  it("двадцять перший запис дефекту «список заклинань поза <p>-абзацом» — п'ять списків за spells.json", () => {
+  it("двадцять перший запис дефекту «список заклинань поза <p>-абзацом» — пʼять списків за spells.json", () => {
     expect(catalog.get("Drider")?.specialAbilities).toContain("Вогники фей [Faerie fire]");
     expect(catalog.get("Githzerai Zerth")?.specialAbilities).toContain(
       "Фантомний вбивця [Phantasmal Killer]"
@@ -3557,7 +3703,7 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
     );
   });
 
-  it("перевикористовує id дев'яти записів партії 20, замінюючи, а не додаючи до успадкованого каталогу", () => {
+  it("перевикористовує id девʼяти записів партії 20, замінюючи, а не додаючи до успадкованого каталогу", () => {
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 132).length).toBe(1);
@@ -3573,7 +3719,7 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
     expect(catalog.get("Vrock")?.name).toBe("Врок (Гриф-демон)");
   });
 
-  it("додає дев'ять нових записів партії 20", () => {
+  it("додає девʼять нових записів партії 20", () => {
     expect(catalog.get("Drider")?.name).toBe("Дридер");
     expect(catalog.get("Galeb Duhr")?.name).toBe("Ґалеб Дур");
     expect(catalog.get("Invisible Stalker")?.name).toBe("Невидимий мисливець");
@@ -3593,9 +3739,9 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
     expect(catalog.get("Kuo-toa Archpriest")?.actions).toContain("Скіпетр");
     expect(catalog.get("Medusa")?.actions).toContain("Зміїне волосся");
     expect(catalog.get("Gauth")?.specialAbilities).toContain("Передсмертні корчі");
-    expect(catalog.get("Vrock")?.actions).toContain("Приголомшливий вереск (1 раз на день)");
-    expect(catalog.get("Vrock")?.actions).toContain("Спори (перезарядка 6)");
-    expect(catalog.get("Galeb Duhr")?.actions).toContain("Оживлення валунів (1 раз на день)");
+    expect(catalog.get("Vrock")?.actions).toContain("Приголомшливий вереск{{Stunning Screech}} (1 раз на день)");
+    expect(catalog.get("Vrock")?.actions).toContain("Спори{{Spores}} (перезарядка 6)");
+    expect(catalog.get("Galeb Duhr")?.actions).toContain("Оживлення валунів{{Animate Boulders}} (1 раз на день)");
     expect(catalog.get("Black Abishai")?.actions).toContain("Шабля");
   });
 
@@ -3607,10 +3753,10 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
     expect(catalog.get("Triceratops")?.actions).toContain("Удар рогами");
   });
 
-  it("тримає словниковий «Окам'янюючий погляд» проти 2024-двійника «Скам'янювальний»", () => {
-    expect(catalog.get("Medusa")?.specialAbilities).toContain("Окам'янюючий погляд");
-    expect(catalog.get("Medusa")?.specialAbilities).not.toContain("Скам'янювальний");
-    expect(catalog.get("Medusa")?.specialAbilities).toContain("стан Окам'янілий");
+  it("тримає словниковий «Окамʼянюючий погляд» проти 2024-двійника «Скамʼянювальний»", () => {
+    expect(catalog.get("Medusa")?.specialAbilities).toContain("Окамʼянюючий погляд");
+    expect(catalog.get("Medusa")?.specialAbilities).not.toContain("Скамʼянювальний");
+    expect(catalog.get("Medusa")?.specialAbilities).toContain("стан Окамʼянілий");
   });
 
   it("розводить «Приголомшливий» ґаута й врока з «Приголомшувальним» ґейзера", () => {
@@ -3672,22 +3818,22 @@ describe("KR12.3 — партія 19 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту й імунітету там, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Vampire Spawn")?.damageResistance).toBe(
-      "Некротична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Некротична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Water Elemental")?.damageResistance).toBe(
-      "Кислотна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Bodak")?.damageResistance).toBe(
-      "Холодна, Вогняна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Wraith")?.damageResistance).toBe(
-      "Кислотна, Холодна, Вогняна, Блискавична, Громова; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Кислотна, Холодна, Вогняна, Блискавична, Громова; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Xorn")?.damageResistance).toBe(
-      "Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
     expect(catalog.get("Werebear")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
   });
 
@@ -3701,7 +3847,7 @@ describe("KR12.3 — партія 19 у зібраному каталозі 2014
     expect(catalog.get("Werebear")?.speed).not.toMatch(/[A-Za-z]{3}/);
   });
 
-  it("двадцятий запис дефекту «список заклинань поза <p>-абзацом» — п'ять списків за spells.json", () => {
+  it("двадцятий запис дефекту «список заклинань поза <p>-абзацом» — пʼять списків за spells.json", () => {
     expect(catalog.get("Transmuter Wizard")?.actions).toContain("Телекінез [Telekinesis]");
     expect(catalog.get("Transmuter Wizard")?.actions).toContain("Стукіт [Knock]");
     expect(catalog.get("Conjurer Wizard")?.actions).toContain("Невидимий служник [Unseen Servant]");
@@ -3722,11 +3868,11 @@ describe("KR12.3 — партія 19 у зібраному каталозі 2014
     expect(catalog.get("Vampire Spawn")?.creatureId).toBe(154);
     expect(catalog.get("Water Elemental")?.creatureId).toBe(212);
     expect(catalog.get("Yuan-ti Pit Master")?.creatureId).toBe(423);
-    expect(catalog.get("Xorn")?.name).toBe("Ксорн (Кам'яний пожирач)");
+    expect(catalog.get("Xorn")?.name).toBe("Ксорн (Камʼяний пожирач)");
     expect(catalog.get("Werebear")?.name).toBe("Перевертень: Ведмідь-перевертень (Вербер)");
   });
 
-  it("додає дев'ять нових записів партії 19", () => {
+  it("додає девʼять нових записів партії 19", () => {
     expect(catalog.get("Transmuter Wizard")?.creatureId).toBe(848);
     expect(catalog.get("Cyclops")?.creatureId).toBe(860);
     expect(catalog.get("Umber Hulk")?.name).toBe("Амбер-халк");
@@ -3741,13 +3887,13 @@ describe("KR12.3 — партія 19 у зібраному каталозі 2014
   });
 
   it("тримає обмеження за подобою в назвах дій ведмедя-перевертня, як партія 17", () => {
-    expect(catalog.get("Werebear")?.actions).toContain("Укус (лише в подобі ведмедя чи гібрида)");
-    expect(catalog.get("Werebear")?.actions).toContain("Кіготь (лише в подобі ведмедя чи гібрида)");
+    expect(catalog.get("Werebear")?.actions).toContain("Укус{{Bite}} (лише в подобі ведмедя чи гібрида)");
+    expect(catalog.get("Werebear")?.actions).toContain("Кіготь{{Claw}} (лише в подобі ведмедя чи гібрида)");
     expect(catalog.get("Werebear")?.actions).toContain(
-      "Велика сокира (лише в подобі гуманоїда чи гібрида)"
+      "Велика сокира{{Greataxe}} (лише в подобі гуманоїда чи гібрида)"
     );
     expect(catalog.get("Yuan-ti Pit Master")?.actions).toContain(
-      "Чаклування (лише в подобі юань-ті)"
+      "Чаротворення{{Spellcasting}} (лише в подобі юань-ті)"
     );
   });
 
@@ -3769,10 +3915,15 @@ describe("KR12.3 — партія 19 у зібраному каталозі 2014
     expect(catalog.get("Sea Hag")?.actions).toContain("Смертельний погляд");
   });
 
-  it("тримає словникові «ушкодження Світлом» проти дрейфу «променисті»", () => {
-    expect(catalog.get("Vampire Spawn")?.specialAbilities).toContain("ушкоджень Світлом");
+  /// Партія 2 KR17.5, 2026-08-28: проза бестіарію 2014 зведена до ратифікованої
+  /// «променевої шкоди». Обидві зняті форми заборонені тут поіменно, бо саме на цих
+  /// двох записах вони трималися найдовше.
+  it("тримає «променеву шкоду» замість обох знятих форм", () => {
+    expect(catalog.get("Vampire Spawn")?.specialAbilities).toContain("променевої шкоди");
+    expect(catalog.get("Vampire Spawn")?.specialAbilities).not.toContain("Світлом");
     expect(catalog.get("Vampire Spawn")?.specialAbilities).not.toContain("променист");
-    expect(catalog.get("Bodak")?.specialAbilities).toContain("ушкоджень Світлом");
+    expect(catalog.get("Bodak")?.specialAbilities).toContain("променевої шкоди");
+    expect(catalog.get("Bodak")?.specialAbilities).not.toContain("Світлом");
   });
 
   it("лишає «Удар рогами» рогатому трицератопсу, а «Ріг» — єдинорогові", () => {
@@ -3828,22 +3979,22 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту й імунітету там, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Earth Elemental")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Fire Elemental")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Salamander")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Mezzoloth")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Night Hag")?.damageResistance).toBe(
-      "Холодна, Вогняна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна, Вогняна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Flesh Golem")?.damageImmunity).toBe(
-      "Блискавична, Отруйна; Дробляча, Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Блискавична, Отруйна; Дробляча, Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
   });
 
@@ -3854,7 +4005,7 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
     );
   });
 
-  it("дев'ятнадцятий запис дефекту «список заклинань поза <p>-абзацом» — чотири списки за spells.json", () => {
+  it("девʼятнадцятий запис дефекту «список заклинань поза <p>-абзацом» — чотири списки за spells.json", () => {
     expect(catalog.get("Enchanter Wizard")?.actions).toContain("Дружба [Friends]");
     expect(catalog.get("Enchanter Wizard")?.actions).toContain("Мови [Tongues]");
     expect(catalog.get("Kraken Priest")?.actions).toContain("Наказ [Command]");
@@ -3867,7 +4018,7 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
     );
   });
 
-  it("перевикористовує id п'ятнадцяти записів партії 18, замінюючи, а не додаючи до успадкованого каталогу", () => {
+  it("перевикористовує id пʼятнадцяти записів партії 18, замінюючи, а не додаючи до успадкованого каталогу", () => {
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 213).length).toBe(1);
@@ -3875,7 +4026,10 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
     expect(catalog.get("Fire Elemental")?.creatureId).toBe(211);
     expect(catalog.get("Flesh Golem")?.creatureId).toBe(191);
     expect(catalog.get("Master Thief")?.creatureId).toBe(384);
-    expect(catalog.get("Hill Giant")?.name).toBe("Гірський велетень (Хілл Джайент)");
+    // Рішення власника 2026-08-25 (питання 29): `hill` — це пагорб, а не гора, і «Гірський»
+    // вже зайнятий Mountain Dwarf. Термін ратифіковано як **«Пагорбовий велетень»** і зведено
+    // по обох каталогах, аліасах пошуку, сіді рис і прозі магічних предметів.
+    expect(catalog.get("Hill Giant")?.name).toBe("Пагорбовий велетень (Хілл Джайент)");
     expect(catalog.get("Giant Shark")?.name).toBe("Гігантська акула (Мегалодон)");
   });
 
@@ -3892,7 +4046,7 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
 
   it("складає назву дії, розірвану жирним шрифтом джерела, замість того щоб лишити «Вогонь»", () => {
     expect(catalog.get("Half-Red Dragon Veteran")?.actions).toContain(
-      "Вогняний подих (перезарядка 5–6)"
+      "Вогняний подих{{Fire Breath}} (перезарядка 5–6)"
     );
     expect(catalog.get("Half-Red Dragon Veteran")?.actions).not.toContain("Подих (перезарядка");
   });
@@ -3920,20 +4074,20 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
     expect(catalog.get("Master Thief")?.reactions).toContain("Надприродне ухилення");
   });
 
-  it("тримає словникові стани проти дрейфу: Скований, Засліплений, Окам'янілий", () => {
+  it("тримає словникові стани проти дрейфу: Скований, Засліплений, Окамʼянілий", () => {
     expect(catalog.get("Roper")?.actions).toContain("стан Скований");
     expect(catalog.get("Roper")?.actions).not.toContain("Знерухомлений");
     expect(catalog.get("Shambling Mound")?.actions).toContain("стани Засліплений і Скований");
-    expect(catalog.get("Gorgon")?.actions).toContain("стан Окам'янілий");
+    expect(catalog.get("Gorgon")?.actions).toContain("стан Окамʼянілий");
   });
 
   it("лишає «Удар рогами» рогатій істоті — той самий поділ Gore, що в партії 16", () => {
     expect(catalog.get("Gorgon")?.actions).toContain("Удар рогами");
     expect(catalog.get("Gorgon")?.actions).not.toContain("Удар бивнями");
-    expect(catalog.get("Gorgon")?.actions).toContain("Окам'янюючий подих (перезарядка 5–6)");
+    expect(catalog.get("Gorgon")?.actions).toContain("Окамʼянюючий подих{{Petrifying Breath}} (перезарядка 5–6)");
   });
 
-  it("дев'ять відкладених записів лишаються pending, блокувань поза дефектом джерела немає", () => {
+  it("девʼять відкладених записів лишаються pending, блокувань поза дефектом джерела немає", () => {
     for (const slug of BATCH_EIGHTEEN_DEFERRED_SLUGS) {
       const row = manifest.find((r) => r.edition === "RULES_2014" && r.slug === slug);
       expect(row?.status).toBe(expectedStatusAfterGleaning(slug));
@@ -3981,28 +4135,28 @@ describe("KR12.3 — партія 17 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту й імунітету там, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Merregon")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Barbed Devil")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Shadow Demon")?.damageResistance).toBe(
-      "Кислотна, Вогняна, Некротична, Громова; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Вогняна, Некротична, Громова; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Succubus")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична, Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична, Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Cambion")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична, Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична, Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Wereboar")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Weretiger")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Yeth Hound")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
   });
 
@@ -4014,7 +4168,7 @@ describe("KR12.3 — партія 17 у зібраному каталозі 2014
     expect(catalog.get("Weretiger")?.speed).toBe("30 фт. (40 фт. у подобі тигра)");
   });
 
-  it("вісімнадцятий запис дефекту «список заклинань поза <p>-абзацом» — п'ять списків, дописані вручну за spells.json", () => {
+  it("вісімнадцятий запис дефекту «список заклинань поза <p>-абзацом» — пʼять списків, дописані вручну за spells.json", () => {
     expect(catalog.get("Neogi Master")?.actions).toContain("Голод Хадара [Hunger of Hadar]");
     expect(catalog.get("Neogi Master")?.actions).toContain("Настанова [Guidance]");
     expect(catalog.get("Warlock of the Archfey")?.actions).toContain(
@@ -4061,13 +4215,13 @@ describe("KR12.3 — партія 17 у зібраному каталозі 2014
   });
 
   it("тримає обмеження за подобою в назвах дій обох перевертнів, хоч ратифікований глосарій його зрізає", () => {
-    expect(catalog.get("Weretiger")?.actions).toContain("Шабля (лише в подобі гуманоїда чи гібрида)");
-    expect(catalog.get("Weretiger")?.actions).toContain("Кіготь (лише в подобі тигра чи гібрида)");
-    expect(catalog.get("Wereboar")?.actions).toContain("Ікла (лише в подобі вепра чи гібрида)");
+    expect(catalog.get("Weretiger")?.actions).toContain("Шабля{{Scimitar}} (лише в подобі гуманоїда чи гібрида)");
+    expect(catalog.get("Weretiger")?.actions).toContain("Кіготь{{Claw}} (лише в подобі тигра чи гібрида)");
+    expect(catalog.get("Wereboar")?.actions).toContain("Ікла{{Tusks}} (лише в подобі вепра чи гібрида)");
     expect(catalog.get("Wereboar")?.specialAbilities).toContain(
-      "Наскок (лише в подобі вепра чи гібрида)"
+      "Наскок{{Charge}} (лише в подобі вепра чи гібрида)"
     );
-    expect(catalog.get("Succubus")?.actions).toContain("Кіготь (лише в подобі почвари)");
+    expect(catalog.get("Succubus")?.actions).toContain("Кіготь{{Claw}} (лише в подобі почвари)");
   });
 
   it("бере назви рис зі словника й 2024-двійника там, де ратифікований глосарій мовчить", () => {
@@ -4075,11 +4229,11 @@ describe("KR12.3 — партія 17 у зібраному каталозі 2014
     expect(catalog.get("Lizard King/Queen")?.actions).toContain("Тризуб");
     expect(catalog.get("Wereboar")?.actions).toContain("Дворучний молот");
     expect(catalog.get("Barbed Devil")?.specialAbilities).toContain("Зубчаста шкіра");
-    expect(catalog.get("Barbed Devil")?.actions).toContain("Метання полум'я");
+    expect(catalog.get("Barbed Devil")?.actions).toContain("Метання полумʼя");
     expect(catalog.get("Bulette")?.actions).toContain("Смертоносний стрибок");
     expect(catalog.get("Succubus")?.actions).toContain("Виснажливий поцілунок");
     expect(catalog.get("Warlock of the Archfey")?.reactions).toContain(
-      "Туманна втеча (перезаряджається після короткого чи тривалого відпочинку)"
+      "Туманна втеча{{Misty Escape}} (перезаряджається після короткого чи тривалого відпочинку)"
     );
   });
 
@@ -4141,31 +4295,31 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту й імунітету там, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Water Weird")?.damageResistance).toBe(
-      "Вогняна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Вогняна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Babau")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Banshee")?.damageResistance).toBe(
-      "Кислотна, Вогняна, Блискавична, Громова; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Вогняна, Блискавична, Громова; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Barghest")?.damageResistance).toBe(
-      "Холодна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Deathlock")?.damageResistance).toBe(
-      "Некротична; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Некротична; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Ghost")?.damageResistance).toBe(
-      "Кислотна, Вогняна, Блискавична, Громова; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Вогняна, Блискавична, Громова; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Helmed Horror")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
     expect(catalog.get("Werewolf")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Couatl")?.damageImmunity).toBe(
-      "Психічна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Психічна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
   });
 
@@ -4197,7 +4351,7 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
     expect(catalog.get("Lamia")?.specialAbilities).toContain("Обітниця [Geas]");
   });
 
-  it("дописує заклинання, яке губить сам сканер: нелінковане ім'я серед лінкованих у тому самому <em>", () => {
+  it("дописує заклинання, яке губить сам сканер: нелінковане імʼя серед лінкованих у тому самому <em>", () => {
     expect(catalog.get("Couatl")?.specialAbilities).toContain(
       "Захист від отрути [Protection from Poison]"
     );
@@ -4213,7 +4367,7 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
     expect(catalog.get("Werewolf")?.name).toBe("Перевертень: Вовкулака (Вервульф)");
   });
 
-  it("додає дев'ять нових записів партії 16", () => {
+  it("додає девʼять нових записів партії 16", () => {
     expect(catalog.get("Water Weird")?.creatureId).toBe(797);
     expect(catalog.get("Lamia")?.creatureId).toBe(811);
     expect(catalog.get("Water Weird")?.name).toBe("Водяний дух");
@@ -4221,7 +4375,7 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
     expect(catalog.get("Barghest")?.name).toBe("Барґест");
     expect(catalog.get("Bone Naga")?.name).toBe("Кістяна нага");
     expect(catalog.get("Elephant")?.name).toBe("Слон");
-    expect(catalog.get("Flameskull")?.name).toBe("Полум'яний череп");
+    expect(catalog.get("Flameskull")?.name).toBe("Полумʼяний череп");
     expect(catalog.get("Girallon")?.name).toBe("Ґіраллон");
     expect(catalog.get("Helmed Horror")?.name).toBe("Шоломований жах");
   });
@@ -4231,7 +4385,7 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
     expect(catalog.get("Ettin")?.actions).toContain("Бойова сокира");
     expect(catalog.get("Chuul")?.actions).toContain("Кліщі");
     expect(catalog.get("Black Pudding")?.specialAbilities).toContain("Їдка форма");
-    expect(catalog.get("Ghost")?.actions).toContain("Одержимість (перезарядка 6)");
+    expect(catalog.get("Ghost")?.actions).toContain("Одержимість{{Possession}} (перезарядка 6)");
     expect(catalog.get("Helmed Horror")?.specialAbilities).toContain("Імунітет до заклинань");
   });
 
@@ -4240,7 +4394,7 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
     expect(catalog.get("Ghost")?.actions).toContain("Ефірність");
   });
 
-  it("розділяє Gore на дві українські назви: слон б'є бивнями, а не рогами", () => {
+  it("розділяє Gore на дві українські назви: слон бʼє бивнями, а не рогами", () => {
     expect(catalog.get("Elephant")?.actions).toContain("Удар бивнями");
     expect(catalog.get("Elephant")?.actions).not.toContain("Удар рогами");
     expect(catalog.get("Rhinoceros")?.actions).toContain("Удар рогами");
@@ -4286,10 +4440,10 @@ describe("KR12.3 — партія 15 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту там, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Merrenoloth")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Mummy")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
   });
 
@@ -4322,7 +4476,7 @@ describe("KR12.3 — партія 15 у зібраному каталозі 2014
     expect(catalog.get("Martial Arts Adept")?.name).toBe("Адепт бойових мистецтв (Монах)");
   });
 
-  it("додає дев'ять нових записів партії 15", () => {
+  it("додає девʼять нових записів партії 15", () => {
     expect(catalog.get("Hook Horror")?.creatureId).toBe(781);
     expect(catalog.get("Trapper")?.creatureId).toBe(795);
     expect(catalog.get("Illusionist Wizard")?.name).toBe("Чарівник-ілюзіоніст");
@@ -4382,7 +4536,7 @@ describe("KR12.3 — партія 14 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту там, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Bearded Devil")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
   });
 
@@ -4392,7 +4546,7 @@ describe("KR12.3 — партія 14 у зібраному каталозі 2014
     );
   });
 
-  it("п'ятнадцятий запис дефекту «список заклинань поза <p>-абзацом» — три списки, дописані вручну за spells.json", () => {
+  it("пʼятнадцятий запис дефекту «список заклинань поза <p>-абзацом» — три списки, дописані вручну за spells.json", () => {
     expect(catalog.get("Brain in a Jar")?.specialAbilities).toContain(
       "Огидний сміх Таші [Tasha's Hideous Laughter]"
     );
@@ -4456,7 +4610,7 @@ describe("KR12.3 — партія 13 у зібраному каталозі 2014
     }
   });
 
-  it("тримає fields-обхід мов для всіх п'яти рядків, що виходять за просте перелічення", () => {
+  it("тримає fields-обхід мов для всіх пʼяти рядків, що виходять за просте перелічення", () => {
     expect(catalog.get("Pegasus")?.languages).toBe(
       "розуміє Небесну, Загальну, Ельфійську та Сільван, але не може ними говорити"
     );
@@ -4470,16 +4624,16 @@ describe("KR12.3 — партія 13 у зібраному каталозі 2014
 
   it("тримає fields-обхід резисту та імунітету там, де «nonmagical attacks» ламає список", () => {
     expect(catalog.get("Peryton")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Spined Devil")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Will-o'-Wisp")?.damageResistance).toBe(
-      "Кислотна, Холодна, Вогняна, Некротична, Громова; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Холодна, Вогняна, Некротична, Громова; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
     expect(catalog.get("Wererat")?.damageImmunity).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
   });
 
@@ -4508,7 +4662,7 @@ describe("KR12.3 — партія 13 у зібраному каталозі 2014
     expect(catalog.get("Rug of Smothering")?.name).toBe("Килим задушення (Анімований килим)");
   });
 
-  it("додає дев'ять нових записів партії 13", () => {
+  it("додає девʼять нових записів партії 13", () => {
     expect(catalog.get("Orog")?.creatureId).toBe(738);
     expect(catalog.get("Quetzalcoatlus")?.creatureId).toBe(742);
     expect(catalog.get("Will-o'-Wisp")?.creatureId).toBe(752);
@@ -4584,12 +4738,12 @@ describe("KR12.3 — партія 12 у зібраному каталозі 2014
     );
     for (const nameEng of ["Grick", "Intellect Devourer", "Minor Fire Elemental"]) {
       expect(catalog.get(nameEng)?.damageResistance).toBe(
-        "Дробляча, Коляча, Рубляча від немагічної зброї"
+        "Дробляча, Колюча, Рубляча від немагічної зброї"
       );
     }
   });
 
-  it("тринадцятий запис дефекту «список заклинань поза <p>-абзацом» — п'ять списків, дописаних вручну за spells.json", () => {
+  it("тринадцятий запис дефекту «список заклинань поза <p>-абзацом» — пʼять списків, дописаних вручну за spells.json", () => {
     expect(catalog.get("Githzerai Monk")?.specialAbilities).toContain(
       "Бачення невидимого [See Invisibility]"
     );
@@ -4600,7 +4754,7 @@ describe("KR12.3 — партія 12 у зібраному каталозі 2014
       "Проростання шипів [Spike Growth]"
     );
     expect(catalog.get("Orc Claw of Luthic")?.specialAbilities).toContain(
-      "Охоронний зв'язок [Warding Bond]"
+      "Охоронний звʼязок [Warding Bond]"
     );
     expect(catalog.get("Orc Hand of Yurtrus")?.specialAbilities).toContain(
       "Сліпота/глухота [Blindness/Deafness]"
@@ -4621,7 +4775,7 @@ describe("KR12.3 — партія 12 у зібраному каталозі 2014
     expect(catalog.get("Ochre Jelly")?.name).toBe("Охристий желе (Охре Джеллі)");
   });
 
-  it("додає дев'ять нових записів партії 12, зокрема перший запис на джерелі з непризначеного ще enum", () => {
+  it("додає девʼять нових записів партії 12, зокрема перший запис на джерелі з непризначеного ще enum", () => {
     expect(catalog.get("Githzerai Monk")?.creatureId).toBe(725);
     expect(catalog.get("Guard Drake")?.creatureId).toBe(728);
     expect(catalog.get("Orc Hand of Yurtrus")?.creatureId).toBe(737);
@@ -4720,7 +4874,7 @@ describe("KR12.3 — партія 11 у зібраному каталозі 2014
       "Сліпозір 60 фт. (сліпий за межами цього радіусу), Пасивна уважність 8"
     );
     expect(catalog.get("Gargoyle")?.damageResistance).toBe(
-      "Дробляча, Коляча, Рубляча від немагічної, не адамантинової зброї"
+      "Дробляча, Колюча, Рубляча від немагічної, не адамантинової зброї"
     );
   });
 
@@ -4808,10 +4962,10 @@ describe("KR12.3 — партія 10 у зібраному каталозі 2014
 
   it("зберігає fields-обхід резисту ушкоджень там, де крапка з комою або 'not silvered' ламають список", () => {
     expect(catalog.get("Imp")?.damageResistance).toBe(
-      "Холодна; Дробляча, Коляча, Рубляча від немагічної, не посрібленої зброї"
+      "Холодна; Дробляча, Колюча, Рубляча від немагічної, не посрібленої зброї"
     );
     expect(catalog.get("Quasit")?.damageResistance).toBe(
-      "Холодна, Вогняна, Блискавична; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Холодна, Вогняна, Блискавична; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
   });
 
@@ -4840,7 +4994,7 @@ describe("KR12.3 — партія 10 у зібраному каталозі 2014
     expect(catalog.get("Thri-kreen")?.creatureId).toBe(706);
   });
 
-  it("дев'ять відкладених записів лишаються pending з batch 10 закріпленим, включно з quadrone — четвертим дроуном/модроном поспіль", () => {
+  it("девʼять відкладених записів лишаються pending з batch 10 закріпленим, включно з quadrone — четвертим дроуном/модроном поспіль", () => {
     for (const slug of BATCH_TEN_DEFERRED_SLUGS) {
       const row = manifest.find((r) => r.edition === "RULES_2014" && r.slug === slug);
       expect(row?.status).toBe(expectedStatusAfterGleaning(slug));
@@ -4908,9 +5062,9 @@ describe("KR12.3 — партія 8 у зібраному каталозі 2014"
   });
 
   it("зберігає fields-обхід резисту ушкоджень там, де кома розриває комбінований список 'X, Y, and Z from nonmagical attacks'", () => {
-    expect(catalog.get("Magmin")?.damageResistance).toBe("Дробляча, Коляча, Рубляча від немагічної зброї");
+    expect(catalog.get("Magmin")?.damageResistance).toBe("Дробляча, Колюча, Рубляча від немагічної зброї");
     expect(catalog.get("Shadow")?.damageResistance).toBe(
-      "Кислотна, Холодна, Вогняна, Блискавична, Громова; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Кислотна, Холодна, Вогняна, Блискавична, Громова; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
   });
 
@@ -4970,7 +5124,7 @@ describe("KR12.3 — партія 9 у зібраному каталозі 2014"
     }
   });
 
-  it("розв'язує колізію українських імен Giant Frog/Giant Toad: Giant Toad стає 'Гігантська ропуха' за 2024-прецедентом", () => {
+  it("розвʼязує колізію українських імен Giant Frog/Giant Toad: Giant Toad стає 'Гігантська ропуха' за 2024-прецедентом", () => {
     expect(catalog.get("Giant Toad")?.name).toBe("Гігантська ропуха");
     expect(catalog.get("Giant Frog")?.name).toBe("Гігантська жаба (Жаба-бик)");
 
@@ -4999,7 +5153,7 @@ describe("KR12.3 — партія 9 у зібраному каталозі 2014"
   });
 
   it("зберігає fields-обхід резисту ушкоджень і мов для fire-snake ('X, Y, and Z from nonmagical attacks' і 'understands X but can't speak')", () => {
-    expect(catalog.get("Fire Snake")?.damageResistance).toBe("Дробляча, Коляча, Рубляча від немагічної зброї");
+    expect(catalog.get("Fire Snake")?.damageResistance).toBe("Дробляча, Колюча, Рубляча від немагічної зброї");
     expect(catalog.get("Fire Snake")?.languages).toBe("розуміє Ігнанську, але не може говорити");
   });
 
@@ -5065,7 +5219,7 @@ describe("KR12.3 — партія 7 у зібраному каталозі 2014"
     expect(catalog.get("Gazer")?.source).toBe("MPMM");
   });
 
-  it("дописує вручну список заклинань Глибинного гнома, що на джерелі йде поза <p> (п'ятий випадок цього класу дефекту в KR12.3)", () => {
+  it("дописує вручну список заклинань Глибинного гнома, що на джерелі йде поза <p> (пʼятий випадок цього класу дефекту в KR12.3)", () => {
     expect(catalog.get("Deep Gnome (Svirfneblin)")?.specialAbilities).toContain(
       "Невиявлення [Nondetection]"
     );
@@ -5259,10 +5413,10 @@ describe("KR12.3 — партія 5 у зібраному каталозі 2014"
     expect(catalog.get("Grung")?.creatureId).toBe(631);
   });
 
-  it("розводить назву Giant Frog із наявною Giant Toad — обидві інакше давали б однакове українське ім'я «Гігантська жаба»", () => {
+  it("розводить назву Giant Frog із наявною Giant Toad — обидві інакше давали б однакове українське імʼя «Гігантська жаба»", () => {
     expect(catalog.get("Giant Frog")?.name).toBe("Гігантська жаба (Жаба-бик)");
     // KR12.3 партія 9 перезаписала цей запис: 2024-каталог розрізняє Giant Frog/«Гігантська жаба»
-    // і Giant Toad/«Гігантська ропуха», тож застаріле легасі-ім'я тут більше не вірне.
+    // і Giant Toad/«Гігантська ропуха», тож застаріле легасі-імʼя тут більше не вірне.
     expect(catalog.get("Giant Toad")?.name).toBe("Гігантська ропуха");
     expect(catalog.get("Giant Frog")?.name).not.toBe(catalog.get("Giant Toad")?.name);
   });
@@ -5323,7 +5477,7 @@ describe("KR12.3 — партія 4 у зібраному каталозі 2014"
     );
   });
 
-  it("перевикористовує id дев'ятнадцяти MM-записів партії 4, замінюючи, а не додаючи до успадкованого каталогу", () => {
+  it("перевикористовує id девʼятнадцяти MM-записів партії 4, замінюючи, а не додаючи до успадкованого каталогу", () => {
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 111).length).toBe(1);
@@ -5379,7 +5533,7 @@ describe("KR12.3 — партія 3 у зібраному каталозі 2014"
     );
   });
 
-  it("перевикористовує id дев'яти MM-записів партії 3, замінюючи, а не додаючи до успадкованого каталогу", () => {
+  it("перевикористовує id девʼяти MM-записів партії 3, замінюючи, а не додаючи до успадкованого каталогу", () => {
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 253).length).toBe(1);
@@ -5417,7 +5571,7 @@ describe("KR12.3 — партія 2 у зібраному каталозі 2014"
 
   it("восьмий fields-слот (damageImmunity) обходить крапку з комою у списку імунітетів Лорда мумій", () => {
     expect(catalog.get("Mummy Lord")?.damageImmunity).toBe(
-      "Некротична, Отруйна; Дробляча, Коляча, Рубляча від немагічної зброї"
+      "Некротична, Отруйна; Дробляча, Колюча, Рубляча від немагічної зброї"
     );
   });
 

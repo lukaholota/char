@@ -109,7 +109,7 @@ describe("KR16.1 — розкладач розмітки 5etools", () => {
     expect(decomposeMarkup("{@recharge}").text).toBe("(Recharge 6)");
   });
 
-  it("ставить знак модифікатора, зокрема від'ємного", () => {
+  it("ставить знак модифікатора, зокрема відʼємного", () => {
     expect(decomposeMarkup("{@hit 4} to hit").text).toBe("+4 to hit");
     expect(decomposeMarkup("{@hit -1} to hit").text).toBe("-1 to hit");
   });

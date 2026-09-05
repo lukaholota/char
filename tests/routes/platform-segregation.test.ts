@@ -26,7 +26,6 @@ describe("KR7.2 / KR7.3 — Platform & Routing Segregation Architecture", () => 
         "/char",
         "/char/create",
         "/char/home",
-        "/pers/789",
       ];
 
       for (const route of routes2014) {
@@ -66,6 +65,7 @@ describe("KR7.2 / KR7.3 — Platform & Routing Segregation Architecture", () => 
       expect(getTargetEditionPath("/magic-items", "2024")).toBe("/2024/magic-items");
       expect(getTargetEditionPath("/feats", "2024")).toBe("/2024/feats");
       expect(getTargetEditionPath("/char", "2024")).toBe("/2024/char");
+      expect(getTargetEditionPath("/char/create", "2024")).toBe("/2024/char");
       expect(getTargetEditionPath("/bestiary", "2024")).toBe("/2024/bestiary");
       expect(getTargetEditionPath("/rules", "2024")).toBe("/2024/rules");
       expect(getTargetEditionPath("/rules/combat", "2024")).toBe("/2024/rules/combat");
@@ -78,7 +78,7 @@ describe("KR7.2 / KR7.3 — Platform & Routing Segregation Architecture", () => 
       expect(getTargetEditionPath("/2024/spells/10", "2014")).toBe("/spells/10");
       expect(getTargetEditionPath("/2024/magic-items", "2014")).toBe("/magic-items");
       expect(getTargetEditionPath("/2024/feats", "2014")).toBe("/feats");
-      expect(getTargetEditionPath("/2024/char", "2014")).toBe("/char");
+      expect(getTargetEditionPath("/2024/char", "2014")).toBe("/char/create");
       expect(getTargetEditionPath("/2024/bestiary", "2014")).toBe("/bestiary");
       expect(getTargetEditionPath("/2024/rules", "2014")).toBe("/rules");
       expect(getTargetEditionPath("/2024/rules/combat", "2014")).toBe("/rules/combat");
@@ -96,7 +96,7 @@ describe("KR7.2 / KR7.3 — Platform & Routing Segregation Architecture", () => 
     it("computes the correct 2014 fallback path for unauthorized redirects", () => {
       expect(get2014FallbackPath("/2024")).toBe("/");
       expect(get2014FallbackPath("/2024/spells")).toBe("/spells");
-      expect(get2014FallbackPath("/2024/char")).toBe("/char");
+      expect(get2014FallbackPath("/2024/char")).toBe("/char/create");
       expect(get2014FallbackPath("/2024/magic-items")).toBe("/magic-items");
       expect(get2014FallbackPath("/2024/feats")).toBe("/feats");
       expect(get2014FallbackPath("/2024/bestiary")).toBe("/bestiary");
@@ -105,13 +105,12 @@ describe("KR7.2 / KR7.3 — Platform & Routing Segregation Architecture", () => 
     });
   });
 
+  /// Передрелізний гейт знято 2026-08-28 — реформа вийшла назагал. Тест лишається
+  /// зворотним: він ловить спробу знову звузити доступ мовчки, бо саме на цьому
+  /// тримається статичність каталогів 2024 (без auth() немає динамічного рендеру).
   describe("Access Guard", () => {
-    it("restricts 2024 access to authorized users only", () => {
-      expect(canAccess2024Route({ email: "lukagolota1@gmail.com" })).toBe(true);
-      expect(canAccess2024Route({ email: "luka@holota.family" })).toBe(true);
-      expect(canAccess2024Route({ email: "random-user@gmail.com" })).toBe(false);
-      expect(canAccess2024Route(null)).toBe(false);
-      expect(canAccess2024Route(undefined)).toBe(false);
+    it("opens 2024 to everyone, including anonymous visitors", () => {
+      expect(canAccess2024Route()).toBe(true);
     });
   });
 

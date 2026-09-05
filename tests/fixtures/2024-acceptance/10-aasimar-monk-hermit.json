@@ -1,0 +1,80 @@
+{
+  "id": "10-aasimar-monk-hermit",
+  "title": "Aasimar Monk 5 — Hermit",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.10",
+  "why": "Риса замість підвищення характеристик на 4-му рівні, і майстерності зброї не має бути взагалі.",
+  "input": {
+    "species": "AASIMAR_2024",
+    "class": "MONK_2024",
+    "background": "HERMIT_2024",
+    "subclass": "WARRIOR_OF_THE_OPEN_HAND",
+    "baseAbilityScores": {
+      "STR": 12,
+      "DEX": 15,
+      "CON": 13,
+      "INT": 10,
+      "WIS": 14,
+      "CHA": 8
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "WIS",
+      "plusOne": "CON"
+    },
+    "originFeat": "HEALER",
+    "speciesChoices": [],
+    "levelUps": [
+      {
+        "level": 2
+      },
+      {
+        "level": 3,
+        "subclass": "WARRIOR_OF_THE_OPEN_HAND"
+      },
+      {
+        "level": 4,
+        "feat": "GRAPPLER",
+        "featAbility": "DEX"
+      },
+      {
+        "level": 5
+      }
+    ],
+    "classEquipment": "b"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 12,
+      "DEX": 16,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 16,
+      "CHA": 8
+    },
+    "feats": [
+      "HEALER",
+      "GRAPPLER"
+    ],
+    "requiredFeatures": [
+      "Aasimar: Celestial Revelation (2024)",
+      "Aasimar: Healing Hands (2024)",
+      "Monk: Unarmored Defense (2024)",
+      "Monk: Martial Arts (2024)",
+      "Monk: Extra Attack (2024)",
+      "Monk: Stunning Strike (2024)"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Aasimar: Celestial Revelation (2024)",
+        "kind": "feature",
+        "characterLevel": 3
+      }
+    ],
+    "weaponMastery": {
+      "capacity": 0
+    },
+    "spellSources": [],
+    "grantedSpells": [],
+    "bastionUnlocked": true
+  }
+}

@@ -7,6 +7,7 @@ import {
   featTranslations,
   featCategoryTranslations,
 } from "@/lib/refs/translation";
+import { stripSpellAnchors } from "@/lib/spell-link";
 
 const NORMALIZED_DIR = join(process.cwd(), "data/2024/normalized");
 
@@ -43,6 +44,30 @@ describe("KR6.2 — normalized 2024 data never silently defaults to RULES_2014",
         expect(record.engName, filename).toBeTruthy();
       }
     }
+  });
+});
+
+describe("KR18.6 — Weapon Mastery capacity stays in class data", () => {
+  type ClassRecord = {
+    engName: string;
+    weaponMasteryProgression?: number[];
+  };
+
+  const classes = readJson("classes.json") as ClassRecord[];
+  const progressionOf = (engName: string) =>
+    classes.find((characterClass) => characterClass.engName === engName)?.weaponMasteryProgression;
+
+  it("stores one capacity value for every class level", () => {
+    for (const characterClass of classes) {
+      expect(characterClass.weaponMasteryProgression, characterClass.engName).toHaveLength(20);
+    }
+  });
+
+  it("keeps Fighter, Rogue, and Monk capacities in data rather than UI constants", () => {
+    expect(progressionOf("Fighter")?.[0]).toBe(3);
+    expect(progressionOf("Fighter")?.[4]).toBe(4);
+    expect(progressionOf("Rogue")?.[4]).toBe(2);
+    expect(progressionOf("Monk")?.[4]).toBe(0);
   });
 });
 
@@ -315,9 +340,11 @@ describe("KR6.2 Phase 3 — full PHB 2024 spell corpus", () => {
     expect(raw.includes("NEEDS-SPELL-TRANSLATION")).toBe(false);
   });
 
-  it("no description leaks raw HTML tags (normalized data is plain text, unlike the production DB column)", () => {
+  /// Прози тут не буває з розміткою — крім якоря на заклинання, який ставить проставляч O25
+  /// (KR25.4). Його знімає `stripSpellAnchors`, тож будь-який інший тег і далі валить гейт.
+  it("no description leaks raw HTML tags beyond the spell anchor (normalized data is otherwise plain text)", () => {
     for (const s of spells) {
-      expect(/<[a-zA-Z/][^>]*>/.test(s.description), s.engName).toBe(false);
+      expect(/<[a-zA-Z/][^>]*>/.test(stripSpellAnchors(s.description)), s.engName).toBe(false);
     }
   });
 });
@@ -423,9 +450,9 @@ describe("KR6.2 Phase 5 — full magic item catalog translation", () => {
     }
   });
 
-  it("no translated description leaks raw HTML tags", () => {
+  it("no translated description leaks raw HTML tags beyond the spell anchor", () => {
     for (const item of magicItems) {
-      expect(/<[a-zA-Z/][^>]*>/.test(item.description as string), item.engName).toBe(false);
+      expect(/<[a-zA-Z/][^>]*>/.test(stripSpellAnchors(item.description as string)), item.engName).toBe(false);
     }
   });
 

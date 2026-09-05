@@ -1,0 +1,119 @@
+{
+  "id": "23-dwarf-monk4-sorcerer4",
+  "title": "Дворф, Монах 4 / Чародій 4 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §23",
+  "why": "Дві альтернативні формули базового КЗ не складаються; розподіл походження +1/+1/+1.",
+  "input": {
+    "species": "DWARF_2024",
+    "startingClass": "MONK_2024",
+    "background": "WAYFARER_2024",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 15,
+      "CON": 12,
+      "INT": 10,
+      "WIS": 14,
+      "CHA": 13
+    },
+    "backgroundAsi": {
+      "mode": "+1/+1/+1",
+      "abilities": [
+        "DEX",
+        "WIS",
+        "CHA"
+      ]
+    },
+    "originFeat": "LUCKY",
+    "speciesChoices": [],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "MONK_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "MONK_2024",
+        "isNewClass": false,
+        "subclass": "WARRIOR_OF_SHADOW"
+      },
+      {
+        "characterLevel": 4,
+        "class": "MONK_2024",
+        "isNewClass": false,
+        "feat": "GRAPPLER",
+        "featAbility": "DEX"
+      },
+      {
+        "characterLevel": 5,
+        "class": "SORCERER_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 6,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 7,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "subclass": "DRACONIC_SORCERY"
+      },
+      {
+        "characterLevel": 8,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "feat": "WAR_CASTER",
+        "featAbility": "CHA"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "MONK_2024",
+    "classLevels": {
+      "MONK_2024": 4,
+      "SORCERER_2024": 4
+    },
+    "subclassByClass": {
+      "MONK_2024": "WARRIOR_OF_SHADOW",
+      "SORCERER_2024": "DRACONIC_SORCERY"
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 17,
+      "CON": 12,
+      "INT": 10,
+      "WIS": 15,
+      "CHA": 15
+    },
+    "feats": [
+      "LUCKY",
+      "GRAPPLER",
+      "WAR_CASTER"
+    ],
+    "requiredFeatures": [
+      "Monk: Unarmored Defense (2024)",
+      "Draconic Sorcery: Draconic Resilience (2024)"
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d8": 4,
+      "d6": 4
+    },
+    "casterLevel": 4,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 2,
+    "pactSlots": null,
+    "baseArmorClassFormulas": {
+      "offered": 2,
+      "active": 1
+    },
+    "bastionFacilityLimit": 2,
+    "bastionFacilityMatches": {
+      "War Room": "met",
+      "Arcane Study": "met"
+    }
+  }
+}

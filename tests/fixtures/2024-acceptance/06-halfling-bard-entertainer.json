@@ -1,0 +1,89 @@
+{
+  "id": "06-halfling-bard-entertainer",
+  "title": "Halfling Bard 5 — Entertainer",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.6",
+  "why": "Три ступені володіння навичкою — немає / володіє / компетентність — а не булеве поле.",
+  "input": {
+    "species": "HALFLING_2024",
+    "class": "BARD_2024",
+    "background": "ENTERTAINER_2024",
+    "subclass": "COLLEGE_OF_LORE",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 14,
+      "CON": 12,
+      "INT": 13,
+      "WIS": 10,
+      "CHA": 15
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "CHA",
+      "plusOne": "DEX"
+    },
+    "originFeat": "MUSICIAN",
+    "speciesChoices": [],
+    "levelUps": [
+      {
+        "level": 2,
+        "expertise": [
+          "PERSUASION",
+          "PERFORMANCE"
+        ]
+      },
+      {
+        "level": 3,
+        "subclass": "COLLEGE_OF_LORE"
+      },
+      {
+        "level": 4,
+        "asi": [
+          {
+            "ability": "CHA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 5
+      }
+    ],
+    "classEquipment": "a"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 15,
+      "CON": 12,
+      "INT": 13,
+      "WIS": 10,
+      "CHA": 19
+    },
+    "feats": [
+      "MUSICIAN"
+    ],
+    "requiredFeatures": [
+      "Halfling: Luck (2024)",
+      "Halfling: Brave (2024)",
+      "Bard: Bardic Inspiration (2024)",
+      "Bard: Spellcasting (2024)",
+      "Bard: Expertise (2024)"
+    ],
+    "characterLevelGatedGrants": [],
+    "weaponMastery": {
+      "capacity": 0
+    },
+    "expertiseSkills": [
+      "PERSUASION",
+      "PERFORMANCE"
+    ],
+    "spellSources": [
+      {
+        "source": "BARD_2024",
+        "ability": "CHA"
+      }
+    ],
+    "grantedSpells": [],
+    "bastionUnlocked": true
+  }
+}

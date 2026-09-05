@@ -1,0 +1,192 @@
+{
+  "id": "14-human-fighter6-rogue4",
+  "title": "Людина, Воїн 6 / Пройдисвіт 4 (рівень 10)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §14",
+  "why": "ASI воїна на 6-му рівні класу, «Вправний» двічі, шість володінь із рис, бастіон на чотири приміщення.",
+  "input": {
+    "species": "HUMAN_2024",
+    "startingClass": "FIGHTER_2024",
+    "background": "SCRIBE_2024",
+    "baseAbilityScores": {
+      "STR": 10,
+      "DEX": 15,
+      "CON": 14,
+      "INT": 13,
+      "WIS": 12,
+      "CHA": 8
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "DEX",
+      "plusOne": "INT"
+    },
+    "originFeat": "SKILLED",
+    "originFeatChoices": [
+      {
+        "choice": "Володіння",
+        "option": "SLEIGHT_OF_HAND"
+      },
+      {
+        "choice": "Володіння",
+        "option": "STEALTH"
+      },
+      {
+        "choice": "Володіння",
+        "option": "PERCEPTION"
+      }
+    ],
+    "classChoices": [
+      {
+        "choice": "Бойовий стиль",
+        "option": "Defense"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Риса походження",
+        "option": "Skilled"
+      }
+    ],
+    "weaponMastery": [
+      "Longsword",
+      "Greatsword",
+      "Longbow"
+    ],
+    "speciesFeatChoices": [
+      {
+        "choice": "Володіння",
+        "option": "ATHLETICS"
+      },
+      {
+        "choice": "Володіння",
+        "option": "INSIGHT"
+      },
+      {
+        "choice": "Володіння",
+        "option": "SURVIVAL"
+      }
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "FIGHTER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "subclass": "BATTLE_MASTER"
+      },
+      {
+        "characterLevel": 4,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "feat": "DUAL_WIELDER",
+        "featAbility": "DEX",
+        "weaponMastery": [
+          "Longsword",
+          "Greatsword",
+          "Longbow",
+          "Rapier"
+        ]
+      },
+      {
+        "characterLevel": 5,
+        "class": "FIGHTER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "feat": "SKILL_EXPERT",
+        "featAbility": "DEX"
+      },
+      {
+        "characterLevel": 7,
+        "class": "ROGUE_2024",
+        "isNewClass": true,
+        "expertise": [
+          "STEALTH",
+          "SLEIGHT_OF_HAND"
+        ]
+      },
+      {
+        "characterLevel": 8,
+        "class": "ROGUE_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 9,
+        "class": "ROGUE_2024",
+        "isNewClass": false,
+        "subclass": "SOULKNIFE"
+      },
+      {
+        "characterLevel": 10,
+        "class": "ROGUE_2024",
+        "isNewClass": false,
+        "feat": "DEFENSIVE_DUELIST"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 10,
+    "startingClass": "FIGHTER_2024",
+    "classLevels": {
+      "FIGHTER_2024": 6,
+      "ROGUE_2024": 4
+    },
+    "subclassByClass": {
+      "FIGHTER_2024": "BATTLE_MASTER",
+      "ROGUE_2024": "SOULKNIFE"
+    },
+    "finalAbilityScores": {
+      "STR": 10,
+      "DEX": 20,
+      "CON": 14,
+      "INT": 14,
+      "WIS": 12,
+      "CHA": 8
+    },
+    "feats": [
+      "SKILLED",
+      "SKILLED",
+      "DEFENSE",
+      "DUAL_WIELDER",
+      "SKILL_EXPERT",
+      "DEFENSIVE_DUELIST"
+    ],
+    "proficiencyBonus": 4,
+    "hitDiceByType": {
+      "d10": 6,
+      "d8": 4
+    },
+    "casterLevel": 0,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 0,
+    "pactSlots": null,
+    "asiClassLevelsOffered": {
+      "FIGHTER_2024": [
+        4,
+        6
+      ]
+    },
+    "repeatedFeat": {
+      "name": "SKILLED",
+      "times": 2,
+      "grantedProficiencies": 6
+    },
+    "weaponMastery": {
+      "capacity": 4,
+      "weapons": [
+        "Longsword",
+        "Greatsword",
+        "Longbow",
+        "Rapier"
+      ]
+    },
+    "bastionFacilityLimit": 4
+  }
+}

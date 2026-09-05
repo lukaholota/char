@@ -9,9 +9,14 @@ const VALID_RARITIES = new Set(Object.values(ItemRarity));
 describe("KR9.1 — 2014 Magic Items Catalog Expansion (400+ items)", () => {
   const items2014 = getAllMagicItems("RULES_2014");
 
-  it("містить понад 400 канонічних магічних предметів для 2014 (472 предмети)", () => {
+  /// Пін стояв на 472 — числі, яке пережило O14 лише в **негітованому**
+  /// `src/lib/generated/magicItems.json`; перегенерація 2026-08-26 звела його з базою на 475
+  /// ([KR14.5](../../docs/o14-magic-items-aidedd/kr14.5-seed-and-reconciliation.md)).
+  /// [KR16.4](../../docs/o16-5etools-canon/kr16.4-magic-items.md) доклав 191 рядок черги —
+  /// 146 нових записів і 45 переписаних, — тож 2026-08-27 пін переїхав на 621.
+  it("містить понад 400 канонічних магічних предметів для 2014 (621 предмет)", () => {
     expect(items2014.length).toBeGreaterThanOrEqual(400);
-    expect(items2014.length).toBe(472);
+    expect(items2014.length).toBe(621);
   });
 
   it("кожен предмет має унікальний engName та унікальний magicItemId", () => {

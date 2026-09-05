@@ -12,7 +12,7 @@ const METAMAGIC_LEVELS: Record<number, string[]> = {
 
 export const sequence: LevelUpSequence = {
   id: "sorcerer-1-to-20",
-  why: "Одноклассовий Sorcerer 1→20 — повний кастер, підклас на 1 рівні (Wild Magic — жодних subclassChoiceOptions, на відміну від Draconic Bloodline із 10 опціями на 1 рівні). Метамагія (SORCERER_METAMAGIC у choicePoolRules.ts) — так само як Warlock-виклики, ClassChoiceOption самого класу, незалежний від підкласу: явний вибір на 3 (2 піки), 10 (+1) і 17 (+1) рівнях обов'язковий незалежно від того, який Sorcerous Origin обрано.",
+  why: "Одноклассовий Sorcerer 1→20 — повний кастер, підклас на 1 рівні (Wild Magic — жодних subclassChoiceOptions, на відміну від Draconic Bloodline із 10 опціями на 1 рівні). Метамагія (SORCERER_METAMAGIC у choicePoolRules.ts) — так само як Warlock-виклики, ClassChoiceOption самого класу, незалежний від підкласу: явний вибір на 3 (2 піки), 10 (+1) і 17 (+1) рівнях обовʼязковий незалежно від того, який Sorcerous Origin обрано.",
   maxLevel: 20,
   async startForm() {
     const [race, cls, background] = await Promise.all([

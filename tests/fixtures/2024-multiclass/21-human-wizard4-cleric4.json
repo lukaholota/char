@@ -1,0 +1,145 @@
+{
+  "id": "21-human-wizard4-cleric4",
+  "title": "Людина, Чарівник 4 / Клірик 4 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §21",
+  "why": "Те саме заклинання з двох джерел; розрив між слотами й підготовкою; книга чарівника окремим шаром.",
+  "input": {
+    "species": "HUMAN_2024",
+    "startingClass": "WIZARD_2024",
+    "background": "ACOLYTE",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 10,
+      "CON": 13,
+      "INT": 15,
+      "WIS": 14,
+      "CHA": 12
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "INT",
+      "plusOne": "WIS"
+    },
+    "originFeat": "MAGIC_INITIATE",
+    "originFeatChoices": [
+      {
+        "choice": "Список заклинань",
+        "option": "Cleric"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Риса походження",
+        "option": "Magic Initiate"
+      }
+    ],
+    "speciesFeatChoices": [
+      {
+        "choice": "Список заклинань",
+        "option": "Druid"
+      }
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "WIZARD_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "WIZARD_2024",
+        "isNewClass": false,
+        "subclass": "DIVINER"
+      },
+      {
+        "characterLevel": 4,
+        "class": "WIZARD_2024",
+        "isNewClass": false,
+        "feat": "WAR_CASTER",
+        "featAbility": "INT"
+      },
+      {
+        "characterLevel": 5,
+        "class": "CLERIC_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 6,
+        "class": "CLERIC_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 7,
+        "class": "CLERIC_2024",
+        "isNewClass": false,
+        "subclass": "LIGHT_DOMAIN"
+      },
+      {
+        "characterLevel": 8,
+        "class": "CLERIC_2024",
+        "isNewClass": false,
+        "feat": "FEY_TOUCHED",
+        "featAbility": "WIS"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "WIZARD_2024",
+    "classLevels": {
+      "WIZARD_2024": 4,
+      "CLERIC_2024": 4
+    },
+    "subclassByClass": {
+      "WIZARD_2024": "DIVINER",
+      "CLERIC_2024": "LIGHT_DOMAIN"
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 10,
+      "CON": 13,
+      "INT": 18,
+      "WIS": 16,
+      "CHA": 12
+    },
+    "feats": [
+      "MAGIC_INITIATE",
+      "MAGIC_INITIATE",
+      "WAR_CASTER",
+      "FEY_TOUCHED"
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d6": 4,
+      "d8": 4
+    },
+    "casterLevel": 8,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 4,
+    "pactSlots": null,
+    "classSpellSources": [
+      {
+        "source": "WIZARD_2024",
+        "ability": "INT"
+      },
+      {
+        "source": "CLERIC_2024",
+        "ability": "WIS"
+      }
+    ],
+    "preparedSpellLineClasses": [
+      "WIZARD_2024",
+      "CLERIC_2024"
+    ],
+    "maxPreparableSpellLevelByClass": {
+      "WIZARD_2024": 2,
+      "CLERIC_2024": 2
+    },
+    "spellbookClass": "WIZARD_2024",
+    "magicInitiateLists": [
+      "Cleric",
+      "Druid"
+    ],
+    "bastionFacilityLimit": 2
+  }
+}

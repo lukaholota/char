@@ -20,6 +20,8 @@ export interface LevelUpFormData {
   expertiseSchema: { expertises: string[] };
   languagesSchema: { languages: string[] };
   infusionSelections: number[];
+  /** KR18.6: повний набір майстерності зброї після цього рівня. Немає ключа — набір не чіпають. */
+  weaponMasteryWeaponIds?: number[];
   levelUpHpIncrease?: number;
 }
 

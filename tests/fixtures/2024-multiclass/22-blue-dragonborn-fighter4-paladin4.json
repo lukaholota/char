@@ -1,0 +1,175 @@
+{
+  "id": "22-blue-dragonborn-fighter4-paladin4",
+  "title": "Драконороджений (Синій), Воїн 4 / Паладин 4 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §22",
+  "why": "Рівень персонажа 8, а Додаткової атаки немає в жодного класу — вона відкривається рівнем класу.",
+  "input": {
+    "species": "DRAGONBORN_2024",
+    "startingClass": "FIGHTER_2024",
+    "background": "NOBLE_2024",
+    "baseAbilityScores": {
+      "STR": 15,
+      "DEX": 10,
+      "CON": 13,
+      "INT": 8,
+      "WIS": 12,
+      "CHA": 14
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "STR",
+      "plusOne": "CHA"
+    },
+    "originFeat": "SKILLED",
+    "originFeatChoices": [
+      {
+        "choice": "Володіння",
+        "option": "HISTORY"
+      },
+      {
+        "choice": "Володіння",
+        "option": "PERSUASION"
+      },
+      {
+        "choice": "Володіння",
+        "option": "INSIGHT"
+      }
+    ],
+    "classChoices": [
+      {
+        "choice": "Бойовий стиль",
+        "option": "Defense"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Драконяче походження",
+        "option": "Blue"
+      }
+    ],
+    "weaponMastery": [
+      "Longsword",
+      "Greatsword",
+      "Javelin"
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "FIGHTER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "subclass": "BATTLE_MASTER"
+      },
+      {
+        "characterLevel": 4,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "feat": "POLEARM_MASTER",
+        "featAbility": "STR",
+        "weaponMastery": [
+          "Longsword",
+          "Greatsword",
+          "Javelin",
+          "Glaive"
+        ]
+      },
+      {
+        "characterLevel": 5,
+        "class": "PALADIN_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 6,
+        "class": "PALADIN_2024",
+        "isNewClass": false,
+        "classChoices": [
+          {
+            "choice": "Бойовий стиль",
+            "option": "Dueling"
+          }
+        ]
+      },
+      {
+        "characterLevel": 7,
+        "class": "PALADIN_2024",
+        "isNewClass": false,
+        "subclass": "OATH_OF_GLORY"
+      },
+      {
+        "characterLevel": 8,
+        "class": "PALADIN_2024",
+        "isNewClass": false,
+        "asi": [
+          {
+            "ability": "CON",
+            "value": 1
+          },
+          {
+            "ability": "CHA",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "FIGHTER_2024",
+    "classLevels": {
+      "FIGHTER_2024": 4,
+      "PALADIN_2024": 4
+    },
+    "subclassByClass": {
+      "FIGHTER_2024": "BATTLE_MASTER",
+      "PALADIN_2024": "OATH_OF_GLORY"
+    },
+    "finalAbilityScores": {
+      "STR": 18,
+      "DEX": 10,
+      "CON": 14,
+      "INT": 8,
+      "WIS": 12,
+      "CHA": 16
+    },
+    "feats": [
+      "SKILLED",
+      "DEFENSE",
+      "POLEARM_MASTER",
+      "DUELING"
+    ],
+    "absentFeatures": [
+      "Fighter: Extra Attack (2024)",
+      "Paladin: Extra Attack (2024)"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Dragonborn: Draconic Flight (2024)",
+        "kind": "feature",
+        "characterLevel": 5
+      }
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d10": 8
+    },
+    "casterLevel": 2,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 1,
+    "pactSlots": null,
+    "extraAttackCount": 0,
+    "weaponMastery": {
+      "capacity": 4,
+      "weapons": [
+        "Longsword",
+        "Greatsword",
+        "Javelin",
+        "Glaive"
+      ]
+    },
+    "bastionFacilityLimit": 2
+  }
+}

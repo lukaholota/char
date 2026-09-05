@@ -1,0 +1,147 @@
+{
+  "id": "25-orc-wizard1-fighter5-rogue1",
+  "title": "Орк, Чарівник 1 → Воїн 5 → Пройдисвіт 1 (рівень 7)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §25",
+  "why": "Порядок узяття класів як окремий стан: різні кубики хітів, скорочений пакет володінь воїна, глобальний бонус вправності.",
+  "input": {
+    "species": "ORC_2024",
+    "startingClass": "WIZARD_2024",
+    "background": "ARTISAN_2024",
+    "baseAbilityScores": {
+      "STR": 10,
+      "DEX": 15,
+      "CON": 13,
+      "INT": 14,
+      "WIS": 12,
+      "CHA": 8
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "DEX",
+      "plusOne": "INT"
+    },
+    "originFeat": "CRAFTER",
+    "speciesChoices": [],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "FIGHTER_2024",
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Бойовий стиль",
+            "option": "Defense"
+          }
+        ],
+        "weaponMastery": [
+          "Longsword",
+          "Rapier",
+          "Shortsword"
+        ]
+      },
+      {
+        "characterLevel": 3,
+        "class": "FIGHTER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 4,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "subclass": "BATTLE_MASTER"
+      },
+      {
+        "characterLevel": 5,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "feat": "DUAL_WIELDER",
+        "featAbility": "DEX",
+        "weaponMastery": [
+          "Longsword",
+          "Rapier",
+          "Shortsword",
+          "Scimitar"
+        ]
+      },
+      {
+        "characterLevel": 6,
+        "class": "FIGHTER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 7,
+        "class": "ROGUE_2024",
+        "isNewClass": true,
+        "expertise": [
+          "STEALTH",
+          "ARCANA"
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 7,
+    "startingClass": "WIZARD_2024",
+    "classLevels": {
+      "WIZARD_2024": 1,
+      "FIGHTER_2024": 5,
+      "ROGUE_2024": 1
+    },
+    "subclassByClass": {
+      "WIZARD_2024": null,
+      "FIGHTER_2024": "BATTLE_MASTER",
+      "ROGUE_2024": null
+    },
+    "finalAbilityScores": {
+      "STR": 10,
+      "DEX": 18,
+      "CON": 13,
+      "INT": 15,
+      "WIS": 12,
+      "CHA": 8
+    },
+    "feats": [
+      "CRAFTER",
+      "DEFENSE",
+      "DUAL_WIELDER"
+    ],
+    "requiredFeatures": [
+      "Fighter: Extra Attack (2024)"
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d6": 1,
+      "d10": 5,
+      "d8": 1
+    },
+    "casterLevel": 1,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 1,
+    "pactSlots": null,
+    "classSpellSources": [
+      {
+        "source": "WIZARD_2024",
+        "ability": "INT"
+      }
+    ],
+    "extraAttackCount": 1,
+    "armorProficiencies": [
+      "LIGHT",
+      "MEDIUM",
+      "SHIELD"
+    ],
+    "weaponProficiencyTypes": [
+      "MARTIAL_WEAPON"
+    ],
+    "weaponMastery": {
+      "capacity": 4,
+      "weapons": [
+        "Longsword",
+        "Rapier",
+        "Shortsword",
+        "Scimitar"
+      ]
+    },
+    "bastionFacilityLimit": 2
+  }
+}

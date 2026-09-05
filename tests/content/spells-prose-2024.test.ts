@@ -37,6 +37,14 @@ const KNOWN_PROSE_GAPS_2024: Record<string, string> = {
   "Leomund's Secret Chest":
     "XPHB пише розміри словами — «3 feet by 2 feet by 2 feet»; наш текст стискає їх у " +
     "«(3×2×2 фути)». Величини ті самі, запис інший",
+  "Faerie Fire":
+    "XPHB тегує «Attack rolls» як {@action Attack}; тут ідеться про кидки атаки, " +
+    "а не про дію Атака, тож український текст не має додавати неіснуючу дію",
+  "Enlarge/Reduce":
+    "XPHB пише звичайне «attacks», а не тег {@action Attack}; «Атаки цілі» — не дія Атака",
+  "Rope Trick":
+    "XPHB пише звичайне «Attacks», а не тег {@action Attack}; «Атаки, чари та інші ефекти» " +
+    "— не дія Атака",
 };
 
 function findProseMismatches(row: CatalogRow): ProseFactMismatch[] {

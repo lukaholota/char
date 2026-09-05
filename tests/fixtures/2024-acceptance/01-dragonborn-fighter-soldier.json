@@ -1,0 +1,113 @@
+{
+  "id": "01-dragonborn-fighter-soldier",
+  "title": "Red Dragonborn Fighter 5 — Soldier",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.1",
+  "why": "Предок виду + майстерність зброї + риса виду, що відкривається на 5-му рівні персонажа.",
+  "input": {
+    "species": "DRAGONBORN_2024",
+    "class": "FIGHTER_2024",
+    "background": "SOLDIER_2024",
+    "subclass": "CHAMPION",
+    "baseAbilityScores": {
+      "STR": 15,
+      "DEX": 14,
+      "CON": 13,
+      "INT": 8,
+      "WIS": 10,
+      "CHA": 12
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "STR",
+      "plusOne": "CON"
+    },
+    "originFeat": "SAVAGE_ATTACKER",
+    "classChoices": [
+      {
+        "choice": "Бойовий стиль",
+        "option": "Defense"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Draconic Ancestry",
+        "option": "Red"
+      }
+    ],
+    "levelUps": [
+      {
+        "level": 2
+      },
+      {
+        "level": 3,
+        "subclass": "CHAMPION"
+      },
+      {
+        "level": 4,
+        "asi": [
+          {
+            "ability": "STR",
+            "value": 2
+          }
+        ],
+        "weaponMastery": [
+          "Greatsword",
+          "Longsword",
+          "Longbow",
+          "Rapier"
+        ]
+      },
+      {
+        "level": 5
+      }
+    ],
+    "weaponMastery": [
+      "Greatsword",
+      "Longsword",
+      "Longbow"
+    ],
+    "classEquipment": "b"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 19,
+      "DEX": 14,
+      "CON": 14,
+      "INT": 8,
+      "WIS": 10,
+      "CHA": 12
+    },
+    "feats": [
+      "SAVAGE_ATTACKER",
+      "DEFENSE"
+    ],
+    "requiredFeatures": [
+      "Dragonborn: Draconic Ancestry (2024)",
+      "Dragonborn: Breath Weapon (2024)",
+      "Dragonborn: Damage Resistance (2024)",
+      "Fighter: Fighting Style (2024)",
+      "Fighter: Weapon Mastery (2024)",
+      "Fighter: Fighter Subclass (2024)",
+      "Fighter: Extra Attack (2024)",
+      "Fighting Style: Defense (2024)"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Dragonborn: Draconic Flight (2024)",
+        "kind": "feature",
+        "characterLevel": 5
+      }
+    ],
+    "weaponMastery": {
+      "capacity": 4,
+      "weapons": [
+        "Greatsword",
+        "Longsword",
+        "Longbow",
+        "Rapier"
+      ]
+    },
+    "spellSources": [],
+    "grantedSpells": []
+  }
+}

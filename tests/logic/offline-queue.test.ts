@@ -1,0 +1,116 @@
+// @vitest-environment jsdom
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+
+import type { OfflineOperation } from "@/lib/offline/operations";
+
+const STORAGE_KEY = "char:offline-queue:v1";
+
+// Раннер (vitest на bun) не дає jsdom робочого localStorage — підставляємо мінімальне сховище.
+function installMemoryStorage(): Storage {
+  const entries = new Map<string, string>();
+  const storage: Storage = {
+    get length() {
+      return entries.size;
+    },
+    key: (index) => [...entries.keys()][index] ?? null,
+    getItem: (key) => entries.get(key) ?? null,
+    setItem: (key, value) => void entries.set(key, String(value)),
+    removeItem: (key) => void entries.delete(key),
+    clear: () => entries.clear(),
+  };
+
+  Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
+  return storage;
+}
+
+function damageOperation(operationId: string): OfflineOperation {
+  return {
+    kind: "hp",
+    mode: "damage",
+    amount: 7,
+    operationId,
+    persId: 42,
+    createdAt: "2026-08-30T00:00:00.000Z",
+  };
+}
+
+async function loadQueueModule() {
+  vi.resetModules();
+  return import("@/lib/offline/queue");
+}
+
+beforeEach(() => {
+  installMemoryStorage();
+});
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+describe("KR22.6 — черга офлайн-операцій у localStorage", () => {
+  it("переживає перезавантаження сторінки", async () => {
+    const beforeReload = await loadQueueModule();
+    beforeReload.queueOfflineOperation(damageOperation("op-before-reload-1"));
+
+    const afterReload = await loadQueueModule();
+    expect(afterReload.readOfflineQueue().map((operation) => operation.operationId)).toEqual([
+      "op-before-reload-1",
+    ]);
+  });
+
+  it("не піднімає зі сховища зіпсовані записи", async () => {
+    window.localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify([damageOperation("op-valid-00001"), { kind: "rest" }, "сміття"]),
+    );
+
+    const queue = await loadQueueModule();
+    expect(queue.readOfflineQueue().map((operation) => operation.operationId)).toEqual(["op-valid-00001"]);
+  });
+
+  it("прибирає з черги те, що сервер підтвердив, і лишає решту", async () => {
+    const queue = await loadQueueModule();
+    queue.queueOfflineOperation(damageOperation("op-applied-00001"));
+    queue.queueOfflineOperation(damageOperation("op-rejected-0001"));
+    queue.queueOfflineOperation(damageOperation("op-pending-00001"));
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(JSON.stringify({ applied: ["op-applied-00001"], rejected: ["op-rejected-0001"] }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }),
+      ),
+    );
+
+    await expect(queue.flushOfflineQueue()).resolves.toBe(1);
+    expect(queue.readOfflineQueue().map((operation) => operation.operationId)).toEqual(["op-pending-00001"]);
+  });
+
+  it("тримає чергу, поки сервер недосяжний", async () => {
+    const queue = await loadQueueModule();
+    queue.queueOfflineOperation(damageOperation("op-offline-00001"));
+
+    vi.stubGlobal("fetch", vi.fn(async () => { throw new Error("offline"); }));
+
+    await expect(queue.flushOfflineQueue()).rejects.toThrow();
+    expect(queue.readOfflineQueue()).toHaveLength(1);
+
+    const afterReload = await loadQueueModule();
+    expect(afterReload.readOfflineQueue()).toHaveLength(1);
+  });
+
+  it("повідомляє підписників про зміну черги", async () => {
+    const queue = await loadQueueModule();
+    const listener = vi.fn();
+    const unsubscribe = queue.subscribeToOfflineQueue(listener);
+
+    queue.queueOfflineOperation(damageOperation("op-notify-000001"));
+    expect(listener).toHaveBeenCalledTimes(1);
+
+    unsubscribe();
+    queue.queueOfflineOperation(damageOperation("op-notify-000002"));
+    expect(listener).toHaveBeenCalledTimes(1);
+  });
+});

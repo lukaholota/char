@@ -1,0 +1,139 @@
+{
+  "id": "13-stone-goliath-monk5-rogue3",
+  "title": "Голіаф (Камʼяний), Монах 5 / Пройдисвіт 3 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §13",
+  "why": "Передумова мультикласу з двох характеристик; риса виду за рівнем персонажа; приміщення від здатності.",
+  "input": {
+    "species": "GOLIATH_2024",
+    "startingClass": "MONK_2024",
+    "background": "SCRIBE_2024",
+    "baseAbilityScores": {
+      "STR": 12,
+      "DEX": 15,
+      "CON": 13,
+      "INT": 10,
+      "WIS": 14,
+      "CHA": 8
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "DEX",
+      "plusOne": "WIS"
+    },
+    "originFeat": "SKILLED",
+    "originFeatChoices": [
+      {
+        "choice": "Володіння",
+        "option": "ARCANA"
+      },
+      {
+        "choice": "Володіння",
+        "option": "INVESTIGATION"
+      },
+      {
+        "choice": "Володіння",
+        "option": "PERCEPTION"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Велетенське походження",
+        "option": "Stone's Endurance"
+      }
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "MONK_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "MONK_2024",
+        "isNewClass": false,
+        "subclass": "WARRIOR_OF_THE_ELEMENTS"
+      },
+      {
+        "characterLevel": 4,
+        "class": "MONK_2024",
+        "isNewClass": false,
+        "feat": "GRAPPLER",
+        "featAbility": "DEX"
+      },
+      {
+        "characterLevel": 5,
+        "class": "MONK_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "ROGUE_2024",
+        "isNewClass": true,
+        "expertise": [
+          "STEALTH",
+          "PERCEPTION"
+        ]
+      },
+      {
+        "characterLevel": 7,
+        "class": "ROGUE_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 8,
+        "class": "ROGUE_2024",
+        "isNewClass": false,
+        "subclass": "ASSASSIN"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "MONK_2024",
+    "classLevels": {
+      "MONK_2024": 5,
+      "ROGUE_2024": 3
+    },
+    "subclassByClass": {
+      "MONK_2024": "WARRIOR_OF_THE_ELEMENTS",
+      "ROGUE_2024": "ASSASSIN"
+    },
+    "finalAbilityScores": {
+      "STR": 12,
+      "DEX": 18,
+      "CON": 13,
+      "INT": 10,
+      "WIS": 15,
+      "CHA": 8
+    },
+    "feats": [
+      "SKILLED",
+      "GRAPPLER"
+    ],
+    "requiredFeatures": [
+      "Monk: Unarmored Defense (2024)",
+      "Rogue: Expertise (2024)"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Goliath: Large Form (2024)",
+        "kind": "feature",
+        "characterLevel": 5
+      }
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d8": 8
+    },
+    "casterLevel": 0,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 0,
+    "pactSlots": null,
+    "bastionFacilityLimit": 2,
+    "bastionFacilityMatches": {
+      "War Room": "met",
+      "Guildhall": "met",
+      "Arcane Study": "unmet"
+    }
+  }
+}

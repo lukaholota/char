@@ -34,8 +34,8 @@ describe("KR2.4 — calculateFinalAC", () => {
 
     const [defense, ring, bracers] = await Promise.all([
       prisma.feature.findUniqueOrThrow({ where: { engName: "Defense" }, select: { featureId: true } }),
-      prisma.magicItem.findUniqueOrThrow({ where: { engName: "Ring of Protection" }, select: { magicItemId: true } }),
-      prisma.magicItem.findUniqueOrThrow({ where: { engName: "Bracers of Defense" }, select: { magicItemId: true } }),
+      prisma.magicItem.findUniqueOrThrow({ where: { engName_ruleset: { engName: "Ring of Protection", ruleset: "RULES_2014" } }, select: { magicItemId: true } }),
+      prisma.magicItem.findUniqueOrThrow({ where: { engName_ruleset: { engName: "Bracers of Defense", ruleset: "RULES_2014" } }, select: { magicItemId: true } }),
     ]);
     await prisma.persMagicItem.createMany({
       data: [
@@ -80,7 +80,10 @@ async function configureCase(
 ) {
   await prisma.persArmor.deleteMany({ where: { persId } });
   if (testCase.armor) {
-    const armor = await prisma.armor.findUniqueOrThrow({ where: { name: testCase.armor } });
+    // KR16.5 зробив назву обладунку унікальною в парі з редакцією: `LEATHER` тепер два рядки.
+    const armor = await prisma.armor.findUniqueOrThrow({
+      where: { name_ruleset: { name: testCase.armor, ruleset: "RULES_2014" } },
+    });
     await prisma.persArmor.create({
       data: {
         persId,

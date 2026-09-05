@@ -53,7 +53,7 @@ describe("KR12.1 — парсер SRD 5.2.1 як еталон", () => {
     expect(srdCreatures).toHaveLength(330);
   });
 
-  it("не лишає жодного порожнього обов'язкового поля в жодному статблоці", () => {
+  it("не лишає жодного порожнього обовʼязкового поля в жодному статблоці", () => {
     const broken = srdCreatures
       .map((creature) => ({ name: creature.nameEng, empty: findEmptyRequiredFields(creature) }))
       .filter((entry) => entry.empty.length > 0);
@@ -103,7 +103,7 @@ describe("KR12.1 — парсер SRD 5.2.1 як еталон", () => {
     });
   });
 
-  it("розводить об'єднаний рядок імунітетів 2024 на ушкодження та стани", () => {
+  it("розводить обʼєднаний рядок імунітетів 2024 на ушкодження та стани", () => {
     expect(splitImmunityLine("Poison; Exhaustion, Poisoned")).toEqual({
       damage: "Poison",
       conditions: "Exhaustion, Poisoned",

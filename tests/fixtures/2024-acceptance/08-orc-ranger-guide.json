@@ -1,0 +1,107 @@
+{
+  "id": "08-orc-ranger-guide",
+  "title": "Orc Ranger 5 — Guide",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.8",
+  "why": "Два джерела заклинань на одній характеристиці не мають злитися в одне.",
+  "input": {
+    "species": "ORC_2024",
+    "class": "RANGER_2024",
+    "background": "GUIDE_2024",
+    "subclass": "HUNTER",
+    "baseAbilityScores": {
+      "STR": 12,
+      "DEX": 14,
+      "CON": 13,
+      "INT": 8,
+      "WIS": 15,
+      "CHA": 10
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "DEX",
+      "plusOne": "WIS"
+    },
+    "originFeat": "MAGIC_INITIATE",
+    "originFeatChoices": [
+      {
+        "choice": "Список заклинань",
+        "option": "Druid"
+      }
+    ],
+    "speciesChoices": [],
+    "levelUps": [
+      {
+        "level": 2,
+        "classChoices": [
+          {
+            "choice": "Бойовий стиль",
+            "option": "Archery"
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "subclass": "HUNTER"
+      },
+      {
+        "level": 4,
+        "asi": [
+          {
+            "ability": "DEX",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 5
+      }
+    ],
+    "weaponMastery": [
+      "Longbow",
+      "Shortsword"
+    ],
+    "classEquipment": "a"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 12,
+      "DEX": 18,
+      "CON": 13,
+      "INT": 8,
+      "WIS": 16,
+      "CHA": 10
+    },
+    "feats": [
+      "MAGIC_INITIATE",
+      "ARCHERY"
+    ],
+    "requiredFeatures": [
+      "Orc: Adrenaline Rush (2024)",
+      "Orc: Relentless Endurance (2024)",
+      "Ranger: Spellcasting (2024)",
+      "Ranger: Weapon Mastery (2024)",
+      "Ranger: Extra Attack (2024)",
+      "Fighting Style: Archery (2024)"
+    ],
+    "characterLevelGatedGrants": [],
+    "weaponMastery": {
+      "capacity": 2,
+      "weapons": [
+        "Longbow",
+        "Shortsword"
+      ]
+    },
+    "spellSources": [
+      {
+        "source": "RANGER_2024",
+        "ability": "WIS"
+      },
+      {
+        "source": "MAGIC_INITIATE",
+        "ability": "WIS"
+      }
+    ],
+    "grantedSpells": [],
+    "bastionUnlocked": true
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "12-drow-paladin5-sorcerer3",
+  "title": "Ельф (Дроу), Паладин 5 / Чародій 3 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §12",
+  "why": "Половинний заклинач округлюється вгору; два підкласи; заклинання родоводу за рівнем персонажа.",
+  "input": {
+    "species": "ELF_2024",
+    "startingClass": "PALADIN_2024",
+    "background": "MERCHANT_2024",
+    "baseAbilityScores": {
+      "STR": 15,
+      "DEX": 10,
+      "CON": 13,
+      "INT": 8,
+      "WIS": 12,
+      "CHA": 14
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "CHA",
+      "plusOne": "CON"
+    },
+    "originFeat": "LUCKY",
+    "speciesChoices": [
+      {
+        "choice": "Ельфійський родовід",
+        "option": "Drow"
+      },
+      {
+        "choice": "Базова характеристика заклинань",
+        "option": "CHA"
+      }
+    ],
+    "weaponMastery": [
+      "Longsword",
+      "Javelin"
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "PALADIN_2024",
+        "isNewClass": false,
+        "classChoices": [
+          {
+            "choice": "Бойовий стиль",
+            "option": "Defense"
+          }
+        ]
+      },
+      {
+        "characterLevel": 3,
+        "class": "PALADIN_2024",
+        "isNewClass": false,
+        "subclass": "OATH_OF_VENGEANCE"
+      },
+      {
+        "characterLevel": 4,
+        "class": "PALADIN_2024",
+        "isNewClass": false,
+        "feat": "WAR_CASTER",
+        "featAbility": "CHA"
+      },
+      {
+        "characterLevel": 5,
+        "class": "PALADIN_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "SORCERER_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 7,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 8,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "subclass": "WILD_MAGIC_SORCERY"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "PALADIN_2024",
+    "classLevels": {
+      "PALADIN_2024": 5,
+      "SORCERER_2024": 3
+    },
+    "subclassByClass": {
+      "PALADIN_2024": "OATH_OF_VENGEANCE",
+      "SORCERER_2024": "WILD_MAGIC_SORCERY"
+    },
+    "finalAbilityScores": {
+      "STR": 15,
+      "DEX": 10,
+      "CON": 14,
+      "INT": 8,
+      "WIS": 12,
+      "CHA": 17
+    },
+    "feats": [
+      "LUCKY",
+      "DEFENSE",
+      "WAR_CASTER"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Faerie Fire",
+        "kind": "spell",
+        "characterLevel": 3
+      },
+      {
+        "name": "Darkness",
+        "kind": "spell",
+        "characterLevel": 5
+      }
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d10": 5,
+      "d6": 3
+    },
+    "casterLevel": 6,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 3,
+    "pactSlots": null,
+    "classSpellSources": [
+      {
+        "source": "PALADIN_2024",
+        "ability": "CHA"
+      },
+      {
+        "source": "SORCERER_2024",
+        "ability": "CHA"
+      }
+    ],
+    "weaponMastery": {
+      "capacity": 2,
+      "weapons": [
+        "Longsword",
+        "Javelin"
+      ]
+    },
+    "bastionFacilityLimit": 2
+  }
+}

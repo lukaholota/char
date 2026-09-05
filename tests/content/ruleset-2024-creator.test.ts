@@ -1,11 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { loadCharacterCreatorOptions } from "@/server/db/creation-content";
+import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 
 describe("Character Creator Content Loading by Ruleset", () => {
   it("loads 2024 content when ruleset is RULES_2024", async () => {
-    const [races, classes, backgrounds, weapons, feats] = await loadCharacterCreatorOptions({
-      ruleset: "RULES_2024",
-    });
+    const { races, classes, backgrounds, weapons, feats } = findCharacterCreatorOptions("RULES_2024");
 
     expect(races.length).toBeGreaterThan(0);
     expect(races.every((r) => r.ruleset === "RULES_2024")).toBe(true);
@@ -24,9 +22,7 @@ describe("Character Creator Content Loading by Ruleset", () => {
   });
 
   it("loads 2014 content when ruleset is RULES_2014 (or default)", async () => {
-    const [races, classes, backgrounds, weapons, feats] = await loadCharacterCreatorOptions({
-      ruleset: "RULES_2014",
-    });
+    const { races, classes, backgrounds, weapons, feats } = findCharacterCreatorOptions("RULES_2014");
 
     expect(races.length).toBeGreaterThan(0);
     expect(races.every((r) => r.ruleset === "RULES_2014")).toBe(true);

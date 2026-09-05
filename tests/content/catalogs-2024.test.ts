@@ -79,12 +79,14 @@ describe("KR7.3 / KR8.3 — 2024 Catalogs Content & Visuals", () => {
   });
 
   describe("Magic Items 2024 catalog data", () => {
-    it("returns 445 items for RULES_2024 and 472 items for RULES_2014", () => {
+    /// Каталог 2014 — 621 запис від [KR16.4](../../docs/o16-5etools-canon/kr16.4-magic-items.md)
+    /// (було 475): 146 нових записів і 45 переписаних із черги `deferred` маніфесту.
+    it("returns 445 items for RULES_2024 and 621 items for RULES_2014", () => {
       const items2024 = getAllMagicItems("RULES_2024");
       const items2014 = getAllMagicItems("RULES_2014");
 
       expect(items2024.length).toBe(445);
-      expect(items2014.length).toBe(472);
+      expect(items2014.length).toBe(621);
     });
 
     it("has valid rarities, item types, and attunement properties on 2024 items", () => {

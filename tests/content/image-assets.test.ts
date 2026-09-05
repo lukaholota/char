@@ -5,8 +5,12 @@ import {
   getRaceImagePath,
   getClassImagePath,
   getCategoryImagePath,
+  getBackgroundImagePath,
   CATEGORY_IMAGE_MAP,
 } from "@/lib/assets/image-manifest";
+import { getAllBackgrounds } from "@/lib/backgroundsData";
+import { RULE_CATEGORIES } from "@/lib/rulesData";
+import { collectHomeCategories } from "@/components/home/homeCategories";
 import { getRaceVisual, getClassVisual } from "@/components/characterCreator/creation-visuals";
 import {
   raceTranslations,
@@ -14,6 +18,19 @@ import {
 } from "@/lib/refs/translation";
 
 const publicDir = path.resolve(process.cwd(), "public");
+
+/// Усі ілюстрації проєкту — lossy webp (чанк `VP8 `), тож розмір лежить на сталому зсуві:
+/// 12 байтів RIFF + 8 заголовка чанка + 3 теґ + 3 стартовий код, далі ширина й висота по 14 біт.
+function readWebpSize(publicRelativePath: string): { width: number; height: number } {
+  const buffer = fs.readFileSync(path.join(publicDir, publicRelativePath.replace(/^\//, "")));
+  if (buffer.subarray(12, 16).toString("ascii") !== "VP8 ") {
+    throw new Error(`${publicRelativePath}: очікувався lossy webp`);
+  }
+  return {
+    width: buffer.readUInt16LE(26) & 0x3fff,
+    height: buffer.readUInt16LE(28) & 0x3fff,
+  };
+}
 
 function assetExists(publicRelativePath: string | null | undefined): boolean {
   if (!publicRelativePath) return false;
@@ -112,6 +129,125 @@ describe("Image Assets & Manifest Verification", () => {
       expect(getClassImagePath(null)).toBeNull();
       expect(getClassImagePath(undefined)).toBeNull();
       expect(getClassImagePath("UNKNOWN_CLASS_XYZ")).toBeNull();
+    });
+  });
+
+  describe("Background Image Assets", () => {
+    it("every background of both editions resolves to an image on disk", () => {
+      const missing: string[] = [];
+
+      for (const ruleset of ["RULES_2014", "RULES_2024"] as const) {
+        for (const background of getAllBackgrounds(ruleset)) {
+          if (!assetExists(background.imageSrc)) {
+            missing.push(`${ruleset} ${background.key} -> ${background.imageSrc}`);
+          }
+        }
+      }
+
+      expect(missing).toEqual([]);
+    });
+
+    /// «Власна» малюється абстрактно, як `races/custom_lineage.webp` — фігура, що ще не склалась.
+    it("gives CUSTOM its own abstract art", () => {
+      const custom = getAllBackgrounds("RULES_2014").find((b) => b.key === "CUSTOM");
+      expect(custom?.imageSrc).toBe("/images/backgrounds/custom.webp");
+    });
+
+    /// Рішення власника 2026-09-01: двох походжень з однією картинкою в наборі не буває.
+    it("gives every background inside one edition its own file", () => {
+      for (const ruleset of ["RULES_2014", "RULES_2024"] as const) {
+        const byPath = new Map<string, string[]>();
+        for (const background of getAllBackgrounds(ruleset)) {
+          const path = String(background.imageSrc);
+          byPath.set(path, [...(byPath.get(path) ?? []), background.key]);
+        }
+        const shared = [...byPath.entries()].filter(([, keys]) => keys.length > 1);
+        expect(shared, `${ruleset}: одна картинка на кілька походжень`).toEqual([]);
+      }
+    });
+
+    it("keeps the pairs the owner asked to split apart", () => {
+      for (const [a, b] of [
+        ["SPY", "CRIMINAL"],
+        ["GLADIATOR", "ENTERTAINER"],
+        ["KNIGHT", "NOBLE"],
+        ["PIRATE", "SAILOR"],
+        ["CITY_WATCH", "GUARD"],
+        ["CLOISTERED_SCHOLAR", "SAGE"],
+        ["GUILD_ARTISAN", "ARTISAN"],
+        ["GUILD_MERCHANT", "MERCHANT"],
+      ]) {
+        expect(getBackgroundImagePath(a), `${a} і ${b}`).not.toBe(getBackgroundImagePath(b));
+      }
+    });
+
+    it("returns null safely for unknown or empty input", () => {
+      expect(getBackgroundImagePath(null)).toBeNull();
+      expect(getBackgroundImagePath(undefined)).toBeNull();
+      expect(getBackgroundImagePath("NO_SUCH_BACKGROUND_XYZ")).toBeNull();
+    });
+  });
+
+  describe("Rules Reference Image Assets", () => {
+    it("gives every rules section its own image on disk", () => {
+      const missing = RULE_CATEGORIES.filter((category) => !assetExists(category.imageSrc));
+      expect(missing.map((c) => `${c.key} -> ${c.imageSrc}`)).toEqual([]);
+    });
+
+    /// Розділи правил колись позичали плитки з `categories/`, і «Пригоди» показували ту саму
+    /// картинку, що плитка «Раси» на головній. Тепер у кожного свій файл під `/images/rules/`.
+    it("keeps rules art out of the category tiles and unique per section", () => {
+      const paths = RULE_CATEGORIES.map((category) => category.imageSrc);
+      expect(new Set(paths).size).toBe(paths.length);
+      for (const src of paths) {
+        expect(src, "розділ правил позичає плитку категорії").toMatch(/^\/images\/rules\//);
+      }
+    });
+  });
+
+  /// Плитка головної вертикальна, картка каталогу — широка. Файл не того відношення не ламає
+  /// збірку: його просто обрізає, і саме так «Раси» й «Класи» місяцями показували ту саму
+  /// вузьку смугу однієї зали (виміряно 2026-09-01).
+  describe("Aspect ratios", () => {
+    it("keeps every home tile vertical 3:4", () => {
+      const wrong: string[] = [];
+      for (const category of collectHomeCategories("2014")) {
+        if (category.tier !== "tile") continue;
+        const { width, height } = readWebpSize(category.imageSrc);
+        if (Math.abs(width / height - 0.75) > 0.02) {
+          wrong.push(`${category.imageSrc} = ${width}x${height}`);
+        }
+      }
+      expect(wrong).toEqual([]);
+    });
+
+    /// Обкладинка героя малюється в 2:3 через `object-cover`, тож квадрат втрачає по 17% з
+    /// кожного боку. `characters` — відомий залишок: він досі квадратний і чекає на перегенерацію.
+    /// Список має порожніти, а не рости.
+    it("keeps every home hero cover at 2:3", () => {
+      const AWAITING_REGENERATION = new Set(["characters"]);
+      const wrong: string[] = [];
+
+      for (const category of collectHomeCategories("2014")) {
+        if (category.tier !== "hero" || AWAITING_REGENERATION.has(category.slug)) continue;
+        const { width, height } = readWebpSize(category.imageSrc);
+        if (Math.abs(width / height - 2 / 3) > 0.02) {
+          wrong.push(`${category.imageSrc} = ${width}x${height}`);
+        }
+      }
+
+      expect(wrong).toEqual([]);
+    });
+
+    it("keeps every rules illustration wide 16:9", () => {
+      const wrong: string[] = [];
+      for (const category of RULE_CATEGORIES) {
+        const { width, height } = readWebpSize(category.imageSrc);
+        if (Math.abs(width / height - 16 / 9) > 0.02) {
+          wrong.push(`${category.imageSrc} = ${width}x${height}`);
+        }
+      }
+      expect(wrong).toEqual([]);
     });
   });
 
@@ -233,9 +369,23 @@ describe("Image Assets & Manifest Verification", () => {
       expect(elfVisual.icon).toBeDefined();
 
       const customLineageVisual = getRaceVisual("CUSTOM_LINEAGE_TCE");
-      expect(customLineageVisual.imageSrc).toBeNull();
+      expect(customLineageVisual.imageSrc).toBe("/images/races/custom_lineage.webp");
       expect(customLineageVisual.icon).toBeDefined();
       expect(customLineageVisual.bgGradient).toBeDefined();
+
+      const unknownRaceVisual = getRaceVisual("UNKNOWN_RACE_XYZ");
+      expect(unknownRaceVisual.imageSrc).toBeNull();
+      expect(unknownRaceVisual.icon).toBeDefined();
+      expect(unknownRaceVisual.bgGradient).toBeDefined();
+    });
+
+    it("dragonborn variants resolve to dedicated images", () => {
+      expect(getRaceImagePath("DRAGONBORN_CHROMATIC")).toBe("/images/races/dragonborn_chromatic.webp");
+      expect(getRaceImagePath("DRAGONBORN_METALLIC")).toBe("/images/races/dragonborn_metallic.webp");
+      expect(getRaceImagePath("DRAGONBORN_GEM")).toBe("/images/races/dragonborn_gem.webp");
+      expect(assetExists(getRaceImagePath("DRAGONBORN_CHROMATIC"))).toBe(true);
+      expect(assetExists(getRaceImagePath("DRAGONBORN_METALLIC"))).toBe(true);
+      expect(assetExists(getRaceImagePath("DRAGONBORN_GEM"))).toBe(true);
     });
 
     it("getRaceImagePath returns null safely for empty or unknown inputs", () => {

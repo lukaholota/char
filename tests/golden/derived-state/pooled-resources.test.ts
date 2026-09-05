@@ -27,7 +27,6 @@ type RemainingPoolCase = {
   poolKey: string;
   rest: "short" | "long";
   expectedPoolMaximum?: number;
-  knownBug?: string;
 };
 
 const REMAINING_POOL_CASES: readonly RemainingPoolCase[] = [
@@ -48,6 +47,7 @@ const REMAINING_POOL_CASES: readonly RemainingPoolCase[] = [
     featureName: "Elemental Wild Shape",
     poolKey: "WILD_SHAPE",
     rest: "short",
+    expectedPoolMaximum: 2,
   },
   {
     key: "channelDivinity",
@@ -58,7 +58,6 @@ const REMAINING_POOL_CASES: readonly RemainingPoolCase[] = [
     poolKey: "CHANNEL_DIVINITY",
     rest: "short",
     expectedPoolMaximum: 2,
-    knownBug: "BUG-011",
   },
   {
     key: "superiorityDice",
@@ -87,7 +86,6 @@ const REMAINING_POOL_CASES: readonly RemainingPoolCase[] = [
     poolKey: "PSIONIC_ENERGY",
     rest: "long",
     expectedPoolMaximum: 4,
-    knownBug: "BUG-011",
   },
 ];
 
@@ -116,17 +114,23 @@ describe("KR2.4 — golden для pooled feature resources", () => {
     const remainingPools = await exerciseRemainingPools();
     const actual = {
       monk,
-      sorcerer: {
-        ...sorcerer,
-        expectedPoolMaximum: 3,
-        KNOWN_BUG: "BUG-011",
-      },
+      sorcerer: { ...sorcerer, expectedPoolMaximum: 3 },
       ...remainingPools,
     };
 
     if (UPDATE_GOLDEN) {
       fs.writeFileSync(GOLDEN_PATH, JSON.stringify(actual, null, 2) + "\n");
       return;
+    }
+
+    /// До BUG-011 `expectedPoolMaximum` був підписом «правильна відповідь інша» поруч із
+    /// зафіксованою неправильною. Тепер це перевірка: після відпочинку пул стоїть на своєму
+    /// максимумі з PHB, а не на максимумі чужої фічі з тим самим ключем.
+    for (const [key, expected] of Object.entries(actual)) {
+      const record = expected as { expectedPoolMaximum?: number; afterRest: { usesRemaining: number } };
+      if (record.expectedPoolMaximum === undefined) continue;
+
+      expect(record.afterRest.usesRemaining, key).toBe(record.expectedPoolMaximum);
     }
 
     expect(actual).toEqual(JSON.parse(fs.readFileSync(GOLDEN_PATH, "utf-8")));
@@ -146,7 +150,6 @@ async function exerciseRemainingPools() {
     results[poolCase.key] = {
       ...resource,
       ...(poolCase.expectedPoolMaximum === undefined ? {} : { expectedPoolMaximum: poolCase.expectedPoolMaximum }),
-      ...(poolCase.knownBug === undefined ? {} : { KNOWN_BUG: poolCase.knownBug }),
     };
   }
 

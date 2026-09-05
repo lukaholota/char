@@ -33,6 +33,7 @@ export function minimalForm(overrides: RequiredIds & Partial<PersFormData>): Per
     classChoiceSelections: {},
     featChoiceSelections: {},
     backgroundFeatChoiceSelections: {},
+    speciesFeatChoiceSelections: {},
     classOptionalFeatureSelections: {},
     isDefaultASI: true,
     asiSystem: "POINT_BUY",

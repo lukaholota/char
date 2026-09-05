@@ -1,0 +1,149 @@
+{
+  "id": "09-chthonic-tiefling-warlock-charlatan",
+  "title": "Chthonic Tiefling Warlock 5 — Charlatan",
+  "reference": "docs/o18-2024-character-parity/reference-2024.md §15.9",
+  "why": "Передумови між рисами: покликання на 3-му рівні класу, закляття спадку на 3-му і 5-му рівнях персонажа, і виклик (Eldritch Smite), чия передумова — інший вибір із того самого пулу (Pact of the Blade).",
+  "input": {
+    "species": "TIEFLING_2024",
+    "class": "WARLOCK_2024",
+    "background": "CHARLATAN_2024",
+    "subclass": "FIEND_PATRON",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 14,
+      "CON": 13,
+      "INT": 12,
+      "WIS": 10,
+      "CHA": 15
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "CHA",
+      "plusOne": "CON"
+    },
+    "originFeat": "SKILLED",
+    "originFeatChoices": [
+      {
+        "choice": "Володіння",
+        "option": "DECEPTION"
+      },
+      {
+        "choice": "Володіння",
+        "option": "SLEIGHT_OF_HAND"
+      },
+      {
+        "choice": "Володіння",
+        "option": "PERSUASION"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Fiendish Legacy",
+        "option": "Chthonic"
+      },
+      {
+        "choice": "Legacy Spellcasting Ability",
+        "option": "CHA"
+      }
+    ],
+    "classChoices": [
+      {
+        "choice": "Потойбічні виклики",
+        "option": "Pact of the Blade (2024)"
+      }
+    ],
+    "levelUps": [
+      {
+        "level": 2,
+        "classChoices": [
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Agonizing Blast (2024)"
+          },
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Fiendish Vigor (2024)"
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "subclass": "FIEND_PATRON"
+      },
+      {
+        "level": 4,
+        "asi": [
+          {
+            "ability": "CHA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "classChoices": [
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Eldritch Smite (2024)"
+          },
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Devil's Sight (2024)"
+          }
+        ]
+      }
+    ],
+    "classEquipment": "a"
+  },
+  "expected": {
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 14,
+      "CON": 14,
+      "INT": 12,
+      "WIS": 10,
+      "CHA": 19
+    },
+    "feats": [
+      "SKILLED"
+    ],
+    "requiredFeatures": [
+      "Tiefling: Fiendish Legacy (2024)",
+      "Tiefling: Otherworldly Presence (2024)",
+      "Warlock: Pact Magic (2024)",
+      "Warlock: Eldritch Invocations (2024)"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "False Life",
+        "kind": "spell",
+        "characterLevel": 3
+      },
+      {
+        "name": "Ray of Enfeeblement",
+        "kind": "spell",
+        "characterLevel": 5
+      }
+    ],
+    "weaponMastery": {
+      "capacity": 0
+    },
+    "spellSources": [
+      {
+        "source": "WARLOCK_2024",
+        "ability": "CHA"
+      },
+      {
+        "source": "Tiefling: Fiendish Legacy (2024)",
+        "ability": "CHA"
+      }
+    ],
+    "grantedSpells": [
+      "Chill Touch",
+      "False Life",
+      "Ray of Enfeeblement",
+      "Thaumaturgy"
+    ],
+    "bastionUnlocked": true
+  }
+}

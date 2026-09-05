@@ -6,7 +6,7 @@ import type { LevelUpSequence } from "./types";
 
 export const sequence: LevelUpSequence = {
   id: "fighter-style-replacement",
-  why: "Fighter 1→4 із Martial Versatility: персонаж починає з Dueling, а на 4 рівні приймає опційну заміну бойового стилю та міняє його на Archery. Фіксує ClassOptionalFeatureReplacesFeature: від'єднання старої ChoiceOption, під'єднання нової та збереження прийнятої опції.",
+  why: "Fighter 1→4 із Martial Versatility: персонаж починає з Dueling, а на 4 рівні приймає опційну заміну бойового стилю та міняє його на Archery. Фіксує ClassOptionalFeatureReplacesFeature: відʼєднання старої ChoiceOption, підʼєднання нової та збереження прийнятої опції.",
   maxLevel: 4,
   async startForm() {
     const [race, cls, background] = await Promise.all([

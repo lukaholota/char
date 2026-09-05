@@ -1,0 +1,204 @@
+{
+  "id": "24-aasimar-sorcerer19-warlock1",
+  "title": "Аазимар, Чародій 19 / Чорнокнижник 1 (рівень 20)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §24",
+  "why": "Епічний дар підіймає характеристику до 21; чорнокнижник 1-го рівня класу підкласу не має.",
+  "input": {
+    "species": "AASIMAR_2024",
+    "startingClass": "SORCERER_2024",
+    "background": "MERCHANT_2024",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 13,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 15
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "CHA",
+      "plusOne": "CON"
+    },
+    "originFeat": "LUCKY",
+    "speciesChoices": [],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "subclass": "CLOCKWORK_SORCERY"
+      },
+      {
+        "characterLevel": 4,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "feat": "WAR_CASTER",
+        "featAbility": "CHA"
+      },
+      {
+        "characterLevel": 5,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 7,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 8,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "asi": [
+          {
+            "ability": "CHA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "characterLevel": 9,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 10,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 11,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 12,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "feat": "SKILL_EXPERT",
+        "featAbility": "CON"
+      },
+      {
+        "characterLevel": 13,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 14,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 15,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 16,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "asi": [
+          {
+            "ability": "CON",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "characterLevel": 17,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 18,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 19,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "feat": "BOON_OF_SPELL_RECALL",
+        "featAbility": "CHA"
+      },
+      {
+        "characterLevel": 20,
+        "class": "WARLOCK_2024",
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Agonizing Blast (2024)"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 20,
+    "startingClass": "SORCERER_2024",
+    "classLevels": {
+      "SORCERER_2024": 19,
+      "WARLOCK_2024": 1
+    },
+    "subclassByClass": {
+      "SORCERER_2024": "CLOCKWORK_SORCERY",
+      "WARLOCK_2024": null
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 13,
+      "CON": 18,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 21
+    },
+    "feats": [
+      "LUCKY",
+      "WAR_CASTER",
+      "SKILL_EXPERT",
+      "BOON_OF_SPELL_RECALL"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Aasimar: Celestial Revelation (2024)",
+        "kind": "feature",
+        "characterLevel": 3
+      }
+    ],
+    "proficiencyBonus": 6,
+    "hitDiceByType": {
+      "d6": 19,
+      "d8": 1
+    },
+    "casterLevel": 19,
+    "pactLevel": 1,
+    "maxSpellSlotLevel": 9,
+    "pactSlots": {
+      "slots": 1,
+      "level": 1
+    },
+    "classSpellSources": [
+      {
+        "source": "SORCERER_2024",
+        "ability": "CHA"
+      },
+      {
+        "source": "WARLOCK_2024",
+        "ability": "CHA"
+      }
+    ],
+    "bastionFacilityLimit": 6
+  }
+}

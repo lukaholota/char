@@ -1,0 +1,164 @@
+{
+  "id": "18-halfling-rogue4-bard4",
+  "title": "Напіврослик, Пройдисвіт 4 / Бард 4 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §18",
+  "why": "Слоти вище за доступні заклинання; третинний заклинач вниз; «Вправний» удруге на 4-му рівні барда.",
+  "input": {
+    "species": "HALFLING_2024",
+    "startingClass": "ROGUE_2024",
+    "background": "SCRIBE_2024",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 15,
+      "CON": 12,
+      "INT": 14,
+      "WIS": 10,
+      "CHA": 13
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "DEX",
+      "plusOne": "INT"
+    },
+    "originFeat": "SKILLED",
+    "originFeatChoices": [
+      {
+        "choice": "Володіння",
+        "option": "ARCANA"
+      },
+      {
+        "choice": "Володіння",
+        "option": "INVESTIGATION"
+      },
+      {
+        "choice": "Володіння",
+        "option": "PERCEPTION"
+      }
+    ],
+    "speciesChoices": [],
+    "expertise": [
+      "STEALTH",
+      "SLEIGHT_OF_HAND"
+    ],
+    "weaponMastery": [
+      "Dagger",
+      "Shortsword"
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "ROGUE_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "ROGUE_2024",
+        "isNewClass": false,
+        "subclass": "ARCANE_TRICKSTER"
+      },
+      {
+        "characterLevel": 4,
+        "class": "ROGUE_2024",
+        "isNewClass": false,
+        "feat": "SKILL_EXPERT",
+        "featAbility": "DEX"
+      },
+      {
+        "characterLevel": 5,
+        "class": "BARD_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 6,
+        "class": "BARD_2024",
+        "isNewClass": false,
+        "expertise": [
+          "PERSUASION",
+          "PERFORMANCE"
+        ]
+      },
+      {
+        "characterLevel": 7,
+        "class": "BARD_2024",
+        "isNewClass": false,
+        "subclass": "COLLEGE_OF_GLAMOUR"
+      },
+      {
+        "characterLevel": 8,
+        "class": "BARD_2024",
+        "isNewClass": false,
+        "feat": "SKILLED",
+        "featChoices": [
+          {
+            "choice": "Володіння",
+            "option": "HISTORY"
+          },
+          {
+            "choice": "Володіння",
+            "option": "NATURE"
+          },
+          {
+            "choice": "Володіння",
+            "option": "RELIGION"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "ROGUE_2024",
+    "classLevels": {
+      "ROGUE_2024": 4,
+      "BARD_2024": 4
+    },
+    "subclassByClass": {
+      "ROGUE_2024": "ARCANE_TRICKSTER",
+      "BARD_2024": "COLLEGE_OF_GLAMOUR"
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 18,
+      "CON": 12,
+      "INT": 15,
+      "WIS": 10,
+      "CHA": 13
+    },
+    "feats": [
+      "SKILLED",
+      "SKILL_EXPERT",
+      "SKILLED"
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d8": 8
+    },
+    "casterLevel": 5,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 3,
+    "pactSlots": null,
+    "classSpellSources": [
+      {
+        "source": "BARD_2024",
+        "ability": "CHA"
+      }
+    ],
+    "maxPreparableSpellLevelByClass": {
+      "ROGUE_2024": 1,
+      "BARD_2024": 2
+    },
+    "repeatedFeat": {
+      "name": "SKILLED",
+      "times": 2,
+      "grantedProficiencies": 6
+    },
+    "weaponMastery": {
+      "capacity": 2,
+      "weapons": [
+        "Dagger",
+        "Shortsword"
+      ]
+    },
+    "bastionFacilityLimit": 2
+  }
+}

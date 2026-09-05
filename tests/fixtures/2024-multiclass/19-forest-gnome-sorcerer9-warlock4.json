@@ -1,0 +1,173 @@
+{
+  "id": "19-forest-gnome-sorcerer9-warlock4",
+  "title": "Гном (Лісовий), Чародій 9 / Чорнокнижник 4 (рівень 13)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §19",
+  "why": "Високорівневий мультиклас, бастіон на пʼять приміщень, стеля 20 і половинна риса після неї.",
+  "input": {
+    "species": "GNOME_2024",
+    "startingClass": "SORCERER_2024",
+    "background": "MERCHANT_2024",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 13,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 15
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "CHA",
+      "plusOne": "CON"
+    },
+    "originFeat": "LUCKY",
+    "speciesChoices": [
+      {
+        "choice": "Гномський родовід",
+        "option": "Forest Gnome"
+      },
+      {
+        "choice": "Базова характеристика заклинань",
+        "option": "INT"
+      }
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "subclass": "WILD_MAGIC_SORCERY"
+      },
+      {
+        "characterLevel": 4,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "feat": "WAR_CASTER",
+        "featAbility": "CHA"
+      },
+      {
+        "characterLevel": 5,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 7,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 8,
+        "class": "SORCERER_2024",
+        "isNewClass": false,
+        "asi": [
+          {
+            "ability": "CHA",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "characterLevel": 9,
+        "class": "SORCERER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 10,
+        "class": "WARLOCK_2024",
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Pact of the Tome (2024)"
+          }
+        ]
+      },
+      {
+        "characterLevel": 11,
+        "class": "WARLOCK_2024",
+        "isNewClass": false,
+        "classChoices": [
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Agonizing Blast (2024)"
+          },
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Devil's Sight (2024)"
+          }
+        ]
+      },
+      {
+        "characterLevel": 12,
+        "class": "WARLOCK_2024",
+        "isNewClass": false,
+        "subclass": "GREAT_OLD_ONE_PATRON"
+      },
+      {
+        "characterLevel": 13,
+        "class": "WARLOCK_2024",
+        "isNewClass": false,
+        "feat": "SKILL_EXPERT",
+        "featAbility": "CON"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 13,
+    "startingClass": "SORCERER_2024",
+    "classLevels": {
+      "SORCERER_2024": 9,
+      "WARLOCK_2024": 4
+    },
+    "subclassByClass": {
+      "SORCERER_2024": "WILD_MAGIC_SORCERY",
+      "WARLOCK_2024": "GREAT_OLD_ONE_PATRON"
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 13,
+      "CON": 16,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 20
+    },
+    "feats": [
+      "LUCKY",
+      "WAR_CASTER",
+      "SKILL_EXPERT"
+    ],
+    "proficiencyBonus": 5,
+    "hitDiceByType": {
+      "d6": 9,
+      "d8": 4
+    },
+    "casterLevel": 9,
+    "pactLevel": 4,
+    "maxSpellSlotLevel": 5,
+    "pactSlots": {
+      "slots": 2,
+      "level": 2
+    },
+    "classSpellSources": [
+      {
+        "source": "SORCERER_2024",
+        "ability": "CHA"
+      },
+      {
+        "source": "WARLOCK_2024",
+        "ability": "CHA"
+      }
+    ],
+    "bastionFacilityLimit": 5
+  }
+}

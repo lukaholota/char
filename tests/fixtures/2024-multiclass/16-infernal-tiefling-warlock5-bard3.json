@@ -1,0 +1,164 @@
+{
+  "id": "16-infernal-tiefling-warlock5-bard3",
+  "title": "Тифлінг (Пекельний), Чорнокнижник 5 / Бард 3 (рівень 8)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §16",
+  "why": "Pact Magic окремим пулом поряд зі звичайними слотами.",
+  "input": {
+    "species": "TIEFLING_2024",
+    "startingClass": "WARLOCK_2024",
+    "background": "MERCHANT_2024",
+    "baseAbilityScores": {
+      "STR": 8,
+      "DEX": 13,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 15
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "CHA",
+      "plusOne": "CON"
+    },
+    "originFeat": "LUCKY",
+    "classChoices": [
+      {
+        "choice": "Потойбічні виклики",
+        "option": "Pact of the Blade (2024)"
+      }
+    ],
+    "speciesChoices": [
+      {
+        "choice": "Демонічна спадщина",
+        "option": "Infernal"
+      },
+      {
+        "choice": "Базова характеристика заклинань",
+        "option": "CHA"
+      }
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "WARLOCK_2024",
+        "isNewClass": false,
+        "classChoices": [
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Agonizing Blast (2024)"
+          },
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Fiendish Vigor (2024)"
+          }
+        ]
+      },
+      {
+        "characterLevel": 3,
+        "class": "WARLOCK_2024",
+        "isNewClass": false,
+        "subclass": "ARCHFEY_PATRON"
+      },
+      {
+        "characterLevel": 4,
+        "class": "WARLOCK_2024",
+        "isNewClass": false,
+        "feat": "SPELL_SNIPER",
+        "featAbility": "CHA"
+      },
+      {
+        "characterLevel": 5,
+        "class": "WARLOCK_2024",
+        "isNewClass": false,
+        "classChoices": [
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Eldritch Smite (2024)"
+          },
+          {
+            "choice": "Потойбічні виклики",
+            "option": "Devil's Sight (2024)"
+          }
+        ]
+      },
+      {
+        "characterLevel": 6,
+        "class": "BARD_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 7,
+        "class": "BARD_2024",
+        "isNewClass": false,
+        "expertise": [
+          "PERSUASION",
+          "PERFORMANCE"
+        ]
+      },
+      {
+        "characterLevel": 8,
+        "class": "BARD_2024",
+        "isNewClass": false,
+        "subclass": "COLLEGE_OF_DANCE"
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "WARLOCK_2024",
+    "classLevels": {
+      "WARLOCK_2024": 5,
+      "BARD_2024": 3
+    },
+    "subclassByClass": {
+      "WARLOCK_2024": "ARCHFEY_PATRON",
+      "BARD_2024": "COLLEGE_OF_DANCE"
+    },
+    "finalAbilityScores": {
+      "STR": 8,
+      "DEX": 13,
+      "CON": 15,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 18
+    },
+    "feats": [
+      "LUCKY",
+      "SPELL_SNIPER"
+    ],
+    "characterLevelGatedGrants": [
+      {
+        "name": "Hellish Rebuke",
+        "kind": "spell",
+        "characterLevel": 3
+      },
+      {
+        "name": "Darkness",
+        "kind": "spell",
+        "characterLevel": 5
+      }
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d8": 8
+    },
+    "casterLevel": 3,
+    "pactLevel": 5,
+    "maxSpellSlotLevel": 2,
+    "pactSlots": {
+      "slots": 2,
+      "level": 3
+    },
+    "classSpellSources": [
+      {
+        "source": "WARLOCK_2024",
+        "ability": "CHA"
+      },
+      {
+        "source": "BARD_2024",
+        "ability": "CHA"
+      }
+    ],
+    "bastionFacilityLimit": 2
+  }
+}

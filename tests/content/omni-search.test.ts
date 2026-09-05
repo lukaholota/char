@@ -82,10 +82,10 @@ describe("Omni-Search Index and Querying (KR10.2)", () => {
 
 describe("KR13.4 — тіло статей, якорі підрозділів, г↔х та аліаси", () => {
   it("індексує тіло статей правил, а не лише назви й теги", () => {
-    // «Осідлання» зустрічається тільки в subsections[].content, ніде в title/tags.
-    const results = searchOmniIndex("осідлання", "RULES_2014");
+    // «Пегасі» зустрічається тільки в subsections[].content, ніде в title/tags.
+    const results = searchOmniIndex("пегасі", "RULES_2014");
 
-    expect(results.some((item) => item.href === "/rules/combat#mounted-combat")).toBe(true);
+    expect(results.some((item) => item.href === "/rules/combat#mounted-combat--mounted-combat")).toBe(true);
   });
 
   it("веде на якір підрозділу, а не на початок розділу", () => {
@@ -102,7 +102,7 @@ describe("KR13.4 — тіло статей, якорі підрозділів, �
 
   it("знаходить «бій верхи» і «бонусна дія» у 2014", () => {
     const mounted = searchOmniIndex("бій верхи", "RULES_2014");
-    expect(mounted.some((item) => item.title === "Верховий бій (Mounted Combat)")).toBe(true);
+    expect(mounted.some((item) => item.href === "/rules/combat#mounted-combat")).toBe(true);
 
     const bonusAction = searchOmniIndex("бонусна дія", "RULES_2014");
     expect(bonusAction.some((item) => item.href.startsWith("/rules/combat#"))).toBe(true);
@@ -128,11 +128,11 @@ describe("KR13.4 — тіло статей, якорі підрозділів, �
 
   it("тримає підрозділи правил окремими записами індексу", () => {
     const index = buildOmniSearchIndex("RULES_2014");
-    const article = index.find((item) => item.href === "/rules/combat#mounted-and-underwater-combat");
-    const subsection = index.find((item) => item.href === "/rules/combat#underwater-combat");
+    const article = index.find((item) => item.href === "/rules/combat#mounted-combat");
+    const subsection = index.find((item) => item.href === "/rules/combat#mounted-combat--mounting-and-dismounting");
 
-    expect(article?.title).toBe("Верховий та підводний бій");
-    expect(subsection?.title).toBe("Підводний бій (Underwater Combat)");
+    expect(article?.title).toBe("Верховий бій");
+    expect(subsection?.title).toBe("Сісти верхи й зсісти");
   });
 });
 
@@ -244,5 +244,49 @@ describe("Доповнення власника 2026-08-22 — Б9, Б10, шко
 
     const results = searchOmniIndex("батл мастер", "RULES_2014");
     expect(results.some((item) => item.title === "Майстер бойових мистецтв")).toBe(true);
+  });
+});
+
+describe("KR23.8 / Р34 — стара форма назви плану веде на канонічну статтю", () => {
+  const PLANE_ARTICLES = ["Плани існування", "Планарні ефекти"];
+
+  it.each([
+    ["іссгард", "Ісгард"],
+    ["байтопія", "Бітопія"],
+    ["земля звірів", "Землі Звірів"],
+    ["лімбо", "Лімб"],
+    ["девʼять пеклів", "Девʼять Пекл"],
+    ["фейвальд", "Фейвайлд"],
+    ["далекий обшир", "Далеке Царство"],
+  ])("«%s» знаходить статтю з планами (канон — «%s»)", (variant) => {
+    const titles = searchOmniIndex(variant, "RULES_2014").map((item) => item.title);
+    expect(titles.some((title) => PLANE_ARTICLES.includes(title))).toBe(true);
+  });
+
+  it("KR29.3: аліаси створення персонажа ведуть на статті PHB 2014 там, де пошук мовчав", () => {
+    const wanted: Array<[string, string]> = [
+      ["покрокове створення", "#step-by-step-characters"],
+      ["point buy", "#3-determine-ability-scores--variant-customizing-ability-scores"],
+      ["standard array", "#3-determine-ability-scores"],
+      ["ступінь гри", "#tiers-of-play-phb"],
+      ["квік білд", "#2-choose-a-class--quick-build"],
+    ];
+    for (const [query, anchor] of wanted) {
+      const [first] = searchOmniIndex(query, "RULES_2014");
+      expect(first, `«${query}» нічого не знайшов`).toBeDefined();
+      expect(first.href, query).toContain(anchor);
+    }
+  });
+
+  it("KR29.3: ті самі звички ведуть у 2024 на власні статті створення персонажа", () => {
+    expect(searchOmniIndex("point buy", "RULES_2024")[0]?.href).toContain("#step-3-ability-scores--generate-your-scores");
+    expect(searchOmniIndex("standard array", "RULES_2024")[0]?.href).toContain("#step-3-ability-scores--generate-your-scores");
+    expect(searchOmniIndex("покрокове створення", "RULES_2024")[0]?.href).toContain("#create-your-character");
+  });
+
+  it("«аід» знаходиться нормалізацією запиту, тому рядка в таблиці не має", () => {
+    const entry = findAliasEntry("rule", "planes");
+    expect(entry?.variants).not.toContain("аід");
+    expect(searchOmniIndex("аід", "RULES_2014").length).toBeGreaterThan(0);
   });
 });

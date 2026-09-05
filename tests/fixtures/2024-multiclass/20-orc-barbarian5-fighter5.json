@@ -1,0 +1,153 @@
+{
+  "id": "20-orc-barbarian5-fighter5",
+  "title": "Орк, Варвар 5 / Воїн 5 (рівень 10)",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §20",
+  "why": "Додаткова атака з двох класів не складається; майстерність зброї з двох класів не губиться.",
+  "input": {
+    "species": "ORC_2024",
+    "startingClass": "BARBARIAN_2024",
+    "background": "SAILOR_2024",
+    "baseAbilityScores": {
+      "STR": 15,
+      "DEX": 13,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 8
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "STR",
+      "plusOne": "DEX"
+    },
+    "originFeat": "TAVERN_BRAWLER",
+    "speciesChoices": [],
+    "weaponMastery": [
+      "Greataxe",
+      "Handaxe"
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "BARBARIAN_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "BARBARIAN_2024",
+        "isNewClass": false,
+        "subclass": "PATH_OF_THE_WORLD_TREE"
+      },
+      {
+        "characterLevel": 4,
+        "class": "BARBARIAN_2024",
+        "isNewClass": false,
+        "asi": [
+          {
+            "ability": "STR",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "characterLevel": 5,
+        "class": "BARBARIAN_2024",
+        "isNewClass": false,
+        "weaponMastery": [
+          "Greataxe",
+          "Handaxe",
+          "Battleaxe"
+        ]
+      },
+      {
+        "characterLevel": 6,
+        "class": "FIGHTER_2024",
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Бойовий стиль",
+            "option": "Defense"
+          }
+        ]
+      },
+      {
+        "characterLevel": 7,
+        "class": "FIGHTER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 8,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "subclass": "PSI_WARRIOR"
+      },
+      {
+        "characterLevel": 9,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "feat": "SENTINEL",
+        "featAbility": "STR"
+      },
+      {
+        "characterLevel": 10,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "weaponMastery": [
+          "Greataxe",
+          "Handaxe",
+          "Battleaxe",
+          "Longbow"
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 10,
+    "startingClass": "BARBARIAN_2024",
+    "classLevels": {
+      "BARBARIAN_2024": 5,
+      "FIGHTER_2024": 5
+    },
+    "subclassByClass": {
+      "BARBARIAN_2024": "PATH_OF_THE_WORLD_TREE",
+      "FIGHTER_2024": "PSI_WARRIOR"
+    },
+    "finalAbilityScores": {
+      "STR": 20,
+      "DEX": 14,
+      "CON": 14,
+      "INT": 10,
+      "WIS": 12,
+      "CHA": 8
+    },
+    "feats": [
+      "TAVERN_BRAWLER",
+      "DEFENSE",
+      "SENTINEL"
+    ],
+    "requiredFeatures": [
+      "Barbarian: Extra Attack (2024)",
+      "Fighter: Extra Attack (2024)"
+    ],
+    "proficiencyBonus": 4,
+    "hitDiceByType": {
+      "d12": 5,
+      "d10": 5
+    },
+    "casterLevel": 0,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 0,
+    "pactSlots": null,
+    "extraAttackCount": 2,
+    "weaponMastery": {
+      "capacity": 4,
+      "weapons": [
+        "Greataxe",
+        "Handaxe",
+        "Battleaxe",
+        "Longbow"
+      ]
+    },
+    "bastionFacilityLimit": 4
+  }
+}

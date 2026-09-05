@@ -1,0 +1,138 @@
+{
+  "id": "17-dwarf-fighter3-wizard5",
+  "title": "Дворф, Воїн 3 / Чарівник 5 (рівень 8) — починає воїном",
+  "reference": "docs/o27-multiclass-2024/reference-fifteen.md §17",
+  "why": "Початковий клас — воїн: повний пакет володінь; третинний заклинач округлюється вниз; книга заклинань.",
+  "input": {
+    "species": "DWARF_2024",
+    "startingClass": "FIGHTER_2024",
+    "background": "ARTISAN_2024",
+    "baseAbilityScores": {
+      "STR": 13,
+      "DEX": 12,
+      "CON": 14,
+      "INT": 15,
+      "WIS": 10,
+      "CHA": 8
+    },
+    "backgroundAsi": {
+      "mode": "+2/+1",
+      "plusTwo": "INT",
+      "plusOne": "STR"
+    },
+    "originFeat": "CRAFTER",
+    "classChoices": [
+      {
+        "choice": "Бойовий стиль",
+        "option": "Defense"
+      }
+    ],
+    "speciesChoices": [],
+    "weaponMastery": [
+      "Longsword",
+      "Greatsword",
+      "Handaxe"
+    ],
+    "levelUps": [
+      {
+        "characterLevel": 2,
+        "class": "FIGHTER_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 3,
+        "class": "FIGHTER_2024",
+        "isNewClass": false,
+        "subclass": "ELDRITCH_KNIGHT"
+      },
+      {
+        "characterLevel": 4,
+        "class": "WIZARD_2024",
+        "isNewClass": true
+      },
+      {
+        "characterLevel": 5,
+        "class": "WIZARD_2024",
+        "isNewClass": false
+      },
+      {
+        "characterLevel": 6,
+        "class": "WIZARD_2024",
+        "isNewClass": false,
+        "subclass": "ABJURER"
+      },
+      {
+        "characterLevel": 7,
+        "class": "WIZARD_2024",
+        "isNewClass": false,
+        "feat": "WAR_CASTER",
+        "featAbility": "INT"
+      },
+      {
+        "characterLevel": 8,
+        "class": "WIZARD_2024",
+        "isNewClass": false
+      }
+    ]
+  },
+  "expected": {
+    "characterLevel": 8,
+    "startingClass": "FIGHTER_2024",
+    "classLevels": {
+      "FIGHTER_2024": 3,
+      "WIZARD_2024": 5
+    },
+    "subclassByClass": {
+      "FIGHTER_2024": "ELDRITCH_KNIGHT",
+      "WIZARD_2024": "ABJURER"
+    },
+    "finalAbilityScores": {
+      "STR": 14,
+      "DEX": 12,
+      "CON": 14,
+      "INT": 18,
+      "WIS": 10,
+      "CHA": 8
+    },
+    "feats": [
+      "CRAFTER",
+      "DEFENSE",
+      "WAR_CASTER"
+    ],
+    "proficiencyBonus": 3,
+    "hitDiceByType": {
+      "d10": 3,
+      "d6": 5
+    },
+    "casterLevel": 6,
+    "pactLevel": 0,
+    "maxSpellSlotLevel": 3,
+    "pactSlots": null,
+    "classSpellSources": [
+      {
+        "source": "WIZARD_2024",
+        "ability": "INT"
+      }
+    ],
+    "spellbookClass": "WIZARD_2024",
+    "armorProficiencies": [
+      "LIGHT",
+      "MEDIUM",
+      "HEAVY",
+      "SHIELD"
+    ],
+    "weaponProficiencyTypes": [
+      "SIMPLE_WEAPON",
+      "MARTIAL_WEAPON"
+    ],
+    "weaponMastery": {
+      "capacity": 3,
+      "weapons": [
+        "Longsword",
+        "Greatsword",
+        "Handaxe"
+      ]
+    },
+    "bastionFacilityLimit": 2
+  }
+}
