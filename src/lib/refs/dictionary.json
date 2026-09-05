@@ -58,7 +58,9 @@
       "proficiency": "Володіння",
       "proficiencyBonus": "Бонус Майстерності",
       "you_are_proficient_in": "Ви володієте (Чимось)",
-      "savingThrow": "Ряткидок",
+      "savingThrow": "Рятівний кидок",
+      "savingThrowShort": "Ряткидок",
+      "savingThrowNote": "«Ряткидок» — ратифіковане скорочення «Рятівного кидка» (рішення власника 2026-08-31). Обидві форми дозволені й офіційні; зводити одну до одної не треба. «Спаскидок» — зняте, не вживати.",
       "skillCheck": "Перевірка навички",
       "spell": "Заклинання",
       "cantrip": "Замовляння",
@@ -70,6 +72,7 @@
       "verbal": "Вербальний",
       "somatic": "Соматичний",
       "material": "Матеріальний",
+      "royalty": "Роялті (складник «Р» з Acquisitions Incorporated — грошове відрахування творцеві заклинання, а не «королівський»)",
       "infusion": "Вливання",
       "turn": "Хід",
       "round": "Раунд",
@@ -91,10 +94,15 @@
       "hitPoint": "Хіт Поїнти або ХП",
       "advantage": "Перевага на кубику",
       "disadvantage": "Перешкода на кубику",
+      "forcedMarch": "Виснажливий перехід",
       "trait": "особливість",
       "with this trait": "цією здібністю",
       "Ability": "Характеристика (якщо йдеться про Сила, Спритність, Статура і тд)",
-      "Stats": "Характеристики (якщо йдеться про Сила, Спритність, Статура і тд)"
+      "Stats": "Характеристики (якщо йдеться про Сила, Спритність, Статура і тд)",
+      "creatureTypeTrait": "Тип істоти",
+      "abilityScoreIncrease": "Покращення характеристик",
+      "variableTrait": "Змінна особливість",
+      "age": "Вік"
     },
     "conditions": {
       "blinded": "Засліплений",
@@ -106,7 +114,7 @@
       "incapacitated": "Недієздатний",
       "invisible": "Невидимий",
       "paralyzed": "Паралізований",
-      "petrified": "Окам'янілий",
+      "petrified": "Окамʼянілий",
       "poisoned": "Отруєний",
       "prone": "Повалений",
       "restrained": "Скований",
@@ -140,10 +148,10 @@
       "force": "Силовим Полем",
       "lightning": "Блискавична або Блискавкою",
       "necrotic": "Некротична",
-      "piercing": "Коляча",
+      "piercing": "Колюча",
       "poison": "Отруйна або Отрутою",
       "psychic": "Психічна",
-      "radiant": "Світлом (шкоди Світлом)",
+      "radiant": "Променева",
       "slashing": "Рубляча",
       "thunder": "Громова або Громом"
     },
@@ -222,7 +230,11 @@
       "warlock": "Чорнокнижник",
       "gem": "Самоцвітний",
       "bard": "Бард",
-      "inevitable": "Невідворотний"
+      "inevitable": "Невідворотний",
+      "tabaxi": "Табаксі",
+      "cattle": "Худоба",
+      "hill giant": "Пагорбовий велетень",
+      "mind flayer": "Мізкожер"
     },
     "spellSchools": {
       "abjuration": "Захист",
@@ -250,10 +262,35 @@
       "stabilize": "Стабілізувати",
       "dying": "Помирання",
       "level": "Рівень",
+      "challengeRating": "Показник небезпеки (CR)",
       "experience": "Досвід",
       "experiencePoints": "Очки досвіду",
       "spellSlot": "слот Заклинань",
-      "darkSpeech": "Мова Темряви"
+      "darkSpeech": "Мова Темряви",
+      "demigod": "Напівбог",
+      "downtimeRevisited": "Оновлені правила міжчасся",
+      "dungeonMaster": "Майстер",
+      "nonplayerCharacter": "НІП",
+      "pocketDimension": "Кишеньковий вимір",
+      "loyalty": "Лояльність",
+      "loyaltyScore": "Показник лояльності",
+      "rations": "Пайки",
+      "hexCrawling": "гекс-крол",
+      "groupCheck": "Групова перевірка",
+      "passiveInsight": "Пасивний аналіз поведінки",
+      "successAtACost": "успіх ціною",
+      "campaignJournal": "Журнал кампанії",
+      "divineRank": "Божественний ранг",
+      "greaterDeity": "Великі боги",
+      "lesserDeity": "Менші боги",
+      "quasiDeity": "Квазібожество",
+      "vestige": "Пережиток",
+      "spellcastingFocus": "чаротворчий фокус",
+      "portcullis": "Підйомні ґрати",
+      "blessing": "Благословення",
+      "friendlyAttitude": "Дружнє",
+      "indifferentAttitude": "Байдуже",
+      "hostileAttitude": "Вороже"
     },
     "dice": {
       "d4": "к4",
@@ -290,7 +327,9 @@
       "heightenedSpell": "Підвищене заклинання",
       "quickenedSpell": "Пришвидшене заклинання",
       "subtleSpell": "Приховане заклинання",
-      "twinnedSpell": "Спарене заклинання"
+      "twinnedSpell": "Спарене заклинання",
+      "seekingSpell": "Спрямоване заклинання",
+      "transmutedSpell": "Перетворене заклинання"
     },
     "additionalRaces": {
       "aasimar": "Аазимар",
@@ -329,7 +368,36 @@
       "windInstrument": "Духовий інструмент",
       "stringInstrument": "Струнний інструмент",
       "percussionInstrument": "Ударний інструмент",
-      "bullseyeLantern": "Ліхтар-прожектор"
+      "bullseyeLantern": "Ліхтар-прожектор",
+      "helm": "Штурвал (helm — штурвал корабля, а не шолом; шолом це helmet)",
+      "spelljammingHelm": "Спелджаммерський штурвал",
+      "don": "Вдягання",
+      "doff": "Знімання",
+      "carryingCapacity": "Вантажопідйомність",
+      "pushDragLift": "Штовхати, тягти чи піднімати",
+      "lifestyle": "Спосіб життя"
+    },
+    "lifestyleLevels": {
+      "wretched": "Убогий",
+      "squalid": "Злиденний",
+      "poor": "Бідний",
+      "modest": "Скромний",
+      "comfortable": "Заможний",
+      "wealthy": "Багатий",
+      "aristocratic": "Аристократичний"
+    },
+    "mountsAndVehicles": {
+      "barding": "Кінський обладунок",
+      "saddleExotic": "Екзотичне сідло",
+      "saddleMilitary": "Бойове сідло",
+      "saddlePack": "Вʼючне сідло",
+      "saddleRiding": "Їздове сідло",
+      "galley": "Галера",
+      "keelboat": "Кільовий човен",
+      "longship": "Драккар",
+      "rowboat": "Весловий човен",
+      "sailingShip": "Вітрильник",
+      "warship": "Військовий корабель"
     },
     "currency": {
       "goldPiece": "Золота монета, скорочено «зм»",
@@ -339,8 +407,8 @@
       "platinumPiece": "Платинова монета"
     },
     "restAndRecovery": {
-      "hitDice": "Кубики Здоров'я",
-      "hitDie": "Кубик Здоров'я",
+      "hitDice": "Кубики Здоровʼя",
+      "hitDie": "Кубик Здоровʼя",
       "temporaryHP": "Тимчасові ХП",
       "healing": "Зцілення",
       "resurrection": "Воскресіння",
@@ -365,12 +433,43 @@
       "etherealPlane": "Етерний план",
       "astralPlane": "Астральний план",
       "materialPlane": "Матеріальний план",
+      "feywild": "Фейвайлд",
+      "shadowfell": "Царство тіней",
       "elementalPlaneOfAir": "Стихійний план Повітря",
       "elementalPlaneOfEarth": "Стихійний план Землі",
       "elementalPlaneOfFire": "Стихійний план Вогню",
       "elementalPlaneOfWater": "Стихійний план Води",
       "positiveEnergyPlane": "План позитивної енергії",
-      "hades": "Аїд"
+      "hades": "Аїд",
+      "limbo": "Лімб",
+      "nineHells": "Девʼять Пекл",
+      "farRealm": "Далеке Царство",
+      "mountCelestia": "Гора Селестія",
+      "bytopia": "Бітопія",
+      "elysium": "Елізіум",
+      "beastlands": "Землі Звірів",
+      "arborea": "Арборея",
+      "ysgard": "Ісгард",
+      "pandemonium": "Пандемоніум",
+      "abyss": "Безодня",
+      "carceri": "Карцері",
+      "gehenna": "Геєна",
+      "acheron": "Ахерон",
+      "mechanus": "Механус",
+      "arcadia": "Аркадія"
+    },
+    "campaignSettings": {
+      "greyhawk": "Грейгок",
+      "cityOfBrass": "Місто Латуні",
+      "menzoberranzan": "Мензоберранзан",
+      "sylgar": "Сильгар",
+      "eberron": "Еберрон",
+      "breland": "Бреланд",
+      "crossroadsVillage": "Кросроудс",
+      "cynidicea": "Синідицея",
+      "minethys": "Мінетис",
+      "thrym": "Трим",
+      "helm": "Гелм"
     },
     "gemstones": {
       "pearl": "Перлина",
@@ -398,6 +497,7 @@
       "rare": "Рідкісний",
       "veryRare": "Дуже рідкісний",
       "legendary": "Легендарний",
+      "artifact": "Артефакт",
       "wondrousItem": "Дивовижний предмет",
       "potion": "Зілля",
       "scroll": "Сувій",
@@ -405,6 +505,10 @@
       "staff": "Посох",
       "wand": "Паличка",
       "ring": "Перстень"
+    },
+    "materials": {
+      "ivory": "слонова кістка",
+      "razorvine": "Лезолоза"
     },
     "distanceAndTime": {
       "feet": "Фути",
@@ -417,6 +521,7 @@
       "instantaneous": "Миттєво"
     },
     "combatActions": {
+      "attack": "Атака",
       "dash": "Ривок",
       "disengage": "Відступ",
       "dodge": "Ухиляння",
@@ -436,8 +541,8 @@
         "initiative": "Ініціатива",
         "languages": "Мови",
         "senses": "Чуття",
-        "immunities": "Невразливості",
-        "resistances": "Спротиви",
+        "immunities": "Імунітети",
+        "resistances": "Опори",
         "vulnerabilities": "Вразливості",
         "gear": "Спорядження"
       },
@@ -446,7 +551,10 @@
         "actions": "Дії",
         "bonusActions": "Бонусні дії",
         "reactions": "Реакції",
-        "legendaryActions": "Легендарні дії"
+        "legendaryActions": "Легендарні дії",
+        "lair": "Лігво",
+        "lairActions": "Дії Лігва",
+        "regionalEffects": "Регіональні ефекти"
       },
       "attackGrammar": {
         "note": "Складається з наявних блоків: melee = ближня, attack roll = кидок атаки",
@@ -478,7 +586,7 @@
         "any": "Будь-яка місцевість",
         "forest": "Ліс",
         "grassland": "Степ",
-        "hill": "Підгір'я",
+        "hill": "Підгірʼя",
         "mountain": "Гори",
         "swamp": "Болото",
         "desert": "Пустеля",
@@ -515,7 +623,7 @@
         "commonPlusOneOther": "Загальна та ще одна інша мова",
         "commonPlusTwoOther": "Загальна та ще дві інші мови",
         "commonPlusThreeOther": "Загальна та ще три інші мови",
-        "commonPlusFiveOther": "Загальна та ще п'ять інших мов",
+        "commonPlusFiveOther": "Загальна та ще пʼять інших мов",
         "primordialDialect": "Первинна (<діалект>), напр. Первинна (Акванська)",
         "all": "Усі мови"
       },
@@ -540,7 +648,9 @@
         "bastion": "Бастіон",
         "influenceAction": "Дія Впливу",
         "statBlock": "статблок",
-        "castASpell": "накладати заклинання"
+        "castASpell": "накладати заклинання",
+        "heroicInspiration": "Героїчне Натхнення",
+        "lineageSpellcastingAbility": "Базова характеристика заклинань"
       },
       "weaponMasteryProperties": {
         "cleave": "Розмах",
@@ -557,6 +667,7 @@
         "crafter": "Ремісник",
         "musician": "Музикант",
         "martialWeaponTraining": "Тренування з Бойовою Зброєю",
+        "armorTraining": "Тренування з Обладунками",
         "speedy": "Швидкий"
       },
       "epicBoonNames": {
@@ -599,7 +710,37 @@
         "collegeOfDance": "Колегія Танцю",
         "pathOfTheWildHeart": "Шлях Дикого Серця",
         "pathOfTheWorldTree": "Шлях Світового Дерева",
-        "circleOfTheSea": "Коло Моря"
+        "circleOfTheSea": "Коло Моря",
+        "cartographer": "Картограф",
+        "reanimator": "Реаніматор"
+      },
+      "bastionTerms": {
+        "note": "Бастіон як поняття — coreConceptTerms.bastion; назви наказів, розмірів простору й типів приміщень — у CONTENT_TRANSLATIONS (bastionOrderTranslations, bastionSpaceTranslations, bastionFacilityTypeTranslations). Тут лишається те, що не має enum. Затверджено власником 2026-08-28.",
+        "facility": "приміщення",
+        "bastionTurn": "Хід Бастіону",
+        "bastionEvent": "Подія Бастіону",
+        "bastionDefender": "Захисник Бастіону",
+        "hireling": "найманець",
+        "charm": "Оберіг",
+        "order": "наказ",
+        "enlargeFacility": "Розширення приміщення",
+        "renown": "Слава",
+        "renownScore": "Показник Слави",
+        "supernaturalGifts": "Надприродні дари"
+      },
+      "gameplayToolboxTerms": {
+        "note": "Терміни довідника правил 2024 з gameplay-toolbox.md, character-creation.md і character-origins.md (KR20.3). Чотири з них затверджені власником 2026-08-28: магічна зараза, дрібничка, ступінь гри, ментальний стрес.",
+        "magicalContagion": "Магічна зараза",
+        "trinket": "Дрібничка",
+        "tierOfPlay": "Ступінь гри",
+        "mentalStress": "Ментальний стрес",
+        "fearEffect": "Ефект страху",
+        "curse": "Прокляття",
+        "combatEncounter": "Бойова сутичка",
+        "encounterBudget": "Бюджет сутички",
+        "travelPace": "Темп подорожі",
+        "trap": "Пастка",
+        "multiclassing": "Мультиклас"
       }
     },
     "statblockFeatures": {
@@ -612,7 +753,7 @@
       "Beak": "Дзьоб",
       "Bite": "Укус",
       "Bites": "Укуси",
-      "Blood Frenzy": "Кров'яний шал",
+      "Blood Frenzy": "Кровʼяний шал",
       "Breath Weapons": "Дихальна зброя",
       "Change Shape": "Зміна подоби",
       "Charge": "Наскок",
@@ -692,14 +833,14 @@
       "Slippery Oil": "Слизька олія",
       "Slowing Breath": "Уповільнювальне дихання",
       "Spear": "Спис",
-      "Spellcasting": "Чаклування",
+      "Spellcasting": "Чаротворення",
       "Spider Climb": "Павуче лазіння",
       "Standing Leap": "Стрибок з місця",
       "Stench": "Сморід",
       "Sticky Leg": "Липка лапа",
       "Sticky Oil": "Липка олія",
       "Sting": "Жало",
-      "Stone Camouflage": "Кам'яне маскування",
+      "Stone Camouflage": "Камʼяне маскування",
       "Sun Sickness": "Сонячна хвороба",
       "Sunlight Sensitivity": "Чутливість до сонячного світла",
       "Superior Invisibility": "Досконала невидимість",
@@ -721,7 +862,8 @@
       "Web": "Павутина",
       "Web Sense": "Чуття павутини",
       "Web Walker": "Ходець павутиною",
-      "Wing Attack": "Удар крилами"
+      "Wing Attack": "Удар крилами",
+      "Unusual Nature": "Незвичайна природа"
     },
     "classFeatures2024": {
       "abjureFoes": "Відлякування ворогів",
@@ -736,7 +878,7 @@
       "bodyAndMind": "Тіло і розум",
       "brutalStrike": "Жорстокий удар",
       "clericSubclass": "Підклас Клірика",
-      "contactPatron": "Зв'язок із патроном",
+      "contactPatron": "Звʼязок із патроном",
       "cunningStrike": "Хитрий удар",
       "dazzlingWeapon": "Сліпуча зброя",
       "deflectAttacks": "Відхилення атак",
@@ -761,7 +903,7 @@
       "magicItemTinker": "Ремісник магічних предметів",
       "magicalCunning": "Магічна хитрість",
       "manifoldTool": "Універсальний інструмент",
-      "memorizeSpell": "Запам'ятовування заклинання",
+      "memorizeSpell": "Запамʼятовування заклинання",
       "monkSubclass": "Підклас Монаха",
       "monksFocus": "Зосередження Монаха",
       "mysticArcanum": "Містичний арканум",
@@ -770,7 +912,7 @@
       "perfectFocus": "Досконале зосередження",
       "preciseHunter": "Влучний мисливець",
       "primalOrder": "Первісне призначення",
-      "radiantStrikes": "Променисті удари",
+      "radiantStrikes": "Променеві удари",
       "rangerSubclass": "Підклас Слідопита",
       "relentlessHunter": "Невпинний мисливець",
       "replicateMagicItem": "Репліка магічного предмета",
@@ -800,6 +942,127 @@
       "wildResurgence": "Дике відродження",
       "wizardSubclass": "Підклас Чарівника",
       "wordsOfCreation": "Слова Творіння"
+    },
+    "namedStatblocks": {
+      "animatedObject": "Оживлений обʼєкт",
+      "magen": "Маген",
+      "reaperSpirit": "Дух Жнеця",
+      "ogre": "Огр",
+      "blackPudding": "Чорний пудинг",
+      "imp": "Імп",
+      "ochreJelly": "охряне желе",
+      "slaadTadpole": "слаадський пуголовок",
+      "juiblex": "Джуйблекс",
+      "aboleth": "аболет",
+      "lich": "ліч",
+      "doppelganger": "двійник",
+      "worg": "ворг",
+      "gibberingMouther": "бурмочучий ротожуй",
+      "greatwyrm": "прадракон"
+    },
+    "variantRules": {
+      "flanking": "фланкування",
+      "cleavingThroughCreatures": "Розрубування істот",
+      "facing": "Напрямок погляду",
+      "massiveDamage": "Нищівна шкода",
+      "morale": "Бойовий дух",
+      "mark": "Позначення",
+      "overrun": "Прорив",
+      "tumble": "Перекид",
+      "injuries": "Каліцтва",
+      "sideInitiative": "Ініціатива сторін",
+      "speedFactor": "Чинник швидкості",
+      "healingSurges": "Припливи зцілення",
+      "grittyRealism": "Суворий реалізм",
+      "epicHeroism": "Епічний героїзм",
+      "spellPoints": "Очки заклинань",
+      "heroPoints": "Очки героя",
+      "plotPoints": "Очки сюжету",
+      "proficiencyDice": "Кубики майстерності",
+      "piety": "Побожність",
+      "carousing": "Гуляння",
+      "pitFighting": "Бої на арені",
+      "sowingRumors": "Пускання чуток",
+      "stronghold": "Твердиня",
+      "sidekick": "Соратник",
+      "sidekickExpert": "Знавець",
+      "sidekickSpellcaster": "Чаротворець",
+      "sidekickWarrior": "Воїн",
+      "honor": "Честь",
+      "sanity": "Розсудливість",
+      "customLineage": "Власний родовід",
+      "rivals": "Суперники",
+      "experienceCheckpoints": "контрольні точки досвіду",
+      "treasurePoints": "очки скарбу",
+      "larva": "личинка",
+      "energyCells": "енергетичні комірки",
+      "identifyASpell": "Розпізнавання заклинання"
+    },
+    "siegeEquipment": {
+      "ballista": "Баліста",
+      "cannon": "Гармата",
+      "mangonel": "Мангонель",
+      "ram": "Таран",
+      "siegeTower": "Облогова вежа",
+      "suspendedCauldron": "Підвісний казан",
+      "trebuchet": "Требюше",
+      "flamethrowerCoach": "Вогнеметний диліжанс",
+      "kegLauncher": "Бочкомет",
+      "lightningCannon": "Блискавична гармата"
+    },
+    "diseases": {
+      "blindingSickness": "Сліпуча хвороба",
+      "filthFever": "Гарячка нечистот",
+      "fleshRot": "Гниль плоті",
+      "mindfire": "Гарячка розуму",
+      "seizure": "Напад",
+      "slimyDoom": "Слизька погибель"
+    },
+    "trapsAndHazards": {
+      "bearTrap": "Ведмежий капкан",
+      "crossbowTrap": "Арбалетна пастка",
+      "fallingPortcullis": "Падуча решітка",
+      "fieryBlastTrap": "Пастка вогняного спалаху",
+      "netTrap": "Сітьова пастка",
+      "pathOfBlades": "Шлях Клинків",
+      "pitTrap": "Пастка-яма",
+      "poisonNeedleTrap": "Пастка з отруєною голкою",
+      "poisonedTempest": "Отруйна буря",
+      "scythingBladeTrap": "Пастка рублячого леза",
+      "sleepOfAgesTrap": "Пастка вікового сну",
+      "sphereOfCrushingDoom": "Сфера розчавлюючої смерті",
+      "desecratedGround": "Осквернена земля",
+      "improvisedDamage": "Імпровізована шкода",
+      "quicksand": "Зибучі піски",
+      "quicksandPit": "Яма із зибучими пісками",
+      "razorvine": "Бритволоза",
+      "flameStorm": "Вогняна буря",
+      "flaywind": "Здирливий вихор",
+      "necroticTempest": "Некротична буря",
+      "thrymsHowl": "Виття Трима",
+      "deadMagicZone": "Зона мертвої магії",
+      "fireballFungus": "Вогнекульний гриб",
+      "inferno": "Вогненне пекло",
+      "planarEffects": "Планарні ефекти",
+      "poisonousGas": "Отруйний газ",
+      "rockslide": "Каменепад",
+      "viciousVine": "Хижа лоза",
+      "wildMagicZone": "Зона дикої магії"
+    },
+    "characterOrigin": {
+      "background": "Передісторія",
+      "customizingABackground": "Налаштування передісторії",
+      "personalityTrait": "Риса вдачі",
+      "ideal": "Ідеал",
+      "bond": "Звʼязок",
+      "flaw": "Вада",
+      "suggestedCharacteristics": "Рекомендовані характерні риси",
+      "racialTraits": "Расові особливості",
+      "subrace": "Підраса",
+      "parentRace": "Батьківська раса",
+      "shelterOfTheFaithful": "Притулок вірян",
+      "feat": "Риса",
+      "prerequisite": "Передумова"
     }
   },
   "SPELLS": [
@@ -816,7 +1079,7 @@
     {
       "spell_id": 1194,
       "eng_name": "Conjure Minor Elementals",
-      "name": "З'ява малих стихійників [Conjure Minor Elementals]"
+      "name": "Зʼява малих стихійників [Conjure Minor Elementals]"
     },
     {
       "spell_id": 1347,
@@ -841,7 +1104,7 @@
     {
       "spell_id": 1322,
       "eng_name": "Feather Fall",
-      "name": "Падіння пір'їною [Feather Fall]"
+      "name": "Падіння пірʼїною [Feather Fall]"
     },
     {
       "spell_id": 1043,
@@ -1161,7 +1424,7 @@
     {
       "spell_id": 1056,
       "eng_name": "Sacred Flame",
-      "name": "Священне полум'я [Sacred Flame]"
+      "name": "Священне полумʼя [Sacred Flame]"
     },
     {
       "spell_id": 1296,
@@ -1261,7 +1524,7 @@
     {
       "spell_id": 1522,
       "eng_name": "Rary's Telepathic Bond",
-      "name": "Телепатичний зв'язок Рері [Rary's Telepathic Bond]"
+      "name": "Телепатичний звʼязок Рері [Rary's Telepathic Bond]"
     },
     {
       "spell_id": 1504,
@@ -1351,7 +1614,7 @@
     {
       "spell_id": 1295,
       "eng_name": "Continual Flame",
-      "name": "Вічне полум'я [Continual Flame]"
+      "name": "Вічне полумʼя [Continual Flame]"
     },
     {
       "spell_id": 1312,
@@ -1581,7 +1844,7 @@
     {
       "spell_id": 1130,
       "eng_name": "Blade Barrier",
-      "name": "Клинковий бар'єр [Blade Barrier]"
+      "name": "Клинковий барʼєр [Blade Barrier]"
     },
     {
       "spell_id": 1132,
@@ -1591,7 +1854,7 @@
     {
       "spell_id": 1133,
       "eng_name": "Conjure Fey",
-      "name": "З'ява феї [Conjure Fey]"
+      "name": "Зʼява феї [Conjure Fey]"
     },
     {
       "spell_id": 1140,
@@ -1606,7 +1869,7 @@
     {
       "spell_id": 1168,
       "eng_name": "Contact Other Plane",
-      "name": "Зв'язок з іншим планом [Contact Other Plane]"
+      "name": "Звʼязок з іншим планом [Contact Other Plane]"
     },
     {
       "spell_id": 1147,
@@ -1666,7 +1929,7 @@
     {
       "spell_id": 1170,
       "eng_name": "Conjure Elemental",
-      "name": "З'ява стихійника [Conjure Elemental]"
+      "name": "Зʼява стихійника [Conjure Elemental]"
     },
     {
       "spell_id": 1176,
@@ -1686,12 +1949,12 @@
     {
       "spell_id": 1195,
       "eng_name": "Conjure Woodland Beings",
-      "name": "З'ява лісових створінь [Conjure Woodland Beings]"
+      "name": "Зʼява лісових створінь [Conjure Woodland Beings]"
     },
     {
       "spell_id": 1192,
       "eng_name": "Stoneskin",
-      "name": "Кам'яна шкіра [Stoneskin]"
+      "name": "Камʼяна шкіра [Stoneskin]"
     },
     {
       "spell_id": 1203,
@@ -1811,7 +2074,7 @@
     {
       "spell_id": 1239,
       "eng_name": "Conjure Animals",
-      "name": "З'ява тварин [Conjure Animals]"
+      "name": "Зʼява тварин [Conjure Animals]"
     },
     {
       "spell_id": 1243,
@@ -1866,7 +2129,7 @@
     {
       "spell_id": 1274,
       "eng_name": "Warding Bond",
-      "name": "Охоронний зв'язок [Warding Bond]"
+      "name": "Охоронний звʼязок [Warding Bond]"
     },
     {
       "spell_id": 1286,
@@ -2176,7 +2439,7 @@
     {
       "spell_id": 1471,
       "eng_name": "Mental Prison",
-      "name": "Ментальна в'язниця [Mental Prison]"
+      "name": "Ментальна вʼязниця [Mental Prison]"
     },
     {
       "spell_id": 1477,
@@ -2186,7 +2449,7 @@
     {
       "spell_id": 1479,
       "eng_name": "Abi-Dalzim's Horrid Wilting",
-      "name": "Жахливе в'янення Абі-Далзима [Abi-Dalzim's Horrid Wilting]"
+      "name": "Жахливе вʼянення Абі-Далзима [Abi-Dalzim's Horrid Wilting]"
     },
     {
       "spell_id": 1445,
@@ -2371,7 +2634,7 @@
     {
       "spell_id": 1405,
       "eng_name": "Flame Arrows",
-      "name": "Полум’яні стріли [Flame Arrows]"
+      "name": "Полумʼяні стріли [Flame Arrows]"
     },
     {
       "spell_id": 1451,
@@ -2496,7 +2759,7 @@
     {
       "spell_id": 1059,
       "eng_name": "Imprisonment",
-      "name": "Ув'язнення [Imprisonment]"
+      "name": "Увʼязнення [Imprisonment]"
     },
     {
       "spell_id": 1536,
@@ -2681,7 +2944,7 @@
     {
       "spell_id": 1151,
       "eng_name": "Flame Strike",
-      "name": "Полум'яний удар [Flame Strike]"
+      "name": "Полумʼяний удар [Flame Strike]"
     },
     {
       "spell_id": 1067,
@@ -3181,7 +3444,7 @@
     {
       "spell_id": 1542,
       "eng_name": "Immovable Object",
-      "name": "Нерухомий об'єкт [Immovable Object]"
+      "name": "Нерухомий обʼєкт [Immovable Object]"
     },
     {
       "spell_id": 1541,
@@ -3296,7 +3559,137 @@
     {
       "spell_id": 1535,
       "eng_name": "Tether Essence",
-      "name": "Зв'язок сутностей [Tether Essence]"
+      "name": "Звʼязок сутностей [Tether Essence]"
+    },
+    {
+      "spell_id": 2736,
+      "eng_name": "Distort Value",
+      "name": "Спотворення вартості [Distort Value]"
+    },
+    {
+      "spell_id": 2737,
+      "eng_name": "Fast Friends",
+      "name": "Швидкі друзі [Fast Friends]"
+    },
+    {
+      "spell_id": 2738,
+      "eng_name": "Gift of Gab",
+      "name": "Дар красномовства [Gift of Gab]"
+    },
+    {
+      "spell_id": 2739,
+      "eng_name": "Incite Greed",
+      "name": "Розпалювання жадібності [Incite Greed]"
+    },
+    {
+      "spell_id": 2740,
+      "eng_name": "Jim's Glowing Coin",
+      "name": "Сяйлива монета Джима [Jim's Glowing Coin]"
+    },
+    {
+      "spell_id": 2741,
+      "eng_name": "Jim's Magic Missile",
+      "name": "Магічний дротик Джима [Jim's Magic Missile]"
+    },
+    {
+      "spell_id": 2742,
+      "eng_name": "Motivational Speech",
+      "name": "Мотиваційна промова [Motivational Speech]"
+    },
+    {
+      "spell_id": 2743,
+      "eng_name": "Borrowed Knowledge",
+      "name": "Позичене знання [Borrowed Knowledge]"
+    },
+    {
+      "spell_id": 2744,
+      "eng_name": "Kinetic Jaunt",
+      "name": "Кінетичний скік [Kinetic Jaunt]"
+    },
+    {
+      "spell_id": 2745,
+      "eng_name": "Silvery Barbs",
+      "name": "Сріблясті шпильки [Silvery Barbs]"
+    },
+    {
+      "spell_id": 2746,
+      "eng_name": "Vortex Warp",
+      "name": "Вихрове переміщення [Vortex Warp]"
+    },
+    {
+      "spell_id": 2747,
+      "eng_name": "Wither and Bloom",
+      "name": "Вʼянення і цвітіння [Wither and Bloom]"
+    },
+    {
+      "spell_id": 2748,
+      "eng_name": "Antagonize",
+      "name": "Підбурювання [Antagonize]"
+    },
+    {
+      "spell_id": 2749,
+      "eng_name": "Flock of Familiars",
+      "name": "Зграя фамільярів [Flock of Familiars]"
+    },
+    {
+      "spell_id": 2750,
+      "eng_name": "Galder's Speedy Courier",
+      "name": "Швидкий курʼєр Галдера [Galder's Speedy Courier]"
+    },
+    {
+      "spell_id": 2751,
+      "eng_name": "Galder's Tower",
+      "name": "Вежа Галдера [Galder's Tower]"
+    },
+    {
+      "spell_id": 2752,
+      "eng_name": "Air Bubble",
+      "name": "Бульбашка повітря [Air Bubble]"
+    },
+    {
+      "spell_id": 2753,
+      "eng_name": "Create Spelljamming Helm",
+      "name": "Створення спелджаммерського штурвала [Create Spelljamming Helm]"
+    },
+    {
+      "spell_id": 2754,
+      "eng_name": "Spirit of Death",
+      "name": "Дух смерті [Spirit of Death]"
+    },
+    {
+      "spell_id": 2755,
+      "eng_name": "Spray of Cards",
+      "name": "Бризки карт [Spray of Cards]"
+    },
+    {
+      "spell_id": 2756,
+      "eng_name": "Create Magen",
+      "name": "Створення магена [Create Magen]"
+    },
+    {
+      "spell_id": 2757,
+      "eng_name": "Frost Fingers",
+      "name": "Морозні пальці [Frost Fingers]"
+    },
+    {
+      "spell_id": 2758,
+      "eng_name": "Gate Seal",
+      "name": "Печатка брами [Gate Seal]"
+    },
+    {
+      "spell_id": 2759,
+      "eng_name": "Warp Sense",
+      "name": "Чуття викривлень [Warp Sense]"
+    },
+    {
+      "spell_id": 2760,
+      "eng_name": "Linked Glyphs",
+      "name": "Повʼязані символи [Linked Glyphs]"
+    },
+    {
+      "spell_id": 2761,
+      "eng_name": "Encode Thoughts",
+      "name": "Кодування думок [Encode Thoughts]"
     }
   ],
   "CONTENT_TRANSLATIONS": {
@@ -3328,6 +3721,7 @@
       "NATURAL_ARMOR_13_DEX": "Природний обладунок (13 + СПР)",
       "NATURAL_ARMOR_12_DEX": "Природний обладунок (12 + СПР)",
       "NATURAL_ARMOR_12_CON": "Природний обладунок (12 + СТА)",
+      "DRACONIC_RESILIENCE": "Драконяча живучість (чародій)",
       "HOMEBREW": "Хоумбрю"
     },
     "armorTypeTranslations": {
@@ -3454,6 +3848,24 @@
       "PLANAR_PHILOSOPHER": "Планарний філософ",
       "CUSTOM": "Власна"
     },
+    "bastionFacilityTypeTranslations": {
+      "BASIC": "Базове приміщення",
+      "SPECIAL": "Спеціальне приміщення"
+    },
+    "bastionOrderTranslations": {
+      "CRAFT": "Ремесло",
+      "EMPOWER": "Підсилення",
+      "HARVEST": "Збирання",
+      "RECRUIT": "Вербування",
+      "RESEARCH": "Дослідження",
+      "TRADE": "Торгівля",
+      "MAINTAIN": "Утримання"
+    },
+    "bastionSpaceTranslations": {
+      "CRAMPED": "Тісне",
+      "ROOMY": "Просторе",
+      "VAST": "Розлоге"
+    },
     "bonusTranslations": {
       "modifyTitle": "Модифікація",
       "statBonus": "Бонус до стату",
@@ -3539,7 +3951,7 @@
       "PIERCING": "Колюча",
       "POISON": "Отрутою",
       "PSYCHIC": "Психічна",
-      "RADIANT": "Промениста",
+      "RADIANT": "Променева",
       "SLASHING": "Ріжуча",
       "THUNDER": "Громова"
     },
@@ -3632,7 +4044,7 @@
       "ELVEN_ACCURACY": "Ельфійська точність",
       "FADE_AWAY": "Зникнення",
       "FEY_TELEPORTATION": "Феїна телепортація",
-      "FLAMES_OF_PHLEGETHOS": "Полум'я Флегетосу",
+      "FLAMES_OF_PHLEGETHOS": "Полумʼя Флегетосу",
       "INFERNAL_CONSTITUTION": "Пекельна статура",
       "ORCISH_FURY": "Ороча лють",
       "PRODIGY": "Вундеркінд",
@@ -3719,7 +4131,7 @@
       "DWARVISH": "Дворфська",
       "ELVISH": "Ельфійська",
       "GIANT": "Мова велетнів",
-      "GNOMISH": "Гном'яча",
+      "GNOMISH": "Гномʼяча",
       "GOBLIN": "Гоблінська",
       "HALFLING": "Мова напівросликів",
       "ORC": "Оркська",
@@ -3760,7 +4172,13 @@
       "VEGEPYGMY": "Вегепігмейська",
       "GRELL": "Ґреллівська",
       "WINTER_WOLF": "Мова зимових вовків",
-      "SPHINX": "Сфінксова"
+      "SPHINX": "Сфінксова",
+      "MODRON": "Модронська",
+      "KRUTHIK": "Крутікська",
+      "KENDERSPEAK": "Кендерська",
+      "BOTHII": "Ботійська",
+      "TLINCALLI": "Тлінкальська",
+      "SOLAMNIC": "Соламнійська"
     },
     "magicItemTypeTranslations": {
       "WEAPON": "Зброя",
@@ -3768,9 +4186,9 @@
       "WONDROUS_ITEM": "Дивовижний предмет",
       "POTION": "Зілля",
       "SCROLL": "Сувій",
-      "RING": "Каблучка",
-      "WAND": "Жезл",
-      "ROD": "Скіпетр",
+      "RING": "Перстень",
+      "WAND": "Паличка",
+      "ROD": "Жезл",
       "STAFF": "Посох"
     },
     "raceTranslations": {
@@ -3875,7 +4293,7 @@
       "hpRestored": "Відновлено HP",
       "featuresRestored": "Відновлені здібності",
       "spellSlotsRestored": "Комірки заклять відновлено",
-      "selectHitDice": "Виберіть кубики здоров'я для використання",
+      "selectHitDice": "Виберіть кубики здоровʼя для використання",
       "available": "Доступно",
       "perDie": "за кубик",
       "takingShortRest": "Короткий відпочинок...",
@@ -3883,8 +4301,8 @@
       "shortRestComplete": "Короткий відпочинок завершено",
       "longRestComplete": "Тривалий відпочинок завершено",
       "confirmLongRest": "Підтвердити тривалий відпочинок?",
-      "longRestDescription": "Повністю відновить HP, всі кубики здоров'я, комірки заклять та здібності",
-      "noHitDiceAvailable": "Немає доступних кубиків здоров'я"
+      "longRestDescription": "Повністю відновить HP, всі кубики здоровʼя, комірки заклять та здібності",
+      "noHitDiceAvailable": "Немає доступних кубиків здоровʼя"
     },
     "SizeTranslations": {
       "TINY": "Крихітний",
@@ -3935,7 +4353,7 @@
       "BPGOTG": "Бігбі представляє: Слава Гігантів",
       "VRGTR": "Путівник Ван Ріхтена по Равенлофту",
       "MOOT": "Міфічні одіссеї Тероса",
-      "SACOC": "Стріксхевен: Навчальна програма хаосу",
+      "SACOC": "Стріксгейвен: Курс хаосу",
       "WBTW": "Дикі межі Відьомського Світла",
       "EBERRON": "Еберрон: Постання з Останньої Війни",
       "DRAGONLANCE": "Спис Дракона: Тінь Королеви Драконів",
@@ -3946,6 +4364,14 @@
       "LR": "Схід Локати",
       "BOMT": "Книга Багатьох Речей",
       "PAITM": "Плейнскейп: Пригоди в Мультивсесвіті",
+      "SCC": "Стріксгейвен: Курс хаосу",
+      "LLK": "Загублена лабораторія Кваліша",
+      "AAG": "Путівник астрального мандрівника",
+      "SatO": "Сиґіл і Зовнішні землі",
+      "AitFR_AVT": "Пригоди в Забутих Королівствах: Зелена гробниця",
+      "FRHoF": "Забуті Королівства: Герої Фаеруну",
+      "EFA": "Еберрон: Горнило Винахідника",
+      "RHW": "Равенлофт: Жахіття Всередині",
       "HOMEBREW": "Хоумбрю"
     },
     "spellcastingTypeTranslations": {
@@ -3966,10 +4392,18 @@
       "TRANSMUTATION": "Перетворення"
     },
     "subclassTranslations": {
+      "ALCHEMIST_2024": "Алхімік",
+      "ARMORER_2024": "Зброяр",
+      "ARTILLERIST_2024": "Артилерист",
+      "BATTLE_SMITH_2024": "Бойовий коваль",
+      "CARTOGRAPHER_2024": "Картограф",
+      "REANIMATOR_2024": "Реаніматор",
       "ALCHEMIST": "Алхімік",
       "ARMORER": "Зброяр",
       "ARTILLERIST": "Артилерист",
       "BATTLE_SMITH": "Бойовий коваль",
+      "CARTOGRAPHER": "Картограф",
+      "REANIMATOR": "Реаніматор",
       "PATH_OF_THE_ANCESTRAL_GUARDIAN": "Шлях предків-охоронців",
       "PATH_OF_THE_BATTLERAGER": "Шлях бойового шаленця",
       "PATH_OF_THE_BEAST": "Шлях звіра",
@@ -4021,7 +4455,7 @@
       "WAY_OF_MERCY": "Шлях милосердя",
       "WAY_OF_THE_ASCENDANT_DRAGON": "Шлях висхідного дракона",
       "WAY_OF_THE_ASTRAL_SELF": "Шлях астрального «я»",
-      "WAY_OF_THE_DRUNKEN_MASTER": "Шлях п'яного майстра",
+      "WAY_OF_THE_DRUNKEN_MASTER": "Шлях пʼяного майстра",
       "WAY_OF_THE_FOUR_ELEMENTS": "Шлях чотирьох стихій",
       "WAY_OF_THE_KENSEI": "Шлях кенсея",
       "WAY_OF_THE_LONG_DEATH": "Шлях довгої смерті",
@@ -4189,13 +4623,26 @@
       "POISONERS_KIT": "Набір отруйника",
       "THIEVES_TOOLS": "Інструменти злодія",
       "JEWELERS_TOOLS": "Інструменти ювеліра",
-      "SMITHS_TOOLS": "Ковалівські інструменти",
+      "SMITHS_TOOLS": "Ковальські інструменти",
       "BREWERS_SUPPLIES": "Приладдя пивовара",
+      "CALLIGRAPHERS_SUPPLIES": "Каліграфічний набір",
       "FISHING_TACKLE": "Рибальське спорядження",
       "CARTOGRAPHERS_TOOLS": "Інструменти картографа",
       "VEHICLES_LAND": "Наземний транспорт",
       "VEHICLES_WATER": "Водний транспорт",
-      "HOLY_SYMBOL": "Священний символ"
+      "HOLY_SYMBOL": "Священний символ",
+      "CARPENTERS_TOOLS": "Інструменти тесляра",
+      "COBBLERS_TOOLS": "Інструменти шевця",
+      "GLASSBLOWERS_TOOLS": "Інструменти склодува",
+      "LEATHERWORKERS_TOOLS": "Інструменти чинбаря",
+      "MASONS_TOOLS": "Інструменти каменяра",
+      "PAINTERS_TOOLS": "Приладдя маляра",
+      "POTTERS_TOOLS": "Інструменти гончаря",
+      "TINKERS_TOOLS": "Інструменти лудильника",
+      "WEAVERS_TOOLS": "Інструменти ткача",
+      "WOODCARVERS_TOOLS": "Інструменти різьбяра по дереву",
+      "ALCHEMISTS_SUPPLIES": "Приладдя алхіміка",
+      "COOKS_UTENSILS": "Кухарське начиння"
     },
     "variantTranslations": {
       "HALF_ELF_VARIANT_HIGH_DESCENT_SCAG": "Високий Напівельф",

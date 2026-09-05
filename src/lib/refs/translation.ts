@@ -294,11 +294,19 @@ export const classTranslationsEng = {
 } as const;
 
 export const subclassTranslations = {
+  ALCHEMIST_2024: "Алхімік",
+  ARMORER_2024: "Зброяр",
+  ARTILLERIST_2024: "Артилерист",
+  BATTLE_SMITH_2024: "Бойовий коваль",
+  CARTOGRAPHER_2024: "Картограф",
+  REANIMATOR_2024: "Реаніматор",
   // Artificer
   ALCHEMIST: "Алхімік",
   ARMORER: "Зброяр",
   ARTILLERIST: "Артилерист",
   BATTLE_SMITH: "Бойовий коваль",
+  CARTOGRAPHER: "Картограф",
+  REANIMATOR: "Реаніматор",
 
   // Barbarian
   PATH_OF_THE_ANCESTRAL_GUARDIAN: "Шлях предків-охоронців",
@@ -362,7 +370,7 @@ export const subclassTranslations = {
   WAY_OF_MERCY: "Шлях милосердя",
   WAY_OF_THE_ASCENDANT_DRAGON: "Шлях висхідного дракона",
   WAY_OF_THE_ASTRAL_SELF: "Шлях астрального «я»",
-  WAY_OF_THE_DRUNKEN_MASTER: "Шлях п'яного майстра",
+  WAY_OF_THE_DRUNKEN_MASTER: "Шлях пʼяного майстра",
   WAY_OF_THE_FOUR_ELEMENTS: "Шлях чотирьох стихій",
   WAY_OF_THE_KENSEI: "Шлях кенсея",
   WAY_OF_THE_LONG_DEATH: "Шлях довгої смерті",
@@ -490,11 +498,19 @@ export const subclassTranslations = {
 } as const;
 
 export const subclassTranslationsEng = {
+  ALCHEMIST_2024: "Alchemist",
+  ARMORER_2024: "Armorer",
+  ARTILLERIST_2024: "Artillerist",
+  BATTLE_SMITH_2024: "Battle Smith",
+  CARTOGRAPHER_2024: "Cartographer",
+  REANIMATOR_2024: "Reanimator",
   // Artificer
   ALCHEMIST: "Alchemist",
   ARMORER: "Armorer",
   ARTILLERIST: "Artillerist",
   BATTLE_SMITH: "Battle Smith",
+  CARTOGRAPHER: "Cartographer",
+  REANIMATOR: "Reanimator",
 
   // Barbarian
   PATH_OF_THE_ANCESTRAL_GUARDIAN: "Path of the Ancestral Guardian",
@@ -954,7 +970,7 @@ export const sourceTranslations = {
   BPGOTG: "Бігбі представляє: Слава Гігантів",
   VRGTR: "Путівник Ван Ріхтена по Равенлофту",
   MOOT: "Міфічні одіссеї Тероса",
-  SACOC: "Стріксхевен: Навчальна програма хаосу",
+  SACOC: "Стріксгейвен: Курс хаосу",
   WBTW: "Дикі межі Відьомського Світла",
   EBERRON: "Еберрон: Постання з Останньої Війни",
   DRAGONLANCE: "Спис Дракона: Тінь Королеви Драконів",
@@ -965,6 +981,14 @@ export const sourceTranslations = {
   LR: "Схід Локати",
   BOMT: "Книга Багатьох Речей",
   PAITM: "Плейнскейп: Пригоди в Мультивсесвіті",
+  SCC: "Стріксгейвен: Курс хаосу",
+  LLK: "Загублена лабораторія Кваліша",
+  AAG: "Путівник астрального мандрівника",
+  SatO: "Сиґіл і Зовнішні землі",
+  AitFR_AVT: "Пригоди в Забутих Королівствах: Зелена гробниця",
+  FRHoF: "Забуті Королівства: Герої Фаеруну",
+  EFA: "Еберрон: Горнило Винахідника",
+  RHW: "Равенлофт: Жахіття Всередині",
   HOMEBREW: "Хоумбрю"
 } as const;
 
@@ -1000,7 +1024,38 @@ export const sourceTranslationsEng = {
   LR: "Locathah Rising",
   BOMT: "The Book of Many Things",
   PAITM: "Planescape: Adventures in the Multiverse",
+  SCC: "Strixhaven: A Curriculum of Chaos",
+  LLK: "Lost Laboratory of Kwalish",
+  AAG: "Astral Adventurer's Guide",
+  SatO: "Sigil and the Outlands",
+  AitFR_AVT: "Adventures in the Forgotten Realms: A Verdant Tomb",
+  FRHoF: "Forgotten Realms: Heroes of Faerûn",
+  EFA: "Eberron: Forge of the Artificer",
+  RHW: "Ravenloft: The Horrors Within",
   HOMEBREW: "Homebrew"
+} as const;
+
+/// Словник системи бастіонів DMG 2024. Затверджено власником 2026-08-28; поняття без enum —
+/// найманці, Оберіг, Захисник Бастіону — лежать у dictionary.json (rules2024.bastionTerms).
+export const bastionSpaceTranslations = {
+  CRAMPED: "Тісне",
+  ROOMY: "Просторе",
+  VAST: "Розлоге"
+} as const;
+
+export const bastionOrderTranslations = {
+  CRAFT: "Ремесло",
+  EMPOWER: "Підсилення",
+  HARVEST: "Збирання",
+  RECRUIT: "Вербування",
+  RESEARCH: "Дослідження",
+  TRADE: "Торгівля",
+  MAINTAIN: "Утримання"
+} as const;
+
+export const bastionFacilityTypeTranslations = {
+  BASIC: "Базове приміщення",
+  SPECIAL: "Спеціальне приміщення"
 } as const;
 
 export const armorTranslations = {
@@ -1023,6 +1078,7 @@ export const armorTranslations = {
   NATURAL_ARMOR_13_DEX: "Природний обладунок (13 + СПР)",
   NATURAL_ARMOR_12_DEX: "Природний обладунок (12 + СПР)",
   NATURAL_ARMOR_12_CON: "Природний обладунок (12 + СТА)",
+  DRACONIC_RESILIENCE: "Драконяча живучість (чародій)",
   HOMEBREW: "Хоумбрю"
 } as const;
 
@@ -1046,6 +1102,7 @@ export const armorTranslationsEng = {
   NATURAL_ARMOR_13_DEX: "Natural Armor (13 + DEX)",
   NATURAL_ARMOR_12_DEX: "Natural Armor (12 + DEX)",
   NATURAL_ARMOR_12_CON: "Natural Armor (12 + CON)",
+  DRACONIC_RESILIENCE: "Draconic Resilience",
   HOMEBREW: "Homebrew"
 } as const;
 
@@ -1182,7 +1239,7 @@ export const LanguageTranslations: Record<string, string> = {
   DWARVISH: "Дворфська",
   ELVISH: "Ельфійська",
   GIANT: "Мова велетнів",
-  GNOMISH: "Гном'яча",
+  GNOMISH: "Гномʼяча",
   GOBLIN: "Гоблінська",
   HALFLING: "Мова напівросликів",
   ORC: "Оркська",
@@ -1224,6 +1281,12 @@ export const LanguageTranslations: Record<string, string> = {
   GRELL: "Ґреллівська",
   WINTER_WOLF: "Мова зимових вовків",
   SPHINX: "Сфінксова",
+  MODRON: "Модронська",
+  KRUTHIK: "Крутікська",
+  KENDERSPEAK: "Кендерська",
+  BOTHII: "Ботійська",
+  TLINCALLI: "Тлінкальська",
+  SOLAMNIC: "Соламнійська",
 };
 
 export const subraceTranslations = {
@@ -1360,7 +1423,7 @@ export const featTranslations: Record<string, string> = {
   ELVEN_ACCURACY: "Ельфійська точність",
   FADE_AWAY: "Зникнення",
   FEY_TELEPORTATION: "Феїна телепортація",
-  FLAMES_OF_PHLEGETHOS: "Полум'я Флегетосу",
+  FLAMES_OF_PHLEGETHOS: "Полумʼя Флегетосу",
   INFERNAL_CONSTITUTION: "Пекельна статура",
   ORCISH_FURY: "Ороча лють",
   PRODIGY: "Вундеркінд",
@@ -1448,13 +1511,26 @@ export const toolTranslations: Record<string, string> = {
   POISONERS_KIT: "Набір отруйника",
   THIEVES_TOOLS: "Інструменти злодія",
   JEWELERS_TOOLS: "Інструменти ювеліра",
-  SMITHS_TOOLS: "Ковалівські інструменти",
+  SMITHS_TOOLS: "Ковальські інструменти",
   BREWERS_SUPPLIES: "Приладдя пивовара",
+  CALLIGRAPHERS_SUPPLIES: "Каліграфічний набір",
   FISHING_TACKLE: "Рибальське спорядження",
   CARTOGRAPHERS_TOOLS: "Інструменти картографа",
   VEHICLES_LAND: "Наземний транспорт",
   VEHICLES_WATER: "Водний транспорт",
   HOLY_SYMBOL: "Священний символ",
+  CARPENTERS_TOOLS: "Інструменти тесляра",
+  COBBLERS_TOOLS: "Інструменти шевця",
+  GLASSBLOWERS_TOOLS: "Інструменти склодува",
+  LEATHERWORKERS_TOOLS: "Інструменти чинбаря",
+  MASONS_TOOLS: "Інструменти каменяра",
+  PAINTERS_TOOLS: "Приладдя маляра",
+  POTTERS_TOOLS: "Інструменти гончаря",
+  TINKERS_TOOLS: "Інструменти лудильника",
+  WEAVERS_TOOLS: "Інструменти ткача",
+  WOODCARVERS_TOOLS: "Інструменти різьбяра по дереву",
+  ALCHEMISTS_SUPPLIES: "Приладдя алхіміка",
+  COOKS_UTENSILS: "Кухарське начиння",
 };
 
 export const armorTypeTranslations: Record<string, string> = {
@@ -1593,7 +1669,7 @@ export const damageTypeTranslations: Record<string, string> = {
   PIERCING: "Колюча",
   POISON: "Отрутою",
   PSYCHIC: "Психічна",
-  RADIANT: "Промениста",
+  RADIANT: "Променева",
   SLASHING: "Ріжуча",
   THUNDER: "Громова",
 };
@@ -1612,7 +1688,7 @@ export const restTranslations = {
   hpRestored: "Відновлено HP",
   featuresRestored: "Відновлені здібності",
   spellSlotsRestored: "Комірки заклять відновлено",
-  selectHitDice: "Виберіть кубики здоров'я для використання",
+  selectHitDice: "Виберіть кубики здоровʼя для використання",
   available: "Доступно",
   perDie: "за кубик",
   takingShortRest: "Короткий відпочинок...",
@@ -1620,8 +1696,8 @@ export const restTranslations = {
   shortRestComplete: "Короткий відпочинок завершено",
   longRestComplete: "Тривалий відпочинок завершено",
   confirmLongRest: "Підтвердити тривалий відпочинок?",
-  longRestDescription: "Повністю відновить HP, всі кубики здоров'я, комірки заклять та здібності",
-  noHitDiceAvailable: "Немає доступних кубиків здоров'я",
+  longRestDescription: "Повністю відновить HP, всі кубики здоровʼя, комірки заклять та здібності",
+  noHitDiceAvailable: "Немає доступних кубиків здоровʼя",
 } as const;
 
 // Bonus modification translations
@@ -1692,9 +1768,9 @@ export const magicItemTypeTranslations = {
   WONDROUS_ITEM: "Дивовижний предмет",
   POTION: "Зілля",
   SCROLL: "Сувій",
-  RING: "Каблучка",
-  WAND: "Жезл",
-  ROD: "Скіпетр",
+  RING: "Перстень",
+  WAND: "Паличка",
+  ROD: "Жезл",
   STAFF: "Посох",
 } as const;
 

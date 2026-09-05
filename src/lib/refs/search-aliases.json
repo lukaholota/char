@@ -449,7 +449,7 @@
       "edition": "2014",
       "variants": [
         "дженазі вогню",
-        "дженазі полум'я"
+        "дженазі полумʼя"
       ]
     },
     {
@@ -803,7 +803,7 @@
       "slug": "fiend",
       "edition": "both",
       "variants": [
-        "ф'єнд",
+        "фʼєнд",
         "фієнд"
       ]
     },
@@ -1145,7 +1145,7 @@
       "slug": "cure-wounds",
       "edition": "both",
       "variants": [
-        "к'юр вундс"
+        "кʼюр вундс"
       ]
     },
     {
@@ -1298,7 +1298,7 @@
       ]
     },
     {
-      "canonical": "Зжирач розуму",
+      "canonical": "Мізкожер",
       "entityType": "creature",
       "slug": "mind-flayer",
       "edition": "2024",
@@ -1382,20 +1382,7 @@
       "slug": "actions-in-combat",
       "edition": "both",
       "variants": [
-        "бонусна дія",
-        "бонус екшн",
         "екшн"
-      ]
-    },
-    {
-      "canonical": "Верховий та підводний бій",
-      "entityType": "rule",
-      "slug": "mounted-and-underwater-combat",
-      "edition": "2014",
-      "variants": [
-        "бій верхи",
-        "їзда верхи",
-        "маунтед комбат"
       ]
     },
     {
@@ -1456,6 +1443,45 @@
       ]
     },
     {
+      "canonical": "Рятівні кидки",
+      "entityType": "rule",
+      "slug": "saving-throws",
+      "edition": "2014",
+      "variants": [
+        "ряткидок",
+        "ряткидки",
+        "рятівний кидок",
+        "рятівні кидки",
+        "сейв",
+        "сейвінг"
+      ]
+    },
+    {
+      "canonical": "Рятівний кидок",
+      "entityType": "rule",
+      "slug": "saving-throw",
+      "edition": "2024",
+      "variants": [
+        "ряткидок",
+        "ряткидки",
+        "рятівний кидок",
+        "рятівні кидки",
+        "сейв",
+        "сейвінг"
+      ]
+    },
+    {
+      "canonical": "Рятівний кидок від смерті",
+      "entityType": "rule",
+      "slug": "death-saving-throw",
+      "edition": "2024",
+      "variants": [
+        "ряткидок від смерті",
+        "ряткидки від смерті",
+        "дез сейв"
+      ]
+    },
+    {
       "canonical": "Інша активність у ході",
       "entityType": "rule",
       "slug": "other-activity-on-your-turn",
@@ -1468,7 +1494,7 @@
     {
       "canonical": "Пошук та Використання предмета",
       "entityType": "rule",
-      "slug": "search-and-use-action",
+      "slug": "actions-in-combat--search",
       "edition": "2014",
       "variants": [
         "використати предмет",
@@ -1535,7 +1561,7 @@
       ]
     },
     {
-      "canonical": "Стерв'ятник",
+      "canonical": "Стервʼятник",
       "entityType": "creature",
       "slug": "vulture",
       "edition": "2024",
@@ -2106,7 +2132,7 @@
       ]
     },
     {
-      "canonical": "Гірський велетень",
+      "canonical": "Пагорбовий велетень",
       "entityType": "creature",
       "slug": "hill-giant",
       "edition": "2024",
@@ -2186,7 +2212,7 @@
       "slug": "xorn",
       "edition": "2024",
       "variants": [
-        "кам'яний пожирач"
+        "камʼяний пожирач"
       ]
     },
     {
@@ -2217,7 +2243,7 @@
       ]
     },
     {
-      "canonical": "Кам'яний велетень",
+      "canonical": "Камʼяний велетень",
       "entityType": "creature",
       "slug": "stone-giant",
       "edition": "2024",
@@ -2460,6 +2486,211 @@
       "edition": "2024",
       "variants": [
         "верховний серафим"
+      ]
+    },
+    {
+      "canonical": "Колчан Елони",
+      "entityType": "magic-item",
+      "slug": "quiver-of-ehlonna",
+      "edition": "2014",
+      "variants": [
+        "Колчан Ехлонни",
+        "Колчан Еллонни"
+      ]
+    },
+    {
+      "canonical": "Дивовижні пігменти Нолзура",
+      "entityType": "magic-item",
+      "slug": "nolzur-s-marvelous-pigments",
+      "edition": "2014",
+      "variants": [
+        "Дивовижні пігменти Нользура"
+      ]
+    },
+    {
+      "canonical": "Фігурка дивовижної сили (Кози зі слонової кістки)",
+      "entityType": "magic-item",
+      "slug": "figurine-of-wondrous-power-ivory-goats",
+      "edition": "2014",
+      "variants": [
+        "Фігурка дивовижної сили (Слонові кози)",
+        "Слонові кози"
+      ]
+    },
+    {
+      "canonical": "Інша активність у ваш хід",
+      "entityType": "rule",
+      "slug": "order-of-combat--other-activity-on-your-turn",
+      "edition": "2014",
+      "variants": [
+        "вільна дія",
+        "безкоштовна дія",
+        "фрі екшн"
+      ]
+    },
+    {
+      "canonical": "Бонусні дії",
+      "entityType": "rule",
+      "slug": "order-of-combat--bonus-actions",
+      "edition": "2014",
+      "variants": [
+        "бонусна дія",
+        "бонус екшн"
+      ]
+    },
+    {
+      "canonical": "Верховий бій",
+      "entityType": "rule",
+      "slug": "mounted-combat",
+      "edition": "2014",
+      "variants": [
+        "бій верхи",
+        "їзда верхи",
+        "маунтед комбат",
+        "осідлання",
+        "спішування"
+      ]
+    },
+    {
+      "canonical": "Захоплення",
+      "entityType": "rule",
+      "slug": "making-an-attack--melee-attacks",
+      "edition": "2014",
+      "variants": [
+        "захоплення",
+        "греплінг",
+        "боротьба"
+      ]
+    },
+    {
+      "canonical": "Реакції",
+      "entityType": "rule",
+      "slug": "reactions",
+      "edition": "2014",
+      "variants": [
+        "реакція",
+        "реакшн"
+      ]
+    },
+    {
+      "canonical": "Бонусна дія",
+      "entityType": "rule",
+      "slug": "bonus-action",
+      "edition": "2024",
+      "variants": [
+        "бонусна дія",
+        "бонус екшн"
+      ]
+    },
+    {
+      "canonical": "Плани існування",
+      "entityType": "rule",
+      "slug": "planes",
+      "edition": "2014",
+      "variants": [
+        "іссгард",
+        "байтопія",
+        "земля звірів",
+        "лімбо",
+        "девʼять пеклів",
+        "фейвальд",
+        "далекий обшир"
+      ]
+    },
+    {
+      "canonical": "Планарні ефекти",
+      "entityType": "rule",
+      "slug": "planar-effects",
+      "edition": "2014",
+      "variants": [
+        "іссгард",
+        "байтопія",
+        "земля звірів",
+        "лімбо",
+        "девʼять пеклів",
+        "фейвальд",
+        "далекий обшир"
+      ]
+    },
+    {
+      "canonical": "Боги та інші сили",
+      "entityType": "rule",
+      "slug": "gods-and-other-powers",
+      "edition": "2024",
+      "variants": [
+        "іссгард",
+        "байтопія",
+        "земля звірів",
+        "лімбо",
+        "девʼять пеклів",
+        "фейвальд",
+        "далекий обшир"
+      ]
+    },
+    {
+      "canonical": "Створення персонажа крок за кроком",
+      "entityType": "rule",
+      "slug": "step-by-step-characters",
+      "edition": "2014",
+      "variants": [
+        "покрокове створення",
+        "покроково"
+      ]
+    },
+    {
+      "canonical": "Створіть свого персонажа",
+      "entityType": "rule",
+      "slug": "create-your-character",
+      "edition": "2024",
+      "variants": [
+        "покрокове створення",
+        "покроково"
+      ]
+    },
+    {
+      "canonical": "Варіант: налаштування характеристик",
+      "entityType": "rule",
+      "slug": "3-determine-ability-scores--variant-customizing-ability-scores",
+      "edition": "2014",
+      "variants": [
+        "point buy"
+      ]
+    },
+    {
+      "canonical": "3. Визначте значення характеристик",
+      "entityType": "rule",
+      "slug": "3-determine-ability-scores--3-determine-ability-scores",
+      "edition": "2014",
+      "variants": [
+        "standard array"
+      ]
+    },
+    {
+      "canonical": "Створіть свої значення",
+      "entityType": "rule",
+      "slug": "step-3-ability-scores--generate-your-scores",
+      "edition": "2024",
+      "variants": [
+        "point buy",
+        "standard array"
+      ]
+    },
+    {
+      "canonical": "Ступені гри",
+      "entityType": "rule",
+      "slug": "tiers-of-play-phb",
+      "edition": "2014",
+      "variants": [
+        "ступінь гри"
+      ]
+    },
+    {
+      "canonical": "Швидка збірка",
+      "entityType": "rule",
+      "slug": "2-choose-a-class--quick-build",
+      "edition": "2014",
+      "variants": [
+        "квік білд"
       ]
     }
   ]
