@@ -82,7 +82,8 @@ CREATE TYPE public."ArmorCategory" AS ENUM (
     'NATURAL_ARMOR_TORTLE',
     'NATURAL_ARMOR_13_DEX',
     'NATURAL_ARMOR_12_DEX',
-    'NATURAL_ARMOR_12_CON'
+    'NATURAL_ARMOR_12_CON',
+    'DRACONIC_RESILIENCE'
 );
 
 
@@ -193,6 +194,32 @@ CREATE TYPE public."BackgroundCategory" AS ENUM (
     'RUNE_CARVER',
     'GATE_WARDEN',
     'PLANAR_PHILOSOPHER'
+);
+
+
+--
+-- Name: BastionOrder; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public."BastionOrder" AS ENUM (
+    'CRAFT',
+    'EMPOWER',
+    'HARVEST',
+    'MAINTAIN',
+    'RECRUIT',
+    'RESEARCH',
+    'TRADE'
+);
+
+
+--
+-- Name: BastionSpace; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public."BastionSpace" AS ENUM (
+    'CRAMPED',
+    'ROOMY',
+    'VAST'
 );
 
 
@@ -768,7 +795,14 @@ CREATE TYPE public."Source" AS ENUM (
     'QFTIS',
     'POTA',
     'CHAINS_OF_ASMODEUS',
-    'HOMEBREW'
+    'HOMEBREW',
+    'SCC',
+    'LLK',
+    'AAG',
+    'SatO',
+    'AitFR-AVT',
+    'FRAiF',
+    'RHW'
 );
 
 
@@ -1032,7 +1066,8 @@ CREATE TYPE public."ToolCategory" AS ENUM (
     'VEHICLES_LAND',
     'VEHICLES_WATER',
     'SMITHS_TOOLS',
-    'BREWERS_SUPPLIES'
+    'BREWERS_SUPPLIES',
+    'CALLIGRAPHERS_SUPPLIES'
 );
 
 
@@ -1531,8 +1566,16 @@ CREATE TABLE public.class (
     weapon_proficiencies_special jsonb,
     sort_order integer DEFAULT 999 NOT NULL,
     ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
-    epic_boon_level integer
+    epic_boon_level integer,
+    weapon_mastery_progression integer[] DEFAULT ARRAY[]::integer[] NOT NULL
 );
+
+
+--
+-- Name: COLUMN class.weapon_mastery_progression; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.class.weapon_mastery_progression IS 'Weapon Mastery capacity за рівнем КЛАСУ: індекс 1 відповідає рівню 1, індекс 20 — рівню 20. Порожній масив означає, що клас не дає майстерності.';
 
 
 --
@@ -1996,8 +2039,16 @@ CREATE TABLE public.feature (
     weapon_proficiencies jsonb,
     weapon_proficiencies_special jsonb,
     tool_proficiencies public."ToolCategory"[] DEFAULT ARRAY[]::public."ToolCategory"[],
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    bonus_hit_points_per_level integer
 );
+
+
+--
+-- Name: COLUMN feature.bonus_hit_points_per_level; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.feature.bonus_hit_points_per_level IS 'Скільки максимальних хітів фіча додає за кожен рівень персонажа. NULL — не додає.';
 
 
 --
@@ -2293,6 +2344,115 @@ CREATE SEQUENCE public.pers_armor_pers_armor_id_seq
 --
 
 ALTER SEQUENCE public.pers_armor_pers_armor_id_seq OWNED BY public.pers_armor.pers_armor_id;
+
+
+--
+-- Name: pers_bastion; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_bastion (
+    pers_bastion_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    description text DEFAULT ''::text NOT NULL,
+    notes text DEFAULT ''::text NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+--
+-- Name: pers_bastion_facility; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_bastion_facility (
+    pers_bastion_facility_id integer NOT NULL,
+    pers_bastion_id integer NOT NULL,
+    facility_slug text NOT NULL,
+    space public."BastionSpace" NOT NULL,
+    current_order public."BastionOrder",
+    defenders integer DEFAULT 0 NOT NULL,
+    hirelings text DEFAULT ''::text NOT NULL,
+    notes text DEFAULT ''::text NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT pers_bastion_facility_defenders_check CHECK ((defenders >= 0))
+);
+
+
+--
+-- Name: pers_bastion_facility_pers_bastion_facility_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_bastion_facility_pers_bastion_facility_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_bastion_facility_pers_bastion_facility_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_bastion_facility_pers_bastion_facility_id_seq OWNED BY public.pers_bastion_facility.pers_bastion_facility_id;
+
+
+--
+-- Name: pers_bastion_pers_bastion_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_bastion_pers_bastion_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_bastion_pers_bastion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_bastion_pers_bastion_id_seq OWNED BY public.pers_bastion.pers_bastion_id;
+
+
+--
+-- Name: pers_bastion_turn; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_bastion_turn (
+    pers_bastion_turn_id integer NOT NULL,
+    pers_bastion_id integer NOT NULL,
+    turn_number integer NOT NULL,
+    entry text NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT pers_bastion_turn_turn_number_check CHECK ((turn_number >= 1))
+);
+
+
+--
+-- Name: pers_bastion_turn_pers_bastion_turn_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_bastion_turn_pers_bastion_turn_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_bastion_turn_pers_bastion_turn_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_bastion_turn_pers_bastion_turn_id_seq OWNED BY public.pers_bastion_turn.pers_bastion_turn_id;
 
 
 --
@@ -2594,6 +2754,19 @@ ALTER SEQUENCE public.pers_multiclass_pers_multiclass_id_seq OWNED BY public.per
 
 
 --
+-- Name: pers_offline_operation; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_offline_operation (
+    operation_id character varying(64) NOT NULL,
+    pers_id integer NOT NULL,
+    user_id integer NOT NULL,
+    operation_kind character varying(64) NOT NULL,
+    applied_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+--
 -- Name: pers_pers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -2781,6 +2954,44 @@ CREATE TABLE public.pers_weapon (
 
 
 --
+-- Name: pers_weapon_mastery; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_weapon_mastery (
+    pers_weapon_mastery_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    weapon_id integer NOT NULL
+);
+
+
+--
+-- Name: TABLE pers_weapon_mastery; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.pers_weapon_mastery IS 'Види зброї, для яких персонаж 2024 може використовувати mastery property. Ліміт береться з class.weapon_mastery_progression, а не з цієї таблиці.';
+
+
+--
+-- Name: pers_weapon_mastery_pers_weapon_mastery_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_weapon_mastery_pers_weapon_mastery_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_weapon_mastery_pers_weapon_mastery_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_weapon_mastery_pers_weapon_mastery_id_seq OWNED BY public.pers_weapon_mastery.pers_weapon_mastery_id;
+
+
+--
 -- Name: pers_weapon_pers_weapon_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -2798,6 +3009,86 @@ CREATE SEQUENCE public.pers_weapon_pers_weapon_id_seq
 --
 
 ALTER SEQUENCE public.pers_weapon_pers_weapon_id_seq OWNED BY public.pers_weapon.pers_weapon_id;
+
+
+--
+-- Name: pers_wildshape; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_wildshape (
+    pers_wildshape_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    creature_key character varying(200) NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    sort_order integer DEFAULT 0 NOT NULL,
+    notes text DEFAULT ''::text NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    current_hp integer,
+    is_active boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: pers_wildshape_pers_wildshape_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_wildshape_pers_wildshape_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_wildshape_pers_wildshape_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_wildshape_pers_wildshape_id_seq OWNED BY public.pers_wildshape.pers_wildshape_id;
+
+
+--
+-- Name: problem_report; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.problem_report (
+    problem_report_id integer NOT NULL,
+    user_id integer,
+    message text NOT NULL,
+    page_path character varying(2048) NOT NULL,
+    page_url text,
+    referrer text,
+    user_agent text,
+    ip_address character varying(64),
+    viewport_width integer,
+    viewport_height integer,
+    screen_width integer,
+    screen_height integer,
+    language character varying(32),
+    timezone character varying(64),
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+--
+-- Name: problem_report_problem_report_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.problem_report_problem_report_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: problem_report_problem_report_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.problem_report_problem_report_id_seq OWNED BY public.problem_report.problem_report_id;
 
 
 --
@@ -2846,8 +3137,32 @@ CREATE TABLE public.race_choice_option (
     asi jsonb,
     languages public."Language"[] DEFAULT ARRAY[]::public."Language"[],
     skill_proficiencies jsonb,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    option_name_eng character varying(100),
+    spellcasting_ability public."Ability",
+    trait_feature_id integer
 );
+
+
+--
+-- Name: COLUMN race_choice_option.option_name_eng; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.race_choice_option.option_name_eng IS 'Англійський ключ опції (Red, High Elf, Stone''s Endurance). NULL — опція без англійського ключа (усі дані 2014).';
+
+
+--
+-- Name: COLUMN race_choice_option.spellcasting_ability; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.race_choice_option.spellcasting_ability IS 'Характеристика замовляння, яку дає ця опція (вибір Інтелект/Мудрість/Харизма для родоводу 2024). NULL — опція характеристики не задає.';
+
+
+--
+-- Name: COLUMN race_choice_option.trait_feature_id; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.race_choice_option.trait_feature_id IS 'Риса виду, всередині якої стоїть цей вибір. NULL — вибір не належить жодній рисі.';
 
 
 --
@@ -2868,6 +3183,53 @@ CREATE SEQUENCE public.race_choice_option_option_id_seq
 --
 
 ALTER SEQUENCE public.race_choice_option_option_id_seq OWNED BY public.race_choice_option.option_id;
+
+
+--
+-- Name: race_choice_option_spell; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.race_choice_option_spell (
+    race_choice_option_spell_id integer NOT NULL,
+    option_id integer NOT NULL,
+    spell_id integer NOT NULL,
+    character_level integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+);
+
+
+--
+-- Name: TABLE race_choice_option_spell; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.race_choice_option_spell IS 'Колонки Level 3 і Level 5 таблиці родоводів PHB 2024: заклинання, яке опція виду дає на рівні персонажа вище першого. Заклинання 1-го рівня лежать на фічі опції.';
+
+
+--
+-- Name: COLUMN race_choice_option_spell.character_level; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.race_choice_option_spell.character_level IS 'Рівень ПЕРСОНАЖА, з якого заклинання доступне. Значень лише два — 3 і 5.';
+
+
+--
+-- Name: race_choice_option_spell_race_choice_option_spell_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.race_choice_option_spell_race_choice_option_spell_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: race_choice_option_spell_race_choice_option_spell_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.race_choice_option_spell_race_choice_option_spell_id_seq OWNED BY public.race_choice_option_spell.race_choice_option_spell_id;
 
 
 --
@@ -2930,8 +3292,16 @@ CREATE TABLE public.race_trait (
     race_trait_id integer NOT NULL,
     race_id integer NOT NULL,
     feature_id integer NOT NULL,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    level integer DEFAULT 1 NOT NULL
 );
+
+
+--
+-- Name: COLUMN race_trait.level; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.race_trait.level IS 'Рівень ПЕРСОНАЖА, з якого риса виду доступна (2024: Драконячий політ 5, Прояв небожителя 3). 1 — риса з першого рівня, усі дані 2014.';
 
 
 --
@@ -3547,6 +3917,27 @@ ALTER TABLE ONLY public.pers_armor ALTER COLUMN pers_armor_id SET DEFAULT nextva
 
 
 --
+-- Name: pers_bastion pers_bastion_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion ALTER COLUMN pers_bastion_id SET DEFAULT nextval('public.pers_bastion_pers_bastion_id_seq'::regclass);
+
+
+--
+-- Name: pers_bastion_facility pers_bastion_facility_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion_facility ALTER COLUMN pers_bastion_facility_id SET DEFAULT nextval('public.pers_bastion_facility_pers_bastion_facility_id_seq'::regclass);
+
+
+--
+-- Name: pers_bastion_turn pers_bastion_turn_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion_turn ALTER COLUMN pers_bastion_turn_id SET DEFAULT nextval('public.pers_bastion_turn_pers_bastion_turn_id_seq'::regclass);
+
+
+--
 -- Name: pers_feat pers_feat_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -3645,6 +4036,27 @@ ALTER TABLE ONLY public.pers_weapon ALTER COLUMN pers_weapon_id SET DEFAULT next
 
 
 --
+-- Name: pers_weapon_mastery pers_weapon_mastery_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_weapon_mastery ALTER COLUMN pers_weapon_mastery_id SET DEFAULT nextval('public.pers_weapon_mastery_pers_weapon_mastery_id_seq'::regclass);
+
+
+--
+-- Name: pers_wildshape pers_wildshape_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_wildshape ALTER COLUMN pers_wildshape_id SET DEFAULT nextval('public.pers_wildshape_pers_wildshape_id_seq'::regclass);
+
+
+--
+-- Name: problem_report problem_report_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.problem_report ALTER COLUMN problem_report_id SET DEFAULT nextval('public.problem_report_problem_report_id_seq'::regclass);
+
+
+--
 -- Name: race race_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -3656,6 +4068,13 @@ ALTER TABLE ONLY public.race ALTER COLUMN race_id SET DEFAULT nextval('public.ra
 --
 
 ALTER TABLE ONLY public.race_choice_option ALTER COLUMN option_id SET DEFAULT nextval('public.race_choice_option_option_id_seq'::regclass);
+
+
+--
+-- Name: race_choice_option_spell race_choice_option_spell_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.race_choice_option_spell ALTER COLUMN race_choice_option_spell_id SET DEFAULT nextval('public.race_choice_option_spell_race_choice_option_spell_id_seq'::regclass);
 
 
 --
@@ -4053,6 +4472,30 @@ ALTER TABLE ONLY public.pers_armor
 
 
 --
+-- Name: pers_bastion_facility pers_bastion_facility_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion_facility
+    ADD CONSTRAINT pers_bastion_facility_pkey PRIMARY KEY (pers_bastion_facility_id);
+
+
+--
+-- Name: pers_bastion pers_bastion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion
+    ADD CONSTRAINT pers_bastion_pkey PRIMARY KEY (pers_bastion_id);
+
+
+--
+-- Name: pers_bastion_turn pers_bastion_turn_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion_turn
+    ADD CONSTRAINT pers_bastion_turn_pkey PRIMARY KEY (pers_bastion_turn_id);
+
+
+--
 -- Name: pers_feat_choice pers_feat_choice_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4125,6 +4568,14 @@ ALTER TABLE ONLY public.pers_multiclass
 
 
 --
+-- Name: pers_offline_operation pers_offline_operation_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_offline_operation
+    ADD CONSTRAINT pers_offline_operation_pkey PRIMARY KEY (operation_id);
+
+
+--
 -- Name: pers pers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4165,6 +4616,22 @@ ALTER TABLE ONLY public.pers_spell
 
 
 --
+-- Name: pers_weapon_mastery pers_weapon_mastery_pers_id_weapon_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_weapon_mastery
+    ADD CONSTRAINT pers_weapon_mastery_pers_id_weapon_id_key UNIQUE (pers_id, weapon_id);
+
+
+--
+-- Name: pers_weapon_mastery pers_weapon_mastery_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_weapon_mastery
+    ADD CONSTRAINT pers_weapon_mastery_pkey PRIMARY KEY (pers_weapon_mastery_id);
+
+
+--
 -- Name: pers_weapon pers_weapon_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4173,11 +4640,43 @@ ALTER TABLE ONLY public.pers_weapon
 
 
 --
+-- Name: pers_wildshape pers_wildshape_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_wildshape
+    ADD CONSTRAINT pers_wildshape_pkey PRIMARY KEY (pers_wildshape_id);
+
+
+--
+-- Name: problem_report problem_report_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.problem_report
+    ADD CONSTRAINT problem_report_pkey PRIMARY KEY (problem_report_id);
+
+
+--
 -- Name: race_choice_option race_choice_option_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.race_choice_option
     ADD CONSTRAINT race_choice_option_pkey PRIMARY KEY (option_id);
+
+
+--
+-- Name: race_choice_option_spell race_choice_option_spell_option_id_spell_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.race_choice_option_spell
+    ADD CONSTRAINT race_choice_option_spell_option_id_spell_id_key UNIQUE (option_id, spell_id);
+
+
+--
+-- Name: race_choice_option_spell race_choice_option_spell_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.race_choice_option_spell
+    ADD CONSTRAINT race_choice_option_spell_pkey PRIMARY KEY (race_choice_option_spell_id);
 
 
 --
@@ -4439,10 +4938,10 @@ CREATE UNIQUE INDEX account_provider_provider_account_id_key ON public.account U
 
 
 --
--- Name: armor_name_key; Type: INDEX; Schema: public; Owner: -
+-- Name: armor_name_ruleset_key; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX armor_name_key ON public.armor USING btree (name);
+CREATE UNIQUE INDEX armor_name_ruleset_key ON public.armor USING btree (name, ruleset);
 
 
 --
@@ -4502,10 +5001,10 @@ CREATE UNIQUE INDEX class_starting_equipment_option_seed_index_key ON public.cla
 
 
 --
--- Name: equipment_pack_name_key; Type: INDEX; Schema: public; Owner: -
+-- Name: equipment_pack_name_ruleset_key; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX equipment_pack_name_key ON public.equipment_pack USING btree (name);
+CREATE UNIQUE INDEX equipment_pack_name_ruleset_key ON public.equipment_pack USING btree (name, ruleset);
 
 
 --
@@ -4544,10 +5043,10 @@ CREATE UNIQUE INDEX infusion_eng_name_key ON public.infusion USING btree (eng_na
 
 
 --
--- Name: magic_item_eng_name_key; Type: INDEX; Schema: public; Owner: -
+-- Name: magic_item_eng_name_ruleset_key; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX magic_item_eng_name_key ON public.magic_item USING btree (eng_name);
+CREATE UNIQUE INDEX magic_item_eng_name_ruleset_key ON public.magic_item USING btree (eng_name, ruleset);
 
 
 --
@@ -4565,6 +5064,27 @@ CREATE INDEX pers_additional_users_user_id_idx ON public.pers_additional_users U
 
 
 --
+-- Name: pers_bastion_facility_pers_bastion_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_bastion_facility_pers_bastion_id_idx ON public.pers_bastion_facility USING btree (pers_bastion_id);
+
+
+--
+-- Name: pers_bastion_pers_id_key; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX pers_bastion_pers_id_key ON public.pers_bastion USING btree (pers_id);
+
+
+--
+-- Name: pers_bastion_turn_pers_bastion_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_bastion_turn_pers_bastion_id_idx ON public.pers_bastion_turn USING btree (pers_bastion_id);
+
+
+--
 -- Name: pers_feat_choice_pers_feat_id_choice_option_id_key; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -4572,10 +5092,10 @@ CREATE UNIQUE INDEX pers_feat_choice_pers_feat_id_choice_option_id_key ON public
 
 
 --
--- Name: pers_feat_feat_id_pers_id_key; Type: INDEX; Schema: public; Owner: -
+-- Name: pers_feat_pers_id_feat_id_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX pers_feat_feat_id_pers_id_key ON public.pers_feat USING btree (feat_id, pers_id);
+CREATE INDEX pers_feat_pers_id_feat_id_idx ON public.pers_feat USING btree (pers_id, feat_id);
 
 
 --
@@ -4639,6 +5159,20 @@ CREATE INDEX pers_folder_user_id_idx ON public.pers_folder USING btree (user_id)
 --
 
 CREATE UNIQUE INDEX pers_multiclass_pers_id_class_id_key ON public.pers_multiclass USING btree (pers_id, class_id);
+
+
+--
+-- Name: pers_offline_operation_pers_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_offline_operation_pers_id_idx ON public.pers_offline_operation USING btree (pers_id);
+
+
+--
+-- Name: pers_offline_operation_user_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_offline_operation_user_id_idx ON public.pers_offline_operation USING btree (user_id);
 
 
 --
@@ -4712,10 +5246,59 @@ CREATE INDEX pers_user_id_idx ON public.pers USING btree (user_id);
 
 
 --
+-- Name: pers_weapon_mastery_weapon_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_weapon_mastery_weapon_id_idx ON public.pers_weapon_mastery USING btree (weapon_id);
+
+
+--
+-- Name: pers_wildshape_one_active_per_pers; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX pers_wildshape_one_active_per_pers ON public.pers_wildshape USING btree (pers_id) WHERE is_active;
+
+
+--
+-- Name: pers_wildshape_pers_id_creature_key_ruleset_key; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX pers_wildshape_pers_id_creature_key_ruleset_key ON public.pers_wildshape USING btree (pers_id, creature_key, ruleset);
+
+
+--
+-- Name: pers_wildshape_pers_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_wildshape_pers_id_idx ON public.pers_wildshape USING btree (pers_id);
+
+
+--
+-- Name: problem_report_created_at_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX problem_report_created_at_idx ON public.problem_report USING btree (created_at);
+
+
+--
+-- Name: problem_report_user_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX problem_report_user_id_idx ON public.problem_report USING btree (user_id);
+
+
+--
 -- Name: race_choice_option_race_id_subrace_id_choice_group_name_opt_key; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX race_choice_option_race_id_subrace_id_choice_group_name_opt_key ON public.race_choice_option USING btree (race_id, subrace_id, choice_group_name, option_name);
+
+
+--
+-- Name: race_choice_option_spell_option_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX race_choice_option_spell_option_id_idx ON public.race_choice_option_spell USING btree (option_id);
 
 
 --
@@ -5157,7 +5740,7 @@ ALTER TABLE ONLY public.pers_additional_users
 --
 
 ALTER TABLE ONLY public.pers_armor
-    ADD CONSTRAINT pers_armor_armor_id_fkey FOREIGN KEY (armor_id) REFERENCES public.armor(armor_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_armor_armor_id_fkey FOREIGN KEY (armor_id) REFERENCES public.armor(armor_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5173,7 +5756,31 @@ ALTER TABLE ONLY public.pers_armor
 --
 
 ALTER TABLE ONLY public.pers
-    ADD CONSTRAINT pers_background_id_fkey FOREIGN KEY (background_id) REFERENCES public.background(background_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_background_id_fkey FOREIGN KEY (background_id) REFERENCES public.background(background_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+
+--
+-- Name: pers_bastion_facility pers_bastion_facility_pers_bastion_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion_facility
+    ADD CONSTRAINT pers_bastion_facility_pers_bastion_id_fkey FOREIGN KEY (pers_bastion_id) REFERENCES public.pers_bastion(pers_bastion_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_bastion pers_bastion_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion
+    ADD CONSTRAINT pers_bastion_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_bastion_turn pers_bastion_turn_pers_bastion_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_bastion_turn
+    ADD CONSTRAINT pers_bastion_turn_pers_bastion_id_fkey FOREIGN KEY (pers_bastion_id) REFERENCES public.pers_bastion(pers_bastion_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -5181,7 +5788,7 @@ ALTER TABLE ONLY public.pers
 --
 
 ALTER TABLE ONLY public.pers
-    ADD CONSTRAINT pers_class_id_fkey FOREIGN KEY (class_id) REFERENCES public.class(class_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_class_id_fkey FOREIGN KEY (class_id) REFERENCES public.class(class_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5189,7 +5796,7 @@ ALTER TABLE ONLY public.pers
 --
 
 ALTER TABLE ONLY public.pers_feat_choice
-    ADD CONSTRAINT pers_feat_choice_choice_option_id_fkey FOREIGN KEY (choice_option_id) REFERENCES public.choice_option(option_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_feat_choice_choice_option_id_fkey FOREIGN KEY (choice_option_id) REFERENCES public.choice_option(option_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5205,7 +5812,7 @@ ALTER TABLE ONLY public.pers_feat_choice
 --
 
 ALTER TABLE ONLY public.pers_feat
-    ADD CONSTRAINT pers_feat_feat_id_fkey FOREIGN KEY (feat_id) REFERENCES public.feat(feat_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_feat_feat_id_fkey FOREIGN KEY (feat_id) REFERENCES public.feat(feat_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5221,7 +5828,7 @@ ALTER TABLE ONLY public.pers_feat
 --
 
 ALTER TABLE ONLY public.pers_feature
-    ADD CONSTRAINT pers_feature_feature_id_fkey FOREIGN KEY (feature_id) REFERENCES public.feature(feature_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_feature_feature_id_fkey FOREIGN KEY (feature_id) REFERENCES public.feature(feature_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5285,7 +5892,7 @@ ALTER TABLE ONLY public.pers_folder
 --
 
 ALTER TABLE ONLY public.pers_infusion
-    ADD CONSTRAINT pers_infusion_infusion_id_fkey FOREIGN KEY (infusion_id) REFERENCES public.infusion(infusion_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_infusion_infusion_id_fkey FOREIGN KEY (infusion_id) REFERENCES public.infusion(infusion_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5325,7 +5932,7 @@ ALTER TABLE ONLY public.pers_infusion
 --
 
 ALTER TABLE ONLY public.pers_magic_item
-    ADD CONSTRAINT pers_magic_item_magic_item_id_fkey FOREIGN KEY (magic_item_id) REFERENCES public.magic_item(magic_item_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_magic_item_magic_item_id_fkey FOREIGN KEY (magic_item_id) REFERENCES public.magic_item(magic_item_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5341,7 +5948,7 @@ ALTER TABLE ONLY public.pers_magic_item
 --
 
 ALTER TABLE ONLY public.pers_multiclass
-    ADD CONSTRAINT pers_multiclass_class_id_fkey FOREIGN KEY (class_id) REFERENCES public.class(class_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_multiclass_class_id_fkey FOREIGN KEY (class_id) REFERENCES public.class(class_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5357,7 +5964,23 @@ ALTER TABLE ONLY public.pers_multiclass
 --
 
 ALTER TABLE ONLY public.pers_multiclass
-    ADD CONSTRAINT pers_multiclass_subclass_id_fkey FOREIGN KEY (subclass_id) REFERENCES public.subclass(subclass_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_multiclass_subclass_id_fkey FOREIGN KEY (subclass_id) REFERENCES public.subclass(subclass_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+
+--
+-- Name: pers_offline_operation pers_offline_operation_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_offline_operation
+    ADD CONSTRAINT pers_offline_operation_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_offline_operation pers_offline_operation_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_offline_operation
+    ADD CONSTRAINT pers_offline_operation_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -5365,7 +5988,7 @@ ALTER TABLE ONLY public.pers_multiclass
 --
 
 ALTER TABLE ONLY public.pers
-    ADD CONSTRAINT pers_race_id_fkey FOREIGN KEY (race_id) REFERENCES public.race(race_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_race_id_fkey FOREIGN KEY (race_id) REFERENCES public.race(race_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5405,7 +6028,7 @@ ALTER TABLE ONLY public.pers_spell
 --
 
 ALTER TABLE ONLY public.pers_spell
-    ADD CONSTRAINT pers_spell_spell_id_fkey FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_spell_spell_id_fkey FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5413,7 +6036,7 @@ ALTER TABLE ONLY public.pers_spell
 --
 
 ALTER TABLE ONLY public.pers
-    ADD CONSTRAINT pers_subclass_id_fkey FOREIGN KEY (subclass_id) REFERENCES public.subclass(subclass_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_subclass_id_fkey FOREIGN KEY (subclass_id) REFERENCES public.subclass(subclass_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5421,7 +6044,7 @@ ALTER TABLE ONLY public.pers
 --
 
 ALTER TABLE ONLY public.pers
-    ADD CONSTRAINT pers_subrace_id_fkey FOREIGN KEY (subrace_id) REFERENCES public.subrace(subrace_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_subrace_id_fkey FOREIGN KEY (subrace_id) REFERENCES public.subrace(subrace_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5430,6 +6053,22 @@ ALTER TABLE ONLY public.pers
 
 ALTER TABLE ONLY public.pers
     ADD CONSTRAINT pers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_weapon_mastery pers_weapon_mastery_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_weapon_mastery
+    ADD CONSTRAINT pers_weapon_mastery_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_weapon_mastery pers_weapon_mastery_weapon_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_weapon_mastery
+    ADD CONSTRAINT pers_weapon_mastery_weapon_id_fkey FOREIGN KEY (weapon_id) REFERENCES public.weapon(weapon_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
@@ -5445,7 +6084,23 @@ ALTER TABLE ONLY public.pers_weapon
 --
 
 ALTER TABLE ONLY public.pers_weapon
-    ADD CONSTRAINT pers_weapon_weapon_id_fkey FOREIGN KEY (weapon_id) REFERENCES public.weapon(weapon_id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT pers_weapon_weapon_id_fkey FOREIGN KEY (weapon_id) REFERENCES public.weapon(weapon_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+
+--
+-- Name: pers_wildshape pers_wildshape_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_wildshape
+    ADD CONSTRAINT pers_wildshape_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: problem_report problem_report_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.problem_report
+    ADD CONSTRAINT problem_report_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
 --
@@ -5457,11 +6112,35 @@ ALTER TABLE ONLY public.race_choice_option
 
 
 --
+-- Name: race_choice_option_spell race_choice_option_spell_option_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.race_choice_option_spell
+    ADD CONSTRAINT race_choice_option_spell_option_id_fkey FOREIGN KEY (option_id) REFERENCES public.race_choice_option(option_id) ON DELETE CASCADE;
+
+
+--
+-- Name: race_choice_option_spell race_choice_option_spell_spell_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.race_choice_option_spell
+    ADD CONSTRAINT race_choice_option_spell_spell_id_fkey FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id) ON DELETE RESTRICT;
+
+
+--
 -- Name: race_choice_option race_choice_option_subrace_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.race_choice_option
     ADD CONSTRAINT race_choice_option_subrace_id_fkey FOREIGN KEY (subrace_id) REFERENCES public.subrace(subrace_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: race_choice_option race_choice_option_trait_feature_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.race_choice_option
+    ADD CONSTRAINT race_choice_option_trait_feature_id_fkey FOREIGN KEY (trait_feature_id) REFERENCES public.feature(feature_id) ON DELETE SET NULL;
 
 
 --

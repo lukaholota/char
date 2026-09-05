@@ -27,16 +27,18 @@ model Account {
 }
 
 model User {
-  id                Int                  @id @default(autoincrement()) @map("user_id")
-  name              String?
-  email             String?              @unique
-  emailVerified     DateTime?            @map("email_verified")
-  image             String?
-  accounts          Account[]
-  perses            Pers[]
-  additionalPerses  PersAdditionalUser[]
-  persFolders       PersFolder[]
-  folderMemberships PersFolderMember[]
+  id                     Int                      @id @default(autoincrement()) @map("user_id")
+  name                   String?
+  email                  String?                  @unique
+  emailVerified          DateTime?                @map("email_verified")
+  image                  String?
+  accounts               Account[]
+  perses                 Pers[]
+  additionalPerses       PersAdditionalUser[]
+  persFolders            PersFolder[]
+  folderMemberships      PersFolderMember[]
+  pers_offline_operation pers_offline_operation[]
+  problem_report         problem_report[]
 
   @@map("user")
 }
@@ -125,6 +127,7 @@ model Class {
   sortOrder                   Int                            @default(999) @map("sort_order")
   ruleset                     Ruleset                        @default(RULES_2014)
   epicBoonLevel               Int?                           @map("epic_boon_level")
+  weapon_mastery_progression  Int[]                          @default([])
   classChoiceOptions          ClassChoiceOption[]
   features                    ClassFeature[]
   classOptionalFeatures       ClassOptionalFeature[]
@@ -436,12 +439,15 @@ model Feature {
   weaponProficienciesSpecial         Json?                                 @map("weapon_proficiencies_special")
   toolProficiencies                  ToolCategory[]                        @default([]) @map("tool_proficiencies")
   ruleset                            Ruleset                               @default(RULES_2014)
+  /// Скільки максимальних хітів фіча додає за кожен рівень персонажа. NULL — не додає.
+  bonusHitPointsPerLevel             Int?                                  @map("bonus_hit_points_per_level")
   choiceOptionFeatures               ChoiceOptionFeature[]
   classFeatures                      ClassFeature[]
   classOptionalFeatures              ClassOptionalFeature[]                @relation("GrantedFeature")
   replacedByOptionalFeatures         ClassOptionalFeatureReplacesFeature[] @relation("ReplacedByOptionalFeatures")
   infusions                          Infusion[]
   persFeatures                       PersFeature[]
+  raceChoiceOptionsOwned             RaceChoiceOption[]
   raceChoiceOptionTraits             RaceChoiceOptionTrait[]
   raceTraits                         RaceTrait[]
   raceVariantTraits                  RaceVariantTrait[]
@@ -457,7 +463,7 @@ model Feature {
 
 model Armor {
   armorId                      Int                            @id @default(autoincrement()) @map("armor_id")
-  name                         ArmorCategory                  @unique
+  name                         ArmorCategory
   armorType                    ArmorType                      @map("armor_type")
   baseAC                       Int                            @map("base_ac")
   strengthReq                  Int?                           @map("strength_req")
@@ -468,17 +474,19 @@ model Armor {
   classStartingEquipmentOption ClassStartingEquipmentOption[]
   persArmor                    PersArmor[]
 
+  @@unique([name, ruleset])
   @@map("armor")
 }
 
 model EquipmentPack {
   equipmentPackId               Int                            @id @default(autoincrement()) @map("equipment_pack_id")
-  name                          EquipmentPackCategory          @unique
+  name                          EquipmentPackCategory
   description                   String
   items                         Json
   ruleset                       Ruleset                        @default(RULES_2014)
   classStartingEquipmentOptions ClassStartingEquipmentOption[]
 
+  @@unique([name, ruleset])
   @@map("equipment_pack")
 }
 
@@ -515,7 +523,7 @@ model MagicItem {
   itemType                   MagicItemType   @map("item_type")
   rarity                     ItemRarity
   requiresAttunement         Boolean         @default(false) @map("requires_attunement")
-  engName                    String          @unique @map("eng_name") @db.VarChar(100)
+  engName                    String          @map("eng_name") @db.VarChar(100)
   description                String
   shortDescription           String?         @map("short_description")
   /// [WeaponProficiencies]
@@ -531,6 +539,7 @@ model MagicItem {
   persMagicItems             PersMagicItem[]
   givesSpells                Spell[]         @relation("MagicItemToSpell")
 
+  @@unique([engName, ruleset])
   @@map("magic_item")
 }
 
@@ -551,111 +560,116 @@ model Weapon {
   mastery                      WeaponMastery?
   classStartingEquipmentOption ClassStartingEquipmentOption[]
   persWeapons                  PersWeapon[]
+  pers_weapon_mastery          pers_weapon_mastery[]
 
   @@unique([name, ruleset])
   @@map("weapon")
 }
 
 model Pers {
-  persId                      Int                    @id @default(autoincrement()) @map("pers_id")
-  userId                      Int                    @map("user_id")
-  name                        String                 @db.VarChar(100)
-  level                       Int                    @default(1)
-  currentSpellSlots           Int[]                  @default([]) @map("current_spell_slots")
-  classId                     Int                    @map("class_id")
-  subclassId                  Int?                   @map("subclass_id")
-  backgroundId                Int                    @map("background_id")
-  raceId                      Int                    @map("race_id")
-  subraceId                   Int?                   @map("subrace_id")
-  currentHp                   Int                    @map("current_hp")
-  maxHp                       Int                    @map("max_hp")
-  tempHp                      Int                    @default(0) @map("temp_hp")
-  raceCustom                  String                 @default("") @map("race_custom") @db.VarChar(100)
-  classCustom                 String                 @default("") @map("class_custom") @db.VarChar(100)
-  alignment                   String                 @default("") @db.VarChar(100)
-  xp                          Int                    @default(0)
-  customBackground            String                 @default("") @map("custom_background") @db.VarChar(100)
-  customFeatures              String                 @default("") @map("custom_features")
-  customLanguagesKnown        String                 @default("") @map("custom_languages_known")
-  customEquipment             String                 @default("") @map("custom_equipment")
-  personalityTraits           String                 @default("") @map("personality_traits")
-  ideals                      String                 @default("")
-  bonds                       String                 @default("")
-  flaws                       String                 @default("")
-  backstory                   String                 @default("")
-  notes                       String                 @default("")
+  persId                      Int                      @id @default(autoincrement()) @map("pers_id")
+  userId                      Int                      @map("user_id")
+  name                        String                   @db.VarChar(100)
+  level                       Int                      @default(1)
+  currentSpellSlots           Int[]                    @default([]) @map("current_spell_slots")
+  classId                     Int                      @map("class_id")
+  subclassId                  Int?                     @map("subclass_id")
+  backgroundId                Int                      @map("background_id")
+  raceId                      Int                      @map("race_id")
+  subraceId                   Int?                     @map("subrace_id")
+  currentHp                   Int                      @map("current_hp")
+  maxHp                       Int                      @map("max_hp")
+  tempHp                      Int                      @default(0) @map("temp_hp")
+  raceCustom                  String                   @default("") @map("race_custom") @db.VarChar(100)
+  classCustom                 String                   @default("") @map("class_custom") @db.VarChar(100)
+  alignment                   String                   @default("") @db.VarChar(100)
+  xp                          Int                      @default(0)
+  customBackground            String                   @default("") @map("custom_background") @db.VarChar(100)
+  customFeatures              String                   @default("") @map("custom_features")
+  customLanguagesKnown        String                   @default("") @map("custom_languages_known")
+  customEquipment             String                   @default("") @map("custom_equipment")
+  personalityTraits           String                   @default("") @map("personality_traits")
+  ideals                      String                   @default("")
+  bonds                       String                   @default("")
+  flaws                       String                   @default("")
+  backstory                   String                   @default("")
+  notes                       String                   @default("")
   str                         Int
   dex                         Int
   con                         Int
   int                         Int
   wis                         Int
   cha                         Int
-  cp                          String                 @default("0")
-  sp                          String                 @default("0")
-  ep                          String                 @default("0")
-  gp                          String                 @default("0")
-  pp                          String                 @default("0")
+  cp                          String                   @default("0")
+  sp                          String                   @default("0")
+  ep                          String                   @default("0")
+  gp                          String                   @default("0")
+  pp                          String                   @default("0")
   /// Попри назву — не додаткові, а базові володіння рятівними кидками
-  additionalSaveProficiencies Ability[]              @default([]) @map("additional_save_proficiencies")
-  miscSaveBonuses             Json?                  @map("misc_save_bonuses")
-  createdAt                   DateTime               @default(now()) @map("created_at")
-  updatedAt                   DateTime               @updatedAt @map("updated_at")
-  additionalShieldBonus       Int                    @default(0) @map("additional_shield_bonus")
-  armorBonus                  Int                    @default(0) @map("armor_bonus")
-  wearsNaturalArmor           Boolean                @default(false) @map("wears_natural_armor")
-  wearsShield                 Boolean                @default(false) @map("wears_shield")
-  currentPactSlots            Int                    @default(0) @map("current_pact_slots")
-  customProficiencies         String                 @default("") @map("custom_proficiencies")
-  deathSaveFailures           Int                    @default(0) @map("death_save_failures")
-  deathSaveSuccesses          Int                    @default(0) @map("death_save_successes")
-  isDead                      Boolean                @default(false) @map("is_dead")
-  acBonuses                   Json?                  @map("acbonuses")
-  currentHitDice              Json?                  @map("currenthitdice")
-  hpBonuses                   Json?                  @map("hpbonuses")
-  initiativeBonuses           Json?                  @map("initiativebonuses")
-  isActive                    Boolean                @default(true) @map("isactive")
-  isSnapshot                  Boolean                @default(false) @map("issnapshot")
-  parentPersId                Int?                   @map("parentpersid")
-  proficiencyBonuses          Json?                  @map("proficiencybonuses")
-  saveBonuses                 Json?                  @map("savebonuses")
-  shareToken                  String?                @unique @map("sharetoken")
-  skillBonuses                Json?                  @map("skillbonuses")
-  snapshotLevel               Int?                   @map("snapshotlevel")
-  speedBonuses                Json?                  @map("speedbonuses")
-  spellAttackBonuses          Json?                  @map("spellattackbonuses")
-  spellDCBonuses              Json?                  @map("spelldcbonuses")
-  statBonuses                 Json?                  @map("statbonuses")
-  statModifierBonuses         Json?                  @map("statmodifierbonuses")
-  usedHitDice                 Json?                  @map("usedhitdice")
-  overrideBaseAC              Int?                   @map("override_base_ac")
-  raceStaticAcBonus           Int                    @default(0) @map("race_static_ac_bonus")
-  folderId                    Int?                   @map("folder_id")
-  isPinned                    Boolean                @default(false) @map("is_pinned")
-  ruleset                     Ruleset                @default(RULES_2014)
-  background                  Background             @relation(fields: [backgroundId], references: [backgroundId], onDelete: Cascade)
-  class                       Class                  @relation(fields: [classId], references: [classId], onDelete: Cascade)
-  folder                      PersFolder?            @relation(fields: [folderId], references: [folderId])
-  race                        Race                   @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
-  subclass                    Subclass?              @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
-  subrace                     Subrace?               @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
-  user                        User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  additionalSaveProficiencies Ability[]                @default([]) @map("additional_save_proficiencies")
+  miscSaveBonuses             Json?                    @map("misc_save_bonuses")
+  createdAt                   DateTime                 @default(now()) @map("created_at")
+  updatedAt                   DateTime                 @updatedAt @map("updated_at")
+  additionalShieldBonus       Int                      @default(0) @map("additional_shield_bonus")
+  armorBonus                  Int                      @default(0) @map("armor_bonus")
+  wearsNaturalArmor           Boolean                  @default(false) @map("wears_natural_armor")
+  wearsShield                 Boolean                  @default(false) @map("wears_shield")
+  currentPactSlots            Int                      @default(0) @map("current_pact_slots")
+  customProficiencies         String                   @default("") @map("custom_proficiencies")
+  deathSaveFailures           Int                      @default(0) @map("death_save_failures")
+  deathSaveSuccesses          Int                      @default(0) @map("death_save_successes")
+  isDead                      Boolean                  @default(false) @map("is_dead")
+  acBonuses                   Json?                    @map("acbonuses")
+  currentHitDice              Json?                    @map("currenthitdice")
+  hpBonuses                   Json?                    @map("hpbonuses")
+  initiativeBonuses           Json?                    @map("initiativebonuses")
+  isActive                    Boolean                  @default(true) @map("isactive")
+  isSnapshot                  Boolean                  @default(false) @map("issnapshot")
+  parentPersId                Int?                     @map("parentpersid")
+  proficiencyBonuses          Json?                    @map("proficiencybonuses")
+  saveBonuses                 Json?                    @map("savebonuses")
+  shareToken                  String?                  @unique @map("sharetoken")
+  skillBonuses                Json?                    @map("skillbonuses")
+  snapshotLevel               Int?                     @map("snapshotlevel")
+  speedBonuses                Json?                    @map("speedbonuses")
+  spellAttackBonuses          Json?                    @map("spellattackbonuses")
+  spellDCBonuses              Json?                    @map("spelldcbonuses")
+  statBonuses                 Json?                    @map("statbonuses")
+  statModifierBonuses         Json?                    @map("statmodifierbonuses")
+  usedHitDice                 Json?                    @map("usedhitdice")
+  overrideBaseAC              Int?                     @map("override_base_ac")
+  raceStaticAcBonus           Int                      @default(0) @map("race_static_ac_bonus")
+  folderId                    Int?                     @map("folder_id")
+  isPinned                    Boolean                  @default(false) @map("is_pinned")
+  ruleset                     Ruleset                  @default(RULES_2014)
+  background                  Background               @relation(fields: [backgroundId], references: [backgroundId])
+  class                       Class                    @relation(fields: [classId], references: [classId])
+  folder                      PersFolder?              @relation(fields: [folderId], references: [folderId])
+  race                        Race                     @relation(fields: [raceId], references: [raceId])
+  subclass                    Subclass?                @relation(fields: [subclassId], references: [subclassId], onDelete: Restrict)
+  subrace                     Subrace?                 @relation(fields: [subraceId], references: [subraceId], onDelete: Restrict)
+  user                        User                     @relation(fields: [userId], references: [id], onDelete: Cascade)
   additionalUsers             PersAdditionalUser[]
   armors                      PersArmor[]
+  bastion                     PersBastion?
   feats                       PersFeat[]
   features                    PersFeature[]
   persInfusions               PersInfusion[]
   magicItems                  PersMagicItem[]
   multiclasses                PersMulticlass[]
+  pers_offline_operation      pers_offline_operation[]
   resourcePools               PersResourcePool[]
   shareTokens                 PersShareToken[]
   skills                      PersSkill[]
   persSpells                  PersSpell[]
   weapons                     PersWeapon[]
-  choiceOptions               ChoiceOption[]         @relation("ChoiceOptionToPers")
-  classOptionalFeatures       ClassOptionalFeature[] @relation("ClassOptionalFeatureToPers")
-  raceChoiceOptions           RaceChoiceOption[]     @relation("PersToRaceChoiceOption")
-  raceVariants                RaceVariant[]          @relation("PersToRaceVariant")
-  spells                      Spell[]                @relation("PersToSpell")
+  pers_weapon_mastery         pers_weapon_mastery[]
+  wildshapes                  PersWildshape[]
+  choiceOptions               ChoiceOption[]           @relation("ChoiceOptionToPers")
+  classOptionalFeatures       ClassOptionalFeature[]   @relation("ClassOptionalFeatureToPers")
+  raceChoiceOptions           RaceChoiceOption[]       @relation("PersToRaceChoiceOption")
+  raceVariants                RaceVariant[]            @relation("PersToRaceVariant")
+  spells                      Spell[]                  @relation("PersToSpell")
 
   @@index([folderId])
   @@index([parentPersId])
@@ -687,7 +701,7 @@ model PersArmor {
   overrideName     String?          @map("override_name")
   abilityBonuses   Ability[]        @default([]) @map("ability_bonuses")
   abilityBonusType AbilityBonusType @default(FULL) @map("ability_bonus_type")
-  armor            Armor            @relation(fields: [armorId], references: [armorId], onDelete: Cascade)
+  armor            Armor            @relation(fields: [armorId], references: [armorId])
   pers             Pers             @relation(fields: [persId], references: [persId], onDelete: Cascade)
   infusions        PersInfusion[]
 
@@ -698,11 +712,11 @@ model PersFeat {
   persFeatId Int              @id @default(autoincrement()) @map("pers_feat_id")
   featId     Int              @map("feat_id")
   persId     Int              @map("pers_id")
-  feat       Feat             @relation(fields: [featId], references: [featId], onDelete: Cascade)
+  feat       Feat             @relation(fields: [featId], references: [featId])
   pers       Pers             @relation(fields: [persId], references: [persId], onDelete: Cascade)
   choices    PersFeatChoice[]
 
-  @@unique([featId, persId])
+  @@index([persId, featId])
   @@map("pers_feat")
 }
 
@@ -710,7 +724,7 @@ model PersFeatChoice {
   persFeatChoiceId Int          @id @default(autoincrement()) @map("pers_feat_choice_id")
   persFeatId       Int          @map("pers_feat_id")
   choiceOptionId   Int          @map("choice_option_id")
-  choiceOption     ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId], onDelete: Cascade)
+  choiceOption     ChoiceOption @relation(fields: [choiceOptionId], references: [choiceOptionId])
   persFeat         PersFeat     @relation(fields: [persFeatId], references: [persFeatId], onDelete: Cascade)
 
   @@unique([persFeatId, choiceOptionId], name: "unique_pers_feat_choice")
@@ -722,7 +736,7 @@ model PersFeature {
   persId        Int     @map("pers_id")
   featureId     Int     @map("feature_id")
   usesRemaining Int?    @map("uses_remaining")
-  feature       Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
+  feature       Feature @relation(fields: [featureId], references: [featureId])
   pers          Pers    @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
   @@unique([persId, featureId])
@@ -785,7 +799,7 @@ model PersInfusion {
   persMagicItemId Int?           @map("pers_magic_item_id")
   createdAt       DateTime       @default(now()) @map("created_at")
   expiresAt       DateTime?      @map("expires_at")
-  infusion        Infusion       @relation(fields: [infusionId], references: [infusionId], onDelete: Cascade)
+  infusion        Infusion       @relation(fields: [infusionId], references: [infusionId])
   armor           PersArmor?     @relation(fields: [persArmorId], references: [persArmorId], onDelete: Cascade)
   pers            Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
   magicItem       PersMagicItem? @relation(fields: [persMagicItemId], references: [persMagicItemId], onDelete: Cascade)
@@ -801,7 +815,7 @@ model PersMagicItem {
   isAttuned       Boolean        @default(false) @map("is_attuned")
   isEquipped      Boolean        @default(false) @map("is_equipped")
   infusions       PersInfusion[]
-  magicItem       MagicItem      @relation(fields: [magicItemId], references: [magicItemId], onDelete: Cascade)
+  magicItem       MagicItem      @relation(fields: [magicItemId], references: [magicItemId])
   pers            Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
   @@map("pers_magic_item")
@@ -813,9 +827,9 @@ model PersMulticlass {
   classId          Int       @map("class_id")
   subclassId       Int?      @map("subclass_id")
   classLevel       Int       @map("class_level")
-  class            Class     @relation(fields: [classId], references: [classId], onDelete: Cascade)
+  class            Class     @relation(fields: [classId], references: [classId])
   pers             Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade)
-  subclass         Subclass? @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade)
+  subclass         Subclass? @relation(fields: [subclassId], references: [subclassId], onDelete: Restrict)
 
   @@unique([persId, classId])
   @@map("pers_multiclass")
@@ -874,7 +888,7 @@ model PersSpell {
   excludeFromPreparedCount Boolean     @default(false) @map("exclude_from_prepared_count")
   excludeFromKnownCount    Boolean     @default(false) @map("exclude_from_known_count")
   pers                     Pers        @relation(fields: [persId], references: [persId], onDelete: Cascade)
-  spell                    Spell       @relation(fields: [spellId], references: [spellId], onDelete: Cascade)
+  spell                    Spell       @relation(fields: [spellId], references: [spellId])
 
   @@unique([persId, spellId])
   @@index([persId])
@@ -902,7 +916,7 @@ model PersWeapon {
   isMagical             Boolean        @default(false) @map("ismagical")
   infusions             PersInfusion[]
   pers                  Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
-  weapon                Weapon         @relation(fields: [weaponId], references: [weaponId], onDelete: Cascade)
+  weapon                Weapon         @relation(fields: [weaponId], references: [weaponId])
 
   @@map("pers_weapon")
 }
@@ -959,8 +973,15 @@ model RaceChoiceOption {
   /// [SkillProficiencies]
   skillProficiencies     Json?                   @map("skill_proficiencies")
   ruleset                Ruleset                 @default(RULES_2014)
+  /// Англійський ключ опції (Red, High Elf, Stone's Endurance). NULL — усі дані 2014.
+  optionNameEng          String?                 @map("option_name_eng") @db.VarChar(100)
+  /// Характеристика замовляння, яку задає ця опція (вибір Інтелект/Мудрість/Харизма для родоводу 2024).
+  spellcastingAbility    Ability?                @map("spellcasting_ability")
+  traitFeatureId         Int?                    @map("trait_feature_id")
   race                   Race                    @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
   subrace                Subrace?                @relation(fields: [subraceId], references: [subraceId], onDelete: Cascade)
+  traitFeature           Feature?                @relation(fields: [traitFeatureId], references: [featureId], onUpdate: NoAction)
+  spells                 RaceChoiceOptionSpell[]
   traits                 RaceChoiceOptionTrait[]
   perses                 Pers[]                  @relation("PersToRaceChoiceOption")
 
@@ -984,6 +1005,7 @@ model RaceTrait {
   raceId      Int     @map("race_id")
   featureId   Int     @map("feature_id")
   ruleset     Ruleset @default(RULES_2014)
+  level       Int     @default(1)
   feature     Feature @relation(fields: [featureId], references: [featureId], onDelete: Cascade)
   race        Race    @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
 
@@ -1066,27 +1088,28 @@ model SubraceTrait {
 }
 
 model Spell {
-  spellId          Int            @id @default(autoincrement()) @map("spell_id")
-  name             String         @db.VarChar(255)
-  school           String?        @db.VarChar(255)
-  castingTime      String         @map("casting_time") @db.VarChar(255)
-  range            String         @db.VarChar(255)
-  components       String?        @db.VarChar(500)
-  duration         String         @db.VarChar(255)
-  description      String
-  hasRitual        String?        @map("has_ritual") @db.VarChar
-  hasConcentration String?        @map("has_concentration") @db.VarChar
-  source           Source         @default(PHB)
-  level            Int
-  engName          String         @map("eng_name") @db.VarChar(255)
-  ruleset          Ruleset        @default(RULES_2014)
-  persSpells       PersSpell[]
-  spellClasses     SpellClasses[]
-  spellRaces       SpellRaces[]
-  features         Feature[]      @relation("FeatureToSpell")
-  magicItems       MagicItem[]    @relation("MagicItemToSpell")
-  perses           Pers[]         @relation("PersToSpell")
-  subclasses       Subclass[]     @relation("SubclassExpandedSpells")
+  spellId                Int                     @id @default(autoincrement()) @map("spell_id")
+  name                   String                  @db.VarChar(255)
+  school                 String?                 @db.VarChar(255)
+  castingTime            String                  @map("casting_time") @db.VarChar(255)
+  range                  String                  @db.VarChar(255)
+  components             String?                 @db.VarChar(500)
+  duration               String                  @db.VarChar(255)
+  description            String
+  hasRitual              String?                 @map("has_ritual") @db.VarChar
+  hasConcentration       String?                 @map("has_concentration") @db.VarChar
+  source                 Source                  @default(PHB)
+  level                  Int
+  engName                String                  @map("eng_name") @db.VarChar(255)
+  ruleset                Ruleset                 @default(RULES_2014)
+  persSpells             PersSpell[]
+  raceChoiceOptionSpells RaceChoiceOptionSpell[]
+  spellClasses           SpellClasses[]
+  spellRaces             SpellRaces[]
+  features               Feature[]               @relation("FeatureToSpell")
+  magicItems             MagicItem[]             @relation("MagicItemToSpell")
+  perses                 Pers[]                  @relation("PersToSpell")
+  subclasses             Subclass[]              @relation("SubclassExpandedSpells")
 
   @@unique([engName, ruleset])
   @@unique([name, ruleset])
@@ -1112,6 +1135,140 @@ model SpellRaces {
   spell    Spell?  @relation(fields: [spellId], references: [spellId], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("spell_races")
+}
+
+/// Прикріплені звірині форми персонажа (KR22.3). У базі є частковий унікальний індекс
+/// `pers_wildshape_one_active_per_pers ON (pers_id) WHERE is_active` — персонаж може бути
+/// щонайбільше в одній формі. Prisma часткові індекси не виражає, тому тут його не видно,
+/// але він діє: спроба ввімкнути другу форму падає з 23505.
+/// `creature_key` — навмисно текст без FK на `creature`: істоти лишаються в JSON (Р15, Р25).
+model PersWildshape {
+  persWildshapeId Int      @id @default(autoincrement()) @map("pers_wildshape_id")
+  persId          Int      @map("pers_id")
+  creatureKey     String   @map("creature_key") @db.VarChar(200)
+  ruleset         Ruleset  @default(RULES_2014)
+  sortOrder       Int      @default(0) @map("sort_order")
+  notes           String   @default("")
+  createdAt       DateTime @default(now()) @map("created_at")
+  currentHp       Int?     @map("current_hp")
+  isActive        Boolean  @default(false) @map("is_active")
+  pers            Pers     @relation(fields: [persId], references: [persId], onDelete: Cascade)
+
+  @@unique([persId, creatureKey, ruleset])
+  @@index([persId])
+  @@map("pers_wildshape")
+}
+
+model PersBastion {
+  persBastionId Int                   @id @default(autoincrement()) @map("pers_bastion_id")
+  persId        Int                   @unique @map("pers_id")
+  name          String                @db.VarChar(100)
+  description   String                @default("")
+  notes         String                @default("")
+  createdAt     DateTime              @default(now()) @map("created_at")
+  updatedAt     DateTime              @default(now()) @map("updated_at")
+  pers          Pers                  @relation(fields: [persId], references: [persId], onDelete: Cascade)
+  facilities    PersBastionFacility[]
+  turns         PersBastionTurn[]
+
+  @@map("pers_bastion")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model PersBastionFacility {
+  persBastionFacilityId Int           @id @default(autoincrement()) @map("pers_bastion_facility_id")
+  persBastionId         Int           @map("pers_bastion_id")
+  facilitySlug          String        @map("facility_slug")
+  space                 BastionSpace
+  currentOrder          BastionOrder? @map("current_order")
+  defenders             Int           @default(0)
+  hirelings             String        @default("")
+  notes                 String        @default("")
+  createdAt             DateTime      @default(now()) @map("created_at")
+  updatedAt             DateTime      @default(now()) @map("updated_at")
+  bastion               PersBastion   @relation(fields: [persBastionId], references: [persBastionId], onDelete: Cascade)
+
+  @@index([persBastionId])
+  @@map("pers_bastion_facility")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// Колонки Level 3 і Level 5 таблиці родоводів PHB 2024: заклинання, яке опція виду дає на рівні
+/// персонажа вище першого. Заклинання 1-го рівня лежать на фічі опції.
+model RaceChoiceOptionSpell {
+  raceChoiceOptionSpellId Int              @id @default(autoincrement()) @map("race_choice_option_spell_id")
+  optionId                Int              @map("option_id")
+  spellId                 Int              @map("spell_id")
+  /// Рівень ПЕРСОНАЖА, з якого заклинання доступне. Значень лише два — 3 і 5.
+  characterLevel          Int              @map("character_level")
+  ruleset                 Ruleset          @default(RULES_2014)
+  raceChoiceOption        RaceChoiceOption @relation(fields: [optionId], references: [optionId], onDelete: Cascade, onUpdate: NoAction)
+  spell                   Spell            @relation(fields: [spellId], references: [spellId], onUpdate: NoAction)
+
+  @@unique([optionId, spellId])
+  @@index([optionId])
+  @@map("race_choice_option_spell")
+}
+
+model pers_offline_operation {
+  operation_id   String   @id @db.VarChar(64)
+  pers_id        Int
+  user_id        Int
+  operation_kind String   @db.VarChar(64)
+  applied_at     DateTime @default(now())
+  pers           Pers     @relation(fields: [pers_id], references: [persId], onDelete: Cascade)
+  user           User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([pers_id])
+  @@index([user_id])
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model pers_weapon_mastery {
+  pers_weapon_mastery_id Int    @id @default(autoincrement())
+  pers_id                Int
+  weapon_id              Int
+  pers                   Pers   @relation(fields: [pers_id], references: [persId], onDelete: Cascade)
+  weapon                 Weapon @relation(fields: [weapon_id], references: [weaponId])
+
+  @@unique([pers_id, weapon_id])
+  @@index([weapon_id])
+}
+
+model problem_report {
+  problem_report_id Int      @id @default(autoincrement())
+  user_id           Int?
+  message           String
+  page_path         String   @db.VarChar(2048)
+  page_url          String?
+  referrer          String?
+  user_agent        String?
+  ip_address        String?  @db.VarChar(64)
+  viewport_width    Int?
+  viewport_height   Int?
+  screen_width      Int?
+  screen_height     Int?
+  language          String?  @db.VarChar(32)
+  timezone          String?  @db.VarChar(64)
+  created_at        DateTime @default(now())
+  user              User?    @relation(fields: [user_id], references: [id])
+
+  @@index([created_at])
+  @@index([user_id])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model PersBastionTurn {
+  persBastionTurnId Int         @id @default(autoincrement()) @map("pers_bastion_turn_id")
+  persBastionId     Int         @map("pers_bastion_id")
+  turnNumber        Int         @map("turn_number")
+  entry             String
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @default(now()) @map("updated_at")
+  bastion           PersBastion @relation(fields: [persBastionId], references: [persBastionId], onDelete: Cascade)
+
+  @@index([persBastionId])
+  @@map("pers_bastion_turn")
 }
 
 enum AOEShapes {
@@ -1160,6 +1317,7 @@ enum ArmorCategory {
   NATURAL_ARMOR_13_DEX
   NATURAL_ARMOR_12_DEX
   NATURAL_ARMOR_12_CON
+  DRACONIC_RESILIENCE
 }
 
 enum ArmorType {
@@ -1731,6 +1889,13 @@ enum Source {
   POTA
   CHAINS_OF_ASMODEUS
   HOMEBREW
+  SCC
+  LLK
+  AAG
+  SatO
+  AitFR_AVT          @map("AitFR-AVT")
+  FRAiF
+  RHW
 }
 
 enum SpellOrigin {
@@ -1903,6 +2068,23 @@ enum Subclasses {
   DIVINER
   EVOKER
   ILLUSIONIST
+  BLADESINGER
+  CARTOGRAPHER
+  COLLEGE_OF_THE_MOON
+  CONJURER
+  ENCHANTER
+  HOLLOW_WARDEN
+  NECROMANCER
+  OATH_OF_THE_NOBLE_GENIES
+  REANIMATOR
+  SCION_OF_THE_THREE
+  SHADOW_SORCERY
+  SPELLFIRE_SORCERY
+  TRANSMUTER
+  UNDEAD_PATRON
+  VESTIGE_PATRON
+  WARRIOR_OF_THE_MYSTIC_ARTS
+  WINTER_WALKER
 }
 
 enum Subraces {
@@ -1965,6 +2147,7 @@ enum ToolCategory {
   VEHICLES_WATER
   SMITHS_TOOLS
   BREWERS_SUPPLIES
+  CALLIGRAPHERS_SUPPLIES
 }
 
 enum Variants {
@@ -2091,4 +2274,20 @@ enum WeaponMastery {
   SLOW
   TOPPLE
   VEX
+}
+
+enum BastionOrder {
+  CRAFT
+  EMPOWER
+  HARVEST
+  MAINTAIN
+  RECRUIT
+  RESEARCH
+  TRADE
+}
+
+enum BastionSpace {
+  CRAMPED
+  ROOMY
+  VAST
 }

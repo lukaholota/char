@@ -1,0 +1,30 @@
+-- KR16.3 — owner apply only. Не проганяти через Prisma migrate / db push.
+-- Питання 22 в docs/o16-5etools-canon/questions.md, рішення власника 2026-08-24.
+--
+-- `FRAiF` = «Forgotten Realms: Adventures in Faerûn» (вихід 2025-11-11). Книга виведена в
+-- KR16.1 з `Parser.SOURCE_JSON_TO_DATE` пінованої ревізії дзеркала, тобто це книга редакції
+-- 2024, а не 2014 (перелік — усе від 2024-09-17, дати виходу XPHB).
+--
+-- Навіщо: вона тримає 7 із 16 істот 2024, які лишаються відкладеними в
+-- data/aidedd/import-manifest.json. Без значення enum читач корпусу падає на кожній із них,
+-- і партія 2024 KR16.3 не збереться взагалі:
+--
+--   20089  Drow of Lolth                20386  Drow Mage of Lolth
+--   20328  Drow Elite Warrior of Lolth  20407  Drow Priestess of Lolth
+--   20385  Cultist of Bhaal             20429  Cultist of Bane
+--   20455  Cultist of Myrkul
+--
+-- Регістр значення навмисно такий, як у корпусі 5etools і як уже прийнято в цьому enum для
+-- `SatO`, `SCC` і `AitFR_AVT` — коди книг тут не переводяться в UPPER_SNAKE.
+--
+-- ADD VALUE не переписує наявних рядків і не блокує таблицю — застосування безпечне на живій
+-- базі. IF NOT EXISTS робить повторний запуск ідемпотентним.
+--
+-- ⚠️ Одного цього замало, щоб UI показав назву книги: кожне місце показу написане як
+-- `sourceTranslations[source] || source`, а запису для `FRAiF` у translation.ts ще немає —
+-- сторінка покаже код латинкою. Назву треба ратифікувати окремо (питання 22, той самий
+-- випадок, що питання 17 O17).
+--
+-- Після застосування: `bun run db:pull` і коміт згенерованих артефактів.
+
+ALTER TYPE public."Source" ADD VALUE IF NOT EXISTS 'FRAiF';
