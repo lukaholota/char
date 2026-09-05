@@ -14,7 +14,7 @@ export function MagicItemInfoModal({ item, open, onOpenChange }: Props) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
-        className="max-h-[90vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent shadow-none selection:bg-teal-500/30"
+        className="max-h-[90vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent shadow-none selection:bg-arcane-500/30"
         showClose={false}
       >
         <div className="sr-only">
@@ -25,7 +25,7 @@ export function MagicItemInfoModal({ item, open, onOpenChange }: Props) {
             <button
                 type="button"
                 onClick={() => onOpenChange(false)}
-                className="absolute top-3 right-3 z-50 glass-panel inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90 hover:text-teal-300 transition-all"
+                className="absolute top-3 right-3 z-50 glass-panel inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90 hover:text-arcane-300 transition-all"
                 aria-label="Закрити"
             >
                 <X className="h-4 w-4" />

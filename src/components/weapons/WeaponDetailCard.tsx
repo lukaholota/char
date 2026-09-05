@@ -1,12 +1,13 @@
 "use client";
 
-import { WeaponData } from "@/lib/weaponsData";
+import type { WeaponData } from "@/lib/weaponsData";
 import {
   weaponTypeTranslations,
   damageTypeTranslations,
   weaponPropertyTranslations,
   sourceTranslations,
 } from "@/lib/refs/translation";
+import { findWeaponMasteryDescription, formatWeaponMasteryLabel } from "@/lib/refs/weapon-mastery";
 import { cn } from "@/lib/utils";
 import { Sword, Crosshair, Target, ShieldAlert, Sparkles, Weight, Coins } from "lucide-react";
 import { getWeaponVisual } from "@/components/catalogs/catalog-visuals";
@@ -22,17 +23,6 @@ const PROPERTY_DESCRIPTIONS: Record<string, string> = {
   AMMUNITION: "Ви можете використовувати цю зброю для дальної атаки лише за наявності відповідних боєприпасів.",
   LOADING: "Через час, необхідний для заряджання, ви можете зробити лише один постріл цією зброєю за дію, бонусну дію чи реакцію.",
   SPECIAL: "Зброя зі спеціальними правилами використання.",
-};
-
-const MASTERY_DESCRIPTIONS: Record<string, string> = {
-  CLEAVE: "Якщо ви влучили по істоті рукопашною атакою, ви можете здійснити ще одну атаку по іншій істоті в межах 5 фт від неї.",
-  GRAZE: "Якщо ви промахнулися рукопашною атакою цією зброєю, ви все одно завдаєте шкоди, рівної модифікатору характеристики атаки.",
-  NICK: "Ви можете здійснити додаткову атаку другою легкою зброєю в межах основної дії Атака замість використання бонусної дії.",
-  PUSH: "При влученні по істоті розміру не більше за Велику ви можете відштовхнути її на відстань до 10 футів.",
-  SAP: "При влученні ціль отримує перешкоду (Disadvantage) на наступний кидок атаки до початку вашого наступного ходу.",
-  SLOW: "При влученні швидкість істоти зменшується на 10 футів до початку вашого наступного ходу.",
-  TOPPLE: "При влученні ціль повинна пройти рятівний кидок Статури (СК 8 + бонус майстерності + мод. атаки) або бути збитою з ніг (Prone).",
-  VEX: "При влученні ви отримуєте перевагу (Advantage) на наступний кидок атаки по цій істоті до кінця вашого наступного ходу.",
 };
 
 export function WeaponDetailCard({
@@ -66,7 +56,7 @@ export function WeaponDetailCard({
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
                 is2024
                   ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-teal-300 via-teal-100 to-violet-300"
+                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
               )}
             >
               {weapon.nameUa}
@@ -86,7 +76,7 @@ export function WeaponDetailCard({
             "shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border",
             is2024
               ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-teal-500/30 bg-teal-500/10 text-teal-300"
+              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
           )}
         >
           {sourceLabel}
@@ -97,7 +87,7 @@ export function WeaponDetailCard({
       <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         <div className="rounded-xl border border-white/5 bg-slate-900/40 p-3 text-center">
           <div className="text-[11px] text-slate-400 font-medium">Шкода</div>
-          <div className={cn("text-lg font-bold mt-0.5", is2024 ? "text-amber-300" : "text-teal-300")}>
+          <div className={cn("text-lg font-bold mt-0.5", is2024 ? "text-amber-300" : "text-arcane-300")}>
             {weapon.damage || "-"}
           </div>
           <div className="text-[11px] text-slate-400 truncate">{damageTypeLabel}</div>
@@ -140,11 +130,11 @@ export function WeaponDetailCard({
           <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-amber-400" />
             <span className="text-xs font-semibold uppercase tracking-wider text-amber-300">
-              Майстерність зброї (Weapon Mastery): {weapon.masteryNameUa || weapon.mastery} [{weapon.mastery}]
+              Майстерність зброї (Weapon Mastery): {formatWeaponMasteryLabel(weapon.mastery) ?? weapon.masteryNameUa ?? weapon.mastery}
             </span>
           </div>
           <p className="mt-1.5 text-xs sm:text-sm text-slate-200 leading-relaxed">
-            {MASTERY_DESCRIPTIONS[String(weapon.mastery).toUpperCase()] || "Особлива тактична властивість майстерності зброї з правил 2024 року."}
+            {findWeaponMasteryDescription(weapon.mastery) ?? "Особлива тактична властивість майстерності зброї з правил 2024 року."}
           </p>
         </div>
       )}
@@ -168,7 +158,7 @@ export function WeaponDetailCard({
 
               return (
                 <div key={propKey} className="rounded-xl border border-white/5 bg-slate-900/40 p-3">
-                  <div className={cn("text-xs font-semibold", is2024 ? "text-amber-300" : "text-teal-300")}>
+                  <div className={cn("text-xs font-semibold", is2024 ? "text-amber-300" : "text-arcane-300")}>
                     {label} [{propKey}]
                   </div>
                   {desc && (

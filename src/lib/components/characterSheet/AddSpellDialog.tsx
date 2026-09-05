@@ -19,6 +19,8 @@ import {getSpellcastingCountsLines} from "@/lib/logic/spellcasting-progression";
 import {
   getEffectiveExcludeFromKnownCount,
 } from "@/lib/logic/spell-prepared-exclusions";
+import {buildCharacterLevels} from "@/rules/character-level";
+import { findMaxPreparableSpellLevelByClass, findPreparableSpellLevelBySpellList } from "@/rules/spell-preparation-2024";
 
 function extractKnownSpellIds(pers: PersWithRelations): Set<number> {
   const ids = new Set<number>();
@@ -38,6 +40,56 @@ function extractSpellLevelsById(pers: PersWithRelations): Record<number, number>
     levels[spellId] = Number.isFinite(level) ? Math.max(0, Math.trunc(level)) : 1;
   }
   return levels;
+}
+
+function findMaxSlotSpellLevel(pers: PersWithRelations): number {
+  const caster = calculateCasterLevel(pers as any);
+  const casterLevel = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
+  const pactLevel = Math.max(0, Math.min(20, Math.trunc(caster.pactLevel || 0)));
+
+  let standardMax = 0;
+  if (casterLevel > 0) {
+    const row = (SPELL_SLOT_PROGRESSION as any).FULL?.[casterLevel] as number[] | undefined;
+    if (Array.isArray(row)) {
+      for (let i = row.length - 1; i >= 0; i--) {
+        if (row[i] > 0) {
+          standardMax = i + 1;
+          break;
+        }
+      }
+    }
+  }
+
+  const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[pactLevel] as {
+    slots: number;
+    level: number
+  } | undefined;
+  const pactMax = pactRow?.level ? Math.max(0, Math.min(9, Math.trunc(pactRow.level))) : 0;
+
+  return Math.max(standardMax, pactMax);
+}
+
+// 2024: межа — найвищий рівень у власній таблиці кожного класу, а не найвищий слот персонажа (KR27.7).
+type PreparableSpellLevels = { byClass: Record<string, number>; bySpellList: Record<string, number> };
+
+function findMaxPreparableSpellLevelByClass2024(pers: PersWithRelations): PreparableSpellLevels {
+  const mainClassName = pers.class?.name;
+  if (!mainClassName) return { byClass: {}, bySpellList: {} };
+
+  const multiclasses = pers.multiclasses.map((mc) => ({className: mc.class.name, classLevel: mc.classLevel}));
+  const levels = buildCharacterLevels({characterLevel: pers.level, mainClassName, multiclasses});
+  const classLevels = Object.fromEntries(levels.classLevels.map((entry) => [entry.className, entry.classLevel]));
+  const subclassByClass: Record<string, string | null> = {[mainClassName]: pers.subclass?.name ?? null};
+  for (const mc of pers.multiclasses) subclassByClass[mc.class.name] = mc.subclass?.name ?? null;
+
+  return {
+    byClass: findMaxPreparableSpellLevelByClass(classLevels, subclassByClass),
+    bySpellList: findPreparableSpellLevelBySpellList(classLevels, subclassByClass),
+  };
+}
+
+function formatMaxSpellLevelByClassParam(byClass: Record<string, number>): string {
+  return Object.entries(byClass).map(([className, level]) => `${className}:${level}`).join(",");
 }
 
 function extractKnownExcludedSpellIds(pers: PersWithRelations): Set<number> {
@@ -187,33 +239,17 @@ export default function AddSpellDialog({pers, isReadOnly, triggerClassName}: Add
     return () => window.removeEventListener("message", handleMessage);
   }, [router, pers.persId]);
 
-  // Calculate max spell level for embed mode
+  const is2024 = pers.ruleset === "RULES_2024";
+
+  const maxSpellLevelByClass = useMemo(
+    () => (is2024 ? findMaxPreparableSpellLevelByClass2024(pers) : { byClass: {}, bySpellList: {} }),
+    [pers, is2024]
+  );
+
   const maxSpellLevel = useMemo(() => {
-    const caster = calculateCasterLevel(pers as any);
-    const casterLevel = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
-    const pactLevel = Math.max(0, Math.min(20, Math.trunc(caster.pactLevel || 0)));
-
-    let standardMax = 0;
-    if (casterLevel > 0) {
-      const row = (SPELL_SLOT_PROGRESSION as any).FULL?.[casterLevel] as number[] | undefined;
-      if (Array.isArray(row)) {
-        for (let i = row.length - 1; i >= 0; i--) {
-          if (row[i] > 0) {
-            standardMax = i + 1;
-            break;
-          }
-        }
-      }
-    }
-
-    const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[pactLevel] as {
-      slots: number;
-      level: number
-    } | undefined;
-    const pactMax = pactRow?.level ? Math.max(0, Math.min(9, Math.trunc(pactRow.level))) : 0;
-
-    return Math.max(standardMax, pactMax);
-  }, [pers]);
+    if (is2024) return Math.max(0, ...Object.values(maxSpellLevelByClass.byClass));
+    return findMaxSlotSpellLevel(pers);
+  }, [pers, is2024, maxSpellLevelByClass]);
 
   const knownSpellsTarget = useMemo(() => {
     const lines = getSpellcastingCountsLines(pers);
@@ -283,6 +319,8 @@ export default function AddSpellDialog({pers, isReadOnly, triggerClassName}: Add
 
     if (applyFilters) {
       if (maxSpellLevel > 0) params.set("maxSpellLevel", String(maxSpellLevel));
+      const maxSpellLevelByClassParam = formatMaxSpellLevelByClassParam(maxSpellLevelByClass.bySpellList);
+      if (maxSpellLevelByClassParam) params.set("maxSpellLevelByClass", maxSpellLevelByClassParam);
       // Add class filter
       const classNames: string[] = [];
       if (pers.class?.name) {
@@ -312,8 +350,8 @@ export default function AddSpellDialog({pers, isReadOnly, triggerClassName}: Add
       if (subclassNames.length > 0) params.set("sub", Array.from(new Set(subclassNames)).join(","));
     }
 
-    return `/spells?${params.toString()}`;
-  }, [pers, maxSpellLevel, knownSpellsTarget, cantripTarget, knownExcludedSpellIds]);
+    return `${is2024 ? "/2024/spells" : "/spells"}?${params.toString()}`;
+  }, [pers, is2024, maxSpellLevel, maxSpellLevelByClass, knownSpellsTarget, cantripTarget, knownExcludedSpellIds]);
 
   const url = useMemo(() => buildSpellsUrl(useFilters), [buildSpellsUrl, useFilters]);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { InfusionData } from "@/lib/infusionsData";
+import type { InfusionData } from "@/lib/infusionsData";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { sourceTranslations } from "@/lib/refs/translation";
 import { cn } from "@/lib/utils";
@@ -35,7 +35,7 @@ export function InfusionDetailCard({
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
-            <h1 className="font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-100 to-violet-300">
+            <h1 className="font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300">
               {infusion.nameUa}
             </h1>
           </div>
@@ -43,14 +43,14 @@ export function InfusionDetailCard({
         </div>
 
         {/* Source */}
-        <div className="shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border border-teal-500/30 bg-teal-500/10 text-teal-300">
+        <div className="shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border border-arcane-500/30 bg-arcane-500/10 text-arcane-300">
           {sourceLabel}
         </div>
       </div>
 
       {/* Meta tags bar */}
       <div className="mt-4 flex flex-wrap items-center gap-2 border-y border-white/10 py-2.5">
-        <span className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold border border-teal-500/40 bg-teal-500/15 text-teal-200">
+        <span className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold border border-arcane-500/40 bg-arcane-500/15 text-arcane-200">
           <Wrench className="h-3.5 w-3.5" />
           Рівень винахідника {infusion.minArtificerLevel}+
         </span>

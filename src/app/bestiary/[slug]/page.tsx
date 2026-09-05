@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllCreatures, getCreatureByIdOrSlug } from "@/lib/bestiaryData";
 import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
 import { toEntitySlug } from "@/lib/slug-utils";
@@ -44,6 +44,7 @@ export async function generateMetadata({
       description,
       url,
       type: "article",
+      ...(creature.imageUrl ? { images: [creature.imageUrl] } : {}),
     },
   };
 }

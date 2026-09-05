@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllBackgrounds, getBackgroundByIdOrSlug } from "@/lib/backgroundsData";
 import { sourceTranslations } from "@/lib/refs/translation";
 import { BackgroundDetailCard } from "@/components/backgrounds/BackgroundDetailCard";

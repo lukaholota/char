@@ -1,7 +1,7 @@
 "use client";
 
 import { useStepForm } from "@/hooks/useStepForm";
-import { Ability, Classes } from "@prisma/client";
+import { Ability, BackgroundCategory, Classes } from "@prisma/client";
 import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
 import React, { useEffect, useMemo, useRef, useState } from "react";
@@ -18,6 +18,10 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { RaceVariant } from "@prisma/client";
 import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
+import { BackgroundAsiForm } from "@/lib/components/characterCreator/BackgroundAsiForm";
+import { asiSystemCopy, asiSystems, attributes, attributesUrkShort } from "@/lib/components/characterCreator/asi-fields";
+import { useBackgroundAsi } from "@/lib/components/characterCreator/useBackgroundAsi";
+import type { RulesetId } from "@/rules/strategies/types";
 import { toast } from "sonner";
 
 
@@ -25,41 +29,20 @@ interface Props {
   race: RaceI
   raceVariant?: RaceVariant | null
   selectedClass: ClassI
+  background?: { name: BackgroundCategory; abilityOptions?: string[] | null } | null
+  ruleset?: RulesetId
   prevRaceId: number | null
   setPrevRaceId: (id: number) => void;
   formId: string
   onNextDisabledChange?: (disabled: boolean) => void
 }
 
-const attributes = [
-  { eng: Ability.STR, ukr: 'Сила' },
-  { eng: Ability.DEX, ukr: 'Спритність' },
-  { eng: Ability.CON, ukr: 'Статура' },
-  { eng: Ability.INT, ukr: 'Інтелект' },
-  { eng: Ability.WIS, ukr: 'Мудрість' },
-  { eng: Ability.CHA, ukr: 'Харизма' }
-];
-
-const attributesUrkShort = [
-  { eng: Ability.STR, ukr: 'СИЛ' }, // Strength — Сила
-  { eng: Ability.DEX, ukr: 'СПР' }, // Dexterity — Спритність
-  { eng: Ability.CON, ukr: 'СТА' }, // Constitution — Статура
-  { eng: Ability.INT, ukr: 'ІНТ' }, // Intelligence — Інтелект
-  { eng: Ability.WIS, ukr: 'МУД' }, // Wisdom — Мудрість
-  { eng: Ability.CHA, ukr: 'ХАР' }, // Charisma — Харизма
-];
-
-const asiSystems = {
-  POINT_BUY: 'POINT_BUY',
-  SIMPLE: 'SIMPLE',
-  CUSTOM: 'CUSTOM'
-}
-
-
 export const ASIForm = (
-  { race, raceVariant, selectedClass, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
+  { race, raceVariant, selectedClass, background, ruleset, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
 ) => {
   const { updateFormData, nextStep } = usePersFormStore();
+
+  const backgroundAsi = useBackgroundAsi(ruleset, background?.abilityOptions);
 
   const racialBonusesCardRef = useRef<HTMLDivElement | null>(null);
   const [highlightRacialBonuses, setHighlightRacialBonuses] = useState(false);
@@ -127,6 +110,14 @@ export const ASIForm = (
       selectedAbilities: Ability[];
     }> = form.getValues(racialBonusSchemaPath as any) || [];
 
+    if (backgroundAsi.step && !backgroundAsi.complete) {
+      toast.error("Оберіть бонуси походження", {
+        description: "У правилах 2024 три очки характеристик дає походження — розподіліть їх повністю.",
+      });
+      scrollToRacialBonuses();
+      return;
+    }
+
     const hasRacialChoices = (racialBonusGroups?.length ?? 0) > 0;
     const missingSomeChoice = hasRacialChoices && (racialBonusGroups ?? []).some((group: any, groupIndex: number) => {
       const current = groups.find((g) => g.groupIndex === groupIndex);
@@ -153,7 +144,8 @@ export const ASIForm = (
       points: data.points,
       simpleAsi: data.simpleAsi,
       asi: data.asi,
-      racialBonusChoiceSchema: data.racialBonusChoiceSchema,
+      racialBonusChoiceSchema: backgroundAsi.step ? undefined : data.racialBonusChoiceSchema,
+      backgroundAsiChoice: backgroundAsi.complete ?? undefined,
     });
     nextStep();
   });
@@ -180,8 +172,9 @@ export const ASIForm = (
   const points = form.watch('points') || 0
 
   useEffect(() => {
-    onNextDisabledChange?.(asiSystem === asiSystems.POINT_BUY && points < 0);
-  }, [asiSystem, points, onNextDisabledChange])
+    const overspentPoints = asiSystem === asiSystems.POINT_BUY && points < 0;
+    onNextDisabledChange?.(overspentPoints || Boolean(backgroundAsi.step && !backgroundAsi.complete));
+  }, [asiSystem, points, onNextDisabledChange, backgroundAsi])
 
   const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
 
@@ -461,12 +454,6 @@ export const ASIForm = (
     }
   }, [form.formState.submitCount, form.formState.errors.racialBonusChoiceSchema]);
 
-  const systemCopy: Record<string, string> = {
-    [asiSystems.POINT_BUY]: 'Розподіляйте бюджет очок і отримайте контроль над кожною характеристикою.',
-    [asiSystems.SIMPLE]: 'Швидкий старт — пересувайте значення вгору та вниз без калькулятора.',
-    [asiSystems.CUSTOM]: 'Повна свобода: введіть будь-які значення вручну, якщо ви знаєте що робите.',
-  }
-
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-6">
       <Card className="shadow-xl">
@@ -526,7 +513,7 @@ export const ASIForm = (
               </TabsTrigger>
             </TabsList>
 
-            <p className="mt-3 text-sm text-slate-400">{systemCopy[asiSystem]}</p>
+            <p className="mt-3 text-sm text-slate-400">{asiSystemCopy[asiSystem]}</p>
 
             <TabsContent value={asiSystems.POINT_BUY} className="space-y-4">
               <div className="grid gap-3 md:grid-cols-2">
@@ -656,7 +643,7 @@ export const ASIForm = (
                           placeholder="14"
                           value={currentValue ?? ''}
                           onChange={(e) => form.setValue(`customAsi.${index}.value`, e.target.value)}
-                          className="border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
+                          className="border-white/10 bg-white/5 text-white focus-visible:ring-arcane-400/30"
                         />
                       </CardContent>
                     </Card>
@@ -677,8 +664,13 @@ export const ASIForm = (
         }
       >
         <CardHeader>
-          <CardTitle className="text-white">Расові бонуси</CardTitle>
+          <CardTitle className="text-white">
+            {backgroundAsi.step ? "Бонуси походження" : "Расові бонуси"}
+          </CardTitle>
         </CardHeader>
+        {backgroundAsi.step ? (
+          <BackgroundAsiForm step={backgroundAsi.step} background={background} draft={backgroundAsi.draft} onChange={backgroundAsi.setDraft} />
+        ) : (
         <CardContent className="space-y-4">
           {form.formState.errors.racialBonusChoiceSchema && (
             <div className="flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">
@@ -796,8 +788,10 @@ export const ASIForm = (
           )}
 
         </CardContent>
+        )}
       </Card>
 
+      {!backgroundAsi.step && (
       <div className="glass-panel border-gradient-rpg space-y-3 rounded-2xl p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -823,6 +817,7 @@ export const ASIForm = (
           </div>
         </div>
       </div>
+      )}
     </form>
   )
 };

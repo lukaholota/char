@@ -2,13 +2,12 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { Ruleset } from "@prisma/client";
-import { ExternalLink, ScrollText } from "lucide-react";
-import Link from "next/link";
+import { ScrollText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { BackgroundData } from "@/lib/backgroundsData";
 import { BackgroundDetailCard } from "@/components/backgrounds/BackgroundDetailCard";
 import { BackgroundsFilterDialog } from "@/components/backgrounds/BackgroundsFilterDialog";
-import { abilityTranslations, sourceTranslations } from "@/lib/refs/translation";
+import { abilityTranslations, skillTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -16,26 +15,51 @@ import {
   getSearchParamsFromLocation,
   replaceUrlSearchParams,
 } from "@/lib/catalog-url-helpers";
+import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
 import { ContentListPage } from "@/components/catalogs/ContentListPage";
-import { getBackgroundVisual } from "@/components/catalogs/catalog-visuals";
-import { cn } from "@/lib/utils";
-
-type InitialSearchParams = Record<string, string | string[] | undefined>;
+import { CatalogIllustrationCard } from "@/components/catalogs/CatalogIllustrationCard";
+import {
+  ILLUSTRATION_DETAIL_CLASSNAME,
+  ILLUSTRATION_LIST_CLASSNAME,
+} from "@/components/catalogs/illustration-catalog-layout";
 
 type SelectionState = {
-  sources: Set<string>;
+  source: SourceSelection;
+  skills: Set<string>;
+  abilities: Set<string>;
   q: string;
   background: string;
 };
 
 const parseSelection = (params: URLSearchParams): SelectionState => ({
-  sources: getParamSet(params, "src"),
+  source: parseSourceSelection(params),
+  skills: getParamSet(params, "skill"),
+  abilities: getParamSet(params, "abl"),
   q: params.get("q") || "",
   background: params.get("bg") || "",
 });
 
-function collectSources(backgrounds: BackgroundData[]): string[] {
-  return Array.from(new Set(backgrounds.map((b) => b.source))).sort();
+const ABILITY_ORDER = Object.keys(abilityTranslations);
+
+function collectSkills(backgrounds: BackgroundData[]): string[] {
+  const skills = new Set(backgrounds.flatMap((b) => b.skills.map((skill) => skill.enum)));
+  return Array.from(skills).sort((a, b) =>
+    (skillTranslations[a] || a).localeCompare(skillTranslations[b] || b, "uk")
+  );
+}
+
+function collectAbilities(backgrounds: BackgroundData[]): string[] {
+  const abilities = new Set(backgrounds.flatMap((b) => b.abilityOptions));
+  return ABILITY_ORDER.filter((ability) => abilities.has(ability));
 }
 
 function findSearchHaystack(background: BackgroundData): string {
@@ -46,28 +70,31 @@ function findSearchHaystack(background: BackgroundData): string {
 type Props = {
   backgrounds: BackgroundData[];
   ruleset?: Ruleset;
-  initialSearchParams?: InitialSearchParams;
 };
 
-export function BackgroundsClient({ backgrounds, ruleset = "RULES_2014", initialSearchParams = {} }: Props) {
+export function BackgroundsClient({ backgrounds, ruleset = "RULES_2014" }: Props) {
   const is2024 = ruleset === "RULES_2024";
-  const prefix = is2024 ? "/2024" : "";
 
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalBackground, setSelectedModalBackground] = useState<BackgroundData | null>(null);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
     parseSelection
   );
 
-  const availableSources = useMemo(() => collectSources(backgrounds), [backgrounds]);
+  const availableSources = useMemo(() => collectCatalogSources(backgrounds), [backgrounds]);
+  const availableSkills = useMemo(() => collectSkills(backgrounds), [backgrounds]);
+  const availableAbilities = useMemo(() => collectAbilities(backgrounds), [backgrounds]);
 
   const filtered = useMemo(() => {
     const q = selection.q.trim().toLowerCase();
     return backgrounds.filter((b) => {
       if (q && !findSearchHaystack(b).includes(q)) return false;
-      if (selection.sources.size > 0 && !selection.sources.has(b.source)) return false;
+      if (!matchesSourceSelection(b.source, selection.source)) return false;
+      if (selection.skills.size > 0 && !b.skills.some((skill) => selection.skills.has(skill.enum))) return false;
+      if (selection.abilities.size > 0 && !b.abilityOptions.some((ability) => selection.abilities.has(ability))) {
+        return false;
+      }
       return true;
     });
   }, [backgrounds, selection]);
@@ -91,24 +118,31 @@ export function BackgroundsClient({ backgrounds, ruleset = "RULES_2014", initial
     replaceUrlSearchParams(next);
   }, []);
 
-  const toggleSource = (source: string) => {
+  const toggleIn = (key: string) => (value: string) =>
     setParams((next) => {
-      const set = getParamSet(next, "src");
-      if (set.has(source)) set.delete(source);
-      else set.add(source);
-      setParamSet(next, "src", set);
+      const set = getParamSet(next, key);
+      if (set.has(value)) set.delete(value);
+      else set.add(value);
+      setParamSet(next, key, set);
+    });
+
+  const clearFilters = () => {
+    setParams((next) => {
+      next.delete("skill");
+      next.delete("abl");
+      clearSourceParams(next);
     });
   };
 
-  const clearFilters = () => {
-    setParams((next) => next.delete("src"));
-  };
-
-  const hasActiveFilters = selection.sources.size > 0;
+  const activeFiltersCount =
+    selection.skills.size + selection.abilities.size + countSourceFilters(selection.source);
+  const hasActiveFilters = activeFiltersCount > 0;
 
   return (
     <ContentListPage<BackgroundData>
       title="Походження"
+      listContainerClassName={ILLUSTRATION_LIST_CLASSNAME}
+      detailContainerClassName={ILLUSTRATION_DETAIL_CLASSNAME}
       is2024={is2024}
       totalCount={backgrounds.length}
       filteredCount={filtered.length}
@@ -116,7 +150,7 @@ export function BackgroundsClient({ backgrounds, ruleset = "RULES_2014", initial
       onSearchChange={setQInput}
       searchPlaceholder="Пошук походжень..."
       hasActiveFilters={hasActiveFilters}
-      activeFiltersCount={selection.sources.size}
+      activeFiltersCount={activeFiltersCount}
       onOpenFilters={() => setFiltersOpen(true)}
       onClearFilters={clearFilters}
       data={filtered}
@@ -132,94 +166,23 @@ export function BackgroundsClient({ backgrounds, ruleset = "RULES_2014", initial
           )}
         </div>
       }
-      renderItem={(_index, background) => {
-        const isSelected = selectedBackground?.backgroundId === background.backgroundId;
-        const visual = getBackgroundVisual(background.source);
-        const Icon = visual.icon;
-        const sourceLabel =
-          sourceTranslations[background.source as keyof typeof sourceTranslations] || background.source;
-        const skillsLabel = background.skills.map((s) => s.nameUa).join(", ");
-
-        return (
-          <div key={background.backgroundId} className="px-0.5 pb-0.5 pt-2">
-            <div
-              onClick={() => {
-                setParams((next) => next.set("bg", background.slug));
-                if (typeof window !== "undefined" && window.innerWidth < 1024) {
-                  setSelectedModalBackground(background);
-                }
-              }}
-              className={cn(
-                "glass-panel group relative cursor-pointer overflow-hidden rounded-xl border p-3 transition-all duration-300",
-                isSelected
-                  ? is2024
-                    ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
-                  : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
-              )}
-            >
-              <div className="flex items-center justify-between gap-3">
-                <div className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border", visual.iconWrap)}>
-                  <Icon className={cn("h-5 w-5", visual.iconColor)} />
-                </div>
-
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <span
-                      className={cn(
-                        "truncate text-[15px] font-semibold transition-colors",
-                        isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
-                          : "text-slate-100 group-hover:text-white"
-                      )}
-                    >
-                      {background.name}{" "}
-                      <span className="ml-1 text-sm font-normal text-slate-400">[{background.engName}]</span>
-                    </span>
-                    <Link
-                      href={`${prefix}/backgrounds/${background.slug}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="hidden shrink-0 rounded-lg p-1 text-slate-400 transition hover:bg-white/10 hover:text-slate-200 sm:inline-flex"
-                      title="Відкрити окрему сторінку"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                    </Link>
-                  </div>
-
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-slate-400">
-                    <span className={cn("rounded-md border px-2 py-0.5 text-[11px] font-medium", visual.badgeClass)}>
-                      {sourceLabel}
-                    </span>
-                    {background.abilityOptions.length > 0 && (
-                      <span className="text-[11px] text-amber-300/90">
-                        {background.abilityOptions.map((a) => abilityTranslations[a] || a).join(" / ")}
-                      </span>
-                    )}
-                    {skillsLabel && <span className="truncate text-xs text-slate-400">{skillsLabel}</span>}
-                    {background.originFeat && (
-                      <span className="truncate text-xs text-slate-400">
-                        <strong className="font-medium text-slate-300">Риса:</strong> {background.originFeat.nameUa}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      }}
+      renderItem={(_index, background) => (
+        <BackgroundRow
+          key={background.backgroundId}
+          background={background}
+          is2024={is2024}
+          isSelected={selectedBackground?.backgroundId === background.backgroundId}
+          onSelect={() => {
+            setParams((next) => next.set("bg", background.slug));
+            if (typeof window !== "undefined" && window.innerWidth < 1024) {
+              setSelectedModalBackground(background);
+            }
+          }}
+        />
+      )}
       desktopDetailView={
         selectedBackground ? (
           <div className="space-y-3">
-            <div className="flex justify-end px-1">
-              <Link
-                href={`${prefix}/backgrounds/${selectedBackground.slug}`}
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-400 transition hover:text-slate-200"
-              >
-                <span>Окрема сторінка</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </Link>
-            </div>
             <BackgroundDetailCard background={selectedBackground} is2024={is2024} />
           </div>
         ) : (
@@ -241,12 +204,62 @@ export function BackgroundsClient({ backgrounds, ruleset = "RULES_2014", initial
           open={filtersOpen}
           onOpenChange={setFiltersOpen}
           is2024={is2024}
+          availableSkills={availableSkills}
+          selectedSkills={selection.skills}
+          toggleSkill={toggleIn("skill")}
+          availableAbilities={availableAbilities}
+          selectedAbilities={selection.abilities}
+          toggleAbility={toggleIn("abl")}
           availableSources={availableSources}
-          selectedSources={selection.sources}
-          toggleSource={toggleSource}
+          sourceSelection={selection.source}
+          toggleSource={(source) => setParams((next) => toggleSourceParam(next, source))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           clearFilters={clearFilters}
         />
       }
     />
+  );
+}
+
+function BackgroundRow({
+  background,
+  is2024,
+  isSelected,
+  onSelect,
+}: {
+  background: BackgroundData;
+  is2024: boolean;
+  isSelected: boolean;
+  onSelect: () => void;
+}) {
+  const sourceLabel =
+    sourceTranslations[background.source as keyof typeof sourceTranslations] || background.source;
+  const skillsLabel = background.skills.map((s) => s.nameUa).join(", ");
+  const abilitiesLabel = background.abilityOptions
+    .map((ability) => abilityTranslations[ability] || ability)
+    .join(" / ");
+
+  return (
+    <div className="pb-1 pt-3">
+      <CatalogIllustrationCard
+        imageSrc={background.imageSrc}
+        title={background.name}
+        englishTitle={background.engName}
+        fallbackIcon={ScrollText}
+        is2024={is2024}
+        isSelected={isSelected}
+        onSelect={onSelect}
+        meta={
+          <>
+            <span className="rounded-md border border-white/20 bg-slate-950/70 px-2 py-0.5 text-[11px] backdrop-blur-md">
+              {sourceLabel}
+            </span>
+            {abilitiesLabel ? <span>{abilitiesLabel}</span> : null}
+            {skillsLabel ? <span className="truncate">{skillsLabel}</span> : null}
+            {background.originFeat ? <span>Риса: {background.originFeat.nameUa}</span> : null}
+          </>
+        }
+      />
+    </div>
   );
 }

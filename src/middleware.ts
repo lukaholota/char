@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { NO_AI_REQUEST_HEADER, hasNoAiPrefix, stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
+import { resolveLegacyCreatorRedirect } from "@/rules/route-helpers";
 
 export function middleware(request: NextRequest) {
+  const legacyCreatorPathname = resolveLegacyCreatorRedirect(request.nextUrl.pathname);
+  if (legacyCreatorPathname) {
+    const target = request.nextUrl.clone();
+    target.pathname = legacyCreatorPathname;
+    return NextResponse.redirect(target, 308);
+  }
+
   if (!hasNoAiPrefix(request.nextUrl.pathname)) {
     return NextResponse.next();
   }
@@ -21,5 +29,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/no-ai", "/no-ai/:path*"],
+  matcher: ["/no-ai", "/no-ai/:path*", "/char"],
 };

@@ -1,14 +1,10 @@
 "use client";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { CatalogFilterDialog } from "@/components/catalogs/CatalogFilterDialog";
+import { FilterChip, FilterGroup } from "@/components/catalogs/FilterChip";
+import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
+import type { CatalogSources, SourceSelection } from "@/lib/catalog-source-filter";
+import { INFUSION_EFFECT_LABELS, type InfusionEffect } from "@/lib/infusion-filter-facets";
 
 type Props = {
   open: boolean;
@@ -19,6 +15,13 @@ type Props = {
   toggleTarget: (target: string) => void;
   attunementOnly: boolean;
   toggleAttunement: () => void;
+  availableEffects: InfusionEffect[];
+  selectedEffects: Set<string>;
+  toggleEffect: (effect: InfusionEffect) => void;
+  availableSources: CatalogSources;
+  sourceSelection: SourceSelection;
+  toggleSource: (source: string) => void;
+  toggleHomebrew: () => void;
   clearFilters: () => void;
 };
 
@@ -44,112 +47,71 @@ export function InfusionsFilterDialog({
   toggleTarget,
   attunementOnly,
   toggleAttunement,
+  availableEffects,
+  selectedEffects,
+  toggleEffect,
+  availableSources,
+  sourceSelection,
+  toggleSource,
+  toggleHomebrew,
   clearFilters,
 }: Props) {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[85dvh] max-w-lg overflow-y-auto border-white/10 bg-slate-950/95 p-5 backdrop-blur-2xl text-slate-100">
-        <DialogHeader>
-          <DialogTitle className="font-rpg-display text-xl uppercase tracking-wider text-slate-100">
-            Фільтри вливань винахідника
-          </DialogTitle>
-        </DialogHeader>
+    <CatalogFilterDialog
+      open={open}
+      onOpenChange={onOpenChange}
+      title="Фільтри вливань винахідника"
+      onClear={clearFilters}
+    >
+      <FilterGroup title="Мінімальний рівень винахідника">
+        {ARTIFICER_LEVELS.map((lvl) => (
+          <FilterChip
+            key={lvl}
+            selected={selectedLevels.has(lvl)}
+            onClick={() => toggleLevel(lvl)}
+            label={`Рівень ${lvl}+`}
+          />
+        ))}
+      </FilterGroup>
 
-        <div className="space-y-5 py-2">
-          {/* Min Artificer Level */}
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-              Мінімальний рівень винахідника
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {ARTIFICER_LEVELS.map((lvl) => {
-                const isSelected = selectedLevels.has(lvl);
-                return (
-                  <button
-                    key={lvl}
-                    type="button"
-                    onClick={() => toggleLevel(lvl)}
-                    className={cn(
-                      "rounded-lg px-2.5 py-1 text-xs font-medium border transition-all",
-                      isSelected
-                        ? "border-teal-500/50 bg-teal-500/20 text-teal-200"
-                        : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
-                    )}
-                  >
-                    Рівень {lvl}+
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+      <FilterGroup title="Тип цільового предмета">
+        {TARGET_TYPES.map((tt) => (
+          <FilterChip
+            key={tt.key}
+            selected={selectedTargets.has(tt.key)}
+            onClick={() => toggleTarget(tt.key)}
+            label={tt.label}
+          />
+        ))}
+      </FilterGroup>
 
-          {/* Target Type */}
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-              Тип цільового предмета
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {TARGET_TYPES.map((tt) => {
-                const isSelected = selectedTargets.has(tt.key);
-                return (
-                  <button
-                    key={tt.key}
-                    type="button"
-                    onClick={() => toggleTarget(tt.key)}
-                    className={cn(
-                      "rounded-lg px-2.5 py-1 text-xs font-medium border transition-all",
-                      isSelected
-                        ? "border-teal-500/50 bg-teal-500/20 text-teal-200"
-                        : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
-                    )}
-                  >
-                    {tt.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+      {availableEffects.length > 0 && (
+        <FilterGroup title="Ефект">
+          {availableEffects.map((effect) => (
+            <FilterChip
+              key={effect}
+              selected={selectedEffects.has(effect)}
+              onClick={() => toggleEffect(effect)}
+              label={INFUSION_EFFECT_LABELS[effect]}
+            />
+          ))}
+        </FilterGroup>
+      )}
 
-          {/* Attunement */}
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-              Налаштування
-            </div>
-            <button
-              type="button"
-              onClick={toggleAttunement}
-              className={cn(
-                "rounded-lg px-2.5 py-1 text-xs font-medium border transition-all",
-                attunementOnly
-                  ? "border-teal-500/50 bg-teal-500/20 text-teal-200"
-                  : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
-              )}
-            >
-              Лише ті, що потребують налаштування
-            </button>
-          </div>
-        </div>
+      <FilterGroup title="Налаштування">
+        <FilterChip
+          selected={attunementOnly}
+          onClick={toggleAttunement}
+          label="Лише ті, що потребують налаштування"
+        />
+      </FilterGroup>
 
-        <DialogFooter className="mt-4 flex flex-row items-center justify-between gap-2 sm:justify-between">
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={clearFilters}
-            className="text-xs text-slate-400 hover:text-slate-200"
-          >
-            Скинути всі
-          </Button>
-          <Button
-            type="button"
-            size="sm"
-            onClick={() => onOpenChange(false)}
-            className="text-xs rounded-xl font-medium bg-teal-500 text-slate-950 hover:bg-teal-400"
-          >
-            Застосувати
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+      <SourceFilterSection
+        available={availableSources}
+        selection={sourceSelection}
+        onToggleSource={toggleSource}
+        onToggleHomebrew={toggleHomebrew}
+      />
+    </CatalogFilterDialog>
   );
 }

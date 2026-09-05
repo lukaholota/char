@@ -14,6 +14,17 @@ import {
 } from "@/lib/refs/translation";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
+import { findWeaponReach } from "@/lib/weapon-filter-facets";
+import {
   getParamSet,
   setParamSet,
   getSearchParamsFromLocation,
@@ -23,13 +34,13 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getWeaponVisual } from "@/components/catalogs/catalog-visuals";
 import { cn } from "@/lib/utils";
 
-type InitialSearchParams = Record<string, string | string[] | undefined>;
-
 type SelectionState = {
   types: Set<string>;
   damageTypes: Set<string>;
   properties: Set<string>;
   masteries: Set<string>;
+  reaches: Set<string>;
+  source: SourceSelection;
   q: string;
   weapon: string;
 };
@@ -39,10 +50,13 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
   const damageTypes = getParamSet(params, "dt");
   const properties = getParamSet(params, "prop");
   const masteries = getParamSet(params, "mast");
+  const reaches = getParamSet(params, "reach");
+  const source = parseSourceSelection(params);
   const q = params.get("q") || "";
   const weapon = params.get("weapon") || "";
-  return { types, damageTypes, properties, masteries, q, weapon };
+  return { types, damageTypes, properties, masteries, reaches, source, q, weapon };
 };
+
 
 const TYPE_TABS = [
   { key: "ALL", label: "Всі" },
@@ -54,17 +68,15 @@ const TYPE_TABS = [
 type Props = {
   weapons: WeaponData[];
   ruleset?: Ruleset;
-  initialSearchParams?: InitialSearchParams;
 };
 
-export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchParams = {} }: Props) {
+export function WeaponsClient({ weapons, ruleset = "RULES_2014" }: Props) {
   const is2024 = ruleset === "RULES_2024";
 
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalWeapon, setSelectedModalWeapon] = useState<WeaponData | null>(null);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
     parseSelection
   );
 
@@ -96,6 +108,14 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchPa
         if (!w.mastery || !selection.masteries.has(String(w.mastery).toUpperCase())) {
           return false;
         }
+      }
+
+      if (selection.reaches.size > 0 && !selection.reaches.has(findWeaponReach(w))) {
+        return false;
+      }
+
+      if (!matchesSourceSelection(w.source, selection.source)) {
+        return false;
       }
 
       return true;
@@ -165,14 +185,27 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchPa
     });
   };
 
+  const toggleReach = (reach: string) => {
+    setParams((next) => {
+      const set = getParamSet(next, "reach");
+      if (set.has(reach)) set.delete(reach);
+      else set.add(reach);
+      setParamSet(next, "reach", set);
+    });
+  };
+
   const clearFilters = () => {
     setParams((next) => {
       next.delete("type");
       next.delete("dt");
       next.delete("prop");
       next.delete("mast");
+      next.delete("reach");
+      clearSourceParams(next);
     });
   };
+
+  const availableSources = useMemo(() => collectCatalogSources(weapons), [weapons]);
 
   const activeTab = useMemo(() => {
     if (selection.types.size === 1) {
@@ -186,7 +219,9 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchPa
     selection.types.size +
     selection.damageTypes.size +
     selection.properties.size +
-    selection.masteries.size;
+    selection.masteries.size +
+    selection.reaches.size +
+    countSourceFilters(selection.source);
 
   return (
     <ContentListPage<WeaponData>
@@ -213,7 +248,7 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchPa
                   isSelected
                     ? is2024
                       ? "border-amber-500/50 bg-amber-500/20 text-amber-200 shadow-sm"
-                      : "border-teal-500/50 bg-teal-500/20 text-teal-200 shadow-sm"
+                      : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm"
                     : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
                 )}
               >
@@ -256,7 +291,7 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchPa
                 isSelected
                   ? is2024
                     ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -273,7 +308,7 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchPa
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
+                          ? is2024 ? "text-amber-300" : "text-arcane-300"
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
@@ -333,12 +368,18 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014", initialSearchPa
           is2024={is2024}
           selectedTypes={selection.types}
           toggleType={toggleType}
+          selectedReaches={selection.reaches}
+          toggleReach={toggleReach}
           selectedDamageTypes={selection.damageTypes}
           toggleDamageType={toggleDamageType}
           selectedProperties={selection.properties}
           toggleProperty={toggleProperty}
           selectedMasteries={selection.masteries}
           toggleMastery={toggleMastery}
+          availableSources={availableSources}
+          sourceSelection={selection.source}
+          toggleSource={(source) => setParams((next) => toggleSourceParam(next, source))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           clearFilters={clearFilters}
         />
       }

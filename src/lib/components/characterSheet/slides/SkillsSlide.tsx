@@ -11,14 +11,20 @@ import {
   hasSkillBonus,
 } from "@/lib/logic/bonus-calculator";
 import { bonusTranslations, skillTranslations } from "@/lib/refs/translation";
+import { BEAST_VALUE_RING, OwnValue, isBeastAbility, type BeastFormView } from "@/lib/components/characterSheet/BeastFormMarks";
+import type { Ability } from "@prisma/client";
 
 interface SkillsSlideProps {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
+  /// Володіння лишаються персонажеві, а модифікатор рахується від характеристики звіра —
+  /// 2014 зберігає володіння «де застосовно», а не бере їх зі статблока.
+  beastForm?: BeastFormView;
 }
 
-const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }: SkillsSlideProps) {
+const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly, beastForm }: SkillsSlideProps) {
+  const editablePers = beastForm?.ownPers ?? pers;
   // Bonus modification modal state
   const [modifyOpen, setModifyOpen] = useState(false);
   const [modifyConfig, setModifyConfig] = useState<ModifyConfig | null>(null);
@@ -69,6 +75,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }
       const { total, proficiency } = calculateFinalSkill(pers, skillInfo.skill);
       const isProficient = proficiency !== "NONE";
       const hasBonus = hasSkillBonus(pers, skillInfo.skill);
+      const fromBeast = isBeastAbility(beastForm, skillInfo.ability as Ability);
       const showHeader = lastAbility !== skillInfo.ability;
       if (showHeader) lastAbility = skillInfo.ability;
 
@@ -81,7 +88,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }
           )}
           <button
             type="button"
-            onClick={() => !isReadOnly && openModify(skillInfo.skill)}
+            onClick={() => !isReadOnly && !fromBeast && openModify(skillInfo.skill)}
             className={`w-full text-left ${isReadOnly ? 'cursor-default' : ''}`}
           >
             <div
@@ -89,7 +96,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }
                 isProficient
                   ? "bg-cyan-500/10 border-l-2 border-cyan-400/60"
                   : "bg-slate-800/25 border-l-2 border-slate-700/40"
-              } ${hasBonus ? "ring-1 ring-amber-400/40" : ""}`}
+              } ${fromBeast ? BEAST_VALUE_RING : hasBonus ? "ring-1 ring-amber-400/40" : ""}`}
             >
               <div className="flex items-center gap-2 mr-2">
                 <span
@@ -100,16 +107,23 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }
                   {skillTranslations[skillInfo.skill] ?? skillInfo.skill}
                 </span>
               </div>
-              <span
-                className={`text-sm font-bold transition ${
-                  proficiency === "EXPERTISE"
-                    ? "text-amber-300 opacity-100"
-                    : proficiency === "PROFICIENT"
-                      ? "text-cyan-300 opacity-100"
-                      : "text-slate-300/70"
-                }`}
-              >
-                {formatModifier(total)}
+              <span className="flex items-baseline gap-1">
+                <span
+                  className={`text-sm font-bold transition ${
+                    fromBeast
+                      ? "text-emerald-300"
+                      : proficiency === "EXPERTISE"
+                        ? "text-amber-300 opacity-100"
+                        : proficiency === "PROFICIENT"
+                          ? "text-cyan-300 opacity-100"
+                          : "text-slate-300/70"
+                  }`}
+                >
+                  {formatModifier(total)}
+                </span>
+                {fromBeast && beastForm && (
+                  <OwnValue value={formatModifier(calculateFinalSkill(beastForm.ownPers, skillInfo.skill).total)} />
+                )}
               </span>
             </div>
           </button>
@@ -133,7 +147,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly }
       <ModifyStatModal
         open={modifyOpen}
         onOpenChange={setModifyOpen}
-        pers={pers}
+        pers={editablePers}
         onPersUpdate={handlePersUpdate}
         config={modifyConfig}
       />

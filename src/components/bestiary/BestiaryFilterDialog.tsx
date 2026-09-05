@@ -1,8 +1,15 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { FilterChip, FilterGroup } from "@/components/catalogs/FilterChip";
+import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
+import { CREATURE_MOVE_LABELS, type CreatureMove } from "@/lib/bestiary-index";
+import type { CatalogSources, SourceSelection } from "@/lib/catalog-source-filter";
 import { cn } from "@/lib/utils";
+
+const CREATURE_MOVES = Object.keys(CREATURE_MOVE_LABELS) as CreatureMove[];
 
 type Props = {
   open: boolean;
@@ -17,7 +24,16 @@ type Props = {
   availableCRs: string[];
   selectedCRs: Set<string>;
   toggleCR: (cr: string) => void;
+  availableSources: CatalogSources;
+  sourceSelection: SourceSelection;
+  toggleSource: (source: string) => void;
+  toggleHomebrew: () => void;
+  selectedMoves: Set<string>;
+  toggleMove: (move: CreatureMove) => void;
   clearFilters: () => void;
+  /// Секція Дикої форми приходить слотом: діалог фільтрів не має знати ані про друїдів, ані про
+  /// сервер — він лише дає їй місце серед звичайних фільтрів каталогу.
+  extraSection?: ReactNode;
 };
 
 export function BestiaryFilterDialog({
@@ -33,7 +49,14 @@ export function BestiaryFilterDialog({
   availableCRs,
   selectedCRs,
   toggleCR,
+  availableSources,
+  sourceSelection,
+  toggleSource,
+  toggleHomebrew,
+  selectedMoves,
+  toggleMove,
   clearFilters,
+  extraSection,
 }: Props) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -46,11 +69,13 @@ export function BestiaryFilterDialog({
         </DialogTitle>
 
         <div className="mt-4 space-y-5">
+          {extraSection}
+
           {/* CR (Небезпека) */}
           {availableCRs.length > 0 && (
             <div>
               <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
-                Рівень небезпеки (CR)
+                Показник небезпеки (CR)
               </label>
               <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 max-h-32 overflow-y-auto pr-1">
                 {availableCRs.map((cr) => {
@@ -64,7 +89,7 @@ export function BestiaryFilterDialog({
                         isSelected
                           ? is2024
                             ? "border-amber-500/50 bg-amber-500/20 text-amber-200 font-bold"
-                            : "border-teal-500/50 bg-teal-500/20 text-teal-200 font-bold"
+                            : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 font-bold"
                           : "border-white/5 bg-slate-900/60 text-slate-300 hover:bg-white/5"
                       )}
                     >
@@ -93,7 +118,7 @@ export function BestiaryFilterDialog({
                       isSelected
                         ? is2024
                           ? "border-amber-500/50 bg-amber-500/20 text-amber-200"
-                          : "border-teal-500/50 bg-teal-500/20 text-teal-200"
+                          : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200"
                         : "border-white/5 bg-slate-900/60 text-slate-300 hover:bg-white/5"
                     )}
                   >
@@ -123,7 +148,7 @@ export function BestiaryFilterDialog({
                         isSelected
                           ? is2024
                             ? "border-amber-500/50 bg-amber-500/20 text-amber-200"
-                            : "border-teal-500/50 bg-teal-500/20 text-teal-200"
+                            : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200"
                           : "border-white/5 bg-slate-900/60 text-slate-300 hover:bg-white/5"
                       )}
                     >
@@ -134,6 +159,26 @@ export function BestiaryFilterDialog({
               </div>
             </div>
           )}
+
+          <FilterGroup title="Пересування">
+            {CREATURE_MOVES.map((move) => (
+              <FilterChip
+                key={move}
+                is2024={is2024}
+                selected={selectedMoves.has(move)}
+                onClick={() => toggleMove(move)}
+                label={CREATURE_MOVE_LABELS[move]}
+              />
+            ))}
+          </FilterGroup>
+
+          <SourceFilterSection
+            is2024={is2024}
+            available={availableSources}
+            selection={sourceSelection}
+            onToggleSource={toggleSource}
+            onToggleHomebrew={toggleHomebrew}
+          />
         </div>
 
         <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4">
@@ -145,7 +190,7 @@ export function BestiaryFilterDialog({
             onClick={() => onOpenChange(false)}
             className={cn(
               "rounded-xl text-xs font-semibold",
-              is2024 ? "bg-amber-500 text-slate-950 hover:bg-amber-400" : "bg-teal-500 text-slate-950 hover:bg-teal-400"
+              is2024 ? "bg-amber-500 text-slate-950 hover:bg-amber-400" : "bg-arcane-500 text-slate-950 hover:bg-arcane-400"
             )}
           >
             Застосувати

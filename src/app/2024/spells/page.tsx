@@ -1,7 +1,5 @@
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
 import { getAllSpells, type SpellData } from "@/lib/spellsData";
 import { SpellsClient, type SpellListItem } from "@/app/spells/spells-client";
 import { Metadata } from "next";
@@ -16,11 +14,6 @@ export default async function Spells2024Page({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/spells");
-  }
-
   const resolvedSearchParams = await searchParams;
 
   // Legacy redirect if selectedSpellId

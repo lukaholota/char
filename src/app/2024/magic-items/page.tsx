@@ -1,8 +1,5 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
-import { redirect } from "next/navigation";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
 import { getAllMagicItems } from "@/lib/magicItemsData";
 import { MagicItemsClient, type MagicItemListItem } from "@/app/magic-items/magic-items-client";
 
@@ -16,11 +13,6 @@ export default async function MagicItems2024Page({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/magic-items");
-  }
-
   const resolvedSearchParams = await searchParams;
 
   // Get static 2024 magic items data
@@ -36,6 +28,9 @@ export default async function MagicItems2024Page({
     typeLineEng: i.typeLineEng,
     attunementConditionEng: i.attunementConditionEng,
     ruleset: i.ruleset,
+    source: i.source,
+    isCursed: i.isCursed,
+    isConsumable: i.isConsumable,
     description: i.description,
     shortDescription: i.shortDescription,
     weaponProficiencies: i.weaponProficiencies,

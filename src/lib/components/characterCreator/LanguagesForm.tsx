@@ -9,6 +9,8 @@ import { useEffect, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { LanguageTranslations } from "@/lib/refs/translation";
+import { collectOriginLanguages, countOriginLanguageChoices, listChoosableLanguages } from "@/rules/languages";
+import type { RulesetId } from "@/rules/strategies/types";
 import clsx from "clsx";
 
 const EMPTY_LANGUAGES: string[] = [];
@@ -24,6 +26,8 @@ interface Props {
   backgroundFeat?: Feat | undefined;
   existingLanguages?: string[];
   forcedLanguagesToChooseCount?: number;
+  /** Редакція кроку Origin. Майстер підвищення рівня її не передає — там мови дає фіча, а не походження. */
+  originRuleset?: RulesetId;
   isOptional?: boolean;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
@@ -40,6 +44,7 @@ export const LanguagesForm = ({
   backgroundFeat,
   existingLanguages,
   forcedLanguagesToChooseCount,
+  originRuleset = "RULES_2014",
   isOptional = false,
   formId,
   onNextDisabledChange,
@@ -65,36 +70,31 @@ export const LanguagesForm = ({
     });
     existingLanguages?.forEach((l) => langs.add(l));
 
-    return Array.from(langs);
-  }, [race, selectedClass, subclass, selectedSubrace, background, feat, backgroundFeat, activeFeatures, existingLanguages]);
+    return collectOriginLanguages(originRuleset, Array.from(langs));
+  }, [race, selectedClass, subclass, selectedSubrace, background, feat, backgroundFeat, activeFeatures, existingLanguages, originRuleset]);
 
   const languagesToChooseCount = useMemo(() => {
     if (typeof forcedLanguagesToChooseCount === "number") {
       return forcedLanguagesToChooseCount;
     }
-    let count = (race.languagesToChooseCount || 0) + (selectedClass.languagesToChooseCount || 0);
-    if (subclass?.languagesToChooseCount) count += subclass.languagesToChooseCount;
-    if (selectedSubrace?.languagesToChooseCount) count += selectedSubrace.languagesToChooseCount;
-    if (background.languagesToChooseCount) count += background.languagesToChooseCount;
-    if (feat?.grantedLanguageCount) count += feat.grantedLanguageCount;
-    if (backgroundFeat?.grantedLanguageCount) count += backgroundFeat.grantedLanguageCount;
 
-    activeFeatures.forEach((f) => {
-      count += f.languagesToChooseCount || 0;
+    const raceChoiceCounts = Object.values(formData.raceChoiceSelections ?? {}).map((id: any) => {
+      const opt = race.raceChoiceOptions?.find((o) => o.optionId === id);
+      return (opt as any)?.languagesToChooseCount;
     });
 
-    // Race choice options directly
-    if (formData.raceChoiceSelections) {
-       Object.values(formData.raceChoiceSelections).forEach((id: any) => {
-         const opt = race.raceChoiceOptions?.find((o) => o.optionId === id);
-          if (opt && (opt as any).languagesToChooseCount) {
-             count += (opt as any).languagesToChooseCount;
-          }
-       });
-    }
-
-    return count;
-  }, [race, selectedClass, subclass, selectedSubrace, background, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections, forcedLanguagesToChooseCount]);
+    return countOriginLanguageChoices(originRuleset, [
+      race.languagesToChooseCount,
+      selectedClass.languagesToChooseCount,
+      subclass?.languagesToChooseCount,
+      selectedSubrace?.languagesToChooseCount,
+      background.languagesToChooseCount,
+      feat?.grantedLanguageCount,
+      backgroundFeat?.grantedLanguageCount,
+      ...activeFeatures.map((f) => f.languagesToChooseCount),
+      ...raceChoiceCounts,
+    ]);
+  }, [race, selectedClass, subclass, selectedSubrace, background, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections, forcedLanguagesToChooseCount, originRuleset]);
 
   const selectedLanguages = form.watch("languages") ?? EMPTY_LANGUAGES;
 
@@ -124,8 +124,10 @@ export const LanguagesForm = ({
     }
   };
 
-  const availableLanguages = Object.keys(LanguageTranslations).filter(
-    (l) => !fixedLanguages.includes(l)
+  const availableLanguages = listChoosableLanguages(
+    originRuleset,
+    Object.keys(LanguageTranslations),
+    fixedLanguages
   );
 
   if (languagesToChooseCount === 0) {

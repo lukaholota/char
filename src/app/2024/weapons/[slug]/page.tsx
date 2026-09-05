@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
-import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
+import { notFound } from "next/navigation";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllWeapons, getWeaponByIdOrSlug } from "@/lib/weaponsData";
 import { weaponTypeTranslations, damageTypeTranslations } from "@/lib/refs/translation";
 import { WeaponDetailCard } from "@/components/weapons/WeaponDetailCard";
@@ -57,11 +55,6 @@ export default async function Weapon2024DetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/weapons");
-  }
-
   const { slug } = await params;
   const weapon = getWeaponByIdOrSlug(slug, "RULES_2024");
 

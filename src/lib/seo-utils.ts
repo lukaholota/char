@@ -2,13 +2,15 @@
  * SEO Utility functions for clean metadata generation.
  */
 
+import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+
 /**
  * Strips markdown and HTML-like tags from a string to make it safe for meta tags.
  */
 export function stripMarkdown(text: string): string {
   if (!text) return "";
 
-  return text
+  return stripGlossaryMarkers(text)
     // Replace markdown links [text](url) with just text
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     // Replace bold/italic (**text**, __text__, *text*, _text_)

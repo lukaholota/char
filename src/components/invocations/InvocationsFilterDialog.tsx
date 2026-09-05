@@ -1,14 +1,9 @@
 "use client";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { CatalogFilterDialog } from "@/components/catalogs/CatalogFilterDialog";
+import { FilterChip, FilterGroup } from "@/components/catalogs/FilterChip";
+import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
+import type { CatalogSources, SourceSelection } from "@/lib/catalog-source-filter";
 
 type Props = {
   open: boolean;
@@ -18,6 +13,12 @@ type Props = {
   toggleLevel: (lvl: number) => void;
   selectedPacts: Set<string>;
   togglePact: (pact: string) => void;
+  noRequirementsOnly: boolean;
+  toggleNoRequirements: () => void;
+  availableSources: CatalogSources;
+  sourceSelection: SourceSelection;
+  toggleSource: (source: string) => void;
+  toggleHomebrew: () => void;
   clearFilters: () => void;
 };
 
@@ -38,100 +39,62 @@ export function InvocationsFilterDialog({
   toggleLevel,
   selectedPacts,
   togglePact,
+  noRequirementsOnly,
+  toggleNoRequirements,
+  availableSources,
+  sourceSelection,
+  toggleSource,
+  toggleHomebrew,
   clearFilters,
 }: Props) {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[85dvh] max-w-lg overflow-y-auto border-white/10 bg-slate-950/95 p-5 backdrop-blur-2xl text-slate-100">
-        <DialogHeader>
-          <DialogTitle className="font-rpg-display text-xl uppercase tracking-wider text-slate-100">
-            Фільтри відозв чаклуна
-          </DialogTitle>
-        </DialogHeader>
+    <CatalogFilterDialog
+      open={open}
+      onOpenChange={onOpenChange}
+      title="Фільтри відозв чаклуна"
+      is2024={is2024}
+      onClear={clearFilters}
+    >
+      <FilterGroup title="Вимога до рівня чаклуна">
+        {WARLOCK_LEVELS.map((lvl) => (
+          <FilterChip
+            key={lvl}
+            is2024={is2024}
+            selected={selectedLevels.has(lvl)}
+            onClick={() => toggleLevel(lvl)}
+            label={`Рівень ${lvl}+`}
+          />
+        ))}
+      </FilterGroup>
 
-        <div className="space-y-5 py-2">
-          {/* Min Warlock Level */}
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-              Вимога до рівня чаклуна
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {WARLOCK_LEVELS.map((lvl) => {
-                const isSelected = selectedLevels.has(lvl);
-                return (
-                  <button
-                    key={lvl}
-                    type="button"
-                    onClick={() => toggleLevel(lvl)}
-                    className={cn(
-                      "rounded-lg px-2.5 py-1 text-xs font-medium border transition-all",
-                      isSelected
-                        ? is2024
-                          ? "border-amber-500/50 bg-amber-500/20 text-amber-200"
-                          : "border-teal-500/50 bg-teal-500/20 text-teal-200"
-                        : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
-                    )}
-                  >
-                    Рівень {lvl}+
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+      <FilterGroup title="Вимога до дару пакту">
+        {PACT_BOONS.map((pact) => (
+          <FilterChip
+            key={pact.key}
+            is2024={is2024}
+            selected={selectedPacts.has(pact.key)}
+            onClick={() => togglePact(pact.key)}
+            label={pact.label}
+          />
+        ))}
+      </FilterGroup>
 
-          {/* Pact Boon */}
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-              Вимога до дару пакту
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {PACT_BOONS.map((pact) => {
-                const isSelected = selectedPacts.has(pact.key);
-                return (
-                  <button
-                    key={pact.key}
-                    type="button"
-                    onClick={() => togglePact(pact.key)}
-                    className={cn(
-                      "rounded-lg px-2.5 py-1 text-xs font-medium border transition-all",
-                      isSelected
-                        ? is2024
-                          ? "border-amber-500/50 bg-amber-500/20 text-amber-200"
-                          : "border-teal-500/50 bg-teal-500/20 text-teal-200"
-                        : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
-                    )}
-                  >
-                    {pact.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      <FilterGroup title="Особливості">
+        <FilterChip
+          is2024={is2024}
+          selected={noRequirementsOnly}
+          onClick={toggleNoRequirements}
+          label="Без жодних вимог"
+        />
+      </FilterGroup>
 
-        <DialogFooter className="mt-4 flex flex-row items-center justify-between gap-2 sm:justify-between">
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={clearFilters}
-            className="text-xs text-slate-400 hover:text-slate-200"
-          >
-            Скинути всі
-          </Button>
-          <Button
-            type="button"
-            size="sm"
-            onClick={() => onOpenChange(false)}
-            className={cn(
-              "text-xs rounded-xl font-medium",
-              is2024 ? "bg-amber-500 text-slate-950 hover:bg-amber-400" : "bg-teal-500 text-slate-950 hover:bg-teal-400"
-            )}
-          >
-            Застосувати
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+      <SourceFilterSection
+        is2024={is2024}
+        available={availableSources}
+        selection={sourceSelection}
+        onToggleSource={toggleSource}
+        onToggleHomebrew={toggleHomebrew}
+      />
+    </CatalogFilterDialog>
   );
 }

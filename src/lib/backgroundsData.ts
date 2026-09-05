@@ -8,6 +8,7 @@ import { Ruleset } from "@prisma/client";
 import backgrounds2014Json from "@/lib/generated/backgrounds.json";
 import backgrounds2024Json from "../../data/2024/normalized/backgrounds.json";
 import { skillTranslations, toolTranslations } from "@/lib/refs/translation";
+import { getBackgroundImagePath } from "@/lib/assets/image-manifest";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { getDescriptionSnippet } from "@/lib/seo-utils";
 
@@ -45,6 +46,7 @@ export type BackgroundData = {
   specialAbilityName: string | null;
   abilityOptions: string[];
   originFeat: BackgroundOriginFeat | null;
+  imageSrc: string | null;
   ruleset: Ruleset;
 };
 
@@ -104,15 +106,17 @@ const backgrounds2014: BackgroundData[] = (backgrounds2014Json as Raw2014Backgro
   specialAbilityName: b.specialAbilityName,
   abilityOptions: [],
   originFeat: null,
+  imageSrc: getBackgroundImagePath(b.key),
   ruleset: "RULES_2014" as Ruleset,
 }));
 
 const backgrounds2024: BackgroundData[] = (backgrounds2024Json as Raw2024Background[]).map((b, index) => {
   const toolLabel = b.toolProficiency?.nameUa || b.toolProficiency?.engText || "";
+  const key = b.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_");
 
   return {
     backgroundId: 20000 + index + 1,
-    key: b.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_"),
+    key,
     slug: toEntitySlug(b.engName),
     name: b.name,
     engName: b.engName,
@@ -132,6 +136,7 @@ const backgrounds2024: BackgroundData[] = (backgrounds2024Json as Raw2024Backgro
     specialAbilityName: null,
     abilityOptions: b.abilityOptions ?? [],
     originFeat: b.originFeat ?? null,
+    imageSrc: getBackgroundImagePath(key),
     ruleset: "RULES_2024" as Ruleset,
   };
 });

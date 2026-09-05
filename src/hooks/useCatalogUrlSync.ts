@@ -5,9 +5,13 @@ import { getSearchParamsFromLocation, replaceUrlSearchParams } from "@/lib/catal
 
 type InitialSearchParams = Record<string, string | string[] | undefined>;
 
+/// `initialSearchParams` потрібні лише сторінкам, які рендеряться на сервері з відомим запитом.
+/// Каталоги статичні (KR22.4): вони нічого не передають, а фільтри з адреси читає `sync()` нижче
+/// одразу після монтування. Прапорець лишений для `/spells` і `/magic-items` — вони динамічні
+/// через режим вбудовування з листа персонажа.
 export function useCatalogUrlSync<T extends { q: string }>(
-  initialSearchParams: InitialSearchParams,
-  parseSelection: (params: URLSearchParams) => T
+  parseSelection: (params: URLSearchParams) => T,
+  initialSearchParams: InitialSearchParams = {}
 ) {
   const initialQ = (() => {
     const raw = initialSearchParams.q;

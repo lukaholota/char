@@ -89,7 +89,6 @@ export const ClassesForm = (
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
           Оберіть клас
         </h2>
-        <p className="text-sm text-slate-400">Натисніть картку, або відкрийте ? для деталей.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
@@ -101,6 +100,7 @@ export const ClassesForm = (
             englishTitle={classTranslationsEng[c.name]}
             visual={getClassVisual(c.name)}
             isSelected={c.classId === chosenClassId}
+            is2024={c.ruleset === "RULES_2024"}
             infoModal={<ClassInfoModal cls={c} asyncFetchSubclasses={false} />}
             onClick={(e) => {
               if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;

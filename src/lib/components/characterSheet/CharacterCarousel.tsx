@@ -13,16 +13,63 @@ import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
+import { buildBeastFormPers, listBeastAbilities } from "@/lib/logic/beast-form";
+import { BeastFormBar } from "./BeastFormBar";
+import type { BeastFormView } from "./BeastFormMarks";
+import { useWildshapeState } from "./useWildshapeState";
 
 interface CharacterCarouselProps {
   pers: PersWithRelations;
   onPersUpdate: (next: PersWithRelations) => void;
   groupedFeatures: CharacterFeaturesGroupedResult | null;
   isReadOnly?: boolean;
+  reloadFeatures?: () => void;
 }
 
-export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures, isReadOnly }: CharacterCarouselProps) {
+export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures, isReadOnly, reloadFeatures }: CharacterCarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
+  const wildshape = useWildshapeState(pers.persId);
+  const [showBeastLayer, setShowBeastLayer] = useState(true);
+
+  /// Пул використань один, а лічильників на листі два: бейдж Дикої форми зі стану форми й
+  /// «Ресурси класу» на слайді Рис із серверних фіч (KR24.5). Тому вхід у форму й вихід із неї
+  /// перечитують фічі — інакше слайд Рис показував би число, витрачене хвилину тому.
+  /// Зворотний бік — ручна витрата — перечитує стан форми сам, через `onResourcesChanged`.
+  const activeFormId = wildshape.active?.wildshapeId ?? null;
+  const seenFormId = useRef(activeFormId);
+  useEffect(() => {
+    if (seenFormId.current === activeFormId) return;
+    seenFormId.current = activeFormId;
+    reloadFeatures?.();
+  }, [activeFormId, reloadFeatures]);
+
+  /// Точка підміни одна ([Р-1](docs/o24-wildshape-second-layer/README.md)): калькулятори
+  /// лишаються чистими функціями від `pers`, а навички, рятівні, КБ і швидкість
+  /// перераховуються самі — секції для цього не переписуються.
+  const beastForm = useMemo<BeastFormView | undefined>(() => {
+    const active = wildshape.active;
+    const standing = wildshape.standing;
+    if (!active?.creature || !standing || !showBeastLayer) return undefined;
+
+    return {
+      layer: {
+        creature: active.creature,
+        /// Правила бере персонаж, не каталог: рівень друїда, коло й редакція вирішують і хіти,
+        /// і КБ, і те, чиє володіння показати ([KR24.6](docs/o24-wildshape-second-layer/kr24.6-wildshape-2024.md)).
+        context: standing,
+        beastCurrentHp: active.beastCurrentHp,
+        beastMaxHp: active.beastMaxHp,
+      },
+      ownPers: pers,
+      beastAbilities: listBeastAbilities(active.creature),
+      onChanged: wildshape.reload,
+    };
+  }, [wildshape.active, wildshape.standing, wildshape.reload, showBeastLayer, pers]);
+
+  const sheetPers = useMemo(
+    () => (beastForm ? buildBeastFormPers(pers, beastForm.layer) : pers),
+    [beastForm, pers]
+  );
 
   type SlideId = "stats" | "skills" | "equipment" | "magic" | "features";
   type SlideDef = { id: SlideId; label: string };
@@ -56,17 +103,29 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
     }
   }, []);
 
+  /// Спорядження, магія й риси лишаються персонажевими: обладунок у формі злився з подобою,
+  /// заклинальна характеристика ніколи не Сила й не Спритність, а риси форма не міняє. Туди
+  /// їде власний лист — щоб підміна не протекла в те, що вона змінювати не мусить.
   const renderSlide = (id: SlideId) => {
-    if (id === "stats") return <MainStatsSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
-    if (id === "skills") return <SkillsSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
-    if (id === "equipment") return <CombatSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (id === "stats") return <MainStatsSlide pers={sheetPers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} beastForm={beastForm} />;
+    if (id === "skills") return <SkillsSlide pers={sheetPers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} beastForm={beastForm} />;
+    if (id === "equipment") return <CombatSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} wildshape={wildshape} />;
     if (id === "magic") return <MagicSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
-    if (id === "features") return <FeaturesSlide pers={pers} onPersUpdate={onPersUpdate} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} />;
+    if (id === "features") return <FeaturesSlide pers={pers} onPersUpdate={onPersUpdate} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} onResourcesChanged={wildshape.reload} />;
     return null;
   };
 
   return (
     <div className="flex h-full min-h-0 flex-col overflow-hidden">
+      {wildshape.active?.creature && (
+        <BeastFormBar
+          creature={wildshape.active.creature}
+          is2024={wildshape.standing?.ruleset === "RULES_2024"}
+          showBeastLayer={showBeastLayer}
+          onToggleLayer={setShowBeastLayer}
+        />
+      )}
+
       {/* Content */}
       <div className="relative flex-1 min-h-0 overflow-hidden">
         <div className="h-full min-h-0 px-3 pt-3 pb-2 md:px-4 md:pt-4 md:absolute md:inset-0">

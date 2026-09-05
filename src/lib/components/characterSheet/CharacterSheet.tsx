@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useCallback, useEffect, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { getCharacterFeaturesGrouped, getCharacterFeaturesGroupedByShareToken, renamePers } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
@@ -22,6 +22,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import OfflineStatusBadge from "./OfflineStatusBadge";
+import { useIsOnline } from "@/hooks/useIsOnline";
+import { applyQueuedOperations } from "@/lib/offline/operations";
+import { readOfflineQueue } from "@/lib/offline/queue";
 
 const mobileIconButtonClassName = "h-9 w-9 gap-0 p-0 sm:h-8 sm:w-8";
 const mobileTextButtonClassName = "h-9 min-w-[5.5rem] justify-start gap-1.5 px-2 text-left sm:h-8 sm:min-w-0 sm:justify-center sm:gap-2 sm:px-3";
@@ -47,20 +51,21 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
   const [, startFeaturesTransition] = useTransition();
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
+  const isOnline = useIsOnline();
 
   const shareToken = (params as any)?.token as string | undefined;
 
+  // Офлайн сторінка приїжджає з кешу service worker, тобто зі станом на момент кешування.
+  // Незбережені операції лежать у черзі — без них лист показував би застарілі хіти й комірки.
   useEffect(() => {
-    setLocalPers(pers);
+    setLocalPers(applyQueuedOperations(pers, readOfflineQueue()));
   }, [pers]);
 
   useEffect(() => {
     setLocalGroupedFeatures(groupedFeatures);
   }, [groupedFeatures]);
 
-  useEffect(() => {
-    // When the page streams/loads without grouped features, fetch them in the background.
-    if (localGroupedFeatures) return;
+  const reloadFeatures = useCallback(() => {
     if (!localPers?.persId) return;
 
     startFeaturesTransition(async () => {
@@ -73,8 +78,14 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
         console.error(e);
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPublicView, localPers?.persId, shareToken]);
+
+  useEffect(() => {
+    // When the page streams/loads without grouped features, fetch them in the background.
+    if (localGroupedFeatures) return;
+    reloadFeatures();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reloadFeatures]);
 
   useEffect(() => {
     setRenameValue(pers.name);
@@ -112,7 +123,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
   const handleRename = () => {
     const next = renameValue.trim();
     if (!next) {
-      toast.error("Ім'я не може бути порожнім");
+      toast.error("Імʼя не може бути порожнім");
       return;
     }
 
@@ -124,13 +135,18 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
       }
 
       setLocalPers((prev) => ({ ...prev, name: next }));
-      toast.success("Ім'я оновлено");
+      toast.success("Імʼя оновлено");
       setRenameOpen(false);
       router.refresh();
     });
   };
 
   const handleLevelUp = () => {
+    if (!isOnline) {
+      toast.error("Підняття рівня потребує мережі");
+      return;
+    }
+
     const levelUpLocation = `/char/${localPers.persId}/levelup`;
     setIsLevelUpPending(true);
     router.push(levelUpLocation);
@@ -202,7 +218,10 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
                    {localPers.name}
                  </div>
                )}
-               <div className="mt-1 text-xs text-slate-300/80">Рівень {localPers.level}</div>
+               <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-300/80">
+                 <span>Рівень {localPers.level}</span>
+                 {!isReadOnly && <OfflineStatusBadge />}
+               </div>
                {isReadOnly && (
                  <Badge variant="outline" className="mt-2 bg-amber-500/10 text-amber-500 border-amber-500/20">
                    {isPublicView ? "Тільки для читання" : `Знімок: Рівень ${pers.snapshotLevel || pers.level}`}
@@ -284,7 +303,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
        </div>
       
       <div className="flex-1 min-h-0 md:pb-0 md:overflow-hidden">
-        <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} />
+        <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} reloadFeatures={reloadFeatures} />
       </div>
     </div>
   );

@@ -5,9 +5,16 @@ import crypto from "node:crypto";
 import { getPersByShareToken } from "@/lib/actions/share-actions";
 import { generateCharacterPdfFromData } from "@/server/pdf/generateCharacterPdf";
 import { groupCharacterFeaturesForPdf } from "@/server/pdf/groupCharacterFeatures";
-import type { PrintConfig } from "@/server/pdf/types";
+import type { CharacterPdfData, PrintConfig } from "@/server/pdf/types";
 import { createLogger } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
+import { countAttachedForms, findAttachedForms } from "@/server/db/wildshape";
+
+export async function findPrintableWildshapeCountByTokenAction(token: string): Promise<number> {
+  const { pers } = await getPersByShareToken(token);
+  if (!pers) throw new Error("Not found");
+  return countAttachedForms(pers.persId);
+}
 
 export async function generateCharacterPdfByTokenAction(token: string, config: PrintConfig) {
   const jobId = crypto.randomUUID();
@@ -17,17 +24,25 @@ export async function generateCharacterPdfByTokenAction(token: string, config: P
   const { pers } = await getPersByShareToken(token);
   if (!pers) throw new Error("Not found");
 
-  const features = groupCharacterFeaturesForPdf(pers as any);
+  const features = groupCharacterFeaturesForPdf(pers);
+  // The shared query omits relations that the PDF renderer never reads.
+  const printablePers = pers as unknown as CharacterPdfData["pers"];
+  const wildshapeForms = config.sections.includes("WILDSHAPES")
+    ? (await findAttachedForms(pers.persId)).flatMap((form) =>
+        form.creature ? [form.creature] : []
+      )
+    : [];
 
-  log.info("start", { persId: (pers as any)?.persId, name: (pers as any)?.name });
+  log.info("start", { persId: pers.persId, name: pers.name });
 
   try {
     const pdfBytes = await generateCharacterPdfFromData(
       {
-        pers: pers as any,
+        pers: printablePers,
         features,
         spellsByLevel: {},
-      } as any,
+        wildshapeForms,
+      },
       config,
       { jobId }
     );

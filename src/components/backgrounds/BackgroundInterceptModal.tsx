@@ -4,18 +4,19 @@ import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Ruleset } from "@prisma/client";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { getBackgroundByIdOrSlug } from "@/lib/backgroundsData";
+import type { BackgroundData } from "@/lib/backgroundsData";
 import { BackgroundDetailCard } from "@/components/backgrounds/BackgroundDetailCard";
 
+/// Походження приходить пропом уже знайденим на сервері: коли модалка шукала його сама,
+/// у браузер їхав увесь `backgrounds.json` (docs/STATE.md дефект №9).
 export function BackgroundInterceptModal({
-  idOrSlug,
+  background,
   ruleset,
 }: {
-  idOrSlug: string;
+  background: BackgroundData | null;
   ruleset: Ruleset;
 }) {
   const router = useRouter();
-  const background = getBackgroundByIdOrSlug(idOrSlug, ruleset);
 
   const close = useCallback(() => router.back(), [router]);
 

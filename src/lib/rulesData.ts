@@ -6,6 +6,7 @@ export type RuleCategoryKey =
   | "abilities"
   | "conditions"
   | "adventuring"
+  | "equipment"
   | "gamemaster";
 
 export type RuleCategory = {
@@ -60,7 +61,7 @@ export const RULE_CATEGORIES: RuleCategory[] = [
     engTitle: "Combat",
     description: "Порядок ходів, дії, правила атак, укриття, види ушкоджень, зцілення, верховий та підводний бій.",
     icon: "Swords",
-    imageSrc: "/images/categories/combat_maneuvers_and_astral_runes.webp",
+    imageSrc: "/images/rules/combat.webp",
     order: 1,
   },
   {
@@ -69,7 +70,7 @@ export const RULE_CATEGORIES: RuleCategory[] = [
     engTitle: "Spellcasting",
     description: "Правила накладання заклинань, слоти заклинань, компоненти, тривалість, концентрація та області дії.",
     icon: "Sparkles",
-    imageSrc: "/images/categories/ancient_rules_tome.webp",
+    imageSrc: "/images/rules/spellcasting.webp",
     order: 2,
   },
   {
@@ -78,7 +79,7 @@ export const RULE_CATEGORIES: RuleCategory[] = [
     engTitle: "Abilities & Rules",
     description: "6 характеристик, навички, перевірки здібностей, бонуси майстерності, рятівні кидки та час.",
     icon: "Award",
-    imageSrc: "/images/categories/adventurer_study.webp",
+    imageSrc: "/images/rules/abilities.webp",
     order: 3,
   },
   {
@@ -87,7 +88,7 @@ export const RULE_CATEGORIES: RuleCategory[] = [
     engTitle: "Conditions",
     description: "Повний довідник станів істот: засліплений, приголомшений, отруєний, виснажений, закривавлений тощо.",
     icon: "ShieldAlert",
-    imageSrc: "/images/categories/draconic_guardian_and_celestial_beast.webp",
+    imageSrc: "/images/rules/conditions.webp",
     order: 4,
   },
   {
@@ -96,17 +97,27 @@ export const RULE_CATEGORIES: RuleCategory[] = [
     engTitle: "Adventuring & Rest",
     description: "Темп подорожей, стрибки, падіння, зір і темрява, короткий та довгий відпочинок, простій.",
     icon: "Compass",
-    imageSrc: "/images/categories/ancestral_species_hall.webp",
+    imageSrc: "/images/rules/adventuring.webp",
     order: 5,
+  },
+  {
+    key: "equipment",
+    title: "Спорядження",
+    engTitle: "Equipment",
+    description:
+      "Обладунки й час на вдягання, властивості зброї, інструменти, вантажопідйомність, витрати на життя, верхові тварини й транспорт.",
+    icon: "Backpack",
+    imageSrc: "/images/rules/equipment.webp",
+    order: 6,
   },
   {
     key: "gamemaster",
     title: "Правила Майстра",
     engTitle: "Gamemaster Rules",
-    description: "Пастки, отрути, хвороби, безумство, об'єкти, правила монстрів, легендарні істоти та розумні предмети.",
+    description: "Пастки, отрути, хвороби, безумство, обʼєкти, правила монстрів, легендарні істоти та розумні предмети.",
     icon: "BookOpen",
-    imageSrc: "/images/categories/occult_alchemy_workbench.webp",
-    order: 6,
+    imageSrc: "/images/rules/gamemaster.webp",
+    order: 7,
   },
 ];
 
@@ -159,7 +170,6 @@ export const CONDITIONS_DATA: ConditionData[] = [
       "**Рівень 5:** Швидкість падає до 0.",
       "**Рівень 6:** Смерть.",
     ],
-    editionDiff: "У 2024 році рівнів так само шість, але ефект однаковий на кожному: -2 до всіх перевірок к20 та -5 футів до швидкості, накопичувально. Смерть настає на 6-му рівні.",
   },
   {
     id: "frightened",
@@ -183,7 +193,6 @@ export const CONDITIONS_DATA: ConditionData[] = [
       "Стан завершується, якщо той, хто схопив, стає недієздатним.",
       "Стан також завершується, якщо ефект переміщує схоплену істоту за межі досяжності того, хто схопив.",
     ],
-    editionDiff: "У 2024 році схоплена істота також отримує перешкоду на атаки проти будь-кого, крім того, хто її схопив, а той, хто схопив, має перевагу на атаки проти неї.",
   },
   {
     id: "incapacitated",
@@ -195,7 +204,6 @@ export const CONDITIONS_DATA: ConditionData[] = [
       "Недієздатна істота не може здійснювати дії або реакції.",
       "Недієздатність негайно перериває концентрацію на заклинаннях.",
     ],
-    editionDiff: "У 2024 році недієздатність також дає перешкоду на кидки ініціативи та перешкоджає вимовлянню вербальних компонентів.",
   },
   {
     id: "invisible",
@@ -224,7 +232,7 @@ export const CONDITIONS_DATA: ConditionData[] = [
   },
   {
     id: "petrified",
-    name: "Окам'янілий",
+    name: "Окамʼянілий",
     engName: "Petrified",
     ruleset: "RULES_2014",
     description: "Істота перетворюється на тверду неживу речовину (зазвичай камінь) разом з усім немагічним спорядженням.",
@@ -485,7 +493,7 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
       {
         id: "two-weapon-fighting",
         title: "Бій двома зброями (Two-Weapon Fighting)",
-        content: `Коли ви атакуєте легкою рукопашною зброєю в одній руці, ви можете використати **бонусну дію**, щоб атакувати іншою легкою рукопашною зброєю в другій руці (без додавання модифікатора характеристики до шкоди, якщо він не від'ємний).`,
+        content: `Коли ви атакуєте легкою рукопашною зброєю в одній руці, ви можете використати **бонусну дію**, щоб атакувати іншою легкою рукопашною зброєю в другій руці (без додавання модифікатора характеристики до шкоди, якщо він не відʼємний).`,
       },
       {
         id: "cover-mechanics",
@@ -587,7 +595,7 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
     tags: ["заклинання", "слоти заклинань", "замовляння", "ритуал", "вищі рівні"],
     subsections: [
       {
-        id: "what-is-a-spell",
+        id: "rules-of-magic--what-is-a-spell",
         title: "Що таке заклинання та Замовляння",
         content: `**Заклинання** — це дискретний магічний ефект рівня від 0 до 9.
 **Замовляння (0 рівень):** прості заклинання, які можна накладати нескінченно без витрати слотів.`,
@@ -603,7 +611,7 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
         content: `Більшість заклинань накладаються за **1 дію**, **бонусну дію** або **реакцію**. Якщо ви наклали заклинання бонусною дією, ви не можете накласти інше заклинання в цьому ж ході, крім замовляння з часом накладання 1 дія.`,
       },
       {
-        id: "rituals",
+        id: "rules-of-magic--rituals",
         title: "Ритуали (Rituals)",
         content: `Заклинання з тегом *«ритуал»* можна накласти без витрати слоту заклинання, додавши **10 хвилин** до часу накладання.`,
       },
@@ -754,8 +762,8 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
       {
         id: "resting-rules",
         title: "Короткий та Довгий відпочинок",
-        content: `- **Короткий відпочинок (1 година):** витрата Кубиків Здоров'я для відновлення здоров'я.
-- **Довгий відпочинок (8 годин):** повне відновлення хітів, половини Кубиків Здоров'я, слотів заклинань (макс 1 раз на 24 години).`,
+        content: `- **Короткий відпочинок (1 година):** витрата Кубиків Здоровʼя для відновлення здоровʼя.
+- **Довгий відпочинок (8 годин):** повне відновлення хітів, половини Кубиків Здоровʼя, слотів заклинань (макс 1 раз на 24 години).`,
       },
     ],
   },
@@ -811,13 +819,13 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
 | **41–50** | Персонаж впадає в паніку і тікає від усіх. |
 | **51–60** | Персонаж атакує найближчу істоту. |
 | **61–70** | Персонаж зазнає яскравих галюцинацій (перешкода на всі перевірки). |
-| **71–80** | Персонаж повторює одну нав'язливу дію. |
+| **71–80** | Персонаж повторює одну навʼязливу дію. |
 | **81–100** | Персонаж впадає у стан кататонії (недієздатний). |`,
       },
       {
         id: "long-term-madness",
         title: "Довготривале божевілля (1к10 × 10 годин)",
-        content: `Викликає глибокі нав'язливі стани: манію переслідування, сліпоту або глухоту психічного походження, апатію чи неконтрольовану жадобу.`,
+        content: `Викликає глибокі навʼязливі стани: манію переслідування, сліпоту або глухоту психічного походження, апатію чи неконтрольовану жадобу.`,
       },
       {
         id: "curing-madness",
@@ -852,7 +860,7 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
         title: "Зразки пасток",
         content: `- **Яма з кілками (Pit Trap):** СЛ 15 виявлення; при падінні 1к6 за кожні 10 фт глибини + 2к10 колючої шкоди від кілків.
 - **Отруйна голка (Poison Needle):** прихована в замку скрині; +8 до атаки, 1 колюча шкода + 2к10 шкоди отрутою.
-- **Сфера, що котиться (Rolling Sphere):** велетенська кам'яна куля; рятівний кидок Спритності СЛ 15 або 10к10 дробливої шкоди.`,
+- **Сфера, що котиться (Rolling Sphere):** велетенська камʼяна куля; рятівний кидок Спритності СЛ 15 або 10к10 дробливої шкоди.`,
       },
     ],
   },
@@ -892,12 +900,12 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
     id: "objects-guide",
     slug: "objects",
     category: "gamemaster",
-    title: "Об'єкти та предмети",
+    title: "Обʼєкти та предмети",
     engTitle: "Objects",
-    summary: "Клас броні матеріалів, хіти предметів за розміром, поріг шкоди, стійкість та імунітети об'єктів.",
+    summary: "Клас броні матеріалів, хіти предметів за розміром, поріг шкоди, стійкість та імунітети обʼєктів.",
     ruleset: "RULES_2014",
     order: 5,
-    tags: ["об'єкти", "предмети", "клас броні", "хіти предметів"],
+    tags: ["обʼєкти", "предмети", "клас броні", "хіти предметів"],
     subsections: [
       {
         id: "objects-armor-class",
@@ -911,8 +919,8 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
       },
       {
         id: "objects-hit-points",
-        title: "Хіти об'єктів за розміром",
-        content: `| Розмір об'єкта | Крихкий | Стійкий |
+        title: "Хіти обʼєктів за розміром",
+        content: `| Розмір обʼєкта | Крихкий | Стійкий |
 |---|---|---|
 | **Крихітний (пляшка, замок)** | 2 (1к4) | 5 (2к4) |
 | **Маленький (сундук, люк)** | 3 (1к6) | 10 (3к6) |
@@ -922,7 +930,7 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
       {
         id: "damage-threshold",
         title: "Поріг шкоди (Damage Threshold)",
-        content: `Великі та надміцні об'єкти (кораблі, фортечні мури) мають **Поріг шкоди**. Якщо шкода від однієї атаки менша за поріг шкоди, об'єкт отримує **0 шкоди**. Якщо шкода дорівнює або перевищує поріг, вона застосовується повністю.`,
+        content: `Великі та надміцні обʼєкти (кораблі, фортечні мури) мають **Поріг шкоди**. Якщо шкода від однієї атаки менша за поріг шкоди, обʼєкт отримує **0 шкоди**. Якщо шкода дорівнює або перевищує поріг, вона застосовується повністю.`,
       },
     ],
   },
@@ -940,7 +948,7 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
       {
         id: "creature-sizes-and-space",
         title: "Розміри істот та простір на сітці",
-        content: `| Розмір | Простір на сітці | Кубик Здоров'я |
+        content: `| Розмір | Простір на сітці | Кубик Здоровʼя |
 |---|---|---|
 | **Крихітний (Tiny)** | 2.5 на 2.5 фути | к4 |
 | **Маленький (Small)** | 5 на 5 футів (1 клітинка) | к6 |
@@ -989,7 +997,7 @@ export const RULE_ARTICLES_2014: RuleArticle[] = [
       {
         id: "conflict-of-will",
         title: "Конфлікт волі (Conflict)",
-        content: `Якщо бажання розумного предмета суперечать діям власника, предмет може спробувати нав'язати свою волю. Відбувається перевірка **Харизми** предмета проти перевірки Харизми персонажа. При провалі персонаж потрапляє під контроль предмета на 1к12 годин.`,
+        content: `Якщо бажання розумного предмета суперечать діям власника, предмет може спробувати навʼязати свою волю. Відбувається перевірка **Харизми** предмета проти перевірки Харизми персонажа. При провалі персонаж потрапляє під контроль предмета на 1к12 годин.`,
       },
     ],
   },
@@ -1068,7 +1076,7 @@ export const RULE_ARTICLES_2024: RuleArticle[] = [
       {
         id: "magic-action-2024",
         title: "Магічна дія (Magic Action)",
-        content: `У 2024 накладання заклинань та активація магічних предметів об'єднані в універсальну **Магічну дію (Magic Action)**.`,
+        content: `У 2024 накладання заклинань та активація магічних предметів обʼєднані в універсальну **Магічну дію (Magic Action)**.`,
       },
       {
         id: "study-action-2024",
@@ -1078,7 +1086,7 @@ export const RULE_ARTICLES_2024: RuleArticle[] = [
       {
         id: "utilize-action-2024",
         title: "Дія Застосування (Utilize Action)",
-        content: `Взаємодія з немагічним спорядженням та об'єктами (важелі, мотузки, пастки) чітко класифікована як дія «Застосування».`,
+        content: `Взаємодія з немагічним спорядженням та обʼєктами (важелі, мотузки, пастки) чітко класифікована як дія «Застосування».`,
       },
       {
         id: "grapple-shove-2024",
@@ -1137,7 +1145,7 @@ export const RULE_ARTICLES_2024: RuleArticle[] = [
       {
         id: "d20-tests-unification",
         title: "Уніфікована Перевірка к20",
-        content: `Усі кидки к20 об'єднані поняттям **Перевірка к20 (D20 Test)**:
+        content: `Усі кидки к20 обʼєднані поняттям **Перевірка к20 (D20 Test)**:
 1. **Перевірка характеристики (Ability Check)**
 2. **Кидок атаки (Attack Roll)**
 3. **Рятівний кидок (Saving Throw)**`,
@@ -1243,12 +1251,12 @@ export const RULE_ARTICLES_2024: RuleArticle[] = [
     id: "gamemaster-objects-2024",
     slug: "objects",
     category: "gamemaster",
-    title: "Об'єкти та предмети 2024",
+    title: "Обʼєкти та предмети 2024",
     engTitle: "Objects 2024",
     summary: "Міцність матеріалів, поріг шкоди та взаємодія з середовищем у 2024.",
     ruleset: "RULES_2024",
     order: 4,
-    tags: ["об'єкти 2024"],
+    tags: ["обʼєкти 2024"],
     subsections: [
       {
         id: "objects-ac-2024",
@@ -1288,7 +1296,7 @@ export function getRuleCategory(key: string): RuleCategory | undefined {
 }
 
 export function getAllRuleArticles(ruleset: Ruleset = "RULES_2014"): RuleArticle[] {
-  return ruleset === "RULES_2024" ? RULE_ARTICLES_2024 : RULE_ARTICLES_2014;
+  return findHandwrittenArticles(ruleset);
 }
 
 export function getRuleArticlesByCategory(
@@ -1308,11 +1316,56 @@ export function getRuleArticleBySlug(
   return articles.find((a) => a.slug === slug || a.id === slug);
 }
 
+export function findCanonicalSlug(ruleset: Ruleset, slug: string): string {
+  return SUPERSEDED_BY_SRD[ruleset][slug] ?? slug;
+}
+
+/// Слаг зниклої рукописної статті, який мусить лишитися якорем на канонічній статті SRD:
+/// без нього зовнішнє посилання відкриває сторінку категорії й нікуди не прокручує.
+export function findRetiredSlugsFor(article: RuleArticle): string[] {
+  return Object.entries(SUPERSEDED_BY_SRD[article.ruleset])
+    .filter(([retired, canonical]) => canonical === article.slug && retired !== article.slug)
+    .map(([retired]) => retired);
+}
+
+/// Рукописні статті, які повністю поглинув імпорт SRD (KR20.4): слаг рукописної → слаг канонічної
+/// статті SRD. Там, де слаги збігаються, стаття SRD просто забирає звільнений слаг; там, де назви
+/// розійшлися, старий слаг лишається якорем канонічної — старі посилання далі відкривають той
+/// самий матеріал.
+export const SUPERSEDED_BY_SRD: Record<Ruleset, Record<string, string>> = {
+  RULES_2014: {
+    "order-of-combat": "order-of-combat",
+    "movement-and-position": "movement-and-position",
+    "actions-in-combat": "actions-in-combat",
+    "making-an-attack": "making-an-attack",
+    diseases: "diseases",
+    madness: "madness",
+    traps: "traps",
+    poisons: "poisons",
+    objects: "objects",
+    "mounted-and-underwater-combat": "mounted-combat",
+    "sentient-magic-items": "sentient-magic",
+    "damage-and-healing": "making-an-attack",
+  },
+  // order-of-combat 2024 не поглинається: це єдина стаття з callout edition_diff, тобто наш
+  // власний матеріал про різницю редакцій, якого в SRD немає.
+  RULES_2024: { "damage-and-healing": "damage-and-healing", traps: "traps" },
+};
+
+export function findSupersededSlugs(ruleset: Ruleset): Set<string> {
+  return new Set(Object.keys(SUPERSEDED_BY_SRD[ruleset]));
+}
+
+export function findHandwrittenArticles(ruleset: Ruleset): RuleArticle[] {
+  const superseded = findSupersededSlugs(ruleset);
+  const articles = ruleset === "RULES_2024" ? RULE_ARTICLES_2024 : RULE_ARTICLES_2014;
+  return articles.filter((article) => !superseded.has(article.slug));
+}
+
+/// Стани 2024 беруться з імпортованого SRD-корпусу — getConditions2024() у rules2024Data.ts.
+/// Тут лишається рівно те, що написано руками для кожної редакції.
 export function getAllConditions(ruleset: Ruleset = "RULES_2014"): ConditionData[] {
-  if (ruleset === "RULES_2024") {
-    return CONDITIONS_DATA;
-  }
-  return CONDITIONS_DATA.filter((c) => c.ruleset === "RULES_2014");
+  return CONDITIONS_DATA.filter((condition) => condition.ruleset === ruleset);
 }
 
 export function getConditionById(id: string, ruleset: Ruleset = "RULES_2014"): ConditionData | undefined {

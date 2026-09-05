@@ -5,6 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { itemRarityTranslations, magicItemTypeTranslations } from "@/lib/refs/translation";
+import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
+import { hasCatalogSources, type CatalogSources, type SourceSelection } from "@/lib/catalog-source-filter";
+import { MAGIC_ITEM_TRAIT_LABELS, type MagicItemTrait } from "@/lib/magic-item-traits";
 import { cn } from "@/lib/utils";
 
 const rarityLabel = (rarity: string) =>
@@ -19,11 +22,18 @@ type Props = {
   is2024?: boolean;
   availableRarities: string[];
   availableTypes: string[];
+  availableTraits: MagicItemTrait[];
+  availableSources: CatalogSources;
   selectedRarities: Set<string>;
   selectedTypes: Set<string>;
+  selectedTraits: Set<string>;
+  sourceSelection: SourceSelection;
   selectedAttunement: boolean | null;
   toggleRarity: (rarity: string) => void;
   toggleType: (type: string) => void;
+  toggleTrait: (trait: MagicItemTrait) => void;
+  toggleSource: (source: string) => void;
+  toggleHomebrew: () => void;
   setAttunement: (value: boolean | null) => void;
   clearFilters: () => void;
 };
@@ -34,17 +44,24 @@ export function MagicItemsFilterDialog({
   is2024 = false,
   availableRarities,
   availableTypes,
+  availableTraits,
+  availableSources,
   selectedRarities,
   selectedTypes,
+  selectedTraits,
+  sourceSelection,
   selectedAttunement,
   toggleRarity,
   toggleType,
+  toggleTrait,
+  toggleSource,
+  toggleHomebrew,
   setAttunement,
   clearFilters,
 }: Props) {
   const activeBadgeClass = is2024
     ? "bg-amber-500/15 text-amber-300 border-amber-500/30"
-    : "bg-teal-500/15 text-teal-300 border-teal-500/30";
+    : "bg-arcane-500/15 text-arcane-300 border-arcane-500/30";
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -54,7 +71,7 @@ export function MagicItemsFilterDialog({
             <DialogTitle
               className={cn(
                 "font-rpg-display text-2xl font-semibold tracking-wide",
-                is2024 ? "text-amber-400" : "text-teal-400"
+                is2024 ? "text-amber-400" : "text-arcane-400"
               )}
             >
               Фільтри
@@ -141,6 +158,40 @@ export function MagicItemsFilterDialog({
               </div>
             </div>
 
+            {availableTraits.length > 0 && (
+              <div className="glass-panel rounded-xl border border-white/10 p-3">
+                <div className="text-xs font-semibold text-slate-300">Особливості</div>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {availableTraits.map((trait) => {
+                    const active = selectedTraits.has(trait);
+                    return (
+                      <Badge
+                        key={trait}
+                        variant={active ? "default" : "outline"}
+                        className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
+                        onClick={() => toggleTrait(trait)}
+                        role="button"
+                      >
+                        {MAGIC_ITEM_TRAIT_LABELS[trait]}
+                      </Badge>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {hasCatalogSources(availableSources) && (
+              <div className="glass-panel rounded-xl border border-white/10 p-3">
+                <SourceFilterSection
+                  is2024={is2024}
+                  available={availableSources}
+                  selection={sourceSelection}
+                  onToggleSource={toggleSource}
+                  onToggleHomebrew={toggleHomebrew}
+                />
+              </div>
+            )}
+
             <div className="flex items-center justify-between gap-2 pt-2">
               <Button
                 type="button"
@@ -152,7 +203,7 @@ export function MagicItemsFilterDialog({
               </Button>
               <Button
                 type="button"
-                className={cn("border font-medium", is2024 ? "bg-amber-500/20 text-amber-300 border-amber-500/40" : "bg-teal-500/20 text-teal-300 border-teal-500/40")}
+                className={cn("border font-medium", is2024 ? "bg-amber-500/20 text-amber-300 border-amber-500/40" : "bg-arcane-500/20 text-arcane-300 border-arcane-500/40")}
                 onClick={() => onOpenChange(false)}
               >
                 Застосувати

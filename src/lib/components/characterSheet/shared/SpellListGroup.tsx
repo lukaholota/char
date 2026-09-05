@@ -64,9 +64,9 @@ function schoolVisualByValue(school: string | null | undefined): SchoolVisual {
   if (key.includes("conjuration") || key.includes("виклик")) {
     return {
       icon: WandSparkles,
-      iconWrap: "bg-teal-950/55 border-teal-800/45",
-      iconColor: "text-teal-300",
-      badgeClass: "border-teal-800/45 bg-teal-950/35",
+      iconWrap: "bg-arcane-950/55 border-arcane-800/45",
+      iconColor: "text-arcane-300",
+      badgeClass: "border-arcane-800/45 bg-arcane-950/35",
     };
   }
   if (key.includes("divination") || key.includes("віщ") || key.includes("ворож")) {

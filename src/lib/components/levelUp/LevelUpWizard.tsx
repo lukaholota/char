@@ -9,9 +9,13 @@ import {
   useCallback,
 } from "react";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { characterLevelOnly } from "@/rules/character-level";
+import { findMissingSpeciesTraits } from "@/rules/species-grants";
+import { activateLevelUpDraftStorage, usePersFormStore } from "@/lib/stores/persFormStore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PlainTitleCard } from "@/components/no-ai/PlainTitleCard";
+import { ARCANE } from "@/styles/palette";
 import { Badge } from "@/components/ui/badge";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { toast } from "sonner";
@@ -59,7 +63,10 @@ import {
   formatToolProficiencies,
   formatWeaponProficiencies,
 } from "@/lib/components/characterCreator/infoUtils";
-import { calculateFinalStat } from "@/lib/logic/bonus-calculator";
+import { calculateFinalAbilityScores, calculateFinalStat } from "@/lib/logic/bonus-calculator";
+import { findMulticlassEntryProblem, type MulticlassRuleset } from "@/rules/multiclass-entry";
+import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
+import { getRulesStrategy } from "@/rules/strategies";
 import {
   extractSkillsFromChoiceOption,
   extractExpertisesFromChoiceOption,
@@ -69,6 +76,9 @@ import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/Subc
 
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
+import { LevelUpWeaponMasteryStep } from "@/lib/components/levelUp/LevelUpWeaponMasteryStep";
+import { findLevelUpWeaponMastery } from "@/lib/components/levelUp/levelup-weapon-mastery";
+import { findVisibleOptionalFeatures } from "@/lib/components/levelUp/levelup-optional-features";
 
 import {
   CHOICE_GROUPS,
@@ -221,6 +231,8 @@ interface Props {
 }
 
 export default function LevelUpWizard({ info }: Props) {
+  activateLevelUpDraftStorage();
+
   const { resetForm, formData } = usePersFormStore();
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
@@ -245,6 +257,7 @@ export default function LevelUpWizard({ info }: Props) {
   const nextLevel = isError ? 0 : info.nextLevel;
   const classes = useMemo(() => info?.classes || [], [info?.classes]);
   const feats = useMemo(() => info?.feats || [], [info?.feats]);
+  const weapons = useMemo(() => info?.weapons || [], [info?.weapons]);
 
   const selectedFeatId = useMemo(() => {
     const raw = (formData as any)?.featId;
@@ -372,6 +385,19 @@ export default function LevelUpWizard({ info }: Props) {
     if (!selectedClassId) return 0;
     return classLevelBefore + 1;
   }, [selectedClassId, classLevelBefore]);
+
+  const weaponMastery = useMemo(
+    () =>
+      findLevelUpWeaponMastery({
+        pers,
+        selectedClass,
+        selectedClassId,
+        classLevelAfter,
+        mainClassLevel,
+        weapons,
+      }),
+    [pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel, weapons],
+  );
 
   const currentSubclassIdForSelectedClass = useMemo(() => {
     if (!pers || !selectedClassId) return undefined;
@@ -557,6 +583,13 @@ export default function LevelUpWizard({ info }: Props) {
     return (selectedClass.abilityScoreUpLevels || []).includes(classLevelAfter);
   }, [selectedClass, classLevelAfter]);
 
+  // 19-й рівень класу 2024 дає не підвищення, а рису: «You gain an Epic Boon feat or another
+  // feat of your choice for which you qualify» (SRD 2024, classes.md). У 2014 рівня немає.
+  const isEpicBoonLevel = useMemo(() => {
+    if (!selectedClass) return false;
+    return getRulesStrategy(pers?.ruleset ?? "RULES_2014").isEpicBoonLevel(selectedClass, classLevelAfter);
+  }, [selectedClass, classLevelAfter, pers]);
+
   const needsInfusions = useMemo(() => {
     if (!selectedClass) return false;
     if (selectedClass.name !== "ARTIFICER_2014") return false;
@@ -647,27 +680,27 @@ export default function LevelUpWizard({ info }: Props) {
       .sort((a, b) => (a.subclassFeatureId || 0) - (b.subclassFeatureId || 0));
   }, [effectiveSubclass, classLevelAfter]);
 
+  // Риса виду відкривається рівнем ПЕРСОНАЖА, тому обраний клас на неї не впливає (§4).
+  const newSpeciesTraits = useMemo(() => {
+    const owned = ((pers as any)?.features ?? []).map((f: any) => f.featureId);
+    return findMissingSpeciesTraits((pers as any)?.race?.traits ?? [], characterLevelOnly(nextLevel), owned);
+  }, [pers, nextLevel]);
+
+  // Передумову рахує та сама функція, що й сервер, — інакше форма й рушій знову розійдуться (KR27.2).
   const eligibleMulticlassClasses = useMemo(() => {
     if (!pers) return [] as ClassI[];
-    const baseStats = {
-      STR: calculateFinalStat(pers as any, Ability.STR),
-      DEX: calculateFinalStat(pers as any, Ability.DEX),
-      CON: calculateFinalStat(pers as any, Ability.CON),
-      INT: calculateFinalStat(pers as any, Ability.INT),
-      WIS: calculateFinalStat(pers as any, Ability.WIS),
-      CHA: calculateFinalStat(pers as any, Ability.CHA),
-    } as Record<Ability, number>;
+    const abilityScores = calculateFinalAbilityScores(pers);
+    const allClasses = classes as unknown as ClassI[];
+    const currentClasses = allClasses.filter((cls) => existingClassIds.has(cls.classId));
 
-    const meetsReqs = (cls: ClassI) => {
-      const reqs = cls.multiclassReqs;
-      if (!reqs?.required?.length) return true;
-      const score = reqs.score ?? 13;
-      return reqs.required.every((a) => (baseStats[a] ?? 0) >= score);
-    };
-
-    return (classes as unknown as ClassI[])
-      .filter((c) => !existingClassIds.has(c.classId))
-      .filter(meetsReqs);
+    return allClasses
+      .filter((cls) => !existingClassIds.has(cls.classId))
+      .filter((cls) => !findMulticlassEntryProblem({
+        ruleset: (pers.ruleset as MulticlassRuleset) ?? "RULES_2014",
+        abilityScores,
+        currentClasses,
+        newClass: cls,
+      }));
   }, [classes, existingClassIds, pers]);
 
   const levelUpSelectedSkills = useMemo(() => {
@@ -824,10 +857,10 @@ export default function LevelUpWizard({ info }: Props) {
       });
     }
 
-    if (isASILevel) {
+    if (isASILevel || isEpicBoonLevel) {
       result.push({
-        id: "asi",
-        title: "Покращення",
+        id: isEpicBoonLevel ? "epic-boon" : "asi",
+        title: isEpicBoonLevel ? "Епічний дар" : "Покращення",
         initialDisabled: true,
       });
 
@@ -844,6 +877,14 @@ export default function LevelUpWizard({ info }: Props) {
       result.push({
         id: "infusions",
         title: "Вливання",
+        initialDisabled: true,
+      });
+    }
+
+    if (weaponMastery.needsChoice) {
+      result.push({
+        id: "weapon-mastery",
+        title: "Майстерність зброї",
         initialDisabled: true,
       });
     }
@@ -872,72 +913,17 @@ export default function LevelUpWizard({ info }: Props) {
       });
     }
 
-    const choiceOptionIdsAfter = (() => {
-      const ids = new Set<number>();
-
-      (pers as any)?.choiceOptions?.forEach((co: any) => {
-        const n = Number(co?.choiceOptionId);
-        if (Number.isFinite(n)) ids.add(n);
+    const { selectable: visibleOptionalSelectable, replacements: visibleReplacements } =
+      findVisibleOptionalFeatures({
+        persChoiceOptionIds: (pers.choiceOptions ?? []).map((option) => Number(option.choiceOptionId)),
+        selections: [
+          formData.classChoiceSelections,
+          formData.subclassChoiceSelections,
+          formData.featChoiceSelections,
+        ],
+        classOptionalFeatures: selectedClass.classOptionalFeatures ?? [],
+        classLevelAfter,
       });
-
-      const collect = (sel: any) => {
-        if (!sel) return;
-        for (const v of Object.values(sel)) {
-          const arr = Array.isArray(v) ? v : [v];
-          for (const raw of arr) {
-            const n = Number(raw);
-            if (Number.isFinite(n)) ids.add(n);
-          }
-        }
-      };
-      collect((formData as any)?.classChoiceSelections);
-      collect((formData as any)?.subclassChoiceSelections);
-      collect((formData as any)?.featChoiceSelections);
-
-      return ids;
-    })();
-
-    const optionalAtLevel = (selectedClass.classOptionalFeatures || []).filter(
-      (opt: any) => (opt.grantedOnLevels || []).includes(classLevelAfter)
-    );
-
-    const isReplacementOptional = (opt: any) =>
-      Boolean(
-        opt?.replacesInvocation ||
-          opt?.replacesFightingStyle ||
-          opt?.replacesManeuver ||
-          (Array.isArray(opt?.replacesFeatures) &&
-            opt.replacesFeatures.length > 0)
-      );
-
-    const isAutoGrantedConditional = (opt: any) => {
-      const deps = opt?.appearsOnlyIfChoicesTaken || [];
-      return (
-        !isReplacementOptional(opt) &&
-        Boolean(opt?.featureId) &&
-        Array.isArray(deps) &&
-        deps.length > 0
-      );
-    };
-
-    const passesChoiceGate = (opt: any) => {
-      const deps = opt?.appearsOnlyIfChoicesTaken || [];
-      if (!Array.isArray(deps) || deps.length === 0) return true;
-      return deps.some((co: any) =>
-        choiceOptionIdsAfter.has(Number(co?.choiceOptionId))
-      );
-    };
-
-    const visibleOptionalSelectable = optionalAtLevel
-      .filter((opt: any) => Boolean(opt?.optionalFeatureId))
-      .filter(passesChoiceGate)
-      .filter((opt: any) => !isReplacementOptional(opt))
-      .filter((opt: any) => !isAutoGrantedConditional(opt));
-
-    const visibleReplacements = optionalAtLevel
-      .filter((opt: any) => Boolean(opt?.optionalFeatureId))
-      .filter(passesChoiceGate)
-      .filter(isReplacementOptional);
 
     if (visibleOptionalSelectable.length > 0) {
       result.push({
@@ -973,9 +959,11 @@ export default function LevelUpWizard({ info }: Props) {
     classLevelAfter,
     formData,
     isASILevel,
+    isEpicBoonLevel,
     isError,
     needsExpertise,
     needsLanguages,
+    weaponMastery.needsChoice,
     needsInfusions,
     needsSkillProficiencies,
     needsSubclass,
@@ -1020,6 +1008,7 @@ export default function LevelUpWizard({ info }: Props) {
             classLevelAfter={classLevelAfter}
             newClassFeatures={newClassFeatures}
             newSubclassFeatures={newSubclassFeatures}
+            newSpeciesTraits={newSpeciesTraits}
             selectedClass={selectedClass as unknown as ClassI}
             effectiveSubclass={effectiveSubclass as unknown as SubclassI}
           />
@@ -1044,6 +1033,15 @@ export default function LevelUpWizard({ info }: Props) {
             onNextDisabledChange={onNextDisabledChange}
           />
         );
+      case "weapon-mastery":
+        return (
+          <LevelUpWeaponMasteryStep
+            capacity={weaponMastery.capacity}
+            options={weaponMastery.options}
+            currentWeaponIds={weaponMastery.currentWeaponIds}
+            onNextDisabledChange={onNextDisabledChange}
+          />
+        );
       case "subclass-choices":
         return (
           <SubclassChoiceOptionsForm
@@ -1053,9 +1051,11 @@ export default function LevelUpWizard({ info }: Props) {
             onNextDisabledChange={onNextDisabledChange}
           />
         );
+      case "epic-boon":
       case "asi":
         return (
           <LevelUpASIForm
+            allowAbilityScoreIncrease={!isEpicBoonLevel}
             feats={feats as any}
             race={pers.race as any}
             subrace={(pers as any).subrace ?? null}
@@ -1201,6 +1201,7 @@ export default function LevelUpWizard({ info }: Props) {
             feats={feats as any}
             persFeats={(pers as any).feats}
             nextLevel={nextLevel}
+            ruleset={pers.ruleset}
             formId="hp-form"
             onNextDisabledChange={onNextDisabledChange}
           />
@@ -1398,6 +1399,7 @@ function SummaryStep({
   classLevelAfter,
   newClassFeatures,
   newSubclassFeatures,
+  newSpeciesTraits,
   selectedClass,
   effectiveSubclass,
 }: {
@@ -1406,6 +1408,7 @@ function SummaryStep({
   classLevelAfter: number;
   newClassFeatures: any[];
   newSubclassFeatures: any[];
+  newSpeciesTraits: any[];
   selectedClass: ClassI | null;
   effectiveSubclass: SubclassI | null;
 }) {
@@ -1459,7 +1462,7 @@ function SummaryStep({
   };
 
   return (
-    <Card className="glass-card overflow-hidden border-white/10 bg-white/5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-500">
+    <Card className="glass-card overflow-hidden shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-500">
       <CardHeader className="px-4 pb-1 pt-4 sm:px-6 sm:pb-2 sm:pt-6">
         <CardTitle className="font-rpg-display text-lg font-light uppercase tracking-wide text-slate-100 sm:text-xl">
           Вітаємо з {totalLevel}-м рівнем!
@@ -1521,29 +1524,18 @@ function SummaryStep({
           </div>
         </div>
 
-        {newClassFeatures.length > 0 ? (
-          <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400 px-1">
-              Нові класові вміння:
-            </h3>
-            <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
-              {newClassFeatures.map((f: any) => renderFeature(f, "class"))}
+        {[
+          { title: "Нові класові вміння:", tone: "text-cyan-400", source: "class", items: newClassFeatures },
+          { title: "Нові вміння підкласу:", tone: "text-violet-400", source: "subclass", items: newSubclassFeatures },
+          { title: "Нові риси виду:", tone: "text-sky-400", source: "race", items: newSpeciesTraits },
+        ].map((group) =>
+          group.items.length === 0 ? null : (
+            <div key={group.source} className="space-y-3 sm:space-y-4">
+              <h3 className={`text-[10px] font-bold uppercase tracking-[0.2em] ${group.tone} px-1`}>{group.title}</h3>
+              <div className="grid grid-cols-1 gap-2.5 sm:gap-3">{group.items.map((f: any) => renderFeature(f, group.source))}</div>
             </div>
-          </div>
-        ) : null}
-
-        {newSubclassFeatures.length > 0 ? (
-          <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-violet-400 px-1">
-              Нові вміння підкласу:
-            </h3>
-            <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
-              {newSubclassFeatures.map((f: any) =>
-                renderFeature(f, "subclass")
-              )}
-            </div>
-          </div>
-        ) : null}
+          ),
+        )}
       </CardContent>
 
       <ControlledInfoDialog
@@ -1587,23 +1579,15 @@ function ConfirmStep({
 
   // 1) CON calculation
   const oldConMod = Math.floor((pers.con - 10) / 2);
-  let nextCon = pers.con;
-  if (Array.isArray(formData.customAsi)) {
-    for (const entry of formData.customAsi) {
-      if (entry.ability === "CON") nextCon += Number(entry.value) || 0;
-    }
-  }
   const selectedFeat = formData.featId
     ? allFeats.find((f) => f.featId === Number(formData.featId))
     : null;
-  if (selectedFeat?.grantedASI) {
-    const g = selectedFeat.grantedASI as any;
-    if (typeof g === "object") {
-      if (g.CON) nextCon += Number(g.CON);
-      if (g.basic?.simple?.CON) nextCon += Number(g.basic.simple.CON);
-    }
-  }
-  if (nextCon > 20) nextCon = 20;
+  const nextCon = findAbilityScoresAfterLevelUp({
+    scores: { STR: pers.str, DEX: pers.dex, CON: pers.con, INT: pers.int, WIS: pers.wis, CHA: pers.cha },
+    ruleset: pers.ruleset,
+    classIncreases: formData.customAsi,
+    feat: selectedFeat,
+  }).CON;
   const newConMod = Math.floor((nextCon - 10) / 2);
   const conModDiff = newConMod - oldConMod;
   const retroactiveConHp = conModDiff * pers.level;
@@ -1635,7 +1619,7 @@ function ConfirmStep({
     ).some((v) => v === true);
 
   return (
-    <Card className="glass-card backdrop-blur-xl border-white/10 bg-white/5">
+    <Card className="glass-card backdrop-blur-xl">
       <CardHeader>
         <CardTitle className="text-xl font-light tracking-wide text-slate-100">
           Перевірка змін
@@ -1933,30 +1917,29 @@ function PathStep({
                   const isSelected = chosenClassId === entry.classId;
                   const cls = classes.find((c) => c.classId === entry.classId);
                   return (
-                    <div key={entry.classId} className="relative group/card">
-                      <Card
-                        className={clsx(
-                          "glass-card cursor-pointer backdrop-blur-xl transition hover:bg-white/10 active:scale-[0.98]",
-                          isSelected
-                            ? "glass-active ring ring-cyan-500/30 border-cyan-500/50"
-                            : "border-white/10"
-                        )}
-                        onClick={() => selectExistingClass(entry.classId)}
-                      >
-                        <CardContent className="p-4">
-                          <p className="text-lg font-semibold text-white">
-                            {getClassName(entry.classId)}
-                          </p>
-                          <p className="text-xs text-slate-400">
-                            Рівень класу: {entry.classLevel}
-                          </p>
-                          {entry.isMain ? (
-                            <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-cyan-500/70">
-                              Основний клас
-                            </p>
-                          ) : null}
-                        </CardContent>
-                      </Card>
+                    <div
+                      key={entry.classId}
+                      className="group relative cursor-pointer"
+                      onClick={() => selectExistingClass(entry.classId)}
+                    >
+                      <PlainTitleCard
+                        title={getClassName(entry.classId)}
+                        isSelected={isSelected}
+                        selectedTitleClassName="text-arcane-300"
+                        hoverTitleClassName="group-hover:text-arcane-200"
+                        highlightColor={isSelected ? ARCANE[800] : null}
+                        glowColor={isSelected ? "rgba(65,37,116,0.6)" : null}
+                        meta={
+                          <>
+                            <span>Рівень класу: {entry.classLevel}</span>
+                            {entry.isMain ? (
+                              <span className="font-bold uppercase tracking-widest text-arcane-300/80">
+                                Основний клас
+                              </span>
+                            ) : null}
+                          </>
+                        }
+                      />
 
                       {cls && (
                         <InfoDialog

@@ -214,6 +214,30 @@ export const SkillsForm = ({
     return counts;
   }, [raceOptionChoices]);
   
+  const raceOptionSkills = useMemo(() => {
+    const byOption: Record<string, Skill[]> = {};
+
+    raceOptionChoices.forEach(({ option, proficiencies }) => {
+      if (Array.isArray(proficiencies)) return;
+      byOption[option.optionId] = proficiencies.options?.includes("ANY" as unknown as Skill)
+        ? [...SkillsEnum]
+        : proficiencies.options ?? [];
+    });
+
+    return byOption;
+  }, [raceOptionChoices]);
+
+  // Опція раси, де запропонованих навичок рівно стільки, скільки треба обрати, вибору не лишає:
+  // її обрали ще на кроці опцій раси, тож навичка проставляється сама.
+  useEffect(() => {
+    Object.entries(raceOptionSkills).forEach(([optionId, skills]) => {
+      if (choiceOptions[optionId] !== undefined) return;
+      if (skills.length === 0 || skills.length > (raceOptionCounts[optionId] ?? 0)) return;
+
+      form.setValue(`choiceOptions.${optionId}`, skills);
+    });
+  }, [raceOptionSkills, raceOptionCounts, choiceOptions, form]);
+
   // Calculate total choice count from race options
   const raceOptionsTotalCount = raceOptionChoices.reduce((acc, curr) => {
     // Narrow type safely
@@ -329,6 +353,10 @@ export const SkillsForm = ({
 
     return groups;
   }, [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies]);
+
+  const groupsWithOptions = entries.filter(
+    ([groupName]) => (skillsByGroup[groupName]?.options?.length ?? 0) > 0
+  );
 
   const checkIfSelectedByOthers = (groupName: GroupName | string, skill: Skill) => {
     // Skills granted by other steps/sources are always treated as already selected
@@ -567,10 +595,7 @@ export const SkillsForm = ({
                 const currentSelections = choiceOptions[optId] ?? [];
                 const remaining = max - currentSelections.length;
 
-                // Handle "ANY" or specific list
-                const availableOptions = prof.options?.includes("ANY" as unknown as Skill)
-                  ? [...SkillsEnum]
-                  : prof.options || [];
+                const availableOptions = raceOptionSkills[optId] ?? [];
 
                 return (
                   <div key={`race-opt-${optId}`} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
@@ -626,16 +651,14 @@ export const SkillsForm = ({
                 )
               })}
 
-              {entries.map(([groupName, choices], index) => (
+              {groupsWithOptions.map(([groupName, choices], index) => (
                 <div key={index} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
-                  {skillsByGroup[groupName]?.options && (
-                    <div className="flex items-center justify-between text-sm text-slate-300">
-                      <div className="font-semibold text-white">
-                        {groupName === 'race' ? 'Навички за расу' : groupName === 'selectedClass' ? 'Навички за клас' : 'Навички за передісторію'}
-                      </div>
-                      <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
+                  <div className="flex items-center justify-between text-sm text-slate-300">
+                    <div className="font-semibold text-white">
+                      {groupName === 'race' ? 'Навички за расу' : groupName === 'selectedClass' ? 'Навички за клас' : 'Навички за передісторію'}
                     </div>
-                  )}
+                    <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
+                  </div>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {(skillsByGroup[groupName]?.options ?? []).map((skill, skillIndex) => {
                       const skillGroup = engEnumSkills.find((s) => s.eng === skill)

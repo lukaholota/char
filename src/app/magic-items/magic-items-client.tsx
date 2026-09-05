@@ -35,6 +35,17 @@ import {
   replaceUrlSearchParams,
 } from "@/lib/catalog-url-helpers";
 import { getUserPersesMagicItemIndex } from "@/lib/actions/pers";
+import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
+import { collectMagicItemTraits, hasMagicItemTrait } from "@/lib/magic-item-traits";
 import { toggleMagicItemForPers } from "@/lib/actions/magic-item-actions";
 import { cn } from "@/lib/utils";
 
@@ -48,6 +59,9 @@ export type MagicItemListItem = {
   typeLineEng?: string | null;
   attunementConditionEng?: string | null;
   ruleset?: Ruleset | string;
+  source?: string | null;
+  isCursed?: boolean;
+  isConsumable?: boolean;
   description: string;
   shortDescription?: string | null;
   weaponProficiencies?: unknown;
@@ -71,6 +85,8 @@ type SelectionState = {
   rarities: Set<string>;
   types: Set<string>;
   attunement: boolean | null;
+  traits: Set<string>;
+  source: SourceSelection;
   q: string;
   item: string;
 };
@@ -98,6 +114,8 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
     rarities: getParamSet(params, "rar"),
     types: getParamSet(params, "type"),
     attunement: getBoolParam(params, "attn"),
+    traits: getParamSet(params, "trait"),
+    source: parseSourceSelection(params),
     q: params.get("q") ?? "",
     item: params.get("item")?.trim() || "",
   };
@@ -153,7 +171,7 @@ function InventoryDropdown({
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:text-teal-300"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:text-arcane-300"
           aria-label="Додати до персонажа"
         >
           <UserPlus className="h-4 w-4" />
@@ -197,7 +215,7 @@ function InventoryDropdown({
                 }}
               >
                 <span className="truncate">{label}</span>
-                {has ? <Check className="h-4 w-4 text-teal-400" /> : null}
+                {has ? <Check className="h-4 w-4 text-arcane-400" /> : null}
               </DropdownMenuItem>
             );
           })
@@ -238,8 +256,8 @@ export function MagicItemsClient({
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
-    parseSelection
+    parseSelection,
+    initialSearchParams
   );
 
   const filtered = useMemo(() => {
@@ -259,6 +277,15 @@ export function MagicItemsClient({
       }
 
       if (selection.attunement !== null && item.requiresAttunement !== selection.attunement) {
+        return false;
+      }
+
+      if (selection.traits.size > 0) {
+        const hasAll = Array.from(selection.traits).every((trait) => hasMagicItemTrait(item, trait));
+        if (!hasAll) return false;
+      }
+
+      if (!matchesSourceSelection(item.source, selection.source)) {
         return false;
       }
 
@@ -314,6 +341,8 @@ export function MagicItemsClient({
         return ia - ib;
       }),
       types: Array.from(types).sort((a, b) => typeLabel(a).localeCompare(typeLabel(b), "uk")),
+      traits: collectMagicItemTraits(items),
+      sources: collectCatalogSources(items),
     };
   }, [items]);
 
@@ -322,13 +351,18 @@ export function MagicItemsClient({
       next.delete("rar");
       next.delete("type");
       next.delete("attn");
+      next.delete("trait");
+      clearSourceParams(next);
     });
   };
 
-  const hasActiveFilters =
-    selection.rarities.size > 0 ||
-    selection.types.size > 0 ||
-    selection.attunement !== null;
+  const activeFiltersCount =
+    selection.rarities.size +
+    selection.types.size +
+    selection.traits.size +
+    countSourceFilters(selection.source) +
+    (selection.attunement !== null ? 1 : 0);
+  const hasActiveFilters = activeFiltersCount > 0;
 
   const [isPending, setIsPending] = useState(false);
   const [addedItems, setAddedItems] = useState<Set<number>>(new Set());
@@ -386,8 +420,8 @@ export function MagicItemsClient({
       is2024={is2024}
       topBanner={
         isEmbedMode && (
-          <div className="mb-4 rounded-xl border border-teal-500/30 bg-teal-500/10 p-2.5 backdrop-blur-xl">
-            <div className="flex items-center gap-2 text-sm text-teal-200">
+          <div className="mb-4 rounded-xl border border-arcane-500/30 bg-arcane-500/10 p-2.5 backdrop-blur-xl">
+            <div className="flex items-center gap-2 text-sm text-arcane-200">
               <UserPlus className="h-4 w-4" />
               <span>
                 Додавання предметів для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
@@ -400,7 +434,7 @@ export function MagicItemsClient({
       onSearchChange={setQInput}
       searchPlaceholder="Пошук предметів..."
       hasActiveFilters={hasActiveFilters}
-      activeFiltersCount={selection.rarities.size + selection.types.size + (selection.attunement !== null ? 1 : 0)}
+      activeFiltersCount={activeFiltersCount}
       onOpenFilters={() => setFiltersOpen(true)}
       onClearFilters={clearFilters}
       headerActions={
@@ -457,7 +491,7 @@ export function MagicItemsClient({
               <div
                 className={cn(
                   "rounded-xl border bg-slate-900/70 px-3.5 py-2 text-slate-200 backdrop-blur-xl flex items-center justify-between shadow-sm",
-                  is2024 ? "border-amber-500/20" : "border-teal-500/20"
+                  is2024 ? "border-amber-500/20" : "border-arcane-500/20"
                 )}
               >
                 <span
@@ -465,7 +499,7 @@ export function MagicItemsClient({
                     "font-sans text-sm sm:text-base font-semibold tracking-wide text-transparent bg-clip-text",
                     is2024
                       ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-                      : "bg-gradient-to-r from-teal-300 via-teal-100 to-teal-400"
+                      : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-arcane-400"
                   )}
                 >
                   {rarityLabel(row.rarity)}
@@ -497,7 +531,7 @@ export function MagicItemsClient({
                 isSelected
                   ? is2024
                     ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -514,7 +548,7 @@ export function MagicItemsClient({
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
+                          ? is2024 ? "text-amber-300" : "text-arcane-300"
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
@@ -541,8 +575,8 @@ export function MagicItemsClient({
                       <button
                         type="button"
                         className={cn(
-                          "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300 hover:bg-white/5",
-                          inPrint && "text-teal-300 bg-teal-500/10"
+                          "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
+                          inPrint && "text-arcane-300 bg-arcane-500/10"
                         )}
                         onClick={() => {
                           setPrintIds((prev) =>
@@ -570,7 +604,7 @@ export function MagicItemsClient({
                       onClick={() => handleAddItem(item.magicItemId)}
                       disabled={isPending}
                       className={cn(
-                        "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300 hover:bg-white/5",
+                        "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
                         isPending && "opacity-50"
                       )}
                     >
@@ -605,11 +639,18 @@ export function MagicItemsClient({
           is2024={is2024}
           availableRarities={available.rarities}
           availableTypes={available.types}
+          availableTraits={available.traits}
+          availableSources={available.sources}
           selectedRarities={selection.rarities}
           selectedTypes={selection.types}
+          selectedTraits={selection.traits}
+          sourceSelection={selection.source}
           selectedAttunement={selection.attunement}
           toggleRarity={(rar) => toggleSetValue("rar", rar)}
           toggleType={(t) => toggleSetValue("type", t)}
+          toggleTrait={(trait) => toggleSetValue("trait", trait)}
+          toggleSource={(src) => setParams((next) => toggleSourceParam(next, src))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           setAttunement={(v) => setParams((next) => setBoolParam(next, "attn", v))}
           clearFilters={clearFilters}
         />

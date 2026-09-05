@@ -1,6 +1,6 @@
 "use client";
 
-import { ArmorData } from "@/lib/armorData";
+import type { ArmorData } from "@/lib/armorData";
 import {
   armorTypeTranslations,
   sourceTranslations,
@@ -52,7 +52,7 @@ export function ArmorDetailCard({
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
                 is2024
                   ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-teal-300 via-teal-100 to-violet-300"
+                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
               )}
             >
               {armor.nameUa}
@@ -72,7 +72,7 @@ export function ArmorDetailCard({
             "shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border",
             is2024
               ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-teal-500/30 bg-teal-500/10 text-teal-300"
+              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
           )}
         >
           {sourceLabel}
@@ -83,7 +83,7 @@ export function ArmorDetailCard({
       <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         <div className="rounded-xl border border-white/5 bg-slate-900/40 p-3 text-center">
           <div className="text-[11px] text-slate-400 font-medium">Клас Броні (КБ)</div>
-          <div className={cn("text-lg font-bold mt-0.5", is2024 ? "text-amber-300" : "text-teal-300")}>
+          <div className={cn("text-lg font-bold mt-0.5", is2024 ? "text-amber-300" : "text-arcane-300")}>
             {formatAC(armor)}
           </div>
           <div className="text-[11px] text-slate-400 truncate">Базовий КБ: {armor.baseAC}</div>

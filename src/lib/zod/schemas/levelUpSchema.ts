@@ -21,6 +21,7 @@ export const levelUpInputSchema = z.object({
   expertiseSchema: z.object({ expertises: z.array(z.string()).catch([]) }).catch({ expertises: [] }),
   languagesSchema: z.object({ languages: z.array(z.string()).catch([]) }).catch({ languages: [] }),
   infusionSelections: z.array(z.coerce.number()).catch([]),
+  weaponMasteryWeaponIds: z.array(z.coerce.number()).optional(),
   levelUpHpIncrease: z.number().optional().catch(undefined),
 }).passthrough();
 

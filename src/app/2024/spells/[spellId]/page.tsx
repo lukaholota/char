@@ -1,9 +1,7 @@
 import { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
-import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
-import { getAllSpells, getSpellById } from "@/lib/spellsData";
+import { notFound } from "next/navigation";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
+import { buildSpellKey, getAllSpells, getSpellByIdOrSlug } from "@/lib/spellsData";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { SpellDetailCard } from "@/components/spells/SpellDetailCard";
 import { getDescriptionSnippet } from "@/lib/seo-utils";
@@ -11,7 +9,7 @@ import { getDescriptionSnippet } from "@/lib/seo-utils";
 export async function generateStaticParams() {
   const spells = getAllSpells("RULES_2024");
   return spells.map((spell) => ({
-    spellId: String(spell.spellId),
+    spellId: buildSpellKey(spell),
   }));
 }
 
@@ -21,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ spellId: string }>;
 }): Promise<Metadata> {
   const { spellId } = await params;
-  const spell = getSpellById(Number(spellId), "RULES_2024");
+  const spell = getSpellByIdOrSlug(spellId, "RULES_2024");
 
   if (!spell) {
     return {
@@ -36,7 +34,7 @@ export async function generateMetadata({
 
   const title = `${spell.name} — ${levelLabel} (2024)`;
   const description = getDescriptionSnippet(`${spell.name} (${levelLabel}, ${schoolLabel}). ${spell.description}`);
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://char.holota.family"}/2024/spells/${spellId}`;
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://char.holota.family"}/2024/spells/${buildSpellKey(spell)}`;
 
   return {
     title,
@@ -58,13 +56,8 @@ export default async function SpellDetailPage({
 }: {
   params: Promise<{ spellId: string }>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/spells");
-  }
-
   const { spellId } = await params;
-  const spell = getSpellById(Number(spellId), "RULES_2024");
+  const spell = getSpellByIdOrSlug(spellId, "RULES_2024");
 
   if (!spell) {
     notFound();

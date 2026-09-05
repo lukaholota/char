@@ -166,7 +166,7 @@ const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }
             <div
               role="button"
               tabIndex={0}
-              className="flex flex-col items-center rounded-lg border border-white/10 bg-white/5 p-2 cursor-pointer hover:bg-white/7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/30"
+              className="flex flex-col items-center rounded-lg border border-white/10 bg-white/5 p-2 cursor-pointer hover:bg-white/7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arcane-400/30"
               onClick={() => setOpenKey((prev) => (prev === attr.key ? null : attr.key))}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
@@ -418,7 +418,7 @@ export const NameForm = ({
               id="name"
               placeholder={currentName || "Наприклад, Аравор"}
               {...form.register('name')}
-              className="w-full border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
+              className="w-full border-white/10 bg-white/5 text-white focus-visible:ring-arcane-400/30"
             />
             {currentName ? (
               <p className="text-xs text-slate-500">

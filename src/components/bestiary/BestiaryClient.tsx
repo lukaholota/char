@@ -2,19 +2,52 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { Ruleset } from "@prisma/client";
-import { Eye, ExternalLink } from "lucide-react";
-import { ModeLink as Link } from "@/components/no-ai/ModeLink";
+import { Eye, Printer, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  CreatureData,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  type CreatureIndexEntry,
+  collectCreatureCRs,
+  collectCreatureSizes,
+  collectCreatureTypes,
   findEditionLabel,
-  getAllCreatures,
-  getAllCreatureTypes,
-  getAllCreatureSizes,
-  getAllCreatureCRs,
-} from "@/lib/bestiaryData";
+  matchesCreatureSelection,
+} from "@/lib/bestiary-index";
+import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
+import type { CreatureData } from "@/lib/bestiaryData";
+import { useCreatureStatblock } from "@/hooks/useCreatureStatblock";
+import { CreatureMedallion } from "@/components/bestiary/CreatureMedallion";
 import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
 import { BestiaryFilterDialog } from "@/components/bestiary/BestiaryFilterDialog";
+import {
+  WildshapeAddFormButton,
+  WildshapeFilterSection,
+  WildshapeRowNote,
+} from "@/components/bestiary/BestiaryWildshapePicking";
+import { useDeepSearchMatches, useShuffleSeed } from "@/components/bestiary/useCreatureListing";
+import { type WildshapePicking, useWildshapePicking } from "@/components/bestiary/useWildshapePicking";
+import { BestiarySortMenu } from "@/components/bestiary/BestiarySortMenu";
+import {
+  DEFAULT_CREATURE_SORT,
+  parseCreatureSortMode,
+  sortCreatureIndex,
+  type CreatureSortMode,
+} from "@/lib/bestiary-sort";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -27,86 +60,80 @@ import { getCreatureVisual } from "@/components/catalogs/catalog-visuals";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { cn } from "@/lib/utils";
 
-type InitialSearchParams = Record<string, string | string[] | undefined>;
-
 type SelectionState = {
   types: Set<string>;
   sizes: Set<string>;
   crs: Set<string>;
-  sources: Set<string>;
+  source: SourceSelection;
+  moves: Set<string>;
   q: string;
   creature: string;
+  sort: CreatureSortMode;
 };
 
 const parseSelection = (params: URLSearchParams): SelectionState => {
   const types = getParamSet(params, "type");
   const sizes = getParamSet(params, "size");
   const crs = getParamSet(params, "cr");
-  const sources = getParamSet(params, "src");
+  const source = parseSourceSelection(params);
+  const moves = getParamSet(params, "move");
   const q = params.get("q") || "";
   const creature = params.get("creature") || "";
-  return { types, sizes, crs, sources, q, creature };
+  const sort = parseCreatureSortMode(params.get("sort"));
+  return { types, sizes, crs, source, moves, q, creature, sort };
 };
 
 type Props = {
   ruleset?: Ruleset;
-  initialSearchParams?: InitialSearchParams;
+  index: CreatureIndexEntry[];
+  initialCreature: CreatureData | null;
 };
 
-export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {} }: Props) {
+export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature }: Props) {
   const is2024 = ruleset === "RULES_2024";
   const editionLabel = findEditionLabel(ruleset);
-  const creatures = useMemo(() => getAllCreatures(ruleset), [ruleset]);
 
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [selectedModalCreature, setSelectedModalCreature] = useState<CreatureData | null>(null);
+  const [modalCreature, setModalCreature] = useState<CreatureIndexEntry | null>(null);
+  const [printKeys, setPrintKeys] = useState<string[]>([]);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
     parseSelection
   );
 
-  const filtered = useMemo(() => {
-    const q = selection.q.trim().toLowerCase();
-    return creatures.filter((c) => {
-      if (q) {
-        const hay = `${c.name} ${c.nameEng} ${c.type} ${c.size} ${c.description} ${c.specialAbilities} ${c.actions}`.toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
+  const deepMatchKeys = useDeepSearchMatches(selection.q, ruleset);
+  const wildshape = useWildshapePicking(ruleset);
 
-      if (selection.types.size > 0 && (!c.type || !selection.types.has(c.type.split("(")[0].trim()))) {
-        return false;
-      }
+  const filtered = useMemo(
+    () =>
+      index.filter(
+        (entry) => matchesCreatureSelection(entry, selection, deepMatchKeys) && wildshape.matches(entry)
+      ),
+    [index, selection, deepMatchKeys, wildshape]
+  );
 
-      if (selection.sizes.size > 0 && (!c.size || !selection.sizes.has(c.size))) {
-        return false;
-      }
+  const shuffleSeed = useShuffleSeed();
 
-      if (selection.crs.size > 0 && (!c.challenge || !selection.crs.has(c.challenge))) {
-        return false;
-      }
-
-      if (selection.sources.size > 0 && !selection.sources.has(c.source)) {
-        return false;
-      }
-
-      return true;
-    });
-  }, [creatures, selection]);
+  const ordered = useMemo(
+    () => sortCreatureIndex(filtered, selection.sort, shuffleSeed),
+    [filtered, selection.sort, shuffleSeed]
+  );
 
   const selectedCreature = useMemo(() => {
     if (selection.creature) {
-      const byParam = creatures.find(
-        (c) =>
-          String(c.creatureId) === selection.creature ||
-          toEntitySlug(c.nameEng) === toEntitySlug(selection.creature) ||
-          c.nameEng.toLowerCase() === selection.creature.toLowerCase() ||
-          c.name.toLowerCase() === selection.creature.toLowerCase()
+      const byParam = index.find(
+        (entry) =>
+          String(entry.creatureId) === selection.creature ||
+          entry.key === toEntitySlug(selection.creature) ||
+          entry.nameEng.toLowerCase() === selection.creature.toLowerCase() ||
+          entry.name.toLowerCase() === selection.creature.toLowerCase()
       );
       if (byParam) return byParam;
     }
-    return filtered[0] ?? null;
-  }, [filtered, selection.creature, creatures]);
+    return ordered[0] ?? null;
+  }, [ordered, selection.creature, index]);
+
+  const statblock = useCreatureStatblock(selectedCreature?.key ?? null, ruleset, initialCreature);
 
   const setParams = useCallback((mutate: (next: URLSearchParams) => void) => {
     const next = getSearchParamsFromLocation();
@@ -114,66 +141,104 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
     replaceUrlSearchParams(next);
   }, []);
 
-  const toggleType = (type: string) => {
+  const toggleParamValue = (key: string, value: string) => {
     setParams((next) => {
-      const set = getParamSet(next, "type");
-      if (set.has(type)) set.delete(type);
-      else set.add(type);
-      setParamSet(next, "type", set);
+      const set = getParamSet(next, key);
+      if (set.has(value)) set.delete(value);
+      else set.add(value);
+      setParamSet(next, key, set);
     });
   };
 
-  const toggleSize = (size: string) => {
+  const changeSort = (mode: CreatureSortMode) => {
     setParams((next) => {
-      const set = getParamSet(next, "size");
-      if (set.has(size)) set.delete(size);
-      else set.add(size);
-      setParamSet(next, "size", set);
-    });
-  };
-
-  const toggleCR = (cr: string) => {
-    setParams((next) => {
-      const set = getParamSet(next, "cr");
-      if (set.has(cr)) set.delete(cr);
-      else set.add(cr);
-      setParamSet(next, "cr", set);
+      if (mode === DEFAULT_CREATURE_SORT) next.delete("sort");
+      else next.set("sort", mode);
     });
   };
 
   const clearFilters = () => {
+    wildshape.showOnlyEligible(false);
     setParams((next) => {
       next.delete("type");
       next.delete("size");
       next.delete("cr");
-      next.delete("src");
+      next.delete("move");
+      clearSourceParams(next);
     });
   };
 
-  const hasActiveFilters =
-    selection.types.size > 0 ||
-    selection.sizes.size > 0 ||
-    selection.crs.size > 0 ||
-    selection.sources.size > 0;
+  const activeFiltersCount =
+    selection.types.size +
+    selection.sizes.size +
+    selection.crs.size +
+    selection.moves.size +
+    countSourceFilters(selection.source) +
+    (wildshape.filter.onlyEligible ? 1 : 0);
+  const hasActiveFilters = activeFiltersCount > 0;
 
-  const availableTypes = useMemo(() => getAllCreatureTypes(ruleset), [ruleset]);
-  const availableSizes = useMemo(() => getAllCreatureSizes(ruleset), [ruleset]);
-  const availableCRs = useMemo(() => getAllCreatureCRs(ruleset), [ruleset]);
+  const availableTypes = useMemo(() => collectCreatureTypes(index), [index]);
+  const availableSizes = useMemo(() => collectCreatureSizes(index), [index]);
+  const availableCRs = useMemo(() => collectCreatureCRs(index), [index]);
+  const availableSources = useMemo(() => collectCatalogSources(index), [index]);
 
-  const prefix = is2024 ? "/2024" : "";
+  const printCreatures = () => {
+    if (printKeys.length === 0) return;
+    const keys = encodeURIComponent(printKeys.join(","));
+    window.open(
+      `/api/bestiary/print?ruleset=${ruleset}&keys=${keys}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
   return (
-    <ContentListPage<CreatureData>
+    <ContentListPage<CreatureIndexEntry>
       title="Бестіарій"
       is2024={is2024}
       searchQuery={qInput}
       onSearchChange={setQInput}
       searchPlaceholder="Пошук істот..."
       hasActiveFilters={hasActiveFilters}
-      activeFiltersCount={selection.types.size + selection.sizes.size + selection.crs.size}
+      activeFiltersCount={activeFiltersCount}
       onOpenFilters={() => setFiltersOpen(true)}
       onClearFilters={clearFilters}
-      data={filtered}
+      headerActions={
+        <div className="flex items-center gap-2">
+          <BestiarySortMenu mode={selection.sort} onChange={changeSort} is2024={is2024} />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="h-9 gap-1.5 rounded-xl border-white/10 bg-slate-900/60 text-xs"
+                disabled={printKeys.length === 0}
+              >
+                <Printer className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Друк</span>
+                <span className="text-xs text-slate-400">({printKeys.length})</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuLabel>Обрано істот: {printKeys.length}</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={printCreatures} className="cursor-pointer gap-2">
+                <Printer className="h-4 w-4" />
+                <span>Друкувати</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => setPrintKeys([])}
+                className="cursor-pointer gap-2 text-red-300 focus:bg-red-500/10 focus:text-red-300"
+              >
+                <Trash2 className="h-4 w-4" />
+                <span>Очистити список</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      }
+      data={ordered}
       emptyState={
         <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
           <Eye className="h-10 w-10 text-slate-600 mb-2" />
@@ -188,8 +253,8 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
       }
       renderItem={(_index, creature) => {
         const isSelected = selectedCreature?.creatureId === creature.creatureId;
+        const isSelectedForPrint = printKeys.includes(creature.key);
         const visual = getCreatureVisual(creature.type);
-        const Icon = visual.icon;
 
         return (
           <div key={creature.creatureId} className="pt-2.5 pb-0.5 px-0.5">
@@ -197,7 +262,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
               onClick={() => {
                 setParams((next) => next.set("creature", toEntitySlug(creature.nameEng)));
                 if (typeof window !== "undefined" && window.innerWidth < 1024) {
-                  setSelectedModalCreature(creature);
+                  setModalCreature(creature);
                 }
               }}
               className={cn(
@@ -205,42 +270,31 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
                 isSelected
                   ? is2024
                     ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
               <div className="flex items-center gap-3.5">
-                {/* Left creature token / icon box */}
-                <div
-                  className={cn(
-                    "flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-slate-950/70 overflow-hidden shadow-inner",
-                    visual.iconWrap
-                  )}
-                >
-                  <Icon className={cn("h-7 w-7 sm:h-8 sm:w-8", visual.iconColor)} />
-                </div>
+                <CreatureMedallion creature={creature} visual={visual} />
 
                 {/* Center creature info */}
-                <div className="min-w-0 flex-1">
+                <div className="min-w-0 flex-1 self-center">
                   <div className="flex items-baseline justify-between gap-2">
-                    <span
-                      className={cn(
-                        "truncate text-base sm:text-[17px] font-semibold transition-colors",
-                        isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
-                          : "text-slate-100 group-hover:text-white"
+                    <div className="min-w-0">
+                      <span
+                        className={cn(
+                          "block truncate text-base sm:text-[17px] font-semibold transition-colors",
+                          isSelected
+                            ? is2024 ? "text-amber-300" : "text-arcane-300"
+                            : "text-slate-100 group-hover:text-white"
+                        )}
+                      >
+                        {creature.name}
+                      </span>
+                      {creature.nameEng && (
+                        <span className="block truncate text-sm text-slate-400">[{creature.nameEng}]</span>
                       )}
-                    >
-                      {creature.name} {creature.nameEng && <span className="font-normal text-slate-400 text-sm ml-1">[{creature.nameEng}]</span>}
-                    </span>
-                    <Link
-                      href={`${prefix}/bestiary/${toEntitySlug(creature.nameEng)}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="hidden sm:inline-flex p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/10 transition"
-                      title="Відкрити окрему сторінку"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                    </Link>
+                    </div>
                   </div>
 
                   <div className="mt-2 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-xs text-slate-400">
@@ -249,7 +303,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
                         "rounded-md px-1.5 py-0.5 text-[11px] font-bold border",
                         is2024
                           ? "border-amber-500/40 bg-amber-500/10 text-amber-300"
-                          : "border-teal-500/40 bg-teal-500/10 text-teal-300"
+                          : "border-arcane-500/40 bg-arcane-500/10 text-arcane-300"
                       )}
                     >
                       {editionLabel}
@@ -276,7 +330,28 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
                     {creature.ac && <span className="text-slate-300">КБ {creature.ac}</span>}
                     {creature.hp && <span className="text-slate-300">ХП {creature.hp}</span>}
                   </div>
+
+                  <WildshapeRowNote creature={creature} wildshape={wildshape} />
                 </div>
+
+                <button
+                  type="button"
+                  className={cn(
+                    "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-arcane-300",
+                    isSelectedForPrint && "bg-arcane-500/10 text-arcane-300"
+                  )}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setPrintKeys((current) =>
+                      current.includes(creature.key)
+                        ? current.filter((key) => key !== creature.key)
+                        : [...current, creature.key]
+                    );
+                  }}
+                  aria-label={isSelectedForPrint ? "Прибрати з друку" : "Додати до друку"}
+                >
+                  <Printer className="h-4 w-4" />
+                </button>
               </div>
             </div>
           </div>
@@ -285,16 +360,12 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
       desktopDetailView={
         selectedCreature ? (
           <div className="space-y-3">
-            <div className="flex justify-end px-1">
-              <Link
-                href={`${prefix}/bestiary/${toEntitySlug(selectedCreature.nameEng)}`}
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-slate-200 transition"
-              >
-                <span>Окрема сторінка</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-            <CreatureStatblockCard creature={selectedCreature} is2024={is2024} />
+            <StatblockPanel
+              creature={selectedCreature}
+              statblock={statblock}
+              is2024={is2024}
+              wildshape={wildshape}
+            />
           </div>
         ) : (
           <div className="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
@@ -302,21 +373,12 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
           </div>
         )
       }
-      selectedModalItem={selectedModalCreature}
-      onCloseModal={() => setSelectedModalCreature(null)}
-      modalTitle={selectedModalCreature?.name || "Статблок істоти"}
+      selectedModalItem={modalCreature}
+      onCloseModal={() => setModalCreature(null)}
+      modalTitle={modalCreature?.name || "Статблок істоти"}
       renderModalContent={(creature) => (
         <div className="space-y-3">
-          <div className="flex justify-end px-1">
-            <Link
-              href={`${prefix}/bestiary/${toEntitySlug(creature.nameEng)}`}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-slate-200 transition"
-            >
-              <span>Повна сторінка істоти</span>
-              <ExternalLink className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-          <CreatureStatblockCard creature={creature} is2024={is2024} />
+          <StatblockPanel creature={creature} statblock={statblock} is2024={is2024} wildshape={wildshape} />
         </div>
       )}
       filterDialogOpen={filtersOpen}
@@ -328,17 +390,67 @@ export function BestiaryClient({ ruleset = "RULES_2014", initialSearchParams = {
           is2024={is2024}
           availableTypes={availableTypes}
           selectedTypes={selection.types}
-          toggleType={toggleType}
+          toggleType={(type) => toggleParamValue("type", type)}
           availableSizes={availableSizes}
           selectedSizes={selection.sizes}
-          toggleSize={toggleSize}
+          toggleSize={(size) => toggleParamValue("size", size)}
           availableCRs={availableCRs}
           selectedCRs={selection.crs}
-          toggleCR={toggleCR}
+          toggleCR={(cr) => toggleParamValue("cr", cr)}
+          availableSources={availableSources}
+          sourceSelection={selection.source}
+          toggleSource={(source) => setParams((next) => toggleSourceParam(next, source))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
+          selectedMoves={selection.moves}
+          toggleMove={(move) => toggleParamValue("move", move)}
           clearFilters={clearFilters}
+          extraSection={
+            <WildshapeFilterSection
+              characters={wildshape.characters}
+              standing={wildshape.standing}
+              persId={wildshape.filter.persId}
+              onlyEligible={wildshape.filter.onlyEligible}
+              onSelectPers={wildshape.selectPers}
+              onShowOnlyEligible={wildshape.showOnlyEligible}
+            />
+          }
         />
       }
     />
   );
 }
 
+function StatblockPanel({
+  creature,
+  statblock,
+  is2024,
+  wildshape,
+}: {
+  creature: CreatureIndexEntry;
+  statblock: CreatureData | null;
+  is2024: boolean;
+  wildshape: WildshapePicking;
+}) {
+  const eligibility = wildshape.findEligibility(creature);
+
+  return (
+    <div className="space-y-3">
+      {eligibility && (
+        <WildshapeAddFormButton
+          eligibility={eligibility}
+          isAttached={wildshape.isAttached(creature)}
+          isPending={wildshape.isAdding}
+          onAdd={() => wildshape.addForm(creature)}
+        />
+      )}
+
+      {statblock && statblock.creatureId === creature.creatureId ? (
+        <CreatureStatblockCard creature={statblock} is2024={is2024} />
+      ) : (
+        <div className="flex h-40 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
+          <p className="text-sm text-slate-400">Завантаження статблоку {creature.name}…</p>
+        </div>
+      )}
+    </div>
+  );
+}

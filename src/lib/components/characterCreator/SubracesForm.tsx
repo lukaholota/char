@@ -56,6 +56,7 @@ export const SubracesForm = ({ race, formId, onNextDisabledChange }: Props) => {
               englishTitle={engName}
               visual={getRaceVisual(sr.name || race.name)}
               isSelected={sr.subraceId === chosenSubraceId}
+              is2024={race.ruleset === "RULES_2024"}
               sourceCode={sr.source}
               infoModal={<SubraceInfoModal subrace={sr} />}
               onClick={(e) => {

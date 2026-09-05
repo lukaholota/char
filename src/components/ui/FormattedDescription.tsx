@@ -5,36 +5,10 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
-
-function extractSpellIdFromHref(href: string | undefined): string | null {
-  if (!href) return null;
-
-  const trimmed = href.trim();
-  if (!trimmed) return null;
-
-  if (trimmed.startsWith("spell:")) {
-    const value = trimmed.slice("spell:".length).trim();
-    return /^\d+$/.test(value) ? value : null;
-  }
-
-  try {
-    const url = new URL(trimmed, "https://local.invalid");
-    const spell = url.searchParams.get("spell");
-    if (spell && /^\d+$/.test(spell)) return spell;
-
-    const parts = url.pathname.split("/").filter(Boolean);
-    const idxSpell = parts.findIndex((p) => p === "spell" || p === "spells");
-    const candidate = idxSpell >= 0 ? parts[idxSpell + 1] : null;
-    return candidate && /^\d+$/.test(candidate) ? candidate : null;
-  } catch {
-    const withoutHash = trimmed.split("#")[0];
-    const withoutQuery = withoutHash.split("?")[0];
-    const parts = withoutQuery.split("/").filter(Boolean);
-    const idxSpell = parts.findIndex((p) => p === "spell" || p === "spells");
-    const candidate = idxSpell >= 0 ? parts[idxSpell + 1] : null;
-    return candidate && /^\d+$/.test(candidate) ? candidate : null;
-  }
-}
+import { expandGlossaryMarkersToHtml } from "@/lib/refs/glossary-marker";
+import { GlossaryTerm } from "@/components/ui/GlossaryTerm";
+import { buildSpellHref, findSpellLinkInHref, openSpellLink } from "@/lib/spell-link";
+import { useNoAiHref } from "@/components/no-ai/NoAiModeProvider";
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -59,11 +33,13 @@ const sanitizeSchema = {
       "tr",
       "th",
       "td",
+      "abbr",
     ])
   ),
   attributes: {
     ...(defaultSchema.attributes ?? {}),
     a: ["href", "title", "target", "rel"],
+    abbr: ["title"],
   },
 } as const;
 
@@ -90,22 +66,7 @@ export function FormattedDescription({
   content?: string | null;
   className?: string;
 }) {
-  const dispatchLocationChangeAsync = () => {
-    if (typeof window === "undefined") return;
-    const fire = () => window.dispatchEvent(new Event("locationchange"));
-    if (typeof queueMicrotask === "function") queueMicrotask(fire);
-    else window.setTimeout(fire, 0);
-  };
-
-  const openSpell = (spellId: string) => {
-    if (typeof window === "undefined") return;
-
-    const url = new URL(window.location.href);
-    url.searchParams.set("spell", spellId);
-    window.history.pushState({}, "", url);
-    window.dispatchEvent(new CustomEvent("spell:open", { detail: { spellId } }));
-    dispatchLocationChangeAsync();
-  };
+  const buildNoAiHref = useNoAiHref();
 
   return (
     <div className={className}>
@@ -113,15 +74,15 @@ export function FormattedDescription({
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
         components={{
-          strong: ({ children }) => <span className="font-semibold text-teal-400">{children}</span>,
+          strong: ({ children }) => <span className="font-semibold text-arcane-400">{children}</span>,
           a: ({ href, children }) => {
-            const spellId = extractSpellIdFromHref(href);
+            const spellLink = findSpellLinkInHref(href);
 
-            if (!spellId) {
+            if (!spellLink) {
               return (
                 <a
                   href={href}
-                  className="text-teal-400 underline underline-offset-2 hover:text-teal-300"
+                  className="text-arcane-400 underline underline-offset-2 hover:text-arcane-300"
                   target={href?.startsWith("http") ? "_blank" : undefined}
                   rel={href?.startsWith("http") ? "noreferrer" : undefined}
                 >
@@ -132,13 +93,13 @@ export function FormattedDescription({
 
             return (
               <a
-                href={href}
-                className="text-teal-400 underline underline-offset-2 hover:text-teal-300"
+                href={buildNoAiHref(buildSpellHref(spellLink))}
+                className="text-arcane-400 underline underline-offset-2 hover:text-arcane-300"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
 
-                  openSpell(String(spellId));
+                  openSpellLink(spellLink);
                 }}
               >
                 {children}
@@ -160,9 +121,10 @@ export function FormattedDescription({
             <th className="border border-slate-600 px-3 py-2 text-left font-semibold text-inherit">{children}</th>
           ),
           td: ({ children }) => <td className="border border-slate-600 px-3 py-2 text-inherit">{children}</td>,
+          abbr: ({ title, children }) => <GlossaryTerm original={title ?? ""}>{children}</GlossaryTerm>,
         }}
       >
-        {preserveSingleLineBreaks(content)}
+        {expandGlossaryMarkersToHtml(preserveSingleLineBreaks(content))}
       </ReactMarkdown>
     </div>
   );

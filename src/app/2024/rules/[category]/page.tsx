@@ -6,8 +6,12 @@ import {
   getAllConditions,
   RuleCategoryKey,
 } from "@/lib/rulesData";
-import { getRuleArticles2024ByCategory, SRD_2024_ATTRIBUTION } from "@/lib/rules2024Data";
+import { getConditions2024, getRuleArticles2024ByCategory, SRD_2024_ATTRIBUTION } from "@/lib/rules2024Data";
+import { buildRulesTocIndex } from "@/lib/rulesToc";
+import { getTrapsHazards } from "@/lib/trapsHazardsData";
+import { getObjects } from "@/lib/objectsData";
 import { RulesCategoryClient } from "@/components/rules/RulesCategoryClient";
+import { SrdAttribution } from "@/components/rules/SrdAttribution";
 
 export async function generateStaticParams() {
   const categories = getAllRuleCategories();
@@ -48,37 +52,24 @@ export default async function Rules2024CategoryPage({
 
   const allCategories = getAllRuleCategories();
   const articles = getRuleArticles2024ByCategory(catKey as RuleCategoryKey);
-  const conditions = catKey === "conditions" ? getAllConditions("RULES_2024") : [];
+  const tocIndex = buildRulesTocIndex(allCategories, getRuleArticles2024ByCategory);
+  const conditions = catKey === "conditions" ? getConditions2024() : [];
+  const trapsHazards = catKey === "gamemaster" ? getTrapsHazards("RULES_2024") : [];
+  const objects = catKey === "gamemaster" ? getObjects("RULES_2024") : [];
 
   return (
     <>
       <RulesCategoryClient
         category={category}
         allCategories={allCategories}
+        tocIndex={tocIndex}
         articles={articles}
         conditions={conditions}
+        trapsHazards={trapsHazards}
+        objects={objects}
         ruleset="RULES_2024"
       />
-      <p className="mx-auto max-w-7xl px-4 pb-10 text-center text-xs text-slate-500">
-        {SRD_2024_ATTRIBUTION.text}{" "}
-        <a
-          href={SRD_2024_ATTRIBUTION.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-slate-300"
-        >
-          {SRD_2024_ATTRIBUTION.sourceName}
-        </a>
-        {" · "}
-        <a
-          href={SRD_2024_ATTRIBUTION.licenseUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-slate-300"
-        >
-          {SRD_2024_ATTRIBUTION.licenseName}
-        </a>
-      </p>
+      <SrdAttribution attribution={SRD_2024_ATTRIBUTION} />
     </>
   );
 }

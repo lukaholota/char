@@ -57,19 +57,19 @@
 
     /* Selected state glow (inner + outer) */
     .glass-active {
-        @apply bg-blue-500/15 border-blue-400/60;
+        @apply bg-arcane-500/15 border-arcane-400/60;
         box-shadow:
-            0 0 0 1px rgba(96, 165, 250, 0.3),
-            0 4px 24px -4px rgba(59, 130, 246, 0.5),
-            inset 0 0 20px rgba(96, 165, 250, 0.1);
+            0 0 0 1px rgba(141, 99, 238, 0.3),
+            0 4px 24px -4px rgba(117, 71, 225, 0.5),
+            inset 0 0 20px rgba(141, 99, 238, 0.1);
     }
 
     .glass-active:hover {
-        @apply bg-blue-500/20 border-blue-400/80;
+        @apply bg-arcane-500/20 border-arcane-400/70;
         box-shadow:
-            0 0 0 1px rgba(96, 165, 250, 0.5),
-            0 6px 28px -4px rgba(59, 130, 246, 0.6),
-            inset 0 0 24px rgba(96, 165, 250, 0.15);
+            0 0 0 1px rgba(141, 99, 238, 0.35),
+            0 5px 25px -5px rgba(117, 71, 225, 0.52),
+            inset 0 0 21px rgba(141, 99, 238, 0.11);
     }
 
     .border-gradient-rpg {
@@ -77,7 +77,7 @@
     }
 
     .border-gradient-rpg-active {
-        @apply border-blue-400/60;
+        @apply border-arcane-400/60;
     }
 }
 
@@ -113,26 +113,27 @@
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
     }
+  /* Hues follow src/styles/palette.ts — same lightness as the navy set they replaced. */
   .dark {
-        --background: 222.2 84% 4.9%;
-        --foreground: 210 40% 98%;
-        --card: 222.2 84% 4.9%;
-        --card-foreground: 210 40% 98%;
-        --popover: 222.2 84% 4.9%;
-        --popover-foreground: 210 40% 98%;
-        --primary: 210 40% 98%;
-        --primary-foreground: 222.2 47.4% 11.2%;
-        --secondary: 217.2 32.6% 17.5%;
-        --secondary-foreground: 210 40% 98%;
-        --muted: 217.2 32.6% 17.5%;
-        --muted-foreground: 215 20.2% 65.1%;
-        --accent: 217.2 32.6% 17.5%;
-        --accent-foreground: 210 40% 98%;
+        --background: 265 28% 5%;
+        --foreground: 264 26% 98%;
+        --card: 265 28% 5%;
+        --card-foreground: 264 26% 98%;
+        --popover: 265 28% 5%;
+        --popover-foreground: 264 26% 98%;
+        --primary: 264 26% 98%;
+        --primary-foreground: 263 30% 11%;
+        --secondary: 262 22% 18%;
+        --secondary-foreground: 264 26% 98%;
+        --muted: 262 22% 18%;
+        --muted-foreground: 260 14% 66%;
+        --accent: 262 22% 18%;
+        --accent-foreground: 264 26% 98%;
         --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
-        --ring: 212.7 26.8% 83.9%;
+        --destructive-foreground: 264 26% 98%;
+        --border: 262 22% 18%;
+        --input: 262 22% 18%;
+        --ring: 258 85% 75%;
         --chart-1: 220 70% 50%;
         --chart-2: 160 60% 45%;
         --chart-3: 30 80% 55%;
@@ -142,6 +143,15 @@
 }
 
 @layer base {
+  /* Браузер не знав, що тема темна: class="dark" — це Tailwind, а не сигнал рушію, тож macOS
+     малював світлий системний скролер поверх темної панелі. color-scheme каже це один раз на
+     весь застосунок, а scrollbar-color доводить повзунок до палітри. scrollbar-width навмисно
+     не задаємо: він перемикає macOS з накладного скролера на класичний, який забирає ширину. */
+  :root {
+    color-scheme: dark;
+    scrollbar-color: rgba(164, 156, 180, 0.35) transparent;
+  }
+
   body {
                 @apply bg-slate-950 text-slate-200;
   }
@@ -150,7 +160,7 @@
 @layer utilities {
     .custom-scrollbar {
         scrollbar-width: thin;
-        scrollbar-color: rgba(148, 163, 184, 0.35) rgba(2, 6, 23, 0.3);
+        scrollbar-color: rgba(164, 156, 180, 0.35) rgba(12, 9, 16, 0.3);
     }
 
     .custom-scrollbar::-webkit-scrollbar {
@@ -159,18 +169,18 @@
     }
 
     .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(2, 6, 23, 0.3);
+        background: rgba(12, 9, 16, 0.3);
         border-radius: 9999px;
     }
 
     .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(148, 163, 184, 0.35);
-        border: 2px solid rgba(2, 6, 23, 0.3);
+        background: rgba(164, 156, 180, 0.35);
+        border: 2px solid rgba(12, 9, 16, 0.3);
         border-radius: 9999px;
     }
 
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgba(148, 163, 184, 0.5);
+        background: rgba(164, 156, 180, 0.5);
     }
 }
 

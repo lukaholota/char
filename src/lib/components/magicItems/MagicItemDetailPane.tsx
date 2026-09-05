@@ -67,7 +67,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
               "font-sans text-xl font-semibold uppercase tracking-[0.16em] text-transparent bg-clip-text break-words whitespace-normal text-balance leading-tight",
               is2024
                 ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-                : "bg-gradient-to-r from-teal-400 to-violet-400"
+                : "bg-gradient-to-r from-arcane-400 to-violet-400"
             )}
           >
             {item.name}
@@ -101,7 +101,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
             {item.requiresAttunement && (
               <>
                 <span className="text-slate-500">•</span>
-                <span className={is2024 ? "text-amber-300/90" : "text-teal-300/80"}>
+                <span className={is2024 ? "text-amber-300/90" : "text-arcane-300/80"}>
                   {item.attunementConditionEng ? `Налаштування (${item.attunementConditionEng})` : "Потребує налаштування"}
                 </span>
               </>
@@ -116,20 +116,20 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
           {item.bonusToAC && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
               <div className="text-xs text-slate-400 uppercase tracking-wider">Бонус до КБ</div>
-              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-teal-300")}>+{item.bonusToAC}</div>
+              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-arcane-300")}>+{item.bonusToAC}</div>
               {item.noArmorOrShieldForACBonus && <div className="text-[10px] text-slate-500 leading-tight mt-1">Тільки без броні/щита</div>}
             </div>
           )}
           {item.bonusToRangedDamage && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
               <div className="text-xs text-slate-400 uppercase tracking-wider">Рендж шкода</div>
-              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-teal-300")}>+{item.bonusToRangedDamage}</div>
+              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-arcane-300")}>+{item.bonusToRangedDamage}</div>
             </div>
           )}
           {savingThrowsBonus !== null && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
               <div className="text-xs text-slate-400 uppercase tracking-wider">Рятівні кидки</div>
-              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-teal-300")}>+{savingThrowsBonus}</div>
+              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-arcane-300")}>+{savingThrowsBonus}</div>
             </div>
           )}
         </div>

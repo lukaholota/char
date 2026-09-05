@@ -7,10 +7,13 @@ import { Navigation } from "@/components/ui/Navigation";
 import { App } from "@/components/ui/App";
 import { Providers } from "@/app/providers";
 import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
+import { TermInfoModal } from "@/components/rules/TermInfoModal";
 import { OmniSearchDialog } from "@/components/search/OmniSearchDialog";
 import { DiceOverlay } from "@/lib/components/dice/DiceOverlay";
 import { DiceSidebar } from "@/lib/components/dice/DiceSidebar";
 import { RootGrid } from "@/components/ui/RootGrid";
+import { PlatformBackdrop } from "@/components/ui/PlatformBackdrop";
+import { OfflineServiceWorker } from "@/components/ui/OfflineServiceWorker";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -48,6 +51,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  manifest: '/manifest.json',
+  // `follow: true` навмисне: щоб краулер побачив noindex на решті сторінок, він мусить дійти до
+  // них посиланнями. `nofollow` тут сповільнив би саме те, заради чого це стоїть.
+  robots: { index: false, follow: true },
   title: 'ДнД українською',
   description: 'char.holota.family - твій особистий помічник у світі днд! Створюй персонажа, знаходь заклинання, магічні предмети та кидай кубики прямо на сайті!',
   icons: {
@@ -84,30 +91,8 @@ export default function RootLayout(
       data-website-id="527c4413-3d86-4a9e-a886-a9e2548838c3"
       strategy="afterInteractive"
     />
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute inset-0 bg-slate-950" />
-      {/* Mesh gradient layers */}
-      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-950/55 via-purple-950/10 to-transparent blur-3xl" />
-      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-950/45 via-indigo-950/0 to-transparent blur-3xl" />
-      <div className="absolute -inset-[30%] bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-indigo-950/45 via-slate-950/0 to-transparent blur-3xl" />
-
-      {/* Noise overlay via SVG turbulence */}
-      <svg
-        className="absolute inset-0 h-full w-full opacity-[0.05] mix-blend-overlay"
-        aria-hidden="true"
-      >
-        <filter id="rpg-noise">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.85"
-            numOctaves="3"
-            stitchTiles="stitch"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#rpg-noise)" />
-      </svg>
-    </div>
+    <PlatformBackdrop />
+    <OfflineServiceWorker />
     <Providers>
       <Suspense fallback={null}>
         <RootGrid>
@@ -117,6 +102,7 @@ export default function RootLayout(
       </Suspense>
       <Suspense fallback={null}>
         <SpellInfoModal />
+        <TermInfoModal />
       </Suspense>
       <OmniSearchDialog />
       {/* Dice overlay - mounted globally, stays on top of everything */}

@@ -1,8 +1,20 @@
 "use client";
 
-import React, { useCallback, useMemo, useRef, useState, useTransition } from "react";
+import React, {
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -122,21 +134,31 @@ function stopCardKeyDown(e: React.KeyboardEvent) {
 }
 
 const FOLDER_COLORS = [
-  { name: "Sky", value: "#38bdf8" }, { name: "Mint", value: "#34d399" }, { name: "Amber", value: "#fbbf24" },
-  { name: "Rose", value: "#fb7185" }, { name: "Violet", value: "#a78bfa" }, { name: "Slate", value: "#94a3b8" },
-  { name: "Lime", value: "#a3e635" }, { name: "Teal", value: "#2dd4bf" },
+  { name: "Sky", value: "#38bdf8" },
+  { name: "Mint", value: "#34d399" },
+  { name: "Amber", value: "#fbbf24" },
+  { name: "Rose", value: "#fb7185" },
+  { name: "Violet", value: "#a78bfa" },
+  { name: "Slate", value: "#94a3b8" },
+  { name: "Lime", value: "#a3e635" },
+  { name: "Teal", value: "#2dd4bf" },
 ];
 
 const LEVEL_OPTIONS = Array.from({ length: 20 }, (_, idx) => String(idx + 1));
 const LONG_PRESS_MS = 220;
 
-function sortByPinnedThenName<T extends { name: string; isPinned?: boolean }>(a: T, b: T) {
+function sortByPinnedThenName<T extends { name: string; isPinned?: boolean }>(
+  a: T,
+  b: T,
+) {
   const pinDiff = Number(Boolean(b.isPinned)) - Number(Boolean(a.isPinned));
   if (pinDiff !== 0) return pinDiff;
   return a.name.localeCompare(b.name, "uk");
 }
 
-function sortByPinnedThenPersId<T extends { persId: number; isPinned?: boolean }>(a: T, b: T) {
+function sortByPinnedThenPersId<
+  T extends { persId: number; isPinned?: boolean },
+>(a: T, b: T) {
   const pinDiff = Number(Boolean(b.isPinned)) - Number(Boolean(a.isPinned));
   if (pinDiff !== 0) return pinDiff;
   return b.persId - a.persId;
@@ -212,8 +234,11 @@ function FolderCard({
     }
   };
 
-
-  const { ref: deleteRef, isConfirming, onClick: onConfirmClick } = useTwoStepConfirm<HTMLButtonElement>({
+  const {
+    ref: deleteRef,
+    isConfirming,
+    onClick: onConfirmClick,
+  } = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: () => onDelete(folder.folderId),
   });
 
@@ -223,13 +248,12 @@ function FolderCard({
   const accentSoft = `${accent}22`;
   const accentStrong = `${accent}55`;
 
-
   return (
     <Card
       className={cn(
         "h-full transition-shadow cursor-pointer relative group glass-card border hover:shadow-lg overflow-hidden select-none",
         selectionMode && "ring-1 ring-white/20",
-        isSelected && "ring-2 ring-teal-400/70"
+        isSelected && "ring-2 ring-arcane-400/70",
       )}
       role="button"
       tabIndex={0}
@@ -265,7 +289,9 @@ function FolderCard({
     >
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: `linear-gradient(135deg, ${accentSoft}, transparent 60%)` }}
+        style={{
+          background: `linear-gradient(135deg, ${accentSoft}, transparent 60%)`,
+        }}
       />
       <div className="absolute top-3 right-2 z-10">
         <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
@@ -292,8 +318,14 @@ function FolderCard({
               <Copy className="mr-2 h-4 w-4" />
               <span>Копіювати</span>
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => onTogglePin(folder.folderId, !folder.isPinned)}>
-              {folder.isPinned ? <PinOff className="mr-2 h-4 w-4" /> : <Pin className="mr-2 h-4 w-4" />}
+            <DropdownMenuItem
+              onClick={() => onTogglePin(folder.folderId, !folder.isPinned)}
+            >
+              {folder.isPinned ? (
+                <PinOff className="mr-2 h-4 w-4" />
+              ) : (
+                <Pin className="mr-2 h-4 w-4" />
+              )}
               <span>{folder.isPinned ? "Відкріпити" : "Закріпити"}</span>
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => onShare(folder)}>
@@ -320,7 +352,7 @@ function FolderCard({
         {selectionMode && (
           <div className="absolute left-4 top-4 z-10">
             {isSelected ? (
-              <CheckSquare className="h-5 w-5 text-teal-300" />
+              <CheckSquare className="h-5 w-5 text-arcane-300" />
             ) : (
               <Square className="h-5 w-5 text-slate-500" />
             )}
@@ -329,7 +361,10 @@ function FolderCard({
         <div className={cn("flex items-center gap-2", selectionMode && "pl-6")}>
           <div
             className="h-10 w-10 rounded-xl flex items-center justify-center"
-            style={{ backgroundColor: accentSoft, border: `1px solid ${accentStrong}` }}
+            style={{
+              backgroundColor: accentSoft,
+              border: `1px solid ${accentStrong}`,
+            }}
           >
             <FolderOpen className="h-5 w-5" style={{ color: accent }} />
           </div>
@@ -339,7 +374,9 @@ function FolderCard({
               {folder.isPinned && <Pin className="h-4 w-4 text-amber-300" />}
             </CardTitle>
             <CardDescription className="text-xs text-slate-400">
-              {stats.folderCount > 0 ? `${stats.folderCount} папок` : "Без підпапок"}
+              {stats.folderCount > 0
+                ? `${stats.folderCount} папок`
+                : "Без підпапок"}
             </CardDescription>
           </div>
         </div>
@@ -347,7 +384,9 @@ function FolderCard({
       <CardContent className="relative">
         <div className="flex items-center justify-between text-sm text-muted-foreground">
           <span>{stats.persCount} персонажів</span>
-          <span className="text-xs uppercase tracking-[0.12em] text-slate-500">Папка</span>
+          <span className="text-xs uppercase tracking-[0.12em] text-slate-500">
+            Папка
+          </span>
         </div>
       </CardContent>
     </Card>
@@ -426,10 +465,13 @@ function PersCard({
     }
   };
 
-
   useModalBackButton(menuOpen, () => setMenuOpen(false));
 
-  const { ref: deleteRef, isConfirming, onClick: onConfirmClick } = useTwoStepConfirm<HTMLButtonElement>({
+  const {
+    ref: deleteRef,
+    isConfirming,
+    onClick: onConfirmClick,
+  } = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: () => onDelete(pers.persId),
   });
 
@@ -439,11 +481,10 @@ function PersCard({
     router.push(target);
   }, [linkResolver, pers, router]);
 
-
   const handleRename = useCallback(() => {
     const next = renameValue.trim();
     if (!next) {
-      toast.error("Ім'я не може бути порожнім");
+      toast.error("Імʼя не може бути порожнім");
       return;
     }
 
@@ -458,7 +499,7 @@ function PersCard({
       className={cn(
         "h-full transition-shadow cursor-pointer relative group glass-card border-white/10 hover:shadow-lg select-none",
         selectionMode && "ring-1 ring-white/20",
-        isSelected && "ring-2 ring-teal-400/70"
+        isSelected && "ring-2 ring-arcane-400/70",
       )}
       role="link"
       tabIndex={0}
@@ -501,12 +542,12 @@ function PersCard({
               <MoreVertical className="h-5 w-5" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent 
-            align="end" 
+          <DropdownMenuContent
+            align="end"
             className="glass-card border-white/10 text-slate-200"
             onClick={stopCardClick}
           >
-            <DropdownMenuItem 
+            <DropdownMenuItem
               onClick={() => {
                 setRenameValue(pers.name);
                 setRenameOpen(true);
@@ -515,7 +556,7 @@ function PersCard({
               <Pencil className="mr-2 h-4 w-4" />
               <span>Перейменувати</span>
             </DropdownMenuItem>
-            
+
             <DropdownMenuItem onClick={() => onDuplicate(pers.persId)}>
               <Copy className="mr-2 h-4 w-4" />
               <span>Копіювати</span>
@@ -526,8 +567,14 @@ function PersCard({
               <span>Перемістити</span>
             </DropdownMenuItem>
 
-            <DropdownMenuItem onClick={() => onTogglePin(pers.persId, !pers.isPinned)}>
-              {pers.isPinned ? <PinOff className="mr-2 h-4 w-4" /> : <Pin className="mr-2 h-4 w-4" />}
+            <DropdownMenuItem
+              onClick={() => onTogglePin(pers.persId, !pers.isPinned)}
+            >
+              {pers.isPinned ? (
+                <PinOff className="mr-2 h-4 w-4" />
+              ) : (
+                <Pin className="mr-2 h-4 w-4" />
+              )}
               <span>{pers.isPinned ? "Відкріпити" : "Закріпити"}</span>
             </DropdownMenuItem>
 
@@ -550,7 +597,7 @@ function PersCard({
 
             <DropdownMenuSeparator className="bg-white/5" />
 
-            <DropdownMenuItem 
+            <DropdownMenuItem
               ref={deleteRef as any}
               className="text-red-400 focus:text-red-400"
               onSelect={(e) => {
@@ -566,7 +613,7 @@ function PersCard({
 
         {/* Action Dialogs */}
         <Dialog open={renameOpen} onOpenChange={setRenameOpen}>
-          <DialogContent 
+          <DialogContent
             className="sm:max-w-[520px] glass-card border-white/10 text-slate-100"
             onClick={(e) => e.stopPropagation()}
             onKeyDownCapture={stopCardKeyDown}
@@ -584,11 +631,17 @@ function PersCard({
                 onKeyDown={stopCardKeyDown}
               />
               <div className="flex justify-end gap-2">
-                <Button variant="ghost" onClick={() => setRenameOpen(false)} disabled={isRenaming}>
+                <Button
+                  variant="ghost"
+                  onClick={() => setRenameOpen(false)}
+                  disabled={isRenaming}
+                >
                   Скасувати
                 </Button>
                 <Button onClick={handleRename} disabled={isRenaming}>
-                  {isRenaming && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {isRenaming && (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  )}
                   Зберегти
                 </Button>
               </div>
@@ -596,28 +649,28 @@ function PersCard({
           </DialogContent>
         </Dialog>
 
-        <SnapshotHistoryModal 
-          persId={pers.persId} 
-          characterName={pers.name} 
+        <SnapshotHistoryModal
+          persId={pers.persId}
+          characterName={pers.name}
           openOverride={historyOpen}
           onOpenChangeOverride={setHistoryOpen}
           noButtonTrigger={true}
           onSuccess={onDuplicateSuccess}
         />
 
-        <ShareDialog 
-          persId={pers.persId} 
-          initialToken={pers.shareToken} 
-          open={shareOpen} 
-          onOpenChange={setShareOpen} 
+        <ShareDialog
+          persId={pers.persId}
+          initialToken={pers.shareToken}
+          open={shareOpen}
+          onOpenChange={setShareOpen}
           noButtonTrigger={true}
         />
 
-        <PrintCharacterDialog 
-          persId={pers.persId} 
-          characterName={pers.name} 
-          open={printOpen} 
-          onOpenChange={setPrintOpen} 
+        <PrintCharacterDialog
+          persId={pers.persId}
+          characterName={pers.name}
+          open={printOpen}
+          onOpenChange={setPrintOpen}
           noButtonTrigger={true}
         />
       </div>
@@ -626,23 +679,32 @@ function PersCard({
         {selectionMode && (
           <div className="absolute left-4 top-4 z-10">
             {isSelected ? (
-              <CheckSquare className="h-5 w-5 text-teal-300" />
+              <CheckSquare className="h-5 w-5 text-arcane-300" />
             ) : (
               <Square className="h-5 w-5 text-slate-500" />
             )}
           </div>
         )}
-        <CardTitle className={cn("pr-12 text-xl leading-tight flex items-center gap-2", selectionMode && "pl-6")}>
+        <CardTitle
+          className={cn(
+            "pr-12 text-xl leading-tight flex items-center gap-2",
+            selectionMode && "pl-6",
+          )}
+        >
           <span className="truncate">{pers.name}</span>
           {pers.ruleset === "RULES_2024" && (
-            <Badge variant="outline" className="border-amber-500/40 bg-amber-500/10 text-[10px] text-amber-300 font-normal px-1.5 py-0">
+            <Badge
+              variant="outline"
+              className="border-amber-500/40 bg-amber-500/10 text-[10px] text-amber-300 font-normal px-1.5 py-0"
+            >
               2024
             </Badge>
           )}
           {pers.isPinned && <Pin className="h-4 w-4 text-amber-300" />}
         </CardTitle>
         <CardDescription>
-          {translateValue(pers.raceName)} {translateValue(pers.className)} {pers.level}
+          {translateValue(pers.raceName)} {translateValue(pers.className)}{" "}
+          {pers.level}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -676,8 +738,11 @@ export function CharHomeClient({
   const searchParams = useSearchParams();
   const [items, setItems] = useState<PersHomeItem[]>(perses);
   const [folderItems, setFolderItems] = useState<PersFolderHomeItem[]>(folders);
-  const [currentFolderId, setCurrentFolderId] = useState<number | null>(() =>
-    getFolderParamValue(searchParams.get("folder")) ?? initialFolderId ?? null
+  const [currentFolderId, setCurrentFolderId] = useState<number | null>(
+    () =>
+      getFolderParamValue(searchParams.get("folder")) ??
+      initialFolderId ??
+      null,
   );
   const hasAppliedInitialFolder = useRef(false);
 
@@ -712,10 +777,16 @@ export function CharHomeClient({
   const [isMovePending, startMoveTransition] = useTransition();
 
   const [folderDialogOpen, setFolderDialogOpen] = useState(false);
-  const [folderDialogMode, setFolderDialogMode] = useState<"create" | "edit">("create");
+  const [folderDialogMode, setFolderDialogMode] = useState<"create" | "edit">(
+    "create",
+  );
   const [folderDialogName, setFolderDialogName] = useState("");
-  const [folderDialogColor, setFolderDialogColor] = useState(FOLDER_COLORS[0].value);
-  const [folderDialogTargetId, setFolderDialogTargetId] = useState<number | null>(null);
+  const [folderDialogColor, setFolderDialogColor] = useState(
+    FOLDER_COLORS[0].value,
+  );
+  const [folderDialogTargetId, setFolderDialogTargetId] = useState<
+    number | null
+  >(null);
 
   const [shareFolderOpen, setShareFolderOpen] = useState(false);
   const [shareFolderId, setShareFolderId] = useState<number | null>(null);
@@ -725,26 +796,39 @@ export function CharHomeClient({
   const [moveTarget, setMoveTarget] = useState<PersHomeItem | null>(null);
   const [moveFolderId, setMoveFolderId] = useState<string>("root");
 
-
   const [selectionMode, setSelectionMode] = useState(false);
-  const [selectedPersIds, setSelectedPersIds] = useState<Set<number>>(new Set());
-  const [selectedFolderIds, setSelectedFolderIds] = useState<Set<number>>(new Set());
+  const [selectedPersIds, setSelectedPersIds] = useState<Set<number>>(
+    new Set(),
+  );
+  const [selectedFolderIds, setSelectedFolderIds] = useState<Set<number>>(
+    new Set(),
+  );
   const [bulkMoveOpen, setBulkMoveOpen] = useState(false);
   const [bulkMoveFolderId, setBulkMoveFolderId] = useState<string>("root");
   const [bulkDeleteOpen, setBulkDeleteOpen] = useState(false);
   const [bulkCreateOpen, setBulkCreateOpen] = useState(false);
   const [bulkCreateName, setBulkCreateName] = useState("");
   const [bulkCreateParentId, setBulkCreateParentId] = useState<string>("root");
-  const [bulkCreateColor, setBulkCreateColor] = useState(FOLDER_COLORS[0].value);
+  const [bulkCreateColor, setBulkCreateColor] = useState(
+    FOLDER_COLORS[0].value,
+  );
   const [postCreateMoveOpen, setPostCreateMoveOpen] = useState(false);
-  const [postCreateFolder, setPostCreateFolder] = useState<PersFolderHomeItem | null>(null);
+  const [postCreateFolder, setPostCreateFolder] =
+    useState<PersFolderHomeItem | null>(null);
 
   const [classFilters, setClassFilters] = useState<Set<string>>(new Set());
-  const [subclassFilters, setSubclassFilters] = useState<Set<string>>(new Set());
+  const [subclassFilters, setSubclassFilters] = useState<Set<string>>(
+    new Set(),
+  );
   const [levelFilters, setLevelFilters] = useState<Set<string>>(new Set());
 
-  const folderMap = useMemo(() => new Map(folderItems.map((f) => [f.folderId, f])), [folderItems]);
-  const currentFolder = currentFolderId ? folderMap.get(currentFolderId) ?? null : null;
+  const folderMap = useMemo(
+    () => new Map(folderItems.map((f) => [f.folderId, f])),
+    [folderItems],
+  );
+  const currentFolder = currentFolderId
+    ? (folderMap.get(currentFolderId) ?? null)
+    : null;
 
   const navigateToFolder = useCallback(
     (folderId: number | null, replace = false) => {
@@ -760,7 +844,7 @@ export function CharHomeClient({
 
       setCurrentFolderId(folderId);
     },
-    [pathname, router, searchParams]
+    [pathname, router, searchParams],
   );
 
   React.useEffect(() => {
@@ -794,7 +878,7 @@ export function CharHomeClient({
       }
       return path.length ? `Папка: ${path.join(" / ")}` : "Без папки";
     },
-    [folderMap]
+    [folderMap],
   );
 
   const isDescendantFolder = useCallback(
@@ -808,7 +892,7 @@ export function CharHomeClient({
       }
       return false;
     },
-    [folderMap]
+    [folderMap],
   );
 
   const folderStats = useMemo(() => {
@@ -823,7 +907,10 @@ export function CharHomeClient({
 
     folderItems.forEach((f) => {
       if (f.parentFolderId) {
-        folderCount.set(f.parentFolderId, (folderCount.get(f.parentFolderId) ?? 0) + 1);
+        folderCount.set(
+          f.parentFolderId,
+          (folderCount.get(f.parentFolderId) ?? 0) + 1,
+        );
       }
     });
 
@@ -849,7 +936,6 @@ export function CharHomeClient({
     return options;
   }, [folderItems]);
 
-
   const classOptions = useMemo(() => {
     const values = new Set<string>();
     items.forEach((p) => {
@@ -858,7 +944,9 @@ export function CharHomeClient({
         if (name) values.add(name);
       });
     });
-    return Array.from(values).sort((a, b) => translateValue(a).localeCompare(translateValue(b), "uk"));
+    return Array.from(values).sort((a, b) =>
+      translateValue(a).localeCompare(translateValue(b), "uk"),
+    );
   }, [items]);
 
   const allSubclassOptions = useMemo(() => {
@@ -868,7 +956,9 @@ export function CharHomeClient({
         if (name) values.add(name);
       });
     });
-    return Array.from(values).sort((a, b) => translateValue(a).localeCompare(translateValue(b), "uk"));
+    return Array.from(values).sort((a, b) =>
+      translateValue(a).localeCompare(translateValue(b), "uk"),
+    );
   }, [items]);
 
   const subclassesByClass = useMemo(() => {
@@ -895,21 +985,32 @@ export function CharHomeClient({
   }, [allSubclassOptions]);
 
   const totalSelected = selectedPersIds.size + selectedFolderIds.size;
-  const filtersActiveCount = classFilters.size + subclassFilters.size + levelFilters.size;
+  const filtersActiveCount =
+    classFilters.size + subclassFilters.size + levelFilters.size;
   const selectedItems = useMemo(() => {
     const foldersList = folderItems
       .filter((folder) => selectedFolderIds.has(folder.folderId))
-      .map((folder) => ({ type: "folder" as const, id: folder.folderId, name: folder.name }));
+      .map((folder) => ({
+        type: "folder" as const,
+        id: folder.folderId,
+        name: folder.name,
+      }));
     const persList = items
       .filter((pers) => selectedPersIds.has(pers.persId))
-      .map((pers) => ({ type: "pers" as const, id: pers.persId, name: pers.name }));
+      .map((pers) => ({
+        type: "pers" as const,
+        id: pers.persId,
+        name: pers.name,
+      }));
     return [...foldersList, ...persList];
   }, [folderItems, items, selectedFolderIds, selectedPersIds]);
 
   const matchesFilters = useCallback(
     (pers: PersHomeItem) => {
       if (classFilters.size > 0) {
-        const classList = pers.classNames?.length ? pers.classNames : [pers.className];
+        const classList = pers.classNames?.length
+          ? pers.classNames
+          : [pers.className];
         const hasClass = classList.some((name) => classFilters.has(name));
         if (!hasClass) return false;
       }
@@ -926,7 +1027,7 @@ export function CharHomeClient({
 
       return true;
     },
-    [classFilters, levelFilters, subclassFilters]
+    [classFilters, levelFilters, subclassFilters],
   );
 
   const clearSelection = useCallback(() => {
@@ -975,14 +1076,17 @@ export function CharHomeClient({
     });
   }, []);
 
-  const toggleFilterValue = useCallback(<T,>(setter: React.Dispatch<React.SetStateAction<Set<T>>>, value: T) => {
-    setter((prev) => {
-      const next = new Set(prev);
-      if (next.has(value)) next.delete(value);
-      else next.add(value);
-      return next;
-    });
-  }, []);
+  const toggleFilterValue = useCallback(
+    <T,>(setter: React.Dispatch<React.SetStateAction<Set<T>>>, value: T) => {
+      setter((prev) => {
+        const next = new Set(prev);
+        if (next.has(value)) next.delete(value);
+        else next.add(value);
+        return next;
+      });
+    },
+    [],
+  );
 
   const clearFilters = useCallback(() => {
     setClassFilters(new Set());
@@ -995,7 +1099,7 @@ export function CharHomeClient({
       parentId: number | null,
       depth: number,
       selectedId: string,
-      onSelect: (value: string) => void
+      onSelect: (value: string) => void,
     ) => {
       const level = folderItems
         .filter((f) => (f.parentFolderId ?? null) === parentId)
@@ -1011,8 +1115,8 @@ export function CharHomeClient({
               className={cn(
                 "w-full text-left rounded-xl border px-3 py-2 text-sm transition",
                 isSelected
-                  ? "border-teal-500/40 bg-teal-500/10 text-teal-200"
-                  : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5"
+                  ? "border-arcane-500/40 bg-arcane-500/10 text-arcane-200"
+                  : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5",
               )}
               style={{ marginLeft: depth * 14 }}
               onClick={() => onSelect(value)}
@@ -1030,9 +1134,8 @@ export function CharHomeClient({
         );
       });
     },
-    [folderItems]
+    [folderItems],
   );
-
 
   React.useEffect(() => {
     if (selectionMode && totalSelected === 0) {
@@ -1042,7 +1145,10 @@ export function CharHomeClient({
 
   const searchValue = search.trim().toLowerCase();
 
-  const filteredPerses = useMemo(() => items.filter(matchesFilters), [items, matchesFilters]);
+  const filteredPerses = useMemo(
+    () => items.filter(matchesFilters),
+    [items, matchesFilters],
+  );
 
   const folderMatchCounts = useMemo(() => {
     if (filtersActiveCount === 0) return new Map<number, number>();
@@ -1060,19 +1166,30 @@ export function CharHomeClient({
   }, [filteredPerses, filtersActiveCount, folderMap]);
 
   const visibleFolders = useMemo(() => {
-    const list = folderItems.filter((f) => (f.parentFolderId ?? null) === currentFolderId);
-    const scoped = filtersActiveCount > 0
-      ? list.filter((f) => (folderMatchCounts.get(f.folderId) ?? 0) > 0)
-      : list;
+    const list = folderItems.filter(
+      (f) => (f.parentFolderId ?? null) === currentFolderId,
+    );
+    const scoped =
+      filtersActiveCount > 0
+        ? list.filter((f) => (folderMatchCounts.get(f.folderId) ?? 0) > 0)
+        : list;
 
     if (!searchValue) return scoped.sort(sortByPinnedThenName);
     return scoped
       .filter((f) => f.name.toLowerCase().includes(searchValue))
       .sort(sortByPinnedThenName);
-  }, [folderItems, currentFolderId, searchValue, filtersActiveCount, folderMatchCounts]);
+  }, [
+    folderItems,
+    currentFolderId,
+    searchValue,
+    filtersActiveCount,
+    folderMatchCounts,
+  ]);
 
   const visiblePerses = useMemo(() => {
-    const list = filteredPerses.filter((p) => (p.folderId ?? null) === currentFolderId);
+    const list = filteredPerses.filter(
+      (p) => (p.folderId ?? null) === currentFolderId,
+    );
     if (!searchValue) return list.sort(sortByPinnedThenPersId);
     return list
       .filter((p) => p.name.toLowerCase().includes(searchValue))
@@ -1081,15 +1198,23 @@ export function CharHomeClient({
 
   const globalSearchPerses = useMemo(() => {
     if (!searchValue) return [] as PersHomeItem[];
-    if (visibleFolders.length + visiblePerses.length > 0) return [] as PersHomeItem[];
+    if (visibleFolders.length + visiblePerses.length > 0)
+      return [] as PersHomeItem[];
     return filteredPerses
       .filter((p) => p.name.toLowerCase().includes(searchValue))
       .sort(sortByPinnedThenPersId);
-  }, [filteredPerses, searchValue, visibleFolders.length, visiblePerses.length]);
+  }, [
+    filteredPerses,
+    searchValue,
+    visibleFolders.length,
+    visiblePerses.length,
+  ]);
 
   const handleCreate = useCallback(() => {
     startCreate(() => {
-      const targetCreateHref = createHref ?? (pathname.startsWith("/2024") ? "/2024/char" : "/char/create");
+      const targetCreateHref =
+        createHref ??
+        (pathname.startsWith("/2024") ? "/2024/char" : "/char/create");
       router.push(targetCreateHref);
     });
   }, [router, createHref, pathname]);
@@ -1131,7 +1256,9 @@ export function CharHomeClient({
 
       const prevFolders = folderItems;
       setFolderItems((prev) =>
-        prev.map((f) => (f.folderId === folderDialogTargetId ? { ...f, color } : f))
+        prev.map((f) =>
+          f.folderId === folderDialogTargetId ? { ...f, color } : f,
+        ),
       );
 
       startFolderTransition(async () => {
@@ -1144,7 +1271,7 @@ export function CharHomeClient({
         router.refresh();
       });
     },
-    [folderDialogMode, folderDialogTargetId, folderItems, router]
+    [folderDialogMode, folderDialogTargetId, folderItems, router],
   );
 
   const handleFolderSave = useCallback(() => {
@@ -1179,14 +1306,18 @@ export function CharHomeClient({
       }
 
       if (!folderDialogTargetId) return;
-      const target = folderItems.find((f) => f.folderId === folderDialogTargetId);
+      const target = folderItems.find(
+        (f) => f.folderId === folderDialogTargetId,
+      );
       if (!target) return;
 
       const prevFolders = folderItems;
       setFolderItems((prev) =>
         prev.map((f) =>
-          f.folderId === folderDialogTargetId ? { ...f, name, color: folderDialogColor } : f
-        )
+          f.folderId === folderDialogTargetId
+            ? { ...f, name, color: folderDialogColor }
+            : f,
+        ),
       );
 
       if (target.name !== name) {
@@ -1199,7 +1330,10 @@ export function CharHomeClient({
       }
 
       if (target.color !== folderDialogColor) {
-        const result = await setPersFolderColor(folderDialogTargetId, folderDialogColor);
+        const result = await setPersFolderColor(
+          folderDialogTargetId,
+          folderDialogColor,
+        );
         if (!result.success) {
           setFolderItems(prevFolders);
           toast.error(result.error || "Не вдалося оновити колір");
@@ -1229,115 +1363,146 @@ export function CharHomeClient({
     }
   }, []);
 
-  const handleRename = useCallback(async (persId: number, nextName: string) => {
-    const prevItems = items;
-    setItems((prev) => prev.map((p) => (p.persId === persId ? { ...p, name: nextName } : p)));
+  const handleRename = useCallback(
+    async (persId: number, nextName: string) => {
+      const prevItems = items;
+      setItems((prev) =>
+        prev.map((p) => (p.persId === persId ? { ...p, name: nextName } : p)),
+      );
 
-    const result = await renamePers(persId, nextName);
-    if (!result.success) {
-      setItems(prevItems);
-      toast.error(result.error || "Не вдалося перейменувати");
-      return;
-    }
-
-    toast.success("Ім'я оновлено");
-    router.refresh();
-  }, [items, router]);
-
-  const handleDelete = useCallback(async (persId: number) => {
-    const prevItems = items;
-    setItems((prev) => prev.filter((p) => p.persId !== persId));
-
-    const result = await deletePers(persId);
-    if (!result.success) {
-      setItems(prevItems);
-      toast.error(result.error || "Не вдалося видалити персонажа");
-      return;
-    }
-
-    toast.success("Персонажа видалено");
-    router.refresh();
-  }, [items, router]);
-
-  const handleDuplicate = useCallback(async (persId: number) => {
-    startDuplicate(async () => {
-      const result = await duplicatePers(persId);
-      if (!result.success || !result.pers) {
-        toast.error(result.error || "Не вдалося скопіювати");
+      const result = await renamePers(persId, nextName);
+      if (!result.success) {
+        setItems(prevItems);
+        toast.error(result.error || "Не вдалося перейменувати");
         return;
       }
 
-      setItems((prev) => [result.pers!, ...prev]);
-      toast.success("Персонажа скопійовано");
+      toast.success("Імʼя оновлено");
       router.refresh();
-    });
-  }, [router]);
+    },
+    [items, router],
+  );
 
-  const handleFolderDelete = useCallback(async (folderId: number) => {
-    const folder = folderMap.get(folderId);
-    const nextParentId = folder?.parentFolderId ?? null;
+  const handleDelete = useCallback(
+    async (persId: number) => {
+      const prevItems = items;
+      setItems((prev) => prev.filter((p) => p.persId !== persId));
 
-    const prevFolders = folderItems;
-    const prevItems = items;
-
-    setFolderItems((prev) =>
-      prev
-        .filter((f) => f.folderId !== folderId)
-        .map((f) => (f.parentFolderId === folderId ? { ...f, parentFolderId: nextParentId } : f))
-    );
-    setItems((prev) =>
-      prev.map((p) => (p.folderId === folderId ? { ...p, folderId: nextParentId } : p))
-    );
-
-    if (currentFolderId === folderId) {
-      setCurrentFolderId(nextParentId);
-    }
-
-    const result = await deletePersFolder(folderId);
-    if (!result.success) {
-      setFolderItems(prevFolders);
-      setItems(prevItems);
-      toast.error(result.error || "Не вдалося видалити папку");
-      return;
-    }
-
-    toast.success("Папку видалено");
-    router.refresh();
-  }, [folderMap, folderItems, items, currentFolderId, router]);
-
-  const handleFolderDuplicate = useCallback(async (folderId: number) => {
-    startFolderTransition(async () => {
-      const result = await duplicatePersFolder(folderId);
-      if (!result.success || !result.folder) {
-        toast.error(result.error || "Не вдалося скопіювати папку");
+      const result = await deletePers(persId);
+      if (!result.success) {
+        setItems(prevItems);
+        toast.error(result.error || "Не вдалося видалити персонажа");
         return;
       }
 
-      setFolderItems((prev) => [result.folder!, ...prev]);
-      toast.success("Папку скопійовано");
+      toast.success("Персонажа видалено");
       router.refresh();
-    });
-  }, [router]);
+    },
+    [items, router],
+  );
 
-  const handleToggleFolderPin = useCallback(async (folderId: number, nextPinned: boolean) => {
-    const prevFolders = folderItems;
-    setFolderItems((prev) =>
-      prev.map((f) => (f.folderId === folderId ? { ...f, isPinned: nextPinned } : f))
-    );
+  const handleDuplicate = useCallback(
+    async (persId: number) => {
+      startDuplicate(async () => {
+        const result = await duplicatePers(persId);
+        if (!result.success || !result.pers) {
+          toast.error(result.error || "Не вдалося скопіювати");
+          return;
+        }
 
-    const result = await setPersFolderPinned(folderId, nextPinned);
-    if (!result.success) {
-      setFolderItems(prevFolders);
-      toast.error(result.error || "Не вдалося оновити папку");
-      return;
-    }
+        setItems((prev) => [result.pers!, ...prev]);
+        toast.success("Персонажа скопійовано");
+        router.refresh();
+      });
+    },
+    [router],
+  );
 
-    router.refresh();
-  }, [router]);
+  const handleFolderDelete = useCallback(
+    async (folderId: number) => {
+      const folder = folderMap.get(folderId);
+      const nextParentId = folder?.parentFolderId ?? null;
 
-  const handleOpenFolder = useCallback((folderId: number) => {
-    navigateToFolder(folderId);
-  }, [navigateToFolder]);
+      const prevFolders = folderItems;
+      const prevItems = items;
+
+      setFolderItems((prev) =>
+        prev
+          .filter((f) => f.folderId !== folderId)
+          .map((f) =>
+            f.parentFolderId === folderId
+              ? { ...f, parentFolderId: nextParentId }
+              : f,
+          ),
+      );
+      setItems((prev) =>
+        prev.map((p) =>
+          p.folderId === folderId ? { ...p, folderId: nextParentId } : p,
+        ),
+      );
+
+      if (currentFolderId === folderId) {
+        setCurrentFolderId(nextParentId);
+      }
+
+      const result = await deletePersFolder(folderId);
+      if (!result.success) {
+        setFolderItems(prevFolders);
+        setItems(prevItems);
+        toast.error(result.error || "Не вдалося видалити папку");
+        return;
+      }
+
+      toast.success("Папку видалено");
+      router.refresh();
+    },
+    [folderMap, folderItems, items, currentFolderId, router],
+  );
+
+  const handleFolderDuplicate = useCallback(
+    async (folderId: number) => {
+      startFolderTransition(async () => {
+        const result = await duplicatePersFolder(folderId);
+        if (!result.success || !result.folder) {
+          toast.error(result.error || "Не вдалося скопіювати папку");
+          return;
+        }
+
+        setFolderItems((prev) => [result.folder!, ...prev]);
+        toast.success("Папку скопійовано");
+        router.refresh();
+      });
+    },
+    [router],
+  );
+
+  const handleToggleFolderPin = useCallback(
+    async (folderId: number, nextPinned: boolean) => {
+      const prevFolders = folderItems;
+      setFolderItems((prev) =>
+        prev.map((f) =>
+          f.folderId === folderId ? { ...f, isPinned: nextPinned } : f,
+        ),
+      );
+
+      const result = await setPersFolderPinned(folderId, nextPinned);
+      if (!result.success) {
+        setFolderItems(prevFolders);
+        toast.error(result.error || "Не вдалося оновити папку");
+        return;
+      }
+
+      router.refresh();
+    },
+    [router],
+  );
+
+  const handleOpenFolder = useCallback(
+    (folderId: number) => {
+      navigateToFolder(folderId);
+    },
+    [navigateToFolder],
+  );
 
   const handleMoveOpen = useCallback((pers: PersHomeItem) => {
     setMoveTarget(pers);
@@ -1352,7 +1517,9 @@ export function CharHomeClient({
       const nextId = moveFolderId === "root" ? null : Number(moveFolderId);
       const prevItems = items;
       setItems((prev) =>
-        prev.map((p) => (p.persId === moveTarget.persId ? { ...p, folderId: nextId } : p))
+        prev.map((p) =>
+          p.persId === moveTarget.persId ? { ...p, folderId: nextId } : p,
+        ),
       );
 
       const result = await movePersToFolder(moveTarget.persId, nextId);
@@ -1375,7 +1542,8 @@ export function CharHomeClient({
         return;
       }
 
-      const parentId = bulkCreateParentId === "root" ? null : Number(bulkCreateParentId);
+      const parentId =
+        bulkCreateParentId === "root" ? null : Number(bulkCreateParentId);
       const result = await createPersFolder({
         name,
         color: bulkCreateColor,
@@ -1402,32 +1570,42 @@ export function CharHomeClient({
     router,
   ]);
 
-  const handleTogglePersPin = useCallback(async (persId: number, nextPinned: boolean) => {
-    const prevItems = items;
-    setItems((prev) => prev.map((p) => (p.persId === persId ? { ...p, isPinned: nextPinned } : p)));
+  const handleTogglePersPin = useCallback(
+    async (persId: number, nextPinned: boolean) => {
+      const prevItems = items;
+      setItems((prev) =>
+        prev.map((p) =>
+          p.persId === persId ? { ...p, isPinned: nextPinned } : p,
+        ),
+      );
 
-    const result = await setPersPinned(persId, nextPinned);
-    if (!result.success) {
-      setItems(prevItems);
-      toast.error(result.error || "Не вдалося оновити персонажа");
-      return;
-    }
+      const result = await setPersPinned(persId, nextPinned);
+      if (!result.success) {
+        setItems(prevItems);
+        toast.error(result.error || "Не вдалося оновити персонажа");
+        return;
+      }
 
-    router.refresh();
-  }, [items, router]);
+      router.refresh();
+    },
+    [items, router],
+  );
 
   const handleBulkMoveConfirm = useCallback(() => {
     startMoveTransition(async () => {
-      const targetFolderId = bulkMoveFolderId === "root" ? null : Number(bulkMoveFolderId);
+      const targetFolderId =
+        bulkMoveFolderId === "root" ? null : Number(bulkMoveFolderId);
       const persIds = Array.from(selectedPersIds);
       const folderIds = Array.from(selectedFolderIds);
 
       if (persIds.length === 0 && folderIds.length === 0) return;
 
       const invalidFolders = folderIds.filter((id) =>
-        isDescendantFolder(id, targetFolderId)
+        isDescendantFolder(id, targetFolderId),
       );
-      const validFolders = folderIds.filter((id) => !invalidFolders.includes(id));
+      const validFolders = folderIds.filter(
+        (id) => !invalidFolders.includes(id),
+      );
 
       if (invalidFolders.length > 0) {
         toast.error("Деякі папки не можна перемістити у власні підпапки");
@@ -1437,19 +1615,27 @@ export function CharHomeClient({
       const prevFolders = folderItems;
 
       setItems((prev) =>
-        prev.map((p) => (persIds.includes(p.persId) ? { ...p, folderId: targetFolderId } : p))
+        prev.map((p) =>
+          persIds.includes(p.persId) ? { ...p, folderId: targetFolderId } : p,
+        ),
       );
       setFolderItems((prev) =>
-        prev.map((f) => (validFolders.includes(f.folderId) ? { ...f, parentFolderId: targetFolderId } : f))
+        prev.map((f) =>
+          validFolders.includes(f.folderId)
+            ? { ...f, parentFolderId: targetFolderId }
+            : f,
+        ),
       );
 
       const persResults = await Promise.all(
-        persIds.map((id) => movePersToFolder(id, targetFolderId))
+        persIds.map((id) => movePersToFolder(id, targetFolderId)),
       );
       const folderResults = await Promise.all(
-        validFolders.map((id) => movePersFolder(id, targetFolderId))
+        validFolders.map((id) => movePersFolder(id, targetFolderId)),
       );
-      const hasFailure = [...persResults, ...folderResults].some((result) => !result.success);
+      const hasFailure = [...persResults, ...folderResults].some(
+        (result) => !result.success,
+      );
 
       if (hasFailure) {
         setItems(prevItems);
@@ -1488,9 +1674,11 @@ export function CharHomeClient({
       if (persIds.length === 0 && folderIds.length === 0) return;
 
       const invalidFolders = folderIds.filter((id) =>
-        isDescendantFolder(id, targetFolderId)
+        isDescendantFolder(id, targetFolderId),
       );
-      const validFolders = folderIds.filter((id) => !invalidFolders.includes(id));
+      const validFolders = folderIds.filter(
+        (id) => !invalidFolders.includes(id),
+      );
 
       if (invalidFolders.length > 0) {
         toast.error("Деякі папки не можна перемістити у власні підпапки");
@@ -1502,19 +1690,27 @@ export function CharHomeClient({
       const prevFolders = folderItems;
 
       setItems((prev) =>
-        prev.map((p) => (persIds.includes(p.persId) ? { ...p, folderId: targetFolderId } : p))
+        prev.map((p) =>
+          persIds.includes(p.persId) ? { ...p, folderId: targetFolderId } : p,
+        ),
       );
       setFolderItems((prev) =>
-        prev.map((f) => (validFolders.includes(f.folderId) ? { ...f, parentFolderId: targetFolderId } : f))
+        prev.map((f) =>
+          validFolders.includes(f.folderId)
+            ? { ...f, parentFolderId: targetFolderId }
+            : f,
+        ),
       );
 
       const persResults = await Promise.all(
-        persIds.map((id) => movePersToFolder(id, targetFolderId))
+        persIds.map((id) => movePersToFolder(id, targetFolderId)),
       );
       const folderResults = await Promise.all(
-        validFolders.map((id) => movePersFolder(id, targetFolderId))
+        validFolders.map((id) => movePersFolder(id, targetFolderId)),
       );
-      const hasFailure = [...persResults, ...folderResults].some((result) => !result.success);
+      const hasFailure = [...persResults, ...folderResults].some(
+        (result) => !result.success,
+      );
 
       if (hasFailure) {
         setItems(prevItems);
@@ -1555,21 +1751,29 @@ export function CharHomeClient({
       setItems((prev) =>
         prev
           .filter((p) => !persIds.has(p.persId))
-          .map((p) => (folderIds.has(p.folderId ?? -1) ? { ...p, folderId: null } : p))
+          .map((p) =>
+            folderIds.has(p.folderId ?? -1) ? { ...p, folderId: null } : p,
+          ),
       );
       setFolderItems((prev) =>
         prev
           .filter((f) => !folderIds.has(f.folderId))
-          .map((f) => (folderIds.has(f.parentFolderId ?? -1) ? { ...f, parentFolderId: null } : f))
+          .map((f) =>
+            folderIds.has(f.parentFolderId ?? -1)
+              ? { ...f, parentFolderId: null }
+              : f,
+          ),
       );
 
       const persResults = await Promise.all(
-        Array.from(persIds).map((id) => deletePers(id))
+        Array.from(persIds).map((id) => deletePers(id)),
       );
       const folderResults = await Promise.all(
-        Array.from(folderIds).map((id) => deletePersFolder(id))
+        Array.from(folderIds).map((id) => deletePersFolder(id)),
       );
-      const hasFailure = [...persResults, ...folderResults].some((result) => !result.success);
+      const hasFailure = [...persResults, ...folderResults].some(
+        (result) => !result.success,
+      );
 
       if (hasFailure) {
         setItems(prevItems);
@@ -1604,7 +1808,12 @@ export function CharHomeClient({
         : "У вас ще немає персонажів. Створіть першого!";
 
   return (
-    <div className={cn("container mx-auto py-8 px-4 pb-28 md:pb-8 pb-[calc(7rem+env(safe-area-inset-bottom,0px))] md:pb-8", selectionMode && "pt-24")}>
+    <div
+      className={cn(
+        "container mx-auto py-8 px-4 pb-28 md:pb-8 pb-[calc(7rem+env(safe-area-inset-bottom,0px))] md:pb-8",
+        selectionMode && "pt-24",
+      )}
+    >
       <div className="flex flex-col gap-4 mb-8">
         <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-500">
           {currentFolderId && (
@@ -1612,7 +1821,9 @@ export function CharHomeClient({
               variant="ghost"
               size="icon"
               className="h-8 w-8"
-              onClick={() => navigateToFolder(currentFolder?.parentFolderId ?? null)}
+              onClick={() =>
+                navigateToFolder(currentFolder?.parentFolderId ?? null)
+              }
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -1647,7 +1858,7 @@ export function CharHomeClient({
             <div className="container mx-auto px-4 py-3">
               <div className="glass-card border-white/10 bg-white/5 rounded-2xl p-3 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3 text-sm text-slate-200">
-                  <CheckSquare className="h-4 w-4 text-teal-300" />
+                  <CheckSquare className="h-4 w-4 text-arcane-300" />
                   <span>Вибрано: {totalSelected}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
@@ -1655,7 +1866,9 @@ export function CharHomeClient({
                     variant="ghost"
                     size="sm"
                     onClick={() => {
-                      setBulkMoveFolderId(currentFolderId ? String(currentFolderId) : "root");
+                      setBulkMoveFolderId(
+                        currentFolderId ? String(currentFolderId) : "root",
+                      );
                       setBulkMoveOpen(true);
                     }}
                     disabled={totalSelected === 0}
@@ -1663,7 +1876,12 @@ export function CharHomeClient({
                     <FolderOpen className="h-4 w-4 mr-2" />
                     До папки
                   </Button>
-                  <Button variant="destructive" size="sm" onClick={() => setBulkDeleteOpen(true)} disabled={totalSelected === 0}>
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={() => setBulkDeleteOpen(true)}
+                    disabled={totalSelected === 0}
+                  >
                     <Trash2 className="h-4 w-4 mr-2" />
                     Видалити
                   </Button>
@@ -1680,12 +1898,13 @@ export function CharHomeClient({
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <div className="space-y-1">
             <h1 className="text-3xl font-rpg-display font-semibold uppercase tracking-wider text-slate-200 flex items-center gap-3">
-              {currentFolder ? <FolderOpen className="h-6 w-6 text-slate-400" /> : <Folder className="h-6 w-6 text-slate-400" />}
+              {currentFolder ? (
+                <FolderOpen className="h-6 w-6 text-slate-400" />
+              ) : (
+                <Folder className="h-6 w-6 text-slate-400" />
+              )}
               <span>{currentFolder?.name ?? "Мої Персонажі"}</span>
             </h1>
-            <p className="text-sm text-slate-400">
-              Папки зверху, нерозсортовані персонажі — нижче. Закріплюйте важливе.
-            </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
@@ -1705,7 +1924,9 @@ export function CharHomeClient({
                 variant="secondary"
                 className={
                   "h-9 gap-2 border-0 bg-transparent hover:bg-white/5 " +
-                  (filtersActiveCount > 0 ? "text-teal-200 bg-teal-500/10" : "")
+                  (filtersActiveCount > 0
+                    ? "text-arcane-200 bg-arcane-500/10"
+                    : "")
                 }
                 onClick={() => setFiltersOpen(true)}
               >
@@ -1734,7 +1955,11 @@ export function CharHomeClient({
 
             {extraHeaderActions}
 
-            <Button variant="secondary" onClick={openCreateFolder} disabled={isFolderPending}>
+            <Button
+              variant="secondary"
+              onClick={openCreateFolder}
+              disabled={isFolderPending}
+            >
               <FolderPlus className="h-4 w-4 sm:mr-2" />
               <span className="hidden sm:inline">Нова папка</span>
             </Button>
@@ -1750,7 +1975,11 @@ export function CharHomeClient({
               </Button>
             )}
 
-            <Button onClick={handleCreate} disabled={isCreating || isDuplicating} className="shrink-0">
+            <Button
+              onClick={handleCreate}
+              disabled={isCreating || isDuplicating}
+              className="shrink-0"
+            >
               {isCreating ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
@@ -1777,7 +2006,8 @@ export function CharHomeClient({
                 folder={folder}
                 stats={{
                   persCount: folderStats.persCount.get(folder.folderId) ?? 0,
-                  folderCount: folderStats.folderCount.get(folder.folderId) ?? 0,
+                  folderCount:
+                    folderStats.folderCount.get(folder.folderId) ?? 0,
                 }}
                 onOpen={handleOpenFolder}
                 onEdit={openEditFolder}
@@ -1810,7 +2040,9 @@ export function CharHomeClient({
                 onDuplicate={handleDuplicate}
                 onMove={handleMoveOpen}
                 onTogglePin={handleTogglePersPin}
-                onDuplicateSuccess={(newPers) => setItems((prev) => [newPers, ...prev])}
+                onDuplicateSuccess={(newPers) =>
+                  setItems((prev) => [newPers, ...prev])
+                }
                 isSelected={selectedPersIds.has(pers.persId)}
                 selectionMode={selectionMode}
                 onSelectToggle={togglePersSelection}
@@ -1850,7 +2082,9 @@ export function CharHomeClient({
                     onDuplicate={handleDuplicate}
                     onMove={handleMoveOpen}
                     onTogglePin={handleTogglePersPin}
-                    onDuplicateSuccess={(newPers) => setItems((prev) => [newPers, ...prev])}
+                    onDuplicateSuccess={(newPers) =>
+                      setItems((prev) => [newPers, ...prev])
+                    }
                     isSelected={selectedPersIds.has(pers.persId)}
                     selectionMode={selectionMode}
                     onSelectToggle={togglePersSelection}
@@ -1870,7 +2104,9 @@ export function CharHomeClient({
         <DialogContent className="sm:max-w-[520px] glass-card border-white/10 text-slate-100">
           <DialogHeader>
             <DialogTitle>
-              {folderDialogMode === "create" ? "Нова папка" : "Редагувати папку"}
+              {folderDialogMode === "create"
+                ? "Нова папка"
+                : "Редагувати папку"}
             </DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
@@ -1882,7 +2118,9 @@ export function CharHomeClient({
               placeholder="Назва папки"
             />
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">Колір папки</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">
+                Колір папки
+              </p>
               <div className="grid grid-cols-8 gap-2">
                 {FOLDER_COLORS.map((color) => {
                   const isActive = folderDialogColor === color.value;
@@ -1900,11 +2138,17 @@ export function CharHomeClient({
               </div>
             </div>
             <div className="flex justify-end gap-2">
-              <Button variant="ghost" onClick={() => setFolderDialogOpen(false)} disabled={isFolderPending}>
+              <Button
+                variant="ghost"
+                onClick={() => setFolderDialogOpen(false)}
+                disabled={isFolderPending}
+              >
                 Скасувати
               </Button>
               <Button onClick={handleFolderSave} disabled={isFolderPending}>
-                {isFolderPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                {isFolderPending && (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                )}
                 Зберегти
               </Button>
             </div>
@@ -1922,21 +2166,28 @@ export function CharHomeClient({
         />
       )}
 
-      <Dialog open={postCreateMoveOpen} onOpenChange={handlePostCreateMoveOpenChange}>
+      <Dialog
+        open={postCreateMoveOpen}
+        onOpenChange={handlePostCreateMoveOpenChange}
+      >
         <DialogContent className="sm:max-w-[520px] glass-card border-white/10 text-slate-100">
           <DialogHeader>
             <DialogTitle>Додати до нової папки?</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
             <p className="text-sm text-slate-400">
-              Додати вибрані елементи до новоствореної папки {postCreateFolder?.name ? `"${postCreateFolder.name}"` : ""}?
+              Додати вибрані елементи до новоствореної папки{" "}
+              {postCreateFolder?.name ? `"${postCreateFolder.name}"` : ""}?
             </p>
             <div className="max-h-52 overflow-auto rounded-xl border border-white/10 bg-slate-950/40 p-3 text-sm text-slate-200 space-y-1">
               {selectedItems.length === 0 ? (
                 <div className="text-slate-500">Немає вибраних елементів.</div>
               ) : (
                 selectedItems.map((item) => (
-                  <div key={`${item.type}-${item.id}`} className="flex items-center gap-2">
+                  <div
+                    key={`${item.type}-${item.id}`}
+                    className="flex items-center gap-2"
+                  >
                     <span className="text-xs uppercase tracking-[0.12em] text-slate-500">
                       {item.type === "folder" ? "Папка" : "Персонаж"}
                     </span>
@@ -1946,11 +2197,20 @@ export function CharHomeClient({
               )}
             </div>
             <div className="flex justify-end gap-2">
-              <Button variant="ghost" onClick={() => handlePostCreateMoveOpenChange(false)} disabled={isMovePending}>
+              <Button
+                variant="ghost"
+                onClick={() => handlePostCreateMoveOpenChange(false)}
+                disabled={isMovePending}
+              >
                 Ні, дякую
               </Button>
-              <Button onClick={handlePostCreateAddSelected} disabled={isMovePending || selectedItems.length === 0}>
-                {isMovePending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              <Button
+                onClick={handlePostCreateAddSelected}
+                disabled={isMovePending || selectedItems.length === 0}
+              >
+                {isMovePending && (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                )}
                 Додати
               </Button>
             </div>
@@ -1965,7 +2225,8 @@ export function CharHomeClient({
           </DialogHeader>
           <div className="space-y-4">
             <p className="text-sm text-slate-400">
-              Оберіть папку для персонажа {moveTarget?.name ? `"${moveTarget.name}"` : ""}.
+              Оберіть папку для персонажа{" "}
+              {moveTarget?.name ? `"${moveTarget.name}"` : ""}.
             </p>
             <div className="max-h-64 overflow-auto pr-2 space-y-2">
               <button
@@ -1973,8 +2234,8 @@ export function CharHomeClient({
                 className={cn(
                   "w-full text-left rounded-xl border px-3 py-2 text-sm transition",
                   moveFolderId === "root"
-                    ? "border-teal-500/40 bg-teal-500/10 text-teal-200"
-                    : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5"
+                    ? "border-arcane-500/40 bg-arcane-500/10 text-arcane-200"
+                    : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5",
                 )}
                 onClick={() => setMoveFolderId("root")}
               >
@@ -1983,11 +2244,20 @@ export function CharHomeClient({
               {renderFolderTree(null, 0, moveFolderId, setMoveFolderId)}
             </div>
             <div className="flex justify-end gap-2">
-              <Button variant="ghost" onClick={() => setMoveDialogOpen(false)} disabled={isMovePending}>
+              <Button
+                variant="ghost"
+                onClick={() => setMoveDialogOpen(false)}
+                disabled={isMovePending}
+              >
                 Скасувати
               </Button>
-              <Button onClick={handleMoveConfirm} disabled={isMovePending || !moveTarget}>
-                {isMovePending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              <Button
+                onClick={handleMoveConfirm}
+                disabled={isMovePending || !moveTarget}
+              >
+                {isMovePending && (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                )}
                 Перемістити
               </Button>
             </div>
@@ -2006,8 +2276,14 @@ export function CharHomeClient({
             </p>
             <div className="glass-card rounded-xl border border-white/10 p-3">
               <div className="flex items-center justify-between">
-                <div className="text-xs font-semibold text-slate-300">Створити нову папку</div>
-                <Button variant="ghost" size="sm" onClick={() => setBulkCreateOpen((prev) => !prev)}>
+                <div className="text-xs font-semibold text-slate-300">
+                  Створити нову папку
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setBulkCreateOpen((prev) => !prev)}
+                >
                   {bulkCreateOpen ? "Сховати" : "Нова папка"}
                 </Button>
               </div>
@@ -2027,14 +2303,19 @@ export function CharHomeClient({
                         className={cn(
                           "w-full text-left rounded-xl border px-3 py-2 text-sm transition",
                           bulkCreateParentId === "root"
-                            ? "border-teal-500/40 bg-teal-500/10 text-teal-200"
-                            : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5"
+                            ? "border-arcane-500/40 bg-arcane-500/10 text-arcane-200"
+                            : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5",
                         )}
                         onClick={() => setBulkCreateParentId("root")}
                       >
                         Корінь
                       </button>
-                      {renderFolderTree(null, 0, bulkCreateParentId, setBulkCreateParentId)}
+                      {renderFolderTree(
+                        null,
+                        0,
+                        bulkCreateParentId,
+                        setBulkCreateParentId,
+                      )}
                     </div>
                   </div>
                   <div>
@@ -2049,7 +2330,9 @@ export function CharHomeClient({
                             title={color.name}
                             className={cn(
                               "h-7 w-7 rounded-full border",
-                              active ? "ring-2 ring-white/70" : "border-white/10"
+                              active
+                                ? "ring-2 ring-white/70"
+                                : "border-white/10",
                             )}
                             style={{ backgroundColor: color.value }}
                             onClick={() => setBulkCreateColor(color.value)}
@@ -2059,8 +2342,13 @@ export function CharHomeClient({
                     </div>
                   </div>
                   <div className="flex justify-end">
-                    <Button onClick={handleBulkCreateFolder} disabled={isFolderPending}>
-                      {isFolderPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    <Button
+                      onClick={handleBulkCreateFolder}
+                      disabled={isFolderPending}
+                    >
+                      {isFolderPending && (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      )}
                       Створити
                     </Button>
                   </div>
@@ -2073,8 +2361,8 @@ export function CharHomeClient({
                 className={cn(
                   "w-full text-left rounded-xl border px-3 py-2 text-sm transition",
                   bulkMoveFolderId === "root"
-                    ? "border-teal-500/40 bg-teal-500/10 text-teal-200"
-                    : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5"
+                    ? "border-arcane-500/40 bg-arcane-500/10 text-arcane-200"
+                    : "border-white/10 bg-slate-950/40 text-slate-200 hover:bg-white/5",
                 )}
                 onClick={() => setBulkMoveFolderId("root")}
               >
@@ -2083,11 +2371,20 @@ export function CharHomeClient({
               {renderFolderTree(null, 0, bulkMoveFolderId, setBulkMoveFolderId)}
             </div>
             <div className="flex justify-end gap-2">
-              <Button variant="ghost" onClick={() => setBulkMoveOpen(false)} disabled={isMovePending}>
+              <Button
+                variant="ghost"
+                onClick={() => setBulkMoveOpen(false)}
+                disabled={isMovePending}
+              >
                 Скасувати
               </Button>
-              <Button onClick={handleBulkMoveConfirm} disabled={isMovePending || totalSelected === 0}>
-                {isMovePending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              <Button
+                onClick={handleBulkMoveConfirm}
+                disabled={isMovePending || totalSelected === 0}
+              >
+                {isMovePending && (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                )}
                 Перемістити
               </Button>
             </div>
@@ -2102,14 +2399,25 @@ export function CharHomeClient({
           </DialogHeader>
           <div className="space-y-4">
             <p className="text-sm text-slate-400">
-              Ви збираєтесь видалити {totalSelected} елементів. Цю дію не можна скасувати.
+              Ви збираєтесь видалити {totalSelected} елементів. Цю дію не можна
+              скасувати.
             </p>
             <div className="flex justify-end gap-2">
-              <Button variant="ghost" onClick={() => setBulkDeleteOpen(false)} disabled={isMovePending}>
+              <Button
+                variant="ghost"
+                onClick={() => setBulkDeleteOpen(false)}
+                disabled={isMovePending}
+              >
                 Скасувати
               </Button>
-              <Button variant="destructive" onClick={handleBulkDeleteConfirm} disabled={isMovePending || totalSelected === 0}>
-                {isMovePending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              <Button
+                variant="destructive"
+                onClick={handleBulkDeleteConfirm}
+                disabled={isMovePending || totalSelected === 0}
+              >
+                {isMovePending && (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                )}
                 Видалити
               </Button>
             </div>
@@ -2118,14 +2426,19 @@ export function CharHomeClient({
       </Dialog>
 
       <Dialog open={filtersOpen} onOpenChange={setFiltersOpen}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
+        <DialogContent
+          className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-0"
+          showClose={false}
+        >
           <div className="p-4 sm:p-6">
             <div className="flex items-start justify-between gap-3">
-              <DialogTitle className="font-rpg-display text-2xl font-semibold tracking-wide text-teal-400">Фільтри</DialogTitle>
+              <DialogTitle className="font-rpg-display text-2xl font-semibold tracking-wide text-arcane-400">
+                Фільтри
+              </DialogTitle>
               <button
                 type="button"
                 onClick={() => setFiltersOpen(false)}
-                className="glass-card inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-200/90 hover:text-teal-300"
+                className="glass-card inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-200/90 hover:text-arcane-300"
                 aria-label="Закрити"
               >
                 <X className="h-4 w-4" />
@@ -2134,7 +2447,9 @@ export function CharHomeClient({
 
             <div className="mt-4 space-y-4">
               <div className="glass-card rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Рівні</div>
+                <div className="text-xs font-semibold text-slate-300">
+                  Рівні
+                </div>
                 <div className="mt-2 max-h-44 overflow-auto pr-1">
                   <div className="flex flex-wrap gap-2">
                     {LEVEL_OPTIONS.map((lvl) => {
@@ -2143,8 +2458,14 @@ export function CharHomeClient({
                         <Badge
                           key={lvl}
                           variant={active ? "default" : "outline"}
-                          className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                          onClick={() => toggleFilterValue(setLevelFilters, lvl)}
+                          className={
+                            active
+                              ? "bg-arcane-500/15 text-arcane-300 border-arcane-500/30"
+                              : ""
+                          }
+                          onClick={() =>
+                            toggleFilterValue(setLevelFilters, lvl)
+                          }
                           role="button"
                         >
                           {lvl}
@@ -2156,7 +2477,9 @@ export function CharHomeClient({
               </div>
 
               <div className="glass-card rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Класи</div>
+                <div className="text-xs font-semibold text-slate-300">
+                  Класи
+                </div>
                 <div className="mt-2">
                   <Input
                     value={classFilterQuery}
@@ -2180,8 +2503,14 @@ export function CharHomeClient({
                           <Badge
                             key={cls}
                             variant={active ? "default" : "outline"}
-                            className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                            onClick={() => toggleFilterValue(setClassFilters, cls)}
+                            className={
+                              active
+                                ? "bg-arcane-500/15 text-arcane-300 border-arcane-500/30"
+                                : ""
+                            }
+                            onClick={() =>
+                              toggleFilterValue(setClassFilters, cls)
+                            }
                             role="button"
                           >
                             {translateValue(cls)}
@@ -2193,7 +2522,9 @@ export function CharHomeClient({
               </div>
 
               <div className="glass-card rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Підкласи</div>
+                <div className="text-xs font-semibold text-slate-300">
+                  Підкласи
+                </div>
                 <div className="mt-2">
                   <Input
                     value={subclassFilterQuery}
@@ -2209,12 +2540,18 @@ export function CharHomeClient({
                         const q = subclassFilterQuery.trim().toLowerCase();
                         const visible = !q
                           ? subclasses
-                          : subclasses.filter((sub) => `${sub} ${translateValue(sub)}`.toLowerCase().includes(q));
+                          : subclasses.filter((sub) =>
+                              `${sub} ${translateValue(sub)}`
+                                .toLowerCase()
+                                .includes(q),
+                            );
                         if (visible.length === 0) return null;
 
                         return (
                           <div key={className} className="space-y-2">
-                            <div className="text-xs font-semibold text-slate-400">{className}:</div>
+                            <div className="text-xs font-semibold text-slate-400">
+                              {className}:
+                            </div>
                             <div className="flex flex-wrap gap-2">
                               {visible.map((sub) => {
                                 const active = subclassFilters.has(sub);
@@ -2222,8 +2559,14 @@ export function CharHomeClient({
                                   <Badge
                                     key={sub}
                                     variant={active ? "default" : "outline"}
-                                    className={active ? "bg-teal-500/15 text-teal-300 border-teal-500/30" : ""}
-                                    onClick={() => toggleFilterValue(setSubclassFilters, sub)}
+                                    className={
+                                      active
+                                        ? "bg-arcane-500/15 text-arcane-300 border-arcane-500/30"
+                                        : ""
+                                    }
+                                    onClick={() =>
+                                      toggleFilterValue(setSubclassFilters, sub)
+                                    }
                                     role="button"
                                   >
                                     {translateValue(sub)}

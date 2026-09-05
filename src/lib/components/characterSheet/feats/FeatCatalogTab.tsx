@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { Plus, Search, Check, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FeatData, FeatCategory } from "@/lib/featsData";
+import type { FeatData, FeatCategory } from "@/lib/featsData";
 import { featCategoryTranslations } from "@/lib/refs/translation";
 import { cn } from "@/lib/utils";
 

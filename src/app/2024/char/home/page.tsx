@@ -1,7 +1,5 @@
 import { getUserPersHomeData } from "@/lib/actions/pers";
 import { CharHomeClient } from "@/app/char/home/CharHomeClient";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 
@@ -10,11 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/char/home");
-  }
-
   const { perses, folders } = await getUserPersHomeData({ ruleset: "RULES_2024" });
 
   if (perses.length === 0) {

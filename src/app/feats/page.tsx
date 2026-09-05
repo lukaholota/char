@@ -8,18 +8,13 @@ export const metadata: Metadata = {
   description: "Каталог рис (Feats) D&D 5e (2014) українською мовою з фільтрами та пошуком.",
 };
 
-export default async function FeatsPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const resolvedSearchParams = await searchParams;
+export default function FeatsPage() {
   const feats = getAllFeats("RULES_2014");
 
   return (
     <div className="h-full w-full">
       <Suspense fallback={null}>
-        <FeatsClient feats={feats} initialSearchParams={resolvedSearchParams} ruleset="RULES_2014" />
+        <FeatsClient feats={feats} ruleset="RULES_2014" />
       </Suspense>
     </div>
   );

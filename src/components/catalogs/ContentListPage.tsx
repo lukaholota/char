@@ -84,8 +84,11 @@ export function ContentListPage<TItem, TRow = TItem>({
     if (onFilterDialogClose) onFilterDialogClose();
   });
 
+  // No tab-bar allowance below: `App` already reserves 4.5rem plus the safe area for it. This
+  // shell used to add 7rem of its own on top, and that was the empty strip between the list and
+  // the tab bar (KR15.4 §2). What is left is breathing room, nothing more.
   return (
-    <div className="flex h-full w-full flex-col px-3 sm:px-6 pt-3 sm:pt-6 pb-28 md:pb-6 pb-[calc(7rem+env(safe-area-inset-bottom,0px))] md:pb-6 max-w-7xl mx-auto overflow-hidden">
+    <div className="flex h-full w-full flex-col px-3 sm:px-6 pt-3 sm:pt-6 pb-3 md:pb-6 max-w-7xl mx-auto overflow-hidden">
       {topBanner}
 
       <CatalogHeader
@@ -120,8 +123,13 @@ export function ContentListPage<TItem, TRow = TItem>({
           ) : (
             <Virtuoso
               data={data}
-              className={listClassName || "h-full px-1.5 py-1"}
-              itemContent={renderItem}
+              className={listClassName || "h-full py-1"}
+              itemContent={(index, item) => (
+                /// The gutter lives on the row, not on the scroller: react-virtuoso sizes its
+                /// rows to the scroller's padding box, so horizontal padding there pushed every
+                /// card right and let it run past the right edge (KR13.5 Б1).
+                <div className="px-1.5">{renderItem(index, item)}</div>
+              )}
             />
           )}
         </div>

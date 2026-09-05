@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { getAllSpells, getSpellById } from "@/lib/spellsData";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
+import { buildSpellKey, getAllSpells, getSpellByIdOrSlug } from "@/lib/spellsData";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { SpellDetailCard } from "@/components/spells/SpellDetailCard";
 import { getDescriptionSnippet } from "@/lib/seo-utils";
@@ -10,7 +10,7 @@ import { getDescriptionSnippet } from "@/lib/seo-utils";
 export async function generateStaticParams() {
   const spells = getAllSpells();
   return spells.map((spell) => ({
-    spellId: String(spell.spellId),
+    spellId: buildSpellKey(spell),
   }));
 }
 
@@ -21,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ spellId: string }>;
 }): Promise<Metadata> {
   const { spellId } = await params;
-  const spell = getSpellById(Number(spellId));
+  const spell = getSpellByIdOrSlug(spellId);
 
   if (!spell) {
     return {
@@ -36,7 +36,7 @@ export async function generateMetadata({
 
   const title = `${spell.name} — ${levelLabel}`;
   const description = getDescriptionSnippet(`${spell.name} (${levelLabel}, ${schoolLabel}). ${spell.description}`);
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://char.holota.family"}/spells/${spellId}`;
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://char.holota.family"}/spells/${buildSpellKey(spell)}`;
 
   return {
     title,
@@ -60,7 +60,7 @@ export default async function SpellDetailPage({
   params: Promise<{ spellId: string }>;
 }) {
   const { spellId } = await params;
-  const spell = getSpellById(Number(spellId));
+  const spell = getSpellByIdOrSlug(spellId);
 
   if (!spell) {
     notFound();

@@ -11,8 +11,14 @@ import { Label } from "@/components/ui/label";
 import { Printer } from "lucide-react";
 
 import type { PrintConfig, PrintSection } from "@/server/pdf/types";
-import { generateCharacterPdfAction } from "@/app/char/[id]/print/actions";
-import { generateCharacterPdfByTokenAction } from "@/app/char/share/[token]/print/actions";
+import {
+  findPrintableWildshapeCountAction,
+  generateCharacterPdfAction,
+} from "@/app/char/[id]/print/actions";
+import {
+  findPrintableWildshapeCountByTokenAction,
+  generateCharacterPdfByTokenAction,
+} from "@/app/char/share/[token]/print/actions";
 
 function base64ToUint8Array(base64: string): Uint8Array {
   const binaryString = atob(base64);
@@ -64,7 +70,35 @@ export default function PrintCharacterDialog({
   const [includeSpellSheet, setIncludeSpellSheet] = useState(() => !initialSections || initialSections.includes("SPELL_SHEET"));
   const [includeDetails, setIncludeDetails] = useState(() => initialSections?.includes("DETAILS") ?? false);
   const [includeMagicItems, setIncludeMagicItems] = useState(() => !initialSections || initialSections.includes("MAGIC_ITEMS"));
+  const [wildshapeCount, setWildshapeCount] = useState(0);
+  const [includeWildshapes, setIncludeWildshapes] = useState(false);
   const [flatten, setFlatten] = useState(true);
+
+  useEffect(() => {
+    if (!open) return;
+    let cancelled = false;
+
+    const loadWildshapeCount = async () => {
+      try {
+        const count = shareToken
+          ? await findPrintableWildshapeCountByTokenAction(shareToken)
+          : await findPrintableWildshapeCountAction(persId);
+        if (cancelled) return;
+        setWildshapeCount(count);
+        setIncludeWildshapes(count > 0 && (!initialSections || initialSections.includes("WILDSHAPES")));
+      } catch (error) {
+        if (cancelled) return;
+        setWildshapeCount(0);
+        setIncludeWildshapes(false);
+        toast.error(error instanceof Error ? error.message : "Не вдалося завантажити Дикі форми");
+      }
+    };
+
+    void loadWildshapeCount();
+    return () => {
+      cancelled = true;
+    };
+  }, [open, initialSections, persId, shareToken]);
 
   useEffect(() => {
     if (open && initialSections) {
@@ -74,8 +108,9 @@ export default function PrintCharacterDialog({
       setIncludeSpellSheet(initialSections.includes("SPELL_SHEET"));
       setIncludeDetails(initialSections.includes("DETAILS"));
       setIncludeMagicItems(initialSections.includes("MAGIC_ITEMS"));
+      setIncludeWildshapes(wildshapeCount > 0 && initialSections.includes("WILDSHAPES"));
     }
-  }, [open, initialSections]);
+  }, [open, initialSections, wildshapeCount]);
 
   const config: PrintConfig = useMemo(() => {
     const sections: PrintSection[] = [];
@@ -85,8 +120,9 @@ export default function PrintCharacterDialog({
     if (includeDetails) sections.push("DETAILS");
     if (includeSpells) sections.push("SPELLS");
     if (includeMagicItems) sections.push("MAGIC_ITEMS");
+    if (includeWildshapes && wildshapeCount > 0) sections.push("WILDSHAPES");
     return { sections, flattenCharacterSheet: flatten };
-  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeDetails, includeMagicItems, flatten]);
+  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeDetails, includeMagicItems, includeWildshapes, wildshapeCount, flatten]);
 
   const handleDownload = () => {
     startTransition(async () => {
@@ -168,6 +204,13 @@ export default function PrintCharacterDialog({
               <Checkbox checked={includeMagicItems} onCheckedChange={(v) => setIncludeMagicItems(Boolean(v))} id="print-magic-items" />
               <Label htmlFor="print-magic-items">Магічні предмети</Label>
             </div>
+
+            {wildshapeCount > 0 && (
+              <div className="flex items-center gap-2">
+                <Checkbox checked={includeWildshapes} onCheckedChange={(v) => setIncludeWildshapes(Boolean(v))} id="print-wildshapes" />
+                <Label htmlFor="print-wildshapes">Дикі форми ({wildshapeCount})</Label>
+              </div>
+            )}
 
             <div className="pt-2 border-t">
               <div className="flex items-center gap-2">

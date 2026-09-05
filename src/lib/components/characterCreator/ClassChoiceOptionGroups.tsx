@@ -135,7 +135,7 @@ function ClassChoiceOptionCard({
                 type="button"
                 size="icon"
                 variant="secondary"
-                className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
+                className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-arcane-400/30"
                 aria-label={`Інформація про ${label}`}
                 onClick={() => onShowFeatures(label || "Опція", option.choiceOption.features)}
               >

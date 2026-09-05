@@ -4,11 +4,14 @@ import Image from "next/image";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useMemo, useRef, useState, RefObject } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Menu, LogIn, LogOut, Home, Heart, Award, Eye, Sword, Shield, Wrench, Sparkles, BookOpen, Search, ScrollText } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Menu, LogIn, LogOut, Home, Heart, Award, Eye, Sword, Swords, Shield, Users, Wrench, Sparkles, BookOpen, Search, ScrollText, Castle, MessageSquareWarning } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
+import { forgetOfflinePages } from "@/lib/offline/service-worker";
 
 import { cn } from "@/lib/utils";
 import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import { ReportProblemDialog } from "@/lib/components/problemReport/ReportProblemDialog";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { useTwoStepConfirm } from "@/hooks/useTwoStepConfirm";
@@ -17,6 +20,7 @@ import { NoAiSwitcher } from "@/components/no-ai/NoAiSwitcher";
 import { useRoutePathname } from "@/components/no-ai/NoAiModeProvider";
 import { getEditionFromPathname } from "@/rules/route-helpers";
 import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
+import { MENU_PANEL } from "@/components/ui/menu-panel";
 
 type Props = {
   showHomeLinkInMenu?: boolean;
@@ -29,6 +33,7 @@ type MenuItemsProps = {
   isAuthed: boolean;
   close: () => void;
   onOpenAuth: () => void;
+  onOpenReport: () => void;
   logoutConfirm: {
     ref: RefObject<HTMLButtonElement | null>;
     isConfirming: boolean;
@@ -36,24 +41,54 @@ type MenuItemsProps = {
   };
 };
 
+const MENU_ITEM =
+  "flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5";
+
+type CatalogLink = {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  iconClass?: string;
+};
+
+function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
+  const prefix = is2024 ? "/2024" : "";
+  const year = is2024 ? " 2024" : "";
+  const accent = is2024 ? "text-amber-400" : "text-arcane-400";
+
+  const links: (CatalogLink | null)[] = [
+    showHome
+      ? { href: is2024 ? "/2024" : "/", icon: Home, label: "Головна", iconClass: "text-slate-300" }
+      : null,
+    { href: `${prefix}/races`, icon: Users, label: is2024 ? "Види" : "Раси" },
+    { href: `${prefix}/classes`, icon: Swords, label: `Класи${year}` },
+    { href: `${prefix}/rules`, icon: BookOpen, label: `Довідник правил${year}` },
+    { href: `${prefix}/weapons`, icon: Sword, label: `Зброя${year}` },
+    { href: `${prefix}/armor`, icon: Shield, label: `Обладунки${year}` },
+    { href: `${prefix}/feats`, icon: Award, label: `Риси${year}` },
+    { href: `${prefix}/invocations`, icon: Sparkles, label: `Потойбічні виклики${year}` },
+    is2024 ? null : { href: "/infusions", icon: Wrench, label: "Вливання Винахідника" },
+    { href: `${prefix}/backgrounds`, icon: ScrollText, label: `Походження${year}` },
+    is2024 ? { href: "/2024/bastions", icon: Castle, label: "Приміщення бастіону" } : null,
+    { href: `${prefix}/bestiary`, icon: Eye, label: `Бестіарій${year}` },
+  ];
+
+  return links
+    .filter((link): link is CatalogLink => link !== null)
+    .map((link) => ({ ...link, iconClass: link.iconClass ?? accent }));
+}
+
 function NavMenuItems({
   is2024,
   showHome,
   isAuthed,
   close,
   onOpenAuth,
+  onOpenReport,
   logoutConfirm,
 }: MenuItemsProps) {
   const { open: openSearch } = useOmniSearchStore();
-  const homeHref = is2024 ? "/2024" : "/";
-  const rulesHref = is2024 ? "/2024/rules" : "/rules";
-  const featsHref = is2024 ? "/2024/feats" : "/feats";
-  const bestiaryHref = is2024 ? "/2024/bestiary" : "/bestiary";
-  const weaponsHref = is2024 ? "/2024/weapons" : "/weapons";
-  const armorHref = is2024 ? "/2024/armor" : "/armor";
-  const infusionsHref = "/infusions";
-  const invocationsHref = is2024 ? "/2024/invocations" : "/invocations";
-  const backgroundsHref = is2024 ? "/2024/backgrounds" : "/backgrounds";
+  const accent = is2024 ? "text-amber-400" : "text-arcane-400";
 
   return (
     <div className="mt-1 grid gap-1">
@@ -63,104 +98,38 @@ function NavMenuItems({
           close();
           openSearch();
         }}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5 w-full text-left"
+        className={cn(MENU_ITEM, "w-full text-left")}
       >
-        <Search className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
+        <Search className={cn("h-4 w-4", accent)} />
         <span>Швидкий пошук</span>
         <kbd className="ml-auto text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
       </button>
 
-      {showHome ? (
-        <Link
-          href={homeHref}
-          onClick={close}
-          className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-        >
-          <Home className="h-4 w-4 text-slate-300" />
-          Головна
+      {buildCatalogLinks(is2024, showHome).map(({ href, icon: Icon, label, iconClass }) => (
+        <Link key={href} href={href} onClick={close} className={MENU_ITEM}>
+          <Icon className={cn("h-4 w-4", iconClass)} />
+          {label}
         </Link>
-      ) : null}
+      ))}
 
-      <Link
-        href={rulesHref}
-        onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
+      <button
+        type="button"
+        onClick={() => {
+          close();
+          onOpenReport();
+        }}
+        className={cn(MENU_ITEM, "w-full text-left")}
       >
-        <BookOpen className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
-        Довідник правил {is2024 ? "2024" : ""}
-      </Link>
-
-      <Link
-        href={weaponsHref}
-        onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-      >
-        <Sword className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
-        Зброя {is2024 ? "2024" : ""}
-      </Link>
-
-      <Link
-        href={armorHref}
-        onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-      >
-        <Shield className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
-        Обладунки {is2024 ? "2024" : ""}
-      </Link>
-
-      <Link
-        href={featsHref}
-        onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-      >
-        <Award className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
-        Риси {is2024 ? "2024" : ""}
-      </Link>
-
-      <Link
-        href={invocationsHref}
-        onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-      >
-        <Sparkles className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
-        Потойбічні виклики {is2024 ? "2024" : ""}
-      </Link>
-
-      {!is2024 && (
-        <Link
-          href={infusionsHref}
-          onClick={close}
-          className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-        >
-          <Wrench className="h-4 w-4 text-teal-400" />
-          Вливання Винахідника
-        </Link>
-      )}
-
-      <Link
-        href={backgroundsHref}
-        onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-      >
-        <ScrollText className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
-        Походження {is2024 ? "2024" : ""}
-      </Link>
-
-      <Link
-        href={bestiaryHref}
-        onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
-      >
-        <Eye className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-teal-400")} />
-        Бестіарій {is2024 ? "2024" : ""}
-      </Link>
+        <MessageSquareWarning className="h-4 w-4 text-amber-400" />
+        Повідомити про проблему
+      </button>
 
       <a
         href="https://www.reddit.com/r/char_holota_family/"
         target="_blank"
         rel="noreferrer"
         onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
+        className={MENU_ITEM}
       >
         <Image src="/images/reddit.svg" alt="Reddit" width={16} height={16} className="opacity-100" />
         Reddit
@@ -171,7 +140,7 @@ function NavMenuItems({
         target="_blank"
         rel="noreferrer"
         onClick={close}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
+        className={MENU_ITEM}
       >
         <Heart className="h-4 w-4 text-rose-400" />
         На розвиток сайту :)
@@ -201,7 +170,7 @@ function NavMenuItems({
             close();
             onOpenAuth();
           }}
-          className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
+          className={MENU_ITEM}
         >
           <LogIn className="h-4 w-4 text-slate-300" />
           Увійти
@@ -225,6 +194,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
   const { data: session } = useSession();
   const [open, setOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
 
   const reduceMotion = useReducedMotion();
 
@@ -240,11 +210,17 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
   useEscapeKey(() => close(), { enabled: open });
 
   const logoutConfirmMobile = useTwoStepConfirm<HTMLButtonElement>({
-    onConfirm: () => signOut({ callbackUrl: "/" }),
+    onConfirm: async () => {
+      await forgetOfflinePages();
+      await signOut({ callbackUrl: "/" });
+    },
   });
 
   const logoutConfirmDesktop = useTwoStepConfirm<HTMLButtonElement>({
-    onConfirm: () => signOut({ callbackUrl: "/" }),
+    onConfirm: async () => {
+      await forgetOfflinePages();
+      await signOut({ callbackUrl: "/" });
+    },
   });
 
   const edition = getEditionFromPathname(pathname);
@@ -253,6 +229,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
   return (
     <>
       <GoogleAuthDialog open={authOpen} onOpenChange={setAuthOpen} />
+      <ReportProblemDialog open={reportOpen} onOpenChange={setReportOpen} pathname={pathname} />
 
       <div className={cn("relative", open && "z-[9002]", className)}>
         <button
@@ -276,7 +253,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
               {/* Overlay */}
               <motion.div
                 key="overlay"
-                className="fixed inset-0 z-[9000] bg-black/65"
+                className="fixed inset-0 z-[9000] bg-black/45 backdrop-blur-[2px]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: reduceMotion ? 0 : 0.18 } }}
                 exit={{ opacity: 0, transition: { duration: reduceMotion ? 0 : 0.14 } }}
@@ -313,12 +290,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                 animate={{ y: 0, scale: 1, transition: { duration: reduceMotion ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] } }}
                 exit={{ y: 14, scale: 0.98, transition: { duration: reduceMotion ? 0 : 0.18 } }}
               >
-                <div className="glass-card relative overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 bg-slate-950/80 backdrop-blur-2xl backdrop-saturate-150"
-                  />
-
+                <div className={MENU_PANEL}>
                   <div className="relative p-2">
                     <MenuOptionsRow showEdition close={close} />
                     <NavMenuItems
@@ -327,6 +299,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                       isAuthed={Boolean(session?.user)}
                       close={close}
                       onOpenAuth={() => setAuthOpen(true)}
+                      onOpenReport={() => setReportOpen(true)}
                       logoutConfirm={logoutConfirmMobile}
                     />
                   </div>
@@ -343,12 +316,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                 animate={{ x: 0, y: 0, scale: 1, transition: { duration: reduceMotion ? 0 : 0.18, ease: [0.22, 1, 0.36, 1] } }}
                 exit={{ x: -4, y: 4, scale: 0.98, transition: { duration: reduceMotion ? 0 : 0.14 } }}
               >
-                <div className="glass-card relative w-64 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 bg-slate-950/80 backdrop-blur-2xl backdrop-saturate-150"
-                  />
-
+                <div className={cn(MENU_PANEL, "w-64")}>
                   <div className="relative p-2">
                     <MenuOptionsRow showEdition={false} close={close} />
                     <NavMenuItems
@@ -357,6 +325,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                       isAuthed={Boolean(session?.user)}
                       close={close}
                       onOpenAuth={() => setAuthOpen(true)}
+                      onOpenReport={() => setReportOpen(true)}
                       logoutConfirm={logoutConfirmDesktop}
                     />
                   </div>

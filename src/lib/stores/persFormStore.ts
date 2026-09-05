@@ -2,6 +2,23 @@ import {PersFormData} from "@/lib/zod/schemas/persCreateSchema";
 import {create} from "zustand";
 import {createJSONStorage, persist} from "zustand/middleware";
 
+export type DraftRuleset = "RULES_2014" | "RULES_2024";
+
+type DraftScope = "CREATOR_2014" | "CREATOR_2024" | "LEVEL_UP";
+
+const DRAFT_STORAGE_KEY_BY_SCOPE: Record<DraftScope, string> = {
+  CREATOR_2014: "dnd-pers-form",
+  CREATOR_2024: "dnd-2024-pers-form",
+  LEVEL_UP: "dnd-pers-levelup",
+};
+
+const createEmptyDraft = () => ({
+  formData: {} as Partial<PersFormData>,
+  currentStep: 1,
+  prevRaceId: null as number | null,
+  totalSteps: 7,
+});
+
 interface FormStore {
   formData: Partial<PersFormData>
   currentStep: number
@@ -23,10 +40,7 @@ interface FormStore {
 export const usePersFormStore = create<FormStore>()(
   persist(
     (set) => ({
-      formData: {},
-      currentStep: 1,
-      prevRaceId: null,
-      totalSteps: 7,
+      ...createEmptyDraft(),
       isHydrated: false,
       resetNonce: 0,
 
@@ -60,10 +74,7 @@ export const usePersFormStore = create<FormStore>()(
 
       resetForm: () =>
         set((state) => ({
-          formData: {},
-          currentStep: 1,
-          prevRaceId: null,
-          totalSteps: 7,
+          ...createEmptyDraft(),
           resetNonce: state.resetNonce + 1,
         })),
 
@@ -80,12 +91,20 @@ export const usePersFormStore = create<FormStore>()(
       setHydrated: (hydrated: boolean) => set({ isHydrated: hydrated }),
     }),
     {
-      name: "dnd-pers-form",
+      name: DRAFT_STORAGE_KEY_BY_SCOPE.CREATOR_2014,
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         formData: state.formData,
         currentStep: state.currentStep,
         totalSteps: state.totalSteps,
+      }),
+      // Креатор 2014, креатор 2024 і левелап мають свої ключі, тож при перемиканні
+      // чернетка попереднього не має протікати в стан, коли під новим ключем
+      // ще нічого не збережено.
+      merge: (persistedDraft, currentState) => ({
+        ...currentState,
+        ...createEmptyDraft(),
+        ...(persistedDraft as Partial<FormStore> | undefined),
       }),
       onRehydrateStorage: () => (state) => {
         // Called after state is hydrated from storage
@@ -96,3 +115,26 @@ export const usePersFormStore = create<FormStore>()(
     }
   )
 )
+
+function findPersDraftStorageKey(scope: DraftScope): string {
+  return DRAFT_STORAGE_KEY_BY_SCOPE[scope];
+}
+
+export function activateCreatorDraftStorage(ruleset: DraftRuleset): void {
+  activateDraftStorage(ruleset === "RULES_2024" ? "CREATOR_2024" : "CREATOR_2014");
+}
+
+export function activateLevelUpDraftStorage(): void {
+  activateDraftStorage("LEVEL_UP");
+}
+
+function activateDraftStorage(scope: DraftScope): void {
+  const draftStorage = usePersFormStore.persist;
+  if (typeof window === "undefined" || !draftStorage) return;
+
+  const nextKey = findPersDraftStorageKey(scope);
+  if (draftStorage.getOptions().name === nextKey) return;
+
+  draftStorage.setOptions({ name: nextKey });
+  draftStorage.rehydrate();
+}

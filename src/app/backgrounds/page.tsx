@@ -9,12 +9,7 @@ export const metadata: Metadata = {
     "Каталог походжень (Backgrounds) D&D 5e (2014) українською мовою: навички, інструменти, мови, спорядження та спеціальні вміння.",
 };
 
-export default async function BackgroundsPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const resolvedSearchParams = await searchParams;
+export default function BackgroundsPage() {
   const backgrounds = getAllBackgrounds("RULES_2014");
 
   return (
@@ -22,7 +17,6 @@ export default async function BackgroundsPage({
       <Suspense fallback={null}>
         <BackgroundsClient
           backgrounds={backgrounds}
-          initialSearchParams={resolvedSearchParams}
           ruleset="RULES_2014"
         />
       </Suspense>

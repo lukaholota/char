@@ -116,7 +116,7 @@ export const InfoDialog = ({
             type="button"
             size="icon"
             variant="secondary"
-            className="glass-panel border-gradient-rpg h-9 w-9 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
+            className="glass-panel border-gradient-rpg h-9 w-9 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-arcane-400/30"
             aria-label={triggerLabel}
           >
             <CircleHelp className="h-5 w-5" />

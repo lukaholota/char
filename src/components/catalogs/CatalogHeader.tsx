@@ -42,7 +42,7 @@ export function CatalogHeader({
             "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
             is2024
               ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-              : "bg-gradient-to-r from-teal-300 via-teal-100 to-violet-300"
+              : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
           )}
         >
           {title}
@@ -80,7 +80,7 @@ export function CatalogHeader({
               hasActiveFilters &&
                 (is2024
                   ? "text-amber-300 border-amber-500/40 bg-amber-500/10"
-                  : "text-teal-300 border-teal-500/40 bg-teal-500/10")
+                  : "text-arcane-300 border-arcane-500/40 bg-arcane-500/10")
             )}
           >
             <Filter className="h-3.5 w-3.5" />
@@ -89,7 +89,7 @@ export function CatalogHeader({
               <span
                 className={cn(
                   "ml-1 flex h-4 w-4 items-center justify-center rounded-full text-[10px] font-bold",
-                  is2024 ? "bg-amber-500 text-slate-950" : "bg-teal-500 text-slate-950"
+                  is2024 ? "bg-amber-500 text-slate-950" : "bg-arcane-500 text-slate-950"
                 )}
               >
                 {activeFiltersCount}

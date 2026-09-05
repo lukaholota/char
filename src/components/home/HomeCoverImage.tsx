@@ -1,12 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { ContentImage } from "@/components/no-ai/ContentImage";
 
 type HomeCoverImageProps = {
   src: string;
+  noAiSrc?: string | null;
+  alt: string;
   sizes: string;
   priority?: boolean;
   className?: string;
@@ -14,16 +16,17 @@ type HomeCoverImageProps = {
 
 /// Covers are produced outside this code, so a slug may have no file yet. A miss falls back to
 /// the painted placeholder instead of a broken image.
-export function HomeCoverImage({ src, sizes, priority, className }: HomeCoverImageProps) {
+export function HomeCoverImage({ src, noAiSrc, alt, sizes, priority, className }: HomeCoverImageProps) {
   const [isMissing, setIsMissing] = useState(false);
 
   return (
     <>
       <CoverPlaceholder />
       {isMissing ? null : (
-        <Image
+        <ContentImage
           src={src}
-          alt=""
+          noAiSrc={noAiSrc}
+          alt={alt}
           fill
           sizes={sizes}
           priority={priority}

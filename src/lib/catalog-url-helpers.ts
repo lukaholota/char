@@ -50,3 +50,23 @@ export function replaceUrlSearchParams(next: URLSearchParams) {
   window.history.replaceState(null, "", newUrl);
 }
 
+
+/// Режим вбудовування: каталог відкритий в iframe із листа персонажа й малює кнопку «додати»
+/// замість самої лише картки. `persId` без нього нічого не значить — обидва або жодного.
+export type CatalogEmbed = { persId: number; persName: string | null };
+
+export function findCatalogEmbed(params: URLSearchParams): CatalogEmbed | null {
+  if (params.get("origin") !== "character") return null;
+
+  const persId = Number(params.get("persId"));
+  if (!Number.isInteger(persId) || persId <= 0) return null;
+
+  return { persId, persName: params.get("persName") };
+}
+
+export function buildCatalogEmbedParams(input: { persId: number; persName?: string }): string {
+  const params = new URLSearchParams({ origin: "character", persId: String(input.persId) });
+  if (input.persName) params.set("persName", input.persName);
+
+  return params.toString();
+}

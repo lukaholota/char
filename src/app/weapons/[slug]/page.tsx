@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllWeapons, getWeaponByIdOrSlug } from "@/lib/weaponsData";
 import { weaponTypeTranslations, damageTypeTranslations } from "@/lib/refs/translation";
 import { WeaponDetailCard } from "@/components/weapons/WeaponDetailCard";

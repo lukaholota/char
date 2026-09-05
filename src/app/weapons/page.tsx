@@ -8,18 +8,13 @@ export const metadata: Metadata = {
   description: "Повний каталог простої та бойової зброї, а також вогнепальної зброї D&D 5e (2014) українською мовою.",
 };
 
-export default async function WeaponsPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const resolvedSearchParams = await searchParams;
+export default function WeaponsPage() {
   const weapons = getAllWeapons("RULES_2014");
 
   return (
     <div className="h-full w-full">
       <Suspense fallback={null}>
-        <WeaponsClient weapons={weapons} initialSearchParams={resolvedSearchParams} ruleset="RULES_2014" />
+        <WeaponsClient weapons={weapons} ruleset="RULES_2014" />
       </Suspense>
     </div>
   );

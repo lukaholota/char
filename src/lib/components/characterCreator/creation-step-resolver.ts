@@ -2,10 +2,13 @@ export interface CreationStepConditions {
   hasSubraces: boolean;
   hasRaceVariants: boolean;
   hasRaceChoiceOptions: boolean;
+  /** Риса від вибору виду (друга риса Людини 2024) має власні опції — навички, список заклинань. */
+  hasSpeciesFeatChoices?: boolean;
   hasSubclasses: boolean;
   hasLevelOneSubclassChoices: boolean;
   hasLevelOneChoices: boolean;
   hasLevelOneOptionalFeatures: boolean;
+  hasWeaponMastery?: boolean;
   hasFeatChoice: boolean;
   hasFeatChoices: boolean;
   hasBackgroundFeatChoice: boolean;
@@ -44,6 +47,7 @@ function resolveRaceSteps(conditions: CreationStepConditions): CreationStep[] {
   const raceDetailsName = resolveRaceDetailsName(conditions);
   if (raceDetailsName) steps.push({ id: "raceDetails", name: raceDetailsName, component: "raceDetails" });
   if (conditions.hasRaceChoiceOptions) steps.push({ id: "raceChoices", name: "Опції раси", component: "raceChoices" });
+  if (conditions.hasSpeciesFeatChoices) steps.push({ id: "speciesFeatChoices", name: "Опції риси виду", component: "speciesFeatChoices" });
   return steps;
 }
 
@@ -60,6 +64,7 @@ function resolveClassSteps(conditions: CreationStepConditions): CreationStep[] {
   if (conditions.hasLevelOneSubclassChoices) steps.push({ id: "subclassChoices", name: "Опції підкласу", component: "subclassChoices" });
   if (conditions.hasLevelOneChoices) steps.push({ id: "classChoices", name: "Опції класу", component: "classChoices" });
   if (conditions.hasLevelOneOptionalFeatures) steps.push({ id: "classOptional", name: "Додаткові риси", component: "classOptional" });
+  if (conditions.hasWeaponMastery) steps.push({ id: "weaponMastery", name: "Майстерність зброї", component: "weaponMastery" });
   return steps;
 }
 

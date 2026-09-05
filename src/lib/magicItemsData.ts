@@ -13,6 +13,8 @@ export type MagicItemWithSpells = MagicItem & {
   attunementConditionEng?: string | null;
   isCursed?: boolean;
   isConsumable?: boolean;
+  /// Таблиця `magic_item` джерела не зберігає; його несе лише імпорт 2024.
+  source?: string | null;
 };
 
 const magicItems2014: MagicItemWithSpells[] = (magicItems as unknown as MagicItemWithSpells[]).map((i) => ({
@@ -25,6 +27,7 @@ const magicItems2014: MagicItemWithSpells[] = (magicItems as unknown as MagicIte
 }));
 
 type Raw2024MagicItem = {
+  magicItemId: number;
   engName: string;
   name: string;
   itemType?: string;
@@ -40,8 +43,11 @@ type Raw2024MagicItem = {
   source?: string;
 };
 
-const magicItems2024: MagicItemWithSpells[] = (magicItems2024Json as Raw2024MagicItem[]).map((i, index) => ({
-  magicItemId: 20000 + index + 1,
+/// `magicItemId` береться з файла, а не з позиції в масиві: на нього посилається
+/// `pers_magic_item`, і перестановка рядків у каталозі перевішувала б предмети персонажів
+/// на чужі записи. Блок 20001+ зарезервований під 2024 — див. prisma/seed/magicItemIds.ts.
+const magicItems2024: MagicItemWithSpells[] = (magicItems2024Json as Raw2024MagicItem[]).map((i) => ({
+  magicItemId: i.magicItemId,
   name: i.name,
   engName: i.engName,
   itemType: (i.itemType ?? "WONDROUS_ITEM") as MagicItemType,

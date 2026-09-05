@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
 import { PersWithRelations } from "@/lib/actions/pers";
-import { updateBonus, updateSkillProficiency, updateSaveProficiency, updateBaseStat, updateBaseACOverride } from "@/lib/actions/bonus-actions";
+import { updateBonus, updateSkillProficiency, saveAbilityAdjustments, updateBaseACOverride, updateMaxHp } from "@/lib/actions/bonus-actions";
 import { bonusTranslations, skillTranslations } from "@/lib/refs/translation";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -63,6 +63,7 @@ export default function ModifyStatModal({
   const [statMode, setStatMode] = useState<"BONUS" | "BASE">("BONUS");
   const [baseStatInput, setBaseStatInput] = useState<string>("");
   const [baseACInput, setBaseACInput] = useState<string>("");
+  const [maxHpInput, setMaxHpInput] = useState<string>("");
   
   // Local bonus states for immediate feedback
   const [localStatBonus, setLocalStatBonus] = useState(0);
@@ -110,6 +111,10 @@ export default function ModifyStatModal({
         setStatMode("BONUS");
         const current = pers.overrideBaseAC;
         setBaseACInput(typeof current === "number" && Number.isFinite(current) ? String(current) : "");
+      }
+
+      if (config.field === "hp") {
+        setMaxHpInput(String(pers.maxHp));
       }
     }
   }, [config, pers]);
@@ -291,22 +296,23 @@ export default function ModifyStatModal({
         // Close immediately; persist in background.
         onOpenChange(false);
 
-        void Promise.all([
-          updateBaseStat(pers.persId, ability, effectiveBase),
-          updateBonus(pers.persId, "stat", ability, localStatBonus),
-          updateBonus(pers.persId, "statModifier", ability, localModifierBonus),
-          updateBonus(pers.persId, "save", ability, localSaveBonus),
-          updateSaveProficiency(pers.persId, ability, localSaveProficiency),
-        ])
-          .then((results) => {
-            const failed = results.find((r) => !r.success);
-            if (failed) {
-              console.error(failed);
+        void saveAbilityAdjustments({
+          persId: pers.persId,
+          ability,
+          baseScore: effectiveBase,
+          statBonus: localStatBonus,
+          modifierBonus: localModifierBonus,
+          saveBonus: localSaveBonus,
+          isSaveProficient: localSaveProficiency,
+        })
+          .then((res) => {
+            if (!res.success) {
               onPersUpdate(prevPers);
-              toast.error("Помилка при збереженні");
+              toast.error(res.error);
               router.refresh();
               return;
             }
+            onPersUpdate({ ...nextPers, maxHp: res.maxHp, currentHp: res.currentHp });
             router.refresh();
           })
           .catch((err) => {
@@ -374,6 +380,43 @@ export default function ModifyStatModal({
         };
         
         const field = fieldMap[config.field];
+
+        if (config.field === "hp") {
+          const nextMaxHp = Number(maxHpInput.trim());
+
+          if (!Number.isFinite(nextMaxHp) || nextMaxHp < 1) {
+            toast.error("Максимум хітів має бути щонайменше 1");
+            return;
+          }
+
+          const maxHp = Math.trunc(nextMaxHp);
+          const nextPers = {
+            ...pers,
+            maxHp,
+            currentHp: Math.max(0, Math.min(maxHp, pers.currentHp)),
+          } as PersWithRelations;
+
+          onPersUpdate(nextPers);
+          onOpenChange(false);
+
+          void updateMaxHp(pers.persId, maxHp)
+            .then((res) => {
+              if (!res.success) {
+                onPersUpdate(prevPers);
+                toast.error(res.error);
+                router.refresh();
+                return;
+              }
+              router.refresh();
+            })
+            .catch((err) => {
+              console.error(err);
+              onPersUpdate(prevPers);
+              toast.error("Помилка при збереженні");
+              router.refresh();
+            });
+          return;
+        }
 
         if (config.field === "ac") {
           const raw = baseACInput.trim();
@@ -627,7 +670,23 @@ export default function ModifyStatModal({
           )}
 
           {config.type === "simple" && previewValues?.simple && (
-            config.field === "ac" ? (
+            config.field === "hp" ? (
+              <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30 space-y-2">
+                <div className="text-sm font-medium text-slate-200">Максимум хітів</div>
+                <Input
+                  autoFocus={false}
+                  type="number"
+                  value={maxHpInput}
+                  onChange={(e) => setMaxHpInput(e.target.value)}
+                  className="bg-white/5 border-white/10"
+                  disabled={isSubmitting}
+                />
+                <div className="text-xs text-slate-400">
+                  Максимум можна перебити руками — наприклад, коли кубики за рівень кидались за столом.
+                  Змінена Статура й далі рухатиме це число на всі рівні.
+                </div>
+              </div>
+            ) : config.field === "ac" ? (
               <div className="space-y-6">
                 <div className="space-y-3">
                   <div className="text-sm font-medium text-slate-200">Режим</div>

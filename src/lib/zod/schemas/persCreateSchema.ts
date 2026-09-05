@@ -35,7 +35,7 @@ export const backgroundFeatChoiceOptionsSchema = z.object({
 
 export const classSchema = z.object({
   classId: z
-    .number({ message: "Клас обов'язковий для вибору" })
+    .number({ message: "Клас обовʼязковий для вибору" })
     .min(1, "Клас теж треба обрати, мандрівнику!"),
 });
 
@@ -52,6 +52,11 @@ export const featChoiceOptionsSchema = z.object({
   featChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({})
 });
 
+/** Вибори риси, яку дав вибір виду (друга риса Людини 2024): три навички другого Skilled, список другого Magic Initiate. */
+export const speciesFeatChoiceOptionsSchema = z.object({
+  speciesFeatChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({})
+});
+
 export const classOptionalFeaturesSchema = z.object({
   classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({})
 });
@@ -66,6 +71,18 @@ const choices = z.object({
   choiceCount: z.number(),
   selectedAbilities: z.array(z.nativeEnum(Ability))
 })
+
+const backgroundAsiChoiceSchema = z.union([
+  z.object({
+    mode: z.literal("+2/+1"),
+    plusTwo: z.nativeEnum(Ability),
+    plusOne: z.nativeEnum(Ability),
+  }),
+  z.object({
+    mode: z.literal("+1/+1/+1"),
+    abilities: z.array(z.nativeEnum(Ability)).length(3),
+  }),
+])
 
 export const asiSchema = z.object({
   isDefaultASI: z.boolean().default(true), // ТОБТО НЕ ТАША
@@ -89,7 +106,9 @@ export const asiSchema = z.object({
   racialBonusChoiceSchema: z.object({
     basicChoices: z.array(choices).default([]),
     tashaChoices: z.array(choices).default([])
-  }).optional()
+  }).optional(),
+
+  backgroundAsiChoice: backgroundAsiChoiceSchema.optional()
 })
   .refine((data) => {
   if (data.asiSystem === 'POINT_BUY') {
@@ -216,17 +235,24 @@ export const languagesSchema = z.object({
   languages: z.array(z.string()).default([]),
 });
 
+export const backgroundEquipmentChoiceSchema = z.enum(["EQUIPMENT", "GOLD"]);
+
 export const equipmentSchema = z.object({
     choiceGroupToId: z.record(
       z.string(), // js has no numeric keys
       z.array(z.number())
     ).default({}),
-    anyWeaponSelection: z.record(z.string(), z.array(z.number())).default({})
+    anyWeaponSelection: z.record(z.string(), z.array(z.number())).default({}),
+    backgroundEquipmentChoice: backgroundEquipmentChoiceSchema.optional()
 })
+
+export const weaponMasterySchema = z.object({
+  weaponMasteryWeaponIds: z.array(z.number().int().positive()).default([]),
+});
 
 export const nameSchema = z.object({
   name: z.string()
-    .max(100, "ти шо, sql ін'єкцію вирішив закинути?))) оце потужний))")
+    .max(100, "ти шо, sql інʼєкцію вирішив закинути?))) оце потужний))")
 })
 
 export const fullCharacterSchema = z.object({
@@ -236,13 +262,14 @@ export const fullCharacterSchema = z.object({
   raceVariantId: z.number().nullable().optional(),
   raceChoiceSelections: z.record(z.string(), z.number().int()).default({}),
   featId: z.number().optional(),
-  classId: z.number().min(1, "Клас обов'язковий для вибору"),
+  classId: z.number().min(1, "Клас обовʼязковий для вибору"),
   subclassId: z.number().optional(),
   subclassChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   classChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   featChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   backgroundFeatId: z.number().optional(),
   backgroundFeatChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
+  speciesFeatChoiceSelections: z.record(z.string(), z.union([z.number().int(), z.array(z.number().int())])).default({}),
   classOptionalFeatureSelections: z.record(z.string(), z.boolean()).default({}),
   backgroundId: z.number(),
   backgroundSearch: z.string().default(''),
@@ -254,6 +281,7 @@ export const fullCharacterSchema = z.object({
   asi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
   skills: z.array(z.string()).default([]),
   equipment: z.array(z.number()).default([]),
+  weaponMasteryWeaponIds: z.array(z.number().int().positive()).default([]),
   name: z.string().default(''),
   racialBonusChoiceSchema: z.object({
     basicChoices: z.array(choices).default([]),
@@ -263,18 +291,11 @@ export const fullCharacterSchema = z.object({
   expertiseSchema: expertiseSchema.optional(),
   languagesSchema: languagesSchema.optional(),
   equipmentSchema: equipmentSchema.optional(),
-  ruleset: z.enum(["RULES_2014", "RULES_2024"]).default("RULES_2014").optional(),
-  backgroundAsiChoice: z.union([
-    z.object({
-      mode: z.literal("+2/+1"),
-      plusTwo: z.nativeEnum(Ability),
-      plusOne: z.nativeEnum(Ability),
-    }),
-    z.object({
-      mode: z.literal("+1/+1/+1"),
-      abilities: z.array(z.nativeEnum(Ability)).length(3),
-    }),
-  ]).optional(),
+  /// Без `.default` навмисно: коли редакції в запиті немає, її дає обраний клас
+  /// (`createCharacter`, `validData.ruleset ?? characterClass.ruleset`). Дефолт робив цей
+  /// запасний шлях мертвим і перетворював кожного персонажа 2024 на 2014.
+  ruleset: z.enum(["RULES_2014", "RULES_2024"]).optional(),
+  backgroundAsiChoice: backgroundAsiChoiceSchema.optional(),
   nameSchema: nameSchema.optional()
   ,
   // -------------------------------------------------------------------------

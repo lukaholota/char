@@ -17,15 +17,20 @@ import { HelpCircle } from "lucide-react";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
+import {
+  findAbilityScoreCeiling,
+  findFeatAbilityScoreSource,
+  raiseAbilityScore,
+} from "@/rules/ability-score-ceiling";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
-import { backgroundFeatChoiceOptionsSchema, featChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { backgroundFeatChoiceOptionsSchema, featChoiceOptionsSchema, speciesFeatChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 
 interface Props {
   selectedFeat?: FeatPrisma | null;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
   pers?: PersI | null;
-  mode?: 'race' | 'background';
+  mode?: 'race' | 'background' | 'species';
   extraExistingSkills?: string[];
   extraExistingChoiceOptionIds?: number[];
   extraExistingExpertises?: string[];
@@ -185,6 +190,18 @@ const localizeGroupName = (groupName: string, featKey?: string | null): string =
   return cleaned.split(featKey).join(localizedFeat);
 };
 
+const FEAT_CHOICE_SCHEMA_BY_MODE = {
+  race: featChoiceOptionsSchema,
+  background: backgroundFeatChoiceOptionsSchema,
+  species: speciesFeatChoiceOptionsSchema,
+} as const;
+
+const FEAT_CHOICE_STORAGE_KEY_BY_MODE = {
+  race: 'featChoiceSelections',
+  background: 'backgroundFeatChoiceSelections',
+  species: 'speciesFeatChoiceSelections',
+} as const;
+
 const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers, mode = 'race', extraExistingSkills = [], extraExistingChoiceOptionIds = [], extraExistingExpertises = [] }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
 
@@ -196,8 +213,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
   const [pendingPick, setPendingPick] = useState<{ groupName: string; optionId: number; pickCount: number } | null>(null);
   const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
 
-  const schema = (mode === 'race' ? featChoiceOptionsSchema : backgroundFeatChoiceOptionsSchema) as any;
-  const storageKey = mode === 'race' ? 'featChoiceSelections' : 'backgroundFeatChoiceSelections';
+  const schema = FEAT_CHOICE_SCHEMA_BY_MODE[mode] as any;
+  const storageKey = FEAT_CHOICE_STORAGE_KEY_BY_MODE[mode];
   
   const { form, onSubmit: baseOnSubmit } = useStepForm(schema, (data) => {
     updateFormData({ [storageKey]: (data as any)[storageKey] });
@@ -311,6 +328,24 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
     return base;
   }, [pers, formData]);
+
+  // Стеля риси, а не персонажа: епічний дар підіймає її до 30, звичайна риса лишає 20.
+  const abilityScoreCeiling = useMemo(
+    () => findAbilityScoreCeiling({
+      ruleset: pers?.ruleset,
+      source: findFeatAbilityScoreSource(selectedFeat?.category),
+    }),
+    [pers, selectedFeat],
+  );
+
+  const describeAbilityIncrease = useCallback(
+    (abilityKey: keyof typeof SIMPLE_ABILITY_MAP, amount: number, fallbackTitle: string) => {
+      const score = currentAbilityScores[abilityKey];
+      const title = translateValue(abilityKey) || fallbackTitle;
+      return `${title}: ${score} → ${raiseAbilityScore(score, amount, abilityScoreCeiling)}`;
+    },
+    [currentAbilityScores, abilityScoreCeiling],
+  );
 
   const optionsToUse = useMemo(() => selectedFeat?.featChoiceOptions || [], [selectedFeat]);
 
@@ -982,11 +1017,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
                         const translated = translateValue(label || optionNameEng);
                         if (abilityKey && currentAbilityScores) {
-                          const score = currentAbilityScores[abilityKey];
-                          const amount = eff && eff.kind === "ASI" ? eff.amount : 1;
-                          const next = Math.min(20, score + amount);
-                          const title = translateValue(abilityKey) || translated;
-                          label = `${title}: ${score} → ${next}`;
+                          label = describeAbilityIncrease(abilityKey, eff && eff.kind === "ASI" ? eff.amount : 1, translated);
                         } else {
                           label = translated;
                         }
@@ -1049,7 +1080,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                                     type="button"
                                     size="icon"
                                     variant="secondary"
-                                    className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-cyan-400/30"
+                                    className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-arcane-400/30"
                                     data-stop-card-click
                                     onClick={(e) => {
                                       e.preventDefault();
@@ -1095,11 +1126,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                         : null;
                       const translated = translateValue(label || optionNameEng);
                       if (abilityKey && currentAbilityScores) {
-                        const score = currentAbilityScores[abilityKey];
-                        const amount = eff && eff.kind === "ASI" ? eff.amount : 1;
-                        const next = Math.min(20, score + amount);
-                        const title = translateValue(abilityKey) || translated;
-                        label = `${title}: ${score} → ${next}`;
+                        label = describeAbilityIncrease(abilityKey, eff && eff.kind === "ASI" ? eff.amount : 1, translated);
                       } else {
                         label = translated;
                       }

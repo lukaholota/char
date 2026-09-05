@@ -1,16 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
+import { classTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
+import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
+import type { CatalogSources, SourceSelection } from "@/lib/catalog-source-filter";
 import {
-  classTranslations,
-  sourceTranslations,
-  spellSchoolTranslations,
-} from "@/lib/refs/translation";
+  SPELL_COMPONENT_LABELS,
+  SPELL_DURATION_BUCKETS,
+  SPELL_RANGE_BUCKETS,
+  type SpellComponent,
+} from "@/lib/spell-filter-facets";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -22,13 +26,16 @@ type Props = {
   availableSubclassesByClass: { className: string; subclasses: string[] }[];
   availableSchools: string[];
   availableTimes: string[];
-  availableSources: string[];
+  availableSources: CatalogSources;
   selectedLevels: Set<string>;
   selectedClasses: Set<string>;
   selectedSubclasses: Set<string>;
   selectedSchools: Set<string>;
   selectedTimes: Set<string>;
-  selectedSources: Set<string>;
+  selectedComponents: Set<string>;
+  selectedRanges: Set<string>;
+  selectedDurations: Set<string>;
+  sourceSelection: SourceSelection;
   selectedConc: boolean | null;
   selectedRitual: boolean | null;
   toggleLevel: (lvl: string) => void;
@@ -36,11 +43,17 @@ type Props = {
   toggleSubclass: (sub: string) => void;
   toggleSchool: (sch: string) => void;
   toggleTime: (time: string) => void;
+  toggleComponent: (component: SpellComponent) => void;
+  toggleRange: (range: string) => void;
+  toggleDuration: (duration: string) => void;
   toggleSource: (src: string) => void;
+  toggleHomebrew: () => void;
   toggleConc: () => void;
   toggleRitual: () => void;
   clearFilters: () => void;
 };
+
+const SPELL_COMPONENTS = Object.keys(SPELL_COMPONENT_LABELS) as SpellComponent[];
 
 export function SpellsFilterDialog({
   open,
@@ -57,7 +70,10 @@ export function SpellsFilterDialog({
   selectedSubclasses,
   selectedSchools,
   selectedTimes,
-  selectedSources,
+  selectedComponents,
+  selectedRanges,
+  selectedDurations,
+  sourceSelection,
   selectedConc,
   selectedRitual,
   toggleLevel,
@@ -65,7 +81,11 @@ export function SpellsFilterDialog({
   toggleSubclass,
   toggleSchool,
   toggleTime,
+  toggleComponent,
+  toggleRange,
+  toggleDuration,
   toggleSource,
+  toggleHomebrew,
   toggleConc,
   toggleRitual,
   clearFilters,
@@ -75,7 +95,21 @@ export function SpellsFilterDialog({
 
   const activeBadgeClass = is2024
     ? "bg-amber-500/15 text-amber-300 border-amber-500/30"
-    : "bg-teal-500/15 text-teal-300 border-teal-500/30";
+    : "bg-arcane-500/15 text-arcane-300 border-arcane-500/30";
+
+  const chip = (key: string, label: ReactNode, active: boolean, onClick: () => void) => (
+    <Badge
+      key={key}
+      variant={active ? "default" : "outline"}
+      className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
+      onClick={onClick}
+      role="button"
+    >
+      {label}
+    </Badge>
+  );
+
+  const classLabel = (cls: string) => classTranslations[cls as keyof typeof classTranslations] || cls;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -85,7 +119,7 @@ export function SpellsFilterDialog({
             <DialogTitle
               className={cn(
                 "font-rpg-display text-2xl font-semibold tracking-wide",
-                is2024 ? "text-amber-400" : "text-teal-400"
+                is2024 ? "text-amber-400" : "text-arcane-400"
               )}
             >
               Фільтри
@@ -101,209 +135,112 @@ export function SpellsFilterDialog({
           </div>
 
           <div className="mt-4 space-y-4">
-            {/* Levels */}
-            <div className="glass-panel rounded-xl border border-white/10 p-3">
-              <div className="text-xs font-semibold text-slate-300">Рівні</div>
-              <div className="mt-2 max-h-44 overflow-auto pr-1">
-                <div className="flex flex-wrap gap-2">
-                  {availableLevels.map((lvl) => {
-                    const active = selectedLevels.has(String(lvl));
-                    return (
-                      <Badge
-                        key={lvl}
-                        variant={active ? "default" : "outline"}
-                        className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
-                        onClick={() => toggleLevel(String(lvl))}
-                        role="button"
-                      >
-                        {lvl === 0 ? "0 (Замовляння)" : lvl}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
+            <Section title="Рівні">
+              {availableLevels.map((lvl) =>
+                chip(String(lvl), lvl === 0 ? "0 (Замовляння)" : lvl, selectedLevels.has(String(lvl)), () =>
+                  toggleLevel(String(lvl))
+                )
+              )}
+            </Section>
 
-            {/* Classes */}
-            <div className="glass-panel rounded-xl border border-white/10 p-3">
-              <div className="text-xs font-semibold text-slate-300">Класи</div>
-              <div className="mt-2">
+            <Section
+              title="Класи"
+              search={
                 <Input
                   value={classFilter}
                   onChange={(e) => setClassFilter(e.target.value)}
                   placeholder="Пошук класів…"
                   className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
                 />
-              </div>
-              <div className="mt-2 max-h-44 overflow-auto pr-1">
-                <div className="flex flex-wrap gap-2">
-                  {availableClasses
-                    .filter((cls) => {
-                      const q = classFilter.trim().toLowerCase();
-                      if (!q) return true;
-                      const label = classTranslations[cls as keyof typeof classTranslations] || cls;
-                      return `${cls} ${label}`.toLowerCase().includes(q);
-                    })
-                    .map((cls) => {
-                      const active = selectedClasses.has(cls);
-                      const label = classTranslations[cls as keyof typeof classTranslations] || cls;
-                      return (
-                        <Badge
-                          key={cls}
-                          variant={active ? "default" : "outline"}
-                          className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
-                          onClick={() => toggleClass(cls)}
-                          role="button"
-                        >
-                          {label}
-                        </Badge>
-                      );
-                    })}
-                </div>
-              </div>
-            </div>
+              }
+            >
+              {availableClasses
+                .filter((cls) => {
+                  const q = classFilter.trim().toLowerCase();
+                  return !q || `${cls} ${classLabel(cls)}`.toLowerCase().includes(q);
+                })
+                .map((cls) => chip(cls, classLabel(cls), selectedClasses.has(cls), () => toggleClass(cls)))}
+            </Section>
 
-            {/* Subclasses */}
             {availableSubclassesByClass.length > 0 && (
-              <div className="glass-panel rounded-xl border border-white/10 p-3">
-                <div className="text-xs font-semibold text-slate-300">Підкласи</div>
-                <div className="mt-2">
+              <Section
+                title="Підкласи"
+                search={
                   <Input
                     value={subclassFilter}
                     onChange={(e) => setSubclassFilter(e.target.value)}
                     placeholder="Пошук підкласів…"
                     className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
                   />
-                </div>
-                <div className="mt-2 max-h-44 overflow-auto pr-1">
-                  <div className="space-y-3">
-                    {availableSubclassesByClass
-                      .map(({ className, subclasses }) => {
-                        const q = subclassFilter.trim().toLowerCase();
-                        const visible = !q
-                          ? subclasses
-                          : subclasses.filter((sub) => sub.toLowerCase().includes(q));
-                        if (visible.length === 0) return null;
+                }
+                stacked
+              >
+                {availableSubclassesByClass.map(({ className, subclasses }) => {
+                  const q = subclassFilter.trim().toLowerCase();
+                  const visible = q ? subclasses.filter((sub) => sub.toLowerCase().includes(q)) : subclasses;
+                  if (visible.length === 0) return null;
 
-                        return (
-                          <div key={className} className="space-y-2">
-                            <div className="text-xs font-semibold text-slate-400">{className}:</div>
-                            <div className="flex flex-wrap gap-2">
-                              {visible.map((sub) => {
-                                const active = selectedSubclasses.has(sub);
-                                return (
-                                  <Badge
-                                    key={sub}
-                                    variant={active ? "default" : "outline"}
-                                    className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
-                                    onClick={() => toggleSubclass(sub)}
-                                    role="button"
-                                  >
-                                    {sub}
-                                  </Badge>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        );
-                      })
-                      .filter(Boolean)}
-                  </div>
-                </div>
-              </div>
+                  return (
+                    <div key={className} className="space-y-2">
+                      <div className="text-xs font-semibold text-slate-400">{className}:</div>
+                      <div className="flex flex-wrap gap-2">
+                        {visible.map((sub) => chip(sub, sub, selectedSubclasses.has(sub), () => toggleSubclass(sub)))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </Section>
             )}
 
-            {/* Schools */}
+            <Section title="Школи">
+              {availableSchools.map((sch) =>
+                chip(
+                  sch,
+                  spellSchoolTranslations[sch as keyof typeof spellSchoolTranslations] || sch,
+                  selectedSchools.has(sch),
+                  () => toggleSchool(sch)
+                )
+              )}
+            </Section>
+
+            <Section title="Час касту">
+              {availableTimes.map((t) => chip(t, t, selectedTimes.has(t), () => toggleTime(t)))}
+            </Section>
+
+            <Section title="Компоненти" hint="показує заклинання, яким потрібні всі обрані">
+              {SPELL_COMPONENTS.map((component) =>
+                chip(component, SPELL_COMPONENT_LABELS[component], selectedComponents.has(component), () =>
+                  toggleComponent(component)
+                )
+              )}
+            </Section>
+
+            <Section title="Дистанція">
+              {SPELL_RANGE_BUCKETS.map((range) =>
+                chip(range, range, selectedRanges.has(range), () => toggleRange(range))
+              )}
+            </Section>
+
+            <Section title="Тривалість">
+              {SPELL_DURATION_BUCKETS.map((duration) =>
+                chip(duration, duration, selectedDurations.has(duration), () => toggleDuration(duration))
+              )}
+            </Section>
+
             <div className="glass-panel rounded-xl border border-white/10 p-3">
-              <div className="text-xs font-semibold text-slate-300">Школи</div>
-              <div className="mt-2 max-h-44 overflow-auto pr-1">
-                <div className="flex flex-wrap gap-2">
-                  {availableSchools.map((sch) => {
-                    const active = selectedSchools.has(sch);
-                    return (
-                      <Badge
-                        key={sch}
-                        variant={active ? "default" : "outline"}
-                        className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
-                        onClick={() => toggleSchool(sch)}
-                        role="button"
-                      >
-                        {spellSchoolTranslations[sch as keyof typeof spellSchoolTranslations] || sch}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </div>
+              <SourceFilterSection
+                is2024={is2024}
+                available={availableSources}
+                selection={sourceSelection}
+                onToggleSource={toggleSource}
+                onToggleHomebrew={toggleHomebrew}
+              />
             </div>
 
-            {/* Casting Times */}
-            <div className="glass-panel rounded-xl border border-white/10 p-3">
-              <div className="text-xs font-semibold text-slate-300">Час касту</div>
-              <div className="mt-2 max-h-44 overflow-auto pr-1">
-                <div className="flex flex-wrap gap-2">
-                  {availableTimes.map((t) => {
-                    const active = selectedTimes.has(t);
-                    return (
-                      <Badge
-                        key={t}
-                        variant={active ? "default" : "outline"}
-                        className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
-                        onClick={() => toggleTime(t)}
-                        role="button"
-                      >
-                        {t}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Sources */}
-            <div className="glass-panel rounded-xl border border-white/10 p-3">
-              <div className="text-xs font-semibold text-slate-300">Джерела</div>
-              <div className="mt-2 max-h-44 overflow-auto pr-1">
-                <div className="flex flex-wrap gap-2">
-                  {availableSources.map((src) => {
-                    const active = selectedSources.has(src);
-                    return (
-                      <Badge
-                        key={src}
-                        variant={active ? "default" : "outline"}
-                        className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
-                        onClick={() => toggleSource(src)}
-                        role="button"
-                      >
-                        {sourceTranslations[src as keyof typeof sourceTranslations] || src}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Features (Ritual, Concentration) */}
-            <div className="glass-panel rounded-xl border border-white/10 p-3">
-              <div className="text-xs font-semibold text-slate-300">Особливості</div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                <Badge
-                  variant={selectedConc === true ? "default" : "outline"}
-                  className={cn("cursor-pointer transition-colors", selectedConc === true ? activeBadgeClass : "")}
-                  onClick={toggleConc}
-                  role="button"
-                >
-                  Концентрація
-                </Badge>
-                <Badge
-                  variant={selectedRitual === true ? "default" : "outline"}
-                  className={cn("cursor-pointer transition-colors", selectedRitual === true ? activeBadgeClass : "")}
-                  onClick={toggleRitual}
-                  role="button"
-                >
-                  Ритуал
-                </Badge>
-              </div>
-            </div>
+            <Section title="Особливості">
+              {chip("conc", "Концентрація", selectedConc === true, toggleConc)}
+              {chip("ritual", "Ритуал", selectedRitual === true, toggleRitual)}
+            </Section>
 
             <div className="flex items-center justify-between gap-2 pt-2">
               <Button
@@ -316,7 +253,7 @@ export function SpellsFilterDialog({
               </Button>
               <Button
                 type="button"
-                className={cn("border font-medium", is2024 ? "bg-amber-500/20 text-amber-300 border-amber-500/40" : "bg-teal-500/20 text-teal-300 border-teal-500/40")}
+                className={cn("border font-medium", is2024 ? "bg-amber-500/20 text-amber-300 border-amber-500/40" : "bg-arcane-500/20 text-arcane-300 border-arcane-500/40")}
                 onClick={() => onOpenChange(false)}
               >
                 Застосувати
@@ -326,5 +263,32 @@ export function SpellsFilterDialog({
         </div>
       </DialogContent>
     </Dialog>
+  );
+}
+
+function Section({
+  title,
+  hint,
+  search,
+  stacked = false,
+  children,
+}: {
+  title: string;
+  hint?: string;
+  search?: ReactNode;
+  stacked?: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <div className="glass-panel rounded-xl border border-white/10 p-3">
+      <div className="text-xs font-semibold text-slate-300">
+        {title}
+        {hint ? <span className="ml-2 font-normal text-slate-500">{hint}</span> : null}
+      </div>
+      {search ? <div className="mt-2">{search}</div> : null}
+      <div className="mt-2 max-h-44 overflow-auto pr-1">
+        <div className={stacked ? "space-y-3" : "flex flex-wrap gap-2"}>{children}</div>
+      </div>
+    </div>
   );
 }

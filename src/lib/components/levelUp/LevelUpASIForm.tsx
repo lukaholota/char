@@ -15,6 +15,7 @@ import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceO
 import type { FeatPrisma, RaceI } from "@/lib/types/model-types";
 import type { PersPrisma } from "@/lib/types/model-types";
 import { attributesUkrShort } from "@/lib/refs/translation";
+import { findAbilityScoreCeiling, raiseAbilityScore } from "@/rules/ability-score-ceiling";
 import { Subrace, RaceVariant } from "@prisma/client";
 import { Races } from "@prisma/client";
 
@@ -35,6 +36,8 @@ interface Props {
   renderFeatChoicesInline?: boolean;
 
   levelAfter?: number;
+  /** Епічний дар дає рису й тільки рису: альтернативи «+2 до характеристики» на 19-му немає. */
+  allowAbilityScoreIncrease?: boolean;
   baseStats?: Record<Ability, number>;
   hasSpellcasting?: boolean;
   raceName?: Races;
@@ -86,6 +89,7 @@ export default function LevelUpASIForm({
   baseStats,
   hasSpellcasting,
   raceName,
+  allowAbilityScoreIncrease = true,
 }: Props) {
   const { updateFormData, formData } = usePersFormStore();
   const storedChoiceType = (formData as any)?.levelUpAsiChoiceType as ChoiceType | undefined;
@@ -94,7 +98,7 @@ export default function LevelUpASIForm({
     : (formData as any)?.featId
       ? "FEAT"
       : "ASI";
-  const [choiceType, setChoiceType] = useState<ChoiceType>(inferredChoiceType);
+  const [choiceType, setChoiceType] = useState<ChoiceType>(allowAbilityScoreIncrease ? inferredChoiceType : "FEAT");
   const userChangedRef = useRef(false);
   const [featFormDisabled, setFeatFormDisabled] = useState(true);
   const [featOptionsDisabled, setFeatOptionsDisabled] = useState(true);
@@ -113,6 +117,12 @@ export default function LevelUpASIForm({
   }, [storedChoiceType]);
 
   useEffect(() => {
+    if (!allowAbilityScoreIncrease) {
+      if (choiceType !== "FEAT") setChoiceType("FEAT");
+      updateFormData({ levelUpAsiChoiceType: "FEAT", customAsi: [] } as never);
+      return;
+    }
+
     // Sync local tab with store when it comes from persisted state.
     if (storedChoiceType && storedChoiceType !== choiceType && !userChangedRef.current) {
       setChoiceType(storedChoiceType);
@@ -132,7 +142,7 @@ export default function LevelUpASIForm({
         customAsi: [],
       });
     }
-  }, [choiceType, storedChoiceType, updateFormData]);
+  }, [choiceType, storedChoiceType, updateFormData, allowAbilityScoreIncrease]);
 
   useEffect(() => {
     const asiValid = choiceType === "ASI" ? totalAsi === 2 : true;
@@ -228,6 +238,12 @@ export default function LevelUpASIForm({
     return 0;
   };
 
+  // Класовий ASI не є епічним даром за жодних умов, тому стеля тут завжди звичайна.
+  const standardCeiling = findAbilityScoreCeiling({
+    ruleset: pers?.ruleset,
+    source: "STANDARD",
+  });
+
   const isDisabledButton = (ability: Ability, value: 1 | 2) => {
     if (choiceType !== "ASI") return true;
     const current = asiMap[ability] ?? 0;
@@ -242,6 +258,7 @@ export default function LevelUpASIForm({
 
   return (
     <div className="space-y-4">
+      {allowAbilityScoreIncrease ? (
       <Card className="glass-card">
         <CardHeader>
           <CardTitle>Покращення</CardTitle>
@@ -277,6 +294,7 @@ export default function LevelUpASIForm({
           </Button>
         </CardContent>
       </Card>
+      ) : null}
 
       {choiceType === "ASI" ? (
         <Card className="glass-card">
@@ -298,9 +316,9 @@ export default function LevelUpASIForm({
                 const attr = attributesUkrShort[ability];
                 const current = asiMap[ability] ?? 0;
                 const base = getBaseScore(ability);
-                const plus1 = base + 1;
-                const plus2 = base + 2;
-                const after = base + (current || 0);
+                const plus1 = raiseAbilityScore(base, 1, standardCeiling);
+                const plus2 = raiseAbilityScore(base, 2, standardCeiling);
+                const after = raiseAbilityScore(base, current || 0, standardCeiling);
 
                 return (
                   <div

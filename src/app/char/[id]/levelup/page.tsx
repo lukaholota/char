@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import LevelUpData from "@/app/char/[id]/levelup/wizard-data";
+import { NetworkRequiredNotice } from "@/components/ui/NetworkRequiredNotice";
 
 function LevelUpFallback() {
   return (
@@ -24,8 +25,11 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   if (isNaN(id)) notFound();
 
   return (
-    <Suspense fallback={<LevelUpFallback />}>
-      <LevelUpData id={id} />
-    </Suspense>
+    <>
+      <NetworkRequiredNotice action="Підняття рівня" />
+      <Suspense fallback={<LevelUpFallback />}>
+        <LevelUpData id={id} />
+      </Suspense>
+    </>
   );
 }

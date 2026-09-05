@@ -30,14 +30,6 @@ const normalizeText = (value?: string) =>
     .toLowerCase()
     .trim();
 
-const getRaceBadges = (race: RaceI): string[] => {
-  const badges: string[] = [];
-  if (race.subraces?.length) {
-    badges.push(`${race.subraces.length} ${race.subraces.length === 1 ? "підраса" : "підраси"}`);
-  }
-  return badges;
-};
-
 interface Props {
   races: RaceI[];
   formId: string;
@@ -171,7 +163,6 @@ export const RacesForm = (
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
           {is2024 ? "Оберіть вид" : "Оберіть расу"}
         </h2>
-        <p className="text-sm text-slate-400">Натисніть на картку, щоб продовжити.</p>
       </div>
 
       <div className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
@@ -185,7 +176,7 @@ export const RacesForm = (
               onChange={(e) => form.setValue('raceSearch', e.target.value)}
               placeholder="Пошук за назвою"
               aria-label="Пошук раси"
-              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
+              className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-arcane-400/30"
             />
             {raceSearch && (
               <Button
@@ -222,7 +213,7 @@ export const RacesForm = (
                 englishTitle={raceTranslationsEng[r.name]}
                 visual={getRaceVisual(r.name)}
                 isSelected={r.raceId === chosenRaceId}
-                badges={getRaceBadges(r)}
+                is2024={r.ruleset === "RULES_2024"}
                 infoModal={<RaceInfoModal race={r} />}
                 onClick={(e) => {
                   if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
@@ -248,8 +239,8 @@ export const RacesForm = (
                     englishTitle={raceTranslationsEng[r.name]}
                     visual={getRaceVisual(r.name)}
                     isSelected={r.raceId === chosenRaceId}
-                    badges={getRaceBadges(r)}
-                    infoModal={<RaceInfoModal race={r} />}
+                is2024={r.ruleset === "RULES_2024"}
+                        infoModal={<RaceInfoModal race={r} />}
                     onClick={(e) => {
                       if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
                       handleRaceSelect(r);

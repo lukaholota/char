@@ -16,7 +16,7 @@ import { duplicatePers } from "@/lib/actions/pers";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { uk } from "date-fns/locale";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 
 interface Snapshot {
   persId: number;

@@ -8,6 +8,16 @@ import { FeatData, FeatCategory } from "@/lib/featsData";
 import { FeatDetailCard } from "@/components/feats/FeatDetailCard";
 import { FeatsFilterDialog } from "@/components/feats/FeatsFilterDialog";
 import { featCategoryTranslations } from "@/lib/refs/translation";
+import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -19,11 +29,11 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getFeatVisual } from "@/components/catalogs/catalog-visuals";
 import { cn } from "@/lib/utils";
 
-type InitialSearchParams = Record<string, string | string[] | undefined>;
-
 type SelectionState = {
   categories: Set<string>;
   repeatable: boolean | null;
+  noPrerequisite: boolean;
+  source: SourceSelection;
   q: string;
   feat: string;
 };
@@ -32,9 +42,11 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
   const categories = getParamSet(params, "cat");
   const rawRep = params.get("rep");
   const repeatable = rawRep === "1" ? true : rawRep === "0" ? false : null;
+  const noPrerequisite = params.get("noreq") === "1";
+  const source = parseSourceSelection(params);
   const q = params.get("q") || "";
   const feat = params.get("feat") || "";
-  return { categories, repeatable, q, feat };
+  return { categories, repeatable, noPrerequisite, source, q, feat };
 };
 
 const CATEGORY_TABS: { key: FeatCategory | "ALL"; label: string }[] = [
@@ -48,17 +60,15 @@ const CATEGORY_TABS: { key: FeatCategory | "ALL"; label: string }[] = [
 type Props = {
   feats: FeatData[];
   ruleset?: Ruleset;
-  initialSearchParams?: InitialSearchParams;
 };
 
-export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams = {} }: Props) {
+export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
   const is2024 = ruleset === "RULES_2024";
 
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalFeat, setSelectedModalFeat] = useState<FeatData | null>(null);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
     parseSelection
   );
 
@@ -75,6 +85,14 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
       }
 
       if (selection.repeatable !== null && Boolean(f.isRepeatable) !== selection.repeatable) {
+        return false;
+      }
+
+      if (selection.noPrerequisite && f.prerequisite) {
+        return false;
+      }
+
+      if (!matchesSourceSelection(f.source, selection.source)) {
         return false;
       }
 
@@ -125,12 +143,23 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
     });
   };
 
+  const toggleNoPrerequisite = () => {
+    setParams((next) => {
+      if (next.get("noreq") === "1") next.delete("noreq");
+      else next.set("noreq", "1");
+    });
+  };
+
   const clearFilters = () => {
     setParams((next) => {
       next.delete("cat");
       next.delete("rep");
+      next.delete("noreq");
+      clearSourceParams(next);
     });
   };
+
+  const availableSources = useMemo(() => collectCatalogSources(feats), [feats]);
 
   const activeTab = useMemo(() => {
     if (selection.categories.size === 1) {
@@ -140,7 +169,12 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
     return null;
   }, [selection.categories]);
 
-  const hasActiveFilters = selection.categories.size > 0 || selection.repeatable !== null;
+  const activeFiltersCount =
+    selection.categories.size +
+    (selection.repeatable !== null ? 1 : 0) +
+    (selection.noPrerequisite ? 1 : 0) +
+    countSourceFilters(selection.source);
+  const hasActiveFilters = activeFiltersCount > 0;
 
   return (
     <ContentListPage<FeatData>
@@ -150,7 +184,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
       onSearchChange={setQInput}
       searchPlaceholder="Пошук рис..."
       hasActiveFilters={hasActiveFilters}
-      activeFiltersCount={selection.categories.size + (selection.repeatable !== null ? 1 : 0)}
+      activeFiltersCount={activeFiltersCount}
       onOpenFilters={() => setFiltersOpen(true)}
       onClearFilters={clearFilters}
       tabs={
@@ -167,7 +201,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
                   isSelected
                     ? is2024
                       ? "border-amber-500/50 bg-amber-500/20 text-amber-200 shadow-sm"
-                      : "border-teal-500/50 bg-teal-500/20 text-teal-200 shadow-sm"
+                      : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm"
                     : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
                 )}
               >
@@ -210,7 +244,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
                 isSelected
                   ? is2024
                     ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -227,7 +261,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
+                          ? is2024 ? "text-amber-300" : "text-arcane-300"
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
@@ -281,6 +315,12 @@ export function FeatsClient({ feats, ruleset = "RULES_2014", initialSearchParams
           toggleCategory={toggleCategory}
           repeatableOnly={Boolean(selection.repeatable)}
           toggleRepeatable={toggleRepeatable}
+          noPrerequisiteOnly={selection.noPrerequisite}
+          toggleNoPrerequisite={toggleNoPrerequisite}
+          availableSources={availableSources}
+          sourceSelection={selection.source}
+          toggleSource={(source) => setParams((next) => toggleSourceParam(next, source))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           clearFilters={clearFilters}
         />
       }

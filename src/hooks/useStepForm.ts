@@ -124,7 +124,7 @@ export function useStepForm<TShape extends ZodRawShape>(
         basicChoices: "Оберіть потрібну кількість навичок",
         tashaChoices: "Оберіть потрібну кількість навичок",
         choiceGroupToId: "Оберіть спорядження",
-        name: "Введіть ім'я персонажа",
+        name: "Введіть імʼя персонажа",
     };
 
     const onSubmit = form.handleSubmit((data) => {

@@ -1,5 +1,6 @@
 import { ComponentType } from "react";
 import {
+  Backpack,
   Flame,
   Skull,
   Shield,
@@ -32,6 +33,7 @@ import {
   BookOpen,
   ShieldAlert,
   Compass,
+  Home,
 } from "lucide-react";
 
 export type ItemVisual = {
@@ -497,6 +499,72 @@ export function getInvocationVisual(pact: string | null | undefined, minLevel?: 
   };
 }
 
+// 8b. Bastion Facility Visuals — за наказом, який приміщення виконує
+export function getBastionFacilityVisual(order: string | null | undefined): ItemVisual {
+  const key = String(order ?? "").toLowerCase();
+
+  if (key === "craft") {
+    return {
+      icon: Wrench,
+      iconWrap: "bg-orange-950/60 border-orange-800/60",
+      iconColor: "text-orange-300",
+      badgeClass: "border-orange-800/50 bg-orange-950/40 text-orange-300",
+    };
+  }
+
+  if (key === "empower") {
+    return {
+      icon: Sparkles,
+      iconWrap: "bg-violet-950/60 border-violet-800/60",
+      iconColor: "text-violet-300",
+      badgeClass: "border-violet-800/50 bg-violet-950/40 text-violet-300",
+    };
+  }
+
+  if (key === "harvest") {
+    return {
+      icon: FlaskConical,
+      iconWrap: "bg-emerald-950/60 border-emerald-800/60",
+      iconColor: "text-emerald-300",
+      badgeClass: "border-emerald-800/50 bg-emerald-950/40 text-emerald-300",
+    };
+  }
+
+  if (key === "recruit") {
+    return {
+      icon: Swords,
+      iconWrap: "bg-rose-950/60 border-rose-800/60",
+      iconColor: "text-rose-300",
+      badgeClass: "border-rose-800/50 bg-rose-950/40 text-rose-300",
+    };
+  }
+
+  if (key === "research") {
+    return {
+      icon: BookOpen,
+      iconWrap: "bg-indigo-950/60 border-indigo-800/60",
+      iconColor: "text-indigo-300",
+      badgeClass: "border-indigo-800/50 bg-indigo-950/40 text-indigo-300",
+    };
+  }
+
+  if (key === "trade") {
+    return {
+      icon: Scroll,
+      iconWrap: "bg-amber-950/60 border-amber-800/60",
+      iconColor: "text-amber-300",
+      badgeClass: "border-amber-800/50 bg-amber-950/40 text-amber-300",
+    };
+  }
+
+  return {
+    icon: Home,
+    iconWrap: "bg-slate-900/60 border-slate-700/60",
+    iconColor: "text-slate-300",
+    badgeClass: "border-slate-700/50 bg-slate-900/40 text-slate-300",
+  };
+}
+
 // 9. Rules Category Visuals
 export function getRuleCategoryVisual(category: string | null | undefined): ItemVisual {
   const cat = String(category ?? "").toLowerCase();
@@ -543,6 +611,15 @@ export function getRuleCategoryVisual(category: string | null | undefined): Item
       iconWrap: "bg-teal-950/60 border-teal-800/60",
       iconColor: "text-teal-300",
       badgeClass: "border-teal-800/50 bg-teal-950/40 text-teal-300",
+    };
+  }
+
+  if (cat.includes("equip") || cat.includes("споряд")) {
+    return {
+      icon: Backpack,
+      iconWrap: "bg-orange-950/60 border-orange-800/60",
+      iconColor: "text-orange-300",
+      badgeClass: "border-orange-800/50 bg-orange-950/40 text-orange-300",
     };
   }
 

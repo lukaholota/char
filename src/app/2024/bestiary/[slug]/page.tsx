@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
-import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
+import { notFound } from "next/navigation";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllCreatures, getCreatureByIdOrSlug } from "@/lib/bestiaryData";
 import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
 import { toEntitySlug } from "@/lib/slug-utils";
@@ -46,6 +44,7 @@ export async function generateMetadata({
       description,
       url,
       type: "article",
+      ...(creature.imageUrl ? { images: [creature.imageUrl] } : {}),
     },
   };
 }
@@ -55,11 +54,6 @@ export default async function Creature2024DetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/bestiary");
-  }
-
   const { slug } = await params;
   const creature = getCreatureByIdOrSlug(slug, "RULES_2024");
 

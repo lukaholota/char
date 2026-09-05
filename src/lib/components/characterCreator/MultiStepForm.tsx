@@ -5,7 +5,7 @@ import type { Weapon } from "@prisma/client";
 import { SpellcastingType } from "@prisma/client";
 import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
-import {usePersFormStore} from "@/lib/stores/persFormStore";
+import {activateCreatorDraftStorage, usePersFormStore} from "@/lib/stores/persFormStore";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/lib/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/lib/components/characterCreator/ASIForm";
@@ -31,12 +31,16 @@ import { BackgroundFeatsForm } from "@/lib/components/characterCreator/Backgroun
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
+import WeaponMasteryForm from "@/lib/components/characterCreator/WeaponMasteryForm";
+import { CreationStepRuleLink } from "@/lib/components/characterCreator/CreationStepRuleLink";
 
 import { createCharacter } from "@/lib/actions/character";
 import { extractSkillsFromChoiceOption, extractExpertisesFromChoiceOption, extractSkillFromOptionName } from "@/lib/logic/characterUtils";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { getRulesStrategy } from "@/rules/strategies";
+import { countOriginLanguageChoices } from "@/rules/languages";
+import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
 import posthog from "posthog-js";
@@ -47,7 +51,6 @@ interface Props {
   backgrounds: BackgroundI[];
   weapons: Weapon[];
   feats: FeatPrisma[];
-  canSelect2024?: boolean;
   initialRuleset?: "RULES_2014" | "RULES_2024";
 }
 
@@ -58,10 +61,11 @@ export const MultiStepForm = (
     backgrounds,
     weapons,
     feats,
-    canSelect2024 = false,
     initialRuleset = "RULES_2014",
   }: Props
 ) => {
+  activateCreatorDraftStorage(initialRuleset);
+
   const { data: session, status: sessionStatus } = useSession();
   const {
     currentStep,
@@ -84,13 +88,6 @@ export const MultiStepForm = (
   const didMountRef = useRef(false);
 
   const currentRuleset = (formData.ruleset ?? initialRuleset ?? "RULES_2014") as "RULES_2014" | "RULES_2024";
-
-  const handleRulesetChange = useCallback((newRuleset: "RULES_2014" | "RULES_2024") => {
-    if (newRuleset === currentRuleset) return;
-    resetForm();
-    updateFormData({ ruleset: newRuleset });
-    router.push(newRuleset === "RULES_2024" ? "/2024/char" : "/char");
-  }, [currentRuleset, resetForm, updateFormData, router]);
 
   useEffect(() => {
     if (!isHydrated) return;
@@ -151,8 +148,13 @@ export const MultiStepForm = (
       // This might be stale in the closure.
       // Better to use `usePersFormStore.getState().formData`.
       
-      const currentData = usePersFormStore.getState().formData as PersFormData;
-      
+      // Редакцію задає адреса конструктора (`/char/create` проти `/2024/char`), а не крок форми:
+      // без цього рядка персонаж 2024 їхав у сервер без редакції й зберігався як RULES_2014.
+      const currentData = {
+        ...usePersFormStore.getState().formData,
+        ruleset: currentRuleset,
+      } as PersFormData;
+
       const result = await createCharacter(currentData);
 
       if (result.error) {
@@ -262,10 +264,24 @@ export const MultiStepForm = (
   const hasFeatChoice = useMemo(() => {
     return raceVariant?.name === 'HUMAN_VARIANT';
   }, [raceVariant]);
+  // Друга риса Людини 2024 приходить з опції виду: опція дає фічу, фіча висить на рисі.
+  const speciesFeat = useMemo(() => {
+    const chosenTraitFeatureIds = new Set<number>(
+      Object.values(formData.raceChoiceSelections ?? {}).flatMap((id) => {
+        const option = (race as any)?.raceChoiceOptions?.find((candidate: any) => candidate.optionId === id);
+        return (option?.traits ?? []).map((trait: any) => Number(trait.featureId ?? trait.feature?.featureId));
+      }),
+    );
+    return feats.find((candidate: any) => (candidate.grantsFeature ?? []).some((feature: any) => chosenTraitFeatureIds.has(feature.featureId)));
+  }, [feats, race, formData.raceChoiceSelections]);
+  const hasSpeciesFeatChoices = useMemo(() => (speciesFeat?.featChoiceOptions?.length ?? 0) > 0, [speciesFeat]);
   const feat = useMemo(() => feats.find(f => f.featId === formData.featId), [feats, formData.featId]);
   const hasFeatChoices = useMemo(() => (feat?.featChoiceOptions?.length ?? 0) > 0, [feat]);
   const hasBackgroundFeatChoice = useMemo(() => (bg?.gainsFeats?.length ?? 0) > 0, [bg]);
-  const backgroundFeat = useMemo(() => feats.find(f => f.featId === formData.backgroundFeatId), [feats, formData.backgroundFeatId]);
+  const backgroundFeat = useMemo(() => {
+    const originFeatId = getRulesStrategy(currentRuleset).getOriginFeatRequirement(bg ?? {}).originFeatId;
+    return feats.find(f => f.featId === (formData.backgroundFeatId ?? originFeatId));
+  }, [feats, formData.backgroundFeatId, bg, currentRuleset]);
   const hasBackgroundFeatChoices = useMemo(() => (backgroundFeat?.featChoiceOptions?.length ?? 0) > 0, [backgroundFeat]);
 
   const featSelectedSkills = useMemo(() => {
@@ -533,38 +549,43 @@ export const MultiStepForm = (
 
   const hasLanguageChoice = useMemo(() => {
     if (!race || !cls) return false;
-    let count = (race.languagesToChooseCount || 0) + (cls.languagesToChooseCount || 0);
-    if (subclass) count += (subclass.languagesToChooseCount || 0);
-    if (subrace) count += (subrace.languagesToChooseCount || 0);
-    if (bg) count += (bg.languagesToChooseCount || 0);
-    if (feat?.grantedLanguageCount) count += feat.grantedLanguageCount;
-    if (backgroundFeat?.grantedLanguageCount) count += backgroundFeat.grantedLanguageCount;
-    
-    activeFeatures.forEach(f => {
-      count += (f.languagesToChooseCount || 0);
+
+    const raceChoiceCounts = Object.values(formData.raceChoiceSelections ?? {}).map((id: any) => {
+      const opt = race.raceChoiceOptions?.find((o) => o.optionId === id);
+      return (opt as any)?.languagesToChooseCount;
     });
 
-    if (formData.raceChoiceSelections) {
-      Object.values(formData.raceChoiceSelections).forEach((id: any) => {
-        const opt = race.raceChoiceOptions?.find((o) => o.optionId === id);
-        if (opt && (opt as any).languagesToChooseCount) {
-          count += (opt as any).languagesToChooseCount;
-        }
-      });
-    }
-    
-    return count > 0;
-  }, [race, cls, subclass, subrace, bg, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections]);
+    return countOriginLanguageChoices(currentRuleset, [
+      race.languagesToChooseCount,
+      cls.languagesToChooseCount,
+      subclass?.languagesToChooseCount,
+      subrace?.languagesToChooseCount,
+      bg?.languagesToChooseCount,
+      feat?.grantedLanguageCount,
+      backgroundFeat?.grantedLanguageCount,
+      ...activeFeatures.map((f) => f.languagesToChooseCount),
+      ...raceChoiceCounts,
+    ]) > 0;
+  }, [race, cls, subclass, subrace, bg, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections, currentRuleset]);
+
+  /// Майстерність зброї має лише той клас, чия прогресія дає ємність на першому рівні —
+  /// правило читає дані класу, а не список назв.
+  const hasClassWeaponMastery = useMemo(
+    () => hasWeaponMastery([{ className: cls?.name ?? "", classLevel: 1, masteryProgression: cls?.weapon_mastery_progression ?? [] }]),
+    [cls],
+  );
 
   const steps = useMemo(() => {
     return resolveCreationSteps({
       hasSubraces,
       hasRaceVariants,
       hasRaceChoiceOptions,
+      hasSpeciesFeatChoices,
       hasSubclasses,
       hasLevelOneSubclassChoices,
       hasLevelOneChoices,
       hasLevelOneOptionalFeatures,
+      hasWeaponMastery: hasClassWeaponMastery,
       hasFeatChoice,
       hasFeatChoices,
       hasBackgroundFeatChoice,
@@ -573,11 +594,13 @@ export const MultiStepForm = (
       hasLanguageChoice,
     });
   }, [
+    hasClassWeaponMastery,
     hasLevelOneChoices,
     hasLevelOneOptionalFeatures,
     hasSubraces,
     hasRaceVariants,
     hasRaceChoiceOptions,
+    hasSpeciesFeatChoices,
     hasSubclasses,
     hasLevelOneSubclassChoices,
     hasFeatChoice,
@@ -633,11 +656,13 @@ export const MultiStepForm = (
       case "race": return !!data.raceId;
       case "raceDetails": return !!(data.subraceId || data.raceVariantId);
       case "raceChoices": return Object.keys(data.raceChoiceSelections || {}).length > 0;
+      case "speciesFeatChoices": return Object.keys(data.speciesFeatChoiceSelections || {}).length > 0;
       case "class": return !!data.classId;
       case "subclass": return !!data.subclassId;
       case "subclassChoices": return Object.keys(data.subclassChoiceSelections || {}).length > 0;
       case "classChoices": return Object.keys(data.classChoiceSelections || {}).length > 0;
       case "classOptional": return Object.keys(data.classOptionalFeatureSelections || {}).length > 0;
+      case "weaponMastery": return (data.weaponMasteryWeaponIds || []).length > 0;
       case "background": return !!data.backgroundId;
       case "asi": return !!data.asiSystem;
       case "skills": return (data.skills || []).length > 0;
@@ -742,6 +767,18 @@ export const MultiStepForm = (
             }}
           />
         );
+      case "speciesFeatChoices":
+        return (
+          <FeatChoiceOptionsForm
+            selectedFeat={speciesFeat as any}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+            mode="species"
+            extraExistingSkills={[...featSelectedSkills, ...backgroundFeatSelectedSkills, ...allSelectionsSkills]}
+            extraExistingChoiceOptionIds={[...featSelectedIds, ...backgroundFeatSelectedIds]}
+            extraExistingExpertises={[...featSelectedExpertises, ...backgroundFeatSelectedExpertises, ...allSelectionsExpertises]}
+          />
+        );
       case "backgroundFeatChoices":
         return (
           <FeatChoiceOptionsForm
@@ -794,6 +831,15 @@ export const MultiStepForm = (
             onNextDisabledChange={handleNextDisabledChange}
           />
         );
+      case "weaponMastery":
+        return (
+          <WeaponMasteryForm
+            selectedClass={cls}
+            weapons={weapons}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
       case "background":
         return (
           <BackgroundsForm
@@ -815,6 +861,8 @@ export const MultiStepForm = (
             race={race}
             raceVariant={raceVariant}
             selectedClass={cls}
+            background={bg}
+            ruleset={currentRuleset}
             prevRaceId={prevRaceId}
             setPrevRaceId={setPrevRaceId}
             formId={activeFormId}
@@ -867,7 +915,8 @@ export const MultiStepForm = (
             activeFeatures={activeFeatures}
             feat={feat}
             backgroundFeat={backgroundFeat}
-            isOptional
+            originRuleset={currentRuleset}
+            isOptional={currentRuleset !== "RULES_2024"}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
           />
@@ -884,6 +933,7 @@ export const MultiStepForm = (
           <EquipmentForm
             weapons={weapons}
             selectedClass={cls}
+            background={bg}
             race={race}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
@@ -908,7 +958,8 @@ export const MultiStepForm = (
     }
   }
 
-  const progress = Math.round((currentStep / steps.length) * 100);
+  const completedStepCount = steps.filter((step) => isStepCompleted(step.id, formData)).length;
+  const progress = Math.round((completedStepCount / steps.length) * 100);
   const activeFormId = `character-step-form-${currentStep}`;
 
   useEffect(() => {
@@ -931,14 +982,12 @@ export const MultiStepForm = (
         onReset={resetForm}
         onOpenAuth={() => setAuthDialogOpen(true)}
         isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
-        canSelect2024={canSelect2024}
-        ruleset={currentRuleset}
-        onRulesetChange={handleRulesetChange}
       />
 
-      <Card className="shadow-2xl">
-        <CardContent className="grid gap-3 p-3 sm:gap-4 sm:p-4 md:grid-cols-[1fr,300px] md:p-6">
+      <Card className="border-none bg-transparent shadow-none">
+        <CardContent className="grid gap-3 p-0 sm:gap-4 md:grid-cols-[1fr,300px]">
           <div className="glass-panel border-gradient-rpg space-y-3 rounded-xl p-3 sm:space-y-4 sm:p-4 md:p-5">
+            <CreationStepRuleLink stepId={steps[currentStep - 1]?.id} ruleset={currentRuleset} />
             {renderStep()}
           </div>
 
@@ -1004,7 +1053,7 @@ export const MultiStepForm = (
 
               <div className="mt-4 h-1.5 rounded-full bg-white/10 sm:mt-5 sm:h-2">
                 <div
-                  className="h-1.5 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-400 transition-all sm:h-2"
+                  className="h-1.5 rounded-full bg-gradient-to-r from-arcane-500 to-arcane-300 transition-all sm:h-2"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -1014,12 +1063,11 @@ export const MultiStepForm = (
       </Card>
 
       <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
-        <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
+        <div className="glass-panel border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl px-2.5 py-2.5 backdrop-blur-2xl backdrop-saturate-150 shadow-xl shadow-black/40 sm:rounded-2xl sm:px-3 sm:py-3">
           <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
             <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
               Крок {currentStep} / {steps.length}
             </Badge>
-            <span className="hidden text-slate-400 sm:inline">Прогрес {progress}%</span>
           </div>
           <div className="flex items-center gap-2">
             {currentStep > 1 && (
@@ -1039,7 +1087,7 @@ export const MultiStepForm = (
               form={activeFormId}
               disabled={nextDisabled || isSubmitting}
               size="sm"
-              className="bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-sm text-white shadow-lg shadow-indigo-500/20 sm:text-base"
+              className="bg-arcane-600/90 text-sm text-white shadow-lg shadow-arcane-900/40 hover:bg-arcane-500 sm:text-base"
             >
               {currentStep === steps.length ? (isSubmitting ? "Створення..." : "Створити") : "Далі →"}
             </Button>

@@ -42,7 +42,7 @@ export function FeatPicker({
             value={search || ""}
             onChange={(event) => onSearchChange(event.target.value)}
             placeholder="Пошук риси"
-            className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-cyan-400/30"
+            className="h-10 border-white/10 bg-white/5 pl-9 pr-10 text-sm text-slate-100 placeholder:text-slate-400 focus-visible:ring-arcane-400/30"
           />
           {search && (
             <Button

@@ -1,8 +1,9 @@
 "use client";
 
-import { BackgroundData } from "@/lib/backgroundsData";
+import type { BackgroundData } from "@/lib/backgroundsData";
 import { abilityTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { cn } from "@/lib/utils";
 import { Award, Coins, Languages, Package, Sparkles, Wrench } from "lucide-react";
 
@@ -64,6 +65,19 @@ export function BackgroundDetailCard({
       )}
     >
       <div className="flex items-start justify-between gap-3">
+        {background.imageSrc ? (
+          <div className="hidden h-28 w-28 shrink-0 sm:block">
+            <FramedIllustration
+              src={background.imageSrc}
+              alt={background.name}
+              sizes="112px"
+              chamfer="sm"
+              vignette="md"
+              imageClassName="object-top"
+            />
+          </div>
+        ) : null}
+
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h1
@@ -71,7 +85,7 @@ export function BackgroundDetailCard({
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
                 is2024
                   ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-teal-300 via-teal-100 to-violet-300"
+                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
               )}
             >
               {background.name}
@@ -90,7 +104,7 @@ export function BackgroundDetailCard({
             "shrink-0 rounded-lg border px-2.5 py-1 text-xs font-medium",
             is2024
               ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-teal-500/30 bg-teal-500/10 text-teal-300"
+              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
           )}
         >
           {sourceLabel}
@@ -124,7 +138,7 @@ export function BackgroundDetailCard({
 
         {background.originFeat && (
           <MetaRow icon={Sparkles} label="Риса походження">
-            <span className={is2024 ? "text-amber-200" : "text-teal-200"}>
+            <span className={is2024 ? "text-amber-200" : "text-arcane-200"}>
               {background.originFeat.nameUa}
             </span>{" "}
             <span className="font-mono text-xs text-slate-500">[{background.originFeat.engName}]</span>

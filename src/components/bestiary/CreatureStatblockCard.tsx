@@ -1,9 +1,9 @@
 "use client";
 
-import { ContentImage } from "@/components/no-ai/ContentImage";
-import { CreatureData } from "@/lib/bestiaryData";
+import { CreaturePortrait } from "@/components/bestiary/CreaturePortrait";
+import type { CreatureData } from "@/lib/bestiaryData";
+import { findSourceLabel } from "@/lib/refs/source-label";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { sourceTranslations } from "@/lib/refs/translation";
 import { cn } from "@/lib/utils";
 import { Shield, Heart, Zap, Swords } from "lucide-react";
 
@@ -14,12 +14,13 @@ export function CreatureStatblockCard({
   creature: CreatureData;
   is2024?: boolean;
 }) {
-  const sourceLabel = sourceTranslations[creature.source as keyof typeof sourceTranslations] || creature.source;
+  const sourceLabel = findSourceLabel(creature.source);
+  const actionTone = is2024 ? "text-amber-400" : "text-arcane-400";
 
   const abilities = [
     { label: "СИЛ", eng: "STR", val: creature.strength || "10 (+0)" },
     { label: "СПР", eng: "DEX", val: creature.dexterity || "10 (+0)" },
-    { label: "ТІЛ", eng: "CON", val: creature.constitution || "10 (+0)" },
+    { label: "СТА", eng: "CON", val: creature.constitution || "10 (+0)" },
     { label: "ІНТ", eng: "INT", val: creature.intelligence || "10 (+0)" },
     { label: "МУД", eng: "WIS", val: creature.wisdom || "10 (+0)" },
     { label: "ХАР", eng: "CHA", val: creature.charisma || "10 (+0)" },
@@ -43,7 +44,7 @@ export function CreatureStatblockCard({
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
                 is2024
                   ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-teal-300 via-teal-100 to-violet-300"
+                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
               )}
             >
               {creature.name}
@@ -66,27 +67,14 @@ export function CreatureStatblockCard({
             "shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border",
             is2024
               ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-teal-500/30 bg-teal-500/10 text-teal-300"
+              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
           )}
         >
           {sourceLabel}
         </div>
       </div>
 
-      {creature.imageUrl && (
-        <div className="mt-3 overflow-hidden rounded-xl border border-white/10 bg-slate-900/40">
-          <ContentImage
-            src={creature.imageUrl}
-            alt={creature.name}
-            provenance="manual"
-            width={640}
-            height={480}
-            unoptimized
-            loading="lazy"
-            className="h-auto w-full object-cover"
-          />
-        </div>
-      )}
+      <CreaturePortrait creature={creature} />
 
       {/* Basic Combat Stats (AC, HP, Initiative, Speed) */}
       <div
@@ -96,7 +84,7 @@ export function CreatureStatblockCard({
         )}
       >
         <div className="flex items-center gap-2.5 rounded-xl border border-white/5 bg-slate-900/40 p-2.5 glass-panel">
-          <Shield className={cn("h-5 w-5 shrink-0", is2024 ? "text-amber-400" : "text-teal-400")} />
+          <Shield className={cn("h-5 w-5 shrink-0", is2024 ? "text-amber-400" : "text-arcane-400")} />
           <div className="min-w-0">
             <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Клас обладунку</div>
             <div className="text-xs sm:text-sm font-semibold text-slate-200 truncate">{creature.ac || "10"}</div>
@@ -140,7 +128,7 @@ export function CreatureStatblockCard({
               <span
                 className={cn(
                   "mt-0.5 text-xs sm:text-sm font-semibold",
-                  is2024 ? "text-amber-200" : "text-teal-200"
+                  is2024 ? "text-amber-200" : "text-arcane-200"
                 )}
               >
                 {ab.val}
@@ -203,8 +191,8 @@ export function CreatureStatblockCard({
 
         <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5 mt-2.5 border-t border-white/5 font-medium">
           <div>
-            <span className="text-slate-400">Рівень небезпеки (CR):</span>{" "}
-            <span className={is2024 ? "text-amber-300 font-bold" : "text-teal-300 font-bold"}>
+            <span className="text-slate-400">Показник небезпеки (CR):</span>{" "}
+            <span className={is2024 ? "text-amber-300 font-bold" : "text-arcane-300 font-bold"}>
               {creature.challenge || "-"}
             </span>
             {creature.xp && creature.xp !== "-" && (
@@ -222,75 +210,31 @@ export function CreatureStatblockCard({
         </div>
       </div>
 
-      {/* Special Traits */}
-      {creature.specialAbilities && (
-        <div className="mt-4 space-y-1.5">
-          <div className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-            Особливості
-          </div>
-          <div className="glass-panel rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 break-words">
-            <FormattedDescription content={creature.specialAbilities} />
-          </div>
-        </div>
-      )}
-
-      {/* Actions */}
-      {creature.actions && (
-        <div className="mt-4 space-y-1.5">
-          <div
-            className={cn(
-              "text-xs font-semibold uppercase tracking-wider",
-              is2024 ? "text-amber-400" : "text-teal-400"
-            )}
-          >
-            Дії
-          </div>
-          <div className="glass-panel rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 break-words">
-            <FormattedDescription content={creature.actions} />
-          </div>
-        </div>
-      )}
-
-      {/* Bonus Actions */}
-      {creature.bonusActions && (
-        <div className="mt-4 space-y-1.5">
-          <div
-            className={cn(
-              "text-xs font-semibold uppercase tracking-wider",
-              is2024 ? "text-amber-400" : "text-teal-400"
-            )}
-          >
-            Бонусні дії
-          </div>
-          <div className="glass-panel rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 break-words">
-            <FormattedDescription content={creature.bonusActions} />
-          </div>
-        </div>
-      )}
-
-      {/* Reactions */}
-      {creature.reactions && (
-        <div className="mt-4 space-y-1.5">
-          <div className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-            Реакції
-          </div>
-          <div className="glass-panel rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 break-words">
-            <FormattedDescription content={creature.reactions} />
-          </div>
-        </div>
-      )}
-
-      {/* Legendary Actions */}
-      {creature.legendaryActions && (
-        <div className="mt-4 space-y-1.5">
-          <div className="text-xs font-semibold uppercase tracking-wider text-purple-300">
-            Легендарні дії
-          </div>
-          <div className="glass-panel rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 break-words">
-            <FormattedDescription content={creature.legendaryActions} />
-          </div>
-        </div>
-      )}
+      <ProseSection title="Особливості" content={creature.specialAbilities} />
+      <ProseSection title="Дії" content={creature.actions} titleClassName={actionTone} />
+      <ProseSection title="Бонусні дії" content={creature.bonusActions} titleClassName={actionTone} />
+      <ProseSection title="Реакції" content={creature.reactions} />
+      <ProseSection
+        title="Легендарні дії"
+        content={creature.legendaryActions}
+        titleClassName="text-purple-300"
+      />
+      <ProseSection title="Лігво" content={creature.lairInfo} titleClassName="text-purple-300" />
+      <ProseSection
+        title="Дії Лігва"
+        content={creature.lairActions}
+        titleClassName="text-purple-300"
+      />
+      <ProseSection
+        title="Регіональні ефекти"
+        content={creature.regionEffects}
+        titleClassName="text-purple-300"
+      />
+      <ProseSection
+        title="Міфічні дії"
+        content={joinMythicSection(creature)}
+        titleClassName="text-purple-300"
+      />
 
       {/* Description / Lore */}
       {creature.description && (
@@ -298,6 +242,37 @@ export function CreatureStatblockCard({
           <FormattedDescription content={creature.description} />
         </div>
       )}
+    </div>
+  );
+}
+
+/// Умова вмикання міфічних дій і самі дії — одна секція, як їх друкує книга: спершу абзац
+/// «якщо риса спрацювала…», далі перелік. Тримати їх двома заголовками означало б вигадати
+/// другий заголовок, якого в джерелі немає.
+function joinMythicSection(creature: CreatureData): string {
+  return [creature.mythicInfo, creature.mythicActions].filter(Boolean).join("");
+}
+
+/// Проза статблока — «Особливості», «Дії», лігво — малюється однією секцією, бо всі вони
+/// відрізняються лише заголовком. FormattedDescription тут обовʼязковий: він же розгортає
+/// маркери Р20 `термін{{English}}` у підказку, а сирий HTML цього не вміє.
+function ProseSection({
+  title,
+  content,
+  titleClassName = "text-slate-400",
+}: {
+  title: string;
+  content?: string | null;
+  titleClassName?: string;
+}) {
+  if (!content) return null;
+
+  return (
+    <div className="mt-4 space-y-1.5">
+      <div className={cn("text-xs font-semibold uppercase tracking-wider", titleClassName)}>{title}</div>
+      <div className="glass-panel rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 break-words">
+        <FormattedDescription content={content} />
+      </div>
     </div>
   );
 }

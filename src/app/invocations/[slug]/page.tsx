@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllInvocations, getInvocationByIdOrSlug } from "@/lib/invocationsData";
 import { InvocationDetailCard } from "@/components/invocations/InvocationDetailCard";
 import { toEntitySlug } from "@/lib/slug-utils";

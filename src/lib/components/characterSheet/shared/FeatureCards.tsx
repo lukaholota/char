@@ -58,7 +58,7 @@ export function ResourceCard({
       <CardContent className="p-3 flex items-center justify-between gap-3">
         <div className="flex-1 min-w-0 flex flex-col justify-center">
           <div className="flex items-center gap-2 mb-0.5">
-            <div className="font-bold text-purple-50 truncate">{displayName}</div>
+            <div className="font-rpg-display font-bold text-purple-50 truncate">{displayName}</div>
             {sourceLabel && (
               <span className={clsx(
                 "text-[9px] px-1 py-0 rounded uppercase font-bold tracking-tight shrink-0",
@@ -168,7 +168,7 @@ export function FeatureCard({
       <div className="flex items-center justify-between gap-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-bold text-slate-100 group-hover:text-purple-200 transition truncate">{displayName}</span>
+            <span className="font-rpg-display font-bold text-slate-100 group-hover:text-purple-200 transition truncate">{displayName}</span>
             {sourceLabel && (
               <span className={clsx(
                 "text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-tight shrink-0",

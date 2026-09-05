@@ -5,9 +5,21 @@
  */
 
 import { Ruleset } from "@prisma/client";
+import type { CreatureSpeeds } from "@/rules/creature-speed";
 import creatures2014Json from "@/lib/generated/creatures.json";
 import creatures2024Json from "@/lib/generated/creatures2024.json";
+import {
+  type CreatureIndexEntry,
+  buildCreatureIndexEntry,
+  collectCreatureCRs,
+  collectCreatureSizes,
+  collectCreatureSources,
+  collectCreatureTypes,
+} from "./bestiary-index";
 import { toEntitySlug } from "./slug-utils";
+
+export { findSourceLabel } from "@/lib/refs/source-label";
+export { type CreatureIndexEntry, buildCreatureIndexEntry, findEditionLabel } from "./bestiary-index";
 
 export type CreatureData = {
   creatureId: number;
@@ -52,7 +64,13 @@ export type CreatureData = {
   damageVulnerability?: string;
   xpInLair?: string;
   imageUrl?: string;
-};
+  /// Розміри локального webp (KR12.4) — картка резервує місце під картинку до завантаження.
+  imageWidth?: number;
+  imageHeight?: number;
+  /// Міфічні дії (KR16.3, партія 16) — окрема секція статблока, не різновид легендарних.
+  mythicInfo?: string;
+  mythicActions?: string;
+} & CreatureSpeeds;
 
 // 2014 creatures
 const creatures2014: CreatureData[] = (creatures2014Json as CreatureData[]).map((c, index) => ({
@@ -67,14 +85,6 @@ const creatures2024: CreatureData[] = (creatures2024Json as CreatureData[]).map(
   creatureId: c.creatureId || 20001 + index,
   ruleset: "RULES_2024" as Ruleset,
 }));
-
-/**
- * Edition marker for catalogue and search rows. The same monster exists in both editions as two
- * separate records (docs/DECISIONS.md Р12), so the row has to say which one it is.
- */
-export function findEditionLabel(ruleset: Ruleset): string {
-  return ruleset === "RULES_2024" ? "2024" : "2014";
-}
 
 /**
  * Get all creatures for a given ruleset (defaults to RULES_2014)
@@ -113,46 +123,47 @@ export function getCreatureByIdOrSlug(idOrSlug: string, ruleset: Ruleset = "RULE
   );
 }
 
-/**
- * Get all unique creature types for a ruleset
- */
+/// Ключ, яким дані користувача посилаються на істоту (Р25). Не `creatureId` і не назва: слаг
+/// англійської назви — те саме, чим уже адресуються сторінки бестіарію, тож нового способу
+/// називати істоту не заводиться.
+export function buildCreatureKey(creature: Pick<CreatureData, "nameEng">): string {
+  return toEntitySlug(creature.nameEng);
+}
+
+/// Читач ключа. Порожній результат — не помилка, а стан: істота могла випасти з каталогу між
+/// прикріпленням і читанням. Той, хто малює, показує «форма недоступна» й лишає рядок цілим.
+export function findCreatureByKey(key: string, ruleset: Ruleset): CreatureData | null {
+  const normalized = toEntitySlug(key);
+  if (!normalized) return null;
+
+  return getAllCreatures(ruleset).find((c) => toEntitySlug(c.nameEng) === normalized) ?? null;
+}
+
+/// Вузький індекс для списку каталогу — єдине, що їде в браузер (KR20.9). Будується раз на
+/// редакцію: сторінки істот і `sitemap` теж імпортують цей модуль, а їм індекс не потрібен.
+const creatureIndexes = new Map<Ruleset, CreatureIndexEntry[]>();
+
+export function getCreatureIndex(ruleset: Ruleset = "RULES_2014"): CreatureIndexEntry[] {
+  const cached = creatureIndexes.get(ruleset);
+  if (cached) return cached;
+
+  const index = getAllCreatures(ruleset).map(buildCreatureIndexEntry);
+  creatureIndexes.set(ruleset, index);
+  return index;
+}
+
 export function getAllCreatureTypes(ruleset: Ruleset = "RULES_2014"): string[] {
-  const list = getAllCreatures(ruleset);
-  const set = new Set<string>();
-  for (const c of list) {
-    if (c.type) {
-      // If type has subtype in parens like "Монстр (перевертень)", extract base type or full
-      const base = c.type.split("(")[0].trim();
-      if (base) set.add(base);
-    }
-  }
-  return Array.from(set).sort((a, b) => a.localeCompare(b, "uk"));
+  return collectCreatureTypes(getCreatureIndex(ruleset));
 }
 
-/**
- * Get all unique creature sizes for a ruleset
- */
 export function getAllCreatureSizes(ruleset: Ruleset = "RULES_2014"): string[] {
-  const list = getAllCreatures(ruleset);
-  const set = new Set<string>();
-  for (const c of list) {
-    if (c.size) {
-      set.add(c.size.trim());
-    }
-  }
-  return Array.from(set);
+  return collectCreatureSizes(getCreatureIndex(ruleset));
 }
 
-/**
- * Get all unique creature CRs for a ruleset
- */
 export function getAllCreatureCRs(ruleset: Ruleset = "RULES_2014"): string[] {
-  const list = getAllCreatures(ruleset);
-  const set = new Set<string>();
-  for (const c of list) {
-    if (c.challenge) {
-      set.add(c.challenge.trim());
-    }
-  }
-  return Array.from(set);
+  return collectCreatureCRs(getCreatureIndex(ruleset));
+}
+
+export function getAllCreatureSources(ruleset: Ruleset = "RULES_2014"): string[] {
+  return collectCreatureSources(getCreatureIndex(ruleset));
 }

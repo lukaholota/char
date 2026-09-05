@@ -7,6 +7,14 @@ import { generateCharacterPdf } from "@/server/pdf/generateCharacterPdf";
 import type { PrintConfig } from "@/server/pdf/types";
 import { createLogger, hashPII } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
+import { countAttachedForms } from "@/server/db/wildshape";
+import { getPersById } from "@/lib/actions/pers";
+
+export async function findPrintableWildshapeCountAction(persId: number): Promise<number> {
+  const pers = await getPersById(persId);
+  if (!pers) throw new Error("Not found");
+  return countAttachedForms(persId);
+}
 
 export async function generateCharacterPdfAction(persId: number, config: PrintConfig) {
   const jobId = crypto.randomUUID();

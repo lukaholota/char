@@ -186,18 +186,17 @@ export const formatArmorProficiencies = (armor?: ArmorType[] | null) => {
 
 export const formatAbilityList = (abilities?: Ability[] | null) => formatList(abilities);
 
-export const formatMulticlassReqs = (reqs?: MulticlassReqs | (MulticlassReqs & { choice?: Ability[] }) | null) => {
+export const formatMulticlassReqs = (reqs?: MulticlassReqs | null) => {
   if (!reqs) return "—";
 
-  const choice = (reqs as any).choice as Ability[] | undefined;
-  const required = (reqs as any).required as Ability[] | undefined;
-
-  if (choice?.length) {
-    return `Характеристика ${reqs.score}+ в одній з: ${formatList(choice)}`;
+  // `and` — форма монаха, паладина й слідопита 2024; читається так само, як `required` у 2014.
+  const everyOf = reqs.and?.length ? reqs.and : reqs.required;
+  if (everyOf?.length) {
+    return `Характеристика ${reqs.score}+ у: ${formatList(everyOf)}`;
   }
 
-  if (required?.length) {
-    return `Характеристика ${reqs.score}+ у: ${formatList(required)}`;
+  if (reqs.choice?.length) {
+    return `Характеристика ${reqs.score}+ в одній з: ${formatList(reqs.choice)}`;
   }
 
   return `Потрібно ${reqs.score}+ у характеристиці`;
@@ -276,67 +275,93 @@ export const normalizeRaceASI = (asi?: any | null) => {
   return next;
 };
 
+const ABILITY_KEYS = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+
+type FlexibleGroup = { groupName: string; value: number; choiceCount: number };
+
+function collectPlainAsiEntries(asi: Record<string, unknown>): [string, number][] {
+  return Object.entries(asi)
+    .filter(
+      ([key, value]) =>
+        ABILITY_KEYS.includes(String(key).toUpperCase()) && typeof value === "number" && Number(value) !== 0
+    )
+    .map(([key, value]) => [String(key).toUpperCase(), Number(value)]);
+}
+
+function isPlainAsiMap(asi: object): boolean {
+  return !("basic" in asi) && !("tasha" in asi) && !("flexible" in asi);
+}
+
+/// Шість однакових бонусів — це «+1 до всіх», а не шість слів через кому.
+function formatFixedEntries(entries: [string, number][]): string {
+  const values = new Set(entries.map(([, value]) => value));
+  if (entries.length === ABILITY_KEYS.length && values.size === 1) {
+    return `+${entries[0][1]} до всіх`;
+  }
+  return entries.map(([stat, value]) => `${translateValue(stat)} +${value}`).join(", ");
+}
+
+function formatFlexibleGroups(groups: FlexibleGroup[]): string {
+  return groups.map((group) => `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`).join("; ");
+}
+
+type AsiParts = {
+  fixed: [string, number][];
+  basicFlexible: FlexibleGroup[];
+  tashaFlexible: FlexibleGroup[];
+  hasOwnBasic: boolean;
+};
+
+/// `normalizeRaceASI` дзеркалить `tasha` у `basic`, коли свого `basic` немає, — конструктору
+/// це потрібно, щоб дати вибір. Для підпису це той самий бонус двома рядками, тож гнучку
+/// групу basic показуємо лише тоді, коли вона була в джерелі.
+function collectAsiParts(asi: any): AsiParts {
+  const normalized = normalizeRaceASI(asi);
+  const hasOwnBasic = Boolean(asi?.basic) || Boolean(asi?.flexible);
+
+  return {
+    fixed: Object.entries(normalized?.basic?.simple || {}).map(([stat, value]) => [
+      String(stat).toUpperCase(),
+      Number(value),
+    ]),
+    basicFlexible: hasOwnBasic ? normalized?.basic?.flexible?.groups || [] : [],
+    tashaFlexible: normalized?.tasha?.flexible?.groups || [],
+    hasOwnBasic,
+  };
+}
+
 export const formatASI = (asi?: any | null) => {
   if (!asi) return "—";
 
-  // Support plain maps like { STR: 2 } (subrace.additionalASI)
-  if (
-    typeof asi === "object" &&
-    !("basic" in asi) &&
-    !("tasha" in asi) &&
-    !("flexible" in asi)
-  ) {
-    const abilityKeys = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
-    const entries = Object.entries(asi).filter(
-      ([key, value]) => abilityKeys.includes(String(key).toUpperCase()) && typeof value === "number" && Number(value) !== 0
-    );
-    if (!entries.length) return "—";
-
-    return (
-      "Фіксовано: " +
-      entries
-        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
-        .join(", ")
-    );
+  if (typeof asi === "object" && isPlainAsiMap(asi)) {
+    const entries = collectPlainAsiEntries(asi);
+    return entries.length ? `Фіксовано: ${formatFixedEntries(entries)}` : "—";
   }
 
-  const normalized = normalizeRaceASI(asi);
-
-  const fixedEntries = Object.entries(normalized?.basic?.simple || {});
-  const basicFlexible = normalized?.basic?.flexible?.groups || [];
-  const tashaFlexible = normalized?.tasha?.flexible?.groups || [];
-
+  const { fixed, basicFlexible, tashaFlexible } = collectAsiParts(asi);
   const parts: string[] = [];
 
-  if (fixedEntries.length) {
-    parts.push(
-      `Фіксовано: ${fixedEntries
-        .map(([stat, value]) => `${translateValue(String(stat).toUpperCase())} +${value}`)
-        .join(", ")}`
-    );
-  }
+  if (fixed.length) parts.push(`Фіксовано: ${formatFixedEntries(fixed)}`);
+  if (basicFlexible.length) parts.push(`Гнучко: ${formatFlexibleGroups(basicFlexible)}`);
+  if (tashaFlexible.length) parts.push(`За Ташею: ${formatFlexibleGroups(tashaFlexible)}`);
 
-  if (basicFlexible.length) {
-    parts.push(
-      `Гнучко: ${basicFlexible
-        .map(
-          (group: any) =>
-            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
-        )
-        .join("; ")}`
-    );
-  }
+  return parts.join(" • ") || "—";
+};
 
-  if (tashaFlexible.length) {
-    parts.push(
-      `За Ташею: ${tashaFlexible
-        .map(
-          (group: any) =>
-            `${group.groupName} (+${group.value}, оберіть ${group.choiceCount})`
-        )
-        .join("; ")}`
-    );
-  }
+/// Підпис для каталогу рас (рішення власника 2026-09-02): без варіанта «за Ташею» — читач
+/// каталогу дивиться правило раси, а не опції конструктора. Раса, у якої гнучкий бонус і є
+/// правилом (MPMM, Фізбан, Custom Lineage), показує його як «Гнучко».
+export const formatCatalogASI = (asi?: any | null) => {
+  if (!asi) return "—";
+
+  if (typeof asi === "object" && isPlainAsiMap(asi)) return formatASI(asi);
+
+  const { fixed, basicFlexible, tashaFlexible, hasOwnBasic } = collectAsiParts(asi);
+  const flexible = hasOwnBasic ? basicFlexible : tashaFlexible;
+  const parts: string[] = [];
+
+  if (fixed.length) parts.push(`Фіксовано: ${formatFixedEntries(fixed)}`);
+  if (flexible.length) parts.push(`Гнучко: ${flexible.map((group) => group.groupName).join(", ")}`);
 
   return parts.join(" • ") || "—";
 };

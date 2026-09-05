@@ -58,10 +58,9 @@ export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race,
   const filteredFeats = useMemo(() => {
     const normalizedSearch = (search || "").toLowerCase().trim();
     
-    // Duplication rules: only SKILLED and ELEMENTAL_ADEPT can be duplicated
+    // Повтор дозволяє сама риса (Feat.isRepeatable) — те саме правило, що й на сервері (Р37).
     const alreadyChosenFeatId = formData.featId;
     const existingPersFeatIds = new Set((pers?.feats || []).map(pf => pf.featId));
-    const allowedDuplicates = ["SKILLED", "ELEMENTAL_ADEPT"];
 
     return feats.filter(f => {
       // 1. Filter by search
@@ -73,7 +72,7 @@ export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race,
       }
 
       // 2. Filter by duplication
-      const isAllowedDup = allowedDuplicates.includes(f.name);
+      const isAllowedDup = Boolean(f.isRepeatable);
 
       // Check race feat (creation flow)
       if (alreadyChosenFeatId === f.featId && !isAllowedDup) {

@@ -10,30 +10,27 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { useParams } from "next/navigation";
-import { setSpellPresenceForPers, getSpellForModal, type SpellForModal } from "@/lib/actions/spell-actions";
+import { setSpellPresenceForPersByLink } from "@/lib/actions/spell-actions";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
+import { findSpellForModal } from "@/lib/spell-catalog-chunk";
+import type { SpellData } from "@/lib/spellsData";
+import { shortenCastingTime } from "@/lib/spell-casting-time";
+import type { Ruleset } from "@prisma/client";
+import {
+  buildSpellLinkForSpell,
+  buildSpellSlug,
+  closeSpellLink,
+  dispatchLocationChange,
+  findSpellLinkInSearch,
+  isSameSpellLink,
+  type SpellLink,
+} from "@/lib/spell-link";
 import { sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
-import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 
-function dispatchLocationChangeAsync() {
-  if (typeof window === "undefined") return;
-  const fire = () => window.dispatchEvent(new Event("locationchange"));
-  if (typeof queueMicrotask === "function") queueMicrotask(fire);
-  else window.setTimeout(fire, 0);
-}
-
-function getSpellParamFromLocation(): string {
-  if (typeof window === "undefined") return "";
-  return new URLSearchParams(window.location.search).get("spell")?.trim() || "";
-}
-
-function clearSpellParamInUrl() {
-  if (typeof window === "undefined") return;
-  const url = new URL(window.location.href);
-  url.searchParams.delete("spell");
-  window.history.replaceState({}, "", url);
-  dispatchLocationChangeAsync();
+function findSpellLinkInLocation(): SpellLink | null {
+  if (typeof window === "undefined") return null;
+  return findSpellLinkInSearch(window.location.search);
 }
 
 function isYesFlag(value: string | null | undefined): boolean {
@@ -51,16 +48,17 @@ function uniqSorted(values: Array<string | null | undefined>) {
   return Array.from(new Set(values.map((v) => (v ?? "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b, "uk"));
 }
 
-function ritualForSpell(spell: SpellForModal | null): boolean {
+function ritualForSpell(spell: SpellData | null): boolean {
   return spell ? isYesFlag(spell.hasRitual) : false;
 }
 
 type SpellOpenDetail = {
   spellId?: unknown;
+  ruleset?: unknown;
   spell?: unknown;
 };
 
-function isSpellForModalLike(value: unknown): value is SpellForModal {
+function isSpellDataLike(value: unknown): value is SpellData {
   if (!value || typeof value !== "object") return false;
   const v = value as Record<string, unknown>;
   return (
@@ -71,13 +69,37 @@ function isSpellForModalLike(value: unknown): value is SpellForModal {
   );
 }
 
+function findRulesetInDetail(detail: { ruleset?: unknown } | null | undefined): Ruleset {
+  return detail?.ruleset === "RULES_2024" ? "RULES_2024" : "RULES_2014";
+}
+
+function matchesLoadedSpell(spell: SpellData, link: SpellLink): boolean {
+  if ((spell.ruleset ?? "RULES_2014") !== link.ruleset) return false;
+  return (
+    String(spell.spellId) === link.spellKey ||
+    buildSpellSlug(spell.engName) === link.spellKey ||
+    spell.engName === link.spellKey ||
+    spell.name === link.spellKey
+  );
+}
+
 type PersIndexItem = {
   persId: number;
   name: string;
   spellIds: number[];
+  spellKeys: string[];
 };
 
-function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLevel?: number }) {
+function hasSpellLink(pers: PersIndexItem, link: SpellLink): boolean {
+  return pers.spellKeys.includes(link.spellKey);
+}
+
+function notifyEmbeddingSheet(persId: number, spellId: number, spellLevel: number | undefined, added: boolean) {
+  if (window.parent === window) return;
+  window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added }, "*");
+}
+
+function AddToPersDropdown({ link, spellLevel }: { link: SpellLink; spellLevel?: number }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
@@ -95,6 +117,26 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
     }
   };
 
+  const toggleForPers = async (pers: PersIndexItem) => {
+    const present = !hasSpellLink(pers, link);
+    const res = await setSpellPresenceForPersByLink({ persId: pers.persId, link, present });
+    if (!res.success) return;
+
+    setPersIndex(
+      (persIndex || []).map((item) =>
+        item.persId !== pers.persId
+          ? item
+          : {
+              ...item,
+              spellKeys: res.present
+                ? Array.from(new Set([...item.spellKeys, link.spellKey]))
+                : item.spellKeys.filter((key) => key !== link.spellKey),
+            }
+      )
+    );
+    notifyEmbeddingSheet(pers.persId, res.spellId, spellLevel, res.present);
+  };
+
   return (
     <DropdownMenu
       open={open}
@@ -106,7 +148,7 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300"
           aria-label="Додати до персонажа"
         >
           <UserPlus className="h-4 w-4" />
@@ -124,7 +166,7 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
           <div className="px-2 py-2 text-xs text-slate-400">Немає персонажів</div>
         ) : (
           persIndex?.map((p) => {
-            const has = p.spellIds.includes(spellId);
+            const has = hasSpellLink(p, link);
             const label = p.name || `Персонаж #${p.persId}`;
             return (
               <DropdownMenuItem
@@ -132,29 +174,11 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
                 className="flex items-center justify-between gap-2"
                 onSelect={async (e) => {
                   e.preventDefault();
-                  const res = await setSpellPresenceForPers({ persId: p.persId, spellId, present: !has });
-                  if (!res.success) return;
-
-                  setPersIndex(
-                    (persIndex || []).map((item) =>
-                      item.persId !== p.persId
-                        ? item
-                        : {
-                            ...item,
-                            spellIds: res.present
-                              ? Array.from(new Set([...item.spellIds, spellId]))
-                              : item.spellIds.filter((id) => id !== spellId),
-                          }
-                    )
-                  );
-                  // Notify parent if embedded
-                  if (window.parent !== window) {
-                    window.parent.postMessage({ type: "SPELL_TOGGLED", persId: p.persId, spellId, spellLevel, added: res.present }, "*");
-                  }
+                  await toggleForPers(p);
                 }}
               >
                 <span className="truncate">{label}</span>
-                {has ? <Check className="h-4 w-4 text-teal-400" /> : null}
+                {has ? <Check className="h-4 w-4 text-arcane-400" /> : null}
               </DropdownMenuItem>
             );
           })
@@ -164,7 +188,7 @@ function AddToPersDropdown({ spellId, spellLevel }: { spellId: number; spellLeve
   );
 }
 
-function AddToSinglePersButton({ spellId, persId, spellLevel }: { spellId: number; persId: number; spellLevel?: number }) {
+function AddToSinglePersButton({ link, persId, spellLevel }: { link: SpellLink; persId: number; spellLevel?: number }) {
   const [loading, setLoading] = useState(false);
   const [has, setHas] = useState<boolean | null>(null);
 
@@ -174,25 +198,23 @@ function AddToSinglePersButton({ spellId, persId, spellLevel }: { spellId: numbe
       try {
         const data = await getUserPersesSpellIndex();
         const p = data.find((item) => item.persId === persId);
-        setHas(p ? p.spellIds.includes(spellId) : false);
+        setHas(p ? hasSpellLink(p, link) : false);
       } finally {
         setLoading(false);
       }
     }
     void check();
-  }, [spellId, persId]);
+  }, [link, persId]);
 
   const handleToggle = async () => {
     if (loading) return;
     const nextHas = !has;
     setLoading(true);
     try {
-      const res = await setSpellPresenceForPers({ persId, spellId, present: nextHas });
+      const res = await setSpellPresenceForPersByLink({ persId, link, present: nextHas });
       if (res.success) {
         setHas(res.present);
-        if (window.parent !== window) {
-          window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added: res.present }, "*");
-        }
+        notifyEmbeddingSheet(persId, res.spellId, spellLevel, res.present);
       }
     } finally {
       setLoading(false);
@@ -204,13 +226,13 @@ function AddToSinglePersButton({ spellId, persId, spellLevel }: { spellId: numbe
       type="button"
       onClick={handleToggle}
       disabled={loading}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300 disabled:opacity-50"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 disabled:opacity-50"
       aria-label="Додати до персонажа"
     >
       {loading ? (
         <Loader2 className="h-4 w-4 animate-spin" />
       ) : has ? (
-        <Check className="h-4 w-4 text-teal-400" />
+        <Check className="h-4 w-4 text-arcane-400" />
       ) : (
         <UserPlus className="h-4 w-4" />
       )}
@@ -219,22 +241,24 @@ function AddToSinglePersButton({ spellId, persId, spellLevel }: { spellId: numbe
 }
 
 export function SpellInfoModal() {
-  const isLg = useMediaQuery("(min-width: 1024px)");
   const params = useParams();
   const currentPersId = params?.id ? Number(params.id) : null;
   const isIdValid = currentPersId !== null && !isNaN(currentPersId);
 
-  const [spellParam, setSpellParam] = useState<string>(() => getSpellParamFromLocation());
+  const [spellLink, setSpellLink] = useState<SpellLink | null>(() => findSpellLinkInLocation());
   const isSpellCatalogPage = typeof window !== "undefined" && (
     window.location.pathname === "/spells" ||
     window.location.pathname === "/2024/spells" ||
     window.location.pathname.endsWith("/spells")
   );
-  const open = Boolean(spellParam) && !(isLg && isSpellCatalogPage);
+  const open = Boolean(spellLink) && !isSpellCatalogPage;
 
-  const [spell, setSpell] = useState<SpellForModal | null>(null);
+  const [spell, setSpell] = useState<SpellData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const applySpellLink = (next: SpellLink | null) =>
+    setSpellLink((prev) => (isSameSpellLink(prev, next) ? prev : next));
 
   useEffect(() => {
     // Patch history methods once so we can react to router pushes too.
@@ -246,7 +270,7 @@ export function SpellInfoModal() {
         const original = window.history[type];
         return function (this: History, ...args: unknown[]) {
           const result = (original as unknown as (...a: unknown[]) => unknown).apply(this, args);
-          dispatchLocationChangeAsync();
+          dispatchLocationChange();
           return result;
         };
       };
@@ -255,17 +279,15 @@ export function SpellInfoModal() {
       window.history.replaceState = wrap("replaceState");
     }
 
-    const syncFromUrl = () => {
-      const next = getSpellParamFromLocation();
-      setSpellParam(next);
-    };
+    const syncFromUrl = () => applySpellLink(findSpellLinkInLocation());
 
     const onSpellOpen = (e: Event) => {
       const detail = (e as CustomEvent).detail as SpellOpenDetail | undefined;
 
-      const fromSpellObj = detail?.spell && isSpellForModalLike(detail.spell) ? detail.spell : null;
+      const fromSpellObj = detail?.spell && isSpellDataLike(detail.spell) ? detail.spell : null;
       const rawId = fromSpellObj ? String(fromSpellObj.spellId) : detail?.spellId;
-      const next = typeof rawId === "string" ? rawId : String(rawId ?? "");
+      const spellKey = typeof rawId === "string" ? rawId : String(rawId ?? "");
+      const ruleset = findRulesetInDetail(fromSpellObj ?? detail);
 
       if (fromSpellObj) {
         setSpell(fromSpellObj);
@@ -273,7 +295,9 @@ export function SpellInfoModal() {
         setError(null);
       }
 
-      if (next && next !== "undefined" && next !== "null") setSpellParam(next);
+      if (spellKey && spellKey !== "undefined" && spellKey !== "null") {
+        applySpellLink({ spellKey, ruleset });
+      }
     };
 
     window.addEventListener("popstate", syncFromUrl);
@@ -291,18 +315,15 @@ export function SpellInfoModal() {
     let cancelled = false;
 
     async function run() {
-      if (!spellParam) {
+      if (!spellLink) {
         setSpell(null);
         setError(null);
         setLoading(false);
         return;
       }
 
-      // If we already have a full spell object (e.g. received from /spells list), skip DB fetch.
-      if (
-        spell &&
-        (String(spell.spellId) === spellParam || spell.engName === spellParam || spell.name === spellParam)
-      ) {
+      // If we already have a full spell object (e.g. received from /spells list), skip the fetch.
+      if (spell && matchesLoadedSpell(spell, spellLink)) {
         setLoading(false);
         setError(null);
         return;
@@ -314,7 +335,7 @@ export function SpellInfoModal() {
       setError(null);
 
       try {
-        const result = await getSpellForModal(spellParam);
+        const result = await findSpellForModal(spellLink);
         if (cancelled) return;
 
         if (!result) {
@@ -338,12 +359,14 @@ export function SpellInfoModal() {
     return () => {
       cancelled = true;
     };
-  }, [spellParam, spell]);
+  }, [spellLink, spell]);
 
   const onClose = () => {
-    clearSpellParamInUrl();
-    setSpellParam("");
+    closeSpellLink();
+    setSpellLink(null);
   };
+
+  const spellLinkForPers = useMemo(() => (spell ? buildSpellLinkForSpell(spell) : null), [spell]);
 
   const schoolLabel = useMemo(() => {
     if (!spell?.school) return null;
@@ -377,13 +400,13 @@ export function SpellInfoModal() {
       >
         <div className="px-4 py-5 sm:p-6 min-w-0">
           <div className="flex items-start justify-between gap-3 pr-6 sm:pr-0">
-            <DialogTitle className="min-w-0 font-sans text-lg sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400">
+            <DialogTitle className="min-w-0 font-sans text-lg sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-arcane-400 to-violet-400">
               {spell?.name ?? (loading ? "Завантаження…" : "Заклинання")}
             </DialogTitle>
-            {spell && (
-              isIdValid 
-                ? <AddToSinglePersButton spellId={spell.spellId} persId={currentPersId as number} spellLevel={spell.level} />
-                : <AddToPersDropdown spellId={spell.spellId} spellLevel={spell.level} />
+            {spell && spellLinkForPers && (
+              isIdValid
+                ? <AddToSinglePersButton link={spellLinkForPers} persId={currentPersId as number} spellLevel={spell.level} />
+                : <AddToPersDropdown link={spellLinkForPers} spellLevel={spell.level} />
             )}
           </div>
 
@@ -404,7 +427,7 @@ export function SpellInfoModal() {
           <div className="mt-2.5 grid grid-cols-2 gap-2 sm:gap-3">
             <div className="glass-panel rounded-lg bg-slate-900/40 border border-white/5 p-2 sm:p-3">
               <div className="text-[10px] uppercase tracking-wider text-slate-400">Час використання</div>
-              <div className="mt-0.5 text-xs sm:text-sm text-slate-200 font-medium">{spell?.castingTime ?? "—"}</div>
+              <div className="mt-0.5 text-xs sm:text-sm text-slate-200 font-medium">{shortenCastingTime(spell?.castingTime) || "—"}</div>
             </div>
             <div className="glass-panel rounded-lg bg-slate-900/40 border border-white/5 p-2 sm:p-3">
               <div className="text-[10px] uppercase tracking-wider text-slate-400">Тривалість</div>

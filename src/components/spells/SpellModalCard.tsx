@@ -1,6 +1,7 @@
 "use client";
 
-import { SpellData } from "@/lib/spellsData";
+import type { SpellData } from "@/lib/spellsData";
+import { shortenCastingTime } from "@/lib/spell-casting-time";
 import { spellSchoolTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { X, Info } from "lucide-react";
@@ -60,7 +61,7 @@ export function SpellModalCard({
                 "font-sans text-base sm:text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text truncate",
                 is2024
                   ? "bg-gradient-to-r from-amber-300 to-amber-500"
-                  : "bg-gradient-to-r from-teal-400 to-violet-400"
+                  : "bg-gradient-to-r from-arcane-400 to-violet-400"
               )}
             >
               {spell.name}
@@ -89,7 +90,7 @@ export function SpellModalCard({
           onClick={onClose}
           className={cn(
             "glass-panel inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90",
-            is2024 ? "hover:text-amber-300" : "hover:text-teal-300"
+            is2024 ? "hover:text-amber-300" : "hover:text-arcane-300"
           )}
           aria-label="Закрити"
         >
@@ -126,7 +127,7 @@ export function SpellModalCard({
       <div className="mt-2 grid grid-cols-2 gap-1.5 sm:gap-2">
         <div className="rounded-xl bg-slate-900/40 border border-white/5 p-2 glass-panel">
           <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Час використання</div>
-          <div className="mt-0.5 text-[11px] sm:text-xs text-slate-200">{spell.castingTime || "—"}</div>
+          <div className="mt-0.5 text-[11px] sm:text-xs text-slate-200">{shortenCastingTime(spell.castingTime) || "—"}</div>
         </div>
         <div className="rounded-xl bg-slate-900/40 border border-white/5 p-2 glass-panel">
           <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Тривалість</div>

@@ -3,8 +3,8 @@
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
-import { Ability, Classes } from "@prisma/client";
-import { attributesUkrShort, classTranslations } from "@/lib/refs/translation";
+import { Ability } from "@prisma/client";
+import { attributesUkrShort } from "@/lib/refs/translation";
 import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -12,10 +12,15 @@ import { Button } from "@/components/ui/button";
 import { memo, useEffect, useMemo, useState, useTransition, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { applyHpChange, reviveCharacter, setDeathSaves } from "@/lib/actions/combat-actions";
+import { applyOfflineOperation, type OfflineOperation, type OfflinePersState } from "@/lib/offline/operations";
+import { createOperationId } from "@/lib/offline/queue";
+import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { updateCharacterAction } from "@/lib/actions/update-character";
 import { LanguageTranslations } from "@/lib/refs/translation";
 import { toast } from "sonner";
 import ModifyStatModal, { ModifyConfig } from "@/lib/components/characterSheet/ModifyStatModal";
+import HitDiceDialog from "@/lib/components/characterSheet/HitDiceDialog";
+import { collectPersHitDicePools, formatHitDicePools } from "@/lib/logic/pers-hit-dice";
 import {
   hasStatBonuses,
   hasSimpleBonus,
@@ -27,16 +32,34 @@ import {
   calculateFinalModifier,
   calculateFinalSave,
 } from "@/lib/logic/bonus-calculator";
+import {
+  BEAST_HITPOINTS_RING,
+  hasBeastHitPoints,
+  BEAST_VALUE_RING,
+  OwnValue,
+  isBeastAbility,
+  type BeastFormView,
+} from "@/lib/components/characterSheet/BeastFormMarks";
+import { BeastHitPointsDialog } from "@/lib/components/characterSheet/BeastHitPointsDialog";
 
 interface MainStatsSlideProps {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
+  /// Другий шар: `pers` уже підмінений, а звідси беруться позначки й власні числа поруч.
+  beastForm?: BeastFormView;
 }
 
-const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isReadOnly }: MainStatsSlideProps) {
+const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isReadOnly, beastForm }: MainStatsSlideProps) {
+  /// Правки завжди пишуться у власний лист, а не в синтетичний: інакше «зберегти» записало б
+  /// персонажу характеристики ведмедя.
+  const editablePers = beastForm?.ownPers ?? pers;
+  /// Стос хітів звіра має лише 2014: у 2024 блок лишається власним і редагується як завжди.
+  const beastHitPoints = hasBeastHitPoints(beastForm);
+  const [beastHpOpen, setBeastHpOpen] = useState(false);
   const router = useRouter();
   const persId = pers.persId;
+  const { commitOperation } = useOfflineQueue();
   const [isHpPending, startHpTransition] = useTransition();
   const [isDetailsPending, startDetailsTransition] = useTransition();
 
@@ -56,6 +79,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   }, [onPersUpdate]);
 
   const [hpOpen, setHpOpen] = useState(false);
+  const [hitDiceOpen, setHitDiceOpen] = useState(false);
   const [hpMode, setHpMode] = useState<"damage" | "heal" | "temp">("damage");
   const [hpAmount, setHpAmount] = useState<string>("");
 
@@ -266,11 +290,17 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       // Save in background; don't block HP modal UX.
       startDetailsTransition(async () => {
         lastSavedDataRef.current = dataToSave;
-        const res = await updateCharacterAction({
+        const operation: OfflineOperation = {
+          kind: "details",
+          patch: dataToSave,
+          operationId: createOperationId(),
           persId,
-          data: dataToSave,
-        });
-        if (res && !res.success) {
+          createdAt: new Date().toISOString(),
+        };
+        const outcome = await commitOperation(operation, () =>
+          updateCharacterAction({ persId, data: dataToSave }),
+        );
+        if (!outcome.queued && outcome.result && !outcome.result.success) {
           lastSavedDataRef.current = null;
         }
       });
@@ -298,57 +328,10 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     pers,
     persId,
     startDetailsTransition,
+    commitOperation,
   ]);
   
-  // Calculate hit dice info per class
-  const hitDiceInfo = useMemo(() => {
-    const result: Array<{ className: string; current: number; max: number; hitDie: number }> = [];
-    
-    // Calculate main class level
-    const multiclassLevelSum = pers.multiclasses?.reduce((acc, mc) => acc + mc.classLevel, 0) ?? 0;
-    const mainClassLevel = pers.level - multiclassLevelSum;
-    
-    // Get stored hit dice or default to max
-    const storedHitDice = (pers as unknown as { currentHitDice?: Record<string, number> }).currentHitDice ?? {};
-    
-    // Main class
-    const mainClassName = classTranslations[pers.class.name as Classes] ?? pers.class.name;
-    const mainCurrent = typeof storedHitDice[String(pers.class.classId)] === 'number'
-      ? storedHitDice[String(pers.class.classId)]
-      : mainClassLevel;
-    result.push({
-      className: mainClassName,
-      current: Math.min(mainCurrent, mainClassLevel),
-      max: mainClassLevel,
-      hitDie: pers.class.hitDie,
-    });
-    
-    // Multiclasses
-    for (const mc of pers.multiclasses ?? []) {
-      const mcClassName = classTranslations[mc.class.name as unknown as Classes] ?? 'Клас';
-      const mcCurrent = typeof storedHitDice[String(mc.classId)] === 'number'
-        ? storedHitDice[String(mc.classId)]
-        : mc.classLevel;
-      result.push({
-        className: mcClassName,
-        current: Math.min(mcCurrent, mc.classLevel),
-        max: mc.classLevel,
-        hitDie: mc.class.hitDie,
-      });
-    }
-    
-    return result;
-  }, [pers]);
-  
-  // Format hit dice for display
-  const hitDiceDisplay = useMemo(() => {
-    if (hitDiceInfo.length === 1) {
-      const hd = hitDiceInfo[0];
-      return `${hd.current}/${hd.max} d${hd.hitDie}`;
-    }
-    // Multiclass: show each class separately
-    return hitDiceInfo.map(hd => `${hd.current}/${hd.max}d${hd.hitDie}`).join(' | ');
-  }, [hitDiceInfo]);
+  const hitDiceDisplay = useMemo(() => formatHitDicePools(collectPersHitDicePools(pers)), [pers]);
 
   // Save proficiency source-of-truth
   const additionalSaveProficiencies = useMemo(() => {
@@ -388,123 +371,85 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   const hpTitle = useMemo(() => {
     if (isDead) return "Персонаж мертвий";
     if (localCurrentHp <= 0) return "0 HP — кидки смерті";
-    return "Здоров'я";
+    return "Здоровʼя";
   }, [isDead, localCurrentHp]);
+
+  const readCombatState = (): OfflinePersState => ({
+    persId,
+    currentHp: localCurrentHp,
+    maxHp: Math.max(1, Math.trunc(Number(localMaxHp) || 1)),
+    tempHp: localTempHp,
+    deathSaveSuccesses: deathSuccesses,
+    deathSaveFailures: deathFailures,
+    isDead,
+    currentSpellSlots: pers.currentSpellSlots ?? [],
+    currentPactSlots: pers.currentPactSlots ?? 0,
+  });
+
+  const writeCombatState = (state: OfflinePersState) => {
+    setLocalCurrentHp(state.currentHp);
+    setLocalTempHp(state.tempHp);
+    setLocalMaxHp(state.maxHp);
+    setDeathSuccesses(state.deathSaveSuccesses);
+    setDeathFailures(state.deathSaveFailures);
+    setIsDead(state.isDead);
+  };
+
+  const buildOperation = <T extends Omit<OfflineOperation, "operationId" | "persId" | "createdAt">>(body: T) =>
+    ({ ...body, operationId: createOperationId(), persId, createdAt: new Date().toISOString() }) as OfflineOperation;
 
   const applyHp = () => {
     setHpOpen(false);
     const amount = Math.max(0, Math.trunc(Number(hpAmount)));
     if (!Number.isFinite(amount) || amount <= 0) return;
 
-    // Optimistic update (mirror server logic in applyHpChange)
-    const prev = {
-      currentHp: localCurrentHp,
-      tempHp: localTempHp,
-      maxHp: localMaxHp,
-      deathSaveSuccesses: deathSuccesses,
-      deathSaveFailures: deathFailures,
-      isDead,
-    };
+    const previous = readCombatState();
+    const operation = buildOperation({ kind: "hp", mode: hpMode, amount });
 
-    const maxHp = Math.max(1, Math.trunc(Number(localMaxHp) || 1));
-    const curHp = Math.max(0, Math.trunc(Number(localCurrentHp) || 0));
-    const curTemp = Math.max(0, Math.trunc(Number(localTempHp) || 0));
-
-    let nextHp = curHp;
-    let nextTemp = curTemp;
-
-    if (hpMode === "damage") {
-      const dmgToTemp = Math.min(nextTemp, amount);
-      nextTemp -= dmgToTemp;
-      const remaining = amount - dmgToTemp;
-      nextHp = Math.max(0, nextHp - remaining);
-    } else if (hpMode === "heal") {
-      nextHp = Math.min(maxHp, nextHp + amount);
-    } else if (hpMode === "temp") {
-      nextTemp = Math.max(nextTemp, amount);
-    }
-
-    const clearsDeath = nextHp > 0;
-
-    setLocalCurrentHp(nextHp);
-    setLocalTempHp(nextTemp);
-    setLocalMaxHp(maxHp);
-    if (clearsDeath) {
-      setDeathSuccesses(0);
-      setDeathFailures(0);
-      setIsDead(false);
-    }
+    writeCombatState(applyOfflineOperation(previous, operation));
     setHpAmount("");
 
     startHpTransition(async () => {
-      const res = await applyHpChange({ persId: pers.persId, mode: hpMode, amount });
+      const outcome = await commitOperation(operation, () =>
+        applyHpChange({ persId, mode: hpMode, amount }),
+      );
+      if (outcome.queued) return;
+
+      const res = outcome.result;
       if (!res.success) {
-        // Rollback on failure
-        setLocalCurrentHp(prev.currentHp);
-        setLocalTempHp(prev.tempHp);
-        setLocalMaxHp(prev.maxHp);
-        setDeathSuccesses(prev.deathSaveSuccesses);
-        setDeathFailures(prev.deathSaveFailures);
-        setIsDead(prev.isDead);
+        writeCombatState(previous);
         toast.error("Не вдалося оновити HP", { description: res.error });
         router.refresh();
         return;
       }
-      setLocalCurrentHp(res.currentHp);
-      setLocalTempHp(res.tempHp);
-      setLocalMaxHp(res.maxHp);
-      setDeathSuccesses(res.deathSaveSuccesses);
-      setDeathFailures(res.deathSaveFailures);
-      setIsDead(res.isDead);
+      writeCombatState({ ...previous, ...res });
       router.refresh();
     });
   };
 
   const setSaves = (nextSuccess: number, nextFail: number) => {
-    const s = Math.max(0, Math.min(3, Math.trunc(nextSuccess)));
-    const f = Math.max(0, Math.min(3, Math.trunc(nextFail)));
+    const successes = Math.max(0, Math.min(3, Math.trunc(nextSuccess)));
+    const failures = Math.max(0, Math.min(3, Math.trunc(nextFail)));
 
-    // Optimistic update (mirror server logic in setDeathSaves)
-    const prev = {
-      currentHp: localCurrentHp,
-      deathSaveSuccesses: deathSuccesses,
-      deathSaveFailures: deathFailures,
-      isDead,
-    };
+    const previous = readCombatState();
+    const operation = buildOperation({ kind: "death-saves", successes, failures });
 
-    if (isDead) {
-      setDeathSuccesses(s);
-      setDeathFailures(f);
-    } else if (s >= 3) {
-      setLocalCurrentHp(1);
-      setDeathSuccesses(0);
-      setDeathFailures(0);
-      setIsDead(false);
-    } else if (f >= 3) {
-      setDeathSuccesses(s);
-      setDeathFailures(f);
-      setIsDead(true);
-    } else {
-      setDeathSuccesses(s);
-      setDeathFailures(f);
-    }
+    writeCombatState(applyOfflineOperation(previous, operation));
 
     startHpTransition(async () => {
-      const res = await setDeathSaves({ persId: pers.persId, successes: s, failures: f });
+      const outcome = await commitOperation(operation, () =>
+        setDeathSaves({ persId, successes, failures }),
+      );
+      if (outcome.queued) return;
+
+      const res = outcome.result;
       if (!res.success) {
-        // Rollback on failure
-        setLocalCurrentHp(prev.currentHp);
-        setDeathSuccesses(prev.deathSaveSuccesses);
-        setDeathFailures(prev.deathSaveFailures);
-        setIsDead(prev.isDead);
+        writeCombatState(previous);
         toast.error("Не вдалося оновити кидки смерті", { description: res.error });
         router.refresh();
         return;
       }
-      setLocalCurrentHp(res.currentHp);
-      setDeathSuccesses(res.deathSaveSuccesses);
-      setDeathFailures(res.deathSaveFailures);
-      setIsDead(res.isDead);
+      writeCombatState({ ...previous, ...res });
       router.refresh();
     });
   };
@@ -559,29 +504,33 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       <div className="grid grid-cols-3 gap-2">
         <button 
           type="button" 
-          onClick={() => !isReadOnly && openModify({ type: 'simple', field: 'ac' })} 
+          onClick={() => !isReadOnly && !beastForm && openModify({ type: 'simple', field: 'ac' })}
           className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
         >
-          <Card className={`glass-card bg-indigo-500/15 border-indigo-500/40 h-24 ${!isReadOnly ? 'hover:bg-indigo-500/25 transition' : ''} ${hasSimpleBonus(pers, 'ac') ? 'ring-1 ring-indigo-400/50' : ''}`}>
+          <Card className={`glass-card bg-indigo-500/15 border-indigo-500/40 h-24 ${!isReadOnly ? 'hover:bg-indigo-500/25 transition' : ''} ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'ac') ? 'ring-1 ring-indigo-400/50' : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
               <div className="text-[9px] font-bold uppercase tracking-wide text-indigo-300">Клас Броні</div>
-              <div className="text-3xl font-bold text-white mt-1">{calculateFinalAC(pers)}</div>
-              <Shield className="w-4 h-4 text-indigo-400 opacity-60 mt-1" />
+              <div className={`text-3xl font-bold mt-1 ${beastForm ? 'text-emerald-200' : 'text-white'}`}>{calculateFinalAC(pers)}</div>
+              {beastForm
+                ? <OwnValue value={calculateFinalAC(beastForm.ownPers)} />
+                : <Shield className="w-4 h-4 text-indigo-400 opacity-60 mt-1" />}
             </CardContent>
           </Card>
         </button>
 
         <button 
           type="button" 
-          onClick={() => !isReadOnly && setHpOpen(true)} 
+          onClick={() => !isReadOnly && (beastHitPoints ? setBeastHpOpen(true) : setHpOpen(true))}
           className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
         >
-          <Card className={`glass-card bg-rose-500/20 border-rose-500/50 h-24 ${!isReadOnly ? 'hover:bg-rose-500/25 transition' : ''}`}>
+          <Card className={`glass-card h-24 ${beastHitPoints ? `bg-amber-500/15 border-amber-500/50 ${BEAST_HITPOINTS_RING}` : 'bg-rose-500/20 border-rose-500/50'} ${!isReadOnly ? `transition ${beastHitPoints ? 'hover:bg-amber-500/25' : 'hover:bg-rose-500/25'}` : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-              <div className="text-[9px] font-bold uppercase tracking-wide text-rose-300 text-center">{hpTitle}</div>
+              <div className={`text-[9px] font-bold uppercase tracking-wide text-center ${beastHitPoints ? 'text-amber-300' : 'text-rose-300'}`}>{beastHitPoints ? "Хіти звіра" : hpTitle}</div>
               <div className="text-4xl font-black text-white mt-1">{localCurrentHp}</div>
-              <div className="text-[11px] text-rose-400">/ {localMaxHp}</div>
-              {localTempHp > 0 ? (
+              <div className={`text-[11px] ${beastHitPoints ? 'text-amber-400' : 'text-rose-400'}`}>/ {localMaxHp}</div>
+              {beastHitPoints && beastForm ? (
+                <OwnValue value={`ви: ${beastForm.ownPers.currentHp} / ${beastForm.ownPers.maxHp}`} />
+              ) : localTempHp > 0 ? (
                 <div className="text-[9px] text-slate-200/80">Тимч.: +{localTempHp}</div>
               ) : null}
             </CardContent>
@@ -590,13 +539,14 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
 
         <button 
           type="button" 
-          onClick={() => !isReadOnly && openModify({ type: 'simple', field: 'initiative' })} 
+          onClick={() => !isReadOnly && !beastForm && openModify({ type: 'simple', field: 'initiative' })}
           className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
         >
-          <Card className={`glass-card bg-emerald-500/15 border-emerald-500/40 h-24 ${!isReadOnly ? 'hover:bg-emerald-500/25 transition' : ''} ${hasSimpleBonus(pers, 'initiative') ? 'ring-1 ring-emerald-400/50' : ''}`}>
+          <Card className={`glass-card bg-emerald-500/15 border-emerald-500/40 h-24 ${!isReadOnly ? 'hover:bg-emerald-500/25 transition' : ''} ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'initiative') ? 'ring-1 ring-emerald-400/50' : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
               <div className="text-[9px] font-bold uppercase tracking-wide text-emerald-300">Ініціатива</div>
               <div className="text-3xl font-bold text-white mt-1">{formatModifier(calculateFinalInitiative(pers))}</div>
+              {beastForm && <OwnValue value={formatModifier(calculateFinalInitiative(beastForm.ownPers))} />}
             </CardContent>
           </Card>
         </button>
@@ -606,22 +556,29 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       <div className="grid grid-cols-3 gap-2">
         <button 
           type="button" 
-          onClick={() => !isReadOnly && openModify({ type: 'simple', field: 'speed' })} 
+          onClick={() => !isReadOnly && !beastForm && openModify({ type: 'simple', field: 'speed' })}
           className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
         >
-          <Card className={`glass-card bg-cyan-500/15 border-cyan-400/40 h-16 ${!isReadOnly ? 'hover:bg-cyan-500/25 transition' : ''} ${hasSimpleBonus(pers, 'speed') ? 'ring-1 ring-cyan-400/50' : ''}`}>
+          <Card className={`glass-card bg-cyan-500/15 border-cyan-400/40 h-16 ${!isReadOnly ? 'hover:bg-cyan-500/25 transition' : ''} ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'speed') ? 'ring-1 ring-cyan-400/50' : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
               <div className="text-[9px] font-bold uppercase tracking-wide text-cyan-300">Швидкість</div>
-              <div className="text-xl font-bold text-cyan-50">{calculateFinalSpeed(pers)}</div>
+              <div className={`text-xl font-bold ${beastForm ? 'text-emerald-200' : 'text-cyan-50'}`}>{calculateFinalSpeed(pers)}</div>
+              {beastForm && <OwnValue value={calculateFinalSpeed(beastForm.ownPers)} />}
             </CardContent>
           </Card>
         </button>
-        <Card className="glass-card bg-amber-500/15 border-amber-400/40 h-16">
-          <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-            <div className="text-[9px] font-bold uppercase tracking-wide text-amber-300">Хіт Дайси</div>
-            <div className="text-lg font-bold text-amber-50 text-center leading-tight">{hitDiceDisplay}</div>
-          </CardContent>
-        </Card>
+        <button
+          type="button"
+          onClick={() => !isReadOnly && setHitDiceOpen(true)}
+          className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
+        >
+          <Card className={`glass-card bg-amber-500/15 border-amber-400/40 h-16 ${!isReadOnly ? 'hover:bg-amber-500/25 transition' : ''}`}>
+            <CardContent className="p-2 flex flex-col items-center justify-center h-full">
+              <div className="text-[9px] font-bold uppercase tracking-wide text-amber-300">Хіт Дайси</div>
+              <div className="text-lg font-bold text-amber-50 text-center leading-tight">{hitDiceDisplay}</div>
+            </CardContent>
+          </Card>
+        </button>
         <button 
           type="button" 
           onClick={() => !isReadOnly && openModify({ type: 'simple', field: 'proficiency' })} 
@@ -641,22 +598,24 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         {attributes.map((attr) => {
           const ability = abilityByKey[attr.key];
           const hasSaveProficiency = proficientSaves.has(ability);
+          const fromBeast = isBeastAbility(beastForm, ability);
 
           return (
             <button
               key={attr.name}
               type="button"
-              onClick={() => !isReadOnly && openModify({ type: 'stat', ability: abilityByKey[attr.key] })}
+              onClick={() => !isReadOnly && !fromBeast && openModify({ type: 'stat', ability: abilityByKey[attr.key] })}
               className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
             >
-              <Card className={`glass-card bg-slate-900/60 ${attr.borderColor} border h-14 ${!isReadOnly ? 'hover:bg-slate-800/60 transition' : ''} ${hasStatBonuses(pers, abilityByKey[attr.key]) ? 'ring-1 ring-white/30' : ''}`}>
+              <Card className={`glass-card bg-slate-900/60 ${attr.borderColor} border h-14 ${!isReadOnly ? 'hover:bg-slate-800/60 transition' : ''} ${fromBeast ? BEAST_VALUE_RING : hasStatBonuses(pers, abilityByKey[attr.key]) ? 'ring-1 ring-white/30' : ''}`}>
                 <CardContent className="h-full px-1 py-1 grid grid-cols-[1fr_auto_1fr] items-center gap-0">
                   {/* Left: Ability Name & Score */}
                   <div className="flex flex-col items-center justify-center gap-0">
                     <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{attr.name}</span>
-                    <span className="text-[9px] font-mono text-slate-500">
+                    <span className={`text-[9px] font-mono ${fromBeast ? 'text-emerald-300' : 'text-slate-500'}`}>
                       {calculateFinalStat(pers, abilityByKey[attr.key])}
                     </span>
+                    {fromBeast && beastForm && <OwnValue value={calculateFinalStat(beastForm.ownPers, ability)} />}
                   </div>
 
                   {/* Center: Modifier (Main Focus) */}
@@ -743,6 +702,18 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
               />
               <Button type="button" onClick={applyHp} disabled={isHpPending || !hpAmount || Number(hpAmount) <= 0} className="w-full bg-slate-300 hover:bg-slate-200 text-slate-900">
                 Застосувати
+              </Button>
+              <Button
+                type="button"
+                variant="secondary"
+                className="w-full"
+                disabled={isReadOnly}
+                onClick={() => {
+                  setHpOpen(false);
+                  openModify({ type: 'simple', field: 'hp' });
+                }}
+              >
+                Змінити максимум
               </Button>
             </div>
 
@@ -997,7 +968,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
                 />
               </div>
               <div className="space-y-1">
-                <div className="text-xs font-semibold text-slate-200">Прив’язаності</div>
+                <div className="text-xs font-semibold text-slate-200">Привʼязаності</div>
                 <textarea
                   value={draftBonds}
                   onChange={(e) => setDraftBonds(e.target.value)}
@@ -1077,14 +1048,25 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         </DialogContent>
       </Dialog>
 
+      <HitDiceDialog
+        pers={editablePers}
+        open={hitDiceOpen}
+        onOpenChange={setHitDiceOpen}
+        onPersUpdate={handlePersUpdate}
+      />
+
       {/* Modify Stat Modal */}
       <ModifyStatModal
         open={modifyOpen}
         onOpenChange={setModifyOpen}
-        pers={pers}
+        pers={editablePers}
         onPersUpdate={handlePersUpdate}
         config={modifyConfig}
       />
+
+      {beastHitPoints && beastForm && (
+        <BeastHitPointsDialog view={beastForm} open={beastHpOpen} onOpenChange={setBeastHpOpen} />
+      )}
     </div>
   );
 });

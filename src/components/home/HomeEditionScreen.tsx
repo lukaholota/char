@@ -1,15 +1,14 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import type { Edition } from "@/rules/route-helpers";
-import { HomeBackdrop } from "./HomeBackdrop";
 import { HomeCategoryCard } from "./HomeCategoryCard";
-import { StarDivider } from "./OrnateFrame";
+import { HomeFooter } from "./HomeFooter";
+import { StarDivider } from "@/components/ui/StarDivider";
 import { HOME_EDITION_HEADINGS, collectHomeCategories, type HomeCategory } from "./homeCategories";
-import { HOME_HERO_ROW_MAX_WIDTH, type HomeAccentName } from "./homeTokens";
+import { HOME_ACCENTS, HOME_HERO_ROW_MAX_WIDTH, type HomeAccentName } from "./homeTokens";
 
 const EDITION_ACCENTS: Record<Edition, HomeAccentName> = {
   "2014": "runicCyan",
@@ -30,7 +29,7 @@ const blockMotion = {
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
 } as const;
 
-export function HomeEditionScreen({ edition, children }: { edition: Edition; children?: ReactNode }) {
+export function HomeEditionScreen({ edition }: { edition: Edition }) {
   const categories = collectHomeCategories(edition);
   const heroes = categories.filter((category) => category.tier === "hero");
   const tiles = categories.filter((category) => category.tier === "tile");
@@ -42,15 +41,13 @@ export function HomeEditionScreen({ edition, children }: { edition: Edition; chi
       initial="hidden"
       animate="show"
     >
-      <HomeBackdrop />
-
       <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-4 px-3 pt-4 sm:gap-6 sm:px-6 sm:pt-6">
         <EditionHeading edition={edition} />
         <HeroRow heroes={heroes} />
         <TileGrid tiles={tiles} />
       </div>
 
-      {children}
+      <HomeFooter edition={edition} />
     </motion.div>
   );
 }
@@ -64,17 +61,12 @@ function EditionHeading({ edition }: { edition: Edition }) {
         {heading.title}
       </h1>
       <StarDivider
-        accent={EDITION_ACCENTS[edition]}
-        className={cn("mx-auto mt-2 w-40 sm:w-56", HIDDEN_ON_SHORT_VIEWPORT)}
-      />
-      <p
         className={cn(
-          "mx-auto mt-2 max-w-2xl text-xs leading-relaxed text-slate-400 sm:text-sm",
+          "mx-auto mt-2 w-40 sm:w-56",
+          HOME_ACCENTS[EDITION_ACCENTS[edition]].textClassName,
           HIDDEN_ON_SHORT_VIEWPORT,
         )}
-      >
-        {heading.subtitle}
-      </p>
+      />
     </motion.header>
   );
 }

@@ -9,18 +9,12 @@ interface Props {
   onReset: () => void;
   onOpenAuth: () => void;
   isAuthenticated?: boolean;
-  canSelect2024?: boolean;
-  ruleset?: "RULES_2014" | "RULES_2024";
-  onRulesetChange?: (ruleset: "RULES_2014" | "RULES_2024") => void;
 }
 
 export const CharacterCreateHeader = ({
   onReset,
   onOpenAuth,
   isAuthenticated = false,
-  canSelect2024 = false,
-  ruleset = "RULES_2014",
-  onRulesetChange,
 }: Props) => {
   const resetConfirm = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: onReset,
@@ -36,37 +30,6 @@ export const CharacterCreateHeader = ({
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          {canSelect2024 && (
-            <div className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 p-1" data-testid="ruleset-switcher">
-              <button
-                type="button"
-                onClick={() => onRulesetChange?.("RULES_2014")}
-                className={cn(
-                  "rounded-md px-3 py-1 text-xs font-semibold transition-all",
-                  ruleset === "RULES_2014"
-                    ? "bg-indigo-600 text-white shadow"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-                data-testid="ruleset-2014-btn"
-              >
-                PHB 2014
-              </button>
-              <button
-                type="button"
-                onClick={() => onRulesetChange?.("RULES_2024")}
-                className={cn(
-                  "flex items-center gap-1 rounded-md px-3 py-1 text-xs font-semibold transition-all",
-                  ruleset === "RULES_2024"
-                    ? "bg-amber-600 text-white shadow"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-                data-testid="ruleset-2024-btn"
-              >
-                PHB 2024
-                <span className="rounded border border-amber-500/30 bg-amber-500/20 px-1 text-[10px] text-amber-300">Власник</span>
-              </button>
-            </div>
-          )}
           <Button
             ref={resetConfirm.ref}
             onClick={resetConfirm.onClick}

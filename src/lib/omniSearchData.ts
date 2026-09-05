@@ -14,18 +14,32 @@ import { getAllArmors } from "@/lib/armorData";
 import { getAllCreatures, findEditionLabel } from "@/lib/bestiaryData";
 import { getAllFeats } from "@/lib/featsData";
 import { getAllInvocations } from "@/lib/invocationsData";
+import { getAllBastionFacilities } from "@/lib/bastionsData";
 import { getAllBackgrounds } from "@/lib/backgroundsData";
+import { getAllClasses } from "@/lib/classesData";
+import { getAllRaces, RACE_SINGULAR } from "@/lib/racesData";
 import { getAllRuleArticles, getAllConditions, RuleArticle } from "@/lib/rulesData";
-import { getAllRuleArticles2024 } from "@/lib/rules2024Data";
+import { getAllRuleArticles2014 } from "@/lib/rules2014Data";
+import { getAllRuleArticles2024, getConditions2024 } from "@/lib/rules2024Data";
 import {
   itemRarityTranslations,
   weaponTranslations,
   armorTypeTranslations,
-  subclassTranslations,
-  subclassTranslationsEng,
 } from "@/lib/refs/translation";
 import { toEntitySlug } from "@/lib/slug-utils";
+import {
+  findCategoryCatalogHref,
+  findRoutePrefix,
+  OMNI_CATEGORY_LABELS,
+  type OmniSearchCategory,
+} from "@/lib/search/omni-categories";
 import { findAliasVariants } from "@/lib/search/searchAliases";
+
+export {
+  findCategoryCatalogHref,
+  OMNI_CATEGORY_LABELS,
+  type OmniSearchCategory,
+} from "@/lib/search/omni-categories";
 import {
   buildQueryMatcher,
   buildSearchableText,
@@ -35,20 +49,6 @@ import {
   QueryMatcher,
   SearchableText,
 } from "@/lib/search/searchQuery";
-
-export type OmniSearchCategory =
-  | "spells"
-  | "magic-items"
-  | "weapons"
-  | "armor"
-  | "bestiary"
-  | "feats"
-  | "invocations"
-  | "backgrounds"
-  | "classes"
-  | "races"
-  | "rules"
-  | "characters";
 
 export type OmniSearchItem = {
   id: string;
@@ -74,20 +74,6 @@ export type OmniSearchItem = {
   visualKeySecondary?: string | number | boolean | null;
 };
 
-export const OMNI_CATEGORY_LABELS: Record<OmniSearchCategory, string> = {
-  spells: "Заклинання",
-  "magic-items": "Магічні предмети",
-  weapons: "Зброя",
-  armor: "Обладунки",
-  bestiary: "Бестіарій",
-  feats: "Риси",
-  invocations: "Потойбічні виклики",
-  backgrounds: "Походження",
-  classes: "Класи",
-  races: "Раси / Види",
-  rules: "Довідник правил",
-  characters: "Мої персонажі",
-};
 
 const MAX_SEARCH_RESULTS = 50;
 const SHORT_ALIAS_LENGTH = 4;
@@ -111,95 +97,9 @@ type SearchEntry = {
   exactAliases: string[];
 };
 
-const CLASSES_2014 = [
-  { key: "ARTIFICER_2014", name: "Винахідник", engName: "Artificer" },
-  { key: "BARBARIAN_2014", name: "Варвар", engName: "Barbarian" },
-  { key: "BARD_2014", name: "Бард", engName: "Bard" },
-  { key: "CLERIC_2014", name: "Клірик", engName: "Cleric" },
-  { key: "DRUID_2014", name: "Друїд", engName: "Druid" },
-  { key: "FIGHTER_2014", name: "Воїн", engName: "Fighter" },
-  { key: "MONK_2014", name: "Монах", engName: "Monk" },
-  { key: "PALADIN_2014", name: "Паладин", engName: "Paladin" },
-  { key: "RANGER_2014", name: "Слідопит", engName: "Ranger" },
-  { key: "ROGUE_2014", name: "Пройдисвіт", engName: "Rogue" },
-  { key: "SORCERER_2014", name: "Чародій", engName: "Sorcerer" },
-  { key: "WARLOCK_2014", name: "Чорнокнижник", engName: "Warlock" },
-  { key: "WIZARD_2014", name: "Чарівник", engName: "Wizard" },
-];
-
-const CLASSES_2024 = [
-  { key: "BARBARIAN_2024", name: "Варвар", engName: "Barbarian" },
-  { key: "BARD_2024", name: "Бард", engName: "Bard" },
-  { key: "CLERIC_2024", name: "Клірик", engName: "Cleric" },
-  { key: "DRUID_2024", name: "Друїд", engName: "Druid" },
-  { key: "FIGHTER_2024", name: "Воїн", engName: "Fighter" },
-  { key: "MONK_2024", name: "Монах", engName: "Monk" },
-  { key: "PALADIN_2024", name: "Паладин", engName: "Paladin" },
-  { key: "RANGER_2024", name: "Слідопит", engName: "Ranger" },
-  { key: "ROGUE_2024", name: "Пройдисвіт", engName: "Rogue" },
-  { key: "SORCERER_2024", name: "Чародій", engName: "Sorcerer" },
-  { key: "WARLOCK_2024", name: "Чорнокнижник", engName: "Warlock" },
-  { key: "WIZARD_2024", name: "Чарівник", engName: "Wizard" },
-];
-
-const RACES_2024 = [
-  { name: "Аазимар", engName: "Aasimar" },
-  { name: "Дракононароджений", engName: "Dragonborn" },
-  { name: "Дворф", engName: "Dwarf" },
-  { name: "Ельф", engName: "Elf" },
-  { name: "Гном", engName: "Gnome" },
-  { name: "Голіаф", engName: "Goliath" },
-  { name: "Напіврослик", engName: "Halfling" },
-  { name: "Людина", engName: "Human" },
-  { name: "Орк", engName: "Orc" },
-  { name: "Тифлінг", engName: "Tiefling" },
-];
-
-const RACES_2014 = [
-  { name: "Дракононароджений", engName: "Dragonborn" },
-  { name: "Дворф", engName: "Dwarf" },
-  { name: "Ельф", engName: "Elf" },
-  { name: "Гном", engName: "Gnome" },
-  { name: "Напівельф", engName: "Half-Elf" },
-  { name: "Напіворк", engName: "Half-Orc" },
-  { name: "Напіврослик", engName: "Halfling" },
-  { name: "Людина", engName: "Human" },
-  { name: "Тифлінг", engName: "Tiefling" },
-  { name: "Аазимар", engName: "Aasimar" },
-  { name: "Голіаф", engName: "Goliath" },
-  { name: "Табаксі", engName: "Tabaxi" },
-  { name: "Тритон", engName: "Triton" },
-  { name: "Кенку", engName: "Kenku" },
-  { name: "Кобольд", engName: "Kobold" },
-  { name: "Гоблін", engName: "Goblin" },
-  { name: "Хобгоблін", engName: "Hobgoblin" },
-  { name: "Ведмебай", engName: "Bugbear" },
-  { name: "Черепаха", engName: "Tortle" },
-  { name: "Воєнокований", engName: "Warforged" },
-  { name: "Змінник", engName: "Changeling" },
-];
-
-/// SRD 5.1 не знає терміна «вільна дія» — жодного входження «free action». Найближче за змістом
-/// у 2014 — безкоштовна взаємодія з предметом у підрозділі «Ваш хід у бою», тож запит веде туди.
-const RULE_SUBSECTION_ALIASES: Record<string, string[]> = {
-  "your-turn": ["вільна дія", "вільні дії", "безкоштовна дія", "основна дія"],
-};
-
-const CATEGORY_CATALOG_PATHS: Record<OmniSearchCategory, string> = {
-  spells: "/spells",
-  "magic-items": "/magic-items",
-  weapons: "/weapons",
-  armor: "/armor",
-  bestiary: "/bestiary",
-  feats: "/feats",
-  invocations: "/invocations",
-  backgrounds: "/backgrounds",
-  classes: "/char/create",
-  races: "/char/create",
-  rules: "/rules",
-  characters: "/char/home",
-};
-
+/// The class, subclass and race lists used to be typed out here and drifted: the 2014 race list
+/// held 21 of the 66 rows in the database. They now come from the catalogs, which read the same
+/// tables the character creator does (KR15.6).
 export function buildOmniSearchIndex(ruleset: Ruleset = "RULES_2014"): OmniSearchItem[] {
   const cached = cachedIndexes[ruleset];
   if (cached) return cached;
@@ -212,6 +112,7 @@ export function buildOmniSearchIndex(ruleset: Ruleset = "RULES_2014"): OmniSearc
     ...collectCreatureItems(ruleset),
     ...collectFeatItems(ruleset),
     ...collectInvocationItems(ruleset),
+    ...collectBastionItems(ruleset),
     ...collectBackgroundItems(ruleset),
     ...collectClassItems(ruleset),
     ...collectSubclassItems(ruleset),
@@ -257,14 +158,6 @@ function findCategoryTieBreakPriority(category: OmniSearchCategory): number {
   return CATEGORY_TIE_BREAK_PRIORITY[category] ?? DEFAULT_CATEGORY_TIE_BREAK_PRIORITY;
 }
 
-export function findCategoryCatalogHref(
-  category: OmniSearchCategory,
-  ruleset: Ruleset = "RULES_2014"
-): string {
-  if (category === "classes" || category === "races") return findCreatorHref(ruleset);
-  if (category === "characters") return CATEGORY_CATALOG_PATHS.characters;
-  return `${findRoutePrefix(ruleset)}${CATEGORY_CATALOG_PATHS[category]}`;
-}
 
 function matchesExactAlias(matcher: QueryMatcher, exactAliases: string[]): boolean {
   return exactAliases.length > 0 && matcher.phrases.some((phrase) => exactAliases.includes(phrase));
@@ -290,12 +183,22 @@ function collectSearchEntries(ruleset: Ruleset): SearchEntry[] {
   return entries;
 }
 
-function findRoutePrefix(ruleset: Ruleset): string {
-  return ruleset === "RULES_2024" ? "/2024" : "";
+
+/// Classes, subclasses and races used to send the reader into the character creator, because
+/// that was the only screen listing them. KR15.6 gave them catalogs, so a hit now opens the
+/// catalog with that entry already selected.
+function findRaceHref(ruleset: Ruleset, engName: string): string {
+  return `${findRoutePrefix(ruleset)}/races?race=${toEntitySlug(engName)}`;
 }
 
-function findCreatorHref(ruleset: Ruleset): string {
-  return ruleset === "RULES_2024" ? "/2024/char" : "/char/create";
+function findClassHref(ruleset: Ruleset, engName: string): string {
+  return `${findRoutePrefix(ruleset)}/classes?class=${toEntitySlug(engName)}`;
+}
+
+/// A subclass has no page of its own — it opens its class and gets found by the catalog's own
+/// search box, which reads subclass names into its haystack.
+function findSubclassHref(ruleset: Ruleset, className: string, subclassName: string): string {
+  return `${findRoutePrefix(ruleset)}/classes?class=${toEntitySlug(className)}&q=${encodeURIComponent(subclassName)}`;
 }
 
 function stripBracketedSuffix(name: string): string {
@@ -485,9 +388,33 @@ function collectInvocationItems(ruleset: Ruleset): OmniSearchItem[] {
   });
 }
 
+/// Бастіони існують лише в DMG 2024, тож в індексі 2014 їх немає взагалі — інакше пошук
+/// пропонував би сторінку, на яку гейт `isRules2024Allowed` однаково не пустить.
+function collectBastionItems(ruleset: Ruleset): OmniSearchItem[] {
+  if (ruleset !== "RULES_2024") return [];
+
+  return getAllBastionFacilities().map((facility) => ({
+    id: `bastion-${facility.slug}`,
+    title: facility.name,
+    subtitle: facility.engName,
+    category: "bastions" as const,
+    categoryLabel: OMNI_CATEGORY_LABELS.bastions,
+    href: `/2024/bastions/${facility.slug}`,
+    badge: facility.level === null ? "Базове" : `Рівень ${facility.level}`,
+    keywords: [facility.source, facility.prerequisiteText, facility.shortDescription],
+    aliases: findAliasVariants(ruleset, ["bastion"], [facility.slug, facility.name]),
+    visualKey: facility.orders[0] ?? null,
+  }));
+}
+
 /// Доповнення власника, 2026-08-22: «бекграунд», «передісторія», «історія» мають вести на сам
 /// каталог Походжень, а не на конкретний запис — тому це один додатковий пункт індексу, а не
 /// аліас кожної з ~90 сутностей.
+/// Підрозділ «Ваш хід у бою» люди шукають словами, яких у тексті немає.
+const RULE_SUBSECTION_ALIASES: Record<string, string[]> = {
+  "your-turn": ["вільна дія", "вільні дії", "безкоштовна дія", "основна дія"],
+};
+
 const BACKGROUND_CATEGORY_ALIASES = ["бекграунд", "бекграунди", "передісторія", "історія"];
 
 function collectBackgroundItems(ruleset: Ruleset): OmniSearchItem[] {
@@ -514,92 +441,75 @@ function collectBackgroundItems(ruleset: Ruleset): OmniSearchItem[] {
 }
 
 function collectBackgroundCategoryShortcut(ruleset: Ruleset): OmniSearchItem {
-  const prefix = findRoutePrefix(ruleset);
-
   return {
     id: "category-backgrounds",
     title: OMNI_CATEGORY_LABELS.backgrounds,
     category: "backgrounds",
     categoryLabel: OMNI_CATEGORY_LABELS.backgrounds,
-    href: `${prefix}${CATEGORY_CATALOG_PATHS.backgrounds}`,
+    href: findCategoryCatalogHref("backgrounds", ruleset),
     badge: "Каталог",
     aliases: BACKGROUND_CATEGORY_ALIASES,
   };
 }
 
 function collectClassItems(ruleset: Ruleset): OmniSearchItem[] {
-  const classList = ruleset === "RULES_2024" ? CLASSES_2024 : CLASSES_2014;
-
-  return classList.map((classEntry) => ({
-    id: `class-${classEntry.key}`,
-    title: classEntry.name,
-    subtitle: classEntry.engName,
+  return getAllClasses(ruleset).map((characterClass) => ({
+    id: `class-${characterClass.key}`,
+    title: characterClass.name,
+    subtitle: characterClass.engName,
     category: "classes" as const,
     categoryLabel: OMNI_CATEGORY_LABELS.classes,
-    href: findCreatorHref(ruleset),
+    href: findClassHref(ruleset, characterClass.engName),
     badge: "Клас",
-    keywords: [
-      "персонаж",
-      "створення",
-      classEntry.engName,
-    ],
-    aliases: findAliasVariants(ruleset, ["class"], [toEntitySlug(classEntry.engName), classEntry.name]),
+    keywords: ["персонаж", "створення", characterClass.engName],
+    aliases: findAliasVariants(
+      ruleset,
+      ["class"],
+      [toEntitySlug(characterClass.engName), characterClass.name],
+    ),
   }));
 }
 
-/// Підкласи живуть лише у перекладних таблицях: 166 ключів, з них 48 із суфіксом _2024.
-/// Суфікс і є ознакою редакції — так само, як у ключах класів.
 function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
-  const is2024 = ruleset === "RULES_2024";
-  const engNames: Record<string, string> = subclassTranslationsEng;
-
-  return Object.entries(subclassTranslations)
-    .filter(([key]) => key.endsWith("_2024") === is2024)
-    .map(([key, nameUa]) => {
-      const engName = engNames[key] ?? key;
-
-      return {
-        id: `subclass-${key}`,
-        title: nameUa,
-        subtitle: engName,
-        category: "classes" as const,
-        categoryLabel: OMNI_CATEGORY_LABELS.classes,
-        href: findCreatorHref(ruleset),
-        badge: "Підклас",
-        keywords: ["підклас", "персонаж", "створення", engName],
-        aliases: findAliasVariants(ruleset, ["subclass"], [toEntitySlug(engName), nameUa]),
-      };
-    });
+  return getAllClasses(ruleset).flatMap((characterClass) =>
+    characterClass.subclasses.map((subclass) => ({
+      id: `subclass-${characterClass.key}-${subclass.key}`,
+      title: subclass.name,
+      subtitle: `${subclass.engName} · ${characterClass.name}`,
+      category: "classes" as const,
+      categoryLabel: OMNI_CATEGORY_LABELS.classes,
+      href: findSubclassHref(ruleset, characterClass.engName, subclass.name),
+      badge: "Підклас",
+      keywords: ["підклас", "персонаж", "створення", subclass.engName, characterClass.name],
+      aliases: findAliasVariants(
+        ruleset,
+        ["subclass"],
+        [toEntitySlug(subclass.engName), subclass.name],
+      ),
+    })),
+  );
 }
 
 function collectRaceItems(ruleset: Ruleset): OmniSearchItem[] {
-  const is2024 = ruleset === "RULES_2024";
-  const raceList = is2024 ? RACES_2024 : RACES_2014;
-
-  return raceList.map((race) => ({
-    id: `race-${race.engName}`,
+  return getAllRaces(ruleset).map((race) => ({
+    id: `race-${race.key}`,
     title: race.name,
     subtitle: race.engName,
     category: "races" as const,
     categoryLabel: OMNI_CATEGORY_LABELS.races,
-    href: findCreatorHref(ruleset),
-    badge: is2024 ? "Вид" : "Раса",
-    keywords: [
-      "персонаж",
-      "створення",
-      race.engName,
-    ],
-    aliases: findAliasVariants(ruleset, ["race", "species"], [toEntitySlug(race.engName), race.name]),
+    href: findRaceHref(ruleset, race.engName),
+    badge: RACE_SINGULAR[ruleset],
+    keywords: ["персонаж", "створення", race.engName],
+    aliases: findAliasVariants(
+      ruleset,
+      ["race", "species"],
+      [toEntitySlug(race.engName), race.name],
+    ),
   }));
 }
 
-/// Articles go in twice: the umbrella record keeps the old href, and every subsection becomes its
-/// own record. That is what puts article *bodies* into the index and what makes a hit land on
-/// #emanation-area instead of the top of the section (KR13.4, вимоги 3 і 5).
-/// KR12.6: getAllRuleArticles(ruleset) для RULES_2024 віддає лише 6 рукописних статей —
-/// 203 перекладені з SRD 5.2.1 лежать окремо в getAllRuleArticles2024() і в індекс не потрапляли.
 function collectRuleArticles(ruleset: Ruleset): RuleArticle[] {
-  return ruleset === "RULES_2024" ? getAllRuleArticles2024() : getAllRuleArticles(ruleset);
+  return ruleset === "RULES_2024" ? getAllRuleArticles2024() : getAllRuleArticles2014();
 }
 
 function collectRuleItems(ruleset: Ruleset): OmniSearchItem[] {
@@ -652,10 +562,14 @@ function collectRuleItems(ruleset: Ruleset): OmniSearchItem[] {
   return items;
 }
 
+function collectConditions(ruleset: Ruleset) {
+  return ruleset === "RULES_2024" ? getConditions2024() : getAllConditions(ruleset);
+}
+
 function collectConditionItems(ruleset: Ruleset): OmniSearchItem[] {
   const prefix = findRoutePrefix(ruleset);
 
-  return getAllConditions(ruleset).map((condition) => ({
+  return collectConditions(ruleset).map((condition) => ({
     id: `condition-${condition.id}`,
     title: condition.name,
     subtitle: condition.engName,

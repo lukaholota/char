@@ -18,7 +18,7 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
   const buildHref = useNoAiHref();
   const router = useRouter();
 
-  const canAccess2024 = isRules2024Allowed(session?.user);
+  const canAccess2024 = isRules2024Allowed();
 
   // If user does not have 2024 access, do not show the switcher
   if (!canAccess2024) {
@@ -41,7 +41,7 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
           "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-medium transition-all shadow-sm",
           currentEdition === "2024"
             ? "border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20"
-            : "border-teal-500/40 bg-teal-500/10 text-teal-300 hover:bg-teal-500/20",
+            : "border-arcane-500/40 bg-arcane-500/10 text-arcane-300 hover:bg-arcane-500/20",
           className
         )}
         data-testid="edition-switcher"
@@ -50,7 +50,7 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
         <span
           className={cn(
             "h-1.5 w-1.5 rounded-full animate-pulse",
-            currentEdition === "2024" ? "bg-amber-400" : "bg-teal-400"
+            currentEdition === "2024" ? "bg-amber-400" : "bg-arcane-400"
           )}
         />
         <span>{currentEdition === "2024" ? "2024" : "2014"}</span>
@@ -72,7 +72,7 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
         className={cn(
           "rounded-lg px-2 py-1 text-[11px] font-medium transition-all",
           currentEdition === "2014"
-            ? "bg-teal-500/20 text-teal-300 shadow-[inset_0_0_8px_rgba(45,212,191,0.2)] ring-1 ring-teal-500/30"
+            ? "bg-arcane-500/20 text-arcane-300 shadow-[inset_0_0_8px_rgba(45,212,191,0.2)] ring-1 ring-arcane-500/30"
             : "text-slate-400 hover:text-slate-200"
         )}
         data-testid="edition-2014-btn"

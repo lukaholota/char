@@ -26,6 +26,7 @@ const resolveIds = (conditions: Partial<CreationStepConditions>) =>
 describe("KR4.2 — creation step resolver", () => {
   it.each([
     ["subrace", { hasSubraces: true }, ["race", "raceDetails", "class", "background", "asi", "skills", "equipment", "name"]],
+    ["species feat with choices (KR27.4)", { hasRaceChoiceOptions: true, hasSpeciesFeatChoices: true }, ["race", "raceChoices", "speciesFeatChoices", "class", "background", "asi", "skills", "equipment", "name"]],
     ["race variant", { hasRaceVariants: true }, ["race", "raceDetails", "class", "background", "asi", "skills", "equipment", "name"]],
     ["subrace and race variant", { hasSubraces: true, hasRaceVariants: true }, ["race", "raceDetails", "class", "background", "asi", "skills", "equipment", "name"]],
     ["race choice options", { hasRaceChoiceOptions: true }, ["race", "raceChoices", "class", "background", "asi", "skills", "equipment", "name"]],
@@ -42,5 +43,13 @@ describe("KR4.2 — creation step resolver", () => {
     expect(resolveCreationSteps({ ...noOptionalSteps, hasSubraces: true })[1]).toMatchObject({ id: "raceDetails", name: "Підраса", component: "raceDetails" });
     expect(resolveCreationSteps({ ...noOptionalSteps, hasRaceVariants: true })[1]).toMatchObject({ id: "raceDetails", name: "Варіант раси", component: "raceDetails" });
     expect(resolveCreationSteps({ ...noOptionalSteps, hasSubraces: true, hasRaceVariants: true })[1]).toMatchObject({ id: "raceDetails", name: "Підраса чи Варіант", component: "raceDetails" });
+  });
+
+  it("adds Weapon Mastery only when class data grants capacity", () => {
+    const withMastery = resolveIds({ hasWeaponMastery: true } as Partial<CreationStepConditions>);
+    const withoutMastery = resolveIds({ hasWeaponMastery: false } as Partial<CreationStepConditions>);
+
+    expect(withMastery).toContain("weaponMastery");
+    expect(withoutMastery).not.toContain("weaponMastery");
   });
 });

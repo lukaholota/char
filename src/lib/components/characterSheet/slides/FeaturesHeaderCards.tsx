@@ -1,5 +1,6 @@
 "use client";
 
+import { ModeLink } from "@/components/no-ai/ModeLink";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import {
@@ -23,6 +24,22 @@ type SubclassEntry = {
   subclass: any;
 };
 
+/// Вхід у бастіон: `name === null` означає, що бастіон персонажу вже доступний, але ще не
+/// створений. Картки немає взагалі, коли значення `null` — редакція 2014 або замалий рівень.
+export type BastionEntryCard = {
+  href: string;
+  name: string | null;
+  facilityCount: number;
+};
+
+function countFacilities(count: number): string {
+  const lastTwoDigits = count % 100;
+  const lastDigit = count % 10;
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 14) return `${count} приміщень`;
+  if (lastDigit >= 1 && lastDigit <= 4) return `${count} приміщення`;
+  return `${count} приміщень`;
+}
+
 type Props = {
   raceName: string;
   subraceName: string | null;
@@ -31,6 +48,7 @@ type Props = {
   classEntries: ClassEntry[];
   subclassEntries: SubclassEntry[];
   featsCount: number;
+  bastionEntry?: BastionEntryCard | null;
   openEntity: (kind: "race" | "raceVariant" | "subrace" | "background", idx?: number) => void;
   onOpenFeatsManager: () => void;
 };
@@ -43,6 +61,7 @@ export function FeaturesHeaderCards({
   classEntries,
   subclassEntries,
   featsCount,
+  bastionEntry,
   openEntity,
   onOpenFeatsManager,
 }: Props) {
@@ -159,6 +178,21 @@ export function FeaturesHeaderCards({
           {featsCount > 0 ? `${featsCount} ${featsCount === 1 ? "риса" : "рис"}` : "+ Додати"}
         </div>
       </button>
+
+      {bastionEntry ? (
+        <ModeLink
+          href={bastionEntry.href}
+          className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 hover:bg-emerald-500/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
+        >
+          <div className="text-[8px] uppercase tracking-[0.1em] text-emerald-400/80 leading-none mb-0.5">Бастіон</div>
+          <div className="text-[12px] font-semibold text-emerald-300 leading-tight whitespace-normal break-words w-full">
+            {bastionEntry.name ?? "Доступний"}
+          </div>
+          <div className="text-[9px] text-emerald-200/70 leading-none mt-0.5">
+            {bastionEntry.name ? countFacilities(bastionEntry.facilityCount) : "Створити"}
+          </div>
+        </ModeLink>
+      ) : null}
     </div>
   );
 }

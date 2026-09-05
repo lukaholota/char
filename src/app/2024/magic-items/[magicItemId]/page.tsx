@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
-import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
+import { notFound } from "next/navigation";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllMagicItems, getMagicItemById, type MagicItemWithSpells } from "@/lib/magicItemsData";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -97,11 +95,6 @@ export default async function MagicItemDetailPage({
 }: {
   params: Promise<{ magicItemId: string }>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/magic-items");
-  }
-
   const { magicItemId } = await params;
   const item = getMagicItemById(Number(magicItemId), "RULES_2024");
 

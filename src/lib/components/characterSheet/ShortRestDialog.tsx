@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { shortRest, HitDiceToUse } from "@/lib/actions/rest-actions";
-import { restTranslations, classTranslations } from "@/lib/refs/translation";
+import { restTranslations } from "@/lib/refs/translation";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { getAbilityMod } from "@/lib/logic/utils";
-import { Classes } from "@prisma/client";
+import { Input } from "@/components/ui/input";
+import { collectPersHitDicePools, type PersHitDicePool } from "@/lib/logic/pers-hit-dice";
 import { Minus, Plus, Dice6 } from "lucide-react";
 
 interface ShortRestDialogProps {
@@ -20,58 +21,18 @@ interface ShortRestDialogProps {
   onGroupedFeaturesRefresh?: () => void;
 }
 
-interface HitDieInfo {
-  classId: number;
-  className: string;
-  hitDie: number;
-  current: number;
-  max: number;
-}
-
 export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate, onGroupedFeaturesRefresh }: ShortRestDialogProps) {
   const router = useRouter();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [hitDice, setHitDice] = useState<HitDieInfo[]>([]);
+  const [hitDice, setHitDice] = useState<PersHitDicePool[]>([]);
   const [selected, setSelected] = useState<Record<number, number>>({});
+  const [rollsHitDiceInApp, setRollsHitDiceInApp] = useState(true);
+  const [rolledHitPointsInput, setRolledHitPointsInput] = useState("");
 
   const conMod = getAbilityMod(pers.con);
 
-  const derivedHitDice = useMemo<HitDieInfo[]>(() => {
-    const multiclassLevelSum = pers.multiclasses?.reduce((acc, mc) => acc + mc.classLevel, 0) ?? 0;
-    const mainClassLevel = pers.level - multiclassLevelSum;
-
-    const stored = (pers as unknown as { currentHitDice?: Record<string, number> }).currentHitDice ?? {};
-
-    const mainClassName = classTranslations[pers.class.name as Classes] ?? pers.class.name;
-    const mainCurrentRaw = stored[String(pers.class.classId)];
-    const mainCurrent = typeof mainCurrentRaw === "number" ? mainCurrentRaw : mainClassLevel;
-
-    const result: HitDieInfo[] = [
-      {
-        classId: pers.class.classId,
-        className: mainClassName,
-        hitDie: pers.class.hitDie,
-        current: Math.max(0, Math.min(mainCurrent, mainClassLevel)),
-        max: Math.max(0, mainClassLevel),
-      },
-    ];
-
-    for (const mc of pers.multiclasses ?? []) {
-      const mcClassName = classTranslations[mc.class.name as unknown as Classes] ?? mc.class.name;
-      const mcCurrentRaw = stored[String(mc.classId)];
-      const mcCurrent = typeof mcCurrentRaw === "number" ? mcCurrentRaw : mc.classLevel;
-      result.push({
-        classId: mc.classId,
-        className: mcClassName,
-        hitDie: mc.class.hitDie,
-        current: Math.max(0, Math.min(mcCurrent, mc.classLevel)),
-        max: Math.max(0, mc.classLevel),
-      });
-    }
-
-    return result;
-  }, [pers]);
+  const derivedHitDice = useMemo(() => collectPersHitDicePools(pers), [pers]);
 
   const refreshInBackground = () => {
     startRefreshTransition(() => {
@@ -87,6 +48,7 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
         initialSelection[hd.classId] = 0;
       });
       setSelected(initialSelection);
+      setRolledHitPointsInput("");
     }
   }, [open, derivedHitDice]);
 
@@ -108,11 +70,13 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
         count,
       }));
 
+    const rolledHitPoints = rollsHitDiceInApp ? undefined : Math.max(0, Math.trunc(Number(rolledHitPointsInput) || 0));
+
     if (isSubmitting) return;
     setIsSubmitting(true);
     (async () => {
       try {
-        const res = await shortRest(pers.persId, hitDiceToUse);
+        const res = await shortRest(pers.persId, hitDiceToUse, rolledHitPoints);
         if (!res.success) {
           toast.error(res.error);
           return;
@@ -227,17 +191,56 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
             )}
           </div>
 
-          {/* HP restoration preview */}
           {totalDiceSelected > 0 && (
-            <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3">
-              <div className="text-xs text-emerald-300">
-                ≈ {restTranslations.restoreHp}:{" "}
-                <span className="font-bold text-emerald-200">+{estimatedHp}</span>
-                <span className="text-emerald-400 ml-1">(середнє)</span>
+            <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-2">
+                <Button
+                  type="button"
+                  variant={rollsHitDiceInApp ? "default" : "secondary"}
+                  disabled={isSubmitting}
+                  onClick={() => setRollsHitDiceInApp(true)}
+                  className="text-xs"
+                >
+                  Кидає застосунок
+                </Button>
+                <Button
+                  type="button"
+                  variant={rollsHitDiceInApp ? "secondary" : "default"}
+                  disabled={isSubmitting}
+                  onClick={() => setRollsHitDiceInApp(false)}
+                  className="text-xs"
+                >
+                  Кидаю сам
+                </Button>
               </div>
-              <div className="text-[10px] text-emerald-400/80 mt-1">
-                d + {conMod >= 0 ? "+" : ""}{conMod} (CON) {restTranslations.perDie}
-              </div>
+
+              {rollsHitDiceInApp ? (
+                <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3">
+                  <div className="text-xs text-emerald-300">
+                    ≈ {restTranslations.restoreHp}:{" "}
+                    <span className="font-bold text-emerald-200">+{estimatedHp}</span>
+                    <span className="text-emerald-400 ml-1">(середнє)</span>
+                  </div>
+                  <div className="text-[10px] text-emerald-400/80 mt-1">
+                    d + {conMod >= 0 ? "+" : ""}{conMod} (CON) {restTranslations.perDie}
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-lg border border-white/10 bg-slate-900/40 p-3 space-y-2">
+                  <div className="text-xs text-slate-300">{restTranslations.restoreHp}, разом із Статурою</div>
+                  <Input
+                    type="number"
+                    inputMode="numeric"
+                    placeholder="0"
+                    value={rolledHitPointsInput}
+                    onChange={(event) => setRolledHitPointsInput(event.target.value)}
+                    disabled={isSubmitting}
+                  />
+                  <div className="text-[10px] text-slate-400">
+                    Нуль теж можна: кубик спишеться, а хіти лишаться як були.
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

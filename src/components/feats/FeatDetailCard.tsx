@@ -1,6 +1,6 @@
 "use client";
 
-import { FeatData } from "@/lib/featsData";
+import type { FeatData } from "@/lib/featsData";
 import { featCategoryTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { cn } from "@/lib/utils";
@@ -35,7 +35,7 @@ export function FeatDetailCard({
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
                 is2024
                   ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-teal-300 via-teal-100 to-violet-300"
+                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
               )}
             >
               {feat.name}
@@ -55,7 +55,7 @@ export function FeatDetailCard({
             "shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border",
             is2024
               ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-teal-500/30 bg-teal-500/10 text-teal-300"
+              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
           )}
         >
           {sourceLabel}
@@ -70,7 +70,7 @@ export function FeatDetailCard({
               "inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold border",
               is2024
                 ? "border-amber-500/40 bg-amber-500/15 text-amber-200"
-                : "border-teal-500/40 bg-teal-500/15 text-teal-200"
+                : "border-arcane-500/40 bg-arcane-500/15 text-arcane-200"
             )}
           >
             <Award className="h-3.5 w-3.5" />
@@ -111,7 +111,7 @@ export function FeatDetailCard({
                 <div
                   className={cn(
                     "text-sm font-semibold mb-1",
-                    is2024 ? "text-amber-300" : "text-teal-300"
+                    is2024 ? "text-amber-300" : "text-arcane-300"
                   )}
                 >
                   {benefit.name}

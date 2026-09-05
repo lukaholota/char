@@ -1,6 +1,8 @@
 import { Metadata } from "next";
-import { getAllRuleCategories, getAllConditions, getAllRuleArticles } from "@/lib/rulesData";
+import { getAllRuleCategories, getAllConditions } from "@/lib/rulesData";
+import { getRuleArticleSummaries2014, SRD_5_1_ATTRIBUTION } from "@/lib/rules2014Data";
 import { RulesHub } from "@/components/rules/RulesHub";
+import { SrdAttribution } from "@/components/rules/SrdAttribution";
 
 export const metadata: Metadata = {
   title: "Довідник правил D&D 5e (Wiki / SRD) — ДнД українською",
@@ -10,14 +12,17 @@ export const metadata: Metadata = {
 export default function RulesPage() {
   const categories = getAllRuleCategories();
   const conditions = getAllConditions("RULES_2014");
-  const featuredArticles = getAllRuleArticles("RULES_2014");
+  const featuredArticles = getRuleArticleSummaries2014();
 
   return (
-    <RulesHub
-      categories={categories}
-      conditions={conditions}
-      featuredArticles={featuredArticles}
-      ruleset="RULES_2014"
-    />
+    <>
+      <RulesHub
+        categories={categories}
+        conditions={conditions}
+        featuredArticles={featuredArticles}
+        ruleset="RULES_2014"
+      />
+      <SrdAttribution attribution={SRD_5_1_ATTRIBUTION} />
+    </>
   );
 }

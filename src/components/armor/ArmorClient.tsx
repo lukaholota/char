@@ -8,6 +8,16 @@ import { ArmorData } from "@/lib/armorData";
 import { ArmorDetailCard } from "@/components/armor/ArmorDetailCard";
 import { ArmorFilterDialog } from "@/components/armor/ArmorFilterDialog";
 import { armorTypeTranslations } from "@/lib/refs/translation";
+import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -19,12 +29,11 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getArmorVisual } from "@/components/catalogs/catalog-visuals";
 import { cn } from "@/lib/utils";
 
-type InitialSearchParams = Record<string, string | string[] | undefined>;
-
 type SelectionState = {
   types: Set<string>;
   disadvantage: boolean | null;
   strengthReq: boolean | null;
+  source: SourceSelection;
   q: string;
   armor: string;
 };
@@ -35,9 +44,10 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
   const disadvantage = rawDis === "1" ? true : null;
   const rawStr = params.get("str");
   const strengthReq = rawStr === "1" ? true : null;
+  const source = parseSourceSelection(params);
   const q = params.get("q") || "";
   const armor = params.get("armor") || "";
-  return { types, disadvantage, strengthReq, q, armor };
+  return { types, disadvantage, strengthReq, source, q, armor };
 };
 
 const TYPE_TABS = [
@@ -51,17 +61,15 @@ const TYPE_TABS = [
 type Props = {
   armors: ArmorData[];
   ruleset?: Ruleset;
-  initialSearchParams?: InitialSearchParams;
 };
 
-export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParams = {} }: Props) {
+export function ArmorClient({ armors, ruleset = "RULES_2014" }: Props) {
   const is2024 = ruleset === "RULES_2024";
 
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalArmor, setSelectedModalArmor] = useState<ArmorData | null>(null);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
     parseSelection
   );
 
@@ -86,6 +94,10 @@ export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParam
       }
 
       if (selection.strengthReq && !a.strengthReq) {
+        return false;
+      }
+
+      if (!matchesSourceSelection(a.source, selection.source)) {
         return false;
       }
 
@@ -150,8 +162,14 @@ export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParam
       next.delete("type");
       next.delete("dis");
       next.delete("str");
+      clearSourceParams(next);
     });
   };
+
+  const availableSources = useMemo(
+    () => collectCatalogSources(armors.filter((a) => a.isStandardEquipment)),
+    [armors]
+  );
 
   const activeTab = useMemo(() => {
     if (selection.types.size === 1) {
@@ -164,7 +182,8 @@ export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParam
   const activeFiltersCount =
     selection.types.size +
     (selection.disadvantage ? 1 : 0) +
-    (selection.strengthReq ? 1 : 0);
+    (selection.strengthReq ? 1 : 0) +
+    countSourceFilters(selection.source);
 
   return (
     <ContentListPage<ArmorData>
@@ -191,7 +210,7 @@ export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParam
                   isSelected
                     ? is2024
                       ? "border-amber-500/50 bg-amber-500/20 text-amber-200 shadow-sm"
-                      : "border-teal-500/50 bg-teal-500/20 text-teal-200 shadow-sm"
+                      : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm"
                     : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
                 )}
               >
@@ -234,7 +253,7 @@ export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParam
                 isSelected
                   ? is2024
                     ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -251,7 +270,7 @@ export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParam
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
+                          ? is2024 ? "text-amber-300" : "text-arcane-300"
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
@@ -318,6 +337,10 @@ export function ArmorClient({ armors, ruleset = "RULES_2014", initialSearchParam
           toggleDisadvantage={toggleDisadvantage}
           hasStrengthReqOnly={Boolean(selection.strengthReq)}
           toggleStrengthReq={toggleStrengthReq}
+          availableSources={availableSources}
+          sourceSelection={selection.source}
+          toggleSource={(source) => setParams((next) => toggleSourceParam(next, source))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           clearFilters={clearFilters}
         />
       }

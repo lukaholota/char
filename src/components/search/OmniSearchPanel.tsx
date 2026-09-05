@@ -219,7 +219,7 @@ export function OmniSearchPanel({ onClose }: Props) {
           <button
             type="button"
             onClick={() => openCatalog(activeCategory)}
-            className="ml-1 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap text-teal-300 border border-teal-500/40 bg-teal-500/10 hover:bg-teal-500/20 transition-all"
+            className="ml-1 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap text-arcane-300 border border-arcane-500/40 bg-arcane-500/10 hover:bg-arcane-500/20 transition-all"
           >
             Відкрити каталог
             <ArrowUpRight className="h-3 w-3" />

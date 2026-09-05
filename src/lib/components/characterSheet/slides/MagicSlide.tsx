@@ -12,10 +12,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { removeSpellFromPers, setSpellPrepared, updateSpellBadgeForPers } from "@/lib/actions/spell-actions";
 import { spendPactSlot, spendSpellSlot, restorePactSlot, restoreSpellSlot } from "@/lib/actions/spell-slots";
+import type { OfflineOperation } from "@/lib/offline/operations";
+import { createOperationId } from "@/lib/offline/queue";
+import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import { calculateSpellAttack, calculateSpellDC } from "@/lib/logic/bonus-calculator";
+import { buildSpellLinkForSpell, openSpellLink, type SpellLink } from "@/lib/spell-link";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
 import { Ability } from "@prisma/client";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
@@ -57,6 +61,19 @@ interface MagicSlideProps {
 function getPersSpellId(persSpell: any): number | null {
   const spellId = Number(persSpell?.spellId ?? persSpell?.spell?.spellId);
   return Number.isFinite(spellId) ? spellId : null;
+}
+
+type PersSpellRowLike = { spellId?: unknown; spell?: { engName?: unknown; ruleset?: unknown } | null };
+
+/** Заклинання 2024 на листі відкривається за слагом: номер бази в каталозі 2024 не значить нічого. */
+function buildPersSpellLink(persSpells: PersSpellRowLike[], spellId: number): SpellLink {
+  const spell = persSpells.find((ps) => getPersSpellId(ps) === spellId)?.spell;
+  if (typeof spell?.engName !== "string") return { spellKey: String(spellId), ruleset: "RULES_2014" };
+  return buildSpellLinkForSpell({
+    spellId,
+    engName: spell.engName,
+    ruleset: spell.ruleset === "RULES_2024" ? "RULES_2024" : "RULES_2014",
+  });
 }
 
 function getPersSpellLevel(persSpell: any): number | null {
@@ -114,6 +131,16 @@ function getPreparedRemainingForSpells(spells: any[], preparedLimit: number | nu
 const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlideProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const { isOnline, commitOperation } = useOfflineQueue();
+
+  const buildSlotOperation = (
+    body: { kind: "spend-spell-slot"; slotLevel: number } | { kind: "spend-pact-slot" },
+  ): OfflineOperation => ({
+    ...body,
+    operationId: createOperationId(),
+    persId: pers.persId,
+    createdAt: new Date().toISOString(),
+  });
 
   const [sortMode, setSortMode] = useState<"level" | "badge">("level");
   const [filterMode, setFilterMode] = useState<"all" | "prepared" | "unprepared">("all");
@@ -369,12 +396,7 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
   }, [spellsByLevel]);
 
   const openSpell = (spellId: number) => {
-    if (typeof window === "undefined") return;
-    const url = new URL(window.location.href);
-    url.searchParams.set("spell", String(spellId));
-    window.history.pushState({}, "", url);
-    window.dispatchEvent(new CustomEvent("spell:open", { detail: { spellId: String(spellId) } }));
-    window.dispatchEvent(new Event("locationchange"));
+    openSpellLink(buildPersSpellLink(localPersSpells, spellId));
   };
 
   const openBadgeEditor = (ps: any) => {
@@ -729,7 +751,13 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                               return next;
                             });
                             startTransition(async () => {
-                              const res = await spendSpellSlot(localPers.persId, level);
+                              const outcome = await commitOperation(
+                                buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }),
+                                () => spendSpellSlot(localPers.persId, level),
+                              );
+                              if (outcome.queued) return;
+
+                              const res = outcome.result;
                               if (!res.success) {
                                 router.refresh();
                                 return;
@@ -752,6 +780,10 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                           onClick={async () => {
                             setOpenSlotLevel(null);
                             if (!canRestore) return;
+                            if (!isOnline) {
+                              toast.error("Відновлення комірок потребує мережі");
+                              return;
+                            }
                             setLocalCurrentSlots((prev) => {
                               const next = prev.slice();
                               next[idx] = Math.min(max, (next[idx] ?? 0) + 1);
@@ -824,7 +856,13 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                         if (!pactInfo || localPactSlots <= 0) return;
                         setLocalPactSlots((v) => Math.max(0, v - 1));
                         startTransition(async () => {
-                          const res = await spendPactSlot(localPers.persId);
+                          const outcome = await commitOperation(
+                            buildSlotOperation({ kind: "spend-pact-slot" }),
+                            () => spendPactSlot(localPers.persId),
+                          );
+                          if (outcome.queued) return;
+
+                          const res = outcome.result;
                           if (!res.success) {
                             router.refresh();
                             return;
@@ -842,6 +880,10 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
                       onClick={async () => {
                         setOpenPactSlots(false);
                         if (!pactInfo || localPactSlots >= pactInfo.max) return;
+                        if (!isOnline) {
+                          toast.error("Відновлення комірок потребує мережі");
+                          return;
+                        }
                         setLocalPactSlots((v) => Math.min(pactInfo.max, v + 1));
                         startTransition(async () => {
                           const res = await restorePactSlot(localPers.persId);

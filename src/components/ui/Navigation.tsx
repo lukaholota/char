@@ -1,12 +1,12 @@
 "use client";
 
 import { Logo } from "@/lib/components/icons/Logo";
+import { DragonIcon } from "@/lib/components/icons/DragonIcon";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useSearchParams } from "next/navigation";
-import { Home, Sparkles, Dices, WandSparkles, Search, type LucideIcon } from "lucide-react";
+import { BookOpen, Dices, Eye, Home, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
 import { NavExtraMenu } from "@/components/ui/NavExtraMenu";
@@ -16,12 +16,12 @@ import { getEditionFromPathname, type Edition } from "@/rules/route-helpers";
 
 const EDITION_ACCENT = {
 	"2014": {
-		activeItem: "bg-teal-400/10 text-teal-200 ring-1 ring-inset ring-teal-300/25",
-		activeMarker: "bg-teal-300",
+		activeItem: "bg-arcane-400/10 text-arcane-200 ring-1 ring-inset ring-arcane-300/25",
+		activeMarker: "bg-arcane-300",
 		activeIcon: "drop-shadow-[0_0_6px_rgba(45,212,191,0.5)]",
-		edgeLine: "via-teal-400/30",
-		ornament: "text-teal-300/60",
-		logoRing: "ring-teal-400/20",
+		edgeLine: "via-arcane-400/30",
+		ornament: "text-arcane-300/60",
+		logoRing: "ring-arcane-400/20",
 	},
 	"2024": {
 		activeItem: "bg-amber-400/10 text-amber-200 ring-1 ring-inset ring-amber-300/25",
@@ -39,43 +39,87 @@ const ITEM = "relative flex w-16 flex-col items-center justify-center gap-1 roun
 const ITEM_IDLE = "text-slate-400 hover:bg-white/5 hover:text-slate-200";
 const ITEM_LABEL = "text-[11px] leading-none";
 
-type NavLink = {
-	href: string;
+/// The phone shows one row of five; the desktop column has room for the whole catalogue set.
+/// "Пошук" takes the slot "Предмети" used to hold on the phone (KR15.3 §1) and keeps its own
+/// slot at the foot of the desktop column, so neither layout loses an entry.
+type NavWidth = "both" | "desktop" | "mobile";
+
+type NavItem = {
+	key: string;
 	label: string;
 	icon: LucideIcon | "dragon";
-	desktopOnly?: boolean;
-	matchesPathname: (pathname: string) => boolean;
+	width: NavWidth;
+	href?: string;
+	onSelect?: () => void;
+	matchesPathname?: (pathname: string) => boolean;
 };
 
-function buildNavLinks(edition: Edition): NavLink[] {
+const NAV_WIDTH_CLASS: Record<NavWidth, string> = {
+	both: "flex",
+	desktop: "hidden md:flex",
+	mobile: "flex md:hidden",
+};
+
+function buildNavItems(edition: Edition, openSearch: () => void): NavItem[] {
 	const root = edition === "2024" ? "/2024" : "";
 	const homeHref = root || "/";
+	const startsWith = (prefix: string) => (pathname: string) => pathname.startsWith(prefix);
 
 	return [
 		{
+			key: "home",
 			href: homeHref,
 			label: "Головна",
 			icon: Home,
-			desktopOnly: true,
+			width: "desktop",
 			matchesPathname: (pathname) => pathname === homeHref,
 		},
 		{
+			key: "spells",
 			href: `${root}/spells`,
 			label: "Заклинання",
 			icon: Sparkles,
-			matchesPathname: (pathname) => pathname.startsWith(`${root}/spells`),
+			width: "both",
+			matchesPathname: startsWith(`${root}/spells`),
 		},
 		{
+			key: "magic-items",
 			href: `${root}/magic-items`,
 			label: "Предмети",
 			icon: WandSparkles,
-			matchesPathname: (pathname) => pathname.startsWith(`${root}/magic-items`),
+			width: "desktop",
+			matchesPathname: startsWith(`${root}/magic-items`),
 		},
 		{
+			key: "search-mobile",
+			label: "Пошук",
+			icon: Search,
+			width: "mobile",
+			onSelect: openSearch,
+		},
+		{
+			key: "characters",
 			href: `${root}/char/home`,
 			label: "Персонажі",
 			icon: "dragon",
+			width: "both",
 			matchesPathname: (pathname) => pathname === `${root}/char` || pathname.startsWith(`${root}/char/`),
+		},
+		{
+			key: "bestiary",
+			href: `${root}/bestiary`,
+			label: "Бестіарій",
+			icon: Eye,
+			width: "desktop",
+			matchesPathname: startsWith(`${root}/bestiary`),
+		},
+		{
+			key: "rules",
+			href: `${root}/rules`,
+			label: "Правила",
+			icon: BookOpen,
+			width: "desktop",
+			matchesPathname: startsWith(`${root}/rules`),
 		},
 	];
 }
@@ -92,13 +136,59 @@ function useIsInsideIframe() {
 	return isInsideIframe;
 }
 
+/// One weight for the whole bar. 1.5 rather than lucide's default 2, because the dragon is a
+/// raster whose line cannot be raised that far without its own gaps closing — see DragonIcon.
+const NAV_ICON_STROKE = 1.5;
+
 function NavIcon({ icon, className }: { icon: LucideIcon | "dragon"; className?: string }) {
 	if (icon === "dragon") {
-		return <Image src="/images/dragon.png" alt="" width={24} height={24} className={cn("h-6 w-6", className)} priority={false} />;
+		return <DragonIcon className={cn("h-6 w-6", className)} />;
 	}
 
 	const Icon = icon;
-	return <Icon className={cn("h-6 w-6", className)} />;
+	return <Icon strokeWidth={NAV_ICON_STROKE} className={cn("h-6 w-6", className)} />;
+}
+
+function NavItemButton({
+	item,
+	isActive,
+	accent,
+}: {
+	item: NavItem;
+	isActive: boolean;
+	accent: (typeof EDITION_ACCENT)[Edition];
+}) {
+	const body = (
+		<>
+			<NavIcon icon={item.icon} className={isActive ? accent.activeIcon : undefined} />
+			<span className={ITEM_LABEL}>{item.label}</span>
+			{isActive ? <ActiveMarker className={accent.activeMarker} /> : null}
+		</>
+	);
+	const className = cn(
+		ITEM,
+		NAV_WIDTH_CLASS[item.width],
+		isActive ? accent.activeItem : ITEM_IDLE,
+	);
+
+	if (item.href === undefined) {
+		return (
+			<button type="button" aria-label={item.label} onClick={item.onSelect} className={className}>
+				{body}
+			</button>
+		);
+	}
+
+	return (
+		<Link
+			href={item.href}
+			aria-label={item.label}
+			aria-current={isActive ? "page" : undefined}
+			className={className}
+		>
+			{body}
+		</Link>
+	);
 }
 
 function ActiveMarker({ className }: { className: string }) {
@@ -142,15 +232,15 @@ export const Navigation = () => {
 
 	const edition = getEditionFromPathname(pathname);
 	const accent = EDITION_ACCENT[edition];
-	const links = buildNavLinks(edition);
-	const homeHref = links[0].href;
+	const items = buildNavItems(edition, openSearch);
+	const homeHref = edition === "2024" ? "/2024" : "/";
 
 	return (
 		<nav
 			className={cn(
 				"fixed bottom-0 left-0 z-50 flex w-full flex-row items-center justify-between gap-1 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))]",
 				"border-t border-white/[0.07] bg-[#0b0b11] bg-[linear-gradient(to_top,#08080c,#0e0e16)]",
-				"md:sticky md:top-0 md:h-screen md:flex-col md:justify-between md:gap-0 md:border-t-0 md:border-r md:border-white/[0.07] md:px-0 md:py-6",
+				"md:top-0 md:w-[88px] md:flex-col md:justify-between md:gap-0 md:border-t-0 md:border-r md:border-white/[0.07] md:px-0 md:py-6",
 				"md:bg-[linear-gradient(to_bottom,#0e0e16,#08080c)]"
 			)}
 		>
@@ -175,23 +265,14 @@ export const Navigation = () => {
 					<Logo className="h-7 w-7" />
 				</Link>
 
-				{links.map((link) => {
-					const isActive = link.matchesPathname(pathname);
-
-					return (
-						<Link
-							key={link.href}
-							href={link.href}
-							aria-label={link.label}
-							aria-current={isActive ? "page" : undefined}
-							className={cn(ITEM, link.desktopOnly ? "hidden md:flex" : "flex", isActive ? accent.activeItem : ITEM_IDLE)}
-						>
-							<NavIcon icon={link.icon} className={isActive ? accent.activeIcon : undefined} />
-							<span className={ITEM_LABEL}>{link.label}</span>
-							{isActive ? <ActiveMarker className={accent.activeMarker} /> : null}
-						</Link>
-					);
-				})}
+				{items.map((item) => (
+					<NavItemButton
+						key={item.key}
+						item={item}
+						isActive={item.matchesPathname?.(pathname) ?? false}
+						accent={accent}
+					/>
+				))}
 
 				<NavOrnament className={accent.ornament} />
 			</div>

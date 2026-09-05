@@ -9,6 +9,16 @@ import { InvocationDetailCard } from "@/components/invocations/InvocationDetailC
 import { InvocationsFilterDialog } from "@/components/invocations/InvocationsFilterDialog";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
+import {
   getParamSet,
   setParamSet,
   getSearchParamsFromLocation,
@@ -18,14 +28,18 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getInvocationVisual } from "@/components/catalogs/catalog-visuals";
 import { cn } from "@/lib/utils";
 
-type InitialSearchParams = Record<string, string | string[] | undefined>;
-
 type SelectionState = {
   levels: Set<number>;
   pacts: Set<string>;
+  noRequirements: boolean;
+  source: SourceSelection;
   q: string;
   invocation: string;
 };
+
+function hasAnyRequirement(invocation: InvocationData): boolean {
+  return Boolean(invocation.minLevel || invocation.pactRequirement || invocation.prerequisite);
+}
 
 const parseSelection = (params: URLSearchParams): SelectionState => {
   const rawLevels = getParamSet(params, "lvl");
@@ -35,9 +49,11 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
     if (!isNaN(num)) levels.add(num);
   }
   const pacts = getParamSet(params, "pact");
+  const noRequirements = params.get("noreq") === "1";
+  const source = parseSourceSelection(params);
   const q = params.get("q") || "";
   const invocation = params.get("invocation") || "";
-  return { levels, pacts, q, invocation };
+  return { levels, pacts, noRequirements, source, q, invocation };
 };
 
 const LEVEL_TABS = [
@@ -54,17 +70,15 @@ const LEVEL_TABS = [
 type Props = {
   invocations: InvocationData[];
   ruleset?: Ruleset;
-  initialSearchParams?: InitialSearchParams;
 };
 
-export function InvocationsClient({ invocations, ruleset = "RULES_2014", initialSearchParams = {} }: Props) {
+export function InvocationsClient({ invocations, ruleset = "RULES_2014" }: Props) {
   const is2024 = ruleset === "RULES_2024";
 
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalInvocation, setSelectedModalInvocation] = useState<InvocationData | null>(null);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
     parseSelection
   );
 
@@ -88,6 +102,14 @@ export function InvocationsClient({ invocations, ruleset = "RULES_2014", initial
         if (!inv.pactRequirement || !selection.pacts.has(inv.pactRequirement)) {
           return false;
         }
+      }
+
+      if (selection.noRequirements && hasAnyRequirement(inv)) {
+        return false;
+      }
+
+      if (!matchesSourceSelection(inv.source, selection.source)) {
+        return false;
       }
 
       return true;
@@ -144,12 +166,23 @@ export function InvocationsClient({ invocations, ruleset = "RULES_2014", initial
     });
   };
 
+  const toggleNoRequirements = () => {
+    setParams((next) => {
+      if (next.get("noreq") === "1") next.delete("noreq");
+      else next.set("noreq", "1");
+    });
+  };
+
   const clearFilters = () => {
     setParams((next) => {
       next.delete("lvl");
       next.delete("pact");
+      next.delete("noreq");
+      clearSourceParams(next);
     });
   };
+
+  const availableSources = useMemo(() => collectCatalogSources(invocations), [invocations]);
 
   const activeTab = useMemo(() => {
     if (selection.levels.size === 1) {
@@ -160,7 +193,11 @@ export function InvocationsClient({ invocations, ruleset = "RULES_2014", initial
     return null;
   }, [selection.levels]);
 
-  const activeFiltersCount = selection.levels.size + selection.pacts.size;
+  const activeFiltersCount =
+    selection.levels.size +
+    selection.pacts.size +
+    (selection.noRequirements ? 1 : 0) +
+    countSourceFilters(selection.source);
 
   return (
     <ContentListPage<InvocationData>
@@ -188,7 +225,7 @@ export function InvocationsClient({ invocations, ruleset = "RULES_2014", initial
                   isSelected
                     ? is2024
                       ? "border-amber-500/50 bg-amber-500/20 text-amber-200 shadow-sm"
-                      : "border-teal-500/50 bg-teal-500/20 text-teal-200 shadow-sm"
+                      : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm"
                     : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
                 )}
               >
@@ -230,7 +267,7 @@ export function InvocationsClient({ invocations, ruleset = "RULES_2014", initial
                 isSelected
                   ? is2024
                     ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -247,7 +284,7 @@ export function InvocationsClient({ invocations, ruleset = "RULES_2014", initial
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
+                          ? is2024 ? "text-amber-300" : "text-arcane-300"
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
@@ -302,6 +339,12 @@ export function InvocationsClient({ invocations, ruleset = "RULES_2014", initial
           toggleLevel={toggleLevel}
           selectedPacts={selection.pacts}
           togglePact={togglePact}
+          noRequirementsOnly={selection.noRequirements}
+          toggleNoRequirements={toggleNoRequirements}
+          availableSources={availableSources}
+          sourceSelection={selection.source}
+          toggleSource={(source) => setParams((next) => toggleSourceParam(next, source))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           clearFilters={clearFilters}
         />
       }

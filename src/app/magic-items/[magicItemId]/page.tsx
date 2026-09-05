@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllMagicItems, getMagicItemById, type MagicItemWithSpells } from "@/lib/magicItemsData";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -60,7 +60,7 @@ function MagicItemDetailCard({ item }: { item: MagicItemWithSpells }) {
   return (
     <div className="p-3 sm:p-6 break-words max-w-full overflow-hidden">
         <div className="flex items-start justify-between gap-2">
-            <h1 className="flex-1 min-w-0 font-sans text-base sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400 truncate">
+            <h1 className="flex-1 min-w-0 font-sans text-base sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-arcane-400 to-violet-400 truncate">
             {item.name}
             </h1>
         </div>
@@ -75,7 +75,7 @@ function MagicItemDetailCard({ item }: { item: MagicItemWithSpells }) {
                     </span>
                  </div>
                  {item.requiresAttunement && (
-                 <div className="min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs text-teal-300/80 truncate">
+                 <div className="min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs text-arcane-300/80 truncate">
                     Потребує налаштування
                  </div>
                  )}

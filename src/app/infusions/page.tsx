@@ -8,18 +8,13 @@ export const metadata: Metadata = {
   description: "Каталог магічних вливань (Infusions) Винахідника (Artificer) з Tasha's Cauldron of Everything українською мовою.",
 };
 
-export default async function InfusionsPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const resolvedSearchParams = await searchParams;
+export default function InfusionsPage() {
   const infusions = getAllInfusions();
 
   return (
     <div className="h-full w-full">
       <Suspense fallback={null}>
-        <InfusionsClient infusions={infusions} initialSearchParams={resolvedSearchParams} />
+        <InfusionsClient infusions={infusions} />
       </Suspense>
     </div>
   );

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllArmors, getArmorByIdOrSlug } from "@/lib/armorData";
 import { armorTypeTranslations } from "@/lib/refs/translation";
 import { ArmorDetailCard } from "@/components/armor/ArmorDetailCard";

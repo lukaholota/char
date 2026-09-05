@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { FeatPrisma } from "@/lib/types/model-types";
+import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
+import type { Ruleset } from "@/rules/types";
 
 interface Props {
   hitDie: number; // e.g. 10 for d10
@@ -16,6 +18,7 @@ interface Props {
   feats: FeatPrisma[];
   persFeats?: any[];
   nextLevel: number;
+  ruleset?: Ruleset | null;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
 }
@@ -24,68 +27,13 @@ const averageHitDie = (hitDie: number) => Math.floor(hitDie / 2) + 1;
 
 const getAbilityMod = (score: number) => Math.floor((score - 10) / 2);
 
-const applyAsiFromStore = (
-  base: Props["baseStats"],
-  customAsi: unknown
-): Props["baseStats"] => {
-  const next = { ...base };
-  if (!Array.isArray(customAsi)) return next;
-
-  for (const entry of customAsi as Array<{ ability?: string; value?: string }>) {
-    const ability = entry?.ability;
-    const val = Number(entry?.value);
-    if (!ability || !Number.isFinite(val) || val === 0) continue;
-
-    const key = ability.toLowerCase() as keyof Props["baseStats"];
-    if (key in next) {
-      next[key] = next[key] + val;
-    }
-  }
-
-  return next;
-};
-
-const applyFeatAsi = (
-  stats: Props["baseStats"],
-  feat?: FeatPrisma | null
-): Props["baseStats"] => {
-  if (!feat?.grantedASI) return stats;
-
-  const next = { ...stats };
-
-  const abilityKeys = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
-  const apply = (ability: string, bonus: unknown) => {
-    const upper = String(ability).toUpperCase();
-    if (!abilityKeys.has(upper)) return;
-    const key = upper.toLowerCase() as keyof Props["baseStats"];
-    const val = Number(bonus);
-    if (key in next && Number.isFinite(val)) {
-      next[key] = next[key] + val;
-      if (next[key] > 20) next[key] = 20;
-    }
-  };
-
-  const featASI = feat.grantedASI as any;
-  const simple = featASI?.basic?.simple;
-  if (simple && typeof simple === "object") {
-    Object.entries(simple).forEach(([ability, bonus]) => apply(ability, bonus));
-    return next;
-  }
-
-  // Plain map: { INT: 1 }
-  if (featASI && typeof featASI === "object" && !Array.isArray(featASI)) {
-    Object.entries(featASI).forEach(([ability, bonus]) => apply(ability, bonus));
-  }
-
-  return next;
-};
-
 export default function LevelUpHPStep({
   hitDie,
   baseStats,
   feats,
   persFeats,
   nextLevel,
+  ruleset,
   formId,
   onNextDisabledChange,
 }: Props) {
@@ -109,12 +57,14 @@ export default function LevelUpHPStep({
     return 0;
   }, [persFeats, selectedFeat, nextLevel]);
 
-  const effectiveStats = useMemo(() => {
-    const withAsi = applyAsiFromStore(baseStats, formData.customAsi);
-    return applyFeatAsi(withAsi, selectedFeat);
-  }, [baseStats, formData.customAsi, selectedFeat]);
+  const effectiveStats = useMemo(() => findAbilityScoresAfterLevelUp({
+    scores: { STR: baseStats.str, DEX: baseStats.dex, CON: baseStats.con, INT: baseStats.int, WIS: baseStats.wis, CHA: baseStats.cha },
+    ruleset,
+    classIncreases: formData.customAsi,
+    feat: selectedFeat,
+  }), [baseStats, formData.customAsi, selectedFeat, ruleset]);
 
-  const conMod = useMemo(() => getAbilityMod(effectiveStats.con), [effectiveStats.con]);
+  const conMod = useMemo(() => getAbilityMod(effectiveStats.CON), [effectiveStats.CON]);
   const avg = useMemo(() => averageHitDie(hitDie), [hitDie]);
 
   const hpIncrease = useMemo(() => {
@@ -213,7 +163,7 @@ export default function LevelUpHPStep({
                     levelUpHpIncrease: (val !== undefined && Number.isFinite(val)) ? val : undefined
                 });
               }}
-              className="border-white/10 bg-white/5 text-white focus-visible:ring-cyan-400/30"
+              className="border-white/10 bg-white/5 text-white focus-visible:ring-arcane-400/30"
             />
             <div className="mt-2 flex items-center justify-between rounded-lg bg-white/5 p-3 text-sm">
                 <span className="text-slate-400">Разом приріст:</span>

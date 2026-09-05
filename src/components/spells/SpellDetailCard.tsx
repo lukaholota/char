@@ -1,4 +1,5 @@
 import { SpellData } from "@/lib/spellsData";
+import { shortenCastingTime } from "@/lib/spell-casting-time";
 import { spellSchoolTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { cn } from "@/lib/utils";
@@ -56,7 +57,7 @@ export function SpellDetailCard({
                 "font-sans text-base sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text truncate",
                 is2024
                   ? "bg-gradient-to-r from-amber-300 to-amber-500"
-                  : "bg-gradient-to-r from-teal-400 to-violet-400"
+                  : "bg-gradient-to-r from-arcane-400 to-violet-400"
               )}
             >
               {spell.name}
@@ -85,7 +86,7 @@ export function SpellDetailCard({
             "min-w-0 max-w-[40%] shrink-0 text-right text-[10px] sm:text-xs truncate rounded-lg px-2.5 py-1 border",
             is2024
               ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-teal-500/30 bg-teal-500/10 text-slate-300"
+              : "border-arcane-500/30 bg-arcane-500/10 text-slate-300"
           )}
         >
           {sourceLabel(spell.source)}
@@ -112,7 +113,7 @@ export function SpellDetailCard({
       <div className="mt-2 grid grid-cols-2 gap-1.5 sm:gap-3">
         <div className="rounded-xl bg-slate-900/40 border border-white/5 p-2 sm:p-3 glass-panel">
           <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Час використання</div>
-          <div className="mt-0.5 text-[11px] sm:text-sm text-slate-200">{spell.castingTime || "—"}</div>
+          <div className="mt-0.5 text-[11px] sm:text-sm text-slate-200">{shortenCastingTime(spell.castingTime) || "—"}</div>
         </div>
         <div className="rounded-xl bg-slate-900/40 border border-white/5 p-2 sm:p-3 glass-panel">
           <div className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400">Тривалість</div>

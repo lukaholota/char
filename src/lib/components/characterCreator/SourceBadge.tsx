@@ -28,6 +28,8 @@ const getTranslation = (code?: string | null) => {
   return { ua, en };
 };
 
+const buildBadgeLabel = (code?: string | null) => (code ? code.replace(/_/g, " ") : "—");
+
 export const SourceBadge = ({ code, active, className }: SourceBadgeProps) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -35,9 +37,9 @@ export const SourceBadge = ({ code, active, className }: SourceBadgeProps) => {
   const [anchorRect, setAnchorRect] = useState<DOMRect | null>(null);
 
   const { ua, en } = useMemo(() => getTranslation(code), [code]);
-  const label = code || "—";
+  const label = buildBadgeLabel(code);
   const hintPrimary = ua || "Невідоме джерело";
-  const hintSecondary = en || (code ? code : "");
+  const hintSecondary = en || (code ? label : "");
 
   useEffect(() => setOpen(false), [code]);
 

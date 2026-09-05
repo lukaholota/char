@@ -170,6 +170,36 @@ export function getRaceVisual(raceName: string | null | undefined): CreationVisu
       imageSrc,
     };
   }
+  if (key.includes("FAIRY") || key.includes("ФЕЯ")) {
+    return {
+      icon: Sparkles,
+      bgGradient: "from-pink-950/70 via-purple-950/40 to-slate-950",
+      glowColor: "rgba(236, 72, 153, 0.2)",
+      badgeClass: "border-pink-700/50 bg-pink-950/40 text-pink-300",
+      accentBorder: "group-hover:border-pink-500/50",
+      imageSrc,
+    };
+  }
+  if (key.includes("HOBGOBLIN") || key.includes("ХОБГОБЛІН")) {
+    return {
+      icon: Swords,
+      bgGradient: "from-red-950/80 via-amber-950/40 to-slate-950",
+      glowColor: "rgba(239, 68, 68, 0.2)",
+      badgeClass: "border-red-700/50 bg-red-950/40 text-red-300",
+      accentBorder: "group-hover:border-red-500/50",
+      imageSrc,
+    };
+  }
+  if (key.includes("CUSTOM_LINEAGE") || key.includes("СВОЯ РАСА") || key.includes("СВОЯ_РАСА")) {
+    return {
+      icon: Sparkles,
+      bgGradient: "from-violet-950/80 via-indigo-950/40 to-slate-950",
+      glowColor: "rgba(139, 92, 246, 0.2)",
+      badgeClass: "border-violet-700/50 bg-violet-950/40 text-violet-300",
+      accentBorder: "group-hover:border-violet-500/50",
+      imageSrc,
+    };
+  }
 
   // Fallback
   return {
@@ -356,18 +386,18 @@ export function getClassHitDie(className: string | null | undefined): string {
 
 export function getClassPrimaryStats(className: string | null | undefined): string {
   const key = String(className ?? "").toUpperCase();
-  if (key.includes("BARBARIAN") || key.includes("ВАРВАР")) return "СИЛ • ТІЛ";
-  if (key.includes("BARD") || key.includes("БАРД")) return "ХАР • ЛОВ";
-  if (key.includes("CLERIC") || key.includes("ЖРЕЦЬ")) return "МУД • ТІЛ";
-  if (key.includes("DRUID") || key.includes("ДРУЇД")) return "МУД • ТІЛ";
-  if (key.includes("FIGHTER") || key.includes("ВОЇН")) return "СИЛ / ЛОВ";
-  if (key.includes("MONK") || key.includes("МОНАХ")) return "ЛОВ • МУД";
+  if (key.includes("BARBARIAN") || key.includes("ВАРВАР")) return "СИЛ • СТА";
+  if (key.includes("BARD") || key.includes("БАРД")) return "ХАР • СПР";
+  if (key.includes("CLERIC") || key.includes("ЖРЕЦЬ")) return "МУД • СТА";
+  if (key.includes("DRUID") || key.includes("ДРУЇД")) return "МУД • СТА";
+  if (key.includes("FIGHTER") || key.includes("ВОЇН")) return "СИЛ / СПР";
+  if (key.includes("MONK") || key.includes("МОНАХ")) return "СПР • МУД";
   if (key.includes("PALADIN") || key.includes("ПАЛАДИН")) return "СИЛ • ХАР";
-  if (key.includes("RANGER") || key.includes("СЛІДОПИТ")) return "ЛОВ • МУД";
-  if (key.includes("ROGUE") || key.includes("ПЛУТ")) return "ЛОВ • ІНТ";
-  if (key.includes("SORCERER") || key.includes("ЧАРОДІЙ")) return "ХАР • ТІЛ";
-  if (key.includes("WARLOCK") || key.includes("ЧАКЛУН")) return "ХАР • ТІЛ";
-  if (key.includes("WIZARD") || key.includes("ЧАРІВНИК")) return "ІНТ • ТІЛ";
-  if (key.includes("ARTIFICER") || key.includes("ВИНАХІДНИК")) return "ІНТ • ТІЛ";
+  if (key.includes("RANGER") || key.includes("СЛІДОПИТ")) return "СПР • МУД";
+  if (key.includes("ROGUE") || key.includes("ПЛУТ")) return "СПР • ІНТ";
+  if (key.includes("SORCERER") || key.includes("ЧАРОДІЙ")) return "ХАР • СТА";
+  if (key.includes("WARLOCK") || key.includes("ЧАКЛУН")) return "ХАР • СТА";
+  if (key.includes("WIZARD") || key.includes("ЧАРІВНИК")) return "ІНТ • СТА";
+  if (key.includes("ARTIFICER") || key.includes("ВИНАХІДНИК")) return "ІНТ • СТА";
   return "Універсал";
 }

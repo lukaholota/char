@@ -1,13 +1,13 @@
-"use client";
-
-import { use } from "react";
+import { getBackgroundByIdOrSlug } from "@/lib/backgroundsData";
 import { BackgroundInterceptModal } from "@/components/backgrounds/BackgroundInterceptModal";
 
-export default function Background2024ModalPage({
+export default async function BackgroundModalPage({
   params,
 }: {
   params: Promise<{ backgroundId: string }>;
 }) {
-  const { backgroundId } = use(params);
-  return <BackgroundInterceptModal idOrSlug={backgroundId} ruleset="RULES_2024" />;
+  const { backgroundId } = await params;
+  const background = getBackgroundByIdOrSlug(backgroundId, "RULES_2024") ?? null;
+
+  return <BackgroundInterceptModal background={background} ruleset="RULES_2024" />;
 }

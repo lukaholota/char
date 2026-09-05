@@ -2,7 +2,7 @@
 
 import type { Ruleset } from "@prisma/client";
 import { ArrowUpRight } from "lucide-react";
-import { OMNI_CATEGORY_LABELS, findCategoryCatalogHref, type OmniSearchCategory } from "@/lib/omniSearchData";
+import { OMNI_CATEGORY_LABELS, findCategoryCatalogHref, type OmniSearchCategory } from "@/lib/search/omni-categories";
 
 /// Б3 з KR13.4: з вікна пошуку не було як потрапити в самі каталоги — «це даремно».
 const CATALOG_ORDER: OmniSearchCategory[] = [

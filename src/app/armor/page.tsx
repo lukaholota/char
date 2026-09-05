@@ -8,18 +8,13 @@ export const metadata: Metadata = {
   description: "Повний каталог легких, середніх і важких обладунків та щитів D&D 5e (2014) українською мовою.",
 };
 
-export default async function ArmorPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const resolvedSearchParams = await searchParams;
+export default function ArmorPage() {
   const armors = getAllArmors("RULES_2014");
 
   return (
     <div className="h-full w-full">
       <Suspense fallback={null}>
-        <ArmorClient armors={armors} initialSearchParams={resolvedSearchParams} ruleset="RULES_2014" />
+        <ArmorClient armors={armors} ruleset="RULES_2014" />
       </Suspense>
     </div>
   );

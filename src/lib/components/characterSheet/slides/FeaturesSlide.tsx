@@ -17,7 +17,8 @@ import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FeatureCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { FeatsSheetManagerModal } from "@/lib/components/characterSheet/FeatsSheetManagerModal";
-import { FeaturesHeaderCards } from "@/lib/components/characterSheet/slides/FeaturesHeaderCards";
+import { type BastionEntryCard, FeaturesHeaderCards } from "@/lib/components/characterSheet/slides/FeaturesHeaderCards";
+import { loadBastion } from "@/lib/actions/bastion-actions";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { toast } from "sonner";
@@ -65,6 +66,8 @@ interface FeaturesSlideProps {
   groupedFeatures: CharacterFeaturesGroupedResult | null;
   onPersUpdate?: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
+  /// Пул використань спільний із Дикою формою (KR24.5): її бейдж мусить побачити ручну витрату.
+  onResourcesChanged?: () => void;
 }
 
 type CategoryKind = "passive" | "action" | "bonus" | "reaction" | "resource";
@@ -129,7 +132,7 @@ function categoryVariant(kind: CategoryKind) {
 
 // Redundant local FeatureCard removed - using shared/FeatureCards.tsx
 
-const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly }: FeaturesSlideProps) {
+const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly, onResourcesChanged }: FeaturesSlideProps) {
   const router = useRouter();
 
   const [selected, setSelected] = useState<CharacterFeatureItem | null>(null);
@@ -139,6 +142,8 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
   const [magicItemToShow, setMagicItemToShow] = useState<any>(null);
   const [featsManagerOpen, setFeatsManagerOpen] = useState(false);
 
+  const [bastionEntry, setBastionEntry] = useState<BastionEntryCard | null>(null);
+
   const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
   const [usesOverrideByPoolKey, setUsesOverrideByPoolKey] = useState<Record<string, number | null>>({});
   const mutationVersionRef = useRef<Record<string, number>>({});
@@ -147,6 +152,29 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     setUsesOverrideByKey({});
     setUsesOverrideByPoolKey({});
   }, [groupedFeatures, pers.persId]);
+
+  // Бастіон є лише в правилах 2024, тож у 2014-персонажа запиту не буде взагалі. Знімок і
+  // поширений лист картки не показують: вести бастіон там нема кому.
+  useEffect(() => {
+    setBastionEntry(null);
+    if (isReadOnly || pers.ruleset !== "RULES_2024") return;
+
+    let isStale = false;
+    loadBastion(pers.persId)
+      .then((result) => {
+        if (isStale || !result.ok || !result.standing.access.isEntryCardShown) return;
+        setBastionEntry({
+          href: `/char/${pers.persId}/bastion`,
+          name: result.standing.bastion?.name ?? null,
+          facilityCount: result.standing.bastion?.facilities.length ?? 0,
+        });
+      })
+      .catch(() => {});
+
+    return () => {
+      isStale = true;
+    };
+  }, [isReadOnly, pers.persId, pers.ruleset]);
 
   const classEntries = useMemo(() => {
     const multiclasses = ((pers as any).multiclasses || []) as any[];
@@ -377,6 +405,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
       if (isLatestMutation(mutationKey, version)) {
         applyServerRemaining(item, res.usesRemaining);
         router.refresh();
+        onResourcesChanged?.();
       }
     })();
   };
@@ -404,6 +433,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
       if (isLatestMutation(mutationKey, version)) {
         applyServerRemaining(item, res.usesRemaining);
         router.refresh();
+        onResourcesChanged?.();
       }
     })();
   };
@@ -675,7 +705,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
         className="flex-1 min-h-0 overflow-y-auto p-3 sm:p-4 space-y-3 touch-pan-y"
         style={{ WebkitOverflowScrolling: "touch" }}
       >
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
+        <h2 className="font-rpg-display text-xl sm:text-2xl font-bold text-slate-50">Здібності</h2>
 
         <FeaturesHeaderCards
           raceName={raceName}
@@ -685,6 +715,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
           classEntries={classEntries}
           subclassEntries={subclassEntries}
           featsCount={pers.feats?.length || 0}
+          bastionEntry={bastionEntry}
           openEntity={openEntity}
           onOpenFeatsManager={() => setFeatsManagerOpen(true)}
         />
@@ -710,7 +741,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
               >
                 <CollapsibleTrigger className="flex items-center gap-3 w-full">
                   <ChevronRight className={"w-5 h-5 transition-transform group-data-[state=open]:rotate-90 " + variant.chevron} />
-                  <span className={"font-bold uppercase tracking-wider text-xs sm:text-sm " + variant.title}>{category.title}</span>
+                  <span className={"font-rpg-display font-bold uppercase tracking-wider text-xs sm:text-sm " + variant.title}>{category.title}</span>
                   <span className={"ml-auto text-[10px] sm:text-xs " + variant.count}>[{total}]</span>
                 </CollapsibleTrigger>
 

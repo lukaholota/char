@@ -1,4 +1,5 @@
-import { RuleArticle } from "@/lib/rulesData";
+import { findRetiredSlugsFor, RuleArticle } from "@/lib/rulesData";
+import { findProvenance, RuleProvenance } from "@/lib/rulesProvenance";
 import { cn } from "@/lib/utils";
 import { Sparkles, Info, AlertTriangle, ArrowRight } from "lucide-react";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -10,6 +11,7 @@ type Props = {
 
 export function RuleArticleCard({ article, className }: Props) {
   const is2024 = article.ruleset === "RULES_2024";
+  const sourceLabel = findSourceLabel(findProvenance(article));
 
   return (
     <article
@@ -19,6 +21,10 @@ export function RuleArticleCard({ article, className }: Props) {
         className
       )}
     >
+      {findRetiredSlugsFor(article).map((retired) => (
+        <span key={retired} id={retired} className="block scroll-mt-24" />
+      ))}
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-5">
         <div>
@@ -32,7 +38,9 @@ export function RuleArticleCard({ article, className }: Props) {
               </span>
             )}
           </div>
-          <p className="mt-1 text-xs text-slate-400 font-mono italic">SRD: {article.engTitle}</p>
+          <p className="mt-1 text-xs text-slate-400 font-mono italic">
+            {sourceLabel ? `${sourceLabel}: ${article.engTitle}` : article.engTitle}
+          </p>
         </div>
       </div>
 
@@ -49,11 +57,11 @@ export function RuleArticleCard({ article, className }: Props) {
             id={sub.id}
             className={cn(
               "rounded-xl border border-white/10 bg-slate-900/60 p-5 md:p-6 scroll-mt-24 shadow-md",
-              is2024 ? "border-l-4 border-l-amber-500/70" : "border-l-4 border-l-teal-500/70"
+              is2024 ? "border-l-4 border-l-amber-500/70" : "border-l-4 border-l-arcane-500/70"
             )}
           >
             <h3 className="font-rpg-display text-lg md:text-xl text-slate-100 font-semibold tracking-wide flex items-center gap-2 pb-2 border-b border-white/5">
-              <ArrowRight className={cn("h-4 w-4 shrink-0", is2024 ? "text-amber-400" : "text-teal-400")} />
+              <ArrowRight className={cn("h-4 w-4 shrink-0", is2024 ? "text-amber-400" : "text-arcane-400")} />
               <span>{sub.title}</span>
               {sub.engTitle && (
                 <span className="text-xs text-slate-400 font-mono font-normal">({sub.engTitle})</span>
@@ -95,4 +103,11 @@ export function RuleArticleCard({ article, className }: Props) {
       </div>
     </article>
   );
+}
+
+/// Підпис під заголовком — код книги (PHB, DMG, XGE…) і англійський заголовок, щоб читач міг
+/// звірити текст з оригіналом. Статус джерела («SRD 5.1», «Поза SRD», «Наш текст») читачеві
+/// нічого не дає — рішення власника 2026-09-02, [Р35]; він лишається в даних (`provenance.kind`).
+function findSourceLabel(provenance: RuleProvenance): string {
+  return provenance.kind === "beyond-srd" ? provenance.book : "";
 }

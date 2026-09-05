@@ -5,6 +5,7 @@ import { ConditionData } from "@/lib/rulesData";
 import { cn } from "@/lib/utils";
 import { ShieldAlert, Search, Sparkles } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 type Props = {
   conditions: ConditionData[];
@@ -59,7 +60,7 @@ export function ConditionsGrid({ conditions, is2024 = false, className }: Props)
                 isSelected
                   ? is2024
                     ? "border-amber-500/60 bg-amber-950/20 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
-                    : "border-teal-500/60 bg-teal-950/20 shadow-[0_0_20px_rgba(45,212,191,0.2)]"
+                    : "border-arcane-500/60 bg-arcane-950/20 shadow-[0_0_20px_rgba(45,212,191,0.2)]"
                   : "border-white/10 bg-slate-950/50 hover:border-white/20 hover:bg-slate-900/60"
               )}
             >
@@ -83,22 +84,23 @@ export function ConditionsGrid({ conditions, is2024 = false, className }: Props)
                   )}
                 </div>
 
-                <p className="mt-3 text-xs md:text-sm text-slate-300 leading-relaxed">
-                  {cond.description}
-                </p>
+                <FormattedDescription
+                  content={cond.description}
+                  className="mt-3 text-slate-300"
+                />
 
                 {/* Bullet points */}
                 <ul className="mt-3 space-y-1.5 border-t border-white/5 pt-3">
                   {cond.bulletPoints.map((bullet, idx) => (
-                    <li key={idx} className="text-xs text-slate-300/90 flex items-start gap-2">
-                      <span className="text-teal-400 select-none">•</span>
-                      <span>{bullet}</span>
+                    <li key={idx} className="text-sm text-slate-300/90 flex items-start gap-2">
+                      <span className="text-arcane-400 select-none">•</span>
+                      <FormattedDescription content={bullet} className="min-w-0 flex-1 text-slate-300/90" />
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {cond.editionDiff && (
+              {is2024 && cond.editionDiff && (
                 <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-950/30 p-2.5 flex items-start gap-2 text-[11px] text-amber-200">
                   <Sparkles className="h-3.5 w-3.5 shrink-0 text-amber-400 mt-0.5" />
                   <div>{cond.editionDiff}</div>

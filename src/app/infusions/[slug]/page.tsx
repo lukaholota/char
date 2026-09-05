@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllInfusions, getInfusionByIdOrSlug } from "@/lib/infusionsData";
 import { InfusionDetailCard } from "@/components/infusions/InfusionDetailCard";
 import { toEntitySlug } from "@/lib/slug-utils";

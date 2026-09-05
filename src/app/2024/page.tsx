@@ -1,6 +1,3 @@
-import { auth } from "@/lib/auth";
-import { redirect } from "next/navigation";
-import { isRules2024Allowed } from "@/rules/access";
 import { Home2024Client } from "./Home2024Client";
 import { Metadata } from "next";
 
@@ -10,10 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/");
-  }
-
   return <Home2024Client />;
 }

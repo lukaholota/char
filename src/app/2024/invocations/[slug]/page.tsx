@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
-import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
+import { notFound } from "next/navigation";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllInvocations, getInvocationByIdOrSlug } from "@/lib/invocationsData";
 import { InvocationDetailCard } from "@/components/invocations/InvocationDetailCard";
 import { toEntitySlug } from "@/lib/slug-utils";
@@ -54,11 +52,6 @@ export default async function Invocation2024DetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/invocations");
-  }
-
   const { slug } = await params;
   const invocation = getInvocationByIdOrSlug(slug, "RULES_2024");
 

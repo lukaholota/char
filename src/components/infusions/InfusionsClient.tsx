@@ -8,6 +8,17 @@ import { InfusionDetailCard } from "@/components/infusions/InfusionDetailCard";
 import { InfusionsFilterDialog } from "@/components/infusions/InfusionsFilterDialog";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
+import { collectInfusionEffects, hasInfusionEffect } from "@/lib/infusion-filter-facets";
+import {
   getParamSet,
   setParamSet,
   getSearchParamsFromLocation,
@@ -17,12 +28,12 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getInfusionVisual } from "@/components/catalogs/catalog-visuals";
 import { cn } from "@/lib/utils";
 
-type InitialSearchParams = Record<string, string | string[] | undefined>;
-
 type SelectionState = {
   levels: Set<number>;
   targets: Set<string>;
   attunement: boolean | null;
+  effects: Set<string>;
+  source: SourceSelection;
   q: string;
   infusion: string;
 };
@@ -37,9 +48,11 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
   const targets = getParamSet(params, "target");
   const rawAtt = params.get("att");
   const attunement = rawAtt === "1" ? true : null;
+  const effects = getParamSet(params, "fx");
+  const source = parseSourceSelection(params);
   const q = params.get("q") || "";
   const infusion = params.get("infusion") || "";
-  return { levels, targets, attunement, q, infusion };
+  return { levels, targets, attunement, effects, source, q, infusion };
 };
 
 const LEVEL_TABS = [
@@ -64,15 +77,13 @@ const TARGET_TYPE_SHORT_LABELS: Record<string, string> = {
 
 type Props = {
   infusions: InfusionData[];
-  initialSearchParams?: InitialSearchParams;
 };
 
-export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) {
+export function InfusionsClient({ infusions }: Props) {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalInfusion, setSelectedModalInfusion] = useState<InfusionData | null>(null);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
     parseSelection
   );
 
@@ -94,6 +105,14 @@ export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) 
       }
 
       if (selection.attunement && !inf.requiresAttunement) {
+        return false;
+      }
+
+      if (selection.effects.size > 0 && !Array.from(selection.effects).some((effect) => hasInfusionEffect(inf, effect))) {
+        return false;
+      }
+
+      if (!matchesSourceSelection(inf.source, selection.source)) {
         return false;
       }
 
@@ -154,13 +173,29 @@ export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) 
     });
   };
 
+  const toggleEffect = (effect: string) => {
+    setParams((next) => {
+      const set = getParamSet(next, "fx");
+      if (set.has(effect)) set.delete(effect);
+      else set.add(effect);
+      setParamSet(next, "fx", set);
+    });
+  };
+
   const clearFilters = () => {
     setParams((next) => {
       next.delete("lvl");
       next.delete("target");
       next.delete("att");
+      next.delete("fx");
+      clearSourceParams(next);
     });
   };
+
+  const available = useMemo(
+    () => ({ effects: collectInfusionEffects(infusions), sources: collectCatalogSources(infusions) }),
+    [infusions]
+  );
 
   const activeTab = useMemo(() => {
     if (selection.levels.size === 1) {
@@ -173,6 +208,8 @@ export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) 
   const activeFiltersCount =
     selection.levels.size +
     selection.targets.size +
+    selection.effects.size +
+    countSourceFilters(selection.source) +
     (selection.attunement ? 1 : 0);
 
   return (
@@ -199,7 +236,7 @@ export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) 
                 className={cn(
                   "rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 border",
                   isSelected
-                    ? "border-teal-500/50 bg-teal-500/20 text-teal-200 shadow-sm"
+                    ? "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm"
                     : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
                 )}
               >
@@ -240,7 +277,7 @@ export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) 
               className={cn(
                 "glass-panel group relative overflow-hidden rounded-xl border p-3 transition-all duration-300 cursor-pointer",
                 isSelected
-                  ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                  ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -256,7 +293,7 @@ export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) 
                     <span
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
-                        isSelected ? "text-teal-300" : "text-slate-100 group-hover:text-white"
+                        isSelected ? "text-arcane-300" : "text-slate-100 group-hover:text-white"
                       )}
                     >
                       {infusion.nameUa} <span className="font-normal text-slate-400 text-sm ml-1">[{infusion.engName}]</span>
@@ -309,6 +346,13 @@ export function InfusionsClient({ infusions, initialSearchParams = {} }: Props) 
           toggleTarget={toggleTarget}
           attunementOnly={Boolean(selection.attunement)}
           toggleAttunement={toggleAttunement}
+          availableEffects={available.effects}
+          selectedEffects={selection.effects}
+          toggleEffect={toggleEffect}
+          availableSources={available.sources}
+          sourceSelection={selection.source}
+          toggleSource={(source) => setParams((next) => toggleSourceParam(next, source))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           clearFilters={clearFilters}
         />
       }

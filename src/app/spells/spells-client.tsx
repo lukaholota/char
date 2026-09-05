@@ -20,16 +20,31 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { spellSchoolTranslations } from "@/lib/refs/translation";
 import {
-  classTranslations,
-  classTranslationsEng,
-  sourceTranslations,
-  spellSchoolTranslations,
-  subclassTranslations,
-} from "@/lib/refs/translation";
-import { subclassParentClass } from "@/lib/refs/subclassMapping";
+  clearSourceParams,
+  collectCatalogSources,
+  countSourceFilters,
+  matchesSourceSelection,
+  parseSourceSelection,
+  toggleHomebrewParam,
+  toggleSourceParam,
+  type SourceSelection,
+} from "@/lib/catalog-source-filter";
+import { shortenCastingTime } from "@/lib/spell-casting-time";
+import {
+  SUBCLASS_FILTER_FALLBACK_CLASS,
+  collectSpellClassFacets,
+  normalizeBaseClassValue,
+} from "@/lib/spell-class-facets";
+import {
+  findSpellComponents,
+  findSpellDurationBucket,
+  findSpellRangeBucket,
+  type SpellComponent,
+} from "@/lib/spell-filter-facets";
 import { getUserPersesSpellIndex } from "@/lib/actions/pers";
-import { setSpellPresenceForPers } from "@/lib/actions/spell-actions";
+import { setSpellPresenceForPersByLink } from "@/lib/actions/spell-actions";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
@@ -46,32 +61,9 @@ import { SpellDetailCard } from "@/components/spells/SpellDetailCard";
 import { SpellModalCard } from "@/components/spells/SpellModalCard";
 import { SpellsFilterDialog } from "@/components/spells/SpellsFilterDialog";
 import { SpellData } from "@/lib/spellsData";
+import { buildSpellLinkForSpell, buildSpellSlug, type SpellLink } from "@/lib/spell-link";
 import { Ruleset } from "@prisma/client";
 import { cn } from "@/lib/utils";
-
-const BASE_CLASS_NAMES_UA: Set<string> = new Set<string>(Object.values(classTranslations));
-const CLASS_KEY_TO_UA: Record<string, string> = classTranslations as unknown as Record<string, string>;
-
-const CLASS_ENG_TO_UA: Record<string, string> = Object.fromEntries(
-  Object.entries(classTranslationsEng as unknown as Record<string, string>).map(([key, eng]) => [
-    eng,
-    CLASS_KEY_TO_UA[key] || eng,
-  ])
-);
-
-const SUBCLASS_FILTER_FALLBACK_CLASS: Record<string, string> = {
-  [subclassTranslations.ELDRITCH_KNIGHT]: classTranslations.WIZARD_2014,
-  [subclassTranslations.ARCANE_TRICKSTER]: classTranslations.WIZARD_2014,
-};
-
-function normalizeBaseClassValue(raw: string): string {
-  const v = (raw || "").trim();
-  if (!v) return "";
-  if (BASE_CLASS_NAMES_UA.has(v)) return v;
-  if (v in CLASS_KEY_TO_UA) return CLASS_KEY_TO_UA[v];
-  if (v in CLASS_ENG_TO_UA) return CLASS_ENG_TO_UA[v];
-  return v;
-}
 
 export type SpellListItem = {
   spellId: number;
@@ -102,22 +94,46 @@ type SelectionState = {
   subclasses: Set<string>;
   schools: Set<string>;
   times: Set<string>;
-  sources: Set<string>;
+  components: Set<string>;
+  ranges: Set<string>;
+  durations: Set<string>;
+  source: SourceSelection;
   ritual: boolean | null;
   conc: boolean | null;
   q: string;
   spell: string;
 };
 
+const FILTER_PARAM_KEYS = ["lvl", "cls", "sub", "sch", "time", "comp", "rng", "dur", "rit", "conc"];
+
 type EmbedParams = {
   origin: string | null;
   persId: number | null;
   persName: string | null;
   maxSpellLevel: number | null;
+  maxSpellLevelByClass: Map<string, number> | null;
   knownTarget: number | null;
   cantripTarget: number | null;
   knownExcluded: Set<number>;
 };
+
+// KR27.7: `WIZARD_2024:2,CLERIC_2024:2` → ключ у назві класу з каталогу («Чарівник»), щоб звірятись зі spellClasses.
+function parseMaxSpellLevelByClass(raw: string | null): Map<string, number> | null {
+  if (!raw) return null;
+  const entries = raw.split(",").flatMap((pair): [string, number][] => {
+    const [className, level] = pair.split(":");
+    const parsedLevel = Number(level);
+    return className && Number.isFinite(parsedLevel) ? [[normalizeBaseClassValue(className), parsedLevel]] : [];
+  });
+  return entries.length > 0 ? new Map(entries) : null;
+}
+
+function isPreparableBySomeClass(spell: SpellListItem, maxSpellLevelByClass: Map<string, number>): boolean {
+  if (spell.level === 0) return true;
+  return spell.spellClasses.some(
+    (entry) => spell.level <= (maxSpellLevelByClass.get(normalizeBaseClassValue(entry.className)) ?? 0)
+  );
+}
 
 function parseEmbedParams(params: URLSearchParams): EmbedParams {
   const origin = params.get("origin");
@@ -125,6 +141,7 @@ function parseEmbedParams(params: URLSearchParams): EmbedParams {
   const persId = persIdRaw ? parseInt(persIdRaw, 10) : null;
   const persName = params.get("persName");
   const maxSpellLevel = params.get("maxSpellLevel") ? parseInt(params.get("maxSpellLevel")!, 10) : null;
+  const maxSpellLevelByClass = parseMaxSpellLevelByClass(params.get("maxSpellLevelByClass"));
   const knownTarget = params.get("knownTarget") ? parseInt(params.get("knownTarget")!, 10) : null;
   const cantripTarget = params.get("cantripTarget") ? parseInt(params.get("cantripTarget")!, 10) : null;
   const knownExcludedRaw = params.get("knownExcluded") || "";
@@ -139,6 +156,7 @@ function parseEmbedParams(params: URLSearchParams): EmbedParams {
     persId: Number.isFinite(persId) ? persId : null,
     persName,
     maxSpellLevel: Number.isFinite(maxSpellLevel) ? maxSpellLevel : null,
+    maxSpellLevelByClass,
     knownTarget: Number.isFinite(knownTarget) ? knownTarget : null,
     cantripTarget: Number.isFinite(cantripTarget) ? cantripTarget : null,
     knownExcluded,
@@ -152,7 +170,10 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
     subclasses: getParamSet(params, "sub"),
     schools: getParamSet(params, "sch"),
     times: getParamSet(params, "time"),
-    sources: getParamSet(params, "src"),
+    components: getParamSet(params, "comp"),
+    ranges: getParamSet(params, "rng"),
+    durations: getParamSet(params, "dur"),
+    source: parseSourceSelection(params),
     ritual: getBoolParam(params, "rit"),
     conc: getBoolParam(params, "conc"),
     q: params.get("q") ?? "",
@@ -179,14 +200,15 @@ type PersIndexItem = {
   persId: number;
   name: string;
   spellIds: number[];
+  spellKeys: string[];
 };
 
 function SpellbookDropdown({
-  spellId,
+  link,
   persIndex,
   setPersIndex,
 }: {
-  spellId: number;
+  link: SpellLink;
   persIndex: PersIndexItem[] | null;
   setPersIndex: (value: PersIndexItem[] | null) => void;
 }) {
@@ -217,7 +239,7 @@ function SpellbookDropdown({
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:text-teal-300"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:text-arcane-300"
           aria-label="Додати до персонажа"
         >
           <UserPlus className="h-4 w-4" />
@@ -235,7 +257,7 @@ function SpellbookDropdown({
           <div className="px-2 py-2 text-xs text-slate-400">Немає персонажів</div>
         ) : (
           persIndex?.map((p) => {
-            const has = p.spellIds.includes(spellId);
+            const has = p.spellKeys.includes(link.spellKey);
             const label = p.name || `Персонаж #${p.persId}`;
             return (
               <DropdownMenuItem
@@ -243,12 +265,7 @@ function SpellbookDropdown({
                 className="flex items-center justify-between gap-2 cursor-pointer"
                 onSelect={async (e) => {
                   e.preventDefault();
-                  const nextPresence = !has;
-                  const res = await setSpellPresenceForPers({
-                    persId: p.persId,
-                    spellId,
-                    present: nextPresence,
-                  });
+                  const res = await setSpellPresenceForPersByLink({ persId: p.persId, link, present: !has });
                   if (!res.success) return;
 
                   setPersIndex(
@@ -257,16 +274,16 @@ function SpellbookDropdown({
                         ? item
                         : {
                             ...item,
-                            spellIds: nextPresence
-                              ? [...item.spellIds, spellId]
-                              : item.spellIds.filter((id) => id !== spellId),
+                            spellKeys: res.present
+                              ? [...item.spellKeys, link.spellKey]
+                              : item.spellKeys.filter((key) => key !== link.spellKey),
                           }
                     )
                   );
                 }}
               >
                 <span className="truncate">{label}</span>
-                {has ? <Check className="h-4 w-4 text-teal-400" /> : null}
+                {has ? <Check className="h-4 w-4 text-arcane-400" /> : null}
               </DropdownMenuItem>
             );
           })
@@ -306,9 +323,32 @@ export function SpellsClient({
   });
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
 
+  const [isAddingSpell, setIsAddingSpell] = useState(false);
+  const [addedSpellIds, setAddedSpellIds] = useState<Set<number>>(new Set());
+
+  const buildRowLink = (spell: SpellListItem) =>
+    buildSpellLinkForSpell({ spellId: spell.spellId, engName: spell.engName, ruleset: is2024 ? "RULES_2024" : "RULES_2014" });
+
+  const handleAddSpell = async (spell: SpellListItem) => {
+    if (!embedParams.persId) return;
+    setIsAddingSpell(true);
+    try {
+      const res = await setSpellPresenceForPersByLink({ persId: embedParams.persId, link: buildRowLink(spell), present: true });
+      if (res.success) {
+        setAddedSpellIds((prev) => new Set(prev).add(spell.spellId));
+        window.parent.postMessage(
+          { type: "SPELL_TOGGLED", persId: embedParams.persId, spellId: res.spellId, spellLevel: spell.level, added: true },
+          "*"
+        );
+      }
+    } finally {
+      setIsAddingSpell(false);
+    }
+  };
+
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
-    initialSearchParams,
-    parseSelection
+    parseSelection,
+    initialSearchParams
   );
 
   const filtered = useMemo(() => {
@@ -323,15 +363,35 @@ export function SpellsClient({
         return false;
       }
 
+      if (embedParams.maxSpellLevelByClass && !isPreparableBySomeClass(spell, embedParams.maxSpellLevelByClass)) {
+        return false;
+      }
+
       if (selection.schools.size > 0 && (!spell.school || !selection.schools.has(spell.school))) {
         return false;
       }
 
-      if (selection.times.size > 0 && !selection.times.has(spell.castingTime)) {
+      if (selection.times.size > 0 && !selection.times.has(shortenCastingTime(spell.castingTime))) {
         return false;
       }
 
-      if (selection.sources.size > 0 && !selection.sources.has(spell.source)) {
+      if (selection.components.size > 0) {
+        const present = findSpellComponents(spell.components);
+        const requiresAll = Array.from(selection.components).every((component) =>
+          present.has(component as SpellComponent)
+        );
+        if (!requiresAll) return false;
+      }
+
+      if (selection.ranges.size > 0 && !selection.ranges.has(findSpellRangeBucket(spell.range))) {
+        return false;
+      }
+
+      if (selection.durations.size > 0 && !selection.durations.has(findSpellDurationBucket(spell.duration))) {
+        return false;
+      }
+
+      if (!matchesSourceSelection(spell.source, selection.source)) {
         return false;
       }
 
@@ -343,27 +403,35 @@ export function SpellsClient({
         return false;
       }
 
-      if (selection.classes.size > 0) {
-        const hasClass = spell.spellClasses.some((c) =>
+      // Class and subclass filters act as a union (OR), not an intersection: a spell should
+      // show up if it matches ANY selected class or subclass, since most spells only carry a
+      // base-class tag and would never match a subclass tag at the same time.
+      if (selection.classes.size > 0 || selection.subclasses.size > 0) {
+        const spellClassNames = new Set(spell.spellClasses.map((c) => c.className));
+
+        const matchesClass = spell.spellClasses.some((c) =>
           selection.classes.has(normalizeBaseClassValue(c.className))
         );
-        if (!hasClass) return false;
-      }
 
-      if (selection.subclasses.size > 0) {
-        const hasSubclass = spell.spellClasses.some((c) => selection.subclasses.has(c.className));
-        if (!hasSubclass) return false;
+        const matchesSubclass = Array.from(selection.subclasses).some((sub) => {
+          if (spellClassNames.has(sub)) return true;
+          const fallback = SUBCLASS_FILTER_FALLBACK_CLASS[sub];
+          return Boolean(fallback) && spellClassNames.has(fallback);
+        });
+
+        if (!matchesClass && !matchesSubclass) return false;
       }
 
       return true;
     });
-  }, [spells, selection]);
+  }, [spells, selection, embedParams.maxSpellLevelByClass]);
 
   const selectedSpell = useMemo(() => {
     if (selection.spell) {
       const byParam = spells.find(
         (s) =>
           String(s.spellId) === selection.spell ||
+          buildSpellSlug(s.engName) === selection.spell ||
           s.engName.toLowerCase() === selection.spell.toLowerCase() ||
           s.name.toLowerCase() === selection.spell.toLowerCase()
       );
@@ -389,72 +457,48 @@ export function SpellsClient({
 
   const available = useMemo(() => {
     const levels = new Set<number>();
-    const classes = new Set<string>();
-    const subclasses = new Set<string>();
     const schools = new Set<string>();
     const times = new Set<string>();
-    const sources = new Set<string>();
 
     for (const s of spells) {
       levels.add(s.level);
       if (s.school) schools.add(s.school);
-      if (s.castingTime) times.add(s.castingTime);
-      if (s.source) sources.add(s.source);
-
-      for (const c of s.spellClasses) {
-        const norm = normalizeBaseClassValue(c.className);
-        if (norm) classes.add(norm);
-        if (!BASE_CLASS_NAMES_UA.has(c.className)) subclasses.add(c.className);
-      }
+      const time = shortenCastingTime(s.castingTime);
+      if (time) times.add(time);
     }
 
-    const subclassesByClass: { className: string; subclasses: string[] }[] = [];
-    const groupedSubs = new Map<string, string[]>();
-    for (const sub of subclasses) {
-      const parent = subclassParentClass[sub] || SUBCLASS_FILTER_FALLBACK_CLASS[sub] || "Інші";
-      const arr = groupedSubs.get(parent) ?? [];
-      arr.push(sub);
-      groupedSubs.set(parent, arr);
-    }
-    for (const [clsName, subs] of groupedSubs.entries()) {
-      subclassesByClass.push({
-        className: clsName,
-        subclasses: subs.sort((a, b) => a.localeCompare(b, "uk")),
-      });
-    }
+    const { classes, subclassesByClass } = collectSpellClassFacets(spells);
 
     return {
       levels: Array.from(levels).sort((a, b) => a - b),
-      classes: Array.from(classes).sort((a, b) => a.localeCompare(b, "uk")),
+      classes,
       subclassesByClass,
       schools: Array.from(schools).sort((a, b) => a.localeCompare(b, "uk")),
       times: Array.from(times).sort((a, b) => a.localeCompare(b, "uk")),
-      sources: Array.from(sources).sort((a, b) => a.localeCompare(b, "uk")),
+      sources: collectCatalogSources(spells),
     };
   }, [spells]);
 
   const clearFilters = () => {
     setParams((next) => {
-      next.delete("lvl");
-      next.delete("cls");
-      next.delete("sub");
-      next.delete("sch");
-      next.delete("time");
-      next.delete("src");
-      next.delete("rit");
-      next.delete("conc");
+      for (const key of FILTER_PARAM_KEYS) next.delete(key);
+      clearSourceParams(next);
     });
   };
 
-  const hasActiveFilters =
-    selection.levels.size > 0 ||
-    selection.classes.size > 0 ||
-    selection.subclasses.size > 0 ||
-    selection.schools.size > 0 ||
-    selection.times.size > 0 ||
-    selection.sources.size > 0 ||
-    selection.ritual !== null ||
-    selection.conc !== null;
+  const activeFiltersCount =
+    selection.levels.size +
+    selection.classes.size +
+    selection.subclasses.size +
+    selection.schools.size +
+    selection.times.size +
+    selection.components.size +
+    selection.ranges.size +
+    selection.durations.size +
+    countSourceFilters(selection.source) +
+    (selection.ritual !== null ? 1 : 0) +
+    (selection.conc !== null ? 1 : 0);
+  const hasActiveFilters = activeFiltersCount > 0;
 
   const doPrint = () => {
     if (printIds.length === 0) return;
@@ -487,8 +531,8 @@ export function SpellsClient({
       is2024={is2024}
       topBanner={
         isEmbedMode && (
-          <div className="mb-4 rounded-xl border border-teal-500/30 bg-teal-500/10 p-2.5 backdrop-blur-xl">
-            <div className="flex items-center gap-2 text-sm text-teal-200">
+          <div className="mb-4 rounded-xl border border-arcane-500/30 bg-arcane-500/10 p-2.5 backdrop-blur-xl">
+            <div className="flex items-center gap-2 text-sm text-arcane-200">
               <UserPlus className="h-4 w-4" />
               <span>
                 Додавання заклинань для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
@@ -501,16 +545,7 @@ export function SpellsClient({
       onSearchChange={setQInput}
       searchPlaceholder="Пошук заклинань..."
       hasActiveFilters={hasActiveFilters}
-      activeFiltersCount={
-        selection.levels.size +
-        selection.classes.size +
-        selection.subclasses.size +
-        selection.schools.size +
-        selection.times.size +
-        selection.sources.size +
-        (selection.ritual !== null ? 1 : 0) +
-        (selection.conc !== null ? 1 : 0)
-      }
+      activeFiltersCount={activeFiltersCount}
       onOpenFilters={() => setFiltersOpen(true)}
       onClearFilters={clearFilters}
       headerActions={
@@ -567,7 +602,7 @@ export function SpellsClient({
               <div
                 className={cn(
                   "rounded-xl border bg-slate-900/70 px-3.5 py-2 text-slate-200 backdrop-blur-xl flex items-center justify-between shadow-sm",
-                  is2024 ? "border-amber-500/20" : "border-teal-500/20"
+                  is2024 ? "border-amber-500/20" : "border-arcane-500/20"
                 )}
               >
                 <span
@@ -575,7 +610,7 @@ export function SpellsClient({
                     "font-sans text-sm sm:text-base font-semibold tracking-wide text-transparent bg-clip-text",
                     is2024
                       ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-                      : "bg-gradient-to-r from-teal-300 via-teal-100 to-teal-400"
+                      : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-arcane-400"
                   )}
                 >
                   {levelHeaderLabel(row.level)}
@@ -606,7 +641,7 @@ export function SpellsClient({
                 isSelected
                   ? is2024
                     ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-teal-400/40"
+                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -623,7 +658,7 @@ export function SpellsClient({
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-teal-300"
+                          ? is2024 ? "text-amber-300" : "text-arcane-300"
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
@@ -648,7 +683,7 @@ export function SpellsClient({
                     </span>
                     <span className="flex items-center gap-1">
                       <Clock3 className="h-3.5 w-3.5 text-slate-400" />
-                      {spell.castingTime || "—"}
+                      {shortenCastingTime(spell.castingTime) || "—"}
                     </span>
                     {spell.school && (
                       <span className={cn("rounded-md px-2 py-0.5 text-[11px] font-medium border", visual.badgeClass)}>
@@ -675,8 +710,8 @@ export function SpellsClient({
                       <button
                         type="button"
                         className={cn(
-                          "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-teal-300 hover:bg-white/5",
-                          inPrint && "text-teal-300 bg-teal-500/10"
+                          "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
+                          inPrint && "text-arcane-300 bg-arcane-500/10"
                         )}
                         onClick={() => {
                           setPrintIds((prev) =>
@@ -691,11 +726,26 @@ export function SpellsClient({
                       </button>
 
                       <SpellbookDropdown
-                        spellId={spell.spellId}
+                        link={buildRowLink(spell)}
                         persIndex={persIndex}
                         setPersIndex={setPersIndex}
                       />
                     </>
+                  )}
+
+                  {isEmbedMode && embedParams.persId && (
+                    <button
+                      type="button"
+                      onClick={() => handleAddSpell(spell)}
+                      disabled={isAddingSpell}
+                      className={cn(
+                        "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
+                        isAddingSpell && "opacity-50"
+                      )}
+                      aria-label="Додати до персонажа"
+                    >
+                      {addedSpellIds.has(spell.spellId) ? <Check className="h-4 w-4" /> : <UserPlus className="h-4 w-4" />}
+                    </button>
                   )}
                 </div>
               </div>
@@ -740,7 +790,10 @@ export function SpellsClient({
           selectedSubclasses={selection.subclasses}
           selectedSchools={selection.schools}
           selectedTimes={selection.times}
-          selectedSources={selection.sources}
+          selectedComponents={selection.components}
+          selectedRanges={selection.ranges}
+          selectedDurations={selection.durations}
+          sourceSelection={selection.source}
           selectedConc={selection.conc}
           selectedRitual={selection.ritual}
           toggleLevel={(lvl) => toggleSetValue("lvl", lvl)}
@@ -748,7 +801,11 @@ export function SpellsClient({
           toggleSubclass={(sub) => toggleSetValue("sub", sub)}
           toggleSchool={(sch) => toggleSetValue("sch", sch)}
           toggleTime={(t) => toggleSetValue("time", t)}
-          toggleSource={(src) => toggleSetValue("src", src)}
+          toggleComponent={(component) => toggleSetValue("comp", component)}
+          toggleRange={(range) => toggleSetValue("rng", range)}
+          toggleDuration={(duration) => toggleSetValue("dur", duration)}
+          toggleSource={(src) => setParams((next) => toggleSourceParam(next, src))}
+          toggleHomebrew={() => setParams((next) => toggleHomebrewParam(next))}
           toggleConc={() => setParams((next) => setBoolParam(next, "conc", selection.conc === true ? null : true))}
           toggleRitual={() => setParams((next) => setBoolParam(next, "rit", selection.ritual === true ? null : true))}
           clearFilters={clearFilters}

@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
-import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { isRules2024Allowed } from "@/rules/access";
+import { notFound } from "next/navigation";
+import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllBackgrounds, getBackgroundByIdOrSlug } from "@/lib/backgroundsData";
 import { BackgroundDetailCard } from "@/components/backgrounds/BackgroundDetailCard";
 import { getDescriptionSnippet } from "@/lib/seo-utils";
@@ -45,11 +43,6 @@ export default async function Background2024DetailPage({
 }: {
   params: Promise<{ backgroundId: string }>;
 }) {
-  const session = await auth();
-  if (!isRules2024Allowed(session?.user)) {
-    redirect("/backgrounds");
-  }
-
   const { backgroundId } = await params;
   const background = getBackgroundByIdOrSlug(backgroundId, "RULES_2024");
 

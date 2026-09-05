@@ -12,7 +12,7 @@ import {
 import { Search, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { ContentImage } from "@/components/no-ai/ContentImage";
+import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { useNoAiMode } from "@/components/no-ai/NoAiModeProvider";
 import { getRuleCategoryVisual } from "@/components/catalogs/catalog-visuals";
 
@@ -79,7 +79,7 @@ export function RulesHub({
     >
       {/* Clean Header section without top pill */}
       <motion.div variants={cardVariants} className="text-center mb-8 max-w-2xl">
-        <h1 className="font-rpg-display text-4xl sm:text-6xl uppercase tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-200 to-teal-200">
+        <h1 className="font-rpg-display text-4xl sm:text-6xl uppercase tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-200 to-arcane-200">
           Довідник Правил
         </h1>
         <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
@@ -93,7 +93,7 @@ export function RulesHub({
             placeholder="Фільтр розділів та правил..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 h-11 bg-slate-900/80 border-white/15 text-slate-200 placeholder:text-slate-500 rounded-2xl shadow-lg focus:border-teal-400/50"
+            className="pl-10 h-11 bg-slate-900/80 border-white/15 text-slate-200 placeholder:text-slate-500 rounded-2xl shadow-lg focus:border-arcane-400/50"
           />
         </div>
       </motion.div>
@@ -108,46 +108,39 @@ export function RulesHub({
             <Link
               key={cat.key}
               href={href}
-              className={cn(
-                "group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl",
-                is2024
-                  ? "hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)]"
-                  : "hover:border-teal-500/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.2)]"
-              )}
+              className="group relative block transition-transform duration-300 hover:-translate-y-1"
             >
               <motion.div
                 variants={cardVariants}
-                className={cn(
-                  "relative w-full overflow-hidden flex flex-col justify-end p-6",
-                  noAi ? "h-48 sm:h-52" : "h-64 sm:h-72"
-                )}
+                className={cn("w-full", noAi ? "h-48 sm:h-52" : "h-64 sm:h-72")}
               >
-                {/* 16:9 Category image backdrop - bright and clear */}
-                <ContentImage
+                <FramedIllustration
                   src={cat.imageSrc}
                   alt={cat.title}
-                  fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-all duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-                  fallbackIcon={visual.icon}
-                  fallbackGradient={is2024 ? "from-amber-950/50 via-slate-950 to-slate-950" : "from-teal-950/50 via-slate-950 to-slate-950"}
-                  fallbackTint={is2024 ? "rgba(245, 158, 11, 0.22)" : "rgba(45, 212, 191, 0.22)"}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
+                  chamfer="md"
+                  vignette="lg"
+                  imageClassName="opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
+                  hoverGlowColor={
+                    is2024 ? "rgba(245,158,11,0.35)" : "rgba(45,212,191,0.35)"
+                  }
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
 
-                {/* Bottom Content */}
-                <div className="relative z-10 space-y-2">
-                  <h2 className="font-rpg-display text-2xl sm:text-3xl text-white group-hover:text-amber-300 transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                    {cat.title}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-slate-200/90 leading-relaxed line-clamp-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {cat.description}
-                  </p>
-                  <div className="pt-1 flex items-center gap-1.5 text-xs font-semibold text-teal-400 group-hover:text-amber-300 transition-colors">
-                    <span>Відкрити розділ</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  {/* Bottom Content */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 space-y-2 p-6">
+                    <h2 className="font-rpg-display text-2xl sm:text-3xl text-white group-hover:text-amber-300 transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                      {cat.title}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-200/90 leading-relaxed line-clamp-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      {cat.description}
+                    </p>
+                    <div className="pt-1 flex items-center gap-1.5 text-xs font-semibold text-arcane-400 group-hover:text-amber-300 transition-colors">
+                      <span>Відкрити розділ</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
-                </div>
+                </FramedIllustration>
               </motion.div>
             </Link>
           );
