@@ -1,5 +1,6 @@
 import type { AbilityKey, AbilityScores, BackgroundASIChoice, ClassProgression } from "../types";
 import type { OriginFeatRequirement, RulesStrategy } from "./types";
+import { STANDARD_ABILITY_SCORE_CEILING } from "../ability-score-ceiling";
 
 export class Rules2024NotImplementedError extends Error {
   constructor(rule: string) {
@@ -69,11 +70,11 @@ export const rules2024Strategy: RulesStrategy = {
     const updated: AbilityScores = { ...scores };
 
     if (choice.mode === "+2/+1") {
-      updated[choice.plusTwo] = Math.min(20, (updated[choice.plusTwo] ?? 10) + 2);
-      updated[choice.plusOne] = Math.min(20, (updated[choice.plusOne] ?? 10) + 1);
+      updated[choice.plusTwo] = Math.min(STANDARD_ABILITY_SCORE_CEILING, (updated[choice.plusTwo] ?? 10) + 2);
+      updated[choice.plusOne] = Math.min(STANDARD_ABILITY_SCORE_CEILING, (updated[choice.plusOne] ?? 10) + 1);
     } else if (choice.mode === "+1/+1/+1") {
       for (const ability of choice.abilities) {
-        updated[ability] = Math.min(20, (updated[ability] ?? 10) + 1);
+        updated[ability] = Math.min(STANDARD_ABILITY_SCORE_CEILING, (updated[ability] ?? 10) + 1);
       }
     }
 

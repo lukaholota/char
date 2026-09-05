@@ -15,7 +15,7 @@ describe("KR2.5 — spell slots за PHB 2014", () => {
       characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" },
       subclass: null,
       multiclasses: [],
-    });
+    }, "RULES_2014");
     expect(result.casterLevel).toBe(20);
     expect(result.pactLevel).toBe(0);
   });
@@ -40,7 +40,7 @@ describe("KR2.5 — spell slots за PHB 2014", () => {
       ],
     };
 
-    expect(calculateCasterLevel(pers).casterLevel).toBe(7);
+    expect(calculateCasterLevel(pers, "RULES_2014").casterLevel).toBe(7);
   });
 
   // PHB 2014, с. 164-165 «Multiclassing → Spell Slots»; BUG-010.
@@ -51,7 +51,7 @@ describe("KR2.5 — spell slots за PHB 2014", () => {
       subclass: null,
       multiclasses: [],
     };
-    const maxSlots = getMaximumStandardSpellSlots(fighter, SPELL_SLOT_PROGRESSION.FULL);
+    const maxSlots = getMaximumStandardSpellSlots(fighter, SPELL_SLOT_PROGRESSION.FULL, "RULES_2014");
     expect(maxSlots).toEqual([0, 0, 0, 0, 0, 0, 0, 0, 0]);
   });
 
@@ -68,12 +68,12 @@ describe("KR2.5 — spell slots за PHB 2014", () => {
         },
       ],
     };
-    const casterLevel = calculateCasterLevel(warlockWizard);
+    const casterLevel = calculateCasterLevel(warlockWizard, "RULES_2014");
     expect(casterLevel).toEqual({ casterLevel: 5, pactLevel: 5 });
-    expect(getMaximumStandardSpellSlots(warlockWizard, SPELL_SLOT_PROGRESSION.FULL)).toEqual([
+    expect(getMaximumStandardSpellSlots(warlockWizard, SPELL_SLOT_PROGRESSION.FULL, "RULES_2014")).toEqual([
       4, 3, 2, 0, 0, 0, 0, 0, 0,
     ]);
-    expect(getMaximumPactSpellSlots(warlockWizard, SPELL_SLOT_PROGRESSION.PACT)).toBe(2);
+    expect(getMaximumPactSpellSlots(warlockWizard, SPELL_SLOT_PROGRESSION.PACT, "RULES_2014")).toBe(2);
   });
 
   it("правильно коригує слоти при підвищенні рівня", () => {
@@ -85,3 +85,73 @@ describe("KR2.5 — spell slots за PHB 2014", () => {
   });
 });
 
+
+describe("KR27.6 — рівень заклинача мультикласу 2024 (SRD 5.2.1, Multiclassing → Spell Slots)", () => {
+  const halfCaster = (className: string) => ({ name: className, spellcastingType: "HALF" as const });
+  const fullCaster = (className: string) => ({ name: className, spellcastingType: "FULL" as const });
+  const martial = (className: string) => ({ name: className, spellcastingType: "NONE" as const });
+  const thirdCasterSubclass = { spellcastingType: "THIRD" as const };
+
+  // «Half your levels (round up) in the Paladin and Ranger classes».
+  it("половина рівнів паладина й слідопита округлюється ВГОРУ", () => {
+    const paladinSorcerer = {
+      level: 8,
+      characterClass: halfCaster("PALADIN_2024"),
+      multiclasses: [{ classLevel: 3, characterClass: fullCaster("SORCERER_2024") }],
+    };
+    const rangerDruid = {
+      level: 8,
+      characterClass: halfCaster("RANGER_2024"),
+      multiclasses: [{ classLevel: 3, characterClass: fullCaster("DRUID_2024") }],
+    };
+
+    expect(calculateCasterLevel(paladinSorcerer, "RULES_2024").casterLevel).toBe(6);
+    expect(calculateCasterLevel(rangerDruid, "RULES_2024").casterLevel).toBe(6);
+  });
+
+  // Basic Rules 2024: «one third of your Fighter or Rogue levels (round down)». Р33: асиметрія
+  // навмисна — Пройдисвіт 4 (Таємний) / Бард 4 має 5, не 6.
+  it("третина рівнів Лицаря-Чаклуна й Таємного Пройдисвіта округлюється ВНИЗ", () => {
+    const rogueBard = {
+      level: 8,
+      characterClass: martial("ROGUE_2024"),
+      subclass: thirdCasterSubclass,
+      multiclasses: [{ classLevel: 4, characterClass: fullCaster("BARD_2024") }],
+    };
+    const fighterWizard = {
+      level: 8,
+      characterClass: martial("FIGHTER_2024"),
+      subclass: thirdCasterSubclass,
+      multiclasses: [{ classLevel: 5, characterClass: fullCaster("WIZARD_2024") }],
+    };
+
+    expect(calculateCasterLevel(rogueBard, "RULES_2024").casterLevel).toBe(5);
+    expect(calculateCasterLevel(fighterWizard, "RULES_2024").casterLevel).toBe(6);
+  });
+
+  // PHB 2014, с. 164: у 2014 половинні округлюються вниз — те саме тіло, інша редакція.
+  it("та сама пара класів у 2014 округлюється вниз", () => {
+    const paladinSorcerer = {
+      level: 8,
+      characterClass: halfCaster("PALADIN_2014"),
+      multiclasses: [{ classLevel: 3, characterClass: fullCaster("SORCERER_2014") }],
+    };
+
+    expect(calculateCasterLevel(paladinSorcerer, "RULES_2014").casterLevel).toBe(5);
+  });
+
+  // TCoE: артифіцер округлюється вгору вже у 2014 — той самий випадок, що половинні 2024.
+  it("артифіцер 2014 округлюється вгору тим самим правилом", () => {
+    const artificer = { level: 5, characterClass: halfCaster("ARTIFICER_2014") };
+
+    expect(calculateCasterLevel(artificer, "RULES_2014").casterLevel).toBe(3);
+  });
+
+  // 2024: паладин і слідопит мають слоти вже на 1-му рівні класу.
+  it("одноклассовий паладин 2024 на 1-му рівні вже має рівень заклинача 1", () => {
+    const paladin = { level: 1, characterClass: halfCaster("PALADIN_2024") };
+
+    expect(calculateCasterLevel(paladin, "RULES_2024").casterLevel).toBe(1);
+    expect(calculateCasterLevel(paladin, "RULES_2014").casterLevel).toBe(0);
+  });
+});

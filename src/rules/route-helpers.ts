@@ -1,7 +1,15 @@
 import { Ruleset } from "./types";
 import { isRules2024Allowed } from "./access";
+import { addNoAiPrefix, hasNoAiPrefix, stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
 
 export type Edition = "2014" | "2024";
+
+const LEGACY_CREATOR_PATH = "/char";
+
+const CREATOR_PATH_BY_EDITION: Record<Edition, string> = {
+  "2014": "/char/create",
+  "2024": "/2024/char",
+};
 
 /**
  * Returns the active ruleset / edition from a URL pathname.
@@ -34,6 +42,10 @@ export function getTargetEditionPath(pathname: string, targetEdition: Edition): 
     return pathname;
   }
 
+  if (isCreatorPath(pathname, currentEdition)) {
+    return CREATOR_PATH_BY_EDITION[targetEdition];
+  }
+
   if (targetEdition === "2024") {
     if (pathname === "/") return "/2024";
     return `/2024${pathname}`;
@@ -48,6 +60,16 @@ export function getTargetEditionPath(pathname: string, targetEdition: Edition): 
   return pathname;
 }
 
+function isCreatorPath(pathname: string, edition: Edition): boolean {
+  return pathname === CREATOR_PATH_BY_EDITION[edition];
+}
+
+export function resolveLegacyCreatorRedirect(pathname: string): string | null {
+  if (stripNoAiPrefix(pathname) !== LEGACY_CREATOR_PATH) return null;
+  const target = CREATOR_PATH_BY_EDITION["2014"];
+  return hasNoAiPrefix(pathname) ? addNoAiPrefix(target) : target;
+}
+
 /**
  * Helper to determine the counterpart fallback path for unauthorized 2024 access.
  */
@@ -58,6 +80,6 @@ export function get2014FallbackPath(pathname: string): string {
 /**
  * Access check helper for server components / routes.
  */
-export function canAccess2024Route(user?: { email?: string | null } | null): boolean {
-  return isRules2024Allowed(user);
+export function canAccess2024Route(): boolean {
+  return isRules2024Allowed();
 }

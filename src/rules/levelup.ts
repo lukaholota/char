@@ -1,4 +1,9 @@
-import type { AbilityScores, SpellcastingCharacter } from "./types";
+import type { AbilityScores, Ruleset, SpellcastingCharacter } from "./types";
+import {
+  findAbilityScoreCeiling,
+  raiseAbilityScore,
+  type AbilityScoreIncreaseSource,
+} from "./ability-score-ceiling";
 import {
   applySpellSlotMaximumDelta,
   getMaximumPactSpellSlots,
@@ -7,6 +12,8 @@ import {
 } from "./spellcasting";
 
 export type LevelUpState = {
+  /** Редакція персонажа — від неї залежить округлення половинних заклиначів у слотах. */
+  ruleset: Ruleset;
   level: number;
   scores: AbilityScores;
   maxHp: number;
@@ -22,9 +29,13 @@ export type LevelUpState = {
 
 export type LevelUpChoices = {
   scores: AbilityScores;
+  /** Найщедріше джерело підвищення цього рівня: епічний дар підіймає стелю з 20 до 30. */
+  abilityScoreSource?: AbilityScoreIncreaseSource;
   hitDieIncrease: number;
   hasTough: boolean;
   takesTough: boolean;
+  /** Хіти за рівень від рис виду — Dwarven Toughness і подібні. */
+  traitHitPointsPerLevel?: number;
   spellcastingAfter: SpellcastingCharacter;
   featureIdsToAdd?: readonly number[];
   featureIdsToRemove?: readonly number[];
@@ -40,17 +51,22 @@ export type LevelUpContent = {
 
 export function applyLevelUp(before: LevelUpState, choices: LevelUpChoices, content: LevelUpContent): LevelUpState {
   const nextLevel = before.level + 1;
-  const scores = clampScores(choices.scores);
+  const scores = limitScoresToCeiling(before.scores, choices.scores, findAbilityScoreCeiling({
+    ruleset: before.ruleset,
+    source: choices.abilityScoreSource ?? "STANDARD",
+  }));
   const conModifierDelta = abilityModifier(scores.CON) - abilityModifier(before.scores.CON);
   const toughBonus = choices.takesTough ? 2 * nextLevel : choices.hasTough ? 2 : 0;
-  const hitPointDelta = Math.max(0, toInteger(choices.hitDieIncrease)) + abilityModifier(scores.CON) + toughBonus + conModifierDelta * before.level;
-  const beforeStandardMaximum = getMaximumStandardSpellSlots(before.spellcasting, content.standardProgression);
-  const afterStandardMaximum = getMaximumStandardSpellSlots(choices.spellcastingAfter, content.standardProgression);
-  const beforePactMaximum = getMaximumPactSpellSlots(before.spellcasting, content.pactProgression);
-  const afterPactMaximum = getMaximumPactSpellSlots(choices.spellcastingAfter, content.pactProgression);
+  const traitBonus = Math.max(0, toInteger(choices.traitHitPointsPerLevel ?? 0));
+  const hitPointDelta = Math.max(0, toInteger(choices.hitDieIncrease)) + abilityModifier(scores.CON) + toughBonus + traitBonus + conModifierDelta * before.level;
+  const beforeStandardMaximum = getMaximumStandardSpellSlots(before.spellcasting, content.standardProgression, before.ruleset);
+  const afterStandardMaximum = getMaximumStandardSpellSlots(choices.spellcastingAfter, content.standardProgression, before.ruleset);
+  const beforePactMaximum = getMaximumPactSpellSlots(before.spellcasting, content.pactProgression, before.ruleset);
+  const afterPactMaximum = getMaximumPactSpellSlots(choices.spellcastingAfter, content.pactProgression, before.ruleset);
   const currentPactSlots = Math.max(0, toInteger(before.currentPactSlots));
 
   return {
+    ruleset: before.ruleset,
     level: nextLevel,
     scores,
     maxHp: before.maxHp + hitPointDelta,
@@ -71,15 +87,12 @@ export function mergeUniqueLines(base: unknown, extras: readonly string[]): stri
   return Array.from(new Set([...lines, ...extras].map((line) => line.trim()).filter(Boolean))).join("\n");
 }
 
-function clampScores(scores: AbilityScores): AbilityScores {
-  return {
-    STR: Math.min(20, toInteger(scores.STR)),
-    DEX: Math.min(20, toInteger(scores.DEX)),
-    CON: Math.min(20, toInteger(scores.CON)),
-    INT: Math.min(20, toInteger(scores.INT)),
-    WIS: Math.min(20, toInteger(scores.WIS)),
-    CHA: Math.min(20, toInteger(scores.CHA)),
-  };
+function limitScoresToCeiling(before: AbilityScores, after: AbilityScores, ceiling: number): AbilityScores {
+  const abilities = ["STR", "DEX", "CON", "INT", "WIS", "CHA"] as const;
+  return Object.fromEntries(abilities.map((ability) => {
+    const previous = toInteger(before[ability]);
+    return [ability, raiseAbilityScore(previous, toInteger(after[ability]) - previous, ceiling)];
+  })) as AbilityScores;
 }
 
 function abilityModifier(score: number): number {

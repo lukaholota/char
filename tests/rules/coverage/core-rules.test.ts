@@ -41,7 +41,7 @@ describe("KR3.5 — pure rules coverage", () => {
       level: 10,
       characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" },
       multiclasses: [{ classLevel: 5, characterClass: { name: "WARLOCK_2014", spellcastingType: "PACT" } }],
-    })).toEqual({ casterLevel: 5, pactLevel: 5 });
+    }, "RULES_2014")).toEqual({ casterLevel: 5, pactLevel: 5 });
   });
 
   it("accepts only valid ability payloads and applies bounded increases", () => {
@@ -102,16 +102,16 @@ describe("KR3.5 — pure rules coverage", () => {
   });
 
   it("clamps slot values and accounts for full, half, third, artificer and subclass casters", () => {
-    expect(calculateCasterLevel({ level: 40, characterClass: { name: "ARTIFICER_2014", spellcastingType: "HALF" } })).toEqual({ casterLevel: 10, pactLevel: 0 });
-    expect(calculateCasterLevel({ level: 6, characterClass: { spellcastingType: "NONE" }, subclass: { spellcastingType: "THIRD" } })).toEqual({ casterLevel: 2, pactLevel: 0 });
-    expect(calculateCasterLevel({ level: Number.NaN, characterClass: { spellcastingType: "HALF" }, multiclasses: [{ classLevel: 3.9, characterClass: { spellcastingType: "FULL" } }] })).toEqual({ casterLevel: 3, pactLevel: 0 });
+    expect(calculateCasterLevel({ level: 40, characterClass: { name: "ARTIFICER_2014", spellcastingType: "HALF" } }, "RULES_2014")).toEqual({ casterLevel: 10, pactLevel: 0 });
+    expect(calculateCasterLevel({ level: 6, characterClass: { spellcastingType: "NONE" }, subclass: { spellcastingType: "THIRD" } }, "RULES_2014")).toEqual({ casterLevel: 2, pactLevel: 0 });
+    expect(calculateCasterLevel({ level: Number.NaN, characterClass: { spellcastingType: "HALF" }, multiclasses: [{ classLevel: 3.9, characterClass: { spellcastingType: "FULL" } }] }, "RULES_2014")).toEqual({ casterLevel: 3, pactLevel: 0 });
     expect(getStandardSpellSlots(-1, { 0: [1] })).toEqual([1]);
     expect(getPactMagicSlots(50, { 20: { slots: 4, level: 5 } })).toEqual({ slots: 4, level: 5 });
     expect(normalizeSpellSlotArray(["2", -1, 1.8, "bad"])).toEqual([2, 0, 1, 0, 0, 0, 0, 0, 0]);
     expect(applySpellSlotMaximumDelta([3, 1], [2, 2], [1, 4])).toEqual([1, 3, 0, 0, 0, 0, 0, 0, 0]);
     const character = { level: 5, characterClass: { spellcastingType: "FULL" as const } };
-    expect(getMaximumStandardSpellSlots(character, { 5: [4, 3] })).toEqual([4, 3, 0, 0, 0, 0, 0, 0, 0]);
-    expect(getMaximumPactSpellSlots({ ...character, characterClass: { spellcastingType: "PACT" as const } }, { 5: { slots: 2, level: 3 } })).toBe(2);
+    expect(getMaximumStandardSpellSlots(character, { 5: [4, 3] }, "RULES_2014")).toEqual([4, 3, 0, 0, 0, 0, 0, 0, 0]);
+    expect(getMaximumPactSpellSlots({ ...character, characterClass: { spellcastingType: "PACT" as const } }, { 5: { slots: 2, level: 3 } }, "RULES_2014")).toBe(2);
   });
 
   it("builds creation state across Tasha choices, feat effects and slot kinds", () => {
@@ -150,11 +150,13 @@ describe("KR3.5 — pure rules coverage", () => {
     }, { standardProgression: { 4: [3], 5: [4] }, pactProgression: { 5: { slots: 2, level: 3 } } });
     expect(after).toMatchObject({ level: 5, scores: { CON: 20 }, maxHp: 55, currentHp: 54, currentSpellSlots: [0, 0, 0, 0, 0, 0, 0, 0, 0], currentPactSlots: 2, featureIds: [2, 3], proficientSkills: ["ARCANA", "STEALTH"], expertiseSkills: ["STEALTH"], additionalSaveProficiencies: ["CON", "WIS"] });
     expect(mergeUniqueLines(null, [" Common ", "", "Elvish", "Common"])).toBe("Common\nElvish");
+    // KR27.9: підвищення рівня показник не знижує — сміттєвий STR (NaN) і CON 9 лишають
+    // персонажеві його десятки, а DEX 21 обрізається стелею. Раніше тут виходили 0 і 9.
     expect(applyLevelUp({ ...before, currentPactSlots: -1 }, {
       scores: { STR: Number.NaN, DEX: 21, CON: 9, INT: 10, WIS: 10, CHA: 10 }, hitDieIncrease: Number.NaN,
       hasTough: true, takesTough: false, spellcastingAfter: before.spellcasting,
     }, { standardProgression: { 4: [3] }, pactProgression: {} })).toMatchObject({
-      scores: { STR: 0, DEX: 20, CON: 9 }, currentPactSlots: 0, featureIds: [1, 2], proficientSkills: ["ARCANA"],
+      scores: { STR: 10, DEX: 20, CON: 10 }, currentPactSlots: 0, featureIds: [1, 2], proficientSkills: ["ARCANA"],
     });
   });
 });

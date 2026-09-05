@@ -1,34 +1,27 @@
 import { describe, expect, it } from "vitest";
-import {
-  calculateAverageHitPointIncrease,
-  calculateInitialHitPoints,
-  calculateLevelUpHitPoints,
-} from "@/rules/health";
-import { calculateAbilityModifier } from "@/rules/abilities";
+import { sumFeatureHitPointsPerLevel } from "@/rules/hit-points";
 
-describe("KR2.5 — hit points за PHB 2014", () => {
-  // PHB 2014, с. 15 «Hit Points and Hit Dice».
-  it("на 1 рівні додає весь hit die і модифікатор CON", () => {
-    const conMod = calculateAbilityModifier(14); // 14 CON -> +2
-    const fighterHitDie = 10;
-    const initialHp = calculateInitialHitPoints(fighterHitDie, conMod);
-    expect(initialHp).toBe(12);
+const DWARVEN_TOUGHNESS = { featureId: 1, bonusHitPointsPerLevel: 1 };
+const DARKVISION = { featureId: 2, bonusHitPointsPerLevel: null };
+
+describe("sumFeatureHitPointsPerLevel", () => {
+  it("складає бонуси різних фіч", () => {
+    expect(sumFeatureHitPointsPerLevel([DWARVEN_TOUGHNESS, { featureId: 3, bonusHitPointsPerLevel: 2 }])).toBe(3);
   });
 
-  // PHB 2014, с. 15 «Hit Points and Hit Dice».
-  it("на левелапі додає середній hit die, округлений вгору, і CON", () => {
-    const conMod = calculateAbilityModifier(14); // +2
-    const fighterHitDie = 10;
-    const initialHp = calculateInitialHitPoints(fighterHitDie, conMod); // 12
-    const avgHitDie = calculateAverageHitPointIncrease(fighterHitDie); // 6
-    const level2Hp = calculateLevelUpHitPoints({
-      currentHitPoints: initialHp,
-      hitDieIncrease: avgHitDie,
-      constitutionModifier: conMod,
-      toughBonus: 0,
-      retroactiveConstitutionBonus: 0,
-    });
-    expect(level2Hp).toBe(20);
+  it("фіча без бонусу нічого не додає", () => {
+    expect(sumFeatureHitPointsPerLevel([DARKVISION])).toBe(0);
+  });
+
+  it("та сама фіча двічі рахується один раз", () => {
+    expect(sumFeatureHitPointsPerLevel([DWARVEN_TOUGHNESS, { ...DWARVEN_TOUGHNESS }])).toBe(1);
+  });
+
+  it("порожній список дає нуль", () => {
+    expect(sumFeatureHitPointsPerLevel([])).toBe(0);
+  });
+
+  it("відʼємне або нечислове значення ігнорується, а не віднімає хіти", () => {
+    expect(sumFeatureHitPointsPerLevel([{ featureId: 4, bonusHitPointsPerLevel: -3 }])).toBe(0);
   });
 });
-

@@ -7,6 +7,7 @@ describe("KR2.5 — Pact Magic за PHB 2014", () => {
   // PHB 2014, с. 107 «The Warlock»; PHB 2014, с. 164 «Multiclassing → Spell Slots».
   it("не змішує pact level зі стандартним caster level", () => {
     const pers = {
+      ruleset: "RULES_2014" as const,
       level: 10,
       class: { name: Classes.WIZARD_2014, spellcastingType: SpellcastingType.FULL },
       subclass: null,

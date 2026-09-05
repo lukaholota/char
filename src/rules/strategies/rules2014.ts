@@ -2,6 +2,7 @@ import { addAbilityBonuses, getPlainBonuses, getSimpleBonuses, normalizeASI } fr
 import { isAbilityScoreIncreaseLevel, needsSubclassSelection } from "../progression";
 import type { AbilityScores, ClassProgression } from "../types";
 import type { OriginFeatRequirement, RulesStrategy } from "./types";
+import { STANDARD_ABILITY_SCORE_CEILING } from "../ability-score-ceiling";
 
 export const rules2014Strategy: RulesStrategy = {
   ruleset: "RULES_2014",
@@ -16,7 +17,7 @@ export const rules2014Strategy: RulesStrategy = {
     let updated = addAbilityBonuses(scores, getSimpleBonuses(normalized)) as AbilityScores;
     updated = addAbilityBonuses(updated, getPlainBonuses(speciesASI)) as AbilityScores;
     return Object.fromEntries(
-      Object.entries(updated).map(([ability, score]) => [ability, Math.min(20, score)]),
+      Object.entries(updated).map(([ability, score]) => [ability, Math.min(STANDARD_ABILITY_SCORE_CEILING, score)]),
     ) as AbilityScores;
   },
   applyBackgroundASI(scores: AbilityScores): AbilityScores {

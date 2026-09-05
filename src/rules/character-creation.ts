@@ -14,6 +14,7 @@ import { calculateCasterLevel } from "./spellcasting";
 import type { AbilityKey, AbilityScores, BackgroundASIChoice, SpellcastingKind } from "./types";
 import { getRulesStrategy } from "./strategies";
 import type { RulesetId } from "./strategies/types";
+import { STANDARD_ABILITY_SCORE_CEILING } from "./ability-score-ceiling";
 
 export type CreationAbilityInput = {
   ruleset?: RulesetId;
@@ -60,6 +61,8 @@ export type InitialCharacterRulesInput = CreationAbilityInput & {
   savingThrows: string[];
   hitDie: number;
   hasTough: boolean;
+  /** Хіти за кожен рівень персонажа від рис виду — Dwarven Toughness і подібні. */
+  traitHitPointsPerLevel?: number;
   standardProgression: Record<number, readonly number[]>;
   pactProgression: Record<number, { slots: number; level: number }>;
 };
@@ -75,7 +78,7 @@ export function buildInitialCharacterState(input: InitialCharacterRulesInput): C
   return {
     ...abilityResult,
     ...slots,
-    maxHp: getInitialHitPoints(input.hitDie, abilityResult.scores.CON, input.hasTough),
+    maxHp: getInitialHitPoints(input.hitDie, abilityResult.scores.CON, input.hasTough) + (input.traitHitPointsPerLevel ?? 0),
     savingThrows: Array.from(new Set([...input.savingThrows, ...abilityResult.resilientSavingThrows])),
   };
 }
@@ -118,15 +121,17 @@ function applyRaceChoiceAbilityBonuses(scores: AbilityScores, choices: Array<{ A
 }
 
 export function getInitialSpellSlots(input: {
+  ruleset?: RulesetId;
   className: string | null | undefined;
   spellcastingType: SpellcastingKind | null | undefined;
   standardProgression: Record<number, readonly number[]>;
   pactProgression: Record<number, { slots: number; level: number }>;
 }): { currentSpellSlots: number[]; currentPactSlots: number } {
-  const caster = calculateCasterLevel({
-    level: 1,
-    characterClass: { name: input.className, spellcastingType: input.spellcastingType },
-  });
+  // Паладин і слідопит 2024 мають слоти вже на 1-му рівні: половина вгору дає рівень заклинача 1.
+  const caster = calculateCasterLevel(
+    { level: 1, characterClass: { name: input.className, spellcastingType: input.spellcastingType } },
+    input.ruleset ?? "RULES_2014",
+  );
   const standard = input.standardProgression[caster.casterLevel] ?? [];
   const pact = input.pactProgression[caster.pactLevel];
 
@@ -197,7 +202,7 @@ function getAbilityFromChoiceOption(option: CreationFeatAbilityInput["choiceOpti
 }
 
 function clampAbilityScores(scores: AbilityScores): AbilityScores {
-  return Object.fromEntries(Object.entries(scores).map(([ability, score]) => [ability, Number.isFinite(score) ? Math.min(20, score) : score])) as AbilityScores;
+  return Object.fromEntries(Object.entries(scores).map(([ability, score]) => [ability, Number.isFinite(score) ? Math.min(STANDARD_ABILITY_SCORE_CEILING, score) : score])) as AbilityScores;
 }
 
 function toSlotCount(value: number | undefined): number {

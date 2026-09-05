@@ -23,8 +23,8 @@ describe("KR3.3 — pure level-up helpers", () => {
       characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" as const },
       multiclasses: [{ classLevel: 5, characterClass: { name: "WARLOCK_2014", spellcastingType: "PACT" as const } }],
     };
-    expect(getMaximumStandardSpellSlots(character, standardProgression)).toEqual([4, 3, 2, 0, 0, 0, 0, 0, 0]);
-    expect(getMaximumPactSpellSlots(character, pactProgression)).toBe(2);
+    expect(getMaximumStandardSpellSlots(character, standardProgression, "RULES_2014")).toEqual([4, 3, 2, 0, 0, 0, 0, 0, 0]);
+    expect(getMaximumPactSpellSlots(character, pactProgression, "RULES_2014")).toBe(2);
   });
 
   it("normalizes fixed and choice skill payloads", () => {

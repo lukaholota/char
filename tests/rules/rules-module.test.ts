@@ -34,7 +34,7 @@ describe("KR3.1 — чистий rules module", () => {
       level: 10,
       characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" },
       multiclasses: [{ classLevel: 5, characterClass: { name: "WARLOCK_2014", spellcastingType: "PACT" } }],
-    });
+    }, "RULES_2014");
     expect(caster).toEqual({ casterLevel: 5, pactLevel: 5 });
     expect(calculateCasterLevel({
       level: 14,
@@ -43,7 +43,7 @@ describe("KR3.1 — чистий rules module", () => {
         { classLevel: 6, characterClass: { name: "FIGHTER_2014", spellcastingType: "NONE" }, subclass: { spellcastingType: "THIRD" } },
         { classLevel: 3, characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" } },
       ],
-    })).toEqual({ casterLevel: 7, pactLevel: 0 });
+    }, "RULES_2014")).toEqual({ casterLevel: 7, pactLevel: 0 });
     expect(getStandardSpellSlots(2, { 2: [3, 0, 0] })).toEqual([3, 0, 0]);
     expect(getPactMagicSlots(5, { 5: { slots: 2, level: 3 } })).toEqual({ slots: 2, level: 3 });
   });

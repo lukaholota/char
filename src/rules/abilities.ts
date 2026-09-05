@@ -1,4 +1,5 @@
 import type { AbilityKey, AbilityScores } from "./types";
+import { STANDARD_ABILITY_SCORE_CEILING, raiseAbilityScore } from "./ability-score-ceiling";
 
 type UnknownRecord = Record<string, unknown>;
 
@@ -154,5 +155,30 @@ export function applyAbilityScoreIncrease(
   ability: AbilityKey,
   increase: number,
 ): AbilityScores {
-  return { ...scores, [ability]: Math.min(20, scores[ability] + increase) };
+  return { ...scores, [ability]: raiseAbilityScore(scores[ability], increase, STANDARD_ABILITY_SCORE_CEILING) };
+}
+
+export type CustomAsiEntry = { ability?: string; value?: string | number };
+
+/** PHB — ASI: одна характеристика +2, або дві по +1 кожній, і жодна двічі в одному пакеті. */
+export function findCustomAsiPackageProblem(customAsi: unknown): string | null {
+  if (!Array.isArray(customAsi)) return null;
+  const entries = (customAsi as CustomAsiEntry[]).filter((entry) => entry?.ability != null);
+  if (!entries.length) return null;
+
+  const seenAbilities = new Set<string>();
+  let total = 0;
+  for (const entry of entries) {
+    const ability = String(entry.ability ?? "").toUpperCase();
+    const delta = Number(entry.value);
+    if (!isAbilityKey(ability)) return "Невідома характеристика в пакеті підвищення";
+    if (delta !== 1 && delta !== 2) return "Підвищення характеристики має бути +1 або +2";
+    if (seenAbilities.has(ability)) return "Кожна характеристика підвищується не більше одного разу за раз";
+    seenAbilities.add(ability);
+    total += delta;
+  }
+
+  if (total !== 2) return "Підвищення характеристик — рівно 2 очки: одна +2 або дві по +1";
+
+  return null;
 }

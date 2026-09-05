@@ -27,6 +27,24 @@ const ABILITY_SCORE_UP_LEVELS = [
   [Classes.WIZARD_2014, [4, 8, 12, 16, 19]],
 ] as const;
 
+const ABILITY_SCORE_UP_LEVELS_2024 = [
+  // SRD 5.2.1, data/2024/srd/classes.md — «You gain this feature again at <Class> levels …».
+  // 19-й рівень — Епічний дар, не ASI. Винахідника в SRD немає; додаткових ASI він не має.
+  [Classes.BARBARIAN_2024, [4, 8, 12, 16]],
+  [Classes.BARD_2024, [4, 8, 12, 16]],
+  [Classes.CLERIC_2024, [4, 8, 12, 16]],
+  [Classes.DRUID_2024, [4, 8, 12, 16]],
+  [Classes.FIGHTER_2024, [4, 6, 8, 12, 14, 16]],
+  [Classes.MONK_2024, [4, 8, 12, 16]],
+  [Classes.PALADIN_2024, [4, 8, 12, 16]],
+  [Classes.RANGER_2024, [4, 8, 12, 16]],
+  [Classes.ROGUE_2024, [4, 8, 10, 12, 16]],
+  [Classes.SORCERER_2024, [4, 8, 12, 16]],
+  [Classes.WARLOCK_2024, [4, 8, 12, 16]],
+  [Classes.WIZARD_2024, [4, 8, 12, 16]],
+  [Classes.ARTIFICER_2024, [4, 8, 12, 16]],
+] as const;
+
 afterAll(disconnectDatabase);
 
 describe("KR2.5 — subclass та ASI levels 12 PHB-класів", () => {
@@ -39,6 +57,27 @@ describe("KR2.5 — subclass та ASI levels 12 PHB-класів", () => {
   it.each(ABILITY_SCORE_UP_LEVELS)("%s має рівні ASI %j", async (className, expectedLevels) => {
     const characterClass = await classByName(className);
     expect(characterClass.abilityScoreUpLevels).toEqual(expectedLevels);
+  });
+});
+
+describe("KR27.3 — рівні ASI 13 класів 2024 у базі", () => {
+  it.each(ABILITY_SCORE_UP_LEVELS_2024)("%s має рівні ASI %j", async (className, expectedLevels) => {
+    const characterClass = await classByName(className);
+    expect(characterClass.abilityScoreUpLevels).toEqual(expectedLevels);
+  });
+});
+
+describe("KR27.6 — третинні підкласи 2024 у базі", () => {
+  it("лише Лицар-Чаклун і Таємний Пройдисвіт 2024 мають чаклування підкласу — THIRD з INT", async () => {
+    const casters = await prisma.subclass.findMany({
+      where: { ruleset: "RULES_2024", spellcastingType: { not: "NONE" } },
+      select: { name: true, spellcastingType: true, primaryCastingStat: true },
+    });
+    // `orderBy: { name }` сортує за порядком енама, не за абеткою.
+    expect(casters.sort((left, right) => left.name.localeCompare(right.name))).toEqual([
+      { name: "ARCANE_TRICKSTER", spellcastingType: "THIRD", primaryCastingStat: "INT" },
+      { name: "ELDRITCH_KNIGHT", spellcastingType: "THIRD", primaryCastingStat: "INT" },
+    ]);
   });
 });
 
