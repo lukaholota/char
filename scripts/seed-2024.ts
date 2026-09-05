@@ -23,6 +23,8 @@ import { seedClasses2024 } from "../prisma/seed/classSeed2024";
 import { seedSubclasses2024 } from "../prisma/seed/subclassSeed2024";
 import { seedWeapons2024 } from "../prisma/seed/weaponSeed2024";
 import { seedSpells2024 } from "../prisma/seed/spellSeed2024";
+import { seedClassEquipment2024 } from "../prisma/seed/classEquipment2024";
+import { seedMetamagic2024 } from "../prisma/seed/metamagic2024";
 
 import * as dotenv from "dotenv";
 
@@ -78,20 +80,48 @@ const pool = new Pool({ connectionString });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
+const SEEDERS = {
+  feats: seedFeats2024,
+  backgrounds: seedBackgrounds2024,
+  "backgrounds-existing": update15ExistingBackgrounds2024,
+  races: seedRaces2024,
+  classes: seedClasses2024,
+  subclasses: seedSubclasses2024,
+  metamagic: seedMetamagic2024,
+  weapons: seedWeapons2024,
+  spells: seedSpells2024,
+  // Останнім: рядки посилаються на класи й зброю, засіяні вище, і на набори
+  // спорядження 2024 зі scripts/seed-equipment-packs.ts.
+  "class-equipment": seedClassEquipment2024,
+} as const;
+
+/** Правка в одному файлі даних не варта повного пересіву 391 заклинання й 48 підкласів. */
+function readSelectedSeeders(argv: string[]): Array<keyof typeof SEEDERS> {
+  const flagIndex = argv.indexOf("--only");
+  if (flagIndex === -1) return Object.keys(SEEDERS) as Array<keyof typeof SEEDERS>;
+
+  const selected = (argv[flagIndex + 1] ?? "").split(",").map((name) => name.trim()).filter(Boolean);
+  const unknown = selected.filter((name) => !(name in SEEDERS));
+  if (!selected.length || unknown.length) {
+    throw new Error(
+      `--only приймає перелік через кому з: ${Object.keys(SEEDERS).join(", ")}.` +
+        (unknown.length ? ` Невідоме: ${unknown.join(", ")}.` : ""),
+    );
+  }
+
+  return selected as Array<keyof typeof SEEDERS>;
+}
+
 async function main() {
   const dbName = new URL(connectionString).pathname.replace(/^\//, "");
-  console.log(`🚀 Starting KR6.3 2024 Content Seeding for database "${dbName}" (--target ${target})…\n`);
+  const selected = readSelectedSeeders(process.argv);
+  console.log(
+    `🚀 Starting KR6.3 2024 Content Seeding for database "${dbName}" (--target ${target}, ${selected.join(", ")})…\n`,
+  );
 
   const startTime = Date.now();
 
-  await seedFeats2024(prisma);
-  await seedBackgrounds2024(prisma);
-  await update15ExistingBackgrounds2024(prisma);
-  await seedRaces2024(prisma);
-  await seedClasses2024(prisma);
-  await seedSubclasses2024(prisma);
-  await seedWeapons2024(prisma);
-  await seedSpells2024(prisma);
+  for (const name of selected) await SEEDERS[name](prisma);
 
   const durationSec = ((Date.now() - startTime) / 1000).toFixed(1);
   console.log(`\n🎉 All 2024 content seeded successfully in ${durationSec}s!`);

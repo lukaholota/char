@@ -60,7 +60,12 @@ async function main() {
 
   try {
     const pdfBytes = await generateCharacterPdfFromData(
-      { pers: persMock as any, features: featuresMock as any, spellsByLevel: spellsByLevelMock as any },
+      {
+        pers: persMock as any,
+        features: featuresMock as any,
+        spellsByLevel: spellsByLevelMock as any,
+        wildshapeForms: [],
+      },
       {
         sections: ["CHARACTER", "FEATURES", "SPELLS", "MAGIC_ITEMS"],
         flattenCharacterSheet: true,

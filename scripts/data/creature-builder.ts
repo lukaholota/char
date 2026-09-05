@@ -39,6 +39,8 @@ export function createCreature(
     bonusActions?: string;
     xpInLair?: string;
     imageUrl?: string;
+    mythicInfo?: string;
+    mythicActions?: string;
   }
 ): GeneratedCreature {
   const formatStat = (val: number) => {
@@ -90,6 +92,8 @@ export function createCreature(
       damageVulnerability: meta.damageVulnerability,
       xpInLair: meta.xpInLair,
       imageUrl: meta.imageUrl,
+      mythicInfo: meta.mythicInfo,
+      mythicActions: meta.mythicActions,
     }),
   };
 }

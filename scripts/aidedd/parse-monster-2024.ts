@@ -5,8 +5,9 @@ import {
   buildEmptyAbilityScores,
 } from "./creature-schema";
 import {
-  decodeHtmlEntities,
   findFieldValue,
+  findHeadingText,
+  findPictureUrl,
   findParagraphEntries,
   stripHtmlToText,
 } from "./html-statblock";
@@ -36,7 +37,7 @@ export function parseMonster2024(html: string, slug: string): ParsedCreature {
 
   return {
     slug,
-    nameEng: findHeading(html),
+    nameEng: findHeadingText(html),
     ruleset: "RULES_2024",
     size: typeLine.size,
     type: typeLine.type,
@@ -65,11 +66,16 @@ export function parseMonster2024(html: string, slug: string): ParsedCreature {
     reactions: sections.reactions,
     legendaryActions: sections.legendaryActions,
     legendaryActionUses: findLegendaryActionUses(statblock),
+    lairInfo: "",
+    lairActions: [],
+    regionEffects: [],
+    mythicInfo: "",
+    mythicActions: [],
     habitat: findDivText(html, "habitat").replace(/^Habitat\s*:\s*/i, ""),
     treasure: findTreasure(html),
     description: findDivText(html, "description"),
     source: findDivText(html, "source"),
-    imageUrl: findImageUrl(html, slug),
+    imageUrl: findPictureUrl(html, "https://www.aidedd.org/monster/"),
   };
 }
 
@@ -78,11 +84,6 @@ function cutStatblock(html: string): string {
   const end = html.indexOf("<div class='description'>");
   if (start < 0) return html;
   return end > start ? html.slice(start, end) : html.slice(start);
-}
-
-function findHeading(html: string): string {
-  const match = /<h1>([\s\S]*?)<\/h1>/i.exec(html);
-  return match ? stripHtmlToText(match[1]) : "";
 }
 
 function findDivText(html: string, className: string): string {
@@ -97,14 +98,6 @@ function findTreasure(html: string): string {
     if (/^Treasure\s*:/i.test(text)) return text.replace(/^Treasure\s*:\s*/i, "");
   }
   return "";
-}
-
-function findImageUrl(html: string, slug: string): string {
-  const match = /<div class='picture'>[\s\S]*?<img[^>]*src='([^']+)'/i.exec(html);
-  if (!match) return "";
-  const src = decodeHtmlEntities(match[1]);
-  if (src.startsWith("http")) return src;
-  return `https://www.aidedd.org/monster/${src.replace(/^\.?\//, "")}`;
 }
 
 /// The 2024 table is a flat run of divs: car1/car2/car3 for the first row, car4/car5/car6

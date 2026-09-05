@@ -261,7 +261,7 @@ function readJsonList(relativePath: string): Record<string, unknown>[] {
 
   return parsed.map((row, index) => {
     if (row === null || typeof row !== "object" || Array.isArray(row)) {
-      throw new Error(`${relativePath}[${index}]: очікували об'єкт`);
+      throw new Error(`${relativePath}[${index}]: очікували обʼєкт`);
     }
     return row as Record<string, unknown>;
   });

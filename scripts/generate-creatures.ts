@@ -1,19 +1,15 @@
 /**
- * Generate static creatures.json from Prisma database
- * Run: npx tsx scripts/generate-creatures.ts
+ * Форма одного запису бестіарію. Каталог 2014 збирає `build-creatures-2014.ts`, каталог 2024 —
+ * `build-creatures-2024.ts`; обидва пишуть у `src/lib/generated/`.
+ *
+ * Тут колись жив ще й генератор із бази, і він був зарядженою міною: писав у той самий шлях, що
+ * `build-creatures-2014.ts`, але брав дані з таблиці `creature`, у якій 7 рядків проти 1 183 у
+ * каталозі, а збій підключення ловив у `catch { console.warn }` і записував порожній масив із
+ * кодом виходу 0. Врятувало лише те, що його не було в жодному npm-скрипті. Прибрано 2026-08-28
+ * (STATE.md, дефект №5); імʼя модуля лишилося, бо тип звідси імпортують 20 файлів.
  */
 
-import { PrismaClient, Ruleset } from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { Pool } from 'pg';
-import { writeFileSync, mkdirSync } from 'fs';
-import { dirname, join } from 'path';
-import * as dotenv from 'dotenv';
-import { keepFilled } from './lib/keep-filled';
-
-dotenv.config();
-
-const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/creatures.json');
+import { Ruleset } from '@prisma/client';
 
 export type GeneratedCreature = {
   creatureId: number;
@@ -60,86 +56,10 @@ export type GeneratedCreature = {
   damageVulnerability?: string;
   xpInLair?: string;
   imageUrl?: string;
+  /// Розміри локального webp (KR12.4) — картка резервує місце під картинку до завантаження.
+  imageWidth?: number;
+  imageHeight?: number;
+  /// Міфічні дії (KR16.3, партія 16). Опційні: у корпусі 2014 їх несе один запис із 935.
+  mythicInfo?: string;
+  mythicActions?: string;
 };
-
-async function main() {
-  console.log('🐉 Generating creatures.json...');
-
-  let data: GeneratedCreature[] = [];
-
-  const connString = process.env.TEST_DATABASE_URL || process.env.DATABASE_URL;
-  if (connString) {
-    try {
-      const pool = new Pool({ connectionString: connString });
-      const adapter = new PrismaPg(pool);
-      const prisma = new PrismaClient({ adapter });
-
-      const creatures = await prisma.creature.findMany({
-        where: { ruleset: "RULES_2014" },
-        orderBy: [{ name: 'asc' }],
-      });
-
-      data = creatures.map((c) => ({
-        creatureId: c.creatureId,
-        name: c.name || "",
-        nameEng: c.nameEng || "",
-        size: c.size || "",
-        type: c.type || "",
-        alignment: c.alignment || "",
-        source: String(c.source || "MM"),
-        ac: c.ac || "",
-        hp: c.hp || "",
-        speed: c.speed || "",
-        strength: c.strength || "10 (+0)",
-        dexterity: c.dexterity || "10 (+0)",
-        constitution: c.constitution || "10 (+0)",
-        intelligence: c.intelligence || "10 (+0)",
-        wisdom: c.wisdom || "10 (+0)",
-        charisma: c.charisma || "10 (+0)",
-        skills: c.skills || "",
-        senses: c.senses || "",
-        languages: c.languages || "",
-        challenge: c.challenge || "-",
-        damageImmunity: c.damageImmunity || "",
-        damageResistance: c.damageResistance || "",
-        conditionImmunity: c.conditionImmunity || "",
-        savingThrows: c.savingThrows || "",
-        specialAbilities: c.specialAbilities || "",
-        actions: c.actions || "",
-        reactions: c.reactions || "",
-        legendaryActions: c.legendaryActions || "",
-        proficiencyBonus: c.proficiencyBonus || "",
-        description: c.description || "",
-        lairActions: c.lairActions || "",
-        lairInfo: c.lairInfo || "",
-        regionEffects: c.regionEffects || "",
-        xp: c.xp || "-",
-        ruleset: "RULES_2014" as Ruleset,
-        ...keepFilled({
-          initiative: c.initiative,
-          gear: c.gear,
-          bonusActions: c.bonusActions,
-          damageVulnerability: c.damageVulnerability,
-          xpInLair: c.xpInLair,
-          imageUrl: c.imageUrl,
-        }),
-      }));
-
-      await prisma.$disconnect();
-      await pool.end();
-    } catch (e) {
-      console.warn('⚠️ Could not fetch creatures from database:', e);
-    }
-  }
-
-  // Ensure directory exists
-  mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
-
-  // Write JSON file
-  writeFileSync(OUTPUT_PATH, JSON.stringify(data, null, 2), 'utf-8');
-  console.log(`✅ Generated ${data.length} creatures to ${OUTPUT_PATH}`);
-}
-
-if (import.meta.url === `file://${process.argv[1]}`) {
-  main();
-}

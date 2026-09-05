@@ -19,6 +19,31 @@ export const STANDALONE_FILES = [
   "bastions.json",
   /// Списки класів заклинання лежать не в самому записі, а тут: `SOURCE → назва → class[]`.
   "spells/sources.json",
+  /// Дії лігва й регіональні ефекти лежать не в статблоці, а тут: запис посилається сюди
+  /// полем `legendaryGroup` (`{name, source}`). Без цього файла 52 зі 124 істот, що лишилися
+  /// в черзі KR16.3, приїхали б із порожніми `lairActions` і `regionEffects`.
+  "bestiary/legendarygroups.json",
+  /// Варіантні й необовʼязкові правила поза SRD (Flanking, Rest Variants, Spell Points,
+  /// міжчасся XGtE, підручні TCoE) — джерело KR20.5 замість скрейпу wikidot.
+  "variantrules.json",
+  /// Іменовані пастки й небезпеки поза SRD (DMG, XGtE, TCoE, XDMG, XPHB) — KR23.3. Оглядові
+  /// статті «Пастки» самі йдуть зі SRD (`rules-2014.json`/`rules-2024.json`), цей файл додає
+  /// конкретні приклади понад ті, що SRD уже друкує дослівно (позначені тут `srd`/`srd52`).
+  "trapshazards.json",
+  /// Дрібні реєстри поза SRD — KR23.5. Більшість записів уже в довіднику (дії й дії статблока
+  /// зі SRD, 14 станів, навички); ці чотири файли додають те, чого SRD не друкує: 6 хвороб
+  /// Додатка A PHB, три статті глосарію чуттів PHB (сторінка «Monsters», не рядки правил) і
+  /// 17 облогових знарядь DMG/XDMG.
+  "actions.json",
+  "conditionsdiseases.json",
+  "objects.json",
+  "senses.json",
+  /// DMG 2024 глави 1–3 (The Basics, Running the Game, DM's Toolbox) — KR23.4. Дерево тут
+  /// інше, ніж `variantrules.json`: `section` вкладений у `section`, а не пласкі записи.
+  "book/book-xdmg.json",
+  /// PHB 2014 глави 1 (Step-by-Step Characters) і 4 (Personality and Background) — KR29.1.
+  /// Покрокового створення персонажа немає в SRD 5.1 взагалі, тому єдиний шлях — текст книги.
+  "book/book-phb.json",
 ] as const;
 
 export const INDEX_FILES = ["bestiary/index.json", "spells/index.json"] as const;

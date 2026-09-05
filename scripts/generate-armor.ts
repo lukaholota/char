@@ -10,6 +10,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
 import { armorTranslations, armorTranslationsEng } from '../src/lib/refs/translation';
+import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
 
 dotenv.config();
 
@@ -109,6 +110,22 @@ function buildArmor(row: ArmorRow): GeneratedArmor {
   };
 }
 
+/// Нижня межа каталогу 2014. `src/lib/generated/armor.json` у `.gitignore` і з git не
+/// відновлюється, а `generate:content` висить на `prebuild` — тобто база, у якій бракує
+/// рядка, мовчки стирає його публічну сторінку. Саме це вже сталося з `PADDED`, коли той
+/// опинився в `RULES_2024`. Поріг рухають разом із каталогом, а не прибирають. — KR16.5
+const MINIMUM_EXPECTED_ARMOR = 20;
+
+const REQUIRED_CODES: ArmorCategory[] = [
+  'PADDED', 'LEATHER', 'STUDDED_LEATHER', 'HIDE', 'CHAIN_SHIRT', 'SCALE_MAIL',
+  'BREASTPLATE', 'HALF_PLATE', 'RING_MAIL', 'CHAIN_MAIL', 'SPLINT', 'PLATE', 'SHIELD',
+];
+
+function findMissingRequiredCodes(rows: ArmorRow[]): ArmorCategory[] {
+  const present = new Set(rows.map((row) => row.name));
+  return REQUIRED_CODES.filter((code) => !present.has(code));
+}
+
 function findUntranslatedCodes(rows: ArmorRow[]): string[] {
   return rows.filter((row) => !ukrainianNames[row.name] || !englishNames[row.name]).map((row) => row.name);
 }
@@ -140,8 +157,13 @@ async function main() {
       },
     });
 
-    if (rows.length === 0) {
-      throw new Error(`No ${ACTIVE_RULESET} armor in the database — refusing to write an empty catalog`);
+    failOnShrunkCatalog('обладунки', rows.length, MINIMUM_EXPECTED_ARMOR, `Рядки ${ACTIVE_RULESET} перевіряй у базі, а не в генераторі.`);
+
+    const missing = findMissingRequiredCodes(rows);
+    if (missing.length > 0) {
+      throw new Error(
+        `У ${ACTIVE_RULESET} немає категорій: ${missing.join(', ')} — перевірте ruleset цих рядків, каталог не перезаписано`
+      );
     }
 
     const untranslated = findUntranslatedCodes(rows);

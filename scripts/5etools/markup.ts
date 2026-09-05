@@ -1,6 +1,6 @@
 /// Розкладач розмітки 5etools: `{@damage 1d10}`, `{@spell fireball|XPHB}`, `{@atk mw}` тощо.
 /// Правила зняті з `js/render.js` тієї самої пінутої ревізії дзеркала (`Renderer.stripTags`
-/// і таблиця `Renderer.tag.*`), а не з пам'яті. Невідомий тег — помилка, бо саме мовчазне
+/// і таблиця `Renderer.tag.*`), а не з памʼяті. Невідомий тег — помилка, бо саме мовчазне
 /// викидання тегів і є тим місцем, де тихо гине зміст.
 
 export type MarkupReferenceKind = keyof typeof ENTITY_TAGS;
@@ -9,7 +9,7 @@ export type MarkupReference = {
   kind: MarkupReferenceKind;
   nameEng: string;
   source: string;
-  /// Нормалізований ключ для машинного зв'язку: `SPELLS.eng_name` у dictionary.json,
+  /// Нормалізований ключ для машинного звʼязку: `SPELLS.eng_name` у dictionary.json,
   /// `nameEng` у маніфестах бестіарію та предметів.
   key: string;
 };
@@ -24,6 +24,8 @@ export type DecomposedMarkup = {
 /// `{@spell fireball|XPHB}`, а редакцію ми беремо саме за джерелом.
 const ENTITY_TAGS = {
   action: "PHB",
+  /// `Renderer.Tag.TagClass` — `_TagPipedDisplayTextThird`, `defaultSource = SRC_PHB`.
+  class: "PHB",
   condition: "PHB",
   creature: "MM",
   disease: "DMG",
@@ -31,13 +33,19 @@ const ENTITY_TAGS = {
   hazard: "DMG",
   item: "DMG",
   itemProperty: "PHB",
+  /// `Renderer.Tag.TagItemMastery` — `_TagPipedDisplayTextThird`, `defaultSource = SRC_XPHB`.
+  itemMastery: "XPHB",
   language: "PHB",
+  /// `Renderer.Tag.TagObject` — `_TagPipedDisplayTextThird`, `defaultSource = SRC_DMG`.
+  object: "DMG",
   race: "PHB",
   reward: "DMG",
   sense: "PHB",
   skill: "PHB",
   spell: "PHB",
   status: "PHB",
+  /// `Renderer.Tag.TagTrap` — `_TagPipedDisplayTextThird`, `defaultSource = SRC_DMG`.
+  trap: "DMG",
   variantrule: "DMG",
 } as const;
 
@@ -46,6 +54,8 @@ const ENTITY_TAGS = {
 const DISPLAY_ONLY_TAGS: Record<string, number> = {
   adventure: 0,
   b: 0,
+  /// `Renderer.Tag.TagBoldLong` — той самий `_TagTextStyle`, що й `{@b}`.
+  bold: 0,
   book: 0,
   card: 3,
   classFeature: 5,
@@ -59,7 +69,14 @@ const DISPLAY_ONLY_TAGS: Record<string, number> = {
   link: 0,
   note: 0,
   quickref: 4,
+  /// `Renderer.Tag.TagStrikethroughShort` — `_TagTextStyle`, той самий шлях показу, що `{@b}`/`{@i}`.
+  s: 0,
   table: 2,
+  /// `Renderer.Tag.Tag5etoolsImg` — `_TagPipedNoDisplayText`, той самий шлях показу, що `{@book}`.
+  "5etoolsImg": 0,
+  /// `Renderer.Tag.Tag5etools` — той самий `_TagPipedNoDisplayText`: посилання на сторінку
+  /// сайту, показується перша частина («{@5etools sample backgrounds|backgrounds.html}»).
+  "5etools": 0,
 };
 
 const ENTITY_DISPLAY_INDEX = 2;
@@ -125,7 +142,7 @@ export function stripMarkup(raw: string, context = ""): string {
   return decomposeMarkup(raw, context).text;
 }
 
-/// Ключ для зв'язку з нашими даними: без регістру, без 5etools-уточнення в дужках
+/// Ключ для звʼязку з нашими даними: без регістру, без 5etools-уточнення в дужках
 /// (`Emanation [Area of Effect]`), з нормалізованими апострофами й пробілами.
 export function findReferenceKey(nameEng: string): string {
   return nameEng

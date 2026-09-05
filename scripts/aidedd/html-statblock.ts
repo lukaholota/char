@@ -73,6 +73,19 @@ export function findParagraphEntries(html: string): StatblockEntry[] {
   return entries;
 }
 
+export function findPictureUrl(html: string, baseUrl: string): string {
+  const match = /<div class='picture'>[\s\S]*?<img[^>]*src='([^']+)'/i.exec(html);
+  if (!match) return "";
+
+  const src = decodeHtmlEntities(match[1]);
+  return src.startsWith("http") ? src : `${baseUrl}${src.replace(/^\.?\//, "")}`;
+}
+
+export function findHeadingText(html: string): string {
+  const match = /<h1>([\s\S]*?)<\/h1>/i.exec(html);
+  return match ? stripHtmlToText(match[1]) : "";
+}
+
 export function escapeForRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

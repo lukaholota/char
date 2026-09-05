@@ -10,11 +10,16 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
 import { backgroundTranslations, backgroundTranslationsEng } from '../src/lib/refs/translation';
+import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
 
 dotenv.config();
 
 const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/backgrounds.json');
 export const ACTIVE_RULESET: Ruleset = 'RULES_2014';
+
+/// Виміряно 2026-08-28. Стара перевірка ловила лише повний нуль — каталог, що всох з 75 до
+/// одного рядка, вона пропускала.
+export const MINIMUM_EXPECTED_BACKGROUNDS = 75;
 
 const ukrainianNames: Record<string, string> = backgroundTranslations;
 const englishNames: Record<string, string> = backgroundTranslationsEng;
@@ -111,9 +116,7 @@ async function main() {
       orderBy: [{ backgroundId: 'asc' }],
     });
 
-    if (rows.length === 0) {
-      throw new Error(`No ${ACTIVE_RULESET} backgrounds in the database — refusing to write an empty catalog`);
-    }
+    failOnShrunkCatalog('походження', rows.length, MINIMUM_EXPECTED_BACKGROUNDS, 'Спершу прожени сід походжень у цільову базу.');
 
     const untranslated = findUntranslatedKeys(rows);
     if (untranslated.length > 0) {

@@ -10,6 +10,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
 import { weaponTranslations, weaponTranslationsEng } from '../src/lib/refs/translation';
+import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
 
 dotenv.config();
 
@@ -79,6 +80,10 @@ function buildWeapon(row: WeaponRow): GeneratedWeapon {
   };
 }
 
+/// Та сама міна, що в обладунку: файл у `.gitignore`, генератор висить на `prebuild`, і
+/// база, що недорахувала рядків, тихо стирає сторінки каталогу. — KR16.5
+const MINIMUM_EXPECTED_WEAPONS = 48;
+
 function findUntranslatedCodes(rows: WeaponRow[]): string[] {
   return rows.filter((row) => !ukrainianNames[row.name] || !englishNames[row.name]).map((row) => row.name);
 }
@@ -109,9 +114,7 @@ async function main() {
       },
     });
 
-    if (rows.length === 0) {
-      throw new Error(`No ${ACTIVE_RULESET} weapons in the database — refusing to write an empty catalog`);
-    }
+    failOnShrunkCatalog('зброя', rows.length, MINIMUM_EXPECTED_WEAPONS, `Рядки ${ACTIVE_RULESET} перевіряй у базі, а не в генераторі.`);
 
     const untranslated = findUntranslatedCodes(rows);
     if (untranslated.length > 0) {

@@ -53,6 +53,16 @@ export type ParsedCreature = {
   reactions: StatblockEntry[];
   legendaryActions: StatblockEntry[];
   legendaryActionUses: string;
+  /// Лігво приходить не зі статблока, а з `bestiary/legendarygroups.json` за посиланням
+  /// `legendaryGroup` — див. `scripts/5etools/legendary-group.ts`. aidedd таких даних не має
+  /// узагалі, тому його записи лишають ці поля порожніми.
+  lairInfo: string;
+  lairActions: StatblockEntry[];
+  regionEffects: StatblockEntry[];
+  /// Міфічні дії — окрема секція статблока, а не різновид легендарних: `mythicHeader` каже,
+  /// за якої умови вони відмикаються, і без неї риса, що їх умикає, посилається в нікуди.
+  mythicInfo: string;
+  mythicActions: StatblockEntry[];
   habitat: string;
   treasure: string;
   description: string;

@@ -27,7 +27,13 @@ async function checkMagicItemIds(): Promise<void> {
     console.log(`🔎 Звірка id у "${readDatabaseName(connectionString)}" (--target ${target})\n`);
 
     const corpus = buildCorpusIndex();
-    const inDatabase = await prisma.magicItem.findMany({ select: { magicItemId: true, engName: true } });
+    // Тільки 2014: корпус партій — це редакція 2014, а після KR12.5 у таблиці поруч лежать
+    // 445 предметів 2024 з тими самими англійськими назвами. Без фільтра кожен із них читався б
+    // як «той самий предмет під іншим id», і гейт зупиняв би сід 445 вигаданими розбіжностями.
+    const inDatabase = await prisma.magicItem.findMany({
+      where: { ruleset: "RULES_2014" },
+      select: { magicItemId: true, engName: true },
+    });
 
     reportOutcome(findIdMismatches(corpus, inDatabase), findIdCollisions(corpus, inDatabase), {
       corpus: corpus.size,

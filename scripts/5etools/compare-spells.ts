@@ -231,7 +231,7 @@ function buildCatalogSpell(row: Record<string, unknown>, engName: string): Catal
   };
 }
 
-/// 2024-каталог тримає класи рядками, 2014 — об'єктами `spellClasses[].className`.
+/// 2024-каталог тримає класи рядками, 2014 — обʼєктами `spellClasses[].className`.
 function readClassNames(row: Record<string, unknown>): string[] {
   if (Array.isArray(row.classes)) return row.classes.map(String);
 
@@ -525,7 +525,7 @@ function readJsonList(path: string): Record<string, unknown>[] {
 
   return parsed.map((row, index) => {
     if (row === null || typeof row !== "object" || Array.isArray(row)) {
-      throw new Error(`${path}[${index}]: очікували об'єкт`);
+      throw new Error(`${path}[${index}]: очікували обʼєкт`);
     }
     return row as Record<string, unknown>;
   });

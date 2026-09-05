@@ -11,6 +11,18 @@ import creatures2024 from "../../src/lib/generated/creatures2024.json";
 import creatures2014 from "../../src/lib/generated/creatures.json";
 import { toEntitySlug } from "../../src/lib/slug-utils";
 
+/// aidedd публікує по цих трьох слагах лише збірну сторінку без статблока — імпортувати з неї
+/// нічого й ніколи не буде. Поіменні істоти приїхали з корпусу 5etools: 15 прадраконів книги
+/// FTD, партія 20. Рядок закритий не тим, що його переклали, а тим, що джерело покрив інший
+/// конвеєр, — і без цього переліку він лишався б `pending` назавжди при зробленій роботі.
+/// Загальний предикат нижче тут не працює: він зводить рядок із каталогом за слагом або id, а
+/// збірного слага в каталозі немає взагалі й не буде.
+const COLLECTIVE_PAGES_COVERED_ELSEWHERE = new Set([
+  "gem-greatwyrm",
+  "chromatic-greatwyrm",
+  "metallic-greatwyrm",
+]);
+
 const MANIFEST_PATH = join(AIDEDD_DIR, "import-manifest.json");
 const BATCH_SIZE = 30;
 
@@ -53,6 +65,7 @@ function buildRows(previous: Map<string, ManifestRow>, edition: CreatureEdition)
   const translated = readTranslatedSlugs(edition);
   const sorted = readParsedCreatures(edition);
 
+  const cataloguedIds = new Set(catalogued.values());
   let nextId = findNextImportId(previous, edition);
   let nextBatchPosition = findNextBatchPosition(previous, edition);
 
@@ -61,14 +74,26 @@ function buildRows(previous: Map<string, ManifestRow>, edition: CreatureEdition)
     const creatureId = catalogued.get(creature.slug) ?? kept?.creatureId ?? nextId;
     if (creatureId === nextId) nextId += 1;
 
+    /// Рядок вважається закритим і за id, не лише за слагом. Слаг веде звірку скрізь, але aidedd
+    /// подеколи пише назву з помилкою — «Ranimated Companion» замість «Reanimated Companion», —
+    /// і тоді слаг каталогу з ним не збігається, хоча істота вже там. Id для цього надійний саме
+    /// у 2024: їх роздає сам маніфест, а план 5etools переносить його рядок у рядок. У 2014 так
+    /// не можна — там імпорт 5etools зайняв id із того самого діапазону, що роздає маніфест.
     const permanentlySkipped =
-      edition === "RULES_2024" && catalogued.has(creature.slug) && !translated.has(creature.slug);
+      COLLECTIVE_PAGES_COVERED_ELSEWHERE.has(creature.slug) ||
+      (edition === "RULES_2024" &&
+        (catalogued.has(creature.slug) || cataloguedIds.has(creatureId)) &&
+        !translated.has(creature.slug));
 
+    /// Номер партії, вже присвоєний рядку, переживає перехід у `existing`. Спершу
+    /// `permanentlySkipped` обнуляв його беззастережно — і це стирало історію для рядків, які
+    /// пройшли свою партію, були нею відкладені, а закрилися пізніше з іншого джерела (16 істот
+    /// імпорту 5etools, 2026-08-29). Нуль лишається тим, чим був: позначкою «до партій не потрапляв».
     let batch: number;
-    if (permanentlySkipped) {
-      batch = 0;
-    } else if (kept && kept.batch !== 0) {
+    if (kept && kept.batch !== 0) {
       batch = kept.batch;
+    } else if (permanentlySkipped) {
+      batch = 0;
     } else {
       batch = Math.floor(nextBatchPosition / BATCH_SIZE) + 1;
       nextBatchPosition += 1;

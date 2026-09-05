@@ -221,7 +221,7 @@ export function readDurationFromUkrainian(raw: string, where: string): string {
 
 /// «к» мусить стояти впритул до числа: у корпусі немає жодного «1 к 8», зате є «більш **як**
 /// 10 фунтів» — на пробілі розбір давав фальшивий `1d10` і хибну розбіжність.
-/// Голе «к8» («перетворюється на к8») — законна форма, тому число перед «к» необов'язкове.
+/// Голе «к8» («перетворюється на к8») — законна форма, тому число перед «к» необовʼязкове.
 export function collectUkrainianDice(description: string): string[] {
   return sortDice(
     [...description.matchAll(/(?:^|[^\p{L}\d])(\d*)к(\d+)/gu)].map(

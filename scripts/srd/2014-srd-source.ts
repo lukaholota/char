@@ -31,6 +31,22 @@ export const SRD_2014_FILES = [
   "08_Gamemastering/Traps.md",
   "09_Magic_Items/Magic_Items.md",
   "09_Magic_Items/Sentient_Magic.md",
+  /// Спорядження (KR20.7) дописане в кінець, а не в блок `04_Equipment/`: claimSlug роздає
+  /// слаги в порядку розбору, і вставка посеред переліку зрушила б якорі вже опублікованих
+  /// статей. Нове джерело завжди йде останнім.
+  "04_Equipment/Armor.md",
+  "04_Equipment/Weapons.md",
+  "04_Equipment/Adventuring_Gear.md",
+  "04_Equipment/Tools.md",
+  "04_Equipment/Transportation.md",
+  "04_Equipment/Trade_Goods.md",
+  "04_Equipment/Expenses.md",
+  "04_Equipment/Selling_Treasure.md",
+  /// KR20.10: три файли прози, які первісний імпорт відкинув разом із каталогами —
+  /// хоча каталожного в них лише зразок (Акoліт, Grappler), а решта пояснює механіку.
+  "03_Characterization/Backgrounds.md",
+  "01_Races/Racial_Traits.md",
+  "05_Feats/Feats.md",
 ] as const;
 
 export const SRD_2014_ATTRIBUTION =

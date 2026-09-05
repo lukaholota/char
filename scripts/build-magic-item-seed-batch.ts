@@ -5,7 +5,7 @@
  *
  * Вхід — робоча зона перекладу (data/aidedd/**), вихід — контракт, з якого будується
  * база (prisma/seed/magic-items/batch-NN.json). Текст береться з розібраних записів
- * data/aidedd/magic-items-2014.json, бо саме вони пройшли рев'ю власника.
+ * data/aidedd/magic-items-2014.json, бо саме вони пройшли ревʼю власника.
  * Пояснення конвеєра — prisma/seed/magic-items/README.md.
  */
 

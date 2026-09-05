@@ -9,11 +9,16 @@ import { Pool } from 'pg';
 import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
+import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
 
 dotenv.config();
 
 const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/invocations.json');
 export const ACTIVE_RULESET: Ruleset = 'RULES_2014';
+
+/// Виміряно 2026-08-28. Стара перевірка ловила лише повний нуль — каталог, що всох з 50 до
+/// одного рядка, вона пропускала.
+export const MINIMUM_EXPECTED_INVOCATIONS = 50;
 
 // Invocations have no model of their own — they are choice options of this group.
 const INVOCATION_GROUP_NAME = 'Потойбічні виклики';
@@ -130,9 +135,7 @@ async function main() {
       orderBy: [{ choiceOptionId: 'asc' }],
     });
 
-    if (rows.length === 0) {
-      throw new Error(`No ${ACTIVE_RULESET} invocations in the database — refusing to write an empty catalog`);
-    }
+    failOnShrunkCatalog('потойбічні виклики', rows.length, MINIMUM_EXPECTED_INVOCATIONS, 'Спершу прожени сід потойбічних викликів у цільову базу.');
 
     const pactNames = await findPactNames(prisma);
 

@@ -9,11 +9,16 @@ import { Pool } from 'pg';
 import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
+import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
 
 dotenv.config();
 
 const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/infusions.json');
 export const ACTIVE_RULESET: Ruleset = 'RULES_2014';
+
+/// Виміряно 2026-08-28. Стара перевірка ловила лише повний нуль — каталог, що всох з 66 до
+/// одного рядка, вона пропускала.
+export const MINIMUM_EXPECTED_INFUSIONS = 66;
 const SOURCE = 'TCoE';
 
 export type GeneratedInfusion = {
@@ -121,9 +126,7 @@ async function main() {
       orderBy: [{ infusionId: 'asc' }],
     });
 
-    if (rows.length === 0) {
-      throw new Error(`No ${ACTIVE_RULESET} infusions in the database — refusing to write an empty catalog`);
-    }
+    failOnShrunkCatalog('вливання', rows.length, MINIMUM_EXPECTED_INFUSIONS, 'Спершу прожени сід вливань у цільову базу.');
 
     const untranslated = findUntranslatedKeys(rows);
     if (untranslated.length > 0) {

@@ -2,7 +2,7 @@ import { readCachedJson, readCachedValue, readLockedSourceLock } from "./mirror"
 
 export type RulesEdition = "RULES_2014" | "RULES_2024";
 
-export type SourceKind = "creature" | "spell" | "item" | "facility";
+export type SourceKind = "creature" | "spell" | "item" | "baseItem" | "facility";
 
 export type ItemContainer = "item" | "itemGroup" | "magicvariant";
 
@@ -35,6 +35,44 @@ export type SourceItem = SourceRecord & {
   rarity: string | null;
   requiresAttunement: boolean;
   hasFullText: boolean;
+};
+
+/// Базовий предмет (`items-base.json`) — спорядження без магії: зброя, обладунок, інструмент,
+/// боєприпас. Тут лежать саме ті поля, які має наш каталог спорядження, тому звірка йде
+/// колонка-в-колонку, а не по вільному тексту. Коди типів і властивостей лишаються сирими:
+/// перекладати їх — робота того, хто звіряє, а не читача корпусу.
+export type SourceBaseItem = SourceRecord & {
+  kind: "baseItem";
+  typeCode: string;
+  isWeapon: boolean;
+  isArmor: boolean;
+  isFirearm: boolean;
+  /// `renaissance` / `modern` / `futuristic` — позначка розділу «Firearms» у DMG. Її несуть
+  /// рівно ті десять зразків, які наш каталог 2014 тримає окремим типом `FIREARMS`; мушкет
+  /// і пістоль XPHB її не мають, бо 2024 звела їх у звичайну бойову дальню зброю.
+  ageCategory: string | null;
+  weaponCategory: "simple" | "martial" | null;
+  armorClass: number | null;
+  strengthRequirement: number | null;
+  hasStealthDisadvantage: boolean;
+  propertyCodes: string[];
+  masteryNames: string[];
+  damage: string | null;
+  damageTypeCode: string | null;
+  versatileDamage: string | null;
+  rangeNormal: number | null;
+  rangeLong: number | null;
+  weightPounds: number | null;
+  valueCopper: number | null;
+};
+
+/// Рядок вмісту набору спорядження. `itemKey` — ключ базового предмета (`candle|phb`),
+/// `specialText` — вільний рядок для того, чого в корпусі немає окремим предметом
+/// («alms box»). Рівно один із двох непорожній.
+export type SourcePackEntry = {
+  itemKey: string | null;
+  specialText: string | null;
+  quantity: number;
 };
 
 export type SourceFacility = SourceRecord & {
@@ -102,6 +140,30 @@ export function readItems(): SourceItem[] {
 /// лишають підстановки виду `{=bonusWeapon}`. Розкладати їх — робота KR16.4.
 export function readMagicVariants(): SourceItem[] {
   return readMagicVariantsFrom(readCachedValue("magicvariants.json"), "magicvariants.json");
+}
+
+/// Базове спорядження лежить окремим файлом від `items.json`: там магія, тут зброя,
+/// обладунки, інструменти й боєприпаси. Каталог спорядження звіряється саме з цим файлом.
+export function readBaseItems(): SourceBaseItem[] {
+  return readBaseItemsFrom(readCachedValue("items-base.json"), "items-base.json");
+}
+
+export function readBaseItemsFrom(container: unknown, where: string): SourceBaseItem[] {
+  return pickRecords(container, "baseitem", where).map((entry, index) =>
+    buildBaseItem(entry, `${where} › baseitem[${index}]`)
+  );
+}
+
+/// `packContents` — машинний вміст набору. Кількість, якої там немає, означає одиницю;
+/// але саме це поле в корпусі буває біднішим за прозу поруч (див. звірку наборів KR16.5),
+/// тому читач віддає його як є, а розбіжність із прозою розбирає той, хто звіряє.
+export function readPackContents(item: SourceItem): SourcePackEntry[] {
+  const where = `${item.nameEng} (${item.source}) › packContents`;
+  const raw = readObject(item.raw, where).packContents;
+  if (raw === undefined) return [];
+  if (!Array.isArray(raw)) throw new Error(`${where}: не масив`);
+
+  return raw.map((entry, index) => buildPackEntry(entry, `${where}[${index}]`));
 }
 
 export type SpellClassEntry = {
@@ -219,6 +281,127 @@ export function collectStringsDeep(value: unknown): string[] {
     return Object.values(value).flatMap(collectStringsDeep);
   }
   return [];
+}
+
+function buildBaseItem(entry: Record<string, unknown>, where: string): SourceBaseItem {
+  const source = readString(entry, "source", where);
+  const range = readRange(entry, where);
+
+  return {
+    kind: "baseItem",
+    nameEng: readString(entry, "name", where),
+    source,
+    page: readOptionalNumber(entry, "page", where),
+    edition: findEditionBySource(source),
+    raw: entry,
+    typeCode: readTypeCode(entry, where),
+    isWeapon: entry.weapon === true,
+    isArmor: entry.armor === true,
+    isFirearm: entry.firearm === true,
+    ageCategory: readOptionalString(entry, "age", where),
+    weaponCategory: readWeaponCategory(entry, where),
+    armorClass: readOptionalNumber(entry, "ac", where),
+    strengthRequirement: readStrengthRequirement(entry, where),
+    hasStealthDisadvantage: entry.stealth === true,
+    propertyCodes: readPropertyCodes(entry, where),
+    masteryNames: readMasteryNames(entry, where),
+    damage: readOptionalString(entry, "dmg1", where),
+    damageTypeCode: readOptionalString(entry, "dmgType", where),
+    versatileDamage: readOptionalString(entry, "dmg2", where),
+    rangeNormal: range.normal,
+    rangeLong: range.long,
+    weightPounds: readOptionalNumber(entry, "weight", where),
+    valueCopper: readOptionalNumber(entry, "value", where),
+  };
+}
+
+function buildPackEntry(entry: unknown, where: string): SourcePackEntry {
+  if (typeof entry === "string") return { itemKey: entry, specialText: null, quantity: 1 };
+
+  const record = readObject(entry, where);
+  const quantity = readOptionalNumber(record, "quantity", where) ?? 1;
+  const itemKey = readOptionalString(record, "item", where);
+  const specialText = readOptionalString(record, "special", where);
+
+  if (itemKey === null && specialText === null) {
+    throw new Error(`${where}: рядок набору без «item» і без «special»`);
+  }
+
+  return { itemKey, specialText, quantity };
+}
+
+/// Тип у корпусі — `LA|XPHB`, `M`, `R|XPHB`. Книга після риски каже, хто завів код, і на
+/// сам тип не впливає — рівно як у читачі магічних предметів KR16.4.
+function readTypeCode(entry: Record<string, unknown>, where: string): string {
+  const raw = readOptionalString(entry, "type", where);
+  return raw === null ? "" : raw.split("|")[0];
+}
+
+function readWeaponCategory(
+  entry: Record<string, unknown>,
+  where: string
+): "simple" | "martial" | null {
+  const value = readOptionalString(entry, "weaponCategory", where);
+  if (value === null) return null;
+  if (value !== "simple" && value !== "martial") {
+    throw new Error(`${where}: невідома категорія зброї «${value}»`);
+  }
+  return value;
+}
+
+/// Вимога до Сили в корпусі — рядок («13»), а не число.
+function readStrengthRequirement(
+  entry: Record<string, unknown>,
+  where: string
+): number | null {
+  const value = readOptionalString(entry, "strength", where);
+  if (value === null || value === "") return null;
+
+  const parsed = Number(value);
+  if (!Number.isInteger(parsed)) throw new Error(`${where}: вимога до Сили «${value}» не число`);
+  return parsed;
+}
+
+/// Властивість буває рядком (`"V|XPHB"`) і обʼєктом із приміткою
+/// (`{uid: "2H|XPHB", note: "unless mounted"}`) — списи 2024 саме такі.
+function readPropertyCodes(entry: Record<string, unknown>, where: string): string[] {
+  const value = entry.property;
+  if (value === undefined) return [];
+  if (!Array.isArray(value)) throw new Error(`${where}: поле «property» не масив`);
+
+  return value.map((item, index) => {
+    const at = `${where} › property[${index}]`;
+    if (typeof item === "string") return item.split("|")[0];
+    return readString(readObject(item, at), "uid", at).split("|")[0];
+  });
+}
+
+function readMasteryNames(entry: Record<string, unknown>, where: string): string[] {
+  const value = entry.mastery;
+  if (value === undefined) return [];
+  if (!Array.isArray(value)) throw new Error(`${where}: поле «mastery» не масив`);
+
+  return value.map((item, index) => {
+    if (typeof item !== "string") throw new Error(`${where}: «mastery[${index}]» не рядок`);
+    return item.split("|")[0];
+  });
+}
+
+/// Дальність у корпусі — один рядок «20/60».
+function readRange(
+  entry: Record<string, unknown>,
+  where: string
+): { normal: number | null; long: number | null } {
+  const value = readOptionalString(entry, "range", where);
+  if (value === null) return { normal: null, long: null };
+
+  const parts = value.split("/");
+  const normal = Number(parts[0]);
+  const long = parts.length > 1 ? Number(parts[1]) : Number.NaN;
+  if (!Number.isFinite(normal) || !Number.isFinite(long)) {
+    throw new Error(`${where}: дальність «${value}» не читається`);
+  }
+  return { normal, long };
 }
 
 function buildCreature(entry: Record<string, unknown>, where: string): SourceCreature {
@@ -365,7 +548,7 @@ function pickRecords(
 
 function readObject(value: unknown, where: string): Record<string, unknown> {
   if (value === null || typeof value !== "object" || Array.isArray(value)) {
-    throw new Error(`${where}: очікували об'єкт`);
+    throw new Error(`${where}: очікували обʼєкт`);
   }
   return value as Record<string, unknown>;
 }

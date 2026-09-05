@@ -5,8 +5,9 @@ import {
   buildEmptyAbilityScores,
 } from "./creature-schema";
 import {
-  decodeHtmlEntities,
   findFieldValue,
+  findHeadingText,
+  findPictureUrl,
   findParagraphEntries,
   stripHtmlToText,
 } from "./html-statblock";
@@ -27,7 +28,7 @@ export function parseMonster2014(html: string, slug: string): ParsedCreature {
 
   return {
     slug,
-    nameEng: findHeading(html),
+    nameEng: findHeadingText(html),
     ruleset: "RULES_2014",
     size: typeLine.size,
     type: typeLine.type,
@@ -56,11 +57,16 @@ export function parseMonster2014(html: string, slug: string): ParsedCreature {
     reactions: sections.reactions,
     legendaryActions: sections.legendaryActions,
     legendaryActionUses: sections.legendaryPreamble,
+    lairInfo: "",
+    lairActions: [],
+    regionEffects: [],
+    mythicInfo: "",
+    mythicActions: [],
     habitat: "",
     treasure: "",
     description: findDivText(html, "description"),
     source: findDivText(html, "source"),
-    imageUrl: findImageUrl(html),
+    imageUrl: findPictureUrl(html, "https://www.aidedd.org/dnd/"),
   };
 }
 
@@ -74,23 +80,10 @@ function cutStatblock(html: string): string {
   return end > start ? html.slice(start, end) : html.slice(start);
 }
 
-function findHeading(html: string): string {
-  const match = /<h1>([\s\S]*?)<\/h1>/i.exec(html);
-  return match ? stripHtmlToText(match[1]) : "";
-}
-
 function findDivText(html: string, className: string): string {
   const pattern = new RegExp(`<div class='${className}'>([\\s\\S]*?)</div>`, "i");
   const match = pattern.exec(html);
   return match ? stripHtmlToText(match[1]) : "";
-}
-
-function findImageUrl(html: string): string {
-  const match = /<div class='picture'>[\s\S]*?<img[^>]*src='([^']+)'/i.exec(html);
-  if (!match) return "";
-  const src = decodeHtmlEntities(match[1]);
-  if (src.startsWith("http")) return src;
-  return `https://www.aidedd.org/dnd/${src.replace(/^\.?\//, "")}`;
 }
 
 /// 2014 keeps each ability in its own `carac` div as "21 (+5)"; saves live on a separate line.

@@ -9,6 +9,7 @@ import { Pool } from 'pg';
 import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
+import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
 
 // Load environment variables
 dotenv.config();
@@ -27,15 +28,19 @@ export const ACTIVE_RULESET: Ruleset = "RULES_2014";
  *
  * Межу ПІДНІМАЮТЬ після того, як власник прогнав `bun run seed:magic-items:prod`,
  * а не прибирають. Полагодити недобір можна тільки сідом, не генератором.
+ *
+ * 2026-08-28: піднято 472 → 621. Стара межа була нижча за фактичний каталог після KR16.4, і
+ * `bun run build` тихо перезаписав файл 475 рядками з бази, у яку сід ще не ганявся. Межа,
+ * нижча за поточний каталог, не гард, а декорація.
  */
-const MINIMUM_EXPECTED_ITEMS = 472;
+const MINIMUM_EXPECTED_ITEMS = 621;
 
-export function failOnShrunkCatalog(actual: number, minimum = MINIMUM_EXPECTED_ITEMS): void {
-  if (actual >= minimum) return;
-
-  throw new Error(
-    `Каталог магічних предметів схлопнувся: база віддала ${actual}, очікували щонайменше ${minimum}.\n` +
-      "Файл НЕ перезаписано. Спершу прожени сід у цільову базу:\n" +
+export function failOnShrunkMagicItems(actual: number, minimum = MINIMUM_EXPECTED_ITEMS): void {
+  failOnShrunkCatalog(
+    "магічні предмети",
+    actual,
+    minimum,
+    "Спершу прожени сід у цільову базу:\n" +
       "  bun run seed:magic-items:test   (перевірка)\n" +
       "  bun run seed:magic-items:prod   (застосовує власник)\n" +
       "Пояснення — docs/o14-magic-items-aidedd/kr14.1-single-source.md.",
@@ -93,7 +98,7 @@ async function main() {
       bonusToSavingThrows: item.bonusToSavingThrows ?? undefined,
     }));
 
-    failOnShrunkCatalog(data.length);
+    failOnShrunkMagicItems(data.length);
 
     // Ensure directory exists
     mkdirSync(dirname(OUTPUT_PATH), { recursive: true });

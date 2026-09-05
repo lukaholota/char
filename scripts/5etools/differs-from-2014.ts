@@ -14,8 +14,8 @@ import { readFactsFromSource } from "./source-spell-facts";
 import { compareSpellFacts, FactMismatch } from "./spell-facts";
 
 /// Три заклинання 2024 успадкували механіку 2014-запису під іншою назвою. Джерела машинного
-/// зв'язку між ними не дають — назви беруться з `kind: "renamed"` у нашому каталозі.
-const RENAMED_FROM_2014: Record<string, string> = {
+/// звʼязку між ними не дають — назви беруться з `kind: "renamed"` у нашому каталозі.
+export const RENAMED_FROM_2014: Readonly<Record<string, string>> = {
   "Shining Smite": "Branding Smite",
   "Summon Dragon": "Summon Draconic Spirit",
   Befuddlement: "Feeblemind",
@@ -65,4 +65,3 @@ function indexByLooseName(spells: SourceSpell[], edition: string): Map<string, S
 
   return index;
 }
-

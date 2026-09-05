@@ -139,7 +139,7 @@ function isNamedInSource(translation: MagicItemTranslation, englishName: string)
   return findEnglishProperNouns(englishName).some((word) => source.descriptionEng.includes(word));
 }
 
-/// У присвійній назві ім'я носить лише слово перед «'s»: `Quaal's Feather Token` — це Кваал, а не
+/// У присвійній назві імʼя носить лише слово перед «'s»: `Quaal's Feather Token` — це Кваал, а не
 /// Feather і не Token. Без цього звуження слово «Feather» із таблиці джерела вважалося згадкою
 /// імені, і перевірка вимагала вписати «Кваала» в опис, який його не називає жодного разу.
 function findEnglishProperNouns(englishName: string): string[] {

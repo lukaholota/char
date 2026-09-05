@@ -48,7 +48,7 @@ export function readFactsFromSource(
 
 function readSpellObject(spell: SourceSpell, where: string): Record<string, unknown> {
   if (spell.raw === null || typeof spell.raw !== "object" || Array.isArray(spell.raw)) {
-    throw new Error(`${where}: запис заклинання не об'єкт`);
+    throw new Error(`${where}: запис заклинання не обʼєкт`);
   }
   return spell.raw as Record<string, unknown>;
 }
@@ -178,7 +178,7 @@ function readList(value: unknown, where: string): unknown[] {
 
 function readObject(value: unknown, where: string): Record<string, unknown> {
   if (value === null || typeof value !== "object" || Array.isArray(value)) {
-    throw new Error(`${where}: очікували об'єкт`);
+    throw new Error(`${where}: очікували обʼєкт`);
   }
   return value as Record<string, unknown>;
 }

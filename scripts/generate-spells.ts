@@ -13,6 +13,7 @@ import { Pool } from 'pg';
 import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
+import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
 
 // Load environment variables
 dotenv.config();
@@ -21,6 +22,10 @@ const OUTPUT_PATH = join(process.cwd(), 'src/lib/generated/spells.json');
 
 // KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
 export const ACTIVE_RULESET: Ruleset = "RULES_2014";
+
+/// Виміряно 2026-08-28. Порогу тут не було взагалі — база з недосіяними заклинаннями мовчки
+/// стирала публічні адреси /spell/NNNN.
+export const MINIMUM_EXPECTED_SPELLS = 525;
 
 export function buildSpellsForGenerationQuery() {
   return {
@@ -57,6 +62,8 @@ async function main() {
     const spells = await prisma.spell.findMany(buildSpellsForGenerationQuery());
 
     // Transform to stable format
+    failOnShrunkCatalog('заклинання', spells.length, MINIMUM_EXPECTED_SPELLS, 'Спершу прожени сід заклинань у цільову базу.');
+
     const data = spells.map((s) => ({
       spellId: s.spellId,
       name: s.name,

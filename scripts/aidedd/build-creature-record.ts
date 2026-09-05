@@ -37,6 +37,16 @@ export type CreatureTranslation = {
   bonusActions?: StatblockEntry[];
   reactions?: StatblockEntry[];
   legendaryActions?: StatblockEntry[];
+  /// Лігво — така сама секція, як решта: перекладач партії везе її разом зі статблоком, а
+  /// `assertSectionsAlign` не пускає партію, яка її загубила. `lairInfo` — безіменна проза
+  /// («На рахунку ініціативи 20…»), тому це рядок, а не масив записів.
+  lairInfo?: string;
+  lairActions?: StatblockEntry[];
+  regionEffects?: StatblockEntry[];
+  /// Міфічні дії — та сама механіка, що лігво: `mythicInfo` — безіменна умова над секцією,
+  /// сама секція — список іменованих дій.
+  mythicInfo?: string;
+  mythicActions?: StatblockEntry[];
   fields?: TranslatedFields;
 };
 
@@ -46,6 +56,9 @@ const SECTION_KEYS = [
   "bonusActions",
   "reactions",
   "legendaryActions",
+  "lairActions",
+  "regionEffects",
+  "mythicActions",
 ] as const;
 
 export function buildCreatureRecord(
@@ -73,6 +86,7 @@ export function buildCreatureRecord(
     {
       ruleset: parsed.ruleset,
       initiative: parsed.initiative,
+      xpInLair: parsed.xpInLair,
       savingThrows: translateSavingThrows(parsed.savingThrows),
       skills: fields.skills ?? translateSkills(parsed.skills),
       damageVulnerability: fields.damageVulnerability ?? translateDamageTypes(parsed.damageVulnerability),
@@ -88,6 +102,11 @@ export function buildCreatureRecord(
       bonusActions: buildSectionHtml(translation.bonusActions),
       reactions: buildSectionHtml(translation.reactions),
       legendaryActions: buildSectionHtml(translation.legendaryActions),
+      lairInfo: buildDescriptionHtml(translation.lairInfo ?? ""),
+      lairActions: buildSectionHtml(translation.lairActions),
+      regionEffects: buildSectionHtml(translation.regionEffects),
+      mythicInfo: buildDescriptionHtml(translation.mythicInfo ?? ""),
+      mythicActions: buildSectionHtml(translation.mythicActions),
       description: buildDescriptionHtml(translation.description),
     }
   );
@@ -341,9 +360,12 @@ function formatExperience(parsed: ParsedCreature): string {
   throw new Error(`${parsed.slug}: джерело не подає очок досвіду для ПС ${parsed.challenge}`);
 }
 
+/// Безіменний запис буває тільки в лігві — там проза («Якщо дракон гине, ефекти згасають…»)
+/// стоїть у тому самому масиві, що й іменовані ефекти. Друкувати їй порожній жирний заголовок
+/// не можна, тому назва опційна.
 function buildSectionHtml(entries: StatblockEntry[] | undefined): string {
   return (entries ?? [])
-    .map((entry) => `<p><b>${entry.name}.</b> ${entry.text}</p>`)
+    .map((entry) => (entry.name === "" ? `<p>${entry.text}</p>` : `<p><b>${entry.name}.</b> ${entry.text}</p>`))
     .join("");
 }
 
@@ -375,13 +397,26 @@ function readPrimaryVariant(term: string): string {
 /// aidedd itself cites everything Volo's/Mordenkainen's as the 2022 reprint, "Monsters of the
 /// Multiverse", so both legacy sources collapse into one canonical MPMM key).
 function findSourceKey(parsed: ParsedCreature): string {
+  if (isCanonicalSourceKey(parsed.source)) return parsed.source;
   return parsed.ruleset === "RULES_2024" ? findSourceKey2024(parsed.source) : findSourceKey2014(parsed.source);
 }
 
-function findSourceKey2024(source: string): string {
+/// aidedd подає назву книги прозою («Icewind Dale: Rime of the Frostmaiden»), 5etools — код,
+/// який читач корпусу вже звів до значення enum `Source`. Готовий ключ пропускаємо як є:
+/// проганяти його вдруге через таблицю назв означало б шукати прозу там, де її немає.
+function isCanonicalSourceKey(source: string): boolean {
+  return CANONICAL_SOURCE_KEYS.has(source);
+}
+
+/// Патерни тримаються за розпізнавальне слово, а не за апостроф: aidedd пише присвійні форми
+/// гострим наголосом («Player´s Handbook 2024»), і `/player's handbook/` не бачив 15 сторінок
+/// корпусу. Це той самий прийом, що вже стоїть у `SOURCE_PATTERNS_2014` від аудиту 2026-08-19.
+/// Позначка `(BR)` — Basic Rules, на вибір книги вона не впливає.
+export function findSourceKey2024(source: string): string {
   if (/monster manual/i.test(source)) return "MM_2024";
-  if (/player's handbook/i.test(source)) return "PHB_2024";
-  if (/dungeon master's guide/i.test(source)) return "DMG_2024";
+  if (/player.{0,2}s handbook/i.test(source)) return "PHB_2024";
+  if (/dungeon master.{0,2}s guide/i.test(source)) return "DMG_2024";
+  if (/adventures in faer/i.test(source)) return "FRAiF";
   throw new Error(`Невідоме джерело: «${source}»`);
 }
 
@@ -418,6 +453,15 @@ const SOURCE_PATTERNS_2014: Array<[RegExp, string]> = [
   [/chains of asmodeus/i, "CHAINS_OF_ASMODEUS"],
   [/aidedd/i, "HOMEBREW"],
 ];
+
+const CANONICAL_SOURCE_KEYS: ReadonlySet<string> = new Set([
+  ...SOURCE_PATTERNS_2014.map(([, key]) => key),
+  "MM_2024",
+  "PHB_2024",
+  "DMG_2024",
+  "FRAiF",
+  "RHW",
+]);
 
 export function findSourceKey2014(source: string): string {
   const matched = SOURCE_PATTERNS_2014.find(([pattern]) => pattern.test(source));

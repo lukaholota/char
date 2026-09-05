@@ -6,7 +6,8 @@
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const RAW_CLASS_DIR = "data/2024/source/raw/class";
 const CLASSES_JSON = "data/2024/normalized/classes.json";
@@ -73,7 +74,7 @@ function splitIntoFeatures(sectionHtml: string, engName: string) {
   });
 }
 
-function renderBodyAsMarkdown(bodyHtml: string): string {
+export function renderBodyAsMarkdown(bodyHtml: string): string {
   const withoutSubclassList = dropSubclassList(bodyHtml);
   const blocks = renderBlocks(withoutSubclassList);
   return blocks.join("\n\n").replace(/\n{3,}/g, "\n\n").trim();
@@ -200,4 +201,4 @@ function main() {
   console.log(`\n✅ ${withFeatures.length} класів, ${total} фіч → ${CLASSES_JSON}`);
 }
 
-main();
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) main();

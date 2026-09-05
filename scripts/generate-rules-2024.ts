@@ -8,8 +8,9 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join } from "path";
 
 import { parseRules2024, ParsedRuleArticle } from "./srd/parse-rules";
-import { SRD_COMMIT } from "./srd/srd-source";
-import { RULE_ARTICLES_2024 } from "../src/lib/rulesData";
+import { buildSrdFileUrl, SRD_COMMIT, SRD_REPO } from "./srd/srd-source";
+import { findHandwrittenArticles } from "../src/lib/rulesData";
+import { RuleProvenance } from "../src/lib/rulesProvenance";
 
 const OUTPUT_PATH = join(process.cwd(), "src/lib/generated/rules-2024.json");
 const TRANSLATIONS_DIR = join(process.cwd(), "data/2024/rules-uk");
@@ -32,13 +33,12 @@ export type GeneratedRuleArticle = {
   order: number;
   tags: string[];
   subsections: { id: string; title: string; engTitle: string; content: string }[];
-  sourceFile: ParsedRuleArticle["source"];
-  srdCommit: string;
+  provenance: RuleProvenance;
   isTranslated: boolean;
 };
 
 export function buildRuleArticles2024(): GeneratedRuleArticle[] {
-  const parsed = parseRules2024({ reservedSlugs: RULE_ARTICLES_2024.map((article) => article.slug) });
+  const parsed = parseRules2024({ reservedSlugs: findHandwrittenArticles("RULES_2024").map((article) => article.slug) });
   const translations = readTranslations();
   return parsed.map((article) => mergeTranslation(article, translations.get(article.id)));
 }
@@ -86,9 +86,19 @@ function mergeTranslation(
     order: article.order,
     tags: translation?.tags?.length ? translation.tags : article.engTags,
     subsections,
-    sourceFile: article.source,
-    srdCommit: SRD_COMMIT,
+    provenance: buildProvenance(article),
     isTranslated: isFullyTranslated(article, translation),
+  };
+}
+
+function buildProvenance(article: ParsedRuleArticle): RuleProvenance {
+  const file = `${article.source}.md`;
+  return {
+    kind: "srd-5.2.1",
+    repo: SRD_REPO,
+    commit: SRD_COMMIT,
+    file,
+    url: buildSrdFileUrl(file),
   };
 }
 
