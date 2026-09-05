@@ -16,6 +16,7 @@ import {
   calculateSpellDC,
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
+import { buildHitDicePools, findMainClassLevel } from "@/rules/hit-dice";
 import { Classes, Ability, AbilityBonusType, Skills, SkillProficiencyType } from "@prisma/client";
 import { PDFDocument, PDFName, PDFString, PDFTextField, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
 
@@ -36,6 +37,14 @@ import { CHARACTER_SHEET_OVERLAY, type OverlayFieldKey, type OverlayText } from 
 import { generateSpellsPdfBytes } from "./spellsPdf";
 import { generateFeaturesPdfBytes } from "./featuresPdf";
 import { generateMagicItemsPdfBytes } from "./magicItemsPdf";
+import { generateCreaturesPdfBytes } from "./creaturesPdf";
+import { findAttachedForms } from "@/server/db/wildshape";
+import { findAttacksPerAction } from "@/rules/attacks-per-action";
+import {
+  formatEquipmentText,
+  groupPrintableWeaponAttacks,
+  type PrintableWeaponAttack,
+} from "./equipmentPrint";
 
 export type CharacterPdfLogContext = {
   jobId?: string;
@@ -189,11 +198,7 @@ function formatHitDicePerClassLines(chunks: Array<{ current: number; max: number
 function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
   const parts: string[] = [];
 
-  const customEquipment = String((pers as any).customEquipment ?? "")
-    .trim()
-    .replace(/ x1\n/g, '\n')
-    .replace(/\n/g, ', ');
-  console.log('customEquipment', customEquipment);
+  const customEquipment = formatEquipmentText(String((pers as any).customEquipment ?? ""));
   if (customEquipment) parts.push(customEquipment);
 
   const magicItems = (pers.magicItems ?? []) as any[];
@@ -202,9 +207,6 @@ function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
     for (const pmi of magicItems) {
       if (!pmi.magicItem) continue;
       const name = pmi.magicItem.name;
-      const type = pmi.magicItem.itemType;
-      const rarity = pmi.magicItem.rarity;
-      
       const attunementMark = pmi.isAttuned ? " (A)" : "";
       const equippedMark = pmi.isEquipped ? "[x]" : "[ ]";
       
@@ -217,6 +219,14 @@ function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
 
 function buildArmorAndShieldText(pers: CharacterPdfData["pers"]): string {
   const lines: string[] = [];
+
+  const attacksPerAction = findAttacksPerAction(
+    pers.ruleset,
+    (pers.features ?? []).map((entry) => entry.feature.engName),
+  );
+  if (attacksPerAction !== null && attacksPerAction > 1) {
+    lines.push(`Атак за дію: ${attacksPerAction}`);
+  }
 
   const uaAbilityShort: Record<string, string> = {
     STR: "Сил",
@@ -366,16 +376,19 @@ function buildFeaturesListText(data: CharacterPdfData): string {
   return items.map((it) => `· ${it.name}`).join("\n");
 }
 
-function getWeaponAttackBonus(pers: CharacterPdfData["pers"], pw: any): number {
-  return calculateWeaponAttackBonus(pers as any, pw as any);
+type CharacterPdfWeapon = CharacterPdfData["pers"]["weapons"][number];
+
+function getWeaponAttackBonus(pers: CharacterPdfData["pers"], weapon: CharacterPdfWeapon): number {
+  return calculateWeaponAttackBonus(pers as any, weapon);
 }
 
-function getWeaponDamageBonus(pers: CharacterPdfData["pers"], pw: any): number {
-  return calculateWeaponDamageBonus(pers as any, pw as any);
+function getWeaponDamageBonus(pers: CharacterPdfData["pers"], weapon: CharacterPdfWeapon): number {
+  return calculateWeaponDamageBonus(pers as any, weapon);
 }
 
 function fillWeapons(form: PDFForm, pers: CharacterPdfData["pers"]) {
-  const weapons = (pers.weapons ?? []) as any[];
+  const attacks = (pers.weapons ?? []).map((weapon) => buildPrintableWeaponAttack(pers, weapon));
+  const weapons = groupPrintableWeaponAttacks(attacks);
   const slots = [
     { name: "Wpn Name", atk: "Wpn1 AtkBonus", dmg: "Wpn1 Damage" },
     { name: "Wpn Name 2", atk: "Wpn2 AtkBonus ", dmg: "Wpn2 Damage " },
@@ -383,28 +396,32 @@ function fillWeapons(form: PDFForm, pers: CharacterPdfData["pers"]) {
   ];
 
   for (let i = 0; i < slots.length; i++) {
-    const pw = weapons[i];
-    if (!pw) continue;
-
-    const localizedWeaponName = (() => {
-      const raw = String(pw.weapon?.name ?? "").trim();
-      if (!raw) return "";
-      return (weaponTranslations as unknown as Record<string, string>)[raw] ?? raw;
-    })();
-
-    const displayName = String(pw.overrideName || localizedWeaponName || pw.weapon?.name || "").trim();
-    const dice = String(pw.customDamageDice || pw.weapon?.damage || "").trim();
-    const dmgBonus = getWeaponDamageBonus(pers, pw);
-    const dmgText = dice ? `${formatDiceUkr(dice)}${formatModifier(dmgBonus)}` : "";
-    const atkText = formatModifier(getWeaponAttackBonus(pers, pw));
-
+    const weapon = weapons[i];
+    if (!weapon) continue;
+    const displayName = weapon.quantity === 1 ? weapon.name : `${weapon.name} ×${weapon.quantity}`;
     setTextIfPresent(form, slots[i].name, displayName);
-    setTextIfPresent(form, slots[i].atk, atkText);
-    setTextIfPresent(form, slots[i].dmg, dmgText);
+    setTextIfPresent(form, slots[i].atk, weapon.attackBonus);
+    setTextIfPresent(form, slots[i].dmg, weapon.damage);
   }
 }
 
-const DEFAULT_SECTIONS: PrintSection[] = ["CHARACTER", "FEATURES", "SPELLS", "MAGIC_ITEMS"];
+function buildPrintableWeaponAttack(
+  pers: CharacterPdfData["pers"],
+  persWeapon: CharacterPdfWeapon
+): PrintableWeaponAttack {
+  const rawName = String(persWeapon.weapon?.name ?? "").trim();
+  const localizedName = (weaponTranslations as unknown as Record<string, string>)[rawName] ?? rawName;
+  const name = String(persWeapon.overrideName || localizedName).trim();
+  const dice = String(persWeapon.customDamageDice || persWeapon.weapon?.damage || "").trim();
+  const damageBonus = formatModifier(getWeaponDamageBonus(pers, persWeapon));
+  return {
+    name,
+    attackBonus: formatModifier(getWeaponAttackBonus(pers, persWeapon)),
+    damage: dice ? `${formatDiceUkr(dice)}${damageBonus}` : "",
+  };
+}
+
+const DEFAULT_SECTIONS: PrintSection[] = ["CHARACTER", "FEATURES", "SPELLS", "MAGIC_ITEMS", "WILDSHAPES"];
 
 function safeText(value: Maybe<string | number>): string {
   if (value === null || value === undefined) return "";
@@ -507,31 +524,28 @@ function buildHitDiceInfoFromPers(pers: CharacterPdfData["pers"]): {
   currentString: string;
   chunks: Array<{ current: number; max: number; die: number }>;
 } {
-  const multiclassLevelSum = pers.multiclasses?.reduce((acc, mc) => acc + mc.classLevel, 0) ?? 0;
-  const mainClassLevel = pers.level - multiclassLevelSum;
+  const multiclasses = pers.multiclasses ?? [];
+  const classes = [
+    {
+      classId: pers.class.classId,
+      hitDie: pers.class.hitDie,
+      classLevel: findMainClassLevel(pers.level, multiclasses),
+    },
+    ...multiclasses.map((multiclass) => ({
+      classId: multiclass.classId,
+      hitDie: multiclass.class.hitDie,
+      classLevel: multiclass.classLevel,
+    })),
+  ];
 
-  const stored = getPersExtras(pers).currentHitDice ?? {};
+  const chunks = buildHitDicePools(classes, getPersExtras(pers).currentHitDice).map((pool) => ({
+    current: pool.current,
+    max: pool.max,
+    die: pool.hitDie,
+  }));
 
-  const chunks: Array<{ current: number; max: number; die: number }> = [];
-
-  const mainCurrent = typeof stored[String(pers.class.classId)] === "number" ? stored[String(pers.class.classId)] : mainClassLevel;
-  chunks.push({
-    current: Math.min(mainCurrent, mainClassLevel),
-    max: mainClassLevel,
-    die: pers.class.hitDie,
-  });
-
-  for (const mc of pers.multiclasses ?? []) {
-    const mcCurrent = typeof stored[String(mc.classId)] === "number" ? stored[String(mc.classId)] : mc.classLevel;
-    chunks.push({
-      current: Math.min(mcCurrent, mc.classLevel),
-      max: mc.classLevel,
-      die: mc.class.hitDie,
-    });
-  }
-
-  const totalString = chunks.map((c) => `${c.max}d${c.die}`).join(" + ");
-  const currentString = chunks.map((c) => `${c.current}d${c.die}`).join(" + ");
+  const totalString = chunks.map((chunk) => `${chunk.max}d${chunk.die}`).join(" + ");
+  const currentString = chunks.map((chunk) => `${chunk.current}d${chunk.die}`).join(" + ");
   return { totalString, currentString, chunks };
 }
 
@@ -1286,6 +1300,10 @@ export async function generateCharacterPdf(
     async () => groupPersSpellsByLevel(pers.persSpells ?? [])
   );
 
+  const wildshapeForms = normalized.sections.includes("WILDSHAPES")
+    ? (await findAttachedForms(persId)).flatMap((form) => (form.creature ? [form.creature] : []))
+    : [];
+
   log.info("data.ready", {
     characterName: pers.name,
     spellsCount: (pers.persSpells ?? []).length,
@@ -1295,9 +1313,10 @@ export async function generateCharacterPdf(
       (features?.bonusActions?.length ?? 0) +
       (features?.reactions?.length ?? 0),
     magicItemsCount: (pers.magicItems ?? []).length,
+    wildshapeFormsCount: wildshapeForms.length,
   });
 
-  const data: CharacterPdfData = { pers, features, spellsByLevel };
+  const data: CharacterPdfData = { pers, features, spellsByLevel, wildshapeForms };
 
   const pdfBytes = await withStep(
     "pdf.generateFromData",
@@ -1510,6 +1529,26 @@ export async function generateCharacterPdfFromData(
         log.warn("magicItems.failed", { err });
         if (strictSections) throw err;
       }
+    }
+  }
+
+  if (normalized.sections.includes("WILDSHAPES") && data.wildshapeForms.length > 0) {
+    try {
+      log.info("wildshapes.start", { creatureCount: data.wildshapeForms.length });
+      const wildshapePdfBytes = await generateCreaturesPdfBytes(data.wildshapeForms, {
+        jobId: logCtx.jobId,
+        tag: "wildshapes",
+      });
+      const wildshapeDoc = await PDFDocument.load(wildshapePdfBytes);
+      const pages = await pdfDoc.copyPages(wildshapeDoc, wildshapeDoc.getPageIndices());
+      pages.forEach((page) => pdfDoc.addPage(page));
+      log.info("wildshapes.generated", {
+        bytes: wildshapePdfBytes.byteLength,
+        bytesFmt: formatBytes(wildshapePdfBytes.byteLength),
+      });
+    } catch (err) {
+      log.warn("wildshapes.failed", { err });
+      if (strictSections) throw err;
     }
   }
 

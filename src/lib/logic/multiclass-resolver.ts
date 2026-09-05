@@ -19,7 +19,7 @@ export async function getMulticlassInfo(persId: number): Promise<MulticlassChara
   if (!pers) throw new Error('Character not found');
 
   // Поки що реалізуємо для одного класу, але структура готова для розширення
-  // Коли додаси модель PersClass, тут буде логіка об'єднання
+  // Коли додаси модель PersClass, тут буде логіка обʼєднання
   
   const classes: ClassLevelInfo[] = [
       {

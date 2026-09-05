@@ -10,6 +10,8 @@ import { FeatureSource } from "@/lib/utils/features";
 import { clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
 import { buildVisiblePersFilter, buildVisibleFolderFilter } from "@/server/db/pers-access-filters";
 import { findCurrentUserId } from "@/server/db/current-user";
+import { findPoolProvider } from "@/rules/resource-pools";
+import { buildSpellLinkForSpell } from "@/lib/spell-link";
 
 async function getCurrentUserId() {
     return findCurrentUserId();
@@ -172,8 +174,8 @@ export async function renamePers(persId: number, name: string) {
     if (!userId) return { success: false as const, error: "Не авторизовано" };
 
     const next = normalizePersName(name);
-    if (!next) return { success: false as const, error: "Ім'я не може бути порожнім" };
-    if (next.length > 60) return { success: false as const, error: "Ім'я занадто довге" };
+    if (!next) return { success: false as const, error: "Імʼя не може бути порожнім" };
+    if (next.length > 60) return { success: false as const, error: "Імʼя занадто довге" };
 
     const canEdit = await canEditPers(persId, userId);
     if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
@@ -562,6 +564,7 @@ export async function getUserPersesSpellIndex() {
             persSpells: {
                 select: {
                     spellId: true,
+                    spell: { select: { spellId: true, engName: true, ruleset: true } },
                 },
             },
         },
@@ -572,6 +575,7 @@ export async function getUserPersesSpellIndex() {
         persId: p.persId,
         name: p.name,
         spellIds: p.persSpells.map((s) => s.spellId),
+        spellKeys: p.persSpells.map((s) => buildSpellLinkForSpell(s.spell).spellKey),
     }));
 }
 
@@ -685,6 +689,7 @@ export async function getPersById(id: number) {
                 ],
             },
             weapons: { include: { weapon: true } },
+            pers_weapon_mastery: { include: { weapon: true } },
             armors: { include: { armor: true } },
             resourcePools: true,
             user: true,
@@ -865,17 +870,23 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
         poolRemainingByKey.set(pool.poolKey, pool.usesRemaining ?? null);
     });
 
-    const poolProvidersByKey = new Map<string, any>();
+    // Претенденти збираються всі, а обирає між ними правило `findPoolProvider` (BUG-011): лист
+    // мусить показувати той самий максимум, який порахує витрата й відпочинок, інакше гравець
+    // бачить одне число, а натискає на інше.
+    const poolCandidatesByKey = new Map<string, any[]>();
     const registerPoolProvider = (feature: any) => {
         if (!feature?.usesPoolKey) return;
-        if (poolProvidersByKey.has(feature.usesPoolKey)) return;
 
         const hasCounts =
             feature.usesCountDependsOnProficiencyBonus ||
             typeof feature.usesCount === "number" ||
             (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
+        if (!hasCounts) return;
 
-        if (hasCounts) poolProvidersByKey.set(feature.usesPoolKey, feature);
+        const candidates = poolCandidatesByKey.get(feature.usesPoolKey) ?? [];
+        if (candidates.some(candidate => candidate.featureId === feature.featureId)) return;
+
+        poolCandidatesByKey.set(feature.usesPoolKey, [...candidates, feature]);
     };
 
     const collectPoolProviders = (features: any[] = []) => {
@@ -981,7 +992,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
 
     const getPoolInfo = (f: any) => {
         if (!f?.usesPoolKey) return null;
-        const provider = poolProvidersByKey.get(f.usesPoolKey) ?? f;
+        const provider = findPoolProvider(poolCandidatesByKey.get(f.usesPoolKey) ?? []) ?? f;
         const maxUses = calculateMaxUsesForFeature(provider);
         const remaining = poolRemainingByKey.get(f.usesPoolKey) ?? null;
         const restType = provider?.limitedUsesPer ?? f?.limitedUsesPer ?? null;

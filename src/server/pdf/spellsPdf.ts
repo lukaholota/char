@@ -1,25 +1,7 @@
 import { loadPrintableSpells } from "@/server/db/print-content";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
-
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import remarkHtml from "remark-html";
-import remarkBreaks from "remark-breaks";
-
-async function markdownToHtml(markdown: string) {
-  const file = await remark().use(remarkGfm).use(remarkBreaks).use(remarkHtml, { sanitize: false }).process(markdown);
-  return String(file);
-}
-
-function escapeHtml(text: string) {
-  return text
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
+import { escapePrintHtml, renderPrintableMarkdown } from "./printProjection";
 
 function levelLabel(level: number) {
   return level === 0 ? "Замовляння" : `Рівень ${level}`;
@@ -34,7 +16,7 @@ export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogC
 
   const sections = await Promise.all(
     spells.map(async (s) => {
-      const descriptionHtml = await markdownToHtml(s.description);
+      const descriptionHtml = await renderPrintableMarkdown(s.description);
       return {
         ...s,
         descriptionHtml,
@@ -110,18 +92,18 @@ export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogC
           (s) => `
       <section class="spell">
         <div class="header">
-          <h1 class="name">${escapeHtml(s.name)}</h1>
-          <div class="meta">${escapeHtml(String(s.source))}</div>
+          <h1 class="name">${escapePrintHtml(s.name)}</h1>
+          <div class="meta">${escapePrintHtml(String(s.source))}</div>
         </div>
         <div class="sub">
-          <div><strong>${escapeHtml(levelLabel(s.level))}</strong></div>
-          <div><em>${escapeHtml(s.school || "—")}</em></div>
+          <div><strong>${escapePrintHtml(levelLabel(s.level))}</strong></div>
+          <div><em>${escapePrintHtml(s.school || "—")}</em></div>
         </div>
         <div class="grid">
-          <div class="cell"><div class="label">Час використання</div><div class="val">${escapeHtml(s.castingTime)}</div></div>
-          <div class="cell"><div class="label">Тривалість</div><div class="val">${escapeHtml(s.duration)}</div></div>
-          <div class="cell"><div class="label">Дистанція</div><div class="val">${escapeHtml(s.range)}</div></div>
-          <div class="cell"><div class="label">Компоненти</div><div class="val">${escapeHtml(s.components || "—")}</div></div>
+          <div class="cell"><div class="label">Час використання</div><div class="val">${escapePrintHtml(s.castingTime)}</div></div>
+          <div class="cell"><div class="label">Тривалість</div><div class="val">${escapePrintHtml(s.duration)}</div></div>
+          <div class="cell"><div class="label">Дистанція</div><div class="val">${escapePrintHtml(s.range)}</div></div>
+          <div class="cell"><div class="label">Компоненти</div><div class="val">${escapePrintHtml(s.components || "—")}</div></div>
         </div>
         <div class="desc">${s.descriptionHtml}</div>
       </section>`

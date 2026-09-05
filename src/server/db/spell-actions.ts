@@ -5,6 +5,8 @@ import { prisma } from '@/lib/prisma';
 import { Ruleset, SpellOrigin } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
 import { canEditPers } from "@/lib/actions/pers";
+import { buildSpellSlug, type SpellLink } from "@/lib/spell-link";
+import { classTranslations } from "@/lib/refs/translation";
 
 // KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
@@ -57,9 +59,12 @@ export async function learnClassSpells({
   try {
     console.log(`📚 Learning ${spellIds.length} class spells for persId=${persId}`);
 
+    // Р38: заклинання, яке персонаж уже знає з іншого джерела, не лягає другим рядком.
+    const newSpellIds = await findUnknownSpellIds(persId, spellIds);
+
     // Використовуємо transaction, щоб або всі збереглися, або нічого
     await prisma.$transaction(
-      spellIds.map((spellId) =>
+      newSpellIds.map((spellId) =>
         prisma.persSpell.create({
           data: {
             persId,
@@ -97,6 +102,10 @@ export async function addManualSpell({
   notes?: string;
 }) {
   try {
+    // Р38: «ти вже знаєш це заклинання» — друге джерело не додає його вдруге.
+    const isAlreadyKnown = (await findUnknownSpellIds(persId, [spellId])).length === 0;
+    if (isAlreadyKnown) return { success: true };
+
     await prisma.persSpell.create({
       data: {
         persId,
@@ -116,65 +125,41 @@ export async function addManualSpell({
   }
 }
 
-export type SpellForModal = {
-  spellId: number;
-  name: string;
-  engName: string;
-  level: number;
-  school: string | null;
-  castingTime: string;
-  duration: string;
-  range: string;
-  components: string | null;
-  description: string;
-  source: string;
-  hasRitual: string | null;
-  hasConcentration: string | null;
-  spellClasses: { className: string; source: string | null }[];
-  spellRaces: { raceName: string | null }[];
-};
+// KR27.7: у 2024 підготовлені заклинання рахуються за класом, і лист групує їх бейджем; тому
+// заклинання, яке з класів персонажа має рівно один, одразу дістає бейдж цього класу — той самий
+// текст, що й у рядку лічильників. Двозначне (клірик і друїд обидва мають Cure Wounds) лишається
+// без бейджа: його ставить гравець, як і в 2014.
+async function findClassBadgeForSpell(persId: number, spellId: number): Promise<string | null> {
+  const [pers, spell] = await Promise.all([
+    prisma.pers.findUnique({
+      where: { persId },
+      select: {
+        ruleset: true,
+        class: { select: { name: true, spellcastingType: true } },
+        multiclasses: { select: { class: { select: { name: true, spellcastingType: true } } } },
+      },
+    }),
+    prisma.spell.findUnique({ where: { spellId }, select: { spellClasses: { select: { className: true } } } }),
+  ]);
+  if (!pers || !spell || pers.ruleset !== "RULES_2024") return null;
 
-export async function getSpellForModal(spellIdOrSlug: string): Promise<SpellForModal | null> {
-  const trimmed = (spellIdOrSlug ?? "").trim();
-  if (!trimmed) return null;
+  const spellClassNames = new Set(spell.spellClasses.map((row) => row.className));
+  const matching = [pers.class, ...pers.multiclasses.map((entry) => entry.class)]
+    .filter((persClass) => persClass.spellcastingType !== "NONE")
+    .map((persClass) => classTranslations[persClass.name])
+    .filter((label) => spellClassNames.has(label));
 
-  const asNumber = Number(trimmed);
-  const byId = Number.isFinite(asNumber) ? Math.trunc(asNumber) : null;
+  return matching.length === 1 ? matching[0] : null;
+}
 
-  const spell = await prisma.spell.findFirst({
-    where: {
-      ruleset: ACTIVE_RULESET,
-      OR: [
-        ...(byId ? ([{ spellId: byId }] as const) : []),
-        { engName: trimmed },
-        { name: trimmed },
-      ],
-    },
-    select: {
-      spellId: true,
-      name: true,
-      engName: true,
-      level: true,
-      school: true,
-      castingTime: true,
-      duration: true,
-      range: true,
-      components: true,
-      description: true,
-      source: true,
-      hasRitual: true,
-      hasConcentration: true,
-      spellClasses: { select: { className: true, source: true } },
-      spellRaces: { select: { raceName: true } },
-    },
+async function findUnknownSpellIds(persId: number, spellIds: number[]): Promise<number[]> {
+  const known = await prisma.persSpell.findMany({
+    where: { persId, spellId: { in: spellIds } },
+    select: { spellId: true },
   });
+  const knownIds = new Set(known.map((row) => row.spellId));
 
-  if (!spell) return null;
-
-  return {
-    ...spell,
-    source: String(spell.source),
-  };
+  return spellIds.filter((spellId) => !knownIds.has(spellId));
 }
 
 export async function toggleSpellForPers({
@@ -308,15 +293,21 @@ export async function setSpellPresenceForPers({
 
   if (present) {
     if (!existing) {
-      await prisma.persSpell.create({
-        data: {
-          persId,
-          spellId,
-          learnedAtLevel: 0,
-          origin: SpellOrigin.MANUAL,
-          isPrepared: false,
-        },
-      });
+      try {
+        await prisma.persSpell.create({
+          data: {
+            persId,
+            spellId,
+            learnedAtLevel: 0,
+            origin: SpellOrigin.MANUAL,
+            isPrepared: false,
+            badgeText: await findClassBadgeForSpell(persId, spellId),
+          },
+        });
+      } catch (error) {
+        console.error('Failed to set spell presence:', error);
+        return { success: false, error: 'Не вдалося зберегти заклинання' };
+      }
     }
   } else if (existing) {
     await prisma.persSpell.delete({
@@ -326,6 +317,37 @@ export async function setSpellPresenceForPers({
 
   revalidatePersSpellViews(persId);
   return { success: true, present };
+}
+
+/**
+ * Посилання з каталогу → рядок бази (KR25.2). Номер 2014 і в каталозі, і в базі той самий;
+ * заклинання 2024 приходить слагом і шукається за `engName + ruleset`, бо номер каталогу 2024 —
+ * позиція в масиві, а в базі — автоінкремент.
+ */
+async function findSpellIdForLink(link: SpellLink): Promise<number | null> {
+  if (link.ruleset === "RULES_2014" && /^\d+$/.test(link.spellKey)) return Number(link.spellKey);
+
+  const candidates = await prisma.spell.findMany({
+    where: { ruleset: link.ruleset },
+    select: { spellId: true, engName: true },
+  });
+  return candidates.find((spell) => buildSpellSlug(spell.engName) === link.spellKey)?.spellId ?? null;
+}
+
+export async function setSpellPresenceForPersByLink({
+  persId,
+  link,
+  present,
+}: {
+  persId: number;
+  link: SpellLink;
+  present: boolean;
+}): Promise<{ success: true; present: boolean; spellId: number } | { success: false; error: string }> {
+  const spellId = await findSpellIdForLink(link);
+  if (spellId === null) return { success: false, error: "Заклинання не знайдено" };
+
+  const result = await setSpellPresenceForPers({ persId, spellId, present });
+  return result.success ? { ...result, spellId } : result;
 }
 
 export async function setSpellPrepared({

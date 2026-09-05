@@ -7,6 +7,8 @@ import { revalidatePath } from "next/cache";
 import { Ability, Prisma, Skills, SkillProficiencyType } from "@prisma/client";
 import { StatBonuses, SkillBonuses, SimpleBonusField } from "@/lib/types/model-types";
 import { parseStringArray } from "@/server/db/json";
+import { calculateAbilityModifier } from "@/rules/abilities";
+import { applyMaxHitPointShift, findRetroactiveConstitutionHitPoints } from "@/rules/health";
 
 /**
  * Helper to assert the user owns the pers
@@ -27,6 +29,15 @@ async function assertOwnsPers(persId: number) {
     select: {
       persId: true,
       userId: true,
+      level: true,
+      currentHp: true,
+      maxHp: true,
+      str: true,
+      dex: true,
+      con: true,
+      int: true,
+      wis: true,
+      cha: true,
       additionalSaveProficiencies: true,
       statBonuses: true,
       statModifierBonuses: true,
@@ -314,7 +325,8 @@ export async function getAllBonuses(persId: number): Promise<{
 }
 
 /**
- * Update base stat value for a character
+ * Пише лише саму характеристику. Для Статури це неповна дія: максимум хітів вона не рухає,
+ * тому лист персонажа зберігає характеристики через `saveAbilityAdjustments` — див. Р22.
  */
 export async function updateBaseStat(
   persId: number,
@@ -388,5 +400,171 @@ export async function updateBaseACOverride(
   } catch (error) {
     console.error("Error updating base AC override:", error);
     return { success: false, error: "Помилка при збереженні базового КБ" };
+  }
+}
+
+const ABILITY_COLUMN: Record<Ability, "str" | "dex" | "con" | "int" | "wis" | "cha"> = {
+  STR: "str",
+  DEX: "dex",
+  CON: "con",
+  INT: "int",
+  WIS: "wis",
+  CHA: "cha",
+};
+
+type OwnedPers = Extract<Awaited<ReturnType<typeof assertOwnsPers>>, { ok: true }>["pers"];
+
+export interface AbilityAdjustments {
+  persId: number;
+  ability: Ability;
+  baseScore: number;
+  statBonus: number;
+  modifierBonus: number;
+  saveBonus: number;
+  isSaveProficient: boolean;
+}
+
+function readAbilityBonus(json: unknown, ability: Ability): number {
+  if (!json || typeof json !== "object") return 0;
+  const value = (json as Record<string, unknown>)[ability];
+  return typeof value === "number" && Number.isFinite(value) ? Math.trunc(value) : 0;
+}
+
+function writeAbilityBonus(json: unknown, ability: Ability, value: number) {
+  const bonuses: StatBonuses =
+    json && typeof json === "object" ? { ...(json as StatBonuses) } : {};
+
+  if (value === 0) delete bonuses[ability];
+  else bonuses[ability] = value;
+
+  return Object.keys(bonuses).length > 0 ? bonuses : Prisma.JsonNull;
+}
+
+function writeSaveProficiencies(stored: unknown, ability: Ability, isProficient: boolean): Ability[] {
+  const current = parseStringArray(stored).filter((value): value is Ability =>
+    Object.values(Ability).includes(value as Ability),
+  );
+  const without = current.filter((value) => value !== ability);
+  return isProficient ? [...without, ability] : without;
+}
+
+/**
+ * Статура міняє максимум хітів заднім числом, тому характеристика зберігається одним записом:
+ * якби база, бонус до стату й бонус до модифікатора летіли трьома паралельними запитами,
+ * кожен рахував би зсув хітів зі свого, ще не оновленого, стану.
+ */
+function findConstitutionHitPointUpdate(pers: OwnedPers, next: AbilityAdjustments) {
+  if (next.ability !== Ability.CON) return null;
+
+  const previousModifier =
+    calculateAbilityModifier(pers.con + readAbilityBonus(pers.statBonuses, Ability.CON)) +
+    readAbilityBonus(pers.statModifierBonuses, Ability.CON);
+  const nextModifier =
+    calculateAbilityModifier(next.baseScore + next.statBonus) + next.modifierBonus;
+
+  const shift = findRetroactiveConstitutionHitPoints({
+    previousConstitutionModifier: previousModifier,
+    nextConstitutionModifier: nextModifier,
+    level: pers.level,
+  });
+
+  if (shift === 0) return null;
+  return applyMaxHitPointShift({ maxHp: pers.maxHp, currentHp: pers.currentHp, shift });
+}
+
+/**
+ * Зберігає все, що редагується в модалці характеристики: базове значення, три бонуси,
+ * володіння рятівним кидком і — для Статури — ретроактивні хіти.
+ */
+export async function saveAbilityAdjustments(
+  input: AbilityAdjustments,
+): Promise<
+  | { success: true; maxHp: number; currentHp: number }
+  | { success: false; error: string }
+> {
+  const owned = await assertOwnsPers(input.persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const numbers = [input.baseScore, input.statBonus, input.modifierBonus, input.saveBonus];
+  if (numbers.some((value) => !Number.isFinite(value))) {
+    return { success: false, error: "Невірне значення характеристики" };
+  }
+  if (input.baseScore < 0) {
+    return { success: false, error: "Невірне значення характеристики" };
+  }
+
+  const next: AbilityAdjustments = {
+    ...input,
+    baseScore: Math.trunc(input.baseScore),
+    statBonus: Math.trunc(input.statBonus),
+    modifierBonus: Math.trunc(input.modifierBonus),
+    saveBonus: Math.trunc(input.saveBonus),
+  };
+
+  const pers = owned.pers;
+  const hitPoints = findConstitutionHitPointUpdate(pers, next);
+
+  try {
+    await prisma.pers.update({
+      where: { persId: input.persId },
+      data: {
+        [ABILITY_COLUMN[next.ability]]: next.baseScore,
+        statBonuses: writeAbilityBonus(pers.statBonuses, next.ability, next.statBonus),
+        statModifierBonuses: writeAbilityBonus(pers.statModifierBonuses, next.ability, next.modifierBonus),
+        saveBonuses: writeAbilityBonus(pers.saveBonuses, next.ability, next.saveBonus),
+        additionalSaveProficiencies: writeSaveProficiencies(
+          pers.additionalSaveProficiencies,
+          next.ability,
+          next.isSaveProficient,
+        ),
+        ...(hitPoints ?? {}),
+      },
+    });
+
+    revalidatePath(`/char/${input.persId}`);
+    revalidatePath(`/character/${input.persId}`);
+
+    return {
+      success: true,
+      maxHp: hitPoints?.maxHp ?? pers.maxHp,
+      currentHp: hitPoints?.currentHp ?? pers.currentHp,
+    };
+  } catch (error) {
+    console.error("Error saving ability adjustments:", error);
+    return { success: false, error: "Помилка при збереженні характеристики" };
+  }
+}
+
+/**
+ * Ручний оверрайд максимуму хітів. Застосунок не вміє порахувати кожен домашній варіант
+ * (кинуті вживу кубики, дари майстра), тож число має бути редаговане напряму.
+ */
+export async function updateMaxHp(
+  persId: number,
+  value: number,
+): Promise<{ success: true; maxHp: number; currentHp: number } | { success: false; error: string }> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  if (!Number.isFinite(value) || value < 1) {
+    return { success: false, error: "Максимум хітів має бути щонайменше 1" };
+  }
+
+  const maxHp = Math.trunc(value);
+  const currentHp = Math.max(0, Math.min(maxHp, owned.pers.currentHp));
+
+  try {
+    await prisma.pers.update({
+      where: { persId },
+      data: { maxHp, currentHp },
+    });
+
+    revalidatePath(`/char/${persId}`);
+    revalidatePath(`/character/${persId}`);
+
+    return { success: true, maxHp, currentHp };
+  } catch (error) {
+    console.error("Error updating max hp:", error);
+    return { success: false, error: "Помилка при збереженні максимуму хітів" };
   }
 }

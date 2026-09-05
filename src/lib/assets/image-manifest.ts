@@ -19,9 +19,13 @@ const RACE_IMAGE_MAP: Record<string, string> = {
   HALF_ORC: "/images/races/half_orc.webp",
 
   // Dragonborn variants
-  DRAGONBORN_CHROMATIC: "/images/races/dragonborn.webp",
-  DRAGONBORN_METALLIC: "/images/races/dragonborn.webp",
-  DRAGONBORN_GEM: "/images/races/dragonborn.webp",
+  DRAGONBORN_CHROMATIC: "/images/races/dragonborn_chromatic.webp",
+  DRAGONBORN_METALLIC: "/images/races/dragonborn_metallic.webp",
+  DRAGONBORN_GEM: "/images/races/dragonborn_gem.webp",
+
+  // Tasha's Cauldron of Everything
+  CUSTOM_LINEAGE: "/images/races/custom_lineage.webp",
+  CUSTOM_LINEAGE_TCE: "/images/races/custom_lineage.webp",
 
   // GGTR (Ravnica)
   CENTAUR: "/images/races/centaur.webp",
@@ -115,10 +119,126 @@ const CLASS_IMAGE_MAP: Record<string, string> = {
   WIZARD: "/images/classes/wizard.webp",
 };
 
-// 3. Category / Catalog image paths
+// 3. Background image path dictionary
+///
+/// Ключі 2014 — значення `BackgroundCategory`; ключі 2024 приходять із `engName`
+/// (`ARTISAN`, а не `ARTISAN_2024`) — так їх будує `backgroundsData.ts`. У кожного походження
+/// свій файл: спільний арт розведено 2026-09-01 на вимогу власника, бо два різні походження з
+/// однією картинкою — це порушення `.agent/rules/visual-assets.md`. Ключ, який трапляється в
+/// обох редакціях (ACOLYTE, SAGE, SOLDIER…), — це одне й те саме походження, і картинка в нього
+/// одна: так само, як `elf.webp` обслуговує ELF_2014 і ELF_2024.
+const BACKGROUND_IMAGE_MAP: Record<string, string> = {
+  // Книга Гравця (2014)
+  ACOLYTE: "/images/backgrounds/acolyte.webp",
+  CHARLATAN: "/images/backgrounds/charlatan.webp",
+  CRIMINAL: "/images/backgrounds/criminal.webp",
+  SPY: "/images/backgrounds/spy.webp",
+  ENTERTAINER: "/images/backgrounds/entertainer.webp",
+  GLADIATOR: "/images/backgrounds/gladiator.webp",
+  FOLK_HERO: "/images/backgrounds/folk_hero.webp",
+  GUILD_ARTISAN: "/images/backgrounds/guild_artisan.webp",
+  GUILD_MERCHANT: "/images/backgrounds/guild_merchant.webp",
+  HERMIT: "/images/backgrounds/hermit.webp",
+  NOBLE: "/images/backgrounds/noble.webp",
+  KNIGHT: "/images/backgrounds/knight.webp",
+  OUTLANDER: "/images/backgrounds/outlander.webp",
+  SAGE: "/images/backgrounds/sage.webp",
+  SAILOR: "/images/backgrounds/sailor.webp",
+  PIRATE: "/images/backgrounds/pirate.webp",
+  SOLDIER: "/images/backgrounds/soldier.webp",
+  URCHIN: "/images/backgrounds/urchin.webp",
+  CUSTOM: "/images/backgrounds/custom.webp",
+
+  // Книга Гравця (2024) — ключі тут із engName, не з enum
+  ARTISAN: "/images/backgrounds/artisan.webp",
+  FARMER: "/images/backgrounds/farmer.webp",
+  GUARD: "/images/backgrounds/guard.webp",
+  GUIDE: "/images/backgrounds/guide.webp",
+  MERCHANT: "/images/backgrounds/merchant.webp",
+  SCRIBE: "/images/backgrounds/scribe.webp",
+  WAYFARER: "/images/backgrounds/wayfarer.webp",
+
+  // Довідник Занатара про все
+  ANTHROPOLOGIST: "/images/backgrounds/anthropologist.webp",
+  ARCHAEOLOGIST: "/images/backgrounds/archaeologist.webp",
+
+  // Путівник по Узбережжю Мечів
+  CITY_WATCH: "/images/backgrounds/city_watch.webp",
+  CLAN_CRAFTER: "/images/backgrounds/clan_crafter.webp",
+  CLOISTERED_SCHOLAR: "/images/backgrounds/cloistered_scholar.webp",
+  COURTIER: "/images/backgrounds/courtier.webp",
+  FACTION_AGENT: "/images/backgrounds/faction_agent.webp",
+  FAR_TRAVELER: "/images/backgrounds/far_traveler.webp",
+  INHERITOR: "/images/backgrounds/inheritor.webp",
+  INVESTIGATOR: "/images/backgrounds/investigator.webp",
+  KNIGHT_OF_THE_ORDER: "/images/backgrounds/knight_of_the_order.webp",
+  MERCENARY_VETERAN: "/images/backgrounds/mercenary_veteran.webp",
+  URBAN_BOUNTY_HUNTER: "/images/backgrounds/urban_bounty_hunter.webp",
+  UTHGARDT_TRIBE_MEMBER: "/images/backgrounds/uthgardt_tribe_member.webp",
+  WATERDHAVIAN_NOBLE: "/images/backgrounds/waterdhavian_noble.webp",
+  FISHER: "/images/backgrounds/fisher.webp",
+  SHIPWRIGHT: "/images/backgrounds/shipwright.webp",
+  SMUGGLER: "/images/backgrounds/smuggler.webp",
+  MARINE: "/images/backgrounds/marine.webp",
+
+  // Путівник по Равніці
+  AZORIUS_FUNCTIONARY: "/images/backgrounds/azorius_functionary.webp",
+  BOROS_LEGIONNAIRE: "/images/backgrounds/boros_legionnaire.webp",
+  DIMIR_OPERATIVE: "/images/backgrounds/dimir_operative.webp",
+  GOLGARI_AGENT: "/images/backgrounds/golgari_agent.webp",
+  GRUUL_ANARCH: "/images/backgrounds/gruul_anarch.webp",
+  IZZET_ENGINEER: "/images/backgrounds/izzet_engineer.webp",
+  ORZHOV_REPRESENTATIVE: "/images/backgrounds/orzhov_representative.webp",
+  RAKDOS_CULTIST: "/images/backgrounds/rakdos_cultist.webp",
+  SELESNYA_INITIATE: "/images/backgrounds/selesnya_initiate.webp",
+  SIMIC_SCIENTIST: "/images/backgrounds/simic_scientist.webp",
+
+  // Вайлдмаунт, Терос
+  GRINNER: "/images/backgrounds/grinner.webp",
+  VOLSTRUCKER_AGENT: "/images/backgrounds/volstrucker_agent.webp",
+  ATHLETE: "/images/backgrounds/athlete.webp",
+
+  // Стріксгейвен
+  LOREHOLD_STUDENT: "/images/backgrounds/lorehold_student.webp",
+  PRISMARI_STUDENT: "/images/backgrounds/prismari_student.webp",
+  QUANDRIX_STUDENT: "/images/backgrounds/quandrix_student.webp",
+  SILVERQUILL_STUDENT: "/images/backgrounds/silverquill_student.webp",
+  WITHERBLOOM_STUDENT: "/images/backgrounds/witherbloom_student.webp",
+
+  // Спелджаммер, Авернус
+  ASTRAL_DRIFTER: "/images/backgrounds/astral_drifter.webp",
+  WILDSPACER: "/images/backgrounds/wildspacer.webp",
+  FACELESS: "/images/backgrounds/faceless.webp",
+
+  // Корпорація пригодників
+  FAILED_MERCHANT: "/images/backgrounds/failed_merchant.webp",
+  GAMBLER: "/images/backgrounds/gambler.webp",
+  PLAINTIFF: "/images/backgrounds/plaintiff.webp",
+  RIVAL_INTERN: "/images/backgrounds/rival_intern.webp",
+
+  // Відьомське Світло, Страд
+  FEYLOST: "/images/backgrounds/feylost.webp",
+  WITCHLIGHT_HAND: "/images/backgrounds/witchlight_hand.webp",
+  HAUNTED_ONE: "/images/backgrounds/haunted_one.webp",
+
+  // Спис Дракона, Еберрон
+  KNIGHT_OF_SOLAMNIA: "/images/backgrounds/knight_of_solamnia.webp",
+  MAGE_OF_HIGH_SORCERY: "/images/backgrounds/mage_of_high_sorcery.webp",
+  HOUSE_AGENT: "/images/backgrounds/house_agent.webp",
+
+  // Книга Багатьох Речей, Слава Гігантів, Плейнскейп
+  REWARDED: "/images/backgrounds/rewarded.webp",
+  RUINED: "/images/backgrounds/ruined.webp",
+  GIANT_FOUNDLING: "/images/backgrounds/giant_foundling.webp",
+  RUNE_CARVER: "/images/backgrounds/rune_carver.webp",
+  GATE_WARDEN: "/images/backgrounds/gate_warden.webp",
+  PLANAR_PHILOSOPHER: "/images/backgrounds/planar_philosopher.webp",
+};
+
+// 4. Category / Catalog image paths
 export const CATEGORY_IMAGE_MAP = {
-  HEROES_WAR_TABLE: "/images/categories/heroes_war_table.webp",
-  ANCESTRAL_SPECIES_HALL: "/images/categories/ancestral_species_hall.webp",
+  HEROES_WAR_TABLE: "/images/categories/classes.webp",
+  ANCESTRAL_SPECIES_HALL: "/images/categories/races.webp",
   ANCIENT_RULES_TOME: "/images/categories/ancient_rules_tome.webp",
   MAGIC_ITEMS_STILL_LIFE: "/images/categories/magic_items_still_life.webp",
   GRAND_FORGE_AND_ARMORY: "/images/categories/grand_forge_and_armory.webp",
@@ -175,6 +295,24 @@ export function getRaceImagePath(raceName: string | null | undefined): string | 
   }
 
   // 3. Fallback partial matching for complex strings or Ukrainian names
+  if (norm.includes("CHROMATIC") || norm.includes("ХРОМАТИЧ")) {
+    return RACE_IMAGE_MAP.DRAGONBORN_CHROMATIC;
+  }
+  if (norm.includes("METALLIC") || norm.includes("МЕТАЛІЧ") || norm.includes("МЕТАЛ")) {
+    return RACE_IMAGE_MAP.DRAGONBORN_METALLIC;
+  }
+  if (norm.includes("GEM") || norm.includes("САМОЦВІТ")) {
+    return RACE_IMAGE_MAP.DRAGONBORN_GEM;
+  }
+  if (norm.includes("CUSTOM_LINEAGE") || norm.includes("СВОЯ_РАСА") || norm.includes("СВОЯ РАСА")) {
+    return RACE_IMAGE_MAP.CUSTOM_LINEAGE;
+  }
+  if (norm.includes("FAIRY") || norm.includes("ФЕЯ")) {
+    return RACE_IMAGE_MAP.FAIRY;
+  }
+  if (norm.includes("HOBGOBLIN") || norm.includes("ХОБГОБЛІН")) {
+    return RACE_IMAGE_MAP.HOBGOBLIN;
+  }
   if (norm.includes("AIR_GENASI") || norm.includes("GENASI_AIR") || norm.includes("ПОВІТР")) {
     return RACE_IMAGE_MAP.AIR_GENASI;
   }
@@ -313,4 +451,20 @@ export function getCategoryImagePath(category: string | null | undefined): strin
   }
 
   return CATEGORY_IMAGE_MAP.HEROES_WAR_TABLE;
+}
+
+/**
+ * Resolves the public image path for a background key.
+ * Returns `null` when the background has no illustration (`CUSTOM`) or the key is unknown.
+ */
+export function getBackgroundImagePath(backgroundKey: string | null | undefined): string | null {
+  if (!backgroundKey) return null;
+  const rawKey = String(backgroundKey).trim().toUpperCase();
+
+  if (BACKGROUND_IMAGE_MAP[rawKey]) {
+    return BACKGROUND_IMAGE_MAP[rawKey];
+  }
+
+  const norm = rawKey.replace(/_2014$/, "").replace(/_2024$/, "");
+  return BACKGROUND_IMAGE_MAP[norm] ?? null;
 }

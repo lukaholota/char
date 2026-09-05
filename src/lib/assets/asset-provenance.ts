@@ -19,9 +19,15 @@ export type ImageProvenance =
 
 const PROVENANCE_BY_PREFIX: ReadonlyArray<readonly [string, ImageProvenance]> = [
   ["/images/categories/", "ai"],
+  /// Owner's call 2026-08-28: the two home covers — spells and characters — count as non-AI
+  /// and stay on screen in the no-AI mode, generated or not.
+  ["/images/home/", "drawn"],
   ["/images/races/", "ai"],
   ["/images/classes/", "ai"],
+  ["/images/backgrounds/", "ai"],
+  ["/images/rules/", "ai"],
   ["/images/creatures/", "manual"],
+  ["/images/manual/", "manual"],
   ["/images/home-", "drawn"],
 ];
 
@@ -33,4 +39,22 @@ export function findImageProvenance(src: string | null | undefined): ImageProven
 
 export function isAiGeneratedImage(src: string | null | undefined): boolean {
   return findImageProvenance(src) === "ai";
+}
+
+/// Режим без ШІ не завжди означає «порожньо». Там, де для місця є ілюстрація з мануалу, вона
+/// стає на місце згенерованої; немає заміни — згенероване ховається, як і раніше.
+export function findVisibleImageSrc({
+  src,
+  noAiSrc,
+  isNoAiMode,
+  provenance,
+}: {
+  src?: string | null;
+  noAiSrc?: string | null;
+  isNoAiMode: boolean;
+  provenance?: ImageProvenance;
+}): string | null {
+  if (!isNoAiMode) return src ?? null;
+  if (noAiSrc) return noAiSrc;
+  return (provenance ?? findImageProvenance(src)) === "ai" ? null : (src ?? null);
 }

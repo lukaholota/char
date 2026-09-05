@@ -1,10 +1,6 @@
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
-
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import remarkHtml from "remark-html";
-import remarkBreaks from "remark-breaks";
+import { escapePrintHtml, renderPrintableMarkdown } from "./printProjection";
 
 import type { CharacterFeaturesGroupedResult, CharacterFeatureItem } from "@/lib/actions/pers";
 import { 
@@ -21,20 +17,6 @@ export interface FeaturesPdfInput {
 interface FeatureSection {
   title: string;
   items: CharacterFeatureItem[];
-}
-
-async function markdownToHtml(markdown: string) {
-  const file = await remark().use(remarkGfm).use(remarkBreaks).use(remarkHtml, { sanitize: false }).process(markdown);
-  return String(file);
-}
-
-function escapeHtml(text: string) {
-  return text
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
 }
 
 function groupFeaturesByType(features: CharacterFeaturesGroupedResult): FeatureSection[] {
@@ -92,7 +74,7 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
     sections.map(async (section) => {
       const itemsHtml = await Promise.all(
         section.items.map(async (item) => {
-          const descriptionHtml = await markdownToHtml(item.description || "");
+          const descriptionHtml = await renderPrintableMarkdown(item.description || "");
           const usageInfo = formatUsageInfo(item);
           
           const normalizedSource = normalizeFeatureSource(item.source);
@@ -105,8 +87,8 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
           return `
           <article class="feature">
             <div class="header">
-              <h2 class="name">${escapeHtml(displayName)} ${escapeHtml(sourceNote)}</h2>
-              ${usageInfo ? `<span class="usage">${escapeHtml(usageInfo)}</span>` : ""}
+              <h2 class="name">${escapePrintHtml(displayName)} ${escapePrintHtml(sourceNote)}</h2>
+              ${usageInfo ? `<span class="usage">${escapePrintHtml(usageInfo)}</span>` : ""}
             </div>
             <div class="desc">${descriptionHtml}</div>
           </article>`;
@@ -115,7 +97,7 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
 
       return `
         <section class="section">
-          <h1 class="section-title">${escapeHtml(section.title)}</h1>
+          <h1 class="section-title">${escapePrintHtml(section.title)}</h1>
           ${itemsHtml.join("\n")}
         </section>`;
     })
@@ -126,7 +108,7 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Features — ${escapeHtml(characterName)}</title>
+    <title>Features — ${escapePrintHtml(characterName)}</title>
 
     <style>
       ${getFontsCss()}
@@ -211,7 +193,7 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
   </head>
   <body>
     <div class="wrap">
-      <h1 class="page-title">Здібності — ${escapeHtml(characterName)}</h1>
+      <h1 class="page-title">Здібності — ${escapePrintHtml(characterName)}</h1>
       <div class="columns">
         ${sectionsHtml.join("\n")}
       </div>

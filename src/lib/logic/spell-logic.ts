@@ -1,4 +1,4 @@
-import { Classes, SpellcastingType } from "@prisma/client";
+import { Classes, Ruleset, SpellcastingType } from "@prisma/client";
 import { calculateCasterLevel as calculateRulesCasterLevel } from "@/rules/spellcasting";
 import type { SpellcastingCharacter } from "@/rules/types";
 
@@ -14,6 +14,7 @@ export type SpellcastingClassLevel = {
 };
 
 export type SpellcastingPersLike = {
+  ruleset: Ruleset;
   level: number;
   class?: { name?: Classes | string | null; spellcastingType?: SpellcastingType | null } | null;
   subclass?: { spellcastingType?: SpellcastingType | null } | null;
@@ -30,7 +31,7 @@ export type CasterLevelResult = {
 };
 
 export function calculateCasterLevel(pers: SpellcastingPersLike): CasterLevelResult {
-  return calculateRulesCasterLevel(toRulesSpellcastingCharacter(pers));
+  return calculateRulesCasterLevel(toRulesSpellcastingCharacter(pers), pers.ruleset);
 }
 
 export function toRulesSpellcastingCharacter(pers: SpellcastingPersLike): SpellcastingCharacter {

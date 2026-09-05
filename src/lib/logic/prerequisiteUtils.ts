@@ -84,6 +84,10 @@ export function checkPrerequisite(
         'Pact of the Chain': 'Дар ланцюга',
         'Pact of the Tome': 'Дар гримуара',
         'Pact of the Talisman': 'Дар талісмана',
+        // 2024 (KR18.8): Pact of the Blade/Chain/Tome — самі виклики, ключ несе суфікс редакції.
+        'Pact of the Blade (2024)': 'Дар клинка',
+        'Pact of the Chain (2024)': 'Дар ланцюга',
+        'Pact of the Tome (2024)': 'Дар гримуара',
       };
       failedReasons.push(`Потрібен ${pactMap[requiredPact] || requiredPact}`);
     }

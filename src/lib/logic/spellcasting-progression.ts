@@ -2,6 +2,7 @@ import { Ability, Classes, Subclasses } from "@prisma/client";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
 import type { PersWithRelations } from "@/lib/actions/pers";
+import { findSpellCounts2024 } from "@/rules/spell-preparation-2024";
 
 export type SpellCountValue =
 	| { kind: "fixed"; value: number }
@@ -22,6 +23,36 @@ function clampLevel(value: unknown): number {
 	const n = typeof value === "number" ? value : Number(value);
 	if (!Number.isFinite(n)) return 1;
 	return Math.max(1, Math.min(20, Math.trunc(n)));
+}
+
+function isClass2024(className: Classes | string | null): className is string {
+	return typeof className === "string" && className.endsWith("_2024");
+}
+
+// KR27.7: у 2024 підготовлені заклинання — фіксована колонка таблиці класу, тому рядок — «fixed»,
+// а не формула. Мітка «можна підготувати» — та сама, що й у чарівника 2014: за нею лист рахує ліміт.
+function buildLine2024(className: string, level: number, subclassName: string | null): SpellcastingCountsLine | null {
+	const counts = findSpellCounts2024(className, level, subclassName);
+	if (!counts) return null;
+
+	const isThirdCaster = !hasOwnSpellcasting(className);
+	const name = isThirdCaster
+		? ((subclassTranslations as Partial<Record<string, string>>)[subclassName ?? ""] ?? String(subclassName))
+		: ((classTranslations as Partial<Record<string, string>>)[className] ?? className);
+
+	return {
+		key: isThirdCaster ? `subclass:${subclassName}:${level}` : `class:${className}:${level}`,
+		name,
+		level,
+		cantrips: counts.cantrips,
+		spellsLabel: "Заклинань (можна підготувати)",
+		spells: fixed(counts.prepared),
+		...(className === "WIZARD_2024" ? { spellsNote: "+ книга заклинань" } : {}),
+	};
+}
+
+function hasOwnSpellcasting(className: string): boolean {
+	return findSpellCounts2024(className, 1, null) !== null;
 }
 
 function tableAtLevel(table: readonly number[], level: number): number {
@@ -160,6 +191,12 @@ export function getSpellcastingCountsLines(pers: PersWithRelations): Spellcastin
 	for (const entry of entries) {
 		const level = clampLevel(entry.level);
 		const cls = entry.className as Classes | string | null;
+
+		if (isClass2024(cls)) {
+			const line = buildLine2024(cls, level, entry.subclassName ?? null);
+			if (line) lines.push(line);
+			continue;
+		}
 
 		if (cls === Classes.BARD_2014) {
 			lines.push({

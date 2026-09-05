@@ -183,11 +183,18 @@ export async function addArmor(
   if (!owned.ok) return { success: false, error: owned.error };
 
   try {
+    /// `HOMEBREW` шукається саме в 2014, і після KR16.5 це вже не через порожню базу:
+    /// 13 категорій 2024 у таблиці є, але `HOMEBREW` серед них немає — у книзі його теж
+    /// немає. Зробити запит залежним від редакції персонажа можна буде разом із перемикачем
+    /// редакції (O6 Крок 5), який зніме `ACTIVE_RULESET` з усього цього файла, а не з
+    /// самого обладунку.
     const resolvedArmorId = armorId
       ? armorId
       : (
           await prisma.armor.findUnique({
-            where: { name: ArmorCategory.HOMEBREW },
+            where: {
+              name_ruleset: { name: ArmorCategory.HOMEBREW, ruleset: Ruleset.RULES_2014 },
+            },
             select: { armorId: true },
           })
         )?.armorId ?? 1;

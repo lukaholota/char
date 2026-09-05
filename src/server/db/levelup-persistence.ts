@@ -13,9 +13,29 @@ import {
 
 import { toRulesSpellcastingCharacter } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
+import { findFeatsGrantedByChoiceOptions } from "@/rules/feat-sources";
+import { findFeatPackageProblem, toFeatInstance } from "@/server/db/feat-gates";
 import { calculateAverageHitPointIncrease } from "@/rules/health";
+import { sumFeatureHitPointsPerLevel } from "@/rules/hit-points";
 import { normalizeSkillProficiencies } from "@/rules/proficiency";
 import { isAbilityScoreIncreaseLevel } from "@/rules/progression";
+import {
+  findAbilityScoreCeiling,
+  findFeatAbilityScoreSource,
+  raiseAbilityScore,
+  type AbilityScoreIncreaseSource,
+} from "@/rules/ability-score-ceiling";
+import { buildCharacterLevels, findClassLevel } from "@/rules/character-level";
+import { findFirstUnmetInvocationPrerequisite, type InvocationPrerequisite } from "@/rules/warlock-invocations";
+import {
+  findMulticlassEntryProblem,
+  type MulticlassEntryClass,
+  type MulticlassEntryProblem,
+  type MulticlassRuleset,
+} from "@/rules/multiclass-entry";
+import { findMulticlassProficiencies } from "@/rules/multiclass-proficiencies";
+import { calculateFinalAbilityScores } from "@/lib/logic/bonus-calculator";
+import { buildSpeciesPersSpellRows, findMissingSpeciesGrants } from "@/server/db/species-level-grants";
 import { applyLevelUp, mergeUniqueLines } from "@/rules/levelup";
 import { getRulesStrategy } from "@/rules/strategies";
 import type { SpellcastingCharacter } from "@/rules/types";
@@ -28,18 +48,47 @@ import {
   loadLevelUpFeatureEffects,
   loadLevelUpOptionalFeatures,
 } from "@/server/db/levelup-content";
-import { parseEnumArray, parseJsonRecord, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
+import { parseEnumArray, parseJsonRecord, parseMulticlassReqs, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
 import type { ToolProficiencies } from "@/lib/types/model-types";
+import { findPersWeaponMasteryOffer, replacePersWeaponMastery } from "@/server/db/weapon-mastery";
+import { grantAlternativeArmorClassFormulas } from "@/server/db/armor-class-formulas";
+import { findUserIdByEmail } from "@/server/db/users";
+import { canEditPers } from "@/lib/actions/pers";
+import { findCustomAsiPackageProblem } from "@/rules/abilities";
 
 const ALL_SKILLS = Object.values(Skills) as Skills[];
+
+function toMulticlassEntryClass(characterClass: { name: string; multiclassReqs: unknown }): MulticlassEntryClass {
+  return { name: characterClass.name, multiclassReqs: parseMulticlassReqs(characterClass.multiclassReqs) };
+}
+
+/** «Монах вимагає Спритність 13 і Мудрість 13; у персонажа Мудрість 8.» */
+function describeMulticlassEntryProblem(problem: MulticlassEntryProblem): string {
+  const demanded = problem.requiredAbilities
+    .map((ability) => `${translateValue(ability)} ${problem.score}`)
+    .join(problem.needsAll ? " і " : " або ");
+  const owned = problem.unmetAbilities
+    .map((unmet) => `${translateValue(unmet.ability)} ${unmet.actual}`)
+    .join(", ");
+
+  return `${translateValue(problem.className)} вимагає ${demanded}; у персонажа ${owned}.`;
+}
 
 export async function getLevelUpInfo(persId: number) {
   const session = await auth();
   if (!session?.user?.email) return { error: "Unauthorized" };
 
-  const { pers, classes, feats, infusions } = await loadLevelUpBaseContent(persId);
+  const userId = await findUserIdByEmail(session.user.email);
+  if (userId === null) return { error: "Unauthorized" };
+
+  const { pers, classes, feats, infusions, weapons } = await loadLevelUpBaseContent(persId);
 
   if (!pers) return { error: "Character not found" };
+
+  // Той самий гейт, що на маршрутах /api/character* (character-access.ts): власник,
+  // співвласник або редактор теки. Без нього будь-хто залогінений бачив чужі кроки підвищення.
+  const canEdit = await canEditPers(persId, userId);
+  if (!canEdit) return { error: "Character not found" };
 
   const nextLevel = pers.level + 1;
   if (nextLevel > 20) return { error: "Max level reached" };
@@ -49,8 +98,11 @@ export async function getLevelUpInfo(persId: number) {
     currentClass?.subclasses?.find((s) => s.subclassId === pers.subclassId) ?? null;
 
   const rulesStrategy = getRulesStrategy((pers.ruleset as "RULES_2014" | "RULES_2024") ?? "RULES_2014");
-  const needsSubclass = rulesStrategy.needsSubclassSelection(currentClass ?? {}, Boolean(pers.subclassId), nextLevel);
-  const isASILevel = isAbilityScoreIncreaseLevel(currentClass ?? {}, nextLevel);
+  // Підклас і ASI відкриває рівень КЛАСУ: у Wizard 2 / Fighter 3 персонаж уже 5-го рівня, а
+  // підкласу чарівника ще нема (§4). Для персонажа без мультикласу число те саме, що й було.
+  const mainClassLevelAfter = findMainClassLevel(pers) + 1;
+  const needsSubclass = rulesStrategy.needsSubclassSelection(currentClass ?? {}, Boolean(pers.subclassId), mainClassLevelAfter);
+  const isASILevel = isAbilityScoreIncreaseLevel(currentClass ?? {}, mainClassLevelAfter);
 
   const newClassFeatures = (currentClass?.features ?? []).filter((f) => f.levelGranted === nextLevel);
   const newSubclassFeatures = (currentSubclass?.features ?? []).filter((f) => f.levelGranted === nextLevel);
@@ -87,7 +139,41 @@ export async function getLevelUpInfo(persId: number) {
     classes,
     feats,
     infusions,
+    weapons,
   };
+}
+
+type LevelUpPers = NonNullable<Awaited<ReturnType<typeof loadLevelUpBaseContent>>["pers"]>;
+
+/** Рівень основного класу ніде не збережений — це рівень персонажа мінус рівні мультикласів. */
+function findMainClassLevel(pers: LevelUpPers): number {
+  return findClassLevel(toCharacterLevels(pers, pers.level), pers.class.name);
+}
+
+function toCharacterLevels(pers: LevelUpPers, characterLevel: number) {
+  return buildCharacterLevels({
+    characterLevel,
+    mainClassName: pers.class.name,
+    multiclasses: (pers.multiclasses ?? []).map((entry) => ({
+      className: entry.class.name,
+      classLevel: entry.classLevel,
+    })),
+  });
+}
+
+/**
+ * Риси й заклинання виду, які персонаж заслужив рівнем персонажа, але ще не має. Ретроактивність
+ * тут безкоштовна: персонаж, створений до KR18.5, добере пропущене на найближчому підвищенні.
+ */
+function readMissingSpeciesGrants(pers: LevelUpPers, characterLevel: number) {
+  return findMissingSpeciesGrants({
+    ruleset: pers.ruleset,
+    characterLevel,
+    raceTraits: pers.race.traits,
+    raceChoiceOptions: pers.raceChoiceOptions,
+    ownedFeatureIds: pers.features.map((feature) => feature.featureId),
+    ownedSpellIds: pers.persSpells.map((spell) => spell.spellId),
+  });
 }
 
 export async function executeLevelUp(persId: number, data: LevelUpInput) {
@@ -115,6 +201,17 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
 
     const selectedClass = classes.find((characterClass) => characterClass.classId === selectedClassId);
     if (!selectedClass) return { error: "Клас не знайдено" };
+
+    if (levelUpPath === "MULTICLASS") {
+      const entryProblem = findMulticlassEntryProblem({
+        ruleset: (pers.ruleset as MulticlassRuleset) ?? "RULES_2014",
+        abilityScores: calculateFinalAbilityScores(pers),
+        currentClasses: [pers.class, ...pers.multiclasses.map((multiclass) => multiclass.class)]
+          .map(toMulticlassEntryClass),
+        newClass: toMulticlassEntryClass(selectedClass),
+      });
+      if (entryProblem) return { error: describeMulticlassEntryProblem(entryProblem) };
+    }
 
     const multiclassRow = (pers.multiclasses || []).find((m) => m.classId === selectedClassId) ?? null;
     const mainClassLevel = (() => {
@@ -149,12 +246,20 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       CHA: "cha",
     };
 
-    const clampStats = () => {
-      for (const k of Object.keys(newStats) as Array<keyof typeof newStats>) {
-        const v = newStats[k];
-        if (typeof v === "number" && Number.isFinite(v)) newStats[k] = Math.min(20, v);
+    // Стеля залежить від джерела підвищення, тому береться на кожне з них окремо: класовий ASI
+    // стоїть на 20 навіть тоді, коли на цьому ж рівні епічний дар підіймає свою до 30.
+    const standardCeiling = findAbilityScoreCeiling({ ruleset: pers.ruleset, source: "STANDARD" });
+    let abilityScoreSource: AbilityScoreIncreaseSource = "STANDARD";
+
+    if (Array.isArray(data?.customAsi) && data.customAsi.length) {
+      const asiProblem = findCustomAsiPackageProblem(data.customAsi);
+      if (asiProblem) return { error: asiProblem };
+      // Рівень класу, що підвищується САМЕ ЗАРАЗ — не головного класу персонажа (L08-levelup-machine-13:
+      // info.isASILevel рахує ASI за головним класом, а мультиклас підвищує будь-який з узятих).
+      if (!isAbilityScoreIncreaseLevel(selectedClass, classLevelAfter)) {
+        return { error: "На цьому рівні підвищення характеристик недоступне" };
       }
-    };
+    }
 
     if (Array.isArray(data?.customAsi)) {
       for (const asi of data.customAsi as Array<{ ability?: string; value?: string }>) {
@@ -163,7 +268,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         const delta = Number(asi?.value);
         if (!key) continue;
         if (!Number.isFinite(delta) || (delta !== 1 && delta !== 2)) continue;
-        newStats[key] += delta;
+        newStats[key] = raiseAbilityScore(newStats[key], delta, standardCeiling);
       }
     }
 
@@ -198,7 +303,14 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       const feat = feats.find((candidate) => candidate.featId === featId);
 
       if (!feat) return { error: "Рису не знайдено" };
+      const featProblem = findFeatPackageProblem(
+        [{ feat, source: "CLASS_ASI", choiceOptionIds: featChoiceOptionIds }],
+        pers.feats.map(toFeatInstance),
+      );
+      if (featProblem) return { error: featProblem };
       const isResilient = feat.name === Feats.RESILIENT;
+      abilityScoreSource = findFeatAbilityScoreSource(feat.category);
+      const featCeiling = findAbilityScoreCeiling({ ruleset: pers.ruleset, source: abilityScoreSource });
       featFeatureIds = feat.grantsFeature.map((f) => f.featureId);
       featGrantedASI = feat.grantedASI;
 
@@ -218,7 +330,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         const delta = Number(bonus);
         if (!key) return;
         if (!Number.isFinite(delta)) return;
-        newStats[key] += delta;
+        newStats[key] = raiseAbilityScore(newStats[key], delta, featCeiling);
       };
 
       // grantedASI supports both nested RaceASI-like and plain maps
@@ -334,16 +446,14 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       // Skills from feat choice selections are handled above (effect metadata / parsing fallback).
     }
 
-    clampStats();
-
-      nextAdditionalSaveProficiencies = saveProficienciesToAdd.size
-        ? Array.from(
-          new Set([
-            ...parseEnumArray(pers.additionalSaveProficiencies, Ability),
-            ...Array.from(saveProficienciesToAdd),
-          ])
-        )
-        : null;
+    nextAdditionalSaveProficiencies = saveProficienciesToAdd.size
+      ? Array.from(
+        new Set([
+          ...parseEnumArray(pers.additionalSaveProficiencies, Ability),
+          ...Array.from(saveProficienciesToAdd),
+        ])
+      )
+      : null;
 
     // ===== 3) HP increase (from wizard) =====
     const hpIncreaseFromWizard = data?.levelUpHpIncrease;
@@ -496,29 +606,73 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
 
       // Warlock invocation prerequisites (server-side).
       const invocationGroup = CHOICE_GROUPS.WARLOCK_INVOCATIONS;
-      const isWarlock = args.scope === "class" && args.className === "WARLOCK_2014";
-      if (isWarlock) {
+      const isWarlock2014 = args.scope === "class" && args.className === "WARLOCK_2014";
+      const isWarlock2024 = args.scope === "class" && args.className === "WARLOCK_2024";
+
+      const readPrerequisite = (raw: unknown): InvocationPrerequisite => {
+        const prereq = parseJsonRecord(raw);
+        return {
+          level: prereq?.level ? Number(prereq.level) : undefined,
+          pact: prereq?.pact ? String(prereq.pact) : undefined,
+        };
+      };
+
+      if (isWarlock2014) {
+        // 2014: Дар пакту — окрема одноразова група вибору; персонаж має щонайбільше один.
         const invSelected = selectedByGroup.get(invocationGroup) ?? [];
         if (invSelected.length) {
           const persPact = (pers.choiceOptions || []).find(
             (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
-          )?.optionNameEng;
+          )?.optionNameEng as string | undefined;
 
           const invOptions = selectedChoiceContent.choiceOptions.filter((option) =>
             invSelected.includes(option.choiceOptionId),
           );
 
-          for (const opt of invOptions) {
-            const prereq = parseJsonRecord(opt.prerequisites);
-            const minLevel = prereq?.level ? Number(prereq.level) : undefined;
-            if (typeof minLevel === "number" && Number.isFinite(minLevel) && classLevelAfter < minLevel) {
-              return { error: "Цей виклик недоступний на цьому рівні" } as const;
-            }
-            const pact = prereq?.pact ? String(prereq.pact) : undefined;
-            if (pact) {
-              if (!persPact) return { error: "Спершу оберіть Пакт" } as const;
-              if (String(persPact) !== pact) return { error: "Цей виклик вимагає іншого Пакту" } as const;
-            }
+          const unmet = findFirstUnmetInvocationPrerequisite({
+            classLevel: classLevelAfter,
+            knownOptionNameEngs: new Set(persPact ? [persPact] : []),
+            selectedInvocations: invOptions.map((opt) => ({
+              optionNameEng: String(opt.optionNameEng ?? ""),
+              prerequisite: readPrerequisite(opt.prerequisites),
+            })),
+          });
+
+          if (unmet?.reason === "level") return { error: "Цей виклик недоступний на цьому рівні" } as const;
+          if (unmet?.reason === "pact") {
+            return { error: persPact ? "Цей виклик вимагає іншого Пакту" : "Спершу оберіть Пакт" } as const;
+          }
+        }
+      }
+
+      if (isWarlock2024) {
+        // 2024: Pact of the Blade/Chain/Tome — самі такі самі виклики з тієї ж групи, а не
+        // окрема фіча; передумова звіряється проти вже відомих + обраних у цьому пакеті.
+        const invSelected = selectedByGroup.get(invocationGroup) ?? [];
+        if (invSelected.length) {
+          const knownInvocationOptionNameEngs = new Set(
+            (pers.choiceOptions || [])
+              .filter((co: any) => co?.groupName === invocationGroup)
+              .map((co: any) => String(co?.optionNameEng ?? ""))
+              .filter(Boolean),
+          );
+
+          const invOptions = selectedChoiceContent.choiceOptions.filter((option) =>
+            invSelected.includes(option.choiceOptionId),
+          );
+
+          const unmet = findFirstUnmetInvocationPrerequisite({
+            classLevel: classLevelAfter,
+            knownOptionNameEngs: knownInvocationOptionNameEngs,
+            selectedInvocations: invOptions.map((opt) => ({
+              optionNameEng: String(opt.optionNameEng ?? ""),
+              prerequisite: readPrerequisite(opt.prerequisites),
+            })),
+          });
+
+          if (unmet?.reason === "level") return { error: "Цей виклик недоступний на цьому рівні" } as const;
+          if (unmet?.reason === "pact") {
+            return { error: "Цей виклик вимагає іншого виклику, якого у вас ще немає" } as const;
           }
         }
       }
@@ -607,6 +761,13 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
     // Feat features
     for (const fid of featFeatureIds) featuresToAdd.add(fid);
 
+    // Риси виду за рівнем ПЕРСОНАЖА — Драконячий політ на 5-му приходить незалежно від того,
+    // який клас гравець щойно підняв (референс §4).
+    const speciesGrants = readMissingSpeciesGrants(pers, nextLevel);
+    for (const trait of speciesGrants.traits) featuresToAdd.add(trait.featureId);
+
+    const featureIdsFromChoiceOptions = new Set<number>();
+
     const processChoiceSelections = async (selections: Record<string, number | number[]> | undefined) => {
       if (!selections) return;
       for (const optionIdRaw of Object.values(selections)) {
@@ -618,7 +779,10 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
           const choiceFeatures = selectedChoiceContent.choiceOptionFeatures.filter(
             (entry) => entry.choiceOptionId === optionId,
           );
-          for (const f of choiceFeatures) featuresToAdd.add(f.featureId);
+          for (const f of choiceFeatures) {
+            featuresToAdd.add(f.featureId);
+            featureIdsFromChoiceOptions.add(f.featureId);
+          }
         }
       }
     };
@@ -814,6 +978,19 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
     for (const fid of replacementFeatureIdsToAdd) featuresToAdd.add(fid);
 
     const featureEffects = await loadLevelUpFeatureEffects([...featuresToAdd]);
+    const traitHitPointsPerLevel = sumFeatureHitPointsPerLevel([
+      ...pers.features.map((entry) => ({ ...entry.feature, featureId: entry.featureId })),
+      ...featureEffects,
+    ]);
+    const featIdsFromChoiceOptions = findFeatsGrantedByChoiceOptions({
+      chosenFeatureIds: [...featureIdsFromChoiceOptions],
+      featsGrantingFeatures: feats.map((candidate) => ({
+        featId: candidate.featId,
+        featureIds: candidate.grantsFeature.map((feature) => feature.featureId),
+        isRepeatable: candidate.isRepeatable,
+      })),
+      alreadyTakenFeatIds: [...pers.feats.map((persFeat) => persFeat.featId), ...(featId ? [featId] : [])],
+    });
     const featureProficiencyExtras: string[] = [];
     if (featuresToAdd.size > 0) {
       for (const f of featureEffects) {
@@ -898,6 +1075,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
           })),
     };
     const transition = applyLevelUp({
+      ruleset: pers.ruleset,
       level: pers.level,
       scores: { STR: pers.str, DEX: pers.dex, CON: pers.con, INT: pers.int, WIS: pers.wis, CHA: pers.cha },
       maxHp: pers.maxHp,
@@ -911,9 +1089,11 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       additionalSaveProficiencies: pers.additionalSaveProficiencies,
     }, {
       scores: { STR: newStats.str, DEX: newStats.dex, CON: newStats.con, INT: newStats.int, WIS: newStats.wis, CHA: newStats.cha },
+      abilityScoreSource,
       hitDieIncrease: hitDiePart,
       hasTough: alreadyHasTough,
       takesTough: Boolean(takingTough),
+      traitHitPointsPerLevel,
       spellcastingAfter,
       featureIdsToAdd: [...featuresToAdd, ...replacementFeatureIdsToAdd],
       featureIdsToRemove: [...optionalReplacedFeatureIds, ...replacementFeatureIdsToRemove],
@@ -961,13 +1141,11 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         });
       }
 
-      // create or update PersFeat and its choices
+      // Повтор уже перевірено гейтом; повторювана риса — другий рядок зі своїми виборами (Р37).
       let persFeatId: number | null = null;
       if (featId) {
-        const created = await tx.persFeat.upsert({
-          where: { featId_persId: { featId, persId } },
-          update: {},
-          create: { featId, persId },
+        const created = await tx.persFeat.create({
+          data: { featId, persId },
           select: { persFeatId: true },
         });
         persFeatId = created.persFeatId;
@@ -983,7 +1161,33 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         });
       }
 
+      // Риса, яку дав вибір класу — так Паладин і Рейнджер 2024 беруть бойовий стиль на 2-му.
+      if (featIdsFromChoiceOptions.length) {
+        await tx.persFeat.createMany({
+          data: featIdsFromChoiceOptions.map((grantedFeatId) => ({ persId, featId: grantedFeatId })),
+          skipDuplicates: true,
+        });
+      }
+
       const customProficiencyExtras: string[] = [];
+
+      // Клас, узятий не першим, дає скорочений набір книги, а не стартовий пакет: воїн тут без
+      // важкого обладунку й без рятівних кидків (KR27.2).
+      const multiclassProficiencies = levelUpPath === "MULTICLASS"
+        ? findMulticlassProficiencies(selectedClass.name)
+        : null;
+
+      if (multiclassProficiencies) {
+        const armorText = formatArmorProficiencies(multiclassProficiencies.armor);
+        if (armorText && armorText !== "—") customProficiencyExtras.push(armorText);
+        const weaponText = formatWeaponProficiencies(multiclassProficiencies.weapons);
+        if (weaponText && weaponText !== "—") customProficiencyExtras.push(weaponText);
+        const toolText = formatToolProficiencies(
+          multiclassProficiencies.tools,
+          multiclassProficiencies.toolChoiceCount,
+        );
+        if (toolText && toolText !== "—") customProficiencyExtras.push(toolText);
+      }
 
       if (chosenSubclassIdRaw && selectedSubclass) {
         const armorText = formatArmorProficiencies(
@@ -1169,6 +1373,29 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       if (featureIdsToCreate.length > 0) {
         await tx.persFeature.createMany({
           data: featureIdsToCreate.map((featureId) => ({ persId, featureId })),
+          skipDuplicates: true,
+        });
+      }
+
+      // Нова фіча могла відкрити ще один спосіб рахувати базовий КЗ — Захист без обладунків
+      // побічного класу або Драконячу живучість підкласу. Складати їх не можна: рядок
+      // приходить невдягненим, вибір лишається за гравцем. KR27.8.
+      await grantAlternativeArmorClassFormulas(tx, persId, pers.ruleset);
+
+      // Майстерність зброї 2024. Ємність береться вже з нових рівнів — саме тому пул рахується
+      // всередині транзакції, після запису рівня. Вибір змінний будь-коли, тож приходить повний
+      // набір і повністю заміщає попередній (рішення власника 2026-08-30).
+      if (Array.isArray(data?.weaponMasteryWeaponIds)) {
+        const offer = await findPersWeaponMasteryOffer(tx, persId);
+        if (offer.capacity > 0) {
+          await replacePersWeaponMastery(tx, persId, data.weaponMasteryWeaponIds.map(Number), offer);
+        }
+      }
+
+      // Заклинання родоводу 3-го і 5-го рівня — тими самими рядками, що й на 1-му (KR18.4).
+      if (speciesGrants.spells.length > 0) {
+        await tx.persSpell.createMany({
+          data: buildSpeciesPersSpellRows(persId, speciesGrants.spells, nextLevel),
           skipDuplicates: true,
         });
       }

@@ -8,7 +8,7 @@ import { sharedPostHogOptions } from "@/lib/monitoring/posthog-options";
 
 // Поза продом PostHog вимкнений — той самий запобіжник, що в Sentry
 // (src/lib/monitoring/sentry-options.ts): події з `bun dev` ще не бачив жоден користувач,
-// вони з'їдали б безкоштовну квоту і змішувалися б у панелі зі справжніми.
+// вони зʼїдали б безкоштовну квоту і змішувалися б у панелі зі справжніми.
 const isEnabled = process.env.NODE_ENV === "production";
 
 function initPostHog() {
@@ -22,10 +22,10 @@ function initPostHog() {
   });
 }
 
-// identify() прив'язує подальші події до вже наявного userId, а не до нового ідентифікатора —
+// identify() привʼязує подальші події до вже наявного userId, а не до нового ідентифікатора —
 // саме це замінює тут потребу в постійному анонімному cookie. reset() на виході повертає
 // PostHog до анонімного стану, щоб події наступного відвідувача на тому ж пристрої (спільний
-// комп'ютер, той самий браузер) не приписались попередньому акаунту.
+// компʼютер, той самий браузер) не приписались попередньому акаунту.
 export function PostHogProvider() {
   const { data: session, status } = useSession();
   const didInit = useRef(false);

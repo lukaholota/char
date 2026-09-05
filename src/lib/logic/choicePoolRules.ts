@@ -71,10 +71,25 @@ export const CHOICE_POOL_RULES: ChoicePoolRule[] = [
   },
   {
     scope: "class",
+    className: "WARLOCK_2024",
+    groupName: CHOICE_GROUPS.WARLOCK_INVOCATIONS,
+    // SRD 5.2, Warlock Features table, колонка Eldritch Invocations: 1/3/3/3/5/5/6/6/7/7/7/8/8/8/9/9/9/10/10/10.
+    // Перший виклик — уже на 1-му рівні (характеризує 2024: 2014 починає з 2-го).
+    picksAtLevel: mapPicks({ 1: 1, 2: 2, 5: 2, 7: 1, 9: 1, 12: 1, 15: 1, 18: 1 }),
+    alwaysSplitInUi: true,
+  },
+  {
+    scope: "class",
     className: "SORCERER_2014",
     groupName: CHOICE_GROUPS.SORCERER_METAMAGIC,
     // PHB 2014: 2 at lvl3, +1 at lvl10, +1 at lvl17
     picksAtLevel: mapPicks({ 3: 2, 10: 1, 17: 1 }),
+  },
+  {
+    scope: "class",
+    className: "SORCERER_2024",
+    groupName: CHOICE_GROUPS.SORCERER_METAMAGIC,
+    picksAtLevel: mapPicks({ 2: 2, 10: 2, 17: 2 }),
   },
   {
     scope: "subclass",

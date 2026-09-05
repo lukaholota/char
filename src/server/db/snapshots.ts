@@ -24,6 +24,7 @@ export async function createPersSnapshot(persId: number): Promise<number | null>
       features: true,
       feats: { include: { choices: true } },
       weapons: true,
+      pers_weapon_mastery: true,
       armors: true,
       multiclasses: true,
       magicItems: true,
@@ -41,6 +42,9 @@ export async function createPersSnapshot(persId: number): Promise<number | null>
     const data = {
       userId: pers.userId,
       name: `${pers.name} (Рівень ${pers.level})`,
+      /// Знімок стає видимим персонажем, щойно його активують, тож редакція має їхати з ним:
+      /// інакше активований знімок персонажа 2024 читається за правилами 2014.
+      ruleset: pers.ruleset,
       level: pers.level,
       currentSpellSlots: pers.currentSpellSlots,
       currentPactSlots: pers.currentPactSlots,
@@ -182,6 +186,15 @@ export async function createPersSnapshot(persId: number): Promise<number | null>
           customDamageAbility: weapon.customDamageAbility,
           customDamageBonus: weapon.customDamageBonus === null ? Prisma.DbNull : weapon.customDamageBonus,
           isProficient: weapon.isProficient,
+        })),
+      });
+    }
+
+    if (pers.pers_weapon_mastery.length > 0) {
+      await tx.pers_weapon_mastery.createMany({
+        data: pers.pers_weapon_mastery.map((mastery) => ({
+          pers_id: newPers.persId,
+          weapon_id: mastery.weapon_id,
         })),
       });
     }

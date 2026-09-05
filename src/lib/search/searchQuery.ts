@@ -118,7 +118,7 @@ export function findMatchRank(
 }
 
 /// «дія» має піднімати «Дії в бою» над «Книгою Звеличених Діянь»: для рангу потрібна та сама
-/// основа слова, а не просто спільний початок, як у м'якшому правилі пошуку.
+/// основа слова, а не просто спільний початок, як у мʼякшому правилі пошуку.
 function coversTitleWords(queryWords: string[], titleWords: string[]): boolean {
   if (queryWords.length === 0) return false;
   return queryWords.every((queryWord) =>

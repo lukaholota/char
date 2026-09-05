@@ -1,25 +1,7 @@
 import { loadPrintableMagicItems, type PrintableMagicItem } from "@/server/db/print-content";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
-
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import remarkHtml from "remark-html";
-import remarkBreaks from "remark-breaks";
-
-async function markdownToHtml(markdown: string) {
-  const file = await remark().use(remarkGfm).use(remarkBreaks).use(remarkHtml, { sanitize: false }).process(markdown);
-  return String(file);
-}
-
-function escapeHtml(text: string) {
-  return text
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
+import { escapePrintHtml, renderPrintableMarkdown } from "./printProjection";
 
 function translateRarity(rarity: PrintableMagicItem["rarity"]) {
   const map: Partial<Record<PrintableMagicItem["rarity"], string>> = {
@@ -57,7 +39,7 @@ export async function generateMagicItemsPdfBytes(magicItemIds: number[], logCtx:
 
   const sections = await Promise.all(
     items.map(async (item) => {
-      const descriptionHtml = await markdownToHtml(item.description);
+      const descriptionHtml = await renderPrintableMarkdown(item.description);
       return {
         ...item,
         descriptionHtml,
@@ -132,11 +114,11 @@ export async function generateMagicItemsPdfBytes(magicItemIds: number[], logCtx:
           (s) => `
       <section class="item">
         <div class="header">
-          <h1 class="name">${escapeHtml(s.name)}</h1>
-          <div class="meta">${escapeHtml(translateRarity(s.rarity))}</div>
+          <h1 class="name">${escapePrintHtml(s.name)}</h1>
+          <div class="meta">${escapePrintHtml(translateRarity(s.rarity))}</div>
         </div>
         <div class="sub">
-          <div><em>${escapeHtml(translateType(s.itemType))}</em></div>
+          <div><em>${escapePrintHtml(translateType(s.itemType))}</em></div>
           ${s.requiresAttunement ? `<div class="attunement">Вимагає налаштування</div>` : ""}
         </div>
         <div class="desc">${s.descriptionHtml}</div>

@@ -1,20 +1,14 @@
 import { prisma } from "@/lib/prisma";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type { Ruleset } from "@prisma/client";
+import { characterLevelOnly } from "@/rules/character-level";
+import { findEarnedSpeciesFeatureIds } from "@/rules/species-grants";
 
 // KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
-export function loadCharacterCreatorOptions(options?: { ruleset?: Ruleset }) {
-  const ruleset = options?.ruleset ?? ACTIVE_RULESET;
-  return Promise.all([
-    prisma.race.findMany({ where: { ruleset }, include: { raceChoiceOptions: { include: { traits: { include: { feature: true } } } }, subraces: { include: { traits: { include: { feature: true } } } }, raceVariants: { include: { traits: { include: { feature: true } } } }, traits: { include: { feature: true } } }, orderBy: [{ sortOrder: "asc" }, { raceId: "asc" }] }),
-    prisma.class.findMany({ where: { ruleset }, include: { subclasses: { include: { features: { include: { feature: true } }, subclassChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } }, expandedSpells: true } }, startingEquipmentOption: { include: { equipmentPack: true, weapon: true, armor: true } }, classChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } }, classOptionalFeatures: { include: { feature: true, replacesFeatures: { include: { replacedFeature: true } }, appearsOnlyIfChoicesTaken: true } }, features: { include: { feature: true } } }, orderBy: [{ sortOrder: "asc" }, { classId: "asc" }] }),
-    prisma.background.findMany({ where: { ruleset }, include: { gainsFeats: true } }),
-    prisma.weapon.findMany({ where: { ruleset }, orderBy: [{ sortOrder: "asc" }, { weaponId: "asc" }] }),
-    prisma.feat.findMany({ where: { ruleset }, include: { grantsFeature: true, featChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } } }, orderBy: [{ name: "asc" }] }),
-  ]);
-}
+/** Персонаж завжди створюється першим рівнем — усе, що вид дає пізніше, довозить підвищення. */
+const CREATION_LEVELS = characterLevelOnly(1);
 
 export async function loadCreationContent(data: PersFormData) {
   const bg = await prisma.background.findUnique({ where: { backgroundId: data.backgroundId } });
@@ -31,6 +25,7 @@ export async function loadCreationContent(data: PersFormData) {
         name: true,
         ruleset: true,
         spellcastingType: true,
+        primaryCastingStat: true,
         savingThrows: true,
         armorProficiencies: true,
         weaponProficiencies: true,
@@ -56,13 +51,13 @@ export async function loadCreationContent(data: PersFormData) {
     data.featId
       ? prisma.feat.findUnique({
           where: { featId: data.featId },
-          include: { featChoiceOptions: { include: { choiceOption: true } } },
+          include: { featChoiceOptions: { include: { choiceOption: { include: { features: { select: { featureId: true } } } } } } },
         })
       : null,
     effectiveBgFeatId
       ? prisma.feat.findUnique({
           where: { featId: effectiveBgFeatId },
-          include: { featChoiceOptions: { include: { choiceOption: true } } },
+          include: { featChoiceOptions: { include: { choiceOption: { include: { features: { select: { featureId: true } } } } } } },
         })
       : null,
   ] as const);
@@ -86,9 +81,9 @@ export async function loadCreationContent(data: PersFormData) {
       })
     : [];
 
-  const [classFeatures, raceFeatures, subraceFeatures, subclassFeatures, optionalFeatures, selectedChoiceOptions, choiceOptionFeatures, raceChoiceOptions, raceChoiceTraits] = await Promise.all([
+  const [classFeatures, raceFeatures, subraceFeatures, subclassFeatures, optionalFeatures, selectedChoiceOptions, choiceOptionFeatures, raceChoiceOptions, raceChoiceTraits, raceTraitFeatures] = await Promise.all([
     prisma.classFeature.findMany({ where: { classId: data.classId, levelGranted: 1 }, select: { featureId: true } }),
-    prisma.raceTrait.findMany({ where: { raceId: data.raceId }, select: { featureId: true } }),
+    prisma.raceTrait.findMany({ where: { raceId: data.raceId }, select: { featureId: true, level: true } }),
     data.subraceId
       ? prisma.subraceTrait.findMany({ where: { subraceId: data.subraceId }, select: { featureId: true } })
       : [],
@@ -104,7 +99,15 @@ export async function loadCreationContent(data: PersFormData) {
     selectedChoiceOptionIds.length
       ? prisma.choiceOption.findMany({
           where: { choiceOptionId: { in: selectedChoiceOptionIds } },
-          select: { choiceOptionId: true, effectKind: true, effectSkill: true },
+          select: {
+            choiceOptionId: true,
+            effectKind: true,
+            effectSkill: true,
+            effectAbility: true,
+            groupName: true,
+            optionNameEng: true,
+            prerequisites: true,
+          },
         })
       : [],
     selectedChoiceOptionIds.length
@@ -114,7 +117,18 @@ export async function loadCreationContent(data: PersFormData) {
         })
       : [],
     raceChoiceOptionIds.length
-      ? prisma.raceChoiceOption.findMany({ where: { optionId: { in: raceChoiceOptionIds } } })
+      ? prisma.raceChoiceOption.findMany({
+          where: { optionId: { in: raceChoiceOptionIds } },
+          include: {
+            traitFeature: { select: { engName: true, name: true } },
+            traits: {
+              select: {
+                feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } },
+              },
+            },
+            spells: { select: { spellId: true, characterLevel: true } },
+          },
+        })
       : [],
     raceChoiceOptionIds.length
       ? prisma.raceChoiceOptionTrait.findMany({
@@ -122,11 +136,17 @@ export async function loadCreationContent(data: PersFormData) {
           select: { featureId: true },
         })
       : [],
+    prisma.raceTrait.findMany({
+      where: { raceId: data.raceId },
+      select: { level: true, feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } } },
+    }),
   ] as const);
 
   const initialFeatureIds = [
     ...classFeatures.map((feature) => feature.featureId),
-    ...raceFeatures.map((feature) => feature.featureId),
+    // Риса виду може чекати рівня персонажа (Драконячий політ — 5-го): персонаж створюється
+    // першим рівнем, тож сюди потрапляють лише ті, що доступні з першого (KR18.5).
+    ...findEarnedSpeciesFeatureIds(raceFeatures, CREATION_LEVELS),
     ...subraceFeatures.map((feature) => feature.featureId),
     ...subclassFeatures.map((feature) => feature.featureId),
   ].filter((id) => Number.isFinite(id));
@@ -153,6 +173,7 @@ export async function loadCreationContent(data: PersFormData) {
         where: { featureId: { in: allFeatureIds } },
         select: {
           featureId: true,
+          bonusHitPointsPerLevel: true,
           skillProficiencies: true,
           armorProficiencies: true,
           weaponProficiencies: true,
@@ -160,6 +181,26 @@ export async function loadCreationContent(data: PersFormData) {
           toolProficiencies: true,
           skillExpertises: true,
           givesLanguages: true,
+        },
+      })
+    : [];
+
+  // Рису може дати і вибір класу (бойовий стиль), і вибір виду (друга риса Людини 2024).
+  const featGrantingFeatureIds = uniquePositiveIds([...choiceOptionFeatureIds, ...raceChoiceTraitFeatureIds]);
+  const featsGrantedByChoiceOptions = featGrantingFeatureIds.length
+    ? await prisma.feat.findMany({
+        where: {
+          ruleset: data.ruleset ?? characterClass?.ruleset ?? ACTIVE_RULESET,
+          grantsFeature: { some: { featureId: { in: featGrantingFeatureIds } } },
+        },
+        select: {
+          featId: true,
+          name: true,
+          category: true,
+          isRepeatable: true,
+          grantedASI: true,
+          grantsFeature: { select: { featureId: true } },
+          featChoiceOptions: { include: { choiceOption: { include: { features: { select: { featureId: true } } } } } },
         },
       })
     : [];
@@ -185,7 +226,10 @@ export async function loadCreationContent(data: PersFormData) {
     equipmentOptions,
     selectedChoiceOptions,
     raceChoiceOptions,
+    raceTraitFeatures,
     features,
+    featsGrantedByChoiceOptions,
+    featGrantingFeatureIds,
   };
 }
 

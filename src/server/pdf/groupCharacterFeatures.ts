@@ -122,19 +122,16 @@ export function groupCharacterFeaturesForPdf(pers: {
     const featName = pf.feat.name;
     const displayTypes = [FeatureDisplayType.PASSIVE];
 
-    if (!pf.choices || pf.choices.length === 0) {
-      push({
-        key: `FEAT:${pf.featId}`,
-        name: featName,
-        description: pf.feat.description,
-        displayTypes,
-        source: "FEAT" as FeatureSource,
-        sourceName: featName,
-      });
-      continue;
-    }
+    push({
+      key: `FEAT:${pf.featId}`,
+      name: featName,
+      description: pf.feat.description,
+      displayTypes,
+      source: "FEAT" as FeatureSource,
+      sourceName: featName,
+    });
 
-    for (const choice of pf.choices) {
+    for (const choice of pf.choices ?? []) {
       if (!choice.choiceOption) continue;
 
       const groupName = translatePdfText(choice.choiceOption.groupName);

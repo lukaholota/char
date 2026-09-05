@@ -2,6 +2,7 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { findPoolProviderForPers } from "@/server/db/resource-pool-provider";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { canEditPers } from "@/lib/actions/pers";
@@ -75,23 +76,7 @@ export async function spendFeatureUse({
       const hasCounts = feature.usesCountDependsOnProficiencyBonus || typeof feature.usesCount === "number" || (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
       const provider = hasCounts
         ? feature
-        : await prisma.feature.findFirst({
-            where: {
-              usesPoolKey: poolKey,
-              OR: [
-                { usesCount: { not: null } },
-                { usesCountDependsOnProficiencyBonus: true },
-                { usesCountSpecial: { not: Prisma.AnyNull } }
-              ]
-            },
-            select: {
-              usesCount: true,
-              usesCountDependsOnProficiencyBonus: true,
-              usesCountSpecial: true,
-              classFeatures: { select: { classId: true } },
-              subclassFeatures: { select: { subclass: { select: { classId: true } } } },
-            }
-          }) ?? feature;
+        : (await findPoolProviderForPers({ persId, poolKey })) ?? feature;
 
       const max = calculateMaxUsesForFeature(pers, provider);
       const cur = await withSerializableRetry(async (tx) => {
@@ -230,23 +215,7 @@ export async function restoreFeatureUse({
       const hasCounts = feature.usesCountDependsOnProficiencyBonus || typeof feature.usesCount === "number" || (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
       const provider = hasCounts
         ? feature
-        : await prisma.feature.findFirst({
-            where: {
-              usesPoolKey: poolKey,
-              OR: [
-                { usesCount: { not: null } },
-                { usesCountDependsOnProficiencyBonus: true },
-                { usesCountSpecial: { not: Prisma.AnyNull } }
-              ]
-            },
-            select: {
-              usesCount: true,
-              usesCountDependsOnProficiencyBonus: true,
-              usesCountSpecial: true,
-              classFeatures: { select: { classId: true } },
-              subclassFeatures: { select: { subclass: { select: { classId: true } } } },
-            }
-          }) ?? feature;
+        : (await findPoolProviderForPers({ persId, poolKey })) ?? feature;
 
       const max = calculateMaxUsesForFeature(pers, provider);
       const updatedPool = await withSerializableRetry(async (tx) => {

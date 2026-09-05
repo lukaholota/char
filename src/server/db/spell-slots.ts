@@ -1,4 +1,4 @@
-import type { Classes, SpellcastingType } from "@prisma/client";
+import type { Classes, Ruleset, SpellcastingType } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 
 export type SpellSlotOwnership = {
@@ -18,6 +18,7 @@ type SpellcastingSubclass = {
 };
 
 export type SpellcastingSlotState = {
+  ruleset: Ruleset;
   level: number;
   currentSpellSlots: number[];
   currentPactSlots: number;
@@ -41,6 +42,7 @@ export async function findSpellcastingSlotState(persId: number): Promise<Spellca
   return prisma.pers.findUnique({
     where: { persId },
     select: {
+      ruleset: true,
       level: true,
       currentSpellSlots: true,
       currentPactSlots: true,

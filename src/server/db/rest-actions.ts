@@ -9,6 +9,17 @@ import { getAbilityMod } from "@/lib/logic/utils";
 import { calculateCasterLevel, type SpellcastingPersLike } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { calculateMaxUsesForFeature } from "@/lib/logic/feature-resources";
+import { findPoolProviderForPers } from "@/server/db/resource-pool-provider";
+import {
+  buildHitDicePools,
+  findMainClassLevel,
+  findPoolsAfterSetting,
+  findPoolsAfterSpending,
+  serializeHitDicePools,
+  type HitDicePool,
+  type HitDiceSpend,
+  type StoredHitDice,
+} from "@/rules/hit-dice";
 
 const pactSpellSlotProgression = (SPELL_SLOT_PROGRESSION as { PACT?: Record<number, { slots: number; level: number }> }).PACT;
 
@@ -67,57 +78,36 @@ async function assertOwnsPers(persId: number) {
   return { ok: true as const, pers };
 }
 
-/**
- * Get max hit dice per class for a character
- * Returns an object with classId as key and { max, hitDie } as value
- */
-function getMaxHitDiceByClass(
-  pers: NonNullable<Awaited<ReturnType<typeof assertOwnsPers>> & { ok: true }>["pers"]
-): Record<number, { max: number; hitDie: number }> {
-  const result: Record<number, { max: number; hitDie: number }> = {};
-  
-  // Calculate main class level (total level - sum of multiclass levels)
-  const multiclassLevelSum = pers.multiclasses.reduce((acc, mc) => acc + mc.classLevel, 0);
-  const mainClassLevel = pers.level - multiclassLevelSum;
-  
-  // Main class
-  result[pers.class.classId] = {
-    max: mainClassLevel,
-    hitDie: pers.class.hitDie,
-  };
-  
-  // Multiclasses
-  for (const mc of pers.multiclasses) {
-    result[mc.classId] = {
-      max: mc.classLevel,
-      hitDie: mc.class.hitDie,
-    };
-  }
-  
-  return result;
+type OwnedPers = Extract<Awaited<ReturnType<typeof assertOwnsPers>>, { ok: true }>["pers"];
+
+function collectHitDicePools(pers: OwnedPers): HitDicePool[] {
+  const mainClassLevel = findMainClassLevel(pers.level, pers.multiclasses);
+  const classes = [
+    { classId: pers.class.classId, hitDie: pers.class.hitDie, classLevel: mainClassLevel },
+    ...pers.multiclasses.map((multiclass) => ({
+      classId: multiclass.classId,
+      hitDie: multiclass.class.hitDie,
+      classLevel: multiclass.classLevel,
+    })),
+  ];
+
+  return buildHitDicePools(classes, pers.currentHitDice as StoredHitDice);
 }
 
-/**
- * Get current hit dice by class (from JSON or calculate defaults)
- */
-function getCurrentHitDiceByClass(
-  pers: NonNullable<Awaited<ReturnType<typeof assertOwnsPers>> & { ok: true }>["pers"],
-  maxByClass: Record<number, { max: number; hitDie: number }>
-): Record<number, number> {
-  const stored = pers.currentHitDice as Record<string, number> | null;
-  const result: Record<number, number> = {};
-  
-  for (const classIdStr of Object.keys(maxByClass)) {
-    const classId = Number(classIdStr);
-    if (stored && typeof stored[classIdStr] === "number") {
-      result[classId] = Math.max(0, Math.min(stored[classIdStr], maxByClass[classId].max));
-    } else {
-      // Default to max if not set
-      result[classId] = maxByClass[classId].max;
+function rollHitDiceForHitPoints(pools: HitDicePool[], spends: HitDiceSpend[], constitutionModifier: number): number {
+  let restored = 0;
+
+  for (const spend of spends) {
+    const pool = pools.find((candidate) => candidate.classId === spend.classId);
+    if (!pool) continue;
+
+    for (let die = 0; die < spend.count; die += 1) {
+      const roll = Math.floor(Math.random() * pool.hitDie) + 1;
+      restored += Math.max(1, roll + constitutionModifier);
     }
   }
-  
-  return result;
+
+  return restored;
 }
 
 export interface HitDiceToUse {
@@ -146,41 +136,25 @@ export interface ShortRestError {
  */
 export async function shortRest(
   persId: number,
-  hitDiceToUse: HitDiceToUse[]
+  hitDiceToUse: HitDiceToUse[],
+  rolledHitPoints?: number
 ): Promise<ShortRestResult | ShortRestError> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
   
   const pers = owned.pers;
-  const maxByClass = getMaxHitDiceByClass(pers);
-  const currentByClass = getCurrentHitDiceByClass(pers, maxByClass);
-  const conMod = getAbilityMod(pers.con);
-  
-  // Validate dice usage
-  let totalHpRestored = 0;
-  const updatedDice = { ...currentByClass };
-  
-  for (const dice of hitDiceToUse) {
-    if (!maxByClass[dice.classId]) {
-      return { success: false, error: `Невірний клас ID: ${dice.classId}` };
-    }
-    
-    const available = currentByClass[dice.classId] ?? 0;
-    if (dice.count > available) {
-      return { success: false, error: `Недостатньо хіт-дайсів для класу ${dice.classId}` };
-    }
-    
-    // Calculate HP: roll hit dice + CON modifier per die
-    const hitDie = maxByClass[dice.classId].hitDie;
-    
-    for (let i = 0; i < dice.count; i++) {
-      // Random roll between 1 and hitDie, or use average
-      const roll = Math.max(1, Math.floor(Math.random() * hitDie) + 1);
-      totalHpRestored += Math.max(1, roll + conMod);
-    }
-    
-    updatedDice[dice.classId] = available - dice.count;
-  }
+  const hitDicePools = collectHitDicePools(pers);
+  const spent = findPoolsAfterSpending(hitDicePools, hitDiceToUse);
+  if (!spent.ok) return { success: false, error: spent.error };
+
+  const updatedDice = serializeHitDicePools(spent.pools);
+
+  // Гравець, що кидає кубики вживу, вводить свій результат — включно з нулем,
+  // коли кубик витрачено на щось інше й хіти не відновлювались.
+  const totalHpRestored =
+    rolledHitPoints === undefined
+      ? rollHitDiceForHitPoints(hitDicePools, hitDiceToUse, getAbilityMod(pers.con))
+      : Math.max(0, Math.trunc(Number.isFinite(rolledHitPoints) ? rolledHitPoints : 0));
   
   // Calculate new HP (capped at maxHp)
   const newCurrentHp = Math.min(pers.maxHp, pers.currentHp + totalHpRestored);
@@ -250,23 +224,10 @@ export async function shortRest(
   });
 
   for (const pool of pools) {
-    const provider = await prisma.feature.findFirst({
-      where: {
-        usesPoolKey: pool.poolKey,
-        limitedUsesPer: RestType.SHORT_REST,
-        OR: [
-          { usesCount: { not: null } },
-          { usesCountDependsOnProficiencyBonus: true },
-          { usesCountSpecial: { not: Prisma.AnyNull } },
-        ],
-      },
-      select: {
-        usesCount: true,
-        usesCountDependsOnProficiencyBonus: true,
-        usesCountSpecial: true,
-        classFeatures: { select: { classId: true } },
-        subclassFeatures: { select: { subclass: { select: { classId: true } } } },
-      },
+    const provider = await findPoolProviderForPers({
+      persId,
+      poolKey: pool.poolKey,
+      restTypes: [RestType.SHORT_REST],
     });
 
     if (!provider) continue;
@@ -332,14 +293,9 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
   if (!owned.ok) return { success: false, error: owned.error };
   
   const pers = owned.pers;
-  const maxByClass = getMaxHitDiceByClass(pers);
-  
-  // Restore all hit dice to max
-  const restoredHitDice: Record<number, number> = {};
-  for (const classIdStr of Object.keys(maxByClass)) {
-    const classId = Number(classIdStr);
-    restoredHitDice[classId] = maxByClass[classId].max;
-  }
+  const restoredHitDice = serializeHitDicePools(
+    collectHitDicePools(pers).map((pool) => ({ ...pool, current: pool.max })),
+  );
   
   // Restore ALL features (both SHORT_REST and LONG_REST)
   const featuresWithRest = await prisma.persFeature.findMany({
@@ -389,23 +345,10 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
   });
 
   for (const pool of pools) {
-    const provider = await prisma.feature.findFirst({
-      where: {
-        usesPoolKey: pool.poolKey,
-        limitedUsesPer: { in: [RestType.SHORT_REST, RestType.LONG_REST] },
-        OR: [
-          { usesCount: { not: null } },
-          { usesCountDependsOnProficiencyBonus: true },
-          { usesCountSpecial: { not: Prisma.AnyNull } },
-        ],
-      },
-      select: {
-        usesCount: true,
-        usesCountDependsOnProficiencyBonus: true,
-        usesCountSpecial: true,
-        classFeatures: { select: { classId: true } },
-        subclassFeatures: { select: { subclass: { select: { classId: true } } } },
-      },
+    const provider = await findPoolProviderForPers({
+      persId,
+      poolKey: pool.poolKey,
+      restTypes: [RestType.SHORT_REST, RestType.LONG_REST],
     });
 
     if (!provider) continue;
@@ -521,26 +464,53 @@ export async function getHitDiceInfo(persId: number): Promise<{
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
   
-  const pers = owned.pers;
-  const maxByClass = getMaxHitDiceByClass(pers);
-  const currentByClass = getCurrentHitDiceByClass(pers, maxByClass);
-  
-  // Get class names
-  const classIds = Object.keys(maxByClass).map(Number);
+  const hitDicePools = collectHitDicePools(owned.pers);
+
   const classes = await prisma.class.findMany({
-    where: { classId: { in: classIds } },
+    where: { classId: { in: hitDicePools.map((pool) => pool.classId) } },
     select: { classId: true, name: true },
   });
-  
-  const classNameMap = new Map(classes.map(c => [c.classId, c.name]));
-  
-  const hitDice = classIds.map(classId => ({
-    classId,
-    className: classNameMap.get(classId) ?? "Невідомий",
-    hitDie: maxByClass[classId].hitDie,
-    current: currentByClass[classId],
-    max: maxByClass[classId].max,
+  const classNameMap = new Map(classes.map((entry) => [entry.classId, entry.name]));
+
+  const hitDice = hitDicePools.map((pool) => ({
+    classId: pool.classId,
+    className: classNameMap.get(pool.classId) ?? "Невідомий",
+    hitDie: pool.hitDie,
+    current: pool.current,
+    max: pool.max,
   }));
-  
+
   return { success: true, hitDice };
+}
+
+/**
+ * Ручна правка кубиків здоровʼя: скільки лишилось у кожному класі.
+ * Витрачений вживу кубик має відніматись без відпочинку й без лікування.
+ */
+export async function setHitDice(
+  persId: number,
+  remainingByClass: Record<number, number>
+): Promise<{ success: true; currentHitDice: Record<number, number> } | { success: false; error: string }> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const updated = findPoolsAfterSetting(collectHitDicePools(owned.pers), remainingByClass);
+  if (!updated.ok) return { success: false, error: updated.error };
+
+  const currentHitDice = serializeHitDicePools(updated.pools);
+
+  try {
+    await prisma.pers.update({
+      where: { persId },
+      data: { currentHitDice: currentHitDice as object },
+    });
+
+    revalidatePath(`/char/${persId}`);
+    revalidatePath(`/character/${persId}`);
+
+    return { success: true, currentHitDice };
+  } catch (error) {
+    console.error("Error updating hit dice:", error);
+    return { success: false, error: "Помилка при збереженні кубиків здоровʼя" };
+  }
 }

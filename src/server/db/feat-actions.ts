@@ -42,13 +42,8 @@ export async function findFeatById(featId: number) {
 }
 
 export async function findPersFeat(persId: number, featId: number) {
-  return prisma.persFeat.findUnique({
-    where: {
-      featId_persId: {
-        persId,
-        featId,
-      },
-    },
+  return prisma.persFeat.findFirst({
+    where: { persId, featId },
     include: {
       feat: true,
       choices: {
@@ -74,20 +69,9 @@ export async function addPersFeat(
     throw new Error("Рису не знайдено");
   }
 
-  // Create or upsert persFeat
-  const persFeat = await prisma.persFeat.upsert({
-    where: {
-      featId_persId: {
-        persId,
-        featId,
-      },
-    },
-    create: {
-      persId,
-      featId,
-    },
-    update: {},
-  });
+  // Повторювана риса лягає другим рядком зі своїми виборами (Р37); неповторювана — лише раз.
+  const existing = feat.isRepeatable ? null : await prisma.persFeat.findFirst({ where: { persId, featId } });
+  const persFeat = existing ?? (await prisma.persFeat.create({ data: { persId, featId } }));
 
   // Save choice options if provided
   if (choiceOptionIds && choiceOptionIds.length > 0) {

@@ -10,6 +10,7 @@ export const PERS_DUPLICATION_INCLUDE = {
     }
   },
   weapons: true,
+  pers_weapon_mastery: true,
   armors: true,
   multiclasses: { include: { class: true, subclass: true } },
   magicItems: { include: { magicItem: true } },
@@ -43,6 +44,9 @@ export async function clonePersWithRelations(
   const data = {
       userId: overrideUserId ?? pers.userId,
       name: overrideName ?? `${pers.name} (Копія)`,
+      /// Без цього рядка копія падає на `@default(RULES_2014)`, і персонаж 2024 стає
+      /// персонажем 2014 з контентом 2024 — сторож `pers-copy-fields.test.ts`.
+      ruleset: pers.ruleset,
       level: pers.level,
       currentSpellSlots: pers.currentSpellSlots,
       currentPactSlots: pers.currentPactSlots,
@@ -207,6 +211,15 @@ export async function clonePersWithRelations(
       });
       weaponIdMap.set(w.persWeaponId, created.persWeaponId);
     }
+  }
+
+  if (pers.pers_weapon_mastery.length > 0) {
+    await tx.pers_weapon_mastery.createMany({
+      data: pers.pers_weapon_mastery.map((mastery) => ({
+        pers_id: newPers.persId,
+        weapon_id: mastery.weapon_id,
+      })),
+    });
   }
 
   if (pers.armors.length > 0) {

@@ -1,49 +1,9 @@
 import { prisma } from "@/lib/prisma";
-import { FeatPrisma } from "@/lib/types/model-types";
-import { unstable_cache } from "next/cache";
+import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import type { Ruleset } from "@prisma/client";
 
-// KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
-const ACTIVE_RULESET: Ruleset = "RULES_2014";
-
-const getAllClassesCached = unstable_cache(
-  async () =>
-    prisma.class.findMany({
-      where: { ruleset: ACTIVE_RULESET },
-      include: {
-        subclasses: { include: { features: { include: { feature: true } }, subclassChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } } } },
-        classChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } },
-        classOptionalFeatures: { include: { feature: true, replacesFeatures: { include: { replacedFeature: true } }, appearsOnlyIfChoicesTaken: true } },
-        features: { include: { feature: true } },
-      },
-      orderBy: [{ sortOrder: "asc" }, { classId: "asc" }],
-    }),
-  ["levelup:classes:v5"],
-  { revalidate: 60 * 60 * 24 },
-);
-
-const getAllFeatsCached = unstable_cache(
-  async () => prisma.feat.findMany({
-    where: { ruleset: ACTIVE_RULESET },
-    include: { grantsFeature: true, featChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } } },
-    orderBy: [{ name: "asc" }],
-  }) as unknown as Promise<FeatPrisma[]>,
-  ["levelup:feats:v5"],
-  { revalidate: 60 * 60 * 24 },
-);
-
-const getAllInfusionsCached = unstable_cache(
-  async () => prisma.infusion.findMany({
-    where: { ruleset: ACTIVE_RULESET },
-    include: {
-      feature: { select: { name: true, description: true, shortDescription: true } },
-      replicatedMagicItem: { select: { magicItemId: true, name: true, engName: true, itemType: true, rarity: true, requiresAttunement: true, description: true, shortDescription: true, bonusToAC: true, bonusToRangedDamage: true, bonusToSavingThrows: true, noArmorOrShieldForACBonus: true, givesSpells: { select: { spellId: true, name: true, engName: true, level: true } } } },
-    },
-    orderBy: [{ minArtificerLevel: "asc" }, { name: "asc" }],
-  }),
-  ["levelup:infusions:v4"],
-  { revalidate: 60 * 60 * 24 },
-);
+// KR18.1: контент підвищення рівня їде з `pers.ruleset`, а не з однієї редакції на весь застосунок.
+const DEFAULT_RULESET: Ruleset = "RULES_2014";
 
 export async function loadLevelUpBaseContent(persId: number) {
   const pers = await prisma.pers.findUnique({
@@ -52,15 +12,43 @@ export async function loadLevelUpBaseContent(persId: number) {
       class: true,
       subclass: true,
       choiceOptions: true,
-      features: { select: { featureId: true } },
+      features: { select: { featureId: true, feature: { select: { bonusHitPointsPerLevel: true } } } },
       skills: { select: { name: true, proficiencyType: true } },
       persInfusions: { select: { infusionId: true } },
       multiclasses: { include: { class: true, subclass: true } },
-      race: true, subrace: true, feats: { include: { feat: true } },
+      // KR18.5: рівневі риси й заклинання виду відкриваються рівнем ПЕРСОНАЖА, тому
+      // підвищення рівня має бачити і рівні рис, і обрані вибори виду, і вже видані заклинання.
+      race: {
+        include: {
+          traits: {
+            select: {
+              featureId: true,
+              level: true,
+              feature: { include: { givesSpells: { select: { spellId: true } } } },
+            },
+          },
+        },
+      },
+      raceChoiceOptions: {
+        select: {
+          optionName: true,
+          spellcastingAbility: true,
+          traitFeature: { select: { engName: true, name: true } },
+          traits: { select: { feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } } } },
+          spells: { select: { spellId: true, characterLevel: true } },
+        },
+      },
+      persSpells: { select: { spellId: true } },
+      pers_weapon_mastery: { select: { weapon_id: true } },
+      subrace: true,
+      feats: { include: { feat: true, choices: { select: { choiceOption: { select: { groupName: true, optionNameEng: true } } } } } },
     },
   });
-  const [classes, feats, infusions] = await Promise.all([getAllClassesCached(), getAllFeatsCached(), getAllInfusionsCached()]);
-  return { pers, classes, feats, infusions };
+  // KR22.5: з бази лишається сам персонаж — єдині живі дані. Класи, риси й інфузії їдуть з
+  // файлу, тому й добовий `unstable_cache` навколо них більше не потрібен.
+  const ruleset = pers?.ruleset ?? DEFAULT_RULESET;
+  const { classes, feats, infusions, weapons } = findCharacterCreatorOptions(ruleset);
+  return { pers, classes, feats, infusions, weapons };
 }
 
 export async function loadLevelUpChoiceContent(choiceOptionIds: readonly number[]) {
@@ -99,6 +87,7 @@ export async function loadLevelUpFeatureEffects(featureIds: readonly number[]) {
     select: {
       featureId: true,
       name: true,
+      bonusHitPointsPerLevel: true,
       skillProficiencies: true,
       armorProficiencies: true,
       weaponProficiencies: true,

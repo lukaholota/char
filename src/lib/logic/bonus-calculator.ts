@@ -246,6 +246,34 @@ export function calculateFinalStat(pers: PersWithRelations, ability: Ability): n
   return getBaseStat(pers, ability) + getStatBonus(pers, ability);
 }
 
+/**
+ * Ті самі шість чисел, але з рядка персонажа, а не з повного графа: сервер бачить `pers` без
+ * звʼязків, а передумова мультикласу має рахуватися однаково на сервері й у формі (KR27.2).
+ */
+export function calculateFinalAbilityScores(pers: {
+  str: number;
+  dex: number;
+  con: number;
+  int: number;
+  wis: number;
+  cha: number;
+  statBonuses?: unknown;
+}): Record<Ability, number> {
+  const bonuses = parseStatBonuses(pers.statBonuses);
+  const base: Record<Ability, number> = {
+    STR: pers.str,
+    DEX: pers.dex,
+    CON: pers.con,
+    INT: pers.int,
+    WIS: pers.wis,
+    CHA: pers.cha,
+  };
+
+  return Object.fromEntries(
+    (Object.keys(base) as Ability[]).map((ability) => [ability, base[ability] + (bonuses[ability] ?? 0)]),
+  ) as Record<Ability, number>;
+}
+
 /** Calculate final modifier (from modified stat + modifierBonuses) */
 export function calculateFinalModifier(pers: PersWithRelations, ability: Ability): number {
   const finalStat = calculateFinalStat(pers, ability);

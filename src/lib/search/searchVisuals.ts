@@ -18,6 +18,7 @@ import {
   getCreatureVisual,
   getFeatVisual,
   getInvocationVisual,
+  getBastionFacilityVisual,
   getBackgroundVisual,
   getRuleCategoryVisual,
   ItemVisual,
@@ -75,6 +76,8 @@ function dispatchVisual(
       return getFeatVisual(visualKey);
     case "invocations":
       return getInvocationVisual(visualKey, typeof visualKeySecondary === "number" ? visualKeySecondary : null);
+    case "bastions":
+      return getBastionFacilityVisual(visualKey);
     case "backgrounds":
       return getBackgroundVisual(visualKey);
     case "rules":

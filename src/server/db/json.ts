@@ -1,6 +1,7 @@
 import { z } from "zod";
-import { WeaponCategory, WeaponType } from "@prisma/client";
+import { Ability, WeaponCategory, WeaponType } from "@prisma/client";
 import type { WeaponProficiencies, WeaponProficienciesSpecial } from "@/lib/types/model-types";
+import type { MulticlassAbilityRequirement } from "@/rules/multiclass-entry";
 
 const stringArraySchema = z.array(z.string());
 const numberArraySchema = z.array(z.number());
@@ -64,4 +65,16 @@ export function parseWeaponProficiencies(
 export function parseWeaponProficienciesSpecial(value: unknown): WeaponProficienciesSpecial | null {
   const specific = parseEnumArray(parseJsonRecord(value)?.specific, WeaponCategory);
   return specific.length ? { specific } : null;
+}
+
+export function parseMulticlassReqs(value: unknown): MulticlassAbilityRequirement | null {
+  const record = parseJsonRecord(value);
+  if (!record) return null;
+
+  return {
+    score: parseOptionalNumber(record.score) ?? null,
+    required: parseEnumArray(record.required, Ability),
+    and: parseEnumArray(record.and, Ability),
+    choice: parseEnumArray(record.choice, Ability),
+  };
 }

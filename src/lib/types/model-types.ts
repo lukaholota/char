@@ -113,8 +113,10 @@ export type ToolProficiencies = ToolCategory[];
 // 2.4. Multiclass requirements
 
 export type MulticlassReqs = {
-  required: Ability[]; // які стати повинні мати мін. значення
   score: number; // наприклад 13
+  required?: Ability[]; // потрібні всі перелічені — форма класів 2014
+  and?: Ability[]; // потрібні всі перелічені — форма монаха, паладина й слідопита 2024
+  choice?: Ability[]; // досить однієї з перелічених — форма решти класів 2024
 };
 
 // 2.5. AC модифікації (Feature.modifiesAC / prerequisites / Race.ac)
