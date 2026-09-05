@@ -190,7 +190,7 @@ _Як зібрано: посилання `sorts.php?vo=` у тілі сторі�
 |---|---|---:|---|---|
 | ✅ | fireball | 8 | `helm-of-brilliance` | Вогнекуля [Fireball] |
 | ✅ | wish | 8 | `blackrazor` | Бажання [Wish] |
-| ✅ | conjure-elemental | 6 | `bowl-of-commanding-water-elementals` | З'ява стихійника [Conjure Elemental] |
+| ✅ | conjure-elemental | 6 | `bowl-of-commanding-water-elementals` | Зʼява стихійника [Conjure Elemental] |
 | ✅ | detect-magic | 5 | `orb-of-dragonkind` | Виявлення магії [Detect Magic] |
 | ✅ | detect-thoughts | 5 | `crystal-ball` | Виявлення думок [Detect Thoughts] |
 | ✅ | wall-of-fire | 5 | `cube-of-force` | Стіна вогню [Wall of Fire] |
@@ -280,7 +280,7 @@ _Як зібрано: посилання `sorts.php?vo=` у тілі сторі�
 | ✅ | sending | 1 | `sending-stones` | Послання [Sending] |
 | ✅ | speak-with-plants | 1 | `staff-of-the-woodlands` | Розмова з рослинами [Speak with Plants] |
 | ✅ | stone-shape | 1 | `ring-of-elemental-command` | Форма каменю [Stone Shape] |
-| ✅ | stoneskin | 1 | `ring-of-elemental-command` | Кам'яна шкіра [Stoneskin] |
+| ✅ | stoneskin | 1 | `ring-of-elemental-command` | Камʼяна шкіра [Stoneskin] |
 | ✅ | teleport | 1 | `helm-of-teleportation` | Телепорт [Teleport] |
 | ✅ | wall-of-force | 1 | `staff-of-power` | Стіна енергії [Wall of Force] |
 | ✅ | wall-of-stone | 1 | `ring-of-elemental-command` | Стіна з каменю [Wall of Stone] |

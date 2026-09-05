@@ -47,7 +47,7 @@
 | Sleep Breath | Сонний подих | «Сонне дихання» ×4 | 4 |
 | Ram | Таран | «Удар рогами» ×3 | 3 |
 | Standing Leap | Стрибок з місця | «Стрибучість» ×2, «Стрибок із землі» ×1 | 3 |
-| Blood Frenzy | Кров'яний шал | «Кривава лють» ×3 | 3 |
+| Blood Frenzy | Кровʼяний шал | «Кривава лють» ×3 | 3 |
 | Spider Climb | Павуче лазіння | «Павукове лазіння» ×3 | 3 |
 | Repulsion Breath | Відштовхувальний подих | «Відштовхувальне дихання» ×3 | 3 |
 | Superior Invisibility | Досконала невидимість | «Вища невидимість» ×2 | 2 |
@@ -274,7 +274,7 @@ npx tsx data/aidedd/apply-ratification-safe.ts --apply    # запис у пар
 - `batch-03.json` · `giant-frog` · `traits[1]` · «Стрибучість»
 - `batch-05.json` · `giant-toad` · `traits[1]` · «Стрибучість»
 
-**Blood Frenzy → «Кров'яний шал»** — 3 уживань
+**Blood Frenzy → «Кровʼяний шал»** — 3 уживань
 
 - `batch-05.json` · `sahuagin-warrior` · `traits[0]` · «Кривава лють»
 - `batch-08.json` · `sahuagin-priest` · `traits[0]` · «Кривава лють»
@@ -369,13 +369,13 @@ npx tsx data/aidedd/apply-ratification-safe.ts --apply    # запис у пар
 
 Словник: `Talons → «Пазурі»`, `Claws → «Кігті»`. Корпус: `Talons → «Кігті»` ×4,
 `Claws → «Пазурі»` ×2 — назви помінялися місцями. Та сама логіка, що з `Pounce`/`Charge`:
-лагодити парою (6 уживань), поодинці — не можна. Пов'язано з рішенням по `Claw` вище.
+лагодити парою (6 уживань), поодинці — не можна. Повʼязано з рішенням по `Claw` вище.
 
 ### 7. Slam — 6 уживань
 
 Словник: «Удар». Корпус: «Ляпас» ×5, «Удар гілкою» ×1 (`awakened-tree`).
 
-- **Колізія:** «Удар гілкою» — свідома конкретизація, механічне вирівнювання її з'їсть.
+- **Колізія:** «Удар гілкою» — свідома конкретизація, механічне вирівнювання її зʼїсть.
 - Назву згадано в прозі 4 записів.
 
 Виходи: застосувати з винятком для `awakened-tree`; або застосувати дослівно.
@@ -597,18 +597,18 @@ npx tsx data/aidedd/apply-ratification-safe.ts --apply    # запис у пар
 | Англійська | Варіант A | Варіант Б |
 |---|---|---|
 | Coven Magic | «Магія ковена» (`sea-hag`) | «Магія шабашу» (`night-hag`) |
-| Hurl Flame | «Метання полум'я» (`flaming-skeleton`) | «Кидок полум'я» (`efreeti`) |
+| Hurl Flame | «Метання полумʼя» (`flaming-skeleton`) | «Кидок полумʼя» (`efreeti`) |
 | Eye Rays | «Очні промені» (`spectator`) | «Промені ока» (`beholder-zombie`) / «Промені очей» (`death-tyrant`) |
 | Hellish Restoration | «Пекельне відродження» (`lemure`) | «Пекельне відновлення» (`swarm-of-lemures`) |
 | Faerie Dust | «Феєричний пилок» (`pixie`) | «Феєрійний пил» (`pixie-wonderbringer`) |
 | Steam Breath | «Парове дихання» (`steam-mephit`) | «Паровий подих» (`dragon-turtle`) |
-| Corrosive Form | «Роз'їдальна форма» (`gray-ooze`) | «Їдка форма» (`black-pudding`) |
+| Corrosive Form | «Розʼїдальна форма» (`gray-ooze`) | «Їдка форма» (`black-pudding`) |
 | Uncanny Dodge | «Незбагненне ухилення» (`performer`) | «Спритна втеча» (`scout-captain`) |
 | Euphoria Breath | «Дихання ейфорії» (`faerie-dragon-youth`) | «Подих ейфорії» (`faerie-dragon-adult`) |
 | Roar | «Рик» (`lion`) | «Рев» (`sphinx-of-valor`) |
 | Reel | «Намотування» (`ettercap`) | «Змотування» (`roper`) |
-| Object Slam | «Удар предмета» (`poltergeist`) | «Удар об'єкта» (`haunting-revenant`) |
-| Petrifying Gaze | «Окам'янюючий погляд» (`basilisk`) | «Скам'янювальний погляд» (`medusa`) |
+| Object Slam | «Удар предмета» (`poltergeist`) | «Удар обʼєкта» (`haunting-revenant`) |
+| Petrifying Gaze | «Окамʼянюючий погляд» (`basilisk`) | «Скамʼянювальний погляд» (`medusa`) |
 | 2: Paralyzing Ray | «2: Паралізуючий промінь» (`spectator`) | «2: Промінь паралічу» (`death-tyrant`) |
 | Deathless Agility | «Безсмертна спритність» (`vampire-familiar`) | «Безсмертна прудкість» (`vampire-spawn`) |
 | Ice Throw | «Крижаний кидок» (`yeti`) | «Кидок льоду» (`abominable-yeti`) |

@@ -37,7 +37,7 @@
 | 13 | Sleep Breath | **Сонний подих** | «Сонне дихання» ×4 | 4 | [ ] | [ ] |
 | 14 | Ram | **Таран** | «Удар рогами» ×3 | 3 | [ ] | [ ] |
 | 15 | Standing Leap | **Стрибок з місця** | «Стрибучість» ×2, «Стрибок із землі» ×1 | 3 | [ ] | [ ] |
-| 16 | Blood Frenzy | **Кров'яний шал** | «Кривава лють» ×3 | 3 | [ ] | [ ] |
+| 16 | Blood Frenzy | **Кровʼяний шал** | «Кривава лють» ×3 | 3 | [ ] | [ ] |
 | 17 | Spider Climb | **Павуче лазіння** | «Павукове лазіння» ×3 | 3 | [ ] | [ ] |
 | 18 | Repulsion Breath | **Відштовхувальний подих** | «Відштовхувальне дихання» ×3 | 3 | [ ] | [ ] |
 | 19 | Superior Invisibility | **Досконала невидимість** | «Вища невидимість» ×2 | 2 | [ ] | [ ] |
@@ -153,18 +153,18 @@
 | # | Англійська | Варіант А | Варіант Б | беру А | беру Б |
 |---:|---|---|---|---|---|
 | 1 | Coven Magic | «Магія ковена» (`sea-hag`) | «Магія шабашу» (`night-hag`) | [ ] | [ ] |
-| 2 | Hurl Flame | «Метання полум'я» (`flaming-skeleton`) | «Кидок полум'я» (`efreeti`) | [ ] | [ ] |
+| 2 | Hurl Flame | «Метання полумʼя» (`flaming-skeleton`) | «Кидок полумʼя» (`efreeti`) | [ ] | [ ] |
 | 3 | Eye Rays | «Очні промені» (`spectator`) | «Промені ока» (`beholder-zombie`) / «Промені очей» (`death-tyrant`) | [ ] | [ ] |
 | 4 | Hellish Restoration | «Пекельне відродження» (`lemure`) | «Пекельне відновлення» (`swarm-of-lemures`) | [ ] | [ ] |
 | 5 | Faerie Dust | «Феєричний пилок» (`pixie`) | «Феєрійний пил» (`pixie-wonderbringer`) | [ ] | [ ] |
 | 6 | Steam Breath | «Парове дихання» (`steam-mephit`) | «Паровий подих» (`dragon-turtle`) | [ ] | [ ] |
-| 7 | Corrosive Form | «Роз'їдальна форма» (`gray-ooze`) | «Їдка форма» (`black-pudding`) | [ ] | [ ] |
+| 7 | Corrosive Form | «Розʼїдальна форма» (`gray-ooze`) | «Їдка форма» (`black-pudding`) | [ ] | [ ] |
 | 8 | Uncanny Dodge | «Незбагненне ухилення» (`performer`) | «Спритна втеча» (`scout-captain`) | [ ] | [ ] |
 | 9 | Euphoria Breath | «Дихання ейфорії» (`faerie-dragon-youth`) | «Подих ейфорії» (`faerie-dragon-adult`) | [ ] | [ ] |
 | 10 | Roar | «Рик» (`lion`) | «Рев» (`sphinx-of-valor`) | [ ] | [ ] |
 | 11 | Reel | «Намотування» (`ettercap`) | «Змотування» (`roper`) | [ ] | [ ] |
-| 12 | Object Slam | «Удар предмета» (`poltergeist`) | «Удар об'єкта» (`haunting-revenant`) | [ ] | [ ] |
-| 13 | Petrifying Gaze | «Окам'янюючий погляд» (`basilisk`) | «Скам'янювальний погляд» (`medusa`) | [ ] | [ ] |
+| 12 | Object Slam | «Удар предмета» (`poltergeist`) | «Удар обʼєкта» (`haunting-revenant`) | [ ] | [ ] |
+| 13 | Petrifying Gaze | «Окамʼянюючий погляд» (`basilisk`) | «Скамʼянювальний погляд» (`medusa`) | [ ] | [ ] |
 | 14 | 2: Paralyzing Ray | «2: Паралізуючий промінь» (`spectator`) | «2: Промінь паралічу» (`death-tyrant`) | [ ] | [ ] |
 | 15 | Deathless Agility | «Безсмертна спритність» (`vampire-familiar`) | «Безсмертна прудкість» (`vampire-spawn`) | [ ] | [ ] |
 | 16 | Ice Throw | «Крижаний кидок» (`yeti`) | «Кидок льоду» (`abominable-yeti`) | [ ] | [ ] |
