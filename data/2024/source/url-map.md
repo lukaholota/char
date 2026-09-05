@@ -52,7 +52,7 @@ Combatant`/`Tactical Combatant` — не PHB узагалі.
 **Важлива знахідка: Artificer не входить у core PHB 2024.** Сторінка `artificer:main` сама має
 `Source: Eberron - Forge of the Artificer`, і всі 6 підкласів на вікі під `artificer:` теж не
 PHB (5 — Eberron, 1 — Ravenloft). 2024-оновлення Винахідника ще не випущене в PHB; якщо
-з'явиться пізніше окремою книгою, це нова робота поза цим KR.
+зʼявиться пізніше окремою книгою, це нова робота поза цим KR.
 
 ## Скрейплено в цій сесії (Phase 1, `data/2024/source/raw/`)
 
