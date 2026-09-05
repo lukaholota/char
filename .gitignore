@@ -50,17 +50,11 @@ next-env.d.ts
 .idea
 .venv
 repomix-output.xml
-# Похідні з бази: джерело істини — БД (Р2), тому в git їх немає, їх робить
-# `bun run generate:content` на збірці.
-src/lib/generated/spells.json
-src/lib/generated/magicItems.json
-src/lib/generated/feats.json
-src/lib/generated/backgrounds.json
-src/lib/generated/armor.json
-src/lib/generated/weapons.json
-src/lib/generated/infusions.json
-src/lib/generated/invocations.json
-src/lib/generated/rules-2024.json
+# Похідні з бази каталоги більше НЕ ігноруються. Вони лежать у git поряд із
+# creatures.json, який відстежувався від початку, і саме вони їдуть у збірку.
+# Базу регенерують явним `bun run generate:content` і комітять результат — CI її
+# для контенту не питає. Причина: збірка пекла каталоги з `spells_ci_test`, тобто
+# сайт показував дані клона, а не те, що в репозиторії. Рішення власника 2026-08-28.
 
 /spell-list
 

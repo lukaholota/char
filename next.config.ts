@@ -1,11 +1,19 @@
 import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs";
 
+import { IMAGE_OPTIMIZER_CACHE_TTL, buildStaticAssetHeaders } from "./src/lib/assets/cache-policy";
+
 const nextConfig: NextConfig = {
   output: "standalone",
   experimental: {
     webpackMemoryOptimizations: true
-  }, 
+  },
+  images: {
+    minimumCacheTTL: IMAGE_OPTIMIZER_CACHE_TTL,
+  },
+  async headers() {
+    return buildStaticAssetHeaders();
+  },
   async redirects() {
     return [
       {
@@ -16,11 +24,6 @@ const nextConfig: NextConfig = {
       {
         source: "/spell/:path*",
         destination: "/spells/:path*",
-        permanent: true,
-      },
-      {
-        source: "/pers/:path*",
-        destination: "/char/:path*",
         permanent: true,
       },
     ];

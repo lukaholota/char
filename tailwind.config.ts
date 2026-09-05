@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
+import { ARCANE, OBSIDIAN } from "./src/styles/palette";
+
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -47,6 +49,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        slate: OBSIDIAN,
+        arcane: ARCANE,
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

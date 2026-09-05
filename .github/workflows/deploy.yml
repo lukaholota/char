@@ -44,21 +44,11 @@ jobs:
   checks:
     needs: rules-coverage
     runs-on: ubuntu-latest
-    # Тести роблять TRUNCATE у spells_ci_test. Дві джоби одночасно затирали б дані одна одній
-    # і давали б плаваючі падіння. cancel-in-progress: false — щоб прогін не обривався на півдорозі.
-    concurrency:
-      group: spells-ci-database
-      cancel-in-progress: false
+    # Групи `concurrency` тут більше немає: вона стерегла спільну базу, а бази в цій джобі
+    # немає (Р32). Два прогони одночасно тепер нічого одне одному не псують.
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Tunnel to database
-        uses: ./.github/actions/db-tunnel
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          user: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -68,20 +58,12 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      # Адреса завідомо мертва — так само, як у джобі `image`. `generate` нікуди не
+      # підключається, але prisma.config.ts падає на порожньому DATABASE_URL.
       - name: Prisma Generate
         run: bunx prisma generate
         env:
-          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
-
-      # Мусить іти перед tsc: spellsData.ts / magicItemsData.ts / featsData.ts /
-      # backgroundsData.ts / armorData.ts / weaponsData.ts / infusionsData.ts /
-      # invocationsData.ts імпортують згенеровані JSON, а ті в .gitignore. Без цього кроку
-      # tsc падає з TS2307 на чистому клоні. Генераторів зараз вісім: додати девʼятий каталог
-      # і забути крок — це впасти не тут, а десь усередині Next.
-      - name: Generate content JSON
-        run: bun run generate:content
-        env:
-          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+          DATABASE_URL: "postgresql://none:none@127.0.0.1:1/none_test"
 
       - name: Types
         run: bunx tsc --noEmit
@@ -92,10 +74,12 @@ jobs:
       - name: Lint
         run: bun run lint
 
+      # `test:no-db` підставляє мертву адресу сам. Це не косметика, а сама перевірка: якщо
+      # у набір знову заповзе файл, що ходить у базу, крок стане червоним із назвою файлу.
+      # Тести, яким база потрібна, живуть у vitest.integration.config.mts і ганяються локально
+      # (`bun run test:integration`) — свідомо, див. Р32.
       - name: Tests
-        run: bun run test
-        env:
-          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+        run: bun run test:no-db
 
   image:
     needs: checks
@@ -103,25 +87,14 @@ jobs:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     # Збирати треба саме тут, а не на сервері: Hetzner має 2 ядра й ~2 GB вільної памʼяті,
-    # а `next build` це 763 сторінки в 7 воркерів. Поряд із живим сайтом це шанс піймати OOM.
+    # а `next build` це тисячі сторінок у 7 воркерів. Поряд із живим сайтом це шанс піймати OOM.
+    # Бази ця джоба більше не торкається: каталоги приїжджають із git.
     permissions:
       contents: read
       packages: write
-    # Групи `spells-ci-database` тут навмисно немає, хоч збірка й ходить у ту саму базу:
-    # тести труncають лише таблиці користувача, а збірка читає контентні. Зате зайвий
-    # учасник групи означав би скасування вже поставлених у чергу джоб при частих пушах.
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      # Збірці потрібна база: generate:spells читає заклинання, а next build пререндерить
-      # /char. База на Hetzner доступна лише з 127.0.0.1, тож спершу тунель.
-      - name: Tunnel to database
-        uses: ./.github/actions/db-tunnel
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          user: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -131,17 +104,12 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      # `prisma generate` нікуди не підключається, але prisma.config.ts падає на порожньому
+      # DATABASE_URL. Адреса завідомо мертва — жива база збірці більше не потрібна.
       - name: Prisma Generate
         run: bunx prisma generate
         env:
-          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
-
-      # Похідні з бази JSON у .gitignore, тож у свіжому клоні їх немає, а Dockerfile без них
-      # відмовляється збиратись. Має стояти перед docker build, не після.
-      - name: Generate content JSON
-        run: bun run generate:content
-        env:
-          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+          DATABASE_URL: "postgresql://build:build@127.0.0.1:1/none"
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
@@ -172,13 +140,13 @@ jobs:
             ghcr.io/lukaholota/char:${{ github.sha }}
           # Не секрети: обидва значення однаково їдуть у браузер кожного користувача. Але без
           # них збірка вийшла б мовчки зламаною, тому Dockerfile падає на порожньому.
+          # `secrets: database_url` тут більше немає: 2026-08-28 виміряно, що next build
+          # проходить із мертвою адресою — 4032 сторінки, код виходу 0.
           build-args: |
             NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
             NEXT_PUBLIC_POSTHOG_KEY=${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
             NEXT_PUBLIC_POSTHOG_HOST=${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
-          secrets: |
-            database_url=${{ secrets.TEST_DATABASE_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 

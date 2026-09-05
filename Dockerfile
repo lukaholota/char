@@ -1,16 +1,16 @@
 # syntax=docker/dockerfile:1
 
-# Збірці ПОТРІБНА жива база. Це не припущення: спроба зібрати з недосяжною адресою
-# (порт 1 на localhost) впала на `next build` з P1001 — сторінка /char пререндериться
-# на етапі збірки й викликає prisma.race.findMany(). Так само поводиться і поточний
-# деплой у GitHub Actions, який збирає проти прод-бази.
+# Збірці база НЕ потрібна. Це вимір, а не припущення: 2026-08-28 `next build` із
+# завідомо мертвою адресою (порт 1 на localhost) пройшов до кінця — 4032 сторінки,
+# код виходу 0. Раніше тут стояло протилежне, і це була правда свого часу: /char
+# пререндерився й кликав базу. Тепер сторінка спершу викликає auth(), тому Next
+# віддає її динамічно й до бази на збірці не ходить.
 #
-# Тому DATABASE_URL подається як BuildKit-секрет і монтується лише на час команди —
-# у шарах образу він не осідає. Збирати достатньо проти будь-якої бази з тим самим
-# контентом: spells_test підходить, ходити в прод заради збірки не обов'язково.
+# Каталоги теж більше не потребують бази: вони лежать у git (див. .gitignore), а не
+# генеруються перед збіркою. Джерелом контенту для образу був `spells_ci_test`, тобто
+# сайт показував дані клона — рішення власника 2026-08-28 це прибрати.
 #
-#   bun run generate:content
-#   docker build --secret id=database_url,env=DATABASE_URL -t char:local .
+#   docker build -t char:local .
 
 # Один базовий образ на всі стадії — навмисно. Перша редакція тягнула два (oven/bun:1-debian
 # для збірки і node:22-bookworm-slim для рантайму), і саме витягування bun-образу зайняло
@@ -28,11 +28,13 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Ці вісім JSON у .gitignore і генеруються з бази. Без них збірка падає на TS2307 десь
-# усередині Next — краще впасти тут із текстом, який каже, що робити.
-RUN for f in spells magicItems feats backgrounds armor weapons infusions invocations; do \
+# Каталоги тепер приїжджають із git, а не з бази. Сторож лишається: порожній або
+# відсутній файл валить збірку десь усередині Next на TS2307, і краще впасти тут.
+RUN for f in spells magicItems feats backgrounds armor weapons infusions invocations \
+             classes races rules-2024 bastions creatures creatures2024 \
+             creator-content-2014 creator-content-2024; do \
       test -s "src/lib/generated/$f.json" \
-        || { echo "ВІДМОВА: немає src/lib/generated/$f.json — спершу 'bun run generate:content'"; exit 1; }; \
+        || { echo "ВІДМОВА: немає src/lib/generated/$f.json — він має лежати в git"; exit 1; }; \
     done
 
 # prisma.config.ts кидає помилку, якщо DATABASE_URL не визначений, хоча сам `generate` нікуди
@@ -77,11 +79,9 @@ ENV NEXT_PUBLIC_POSTHOG_HOST=$NEXT_PUBLIC_POSTHOG_HOST
 RUN test -n "$NEXT_PUBLIC_POSTHOG_HOST" \
   || { echo "ВІДМОВА: порожній NEXT_PUBLIC_POSTHOG_HOST — продуктові події нікуди не поїдуть"; exit 1; }
 
-# Саме `next build`, а не `bun run build`: другий тягне prebuild -> generate:spells, який
-# перезаписав би spells.json і вимагав би базу ще й для цього.
-# Секрет підставляється інлайном і перекриває заглушку вище лише на час цієї команди.
-RUN --mount=type=secret,id=database_url \
-    DATABASE_URL="$(cat /run/secrets/database_url)" bunx next build
+# Саме `next build`, а не `bun run build`: другий тягне prebuild -> generate:content, який
+# пішов би в базу й перезаписав каталоги, що приїхали з git.
+RUN bunx next build
 
 # Рантайм — той самий node:22-bookworm-slim, тобто вже завантажені шари, без другого пулу.
 FROM node:22-bookworm-slim AS runner
