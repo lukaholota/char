@@ -11,7 +11,10 @@ import {
 /// не цей KR: тут головне, щоб регресія в будь-якому з носіїв стала видимою.
 const EXPECTED_BY_CARRIER: Record<string, number> = {
   "src/lib/generated/creator-content-2014.json": 32,
-  "src/lib/generated/creator-content-2024.json": 18,
+  /// 2026-09-06: 18 → 27. Носій перезібрали з підкласів 2024, і разом із новим контентом
+  /// приїхали дев'ять знятих форм — «ушкоджень», «КЗ», «блок характеристик/статистик».
+  /// Гейт побачив це першим же прогоном; звід — KR32.3.
+  "src/lib/generated/creator-content-2024.json": 27,
   "src/lib/refs/translation.ts": 0,
   "src/lib/rulesData.ts": 7,
   "src/lib/generated/bastions.json": 0,
