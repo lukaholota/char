@@ -20,9 +20,11 @@ export type FeatRepeatProblem =
   | { kind: "not-repeatable"; featName: string }
   | { kind: "same-choice"; featName: string; groupName: string; optionNameEng: string };
 
-// Elemental Adept у даних 2024 типу шкоди як вибору не має, тож обмежити його повтор нема чим.
+// Повторна риса з вибором має брати щоразу інший: «you must choose a different damage type each
+// time» (Elemental Adept) і «choose a different class each time» (Magic Initiate).
 const UNIQUE_CHOICE_GROUP_BY_FEAT: Record<string, string> = {
   MAGIC_INITIATE: "Список заклинань",
+  ELEMENTAL_ADEPT: "Тип шкоди",
 };
 
 export function findFeatRepeatProblem(
@@ -64,7 +66,7 @@ function findRepeatedUniqueChoice(candidate: FeatRepeatCandidate, previous: read
   return repeated ? { kind: "same-choice", featName: candidate.name, groupName, optionNameEng: chosen.optionNameEng } : null;
 }
 
-// Право взяти рису задає джерело вибору, а не її категорія (Р33 у docs/DECISIONS.md): класовий
+// Право взяти рису задає джерело вибору, а не її категорія (Р41 у docs/DECISIONS.md): класовий
 // ASI каже «another feat of your choice for which you qualify» і категорії не називає.
 //
 // Окремого джерела під епічний дар немає навмисно (Р39): 19-й рівень класу формулює право тим

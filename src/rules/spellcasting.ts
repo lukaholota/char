@@ -74,7 +74,7 @@ function getEffectiveSpellcastingKind(classLevel: SpellcastingClassLevel): Spell
   return subclassKind && subclassKind !== "NONE" ? subclassKind : "NONE";
 }
 
-// Три гілки, не прапорець «як округляти у 2024»: асиметрія навмисна (Р33 у docs/DECISIONS.md),
+// Три гілки, не прапорець «як округляти у 2024»: асиметрія навмисна (Р41 у docs/DECISIONS.md),
 // і «привести до симетрії» — це баг, а не рефакторинг.
 function getCasterLevelContribution(level: number, kind: SpellcastingKind, ruleset: Ruleset, className: string | null | undefined): number {
   if (kind === "FULL") return level;

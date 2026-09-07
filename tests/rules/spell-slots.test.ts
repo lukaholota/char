@@ -109,7 +109,7 @@ describe("KR27.6 — рівень заклинача мультикласу 2024
     expect(calculateCasterLevel(rangerDruid, "RULES_2024").casterLevel).toBe(6);
   });
 
-  // Basic Rules 2024: «one third of your Fighter or Rogue levels (round down)». Р33: асиметрія
+  // Basic Rules 2024: «one third of your Fighter or Rogue levels (round down)». Р41: асиметрія
   // навмисна — Пройдисвіт 4 (Таємний) / Бард 4 має 5, не 6.
   it("третина рівнів Лицаря-Чаклуна й Таємного Пройдисвіта округлюється ВНИЗ", () => {
     const rogueBard = {
