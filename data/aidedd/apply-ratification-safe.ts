@@ -20,26 +20,68 @@ import { join } from "path";
 import { parseMonster2024 } from "../../scripts/aidedd/parse-monster-2024";
 import { cutSuffix } from "../../scripts/aidedd/ratify-glossary";
 import dictionaryFile from "../../src/lib/refs/dictionary.json";
-import { stripGlossaryMarkers } from "../../src/lib/refs/glossary-marker";
+import { findGlossaryMarkers, stripGlossaryMarkers } from "../../src/lib/refs/glossary-marker";
 
 const RATIFIED: Record<string, string> = dictionaryFile.DND_DICTIONARY.statblockFeatures;
 const TRANSLATIONS = join(process.cwd(), "data/aidedd/translations/monsters-2024");
 const RAW = join(process.cwd(), "data/aidedd/raw/monsters-2024");
 const SECTIONS = ["traits", "actions", "bonusActions", "reactions", "legendaryActions"] as const;
 
-/// Звужено до 16 назв, які власник підтвердив у бланку 2026-09-07. Вісім із початкових
-/// 24 сюди не входять і не входитимуть без нового рішення: `Touch` власник заперечив,
-/// `Arcane Burst` — теж («аркановий» відсилає до танцю «аркан», не до `arcane`), а
-/// `Amphibious`, `Flyby`, `Web Walker`, `Water Breathing`, `Magic Resistance` і `Amorphous`
-/// лишились без позначки, тобто рішення немає й назва лишається як є. Окремо `Flyby`:
-/// словникова форма «Виліт без атаки нагоди» сама несе зняту форму — канон
-/// `rules.opportunityAttack` = «Принагідна атака», і поки словник не зведено, застосовувати
-/// його тут не можна ([O32](../../docs/o32-corpus-terms/ratification-2026-09-07.md)).
+/// Назви, ратифіковані власником у бланку 2026-09-07: купа 1 цілком (позначка або вписана
+/// форма — рядок без жодного з двох там лише один, `Touch`, і його власник заперечив, тож
+/// словник тепер тримає корпусну «Дотик»), механічна частина купи 2, купи 3а і 3б.
+/// `Claw`, `Claws`, `Talons` сюди НЕ входять: власник закрив їх контекстним правилом
+/// («кіготь/пазур» для кігтеподібних кінцівок, «клішня» для членистоногих), а це вибір на
+/// кожну істоту, не заміна за англійською назвою.
 const SAFE_ENGLISH = [
-  "Pack Tactics", "Fire Breath", "Acid Breath", "Cold Breath", "Lightning Breath",
-  "Hold Breath", "Sleep Breath", "Ram", "Standing Leap", "Blood Frenzy", "Spider Climb",
-  "Repulsion Breath", "Superior Invisibility", "Illumination", "Mimicry", "Telepathic Shroud",
+  "Amphibious", "Pack Tactics", "Fire Breath", "Flyby", "Acid Breath", "Cold Breath",
+  "Lightning Breath", "Web Walker", "Water Breathing", "Hold Breath", "Magic Resistance",
+  "Amorphous", "Sleep Breath", "Ram", "Standing Leap", "Blood Frenzy", "Spider Climb",
+  "Repulsion Breath", "Superior Invisibility", "Arcane Burst", "Illumination", "Mimicry",
+  "Telepathic Shroud", "Touch",
+  "Slam", "Constrict", "Javelin", "Pounce", "Charge", "Jump", "Swallow", "Spellcasting",
+  "Gore", "Divine Aid", "Undead Restoration", "Siege Monster", "Fiendish Restoration",
+  "Poison Breath", "Scratch", "Bloodied Fury", "Paralyzing Breath", "Weakening Breath",
+  "Guiding Light", "Limited Amphibiousness", "Abduct", "Tunneler", "Pact Blade",
+  "Earth Glide", "Inscrutable",
+  "Coven Magic", "Hurl Flame", "Eye Rays", "Hellish Restoration", "Faerie Dust",
+  "Steam Breath", "Corrosive Form", "Uncanny Dodge", "Euphoria Breath", "Roar", "Reel",
+  "Object Slam", "Petrifying Gaze", "Paralyzing Ray", "Deathless Agility", "Ice Throw",
+  "Chilling Gaze", "Poison Burst", "Earthen Maul", "Charm", "Marshal Undead", "Dread Blade",
+  "Hellfire Orb", "Sickening Ray", "Tail Swipe",
 ];
+
+/// Проза Мультиатаки називає дію на імʼя, тож перейменування треба донести й туди — з
+/// відмінком, а не заміною токена: «використанням Рику» стає «використанням Реву», «дві атаки
+/// Ляпасом» — «дві атаки Ударом». Кожен рядок прочитано реченням; сторож нижче падає, якщо
+/// стара назва лишилась у прозі, тож пропущений випадок тут не проїде мовчки.
+const PROSE_FIXES: Record<string, [string, string][]> = {
+  lion: [["використанням Рику", "використанням Реву"]],
+  "giant-constrictor-snake": [["використовує Стиснення", "використовує Здавлювання"]],
+  yeti: [["Пазур або Крижаний кидок", "Пазур або Кидок льоду"]],
+  "guard-captain": [["використовуючи Спис або", "використовуючи Метальний спис або"]],
+  succubus: [["використовує Чарування або", "використовує Причарування або"]],
+  wereboar: [["використовуючи Спис або", "використовуючи Метальний спис або"]],
+  "beholder-zombie": [["використовує Промені ока", "використовує Очні промені"]],
+  "earth-elemental": [["використовуючи Ляпас або", "використовуючи Удар або"]],
+  revenant: [["дві атаки Ляпасом", "дві атаки Ударом"]],
+  "water-elemental": [["дві атаки Ляпасом", "дві атаки Ударом"]],
+  drider: [["чи Отруйний розряд", "чи Отруйний вибух"]],
+  "abominable-yeti": [["свій Крижаний погляд", "свій Морозний погляд"]],
+  efreeti: [["або Кидок полумʼя", "або Метання полумʼя"]],
+  "horned-devil": [["або Кидок полумʼя", "або Метання полумʼя"]],
+  "death-tyrant": [["використовує Промені очей", "використовує Очні промені"]],
+  marilith: [["використовує Здушення", "використовує Здавлювання"]],
+  colossus: [
+    ["використовуючи Ляпас або", "використовуючи Удар або"],
+    ["одну атаку Ляпасом", "одну атаку Ударом"],
+  ],
+};
+
+/// Іменні винятки власника: конкретизація, яку він лишив свідомо.
+const KEPT_BY_SLUG: Record<string, Record<string, true>> = {
+  "awakened-tree": { Slam: true },
+};
 
 type Entry = { name: string; text: string };
 type Row = { slug: string; name: string } & Partial<Record<(typeof SECTIONS)[number], Entry[]>>;
@@ -80,6 +122,7 @@ function serializeLikeSource(rows: Row[], source: string): string {
 
 function rewriteRow(batch: string, row: Row): Change[] {
   const parsed = parseMonster2024(readFileSync(join(RAW, `${row.slug}.html`), "utf-8"), row.slug);
+  rewriteProse(row);
   const prose = collectProse(row);
   const changes: Change[] = [];
 
@@ -90,13 +133,14 @@ function rewriteRow(batch: string, row: Row): Change[] {
     for (let index = 0; index < Math.min(english.length, ukrainian.length); index += 1) {
       const key = cutSuffix(english[index].name).base;
       if (!SAFE_ENGLISH.includes(key)) continue;
+      if (KEPT_BY_SLUG[row.slug]?.[key]) continue;
 
       const target = RATIFIED[key];
       if (!target) throw new Error(`«${key}» немає в statblockFeatures — словник змінився, перевір перелік`);
 
       const current = cutSuffix(ukrainian[index].name);
       const currentTerm = stripGlossaryMarkers(current.base);
-      const marked = `${target}{{${key}}}`;
+      const marked = markName(target, key);
       if (current.base === marked) continue;
 
       /// Проза розсинхронізується тільки тоді, коли міняється видимий текст. Дописування
@@ -113,6 +157,23 @@ function rewriteRow(batch: string, row: Row): Change[] {
   }
 
   return changes;
+}
+
+/// Звичайний маркер підкреслює стільки українських слів, скільки їх в оригіналі, і зупиняється
+/// на розділовому знаку — тож «Обліт (без принагідної атаки){{Flyby}}» не підкреслює нічого.
+/// Там, де він не накриває всю назву, Р20 вимагає парної форми. Скільки саме він накриває,
+/// питаємо в того самого `findGlossaryMarkers`, що й гейт: правило одне на проєкт.
+function markName(target: string, key: string): string {
+  const plain = `${target}{{${key}}}`;
+  return findGlossaryMarkers(plain)[0]?.term === target ? plain : `{{${target}|${key}}}`;
+}
+
+function rewriteProse(row: Row): void {
+  for (const [from, to] of PROSE_FIXES[row.slug] ?? []) {
+    for (const section of SECTIONS) {
+      for (const entry of row[section] ?? []) entry.text = entry.text.split(from).join(to);
+    }
+  }
 }
 
 function collectProse(row: Row): string {
