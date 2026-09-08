@@ -174,7 +174,7 @@ Constrict → Здавлювання (скрізь)
 | 12 | Object Slam | «Удар предмета» (`poltergeist`) | «Удар обʼєкта» (`haunting-revenant`) | [ а ] | [ ] |
 | 13 | Petrifying Gaze | «Окамʼянюючий погляд» (`basilisk`) | «Скамʼянювальний погляд» (`medusa`) | [ ] | [ б ] |
 | 14 | 2: Paralyzing Ray | «2: Паралізуючий промінь» (`spectator`) | «2: Промінь паралічу» (`death-tyrant`) | [ ] | [ б ] |
-| 15 | Deathless Agility | «Безсмертна спритність» (`vampire-familiar`) | «Безсмертна прудкість» (`vampire-spawn`) | [ б ] | [ ] |
+| 15 | Deathless Agility ⟵ **власник 2026-09-07: варіант А** | «Безсмертна спритність» (`vampire-familiar`) | «Безсмертна прудкість» (`vampire-spawn`) | [ б ] | [ ] |
 | 16 | Ice Throw | «Крижаний кидок» (`yeti`) | «Кидок льоду» (`abominable-yeti`) | [ ] | [ х ] |
 | 17 | Chilling Gaze | «Морозний погляд» (`yeti`) | «Крижаний погляд» (`abominable-yeti`) | [ х ] | [ ] |
 | 18 | Poison Burst | «Отруйний вибух» (`yuan-ti-malison-type-3`) | «Отруйний розряд» (`drider`) | [ а ] | [ ] |
@@ -183,7 +183,7 @@ Constrict → Здавлювання (скрізь)
 | 21 | Marshal Undead | «Маршал нежиті» (`death-knight-aspirant`) | «Шикування нежиті» (`death-knight`) | [ ] | [ б ] (взагалі Маршал це справді маршал, але конкретно тут це виступає як дієслово ) |
 | 22 | Dread Blade | «Жаский клинок» (`death-knight-aspirant`) | «Жахливий клинок» (`death-knight`) | [ ] | [ ] Клинок Жаху |
 | 23 | Hellfire Orb | «Пекельна куля» (`death-knight-aspirant`) | «Сфера пекельного вогню» (`death-knight`) | [ ] | [ б ] |
-| 24 | Sickening Ray | «Нудотний промінь» (`vampire-umbral-lord`) | «Хворобливий промінь» (`dracolich`) | [ б ] | [ ] |
+| 24 | Sickening Ray ⟵ **власник 2026-09-07: варіант А** | «Нудотний промінь» (`vampire-umbral-lord`) | «Хворобливий промінь» (`dracolich`) | [ б ] | [ ] |
 | 25 | Tail Swipe | «Удар хвостом» (`adult-blue-dragon`) | «Змах хвоста» (`ancient-blue-dragon`) | [ ] | [ х ] |
 
 ---

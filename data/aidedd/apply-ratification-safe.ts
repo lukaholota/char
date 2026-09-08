@@ -8,6 +8,10 @@
 ///
 /// Ідемпотентний: повторний прогін після --apply дає 0 змін. Падає, якщо правка створила б
 /// у записі дві риси з однаковою назвою або якщо стару назву згадано в прозі того ж запису.
+///
+/// Ратифікована назва несе маркер оригіналу — «Тактика зграї{{Pack Tactics}}». Скрипт написано
+/// 2026-08-22, до рішення власника 2026-09-02 «ратифікація маркера не знімає» ([Р20]), і перший
+/// прогін 2026-09-07 зняв маркер зі 123 назв — `section-name-markers.test.ts` спіймав рівно їх.
 /// Файл лежить у data/aidedd/ навмисно — межі сесії звірки не дозволяли писати в scripts/.
 /// Після підпису власника йому місце у scripts/aidedd/.
 
@@ -16,18 +20,25 @@ import { join } from "path";
 import { parseMonster2024 } from "../../scripts/aidedd/parse-monster-2024";
 import { cutSuffix } from "../../scripts/aidedd/ratify-glossary";
 import dictionaryFile from "../../src/lib/refs/dictionary.json";
+import { stripGlossaryMarkers } from "../../src/lib/refs/glossary-marker";
 
 const RATIFIED: Record<string, string> = dictionaryFile.DND_DICTIONARY.statblockFeatures;
 const TRANSLATIONS = join(process.cwd(), "data/aidedd/translations/monsters-2024");
 const RAW = join(process.cwd(), "data/aidedd/raw/monsters-2024");
 const SECTIONS = ["traits", "actions", "bonusActions", "reactions", "legendaryActions"] as const;
 
+/// Звужено до 16 назв, які власник підтвердив у бланку 2026-09-07. Вісім із початкових
+/// 24 сюди не входять і не входитимуть без нового рішення: `Touch` власник заперечив,
+/// `Arcane Burst` — теж («аркановий» відсилає до танцю «аркан», не до `arcane`), а
+/// `Amphibious`, `Flyby`, `Web Walker`, `Water Breathing`, `Magic Resistance` і `Amorphous`
+/// лишились без позначки, тобто рішення немає й назва лишається як є. Окремо `Flyby`:
+/// словникова форма «Виліт без атаки нагоди» сама несе зняту форму — канон
+/// `rules.opportunityAttack` = «Принагідна атака», і поки словник не зведено, застосовувати
+/// його тут не можна ([O32](../../docs/o32-corpus-terms/ratification-2026-09-07.md)).
 const SAFE_ENGLISH = [
-  "Amphibious", "Pack Tactics", "Fire Breath", "Flyby", "Acid Breath", "Cold Breath",
-  "Lightning Breath", "Web Walker", "Water Breathing", "Hold Breath", "Magic Resistance",
-  "Amorphous", "Sleep Breath", "Ram", "Standing Leap", "Blood Frenzy", "Spider Climb",
-  "Repulsion Breath", "Superior Invisibility", "Arcane Burst", "Illumination", "Mimicry",
-  "Telepathic Shroud", "Touch",
+  "Pack Tactics", "Fire Breath", "Acid Breath", "Cold Breath", "Lightning Breath",
+  "Hold Breath", "Sleep Breath", "Ram", "Standing Leap", "Blood Frenzy", "Spider Climb",
+  "Repulsion Breath", "Superior Invisibility", "Illumination", "Mimicry", "Telepathic Shroud",
 ];
 
 type Entry = { name: string; text: string };
@@ -84,10 +95,16 @@ function rewriteRow(batch: string, row: Row): Change[] {
       if (!target) throw new Error(`«${key}» немає в statblockFeatures — словник змінився, перевір перелік`);
 
       const current = cutSuffix(ukrainian[index].name);
-      if (current.base === target) continue;
+      const currentTerm = stripGlossaryMarkers(current.base);
+      const marked = `${target}{{${key}}}`;
+      if (current.base === marked) continue;
 
-      assertProseIsClean(row.slug, current.base, prose);
-      const renamed = current.suffix === "" ? target : `${target} (${current.suffix})`;
+      /// Проза розсинхронізується тільки тоді, коли міняється видимий текст. Дописування
+      /// маркера його не міняє, тож сторож питає про це лише при справжньому перейменуванні.
+      /// Раніше він звіряв назву разом із маркером проти прози без нього — і не спрацьовував
+      /// ніколи: `chimera` уже мав дію «Удар рогами» при прозі «атаку Тараном».
+      if (currentTerm !== target) assertProseIsClean(row.slug, currentTerm, prose);
+      const renamed = current.suffix === "" ? marked : `${marked} (${current.suffix})`;
       assertNoDuplicate(row, renamed, section, index);
 
       changes.push({ batch, slug: row.slug, section, english: key, from: ukrainian[index].name, to: renamed });
