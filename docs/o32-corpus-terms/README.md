@@ -104,10 +104,11 @@
 
 ### Реєстри, які ніхто не закрив
 
-- ~~`data/aidedd/ratification-2024-owner.md`~~ **Пройдено власником 2026-09-07, купу 1
-  застосовано** — розбір у [ratification-2026-09-07.md](ratification-2026-09-07.md). Купи 2, 3а
-  і 3б чекають на записи в словнику: `apply-ratification-safe.ts` уміє лише ті назви, що вже є
-  в `statblockFeatures`.
+- ~~`data/aidedd/ratification-2024-owner.md`~~ **Пройдено власником і застосовано 2026-09-07/08**
+  — усі купи, розбір у [ratification-2026-09-07.md](ratification-2026-09-07.md). Словник дістав
+  43 нові записи й 12 змінених; поза проходом лишились `Claw`/`Claws`/`Talons` (контекстне
+  правило). **Наслідок:** бестіарій 2014 розійшовся зі словником у **195** входженнях — рішення
+  про нього за власником.
 - `data/aidedd/unknown-terms-bestiary-2014.md` (49 рядків), `unknown-terms-bestiary-2024.md` (28),
   `unknown-terms-magic-items.md` (180) — переліки відкладених термінів.
 - П'ять питань про терміни в [O16 questions](../o16-5etools-canon/questions.md) без ✅, зокрема
