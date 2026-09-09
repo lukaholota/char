@@ -1427,7 +1427,7 @@ describe("KR12.3 — добірка партій 33–34 у зібраному �
     for (const type of [1, 2, 3]) {
       expect(actions).toContain(`<b>Мультиатака{{Multiattack}} (Тип ${type}, лише в подобі юань-ті).</b>`);
     }
-    expect(actions).toContain("<b>Здушення{{Constrict}} (Тип 3).</b>");
+    expect(actions).toContain("<b>Здавлювання{{Constrict}} (Тип 3).</b>");
     expect(catalog.get("Yuan-ti Malison")?.specialAbilities).toContain(
       "Тип 1: людське тіло зі зміїною головою"
     );
@@ -1977,7 +1977,7 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
 
   it("бере назви рис зі словника, ратифікованого глосарію, сідів гравця й корпусу 2014", () => {
     expect(catalog.get("Bestial Spirit")?.specialAbilities).toContain(
-      "<b>Виліт без атаки нагоди{{Flyby}} (тільки Повітряний).</b>"
+      "<b>Обліт{{Flyby}} (тільки Повітряний).</b>"
     );
     expect(catalog.get("Bestial Spirit")?.actions).toContain("<b>Дворучний молот{{Maul}}.</b>");
     expect(catalog.get("Construct Spirit")?.specialAbilities).toContain(
@@ -2222,7 +2222,7 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
     expect(catalog.get("Tarrasque")?.actions).toContain("<b>Кіготь{{Claw}}.</b>");
     expect(catalog.get("Tarrasque")?.actions).not.toContain("<b>Кігті.</b>");
     expect(catalog.get("Tarrasque")?.actions).toContain("<b>Жахлива присутність{{Frightful Presence}}.</b>");
-    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Проковтування{{Swallow}}.</b>");
+    expect(catalog.get("Tarrasque")?.actions).toContain("<b>Ковтання{{Swallow}}.</b>");
     expect(catalog.get("Tarrasque")?.legendaryActions).toContain("<b>Хрускіт щелеп{{Chomp}} (коштує 2 дії).</b>");
   });
 
@@ -2667,8 +2667,8 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
   });
 
   it("перетирає легасі-назви рис, заради чого KR12.3 і існує", () => {
-    expect(catalog.get("Dragon Turtle")?.specialAbilities).toContain("<b>Земноводність{{Amphibious}}.</b>");
-    expect(catalog.get("Dragon Turtle")?.specialAbilities).not.toContain("Амфібія");
+    expect(catalog.get("Dragon Turtle")?.specialAbilities).toContain("<b>Амфібія{{Amphibious}}.</b>");
+    expect(catalog.get("Dragon Turtle")?.specialAbilities).not.toContain("Земноводність");
     expect(catalog.get("Dragon Turtle")?.actions).toContain("<b>Кіготь{{Claw}}.</b>");
     expect(catalog.get("Dragon Turtle")?.actions).not.toContain("<b>Кігті.</b>");
     expect(catalog.get("Planetar")?.actions).not.toContain("Великий меч");
@@ -2853,8 +2853,8 @@ describe("KR12.3 — партія 26 у зібраному каталозі 2014
     expect(catalog.get("Vampire")?.specialAbilities).toContain("Легендарний опір{{Legendary Resistance}} (3 рази на день)");
     expect(catalog.get("Vampire")?.specialAbilities).not.toContain("(3/день)");
     expect(catalog.get("Vampire")?.actions).not.toContain("Зачарування");
-    expect(catalog.get("Storm Giant")?.specialAbilities).toContain("<b>Земноводність{{Amphibious}}.</b>");
-    expect(catalog.get("Storm Giant")?.specialAbilities).not.toContain("Амфібія");
+    expect(catalog.get("Storm Giant")?.specialAbilities).toContain("<b>Амфібія{{Amphibious}}.</b>");
+    expect(catalog.get("Storm Giant")?.specialAbilities).not.toContain("Земноводність");
     expect(catalog.get("Storm Giant")?.actions).not.toContain("Розряд блискавки");
     expect(catalog.get("Storm Giant")?.actions).not.toContain("Великий меч");
     expect(catalog.get("Ice Devil")?.specialAbilities).toContain("<b>Диявольський зір{{Devil's Sight}}.</b>");
@@ -3029,8 +3029,8 @@ describe("KR12.3 — партія 25 у зібраному каталозі 2014
 
   it("перетирає легасі-назви рис, заради чого KR12.3 і існує", () => {
     expect(catalog.get("Archmage")?.specialAbilities).not.toContain("Чаклування (Чарівник 18 рівня)");
-    expect(catalog.get("Ki-rin")?.specialAbilities).toContain("Магічний опір");
-    expect(catalog.get("Ki-rin")?.specialAbilities).not.toContain("Опір магії");
+    expect(catalog.get("Ki-rin")?.specialAbilities).toContain("Опір магії");
+    expect(catalog.get("Ki-rin")?.specialAbilities).not.toContain("Магічний опір");
     expect(catalog.get("Ki-rin")?.actions).toContain("<b>Копито{{Hoof}}.</b>");
     expect(catalog.get("Ki-rin")?.actions).not.toContain("Небесна кара");
     expect(catalog.get("Boneclaw")?.actions).toContain("<b>Колючий кіготь{{Piercing Claw}}.</b>");
@@ -3187,7 +3187,7 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
     expect(catalog.get("Efreeti")?.actions).not.toContain("Сцимітар");
     expect(catalog.get("Efreeti")?.actions).not.toContain("Удар полумʼям");
     expect(catalog.get("Horned Devil")?.actions).not.toContain("Вогняна куля");
-    expect(catalog.get("Remorhaz")?.actions).toContain("<b>Проковтування{{Swallow}}.</b>");
+    expect(catalog.get("Remorhaz")?.actions).toContain("<b>Ковтання{{Swallow}}.</b>");
     expect(catalog.get("Young Red Dragon")?.actions).toContain("<b>Кіготь{{Claw}}.</b>");
     expect(catalog.get("Young Red Dragon")?.actions).not.toContain("Вогняне дихання");
     expect(catalog.get("Young Gold Dragon")?.actions).toContain("Вогняний подих");
@@ -3325,8 +3325,8 @@ describe("KR12.3 — партія 23 у зібраному каталозі 2014
     expect(catalog.get("Glabrezu")?.actions).not.toContain("Клішня");
     expect(catalog.get("Guardian Naga")?.specialAbilities).toContain("<b>Відродження{{Rejuvenation}}.</b>");
     expect(catalog.get("Guardian Naga")?.specialAbilities).not.toContain("Безсмертне відродження");
-    expect(catalog.get("Froghemoth")?.specialAbilities).toContain("Земноводність");
-    expect(catalog.get("Froghemoth")?.specialAbilities).not.toContain("Амфібія");
+    expect(catalog.get("Froghemoth")?.specialAbilities).toContain("Амфібія");
+    expect(catalog.get("Froghemoth")?.specialAbilities).not.toContain("Земноводність");
     expect(catalog.get("Young Blue Dragon")?.actions).toContain(
       "Блискавичний подих{{Lightning Breath}} (перезарядка 5–6)"
     );
@@ -3597,8 +3597,8 @@ describe("KR12.3 — партія 21 у зібраному каталозі 2014
     expect(catalog.get("Mind Flayer")?.actions).toContain("Видобування мозку");
     expect(catalog.get("Chain Devil")?.actions).toContain("Ланцюг");
     expect(catalog.get("Cloaker")?.actions).toContain("Стогін");
-    expect(catalog.get("Young Black Dragon")?.specialAbilities).toContain("Земноводність");
-    expect(catalog.get("Young Black Dragon")?.specialAbilities).not.toContain("Амфібія");
+    expect(catalog.get("Young Black Dragon")?.specialAbilities).toContain("Амфібія");
+    expect(catalog.get("Young Black Dragon")?.specialAbilities).not.toContain("Земноводність");
   });
 
   it("бере назви фіч гравця зі спадкових сідів, а не з легасі-статблока асасина", () => {
@@ -3733,9 +3733,9 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
 
   it("бере назви рис зі словника, ратифікованого глосарію й 2024-двійника", () => {
     expect(catalog.get("Drider")?.actions).toContain("Довгий меч");
-    expect(catalog.get("Drider")?.specialAbilities).toContain("Ходець павутиною");
+    expect(catalog.get("Drider")?.specialAbilities).toContain("Павутинохід");
     expect(catalog.get("Drider")?.specialAbilities).not.toContain("Ходіння павутиною");
-    expect(catalog.get("Kuo-toa Archpriest")?.specialAbilities).toContain("Земноводність");
+    expect(catalog.get("Kuo-toa Archpriest")?.specialAbilities).toContain("Амфібія");
     expect(catalog.get("Kuo-toa Archpriest")?.actions).toContain("Скіпетр");
     expect(catalog.get("Medusa")?.actions).toContain("Зміїне волосся");
     expect(catalog.get("Gauth")?.specialAbilities).toContain("Передсмертні корчі");
@@ -4219,7 +4219,7 @@ describe("KR12.3 — партія 17 у зібраному каталозі 2014
     expect(catalog.get("Weretiger")?.actions).toContain("Кіготь{{Claw}} (лише в подобі тигра чи гібрида)");
     expect(catalog.get("Wereboar")?.actions).toContain("Ікла{{Tusks}} (лише в подобі вепра чи гібрида)");
     expect(catalog.get("Wereboar")?.specialAbilities).toContain(
-      "Наскок{{Charge}} (лише в подобі вепра чи гібрида)"
+      "Наступ{{Charge}} (лише в подобі вепра чи гібрида)"
     );
     expect(catalog.get("Succubus")?.actions).toContain("Кіготь{{Claw}} (лише в подобі почвари)");
   });
@@ -4811,7 +4811,7 @@ describe("KR12.3 — ратифікований глосарій назв рис
   it("тримає переможця для кожної назви, що трапилася двічі й більше", () => {
     expect(Object.keys(features).length).toBeGreaterThanOrEqual(119);
     expect(features["Multiattack"]).toBe("Мультиатака");
-    expect(features["Amphibious"]).toBe("Земноводність");
+    expect(features["Amphibious"]).toBe("Амфібія");
     expect(features["Claw"]).toBe("Кіготь");
     expect(features["Claws"]).toBe("Кігті");
     expect(features["Talons"]).toBe("Пазурі");

@@ -3,8 +3,9 @@
 /// Колізійні назви (`Spellcasting`, `Claw`, `Pounce`, `Charge`, `Talons`, `Claws`, `Slam`,
 /// `Constrict`, `Swallow`, `Javelin`) свідомо НЕ чіпає — вони чекають на рішення власника.
 ///
-///   npx tsx data/aidedd/apply-ratification-safe.ts            # сухий прогін, нічого не пише
-///   npx tsx data/aidedd/apply-ratification-safe.ts --apply    # запис у партії
+///   npx tsx data/aidedd/apply-ratification-safe.ts                        # сухий прогін 2024
+///   npx tsx data/aidedd/apply-ratification-safe.ts --apply                # запис у партії 2024
+///   npx tsx data/aidedd/apply-ratification-safe.ts --edition 2014 --apply # те саме для 2014
 ///
 /// Ідемпотентний: повторний прогін після --apply дає 0 змін. Падає, якщо правка створила б
 /// у записі дві риси з однаковою назвою або якщо стару назву згадано в прозі того ж запису.
@@ -17,14 +18,38 @@
 
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
+import { parseMonster2014 } from "../../scripts/aidedd/parse-monster-2014";
 import { parseMonster2024 } from "../../scripts/aidedd/parse-monster-2024";
 import { cutSuffix } from "../../scripts/aidedd/ratify-glossary";
+import { buildMarkedName } from "../../scripts/terms/section-name-markers";
 import dictionaryFile from "../../src/lib/refs/dictionary.json";
 import { findGlossaryMarkers, stripGlossaryMarkers } from "../../src/lib/refs/glossary-marker";
 
 const RATIFIED: Record<string, string> = dictionaryFile.DND_DICTIONARY.statblockFeatures;
-const TRANSLATIONS = join(process.cwd(), "data/aidedd/translations/monsters-2024");
-const RAW = join(process.cwd(), "data/aidedd/raw/monsters-2024");
+/// Редакція — аргумент, а не друга копія скрипта: словник один на обидві, тож і прохід
+/// мусить бути один. Форма партій і вихід парсера в них однакові, різняться лише каталоги
+/// і сам парсер.
+/// Третій носій — корпус 5etools: та сама форма запису, але сирої сторінки під нього немає,
+/// бо дані приходять JSON-ом. Англійська назва там і так стоїть у маркері оригіналу
+/// («Опір магії{{Magic Resistance}}»), тож її беремо звідти, а не з парсера.
+const EDITIONS = {
+  "2024": { root: "data/aidedd", dir: "monsters-2024", parse: parseMonster2024 },
+  "2014": { root: "data/aidedd", dir: "monsters-2014", parse: parseMonster2014 },
+  "2014-5etools": { root: "data/5etools", dir: "monsters-2014", parse: null },
+  "2024-5etools": { root: "data/5etools", dir: "monsters-2024", parse: null },
+} as const;
+
+const editionKey = readEdition();
+const EDITION = EDITIONS[editionKey];
+const TRANSLATIONS = join(process.cwd(), `${EDITION.root}/translations/${EDITION.dir}`);
+const RAW = join(process.cwd(), `${EDITION.root}/raw/${EDITION.dir}`);
+
+function readEdition(): keyof typeof EDITIONS {
+  const at = process.argv.indexOf("--edition");
+  const value = at === -1 ? "2024" : process.argv[at + 1];
+  if (!(value in EDITIONS)) throw new Error(`--edition приймає ${Object.keys(EDITIONS).join(", ")}, не «${value}»`);
+  return value as keyof typeof EDITIONS;
+}
 const SECTIONS = ["traits", "actions", "bonusActions", "reactions", "legendaryActions"] as const;
 
 /// Назви, ратифіковані власником у бланку 2026-09-07: купа 1 цілком (позначка або вписана
@@ -33,7 +58,22 @@ const SECTIONS = ["traits", "actions", "bonusActions", "reactions", "legendaryAc
 /// `Claw`, `Claws`, `Talons` сюди НЕ входять: власник закрив їх контекстним правилом
 /// («кіготь/пазур» для кігтеподібних кінцівок, «клішня» для членистоногих), а це вибір на
 /// кожну істоту, не заміна за англійською назвою.
-const SAFE_ENGLISH = [
+/// Перелік один на всі редакції, бо словник один: `5etools-creatures.test.ts` вимагає
+/// ратифіковану назву скрізь, де вона є в реєстрі, тож щойно назва потрапляє у словник,
+/// бестіарій 2014 зобовʼязаний нею так само, як 2024.
+/// Бестіарій 2014 має власні свідомі рішення, яких бланк власника не стосувався: «Удар
+/// бивнями» проти «Удару рогами» за анатомією істоти (`Gore`), «Облогове чудовисько»,
+/// «Окамʼянюючий погляд», «Земляне ковзання», «Надприродне ухилення» — кожне з власним
+/// тестом і причиною. Тому 2014 бере рівно ті дванадцять назв, чий словниковий запис власник
+/// переписав 2026-09-07, і жодної більше. Розширення — окреме рішення власника.
+const RATIFIED_2026_09_07 = [
+  "Amphibious", "Flyby", "Web Walker", "Water Breathing", "Magic Resistance", "Amorphous",
+  "Arcane Burst", "Touch", "Constrict", "Pounce", "Charge", "Swallow",
+];
+
+const SAFE_BY_EDITION: Record<string, string[]> = { "2024": [] };
+
+const SAFE_2024 = [
   "Amphibious", "Pack Tactics", "Fire Breath", "Flyby", "Acid Breath", "Cold Breath",
   "Lightning Breath", "Web Walker", "Water Breathing", "Hold Breath", "Magic Resistance",
   "Amorphous", "Sleep Breath", "Ram", "Standing Leap", "Blood Frenzy", "Spider Climb",
@@ -50,12 +90,17 @@ const SAFE_ENGLISH = [
   "Chilling Gaze", "Poison Burst", "Earthen Maul", "Charm", "Marshal Undead", "Dread Blade",
   "Hellfire Orb", "Sickening Ray", "Tail Swipe",
 ];
+for (const edition of Object.keys(EDITIONS)) {
+  SAFE_BY_EDITION[edition] = edition.startsWith("2014") ? RATIFIED_2026_09_07 : SAFE_2024;
+}
+const SAFE_ENGLISH = SAFE_BY_EDITION[editionKey];
 
 /// Проза Мультиатаки називає дію на імʼя, тож перейменування треба донести й туди — з
 /// відмінком, а не заміною токена: «використанням Рику» стає «використанням Реву», «дві атаки
 /// Ляпасом» — «дві атаки Ударом». Кожен рядок прочитано реченням; сторож нижче падає, якщо
 /// стара назва лишилась у прозі, тож пропущений випадок тут не проїде мовчки.
-const PROSE_FIXES: Record<string, [string, string][]> = {
+const PROSE_FIXES: Record<string, Record<string, [string, string][]>> = {
+  "2024": {
   lion: [["використанням Рику", "використанням Реву"]],
   "giant-constrictor-snake": [["використовує Стиснення", "використовує Здавлювання"]],
   yeti: [["Пазур або Крижаний кидок", "Пазур або Кидок льоду"]],
@@ -76,6 +121,31 @@ const PROSE_FIXES: Record<string, [string, string][]> = {
     ["використовуючи Ляпас або", "використовуючи Удар або"],
     ["одну атаку Ляпасом", "одну атаку Ударом"],
   ],
+  },
+  "2024-5etools": {
+    beholder: [["застосовує Промені очей", "застосовує Очні промені"]],
+  },
+  "2014-5etools": {
+    "mud-hulk": [["особливістю «Безформність»", "особливістю «Аморфність»"]],
+    "yuan-ti-nightmare-speaker": [["одну атаку Здушенням", "одну атаку Здавлюванням"]],
+    "young-sea-serpent": [["одну атаку Здушенням", "одну атаку Здавлюванням"]],
+    "ancient-sea-serpent": [["одну атаку Здушенням", "одну атаку Здавлюванням"]],
+    mammon: [["Ударом хвоста, Здушенням", "Ударом хвоста, Здавлюванням"]],
+    "ancient-dragon-turtle": [["перезаряджається її Парове дихання", "перезаряджається її Паровий подих"]],
+  },
+  "2014": {
+    "fire-elemental": [["дві атаки Доторком", "дві атаки Дотиком"]],
+    "yuan-ti-abomination": [["Укусом і Здушенням", "Укусом і Здавлюванням"]],
+    behir: [["одну Здушенням", "одну Здавлюванням"]],
+    tarrasque: [
+      ["може використати Проковтування", "може використати Ковтання"],
+      ["використовує Проковтування", "використовує Ковтання"],
+    ],
+    "yuan-ti-malison": [["але Здушенням може скористатися", "але Здавлюванням може скористатися"]],
+    succubus: [["імунітет до Чарування цієї почвари", "імунітет до Причарування цієї почвари"]],
+    triceratops: [["атакою Удар рогами", "атакою Буцання"]],
+    yeti: [["свій Крижаний погляд", "свій Морозний погляд"]],
+  },
 };
 
 /// Іменні винятки власника: конкретизація, яку він лишив свідомо.
@@ -121,7 +191,9 @@ function serializeLikeSource(rows: Row[], source: string): string {
 }
 
 function rewriteRow(batch: string, row: Row): Change[] {
-  const parsed = parseMonster2024(readFileSync(join(RAW, `${row.slug}.html`), "utf-8"), row.slug);
+  const parsed = EDITION.parse
+    ? EDITION.parse(readFileSync(join(RAW, `${row.slug}.html`), "utf-8"), row.slug)
+    : readEnglishFromMarkers(row);
   rewriteProse(row);
   const prose = collectProse(row);
   const changes: Change[] = [];
@@ -140,7 +212,7 @@ function rewriteRow(batch: string, row: Row): Change[] {
 
       const current = cutSuffix(ukrainian[index].name);
       const currentTerm = stripGlossaryMarkers(current.base);
-      const marked = markName(target, key);
+      const marked = buildMarkedName(target, key);
       if (current.base === marked) continue;
 
       /// Проза розсинхронізується тільки тоді, коли міняється видимий текст. Дописування
@@ -159,17 +231,18 @@ function rewriteRow(batch: string, row: Row): Change[] {
   return changes;
 }
 
-/// Звичайний маркер підкреслює стільки українських слів, скільки їх в оригіналі, і зупиняється
-/// на розділовому знаку — тож «Обліт (без принагідної атаки){{Flyby}}» не підкреслює нічого.
-/// Там, де він не накриває всю назву, Р20 вимагає парної форми. Скільки саме він накриває,
-/// питаємо в того самого `findGlossaryMarkers`, що й гейт: правило одне на проєкт.
-function markName(target: string, key: string): string {
-  const plain = `${target}{{${key}}}`;
-  return findGlossaryMarkers(plain)[0]?.term === target ? plain : `{{${target}|${key}}}`;
+/// Назва вже несе оригінал — «Опір магії{{Magic Resistance}}». Віддаємо його у формі, якої
+/// чекає прохід, щоб решта логіки не знала, звідки взялася англійська назва.
+function readEnglishFromMarkers(row: Row): Record<string, { name: string }[]> {
+  const read = (section: (typeof SECTIONS)[number]) =>
+    (row[section] ?? []).map((entry) => ({
+      name: findGlossaryMarkers(entry.name)[0]?.original ?? "",
+    }));
+  return Object.fromEntries(SECTIONS.map((section) => [section, read(section)]));
 }
 
 function rewriteProse(row: Row): void {
-  for (const [from, to] of PROSE_FIXES[row.slug] ?? []) {
+  for (const [from, to] of PROSE_FIXES[editionKey][row.slug] ?? []) {
     for (const section of SECTIONS) {
       for (const entry of row[section] ?? []) entry.text = entry.text.split(from).join(to);
     }
