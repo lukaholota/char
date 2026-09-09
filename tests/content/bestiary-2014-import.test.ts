@@ -2191,7 +2191,7 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
     expect(catalog.get("Beast of the Land")?.actions).toContain("<b>Дворучний молот{{Maul}}.</b>");
     expect(catalog.get("Demogorgon")?.actions).toContain("<b>3-4: Спантеличливий погляд{{3-4: Confusing Gaze}}.</b>");
     expect(catalog.get("Demogorgon")?.actions).toContain("<b>5-6: Гіпнотичний погляд{{5-6: Hypnotic Gaze}}.</b>");
-    expect(catalog.get("Tarrasque")?.specialAbilities).toContain("<b>Облогове чудовисько{{Siege Monster}}.</b>");
+    expect(catalog.get("Tarrasque")?.specialAbilities).toContain("<b>Облоговий монстр{{Siege Monster}}.</b>");
     expect(catalog.get("Avatar of Death")?.specialAbilities).toContain("<b>Імунітет до вигнання{{Turning Immunity}}.</b>");
     expect(catalog.get("Tiamat")?.legendaryActions).toContain(
       "<b>Голова зеленого дракона: Отруйний подих{{Green Dragon Head: Poison Breath}} (коштує 2 дії).</b>"
@@ -2214,7 +2214,7 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
   });
 
   it("перетирає легасі-конспект тараска, заради чого KR12.3 і існує", () => {
-    expect(catalog.get("Tarrasque")?.specialAbilities).not.toContain("Облоговий монстр");
+    expect(catalog.get("Tarrasque")?.specialAbilities).not.toContain("Облогове чудовисько");
     expect(catalog.get("Tarrasque")?.specialAbilities).toContain(
       "<b>Легендарний опір{{Legendary Resistance}} (3 рази на день).</b>"
     );
@@ -2346,7 +2346,7 @@ describe("KR12.3 — партія 29 у зібраному каталозі 2014
     expect(catalog.get("Solar")?.actions).not.toContain("Лук знищення");
     expect(catalog.get("Solar")?.legendaryActions).not.toContain("Промінь світла");
     expect(catalog.get("Kraken")?.specialAbilities).not.toContain("Руйнівник кораблів");
-    expect(catalog.get("Kraken")?.specialAbilities).toContain("<b>Облогове чудовисько{{Siege Monster}}.</b>");
+    expect(catalog.get("Kraken")?.specialAbilities).toContain("<b>Облоговий монстр{{Siege Monster}}.</b>");
     expect(catalog.get("Kraken")?.legendaryActions).not.toContain("Скриня чорнил");
     expect(catalog.get("Ancient Red Dragon")?.actions).not.toContain("Вогняне дихання");
     expect(catalog.get("Ancient Red Dragon")?.actions).toContain(
@@ -2652,7 +2652,7 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
     expect(catalog.get("Demilich")?.legendaryActions).toContain("Виснаження енергії{{Energy Drain}} (коштує 2 дії)");
     expect(catalog.get("Drow Favored Consort")?.actions).toContain("<b>Шабля{{Scimitar}}.</b>");
     expect(catalog.get("Goristro")?.actions).toContain("<b>Копито{{Hoof}}.</b>");
-    expect(catalog.get("Goristro")?.actions).toContain("<b>Удар рогами{{Gore}}.</b>");
+    expect(catalog.get("Goristro")?.actions).toContain("<b>Буцання{{Gore}}.</b>");
   });
 
   it("тримає «подих» замість «дихання» для обох подихів партії", () => {
@@ -3158,8 +3158,8 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
     expect(catalog.get("Stone Golem")?.actions).toContain("Уповільнення{{Slow}} (перезарядка 5–6)");
     expect(catalog.get("Djinni")?.actions).toContain("Створення вихору");
     expect(catalog.get("Marid")?.actions).toContain("Водяний струмінь");
-    expect(catalog.get("Dao")?.specialAbilities).toContain("Земляне ковзання");
-    expect(catalog.get("Young Gold Dragon")?.actions).toContain("Послаблюючий подих");
+    expect(catalog.get("Dao")?.specialAbilities).toContain("Земляний плин");
+    expect(catalog.get("Young Gold Dragon")?.actions).toContain("Ослаблювальний подих");
     expect(catalog.get("Efreeti")?.actions).toContain("Метання полумʼя");
     expect(catalog.get("Horned Devil")?.actions).toContain("Метання полумʼя");
     for (const nameEng of ["Summer Eladrin", "Winter Eladrin"]) {
@@ -3318,8 +3318,8 @@ describe("KR12.3 — партія 23 у зібраному каталозі 2014
   it("перетирає легасі-назви рис, заради чого KR12.3 і існує", () => {
     expect(catalog.get("Treant")?.specialAbilities).toContain("Хибна подоба");
     expect(catalog.get("Treant")?.specialAbilities).not.toContain("Оманлива зовнішність");
-    expect(catalog.get("Treant")?.specialAbilities).toContain("Облогове чудовисько");
-    expect(catalog.get("Treant")?.specialAbilities).not.toContain("Облоговий монстр");
+    expect(catalog.get("Treant")?.specialAbilities).toContain("Облоговий монстр");
+    expect(catalog.get("Treant")?.specialAbilities).not.toContain("Облогове чудовисько");
     expect(catalog.get("Treant")?.actions).not.toContain("Удар стовбуром");
     expect(catalog.get("Glabrezu")?.actions).toContain("<b>Кліщі{{Pincer}}.</b>");
     expect(catalog.get("Glabrezu")?.actions).not.toContain("Клішня");
@@ -3745,17 +3745,17 @@ describe("KR12.3 — партія 20 у зібраному каталозі 2014
     expect(catalog.get("Black Abishai")?.actions).toContain("Шабля");
   });
 
-  it("лишає мамонтові «Удар бивнями» за прецедентом слона, а не «Удар рогами» рогатих", () => {
+  it("лишає мамонтові «Удар бивнями» цілою назвою, а рогатим дає ратифіковане «Буцання»", () => {
     expect(catalog.get("Mammoth")?.actions).toContain("Удар бивнями");
-    expect(catalog.get("Mammoth")?.actions).not.toContain("Удар рогами");
+    expect(catalog.get("Mammoth")?.actions).not.toContain("Буцання");
     expect(catalog.get("Mammoth")?.specialAbilities).toContain("атакою Ударом бивнями");
     expect(catalog.get("Elephant")?.actions).toContain("Удар бивнями");
-    expect(catalog.get("Triceratops")?.actions).toContain("Удар рогами");
+    expect(catalog.get("Triceratops")?.actions).toContain("Буцання");
   });
 
-  it("тримає словниковий «Окамʼянюючий погляд» проти 2024-двійника «Скамʼянювальний»", () => {
-    expect(catalog.get("Medusa")?.specialAbilities).toContain("Окамʼянюючий погляд");
-    expect(catalog.get("Medusa")?.specialAbilities).not.toContain("Скамʼянювальний");
+  it("бере ратифікований «Скамʼянювальний погляд» — одна форма на обидві редакції", () => {
+    expect(catalog.get("Medusa")?.specialAbilities).toContain("Скамʼянювальний погляд");
+    expect(catalog.get("Medusa")?.specialAbilities).not.toContain("Окамʼянюючий");
     expect(catalog.get("Medusa")?.specialAbilities).toContain("стан Окамʼянілий");
   });
 
@@ -3926,8 +3926,8 @@ describe("KR12.3 — партія 19 у зібраному каталозі 2014
     expect(catalog.get("Bodak")?.specialAbilities).not.toContain("Світлом");
   });
 
-  it("лишає «Удар рогами» рогатому трицератопсу, а «Ріг» — єдинорогові", () => {
-    expect(catalog.get("Triceratops")?.actions).toContain("Удар рогами");
+  it("дає рогатому трицератопсу ратифіковане «Буцання», а «Ріг» лишає єдинорогові", () => {
+    expect(catalog.get("Triceratops")?.actions).toContain("Буцання");
     expect(catalog.get("Triceratops")?.actions).not.toContain("Удар бивнями");
     expect(catalog.get("Unicorn")?.actions).toContain("Ріг");
     expect(catalog.get("Chimera")?.actions).toContain("Роги");
@@ -4052,7 +4052,7 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника й 2024-двійника там, де ратифікований глосарій мовчить", () => {
-    expect(catalog.get("Earth Elemental")?.specialAbilities).toContain("Земляне ковзання");
+    expect(catalog.get("Earth Elemental")?.specialAbilities).toContain("Земляний плин");
     expect(catalog.get("Flesh Golem")?.specialAbilities).toContain("Незмінна форма");
     expect(catalog.get("Gladiator")?.actions).toContain("Удар щитом");
     expect(catalog.get("Otyugh")?.actions).toContain("Удар щупальцями");
@@ -4070,8 +4070,8 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
     expect(catalog.get("Night Hag")?.actions).not.toContain("Етерність");
   });
 
-  it("бере «Надприродне ухилення» з назви класової риси, а не з дрейфу 2024", () => {
-    expect(catalog.get("Master Thief")?.reactions).toContain("Надприродне ухилення");
+  it("бере ратифіковане «Неймовірне ухилення» — власник закрив назву 2026-09-07", () => {
+    expect(catalog.get("Master Thief")?.reactions).toContain("Неймовірне ухилення");
   });
 
   it("тримає словникові стани проти дрейфу: Скований, Засліплений, Окамʼянілий", () => {
@@ -4081,8 +4081,8 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
     expect(catalog.get("Gorgon")?.actions).toContain("стан Окамʼянілий");
   });
 
-  it("лишає «Удар рогами» рогатій істоті — той самий поділ Gore, що в партії 16", () => {
-    expect(catalog.get("Gorgon")?.actions).toContain("Удар рогами");
+  it("дає рогатій істоті ратифіковане «Буцання» — той самий поділ Gore, що в партії 16", () => {
+    expect(catalog.get("Gorgon")?.actions).toContain("Буцання");
     expect(catalog.get("Gorgon")?.actions).not.toContain("Удар бивнями");
     expect(catalog.get("Gorgon")?.actions).toContain("Окамʼянюючий подих{{Petrifying Breath}} (перезарядка 5–6)");
   });
@@ -4396,8 +4396,8 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
 
   it("розділяє Gore на дві українські назви: слон бʼє бивнями, а не рогами", () => {
     expect(catalog.get("Elephant")?.actions).toContain("Удар бивнями");
-    expect(catalog.get("Elephant")?.actions).not.toContain("Удар рогами");
-    expect(catalog.get("Rhinoceros")?.actions).toContain("Удар рогами");
+    expect(catalog.get("Elephant")?.actions).not.toContain("Буцання");
+    expect(catalog.get("Rhinoceros")?.actions).toContain("Буцання");
   });
 
   it("вісім відкладених лишаються pending, а два заблоковані закрила добірка", () => {
@@ -4576,7 +4576,7 @@ describe("KR12.3 — партія 14 у зібраному каталозі 2014
   });
 
   it("бере назви рис зі словника й 2024-двійника там, де ратифікований глосарій мовчить", () => {
-    expect(catalog.get("Giant Scorpion")?.actions).toContain("Кіготь");
+    expect(catalog.get("Giant Scorpion")?.actions).toContain("Клішня");
     expect(catalog.get("Githyanki Warrior")?.actions).toContain("Дворучний меч");
     expect(catalog.get("Derro Savant")?.actions).toContain("Палиця");
     expect(catalog.get("Displacer Beast")?.specialAbilities).toContain("Ухиляння");

@@ -22,6 +22,7 @@ import { parseMonster2014 } from "../../scripts/aidedd/parse-monster-2014";
 import { parseMonster2024 } from "../../scripts/aidedd/parse-monster-2024";
 import { cutSuffix } from "../../scripts/aidedd/ratify-glossary";
 import { buildMarkedName } from "../../scripts/terms/section-name-markers";
+import { findContextualFeatureName } from "../../scripts/terms/contextual-feature-names";
 import dictionaryFile from "../../src/lib/refs/dictionary.json";
 import { findGlossaryMarkers, stripGlossaryMarkers } from "../../src/lib/refs/glossary-marker";
 
@@ -61,15 +62,14 @@ const SECTIONS = ["traits", "actions", "bonusActions", "reactions", "legendaryAc
 /// Перелік один на всі редакції, бо словник один: `5etools-creatures.test.ts` вимагає
 /// ратифіковану назву скрізь, де вона є в реєстрі, тож щойно назва потрапляє у словник,
 /// бестіарій 2014 зобовʼязаний нею так само, як 2024.
-/// Бестіарій 2014 має власні свідомі рішення, яких бланк власника не стосувався: «Удар
-/// бивнями» проти «Удару рогами» за анатомією істоти (`Gore`), «Облогове чудовисько»,
-/// «Окамʼянюючий погляд», «Земляне ковзання», «Надприродне ухилення» — кожне з власним
-/// тестом і причиною. Тому 2014 бере рівно ті дванадцять назв, чий словниковий запис власник
-/// переписав 2026-09-07, і жодної більше. Розширення — окреме рішення власника.
-const RATIFIED_2026_09_07 = [
-  "Amphibious", "Flyby", "Web Walker", "Water Breathing", "Magic Resistance", "Amorphous",
-  "Arcane Burst", "Touch", "Constrict", "Pounce", "Charge", "Swallow",
-];
+/// Рішення власника 2026-09-09: ратифікована форма діє в **обох** редакціях. Те, що не
+/// піддається термінізації, живе не тут, а в `contextual-feature-names.ts` — цілою назвою на
+/// істоту («Удар бивнями» слонові, «Клішня» крабові). Тобто 2014 бере той самий перелік, що
+/// й 2024; попереднє звуження до дванадцяти назв цим скасовано.
+/// `Claw` проходить лише заради краба зі скорпіоном: самої термінізації для нього немає —
+/// «кіготь/пазур» власник лишив як два законні написання, і зводити 33 «Пазур» до «Кіготь»
+/// він не вирішував.
+const CONTEXTUAL_ONLY = ["Claw"];
 
 const SAFE_BY_EDITION: Record<string, string[]> = { "2024": [] };
 
@@ -91,7 +91,7 @@ const SAFE_2024 = [
   "Hellfire Orb", "Sickening Ray", "Tail Swipe",
 ];
 for (const edition of Object.keys(EDITIONS)) {
-  SAFE_BY_EDITION[edition] = edition.startsWith("2014") ? RATIFIED_2026_09_07 : SAFE_2024;
+  SAFE_BY_EDITION[edition] = [...SAFE_2024, ...CONTEXTUAL_ONLY];
 }
 const SAFE_ENGLISH = SAFE_BY_EDITION[editionKey];
 
@@ -117,6 +117,7 @@ const PROSE_FIXES: Record<string, Record<string, [string, string][]>> = {
   "horned-devil": [["або Кидок полумʼя", "або Метання полумʼя"]],
   "death-tyrant": [["використовує Промені очей", "використовує Очні промені"]],
   marilith: [["використовує Здушення", "використовує Здавлювання"]],
+  mammoth: [["дві атаки Буцанням", "дві атаки Ударом бивнями"]],
   colossus: [
     ["використовуючи Ляпас або", "використовуючи Удар або"],
     ["одну атаку Ляпасом", "одну атаку Ударом"],
@@ -207,8 +208,13 @@ function rewriteRow(batch: string, row: Row): Change[] {
       if (!SAFE_ENGLISH.includes(key)) continue;
       if (KEPT_BY_SLUG[row.slug]?.[key]) continue;
 
-      const target = RATIFIED[key];
-      if (!target) throw new Error(`«${key}» немає в statblockFeatures — словник змінився, перевір перелік`);
+      const ratified = RATIFIED[key];
+      if (!ratified) throw new Error(`«${key}» немає в statblockFeatures — словник змінився, перевір перелік`);
+
+      /// Слон і краб не беруть ратифіковану форму — вони беруть свою цілу назву.
+      const contextual = findContextualFeatureName(key, row.slug);
+      if (contextual === undefined && CONTEXTUAL_ONLY.includes(key)) continue;
+      const target = contextual ?? ratified;
 
       const current = cutSuffix(ukrainian[index].name);
       const currentTerm = stripGlossaryMarkers(current.base);

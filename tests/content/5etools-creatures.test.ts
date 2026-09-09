@@ -12,6 +12,7 @@ import {
   readBatchTranslations,
 } from "../../scripts/5etools/creature-batches";
 import { buildMarkedName, splitNameTail } from "../../scripts/terms/section-name-markers";
+import { findContextualFeatureName } from "../../scripts/terms/contextual-feature-names";
 import {
   findExperienceByChallenge,
   findProficiencyBonusByChallenge,
@@ -989,7 +990,10 @@ function findFeatureNameProblems(): string[] {
 
     return pairs.flatMap(([english, ukrainian]) =>
       english.flatMap((entry, index) => {
-        const ratified = RATIFIED_FEATURES[entry.name];
+        /// Слон і краб беруть не ратифіковану форму, а свою цілу назву: та сама англійська
+        /// назва означає в них іншу частину тіла (рішення власника 2026-09-09). Реєстр
+        /// спільний із проходом ратифікації, щоб гейт і прохід не розійшлися.
+        const ratified = findContextualFeatureName(entry.name, row.slug) ?? RATIFIED_FEATURES[entry.name];
         if (!ratified) return [];
         const expected = buildExpectedFeatureName(ratified, ukrainian[index]?.name, entry.name);
         if (ukrainian[index]?.name === expected) return [];
