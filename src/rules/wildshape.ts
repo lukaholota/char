@@ -352,13 +352,6 @@ export function usesSeparateBeastHitPoints(ruleset: Ruleset): boolean {
   return ruleset !== "RULES_2024";
 }
 
-/// 2024: «якщо модифікатор навички чи рятівного кидка у статблоці Звіра вищий за ваш, беріть
-/// той, що у статблоці». 2014 навпаки лишає володіння персонажа «де застосовно» й статблок для
-/// цього не читає — це прямо протилежні правила, тому вони й розділені прапорцем.
-export function usesBetterOfBeastProficiencies(ruleset: Ruleset): boolean {
-  return ruleset === "RULES_2024";
-}
-
 /// Перевищення межі відомих форм не блокується ([Р-3], [Р26]): застосунок трекер, а не суддя.
 /// `null` — межі немає (2014), і казати нема чого.
 export function describeKnownFormsOverflow(input: { attached: number; limit: number | null }): string | null {

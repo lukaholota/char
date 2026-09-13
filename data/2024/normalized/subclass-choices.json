@@ -1,0 +1,203 @@
+{
+  "ruleset": "RULES_2024",
+  "groups": [
+    {
+      "subclassName": "CIRCLE_OF_THE_LAND",
+      "groupName": "Коло землі",
+      "featureEng": "Circle of the Land Spells",
+      "picksAtLevel": {
+        "3": 1
+      },
+      "options": [
+        {
+          "engName": "Circle of the Land: Arid",
+          "name": "Посушлива земля",
+          "description": "Підготовлені заклинання: <a href=\"/2024/spells/blur\">Розмиття [Blur]</a>, <a href=\"/2024/spells/burning-hands\">Палючі долоні [Burning Hands]</a>, <a href=\"/2024/spells/fire-bolt\">Вогняний заряд [Fire Bolt]</a>; з вищими рівнями — <a href=\"/2024/spells/fireball\">Вогнекуля [Fireball]</a>, <a href=\"/2024/spells/blight\">Усихання [Blight]</a> і <a href=\"/2024/spells/wall-of-stone\">Стіна з каменю [Wall of Stone]</a>."
+        },
+        {
+          "engName": "Circle of the Land: Polar",
+          "name": "Полярна земля",
+          "description": "Підготовлені заклинання: <a href=\"/2024/spells/fog-cloud\">Туманна хмара [Fog Cloud]</a>, <a href=\"/2024/spells/hold-person\">Стримування особи [Hold Person]</a>, <a href=\"/2024/spells/ray-of-frost\">Промінь холоду [Ray of Frost]</a>; з вищими рівнями — <a href=\"/2024/spells/sleet-storm\">Завірюха [Sleet Storm]</a>, <a href=\"/2024/spells/ice-storm\">Крижаний шторм [Ice Storm]</a> і <a href=\"/2024/spells/cone-of-cold\">Конус холоду [Cone of Cold]</a>."
+        },
+        {
+          "engName": "Circle of the Land: Temperate",
+          "name": "Помірна земля",
+          "description": "Підготовлені заклинання: <a href=\"/2024/spells/misty-step\">Туманний крок [Misty Step]</a>, <a href=\"/2024/spells/shocking-grasp\">Шокувальний дотик [Shocking Grasp]</a>, <a href=\"/2024/spells/sleep\">Сон [Sleep]</a>; з вищими рівнями — <a href=\"/2024/spells/lightning-bolt\">Заряд блискавки [Lightning Bolt]</a>, <a href=\"/2024/spells/freedom-of-movement\">Свобода рухів [Freedom of Movement]</a> і <a href=\"/2024/spells/tree-stride\">Деревний шлях [Tree Stride]</a>."
+        },
+        {
+          "engName": "Circle of the Land: Tropical",
+          "name": "Тропічна земля",
+          "description": "Підготовлені заклинання: <a href=\"/2024/spells/acid-splash\">Кислотні бризки [Acid Splash]</a>, <a href=\"/2024/spells/ray-of-sickness\">Промінь хвороби [Ray of Sickness]</a>, <a href=\"/2024/spells/web\">Павутиння [Web]</a>; з вищими рівнями — <a href=\"/2024/spells/stinking-cloud\">Смердюча хмара [Stinking Cloud]</a>, <a href=\"/2024/spells/polymorph\">Перевтілення [Polymorph]</a> і <a href=\"/2024/spells/insect-plague\">Нашестя комах [Insect Plague]</a>."
+        }
+      ]
+    },
+    {
+      "subclassName": "HUNTER",
+      "groupName": "Здобич мисливця",
+      "featureEng": "Hunter's Prey",
+      "picksAtLevel": {
+        "3": 1
+      },
+      "options": [
+        {
+          "engName": "Hunter's Prey: Colossus Slayer",
+          "name": "Убивця колосів",
+          "description": "Раз за хід зброя завдає цілі без усіх хітів додатково 1к8 шкоди."
+        },
+        {
+          "engName": "Hunter's Prey: Horde Breaker",
+          "name": "Прорив крізь орду",
+          "description": "Раз за хід після атаки зброєю можна атакувати іншу істоту поряд із першою ціллю."
+        }
+      ]
+    },
+    {
+      "subclassName": "HUNTER",
+      "groupName": "Захисна тактика",
+      "featureEng": "Defensive Tactics",
+      "picksAtLevel": {
+        "7": 1
+      },
+      "options": [
+        {
+          "engName": "Defensive Tactics: Escape the Horde",
+          "name": "Втеча від орди",
+          "description": "Провоковані атаки проти вас мають перешкоду."
+        },
+        {
+          "engName": "Defensive Tactics: Multiattack Defense",
+          "name": "Захист від мультиатаки",
+          "description": "Після влучання істота має перешкоду на решту атак проти вас цього ходу."
+        }
+      ]
+    },
+    {
+      "subclassName": "DRACONIC_SORCERY",
+      "groupName": "Стихійна спорідненість",
+      "featureEng": "Elemental Affinity",
+      "picksAtLevel": {
+        "6": 1
+      },
+      "options": [
+        {
+          "engName": "Elemental Affinity: Acid",
+          "name": "Кислота",
+          "description": "Опір кислотній шкоді; заклинання кислоти додають модифікатор Харизми до одного кидка шкоди."
+        },
+        {
+          "engName": "Elemental Affinity: Cold",
+          "name": "Холод",
+          "description": "Опір шкоді холодом; заклинання холоду додають модифікатор Харизми до одного кидка шкоди."
+        },
+        {
+          "engName": "Elemental Affinity: Fire",
+          "name": "Вогонь",
+          "description": "Опір шкоді вогнем; заклинання вогню додають модифікатор Харизми до одного кидка шкоди."
+        },
+        {
+          "engName": "Elemental Affinity: Lightning",
+          "name": "Блискавка",
+          "description": "Опір шкоді блискавкою; заклинання блискавки додають модифікатор Харизми до одного кидка шкоди."
+        },
+        {
+          "engName": "Elemental Affinity: Poison",
+          "name": "Отрута",
+          "description": "Опір шкоді отрутою; заклинання отрути додають модифікатор Харизми до одного кидка шкоди."
+        }
+      ]
+    },
+    {
+      "subclassName": "BATTLE_MASTER",
+      "groupName": "Маневри майстра бою",
+      "featureEng": "Combat Superiority",
+      "picksAtLevel": {
+        "3": 3,
+        "7": 2,
+        "10": 2,
+        "15": 2
+      },
+      "options": [
+        {
+          "engName": "Ambush",
+          "name": "Засідка"
+        },
+        {
+          "engName": "Bait and Switch",
+          "name": "Пастка й обмін"
+        },
+        {
+          "engName": "Commander’s Strike",
+          "name": "Наказ атакувати"
+        },
+        {
+          "engName": "Commanding Presence",
+          "name": "Владна присутність"
+        },
+        {
+          "engName": "Disarming Attack",
+          "name": "Роззброювальний удар"
+        },
+        {
+          "engName": "Distracting Strike",
+          "name": "Відволікаючий удар"
+        },
+        {
+          "engName": "Evasive Footwork",
+          "name": "Ухильні кроки"
+        },
+        {
+          "engName": "Feinting Attack",
+          "name": "Обманний удар"
+        },
+        {
+          "engName": "Goading Attack",
+          "name": "Дратівливий удар"
+        },
+        {
+          "engName": "Lunging Attack",
+          "name": "Укол із випаду"
+        },
+        {
+          "engName": "Maneuvering Attack",
+          "name": "Маневровий удар"
+        },
+        {
+          "engName": "Menacing Attack",
+          "name": "Лякаючий удар"
+        },
+        {
+          "engName": "Parry",
+          "name": "Парирування"
+        },
+        {
+          "engName": "Precision Attack",
+          "name": "Точний удар"
+        },
+        {
+          "engName": "Pushing Attack",
+          "name": "Відштовхувальний удар"
+        },
+        {
+          "engName": "Rally",
+          "name": "Підбадьорення"
+        },
+        {
+          "engName": "Riposte",
+          "name": "Відплата"
+        },
+        {
+          "engName": "Sweeping Attack",
+          "name": "Розмашистий удар"
+        },
+        {
+          "engName": "Tactical Assessment",
+          "name": "Тактична оцінка"
+        },
+        {
+          "engName": "Trip Attack",
+          "name": "Підніжка"
+        }
+      ]
+    }
+  ]
+}

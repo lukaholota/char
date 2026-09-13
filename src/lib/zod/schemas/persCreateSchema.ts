@@ -307,6 +307,7 @@ export const fullCharacterSchema = z.object({
   levelUpHpMode: z.enum(["AVERAGE", "RANDOM", "MANUAL"]).optional(),
   levelUpHpManualInput: z.string().optional(),
   levelUpSkillSelections: z.record(z.string(), z.array(skills)).default({}).optional(),
+  featSpellIds: z.array(z.number().int().positive()).optional(),
 })
 
  .superRefine((data, ctx) => {

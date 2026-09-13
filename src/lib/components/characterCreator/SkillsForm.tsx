@@ -426,24 +426,21 @@ export const SkillsForm = ({
     }
   }, [isTasha, tashaChoiceCountTotal, raceCount, classCount, backgroundCount, form]);
 
-  // Update button state based on form validity
+  /// Крок пускав далі з невитраченими виборами, і чарівник виходив без двох володінь навичками —
+  /// а полагодити це на листі вже не можна (P4-regression-2014-07). Рішення власника 2026-09-06:
+  /// «Далі» неактивна, доки вибори не витрачені.
   useEffect(() => {
-    // Skills selection is optional: allow continuing even if not all picks are filled.
-    // We only guard against impossible states (over the computed limit), but UI already prevents that.
-    
-    // For race options, check if any option exceeded its specific limit
-    const isRaceOptionOverLimit = Object.entries(choiceOptions).some(([optId, selected]) => {
-      const max = raceOptionCounts[optId] || 0;
-      return selected.length > max;
-    });
+    const isRaceOptionUnspent = Object.entries(raceOptionCounts).some(
+      ([optId, max]) => (choiceOptions[optId] ?? []).length !== (max || 0)
+    );
 
-    const isOverLimit = isTasha
-      ? tashaChoices.length > tashaChoiceCountTotal
-      : (basicChoices.selectedClass ?? []).length > classCount || 
-        (basicChoices.race ?? []).length > raceCount ||
-        isRaceOptionOverLimit;
+    const isUnspent = isTasha
+      ? tashaChoices.length !== tashaChoiceCountTotal
+      : (basicChoices.selectedClass ?? []).length !== classCount ||
+        (basicChoices.race ?? []).length !== raceCount ||
+        isRaceOptionUnspent;
 
-    onNextDisabledChange?.(isOverLimit);
+    onNextDisabledChange?.(isUnspent);
   }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, choiceOptions, raceOptionCounts, onNextDisabledChange, raceCount]);
 
   const handleToggleTashaSkill = (skill: Skill) => {

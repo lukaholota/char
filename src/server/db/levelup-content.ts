@@ -5,6 +5,13 @@ import type { Ruleset } from "@prisma/client";
 // KR18.1: контент підвищення рівня їде з `pers.ruleset`, а не з однієї редакції на весь застосунок.
 const DEFAULT_RULESET: Ruleset = "RULES_2014";
 
+const HIT_POINT_FEATURE_SELECT = {
+  featureId: true,
+  bonusHitPointsPerLevel: true,
+  classFeatures: { select: { classId: true } },
+  subclassFeatures: { select: { subclass: { select: { classId: true } } } },
+} as const;
+
 export async function loadLevelUpBaseContent(persId: number) {
   const pers = await prisma.pers.findUnique({
     where: { persId },
@@ -12,7 +19,7 @@ export async function loadLevelUpBaseContent(persId: number) {
       class: true,
       subclass: true,
       choiceOptions: true,
-      features: { select: { featureId: true, feature: { select: { bonusHitPointsPerLevel: true } } } },
+      features: { select: { featureId: true, feature: { select: HIT_POINT_FEATURE_SELECT } } },
       skills: { select: { name: true, proficiencyType: true } },
       persInfusions: { select: { infusionId: true } },
       multiclasses: { include: { class: true, subclass: true } },
@@ -85,9 +92,8 @@ export async function loadLevelUpFeatureEffects(featureIds: readonly number[]) {
   return prisma.feature.findMany({
     where: { featureId: { in: selectedIds } },
     select: {
-      featureId: true,
+      ...HIT_POINT_FEATURE_SELECT,
       name: true,
-      bonusHitPointsPerLevel: true,
       skillProficiencies: true,
       armorProficiencies: true,
       weaponProficiencies: true,

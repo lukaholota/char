@@ -43,7 +43,10 @@
       {
         "characterLevel": 2,
         "class": "WIZARD_2024",
-        "isNewClass": false
+        "isNewClass": false,
+        "expertise": [
+          "RELIGION"
+        ]
       },
       {
         "characterLevel": 3,
@@ -61,7 +64,13 @@
       {
         "characterLevel": 5,
         "class": "CLERIC_2024",
-        "isNewClass": true
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Божественний орден",
+            "option": "Divine Order: Protector"
+          }
+        ]
       },
       {
         "characterLevel": 6,
@@ -79,7 +88,10 @@
         "class": "CLERIC_2024",
         "isNewClass": false,
         "feat": "FEY_TOUCHED",
-        "featAbility": "WIS"
+        "featAbility": "WIS",
+        "featSpells": [
+          "Dissonant Whispers"
+        ]
       }
     ]
   },

@@ -31,6 +31,7 @@ import { BackgroundFeatsForm } from "@/lib/components/characterCreator/Backgroun
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
+import { buildCreationAbilityScores } from "@/rules/character-creation";
 import WeaponMasteryForm from "@/lib/components/characterCreator/WeaponMasteryForm";
 import { CreationStepRuleLink } from "@/lib/components/characterCreator/CreationStepRuleLink";
 
@@ -257,6 +258,7 @@ export const MultiStepForm = (
   const hasSubraces = useMemo(() => (race?.subraces?.length ?? 0) > 0, [race]);
   const hasRaceVariants = useMemo(() => (race?.raceVariants?.length ?? 0) > 0, [race]);
   const hasRaceChoiceOptions = useMemo(() => (race as any)?.raceChoiceOptions?.length > 0, [race]);
+
   const raceVariant = useMemo(() => 
     race?.raceVariants?.find(v => v.raceVariantId === formData.raceVariantId), 
     [race, formData.raceVariantId]
@@ -276,6 +278,33 @@ export const MultiStepForm = (
   }, [feats, race, formData.raceChoiceSelections]);
   const hasSpeciesFeatChoices = useMemo(() => (speciesFeat?.featChoiceOptions?.length ?? 0) > 0, [speciesFeat]);
   const feat = useMemo(() => feats.find(f => f.featId === formData.featId), [feats, formData.featId]);
+
+  /// Превʼю зміни характеристики на кроці «Опції риси» рахувало base 10 + ASI, ігноруючи расу
+  /// (BUG-012): раса з +2 СПР показувала «14 → 15» замість «16 → 17». Ті самі доданки, що й у
+  /// сервера, дає `buildCreationAbilityScores` — тут вона кличеться без рис, бо превʼю показує
+  /// саме приріст від риси, яку гравець зараз обирає.
+  const creationAbilityScores = useMemo(
+    () =>
+      buildCreationAbilityScores({
+        ruleset: currentRuleset,
+        asiSystem: formData.asiSystem ?? "POINT_BUY",
+        pointBuy: formData.asi ?? [],
+        simple: formData.simpleAsi ?? [],
+        custom: formData.customAsi,
+        isDefaultASI: formData.isDefaultASI ?? true,
+        raceASI: race?.ASI,
+        variantASI: (raceVariant as any)?.overridesRaceASI,
+        subraceASI: (subrace as any)?.additionalASI,
+        subraceReplacesASI: Boolean((subrace as any)?.replacesASI),
+        racialChoices: formData.racialBonusChoiceSchema,
+        raceChoiceAbilityBonuses: Object.values(formData.raceChoiceSelections ?? {})
+          .map((id: any) => race?.raceChoiceOptions?.find((option) => option.optionId === id))
+          .filter(Boolean)
+          .map((option: any) => ({ ASI: option.ASI })),
+        feats: [],
+      }).scores,
+    [currentRuleset, formData, race, subrace, raceVariant],
+  );
   const hasFeatChoices = useMemo(() => (feat?.featChoiceOptions?.length ?? 0) > 0, [feat]);
   const hasBackgroundFeatChoice = useMemo(() => (bg?.gainsFeats?.length ?? 0) > 0, [bg]);
   const backgroundFeat = useMemo(() => {
@@ -745,6 +774,7 @@ export const MultiStepForm = (
             selectedFeat={feat}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
+            baseAbilityScores={creationAbilityScores}
             mode="race"
             extraExistingSkills={[...backgroundFeatSelectedSkills, ...allSelectionsSkills]}
             extraExistingChoiceOptionIds={backgroundFeatSelectedIds}
@@ -773,6 +803,7 @@ export const MultiStepForm = (
             selectedFeat={speciesFeat as any}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
+            baseAbilityScores={creationAbilityScores}
             mode="species"
             extraExistingSkills={[...featSelectedSkills, ...backgroundFeatSelectedSkills, ...allSelectionsSkills]}
             extraExistingChoiceOptionIds={[...featSelectedIds, ...backgroundFeatSelectedIds]}
@@ -785,6 +816,7 @@ export const MultiStepForm = (
             selectedFeat={backgroundFeat as any}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
+            baseAbilityScores={creationAbilityScores}
             mode="background"
             extraExistingSkills={[...featSelectedSkills, ...allSelectionsSkills]}
             extraExistingChoiceOptionIds={featSelectedIds}

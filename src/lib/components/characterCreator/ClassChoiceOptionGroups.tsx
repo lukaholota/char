@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
-import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
+import { findChoiceOptionCardText } from "@/lib/logic/choice-option-card-text";
+import { checkPrerequisite, PrerequisiteResult } from "@/lib/logic/prerequisiteUtils";
 import { ClassI } from "@/lib/types/model-types";
 import clsx from "clsx";
 import { HelpCircle } from "lucide-react";
@@ -65,6 +66,7 @@ function ClassChoiceOptionGroup({
 }: GroupProps) {
   const required = getRequiredSelections(groupName, selectionState);
   const selectedCount = getSelectedCount(groupName, selectionState.selections);
+  const orderedOptions = sortAvailableFirst(options, selectionState);
 
   return (
     <Card className="">
@@ -80,12 +82,14 @@ function ClassChoiceOptionGroup({
         </div>
 
         <div className="grid grid-cols-1 gap-3">
-          {options.map((option) => (
+          {orderedOptions.map(({ option, prerequisite, cardText }) => (
             <ClassChoiceOptionCard
               key={option.choiceOptionId}
               groupName={groupName}
               option={option}
               options={options}
+              cardText={cardText}
+              prerequisite={prerequisite}
               selectionState={selectionState}
               onSelectOption={onSelectOption}
               onShowFeatures={onShowFeatures}
@@ -97,30 +101,32 @@ function ClassChoiceOptionGroup({
   );
 }
 
+type CardText = { title: string; preview: string };
+
 type CardProps = Omit<GroupProps, "groupName"> & {
   groupName: string;
   option: ChoiceOption;
+  cardText: CardText;
+  prerequisite: PrerequisiteResult;
 };
 
 function ClassChoiceOptionCard({
   groupName,
   option,
   options,
+  cardText,
+  prerequisite,
   selectionState,
   onSelectOption,
   onShowFeatures,
 }: CardProps) {
-  const label = getOptionLabel(option);
-  const prerequisite = checkPrerequisite(option.choiceOption.prerequisites, {
-    classLevel: selectionState.charLevel,
-    pact: selectionState.charPact,
-    existingChoiceOptionIds: Object.values(selectionState.selections).flat().filter((id) => typeof id === "number") as number[],
-  });
-  const previewText = getPreviewText(option);
+  const label = cardText.title || translateOptionNameEng(option);
+  const previewText = cardText.preview;
+  const locked = !prerequisite.met;
 
   return (
     <Card
-      className={getCardClassName(groupName, option.choiceOptionId, selectionState)}
+      className={getCardClassName(groupName, option.choiceOptionId, selectionState, locked)}
       onClick={(event) => {
         if ((event.target as HTMLElement | null)?.closest?.("[data-stop-card-click]")) return;
         onSelectOption(groupName, option.choiceOptionId, options);
@@ -128,7 +134,7 @@ function ClassChoiceOptionCard({
     >
       <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
         <div className="flex items-start justify-between gap-2">
-          <p className="flex-1 break-words text-sm font-semibold text-white">{label}</p>
+          <p className={clsx("flex-1 break-words text-sm font-semibold", locked ? "text-slate-400" : "text-white")}>{label}</p>
           <div className="flex items-center gap-2">
             <div onClick={(event) => event.stopPropagation()} onPointerDown={(event) => event.stopPropagation()}>
               <Button
@@ -145,16 +151,37 @@ function ClassChoiceOptionCard({
           </div>
         </div>
 
-        {!prerequisite.met && (prerequisite.reasons?.length || prerequisite.reason) ? (
-          <div className="space-y-0.5 rounded border border-rose-500/20 bg-rose-500/10 px-2 py-1 text-[11px] font-medium text-rose-400">
+        {locked && (prerequisite.reasons?.length || prerequisite.reason) ? (
+          <div className="space-y-0.5 rounded border border-rose-500/15 bg-rose-500/5 px-2 py-1 text-[11px] font-medium text-rose-400/70">
             {prerequisite.reasons ? prerequisite.reasons.map((reason, index) => <div key={index}>{reason}</div>) : <div>{prerequisite.reason}</div>}
           </div>
         ) : null}
 
-        {previewText ? <p className="line-clamp-2 text-sm text-slate-400">{stripMarkdownPreview(previewText)}</p> : null}
+        {previewText ? (
+          <p className={clsx("line-clamp-2 text-sm", locked ? "text-slate-500" : "text-slate-400")}>{previewText}</p>
+        ) : null}
       </CardContent>
     </Card>
   );
+}
+
+function sortAvailableFirst(options: ChoiceOptions, selectionState: Props["selectionState"]) {
+  const existingChoiceOptionIds = Object.values(selectionState.selections)
+    .flat()
+    .filter((id) => typeof id === "number") as number[];
+  const groupChoiceOptions = options.map((option) => option.choiceOption);
+
+  return options
+    .map((option) => ({
+      option,
+      cardText: findChoiceOptionCardText(option.choiceOption, groupChoiceOptions),
+      prerequisite: checkPrerequisite(option.choiceOption.prerequisites, {
+        classLevel: selectionState.charLevel,
+        pact: selectionState.charPact,
+        existingChoiceOptionIds,
+      }),
+    }))
+    .sort((a, b) => Number(b.prerequisite.met) - Number(a.prerequisite.met));
 }
 
 function getRequiredSelections(groupName: string, selectionState: Props["selectionState"]) {
@@ -166,22 +193,12 @@ function getSelectedCount(groupName: string, selections: Selections) {
   return Array.isArray(selection) ? selection.length : selection ? 1 : 0;
 }
 
-function getOptionLabel(option: ChoiceOption) {
-  const ukrainianLabel = option.choiceOption.optionName;
+function translateOptionNameEng(option: ChoiceOption) {
   const englishLabel = option.choiceOption.optionNameEng;
-  return ukrainianLabel || (isEnumLike(englishLabel) ? translateValue(englishLabel) : englishLabel);
+  return isEnumLike(englishLabel) ? translateValue(englishLabel) : englishLabel;
 }
 
-function getPreviewText(option: ChoiceOption) {
-  const features = (option.choiceOption.features || [])
-    .map((featureLink) => featureLink.feature)
-    .filter(Boolean) as Array<{ shortDescription?: string | null; description?: string | null }>;
-  return features.find((feature) => (feature.shortDescription ?? "").trim())?.shortDescription
-    || features.find((feature) => (feature.description ?? "").trim())?.description
-    || "";
-}
-
-function getCardClassName(groupName: string, optionId: number, selectionState: Props["selectionState"]) {
+function getCardClassName(groupName: string, optionId: number, selectionState: Props["selectionState"], locked: boolean) {
   const required = getRequiredSelections(groupName, selectionState);
   const selected = selectionState.selections[groupName];
   const selectedIds = Array.isArray(selected) ? selected : [];
@@ -192,29 +209,11 @@ function getCardClassName(groupName: string, optionId: number, selectionState: P
   return clsx(
     "glass-card cursor-pointer transition-all duration-200",
     isSelected && "glass-active",
+    !isSelected && locked && "opacity-60 saturate-50 hover:opacity-90",
     !isSelected && atLimit && "opacity-50 grayscale-[0.5]",
   );
 }
 
 function isEnumLike(value?: string | null) {
   return !!value && /^[A-Z0-9_]+$/.test(value);
-}
-
-function stripMarkdownPreview(value: string) {
-  return value
-    .replace(/\r\n/g, "\n")
-    .replace(/<a\s+[^>]*>(.*?)<\/a>/gi, "$1")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-    .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
-    .replace(/\*\*([^*]+)\*\*/g, "$1")
-    .replace(/__([^_]+)__/g, "$1")
-    .replace(/\*([^*]+)\*/g, "$1")
-    .replace(/_([^_]+)_/g, "$1")
-    .replace(/^#{1,6}\s+/gm, "")
-    .replace(/^>\s?/gm, "")
-    .replace(/^\s*[-*+]\s+/gm, "")
-    .replace(/^\s*\d+\.\s+/gm, "")
-    .replace(/\s+/g, " ")
-    .trim();
 }

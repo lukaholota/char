@@ -56,6 +56,12 @@ it("не губить таблицю експериментальних елік
   expect(elixir?.descriptionEng).toContain("Healing");
 });
 
+/// Рівень і назва — те, що звіряється з джерелом; механіку (KR31.3) кладе окремий гейт
+/// `subclass-feature-uses-2024.test.ts`, і тут вона тільки заважала б.
+function readLevelsAndNames(features: Array<{ level: number; name: string }>) {
+  return features.map(({ level, name }) => ({ level, name }));
+}
+
 it("усі підкласи Винахідника мають переклад кожної риси та власну книгу", () => {
   const normalized: Array<{
     className: string; engName: string; source: string;
@@ -66,11 +72,36 @@ it("усі підкласи Винахідника мають переклад �
     const subclass = normalized.find(entry => entry.className === source.className && entry.engName === source.engName);
     expect(subclass, source.engName).toBeDefined();
     expect(subclass!.source).toBe(source.source === "Eberron - Forge of the Artificer" ? "EFA" : "RHW");
-    expect(subclass!.featuresEng).toEqual(source.featuresEng.map(({ level, name }) => ({ level, name })));
+    expect(readLevelsAndNames(subclass!.featuresEng)).toEqual(readLevelsAndNames(source.featuresEng));
     expect(subclass!.features.map(feature => feature.level)).toEqual(source.featuresEng.map(feature => feature.level));
     for (const feature of subclass!.features) {
       expect(feature.name).toMatch(/[А-Яа-яІіЇїЄє]/);
       expect(feature.description).toMatch(/[А-Яа-яІіЇїЄє]/);
+      expect(feature.description).not.toMatch(/__SPELL|TODO|TBD/);
+    }
+  }
+});
+
+it("KR31.2 — кожен нормалізований підклас поза PHB має повний переклад scrape-структури", () => {
+  const normalized: Array<{
+    className: string; engName: string; source: string; translationStatus?: string;
+    featuresEng: Array<{ level: number; name: string }>;
+    features: Array<{ level: number; name: string; description: string }>;
+  }> = JSON.parse(readFileSync("data/2024/normalized/subclasses.json", "utf8"));
+  const parsed = readSubclassSources();
+
+  for (const subclass of normalized.filter(entry => entry.source !== "PHB_2024")) {
+    const source = parsed.find(entry => entry.className === subclass.className && entry.engName === subclass.engName);
+    expect(source, subclass.engName).toBeDefined();
+    expect(subclass.translationStatus, subclass.engName).toBe("fully translated");
+    expect(readLevelsAndNames(subclass.featuresEng), subclass.engName).toEqual(
+      readLevelsAndNames(source!.featuresEng),
+    );
+    expect(subclass.features.map(feature => feature.level), subclass.engName)
+      .toEqual(source!.featuresEng.map(feature => feature.level));
+    for (const feature of subclass.features) {
+      expect(feature.name, subclass.engName).toMatch(/[А-Яа-яІіЇїЄє]/);
+      expect(feature.description, `${subclass.engName}: ${feature.name}`).toMatch(/[А-Яа-яІіЇїЄє]/);
       expect(feature.description).not.toMatch(/__SPELL|TODO|TBD/);
     }
   }

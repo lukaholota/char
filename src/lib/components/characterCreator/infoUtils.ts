@@ -33,10 +33,13 @@ import {
   WeaponProficiencies,
   WeaponProficienciesSpecial,
 } from "@/lib/types/model-types";
+import { describeSkillChoice, formatAnySkillsLabel, normalizeSkillProficiencies } from "@/rules/proficiency";
 
 const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
 
 const abilityTranslations = attributesUkrFull;
+
+const ALL_SKILLS = Object.values(Skills);
 
 const skillTranslations: Record<Skills, string> = Object.fromEntries(
   engEnumSkills.map(({ eng, ukr }) => [eng, ukr])
@@ -96,21 +99,13 @@ export const formatSize = (values?: Size[] | null, fallback = "—") => {
 };
 
 export const formatSkillProficiencies = (skills?: SkillProficiencies | null) => {
-  if (!skills) return "—";
-  if (Array.isArray(skills)) {
-    return formatList(skills);
-  }
+  const normalized = normalizeSkillProficiencies(skills, ALL_SKILLS);
+  if (!normalized) return "—";
 
-  const { options, choices, choiceCount, chooseAny } = skills;
-  const actualOptions = options || choices || [];
-  const count = choiceCount ?? actualOptions.length;
-
-  if (chooseAny) {
-    return `Обери будь-які ${count}`;
-  }
-
-  if (!actualOptions.length) return `Обери ${count}`;
-  return `Обери ${count}: ${formatList(actualOptions)}`;
+  const choice = describeSkillChoice(normalized, ALL_SKILLS);
+  if (choice.type === "fixed") return formatList(choice.skills);
+  if (choice.type === "any") return formatAnySkillsLabel(choice.choiceCount);
+  return `Обери ${choice.choiceCount}: ${formatList(choice.options)}`;
 };
 
 export const formatToolProficiencies = (tools?: string[] | null, chooseCount?: number | null) => {
@@ -175,7 +170,7 @@ export const formatWeaponProficiencies = (
   return parts.length ? parts.join(" • ") : "—";
 };
 
-export const formatArmorProficiencies = (armor?: ArmorType[] | null) => {
+export const formatArmorProficiencies = (armor?: readonly string[] | null) => {
   if (!armor?.length) return "—";
   // Avoid ambiguity with Size.MEDIUM translation (“Середній”).
   // ArmorType.MEDIUM should be “Середні обладунки”.

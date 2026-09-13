@@ -22,36 +22,55 @@ export type ClassFeatureMismatch = {
   onlyInSrd: string[];
 };
 
+export type SrdClassFeature = FeatureKey & { className: string; body: string };
+
 export function readSrdClassFeatures(markdown: string): Map<string, FeatureKey[]> {
   const byClass = new Map<string, FeatureKey[]>();
+
+  for (const line of markdown.split("\n")) {
+    const classHeading = /^## (.+)$/.exec(line);
+    if (classHeading) byClass.set(classHeading[1].trim(), []);
+  }
+  for (const feature of readSrdClassFeatureBodies(markdown)) {
+    byClass.get(feature.className)?.push({ level: feature.level, name: feature.name });
+  }
+
+  return byClass;
+}
+
+export function readSrdClassFeatureBodies(markdown: string): SrdClassFeature[] {
+  const features: SrdClassFeature[] = [];
   let className: string | null = null;
   let section: string | null = null;
+  let current: SrdClassFeature | null = null;
 
   for (const line of markdown.split("\n")) {
     const classHeading = /^## (.+)$/.exec(line);
     if (classHeading) {
       className = classHeading[1].trim();
       section = null;
-      byClass.set(className, []);
+      current = null;
       continue;
     }
 
     const sectionHeading = /^### (.+)$/.exec(line);
     if (sectionHeading) {
       section = sectionHeading[1].trim();
+      current = null;
       continue;
     }
 
     const featureHeading = /^#### Level (\d+): (.+)$/.exec(line);
     if (featureHeading && className && section === `${className} Class Features`) {
-      byClass.get(className)!.push({
-        level: Number(featureHeading[1]),
-        name: featureHeading[2].trim(),
-      });
+      current = { className, level: Number(featureHeading[1]), name: featureHeading[2].trim(), body: "" };
+      features.push(current);
+      continue;
     }
+
+    if (current) current.body += `${line}\n`;
   }
 
-  return byClass;
+  return features;
 }
 
 export function findClassFeatureMismatches(

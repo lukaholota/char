@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildHitDicePools,
   findMainClassLevel,
+  findPoolsAfterLongRest,
   findPoolsAfterSetting,
   findPoolsAfterSpending,
   serializeHitDicePools,
@@ -82,5 +83,42 @@ describe("кубики здоровʼя", () => {
 
   it("серіалізація дає числові ключі класів", () => {
     expect(serializeHitDicePools(buildHitDicePools([fighter, rogue], { "1": 2 }))).toEqual({ 1: 2, 2: 3 });
+  });
+});
+
+describe("довгий відпочинок — кубики здоровʼя", () => {
+  const spent = (max: number, current: number, classId = 1) => ({
+    classId,
+    hitDie: 10,
+    max,
+    current,
+  });
+
+  it("2024 повертає всі витрачені кубики", () => {
+    expect(findPoolsAfterLongRest([spent(8, 2)], "RULES_2024")).toEqual([spent(8, 8)]);
+  });
+
+  it("2014 повертає половину — приклад із книги: вісім кубиків дають чотири", () => {
+    expect(findPoolsAfterLongRest([spent(8, 0)], "RULES_2014")).toEqual([spent(8, 4)]);
+  });
+
+  it("2014 не піднімає пул вище максимуму", () => {
+    expect(findPoolsAfterLongRest([spent(8, 6)], "RULES_2014")).toEqual([spent(8, 8)]);
+  });
+
+  it("2014 повертає щонайменше один кубик навіть на 1 рівні", () => {
+    expect(findPoolsAfterLongRest([spent(1, 0)], "RULES_2014")).toEqual([spent(1, 1)]);
+  });
+
+  it("2014 рахує половину від суми всіх класів, а не покласово", () => {
+    expect(
+      findPoolsAfterLongRest([spent(3, 0, 1), spent(2, 0, 2)], "RULES_2014"),
+    ).toEqual([spent(3, 2, 1), spent(2, 0, 2)]);
+  });
+
+  it("2014 переливає залишок кошика в наступний клас, коли перший уже повний", () => {
+    expect(
+      findPoolsAfterLongRest([spent(3, 3, 1), spent(2, 0, 2)], "RULES_2014"),
+    ).toEqual([spent(3, 3, 1), spent(2, 2, 2)]);
   });
 });

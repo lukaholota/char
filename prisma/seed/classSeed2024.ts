@@ -6,12 +6,16 @@ import {
   Ability,
   ArmorType,
   FeatureDisplayType,
+  Prisma,
   PrismaClient,
+  RestType,
   SpellcastingType,
+  ToolCategory,
   WeaponCategory,
   WeaponProperty,
   WeaponType,
 } from "@prisma/client";
+import classTools from "../../data/2024/normalized/class-tools.json";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -19,12 +23,31 @@ type ClassFeature2024 = {
   level: number;
   name: string;
   description: string;
+  skillProficiencies?: { choiceCount: number; options: string[] };
+  skillExpertises?: {
+    count: number;
+    chooseFromCurrentProficiencies?: boolean;
+    options?: string[];
+  };
+  repeatAtLevels?: number[];
+};
+
+type FeatureUses2024 = {
+  limitedUsesPer: "SHORT_REST" | "LONG_REST";
+  usesCount?: number;
+  usesCountSpecial?: unknown;
+  usesPoolKey?: string;
 };
 
 type ClassFeatureEng2024 = {
   level: number;
   name: string;
   displayOrder: number;
+  skillProficiencies?: { choiceCount: number; options: string[] };
+  skillExpertises?: ClassFeature2024["skillExpertises"];
+  repeatAtLevels?: number[];
+  displayType?: string[];
+  uses?: FeatureUses2024;
 };
 
 type ClassJson2024 = {
@@ -32,6 +55,7 @@ type ClassJson2024 = {
   engName: string;
   name: string;
   flavorTextEng: string;
+  flavorText: string;
   subclassLevel: number;
   abilityScoreImprovementLevels: number[];
   epicBoonLevel: number;
@@ -95,7 +119,7 @@ const CLASS_CONFIGS: Record<
     primaryCastingStat: Ability.WIS,
     multiclassReqs: { choice: ["WIS"], score: 13 },
     savingThrows: [Ability.INT, Ability.WIS],
-    armorProficiencies: [ArmorType.LIGHT, ArmorType.MEDIUM, ArmorType.SHIELD],
+    armorProficiencies: [ArmorType.LIGHT, ArmorType.SHIELD],
     weaponProficiencies: { type: [WeaponType.SIMPLE_WEAPON] },
     sortOrder: 4,
   },
@@ -206,6 +230,7 @@ export const seedClasses2024 = async (prisma: PrismaClient) => {
   for (const cls of classesList) {
     const enumName = `${cls.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}_2024`;
     const config = CLASS_CONFIGS[cls.engName];
+    const toolConfig = classTools.classes.find((entry) => entry.className === enumName);
 
     const payload = {
       name: enumName as any,
@@ -219,11 +244,14 @@ export const seedClasses2024 = async (prisma: PrismaClient) => {
       multiclassReqs: config.multiclassReqs,
       savingThrows: config.savingThrows,
       skillProficiencies: cls.skillProficiencies,
+      toolProficiencies: (toolConfig?.fixed ?? []).map(readToolCategory),
+      toolToChooseCount: toolConfig?.choiceCount || null,
       armorProficiencies: config.armorProficiencies,
       weaponProficiencies: config.weaponProficiencies,
       weaponProficienciesSpecial: buildSpecialWeaponProficiencies(config, martialWeaponsByProperty),
       weapon_mastery_progression: readMasteryProgression(cls),
       sortOrder: config.sortOrder,
+      description: cls.flavorText,
     };
 
     try {
@@ -247,6 +275,11 @@ export const seedClasses2024 = async (prisma: PrismaClient) => {
     `✅ 2024 Classes: ${upserted} upserted, ${upsertedFeatures} features upserted, ${errors} errors`
   );
 };
+
+function readToolCategory(value: string): ToolCategory {
+  if (!(value in ToolCategory)) throw new Error(`Невідома категорія інструмента 2024: ${value}`);
+  return ToolCategory[value as keyof typeof ToolCategory];
+}
 
 /**
  * Ємність майстерності — рядок класової таблиці, а не константа в коді. Порожня прогресія у
@@ -305,7 +338,7 @@ function buildSpecialWeaponProficiencies(
  * Назва фічі не унікальна в межах класу — Варвар має "Improved Brutal Strike" на 13 і 17 рівнях.
  * engName є ключем upsert-а, тож повтори розводяться рівнем, інакше друга фіча затерла б першу.
  */
-function buildFeatureEngNames(featuresEng: ClassFeatureEng2024[], className: string): string[] {
+export function buildFeatureEngNames(featuresEng: ClassFeatureEng2024[], className: string): string[] {
   const names = featuresEng.map((feature) => feature.name);
   const repeated = new Set(names.filter((name, index) => names.indexOf(name) !== index));
 
@@ -314,6 +347,38 @@ function buildFeatureEngNames(featuresEng: ClassFeatureEng2024[], className: str
       ? `${className}: ${feature.name} L${feature.level} (2024)`
       : `${className}: ${feature.name} (2024)`
   );
+}
+
+/**
+ * Тип дії й числа використань виводить із книги `scripts/2024/class-feature-uses.ts`, а сюди
+ * вони приїжджають файлом ([Р33](../../docs/DECISIONS.md#р33)). Фіча без `displayType` у файлі —
+ * це фіча класу поза корпусом SRD (Артифайсер), і вона лишається пасивною.
+ */
+function readDisplayTypes(feature: ClassFeatureEng2024): FeatureDisplayType[] {
+  const names = feature.displayType ?? [FeatureDisplayType.PASSIVE];
+
+  return names.map((name) => {
+    if (!(name in FeatureDisplayType)) throw new Error(`Невідомий тип дії 2024: ${name}`);
+    return FeatureDisplayType[name as keyof typeof FeatureDisplayType];
+  });
+}
+
+/**
+ * Порожні поля пишуться явними `null`, а не пропускаються: сід оновлює наявний рядок, і фіча,
+ * яка втратила лічильник у книзі, мусить втратити його й у базі.
+ *
+ * `usesCountSpecial` лишається `null` без числа зумисне — `hasScaledMaximum` у `findPoolProvider`
+ * читає саме цю колонку через `isFilledObject`, тож будь-який непорожній обʼєкт тут перемикає
+ * суддю пулу (BUG-011).
+ */
+function readUses(feature: ClassFeatureEng2024) {
+  const uses = feature.uses;
+  return {
+    limitedUsesPer: uses ? RestType[uses.limitedUsesPer] : null,
+    usesCount: uses?.usesCount ?? null,
+    usesCountSpecial: (uses?.usesCountSpecial as Prisma.InputJsonValue | undefined) ?? Prisma.DbNull,
+    usesPoolKey: uses?.usesPoolKey ?? null,
+  };
 }
 
 async function seedClassFeatures(
@@ -333,34 +398,43 @@ async function seedClassFeatures(
   let upserted = 0;
 
   for (const [index, feature] of features.entries()) {
+    const sourceFeature = featuresEng[index];
     const featurePayload = {
       name: feature.name,
       description: feature.description,
       shortDescription: feature.name,
       ruleset: "RULES_2024" as const,
-      displayType: [FeatureDisplayType.PASSIVE],
+      displayType: readDisplayTypes(sourceFeature),
+      skillProficiencies: sourceFeature.skillProficiencies ?? feature.skillProficiencies ?? undefined,
+      skillExpertises: sourceFeature.skillExpertises ?? feature.skillExpertises ?? undefined,
+      ...readUses(sourceFeature),
     };
 
-    const featureRecord = await prisma.feature.upsert({
-      where: { engName: engNames[index] },
-      update: featurePayload,
-      create: { ...featurePayload, engName: engNames[index] },
-    });
-    upserted++;
+    for (const levelGranted of [sourceFeature.level, ...(sourceFeature.repeatAtLevels ?? feature.repeatAtLevels ?? [])]) {
+      const engName = levelGranted === sourceFeature.level
+        ? engNames[index]
+        : engNames[index].replace(/ \(2024\)$/, ` L${levelGranted} (2024)`);
+      const featureRecord = await prisma.feature.upsert({
+        where: { engName },
+        update: featurePayload,
+        create: { ...featurePayload, engName },
+      });
+      upserted++;
 
-    const linkPayload = {
-      levelGranted: feature.level,
-      displayOrder: featuresEng[index].displayOrder,
-      ruleset: "RULES_2024" as const,
-    };
+      const linkPayload = {
+        levelGranted,
+        displayOrder: featuresEng[index].displayOrder,
+        ruleset: "RULES_2024" as const,
+      };
 
-    await prisma.classFeature.upsert({
-      where: {
-        classId_featureId: { classId, featureId: featureRecord.featureId },
-      },
-      update: linkPayload,
-      create: { ...linkPayload, classId, featureId: featureRecord.featureId },
-    });
+      await prisma.classFeature.upsert({
+        where: {
+          classId_featureId: { classId, featureId: featureRecord.featureId },
+        },
+        update: linkPayload,
+        create: { ...linkPayload, classId, featureId: featureRecord.featureId },
+      });
+    }
   }
 
   return upserted;

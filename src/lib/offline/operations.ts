@@ -66,7 +66,8 @@ export type OfflineOperation =
   | (OfflineOperationBase & { kind: "hp"; mode: "damage" | "heal" | "temp"; amount: number })
   | (OfflineOperationBase & { kind: "death-saves"; successes: number; failures: number })
   | (OfflineOperationBase & { kind: "spend-spell-slot"; slotLevel: number })
-  | (OfflineOperationBase & { kind: "spend-pact-slot" });
+  | (OfflineOperationBase & { kind: "spend-pact-slot" })
+  | (OfflineOperationBase & { kind: "heroic-inspiration"; hasHeroicInspiration: boolean });
 
 export type OfflineOperationKind = OfflineOperation["kind"];
 
@@ -80,6 +81,7 @@ export type OfflinePersState = OfflineDetailsPatch & {
   isDead: boolean;
   currentSpellSlots: number[];
   currentPactSlots: number;
+  hasHeroicInspiration: boolean;
 };
 
 function clampInteger(value: unknown, minimum: number, maximum = Number.MAX_SAFE_INTEGER): number {
@@ -146,6 +148,10 @@ export function applyOfflineOperation<T extends OfflinePersState>(pers: T, opera
     return { ...pers, currentSpellSlots };
   }
 
+  if (operation.kind === "heroic-inspiration") {
+    return { ...pers, hasHeroicInspiration: operation.hasHeroicInspiration };
+  }
+
   return { ...pers, currentPactSlots: Math.max(0, clampInteger(pers.currentPactSlots, 0) - 1) };
 }
 
@@ -175,6 +181,8 @@ export function isOfflineOperation(value: unknown): value is OfflineOperation {
       return Number.isInteger(operation.slotLevel);
     case "spend-pact-slot":
       return true;
+    case "heroic-inspiration":
+      return typeof operation.hasHeroicInspiration === "boolean";
     default:
       return false;
   }

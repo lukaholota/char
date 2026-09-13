@@ -224,6 +224,7 @@ export const seedClasses = async (prisma: PrismaClient) => {
                     { feature: { connect: { engName: "Spellcasting (Cleric)" } }, levelGranted: 1 },
                     { feature: { connect: { engName: "Divine Domain" } }, levelGranted: 1 },
                     { feature: { connect: { engName: "Channel Divinity (Cleric)" } }, levelGranted: 2 },
+                    { feature: { connect: { engName: "Turn Undead" } }, levelGranted: 2 },
                     { feature: { connect: { engName: "Destroy Undead" } }, levelGranted: 5 },
                     { feature: { connect: { engName: "Divine Intervention" } }, levelGranted: 10 },
                 ]

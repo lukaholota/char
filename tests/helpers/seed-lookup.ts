@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { picksAtLevelForGroup } from "@/lib/logic/choicePoolRules";
 import type {
   BackgroundCategory,
   Classes,
@@ -113,3 +114,42 @@ export const firstSubraceForRace = (raceId: number) =>
   cached(`firstSubrace:${raceId}`, () =>
     prisma.subrace.findFirstOrThrow({ where: { raceId }, orderBy: { subraceId: "asc" } }),
   );
+
+/**
+ * Обовʼязкові вибори класу 2024 на цьому рівні — стільки опцій із кожної групи, скільки просить
+ * правило пулу. Тест, який міряє щось інше (спорядження, редакцію, риси), не має знати, що
+ * клірик мусить обрати Божественний орден, — але без цього вибору сервер його не створить.
+ */
+export async function findRequiredClassChoices2024(
+  classId: number,
+  levelGranted: number,
+): Promise<Record<string, number | number[]>> {
+  const [characterClass, available] = await Promise.all([
+    prisma.class.findUniqueOrThrow({ where: { classId }, select: { name: true } }),
+    prisma.classChoiceOption.findMany({
+      where: { classId, levelsGranted: { has: levelGranted } },
+      select: { choiceOptionId: true, choiceOption: { select: { groupName: true } } },
+      orderBy: { choiceOptionId: "asc" },
+    }),
+  ]);
+
+  const idsByGroup = new Map<string, number[]>();
+  for (const option of available) {
+    const groupName = option.choiceOption?.groupName;
+    if (!groupName) continue;
+    idsByGroup.set(groupName, [...(idsByGroup.get(groupName) ?? []), option.choiceOptionId]);
+  }
+
+  const selections: Record<string, number | number[]> = {};
+  for (const [groupName, ids] of idsByGroup) {
+    const picks = picksAtLevelForGroup({
+      scope: "class",
+      className: characterClass.name,
+      groupName,
+      levelAfter: levelGranted,
+    });
+    if (picks > 0) selections[groupName] = picks === 1 ? ids[0] : ids.slice(0, picks);
+  }
+
+  return selections;
+}

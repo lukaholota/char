@@ -10,6 +10,22 @@ export const MIRROR_REVISION = "e5f3e77b303a92df10487207857200245e71957c";
 export const RAW_CACHE_DIR = join(process.cwd(), "data", "5etools", "raw");
 export const SOURCE_LOCK_PATH = join(process.cwd(), "data", "5etools", "source-lock.json");
 
+export const MIRRORED_CLASSES = [
+  "artificer",
+  "barbarian",
+  "bard",
+  "cleric",
+  "druid",
+  "fighter",
+  "monk",
+  "paladin",
+  "ranger",
+  "rogue",
+  "sorcerer",
+  "warlock",
+  "wizard",
+];
+
 /// Файли, які не перелічені в жодному індексі. Решта корпусу — книги з
 /// `bestiary/index.json` і `spells/index.json`, їх додає качалка.
 export const STANDALONE_FILES = [
@@ -44,7 +60,13 @@ export const STANDALONE_FILES = [
   /// PHB 2014 глави 1 (Step-by-Step Characters) і 4 (Personality and Background) — KR29.1.
   /// Покрокового створення персонажа немає в SRD 5.1 взагалі, тому єдиний шлях — текст книги.
   "book/book-phb.json",
-] as const;
+  /// Раси й підраси всіх книг разом із прозою — KR33.5, джерело прози рас 2014 (KR33.6).
+  "races.json",
+  "fluff-races.json",
+  /// Класи й підкласи: механіка і проза лежать у різних файлах — KR33.5. Індекс `class/`
+  /// тягнув би ще Mystic і Sidekick, яких у продукті немає, тож файли перелічено поіменно.
+  ...MIRRORED_CLASSES.flatMap((name) => [`class/class-${name}.json`, `class/fluff-class-${name}.json`]),
+];
 
 export const INDEX_FILES = ["bestiary/index.json", "spells/index.json"] as const;
 

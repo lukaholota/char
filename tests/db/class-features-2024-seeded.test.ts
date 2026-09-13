@@ -8,12 +8,13 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
+import metamagic from "../../data/2024/normalized/metamagic.json";
 
 const CYRILLIC = /\p{Script=Cyrillic}/u;
 
 type ClassJson2024 = {
   engName: string;
-  features?: { level: number; name: string }[];
+  features?: { level: number; name: string; repeatAtLevels?: number[] }[];
 };
 
 const classesFromData: ClassJson2024[] = JSON.parse(
@@ -21,14 +22,17 @@ const classesFromData: ClassJson2024[] = JSON.parse(
 );
 
 const expectedFeatureCount = classesFromData.reduce(
-  (sum, cls) => sum + (cls.features?.length ?? 0),
-  0,
+  (sum, cls) => sum + (cls.features ?? []).reduce((featureSum, feature) => featureSum + 1 + (feature.repeatAtLevels?.length ?? 0), 0),
+  metamagic.levelsGranted.slice(1).length,
 );
 
 const expectedLevelsByClass = new Map(
   classesFromData.map((cls) => [
     `${cls.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}_2024`,
-    [...new Set((cls.features ?? []).map((f) => f.level))].sort((a, b) => a - b),
+    [...new Set([
+      ...(cls.features ?? []).flatMap((f) => [f.level, ...(f.repeatAtLevels ?? [])]),
+      ...(cls.engName === "Sorcerer" ? metamagic.levelsGranted.slice(1) : []),
+    ])].sort((a, b) => a - b),
   ]),
 );
 

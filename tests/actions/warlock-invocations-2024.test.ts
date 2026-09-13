@@ -130,7 +130,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
       where: { groupName: INVOCATIONS, ruleset: "RULES_2024" },
       select: { optionNameEng: true },
     });
-    expect(invocations2024.length).toBe(31);
+    expect(invocations2024.length).toBe(32);
     expect(invocations2024.every((option) => option.optionNameEng?.endsWith("(2024)"))).toBe(true);
 
     const invocations2014 = await prisma.choiceOption.findMany({

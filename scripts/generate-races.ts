@@ -45,6 +45,7 @@ export type GeneratedRaceBranch = {
   key: string;
   name: string;
   engName: string;
+  description: string | null;
   traits: GeneratedRaceTrait[];
 };
 
@@ -53,6 +54,7 @@ export type GeneratedRace = {
   key: string;
   name: string;
   engName: string;
+  description: string | null;
   source: string;
   sizes: string[];
   speed: number;
@@ -119,6 +121,7 @@ async function main() {
     key: race.name,
     name: UA[race.name] ?? race.name,
     engName: ENG[race.name] ?? race.name,
+    description: race.description,
     source: SOURCE_UA[race.source] ?? race.source,
     sizes: race.size.map((size) => SizeTranslations[size] ?? size),
     speed: race.speed,
@@ -131,12 +134,14 @@ async function main() {
       key: subrace.name,
       name: SUBRACE_UA[subrace.name] ?? subrace.name,
       engName: SUBRACE_ENG[subrace.name] ?? subrace.name,
+      description: subrace.description,
       traits: collectTraits(subrace.traits),
     })),
     variants: race.raceVariants.map((variant) => ({
       key: variant.name,
       name: VARIANT_UA[variant.name] ?? variant.name,
       engName: VARIANT_ENG[variant.name] ?? variant.name,
+      description: null,
       traits: collectTraits(variant.traits),
     })),
     ruleset: race.ruleset,

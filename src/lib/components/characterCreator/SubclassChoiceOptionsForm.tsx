@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import clsx from "clsx";
+import { findChoiceOptionCardText } from "@/lib/logic/choice-option-card-text";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
@@ -22,33 +23,6 @@ interface Props {
   groupPickCounts?: Record<string, number>;
 }
 
-const previewTextFromFeatures = (
-  features?: SubclassI["subclassChoiceOptions"][number]["choiceOption"]["features"]
-) => {
-  const stripMarkdownPreview = (value: string) => {
-    return value
-      .replace(/\r\n/g, "\n")
-      .replace(/<a\s+[^>]*>(.*?)<\/a>/gi, "$1")
-      .replace(/<[^>]+>/g, " ")
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-      .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
-      .replace(/\*\*([^*]+)\*\*/g, "$1")
-      .replace(/__([^_]+)__/g, "$1")
-      .replace(/\*([^*]+)\*/g, "$1")
-      .replace(/_([^_]+)_/g, "$1")
-      .replace(/^#{1,6}\s+/gm, "")
-      .replace(/^>\s?/gm, "")
-      .replace(/^\s*[-*+]\s+/gm, "")
-      .replace(/^\s*\d+\.\s+/gm, "")
-      .replace(/\s+/g, " ")
-      .trim();
-  };
-
-  const list = (features || []).map((x) => x.feature).filter(Boolean) as any[];
-  const first = list.find((f) => (f.shortDescription || f.description) && String(f.shortDescription || f.description).trim());
-  if (!first) return "";
-  return stripMarkdownPreview(String(first.shortDescription || first.description));
-};
 
 const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId, onNextDisabledChange, pickCount = 1, groupPickCounts }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
@@ -179,6 +153,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     <form id={formId} onSubmit={onSubmit} className="space-y-6">
       {groupedOptions.map(({ groupName, options }) => {
         const requiredCount = getRequiredCount(groupName);
+        const groupChoiceOptions = options.map((opt) => opt.choiceOption);
         return (
           <div key={groupName} className="space-y-3">
             <div className="flex items-center justify-between gap-3">
@@ -191,7 +166,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
             </div>
             <div className="grid grid-cols-1 gap-3">
               {options.map((opt) => {
-                const preview = previewTextFromFeatures(opt.choiceOption.features);
+                const { title, preview } = findChoiceOptionCardText(opt.choiceOption, groupChoiceOptions);
                 const required = requiredCount;
 
                 return (
@@ -215,7 +190,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
                           <div className="truncate text-lg font-semibold text-white">
-                            {opt.choiceOption.optionName}
+                            {title}
                           </div>
                           {preview && (
                             <div className="mt-1 line-clamp-2 text-sm text-slate-300">
@@ -233,9 +208,9 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            openFeaturesInfo(opt.choiceOption.optionName, opt.choiceOption.features);
+                            openFeaturesInfo(title, opt.choiceOption.features);
                           }}
-                          aria-label={`Деталі: ${opt.choiceOption.optionName}`}
+                          aria-label={`Деталі: ${title}`}
                         >
                           <HelpCircle className="h-5 w-5" />
                         </Button>

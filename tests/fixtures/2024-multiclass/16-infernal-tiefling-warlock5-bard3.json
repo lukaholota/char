@@ -29,7 +29,7 @@
     ],
     "speciesChoices": [
       {
-        "choice": "Демонічна спадщина",
+        "choice": "Почварна спадщина",
         "option": "Infernal"
       },
       {
@@ -84,15 +84,29 @@
       {
         "characterLevel": 6,
         "class": "BARD_2024",
-        "isNewClass": true
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Класові інструменти",
+            "option": "Class Tool 2024 (BARD_2024: FLUTE)"
+          },
+          {
+            "choice": "Класові інструменти",
+            "option": "Class Tool 2024 (BARD_2024: LUTE)"
+          },
+          {
+            "choice": "Класові інструменти",
+            "option": "Class Tool 2024 (BARD_2024: LYRE)"
+          }
+        ]
       },
       {
         "characterLevel": 7,
         "class": "BARD_2024",
         "isNewClass": false,
         "expertise": [
-          "PERSUASION",
-          "PERFORMANCE"
+          "ANIMAL_HANDLING",
+          "PERSUASION"
         ]
       },
       {

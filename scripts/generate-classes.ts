@@ -6,7 +6,7 @@
  * side, so the catalog can read the one layer the character creator reads.
  */
 
-import { PrismaClient, type Ruleset } from "@prisma/client";
+import { PrismaClient, Skills, type Ruleset } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 import { mkdirSync, writeFileSync } from "fs";
@@ -19,13 +19,13 @@ import {
   armorTypeTranslations,
   classTranslations,
   classTranslationsEng,
-  skillTranslations,
   spellcastingTypeTranslations,
   subclassTranslations,
   subclassTranslationsEng,
   toolTranslations,
 } from "../src/lib/refs/translation";
 import { failOnShrunkCatalog } from "./lib/fail-on-shrunk-catalog";
+import { normalizeSkillProficiencies } from "../src/rules/proficiency";
 import subclasses2024 from "../data/2024/normalized/subclasses.json";
 
 dotenv.config();
@@ -35,6 +35,8 @@ const OUTPUT_PATH = join(process.cwd(), "src/lib/generated/classes.json");
 /// Виміряно 2026-08-28: 26 класів обох редакцій. Порогу тут не було, а каталог обслуговує
 /// і сторінки класів, і крок вибору класу в майстрі.
 export const MINIMUM_EXPECTED_CLASSES = 26;
+
+const ALL_SKILLS = Object.values(Skills);
 
 export type GeneratedClassFeature = {
   level: number;
@@ -58,11 +60,12 @@ export type GeneratedClass = {
   key: string;
   name: string;
   engName: string;
+  description: string | null;
   hitDie: number;
   savingThrows: string[];
   armorProficiencies: string[];
   toolProficiencies: string[];
-  skillChoices: { options: string[]; count: number };
+  skillChoices: { options: Skills[]; count: number };
   spellcasting: string | null;
   castingStat: string | null;
   subclassLevel: number;
@@ -87,22 +90,13 @@ export function findSubclassSource(classKey: string, subclassKey: string, rulese
   return subclass.source;
 }
 
-/// The column holds either a plain list or an `{ options, choiceCount }` pick.
-function readSkillChoices(raw: unknown): { options: string[]; count: number } {
-  const translate = (skills: string[]) => skills.map((skill) => skillTranslations[skill] ?? skill);
-
-  if (Array.isArray(raw)) {
-    return { options: translate(raw.map(String)), count: raw.length };
-  }
-  if (raw && typeof raw === "object") {
-    const record = raw as { options?: unknown; choiceCount?: unknown };
-    const options = Array.isArray(record.options) ? record.options.map(String) : [];
-    return {
-      options: translate(options),
-      count: typeof record.choiceCount === "number" ? record.choiceCount : options.length,
-    };
-  }
-  return { options: [], count: 0 };
+/// The column holds either a plain list or an `{ options, choiceCount }` pick. Keys stay as
+/// `Skills` enum values so the card can tell a full list from a narrowed one (KR33.1).
+function readSkillChoices(raw: unknown): { options: Skills[]; count: number } {
+  const normalized = normalizeSkillProficiencies(raw, ALL_SKILLS);
+  if (!normalized) return { options: [], count: 0 };
+  if (normalized.type === "fixed") return { options: normalized.skills, count: normalized.skills.length };
+  return { options: normalized.options, count: normalized.choiceCount };
 }
 
 /// The `Subclasses` enum has one value per subclass, and both editions' rows reuse it — the row's
@@ -155,6 +149,7 @@ async function main() {
     key: characterClass.name,
     name: UA[characterClass.name] ?? characterClass.name,
     engName: ENG[characterClass.name] ?? characterClass.name,
+    description: characterClass.description,
     hitDie: characterClass.hitDie,
     savingThrows: characterClass.savingThrows.map((ability) => abilityTranslations[ability] ?? ability),
     armorProficiencies: characterClass.armorProficiencies.map(

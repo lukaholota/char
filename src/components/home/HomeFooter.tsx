@@ -39,6 +39,10 @@ export function HomeFooter({ edition, className }: { edition: Edition; className
         Щиро дякуємо littlegenius666 за допомогу з перекладами заклинань!
       </p>
 
+      <p className="mt-2 text-sm text-slate-300">
+        Безмежно дякуємо @tremblingsea за надзвичайні арти на головній!
+      </p>
+
       <div className="mt-8 space-y-4 text-xs leading-relaxed text-slate-400">
         <p>
           Матеріали на цьому сайті не змінюють необхідності придбання офіційних матеріалів. Система{" "}

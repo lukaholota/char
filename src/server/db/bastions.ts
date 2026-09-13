@@ -11,6 +11,7 @@ import {
 import { prisma } from "@/lib/prisma";
 import { bastionSpaceTranslations } from "@/lib/refs/translation";
 import { findMainClassLevel } from "@/rules/hit-dice";
+import { findHeroicInspirationHintForFacility } from "@/rules/heroic-inspiration";
 import {
   type BastionAccess,
   type BastionCharacterProfile,
@@ -87,6 +88,8 @@ export type BastionFacilityView = {
   /// Каталог обмежує вибір лише як підказку в UI (Р26) — сервер приймає будь-який наказ.
   allowedOrderCodes: BastionOrderCode[];
   expectedHirelings: string;
+  /// Приміщення дає Героїчне натхнення — підказка гравцю, а не автоматична видача (Р26).
+  heroicInspirationHint: string | null;
 };
 
 const SPACE_CODES: Record<BastionSpace, BastionSpaceCode> = {
@@ -242,6 +245,7 @@ function toFacilityView(
     notes: facility.notes,
     allowedOrderCodes: catalogFacility ? findAllowedOrderCodes(catalogFacility) : ALL_BASTION_ORDER_CODES,
     expectedHirelings: catalogFacility ? describeHirelings(catalogFacility.hirelings) : "",
+    heroicInspirationHint: findHeroicInspirationHintForFacility(facility.facilitySlug),
   };
 }
 

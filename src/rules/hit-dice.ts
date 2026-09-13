@@ -3,6 +3,8 @@
  * Ключ там — рядок, бо це JSON, а максимум ніде не зберігається: він дорівнює рівню в класі.
  */
 
+import type { RulesetId } from "./strategies/types";
+
 export interface HitDiceClass {
   classId: number;
   hitDie: number;
@@ -79,6 +81,33 @@ export function findPoolsAfterSetting(
   });
 
   return { ok: true, pools: next };
+}
+
+/// Редакції розходяться, і це звірено по SRD у репо: 2014
+/// (`data/2014/srd/06_Gameplay/Adventuring.md:174`) повертає «up to a number of dice equal to half
+/// of the character's total number of them (minimum of one die)», 2024
+/// (`data/2024/srd/rules-glossary.md:1035`) — «all spent Hit Point Dice».
+export function findPoolsAfterLongRest(pools: HitDicePool[], ruleset: RulesetId): HitDicePool[] {
+  if (ruleset === "RULES_2024") return pools.map((pool) => ({ ...pool, current: pool.max }));
+
+  return restoreHalfOfTotalDice(pools);
+}
+
+/// Половина рахується від суми кубиків усіх класів, а не покласово: у Воїна 3 / Чарівника 2
+/// книга повертає два кубики на пʼять, а покласовий підрахунок дав би 1 + 1 і з мінімумом
+/// перетворився б на 2 + 1. Який саме кубик відновити, у книзі обирає гравець; тут порядок
+/// класів персонажа, щоб відповідь не залежала від порядку рядків у JSON.
+function restoreHalfOfTotalDice(pools: HitDicePool[]): HitDicePool[] {
+  const totalMax = pools.reduce((sum, pool) => sum + pool.max, 0);
+  if (totalMax === 0) return pools.map((pool) => ({ ...pool }));
+
+  let budget = Math.max(1, Math.floor(totalMax / 2));
+
+  return pools.map((pool) => {
+    const restored = Math.min(budget, pool.max - pool.current);
+    budget -= restored;
+    return { ...pool, current: pool.current + restored };
+  });
 }
 
 export function serializeHitDicePools(pools: HitDicePool[]): Record<number, number> {

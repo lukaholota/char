@@ -61,6 +61,7 @@ export async function clonePersWithRelations(
       deathSaveSuccesses: pers.deathSaveSuccesses,
       deathSaveFailures: pers.deathSaveFailures,
       isDead: pers.isDead,
+      hasHeroicInspiration: pers.hasHeroicInspiration,
       raceCustom: pers.raceCustom,
       classCustom: pers.classCustom,
       alignment: pers.alignment,

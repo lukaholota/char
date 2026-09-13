@@ -2,6 +2,7 @@ import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { minimalForm } from "../helpers/build-form";
+import { findRequiredClassChoices2024 } from "../helpers/seed-lookup";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -96,7 +97,10 @@ async function createAndRead(input: {
         ...(input.backgroundEquipmentChoice ? { backgroundEquipmentChoice: input.backgroundEquipmentChoice } : {}),
       },
       ...(input.ruleset === "RULES_2024"
-        ? { backgroundAsiChoice: { mode: "+2/+1" as const, plusTwo: "STR" as const, plusOne: "CON" as const } }
+        ? {
+            backgroundAsiChoice: { mode: "+2/+1" as const, plusTwo: "STR" as const, plusOne: "CON" as const },
+            classChoiceSelections: await findRequiredClassChoices2024(characterClass.classId, 1),
+          }
         : {}),
     }),
   );

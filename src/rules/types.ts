@@ -2,6 +2,24 @@ export type AbilityKey = "STR" | "DEX" | "CON" | "INT" | "WIS" | "CHA";
 
 export type AbilityScores = Record<AbilityKey, number>;
 
+export const DAMAGE_TYPE_KEYS = [
+  "BLUDGEONING",
+  "PIERCING",
+  "SLASHING",
+  "ACID",
+  "COLD",
+  "FIRE",
+  "LIGHTNING",
+  "THUNDER",
+  "FORCE",
+  "NECROTIC",
+  "POISON",
+  "PSYCHIC",
+  "RADIANT",
+] as const;
+
+export type DamageTypeKey = (typeof DAMAGE_TYPE_KEYS)[number];
+
 export type SpellcastingKind = "NONE" | "FULL" | "HALF" | "THIRD" | "PACT";
 
 export type SpellcastingClass = {

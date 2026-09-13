@@ -18,6 +18,8 @@ interface Props {
   feats: FeatPrisma[];
   persFeats?: any[];
   nextLevel: number;
+  /** Хіти за рівень від рис (Дворфська витривалість +1) — той самий доданок, що й у сервера. */
+  traitHitPointsPerLevel: number;
   ruleset?: Ruleset | null;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
@@ -33,6 +35,7 @@ export default function LevelUpHPStep({
   feats,
   persFeats,
   nextLevel,
+  traitHitPointsPerLevel,
   ruleset,
   formId,
   onNextDisabledChange,
@@ -120,7 +123,9 @@ export default function LevelUpHPStep({
   const conModDiff = newConMod - oldConMod;
   const retroactiveConHp = conModDiff > 0 ? conModDiff * (nextLevel - 1) : 0;
 
-  const totalIncrease = typeof hpIncrease === "number" ? hpIncrease + newConMod + toughBonus + retroactiveConHp : null;
+  const totalIncrease = typeof hpIncrease === "number"
+    ? hpIncrease + newConMod + toughBonus + retroactiveConHp + traitHitPointsPerLevel
+    : null;
 
   return (
     <form id={formId} className="space-y-4">

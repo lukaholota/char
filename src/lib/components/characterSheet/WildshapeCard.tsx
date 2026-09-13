@@ -105,7 +105,7 @@ function LimitsLine({
         )}
         {uses && (
           <Badge variant="outline" className="border-purple-500/40 text-purple-300">
-            Використань {uses.remaining} / {uses.max}
+            {uses.isUnlimited ? "Використань без обмежень" : `Використань ${uses.remaining} / ${uses.max}`}
           </Badge>
         )}
         {standing.knownFormsLimit !== null && (

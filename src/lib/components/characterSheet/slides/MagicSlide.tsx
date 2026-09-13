@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { formatModifier } from "@/lib/logic/utils";
 import { ArrowUpDown, Check, ChevronDown, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
 import { memo, useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
@@ -18,10 +17,11 @@ import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { calculateSpellAttack, calculateSpellDC } from "@/lib/logic/bonus-calculator";
+import { buildSpellcastingStatRows } from "@/lib/logic/spellcasting-stats";
+import SpellcastingSourceCards from "@/lib/components/characterSheet/shared/SpellcastingSourceCards";
+import type { SpellSource } from "@/rules/spell-sources";
 import { buildSpellLinkForSpell, openSpellLink, type SpellLink } from "@/lib/spell-link";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
-import { Ability } from "@prisma/client";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import AddSpellDialog from "../AddSpellDialog";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -54,6 +54,7 @@ const BADGE_COLOR_BASE = "#a78bfa";
 
 interface MagicSlideProps {
   pers: PersWithRelations;
+  spellcastingSources: readonly SpellSource[];
   onPersUpdate: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
 }
@@ -128,7 +129,7 @@ function getPreparedRemainingForSpells(spells: any[], preparedLimit: number | nu
   return Number(preparedLimit) - preparedCount;
 }
 
-const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: MagicSlideProps) {
+const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersUpdate, isReadOnly }: MagicSlideProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const { isOnline, commitOperation } = useOfflineQueue();
@@ -160,17 +161,10 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
     setLocalPers(pers);
   }, [pers]);
 
-  const spellcastingAbility = localPers.class?.primaryCastingStat;
-  
-  const spellAttackBonus = useMemo(() => {
-    if (!spellcastingAbility) return 0;
-    return calculateSpellAttack(localPers, spellcastingAbility as Ability);
-  }, [localPers, spellcastingAbility]);
-
-  const spellSaveDC = useMemo(() => {
-    if (!spellcastingAbility) return 8;
-    return calculateSpellDC(localPers, spellcastingAbility as Ability);
-  }, [localPers, spellcastingAbility]);
+  const spellcastingStatRows = useMemo(
+    () => buildSpellcastingStatRows(localPers, spellcastingSources),
+    [localPers, spellcastingSources],
+  );
 
   const [localPersSpells, setLocalPersSpells] = useState(() => (localPers as any).persSpells ?? []);
   const [spellQuery, setSpellQuery] = useState("");
@@ -659,33 +653,11 @@ const MagicSlide = memo(function MagicSlide({ pers, onPersUpdate, isReadOnly }: 
       className="overflow-y-auto p-2.5 sm:p-4 space-y-4"
     >
 
-      {/* Spell Stats */}
-      <div className="grid grid-cols-2 gap-2">
-        <Card 
-            className={"glass-card bg-fuchsia-500/20 border-fuchsia-400/40 transition " + (!isReadOnly ? "cursor-pointer hover:bg-fuchsia-500/30 active:scale-[0.98]" : "")}
-            onClick={(_e) => {
-                _e.stopPropagation();
-                if (!isReadOnly) setModifyConfig({ type: "simple", field: "spellAttack" });
-            }}
-        >
-          <CardContent className="p-3 text-center">
-            <div className="text-[10px] h-8 font-bold uppercase tracking-wide text-fuchsia-300">Бонус атаки Заклинаннями</div>
-            <div className="text-2xl font-bold text-fuchsia-50 drop-shadow-[0_0_8px_rgba(217,70,239,0.4)]">{formatModifier(spellAttackBonus)}</div>
-          </CardContent>
-        </Card>
-        <Card 
-            className={"glass-card bg-fuchsia-500/20 border-fuchsia-400/40 transition " + (!isReadOnly ? "cursor-pointer hover:bg-fuchsia-500/30 active:scale-[0.98]" : "")}
-            onClick={(_e) => {
-                _e.stopPropagation();
-                if (!isReadOnly) setModifyConfig({ type: "simple", field: "spellDC" });
-            }}
-        >
-          <CardContent className="p-3 text-center">
-            <div className="text-[10px] h-8 font-bold uppercase tracking-wide text-fuchsia-300">СК (Складість Ряткидка)</div>
-            <div className="text-2xl font-bold text-fuchsia-50 drop-shadow-[0_0_8px_rgba(217,70,239,0.4)]">{spellSaveDC}</div>
-          </CardContent>
-        </Card>
-      </div>
+      <SpellcastingSourceCards
+        rows={spellcastingStatRows}
+        isReadOnly={isReadOnly}
+        onEdit={(field, ability) => setModifyConfig({ type: "simple", field, ability: ability ?? undefined })}
+      />
 
       {/* Spell Slots */}
       <Card className="glass-card bg-white/5 border-purple-300/20">

@@ -132,7 +132,8 @@ async function buildWizardTwoFighterThree() {
   if (!created.persId) throw new Error(`Мультиклас не створився: ${created.error} ${JSON.stringify(created.details)}`);
 
   const steps = [
-    { classId: wizard.classId, levelUpPath: "EXISTING" as const },
+    // Чарівник 2 отримує Науковця — компетентність в одній навичці, якою вже володіє (Мудрець дає Тайнознавство).
+    { classId: wizard.classId, levelUpPath: "EXISTING" as const, expertiseSchema: { expertises: ["ARCANA"] } },
     { classId: fighter.classId, levelUpPath: "MULTICLASS" as const, classChoiceSelections: fightingStyleSelection },
     { classId: fighter.classId, levelUpPath: "EXISTING" as const },
     { classId: fighter.classId, levelUpPath: "EXISTING" as const, subclassId: champion.subclassId },
@@ -183,10 +184,18 @@ function addBackgroundAsi(
 /** Жоден із десяти персонажів §15 не бере +1/+1/+1 — цей режим доводиться перевіряти окремим персонажем. */
 async function createWithSpreadAcrossThree(): Promise<Record<string, number>> {
   await signInAsOwner("spread-across-three");
-  const [race, characterClass, background] = await Promise.all([
+  const [race, characterClass, background, fightingStyle] = await Promise.all([
     prisma.race.findFirstOrThrow({ where: { name: "DRAGONBORN_2024", ruleset: "RULES_2024" } }),
     prisma.class.findFirstOrThrow({ where: { name: "FIGHTER_2024", ruleset: "RULES_2024" } }),
     prisma.background.findFirstOrThrow({ where: { name: "SOLDIER_2024", ruleset: "RULES_2024" } }),
+    prisma.classChoiceOption.findFirstOrThrow({
+      where: {
+        class: { name: "FIGHTER_2024", ruleset: "RULES_2024" },
+        levelsGranted: { has: 1 },
+        choiceOption: { optionNameEng: { endsWith: "(Defense)" } },
+      },
+      select: { choiceOptionId: true, choiceOption: { select: { groupName: true } } },
+    }),
   ]);
 
   const result = await createCharacter(
@@ -207,6 +216,9 @@ async function createWithSpreadAcrossThree(): Promise<Record<string, number>> {
         { ability: "CHA", value: "8" },
       ],
       backgroundAsiChoice: { mode: "+1/+1/+1", abilities: ["STR", "DEX", "CON"] },
+      classChoiceSelections: {
+        [fightingStyle.choiceOption.groupName]: fightingStyle.choiceOptionId,
+      },
     }),
   );
 
@@ -267,16 +279,27 @@ describe("KR18.1 — приймання правил 2024 на десяти пе
 
   it("К3 · походження обмежує характеристики: сервер відхиляє і чужу характеристику, і відсутній вибір", async () => {
     await signInAsOwner("invalid-background-asi");
-    const [race, characterClass, background] = await Promise.all([
+    const [race, characterClass, background, fightingStyle] = await Promise.all([
       prisma.race.findFirstOrThrow({ where: { name: "DRAGONBORN_2024", ruleset: "RULES_2024" } }),
       prisma.class.findFirstOrThrow({ where: { name: "FIGHTER_2024", ruleset: "RULES_2024" } }),
       prisma.background.findFirstOrThrow({ where: { name: "SOLDIER_2024", ruleset: "RULES_2024" } }),
+      prisma.classChoiceOption.findFirstOrThrow({
+        where: {
+          class: { name: "FIGHTER_2024", ruleset: "RULES_2024" },
+          levelsGranted: { has: 1 },
+          choiceOption: { optionNameEng: { endsWith: "(Defense)" } },
+        },
+        select: { choiceOptionId: true, choiceOption: { select: { groupName: true } } },
+      }),
     ]);
     const baseForm = {
       raceId: race.raceId,
       classId: characterClass.classId,
       backgroundId: background.backgroundId,
       ruleset: "RULES_2024" as const,
+      classChoiceSelections: {
+        [fightingStyle.choiceOption.groupName]: fightingStyle.choiceOptionId,
+      },
     };
 
     // Soldier дозволяє STR / DEX / CON — Мудрість не з цього списку.

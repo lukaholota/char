@@ -25,7 +25,15 @@ import {
   calculateFinalProficiency,
   calculateSpellAttack,
   calculateSpellDC,
+  explainFinalAC,
+  explainFinalInitiative,
+  explainFinalSave,
+  explainFinalSkill,
+  explainFinalSpeed,
+  explainFinalStat,
+  type NumberPart,
 } from "@/lib/logic/bonus-calculator";
+import { NumberBreakdown } from "@/lib/components/characterSheet/NumberBreakdown";
 import { getAbilityMod, getProficiencyBonus } from "@/lib/logic/utils";
 import { Minus, Plus } from "lucide-react";
 import { SimpleBonusField } from "@/lib/types/model-types";
@@ -37,7 +45,7 @@ import { SimpleBonusField } from "@/lib/types/model-types";
 export type ModifyConfig =
   | { type: "stat"; ability: Ability }
   | { type: "skill"; skill: Skills }
-  | { type: "simple"; field: SimpleBonusField };
+  | { type: "simple"; field: SimpleBonusField; ability?: Ability };
 
 interface ModifyStatModalProps {
   open: boolean;
@@ -234,12 +242,12 @@ export default function ModifyStatModal({
         case "proficiency": baseValue = getProficiencyBonus(pers.level); break;
         case "initiative": baseValue = calculateFinalInitiative(pers) - getSimpleBonus(pers, "initiative"); break;
         case "spellAttack": {
-          const ability = pers.class?.primaryCastingStat ?? Ability.INT;
+          const ability = config.ability ?? pers.class?.primaryCastingStat ?? Ability.INT;
           baseValue = calculateSpellAttack(pers, ability) - getSimpleBonus(pers, "spellAttack");
           break;
         }
         case "spellDC": {
-          const ability = pers.class?.primaryCastingStat ?? Ability.INT;
+          const ability = config.ability ?? pers.class?.primaryCastingStat ?? Ability.INT;
           baseValue = calculateSpellDC(pers, ability) - getSimpleBonus(pers, "spellDC");
           break;
         }
@@ -548,6 +556,8 @@ export default function ModifyStatModal({
 
   if (!config) return null;
 
+  const breakdowns = findBreakdowns(pers, config);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
@@ -559,6 +569,11 @@ export default function ModifyStatModal({
         </DialogHeader>
 
         <div className="py-2 overflow-y-auto max-h-[60vh] px-1">
+          <div className="mb-4 space-y-2">
+            {breakdowns.map((breakdown) => (
+              <NumberBreakdown key={breakdown.title} title={breakdown.title} parts={breakdown.parts} />
+            ))}
+          </div>
           {config.type === "stat" && previewValues?.stat && (
             <div className="space-y-6">
               <div className="space-y-3">
@@ -755,4 +770,18 @@ export default function ModifyStatModal({
       </DialogContent>
     </Dialog>
   );
+}
+
+function findBreakdowns(pers: PersWithRelations, config: ModifyConfig): { title: string; parts: NumberPart[] }[] {
+  if (config.type === "stat") {
+    return [
+      { title: "Характеристика зараз", parts: explainFinalStat(pers, config.ability) },
+      { title: "Рятівний кидок зараз", parts: explainFinalSave(pers, config.ability) },
+    ];
+  }
+  if (config.type === "skill") return [{ title: "Навичка зараз", parts: explainFinalSkill(pers, config.skill) }];
+  if (config.field === "ac") return [{ title: "Клас захисту зараз", parts: explainFinalAC(pers) }];
+  if (config.field === "speed") return [{ title: "Швидкість зараз", parts: explainFinalSpeed(pers) }];
+  if (config.field === "initiative") return [{ title: "Ініціатива зараз", parts: explainFinalInitiative(pers) }];
+  return [];
 }

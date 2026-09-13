@@ -51,7 +51,7 @@
 | ✓ | P1 | 2024 | data | `P6-class-sweep-level1-06` | Пройдисвіт 2024 не отримує Експертизи на 1-му рівні — крок «Експертиза» не зʼявляється в жодного класу | prisma/seed/, data/2024/normalized/classes.json |
 | · | P2 | 2024 | data | `L05-class-choices-11` | Передумови викликів 2024 перенесені частково: сім викликів «Level 2+» мають порожні prerequisites, а вимога Thirsting Blade у Devouring Blade втрачена | data/2024/normalized/invocations.json, src/lib/logic/prerequisiteUtils.ts |
 | · | P2 | 2014 | data | `P4-regression-2014-02` | Кліріку 2014 на 2 рівні видається паладинська риса «Канал божественності» (текст про клятву й СК паладина) поверх власної | prisma/seed/classFeatureSeed.ts |
-| · | P2 | both | bug | `P7-mobile-ux-03` | У кроці «Опції класу» назва потойбічного виклику не показана взагалі: заголовок картки і її опис — той самий короткий опис | src/lib/components/characterCreator/ClassChoiceOptionGroups.tsx, data/2024/normalized/invocations.json |
+| ✓ | P2 | both | bug | `P7-mobile-ux-03` | У кроці «Опції класу» назва потойбічного виклику не показана взагалі: заголовок картки і її опис — той самий короткий опис | src/lib/components/characterCreator/ClassChoiceOptionGroups.tsx, data/2024/normalized/invocations.json |
 | · | P3 | 2014 | data | `P4-regression-2014-03` | Чарівник 2014 має на 1 рівні дві риси чаклування — «Чаротворство (Чарівник)» і порожню дублікатну «Заклинання» | prisma/seed/classFeatureSeed.ts |
 
 ### L04-class-features-08 — ARTIFICER_2024 має 0 підкласів, але доступний у каталозі й конструкторі: персонаж проходить 3-й рівень із subclassId = null без жодної помилки і назавжди лишається без підкласу
@@ -473,6 +473,11 @@ IN-FLIGHT — ні. Паралельна сесія тримає spell-preparati
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** M · **Вердикт скептика:** confirmed
 
+**Статус:** ✅ закрито 2026-09-09 (KR31.5). Шість класових фіч 2024 із SRD дістали звʼязок
+«фіча → заклинання»: Hunter's Mark (слідопит 1), Speak with Animals (друїд 1), Divine Smite
+(паладин 2), Find Steed (паладин 5), Contact Other Plane (чорнокнижник 9), Power Word Heal і
+Power Word Kill (бард 20). Перші два видаються вже в конструкторі, решта — на своєму рівні.
+
 **Правило:** data/2024/srd/classes.md:6416 «You always have the _Hunter's Mark_ spell prepared»; :5659 «You always have the _Divine Smite_ spell prepared»; :5692 «You always have the _Find Steed_ spell prepared»; :3517 «you always have the _Speak with Animals_ spell prepared».
 
 **Має бути:** Слідопит 1 отримує Hunter's Mark завжди підготовленим; Паладин 2 — Divine Smite; Паладин 5 — Find Steed; Друїд 1 — Speak with Animals, усі поза лімітом підготовлених.
@@ -546,7 +551,7 @@ IN-FLIGHT — ні. Паралельна сесія тримає spell-preparati
 
 ### L09-sheet-derived-01 — Жодна класова, підкласова чи видова фіча 2024 не має ліміту використань — секція «Ресурси класу» на листі порожня у всіх чотирьох зібраних персонажів
 
-**Статус:** 🔴 закрито в частині класових фіч (KR31.3, 2026-09-06): секція «Ресурси класу» показує Лють, Другий подих, Божественний канал і решту 25. Видові й підкласові ресурси лишаються порожні.
+**Статус:** ✅ закрито 2026-09-08 ([KR31.3](kr31.3-feature-resources-2024.md)): класові 2026-09-06, підкласові 2026-09-07, видові 2026-09-08. Секція «Ресурси класу» показує всі три.
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** L · **Вердикт:** не перевірено
 
@@ -567,7 +572,7 @@ IN-FLIGHT — ні. Паралельна сесія тримає spell-preparati
 
 ### L09-sheet-derived-02 — Усі 547 фіч 2024 позначені display_type = {PASSIVE} — лист не показує ні дій, ні бонусних дій, ні реакцій, ні ресурсів класу
 
-**Статус:** 🔴 закрито в частині класових фіч (KR31.3, 2026-09-06): 22 із 174 несуть Дію / Бонусну дію / Реакцію, 28 — ще й `CLASS_RESOURCE`. Підкласові й видові фічі 2024 досі всі `PASSIVE`.
+**Статус:** ✅ закрито 2026-09-08 ([KR31.3](kr31.3-feature-resources-2024.md)): не пасивні 37 класових фіч із 174, 157 підкласових із 400, 12 видових рис із 43 і всі вісім носіїв ресурсів рис персонажа.
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** M · **Вердикт:** не перевірено
 
@@ -589,6 +594,8 @@ IN-FLIGHT — ні. Паралельна сесія тримає spell-preparati
 ### L09-sheet-derived-06 — Монах 2024: беззбройного удару не існує як зброї, а Спритні атаки не діють — посох рахується від Сили
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** bug · **Праці:** M · **Вердикт:** не перевірено
+
+**Статус:** ✅ закрито 2026-09-13 (KR31.6). `src/rules/martial-arts.ts`: зброя монаха за редакцією (2014 — короткий меч і проста рукопашна без «дворучна»/«важка»; 2024 — проста рукопашна й бойова рукопашна «легка»), перевага діє з Бойовими мистецтвами без обладунку й щита; формули КЗ (`UNARMORED_DEFENSE_*`, `NATURAL_ARMOR_*`, `DRACONIC_RESILIENCE`) обладунком не вважаються. `getWeaponAbility` бере кращу з СИЛ/СПР. `tests/db/monk-dexterous-attacks.test.ts`: посох монаха 5 обох редакцій — +6/+3, у шкіряному — +4. Рядок `UNARMED_STRIKE` 2024 сідиться поруч із книжковою зброєю (`seedUnarmedStrike2024`), `calculateWeaponDamageDice` підставляє кубик Бойових мистецтв (2014 к4→к10, 2024 к6→к12), коли він більший за кубик зброї; лист і PDF читають його звідти. Сам рядок персонажу автоматично не додається — його додають зі списку зброї, як у 2014.
 
 **Правило:** data/2024/srd/classes.md:5143 — Martial Arts, Dexterous Attacks: «You can use your Dexterity modifier instead of your Strength modifier for the attack and damage rolls of your Unarmed Strikes and Monk weapons»; :5141 — Martial Arts Die 1d6, на 5-му рівні 1d8.
 
@@ -626,7 +633,7 @@ IN-FLIGHT — ні. Паралельна сесія тримає spell-preparati
 
 ### L11-persistence-identity-03 — Жодна фіча 2024 не має обмежених використань і жодна не має `uses_pool_key` — ресурсів класу 2024 не існує ні як пулів, ні як лічильників
 
-**Статус:** 🔴 закрито в частині класових фіч (KR31.3, 2026-09-06): пули `CHANNEL_DIVINITY`, `WILD_SHAPE`, `KI`, `SORCERY_POINTS`, `BARDIC_INSPIRATION` існують для 2024. Підкласи й види — окрема сесія.
+**Статус:** ✅ закрито 2026-09-08 ([KR31.3](kr31.3-feature-resources-2024.md)). Пулів 2024 вісім власників і 40 рядків із ключем; лічильник мають 136 фіч, включно з видовими. Риси видів і рис персонажа ключа пулу не несуть навмисно — їхній ресурс не ділиться між фічами (BUG-011).
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** L · **Вердикт:** не перевірено
 
@@ -766,7 +773,7 @@ IN-FLIGHT — ні. Паралельна сесія тримає spell-preparati
 
 ### P6-class-sweep-level1-04 — Усі 187 класових фіч 2024 записані як чистий текст: немає ні кількості застосувань, ні пулів ресурсів, ні експертизи, ні кількості інвокацій
 
-**Статус:** 🔴 закрито в частині застосувань і пулів (KR31.3, 2026-09-06); експертизу закрив KR31.2. Кількість інвокацій чорнокнижника лишається: `feature.invocations_count` — пласке число, а книга дає прогресію 1→10, тобто потрібен рядок фічі на рівень, а не колонка таблиці.
+**Статус:** 🔴 лишилася тільки кількість інвокацій чорнокнижника (`invocations_count` потребує рядка фічі на рівень). Числа й пули класових і підкласових фіч закрито.
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** L · **Вердикт:** не перевірено
 
@@ -881,6 +888,25 @@ IN-FLIGHT — ні. Паралельна сесія тримає spell-preparati
 
 **Файли:** `src/lib/components/characterCreator/ClassChoiceOptionGroups.tsx`, `data/2024/normalized/invocations.json`, `prisma/schema.prisma`
 
+
+✅ **Закрито 2026-09-09.** Назву картка бере зі звʼязаної фічі — `src/lib/logic/choice-option-card-text.ts`,
+`findChoiceOptionCardText`. Окремої колонки не знадобилося: `Feature.name` уже їде в графі конструктора
+(`CLASS_CREATOR_INCLUDE` тягне `features.feature`), а домовленість «у `optionName` лежить UI-підпис, назва —
+у фічі» записана в [Р13](../DECISIONS.md#р13) і лишається чинною.
+
+Пастка, яку довелося обійти: сліпо брати назву з фічі не можна. У групі «Дракон-предок» усі десять опцій
+вішають **одну** фічу, тож заголовком стало б те саме слово на всіх картках; те саме в «Модель броні» (2) і
+«Бойовий стиль (Swords)» (2). Тому назва з фічі йде в заголовок лише тоді, коли в групі вона одна на опцію —
+інакше лишається `optionName`. Перевірено на справжніх артефактах конструктора: «Дракон-предок» тримає свої
+десять підписів, «Тотемний дух» і «Коло землі (біом)» отримали назви фіч.
+
+Опис більше не дублює заголовок: `findPreview` пропускає кандидата, що дорівнює заголовку або голій назві.
+Той самий модуль вживає й `SubclassChoiceOptionsForm`, де лежала дослівна копія `stripMarkdownPreview` —
+копії більше немає.
+
+**Перевірено:** `src/lib/logic/choice-option-card-text.test.ts` (5 випадків, зокрема колізія «Дракон-предок»;
+доведено червоним), плюс живий Chromium на :3100 — крок «Опції класу» Чорнокнижника 2024 показує
+«Мучливий вибух [Agonizing Blast]» із описом ефекту під ним.
 
 ### P4-regression-2014-03 — Чарівник 2014 має на 1 рівні дві риси чаклування — «Чаротворство (Чарівник)» і порожню дублікатну «Заклинання»
 
@@ -2501,7 +2527,7 @@ IN-FLIGHT / ВІДКРИТИЙ KR — `sitemap.ts` не у списку файл
 
 ### L12-secondary-flows-06 — Жодна фіча 2024 не має ані `limited_uses_per`, ані `uses_pool_key` — короткий і довгий відпочинок для персонажа 2024 не відновлюють нічого, і жоден ресурс класу не має лічильника
 
-**Статус:** 🔴 закрито в частині класових фіч (KR31.3, 2026-09-06): 28 із них мають `limited_uses_per`, шість — `uses_pool_key`, відпочинок їх відновлює. Фічі видів і підкласів 2024 лічильників досі не мають — окрема сесія.
+**Статус:** ✅ закрито 2026-09-08 ([KR31.3](kr31.3-feature-resources-2024.md)). Відпочинок відновлює класові, підкласові й видові ресурси; наскрізний доказ на видових — `tests/db/species-resource-2024-rest.test.ts` (орк повертає все коротким, дворф — тільки довгим).
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** L · **Вердикт:** не перевірено
 
@@ -2734,6 +2760,8 @@ IN-FLIGHT. `src/server/db/snapshots.ts` і `src/lib/logic/pers-duplication.ts` �
 
 
 ### L12-secondary-flows-10 — Героїчного натхнення немає в моделі взагалі — людина 2024 не отримує його після довгого відпочинку, приміщення бастіону теж не дають
+
+**Статус:** ✅ закрито 2026-09-09 (KR31.3). Колонка `pers.has_heroic_inspiration` (DDL 2026-09-08, у проді), правило в `src/rules/heroic-inspiration.ts`, видача в `longRest` носію `Human: Resourceful (2024)`, підказки на картках трьох приміщень бастіону — Noble Residence, Séance Parlor, Workshop (підказка, не автовидача, [Р26](../DECISIONS.md#р26)). Доведено наскрізно на `spells_test`.
 
 **Рівень:** P2 · **Редакція:** 2024 · **Тип:** missing-system · **Праці:** L · **Вердикт скептика:** confirmed
 
@@ -3110,8 +3138,8 @@ IN-FLIGHT — ні, жоден із перелічених у CONTEXT файлі
 | ✓ | P1 | 2024 | data | `P3-multiclass-wizard-cleric-03` | У всіх 13 класів RULES_2024 skill_proficiencies = NULL — крок «Навички» не пропонує жодного класового вибору | data/2024/normalized/classes.json, prisma/seed/ |
 | · | P2 | 2024 | data | `L02-backgrounds-07` | Одне походження має дві різні українські назви: каталог бере їх із нормалізованого файлу, конструктор — із translation.ts | src/lib/backgroundsData.ts, src/lib/refs/translation.ts |
 | · | P2 | 2024 | data | `L02-backgrounds-09` | Фермер: володіння інструментами тесляра змодельоване як уся категорія ремісничих — ширше за книгу, і назва розходиться між каталогом і листом | prisma/schema.prisma, data/2024/normalized/backgrounds.json |
-| · | P2 | 2024 | data | `P6-class-sweep-level1-10` | Картки Потойбічних викликів підписані описом ефекту замість назви виклику, з англійськими назвами заклинань усередині | prisma/seed/, data/2024/normalized/invocations.json |
-| · | P2 | 2024 | data | `P7-mobile-ux-04` | 14 із 31 потойбічного виклику 2024 показують неперекладені англійські назви заклинань у видимому тексті картки | data/2024/normalized/invocations.json |
+| ✓ | P2 | 2024 | data | `P6-class-sweep-level1-10` | Картки Потойбічних викликів підписані описом ефекту замість назви виклику, з англійськими назвами заклинань усередині | prisma/seed/, data/2024/normalized/invocations.json |
+| ✓ | P2 | 2024 | data | `P7-mobile-ux-04` | 14 із 31 потойбічного виклику 2024 показують неперекладені англійські назви заклинань у видимому тексті картки | data/2024/normalized/invocations.json |
 | · | P3 | 2024 | data | `L02-backgrounds-10` | Спорядження походження на каталозі 2024 показане лише англійською, хоча український пакунок лежить у тому самому файлі | src/lib/backgroundsData.ts, data/2024/normalized/backgrounds.json |
 | · | P3 | both | data | `L07-spellcasting-11` | На листі слоти заклинань названі «Комірки» — термін, який власник заборонив прямим рішенням | src/lib/components/characterSheet/slides/MagicSlide.tsx, src/lib/refs/translation.ts |
 | · | P3 | 2024 | data | `L09-sheet-derived-11` | Кубики шкоди зброї 2024 записані латинкою («1d6»), 2014 — кирилицею («1к6»); лист друкує рядок дослівно | data/2024/normalized/weapons.json, src/lib/components/characterSheet/WeaponsCard.tsx |
@@ -3280,6 +3308,13 @@ IN-FLIGHT — ні, жоден із перелічених у CONTEXT файлі
 **Файли:** `prisma/seed/`, `data/2024/normalized/invocations.json`, `src/lib/components/characterCreator/ClassChoicesForm.tsx`
 
 
+✅ **Закрито 2026-09-09** — обидві половини, разом із `P7-mobile-ux-03` і `P7-mobile-ux-04`.
+
+Одне уточнення до «Куди дивитись» цього запису: маркер для назви заклинання тут **не** `{{English}}`.
+Форма назви заклинання — ратифікована `Українська [English]` у квадратних дужках, і саме її розуміє
+проставляч посилань (`scripts/spell-links/spell-mentions.ts`, KR25.3); `{{}}` — для термінів, не для назв
+заклинань (див. скіл `dnd-ua-translation`). Тексти зведено до `[English]` і загорнуто в посилання.
+
 ### P7-mobile-ux-04 — 14 із 31 потойбічного виклику 2024 показують неперекладені англійські назви заклинань у видимому тексті картки
 
 **Рівень:** P2 · **Редакція:** 2024 · **Тип:** data · **Праці:** S · **Вердикт:** не перевірено
@@ -3296,6 +3331,44 @@ IN-FLIGHT — ні, жоден із перелічених у CONTEXT файлі
 
 **Файли:** `data/2024/normalized/invocations.json`
 
+
+✅ **Закрито 2026-09-09.** Правлено джерело ([Р33](../DECISIONS.md#р33)), не базу:
+`data/2024/normalized/invocations.json` — 12 `shortDescription` і 2 `prerequisite`. Далі
+`bunx tsx scripts/link-spell-mentions.ts --write` загорнув 19 згадок у посилання.
+
+**Чому проставляч не бачив цього сам** — і це головне, що варто винести з запису. Він чіпляється
+**виключно за маркер `[EngName]`** після точної каталожної назви: так вирішено свідомо, бо український
+текст стоїть у відмінках. Гола англійська назва без маркера для нього не існує — ні загорнути, ні
+порахувати як недостачу покриття він її не може. Тому `description` виклику був звʼязаний правильно, а
+короткий опис поруч лишався англійським, і жоден гейт цього не показував.
+
+Дірку закрито детектором: `findBareSpellNamesInCarrier` у тому ж модулі + гейт
+«у джерелах контенту жодної не лишилося» в `tests/content/spell-mentions-linked.test.ts`.
+
+Детектор одразу знайшов ширшу популяцію, ніж описано в цьому записі — **46 згадок у трьох носіях**, усі
+полагоджено:
+
+| Носій | Згадок | Що було |
+|---|---|---|
+| `data/2024/normalized/invocations.json` | 14 | предмет запису |
+| `data/2024/normalized/subclass-choices.json` | 24 | «Підготовлені заклинання: Blur, Burning Hands, Fire Bolt…» у чотирьох Колах землі 2024 |
+| `data/2024/normalized/subclasses.json` | 8 | застарілі позначки «(заклинання 2024, переклад відкладено)» — назви вже ратифіковані в каталозі |
+| `prisma/seed/raceFeatureSeed.ts` | 24 | 2014-расові риси: «Cure Wounds та Lesser Restoration 1/день» |
+
+Плюс чотири **неератифіковані** назви в описах самих викликів, через які проставляч мовчки їх пропускав:
+«Фальшиве життя» → «Удаване життя», «Зміна подоби» → «Зміна вигляду», «Безмовний образ» → «Мовчазний
+образ», «Підглядання» → «Арканне око».
+
+Переглянуті винятки (англійська назва як предмет розмови, а не згадка) лежать у
+`data/spell-links/not-a-spell.json` з причиною на кожну: сім перекладацьких нотаток у
+`data/2024/normalized/spells.json` і «Darkness» усередині власної назви «Queen of Air and Darkness».
+Гейт протухання цього файлу розширено — він приймає обидва роди винятків і питає сам детектор, чи
+виняток ще має на що вказувати.
+
+«(Truesight)» і «(Origin Feat)» лишено як є: це не голі англійські назви — український термін стоїть
+поруч, а дужкова форма для терміна, незрозумілого без оригіналу, дозволена стилем.
+
+**Прогін у прод — за власником** (нижче, «Що лишилося власникові»).
 
 ### L02-backgrounds-10 — Спорядження походження на каталозі 2024 показане лише англійською, хоча український пакунок лежить у тому самому файлі
 
@@ -3939,6 +4012,8 @@ IN-FLIGHT — ні: жоден із файлів (сіди рис, `data/2024/no
 
 
 ### L03-feats-06 — Lucky не заводить пулу «Очки удачі» (БМ зарядів, відновлення довгим відпочинком), хоча система ресурсів у проєкті є
+
+**Статус:** ✅ закрито 2026-09-08 ([KR31.3](kr31.3-feature-resources-2024.md)). Носій — фіча `Lucky: Luck Points (2024)` на `Feat.grantsFeature`: колонок використань у `feat` немає, тож лічильник живе там само, де числові надання KR31.4. Пулу свідомо немає — пул потрібен лише там, де ресурс ділять кілька фіч, а обидві переваги Щасливчика коштують рівно одне очко. Разом прохід дав вісім носіїв серед 75 рис.
 
 **Рівень:** P2 · **Редакція:** 2024 · **Тип:** data · **Праці:** S · **Вердикт:** не перевірено
 
@@ -4645,6 +4720,8 @@ IN-FLIGHT — ні. `src/rules/spell-sources.ts` у списку паралел�
 
 ### L15-print-09 — Для 2024 усі 547 рис мають display_type={PASSIVE} і майже жодна не має uses_count — друкована сторінка «Здібності» втрачає Дії/Бонусні дії/Реакції та лічильники застосувань
 
+**Статус:** 🔴 тип дії й лічильники несуть усі чотири носії — класи, підкласи, види й риси персонажа (2026-09-08); що саме показує друкована сторінка «Здібності», ще ніхто не перевіряв.
+
 **Рівень:** P2 · **Редакція:** 2024 · **Тип:** data · **Праці:** L · **Вердикт:** не перевірено
 
 **Правило:** data/2024/srd/classes.md — Channel Divinity, Lay on Hands, Bardic Inspiration тощо мають тип дії та обмежену кількість застосувань за відпочинок
@@ -4765,13 +4842,13 @@ IN-FLIGHT — ні. `src/rules/spell-sources.ts` у списку паралел�
 | ✓ | P2 | both | missing-system | `L10-sheet-config-06` | Зарядів магічних предметів немає взагалі — ні стовпця, ні лічильника, ні відновлення на світанку | prisma/schema.prisma, src/server/db/magic-items.ts |
 | · | P2 | both | missing-system | `L10-sheet-config-07` | Ваги предметів і навантаження немає: спорядження — вільний текст, тож ні суми ваги, ні порогів обтяження | src/lib/components/characterSheet/slides/MainStatsSlide.tsx, src/server/db/character-creation.ts |
 | ✓ | P2 | both | missing-system | `L10-sheet-config-08` | Станів і виснаження на листі немає — трекера немає, а виснаження 2024 міняє всі числа листа | prisma/schema.prisma, src/lib/logic/bonus-calculator.ts |
-| · | P2 | both | missing-system | `L10-sheet-config-09` | Натхнення (Heroic Inspiration) не відстежується — поля й перемикача немає | prisma/schema.prisma, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
+| ✓ | P2 | both | missing-system | `L10-sheet-config-09` | Натхнення (Heroic Inspiration) не відстежується — поля й перемикача немає | prisma/schema.prisma, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
 | · | P2 | both | missing-system | `L10-sheet-config-10` | Рівень не можна знизити, підклас не можна змінити, респеку немає — помилка виправляється лише перестворенням персонажа | src/lib/actions/snapshot-actions.ts, src/server/db/snapshots.ts |
 | ✓ | P2 | both | missing-system | `L10-sheet-config-11` | Своєї фічі з текстом і ресурсом додати не можна: стовпець pers.custom_features мертвий, власний пул ресурсу створити нічим | prisma/schema.prisma, src/lib/components/characterSheet/slides/FeaturesSlide.tsx |
 | ✓ | P2 | both | missing-system | `L10-sheet-config-12` | Володіння і мови зберігаються одним текстовим блоком, а не даними — окреме володіння ні додати, ні зняти механічно | src/server/db/character-creation.ts, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
 | ✓ | P2 | both | missing-system | `L10-sheet-config-13` | Портрета й полів зовнішності немає — персонажі в списку не відрізняються нічим, крім тексту | prisma/schema.prisma, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
 | · | P2 | both | missing-system | `L19-parity-competitors-03` | На листі немає станів і Виснаження — персонаж завжди рахується як здоровий | prisma/schema.prisma, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
-| · | P2 | both | missing-system | `L19-parity-competitors-04` | Натхнення (Heroic Inspiration) не існує ніде в продукті | prisma/schema.prisma, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
+| ✓ | P2 | both | missing-system | `L19-parity-competitors-04` | Натхнення (Heroic Inspiration) не існує ніде в продукті | prisma/schema.prisma, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
 | ✓ | P2 | both | missing-system | `L19-parity-competitors-06` | Інвентар — один текстовий рядок; ваги немає в схемі взагалі, тож ні кількостей, ні контейнерів, ні навантаження | prisma/schema.prisma, src/server/db/character-creation.ts |
 | · | P2 | both | bug | `L19-parity-competitors-07` | Ліміт «не більше трьох налаштованих предметів» не перевіряється — можна налаштуватися на скільки завгодно | src/lib/components/characterSheet/slides/CombatSlide.tsx, src/server/db/magic-items.ts |
 | · | P3 | both | bug | `L10-sheet-config-15` | Поля налаштування, що є в базі, але яких немає в UI: тип шкоди й дальність зброї, PersSkill.customModifier | src/lib/components/characterSheet/WeaponCustomizeModal.tsx, src/server/db/equipment-actions.ts |
@@ -5032,6 +5109,8 @@ IN-FLIGHT — ні. `src/rules/spell-sources.ts` у списку паралел�
 
 ### L10-sheet-config-09 — Натхнення (Heroic Inspiration) не відстежується — поля й перемикача немає
 
+**Статус:** ✅ закрито 2026-09-09 (KR31.3) для 2024. Перемикач «Героїчне натхнення» на слайді «Головна» (`MainStatsSlide`, спільний `ToggleRow` із `CombatSlide`), пише через офлайн-чергу як хіти й кидки смерті; знімок і спільний перегляд показують стан лише для читання. Для 2014 перемикача немає навмисно — «Inspiration» там дає лише майстер, вмикати його — окреме рішення власника.
+
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** S · **Вердикт:** не перевірено
 
 **Правило:** data/2024/srd/rules-glossary.md:865-869 — «If you (a player character) have Heroic Inspiration, you can expend it to reroll any die immediately after rolling it, and you must use the new roll.»
@@ -5172,6 +5251,8 @@ IN-FLIGHT: ні — schema.prisma, MainStatsSlide.tsx, CharHomeClient.tsx не �
 
 ### L19-parity-competitors-04 — Натхнення (Heroic Inspiration) не існує ніде в продукті
 
+**Статус:** ✅ закрито 2026-09-09 (KR31.3) для 2024 — див. `L12-secondary-flows-10` і `L10-sheet-config-09`: колонка, перемикач на листі, видача довгим відпочинком, підказки бастіону; копія й знімок переносять (`tests/logic/pers-copy-fields.test.ts`). 2014 лишається без натхнення до окремого рішення власника.
+
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** S · **Вердикт:** не перевірено
 
 **Правило:** data/2024/srd/rules-glossary.md:865-869 — «If you (a player character) have Heroic Inspiration, you can expend it to reroll any die immediately after rolling it… If you gain Heroic Inspiration but already have it, it's lost unless you give it to a player character who lacks it.»
@@ -5260,8 +5341,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 | | Рівень | Ред. | Тип | ID | Що не так | Де |
 |---|---|---|---|---|---|---|
 | · | P1 | both | bug | `L01-species-01` | Швидкість на листі й у друці жорстко 30 — голіаф 2024 (35 футів) і будь-яка раса 2014 з 25 футами показують 30 | src/lib/logic/bonus-calculator.ts, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
-| · | P1 | 2024 | missing-system | `L07-spellcasting-06` | Характеристика замовляння за джерелом порахована, але ніде не показана: лист має одну КС на весь персонаж | src/lib/components/characterSheet/slides/MagicSlide.tsx, src/server/db/spell-sources.ts |
-| · | P1 | both | bug | `L07-spellcasting-07` | Третинний заклинач (Лицар-Чаклун, Містичний спритник) не має характеристики замовляння на листі: КС = 8, атака = +0 | src/lib/components/characterSheet/slides/MagicSlide.tsx, src/rules/spell-sources.ts |
+| ✓ | P1 | 2024 | missing-system | `L07-spellcasting-06` | Характеристика замовляння за джерелом порахована, але ніде не показана: лист має одну КС на весь персонаж | src/lib/components/characterSheet/slides/MagicSlide.tsx, src/server/db/spell-sources.ts |
+| ✓ | P1 | both | bug | `L07-spellcasting-07` | Третинний заклинач (Лицар-Чаклун, Містичний спритник) не має характеристики замовляння на листі: КС = 8, атака = +0 | src/lib/components/characterSheet/slides/MagicSlide.tsx, src/rules/spell-sources.ts |
 | ✓ | P1 | both | bug | `L09-sheet-derived-03` | Швидкість на листі захардкоджена як 30 — швидкість виду, родоводу й Рух без обладунків монаха ігноруються | src/lib/logic/bonus-calculator.ts, src/lib/components/characterSheet/slides/MainStatsSlide.tsx |
 | ✓ | P1 | 2024 | bug | `L11-persistence-identity-02` | Бард 2024 не отримує «Майстра на всі руки»: пошук іде за точним `engName` «Jack of All Trades», а фіча 2024 зветься «Bard: Jack of all Trades (2024)» | src/lib/logic/bonus-calculator.ts |
 | ✓ | P1 | both | bug | `L17-known-registries-01` | BUG-010 живий і сліпий до редакції: тривалий відпочинок видає слоти за загальним рівнем, тож 2024-мультиклас Воїн 3/Чарівник 2 отримує [4,3,2,…] замість [3,0,…] | src/server/db/rest-actions.ts, tests/golden/derived-state/rest-and-slots.json |
@@ -5275,6 +5356,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 ### L01-species-01 — Швидкість на листі й у друці жорстко 30 — голіаф 2024 (35 футів) і будь-яка раса 2014 з 25 футами показують 30
 
 **Рівень:** P1 · **Редакція:** both · **Тип:** bug · **Праці:** S · **Вердикт:** не перевірено
+
+**Статус:** ✅ закрито 2026-09-11 (KR31.6). `calculateWalkingSpeed` бере швидкість виду, варіанта, підвиду й вибору; лист і PDF читають один `calculateFinalSpeed`. Голіаф 2024 — 35, вид на 25 — 25.
 
 **Правило:** data/2024/srd/character-origins.md:255 — «#### Goliath … **Speed:** 35 feet»
 
@@ -5295,6 +5378,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** missing-system · **Праці:** L · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-09 (KR31.5). Пораховане доведено до листа на листі: `findSpellcastingSources` (обидві редакції) → `loadPersSpellcastingSources` → `sheet-data.tsx` / `share/[token]` → `MagicSlide`, картки `SpellcastingSourceCards` — пара «атака / КС» на кожне джерело з підписом «Клас · характеристика». Журнал — [KR31.5](kr31.5-spells-2024.md#2026-09-09--кс-і-атака-заклинань-за-джерелом-на-листі). Тест: `tests/components/spellcasting-source-cards.test.tsx` — мультиклас показує дві різні КС.
+
 **Правило:** data/2024/srd/character-creation.md:939: «Each spell you prepare is associated with one of your classes, and you use the spellcasting ability of that class when you cast the spell.» Той самий намір записаний у src/rules/spell-sources.ts:5-11 (KR18.4).
 
 **Має бути:** Кожен рядок заклинання чаклується характеристикою свого джерела; лист і PDF показують КС/атаку за джерелом (клас, родовід, риса, кожен мультиклас окремо).
@@ -5314,6 +5399,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 **Рівень:** P1 · **Редакція:** both · **Тип:** bug · **Праці:** S · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-09 (KR31.5). `findClassSources` бере характеристику в підкласу, коли клас не чаклує сам; Лицар-Чаклун 3 в обох редакціях віддає `FIGHTER_* · INT`, і ця пара доїжджає до листа й PDF. Тест на обох редакціях: `tests/actions/spellcasting-sources-sheet.test.ts` (воїн 2014 → Лицар-Чаклун 3; воїн 2024 → Лицар-Чаклун 3), чисті випадки — `tests/rules/spell-sources.test.ts`.
+
 **Правило:** data/2024/srd/classes.md — Лицаря-Чаклуна в SRD 5.2.1 немає (див. docs/DECISIONS.md Р41); правило береться з PHB: Intelligence — характеристика замовляння підкласу, і сам проєкт це вже кодифікував (subclass.primary_casting_stat = INT в обох редакціях).
 
 **Має бути:** Лицар-Чаклун 3 з INT 16 і БМ +2: КС = 8+3+2 = 13, атака = +5.
@@ -5332,6 +5419,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 ### L09-sheet-derived-03 — Швидкість на листі захардкоджена як 30 — швидкість виду, родоводу й Рух без обладунків монаха ігноруються
 
 **Рівень:** P1 · **Редакція:** both · **Тип:** bug · **Праці:** M · **Вердикт скептика:** confirmed
+
+**Статус:** ✅ закрито 2026-09-13 (KR31.6). Швидкість виду, варіанта, підвиду й вибору доїжджає з 2026-09-11; Рух без обладунків — `src/rules/unarmored-movement.ts` за рівнем Монаха (не персонажа) і лише без обладунку й щита, спільною для обох редакцій таблицею +10/15/20/25/30. `tests/db/monk-unarmored-movement.test.ts`: Монах 6 2024 — 45, Воїн 8 / Монах 6 2014 — 45, у шкіряному — 30.
 
 **Правило:** data/2024/srd/classes.md §Level 2: Unarmored Movement — «Your speed increases by 10 feet while you aren't wearing armor or wielding a Shield»; Monk Features table рівень 5 → «+10 ft.». data/2024/srd/character-origins.md:257 Goliath — «Speed: 35 feet»; :222 Wood Elf lineage — «Your Speed increases to 35 feet».
 
@@ -5366,6 +5455,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** bug · **Праці:** S · **Вердикт скептика:** confirmed
 
+**Статус:** ✅ закрито 2026-09-13 (KR31.6). Назви обох редакцій — `JACK_OF_ALL_TRADES_FEATURE_ENG_NAMES` у `src/rules/proficiency.ts`; `tests/db/jack-of-all-trades.test.ts` тримає, що кожна з них — фіча барда 2-го рівня, а інших «Jack of All Trades» у базі немає. До ініціативи половина майстерності (вниз) додається лише в 2014: там «any ability check», а ініціатива — перевірка Спритності (`data/2014/srd/06_Gameplay/Order_of_Combat.md:23`); 2024 звузив рису до перевірок із навичкою (`data/2024/srd/classes.md:896`). Юніт: 2014 `2 ≠ 3` до правки, зняття умови редакції червонить кейс 2024.
+
 **Правило:** data/2024/srd/classes.md, Bard, рівень 2 — Jack of All Trades: половина бонусу майстерності (заокруглена вниз) до перевірок характеристик, у яких немає володіння
 
 **Має бути:** Бард 2024 рівня 2 з PB 2: +1 до кожної перевірки навички без володіння (і до ініціативи).
@@ -5386,6 +5477,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 ### L17-known-registries-01 — BUG-010 живий і сліпий до редакції: тривалий відпочинок видає слоти за загальним рівнем, тож 2024-мультиклас Воїн 3/Чарівник 2 отримує [4,3,2,…] замість [3,0,…]
 
 **Рівень:** P1 · **Редакція:** both · **Тип:** bug · **Праці:** S · **Вердикт скептика:** confirmed
+
+**Статус:** ✅ закрито 2026-09-06 (KR31.12), кейс 2024 додано 2026-09-13 (KR31.6). `longRest` рахує слоти через `getMaximumStandardSpellSlots` за рівнем заклинача. `tests/db/long-rest-spell-slots-2024.test.ts`: Воїн 5 — без слотів, Воїн 3 / Чарівник 2 — `[3,0,0]`; підміна старим `[4,3,2,…]` червонить обидва кейси.
 
 **Правило:** data/2024/srd/character-creation.md:937-942 — «_Spell Slots_. You determine your available spell slots by adding together the following: All your levels in the Bard, Cleric, Druid, Sorcerer, and Wizard classes; Half your levels (round up) in the Paladin and Ranger classes. Then look up this total level in the Level column of the Multiclass Spellcaster table.»
 
@@ -5418,6 +5511,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** S · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито раніше (KR31.4), звірено 2026-09-13. `Fighting Style: Defense (2024)` несе `gives_ac = 1`, `requires_armor_for_ac_bonus = true` і в `spells_test`, і в робочій базі; дані тримає `tests/db/feat-mechanics-2024-seeded.test.ts`, КЗ — golden `tests/golden/derived-state/ac.test.ts`.
+
 **Правило:** data/2024/srd/feats.md:91-95 — Defense: «While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class.»
 
 **Має бути:** КЗ 17 (Кольчуга 16 + Оборона 1)
@@ -5436,6 +5531,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 ### L01-species-07 — Немає системи опору до шкоди: опір дракононародженого, дворфа, тифлінга й аасімара живе лише в тексті риси
 
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** L · **Вердикт скептика:** confirmed
+
+**Статус:** ✅ закрито 2026-09-13 (KR31.6) для видів. `feature.damage_resistances` несе тип шкоди на 49 фічах видів обох редакцій (сід `seed:species-senses`), `calculateDamageResistances` зводить їх; «Головна» показує рядок «Опори», PDF — рядок «Опори» в блоці «Чуття й опори». Поза межами: опори від підкласів, заклинань і магічних предметів — колонка є, реєстру для них немає.
 
 **Правило:** data/2024/srd/character-origins.md:146 «_Damage Resistance._ You have Resistance to the damage type determined by your Draconic Ancestry trait»; :168 Dwarven Resilience (Poison); :341-355 таблиця Fiendish Legacies (Poison/Necrotic/Fire); species.json Aasimar Celestial Resistance (Necrotic + Radiant)
 
@@ -5469,6 +5566,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 ### L01-species-08 — Темнозір і відчуття ніде не зведені: на листі дроу одночасно лежать «60 футів» і «зростає до 120 футів»
 
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** M · **Вердикт скептика:** confirmed
+
+**Статус:** ✅ закрито 2026-09-13 (KR31.6). `feature.darkvision_range` на 13 фічах видів, `calculateDarkvisionRange` бере найбільшу дальність: дроу 2014 і 2024 — 120, одним рядком «Темнозір» на «Головній» і в PDF. Поза межами: джерела, що *додають* дальність (Umbral Sight, Окуляри нічного зору), полем не описуються.
 
 **Правило:** data/2024/srd/character-origins.md:166 Dwarf «Darkvision with a range of 120 feet»; :319 Orc — 120; решта видів — 60; :184 Drow «The range of your Darkvision increases to 120 feet»
 
@@ -5505,6 +5604,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** S · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-11 (KR31.6). Пасивні Сприйняття, Аналіз і Проникливість на «Головній» рахує `calculatePassiveSkill` тим самим `calculateFinalSkill`, що й PDF.
+
 **Правило:** n/a (можливість зрілого білдера: D&D Beyond, Roll20, Foundry показують пасивні перевірки на першому екрані)
 
 **Має бути:** Пасивні Сприйняття/Аналіз/Проникливість видно на листі.
@@ -5524,6 +5625,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** L · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-13 (KR31.6) рішенням власника «похідний список + текст». `collectDerivedProficiencies` (`src/rules/derived-proficiencies.ts`) зводить фіксовані надання обладунків, зброї, інструментів і мов; `calculatePersProficiencies` (`src/lib/logic/pers-proficiencies.ts`) бере вид, підвид, вибори виду, передісторію, основний клас, пакет мультикласу, підкласи, риси й активні фічі. Лист показує блок «З джерел персонажа» над полями «Володіння» й «Мови», PDF — перед ручним текстом без дублікатів рядків. Вибори (мова чи інструмент на вибір) живуть у тексті, як і раніше; текст наявних персонажів не чиститься. `tests/db/pers-proficiencies.test.ts`: дворф Воїн 3 / Пройдисвіт 2 2014; без пакета мультикласу — `[] ≠ [THIEVES_TOOLS]`.
+
 **Правило:** n/a (можливість зрілого білдера: володіння перераховуються з усіх джерел — вид, походження, клас, підклас, риси, мультиклас)
 
 **Має бути:** Володіння перераховуються з джерел так само, як навички; предмет чи риса, що дає володіння, доїжджає на лист.
@@ -5542,6 +5645,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 ### L19-parity-competitors-10 — Жодне число на листі не пояснює, звідки воно: розкладки бонусів немає, а базова характеристика збережена вже згорнутою
 
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** L · **Вердикт:** не перевірено
+
+**Статус:** ✅ закрито 2026-09-13 (KR31.6) рішенням власника «похідні без DDL». `explainFinalStat/Save/Skill/AC/Speed/Initiative` у `bonus-calculator.ts` повертають складники з назвами; характеристика, ряткидок, навичка й ініціатива рахуються як їхня сума, КЗ і швидкість — через `explainArmorClass` і `explainWalkingSpeed` у правилах, тож розійтися з числом розкладка не може. `ModifyStatModal` показує її при натисканні. База характеристики лишається згорнутою — «+2 від походження» після створення без DDL не відновити.
 
 **Правило:** n/a (паритет: DDB на кожному числі показує розкладку «Base + Dex + Armor…»; Foundry — список активних ефектів)
 
@@ -5576,6 +5681,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** bug · **Праці:** M · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-13 (KR31.6). `modifies_speed` тепер читається й **додається** до швидкості виду, як у Прудконогості напівельфа 2014 (+5). Сід лісового ельфа 2024 тримав абсолютні 35, що дало б 65, — джерело `speciesChoices2024.ts` виправлено на +5. Гейт `tests/db/species-speed.test.ts`: швидкість виду + модифікатор = число з тексту опції; лісовий ельф через `getPersById` — 35.
+
 **Правило:** data/2024/srd/character-origins.md:186 — «Wood Elf … Your Speed increases to 35 feet. You also know the Druidcraft cantrip.»
 
 **Має бути:** Після вибору родоводу «Лісовий ельф» швидкість персонажа 35.
@@ -5592,6 +5699,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 
 
 ### L01-species-03 — Жодна риса виду 2024 не має обмежених використань: дев'ять рис із лічильником у книзі стали PASSIVE-текстом
+
+**Статус:** ✅ закрито 2026-09-08 ([KR31.3](kr31.3-feature-resources-2024.md)). Дванадцять рис видів мають лічильник у файлі, у базі й на листі; девʼять із них — саме ті, що перелічені нижче. Числа виведені зі сторінок `data/2024/source/raw/species/` і звірені другим читанням SRD; гейти — `tests/content/species-trait-uses-2024.test.ts`, `tests/db/species-trait-uses-2024-seeded.test.ts`, наскрізно — `tests/db/species-resource-2024-rest.test.ts`. Хвіст, що лишився: тип дії шести дарів Велетенського походження (Стрибок хмар — Бонусна дія, Камʼяна стійкість і Грім бурі — Реакції) живе у `prisma/seed/speciesChoices2024.ts` і в цей прохід не входив.
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** M · **Вердикт:** не перевірено
 
@@ -5613,6 +5722,8 @@ IN-FLIGHT — ні: жоден із файлів (`prisma/schema.prisma`, `chara
 ### L01-species-04 — Аасімар не отримує замовляння «Світло» від риси «Світлоносець» — і не має характеристики замовляння виду
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** S · **Вердикт скептика:** confirmed
+
+**Статус:** ✅ закрито 2026-09-13 (KR31.5). Сід `speciesChoices2024.ts` звʼязує «Світлоносця» зі «Світлом», а `findSpeciesSource` бере Харизму з `FIXED_TRAIT_SPELLCASTING_ABILITIES` — колонки для характеристики, яку риса називає сама, у схемі немає, і DDL заради одного запису не заводився. Аасімар 2024 створюється зі «Світлом» і джерелом `Aasimar: Light Bearer (2024) · CHA`. Приймальну фікстуру `10-aasimar-monk-hermit` перезнято: вона закріпила дефект порожніми `spellSources` і `grantedSpells`.
 
 **Правило:** data/2024/normalized/species.json, Aasimar → Light Bearer: «You know the Light cantrip. Charisma is your spellcasting ability for it.» (риса поза SRD, тому оракул — нормалізовані дані PHB 2024)
 
@@ -5728,6 +5839,8 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** bug · **Праці:** S · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-13 (KR31.6), та сама правка, що й `L01-species-02`.
+
 **Правило:** data/2024/srd/character-origins.md:221-222 — «Wood Elf. Your Speed increases to 35 feet. You also know the Druidcraft cantrip.»
 
 **Має бути:** Швидкість лісового ельфа — 35 футів на листі, у друці та в копії.
@@ -5765,6 +5878,8 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 ### L01-species-06 — Вибору розміру Small/Medium немає ніде: Людина, Тифлінг і Аасімар не можуть бути Малими, а розмір персонажа взагалі не зберігається
 
 **Рівень:** P2 · **Редакція:** both · **Тип:** missing-system · **Праці:** L · **Вердикт скептика:** confirmed
+
+**Статус:** ⛔ не робиться — рішення власника 2026-09-13: на числа листа розмір не впливає. У 2024 штраф Малим за важку зброю прибрано; лишаються лише ситуації столу (схоплення й штовхання на один розмір більше, протискування, їзда).
 
 **Правило:** data/2024/srd/character-origins.md:297 — Human «**Size:** Medium (about 4–7 feet tall) or Small (about 2–4 feet tall), chosen when you select this species»; :327 — те саме для тифлінга; аасімар — species.json size:["MEDIUM","SMALL"]
 
@@ -5804,6 +5919,8 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 
 **Рівень:** P2 · **Редакція:** 2024 · **Тип:** missing-system · **Праці:** M · **Вердикт:** не перевірено
 
+**Статус:** ⛔ не робиться — те саме рішення власника 2026-09-13, що й `L01-species-06`.
+
 **Правило:** data/2024/srd/character-origins.md:298 — Human: «**Size:** Medium (about 4–7 feet tall) or Small (about 2–4 feet tall), chosen when you select this species»
 
 **Має бути:** Крок або перемикач вибору розміру для видів із size.length > 1; pers.size записаний; розмір видно на листі
@@ -5822,6 +5939,8 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 ### L01-species-11 — Володіння від «Гострих чуттів» зберігається у форматі, який серверний парсер мовчки викидає — гілка виглядає робочою, але завжди порожня
 
 **Рівень:** P3 · **Редакція:** both · **Тип:** bug · **Праці:** S · **Вердикт:** не перевірено
+
+**Статус:** ✅ закрито 2026-09-13 (KR31.6). Сервер створення читає `race_choice_option.skill_proficiencies` через `findSkillsGrantedByChosenOption` (`src/rules/proficiency.ts`): опція з одним конкретним варіантом дає навичку, «будь-які» 2014 лишаються кроку «Навички». `tests/db/keen-senses-skill-2024.test.ts`: фікстура 03 із «Гострими чуттями: Сприйняття» без `skillsSchema` дістає PERCEPTION; зі старим `parseStringArray` — `undefined`.
 
 **Правило:** data/2024/srd/character-origins.md:204 — «_Keen Senses._ You have proficiency in the Insight, Perception, or Survival skill.»
 
@@ -5857,6 +5976,13 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** missing-system · **Праці:** L · **Вердикт скептика:** confirmed
 
+**Статус:** ✅ закрито 2026-09-08 (KR31.5). 34 підкласи, 329 згадок заклинань із
+`data/2024/source/raw/subclass/*.html` → нова таблиця `subclass_spell` → правило
+`findEarnedSubclassSpells` → рядок `pers_spell` з `excludeFromPreparedCount`. Окремого
+`SpellSourceKind = "SUBCLASS"` навмисно не заведено: підклас чаклує характеристикою свого класу,
+тож нового джерела для КС немає — рядок несе ту саму характеристику. Коло землі лишається поза
+переліком (чотири таблиці на вибір після довгого відпочинку) — питання власнику в журналі KR31.5.
+
 **Правило:** data/2024/srd/classes.md:2970 — «When you reach a Cleric level specified in the Life Domain Spells table, you thereafter always have the listed spells prepared» (3: Aid, Bless, Cure Wounds, Lesser Restoration; 5: Mass Healing Word, Revivify); classes.md:4410 — Circle of the Land Spells: «choose one type of land … you have the spells listed for your Druid level and lower prepared»
 
 **Має бути:** Клірик Life Domain 5-го рівня має 6 завжди підготовлених заклинань, які не рахуються в ліміті підготовлених; аналогічно Oath/Circle of the Land/Patron/Draconic/Fey Wanderer/Gloom Stalker.
@@ -5891,6 +6017,8 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 ### L09-sheet-derived-05 — Лист рахує одну КС і одну атаку заклинань із class.primaryCastingStat; джерела заклинань на листі не використовуються взагалі
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** bug · **Праці:** M · **Вердикт скептика:** confirmed
+
+**Статус:** ✅ закрито 2026-09-09 (KR31.5). `MagicSlide` більше не читає `class.primaryCastingStat`; джерела заклинань доведено до листа на листі: `findSpellcastingSources` (обидві редакції) → `loadPersSpellcastingSources` → `sheet-data.tsx` / `share/[token]` → `MagicSlide`, картки `SpellcastingSourceCards` — пара «атака / КС» на кожне джерело з підписом «Клас · характеристика». Журнал — [KR31.5](kr31.5-spells-2024.md#2026-09-09--кс-і-атака-заклинань-за-джерелом-на-листі).
 
 **Правило:** Критерій К27/К16 приймального набору (tests/rules-2024/acceptance-ten.test.ts:449) — «кожне джерело заклинань несе власну характеристику замовляння»; фікстура 03 має три джерела: WIZARD_2024, MAGIC_INITIATE, Elf: Elven Lineage (2024).
 
@@ -5944,6 +6072,10 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** M · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-09 (KR31.5). Слідопит 2024 отримує Hunter's Mark від Улюбленого
+ворога вже на 1-му рівні — рядок пише конструктор, і матриця десятки це фіксує на
+`08-orc-ranger-guide`.
+
 **Правило:** data/2024/srd/classes.md, Ranger Level 1 «Favored Enemy»: «You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest»
 
 **Має бути:** У Слідопита 1-го рівня Hunter's Mark у списку заклинань як завжди підготовлене, плюс 2 безкоштовні застосування на довгий відпочинок
@@ -5960,6 +6092,8 @@ IN-FLIGHT — ні. Жоден із задіяних файлів (`speciesChoic
 
 
 ### L01-species-09 — Безкоштовні застосування заклинань родоводу (1 раз / довгий відпочинок; PB разів для лісового гнома) не трекаються
+
+**Статус:** ✅ закрито 2026-09-08 ([KR31.3](kr31.3-feature-resources-2024.md)). `Elf: Elven Lineage (2024)` і `Tiefling: Fiendish Legacy (2024)` несуть `[{lvl:3, uses:1}, {lvl:5, uses:2}]` на довгий відпочинок, `Gnome: Forest Gnome (2024)` — бонус майстерності. Скільки саме безкоштовних застосувань показувати, вирішив власник 2026-09-08: **скільки їх є насправді**, бо лист є трекер, а не рушій ([Р26](../DECISIONS.md#р26)).
 
 **Рівень:** P2 · **Редакція:** 2024 · **Тип:** data · **Праці:** M · **Вердикт:** не перевірено
 
@@ -6115,6 +6249,8 @@ IN-FLIGHT. Файли паралельної сесії (spell-preparation-2024,
 
 ### L06-subclasses-03 — Усі 241 підкласові риси 2024 позначені PASSIVE і не мають жодного обмеженого використання чи пулу ресурсів
 
+**Статус:** ✅ закрито (KR31.3, 2026-09-07): 93 підкласові фічі мають лічильник із джерела, 31 — ключ пулу, з якого витрачають, 118 не пасивні.
+
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** L · **Вердикт:** не перевірено
 
 **Правило:** data/2024/srd/classes.md:5278 (Wholeness of Body) «You can use this feature a number of times equal to your Wisdom modifier … regain all expended uses when you finish a Long Rest»; classes.md:9786 (Dark One's Own Luck) те саме через Харизму; classes.md:3003 (Preserve Life) «As a Magic action … expend a use of your Channel Divinity»
@@ -6135,6 +6271,8 @@ IN-FLIGHT. Файли паралельної сесії (spell-preparation-2024,
 ### L06-subclasses-04 — Жодна підкласова риса 2024 не дає володінь, експертизи, КЗ чи ХП — Draconic Resilience і Dazzling Footwork рахуються не за книгою
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** M · **Вердикт:** не перевірено
+
+**Статус:** 🔴 частково (KR31.6, 2026-09-13). Хіти Драконячої живучості 2024 закрито (див. `L09-sheet-derived-07`); КЗ іде армор-рядком `DRACONIC_RESILIENCE`. Володіння, експертиза підкласів 2024 і Dazzling Footwork не бралися.
 
 **Правило:** Текст самих рис у базі (переклад PHB 2024): «College of Lore: Bonus Proficiencies (2024)» — «Ви отримуєте Володіння трьома навичками на ваш вибір»; «Assassin: Assassin's Tools (2024)» — «Ви отримуєте Набір для маскування та Набір отруйника, і ви маєте Володіння ними»; «Draconic Sorcery: Draconic Resilience (2024)» — «Ваш максимум Хіт Поїнтів збільшується на 3 і збільшується ще на 1 щоразу, коли ви отримуєте черговий рівень Чародія … поки ви не носите броню, ваш базовий Клас Броні дорівнює [13 + мод. Спритності]»; «College of Dance: Dazzling Footwork (2024)» — «Ваш базовий Клас Броні дорівнює 10 плюс модифікатори Спритності та Харизми»
 
@@ -6190,6 +6328,10 @@ IN-FLIGHT. Файли паралельної сесії (spell-preparation-2024,
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** L · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-08 (KR31.5). Усі три очікувані переліки збіглися з тим, що видала
+правка: клірик — 6 рядків, паладин — 4, чорнокнижник — 6 понад заклинання спадщини. Фікстури
+десятки перезнято за фактом.
+
 **Правило:** data/2024/srd/classes.md:2970 (Life Domain): «When you reach a Cleric level specified in the Life Domain Spells table, you thereafter always have the listed spells prepared» — рів. 3: Aid, Bless, Cure Wounds, Lesser Restoration; рів. 5: Mass Healing Word, Revivify. Так само :6008 (Oath of Devotion) і :9751 (Fiend Spells).
 
 **Має бути:** Клірик 5 (Домен життя) має 6 рядків pers_spell з isPrepared=true й excludeFromPreparedCount=true (Aid, Bless, Cure Wounds, Lesser Restoration, Mass Healing Word, Revivify); Паладин 5 (Клятва відданості) — 4 (Protection from Evil and Good, Shield of Faith, Aid, Zone of Truth); Чорнокнижник 5 (Почвара) — 6 (Burning Hands, Command, Scorching Ray, Suggestion, Fireball, Stinking Cloud).
@@ -6228,6 +6370,8 @@ IN-FLIGHT. Файли паралельної сесії (spell-preparation-2024,
 
 **Рівень:** P1 · **Редакція:** 2024 · **Тип:** data · **Праці:** M · **Вердикт:** не перевірено
 
+**Статус:** ✅ закрито 2026-09-13 (KR31.6) для нових рівнів. `bonus_hit_points_per_level = 1` на Драконячій живучості обох редакцій (`prisma/seed/hitPointsPerLevel.ts`); `sumLevelUpFeatureHitPoints` у `src/rules/hit-points.ts` рахує фічу класу чи підкласу лише за рівні свого класу і заднім числом на рівні відкриття, фічу виду — за кожен рівень персонажа. Сервер і превʼю майстра — одним правилом. `tests/db/draconic-resilience-hit-points-2024.test.ts`: дворф Монах 4 / Чародій-дракон 4 — 59 (було 55; без заднього числа — 57). Уже створені персонажі хітів за минулі рівні не отримали — за рішенням власника 2026-09-13 їхній `max_hp` не дописується.
+
 **Правило:** data/2024/srd/classes.md:8635 — «Your Hit Point maximum increases by 3, and it increases by 1 whenever you gain another Sorcerer level».
 
 **Має бути:** Чародій-дракон 5: +3 хіти на 3-му рівні, +1 на 4-му, +1 на 5-му = +5 до максимуму.
@@ -6244,6 +6388,8 @@ IN-FLIGHT. Файли паралельної сесії (spell-preparation-2024,
 
 
 ### L13-wildshape-05 — «Місячний крок» Кола місяця 2024 (рівень 10) не має лічильника використань, хоча правило дає їх МУД-модифікатор на довгий відпочинок
+
+**Статус:** ✅ закрито (KR31.3, 2026-09-07): «Місячний крок» несе `usesCountSpecial` формулою від МУД із мінімумом 1 і `LONG_REST`, виведеними з джерела.
 
 **Рівень:** P2 · **Редакція:** 2024 · **Тип:** data · **Праці:** S · **Вердикт:** не перевірено
 

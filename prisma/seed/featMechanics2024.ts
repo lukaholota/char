@@ -7,10 +7,27 @@
  * окремої таблиці, написаної руками.
  */
 
-import { Ability, FeatureDisplayType, PrismaClient, RestType, Ruleset, Skills } from "@prisma/client";
+import {
+  Ability,
+  ArmorType,
+  FeatureDisplayType,
+  Prisma,
+  PrismaClient,
+  RestType,
+  Ruleset,
+  Skills,
+  ToolCategory,
+  WeaponCategory,
+  WeaponType,
+} from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { attributesUkrFull, classTranslations, engEnumSkills } from "../../src/lib/refs/translation";
+import {
+  attributesUkrFull,
+  classTranslations,
+  damageTypeTranslations,
+  engEnumSkills,
+} from "../../src/lib/refs/translation";
 import {
   buildGrantedAbilityScoreIncrease,
   findAbilityIncreaseOptions,
@@ -36,6 +53,37 @@ const MAGIC_INITIATE_SPELL_LISTS = [
 type MagicInitiateSpellList = (typeof MAGIC_INITIATE_SPELL_LISTS)[number];
 
 const SKILLED_PICK_COUNT = 3;
+const SKILL_EXPERT_PICK_COUNT = 1;
+
+/**
+ * KR31.4 — володіння від рис 2024. Рушій ці три колонки вже читає й при створенні
+ * (`character-creation.ts`), і при підвищенні (`levelup-persistence.ts`), тому риса стає робочою
+ * від самих даних. Форма — та, яку читає код: масив enum-значень, а не обʼєкт-лічильник.
+ *
+ * Джерело кожного рядка — `data/2024/source/raw/feat/<риса>.html`. Редакції розходяться: у 2024
+ * щити дає Lightly Armored, а не Moderately Armored, як у 2014.
+ */
+const FEAT_PROFICIENCY_GRANTS_2024: Readonly<Record<string, {
+  armor?: ArmorType[];
+  weapons?: { category?: WeaponCategory[]; type?: WeaponType[] };
+  tools?: ToolCategory[];
+}>> = {
+  // «You gain training with Light armor and Shields.»
+  LIGHTLY_ARMORED: { armor: ["LIGHT", "SHIELD"] },
+  // «You gain training with Medium armor.»
+  MODERATELY_ARMORED: { armor: ["MEDIUM"] },
+  // «You gain training with Heavy armor.»
+  HEAVILY_ARMORED: { armor: ["HEAVY"] },
+  // «You gain proficiency with Martial weapons.»
+  MARTIAL_WEAPON_TRAINING: { weapons: { type: ["MARTIAL_WEAPON"] } },
+  // «You gain proficiency with Cook's Utensils if you don't already have it.»
+  CHEF: { tools: ["COOKS_UTENSILS"] },
+  // «You gain proficiency with the Poisoner's Kit.»
+  POISONER: { tools: ["POISONERS_KIT"] },
+};
+
+/** «Choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder.» */
+const ELEMENTAL_ADEPT_DAMAGE_TYPES = ["ACID", "COLD", "FIRE", "LIGHTNING", "THUNDER"] as const;
 
 type Feat2024Source = {
   engName: string;
@@ -51,6 +99,8 @@ export const seedFeatMechanics2024 = async (prisma: PrismaClient) => {
 
   await seedAbilityChoiceOptions(prisma, abilityChoicesByFeat);
   await seedSkilledChoiceOptions(prisma);
+  await seedSkillExpertChoiceOptions(prisma);
+  await seedElementalAdeptChoiceOptions(prisma);
   await seedMagicInitiateChoiceOptions(prisma);
 
   console.log("✅ Механіка рис 2024 на місці");
@@ -89,6 +139,8 @@ async function applyFeatMechanics(
         prerequisiteSpellcasting: prerequisites.spellcasting,
         grantedASI: buildGrantedAbilityScoreIncrease(abilityOptions) ?? undefined,
         ...(stored.name === "SKILLED" ? { grantedSkillCount: SKILLED_PICK_COUNT } : {}),
+        ...(stored.name === "SKILL_EXPERT" ? { grantedSkillCount: SKILL_EXPERT_PICK_COUNT } : {}),
+        ...buildProficiencyGrants(stored.name),
       },
     });
     updated++;
@@ -99,6 +151,17 @@ async function applyFeatMechanics(
 
   console.log(`  • ${updated} рис оновлено, з них ${abilityChoicesByFeat.size} із вибором характеристики`);
   return abilityChoicesByFeat;
+}
+
+/** Риса без рядка в таблиці однаково переписує колонки — інакше знята видача лишилась би в базі. */
+function buildProficiencyGrants(featName: string) {
+  const grants = FEAT_PROFICIENCY_GRANTS_2024[featName];
+
+  return {
+    grantedArmorProficiencies: grants?.armor ?? [],
+    grantedWeaponProficiencies: grants?.weapons ?? Prisma.DbNull,
+    grantedToolProficiencies: grants?.tools ?? Prisma.DbNull,
+  };
 }
 
 async function seedAbilityChoiceOptions(prisma: PrismaClient, abilityChoicesByFeat: Map<string, AbilityCode[]>) {
@@ -117,6 +180,64 @@ async function seedAbilityChoiceOptions(prisma: PrismaClient, abilityChoicesByFe
       await linkFeatChoiceOption(prisma, feat.featId, option.choiceOptionId);
     }
   }
+}
+
+/**
+ * Skill Expert 2024 — дві окремі групи по 18 навичок, як у тієї самої риси 2014: одна дає
+ * володіння, друга експертизу. Обидва `effectKind` рушій уже застосовує при створенні
+ * (`character-creation.ts`) і при підвищенні (`levelup-persistence.ts`).
+ */
+async function seedSkillExpertChoiceOptions(prisma: PrismaClient) {
+  const skillExpert = await prisma.feat.findFirst({
+    where: { ruleset: RULESET, name: "SKILL_EXPERT" },
+    select: { featId: true },
+  });
+  if (!skillExpert) return console.warn("  ⚠️ Риси SKILL_EXPERT (2024) немає в базі");
+
+  for (const skill of Object.values(Skills)) {
+    const skillName = readUkrainianSkillName(skill);
+
+    for (const grant of [
+      { group: CHOICE_GROUPS_2024.PROFICIENCY, kind: "SKILL_PROFICIENCY", key: "proficiency" },
+      { group: CHOICE_GROUPS_2024.EXPERTISE, kind: "SKILL_EXPERTISE", key: "expertise" },
+    ] as const) {
+      const option = await upsertChoiceOption2024(prisma, {
+        groupName: grant.group,
+        optionName: skillName,
+        optionNameEng: `Skill Expert 2024 ${grant.key} (${skill})`,
+        effectKind: grant.kind,
+        effectSkill: skill,
+      });
+      await linkFeatChoiceOption(prisma, skillExpert.featId, option.choiceOptionId);
+    }
+  }
+  console.log(`  • Експерт у навичках: володіння й експертиза, по ${Object.values(Skills).length} навичок`);
+}
+
+/**
+ * Elemental Adept 2024 — тип шкоди як вибір. Без нього `findFeatRepeatProblem` не має чим
+ * розрізнити копії риси, і книжкове «must choose a different damage type each time» не тримається.
+ */
+async function seedElementalAdeptChoiceOptions(prisma: PrismaClient) {
+  const elementalAdept = await prisma.feat.findFirst({
+    where: { ruleset: RULESET, name: "ELEMENTAL_ADEPT" },
+    select: { featId: true },
+  });
+  if (!elementalAdept) return console.warn("  ⚠️ Риси ELEMENTAL_ADEPT (2024) немає в базі");
+
+  for (const damageType of ELEMENTAL_ADEPT_DAMAGE_TYPES) {
+    const option = await upsertChoiceOption2024(prisma, {
+      groupName: CHOICE_GROUPS_2024.DAMAGE_TYPE,
+      optionName: damageTypeTranslations[damageType],
+      optionNameEng: `Elemental Adept 2024 (${damageType})`,
+    });
+    await linkFeatChoiceOption(prisma, elementalAdept.featId, option.choiceOptionId);
+  }
+  console.log(`  • Адепт стихій: ${ELEMENTAL_ADEPT_DAMAGE_TYPES.length} типів шкоди`);
+}
+
+function readUkrainianSkillName(skill: Skills): string {
+  return engEnumSkills.find((entry) => entry.eng === skill)?.ukr ?? skill;
 }
 
 async function seedSkilledChoiceOptions(prisma: PrismaClient) {

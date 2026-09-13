@@ -22,6 +22,7 @@ const OFFLINE_PERS_SELECT = {
   isDead: true,
   currentSpellSlots: true,
   currentPactSlots: true,
+  hasHeroicInspiration: true,
 } satisfies Prisma.PersSelect;
 
 function normalizeOperation(operation: OfflineOperation): OfflineOperation {
@@ -89,5 +90,7 @@ function buildPersUpdate(operation: OfflineOperation, next: OfflinePersState): P
       return { currentSpellSlots: next.currentSpellSlots };
     case "spend-pact-slot":
       return { currentPactSlots: next.currentPactSlots };
+    case "heroic-inspiration":
+      return { hasHeroicInspiration: next.hasHeroicInspiration };
   }
 }

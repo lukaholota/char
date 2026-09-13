@@ -4,7 +4,7 @@ import { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
 import { auth } from "@/lib/auth";
 import { isRules2024Allowed } from "@/rules/access";
 import { get2014FallbackPath } from "@/rules/route-helpers";
-import { redirect } from "next/navigation";
+import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default async function Page() {
   const canSelect2024 = isRules2024Allowed();
 
   if (!canSelect2024) {
-    redirect(get2014FallbackPath("/2024/char"));
+    await redirectKeepingNoAiMode(get2014FallbackPath("/2024/char"));
   }
 
   const {

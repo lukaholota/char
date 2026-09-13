@@ -14,7 +14,7 @@ import ArmorCustomizeModal from "../ArmorCustomizeModal";
 import { Button } from "@/components/ui/button";
 import { updateShieldStatus, updateArmor, deleteArmor, updateRaceStaticAcBonus } from "@/lib/actions/equipment-actions";
 import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import { ToggleRow } from "@/lib/components/characterSheet/shared/ToggleRow";
 import { toast } from "sonner";
 import { Trash2, Sparkles, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -26,6 +26,7 @@ import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal"
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { Ability, AbilityBonusType } from "@prisma/client";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
+import { findAttunementCapacityForPers } from "@/rules/attunement";
 import WeaponMasteryCard from "../WeaponMasteryCard";
 import WeaponsCard from "../WeaponsCard";
 
@@ -145,6 +146,8 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
   const [isPending, startTransition] = useTransition();
 
   const magicItems = pers.magicItems ?? [];
+  const attunedMagicItemsCount = magicItems.filter(pmi => pmi.isAttuned).length;
+  const attunementCapacity = useMemo(() => findAttunementCapacityForPers(pers), [pers]);
 
   const router = useRouter();
 
@@ -450,48 +453,24 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
               </div>
             )}
             
-            <div className="flex items-center justify-between p-4 rounded-xl bg-slate-800/60 border border-white/10">
-              <div className="flex items-center gap-3">
-                <div className={`p-2 rounded-lg ${wearsShield ? 'bg-indigo-500 text-white' : 'bg-white/5 text-slate-400'}`}>
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <Label className="font-bold text-slate-50 flex items-center gap-2">
-                    Використовувати щит
-                  </Label>
-                  <p className="text-xs text-slate-400">
-                    Додає +2 до КБ (та бонуси)
-                  </p>
-                </div>
-              </div>
-              <Switch 
-                checked={wearsShield} 
-                onCheckedChange={!isReadOnly ? handleShieldToggle : undefined}
-                disabled={isReadOnly}
-              />
-            </div>
+            <ToggleRow
+              icon={Shield}
+              label="Використовувати щит"
+              description="Додає +2 до КБ (та бонуси)"
+              checked={wearsShield}
+              onCheckedChange={handleShieldToggle}
+              disabled={isReadOnly}
+            />
 
             {showRaceStaticAcBonusToggle && (
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-800/60 border border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg ${raceStaticAcBonus ? 'bg-indigo-500 text-white' : 'bg-white/5 text-slate-400'}`}>
-                    <Shield className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <Label className="font-bold text-slate-50 flex items-center gap-2">
-                      Бонус раси до КБ
-                    </Label>
-                    <p className="text-xs text-slate-400">
-                      Додає {configuredRaceStaticBonus >= 0 ? "+" : ""}{configuredRaceStaticBonus} до КБ
-                    </p>
-                  </div>
-                </div>
-                <Switch
-                  checked={!!raceStaticAcBonus}
-                  onCheckedChange={!isReadOnly ? handleRaceStaticAcBonusToggle : undefined}
-                  disabled={isReadOnly}
-                />
-              </div>
+              <ToggleRow
+                icon={Shield}
+                label="Бонус раси до КБ"
+                description={`Додає ${configuredRaceStaticBonus >= 0 ? "+" : ""}${configuredRaceStaticBonus} до КБ`}
+                checked={!!raceStaticAcBonus}
+                onCheckedChange={handleRaceStaticAcBonusToggle}
+                disabled={isReadOnly}
+              />
             )}
           </div>
         </CardContent>
@@ -504,6 +483,16 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
           <CardTitle className="text-base font-bold flex items-center gap-2 text-violet-300 uppercase tracking-wider">
             <Sparkles className="w-5 h-5" />
             Магічні предмети
+            <span
+              className={`text-[10px] px-1.5 py-0.5 rounded border normal-case tracking-normal font-normal ${
+                attunedMagicItemsCount >= attunementCapacity
+                  ? "bg-amber-500/20 text-amber-300 border-amber-500/30"
+                  : "bg-white/5 text-slate-400 border-white/10"
+              }`}
+              title="Налаштовано / Ліміт налаштування"
+            >
+              {attunedMagicItemsCount} / {attunementCapacity}
+            </span>
           </CardTitle>
           <div className="flex items-center gap-1">
             {!isReadOnly && <AddMagicItemDialog persId={pers.persId} persName={pers.name} />}

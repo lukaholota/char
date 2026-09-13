@@ -14,6 +14,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 import * as dotenv from "dotenv";
 import { seedFeatMechanics2024 } from "../prisma/seed/featMechanics2024";
+import { seedFeatStatGrants2024 } from "../prisma/seed/featStatGrants2024";
 import { seedFightingStyles2024 } from "../prisma/seed/fightingStyle2024";
 import { seedHitPointsPerLevel } from "../prisma/seed/hitPointsPerLevel";
 
@@ -68,6 +69,7 @@ async function main() {
 
   await seedFeatMechanics2024(prisma);
   await seedFightingStyles2024(prisma);
+  await seedFeatStatGrants2024(prisma);
   await seedHitPointsPerLevel(prisma);
 
   console.log("\n🎉 Готово.");

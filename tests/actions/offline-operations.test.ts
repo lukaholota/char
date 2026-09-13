@@ -109,3 +109,24 @@ describe("KR22.6 — синхронізація офлайн-черги з ба�
     expect(pers.currentHp).toBe(3);
   });
 });
+
+describe("KR31.3 — Героїчне натхнення з офлайн-черги доїжджає до бази", () => {
+  it("увімкнене офлайн натхнення записується, вимкнене — знімається", async () => {
+    const { userId, persId } = await createOwnedCharacter("offline-inspiration@golden.test");
+    const toggle = (operationId: string, hasHeroicInspiration: boolean): OfflineOperation => ({
+      kind: "heroic-inspiration",
+      hasHeroicInspiration,
+      operationId,
+      persId,
+      createdAt: new Date().toISOString(),
+    });
+
+    await expect(applyOwnedOfflineOperation(userId, toggle("op-inspiration-0001", true))).resolves.toEqual({ ok: true, duplicate: false });
+    let pers = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { hasHeroicInspiration: true } });
+    expect(pers.hasHeroicInspiration).toBe(true);
+
+    await applyOwnedOfflineOperation(userId, toggle("op-inspiration-0002", false));
+    pers = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { hasHeroicInspiration: true } });
+    expect(pers.hasHeroicInspiration).toBe(false);
+  });
+});

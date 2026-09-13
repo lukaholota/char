@@ -17,16 +17,18 @@ import { buildBeastFormPers, listBeastAbilities } from "@/lib/logic/beast-form";
 import { BeastFormBar } from "./BeastFormBar";
 import type { BeastFormView } from "./BeastFormMarks";
 import { useWildshapeState } from "./useWildshapeState";
+import type { SpellSource } from "@/rules/spell-sources";
 
 interface CharacterCarouselProps {
   pers: PersWithRelations;
+  spellcastingSources: readonly SpellSource[];
   onPersUpdate: (next: PersWithRelations) => void;
   groupedFeatures: CharacterFeaturesGroupedResult | null;
   isReadOnly?: boolean;
   reloadFeatures?: () => void;
 }
 
-export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures, isReadOnly, reloadFeatures }: CharacterCarouselProps) {
+export default function CharacterCarousel({ pers, spellcastingSources, onPersUpdate, groupedFeatures, isReadOnly, reloadFeatures }: CharacterCarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
   const wildshape = useWildshapeState(pers.persId);
   const [showBeastLayer, setShowBeastLayer] = useState(true);
@@ -110,7 +112,7 @@ export default function CharacterCarousel({ pers, onPersUpdate, groupedFeatures,
     if (id === "stats") return <MainStatsSlide pers={sheetPers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} beastForm={beastForm} />;
     if (id === "skills") return <SkillsSlide pers={sheetPers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} beastForm={beastForm} />;
     if (id === "equipment") return <CombatSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} wildshape={wildshape} />;
-    if (id === "magic") return <MagicSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (id === "magic") return <MagicSlide pers={pers} spellcastingSources={spellcastingSources} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
     if (id === "features") return <FeaturesSlide pers={pers} onPersUpdate={onPersUpdate} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} onResourcesChanged={wildshape.reload} />;
     return null;
   };

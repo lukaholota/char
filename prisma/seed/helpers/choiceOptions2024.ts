@@ -10,6 +10,8 @@ const RULESET: Ruleset = "RULES_2024";
 export const CHOICE_GROUPS_2024 = {
   ABILITY: "Характеристика",
   PROFICIENCY: "Володіння",
+  EXPERTISE: "Експертиза",
+  DAMAGE_TYPE: "Тип шкоди",
   SPELL_LIST: "Список заклинань",
   FIGHTING_STYLE: "Бойовий стиль",
 } as const;
@@ -68,6 +70,22 @@ export async function linkClassChoiceOption(
     update: { levelsGranted: args.levelsGranted, ruleset: RULESET },
     create: {
       classId: args.classId,
+      choiceOptionId: args.choiceOptionId,
+      levelsGranted: args.levelsGranted,
+      ruleset: RULESET,
+    },
+  });
+}
+
+export async function linkSubclassChoiceOption(
+  prisma: PrismaClient,
+  args: { subclassId: number; choiceOptionId: number; levelsGranted: number[] },
+) {
+  await prisma.subclassChoiceOption.upsert({
+    where: { unique_subclass_choice: { subclassId: args.subclassId, choiceOptionId: args.choiceOptionId } },
+    update: { levelsGranted: args.levelsGranted, ruleset: RULESET },
+    create: {
+      subclassId: args.subclassId,
       choiceOptionId: args.choiceOptionId,
       levelsGranted: args.levelsGranted,
       ruleset: RULESET,

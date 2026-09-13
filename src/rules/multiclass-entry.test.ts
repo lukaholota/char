@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findMulticlassEntryProblem, type MulticlassEntryClass } from "./multiclass-entry";
+import { describeMulticlassEntryProblem, findMulticlassEntryProblem, type MulticlassEntryClass } from "./multiclass-entry";
 import type { AbilityKey } from "./types";
 
 const BARBARIAN_2024: MulticlassEntryClass = { name: "BARBARIAN_2024", multiclassReqs: { score: 13, choice: ["STR"] } };
@@ -114,5 +114,35 @@ describe("передумова входу в новий клас (2014 — ме�
     });
 
     expect(problem).toBeNull();
+  });
+});
+
+describe("опис попередження про мультиклас (KR31.9 — попередження, не блок)", () => {
+  const identity = (key: string) => key;
+
+  it("«needsAll» зʼєднує вимоги сполучником «і»", () => {
+    const problem = findMulticlassEntryProblem({
+      ruleset: "RULES_2024",
+      abilityScores: scores({ DEX: 16, WIS: 12 }),
+      currentClasses: [ROGUE_2024],
+      newClass: MONK_2024,
+    })!;
+
+    expect(describeMulticlassEntryProblem(problem, identity)).toBe(
+      "MONK_2024 вимагає DEX 13 і WIS 13; у персонажа WIS 12.",
+    );
+  });
+
+  it("не «needsAll» зʼєднує вимоги сполучником «або»", () => {
+    const problem = findMulticlassEntryProblem({
+      ruleset: "RULES_2024",
+      abilityScores: scores({ STR: 17, WIS: 8 }),
+      currentClasses: [BARBARIAN_2024],
+      newClass: DRUID_2024,
+    })!;
+
+    expect(describeMulticlassEntryProblem(problem, identity)).toBe(
+      "DRUID_2024 вимагає WIS 13; у персонажа WIS 8.",
+    );
   });
 });

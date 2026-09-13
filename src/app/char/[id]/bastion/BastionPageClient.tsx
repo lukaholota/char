@@ -3,7 +3,7 @@
 import { useCallback, useState, useTransition } from "react";
 import { format } from "date-fns";
 import { uk } from "date-fns/locale";
-import { AlertTriangle, ArrowLeft, Home, Pencil, Trash2 } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Home, Pencil, Sparkles, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { AddBastionFacilityDialog } from "@/components/bastions/AddBastionFacilityDialog";
 import { BastionMatchBadge } from "@/components/bastions/BastionPicking";
@@ -378,6 +378,13 @@ function BastionFacilityRow({
           ) : (
             <p className="mt-1 text-xs text-amber-300">Приміщення більше немає в каталозі</p>
           )}
+
+          {view.heroicInspirationHint ? (
+            <p className="mt-1 flex items-start gap-1 text-[11px] text-amber-200/90">
+              <Sparkles className="mt-0.5 h-3 w-3 shrink-0" />
+              <span>{view.heroicInspirationHint}</span>
+            </p>
+          ) : null}
         </div>
 
         <Button

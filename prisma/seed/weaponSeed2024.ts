@@ -126,5 +126,29 @@ export const seedWeapons2024 = async (prisma: PrismaClient) => {
     await new Promise((r) => setTimeout(r, 20));
   }
 
+  await seedUnarmedStrike2024(prisma, weapons.length + 1);
+
   console.log(`✅ 2024 Weapons: ${upserted} upserted, ${errors} errors`);
 };
+
+// Правило, а не предмет, тому в `weapons.json` книги його немає — рядок потрібен, щоб беззбройний
+// удар стояв у списку атак. SRD 2024, Rules Glossary: «Bludgeoning damage equal to 1 plus your Strength modifier».
+async function seedUnarmedStrike2024(prisma: PrismaClient, sortOrder: number) {
+  const payload = {
+    name: WeaponCategory.UNARMED_STRIKE,
+    ruleset: "RULES_2024" as const,
+    damage: "1",
+    damageType: DamageType.BLUDGEONING,
+    weaponType: WeaponType.SIMPLE_WEAPON,
+    properties: [],
+    isRanged: false,
+    mastery: null,
+    sortOrder,
+  };
+
+  await prisma.weapon.upsert({
+    where: { name_ruleset: { name: WeaponCategory.UNARMED_STRIKE, ruleset: "RULES_2024" } },
+    update: payload,
+    create: payload,
+  });
+}

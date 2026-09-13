@@ -1,13 +1,19 @@
 "use client";
 
+import { Skills } from "@prisma/client";
 import { Dices, Shield, Sparkles, Wrench } from "lucide-react";
 
 import type { ClassData, ClassFeature } from "@/lib/classesData";
+import { CatalogProse } from "@/components/catalogs/CatalogProse";
+import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/SectionJumpNav";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { cn } from "@/lib/utils";
-import { sourceTranslations } from "@/lib/refs/translation";
+import { skillTranslations, sourceTranslations } from "@/lib/refs/translation";
+import { describeSkillChoice, formatAnySkillsLabel, normalizeSkillProficiencies } from "@/rules/proficiency";
+
+const ALL_SKILLS = Object.values(Skills);
 
 export function ClassDetailCard({
   characterClass,
@@ -18,6 +24,7 @@ export function ClassDetailCard({
 }) {
   return (
     <div
+      {...jumpTargetAttributes.scope}
       className={cn(
         "glass-card max-w-full overflow-hidden break-words rounded-2xl border border-white/10 bg-slate-950/60 p-4 backdrop-blur-xl sm:p-6",
         is2024
@@ -26,6 +33,12 @@ export function ClassDetailCard({
       )}
     >
       <Header characterClass={characterClass} is2024={is2024} />
+      <CatalogProse content={characterClass.description} className="mt-4" />
+      <SectionJumpNav
+        title="Підкласи"
+        items={characterClass.subclasses.map((subclass) => ({ id: subclass.key, label: subclass.name }))}
+        is2024={is2024}
+      />
       <MetaGrid characterClass={characterClass} />
 
       {characterClass.features.length > 0 ? (
@@ -40,7 +53,7 @@ export function ClassDetailCard({
         >
           <div className="space-y-5">
             {characterClass.subclasses.map((subclass) => (
-              <div key={subclass.key}>
+              <div key={subclass.key} {...jumpTargetAttributes.target(subclass.key)} className="scroll-mt-2">
                 <div className="flex flex-wrap items-baseline gap-2">
                   <span className="text-sm font-semibold text-slate-100">{subclass.name}</span>
                   <span className="font-mono text-[11px] text-slate-500">[{subclass.engName}]</span>
@@ -107,9 +120,7 @@ function Header({ characterClass, is2024 }: { characterClass: ClassData; is2024:
 }
 
 function MetaGrid({ characterClass }: { characterClass: ClassData }) {
-  const skills = characterClass.skillChoices.count
-    ? `${characterClass.skillChoices.count} з: ${characterClass.skillChoices.options.join(", ")}`
-    : "—";
+  const skills = formatClassSkillChoices(characterClass.skillChoices);
   const casting = characterClass.spellcasting
     ? `${characterClass.spellcasting}${characterClass.castingStat ? ` · ${characterClass.castingStat}` : ""}`
     : "Немає";
@@ -133,6 +144,21 @@ function MetaGrid({ characterClass }: { characterClass: ClassData }) {
       </div>
     </div>
   );
+}
+
+export function formatClassSkillChoices(skillChoices: ClassData["skillChoices"]): string {
+  const normalized = normalizeSkillProficiencies(
+    { options: skillChoices.options, choiceCount: skillChoices.count },
+    ALL_SKILLS,
+  );
+  if (!normalized) return "—";
+
+  const choice = describeSkillChoice(normalized, ALL_SKILLS);
+  if (choice.type === "any") return formatAnySkillsLabel(choice.choiceCount);
+  const names = (choice.type === "fixed" ? choice.skills : choice.options).map(
+    (skill) => skillTranslations[skill] ?? skill,
+  );
+  return `${skillChoices.count} з: ${names.join(", ")}`;
 }
 
 function MetaCell({

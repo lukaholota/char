@@ -118,7 +118,17 @@ async function buildHuman(input: HumanBuildInput) {
       levelUps: input.levelUpFeat
         ? [
             { characterLevel: 2, class: "FIGHTER_2024", isNewClass: false },
-            { characterLevel: 3, class: "FIGHTER_2024", isNewClass: false, subclass: "BATTLE_MASTER" },
+            {
+              characterLevel: 3,
+              class: "FIGHTER_2024",
+              isNewClass: false,
+              subclass: "BATTLE_MASTER",
+              subclassChoices: [
+                { choice: "Маневри майстра бою", option: "Precision Attack" },
+                { choice: "Маневри майстра бою", option: "Trip Attack" },
+                { choice: "Маневри майстра бою", option: "Riposte" },
+              ],
+            },
             { characterLevel: 4, class: "FIGHTER_2024", isNewClass: false, ...input.levelUpFeat },
           ]
         : [],

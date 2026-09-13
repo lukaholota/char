@@ -10,6 +10,7 @@
 
 import { afterAll, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
+import normalizedSubclasses from "../../data/2024/normalized/subclasses.json";
 import { disconnectDatabase } from "../user-data";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { getSpellsList } from "@/server/db/spell-actions";
@@ -51,10 +52,12 @@ describe("KR6.3 Step 3 — 2024 Content Isolation", () => {
     // 2024 counts must match seeded numbers
     expect(races2024).toBe(10);
     expect(classes2024).toBe(13);
-    expect(feats2024).toBe(75);
+    // KR31.4, 2026-09-06: 74, а не 75 — рису «Ability Score Improvement» прибрано з переліку
+    // рішенням власника, бо той самий вибір уже є окремою гілкою кроку ASI.
+    expect(feats2024).toBe(74);
     expect(weapons2024).toBe(38);
     expect(spells2024).toBe(391);
-    expect(subclasses2024).toBe(48);
+    expect(subclasses2024).toBe(normalizedSubclasses.length);
   });
 
   it("updated 15 existing *_2024 backgrounds in-place without ID changes", async () => {

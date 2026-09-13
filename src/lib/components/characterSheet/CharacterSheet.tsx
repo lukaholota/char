@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { getCharacterFeaturesGrouped, getCharacterFeaturesGroupedByShareToken, renamePers } from "@/lib/actions/pers";
 import CharacterCarousel from "./CharacterCarousel";
+import type { SpellSource } from "@/rules/spell-sources";
 import { Button } from "@/components/ui/button";
 import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
 import RestButton from "./RestButton";
@@ -33,12 +34,13 @@ const mobileTextLabelClassName = "block text-[10px] leading-none sm:text-sm";
 
 interface CharacterSheetProps {
   pers: PersWithRelations;
+  spellcastingSources: readonly SpellSource[];
   groupedFeatures: CharacterFeaturesGroupedResult | null;
   isPublicView?: boolean;
   editShareToken?: string | null;
 }
 
-export default function CharacterSheet({ pers, groupedFeatures, isPublicView, editShareToken }: CharacterSheetProps) {
+export default function CharacterSheet({ pers, spellcastingSources, groupedFeatures, isPublicView, editShareToken }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
@@ -303,7 +305,7 @@ export default function CharacterSheet({ pers, groupedFeatures, isPublicView, ed
        </div>
       
       <div className="flex-1 min-h-0 md:pb-0 md:overflow-hidden">
-        <CharacterCarousel pers={localPers} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} reloadFeatures={reloadFeatures} />
+        <CharacterCarousel pers={localPers} spellcastingSources={spellcastingSources} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} reloadFeatures={reloadFeatures} />
       </div>
     </div>
   );

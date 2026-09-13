@@ -43,6 +43,23 @@ function findItem(nameEng: string, source: string) {
 }
 
 describe("KR16.1 — розкладач розмітки 5etools", () => {
+  it("KR33.5: показує частину тексту так само, як render.js, для тегів класів, рас і бастіонів", () => {
+    const cases: [string, string][] = [
+      ["{@background vizier|PSA|viziers}", "viziers"],
+      ["{@optfeature Superior Technique|TCE}", "Superior Technique"],
+      ["{@subclass Alchemist|Artificer|EFA|EFA}", "Alchemist"],
+      ["{@subclass Lore|Bard||Lore|College of Lore}", "College of Lore"],
+      ["{@subclassFeature Dreadnaught|Artificer|EFA|Armorer|EFA|3|EFA}", "Dreadnaught"],
+      ["{@subclassFeature Dreadnaught|Artificer|EFA|Armorer|EFA|3|EFA|Велетень}", "Велетень"],
+      ["{@tip Die Size|Psionic Energy Die Size}", "Die Size"],
+      ["{@facility Bedroom|XDMG}", "Bedroom"],
+      ["{@vehicle Rowboat|GoS|човен}", "човен"],
+      ["{@vehupgrade Churning Hull|GoS}", "Churning Hull"],
+    ];
+
+    expect(cases.map(([raw]) => decomposeMarkup(raw).text)).toEqual(cases.map(([, text]) => text));
+  });
+
   it("падає на невідомому тегу замість викинути його мовчки", () => {
     expect(() => decomposeMarkup("шкода {@fireballz 8d6} вогнем", "фікстура")).toThrow(
       /Невідомий тег розмітки \{@fireballz\}.*фікстура/s

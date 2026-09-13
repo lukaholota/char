@@ -10,6 +10,7 @@ import { findMainClassLevel } from "@/rules/hit-dice";
 import {
   type MasteryClassOffer,
   type MasteryWeapon,
+  countFeatMasterySlots,
   findWeaponMasteryCapacity,
   findWeaponMasteryOptionsForClasses,
   limitWeaponMasteryChoice,
@@ -61,6 +62,7 @@ export async function findPersWeaponMasteryOffer(
       ruleset: true,
       class: { select: MASTERY_CLASS_SELECT },
       multiclasses: { select: { classLevel: true, class: { select: MASTERY_CLASS_SELECT } } },
+      feats: { select: { feat: { select: { name: true } } } },
       pers_weapon_mastery: { select: { weapon_id: true }, orderBy: { pers_weapon_mastery_id: "asc" } },
     },
   });
@@ -72,7 +74,12 @@ export async function findPersWeaponMasteryOffer(
   ];
   const weapons = await findMasteryWeapons(client, pers.ruleset);
 
-  return buildOffer(classes, weapons, pers.pers_weapon_mastery.map((entry) => entry.weapon_id));
+  return buildOffer(
+    classes,
+    weapons,
+    pers.pers_weapon_mastery.map((entry) => entry.weapon_id),
+    countFeatMasterySlots(pers.feats.map((entry) => entry.feat.name)),
+  );
 }
 
 /**
@@ -102,8 +109,9 @@ function buildOffer(
   classes: Array<{ row: MasteryClassRow; classLevel: number }>,
   weapons: OfferedMasteryWeapon[],
   selectedWeaponIds: number[],
+  featSlots = 0,
 ): WeaponMasteryOffer {
-  const capacity = findWeaponMasteryCapacity(toClassOffers(classes));
+  const capacity = findWeaponMasteryCapacity(toClassOffers(classes), featSlots);
   if (capacity === 0) return emptyOffer();
 
   const options = findWeaponMasteryOptionsForClasses(toClassOffers(classes), weapons);

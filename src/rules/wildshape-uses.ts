@@ -10,6 +10,8 @@
  * фіча, чиєю формою персонаж став, а число лежить у неї в `usePrice`.
  */
 
+import type { Ruleset } from "./types";
+
 export const WILDSHAPE_POOL_KEY = "WILD_SHAPE";
 
 export type WildshapeUseFeature = {
@@ -54,4 +56,16 @@ export function describeUseShortfall(input: { price: number; remaining: number }
   if (input.remaining >= input.price) return null;
 
   return `Використань Дикої форми бракує: потрібно ${input.price}, лишилося ${Math.max(0, input.remaining)}. Перевтілення записане — вирішує майстер за столом.`;
+}
+
+/// Архідруїд 2014 (20 рівень друїда): «ви можете використовувати Дику форму без обмежень» —
+/// лічильника більше немає, і вхід у форму нічого не списує. 2024 такого не дає взагалі: його
+/// Archdruid (`data/2024/srd/classes.md:3630`) повертає одне використання на ініціативі й міняє
+/// використання на комірку, тож правило свідомо звужене до 2014.
+///
+/// Рівень саме **друїда**, а не персонажа: Друїд 17 / Воїн 3 необмеженої Дикої форми не має.
+const ARCHDRUID_LEVEL_2014 = 20;
+
+export function hasUnlimitedWildshapeUses(input: { ruleset: Ruleset; druidLevel: number }): boolean {
+  return input.ruleset === "RULES_2014" && Math.trunc(input.druidLevel) >= ARCHDRUID_LEVEL_2014;
 }

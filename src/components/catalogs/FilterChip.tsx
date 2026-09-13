@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /// Один чип фільтра на всі каталоги: раніше кожен діалог тримав свою копію цієї кнопки, і
@@ -14,7 +14,7 @@ export function FilterChip({
 }: {
   label: ReactNode;
   selected: boolean;
-  onClick: () => void;
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   is2024?: boolean;
   title?: string;
 }) {

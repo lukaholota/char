@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { redirect } from "next/navigation";
+import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
 import { getAllSpells, type SpellData } from "@/lib/spellsData";
 import { SpellsClient, type SpellListItem } from "@/app/spells/spells-client";
 import { Metadata } from "next";
@@ -19,7 +19,7 @@ export default async function Spells2024Page({
   // Legacy redirect if selectedSpellId
   const selectedSpellId = resolvedSearchParams.selectedSpellId;
   if (selectedSpellId && typeof selectedSpellId === "string") {
-    redirect(`/2024/spells/${selectedSpellId}`);
+    await redirectKeepingNoAiMode(`/2024/spells/${selectedSpellId}`);
   }
 
   // Get static 2024 spell data

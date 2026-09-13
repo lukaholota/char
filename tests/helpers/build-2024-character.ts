@@ -109,6 +109,7 @@ async function buildCreationForm(fixture: Acceptance2024Fixture): Promise<PersFo
     classChoiceSelections: await buildClassChoiceSelections(characterClass.classId, 1, input.classChoices),
     raceChoiceSelections: await buildRaceChoiceSelections(race.raceId, input.speciesChoices),
     backgroundAsiChoice: input.backgroundAsi as PersFormData["backgroundAsiChoice"],
+    expertiseSchema: { expertises: input.expertise ?? [] },
     languagesSchema: { languages: [...ORIGIN_LANGUAGE_PICKS] },
     weaponMasteryWeaponIds: await findWeaponIds2024(input.weaponMastery),
     equipmentSchema: {
@@ -166,6 +167,10 @@ async function buildLevelUpForm(fixture: Acceptance2024Fixture, pick: LevelUpPic
     ...(feat ? { featId: feat.featId } : {}),
     featChoiceSelections: feat ? await buildFeatChoiceSelections(feat.featId, featAbilityPick) : {},
     classChoiceSelections: await buildClassChoiceSelections(characterClass.classId, pick.level, pick.classChoices),
+    subclassChoiceSelections: subclass
+      ? await buildSubclassChoiceSelections(subclass.subclassId, pick.level, pick.subclassChoices)
+      : {},
+    levelUpSkillSelections: await buildFeatureSkillSelections(pick.skillChoices),
     customAsi: pick.asi ?? [],
     expertiseSchema: { expertises: pick.expertise ?? [] },
     ...(pick.weaponMastery ? { weaponMasteryWeaponIds: await findWeaponIds2024(pick.weaponMastery) } : {}),
@@ -219,6 +224,44 @@ async function buildRaceChoiceSelections(
   );
 }
 
+/**
+ * Вибори всередині підкласу (Здобич мисливця, маневри Майстра бою) приходять тим самим кроком,
+ * що й сам підклас, тому харнес читає рядки підкласу на цьому рівні класу.
+ */
+async function buildSubclassChoiceSelections(
+  subclassId: number,
+  levelGranted: number,
+  picks: NamedPick[] | undefined,
+): Promise<Record<string, number | number[]>> {
+  if (!picks?.length) return {};
+
+  const available = await prisma.subclassChoiceOption.findMany({
+    where: { subclassId, levelsGranted: { has: levelGranted } },
+    select: { choiceOptionId: true, choiceOption: { select: { groupName: true, optionNameEng: true } } },
+  });
+
+  return groupSelectionsByChoiceGroup(
+    picks.map((pick) => findMatchingOption(available, pick, `підкласу ${subclassId} на рівні ${levelGranted}`)),
+  );
+}
+
+/** Навички, які дає сама риса (Первісне знання варвара), сервер чекає під ключем її featureId. */
+async function buildFeatureSkillSelections(
+  picks: Array<{ feature: string; skills: string[] }> | undefined,
+): Promise<Record<string, string[]>> {
+  if (!picks?.length) return {};
+
+  const entries = await Promise.all(picks.map(async ({ feature, skills }) => {
+    const row = await prisma.feature.findFirstOrThrow({
+      where: { engName: feature, ruleset: "RULES_2024" },
+      select: { featureId: true },
+    });
+    return [String(row.featureId), skills] as const;
+  }));
+
+  return Object.fromEntries(entries);
+}
+
 async function buildClassChoiceSelections(
   classId: number,
   levelGranted: number,
@@ -245,6 +288,7 @@ function findMatchingOption(available: AvailableChoiceOption[], pick: NamedPick,
   const matched = available.find(
     (candidate) =>
       candidate.choiceOption?.optionNameEng === pick.option ||
+      candidate.choiceOption?.optionNameEng.replace(/ \((?:2014|2024)\)$/, "") === pick.option ||
       candidate.choiceOption?.optionNameEng.endsWith(`(${pick.option})`),
   );
   if (!matched?.choiceOption) {

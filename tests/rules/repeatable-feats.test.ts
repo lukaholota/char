@@ -8,6 +8,7 @@ import {
 
 const list = (optionNameEng: string) => ({ groupName: "Список заклинань", optionNameEng });
 const skill = (optionNameEng: string) => ({ groupName: "Володіння", optionNameEng });
+const damage = (optionNameEng: string) => ({ groupName: "Тип шкоди", optionNameEng });
 
 const SKILLED_TAKEN: FeatInstance = { featName: "SKILLED", choices: [skill("Skilled 2024 (ARCANA)")] };
 const MAGIC_INITIATE_CLERIC: FeatInstance = { featName: "MAGIC_INITIATE", choices: [list("Magic Initiate 2024 (Cleric)")] };
@@ -39,6 +40,20 @@ describe("KR27.4 — повтор дозволяє сама риса", () => {
       { name: "MAGIC_INITIATE", isRepeatable: true, choices: [list("Magic Initiate 2024 (Cleric)")] },
       [MAGIC_INITIATE_CLERIC],
     )).toEqual({ kind: "same-choice", featName: "MAGIC_INITIATE", groupName: "Список заклинань", optionNameEng: "Magic Initiate 2024 (Cleric)" });
+  });
+
+  it("Elemental Adept вдруге лише з іншим типом шкоди", () => {
+    const fire = { name: "ELEMENTAL_ADEPT", isRepeatable: true, choices: [damage("Elemental Adept 2024 (FIRE)")] };
+    const cold = { name: "ELEMENTAL_ADEPT", isRepeatable: true, choices: [damage("Elemental Adept 2024 (COLD)")] };
+    const takenFire: FeatInstance = { featName: "ELEMENTAL_ADEPT", choices: [damage("Elemental Adept 2024 (FIRE)")] };
+
+    expect(findFeatRepeatProblem(cold, [takenFire])).toBeNull();
+    expect(findFeatRepeatProblem(fire, [takenFire])).toEqual({
+      kind: "same-choice",
+      featName: "ELEMENTAL_ADEPT",
+      groupName: "Тип шкоди",
+      optionNameEng: "Elemental Adept 2024 (FIRE)",
+    });
   });
 
   it("у пакеті створення риси звіряються одна з одною по черзі", () => {

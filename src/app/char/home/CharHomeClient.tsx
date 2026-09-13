@@ -1395,7 +1395,7 @@ export function CharHomeClient({
         return;
       }
 
-      toast.success("Персонажа видалено");
+      toast.success("unlinked" in result && result.unlinked ? "Персонажа прибрано з вашого списку" : "Персонажа видалено");
       router.refresh();
     },
     [items, router],

@@ -786,8 +786,8 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             raceId: customLineage.raceId,
             subraceId: null,
             choiceGroupName: "Своя раса",
-            optionName: "Темний зір",
-            description: "Ви маєте темний зір на відстані 60 футів.",
+            optionName: "Темнозір",
+            description: "Ви маєте темнозір на відстані 60 футів.",
             selectMultiple: false,
             maxSelection: 1,
             // No feature connection needed - this is a simple choice that grants darkvision

@@ -16,7 +16,10 @@ export type LevelUpPick = {
   feat?: string;
   featAbility?: AbilityCode;
   classChoices?: NamedPick[];
+  subclassChoices?: NamedPick[];
   expertise?: string[];
+  /** Навички, які дає обрана риса цього рівня: Первісне знання варвара. */
+  skillChoices?: Array<{ feature: string; skills: string[] }>;
   /** Повний набір майстерності після цього рівня — нова комірка не доливається, а переобирається. */
   weaponMastery?: string[];
 };
@@ -42,6 +45,8 @@ export type Acceptance2024Fixture = {
     originFeat: string;
     originFeatChoices?: NamedPick[];
     classChoices?: NamedPick[];
+    /** Експертиза, яку клас дає вже на створенні: Пройдисвіт 2024. */
+    expertise?: string[];
     speciesFeat?: string;
     speciesChoices: NamedPick[];
     /** Англійські назви зброї, чию майстерність персонаж бере на створенні. */

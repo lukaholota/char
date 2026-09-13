@@ -35,6 +35,13 @@ export async function loadCreationContent(data: PersFormData) {
         languages: true,
         languagesToChooseCount: true,
         hitDie: true,
+        classChoiceOptions: {
+          where: { levelsGranted: { has: 1 } },
+          select: {
+            choiceOptionId: true,
+            choiceOption: { select: { groupName: true } },
+          },
+        },
       },
     }),
     data.subclassId

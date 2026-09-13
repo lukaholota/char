@@ -18,6 +18,7 @@ import { PrismaClient, Ruleset } from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { CHOICE_GROUPS } from "../../src/lib/logic/choicePoolRules";
+import { stripToPlainText } from "../../src/lib/logic/plain-text";
 import { linkChoiceOptionFeature, linkClassChoiceOption, upsertChoiceOption2024 } from "./helpers/choiceOptions2024";
 
 const RULESET: Ruleset = "RULES_2024";
@@ -85,7 +86,9 @@ export const seedInvocations2024 = async (prisma: PrismaClient) => {
 
     const option = await upsertChoiceOption2024(prisma, {
       groupName: CHOICE_GROUPS.WARLOCK_INVOCATIONS,
-      optionName: invocation.shortDescription,
+      /// `option_name` — VarChar(100) і UI-підпис, а не проза: посилання на заклинання, які
+      /// проставляч ставить у короткий опис, сюди не лізуть ні за змістом, ні за довжиною.
+      optionName: stripToPlainText(invocation.shortDescription),
       optionNameEng: suffixed(invocation.engName),
       prerequisites,
     });

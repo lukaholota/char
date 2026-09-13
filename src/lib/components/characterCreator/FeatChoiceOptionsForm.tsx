@@ -30,6 +30,12 @@ interface Props {
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
   pers?: PersI | null;
+  /**
+   * Бали персонажа, який ще не існує: конструктор рахує їх канонічним
+   * `buildCreationAbilityScores`, бо расові бонуси видно лише йому. Без цього превʼю показує
+   * base 10 + ASI (BUG-012).
+   */
+  baseAbilityScores?: Record<keyof typeof SIMPLE_ABILITY_MAP, number>;
   mode?: 'race' | 'background' | 'species';
   extraExistingSkills?: string[];
   extraExistingChoiceOptionIds?: number[];
@@ -202,7 +208,7 @@ const FEAT_CHOICE_STORAGE_KEY_BY_MODE = {
   species: 'speciesFeatChoiceSelections',
 } as const;
 
-const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers, mode = 'race', extraExistingSkills = [], extraExistingChoiceOptionIds = [], extraExistingExpertises = [] }: Props) => {
+const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, pers, baseAbilityScores, mode = 'race', extraExistingSkills = [], extraExistingChoiceOptionIds = [], extraExistingExpertises = [] }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
 
   const [infoOpen, setInfoOpen] = useState(false);
@@ -289,6 +295,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       } as Record<keyof typeof SIMPLE_ABILITY_MAP, number>;
     }
 
+    if (baseAbilityScores) return baseAbilityScores;
+
     // Character creation flow: best-effort preview from current ASI step inputs.
     const base: Record<keyof typeof SIMPLE_ABILITY_MAP, number> = {
       STR: 10,
@@ -327,7 +335,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     }
 
     return base;
-  }, [pers, formData]);
+  }, [pers, formData, baseAbilityScores]);
 
   // Стеля риси, а не персонажа: епічний дар підіймає її до 30, звичайна риса лишає 20.
   const abilityScoreCeiling = useMemo(

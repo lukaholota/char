@@ -1,0 +1,107 @@
+{
+  "ruleset": "RULES_2024",
+  "groups": [
+    {
+      "className": "CLERIC_2024",
+      "groupName": "Божественний орден",
+      "featureEng": "Divine Order",
+      "picksAtLevel": {"1": 1},
+      "options": [
+        {
+          "engName": "Divine Order: Protector",
+          "name": "Захисник",
+          "description": "Ви отримуєте володіння військовою зброєю та важкими обладунками.",
+          "armorProficiencies": ["HEAVY"],
+          "weaponProficiencies": {"type": ["MARTIAL_WEAPON"]}
+        },
+        {
+          "engName": "Divine Order: Thaumaturge",
+          "name": "Дивотворець",
+          "description": "Ви вивчаєте додаткове замовляння клірика. До перевірок Магії та Релігії додається модифікатор Мудрості (мінімум +1)."
+        }
+      ]
+    },
+    {
+      "className": "DRUID_2024",
+      "groupName": "Первісний орден",
+      "featureEng": "Primal Order",
+      "picksAtLevel": {"1": 1},
+      "options": [
+        {
+          "engName": "Primal Order: Magician",
+          "name": "Маг",
+          "description": "Ви вивчаєте додаткове замовляння друїда. До перевірок Природи додається модифікатор Мудрості (мінімум +1)."
+        },
+        {
+          "engName": "Primal Order: Warden",
+          "name": "Вартовий",
+          "description": "Ви отримуєте володіння військовою зброєю та середніми обладунками.",
+          "armorProficiencies": ["MEDIUM"],
+          "weaponProficiencies": {"type": ["MARTIAL_WEAPON"]}
+        }
+      ]
+    },
+    {
+      "className": "CLERIC_2024",
+      "groupName": "Благословенні удари",
+      "featureEng": "Blessed Strikes",
+      "picksAtLevel": {"7": 1},
+      "options": [
+        {
+          "engName": "Blessed Strikes: Divine Strike",
+          "name": "Божественний удар",
+          "description": "Раз за хід влучання зброєю завдає додатково 1к8 некротичної або променистої шкоди."
+        },
+        {
+          "engName": "Blessed Strikes: Potent Spellcasting",
+          "name": "Могутнє чарування",
+          "description": "Додайте модифікатор Мудрості до шкоди замовлянь клірика."
+        }
+      ]
+    },
+    {
+      "className": "DRUID_2024",
+      "groupName": "Стихійна лють",
+      "featureEng": "Elemental Fury",
+      "picksAtLevel": {"7": 1},
+      "options": [
+        {
+          "engName": "Elemental Fury: Potent Spellcasting",
+          "name": "Могутнє чарування",
+          "description": "Додайте модифікатор Мудрості до шкоди замовлянь друїда."
+        },
+        {
+          "engName": "Elemental Fury: Primal Strike",
+          "name": "Первісний удар",
+          "description": "Раз за хід влучання зброєю або атакою форми звіра завдає додатково 1к8 шкоди холодом, вогнем, блискавкою або громом."
+        }
+      ]
+    },
+    {
+      "className": "PALADIN_2024",
+      "groupName": "Бойовий стиль",
+      "featureEng": "Fighting Style",
+      "picksAtLevel": {"2": 1},
+      "options": [
+        {
+          "engName": "Fighting Style 2024 (Blessed Warrior)",
+          "name": "Благословенний воїн",
+          "description": "Ви вивчаєте два замовляння клірика; для них Харизма є характеристикою чарування."
+        }
+      ]
+    },
+    {
+      "className": "RANGER_2024",
+      "groupName": "Бойовий стиль",
+      "featureEng": "Fighting Style",
+      "picksAtLevel": {"2": 1},
+      "options": [
+        {
+          "engName": "Fighting Style 2024 (Druidic Warrior)",
+          "name": "Друїдичний воїн",
+          "description": "Ви вивчаєте два замовляння друїда; для них Мудрість є характеристикою чарування."
+        }
+      ]
+    }
+  ]
+}

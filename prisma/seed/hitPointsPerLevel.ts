@@ -16,6 +16,11 @@ const HIT_POINTS_PER_LEVEL: Readonly<Record<string, number>> = {
   "Dwarf: Dwarven Toughness (2024)": 1,
   // PHB 2014, Hill Dwarf — те саме формулювання.
   "Dwarven Toughness (Hill Dwarf Subrace)": 1,
+  // Фічі підкласу: рушій рахує їх лише за рівні свого класу і заднім числом (KR31.6).
+  // SRD 2024, Draconic Sorcery: «increases by 3, and it increases by 1 whenever you gain another Sorcerer level».
+  "Draconic Sorcery: Draconic Resilience (2024)": 1,
+  // PHB 2014, Draconic Bloodline: «increases by 1 and increases by 1 again whenever you gain a level in this class».
+  "Draconic Resilience": 1,
 };
 
 export const seedHitPointsPerLevel = async (prisma: PrismaClient) => {

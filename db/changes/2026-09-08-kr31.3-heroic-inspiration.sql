@@ -1,0 +1,25 @@
+-- KR31.3 — Героїчне натхнення 2024: одна булева колонка на персонажі.
+--
+-- Знахідки: L12-secondary-flows-10, L10-sheet-config-09, L19-parity-competitors-04.
+--
+-- Чому булеве, а не лічильник. PHB 2024, «Heroic Inspiration»: «If you have Heroic Inspiration,
+-- you can expend it to reroll any die immediately after you roll it… You can never have more than
+-- one instance of Heroic Inspiration.» Тобто це стан, а не ресурс із максимумом: `feature.uses_count`
+-- і `pers_resource_pool` тут не підходять — вони обидва рахують до максимуму, а книга каже «або є,
+-- або немає». Ім'я з `has_` — за наявними сусідами `is_dead`, `is_pinned`, `wears_shield`.
+--
+-- Колонка лежить на `pers`, а не на `pers_feature`, бо джерел натхнення три, і два з них фічі не
+-- мають: риса виду «Human: Resourceful (2024)» дає його після довгого відпочинку, приміщення
+-- бастіону (Noble Residence, Séance Parlor, Workshop) — за свій наказ або відпочинок, а майстер
+-- за столом дає його будь-кому й без джерела взагалі.
+--
+-- Редакцію колонка не розрізняє навмисно: у 2014 те саме поняття зветься просто «Inspiration» і так
+-- само булеве. Ця зміна вмикає його лише для RULES_2024; 2014 лишається як був.
+--
+-- Порядок кроків:
+--   1) власник застосовує цей файл до робочої бази;
+--   2) bun run db:pull  → оновлює prisma/schema.prisma, клієнт і db/schema.sql;
+--   3) сідів ця зміна не потребує — колонка заповнюється грою, а не контентом.
+-- Клон spells_test синкає агент через ./scripts/apply-db-change.sh.
+
+ALTER TABLE "pers" ADD COLUMN IF NOT EXISTS "has_heroic_inspiration" BOOLEAN NOT NULL DEFAULT false;

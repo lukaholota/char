@@ -24,7 +24,7 @@ import {
   Mountain,
   Droplet,
 } from "lucide-react";
-import { getRaceImagePath, getClassImagePath } from "@/lib/assets/image-manifest";
+import { getRaceImagePath, getClassImagePath, getBackgroundImagePath } from "@/lib/assets/image-manifest";
 
 export type CreationVisual = {
   icon: ComponentType<{ className?: string }>;
@@ -356,6 +356,17 @@ export function getClassVisual(className: string | null | undefined): CreationVi
     badgeClass: "border-slate-700/50 bg-slate-900/60 text-slate-300",
     accentBorder: "group-hover:border-slate-500/50",
     imageSrc,
+  };
+}
+
+export function getBackgroundVisual(backgroundName: string | null | undefined): CreationVisual {
+  return {
+    icon: Compass,
+    bgGradient: "from-slate-900/90 via-indigo-950/40 to-slate-950",
+    glowColor: "rgba(148, 163, 184, 0.15)",
+    badgeClass: "border-slate-700/50 bg-slate-900/60 text-slate-300",
+    accentBorder: "group-hover:border-slate-500/50",
+    imageSrc: getBackgroundImagePath(backgroundName),
   };
 }
 

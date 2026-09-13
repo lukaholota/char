@@ -150,6 +150,25 @@ export async function setDeathSaves({
   return { success: true, ...updated };
 }
 
+/// Натхнення — стан, а не лічильник: його дає майстер за столом або довгий відпочинок носія
+/// (`src/rules/heroic-inspiration.ts`), а витрачає гравець з листа руками.
+export async function setHeroicInspiration({
+  persId,
+  hasHeroicInspiration,
+}: {
+  persId: number;
+  hasHeroicInspiration: boolean;
+}): Promise<{ success: true; hasHeroicInspiration: boolean } | { success: false; error: string }> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const updated = await saveCombatState(persId, { hasHeroicInspiration: hasHeroicInspiration === true });
+
+  revalidatePath(`/char/${persId}`);
+  revalidatePath(`/character/${persId}`);
+  return { success: true, hasHeroicInspiration: updated.hasHeroicInspiration };
+}
+
 export async function reviveCharacter({
   persId,
 }: {

@@ -111,7 +111,7 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
         optionNameEng: "Wood Elf",
         optionName: "Лісовий ельф",
         description: "Ваша швидкість зростає до 35 футів. Ви також знаєте замовляння <a href=\"/2024/spells/druidcraft\">Ремесло друїдів [Druidcraft]</a>.",
-        modifiesSpeed: 35,
+        modifiesSpeed: 5,
         grantsFeature: {
           engName: "Elven Lineage: Wood Elf (2024)",
           name: "Ельфійський родовід (Лісовий ельф)",
@@ -183,7 +183,7 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
   {
     race: "TIEFLING_2024",
     traitEngName: "Tiefling: Fiendish Legacy (2024)",
-    groupName: "Демонічна спадщина",
+    groupName: "Почварна спадщина",
     options: [
       {
         optionNameEng: "Abyssal",
@@ -191,7 +191,7 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
         description: "Ви маєте опір до шкоди отрутою. Ви також знаєте замовляння <a href=\"/2024/spells/poison-spray\">Отруйні бризки [Poison Spray]</a>.",
         grantsFeature: {
           engName: "Fiendish Legacy: Abyssal (2024)",
-          name: "Демонічна спадщина (Безодня)",
+          name: "Почварна спадщина (Безодня)",
           description: "Ви маєте опір до шкоди отрутою. Ви також знаєте замовляння <a href=\"/2024/spells/poison-spray\">Отруйні бризки [Poison Spray]</a>.",
           givesSpells: ["Poison Spray"],
         },
@@ -202,7 +202,7 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
         description: "Ви маєте опір до некротичної шкоди. Ви також знаєте замовляння <a href=\"/2024/spells/chill-touch\">Моторошний дотик [Chill Touch]</a>.",
         grantsFeature: {
           engName: "Fiendish Legacy: Chthonic (2024)",
-          name: "Демонічна спадщина (Хтонічна)",
+          name: "Почварна спадщина (Хтонічна)",
           description: "Ви маєте опір до некротичної шкоди. Ви також знаєте замовляння <a href=\"/2024/spells/chill-touch\">Моторошний дотик [Chill Touch]</a>.",
           givesSpells: ["Chill Touch"],
         },
@@ -213,7 +213,7 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
         description: "Ви маєте опір до шкоди вогнем. Ви також знаєте замовляння <a href=\"/2024/spells/fire-bolt\">Вогняний заряд [Fire Bolt]</a>.",
         grantsFeature: {
           engName: "Fiendish Legacy: Infernal (2024)",
-          name: "Демонічна спадщина (Пекельна)",
+          name: "Почварна спадщина (Пекельна)",
           description: "Ви маєте опір до шкоди вогнем. Ви також знаєте замовляння <a href=\"/2024/spells/fire-bolt\">Вогняний заряд [Fire Bolt]</a>.",
           givesSpells: ["Fire Bolt"],
         },
@@ -238,6 +238,7 @@ const SPELLCASTING_ABILITY_TRAITS: Array<{ race: Races; traitEngName: string }> 
 /** Риса, яку заклинання отримують без вибору — Дивотворство тифлінга йде від Потойбічної присутності. */
 const TRAIT_SPELLS: Array<{ traitEngName: string; spells: string[] }> = [
   { traitEngName: "Tiefling: Otherworldly Presence (2024)", spells: ["Thaumaturgy"] },
+  { traitEngName: "Aasimar: Light Bearer (2024)", spells: ["Light"] },
 ];
 
 export const seedSpeciesChoices2024 = async (prisma: PrismaClient) => {

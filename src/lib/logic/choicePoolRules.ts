@@ -1,10 +1,20 @@
 export const CHOICE_GROUPS = {
   WARLOCK_INVOCATIONS: "Потойбічні виклики",
   SORCERER_METAMAGIC: "Метамагія",
+  CLASS_TOOLS: "Класові інструменти",
   BATTLE_MASTER_MANEUVERS: "Маневри майстра бою",
   ARCANE_SHOTS: "Арканні постріли",
   RUNE_KNIGHT_RUNES: "Руни велетнів",
   FOUR_ELEMENTS_DISCIPLINES: "Дисципліни чотирьох елементів",
+  DIVINE_ORDER: "Божественний орден",
+  PRIMAL_ORDER: "Первісний орден",
+  BLESSED_STRIKES: "Благословенні удари",
+  ELEMENTAL_FURY: "Стихійна лють",
+  FIGHTING_STYLE: "Бойовий стиль",
+  CIRCLE_OF_THE_LAND: "Коло землі",
+  HUNTERS_PREY: "Здобич мисливця",
+  DEFENSIVE_TACTICS: "Захисна тактика",
+  ELEMENTAL_AFFINITY: "Стихійна спорідненість",
 } as const;
 
 export type ChoicePoolScope = "class" | "subclass";
@@ -61,6 +71,20 @@ export function picksAtLevelForGroup(args: {
 const mapPicks = (mapping: Record<number, number>) => (levelAfter: number) => mapping[levelAfter] ?? 0;
 
 export const CHOICE_POOL_RULES: ChoicePoolRule[] = [
+  ...[
+    ["CLERIC_2024", CHOICE_GROUPS.DIVINE_ORDER, { 1: 1 }],
+    ["CLERIC_2024", CHOICE_GROUPS.BLESSED_STRIKES, { 7: 1 }],
+    ["DRUID_2024", CHOICE_GROUPS.PRIMAL_ORDER, { 1: 1 }],
+    ["DRUID_2024", CHOICE_GROUPS.ELEMENTAL_FURY, { 7: 1 }],
+    ["FIGHTER_2024", CHOICE_GROUPS.FIGHTING_STYLE, { 1: 1 }],
+    ["PALADIN_2024", CHOICE_GROUPS.FIGHTING_STYLE, { 2: 1 }],
+    ["RANGER_2024", CHOICE_GROUPS.FIGHTING_STYLE, { 2: 1 }],
+  ].map(([className, groupName, picks]) => ({
+    scope: "class" as const,
+    className: className as string,
+    groupName: groupName as string,
+    picksAtLevel: mapPicks(picks as Record<number, number>),
+  })),
   {
     scope: "class",
     className: "WARLOCK_2014",
@@ -92,12 +116,41 @@ export const CHOICE_POOL_RULES: ChoicePoolRule[] = [
     picksAtLevel: mapPicks({ 2: 2, 10: 2, 17: 2 }),
   },
   {
+    scope: "class",
+    className: "BARD_2024",
+    groupName: CHOICE_GROUPS.CLASS_TOOLS,
+    picksAtLevel: mapPicks({ 1: 3 }),
+  },
+  {
+    scope: "class",
+    className: "MONK_2024",
+    groupName: CHOICE_GROUPS.CLASS_TOOLS,
+    picksAtLevel: mapPicks({ 1: 1 }),
+  },
+  {
+    scope: "class",
+    className: "ARTIFICER_2024",
+    groupName: CHOICE_GROUPS.CLASS_TOOLS,
+    picksAtLevel: mapPicks({ 1: 1 }),
+  },
+  {
     scope: "subclass",
     subclassName: "BATTLE_MASTER",
     groupName: CHOICE_GROUPS.BATTLE_MASTER_MANEUVERS,
     // PHB 2014: 3 at lvl3, then +2 at 7/10/15
     picksAtLevel: mapPicks({ 3: 3, 7: 2, 10: 2, 15: 2 }),
   },
+  ...[
+    ["CIRCLE_OF_THE_LAND", CHOICE_GROUPS.CIRCLE_OF_THE_LAND, { 3: 1 }],
+    ["HUNTER", CHOICE_GROUPS.HUNTERS_PREY, { 3: 1 }],
+    ["HUNTER", CHOICE_GROUPS.DEFENSIVE_TACTICS, { 7: 1 }],
+    ["DRACONIC_SORCERY", CHOICE_GROUPS.ELEMENTAL_AFFINITY, { 6: 1 }],
+  ].map(([subclassName, groupName, picks]) => ({
+    scope: "subclass" as const,
+    subclassName: subclassName as string,
+    groupName: groupName as string,
+    picksAtLevel: mapPicks(picks as Record<number, number>),
+  })),
   {
     scope: "subclass",
     subclassName: "ARCANE_ARCHER",

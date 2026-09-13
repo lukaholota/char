@@ -52,7 +52,7 @@ function buildState(overrides: Partial<WildshapeState> = {}): WildshapeState {
       knownFormsLimit: null,
     },
     active: null,
-    uses: { featureId: 17928, price: 1, remaining: 1, max: 2 },
+    uses: { featureId: 17928, price: 1, remaining: 1, max: 2, isUnlimited: false },
     isLoaded: true,
     isPending: false,
     reload: vi.fn(),
@@ -68,6 +68,23 @@ describe("лічильник використань на картці Дикої
 
     expect(container.textContent).toContain("Використань 1 / 2");
     expect(screen.getByText("Перетворитися")).toBeDefined();
+  });
+
+  /// KR31.12 / L13-wildshape-08. Архідруїд 20 рівня 2014 має Дику форму без обмежень, а картка
+  /// показувала «2 / 2» — інтерфейс обіцяв межу, якої немає.
+  it("Архідруїд замість лічильника показує «без обмежень»", () => {
+    render(
+      <WildshapeCard
+        persId={1}
+        persName="Друїд"
+        wildshape={buildState({
+          uses: { featureId: 17928, price: 1, remaining: 2, max: 2, isUnlimited: true },
+        })}
+      />
+    );
+
+    expect(screen.getByText("Використань без обмежень")).toBeDefined();
+    expect(screen.queryByText("Використань 2 / 2")).toBeNull();
   });
 
   it("персонаж без пулу лічильника не отримує — порожнього не малюємо", () => {
@@ -95,7 +112,7 @@ describe("попередження про порожній пул доходит
       },
       warnings: [warning],
     });
-    const state = buildState({ uses: { featureId: 17928, price: 1, remaining: 0, max: 2 } });
+    const state = buildState({ uses: { featureId: 17928, price: 1, remaining: 0, max: 2, isUnlimited: false } });
 
     render(<WildshapeCard persId={1} persName="Друїд" wildshape={state} />);
     fireEvent.click(screen.getByText("Перетворитися"));

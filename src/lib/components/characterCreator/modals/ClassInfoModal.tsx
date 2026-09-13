@@ -21,6 +21,7 @@ import {
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { classTranslations, attributesUkrShort } from "@/lib/refs/translation";
 import { SPELL_SLOT_PROGRESSION, sneakAttackDice } from "@/lib/refs/static";
+import { INFUSIONS_KNOWN_BY_ARTIFICER_LEVEL } from "@/rules/artificer-infusions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Layers3 } from "lucide-react";
@@ -93,13 +94,7 @@ const CLASS_TABLE_CUSTOM_COLUMNS: Partial<
     {
       key: "infusions_known",
       label: "Знані вливання",
-      values: {
-        2: 4,
-        6: 6,
-        10: 8,
-        14: 10,
-        18: 12,
-      },
+      values: INFUSIONS_KNOWN_BY_ARTIFICER_LEVEL,
       mode: "STEP",
     },
     {

@@ -7,10 +7,30 @@ import { Ability, Skills, SkillProficiencyType, WeaponProperty } from "@prisma/c
 import type { Feature } from "@prisma/client";
 import { PersWithRelations, PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { getAbilityMod, getProficiencyBonus, skillAbilityMap } from "./utils";
-import { calculateArmorClass } from "@/rules/armor";
-import { calculateSavingThrowProficiencyBonus, calculateSkillProficiencyBonus } from "@/rules/proficiency";
+import { calculateArmorClass, explainArmorClass, type ArmorClassPartKey } from "@/rules/armor";
+import {
+  calculateSavingThrowProficiencyBonus,
+  calculateSkillProficiencyBonus,
+  hasJackOfAllTradesFeature,
+} from "@/rules/proficiency";
+import {
+  findInitiativeProficiencyBonus,
+  sumFeatureFlatHitPoints,
+  sumFeatureSpeedBonus,
+} from "@/rules/feature-stat-grants";
+import { calculateWalkingSpeed, explainWalkingSpeed, type WalkingSpeedPartKey } from "@/rules/walking-speed";
+import { collectDamageResistances, findDarkvisionRange } from "@/rules/senses-and-resistances";
+import {
+  canUseDexterousAttacks,
+  findMartialArtsDamageDice,
+  findMartialArtsDie,
+  isMonkWeapon,
+} from "@/rules/martial-arts";
+import { findUnarmoredMovementBonus, MONK_CLASS_NAMES } from "@/rules/unarmored-movement";
+import { buildCharacterLevels, findClassLevel } from "@/rules/character-level";
 import type { AbilityKey, ArmorAbilityBonusType } from "@/rules/types";
 import { StatBonuses, SkillBonuses, SimpleBonusValue } from "@/lib/types/model-types";
+import { abilityTranslations, armorTranslations } from "@/lib/refs/translation";
 
 // ============================================================================
 // JSON Parsers (handle null/undefined/invalid JSON)
@@ -137,7 +157,7 @@ function getMagicItemRangedDamageBonus(pers: PersWithRelations): number {
 // Feature Helpers
 // ============================================================================
 
-function collectActiveFeatures(pers: PersWithRelations): Feature[] {
+export function collectActiveFeatures(pers: PersWithRelations): Feature[] {
   const byId = new Map<number, Feature>();
   const add = (feature?: Feature | null) => {
     if (!feature) return;
@@ -196,15 +216,8 @@ function collectActiveFeatures(pers: PersWithRelations): Feature[] {
   return [...byId.values()];
 }
 
-function hasFeatureByEngName(pers: PersWithRelations, engName: string): boolean {
-  if (!engName) return false;
-  const features = collectActiveFeatures(pers);
-  return features.some((f) => String((f as any).engName ?? "").trim() === engName);
-}
-
 function hasJackOfAllTrades(pers: PersWithRelations): boolean {
-  // Hardcode by engName to avoid locale/name collisions.
-  return hasFeatureByEngName(pers, "Jack of All Trades");
+  return hasJackOfAllTradesFeature(collectActiveFeatures(pers).map((feature) => feature.engName));
 }
 
 function getFeatureACBonus(pers: PersWithRelations, hasArmor: boolean, hasShield: boolean): number {
@@ -241,9 +254,25 @@ function getBaseStat(pers: PersWithRelations, ability: Ability): number {
   return statMap[ability];
 }
 
-/** Calculate final stat value (base + statBonuses) */
+export type NumberPart = { label: string; value: number };
+
+function sumNumberParts(parts: readonly NumberPart[]): number {
+  return parts.reduce((total, part) => total + part.value, 0);
+}
+
+function keepBaseAndNonZero(parts: readonly NumberPart[]): NumberPart[] {
+  return parts.filter((part, index) => index === 0 || part.value !== 0);
+}
+
 export function calculateFinalStat(pers: PersWithRelations, ability: Ability): number {
-  return getBaseStat(pers, ability) + getStatBonus(pers, ability);
+  return sumNumberParts(explainFinalStat(pers, ability));
+}
+
+export function explainFinalStat(pers: PersWithRelations, ability: Ability): NumberPart[] {
+  return keepBaseAndNonZero([
+    { label: "Базове значення", value: getBaseStat(pers, ability) },
+    { label: "Ручний бонус", value: getStatBonus(pers, ability) },
+  ]);
 }
 
 /**
@@ -281,53 +310,66 @@ export function calculateFinalModifier(pers: PersWithRelations, ability: Ability
   return baseMod + getModifierBonus(pers, ability);
 }
 
-/** Calculate final save (modifier + proficiency if proficient + saveBonuses) */
 export function calculateFinalSave(
   pers: PersWithRelations,
   ability: Ability,
   _classSavingThrows?: Ability[] // kept for backward compatibility; not used
 ): number {
-  const mod = calculateFinalModifier(pers, ability);
-  const additionalSaves = (pers as any).additionalSaveProficiencies as Ability[] ?? [];
-  const isProficient = additionalSaves.includes(ability);
-  const pb = calculateSavingThrowProficiencyBonus(isProficient, calculateFinalProficiency(pers));
-  const saveBonus = getSaveBonus(pers, ability);
-  
-  // Also add misc save bonuses from existing field
-  const miscBonuses = (pers as unknown as { miscSaveBonuses?: Record<string, number> }).miscSaveBonuses ?? {};
-  const miscBonus = miscBonuses[ability] ?? 0;
-  
-  // Add Magic Item bonuses
-  const magicItemBonus = getMagicItemSaveBonus(pers, ability);
-  return mod + pb + saveBonus + miscBonus + magicItemBonus;
+  return sumNumberParts(explainFinalSave(pers, ability));
 }
 
-/** Calculate final skill modifier */
+export function explainFinalSave(pers: PersWithRelations, ability: Ability): NumberPart[] {
+  const additionalSaves = (pers as unknown as { additionalSaveProficiencies?: Ability[] }).additionalSaveProficiencies ?? [];
+  const miscBonuses = (pers as unknown as { miscSaveBonuses?: Record<string, number> }).miscSaveBonuses ?? {};
+
+  return keepBaseAndNonZero([
+    { label: `Модифікатор (${abilityTranslations[ability]})`, value: calculateFinalModifier(pers, ability) },
+    {
+      label: "Майстерність",
+      value: calculateSavingThrowProficiencyBonus(additionalSaves.includes(ability), calculateFinalProficiency(pers)),
+    },
+    { label: "Ручний бонус", value: getSaveBonus(pers, ability) },
+    { label: "Інші бонуси", value: miscBonuses[ability] ?? 0 },
+    { label: "Магічні предмети", value: getMagicItemSaveBonus(pers, ability) },
+  ]);
+}
+
 export function calculateFinalSkill(
   pers: PersWithRelations,
   skill: Skills
 ): { total: number; proficiency: SkillProficiencyType | "NONE" } {
-  const abilityKey = skillAbilityMap[skill];
-  const ability = abilityKey?.toUpperCase() as Ability;
+  return { total: sumNumberParts(explainFinalSkill(pers, skill)), proficiency: findSkillProficiency(pers, skill) };
+}
 
+const SKILL_PROFICIENCY_LABELS: Record<SkillProficiencyType | "NONE", string> = {
+  NONE: "Майстер на всі руки",
+  HALF: "Половина майстерності",
+  PROFICIENT: "Майстерність",
+  EXPERTISE: "Експертиза",
+};
+
+export function explainFinalSkill(pers: PersWithRelations, skill: Skills): NumberPart[] {
+  const ability = skillAbilityMap[skill]?.toUpperCase() as Ability | undefined;
   const abilityScore = ability ? getBaseStat(pers, ability) + getStatBonus(pers, ability) : 10;
-  const abilityMod = getAbilityMod(abilityScore);
-  const modBonus = ability ? getModifierBonus(pers, ability) : 0;
-
-  const persSkill = pers.skills.find((ps) => ps.name === skill);
-  const proficiency = persSkill?.proficiencyType ?? "NONE";
-
-  const pb = calculateFinalProficiency(pers);
-  let total = abilityMod + modBonus;
-
-  total += calculateSkillProficiencyBonus(
+  const proficiency = findSkillProficiency(pers, skill);
+  const proficiencyValue = calculateSkillProficiencyBonus(
     proficiency,
-    pb,
+    calculateFinalProficiency(pers),
     proficiency === "NONE" && hasJackOfAllTrades(pers),
   );
 
-  total += getSkillBonus(pers, skill);
-  return { total, proficiency };
+  return keepBaseAndNonZero([
+    {
+      label: ability ? `Модифікатор (${abilityTranslations[ability]})` : "Модифікатор",
+      value: getAbilityMod(abilityScore) + (ability ? getModifierBonus(pers, ability) : 0),
+    },
+    { label: SKILL_PROFICIENCY_LABELS[proficiency], value: proficiencyValue },
+    { label: "Ручний бонус", value: getSkillBonus(pers, skill) },
+  ]);
+}
+
+function findSkillProficiency(pers: PersWithRelations, skill: Skills): SkillProficiencyType | "NONE" {
+  return pers.skills.find((entry) => entry.name === skill)?.proficiencyType ?? "NONE";
 }
 
 /** Calculate final proficiency bonus */
@@ -335,13 +377,41 @@ export function calculateFinalProficiency(pers: PersWithRelations): number {
   return getProficiencyBonus(pers.level) + getSimpleBonus(pers, "proficiency");
 }
 
-/** Calculate final AC */
 export function calculateFinalAC(pers: PersWithRelations): number {
-  const equippedArmor = pers.armors.find(a => a.equipped);
+  return calculateArmorClass(buildArmorClassInput(pers));
+}
+
+export function explainFinalAC(pers: PersWithRelations): NumberPart[] {
+  const baseLabel = findBaseArmorClassLabel(pers);
+  return keepBaseAndNonZero(
+    explainArmorClass(buildArmorClassInput(pers)).map((part) => ({
+      label: part.key === "BASE" ? baseLabel : ARMOR_CLASS_PART_LABELS[part.key],
+      value: part.value,
+    })),
+  );
+}
+
+const ARMOR_CLASS_PART_LABELS: Record<Exclude<ArmorClassPartKey, "BASE">, string> = {
+  SPECIES: "Вид",
+  SHIELD: "Щит",
+  MANUAL: "Ручний бонус",
+  FEATURES: "Риси",
+  MAGIC_ITEMS: "Магічні предмети",
+};
+
+function findBaseArmorClassLabel(pers: PersWithRelations): string {
+  if (Number.isFinite(pers.overrideBaseAC)) return "Базовий КЗ (вручну)";
+  const equippedArmor = pers.armors.find((entry) => entry.equipped);
+  if (!equippedArmor) return "Без обладунку (10 + Спритність)";
+  return `Базовий КЗ: ${armorTranslations[equippedArmor.armor.name as keyof typeof armorTranslations] ?? equippedArmor.armor.name}`;
+}
+
+function buildArmorClassInput(pers: PersWithRelations) {
+  const equippedArmor = pers.armors.find((entry) => entry.equipped);
   const hasArmor = Boolean(equippedArmor);
   const wearsShield = pers.wearsShield;
 
-  return calculateArmorClass({
+  return {
     dexterityModifier: calculateFinalModifier(pers, Ability.DEX),
     abilityModifiers: getAbilityModifiers(pers),
     equippedArmor: equippedArmor ? toRuleArmor(equippedArmor) : null,
@@ -352,7 +422,7 @@ export function calculateFinalAC(pers: PersWithRelations): number {
     simpleArmorClassBonus: getSimpleBonus(pers, "ac"),
     featureArmorClassBonus: getFeatureACBonus(pers, hasArmor, wearsShield),
     magicItemArmorClassBonus: getMagicItemACBonus(pers, hasArmor, wearsShield),
-  });
+  };
 }
 
 function getAbilityModifiers(pers: PersWithRelations): Record<AbilityKey, number> {
@@ -391,21 +461,107 @@ function toRuleArmor(equippedArmor: PersWithRelations["armors"][number]) {
   };
 }
 
-/** Calculate final speed (base 30 + bonuses) */
 export function calculateFinalSpeed(pers: PersWithRelations): number {
-  // TODO: Get from race when race has speed field
-  return 30 + getSimpleBonus(pers, "speed");
+  return calculateWalkingSpeed(buildWalkingSpeedInput(pers));
 }
 
-/** Calculate final initiative */
+const WALKING_SPEED_PART_LABELS: Record<WalkingSpeedPartKey, string> = {
+  REPLACEMENT: "Швидкість звіриної форми",
+  SPECIES: "Вид",
+  VARIANT: "Варіант виду",
+  SUBRACE: "Підвид",
+  SPECIES_CHOICES: "Вибір виду",
+  FEATURES: "Риси",
+  UNARMORED_MOVEMENT: "Рух без обладунків",
+  MANUAL: "Ручний бонус",
+};
+
+export function explainFinalSpeed(pers: PersWithRelations): NumberPart[] {
+  return keepBaseAndNonZero(
+    explainWalkingSpeed(buildWalkingSpeedInput(pers)).map((part) => ({ label: WALKING_SPEED_PART_LABELS[part.key], value: part.value })),
+  );
+}
+
+function buildWalkingSpeedInput(pers: PersWithRelations) {
+  const speedState = pers as PersWithRelations & { walkingSpeedReplacement?: number | null };
+  return {
+    replacementSpeed: speedState.walkingSpeedReplacement,
+    baseSpeed: pers.race?.speed,
+    variantSpeedOverride: firstFiniteNumber(pers.raceVariants?.map((variant) => variant.overridesRaceSpeed)),
+    subraceSpeedModifier: pers.subrace?.speedModifier,
+    choiceSpeedModifiers: pers.raceChoiceOptions?.map((option) => option.modifiesSpeed),
+    featureSpeedBonus: sumFeatureSpeedBonus(collectActiveFeatures(pers)),
+    unarmoredMovementBonus: findPersUnarmoredMovementBonus(pers),
+    manualSpeedBonus: getSimpleBonus(pers, "speed"),
+  };
+}
+
+function findPersUnarmoredMovementBonus(pers: PersWithRelations): number {
+  const monkLevel = findMonkLevel(pers);
+  if (monkLevel === 0) return 0;
+  return findUnarmoredMovementBonus({
+    monkLevel,
+    equippedArmorNames: findEquippedArmorNames(pers),
+    wearsShield: pers.wearsShield,
+  });
+}
+
+function findMonkLevel(pers: PersWithRelations): number {
+  const levels = buildCharacterLevels({
+    characterLevel: pers.level,
+    mainClassName: pers.class?.name ?? "",
+    multiclasses: (pers.multiclasses ?? []).map((entry) => ({ className: entry.class.name, classLevel: entry.classLevel })),
+  });
+  return MONK_CLASS_NAMES.reduce((total, className) => total + findClassLevel(levels, className), 0);
+}
+
+function findEquippedArmorNames(pers: PersWithRelations): string[] {
+  return pers.armors.filter((entry) => entry.equipped).map((entry) => entry.armor.name);
+}
+
+export function calculatePassiveSkill(pers: PersWithRelations, skill: Skills): number {
+  return 10 + calculateFinalSkill(pers, skill).total;
+}
+
+export function calculateDamageResistances(pers: PersWithRelations) {
+  return collectDamageResistances(collectActiveFeatures(pers));
+}
+
+export function calculateDarkvisionRange(pers: PersWithRelations): number | null {
+  return findDarkvisionRange(collectActiveFeatures(pers));
+}
+
+function firstFiniteNumber(values: readonly (number | null | undefined)[] | undefined): number | null {
+  return values?.find((value): value is number => typeof value === "number" && Number.isFinite(value)) ?? null;
+}
+
 export function calculateFinalInitiative(pers: PersWithRelations): number {
-  const dexMod = calculateFinalModifier(pers, Ability.DEX);
-  return dexMod + getSimpleBonus(pers, "initiative");
+  return sumNumberParts(explainFinalInitiative(pers));
+}
+
+export function explainFinalInitiative(pers: PersWithRelations): NumberPart[] {
+  const proficiencyBonus = calculateFinalProficiency(pers);
+  const fromFeatures = findInitiativeProficiencyBonus(collectActiveFeatures(pers), proficiencyBonus);
+  const fromJackOfAllTrades = fromFeatures === 0 && appliesJackOfAllTradesToInitiative(pers)
+    ? Math.floor(proficiencyBonus / 2)
+    : 0;
+
+  return keepBaseAndNonZero([
+    { label: "Модифікатор (Спритність)", value: calculateFinalModifier(pers, Ability.DEX) },
+    { label: "Ручний бонус", value: getSimpleBonus(pers, "initiative") },
+    { label: "Майстерність (риса)", value: fromFeatures },
+    { label: "Майстер на всі руки", value: fromJackOfAllTrades },
+  ]);
+}
+
+// 2014 — «any ability check», а ініціатива є перевіркою Спритності; 2024 звузив до перевірок навичок.
+function appliesJackOfAllTradesToInitiative(pers: PersWithRelations): boolean {
+  return pers.ruleset === "RULES_2014" && hasJackOfAllTrades(pers);
 }
 
 /** Calculate final max HP */
 export function calculateFinalMaxHP(pers: PersWithRelations): number {
-  return pers.maxHp + getSimpleBonus(pers, "hp");
+  return pers.maxHp + getSimpleBonus(pers, "hp") + sumFeatureFlatHitPoints(collectActiveFeatures(pers));
 }
 
 /** Calculate spell attack bonus */
@@ -498,13 +654,30 @@ export function getWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeap
   if (weapon?.isRanged) return Ability.DEX;
 
   const isFinesse = Boolean(weapon?.properties?.includes(WeaponProperty.FINESSE));
-  if (isFinesse) {
+  if (isFinesse || hasDexterousAttacksWith(pers, weapon)) {
     const strMod = calculateFinalModifier(pers, Ability.STR);
     const dexMod = calculateFinalModifier(pers, Ability.DEX);
     return dexMod >= strMod ? Ability.DEX : Ability.STR;
   }
 
   return Ability.STR;
+}
+
+export function calculateWeaponDamageDice(pers: PersWithRelations, pw: PersWeaponWithWeapon): string {
+  const weaponDamage = String(pw.customDamageDice || pw.weapon?.damage || "");
+  if (pw.customDamageDice || !hasDexterousAttacksWith(pers, pw.weapon)) return weaponDamage;
+
+  const martialArtsDie = findMartialArtsDie(pers.ruleset, findMonkLevel(pers));
+  return martialArtsDie ? findMartialArtsDamageDice(weaponDamage, martialArtsDie) : weaponDamage;
+}
+
+function hasDexterousAttacksWith(pers: PersWithRelations, weapon: PersWeaponWithWeapon["weapon"]): boolean {
+  if (!weapon || !isMonkWeapon(weapon, pers.ruleset)) return false;
+  return canUseDexterousAttacks({
+    featureEngNames: collectActiveFeatures(pers).map((feature) => feature.engName),
+    equippedArmorNames: findEquippedArmorNames(pers),
+    wearsShield: pers.wearsShield,
+  });
 }
 
 export function calculateWeaponAttackBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {

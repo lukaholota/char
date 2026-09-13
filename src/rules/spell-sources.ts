@@ -24,10 +24,18 @@ export type SpellSource = {
   kind: SpellSourceKind;
 };
 
+export type SpellcastingSubclass = {
+  name: string;
+  spellcastingType: string;
+  primaryCastingStat: AbilityKey | null;
+};
+
 export type SpellcastingClass = {
   name: string;
   spellcastingType: string;
   primaryCastingStat: AbilityKey | null;
+  /** Третинний заклинач (Лицар-Чаклун, Містичний спритник) чаклує підкласом: клас сам порожній. */
+  subclass?: SpellcastingSubclass | null;
 };
 
 export type ChosenRaceChoiceOption = {
@@ -54,6 +62,8 @@ export type ChosenFeatOption = {
   featName: string;
   effectKind: string | null;
   effectAbility: AbilityKey | null;
+  /** Доторк феї: заклинання риси чаклуються тією характеристикою, яку риса підвищила. */
+  featGrantsSpells: boolean;
 };
 
 export type GrantedSpell = {
@@ -63,7 +73,7 @@ export type GrantedSpell = {
   ability: AbilityKey | null;
 };
 
-type SpellSourcesInput = {
+export type SpellSourcesInput = {
   ruleset: RulesetId;
   /** Початковий клас і кожен побічний: у мультикласі 2024 кожен клас чаклує своєю характеристикою (§15.9). */
   characterClasses: readonly SpellcastingClass[];
@@ -80,6 +90,18 @@ export function findSpellSources(input: SpellSourcesInput): SpellSource[] {
     ...findSpeciesSource(input.raceTraits, input.raceChoiceOptions),
     ...findFeatSources(input.featOptions),
   ];
+}
+
+/**
+ * Джерела, за якими лист рахує КС і атаку заклинань. В обох редакціях кожен клас мультикласу
+ * чаклує своєю характеристикою (PHB 2014, с. 164; SRD 5.2.1, Multiclassing → Spellcasting),
+ * а третинний заклинач бере її з підкласу. Джерела виду й рис — поняття 2024, як і в
+ * `findSpellSources`; 2014 бачить лише класи.
+ */
+export function findSpellcastingSources(input: SpellSourcesInput): SpellSource[] {
+  if (input.ruleset === "RULES_2024") return findSpellSources(input);
+
+  return findClassSources(input.characterClasses);
 }
 
 /**
@@ -123,22 +145,27 @@ function collectEarnedLeveledSpellIds(
 }
 
 function findClassSources(characterClasses: readonly SpellcastingClass[]): SpellSource[] {
-  const sources = characterClasses
-    .filter((characterClass) => characterClass.spellcastingType !== "NONE")
-    .map((characterClass): SpellSource => ({
-      key: characterClass.name,
-      name: characterClass.name,
-      ability: characterClass.primaryCastingStat,
-      kind: "CLASS",
-    }));
+  const sources = characterClasses.flatMap((characterClass): SpellSource[] => {
+    const caster = findCastingAbilityOwner(characterClass);
+    if (!caster) return [];
+
+    return [{ key: characterClass.name, name: caster.name, ability: caster.primaryCastingStat, kind: "CLASS" }];
+  });
 
   return dedupeByKey(sources);
+}
+
+function findCastingAbilityOwner(characterClass: SpellcastingClass): SpellcastingClass | SpellcastingSubclass | null {
+  if (characterClass.spellcastingType !== "NONE") return characterClass;
+
+  const subclass = characterClass.subclass;
+  return subclass && subclass.spellcastingType !== "NONE" ? subclass : null;
 }
 
 /**
  * Вид дає щонайбільше одне джерело: PHB 2024 привʼязує всі заклинання виду до однієї
  * характеристики, обраної разом із родоводом («Потойбічна присутність» тифлінга чаклується
- * тією ж характеристикою, що й «Демонічна спадщина»).
+ * тією ж характеристикою, що й «Почварна спадщина»).
  */
 function findSpeciesSource(
   raceTraits: readonly FeatureWithSpells[],
@@ -162,16 +189,25 @@ function findSpeciesSource(
   }
 
   const granting = findGrantingTrait(raceTraits, raceChoiceOptions);
-  return granting ? [{ key: granting.engName, name: granting.name, ability: null, kind: "SPECIES" }] : [];
+  if (!granting) return [];
+
+  const ability = FIXED_TRAIT_SPELLCASTING_ABILITIES[granting.engName] ?? null;
+  return [{ key: granting.engName, name: granting.name, ability, kind: "SPECIES" }];
 }
+
+/** Риса, що сама називає характеристику замовляння, вибору не питає: «Charisma is your spellcasting ability for it». */
+const FIXED_TRAIT_SPELLCASTING_ABILITIES: Readonly<Record<string, AbilityKey>> = {
+  "Aasimar: Light Bearer (2024)": "CHA",
+};
 
 /**
  * Риса стає джерелом заклинань, коли обрана в ній опція називає характеристику замовляння.
- * Підвищення характеристики (`effectKind: ASI`) — не про це: воно додає +1 до значення.
+ * Підвищення характеристики (`effectKind: ASI`) додає лише +1 до значення — окрім рис, що самі
+ * дають заклинання: там книга каже «the spells' spellcasting ability is the ability increased by this feat».
  */
 function findFeatSources(featOptions: readonly ChosenFeatOption[]): SpellSource[] {
   const sources = featOptions
-    .filter((option) => option.effectAbility && option.effectKind !== "ASI")
+    .filter((option) => option.effectAbility && (option.effectKind !== "ASI" || option.featGrantsSpells))
     .map((option): SpellSource => ({
       key: option.featName,
       name: option.featName,

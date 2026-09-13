@@ -23,6 +23,7 @@ export type RaceBranch = {
   key: string;
   name: string;
   engName: string;
+  description: string | null;
   traits: RaceTrait[];
 };
 
@@ -32,6 +33,7 @@ export type RaceData = {
   slug: string;
   name: string;
   engName: string;
+  description: string | null;
   source: string;
   sizes: string[];
   speed: number;

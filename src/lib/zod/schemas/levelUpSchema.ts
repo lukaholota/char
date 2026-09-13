@@ -22,6 +22,7 @@ export const levelUpInputSchema = z.object({
   languagesSchema: z.object({ languages: z.array(z.string()).catch([]) }).catch({ languages: [] }),
   infusionSelections: z.array(z.coerce.number()).catch([]),
   weaponMasteryWeaponIds: z.array(z.coerce.number()).optional(),
+  featSpellIds: z.array(z.coerce.number()).catch([]),
   levelUpHpIncrease: z.number().optional().catch(undefined),
 }).passthrough();
 

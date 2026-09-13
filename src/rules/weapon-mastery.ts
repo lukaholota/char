@@ -42,13 +42,32 @@ const WEAPON_TYPES = ["SIMPLE_WEAPON", "MARTIAL_WEAPON", "FIREARMS"];
 const MELEE_ONLY_MASTERY_CLASSES = new Set(["BARBARIAN_2024"]);
 
 /**
- * Мультиклас бере найбільшу ємність, а не суму: кожна фіча каже «ви можете користуватися
- * властивостями майстерності N видів зброї», і дві такі фічі не додаються одна до одної.
+ * Риса «Weapon Master» — «you can use the mastery property of one kind of Simple or Martial
+ * weapon of your choice» (PHB 2024). Це окреме джерело, а не класова прогресія, тож воно
+ * додається до неї, а не змагається з нею максимумом.
  */
-export function findWeaponMasteryCapacity(classes: readonly MasteryClassLevel[]): number {
-  return classes.reduce((highest, entry) => Math.max(highest, readCapacityAtLevel(entry)), 0);
+const MASTERY_SLOT_BY_FEAT: Record<string, number> = {
+  WEAPON_MASTER: 1,
+};
+
+export function countFeatMasterySlots(featNames: readonly string[]): number {
+  return featNames.reduce((total, featName) => total + (MASTERY_SLOT_BY_FEAT[featName] ?? 0), 0);
 }
 
+/**
+ * Мультиклас бере найбільшу ємність, а не суму: кожна фіча каже «ви можете користуватися
+ * властивостями майстерності N видів зброї», і дві такі фічі не додаються одна до одної.
+ * Слоти від рис лежать поверх цього максимуму.
+ */
+export function findWeaponMasteryCapacity(
+  classes: readonly MasteryClassLevel[],
+  featSlots = 0,
+): number {
+  const fromClasses = classes.reduce((highest, entry) => Math.max(highest, readCapacityAtLevel(entry)), 0);
+  return fromClasses + featSlots;
+}
+
+/** Кличе лише конструктор, тобто 1-й рівень: риса майстерності має передумову 4-го, і сюди не дійде. */
 export function hasWeaponMastery(classes: readonly MasteryClassLevel[]): boolean {
   return findWeaponMasteryCapacity(classes) > 0;
 }

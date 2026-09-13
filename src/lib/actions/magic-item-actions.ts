@@ -5,6 +5,7 @@ import { canEditPers } from "@/lib/actions/pers";
 import {
   addMagicItemLink,
   deletePersMagicItem,
+  findAttunementLimitError,
   findMagicItemPersId,
   hasMagicItemLink,
   removeMagicItemLinks,
@@ -36,6 +37,11 @@ export async function updateMagicItem(
 
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+
+  if (updates.isAttuned) {
+    const limitError = await findAttunementLimitError(persId, persMagicItemId);
+    if (limitError) return { success: false, error: limitError };
+  }
 
   try {
     const updated = await updatePersMagicItem(persMagicItemId, updates);

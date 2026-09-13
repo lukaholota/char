@@ -28,6 +28,39 @@ const FIGHTING_STYLE_LEVEL_BY_CLASS: Record<string, number> = {
   RANGER_2024: 2,
 };
 
+type FightingStyleMechanics = {
+  bonusToRangedAttackRoll?: number;
+  givesAC?: number;
+  requiresArmorForACBonus?: boolean;
+  bonusToMeleeOneHandedWeaponDamage?: number;
+  bonusToThrownDamage?: number;
+  unarmedDamage?: string;
+  modifiesUnarmed?: boolean;
+};
+
+/**
+ * KR31.4 — числа бойових стилів 2024 у тих самих колонках `Feature`, які вже читає
+ * `bonus-calculator` для стилів 2014. Джерело — `data/2024/source/raw/feat/*.html` (PHB 2024);
+ * Archery і Defense є ще й у `data/2024/srd/feats.md`, і формулювання там те саме.
+ *
+ * Пʼять стилів тут відсутні свідомо: Blind Fighting (сліпозір 10 футів), Great Weapon Fighting
+ * (перекид 1 і 2 на кубі шкоди), Interception і Protection (реакції) і Two Weapon Fighting
+ * (модифікатор до шкоди додаткової атаки) не мають числа, яке лист рахує, — жодної колонки під
+ * них у `feature` не існує. Вони лишаються прозою, і це межа, а не пропуск.
+ */
+export const FIGHTING_STYLE_MECHANICS_2024: Readonly<Record<string, FightingStyleMechanics>> = {
+  // «You gain a +2 bonus to attack rolls you make with Ranged weapons.»
+  Archery: { bonusToRangedAttackRoll: 2 },
+  // «While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class.»
+  Defense: { givesAC: 1, requiresArmorForACBonus: true },
+  // «When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls.»
+  Dueling: { bonusToMeleeOneHandedWeaponDamage: 2 },
+  // «When you hit with a ranged attack roll using a weapon that has the Thrown property, you gain a +2 bonus to the damage roll.»
+  "Thrown Weapon Fighting": { bonusToThrownDamage: 2 },
+  // «…deal Bludgeoning damage equal to 1d6 … If you aren't holding any weapons or a Shield … the d6 becomes a d8.»
+  "Unarmed Fighting": { unarmedDamage: "1к6 / 1к8", modifiesUnarmed: true },
+};
+
 export const seedFightingStyles2024 = async (prisma: PrismaClient) => {
   console.log("🛡️ Бойові стилі 2024 як риси…");
 
@@ -78,9 +111,28 @@ async function upsertFightingStyleFeature(prisma: PrismaClient, feat: StyleFeat)
     shortDescription: feat.shortDescription,
     displayType: [FeatureDisplayType.PASSIVE],
     ruleset: RULESET,
+    ...readMechanics(feat.engName),
   };
 
   return prisma.feature.upsert({ where: { engName }, update: data, create: { ...data, engName } });
+}
+
+/**
+ * Кожна механічна колонка виставляється явно — і в стилях без механіки теж, у `null`. Інакше
+ * повторний прогін після правки таблиці лишив би в базі старе число, якого вже ніде немає.
+ */
+function readMechanics(engName: string) {
+  const mechanics = FIGHTING_STYLE_MECHANICS_2024[engName] ?? {};
+
+  return {
+    bonusToRangedAttackRoll: mechanics.bonusToRangedAttackRoll ?? null,
+    givesAC: mechanics.givesAC ?? null,
+    requiresArmorForACBonus: mechanics.requiresArmorForACBonus ?? null,
+    bonusToMeleeOneHandedWeaponDamage: mechanics.bonusToMeleeOneHandedWeaponDamage ?? null,
+    bonusToThrownDamage: mechanics.bonusToThrownDamage ?? null,
+    unarmedDamage: mechanics.unarmedDamage ?? null,
+    modifiesUnarmed: mechanics.modifiesUnarmed ?? null,
+  };
 }
 
 /** `Feat.name` — enum-ключ (ARCHERY); людська назва лежить у перекладах, а не в базі. */

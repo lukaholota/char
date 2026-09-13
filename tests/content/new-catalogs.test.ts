@@ -121,12 +121,13 @@ describe("KR9.2 — New Entity Catalogs (Weapons, Armor, Infusions, Invocations)
   });
 
   describe("4. Warlock Invocations Catalog", () => {
-    it("returns 50 invocations for 2014 and 31 invocations for 2024", () => {
+    it("returns 50 invocations for 2014 and 32 invocations for 2024", () => {
       const inv2014 = getAllInvocations("RULES_2014");
       const inv2024 = getAllInvocations("RULES_2024");
 
       expect(inv2014.length).toBe(50);
-      expect(inv2024.length).toBe(31);
+      // KR31.2 додав 32-й виклик — Thirsting Blade, який SRD вимагає передумовою Devouring Blade.
+      expect(inv2024.length).toBe(32);
     });
 
     it("correctly models level and pact requirements for 2014 and 2024", () => {

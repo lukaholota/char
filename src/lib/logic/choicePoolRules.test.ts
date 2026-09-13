@@ -15,6 +15,20 @@ it("KR31.2 — метамагія 2024 дає по 2 опції на 2-му, 10-
     .toEqual([0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0]);
 });
 
+it.each([
+  ["BARD_2024", 3],
+  ["MONK_2024", 1],
+  ["ARTIFICER_2024", 1],
+] as const)("KR31.2 — %s обирає %i класових інструментів на 1-му рівні", (className, count) => {
+  const rule = getChoicePoolRule({
+    scope: "class",
+    groupName: CHOICE_GROUPS.CLASS_TOOLS,
+    className,
+  });
+  expect(rule?.picksAtLevel(1)).toBe(count);
+  expect(rule?.picksAtLevel(2)).toBe(0);
+});
+
 const cumulativeInvocationsKnown = (className: string, level: number): number => {
   const rule = getChoicePoolRule({ scope: "class", groupName: CHOICE_GROUPS.WARLOCK_INVOCATIONS, className });
   if (!rule) throw new Error(`no rule for ${className}`);

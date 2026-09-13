@@ -5,7 +5,7 @@
  * character creator queries — no second source of truth (KR15.6).
  */
 
-import type { Ruleset } from "@prisma/client";
+import type { Ruleset, Skills } from "@prisma/client";
 
 import classesJson from "@/lib/generated/classes.json";
 import { getClassImagePath } from "@/lib/assets/image-manifest";
@@ -35,11 +35,12 @@ export type ClassData = {
   slug: string;
   name: string;
   engName: string;
+  description: string | null;
   hitDie: number;
   savingThrows: string[];
   armorProficiencies: string[];
   toolProficiencies: string[];
-  skillChoices: { options: string[]; count: number };
+  skillChoices: { options: Skills[]; count: number };
   spellcasting: string | null;
   castingStat: string | null;
   subclassLevel: number;

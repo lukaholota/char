@@ -314,9 +314,24 @@ export function linkMentionsInJson(value: unknown, registry: SpellRegistry, edit
 /// Формат файлу повертається йому ж: змінені рядки підставляються в текст файлу в їхньому
 /// JSON-екранованому вигляді, решта байтів не чіпається. Якщо після підстановки файл не
 /// розбирається в очікуване значення, він не пишеться, а називається у звіті (як у KR30.2).
-export function applyJsonStringEdits(source: string, edits: StringEdit[], expected: unknown): string | null {
-  let text = source;
+/// Заміна тут глобальна, тож два записи з дослівно однаковим рядком дали б другій правці
+/// «оригіналу вже немає» і завалили б запис усього файлу. Однакові правки — це одна правка:
+/// проставляч детермінований, і на однаковому тексті однієї редакції він дає однаковий результат.
+function dedupeEditsByOriginal(edits: StringEdit[]): StringEdit[] | null {
+  const byOriginal = new Map<string, StringEdit>();
   for (const edit of edits) {
+    const seen = byOriginal.get(edit.original);
+    if (seen && seen.linked !== edit.linked) return null;
+    if (!seen) byOriginal.set(edit.original, edit);
+  }
+  return [...byOriginal.values()];
+}
+
+export function applyJsonStringEdits(source: string, edits: StringEdit[], expected: unknown): string | null {
+  const unique = dedupeEditsByOriginal(edits);
+  if (!unique) return null;
+  let text = source;
+  for (const edit of unique) {
     const escapedOriginal = JSON.stringify(edit.original).slice(1, -1);
     if (!text.includes(escapedOriginal)) return null;
     text = text.split(escapedOriginal).join(JSON.stringify(edit.linked).slice(1, -1));
@@ -368,6 +383,71 @@ export function linkMentionsInTypeScript(source: string, registry: SpellRegistry
   let text = source;
   for (const edit of edits.sort((a, b) => b.start - a.start)) text = text.slice(0, edit.start) + edit.text + text.slice(edit.end);
   return { text, report };
+}
+
+/// Друга дірка того самого правила. Проставляч вище чіпляється **лише** за маркер `[EngName]`,
+/// тож назва, написана голою англійською («Накладання Mage Armor на себе»), для нього не існує:
+/// ні загорнути, ні порахувати як недостачу покриття він її не може. Саме в цю щілину заїхали
+/// 2024-виклики — опис фічі був звʼязаний правильно, а короткий опис поруч лишався англійським.
+/// Тут — детектор саме цього: англійська назва заклинання в українському реченні, поза
+/// маркером, посиланням і маркером оригіналу.
+export type BareSpellMention = { path: string; key: string; engName: string; context: string };
+
+const CYRILLIC = /[а-яіїєґА-ЯІЇЄҐ]/;
+
+function buildBareNamePattern(registry: SpellRegistry): RegExp {
+  const names = [...registry.byEngName.values()].map((entry) => entry.engName).sort((a, b) => b.length - a.length);
+  return new RegExp(`(?<![\\w\\[>])(${names.map(escapeForPattern).join("|")})(?![\\w\\]])`, "g");
+}
+
+function escapeForPattern(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/// Уже правильні форми з тексту прибираються перед пошуком: посилання, маркер назви `[Eng]` і
+/// маркер оригіналу `{{Eng}}` — це і є та сама назва, записана як домовлено.
+function hideCorrectForms(text: string): string {
+  return text
+    .replace(/<a\b[^>]*>[\s\S]*?<\/a>/g, " ")
+    .replace(/\[[^\]]*\]/g, " ")
+    .replace(/\{\{[^}]*\}\}/g, " ");
+}
+
+export function findBareSpellNamesInText(text: string, registry: SpellRegistry, keepAsText: ReadonlySet<string> = new Set()): string[] {
+  if (!CYRILLIC.test(text)) return [];
+  return [...hideCorrectForms(text).matchAll(buildBareNamePattern(registry))]
+    .map((match) => match[1])
+    .filter((engName) => !keepAsText.has(engName));
+}
+
+export function findBareSpellNamesInCarrier(
+  carrier: Carrier,
+  registry: SpellRegistry,
+  root = process.cwd(),
+  keepAsText: ReadonlySet<string> = new Set(Object.keys(readNotASpellFile(root)[carrier.path] ?? {})),
+): BareSpellMention[] {
+  const source = readFileSync(join(root, carrier.path), "utf-8");
+  const found: BareSpellMention[] = [];
+
+  const collect = (text: string, key: string) => {
+    for (const engName of findBareSpellNamesInText(text, registry, keepAsText)) {
+      found.push({ path: carrier.path, key, engName, context: text.replace(/\s+/g, " ").slice(0, 120) });
+    }
+  };
+
+  if (carrier.format === "ts") {
+    forEachProseLiteral(source, (raw) => collect(raw, "—"));
+  } else {
+    const walk = (value: unknown, key: string) => {
+      if (typeof value === "string") return IDENTITY_KEYS.has(key) ? undefined : collect(value, key);
+      if (Array.isArray(value)) return value.forEach((item) => walk(item, key));
+      if (value && typeof value === "object") {
+        for (const [k, v] of Object.entries(value as Record<string, unknown>)) walk(v, k);
+      }
+    };
+    walk(JSON.parse(source), "");
+  }
+  return found;
 }
 
 export function listCarriers(root = process.cwd()): Carrier[] {

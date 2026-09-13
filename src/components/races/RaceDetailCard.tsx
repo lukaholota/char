@@ -4,6 +4,8 @@ import { Footprints, Languages, Ruler, ScrollText, TrendingUp } from "lucide-rea
 
 import type { RaceBranch, RaceData, RaceTrait } from "@/lib/racesData";
 import { RACE_SINGULAR } from "@/lib/refs/race-labels";
+import { CatalogProse } from "@/components/catalogs/CatalogProse";
+import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/SectionJumpNav";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { cn } from "@/lib/utils";
@@ -11,6 +13,7 @@ import { cn } from "@/lib/utils";
 export function RaceDetailCard({ race, is2024 = false }: { race: RaceData; is2024?: boolean }) {
   return (
     <div
+      {...jumpTargetAttributes.scope}
       className={cn(
         "glass-card max-w-full overflow-hidden break-words rounded-2xl border border-white/10 bg-slate-950/60 p-4 backdrop-blur-xl sm:p-6",
         is2024
@@ -19,6 +22,8 @@ export function RaceDetailCard({ race, is2024 = false }: { race: RaceData; is202
       )}
     >
       <Header race={race} is2024={is2024} />
+      <CatalogProse content={race.description} className="mt-4" />
+      <SectionJumpNav title={findBranchNavTitle(race)} items={buildBranchJumpItems(race)} is2024={is2024} />
       <MetaGrid race={race} />
 
       {race.traits.length > 0 ? (
@@ -27,10 +32,28 @@ export function RaceDetailCard({ race, is2024 = false }: { race: RaceData; is202
         </Section>
       ) : null}
 
-      <BranchSection title="Підраси" branches={race.subraces} />
-      <BranchSection title="Варіанти" branches={race.variants} />
+      <BranchSection title="Підраси" kind="subrace" branches={race.subraces} />
+      <BranchSection title="Варіанти" kind="variant" branches={race.variants} />
     </div>
   );
+}
+
+type BranchKind = "subrace" | "variant";
+
+function buildBranchJumpId(kind: BranchKind, branch: RaceBranch) {
+  return `${kind}:${branch.key}`;
+}
+
+function buildBranchJumpItems(race: RaceData) {
+  return [
+    ...race.subraces.map((branch) => ({ id: buildBranchJumpId("subrace", branch), label: branch.name })),
+    ...race.variants.map((branch) => ({ id: buildBranchJumpId("variant", branch), label: branch.name })),
+  ];
+}
+
+function findBranchNavTitle(race: RaceData) {
+  if (race.subraces.length > 0 && race.variants.length > 0) return "Підраси й варіанти";
+  return race.subraces.length > 0 ? "Підраси" : "Варіанти";
 }
 
 function Header({ race, is2024 }: { race: RaceData; is2024: boolean }) {
@@ -119,19 +142,28 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function BranchSection({ title, branches }: { title: string; branches: RaceBranch[] }) {
+function BranchSection({
+  title,
+  kind,
+  branches,
+}: {
+  title: string;
+  kind: BranchKind;
+  branches: RaceBranch[];
+}) {
   if (branches.length === 0) return null;
 
   return (
     <Section title={`${title} (${branches.length})`}>
       <div className="space-y-4">
         {branches.map((branch) => (
-          <div key={branch.key}>
+          <div key={branch.key} {...jumpTargetAttributes.target(buildBranchJumpId(kind, branch))} className="scroll-mt-2">
             <div className="flex items-baseline gap-2">
               <ScrollText className="h-3.5 w-3.5 shrink-0 text-slate-500" />
               <span className="text-sm font-semibold text-slate-100">{branch.name}</span>
               <span className="font-mono text-[11px] text-slate-500">[{branch.engName}]</span>
             </div>
+            <CatalogProse content={branch.description} className="mt-1 pl-5" />
             {branch.traits.length > 0 ? (
               <div className="mt-2 pl-5">
                 <TraitList traits={branch.traits} />

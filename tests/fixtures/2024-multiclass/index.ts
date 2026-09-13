@@ -24,8 +24,13 @@ export type MulticlassLevelUpPick = {
   feat?: string;
   featAbility?: AbilityCode;
   featChoices?: NamedPick[];
+  /** Заклинання, яке риса дає обрати гравцеві: Доторк феї — одне 1-го рівня з Ворожіння або Причарування. */
+  featSpells?: string[];
   classChoices?: NamedPick[];
+  subclassChoices?: NamedPick[];
   expertise?: string[];
+  /** Навички, які дає обрана риса цього рівня: Первісне знання варвара. */
+  skillChoices?: Array<{ feature: string; skills: string[] }>;
   /** Повний набір майстерності після цього рівня — комірка переобирається, а не доливається. */
   weaponMastery?: string[];
 };
@@ -59,6 +64,8 @@ export type Multiclass2024Fixture = {
     /** Вибори риси, яку дав вибір виду (Універсальність Людини): три навички другого Skilled, список другого Magic Initiate. */
     speciesFeatChoices?: NamedPick[];
     expertise?: string[];
+    /** Навички класу, які гравець обирає на створенні: книга дає Пройдисвіту чотири. */
+    classSkills?: string[];
     weaponMastery?: string[];
     levelUps: MulticlassLevelUpPick[];
   };

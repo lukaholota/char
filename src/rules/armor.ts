@@ -1,15 +1,37 @@
 import type { AbilityKey, ArmorAbilityBonusType, ArmorClassInput } from "./types";
 
-export function calculateArmorClass(input: ArmorClassInput): number {
-  const baseArmorClass = calculateBaseArmorClass(input);
-  const shieldBonus = input.wearsShield ? 2 + input.shieldArmorClassBonus : 0;
+// `ArmorCategory` після HOMEBREW моделює джерела КЗ, а не обладунок, який «носять».
+const ARMOR_CLASS_SOURCES_NOT_ARMOR: readonly string[] = [
+  "UNARMORED_DEFENSE_MONK",
+  "UNARMORED_DEFENSE_BARBARIAN",
+  "NATURAL_ARMOR_TORTLE",
+  "NATURAL_ARMOR_13_DEX",
+  "NATURAL_ARMOR_12_DEX",
+  "NATURAL_ARMOR_12_CON",
+  "DRACONIC_RESILIENCE",
+];
 
-  return baseArmorClass
-    + calculateFiniteBonus(input.raceStaticArmorClassBonus)
-    + shieldBonus
-    + input.simpleArmorClassBonus
-    + input.featureArmorClassBonus
-    + input.magicItemArmorClassBonus;
+export function isWornArmor(armorName: string): boolean {
+  return !ARMOR_CLASS_SOURCES_NOT_ARMOR.includes(armorName);
+}
+
+export type ArmorClassPartKey = "BASE" | "SPECIES" | "SHIELD" | "MANUAL" | "FEATURES" | "MAGIC_ITEMS";
+
+export type ArmorClassPart = { key: ArmorClassPartKey; value: number };
+
+export function calculateArmorClass(input: ArmorClassInput): number {
+  return explainArmorClass(input).reduce((total, part) => total + part.value, 0);
+}
+
+export function explainArmorClass(input: ArmorClassInput): ArmorClassPart[] {
+  return [
+    { key: "BASE", value: calculateBaseArmorClass(input) },
+    { key: "SPECIES", value: calculateFiniteBonus(input.raceStaticArmorClassBonus) },
+    { key: "SHIELD", value: input.wearsShield ? 2 + input.shieldArmorClassBonus : 0 },
+    { key: "MANUAL", value: input.simpleArmorClassBonus },
+    { key: "FEATURES", value: input.featureArmorClassBonus },
+    { key: "MAGIC_ITEMS", value: input.magicItemArmorClassBonus },
+  ];
 }
 
 function calculateBaseArmorClass(input: ArmorClassInput): number {

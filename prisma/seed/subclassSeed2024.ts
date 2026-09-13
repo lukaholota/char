@@ -2,7 +2,7 @@
  * KR6.3 Крок 3 — 2024 Subclasses seed
  */
 
-import { Ability, FeatureDisplayType, PrismaClient, SpellcastingType } from "@prisma/client";
+import { Ability, FeatureDisplayType, Prisma, PrismaClient, RestType, SpellcastingType } from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -12,9 +12,18 @@ type SubclassFeature2024 = {
   description?: string;
 };
 
+type SubclassFeatureUses2024 = {
+  limitedUsesPer?: "SHORT_REST" | "LONG_REST";
+  usesCount?: number;
+  usesCountSpecial?: unknown;
+  usesPoolKey?: string;
+};
+
 type SubclassFeatureEng2024 = {
   level: number;
   name: string;
+  displayType?: string[];
+  uses?: SubclassFeatureUses2024;
 };
 
 type SubclassJson2024 = {
@@ -34,7 +43,7 @@ type SubclassJson2024 = {
   primaryCastingStat?: Ability;
 };
 
-function toSubclassEnum(engName: string): string {
+export function toSubclassEnum(engName: string): string {
   return engName
     .toUpperCase()
     .replace(/[^A-Z0-9]+/g, "_")
@@ -110,6 +119,38 @@ export const seedSubclasses2024 = async (prisma: PrismaClient) => {
   );
 };
 
+/**
+ * Тип дії й числа використань виводить із джерела `scripts/2024/subclass-feature-uses.ts`, а
+ * сюди вони приїжджають файлом ([Р33](../../docs/DECISIONS.md#р33)).
+ */
+function readDisplayTypes(feature: SubclassFeatureEng2024 | undefined): FeatureDisplayType[] {
+  const names = feature?.displayType ?? [FeatureDisplayType.PASSIVE];
+
+  return names.map((name) => {
+    if (!(name in FeatureDisplayType)) throw new Error(`Невідомий тип дії 2024: ${name}`);
+    return FeatureDisplayType[name as keyof typeof FeatureDisplayType];
+  });
+}
+
+/**
+ * Порожні поля пишуться явними `null`, а не пропускаються: сід оновлює наявний рядок, і фіча,
+ * яка втратила лічильник у джерелі, мусить втратити його й у базі.
+ *
+ * `usesCountSpecial` лишається `null` без числа зумисне — `hasScaledMaximum` у `findPoolProvider`
+ * читає саме цю колонку через `isFilledObject`, тож будь-який непорожній обʼєкт тут перемикає
+ * суддю пулу (BUG-011). Підкласова фіча, що з пулу лише витрачає, несе сам ключ і жодного
+ * максимуму — інакше вона переважила б класову, яка пул дає.
+ */
+function readUses(feature: SubclassFeatureEng2024 | undefined) {
+  const uses = feature?.uses;
+  return {
+    limitedUsesPer: uses?.limitedUsesPer ? RestType[uses.limitedUsesPer] : null,
+    usesCount: uses?.usesCount ?? null,
+    usesCountSpecial: (uses?.usesCountSpecial as Prisma.InputJsonValue | undefined) ?? Prisma.DbNull,
+    usesPoolKey: uses?.usesPoolKey ?? null,
+  };
+}
+
 async function seedSubclassFeatures(
   prisma: PrismaClient,
   sc: SubclassJson2024,
@@ -118,27 +159,24 @@ async function seedSubclassFeatures(
   let upserted = 0;
 
   for (const [index, feature] of (sc.features ?? []).entries()) {
-    const engName = sc.featuresEng?.[index]?.name ?? feature.name;
+    const sourceFeature = sc.featuresEng?.[index];
+    const engName = sourceFeature?.name ?? feature.name;
     const featureEngName = `${sc.engName}: ${engName} (2024)`;
     const description = feature.description ?? feature.name;
 
+    const featurePayload = {
+      name: feature.name,
+      description,
+      shortDescription: feature.name,
+      ruleset: "RULES_2024" as const,
+      displayType: readDisplayTypes(sourceFeature),
+      ...readUses(sourceFeature),
+    };
+
     const featureRecord = await prisma.feature.upsert({
       where: { engName: featureEngName },
-      update: {
-        name: feature.name,
-        description,
-        shortDescription: feature.name,
-        ruleset: "RULES_2024",
-        displayType: [FeatureDisplayType.PASSIVE],
-      },
-      create: {
-        name: feature.name,
-        engName: featureEngName,
-        description,
-        shortDescription: feature.name,
-        ruleset: "RULES_2024",
-        displayType: [FeatureDisplayType.PASSIVE],
-      },
+      update: featurePayload,
+      create: { ...featurePayload, engName: featureEngName },
     });
     upserted++;
 

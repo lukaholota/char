@@ -280,7 +280,15 @@
       },
       {
         "name": "Improve Fate",
-        "description": "When you or another creature within 60 feet of you succeeds on or fails a D20 Test, you can roll 2d4 and apply the total rolled as a bonus or penalty to the d20 roll. Once you use this benefit, you can’t use it again until you roll Initiative or finish a Short or Long Rest."
+        "description": "When you or another creature within 60 feet of you succeeds on or fails a D20 Test, you can roll 2d4 and apply the total rolled as a bonus or penalty to the d20 roll. Once you use this benefit, you can’t use it again until you roll Initiative or finish a Short or Long Rest.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "SHORT_REST",
+          "usesCount": 1
+        }
       }
     ],
     "plainDescriptionEng": null,
@@ -381,7 +389,15 @@
       },
       {
         "name": "Last Stand",
-        "description": "When you would be reduced to 0 Hit Points, you can drop to 1 Hit Point instead and regain a number of Hit Points equal to half your Hit Point maximum. Once you use this benefit, you can't use it again until you finish a Long Rest."
+        "description": "When you would be reduced to 0 Hit Points, you can drop to 1 Hit Point instead and regain a number of Hit Points equal to half your Hit Point maximum. Once you use this benefit, you can't use it again until you finish a Long Rest.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "LONG_REST",
+          "usesCount": 1
+        }
       },
       {
         "name": "Recover Vitality",
@@ -984,7 +1000,15 @@
       },
       {
         "name": "Fey Magic",
-        "description": "Choose one level 1 spell from the Divination or Enchantment school of magic. You always have that spell and the Misty Step spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+        "description": "Choose one level 1 spell from the Divination or Enchantment school of magic. You always have that spell and the Misty Step spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "LONG_REST",
+          "usesCount": 2
+        }
       }
     ],
     "plainDescriptionEng": null,
@@ -1317,7 +1341,15 @@
     "benefitsEng": [
       {
         "name": "Luck Points",
-        "description": "You have a number of Luck Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest."
+        "description": "You have a number of Luck Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "LONG_REST",
+          "usesCountDependsOnProficiencyBonus": true
+        }
       },
       {
         "name": "Advantage",
@@ -1364,7 +1396,15 @@
       },
       {
         "name": "Guarded Mind",
-        "description": "If you fail an Intelligence, a Wisdom, or a Charisma saving throw, you can cause yourself to succeed instead. Once you use this benefit, you can't use it again until you finish a Short or Long Rest."
+        "description": "If you fail an Intelligence, a Wisdom, or a Charisma saving throw, you can cause yourself to succeed instead. Once you use this benefit, you can't use it again until you finish a Short or Long Rest.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "SHORT_REST",
+          "usesCount": 1
+        }
       }
     ],
     "plainDescriptionEng": null,
@@ -1821,7 +1861,15 @@
       },
       {
         "name": "Quick Ritual",
-        "description": "With this benefit, you can cast a Ritual spell that you have prepared using its regular casting time rather than the extended time for a Ritual. Doing so doesn't require a spell slot. Once you cast the spell in this way, you can't use this benefit again until you finish a Long Rest."
+        "description": "With this benefit, you can cast a Ritual spell that you have prepared using its regular casting time rather than the extended time for a Ritual. Doing so doesn't require a spell slot. Once you cast the spell in this way, you can't use this benefit again until you finish a Long Rest.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "LONG_REST",
+          "usesCount": 1
+        }
       }
     ],
     "plainDescriptionEng": null,
@@ -1908,7 +1956,15 @@
       },
       {
         "name": "Shadow Magic",
-        "description": "Choose one level 1 spell from the Illusion or Necromancy school of magic. You always have that spell and the Invisibility spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells’ spellcasting ability is the ability increased by this feat."
+        "description": "Choose one level 1 spell from the Illusion or Necromancy school of magic. You always have that spell and the Invisibility spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a Long Rest. You can also cast these spells using spell slots you have of the appropriate level. The spells’ spellcasting ability is the ability increased by this feat.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "LONG_REST",
+          "usesCount": 2
+        }
       }
     ],
     "plainDescriptionEng": null,
@@ -2357,7 +2413,15 @@
       },
       {
         "name": "Detect Thoughts",
-        "description": "You always have the Detect Thoughts spell prepared. You can cast it without a spell slot or spell components, and you must finish a Long Rest before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat."
+        "description": "You always have the Detect Thoughts spell prepared. You can cast it without a spell slot or spell components, and you must finish a Long Rest before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat.",
+        "displayType": [
+          "PASSIVE",
+          "CLASS_RESOURCE"
+        ],
+        "uses": {
+          "limitedUsesPer": "LONG_REST",
+          "usesCount": 1
+        }
       }
     ],
     "plainDescriptionEng": null,

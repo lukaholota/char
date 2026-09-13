@@ -28,8 +28,10 @@ import { CHOICE_GROUPS } from "@/lib/logic/choicePoolRules";
 import { findGrantedSpells } from "@/rules/spell-sources";
 import { characterLevelOnly } from "@/rules/character-level";
 import { buildSpeciesPersSpellRows } from "@/server/db/species-level-grants";
+import { buildClassPersSpellRows, findMissingClassSpells } from "@/server/db/always-prepared-spell-grants";
 import type { ChosenRaceChoiceOption, FeatureWithSpells } from "@/rules/spell-sources";
 import { sumFeatureHitPointsPerLevel } from "@/rules/hit-points";
+import { findSkillsGrantedByChosenOption } from "@/rules/proficiency";
 import type { CreationFeatAbilityInput } from "@/rules/character-creation";
 import type { AbilityKey, BackgroundASIChoice } from "@/rules/types";
 import type { RulesetId } from "@/rules/strategies/types";
@@ -39,6 +41,8 @@ import { findCreationWeaponMasteryOffer, replacePersWeaponMastery } from "@/serv
 import { grantAlternativeArmorClassFormulas } from "@/server/db/armor-class-formulas";
 import { findUserByEmail } from "@/server/db/users";
 import { parseEnumArray, parseJsonRecord, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
+import { findCreationChoicePoolProblem } from "@/rules/creation-choice-pools";
+import { findExpertiseSelectionProblem, readExpertiseGrant } from "@/rules/expertise-selections";
 
 export type CreateCharacterResult =
   | { error: string; details?: unknown; success?: undefined; persId?: undefined }
@@ -178,6 +182,16 @@ function buildCharacter(
   }
 
   const ruleset = (validData.ruleset ?? characterClass.ruleset ?? "RULES_2014") as RulesetId;
+  const classChoiceProblem = findCreationChoicePoolProblem({
+    ruleset,
+    className: characterClass.name,
+    selections: validData.classChoiceSelections,
+    available: characterClass.classChoiceOptions.map((entry) => ({
+      choiceOptionId: entry.choiceOptionId,
+      groupName: entry.choiceOption.groupName,
+    })),
+  });
+  if (classChoiceProblem) return { error: classChoiceProblem };
 
   // Риса від вибору (бойовий стиль класу, друга риса Людини 2024) має рахуватися разом із
   // рештою — інакше персонаж отримає її запис, але не її хіти й характеристики.
@@ -366,6 +380,27 @@ async function saveGrantedSpells(
     data: buildSpeciesPersSpellRows(persId, granted, 1),
     skipDuplicates: true,
   });
+}
+
+/**
+ * «Ви завжди маєте це заклинання підготовленим» від самого класу: Улюблений ворог слідопита дає
+ * Hunter's Mark, Друїдична — Speak with Animals, і обидва — вже на 1-му рівні (KR31.5).
+ */
+async function saveClassPreparedSpells(
+  tx: CreationTransaction,
+  persId: number,
+  classId: number,
+): Promise<void> {
+  const characterClass = await tx.class.findUnique({ where: { classId }, select: { primaryCastingStat: true } });
+  const owned = await tx.persSpell.findMany({ where: { persId }, select: { spellId: true } });
+
+  const granted = await findMissingClassSpells(tx, {
+    classes: [{ classId, classLevel: 1, ability: characterClass?.primaryCastingStat ?? null }],
+    ownedSpellIds: owned.map((row) => row.spellId),
+  });
+  if (!granted.length) return;
+
+  await tx.persSpell.createMany({ data: buildClassPersSpellRows(persId, granted, 1), skipDuplicates: true });
 }
 
 type LoadedRaceChoiceOption = LoadedCreationContent["raceChoiceOptions"][number];
@@ -614,7 +649,7 @@ async function persistCharacter(
   }
 
   for (const opt of raceChoiceOptions) {
-    parseStringArray(opt.skillProficiencies).forEach((skill) => allSkills.add(skill));
+    findSkillsGrantedByChosenOption(opt.skillProficiencies, Object.values(Skills)).forEach((skill) => allSkills.add(skill));
   }
 
   const languagesKnown = new Set<string>(
@@ -723,6 +758,21 @@ async function persistCharacter(
         }
       }
     }
+  }
+
+  if (ruleset === "RULES_2024") {
+    const expertiseProblem = findExpertiseSelectionProblem({
+      grants: features
+        .map((feature) => readExpertiseGrant(feature.skillExpertises))
+        .filter((grant) => grant !== null),
+      selected: selectedExpertisesForProficiencyCheck,
+      proficientSkills: Array.from(allSkills),
+      existingExpertises: [
+        ...expertiseFromFeat,
+        ...expertiseFromClassSubclassChoices,
+      ],
+    });
+    if (expertiseProblem) return { error: expertiseProblem };
   }
 
   if (allFeatureIdsToCreate.length > 0) {
@@ -869,6 +919,7 @@ async function persistCharacter(
       }
 
       await saveGrantedSpells(tx, createdPers.persId, content, ruleset);
+      await saveClassPreparedSpells(tx, createdPers.persId, validData.classId);
 
       // Save skills AFTER Pers exists (createMany + skipDuplicates)
       const skillRows = Array.from(allSkills)
@@ -990,7 +1041,10 @@ async function persistCharacter(
 
         if (seededArmorNames.size > 0) {
           const rows = await tx.armor.findMany({
-            where: { name: { in: Array.from(seededArmorNames).filter((name): name is ArmorCategory => Object.values(ArmorCategory).includes(name as ArmorCategory)) } },
+            where: {
+              ruleset,
+              name: { in: Array.from(seededArmorNames).filter((name): name is ArmorCategory => Object.values(ArmorCategory).includes(name as ArmorCategory)) },
+            },
             select: { armorId: true, name: true, abilityBonuses: true, abilityBonusType: true },
           });
 

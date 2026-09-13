@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { describeUseShortfall, findFormFeature, findFormPrice } from "@/rules/wildshape-uses";
+import {
+  describeUseShortfall,
+  findFormFeature,
+  findFormPrice,
+  hasUnlimitedWildshapeUses,
+} from "@/rules/wildshape-uses";
 
 /// KR24.5. Пул `WILD_SHAPE` носять шість фіч, і лише дві з них перетворюють. Тут перевіряється
 /// саме те, чого не видно на екрані: за вхід платить та фіча, чиєю формою став персонаж, а не
@@ -67,5 +72,25 @@ describe("вхід без залишку — попередження, не за
   it("залишку вистачає — попередження немає", () => {
     expect(describeUseShortfall({ price: 2, remaining: 2 })).toBeNull();
     expect(describeUseShortfall({ price: 1, remaining: 2 })).toBeNull();
+  });
+});
+
+/// KR31.12 / L13-wildshape-08. Лист показував «2 / 2» друїду 20 рівня 2014, хоч Архідруїд знімає
+/// межу, і вхід у форму списував використання.
+describe("необмежена Дика форма Архідруїда", () => {
+  it("2014 знімає межу на 20 рівні друїда", () => {
+    expect(hasUnlimitedWildshapeUses({ ruleset: "RULES_2014", druidLevel: 20 })).toBe(true);
+  });
+
+  it("до 20 рівня межа лишається", () => {
+    expect(hasUnlimitedWildshapeUses({ ruleset: "RULES_2014", druidLevel: 19 })).toBe(false);
+  });
+
+  it("рахується рівень друїда, а не персонажа: Друїд 17 / Воїн 3 межі не знімає", () => {
+    expect(hasUnlimitedWildshapeUses({ ruleset: "RULES_2014", druidLevel: 17 })).toBe(false);
+  });
+
+  it("2024 такого не дає — його Архідруїд повертає одне використання, а не знімає межу", () => {
+    expect(hasUnlimitedWildshapeUses({ ruleset: "RULES_2024", druidLevel: 20 })).toBe(false);
   });
 });

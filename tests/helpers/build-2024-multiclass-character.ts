@@ -161,6 +161,7 @@ async function buildCreationForm(fixture: Multiclass2024Fixture): Promise<PersFo
     backgroundAsiChoice: input.backgroundAsi as PersFormData["backgroundAsiChoice"],
     languagesSchema: { languages: [...ORIGIN_LANGUAGE_PICKS] },
     expertiseSchema: { expertises: input.expertise ?? [] },
+    skills: input.classSkills ?? [],
     weaponMasteryWeaponIds: await findWeaponIds2024(input.weaponMastery),
   });
 }
@@ -232,10 +233,53 @@ async function buildMulticlassLevelUpForm(step: MulticlassLevelUpPick, classLeve
     ...(feat ? { featId: feat.featId } : {}),
     featChoiceSelections: feat ? await buildFeatChoiceSelections(feat.featId, featPicks) : {},
     classChoiceSelections: await buildClassChoiceSelections(characterClass.classId, classLevel, step.classChoices),
+    subclassChoiceSelections: subclass
+      ? await buildSubclassChoiceSelections(subclass.subclassId, classLevel, step.subclassChoices)
+      : {},
+    levelUpSkillSelections: await buildFeatureSkillSelections(step.skillChoices),
     customAsi: step.asi ?? [],
     expertiseSchema: { expertises: step.expertise ?? [] },
     ...(step.weaponMastery ? { weaponMasteryWeaponIds: await findWeaponIds2024(step.weaponMastery) } : {}),
+    featSpellIds: await findSpellIds2024(step.featSpells),
   });
+}
+
+/**
+ * Вибори всередині підкласу (маневри Майстра бою, Здобич мисливця) приходять тим самим кроком,
+ * що й сам підклас, тому харнес бере їх із рядків підкласу на цьому рівні класу.
+ */
+async function buildSubclassChoiceSelections(
+  subclassId: number,
+  levelGranted: number,
+  picks: NamedPick[] | undefined,
+): Promise<Record<string, number | number[]>> {
+  if (!picks?.length) return {};
+
+  const available = await prisma.subclassChoiceOption.findMany({
+    where: { subclassId, levelsGranted: { has: levelGranted } },
+    select: { choiceOptionId: true, choiceOption: { select: { groupName: true, optionNameEng: true } } },
+  });
+
+  return groupSelectionsByChoiceGroup(
+    picks.map((pick) => findMatchingOption(available, pick, `підкласу ${subclassId} на рівні ${levelGranted}`)),
+  );
+}
+
+/** Навички, які дає сама риса (Первісне знання варвара), сервер чекає під ключем її featureId. */
+async function buildFeatureSkillSelections(
+  picks: Array<{ feature: string; skills: string[] }> | undefined,
+): Promise<Record<string, string[]>> {
+  if (!picks?.length) return {};
+
+  const entries = await Promise.all(picks.map(async ({ feature, skills }) => {
+    const row = await prisma.feature.findFirstOrThrow({
+      where: { engName: feature, ruleset: "RULES_2024" },
+      select: { featureId: true },
+    });
+    return [String(row.featureId), skills] as const;
+  }));
+
+  return Object.fromEntries(entries);
 }
 
 /**
@@ -310,6 +354,7 @@ function findMatchingOption(available: AvailableChoiceOption[], pick: NamedPick,
   const matched = available.find(
     (candidate) =>
       candidate.choiceOption?.optionNameEng === pick.option ||
+      candidate.choiceOption?.optionNameEng.replace(/ \((?:2014|2024)\)$/, "") === pick.option ||
       candidate.choiceOption?.optionNameEng.endsWith(`(${pick.option})`),
   );
   if (!matched?.choiceOption) throw new Error(`Опції "${pick.option}" (${pick.choice}) немає серед виборів ${source}`);
@@ -474,6 +519,22 @@ function readMagicInitiateLists(feats: PersFeatRow[]): string[] {
     .map((label) => label.match(/\(([^)]+)\)\s*$/)?.[1] ?? label)
     .filter(Boolean)
     .sort();
+}
+
+/** Заклинання, яке гравець обирає в рисі (Доторк феї), фікстура називає англійською назвою. */
+async function findSpellIds2024(engNames: string[] | undefined): Promise<number[]> {
+  if (!engNames?.length) return [];
+
+  const spells = await prisma.spell.findMany({
+    where: { ruleset: "RULES_2024", engName: { in: engNames } },
+    select: { spellId: true, engName: true },
+  });
+
+  return engNames.map((engName) => {
+    const matched = spells.find((spell) => spell.engName === engName);
+    if (!matched) throw new Error(`Заклинання "${engName}" немає серед заклинань 2024`);
+    return matched.spellId;
+  });
 }
 
 async function findWeaponIds2024(engNames: string[] | undefined): Promise<number[]> {

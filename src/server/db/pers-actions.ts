@@ -42,6 +42,15 @@ export async function canEditPers(persId: number, userId: number) {
     return false;
 }
 
+export async function canDeletePers(persId: number, userId: number) {
+    const pers = await prisma.pers.findUnique({
+        where: { persId },
+        select: { userId: true },
+    });
+
+    return pers?.userId === userId;
+}
+
 const FOLDER_COLOR_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
 
 function normalizeFolderName(name: string) {
@@ -195,23 +204,41 @@ export async function deletePers(persId: number) {
     const userId = await getCurrentUserId();
     if (!userId) return { success: false as const, error: "Не авторизовано" };
 
+    const canDelete = await canDeletePers(persId, userId);
+    if (canDelete) {
+        await prisma.$transaction([
+            prisma.pers.deleteMany({
+                where: { parentPersId: persId },
+            }),
+            prisma.pers.delete({
+                where: { persId },
+            }),
+        ]);
+
+        revalidatePath("/char/home");
+        return { success: true as const };
+    }
+
+    // Співвласник за посиланням на редагування не має права знищити дані власника — клік
+    // «Видалити» лише прибирає персонажа з його власного списку.
+    const additionalUser = await prisma.persAdditionalUser.findUnique({
+        where: { persId_userId: { persId, userId } },
+        select: { persAdditionalUserId: true },
+    });
+
+    if (additionalUser) {
+        await prisma.persAdditionalUser.delete({
+            where: { persAdditionalUserId: additionalUser.persAdditionalUserId },
+        });
+
+        revalidatePath("/char/home");
+        return { success: true as const, unlinked: true as const };
+    }
+
     const canEdit = await canEditPers(persId, userId);
     if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
-    await prisma.$transaction([
-        prisma.pers.deleteMany({
-            where: {
-                userId,
-                parentPersId: persId,
-            },
-        }),
-        prisma.pers.delete({
-            where: { persId },
-        }),
-    ]);
-
-    revalidatePath("/char/home");
-    return { success: true as const };
+    return { success: false as const, error: "Видалити персонажа може лише власник" };
 }
 
 export async function duplicatePers(persId: number) {
@@ -1026,16 +1053,9 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
 
         const poolInfo = getPoolInfo(f);
 
-        const usesPer = poolInfo?.maxUses ?? (() => {
-            const special = f.usesCountSpecial;
-            if (special && typeof special === 'object' && special.equalsToClassLevel === true) {
-                 return featureClassLevelMap.get(f.featureId) ?? pers.level;
-            }
-
-            if (f.usesCountDependsOnProficiencyBonus) return proficiencyBonus(pers.level);
-            if (typeof f.usesCount === "number") return f.usesCount;
-            return null;
-        })();
+        // KR31.3: тут стояла урізана копія, сліпа до `usesCountSpecial: [{lvl, uses}]`, тож
+        // Лють обох редакцій, Другий подих і Незламність показували на листі порожній максимум.
+        const usesPer = poolInfo?.maxUses ?? calculateMaxUsesForFeature(f);
 
         let source = sourceMap.get(f.featureId) || "PERS";
         if (source === "PERS") {

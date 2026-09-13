@@ -6,7 +6,9 @@ import {
   findFormFeature,
   findFormPrice,
   describeUseShortfall,
+  hasUnlimitedWildshapeUses,
 } from "@/rules/wildshape-uses";
+import { findDruidStanding } from "@/rules/wildshape";
 
 /// Лічильник Дикої форми таким, яким його бачить лист: скільки лишилось, скільки всього і
 /// скільки коштує вхід саме в цю форму. Пул той самий, що на слайді Рис, — не другий,
@@ -16,6 +18,8 @@ export type WildshapeUses = {
   price: number;
   remaining: number;
   max: number;
+  /** Архідруїд 2014: межі немає — лист малює «Без обмежень», а вхід нічого не списує. */
+  isUnlimited: boolean;
 };
 
 /// Тип істоти за замовчуванням — звір: базова Дика форма перетворює саме на нього, і саме її
@@ -31,8 +35,8 @@ export async function findWildshapeUses(input: {
   const feature = await findFormFeatureOfPers(input.persId, input.creatureType ?? DEFAULT_CREATURE_TYPE);
   if (!feature) return null;
 
-  const max = await findPoolMaximum(input.persId);
-  if (max === null) return null;
+  const maximum = await findPoolMaximum(input.persId);
+  if (!maximum) return null;
 
   const pool = await prisma.persResourcePool.findUnique({
     where: { persId_poolKey: { persId: input.persId, poolKey: WILDSHAPE_POOL_KEY } },
@@ -42,8 +46,9 @@ export async function findWildshapeUses(input: {
   return {
     featureId: feature.featureId,
     price: findFormPrice(feature),
-    remaining: pool?.usesRemaining ?? max,
-    max,
+    remaining: pool?.usesRemaining ?? maximum.max,
+    max: maximum.max,
+    isUnlimited: maximum.isUnlimited,
   };
 }
 
@@ -55,6 +60,7 @@ export async function spendWildshapeUse(input: {
 }): Promise<string | null> {
   const uses = await findWildshapeUses(input);
   if (!uses) return null;
+  if (uses.isUnlimited) return null;
 
   await withdrawFromPool({ persId: input.persId, price: uses.price, max: uses.max });
 
@@ -74,15 +80,48 @@ async function findFormFeatureOfPers(persId: number, creatureType: string) {
 }
 
 /// Максимум рахує той самий власник пулу, за яким його показує лист і відновлює відпочинок
-/// (BUG-011): інакше гравець бачив би одне число, а витрата знімала б із іншого.
-async function findPoolMaximum(persId: number): Promise<number | null> {
+/// (BUG-011): інакше гравець бачив би одне число, а витрата знімала б із іншого. Тут же
+/// вирішується, чи межа взагалі є: Архідруїд 2014 її знімає, і зчитувати персонажа вдруге заради
+/// цього не треба — він уже завантажений.
+async function findPoolMaximum(persId: number): Promise<{ max: number; isUnlimited: boolean } | null> {
   const [pers, provider] = await Promise.all([
-    prisma.pers.findUnique({ where: { persId }, include: { multiclasses: true, class: true } }),
+    prisma.pers.findUnique({
+      where: { persId },
+      include: { multiclasses: { include: { class: true, subclass: true } }, class: true, subclass: true },
+    }),
     findPoolProviderForPers({ persId, poolKey: WILDSHAPE_POOL_KEY }),
   ]);
   if (!pers || !provider) return null;
 
-  return calculateMaxUsesForFeature(pers, provider);
+  const max = calculateMaxUsesForFeature(pers, provider);
+  if (max === null) return null;
+
+  const standing = findDruidStanding(collectClassStandings(pers));
+
+  return {
+    max,
+    isUnlimited: hasUnlimitedWildshapeUses({ ruleset: pers.ruleset, druidLevel: standing.druidLevel }),
+  };
+}
+
+type PersWithClasses = {
+  level: number;
+  class: { name: string } | null;
+  subclass: { name: string } | null;
+  multiclasses: Array<{ classLevel: number; class: { name: string } | null; subclass: { name: string } | null }>;
+};
+
+function collectClassStandings(pers: PersWithClasses) {
+  const mainClassLevel = pers.level - pers.multiclasses.reduce((sum, entry) => sum + entry.classLevel, 0);
+
+  return [
+    { className: pers.class?.name ?? "", classLevel: mainClassLevel, subclassName: pers.subclass?.name ?? null },
+    ...pers.multiclasses.map((entry) => ({
+      className: entry.class?.name ?? "",
+      classLevel: entry.classLevel,
+      subclassName: entry.subclass?.name ?? null,
+    })),
+  ];
 }
 
 /// Рядок пулу може ще не існувати — тоді він створюється повним, як і при ручній витраті.

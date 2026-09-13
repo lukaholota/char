@@ -54,6 +54,8 @@ const ENTITY_TAGS = {
 const DISPLAY_ONLY_TAGS: Record<string, number> = {
   adventure: 0,
   b: 0,
+  /// KR33.5: `Renderer.Tag.TagBackground` і `TagOptfeature` — `_TagPipedDisplayTextThird`.
+  background: 2,
   /// `Renderer.Tag.TagBoldLong` — той самий `_TagTextStyle`, що й `{@b}`.
   bold: 0,
   book: 0,
@@ -62,16 +64,28 @@ const DISPLAY_ONLY_TAGS: Record<string, number> = {
   color: 0,
   deck: 2,
   deity: 3,
+  /// `Renderer.Tag.TagFacility`, `TagVehicle`, `TagVehupgrade` — `_TagPipedDisplayTextThird`.
+  /// Файли з ними (book-xdmg, variantrules) лежали в замку раніше, але звіт покриття з того
+  /// часу не перезбирався, тож теги ніхто не розкладав.
+  facility: 2,
   filter: 0,
   footnote: 0,
   i: 0,
   italic: 0,
   link: 0,
   note: 0,
+  optfeature: 2,
   quickref: 4,
   /// `Renderer.Tag.TagStrikethroughShort` — `_TagTextStyle`, той самий шлях показу, що `{@b}`/`{@i}`.
   s: 0,
   table: 2,
+  /// KR33.5: `Renderer.Tag.TagSubclass` — `_TagPipedDisplayTextFifth`, `TagSubclassFeature` —
+  /// `_TagPipedDisplayTextEight`, `TagTip` — `_TagTextStyle`, як `{@b}`.
+  subclass: 4,
+  subclassFeature: 7,
+  tip: 0,
+  vehicle: 2,
+  vehupgrade: 2,
   /// `Renderer.Tag.Tag5etoolsImg` — `_TagPipedNoDisplayText`, той самий шлях показу, що `{@book}`.
   "5etoolsImg": 0,
   /// `Renderer.Tag.Tag5etools` — той самий `_TagPipedNoDisplayText`: посилання на сторінку

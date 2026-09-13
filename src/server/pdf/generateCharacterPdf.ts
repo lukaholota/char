@@ -8,10 +8,14 @@ import {
   calculateFinalSave,
   calculateFinalSkill,
   calculateFinalSpeed,
+  calculatePassiveSkill,
   calculateFinalStat,
   calculateFinalMaxHP,
   calculateWeaponAttackBonus,
   calculateWeaponDamageBonus,
+  calculateWeaponDamageDice,
+  calculateDamageResistances,
+  calculateDarkvisionRange,
   calculateSpellAttack,
   calculateSpellDC,
 } from "@/lib/logic/bonus-calculator";
@@ -22,8 +26,10 @@ import { PDFDocument, PDFName, PDFString, PDFTextField, type PDFFont, type PDFPa
 
 import fontkit from "@pdf-lib/fontkit";
 
-import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations, abilityTranslations } from "@/lib/refs/translation";
+import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations, abilityTranslations, damageTypeTranslations } from "@/lib/refs/translation";
 import { translatePdfText } from "./translatePdfText";
+import { buildProficiencyAndLanguageText } from "./proficiencyLanguageText";
+import { calculatePersProficiencies, formatPersProficiencyLines } from "@/lib/logic/pers-proficiencies";
 
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
@@ -40,6 +46,9 @@ import { generateMagicItemsPdfBytes } from "./magicItemsPdf";
 import { generateCreaturesPdfBytes } from "./creaturesPdf";
 import { findAttachedForms } from "@/server/db/wildshape";
 import { findAttacksPerAction } from "@/rules/attacks-per-action";
+import { findSpellcastingSources } from "@/rules/spell-sources";
+import type { RulesetId } from "@/rules/strategies/types";
+import { collectSpellcastingClasses } from "@/server/db/spell-sources";
 import {
   formatEquipmentText,
   groupPrintableWeaponAttacks,
@@ -412,7 +421,7 @@ function buildPrintableWeaponAttack(
   const rawName = String(persWeapon.weapon?.name ?? "").trim();
   const localizedName = (weaponTranslations as unknown as Record<string, string>)[rawName] ?? rawName;
   const name = String(persWeapon.overrideName || localizedName).trim();
-  const dice = String(persWeapon.customDamageDice || persWeapon.weapon?.damage || "").trim();
+  const dice = calculateWeaponDamageDice(pers, persWeapon).trim();
   const damageBonus = formatModifier(getWeaponDamageBonus(pers, persWeapon));
   return {
     name,
@@ -743,17 +752,17 @@ function fillDeathSaves(form: PDFForm, pers: CharacterPdfData["pers"]) {
   }
 }
 
+/** Бланк має одне поле, тож у друк іде перше джерело — початковий клас або його підклас. */
 function getSpellcastingAbility(pers: CharacterPdfData["pers"]): Ability | null {
-  // Use primaryCastingStat from the first class that has one
-  const mainClassStat = pers.class?.primaryCastingStat;
-  if (mainClassStat) return mainClassStat;
+  const [first] = findSpellcastingSources({
+    ruleset: pers.ruleset as RulesetId,
+    characterClasses: collectSpellcastingClasses(pers),
+    raceTraits: [],
+    raceChoiceOptions: [],
+    featOptions: [],
+  });
 
-  // Fallback for multiclassing: find any class with casting stat
-  for (const mc of pers.multiclasses ?? []) {
-    if (mc.class?.primaryCastingStat) return mc.class.primaryCastingStat;
-  }
-
-  return null;
+  return (first?.ability as Ability | undefined) ?? null;
 }
 
 function getSpellSlots(pers: CharacterPdfData["pers"], level: number): { standard: number; pact: number } {
@@ -867,49 +876,6 @@ const OVERFLOW_FIELDS: Array<{
   { fieldName: "Race", maxWidth: 180, fontSize: 10 },
   { fieldName: "PlayerName", maxWidth: 180, fontSize: 10 },
 ];
-
-function getProfAndLang(extras: PersExtraFields) {
-  const profs = splitToBulletedLines(safeText(extras.customProficiencies), { kind: "profs" });
-  const langs = splitToBulletedLines(safeText(extras.customLanguagesKnown), { kind: "langs" });
-
-  const parts: string[] = [];
-  if (profs) {
-    parts.push("Володіння (броня/зброя/інструменти):");
-    parts.push(profs);
-  }
-  if (langs) {
-    parts.push("Мови:");
-    parts.push(langs);
-  }
-
-  const profAndLang = parts.join("\n");
-  return profAndLang;
-}
-
-function normalizeToolChoiceText(value: string): string {
-  return String(value ?? "").replace(/\b[Оо]бери\s+(\d+)\b/g, (match, rawCount) => {
-    const n = Number(rawCount);
-    if (!Number.isFinite(n) || n <= 0) return match;
-    return n === 1 ? "Інструменти на вибір" : `Інструменти на вибір (${Math.trunc(n)})`;
-  });
-}
-
-function splitToBulletedLines(value: string, opts?: { kind?: "profs" | "langs" }): string {
-  const raw = String(value ?? "").trim();
-  if (!raw) return "";
-
-  const parts = raw
-      .split(/[\n]+/g)
-      .map((p) => {
-        const trimmed = p.trim();
-        const normalized = opts?.kind === "profs" ? normalizeToolChoiceText(trimmed) : trimmed;
-        return translatePdfText(normalized);
-      })
-      .filter(Boolean);
-
-  if (parts.length === 0) return "";
-  return parts.map((p) => `· ${p}`).join("\n");
-}
 
 function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
   const { pers } = data;
@@ -1087,7 +1053,7 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   fillSavingThrows(form, pers);
   fillSkills(form, pers);
 
-  const passivePerception = 10 + calculateFinalSkill(pers, Skills.PERCEPTION).total;
+  const passivePerception = calculatePassiveSkill(pers, Skills.PERCEPTION);
   setTextIfPresent(form, "Passive", safeText(passivePerception));
 
   for (const name of ["PersonalityTraits", "PersonalityTraits "]) {
@@ -1099,7 +1065,13 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
 
   setMultilineTextIfPresent(form, "Backstory", safeText(extras.backstory));
   setMultilineTextIfPresent(form, "Notes", safeText(extras.notes));
-  const profAndLang = getProfAndLang(extras);
+  const profAndLang = buildProficiencyAndLanguageText({
+    derived: formatPersProficiencyLines(calculatePersProficiencies(pers)),
+    customProficiencies: safeText(extras.customProficiencies),
+    customLanguages: safeText(extras.customLanguagesKnown),
+    darkvisionRange: calculateDarkvisionRange(pers),
+    damageResistances: calculateDamageResistances(pers).map((type) => damageTypeTranslations[type] ?? type),
+  });
 
   for (const name of ["Proficiencies", "Languages", "ProficienciesLang"]) {
     setMultilineTextIfPresent(form, name, profAndLang);

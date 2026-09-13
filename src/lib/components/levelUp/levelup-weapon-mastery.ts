@@ -8,6 +8,7 @@
 import {
   type MasteryClassOffer,
   type MasteryWeapon,
+  countFeatMasterySlots,
   findWeaponMasteryCapacity,
   findWeaponMasteryOptionsForClasses,
 } from "@/rules/weapon-mastery";
@@ -24,6 +25,7 @@ type MasteryPers = {
   classId: number;
   class: ClassRow;
   multiclasses?: Array<{ classId: number; classLevel: number; class: ClassRow }> | null;
+  feats?: Array<{ feat?: { name?: string | null } | null }> | null;
   pers_weapon_mastery?: Array<{ weapon_id: number }> | null;
 };
 
@@ -47,7 +49,7 @@ export function findLevelUpWeaponMastery<Weapon extends MasteryWeapon>(input: {
   if (!pers) return { capacity: 0, options: [], currentWeaponIds: [], needsChoice: false };
 
   const offers = collectClassOffers({ pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel });
-  const capacity = findWeaponMasteryCapacity(offers);
+  const capacity = findWeaponMasteryCapacity(offers, countFeatMasterySlots(readFeatNames(pers)));
   const currentWeaponIds = (pers.pers_weapon_mastery ?? []).map((entry) => entry.weapon_id);
 
   return {
@@ -56,6 +58,11 @@ export function findLevelUpWeaponMastery<Weapon extends MasteryWeapon>(input: {
     currentWeaponIds,
     needsChoice: capacity > currentWeaponIds.length,
   };
+}
+
+/** Риса могла й не долетіти до цього виклику — крок працює й без списку рис. */
+function readFeatNames(pers: MasteryPers): string[] {
+  return (pers.feats ?? []).map((entry) => entry.feat?.name ?? "").filter(Boolean);
 }
 
 function collectClassOffers(input: {

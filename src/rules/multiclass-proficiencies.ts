@@ -1,5 +1,5 @@
 /**
- * KR27.2 — скорочений пакет володінь класу, взятого не першим.
+ * Скорочений пакет володінь класу, взятого не першим.
  *
  * «When you gain your first level in a class other than your initial class, you gain only some of
  * the new class's starting proficiencies» (SRD 2024, Multiclassing → Proficiencies). Що саме —
@@ -15,11 +15,17 @@
  * `src/lib/generated/creator-content-2024.json` — усе заради дванадцяти незмінних рядків книги.
  * Обґрунтування записане в docs/o27-multiclass-2024/kr27.2-multiclass-entry.md.
  *
- * Класи 2014 тут відсутні навмисно: у 2014 своя таблиця скорочених володінь, гілка `MULTICLASS`
- * сьогодні не видає нічого, і 9 394 живих персонажі цієї редакції цим KR не рухаються.
+ * KR31.12 дописав таблицю 2014 (`data/2014/srd/03_Characterization/Multiclassing.md:47-63`).
+ * Дві редакції розходяться не лише формулюванням: друїд 2014 бере ще й середній обладунок,
+ * варвар — просту зброю, чаклун — просту зброю, а монах — короткі мечі, яких у 2024 немає.
+ * Тому це дві таблиці, а не одна з винятками.
  */
 export type MulticlassArmor = "LIGHT" | "MEDIUM" | "HEAVY" | "SHIELD";
-export type MulticlassWeapons = { type: Array<"SIMPLE_WEAPON" | "MARTIAL_WEAPON"> };
+export type MulticlassWeapons = {
+  type: Array<"SIMPLE_WEAPON" | "MARTIAL_WEAPON">;
+  /** Названа зброя поза категорією: монах 2014 бере короткі мечі окремим рядком книги. */
+  specific?: Array<"SHORTSWORD">;
+};
 export type MulticlassTool = "THIEVES_TOOLS";
 
 export type MulticlassProficiencyPackage = {
@@ -79,11 +85,60 @@ const MULTICLASS_PROFICIENCIES_2024: Record<string, MulticlassProficiencyPackage
   WIZARD_2024: EMPTY_PACKAGE,
 };
 
+const SIMPLE_AND_MARTIAL_WEAPONS: MulticlassWeapons = {
+  type: ["SIMPLE_WEAPON", "MARTIAL_WEAPON"],
+};
+
+const LIGHT_MEDIUM_SHIELD: MulticlassArmor[] = ["LIGHT", "MEDIUM", "SHIELD"];
+
+const MULTICLASS_PROFICIENCIES_2014: Record<string, MulticlassProficiencyPackage> = {
+  BARBARIAN_2014: { ...EMPTY_PACKAGE, armor: ["SHIELD"], weapons: SIMPLE_AND_MARTIAL_WEAPONS },
+  BARD_2014: { ...EMPTY_PACKAGE, armor: ["LIGHT"], toolChoiceCount: 1, skillChoiceCount: 1 },
+  CLERIC_2014: { ...EMPTY_PACKAGE, armor: LIGHT_MEDIUM_SHIELD },
+  DRUID_2014: { ...EMPTY_PACKAGE, armor: LIGHT_MEDIUM_SHIELD },
+  FIGHTER_2014: {
+    ...EMPTY_PACKAGE,
+    armor: LIGHT_MEDIUM_SHIELD,
+    weapons: SIMPLE_AND_MARTIAL_WEAPONS,
+  },
+  MONK_2014: {
+    ...EMPTY_PACKAGE,
+    weapons: { type: ["SIMPLE_WEAPON"], specific: ["SHORTSWORD"] },
+  },
+  PALADIN_2014: {
+    ...EMPTY_PACKAGE,
+    armor: LIGHT_MEDIUM_SHIELD,
+    weapons: SIMPLE_AND_MARTIAL_WEAPONS,
+  },
+  RANGER_2014: {
+    ...EMPTY_PACKAGE,
+    armor: LIGHT_MEDIUM_SHIELD,
+    weapons: SIMPLE_AND_MARTIAL_WEAPONS,
+    skillChoiceCount: 1,
+  },
+  ROGUE_2014: {
+    ...EMPTY_PACKAGE,
+    armor: ["LIGHT"],
+    tools: ["THIEVES_TOOLS"],
+    skillChoiceCount: 1,
+  },
+  SORCERER_2014: EMPTY_PACKAGE,
+  WARLOCK_2014: { ...EMPTY_PACKAGE, armor: ["LIGHT"], weapons: { type: ["SIMPLE_WEAPON"] } },
+  WIZARD_2014: EMPTY_PACKAGE,
+};
+
+/// Ключі двох таблиць не перетинаються — редакція вшита в назву класу (`FIGHTER_2014`,
+/// `FIGHTER_2024`), тож окремого аргументу редакції тут не треба.
+const MULTICLASS_PROFICIENCIES: Record<string, MulticlassProficiencyPackage> = {
+  ...MULTICLASS_PROFICIENCIES_2014,
+  ...MULTICLASS_PROFICIENCIES_2024,
+};
+
 /**
- * `null` — редакція чи клас, для яких книга скороченого набору не дає. Артифіцера 2024 в SRD
- * немає взагалі (12 класів проти 13 у базі), тому рядка для нього тут теж немає — вигадувати
- * його з голови не можна.
+ * `null` — клас, для якого книга скороченого набору не дає. Артифіцера немає в жодній
+ * редакції: у SRD 2024 його немає взагалі (12 класів проти 13 у базі), а таблиця 2014 — із
+ * TCoE, якої в репозиторії теж немає. Вигадувати рядок із голови не можна.
  */
 export function findMulticlassProficiencies(className: string): MulticlassProficiencyPackage | null {
-  return MULTICLASS_PROFICIENCIES_2024[className] ?? null;
+  return MULTICLASS_PROFICIENCIES[className] ?? null;
 }

@@ -12,6 +12,7 @@ import { Check, Lock } from "lucide-react";
 import { engEnumSkills } from "@/lib/refs/translation";
 import { Skills } from "@prisma/client";
 import { SkillExpertises } from "@/lib/types/model-types";
+import { countExpertiseSelections } from "@/rules/expertise-selections";
 
 interface Props {
   selectedClass: ClassI;
@@ -25,7 +26,9 @@ interface Props {
   extraExpertises?: string[];
 }
 
-export const ExpertiseForm = ({ selectedClass, subclass, activeFeatures, formId, onNextDisabledChange, extraSkills = [], extraExpertises = [] }: Props) => {
+const EMPTY_EXPERTISES: Skills[] = [];
+
+export const ExpertiseForm = ({ activeFeatures, formId, onNextDisabledChange, extraSkills = [], extraExpertises = [] }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
   
   const { form, onSubmit } = useStepForm(expertiseSchema, (data) => {
@@ -42,16 +45,12 @@ export const ExpertiseForm = ({ selectedClass, subclass, activeFeatures, formId,
               se.chooseFromCurrentProficiencies;
     }), [activeFeatures]);
 
-  const expertiseCount = useMemo(() => 
-    expertiseFeatures.reduce((acc, f) => {
-        const se = f.skillExpertises as SkillExpertises;
-        // If count is specified, use it. If not, default to 1 if we have options or chooseFromCurrentProficiencies
-        const count = se.count !== undefined ? se.count : 1;
-        return acc + count;
-    }, 0)
-  , [expertiseFeatures]);
+  const expertiseCount = useMemo(
+    () => countExpertiseSelections(expertiseFeatures.map((feature) => feature.skillExpertises as SkillExpertises)),
+    [expertiseFeatures],
+  );
   
-  const selectedExpertises = form.watch("expertises") || [];
+  const selectedExpertises = form.watch("expertises") || EMPTY_EXPERTISES;
 
   // Get ONLY currently selected skills from formData
   const availableProficiencies = useMemo(() => {
@@ -122,8 +121,7 @@ export const ExpertiseForm = ({ selectedClass, subclass, activeFeatures, formId,
   }, [availableSkillsForExpertise, selectedExpertises, form, updateFormData]);
 
   useEffect(() => {
-    // Expertise selection is optional: user may proceed with fewer than the max.
-    onNextDisabledChange?.(false);
+    onNextDisabledChange?.(selectedExpertises.length !== expertiseCount);
   }, [selectedExpertises, expertiseCount, onNextDisabledChange]);
 
   const toggleExpertise = (skill: string) => {
@@ -151,9 +149,7 @@ export const ExpertiseForm = ({ selectedClass, subclass, activeFeatures, formId,
         <Card className="border-yellow-500/50">
           <div className="p-6 text-center">
             <p className="text-yellow-400 mb-2">⚠️ Немає доступних навичок для експертизи!</p>
-            <p className="text-sm text-slate-400">
-              Можна продовжити без експертизи або повернутись на крок &quot;Навички&quot;.
-            </p>
+            <p className="text-sm text-slate-400">Поверніться на крок &quot;Навички&quot; та оберіть потрібні володіння.</p>
           </div>
         </Card>
       ) : null}

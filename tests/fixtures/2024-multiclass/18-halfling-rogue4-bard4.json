@@ -37,8 +37,8 @@
     ],
     "speciesChoices": [],
     "expertise": [
-      "STEALTH",
-      "SLEIGHT_OF_HAND"
+      "INVESTIGATION",
+      "PERCEPTION"
     ],
     "weaponMastery": [
       "Dagger",
@@ -66,15 +66,29 @@
       {
         "characterLevel": 5,
         "class": "BARD_2024",
-        "isNewClass": true
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Класові інструменти",
+            "option": "Class Tool 2024 (BARD_2024: FLUTE)"
+          },
+          {
+            "choice": "Класові інструменти",
+            "option": "Class Tool 2024 (BARD_2024: LUTE)"
+          },
+          {
+            "choice": "Класові інструменти",
+            "option": "Class Tool 2024 (BARD_2024: LYRE)"
+          }
+        ]
       },
       {
         "characterLevel": 6,
         "class": "BARD_2024",
         "isNewClass": false,
         "expertise": [
-          "PERSUASION",
-          "PERFORMANCE"
+          "DECEPTION",
+          "PERSUASION"
         ]
       },
       {
@@ -103,6 +117,12 @@
           }
         ]
       }
+    ],
+    "classSkills": [
+      "ACROBATICS",
+      "DECEPTION",
+      "INSIGHT",
+      "PERSUASION"
     ]
   },
   "expected": {
@@ -138,6 +158,10 @@
     "maxSpellSlotLevel": 3,
     "pactSlots": null,
     "classSpellSources": [
+      {
+        "source": "ROGUE_2024",
+        "ability": "INT"
+      },
       {
         "source": "BARD_2024",
         "ability": "CHA"

@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
+import { readClassProse, readRaceProse, readRaceRecords, readSubclassProse, SourceProse } from "./catalog-prose";
 import { decomposeMarkup, KNOWN_MARKUP_TAGS } from "./markup";
 import { MIRROR_REPOSITORY, MIRROR_REVISION, readLockedSourceLock } from "./mirror";
 import {
@@ -15,9 +16,22 @@ import {
   SourceItem,
   SourceRecord,
   SourceSpell,
+  RulesEdition,
 } from "./schema";
 
 const REPORT_PATH = join(process.cwd(), "data", "5etools", "coverage.md");
+
+type CatalogBranch = { nameEng: string };
+
+type CatalogEntry = CatalogBranch & { ruleset: RulesEdition };
+
+type ProseMatch = {
+  total: number;
+  inSource: number;
+  withProse: number[];
+  missing: string[];
+  withoutProse: string[];
+};
 
 type NameMatch = {
   total: number;
@@ -39,6 +53,8 @@ function buildCoverageReport(): void {
     describeMagicItems(items, variants),
     describeSpells(spells),
     describeFacilities(facilities),
+    describeClasses(),
+    describeRaces(),
     describeMarkup(),
   ];
 
@@ -170,6 +186,114 @@ function describeFacilities(facilities: ReturnType<typeof readFacilities>): stri
     "",
     "Цього контенту в проєкті не існує взагалі — KR16.6 створює каталог із нуля.",
   ].join("\n");
+}
+
+function describeClasses(): string {
+  const classes = readGeneratedCatalog("src/lib/generated/classes.json");
+  const subclasses = classes.flatMap((entry) =>
+    (entry.subclasses as CatalogBranch[]).map((subclass) => ({ nameEng: subclass.nameEng, ruleset: entry.ruleset })),
+  );
+  const classProse = readClassProse();
+  const subclassProse = readSubclassProse();
+  const rows = [
+    ["Класи 2014", matchProse(filterEdition(classes, "RULES_2014"), classProse, classProse, "RULES_2014")],
+    ["Класи 2024", matchProse(filterEdition(classes, "RULES_2024"), classProse, classProse, "RULES_2024")],
+    ["Підкласи 2014", matchProse(filterEdition(subclasses, "RULES_2014"), subclassProse, subclassProse, "RULES_2014")],
+    ["Підкласи 2024", matchProse(filterEdition(subclasses, "RULES_2024"), subclassProse, subclassProse, "RULES_2024")],
+  ] as const;
+
+  return [
+    "## Класи",
+    "",
+    "Проза класу — `classFluff` у `class/fluff-class-*.json`; для 2014 це вся вступна глава PHB із",
+    "віньєткою і порадами «Creating a …», тож число — верхня межа того, що KR33.6 стискатиме до",
+    "≈ 145 слів. Проза підкласу — рядки першої фічі, названої як підклас, плюс власний",
+    "`subclassFluff`, де він є. Редакція підкласу — за `classSource`.",
+    "",
+    ...describeProseTable(rows),
+    "",
+    ...rows.flatMap(([title, match]) => describeProseGaps(title, match)),
+  ].join("\n");
+}
+
+function describeRaces(): string {
+  const races = readGeneratedCatalog("src/lib/generated/races.json");
+  const subraces = races.flatMap((entry) =>
+    (entry.subraces as CatalogBranch[]).map((subrace) => ({ nameEng: subrace.nameEng, ruleset: entry.ruleset })),
+  );
+  const records = readRaceRecords();
+  const prose = readRaceProse();
+  const rows = [
+    ["Раси 2014", matchProse(filterEdition(races, "RULES_2014"), records, prose, "RULES_2014")],
+    ["Підраси 2014", matchProse(filterEdition(subraces, "RULES_2014"), records, prose, "RULES_2014")],
+    ["Види 2024", matchProse(filterEdition(races, "RULES_2024"), records, prose, "RULES_2024")],
+  ] as const;
+
+  return [
+    "## Раси",
+    "",
+    "Запис — `races.json` (`race` і `subrace`, підраса як «Dwarf (Hill)»), проза — `raceFluff` у",
+    "`fluff-races.json`. Підраса з `_copy` рахується лише власними абзацами з `_mod`, без",
+    "успадкованої прози раси. Кілька книг з однією назвою (Kenku: DMG, VGM, MPMM) — береться",
+    "найдовша проза.",
+    "",
+    ...describeProseTable(rows),
+    "",
+    ...rows.flatMap(([title, match]) => describeProseGaps(title, match)),
+  ].join("\n");
+}
+
+function matchProse(ours: CatalogEntry[], records: SourceProse[], prose: SourceProse[], edition: RulesEdition): ProseMatch {
+  const recordKeys = new Set(records.filter((record) => record.edition === edition).flatMap((record) => record.nameKeys));
+  const match: ProseMatch = { total: ours.length, inSource: 0, withProse: [], missing: [], withoutProse: [] };
+
+  for (const { nameEng } of ours) {
+    const key = findLooseNameKey(nameEng);
+    const words = Math.max(0, ...prose.filter((entry) => entry.edition === edition && entry.nameKeys.includes(key)).map((entry) => entry.words));
+    if (!recordKeys.has(key) && words === 0) match.missing.push(nameEng);
+    else match.inSource += 1;
+    if (words > 0) match.withProse.push(words);
+    else if (recordKeys.has(key)) match.withoutProse.push(nameEng);
+  }
+  return match;
+}
+
+function describeProseTable(rows: readonly (readonly [string, ProseMatch])[]): string[] {
+  return [
+    "| Наш каталог | Записів | Є в джерелі | З прозою | Слів: разом | медіана | макс |",
+    "|---|---:|---:|---:|---:|---:|---:|",
+    ...rows.map(([title, match]) => {
+      const sorted = [...match.withProse].sort((left, right) => left - right);
+      const total = sorted.reduce((sum, words) => sum + words, 0);
+      const median = sorted.length === 0 ? 0 : sorted[Math.floor(sorted.length / 2)];
+      return `| ${title} | ${match.total} | **${match.inSource}** | **${sorted.length}** | ${total} | ${median} | ${sorted.at(-1) ?? 0} |`;
+    }),
+  ];
+}
+
+function describeProseGaps(title: string, match: ProseMatch): string[] {
+  return [
+    describeMissing(`${title} — немає в джерелі за назвою`, match.missing),
+    describeMissing(`${title} — запис є, прози немає`, match.withoutProse),
+  ];
+}
+
+function filterEdition(entries: CatalogEntry[], edition: RulesEdition): CatalogEntry[] {
+  return entries.filter((entry) => entry.ruleset === edition);
+}
+
+function readGeneratedCatalog(relativePath: string): (CatalogEntry & Record<string, unknown>)[] {
+  return readJsonList(relativePath).map((row) => ({
+    ...row,
+    nameEng: String(row.engName),
+    ruleset: row.ruleset as RulesEdition,
+    subraces: ((row.subraces as Record<string, unknown>[] | undefined) ?? []).map(toCatalogBranch),
+    subclasses: ((row.subclasses as Record<string, unknown>[] | undefined) ?? []).map(toCatalogBranch),
+  }));
+}
+
+function toCatalogBranch(row: Record<string, unknown>): CatalogBranch {
+  return { nameEng: String(row.engName) };
 }
 
 function describeMarkup(): string {

@@ -44,7 +44,13 @@
         "level": 5
       }
     ],
-    "classEquipment": "a"
+    "classEquipment": "a",
+    "classChoices": [
+      {
+        "choice": "Божественний орден",
+        "option": "Divine Order: Protector"
+      }
+    ]
   },
   "expected": {
     "finalAbilityScores": {
@@ -76,7 +82,14 @@
         "ability": "WIS"
       }
     ],
-    "grantedSpells": [],
+    "grantedSpells": [
+      "Aid",
+      "Bless",
+      "Cure Wounds",
+      "Lesser Restoration",
+      "Mass Healing Word",
+      "Revivify"
+    ],
     "bastionUnlocked": true
   }
 }

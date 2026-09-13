@@ -19,11 +19,18 @@ import { formatArmorProficiencies, formatWeaponProficiencies } from "@/lib/compo
 import { findFacilityMatch } from "@/rules/bastions";
 import { getBastionFacilityBySlug } from "@/lib/bastionsData";
 import { findBastionCharacterProfile } from "@/server/db/bastions";
+import { findCreatorContent, type CreatorContent } from "@/server/db/creator-content-query";
+import { baseChoiceGroupName, picksAtLevelForGroup } from "@/lib/logic/choicePoolRules";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: T) => fn }));
+vi.mock("@/lib/content/creator-content", async importOriginal => ({
+  ...await importOriginal<typeof import("@/lib/content/creator-content")>(),
+  findCharacterCreatorOptions: vi.fn(),
+}));
 
 import { auth } from "@/lib/auth";
+import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { createCharacter } from "@/lib/actions/character";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { addManualSpell, learnClassSpells } from "@/server/db/spell-actions";
@@ -35,8 +42,14 @@ vi.setConfig({ testTimeout: 120_000, hookTimeout: 1_800_000 });
 const BUILD_TIMEOUT_MS = 1_800_000;
 
 const built = new Map<string, Built2024MulticlassCharacter>();
+let content: CreatorContent;
 
 beforeAll(async () => {
+  content = await findCreatorContent(prisma, "RULES_2024");
+  vi.mocked(findCharacterCreatorOptions).mockImplementation(ruleset => {
+    if (ruleset !== "RULES_2024") throw new Error(`Неочікуваний ruleset у multiclass-тесті: ${ruleset}`);
+    return content;
+  });
   await resetUserData();
   for (const fixture of multiclass2024Fixtures) {
     await signInAsOwner(fixture.id);
@@ -133,6 +146,7 @@ async function tryForbiddenMulticlassEntry(input: {
       asi: [],
       customAsi: Object.entries(input.scores).map(([ability, value]) => ({ ability, value: String(value) })),
       backgroundAsiChoice: input.backgroundAsi as never,
+      classChoiceSelections: await buildFirstLevelClassChoices(startingClass.classId, input.startingClass),
     }),
   );
   if (!created.persId) throw new Error(`Проба "${input.handle}" не створилася: ${created.error}`);
@@ -141,6 +155,24 @@ async function tryForbiddenMulticlassEntry(input: {
     created.persId,
     minimalLevelUpForm({ classId: newClass.classId, levelUpPath: "MULTICLASS" }),
   );
+}
+
+async function buildFirstLevelClassChoices(classId: number, className: string) {
+  const links = await prisma.classChoiceOption.findMany({
+    where: { classId, levelsGranted: { has: 1 } },
+    select: { choiceOptionId: true, choiceOption: { select: { groupName: true } } },
+  });
+  const byGroup = new Map<string, number[]>();
+  for (const link of links) {
+    const groupName = baseChoiceGroupName(link.choiceOption.groupName);
+    byGroup.set(groupName, [...(byGroup.get(groupName) ?? []), link.choiceOptionId]);
+  }
+
+  return Object.fromEntries([...byGroup].map(([groupName, ids]) => {
+    const count = picksAtLevelForGroup({ scope: "class", className, groupName, levelAfter: 1 });
+    const picked = ids.slice(0, count);
+    return [groupName, picked.length === 1 ? picked[0] : picked];
+  }));
 }
 
 /** Те саме заклинання, яке персонажу дають і клас, і риса — два джерела, одне імʼя. */

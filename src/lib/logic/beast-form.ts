@@ -20,15 +20,10 @@ import {
   findBeastFormArmorClass,
   parseAbilityScore,
   parseArmorClass,
-  usesBetterOfBeastProficiencies,
   usesSeparateBeastHitPoints,
 } from "@/rules/wildshape";
 import { parseBeastSaveModifiers, parseBeastSkillModifiers } from "./beast-proficiencies";
 import { calculateFinalAC, calculateFinalModifier, calculateFinalSave, calculateFinalSkill } from "./bonus-calculator";
-
-/// Швидкість на листі рахується як `30 + бонус` — іншого каналу в калькулятора немає, тож
-/// швидкість звіра доводиться класти саме бонусом. Число тут і в `calculateFinalSpeed` одне.
-const BASE_WALK_SPEED = 30;
 
 /// `context` — рівень друїда, коло й редакція. Саме редакція, а не каталог, з якого приїхала
 /// істота: правила бере персонаж.
@@ -111,7 +106,7 @@ function replaceHitPointsWithBeast(pers: PersWithRelations, layer: BeastFormLaye
 }
 
 function replaceSpeedWithBeast(pers: PersWithRelations, creature: CreatureData): PersWithRelations {
-  return { ...pers, speedBonuses: { value: (creature.walkSpeed ?? 0) - BASE_WALK_SPEED } };
+  return { ...pers, walkingSpeedReplacement: creature.walkSpeed ?? 0 } as PersWithRelations;
 }
 
 /**
@@ -135,14 +130,16 @@ function replaceArmorClassWithBeast(pers: PersWithRelations, layer: BeastFormLay
 }
 
 /**
- * Правило 2024 «береться більше з двох»: володіння персонажа лишаються з його бонусом
- * майстерності, але там, де статблок звіра дає більше, показується число статблока. Робиться це
- * надбавкою до вже порахованого модифікатора, а не підміною володіння, — інакше довелося б
- * чіпати калькулятори, які лист і PDF ділять із рештою листа.
+ * «Береться більше з двох»: володіння персонажа лишаються з його бонусом майстерності, персонаж
+ * додатково отримує володіння звіра, і там, де статблок дає більше, показується число статблока.
+ * Робиться це надбавкою до вже порахованого модифікатора, а не підміною володіння, — інакше
+ * довелося б чіпати калькулятори, які лист і PDF ділять із рештою листа.
+ *
+ * Редакція тут більше не розгалужується: 2024 каже це дослівно
+ * (`data/2024/srd/classes.md:3580`), а для 2014 класового тексту в репозиторії немає взагалі —
+ * рішення власника 2026-09-06 реалізувати те саме RAW й для неї (KR31.12).
  */
 function raiseProficienciesToBeast(pers: PersWithRelations, layer: BeastFormLayer): PersWithRelations {
-  if (!usesBetterOfBeastProficiencies(layer.context.ruleset)) return pers;
-
   return {
     ...pers,
     skillBonuses: raiseEntries<PersWithRelations["skillBonuses"], Skills>(

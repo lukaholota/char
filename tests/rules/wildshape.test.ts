@@ -17,7 +17,6 @@ import {
   parseArmorClass,
   parseChallengeRating,
   parseCreatureHitPoints,
-  usesBetterOfBeastProficiencies,
   usesSeparateBeastHitPoints,
 } from "@/rules/wildshape";
 
@@ -406,11 +405,9 @@ describe("тимчасові хіти замість стосу звіра", () 
     expect(findWildshapeTemporaryHitPoints(druid2024(1))).toBe(0);
   });
 
-  it("стос звіра має лише 2014, а «більше з двох володінь» — лише 2024", () => {
+  it("окремий стос хітів звіра має лише 2014", () => {
     expect(usesSeparateBeastHitPoints("RULES_2014")).toBe(true);
     expect(usesSeparateBeastHitPoints("RULES_2024")).toBe(false);
-    expect(usesBetterOfBeastProficiencies("RULES_2014")).toBe(false);
-    expect(usesBetterOfBeastProficiencies("RULES_2024")).toBe(true);
   });
 });
 

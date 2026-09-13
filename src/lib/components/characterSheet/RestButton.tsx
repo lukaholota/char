@@ -20,6 +20,7 @@ import { Moon, Sun, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { longRest } from "@/lib/actions/rest-actions";
+import { findHeroicInspirationAfterLongRest } from "@/rules/heroic-inspiration";
 import { restTranslations } from "@/lib/refs/translation";
 import ShortRestDialog from "./ShortRestDialog";
 import { PersWithRelations } from "@/lib/actions/pers";
@@ -63,6 +64,13 @@ export default function RestButton({
         return;
       }
 
+      /// Те саме правило, що й на сервері (`longRest`): відповідь дії його не несе, бо її
+      /// дослівно фіксують золоті знімки, а лист має показати натхнення до оновлення сторінки.
+      const hasHeroicInspiration = findHeroicInspirationAfterLongRest({
+        hasHeroicInspiration: pers.hasHeroicInspiration,
+        featureEngNames: pers.features.map((persFeature) => persFeature.feature.engName),
+      });
+
       onPersUpdate?.({
         ...pers,
         currentHp: res.newCurrentHp,
@@ -73,12 +81,16 @@ export default function RestButton({
         deathSaveSuccesses: 0 as any,
         deathSaveFailures: 0 as any,
         isDead: false as any,
+        hasHeroicInspiration,
       });
 
       onGroupedFeaturesRefresh?.();
 
+      const gainedHeroicInspiration = hasHeroicInspiration && !pers.hasHeroicInspiration;
       toast.success(restTranslations.longRestComplete, {
-        description: `HP: ${res.newCurrentHp}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,
+        description: `HP: ${res.newCurrentHp}, ${restTranslations.featuresRestored}: ${res.featuresRestored}${
+          gainedHeroicInspiration ? `, ${restTranslations.heroicInspirationGained}` : ""
+        }`,
       });
       setLongRestOpen(false);
       refreshInBackground();

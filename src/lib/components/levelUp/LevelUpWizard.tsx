@@ -38,6 +38,7 @@ import {
   classTranslationsEng,
   attributesUkrShort,
   LanguageTranslations,
+  featTranslations,
 } from "@/lib/refs/translation";
 import { Ability, FeatureDisplayType, SpellcastingType } from "@prisma/client";
 import { Races } from "@prisma/client";
@@ -62,11 +63,14 @@ import {
   formatSkillProficiencies,
   formatToolProficiencies,
   formatWeaponProficiencies,
+  translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { calculateFinalAbilityScores, calculateFinalStat } from "@/lib/logic/bonus-calculator";
-import { findMulticlassEntryProblem, type MulticlassRuleset } from "@/rules/multiclass-entry";
+import { describeMulticlassEntryProblem, findMulticlassEntryProblem, type MulticlassRuleset } from "@/rules/multiclass-entry";
 import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
 import { getRulesStrategy } from "@/rules/strategies";
+import { findInfusionPicksAtLevel } from "@/rules/artificer-infusions";
+import { sumLevelUpFeatureHitPoints, toHitPointGrantingFeature } from "@/rules/hit-points";
 import {
   extractSkillsFromChoiceOption,
   extractExpertisesFromChoiceOption,
@@ -78,6 +82,7 @@ import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LevelUpWeaponMasteryStep } from "@/lib/components/levelUp/LevelUpWeaponMasteryStep";
 import { findLevelUpWeaponMastery } from "@/lib/components/levelUp/levelup-weapon-mastery";
+import { LevelUpFeatSpellStep } from "@/lib/components/levelUp/LevelUpFeatSpellStep";
 import { findVisibleOptionalFeatures } from "@/lib/components/levelUp/levelup-optional-features";
 
 import {
@@ -276,6 +281,12 @@ export default function LevelUpWizard({ info }: Props) {
       (f: any) => Number(f?.featId) === selectedFeatId
     );
   }, [feats, selectedFeatId]);
+
+  const selectedFeatSpellOffer = useMemo(() => {
+    const featName = (selectedFeat as { name?: string } | undefined)?.name;
+    if (isError || !featName) return undefined;
+    return info.featSpellChoiceOffers[featName];
+  }, [info, isError, selectedFeat]);
 
   const selectedFeatHasChoices = useMemo(() => {
     const n = (selectedFeat as any)?.featChoiceOptions?.length ?? 0;
@@ -590,11 +601,14 @@ export default function LevelUpWizard({ info }: Props) {
     return getRulesStrategy(pers?.ruleset ?? "RULES_2014").isEpicBoonLevel(selectedClass, classLevelAfter);
   }, [selectedClass, classLevelAfter, pers]);
 
-  const needsInfusions = useMemo(() => {
-    if (!selectedClass) return false;
-    if (selectedClass.name !== "ARTIFICER_2014") return false;
-    return classLevelAfter === 2;
+  /// Вливання дає не лише 2 рівень: таблиця TCoE додає по два на 6 / 10 / 14 / 18 (BUG-007).
+  const infusionPicks = useMemo(() => {
+    if (!selectedClass) return 0;
+    if (selectedClass.name !== "ARTIFICER_2014") return 0;
+    return findInfusionPicksAtLevel(classLevelAfter);
   }, [selectedClass, classLevelAfter]);
+
+  const needsInfusions = infusionPicks > 0;
 
   const classChoiceGroupsResult = useMemo(() => {
     if (!selectedClass)
@@ -680,27 +694,32 @@ export default function LevelUpWizard({ info }: Props) {
       .sort((a, b) => (a.subclassFeatureId || 0) - (b.subclassFeatureId || 0));
   }, [effectiveSubclass, classLevelAfter]);
 
+  /// Доданки мають бути ті самі, що й у `levelup-persistence`: без них майстер показував +8, а
+  /// записував +9 (P4-regression-2014-04).
+  const traitHitPointsPerLevel = sumLevelUpFeatureHitPoints({
+    ownedFeatures: ((pers as any)?.features ?? []).map((entry: any) => toHitPointGrantingFeature(entry.feature)),
+    gainedFeatures: [...newClassFeatures, ...newSubclassFeatures].map((entry: any) => ({
+      featureId: entry.featureId,
+      bonusHitPointsPerLevel: entry.feature?.bonusHitPointsPerLevel ?? null,
+      grantingClassIds: selectedClass ? [selectedClass.classId] : [],
+    })),
+    leveledClassId: selectedClass?.classId ?? 0,
+    classLevelAfter,
+  });
+
   // Риса виду відкривається рівнем ПЕРСОНАЖА, тому обраний клас на неї не впливає (§4).
   const newSpeciesTraits = useMemo(() => {
     const owned = ((pers as any)?.features ?? []).map((f: any) => f.featureId);
     return findMissingSpeciesTraits((pers as any)?.race?.traits ?? [], characterLevelOnly(nextLevel), owned);
   }, [pers, nextLevel]);
 
-  // Передумову рахує та сама функція, що й сервер, — інакше форма й рушій знову розійдуться (KR27.2).
+  // Передумова мультикласу — попередження, не заборона (рішення власника 2026-09-06, KR31.9):
+  // характеристика могла впасти вже після того, як клас узятий, а книга клас за це не забирає.
+  // Список несе всі ще не взяті класи; сам факт «13+ не вистачає» показує PathStep попередженням.
   const eligibleMulticlassClasses = useMemo(() => {
     if (!pers) return [] as ClassI[];
-    const abilityScores = calculateFinalAbilityScores(pers);
     const allClasses = classes as unknown as ClassI[];
-    const currentClasses = allClasses.filter((cls) => existingClassIds.has(cls.classId));
-
-    return allClasses
-      .filter((cls) => !existingClassIds.has(cls.classId))
-      .filter((cls) => !findMulticlassEntryProblem({
-        ruleset: (pers.ruleset as MulticlassRuleset) ?? "RULES_2014",
-        abilityScores,
-        currentClasses,
-        newClass: cls,
-      }));
+    return allClasses.filter((cls) => !existingClassIds.has(cls.classId));
   }, [classes, existingClassIds, pers]);
 
   const levelUpSelectedSkills = useMemo(() => {
@@ -871,6 +890,14 @@ export default function LevelUpWizard({ info }: Props) {
           initialDisabled: true,
         });
       }
+
+      if (selectedFeatSpellOffer) {
+        result.push({
+          id: "feat-spells",
+          title: "Заклинання риси",
+          initialDisabled: true,
+        });
+      }
     }
 
     if (needsInfusions) {
@@ -969,6 +996,7 @@ export default function LevelUpWizard({ info }: Props) {
     needsSubclass,
     selectedFeatHasChoices,
     selectedFeatId,
+    selectedFeatSpellOffer,
     pers,
     selectedClass,
     selectedClassId,
@@ -1082,6 +1110,14 @@ export default function LevelUpWizard({ info }: Props) {
             extraExistingExpertises={levelUpSelectedExpertises}
           />
         ) : null;
+      case "feat-spells":
+        return selectedFeatSpellOffer ? (
+          <LevelUpFeatSpellStep
+            featLabel={featTranslations[(selectedFeat as { name: string }).name] ?? (selectedFeat as { name: string }).name}
+            offer={selectedFeatSpellOffer}
+            onNextDisabledChange={onNextDisabledChange}
+          />
+        ) : null;
       case "infusions": {
         const known =
           (pers as any)?.persInfusions
@@ -1092,7 +1128,7 @@ export default function LevelUpWizard({ info }: Props) {
             infusions={(info as any).infusions || []}
             artificerLevelAfter={classLevelAfter}
             alreadyKnownInfusionIds={known}
-            requiredCount={4}
+            requiredCount={infusionPicks}
             formId="infusions-form"
             onNextDisabledChange={onNextDisabledChange}
           />
@@ -1190,6 +1226,7 @@ export default function LevelUpWizard({ info }: Props) {
         return (
           <LevelUpHPStep
             hitDie={selectedClass!.hitDie}
+            traitHitPointsPerLevel={traitHitPointsPerLevel}
             baseStats={{
               str: pers.str,
               dex: pers.dex,
@@ -1215,6 +1252,7 @@ export default function LevelUpWizard({ info }: Props) {
             formData={formData}
             pers={pers}
             allFeats={feats}
+            traitHitPointsPerLevel={traitHitPointsPerLevel}
           />
         );
       default:
@@ -1565,6 +1603,7 @@ function ConfirmStep({
   formData,
   pers,
   allFeats,
+  traitHitPointsPerLevel,
 }: {
   totalLevel: number;
   className: string;
@@ -1572,6 +1611,7 @@ function ConfirmStep({
   formData: any;
   pers: any;
   allFeats: any[];
+  traitHitPointsPerLevel: number;
 }) {
   const asiChosen =
     Array.isArray(formData.customAsi) && formData.customAsi.length > 0;
@@ -1599,6 +1639,7 @@ function ConfirmStep({
   const takingTough = selectedFeat?.name === "TOUGH";
   const hitDiePart = Number(formData.levelUpHpIncrease) || 0;
 
+
   let toughBonus = 0;
   let toughText = null as string | null;
   if (takingTough) {
@@ -1610,7 +1651,7 @@ function ConfirmStep({
   }
 
   const totalHpIncrease =
-    hitDiePart + newConMod + toughBonus + retroactiveConHp;
+    hitDiePart + newConMod + toughBonus + retroactiveConHp + traitHitPointsPerLevel;
 
   const optionalChosen =
     formData.classOptionalFeatureSelections &&
@@ -1780,6 +1821,25 @@ function PathStep({
     });
     return entries;
   }, [pers.classId, pers.multiclasses, mainClassLevel]);
+
+  const selectedMulticlassClass = useMemo(() => {
+    if (levelUpPath !== "MULTICLASS" || !chosenClassId) return null;
+    return classes.find((c) => c.classId === chosenClassId) ?? null;
+  }, [levelUpPath, chosenClassId, classes]);
+
+  // Попередження, не заборона (KR31.9, рішення власника 2026-09-06) — див. коментар біля
+  // eligibleMulticlassClasses вище.
+  const multiclassEntryProblem = useMemo(() => {
+    if (!selectedMulticlassClass) return null;
+    const existingClassIds = new Set(existingEntries.map((entry) => entry.classId));
+    const currentClasses = classes.filter((c) => existingClassIds.has(c.classId));
+    return findMulticlassEntryProblem({
+      ruleset: (pers.ruleset as MulticlassRuleset) ?? "RULES_2014",
+      abilityScores: calculateFinalAbilityScores(pers),
+      currentClasses,
+      newClass: selectedMulticlassClass,
+    });
+  }, [selectedMulticlassClass, existingEntries, classes, pers]);
 
   const getClassName = (classId: number) => {
     const cls = classes.find((c) => c.classId === classId);
@@ -2065,9 +2125,10 @@ function PathStep({
           {levelUpPath === "MULTICLASS" ? (
             <div className="space-y-3">
               <p className="text-sm text-slate-400">
-                Показано лише класи, для яких виконані вимоги мультикласу
-                (зазвичай{" "}
-                <span className="font-semibold text-slate-200">13+</span>).
+                Вимога мультикласу — зазвичай{" "}
+                <span className="font-semibold text-slate-200">13+</span> у
+                ключовій характеристиці. Це підказка, не заборона: обрати
+                можна будь-який клас.
               </p>
 
               <div className="glass-panel border-gradient-rpg rounded-xl p-3 text-sm text-slate-300">
@@ -2097,9 +2158,16 @@ function PathStep({
                 />
               ) : (
                 <Card className="glass-card p-4 text-center text-slate-200">
-                  Немає доступних класів для мультикласу (перевірте вимоги 13+).
+                  Немає інших класів для мультикласу — усі вже взято.
                 </Card>
               )}
+
+              {multiclassEntryProblem ? (
+                <div className="glass-panel rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200">
+                  ⚠ Не за правилами: {describeMulticlassEntryProblem(multiclassEntryProblem, translateValue)}{" "}
+                  Мультиклас усе одно дозволено — це попередження, не заборона.
+                </div>
+              ) : null}
             </div>
           ) : null}
         </CardContent>

@@ -71,3 +71,44 @@ describe("майстерність зброї на підвищенні рівн
     expect(mastery.needsChoice).toBe(true);
   });
 });
+
+// KR31.4 — «Weapon Master» дає окремий слот поверх класової прогресії.
+describe("слот майстерності від риси", () => {
+  const weaponMaster = { feat: { name: "WEAPON_MASTER" } };
+
+  it("риса додає слот воїну поверх класової ємності", () => {
+    const withoutFeat = findLevelUpWeaponMastery({
+      pers: { classId: 1, class: fighter, multiclasses: [], feats: [], pers_weapon_mastery: [] },
+      selectedClass: fighter,
+      selectedClassId: 1,
+      classLevelAfter: 4,
+      mainClassLevel: 3,
+      weapons,
+    });
+    const withFeat = findLevelUpWeaponMastery({
+      pers: { classId: 1, class: fighter, multiclasses: [], feats: [weaponMaster], pers_weapon_mastery: [] },
+      selectedClass: fighter,
+      selectedClassId: 1,
+      classLevelAfter: 4,
+      mainClassLevel: 3,
+      weapons,
+    });
+
+    expect(withoutFeat.capacity).toBe(4);
+    expect(withFeat.capacity).toBe(5);
+  });
+
+  it("риса відкриває майстерність класу, який її не має", () => {
+    const mastery = findLevelUpWeaponMastery({
+      pers: { classId: 2, class: wizard, multiclasses: [], feats: [weaponMaster], pers_weapon_mastery: [] },
+      selectedClass: wizard,
+      selectedClassId: 2,
+      classLevelAfter: 4,
+      mainClassLevel: 3,
+      weapons,
+    });
+
+    expect(mastery.capacity).toBe(1);
+    expect(mastery.needsChoice).toBe(true);
+  });
+});

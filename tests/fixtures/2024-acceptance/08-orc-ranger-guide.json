@@ -37,11 +37,20 @@
             "choice": "Бойовий стиль",
             "option": "Archery"
           }
+        ],
+        "expertise": [
+          "SURVIVAL"
         ]
       },
       {
         "level": 3,
-        "subclass": "HUNTER"
+        "subclass": "HUNTER",
+        "subclassChoices": [
+          {
+            "choice": "Здобич мисливця",
+            "option": "Hunter's Prey: Colossus Slayer"
+          }
+        ]
       },
       {
         "level": 4,
@@ -101,7 +110,12 @@
         "ability": "WIS"
       }
     ],
-    "grantedSpells": [],
-    "bastionUnlocked": true
+    "grantedSpells": [
+      "Hunter's Mark"
+    ],
+    "bastionUnlocked": true,
+    "expertiseSkills": [
+      "SURVIVAL"
+    ]
   }
 }

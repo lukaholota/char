@@ -3,6 +3,8 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   applyJsonStringEdits,
+  findBareSpellNamesInCarrier,
+  findBareSpellNamesInText,
   buildAmbiguousNamesFile,
   collectSpellRegistry,
   countCoverage,
@@ -104,6 +106,17 @@ describe("KR25.3 — що загортається, а що йде у звіт",
     expect(countJsonCoverage(value, testRegistry)).toEqual({ mentions: 1, linked: 0 });
     expect(countJsonCoverage(linked, testRegistry)).toEqual({ mentions: 1, linked: 1 });
   });
+
+  it("два записи з дослівно однаковим рядком не завалюють запис файлу", () => {
+    const value = [{ prerequisite: "Заклинання Вогнекуля [Fireball]" }, { prerequisite: "Заклинання Вогнекуля [Fireball]" }];
+    const source = '[\n  { "prerequisite": "Заклинання Вогнекуля [Fireball]" },\n  { "prerequisite": "Заклинання Вогнекуля [Fireball]" }\n]\n';
+    const edits: { original: string; linked: string }[] = [];
+    const linked = linkMentionsInJson(value, testRegistry, "RULES_2024", undefined, edits);
+    const written = applyJsonStringEdits(source, edits, linked);
+
+    expect(written).not.toBeNull();
+    expect(written!.match(/<a href=/g)).toHaveLength(2);
+  });
 });
 
 describe("KR25.4 — неоднозначну назву загортає лише свідомий прапорець (П5)", () => {
@@ -130,8 +143,12 @@ describe("KR25.4 — неоднозначну назву загортає лиш
   });
 });
 
+/// Файл винятків обслуговує два правила: неоднозначну назву, яку не можна загортати в
+/// посилання, і англійську назву, що в українському тексті стоїть предметом розмови, а не
+/// згадкою («2014 Branding Smite — Втілення»). Спільне в них одне — запис мусить показувати на
+/// живе місце у файлі, інакше він протухає й починає ховати справжню помилку.
 describe("KR25.4 — переглянуті винятки лежать у репо з причиною і не протухають", () => {
-  it("кожен запис not-a-spell.json указує на реальну неоднозначну згадку в тому файлі", () => {
+  it("кожен запис not-a-spell.json указує на реальну згадку в тому файлі", () => {
     const notASpell = readNotASpellFile();
     expect(Object.keys(notASpell).length).toBeGreaterThan(0);
 
@@ -139,9 +156,15 @@ describe("KR25.4 — переглянуті винятки лежать у ре�
       const carrier = listCarriers().find((c) => c.path === path);
       expect(carrier, `${path}: немає серед носіїв`).toBeDefined();
       const source = readFileSync(join(process.cwd(), path), "utf-8");
+      const bareWithoutExceptions = new Set(
+        findBareSpellNamesInCarrier(carrier!, registry, process.cwd(), new Set()).map((item) => item.engName),
+      );
       for (const [engName, reason] of Object.entries(names)) {
-        expect(registry.ambiguous.has(engName), `${path}: ${engName} більше не неоднозначна`).toBe(true);
-        expect(source, `${path}: ${engName} більше не згадується`).toContain(`[${engName}]`);
+        expect(registry.byEngName.has(engName.toLowerCase()), `${path}: ${engName} — не назва заклинання з каталогу`).toBe(true);
+        expect(
+          registry.ambiguous.has(engName) ? source.includes(`[${engName}]`) : bareWithoutExceptions.has(engName),
+          `${path}: ${engName} — у файлі немає згадки, заради якої стоїть виняток`,
+        ).toBe(true);
         expect(reason.trim().length, `${path}: ${engName} без причини`).toBeGreaterThan(20);
       }
     }
@@ -218,5 +241,25 @@ describe("KR25.3 — покриття не падає нижче планки", 
   it("поверхні, що збираються з файлів, несуть те, що є в джерелі", () => {
     const surfaces = Object.fromEntries(measureSurfaces(registry).map((row: CoverageRow) => [row.path, row]));
     for (const [path, floor] of Object.entries(SURFACE_FLOORS)) expectNotBelow(surfaces[path], floor, path);
+  });
+});
+
+/// Друга дірка того самого правила: проставляч вище чіпляється лише за маркер `[EngName]`, тож
+/// назва, написана голою англійською, для нього не існує — ні загорнути, ні порахувати недостачу
+/// він її не може. Саме так у картки 2024-виклику потрапило «Накладання Mage Armor на себе».
+describe("гола англійська назва заклинання в українському тексті", () => {
+  it("детектор бачить голу назву й не чіпає домовлені форми", () => {
+    const testRegistry = buildTestRegistry();
+    expect(findBareSpellNamesInText("Накладання Fireball на себе", testRegistry)).toEqual(["Fireball"]);
+    expect(findBareSpellNamesInText("Вогнекуля [Fireball] на себе", testRegistry)).toEqual([]);
+    expect(findBareSpellNamesInText('<a href="/spells/fireball">Вогнекуля [Fireball]</a> знову', testRegistry)).toEqual([]);
+    expect(findBareSpellNamesInText("вогняна куля{{Fireball}} у прозі", testRegistry)).toEqual([]);
+    expect(findBareSpellNamesInText("A Fireball deals 8d6 damage", testRegistry)).toEqual([]);
+    expect(findBareSpellNamesInText("Накладання Fireball на себе", testRegistry, new Set(["Fireball"]))).toEqual([]);
+  });
+
+  it("у джерелах контенту жодної не лишилося", () => {
+    const found = listCarriers().flatMap((carrier) => findBareSpellNamesInCarrier(carrier, registry));
+    expect(found.map((item) => `${item.path} — ${item.engName}: ${item.context}`)).toEqual([]);
   });
 });

@@ -994,7 +994,24 @@ CREATE TYPE public."Subclasses" AS ENUM (
     'ABJURER',
     'DIVINER',
     'EVOKER',
-    'ILLUSIONIST'
+    'ILLUSIONIST',
+    'BLADESINGER',
+    'CARTOGRAPHER',
+    'COLLEGE_OF_THE_MOON',
+    'CONJURER',
+    'ENCHANTER',
+    'HOLLOW_WARDEN',
+    'NECROMANCER',
+    'OATH_OF_THE_NOBLE_GENIES',
+    'REANIMATOR',
+    'SCION_OF_THE_THREE',
+    'SHADOW_SORCERY',
+    'SPELLFIRE_SORCERY',
+    'TRANSMUTER',
+    'UNDEAD_PATRON',
+    'VESTIGE_PATRON',
+    'WARRIOR_OF_THE_MYSTIC_ARTS',
+    'WINTER_WALKER'
 );
 
 
@@ -1067,7 +1084,29 @@ CREATE TYPE public."ToolCategory" AS ENUM (
     'VEHICLES_WATER',
     'SMITHS_TOOLS',
     'BREWERS_SUPPLIES',
-    'CALLIGRAPHERS_SUPPLIES'
+    'CALLIGRAPHERS_SUPPLIES',
+    'ALCHEMISTS_SUPPLIES',
+    'CARPENTERS_TOOLS',
+    'COBBLERS_TOOLS',
+    'COOKS_UTENSILS',
+    'GLASSBLOWERS_TOOLS',
+    'LEATHERWORKERS_TOOLS',
+    'MASONS_TOOLS',
+    'PAINTERS_SUPPLIES',
+    'POTTERS_TOOLS',
+    'TINKERS_TOOLS',
+    'WEAVERS_TOOLS',
+    'WOODCARVERS_TOOLS',
+    'BAGPIPES',
+    'DRUM',
+    'DULCIMER',
+    'FLUTE',
+    'HORN',
+    'LUTE',
+    'LYRE',
+    'PAN_FLUTE',
+    'SHAWM',
+    'VIOL'
 );
 
 
@@ -1567,7 +1606,8 @@ CREATE TABLE public.class (
     sort_order integer DEFAULT 999 NOT NULL,
     ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
     epic_boon_level integer,
-    weapon_mastery_progression integer[] DEFAULT ARRAY[]::integer[] NOT NULL
+    weapon_mastery_progression integer[] DEFAULT ARRAY[]::integer[] NOT NULL,
+    description text
 );
 
 
@@ -1576,6 +1616,13 @@ CREATE TABLE public.class (
 --
 
 COMMENT ON COLUMN public.class.weapon_mastery_progression IS 'Weapon Mastery capacity за рівнем КЛАСУ: індекс 1 відповідає рівню 1, індекс 20 — рівню 20. Порожній масив означає, що клас не дає майстерності.';
+
+
+--
+-- Name: COLUMN class.description; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.class.description IS 'Коротка вступна проза класу для каталогу (≈145 слів). NULL — опису немає.';
 
 
 --
@@ -2040,7 +2087,12 @@ CREATE TABLE public.feature (
     weapon_proficiencies_special jsonb,
     tool_proficiencies public."ToolCategory"[] DEFAULT ARRAY[]::public."ToolCategory"[],
     ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
-    bonus_hit_points_per_level integer
+    bonus_hit_points_per_level integer,
+    speed_bonus integer,
+    initiative_proficiency boolean,
+    bonus_hit_points integer,
+    damage_resistances public."DamageType"[] DEFAULT ARRAY[]::public."DamageType"[] NOT NULL,
+    darkvision_range integer
 );
 
 
@@ -2049,6 +2101,20 @@ CREATE TABLE public.feature (
 --
 
 COMMENT ON COLUMN public.feature.bonus_hit_points_per_level IS 'Скільки максимальних хітів фіча додає за кожен рівень персонажа. NULL — не додає.';
+
+
+--
+-- Name: COLUMN feature.damage_resistances; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.feature.damage_resistances IS 'Типи шкоди, до яких активна риса дає опір. Порожній масив — опору немає.';
+
+
+--
+-- Name: COLUMN feature.darkvision_range; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.feature.darkvision_range IS 'Дальність Темнозору, яку дає активна риса, у футах. NULL — Темнозір не надається.';
 
 
 --
@@ -2272,7 +2338,8 @@ CREATE TABLE public.pers (
     race_static_ac_bonus integer DEFAULT 0 NOT NULL,
     folder_id integer,
     is_pinned boolean DEFAULT false NOT NULL,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    has_heroic_inspiration boolean DEFAULT false NOT NULL
 );
 
 
@@ -3115,8 +3182,16 @@ CREATE TABLE public.race (
     tool_proficiencies jsonb,
     weapon_proficiencies jsonb,
     sort_order integer DEFAULT 999 NOT NULL,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    description text
 );
+
+
+--
+-- Name: COLUMN race.description; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.race.description IS 'Коротка вступна проза раси/виду для каталогу (≈145 слів). NULL — опису немає.';
 
 
 --
@@ -3597,6 +3672,39 @@ ALTER SEQUENCE public.subclass_feature_subclass_feature_id_seq OWNED BY public.s
 
 
 --
+-- Name: subclass_spell; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.subclass_spell (
+    subclass_spell_id integer NOT NULL,
+    subclass_id integer NOT NULL,
+    spell_id integer NOT NULL,
+    class_level integer NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+);
+
+
+--
+-- Name: subclass_spell_subclass_spell_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.subclass_spell_subclass_spell_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: subclass_spell_subclass_spell_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.subclass_spell_subclass_spell_id_seq OWNED BY public.subclass_spell.subclass_spell_id;
+
+
+--
 -- Name: subclass_subclass_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -3638,8 +3746,16 @@ CREATE TABLE public.subrace (
     cantrip_to_choose_count integer DEFAULT 0 NOT NULL,
     flight_speed integer,
     swim_speed integer,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    description text
 );
+
+
+--
+-- Name: COLUMN subrace.description; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.subrace.description IS 'Коротка проза підраси для каталогу. NULL — опису немає.';
 
 
 --
@@ -4145,6 +4261,13 @@ ALTER TABLE ONLY public.subclass_choice_option ALTER COLUMN option_id SET DEFAUL
 --
 
 ALTER TABLE ONLY public.subclass_feature ALTER COLUMN subclass_feature_id SET DEFAULT nextval('public.subclass_feature_subclass_feature_id_seq'::regclass);
+
+
+--
+-- Name: subclass_spell subclass_spell_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.subclass_spell ALTER COLUMN subclass_spell_id SET DEFAULT nextval('public.subclass_spell_subclass_spell_id_seq'::regclass);
 
 
 --
@@ -4792,6 +4915,22 @@ ALTER TABLE ONLY public.subclass
 
 
 --
+-- Name: subclass_spell subclass_spell_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.subclass_spell
+    ADD CONSTRAINT subclass_spell_pkey PRIMARY KEY (subclass_spell_id);
+
+
+--
+-- Name: subclass_spell subclass_spell_subclass_id_spell_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.subclass_spell
+    ADD CONSTRAINT subclass_spell_subclass_id_spell_id_key UNIQUE (subclass_id, spell_id);
+
+
+--
 -- Name: subrace subrace_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5327,6 +5466,13 @@ CREATE UNIQUE INDEX subclass_class_id_name_key ON public.subclass USING btree (c
 --
 
 CREATE UNIQUE INDEX subclass_feature_subclass_id_feature_id_key ON public.subclass_feature USING btree (subclass_id, feature_id);
+
+
+--
+-- Name: subclass_spell_subclass_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX subclass_spell_subclass_id_idx ON public.subclass_spell USING btree (subclass_id);
 
 
 --
@@ -6245,6 +6391,22 @@ ALTER TABLE ONLY public.subclass_feature
 
 ALTER TABLE ONLY public.subclass_feature
     ADD CONSTRAINT subclass_feature_subclass_id_fkey FOREIGN KEY (subclass_id) REFERENCES public.subclass(subclass_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: subclass_spell subclass_spell_spell_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.subclass_spell
+    ADD CONSTRAINT subclass_spell_spell_id_fkey FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id) ON DELETE RESTRICT;
+
+
+--
+-- Name: subclass_spell subclass_spell_subclass_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.subclass_spell
+    ADD CONSTRAINT subclass_spell_subclass_id_fkey FOREIGN KEY (subclass_id) REFERENCES public.subclass(subclass_id) ON DELETE CASCADE;
 
 
 --

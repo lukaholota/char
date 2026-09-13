@@ -53,7 +53,10 @@
       {
         "characterLevel": 5,
         "class": "WIZARD_2024",
-        "isNewClass": false
+        "isNewClass": false,
+        "expertise": [
+          "INVESTIGATION"
+        ]
       },
       {
         "characterLevel": 6,
@@ -109,6 +112,10 @@
     "maxSpellSlotLevel": 3,
     "pactSlots": null,
     "classSpellSources": [
+      {
+        "source": "FIGHTER_2024",
+        "ability": "INT"
+      },
       {
         "source": "WIZARD_2024",
         "ability": "INT"

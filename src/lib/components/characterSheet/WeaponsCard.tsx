@@ -5,7 +5,7 @@ import { Dices, Settings2, Sword } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { PersWeaponWithWeapon, PersWithRelations } from "@/lib/actions/pers";
-import { calculateWeaponAttackBonus, calculateWeaponDamageBonus } from "@/lib/logic/bonus-calculator";
+import { calculateWeaponAttackBonus, calculateWeaponDamageBonus, calculateWeaponDamageDice } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { damageTypeTranslations, weaponTranslations } from "@/lib/refs/translation";
 import { formatWeaponMasteryLabel } from "@/lib/refs/weapon-mastery";
@@ -39,7 +39,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
   const getDamageBonus = (pw: PersWeaponWithWeapon) => calculateWeaponDamageBonus(pers, pw);
 
   const getDamageDiceNotation = (pw: PersWeaponWithWeapon): string => {
-    const raw = String((pw.customDamageDice || pw.weapon?.damage || "1d4")).toLowerCase();
+    const raw = String(calculateWeaponDamageDice(pers, pw) || "1d4").toLowerCase();
     const normalized = raw
       .replace(/[×х]/g, "x")
       .replace(/к/g, "d")
@@ -157,7 +157,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                 </div>
                 <div className="text-xs text-slate-400 flex items-center gap-2 mt-0.5">
                   <span className="text-amber-400 font-bold text-sm">
-                    {pw.customDamageDice || pw.weapon?.damage}{formatModifier(getDamageBonus(pw))}
+                    {calculateWeaponDamageDice(pers, pw)}{formatModifier(getDamageBonus(pw))}
                   </span>
                   <span className="text-slate-600">•</span>
                   <span className="truncate">

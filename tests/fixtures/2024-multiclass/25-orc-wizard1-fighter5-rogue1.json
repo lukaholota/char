@@ -48,7 +48,21 @@
         "characterLevel": 4,
         "class": "FIGHTER_2024",
         "isNewClass": false,
-        "subclass": "BATTLE_MASTER"
+        "subclass": "BATTLE_MASTER",
+        "subclassChoices": [
+          {
+            "choice": "Маневри майстра бою",
+            "option": "Precision Attack"
+          },
+          {
+            "choice": "Маневри майстра бою",
+            "option": "Trip Attack"
+          },
+          {
+            "choice": "Маневри майстра бою",
+            "option": "Riposte"
+          }
+        ]
       },
       {
         "characterLevel": 5,
@@ -73,8 +87,8 @@
         "class": "ROGUE_2024",
         "isNewClass": true,
         "expertise": [
-          "STEALTH",
-          "ARCANA"
+          "INVESTIGATION",
+          "PERSUASION"
         ]
       }
     ]

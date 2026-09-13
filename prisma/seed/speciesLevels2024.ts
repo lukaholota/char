@@ -34,9 +34,9 @@ const LINEAGE_SPELLS: Array<{ choiceGroupName: string; optionNameEng: string; sp
   { choiceGroupName: "Ельфійський родовід", optionNameEng: "Drow", spells: [["Faerie Fire", 3], ["Darkness", 5]] },
   { choiceGroupName: "Ельфійський родовід", optionNameEng: "High Elf", spells: [["Detect Magic", 3], ["Misty Step", 5]] },
   { choiceGroupName: "Ельфійський родовід", optionNameEng: "Wood Elf", spells: [["Longstrider", 3], ["Pass without Trace", 5]] },
-  { choiceGroupName: "Демонічна спадщина", optionNameEng: "Abyssal", spells: [["Ray of Sickness", 3], ["Hold Person", 5]] },
-  { choiceGroupName: "Демонічна спадщина", optionNameEng: "Chthonic", spells: [["False Life", 3], ["Ray of Enfeeblement", 5]] },
-  { choiceGroupName: "Демонічна спадщина", optionNameEng: "Infernal", spells: [["Hellish Rebuke", 3], ["Darkness", 5]] },
+  { choiceGroupName: "Почварна спадщина", optionNameEng: "Abyssal", spells: [["Ray of Sickness", 3], ["Hold Person", 5]] },
+  { choiceGroupName: "Почварна спадщина", optionNameEng: "Chthonic", spells: [["False Life", 3], ["Ray of Enfeeblement", 5]] },
+  { choiceGroupName: "Почварна спадщина", optionNameEng: "Infernal", spells: [["Hellish Rebuke", 3], ["Darkness", 5]] },
 ];
 
 export const seedSpeciesLevels2024 = async (prisma: PrismaClient) => {

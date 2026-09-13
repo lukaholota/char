@@ -4,7 +4,6 @@
 import {
   backgroundTranslations, backgroundTranslationsEng,
 } from "@/lib/refs/translation";
-import clsx from "clsx";
 import {useStepForm} from "@/hooks/useStepForm";
 import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
 import { useEffect, useMemo, useCallback } from "react";
@@ -12,14 +11,12 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { BackgroundInfoModal } from "@/lib/components/characterCreator/modals/BackgroundInfoModal";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-} from "@/lib/components/characterCreator/infoUtils";
 import { BackgroundI } from "@/lib/types/model-types";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import {Source} from "@prisma/client";
+import { CreationCard } from "@/components/characterCreator/CreationCard";
+import { getBackgroundVisual } from "@/components/characterCreator/creation-visuals";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -96,6 +93,23 @@ export const BackgroundsForm = (
   const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;
   const forceOpenOther = Boolean(normalizedBackgroundSearch);
 
+  const renderBackgroundCard = (b: BackgroundI) => (
+    <CreationCard
+      key={b.backgroundId}
+      testId={`background-${b.name}`}
+      title={getLabel(b.name)}
+      englishTitle={backgroundTranslationsEng[b.name]}
+      visual={getBackgroundVisual(b.name)}
+      isSelected={b.backgroundId === chosenBackgroundId}
+      is2024={b.ruleset === "RULES_2024"}
+      infoModal={<BackgroundInfoModal background={b} />}
+      onClick={(e) => {
+        if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+        form.setValue('backgroundId', b.backgroundId);
+      }}
+    />
+  );
+
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
@@ -140,35 +154,14 @@ export const BackgroundsForm = (
         <p className="text-center text-sm text-slate-400">Нічого не знайдено.</p>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         <div>
-          <div className="mb-2 flex items-center justify-between">
-            <p className="text-sm font-semibold text-white">Книга Гравця (2014)</p>
+          <div className="mb-2.5 flex items-center justify-between">
+            <p className="text-sm font-semibold text-white">{is2024 ? "Книга Гравця (2024)" : "Книга Гравця (2014)"}</p>
             <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">Джерело</Badge>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {primaryBackgrounds.map(b =>  (
-              <Card
-                key={b.backgroundId}
-                className={clsx(
-                  "glass-card cursor-pointer transition-all duration-200",
-                  b.backgroundId === chosenBackgroundId && "glass-active"
-                )}
-                onClick={(e) => {
-                  if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-                  form.setValue('backgroundId', b.backgroundId);
-                }}
-              >
-                <CardContent className="relative flex items-center justify-between p-4">
-                  <BackgroundInfoModal background={b} />
-                  <div>
-                    <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
-                    <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
-                  </div>
-                  <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+            {primaryBackgrounds.map(renderBackgroundCard)}
           </div>
         </div>
 
@@ -177,30 +170,9 @@ export const BackgroundsForm = (
             <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
               Інші джерела
             </summary>
-            <div className="border-t border-white/10 p-3">
-              <div className="grid gap-3 sm:grid-cols-2">
-                {otherBackgrounds.map(b =>  (
-                  <Card
-                    key={b.backgroundId}
-                    className={clsx(
-                      "glass-card cursor-pointer transition-all duration-200",
-                      b.backgroundId === chosenBackgroundId && "glass-active"
-                    )}
-                    onClick={(e) => {
-                      if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-                      form.setValue('backgroundId', b.backgroundId);
-                    }}
-                  >
-                    <CardContent className="relative flex items-center justify-between p-4">
-                      <BackgroundInfoModal background={b} />
-                      <div>
-                        <div className="text-lg font-semibold text-white">{backgroundTranslations[b.name]}</div>
-                        <div className="text-xs text-slate-400">{backgroundTranslationsEng[b.name]}</div>
-                      </div>
-                      <SourceBadge code={b.source} active={b.backgroundId === chosenBackgroundId} />
-                    </CardContent>
-                  </Card>
-                ))}
+            <div className="border-t border-white/10 p-3.5">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+                {otherBackgrounds.map(renderBackgroundCard)}
               </div>
             </div>
           </details>

@@ -29,8 +29,8 @@ export async function readFullPers(persId: number) {
         },
       },
       skills: { select: { name: true, proficiencyType: true } },
-      weapons: { include: { weapon: { select: { name: true } } } },
-      armors: { include: { armor: { select: { name: true } } } },
+      weapons: { include: { weapon: { select: { name: true, ruleset: true } } } },
+      armors: { include: { armor: { select: { name: true, ruleset: true } } } },
       multiclasses: {
         include: { class: { select: { name: true } }, subclass: { select: { name: true } } },
       },
@@ -78,8 +78,10 @@ export function normalizeForGolden(pers: FullPers) {
       choices: sortBy(f.choices, (c) => c.choiceOption.optionNameEng).map((c) => c.choiceOption.optionNameEng),
     })),
     skills: sortBy(pers.skills, (s) => s.name).map((s) => `${s.name}:${s.proficiencyType}`),
-    weapons: sortBy(pers.weapons, (w) => w.weapon.name).map((w) => w.weapon.name),
-    armors: sortBy(pers.armors, (a) => a.armor.name).map((a) => `${a.armor.name}${a.equipped ? "*" : ""}`),
+    weapons: sortBy(pers.weapons, (w) => w.weapon.name).map((w) => `${w.weapon.name}:${w.weapon.ruleset}`),
+    armors: sortBy(pers.armors, (a) => a.armor.name).map(
+      (a) => `${a.armor.name}:${a.armor.ruleset}${a.equipped ? "*" : ""}`,
+    ),
     multiclasses: sortBy(pers.multiclasses, (m) => m.class.name).map((m) => ({
       class: m.class.name,
       subclass: m.subclass?.name ?? null,

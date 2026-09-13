@@ -128,6 +128,7 @@ model Class {
   ruleset                     Ruleset                        @default(RULES_2014)
   epicBoonLevel               Int?                           @map("epic_boon_level")
   weapon_mastery_progression  Int[]                          @default([])
+  description                 String?
   classChoiceOptions          ClassChoiceOption[]
   features                    ClassFeature[]
   classOptionalFeatures       ClassOptionalFeature[]
@@ -263,6 +264,7 @@ model Subclass {
   class                  Class                  @relation(fields: [classId], references: [classId], onDelete: Cascade)
   subclassChoiceOptions  SubclassChoiceOption[]
   features               SubclassFeature[]
+  preparedSpells         SubclassSpell[]
   expandedSpells         Spell[]                @relation("SubclassExpandedSpells")
 
   @@unique([classId, name])
@@ -294,6 +296,20 @@ model SubclassFeature {
 
   @@unique([subclassId, featureId])
   @@map("subclass_feature")
+}
+
+model SubclassSpell {
+  subclassSpellId Int      @id @default(autoincrement()) @map("subclass_spell_id")
+  subclassId      Int      @map("subclass_id")
+  spellId         Int      @map("spell_id")
+  classLevel      Int      @map("class_level")
+  ruleset         Ruleset  @default(RULES_2014)
+  spell           Spell    @relation(fields: [spellId], references: [spellId], onUpdate: NoAction)
+  subclass        Subclass @relation(fields: [subclassId], references: [subclassId], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([subclassId, spellId], name: "unique_subclass_spell")
+  @@index([subclassId])
+  @@map("subclass_spell")
 }
 
 model Creature {
@@ -441,6 +457,11 @@ model Feature {
   ruleset                            Ruleset                               @default(RULES_2014)
   /// Скільки максимальних хітів фіча додає за кожен рівень персонажа. NULL — не додає.
   bonusHitPointsPerLevel             Int?                                  @map("bonus_hit_points_per_level")
+  speedBonus                         Int?                                  @map("speed_bonus")
+  initiativeProficiency              Boolean?                              @map("initiative_proficiency")
+  bonusHitPoints                     Int?                                  @map("bonus_hit_points")
+  damageResistances                  DamageType[]                          @default([]) @map("damage_resistances")
+  darkvisionRange                    Int?                                  @map("darkvision_range")
   choiceOptionFeatures               ChoiceOptionFeature[]
   classFeatures                      ClassFeature[]
   classOptionalFeatures              ClassOptionalFeature[]                @relation("GrantedFeature")
@@ -642,6 +663,7 @@ model Pers {
   folderId                    Int?                     @map("folder_id")
   isPinned                    Boolean                  @default(false) @map("is_pinned")
   ruleset                     Ruleset                  @default(RULES_2014)
+  hasHeroicInspiration        Boolean                  @default(false) @map("has_heroic_inspiration")
   background                  Background               @relation(fields: [backgroundId], references: [backgroundId])
   class                       Class                    @relation(fields: [classId], references: [classId])
   folder                      PersFolder?              @relation(fields: [folderId], references: [folderId])
@@ -946,6 +968,7 @@ model Race {
   weaponProficiencies    Json?              @map("weapon_proficiencies")
   sortOrder              Int                @default(999) @map("sort_order")
   ruleset                Ruleset            @default(RULES_2014)
+  description            String?
   perses                 Pers[]
   raceChoiceOptions      RaceChoiceOption[]
   traits                 RaceTrait[]
@@ -1065,6 +1088,7 @@ model Subrace {
   flightSpeed            Int?               @map("flight_speed")
   swimSpeed              Int?               @map("swim_speed")
   ruleset                Ruleset            @default(RULES_2014)
+  description            String?
   perses                 Pers[]
   raceChoiceOptions      RaceChoiceOption[]
   race                   Race               @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
@@ -1106,6 +1130,7 @@ model Spell {
   raceChoiceOptionSpells RaceChoiceOptionSpell[]
   spellClasses           SpellClasses[]
   spellRaces             SpellRaces[]
+  subclassPreparedSpells SubclassSpell[]
   features               Feature[]               @relation("FeatureToSpell")
   magicItems             MagicItem[]             @relation("MagicItemToSpell")
   perses                 Pers[]                  @relation("PersToSpell")
@@ -2148,6 +2173,28 @@ enum ToolCategory {
   SMITHS_TOOLS
   BREWERS_SUPPLIES
   CALLIGRAPHERS_SUPPLIES
+  ALCHEMISTS_SUPPLIES
+  CARPENTERS_TOOLS
+  COBBLERS_TOOLS
+  COOKS_UTENSILS
+  GLASSBLOWERS_TOOLS
+  LEATHERWORKERS_TOOLS
+  MASONS_TOOLS
+  PAINTERS_SUPPLIES
+  POTTERS_TOOLS
+  TINKERS_TOOLS
+  WEAVERS_TOOLS
+  WOODCARVERS_TOOLS
+  BAGPIPES
+  DRUM
+  DULCIMER
+  FLUTE
+  HORN
+  LUTE
+  LYRE
+  PAN_FLUTE
+  SHAWM
+  VIOL
 }
 
 enum Variants {

@@ -19,6 +19,7 @@ const BASE: OfflinePersState = {
   isDead: false,
   currentSpellSlots: [2, 1],
   currentPactSlots: 1,
+  hasHeroicInspiration: false,
 };
 
 function operation<TKind extends OfflineOperation["kind"]>(
@@ -149,5 +150,23 @@ describe("KR22.6 — розпізнавання операцій із черги
     expect(isOfflineOperation({ ...valid, createdAt: "не дата" })).toBe(false);
     expect(isOfflineOperation(null)).toBe(false);
     expect(isOfflineOperation("hp")).toBe(false);
+  });
+});
+
+describe("KR31.3 — Героїчне натхнення в офлайн-черзі", () => {
+  it("вмикає й витрачає натхнення як стан, а не лічильник", () => {
+    const gained = applyOfflineOperation(BASE, operation({ kind: "heroic-inspiration", hasHeroicInspiration: true }));
+    expect(gained.hasHeroicInspiration).toBe(true);
+
+    const spent = applyOfflineOperation(gained, operation({ kind: "heroic-inspiration", hasHeroicInspiration: false }));
+    expect(spent.hasHeroicInspiration).toBe(false);
+    expect(spent).toMatchObject({ currentHp: 20, tempHp: 5, currentPactSlots: 1 });
+  });
+
+  it("приймає лише булеве значення", () => {
+    const valid = operation({ kind: "heroic-inspiration", hasHeroicInspiration: true });
+    expect(isOfflineOperation(valid)).toBe(true);
+    expect(isOfflineOperation({ ...valid, hasHeroicInspiration: 1 })).toBe(false);
+    expect(isOfflineOperation({ ...valid, hasHeroicInspiration: undefined })).toBe(false);
   });
 });

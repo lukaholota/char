@@ -5,6 +5,7 @@ import { findPoolProvider } from "@/rules/resource-pools";
 /// Поля, з яких `calculateMaxUsesForFeature` рахує максимум пулу.
 const PROVIDER_FIELDS = {
   featureId: true,
+  engName: true,
   usesCount: true,
   usesCountDependsOnProficiencyBonus: true,
   usesCountSpecial: true,

@@ -6,8 +6,15 @@
 import { afterAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
+import normalizedSubclasses from "../../data/2024/normalized/subclasses.json";
 
 const CYRILLIC = /\p{Script=Cyrillic}/u;
+
+/// Скільки підкласів і на яких рівнях — питає джерело, а не памʼять: KR31.2 довів корпус із 48
+/// до 76, і зафіксоване число робило б цю звірку доказом старого стану, а не сіду.
+const SEEDED_SUBCLASS_LEVELS = [...new Set(
+  normalizedSubclasses.flatMap((subclass) => subclass.featuresEng.map((feature) => feature.level)),
+)].sort((first, second) => first - second);
 
 afterAll(disconnectDatabase);
 
@@ -43,7 +50,7 @@ describe("підкласові фічі 2024 у базі", () => {
       orderBy: { subclassId: "asc" },
     });
 
-    expect(subclasses.length).toBe(48);
+    expect(subclasses.length).toBe(normalizedSubclasses.length);
 
     const withoutFeatures = subclasses.filter((s) => s.features.length === 0).map((s) => s.name);
     expect(withoutFeatures).toEqual([]);
@@ -62,8 +69,6 @@ describe("підкласові фічі 2024 у базі", () => {
       distinct: ["levelGranted"],
     });
 
-    expect(levels.map((l) => l.levelGranted).sort((a, b) => a - b)).toEqual([
-      3, 6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 20,
-    ]);
+    expect(levels.map((l) => l.levelGranted).sort((a, b) => a - b)).toEqual(SEEDED_SUBCLASS_LEVELS);
   });
 });

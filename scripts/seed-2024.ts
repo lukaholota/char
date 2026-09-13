@@ -16,6 +16,7 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 import { seedFeats2024 } from "../prisma/seed/featSeed2024";
+import { seedFeatResources2024 } from "../prisma/seed/featResources2024";
 import { seedBackgrounds2024 } from "../prisma/seed/backgroundSeed2024";
 import { update15ExistingBackgrounds2024 } from "../prisma/seed/update15ExistingBackgrounds2024";
 import { seedRaces2024 } from "../prisma/seed/raceSeed2024";
@@ -25,6 +26,11 @@ import { seedWeapons2024 } from "../prisma/seed/weaponSeed2024";
 import { seedSpells2024 } from "../prisma/seed/spellSeed2024";
 import { seedClassEquipment2024 } from "../prisma/seed/classEquipment2024";
 import { seedMetamagic2024 } from "../prisma/seed/metamagic2024";
+import { seedClassTools2024 } from "../prisma/seed/classTools2024";
+import { seedFightingStyles2024 } from "../prisma/seed/fightingStyle2024";
+import { seedInvocations2024 } from "../prisma/seed/invocationSeed2024";
+import { seedClassChoices2024 } from "../prisma/seed/classChoices2024";
+import { seedSubclassChoices2024 } from "../prisma/seed/subclassChoices2024";
 
 import * as dotenv from "dotenv";
 
@@ -82,11 +88,18 @@ const prisma = new PrismaClient({ adapter });
 
 const SEEDERS = {
   feats: seedFeats2024,
+  // Після рис: носій ресурсу вішається на вже наявний рядок `feat`.
+  "feat-resources": seedFeatResources2024,
   backgrounds: seedBackgrounds2024,
   "backgrounds-existing": update15ExistingBackgrounds2024,
   races: seedRaces2024,
   classes: seedClasses2024,
+  "class-tools": seedClassTools2024,
+  "fighting-styles": seedFightingStyles2024,
+  invocations: seedInvocations2024,
+  "class-choices": seedClassChoices2024,
   subclasses: seedSubclasses2024,
+  "subclass-choices": seedSubclassChoices2024,
   metamagic: seedMetamagic2024,
   weapons: seedWeapons2024,
   spells: seedSpells2024,

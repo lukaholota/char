@@ -4,15 +4,26 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
-import { Prisma, RestType } from "@prisma/client";
+import { RestType } from "@prisma/client";
 import { getAbilityMod } from "@/lib/logic/utils";
-import { calculateCasterLevel, type SpellcastingPersLike } from "@/lib/logic/spell-logic";
+import {
+  calculateCasterLevel,
+  toRulesSpellcastingCharacter,
+  type SpellcastingPersLike,
+} from "@/lib/logic/spell-logic";
+import { getMaximumStandardSpellSlots } from "@/rules/spellcasting";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { calculateMaxUsesForFeature } from "@/lib/logic/feature-resources";
 import { findPoolProviderForPers } from "@/server/db/resource-pool-provider";
+import { findUsesAfterShortRest } from "@/rules/resource-pools";
+import {
+  findHeroicInspirationAfterLongRest,
+  listFeaturesGrantingHeroicInspirationOnLongRest,
+} from "@/rules/heroic-inspiration";
 import {
   buildHitDicePools,
   findMainClassLevel,
+  findPoolsAfterLongRest,
   findPoolsAfterSetting,
   findPoolsAfterSpending,
   serializeHitDicePools,
@@ -42,6 +53,7 @@ async function assertOwnsPers(persId: number) {
     select: {
       persId: true,
       userId: true,
+      ruleset: true,
       currentHp: true,
       maxHp: true,
       tempHp: true,
@@ -51,6 +63,7 @@ async function assertOwnsPers(persId: number) {
       usedHitDice: true,
       currentSpellSlots: true,
       currentPactSlots: true,
+      hasHeroicInspiration: true,
       class: {
         select: {
           classId: true,
@@ -189,6 +202,7 @@ export async function shortRest(
     include: {
       feature: {
         select: {
+          engName: true,
           usesCount: true,
           usesCountDependsOnProficiencyBonus: true,
           usesCountSpecial: true,
@@ -203,7 +217,7 @@ export async function shortRest(
   
   for (const pf of featuresWithShortRest) {
     const maxUses = calculateMaxUsesForFeature(pers, pf.feature) ?? 0;
-    
+
     if (maxUses > 0) {
       await prisma.persFeature.update({
         where: {
@@ -212,7 +226,13 @@ export async function shortRest(
             featureId: pf.featureId,
           },
         },
-        data: { usesRemaining: maxUses },
+        data: {
+          usesRemaining: findUsesAfterShortRest({
+            engName: pf.feature.engName,
+            usesRemaining: pf.usesRemaining,
+            maxUses,
+          }),
+        },
       });
       featuresRestored++;
     }
@@ -237,7 +257,13 @@ export async function shortRest(
     if (maxUses > 0) {
       await prisma.persResourcePool.update({
         where: { persId_poolKey: { persId, poolKey: pool.poolKey } },
-        data: { usesRemaining: maxUses },
+        data: {
+          usesRemaining: findUsesAfterShortRest({
+            engName: provider.engName,
+            usesRemaining: pool.usesRemaining,
+            maxUses,
+          }),
+        },
       });
       featuresRestored++;
     }
@@ -294,7 +320,7 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
   
   const pers = owned.pers;
   const restoredHitDice = serializeHitDicePools(
-    collectHitDicePools(pers).map((pool) => ({ ...pool, current: pool.max })),
+    findPoolsAfterLongRest(collectHitDicePools(pers), pers.ruleset),
   );
   
   // Restore ALL features (both SHORT_REST and LONG_REST)
@@ -364,10 +390,6 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
     }
   }
   
-  // Get max spell slots for the character's level
-  // Using standard 5e spell slot progression
-  const maxSpellSlots = getMaxSpellSlots(pers.level);
-
   const persForSlots = await prisma.pers.findUnique({
     where: { persId },
     include: {
@@ -385,7 +407,21 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
   const caster = persForSlots ? calculateCasterLevel(persForSlots as SpellcastingPersLike) : { pactLevel: 0, casterLevel: 0 };
   const pactRow = pactSpellSlotProgression?.[caster.pactLevel];
   const maxPactSlots = pactRow?.slots ? Math.max(0, Math.trunc(pactRow.slots)) : 0;
-  
+
+  /// Слоти рахує рівень заклинача, а не загальний рівень персонажа (BUG-010): інакше Воїн 2
+  /// прокидається з трьома слотами 1 кола, а Воїн 3 / Чарівник 2 — зі слотами повного
+  /// заклинача 5 рівня. Створення й підвищення рівня рахують саме так уже давно —
+  /// відпочинок був єдиним місцем із власною копією таблиці.
+  const maxSpellSlots = persForSlots
+    ? getMaximumStandardSpellSlots(
+        toRulesSpellcastingCharacter(persForSlots as SpellcastingPersLike),
+        SPELL_SLOT_PROGRESSION.FULL,
+        pers.ruleset,
+      )
+    : [];
+
+  const hasHeroicInspiration = await findHeroicInspirationAfterLongRestForPers(persId, pers.hasHeroicInspiration);
+
   // Update database
   await prisma.pers.update({
     where: { persId },
@@ -398,12 +434,13 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
       deathSaveSuccesses: 0,
       deathSaveFailures: 0,
       isDead: false,
+      hasHeroicInspiration,
     },
   });
-  
+
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
-  
+
   return {
     success: true,
     newCurrentHp: pers.maxHp,
@@ -415,37 +452,18 @@ export async function longRest(persId: number): Promise<LongRestResult | LongRes
   };
 }
 
-/**
- * Get standard max spell slots for a given caster level
- * This is a simplified version - in reality, depends on class
- */
-function getMaxSpellSlots(level: number): number[] {
-  const slotProgression: number[][] = [
-    [],                           // Level 0 (doesn't exist)
-    [2, 0, 0, 0, 0, 0, 0, 0, 0],  // Level 1
-    [3, 0, 0, 0, 0, 0, 0, 0, 0],  // Level 2
-    [4, 2, 0, 0, 0, 0, 0, 0, 0],  // Level 3
-    [4, 3, 0, 0, 0, 0, 0, 0, 0],  // Level 4
-    [4, 3, 2, 0, 0, 0, 0, 0, 0],  // Level 5
-    [4, 3, 3, 0, 0, 0, 0, 0, 0],  // Level 6
-    [4, 3, 3, 1, 0, 0, 0, 0, 0],  // Level 7
-    [4, 3, 3, 2, 0, 0, 0, 0, 0],  // Level 8
-    [4, 3, 3, 3, 1, 0, 0, 0, 0],  // Level 9
-    [4, 3, 3, 3, 2, 0, 0, 0, 0],  // Level 10
-    [4, 3, 3, 3, 2, 1, 0, 0, 0],  // Level 11
-    [4, 3, 3, 3, 2, 1, 0, 0, 0],  // Level 12
-    [4, 3, 3, 3, 2, 1, 1, 0, 0],  // Level 13
-    [4, 3, 3, 3, 2, 1, 1, 0, 0],  // Level 14
-    [4, 3, 3, 3, 2, 1, 1, 1, 0],  // Level 15
-    [4, 3, 3, 3, 2, 1, 1, 1, 0],  // Level 16
-    [4, 3, 3, 3, 2, 1, 1, 1, 1],  // Level 17
-    [4, 3, 3, 3, 3, 1, 1, 1, 1],  // Level 18
-    [4, 3, 3, 3, 3, 2, 1, 1, 1],  // Level 19
-    [4, 3, 3, 3, 3, 2, 2, 1, 1],  // Level 20
-  ];
-  
-  const clampedLevel = Math.max(1, Math.min(20, level));
-  return slotProgression[clampedLevel] ?? [0, 0, 0, 0, 0, 0, 0, 0, 0];
+/// У відповідь дії натхнення не кладеться: її дослівно фіксують золоті знімки `tests/golden`,
+/// а лист виводить те саме правило з фіч персонажа сам (`RestButton`).
+async function findHeroicInspirationAfterLongRestForPers(persId: number, hasHeroicInspiration: boolean): Promise<boolean> {
+  const carriers = await prisma.persFeature.findMany({
+    where: { persId, feature: { engName: { in: listFeaturesGrantingHeroicInspirationOnLongRest() } } },
+    select: { feature: { select: { engName: true } } },
+  });
+
+  return findHeroicInspirationAfterLongRest({
+    hasHeroicInspiration,
+    featureEngNames: carriers.map((row) => row.feature.engName),
+  });
 }
 
 /**

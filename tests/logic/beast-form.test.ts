@@ -320,9 +320,10 @@ describe("KR24.6 — шар 2024 поруч із шаром 2014", () => {
     expect(calculateFinalSave(beast, Ability.CON)).toBe(4);
   });
 
-  /// 2014 читає статблок лише заради характеристик: володіння там лишаються персонажеві «де
-  /// застосовно», і жодне число зі статблока в них не потрапляє.
-  it("2014 володіння зі статблока не бере — той самий вовк, інша редакція", () => {
+  /// KR31.12: до правки гілка 2014 статблок не читала зовсім і давала +4 / +2. Рішення власника
+  /// 2026-09-06 — реалізувати RAW обома редакціями: персонаж лишає свої володіння, додає
+  /// володіння звіра, і де число статблока вище, береться воно.
+  it("2014 бере число зі статблока так само, як 2024 — той самий вовк", () => {
     const beast2014 = buildBeastFormPers(buildDruid(), {
       creature: wolf2024,
       context: druid2014,
@@ -330,8 +331,27 @@ describe("KR24.6 — шар 2024 поруч із шаром 2014", () => {
       beastMaxHp: 11,
     });
 
-    expect(calculateFinalSkill(beast2014, Skills.PERCEPTION).total).toBe(4);
-    expect(calculateFinalSkill(beast2014, Skills.STEALTH).total).toBe(2);
+    // Уважність вовка +5 проти власних +4; Непомітність вовка +4 проти +2 від його ж Спритності.
+    expect(calculateFinalSkill(beast2014, Skills.PERCEPTION).total).toBe(5);
+    expect(calculateFinalSkill(beast2014, Skills.STEALTH).total).toBe(4);
+  });
+
+  it("2014 лишає власне володіння, коли воно вище за звірине", () => {
+    const own = buildDruid();
+    own.skills = [
+      { name: Skills.ATHLETICS, proficiencyType: "PROFICIENT" },
+      { name: Skills.PERCEPTION, proficiencyType: "PROFICIENT" },
+    ] as PersWithRelations["skills"];
+
+    const beast2014 = buildBeastFormPers(own, {
+      creature: wolf2024,
+      context: druid2014,
+      beastCurrentHp: 11,
+      beastMaxHp: 11,
+    });
+
+    // Мудрість 19 (+4) плюс володіння +3 — це більше за вовчі +5.
+    expect(calculateFinalSkill(beast2014, Skills.PERCEPTION).total).toBe(7);
   });
 
   it("шар 2024 не змінює власного листа", () => {

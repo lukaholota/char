@@ -1,6 +1,6 @@
 import { getUserPersHomeData } from "@/lib/actions/pers";
 import { CharHomeClient } from "@/app/char/home/CharHomeClient";
-import { redirect } from "next/navigation";
+import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export default async function Page() {
   const { perses, folders } = await getUserPersHomeData({ ruleset: "RULES_2014" });
 
   if (perses.length === 0) {
-    redirect("/char/create");
+    await redirectKeepingNoAiMode("/char/create");
   }
 
   const visibleFolderIds = new Set(folders.map((folder) => folder.folderId));

@@ -45,6 +45,9 @@
             "choice": "Бойовий стиль",
             "option": "Archery"
           }
+        ],
+        "expertise": [
+          "STEALTH"
         ]
       },
       {
@@ -58,7 +61,10 @@
         "class": "RANGER_2024",
         "isNewClass": false,
         "feat": "FEY_TOUCHED",
-        "featAbility": "WIS"
+        "featAbility": "WIS",
+        "featSpells": [
+          "Charm Person"
+        ]
       },
       {
         "characterLevel": 5,
@@ -68,7 +74,13 @@
       {
         "characterLevel": 6,
         "class": "DRUID_2024",
-        "isNewClass": true
+        "isNewClass": true,
+        "classChoices": [
+          {
+            "choice": "Первісний орден",
+            "option": "Primal Order: Magician"
+          }
+        ]
       },
       {
         "characterLevel": 7,
@@ -79,7 +91,13 @@
         "characterLevel": 8,
         "class": "DRUID_2024",
         "isNewClass": false,
-        "subclass": "CIRCLE_OF_THE_LAND"
+        "subclass": "CIRCLE_OF_THE_LAND",
+        "subclassChoices": [
+          {
+            "choice": "Коло землі",
+            "option": "Circle of the Land: Temperate"
+          }
+        ]
       }
     ]
   },

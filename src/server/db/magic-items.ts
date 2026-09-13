@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { findAttunementCapacityForPers } from "@/rules/attunement";
 
 export type MagicItemUpdates = {
   isEquipped?: boolean;
@@ -19,6 +20,41 @@ export function updatePersMagicItem(persMagicItemId: number, updates: MagicItemU
     where: { persMagicItemId },
     data: updates,
   });
+}
+
+/**
+ * PHB 2014 с.141 / SRD 2024 «No More Than Three Items»: спроба налаштуватися понад стелю
+ * («findAttunementCapacityForPers») провалюється — тут це відмова запису, а не м'яка порада, бо
+ * бонус активних предметів рахує кожного, у кого `isAttuned` (bonus-calculator.ts).
+ */
+export async function findAttunementLimitError(
+  persId: number,
+  persMagicItemId: number
+): Promise<string | null> {
+  const pers = await prisma.pers.findUnique({
+    where: { persId },
+    select: {
+      level: true,
+      class: { select: { name: true } },
+      multiclasses: { select: { classLevel: true, class: { select: { name: true } } } },
+      magicItems: { select: { persMagicItemId: true, isAttuned: true } },
+    },
+  });
+  if (!pers) return "Персонажа не знайдено";
+
+  const alreadyAttuned = pers.magicItems.some(
+    (item) => item.persMagicItemId === persMagicItemId && item.isAttuned
+  );
+  if (alreadyAttuned) return null;
+
+  const attunedCount = pers.magicItems.filter((item) => item.isAttuned).length;
+  const capacity = findAttunementCapacityForPers(pers);
+
+  if (attunedCount >= capacity) {
+    return `Ліміт налаштованих предметів: ${capacity} / ${capacity}`;
+  }
+
+  return null;
 }
 
 export function deletePersMagicItem(persMagicItemId: number) {

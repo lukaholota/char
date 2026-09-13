@@ -80,6 +80,30 @@ export function renderBodyAsMarkdown(bodyHtml: string): string {
   return blocks.join("\n\n").replace(/\n{3,}/g, "\n\n").trim();
 }
 
+export type BoldHeadingBlock = { name: string; descriptionEng: string };
+
+/**
+ * Розклад тіла сторінки на блоки, кожен під жирною назвою з крапкою: `**Stonecunning.** …`,
+ * `**Guarded Mind.** …`. Абзаци без такої назви — продовження попереднього блоку, і саме там
+ * книга часто ставить речення про використання.
+ *
+ * Крапка й відсіює те, що блоком не є: статблок виду («**Creature Type:**») і назви таблиць
+ * («**Elven Lineages**») жирні так само, але закінчуються двокрапкою або нічим.
+ *
+ * Спільний для рис видів (`parse-species.ts`) і рис персонажа (`parse-feats.ts`): розмітка в
+ * їхніх сторінках одна, і другий розкладач розійшовся б із першим мовчки.
+ */
+export function splitByBoldHeadings(markdown: string): BoldHeadingBlock[] {
+  const headings = [...markdown.matchAll(/\*\*([^*\n]+?)\.\*\*/g)];
+
+  return headings.map((heading, index) => ({
+    name: heading[1],
+    descriptionEng: markdown
+      .slice(heading.index + heading[0].length, headings[index + 1]?.index ?? markdown.length)
+      .trim(),
+  }));
+}
+
 function dropSubclassList(html: string): string {
   return html
     .replace(/<h[1-6][^>]*>\s*<span>[^<]*Subclasses<\/span>\s*<\/h[1-6]>/g, "")

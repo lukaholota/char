@@ -16,7 +16,7 @@ import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { findFeatsGrantedByChoiceOptions } from "@/rules/feat-sources";
 import { findFeatPackageProblem, toFeatInstance } from "@/server/db/feat-gates";
 import { calculateAverageHitPointIncrease } from "@/rules/health";
-import { sumFeatureHitPointsPerLevel } from "@/rules/hit-points";
+import { sumLevelUpFeatureHitPoints, toHitPointGrantingFeature } from "@/rules/hit-points";
 import { normalizeSkillProficiencies } from "@/rules/proficiency";
 import { isAbilityScoreIncreaseLevel } from "@/rules/progression";
 import {
@@ -27,18 +27,24 @@ import {
 } from "@/rules/ability-score-ceiling";
 import { buildCharacterLevels, findClassLevel } from "@/rules/character-level";
 import { findFirstUnmetInvocationPrerequisite, type InvocationPrerequisite } from "@/rules/warlock-invocations";
-import {
-  findMulticlassEntryProblem,
-  type MulticlassEntryClass,
-  type MulticlassEntryProblem,
-  type MulticlassRuleset,
-} from "@/rules/multiclass-entry";
 import { findMulticlassProficiencies } from "@/rules/multiclass-proficiencies";
-import { calculateFinalAbilityScores } from "@/lib/logic/bonus-calculator";
+import { findInfusionPicksAtLevel } from "@/rules/artificer-infusions";
 import { buildSpeciesPersSpellRows, findMissingSpeciesGrants } from "@/server/db/species-level-grants";
+import {
+  buildClassPersSpellRows,
+  buildSubclassPersSpellRows,
+  findMissingClassSpells,
+  findMissingSubclassSpells,
+  type ClassAtLevel,
+} from "@/server/db/always-prepared-spell-grants";
+import { buildFeatPersSpellRows, findMissingFeatSpells } from "@/server/db/feat-spell-grants";
+import { buildChosenFeatSpells, findFeatSpellChoiceProblem, loadFeatSpellChoiceOffers } from "@/server/db/feat-spell-choices";
 import { applyLevelUp, mergeUniqueLines } from "@/rules/levelup";
+import { growFeatureUsesToNewMaximums } from "@/server/db/levelup-resource-growth";
 import { getRulesStrategy } from "@/rules/strategies";
 import type { SpellcastingCharacter } from "@/rules/types";
+import type { GrantedSpell } from "@/rules/spell-sources";
+import type { RulesetId } from "@/rules/strategies/types";
 
 import { baseChoiceGroupName, CHOICE_GROUPS, getChoicePoolRule } from "@/lib/logic/choicePoolRules";
 import type { LevelUpInput } from "@/lib/zod/schemas/levelUpSchema";
@@ -48,31 +54,16 @@ import {
   loadLevelUpFeatureEffects,
   loadLevelUpOptionalFeatures,
 } from "@/server/db/levelup-content";
-import { parseEnumArray, parseJsonRecord, parseMulticlassReqs, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
+import { parseEnumArray, parseJsonRecord, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
 import type { ToolProficiencies } from "@/lib/types/model-types";
 import { findPersWeaponMasteryOffer, replacePersWeaponMastery } from "@/server/db/weapon-mastery";
 import { grantAlternativeArmorClassFormulas } from "@/server/db/armor-class-formulas";
 import { findUserIdByEmail } from "@/server/db/users";
 import { canEditPers } from "@/lib/actions/pers";
 import { findCustomAsiPackageProblem } from "@/rules/abilities";
+import { findExpertiseSelectionProblem, readExpertiseGrant } from "@/rules/expertise-selections";
 
 const ALL_SKILLS = Object.values(Skills) as Skills[];
-
-function toMulticlassEntryClass(characterClass: { name: string; multiclassReqs: unknown }): MulticlassEntryClass {
-  return { name: characterClass.name, multiclassReqs: parseMulticlassReqs(characterClass.multiclassReqs) };
-}
-
-/** «Монах вимагає Спритність 13 і Мудрість 13; у персонажа Мудрість 8.» */
-function describeMulticlassEntryProblem(problem: MulticlassEntryProblem): string {
-  const demanded = problem.requiredAbilities
-    .map((ability) => `${translateValue(ability)} ${problem.score}`)
-    .join(problem.needsAll ? " і " : " або ");
-  const owned = problem.unmetAbilities
-    .map((unmet) => `${translateValue(unmet.ability)} ${unmet.actual}`)
-    .join(", ");
-
-  return `${translateValue(problem.className)} вимагає ${demanded}; у персонажа ${owned}.`;
-}
 
 export async function getLevelUpInfo(persId: number) {
   const session = await auth();
@@ -104,8 +95,8 @@ export async function getLevelUpInfo(persId: number) {
   const needsSubclass = rulesStrategy.needsSubclassSelection(currentClass ?? {}, Boolean(pers.subclassId), mainClassLevelAfter);
   const isASILevel = isAbilityScoreIncreaseLevel(currentClass ?? {}, mainClassLevelAfter);
 
-  const newClassFeatures = (currentClass?.features ?? []).filter((f) => f.levelGranted === nextLevel);
-  const newSubclassFeatures = (currentSubclass?.features ?? []).filter((f) => f.levelGranted === nextLevel);
+  const newClassFeatures = (currentClass?.features ?? []).filter((f) => f.levelGranted === mainClassLevelAfter);
+  const newSubclassFeatures = (currentSubclass?.features ?? []).filter((f) => f.levelGranted === mainClassLevelAfter);
 
   const classChoiceGroups: Record<string, NonNullable<typeof currentClass>["classChoiceOptions"][number][]> = {};
   const classChoiceOptions = (currentClass?.classChoiceOptions ?? []).filter((opt) =>
@@ -127,6 +118,8 @@ export async function getLevelUpInfo(persId: number) {
     subclassChoiceGroups[key].push(opt);
   }
 
+  const featSpellChoiceOffers = await loadFeatSpellChoiceOffers(prisma, pers.ruleset as RulesetId);
+
   return {
     pers,
     nextLevel,
@@ -140,6 +133,7 @@ export async function getLevelUpInfo(persId: number) {
     feats,
     infusions,
     weapons,
+    featSpellChoiceOffers,
   };
 }
 
@@ -176,6 +170,48 @@ function readMissingSpeciesGrants(pers: LevelUpPers, characterLevel: number) {
   });
 }
 
+async function findFeatFeatureIds(featId: number): Promise<number[]> {
+  const features = await prisma.feature.findMany({
+    where: { grantsByFeat: { some: { featId } } },
+    select: { featureId: true },
+  });
+  return features.map((feature) => feature.featureId);
+}
+
+/**
+ * Класи персонажа після цього підвищення, кожен зі своїм рівнем і підкласом: книга відкриває
+ * заклинання класу й підкласу рівнем ЦЬОГО класу, і мультиклас цього не пришвидшує. Класи, яких
+ * підвищення не торкнулося, теж тут — так персонаж добере пропущене, як і з рисами виду.
+ */
+function collectClassesAtLevel(args: {
+  pers: LevelUpPers;
+  mainClassLevel: number;
+  selectedClassId: number;
+  selectedSubclassId: number | undefined;
+  classLevelAfter: number;
+}): Array<ClassAtLevel & { subclassId: number | null }> {
+  const classRows = [
+    {
+      classId: args.pers.classId,
+      subclassId: args.pers.subclassId ?? null,
+      classLevel: args.mainClassLevel,
+      ability: (args.pers.class?.primaryCastingStat ?? null) as ClassAtLevel["ability"],
+    },
+    ...(args.pers.multiclasses || []).map((multiclass) => ({
+      classId: multiclass.classId,
+      subclassId: multiclass.subclassId ?? null,
+      classLevel: multiclass.classLevel || 0,
+      ability: (multiclass.class?.primaryCastingStat ?? null) as ClassAtLevel["ability"],
+    })),
+  ];
+
+  return classRows.map((row) => {
+    if (row.classId !== args.selectedClassId) return row;
+
+    return { ...row, classLevel: args.classLevelAfter, subclassId: args.selectedSubclassId ?? row.subclassId };
+  });
+}
+
 export async function executeLevelUp(persId: number, data: LevelUpInput) {
     try {
     const info = await getLevelUpInfo(persId);
@@ -201,17 +237,6 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
 
     const selectedClass = classes.find((characterClass) => characterClass.classId === selectedClassId);
     if (!selectedClass) return { error: "Клас не знайдено" };
-
-    if (levelUpPath === "MULTICLASS") {
-      const entryProblem = findMulticlassEntryProblem({
-        ruleset: (pers.ruleset as MulticlassRuleset) ?? "RULES_2014",
-        abilityScores: calculateFinalAbilityScores(pers),
-        currentClasses: [pers.class, ...pers.multiclasses.map((multiclass) => multiclass.class)]
-          .map(toMulticlassEntryClass),
-        newClass: toMulticlassEntryClass(selectedClass),
-      });
-      if (entryProblem) return { error: describeMulticlassEntryProblem(entryProblem) };
-    }
 
     const multiclassRow = (pers.multiclasses || []).find((m) => m.classId === selectedClassId) ?? null;
     const mainClassLevel = (() => {
@@ -281,6 +306,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       .filter((v) => Number.isFinite(v));
 
     let featFeatureIds: number[] = [];
+    let chosenFeatSpells: GrantedSpell[] = [];
     let featGrantedASI: unknown = null;
     let featGrantedSkills: unknown = null;
     let featGrantedLanguageCount = 0;
@@ -297,7 +323,6 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
 
     const expertiseSelections = (data?.expertiseSchema?.expertises || []) as Skills[];
     const levelUpSkillSelections = (data?.levelUpSkillSelections || {}) as Record<string, string[]>;
-    expertiseSelections.forEach(s => skillsToExpertise.add(s));
 
     if (featId) {
       const feat = feats.find((candidate) => candidate.featId === featId);
@@ -308,10 +333,18 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         pers.feats.map(toFeatInstance),
       );
       if (featProblem) return { error: featProblem };
+      const featSpellProblem = await findFeatSpellChoiceProblem(prisma, {
+        ruleset: pers.ruleset as RulesetId,
+        featName: feat.name,
+        selectedSpellIds: data.featSpellIds,
+      });
+      if (featSpellProblem) return { error: featSpellProblem };
+      chosenFeatSpells = buildChosenFeatSpells(feat.name, data.featSpellIds);
       const isResilient = feat.name === Feats.RESILIENT;
       abilityScoreSource = findFeatAbilityScoreSource(feat.category);
       const featCeiling = findAbilityScoreCeiling({ ruleset: pers.ruleset, source: abilityScoreSource });
-      featFeatureIds = feat.grantsFeature.map((f) => f.featureId);
+      // Каталог — знімок робочої бази, і id фіч у ньому можуть не існувати в базі цього процесу.
+      featFeatureIds = await findFeatFeatureIds(feat.featId);
       featGrantedASI = feat.grantedASI;
 
       featGrantedSkills = parseStringArray(feat.grantedSkills);
@@ -978,10 +1011,12 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
     for (const fid of replacementFeatureIdsToAdd) featuresToAdd.add(fid);
 
     const featureEffects = await loadLevelUpFeatureEffects([...featuresToAdd]);
-    const traitHitPointsPerLevel = sumFeatureHitPointsPerLevel([
-      ...pers.features.map((entry) => ({ ...entry.feature, featureId: entry.featureId })),
-      ...featureEffects,
-    ]);
+    const traitHitPointsPerLevel = sumLevelUpFeatureHitPoints({
+      ownedFeatures: pers.features.map((entry) => toHitPointGrantingFeature(entry.feature)),
+      gainedFeatures: featureEffects.map(toHitPointGrantingFeature),
+      leveledClassId: selectedClassId,
+      classLevelAfter,
+    });
     const featIdsFromChoiceOptions = findFeatsGrantedByChoiceOptions({
       chosenFeatureIds: [...featureIdsFromChoiceOptions],
       featsGrantingFeatures: feats.map((candidate) => ({
@@ -1003,8 +1038,8 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
             .filter((s) => ALL_SKILLS.includes(s as Skills))
             .filter((s) => normalized.options.includes(s as Skills));
 
-          if (unique.length > normalized.choiceCount) {
-            return { error: `Оберіть не більше ${normalized.choiceCount} навичок для ${f.name}` } as const;
+          if (unique.length !== normalized.choiceCount) {
+            return { error: `Оберіть рівно ${normalized.choiceCount} навичок для ${f.name}` } as const;
           }
 
           unique.forEach((s) => skillsToAdd.add(s as Skills));
@@ -1049,6 +1084,27 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
             }
         }
     }
+
+    const expertiseProblem = pers.ruleset !== "RULES_2024" ? null : findExpertiseSelectionProblem({
+      grants: featureEffects
+        .map((feature) => readExpertiseGrant(feature.skillExpertises))
+        .filter((grant) => grant !== null),
+      selected: expertiseSelections,
+      proficientSkills: [
+        ...pers.skills
+          .filter((skill) => skill.proficiencyType !== SkillProficiencyType.NONE)
+          .map((skill) => skill.name),
+        ...skillsToAdd,
+      ],
+      existingExpertises: [
+        ...pers.skills
+          .filter((skill) => skill.proficiencyType === SkillProficiencyType.EXPERTISE)
+          .map((skill) => skill.name),
+        ...skillsToExpertise,
+      ],
+    });
+    if (expertiseProblem) return { error: expertiseProblem };
+    expertiseSelections.forEach((skill) => skillsToExpertise.add(skill));
 
     const spellcastingAfter: SpellcastingCharacter = {
       level: nextLevel,
@@ -1305,15 +1361,19 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         }
       }
 
-      // Artificer Infusions (known) at level 2
-      if (selectedClass?.name === "ARTIFICER_2014" && classLevelAfter === 2) {
+      // Вливання артифайсера ростуть за таблицею TCoE: 4 на 2 рівні й по 2 на 6 / 10 / 14 / 18.
+      const infusionPicks = selectedClass?.name === "ARTIFICER_2014"
+        ? findInfusionPicksAtLevel(classLevelAfter)
+        : 0;
+
+      if (infusionPicks > 0) {
         const rawSelections = Array.isArray(data?.infusionSelections) ? data.infusionSelections : [];
         const infusionIds = rawSelections
           .map((v: unknown) => Number(v))
           .filter((v: number) => Number.isFinite(v) && v > 0);
 
-        if (infusionIds.length !== 4) {
-          throw new Error("Оберіть рівно 4 вливання");
+        if (infusionIds.length !== infusionPicks) {
+          throw new Error(`Оберіть рівно ${infusionPicks} вливання`);
         }
 
         const eligible = await tx.infusion.findMany({
@@ -1382,6 +1442,10 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       // приходить невдягненим, вибір лишається за гравцем. KR27.8.
       await grantAlternativeArmorClassFormulas(tx, persId, pers.ruleset);
 
+      // Новий рівень міг підняти максимум використань — залишок доростає на ту саму дельту, що й
+      // слоти заклинань. Після запису рівня й після створення нових рядків фіч. KR31.3.
+      await growFeatureUsesToNewMaximums(tx, persId, pers.level);
+
       // Майстерність зброї 2024. Ємність береться вже з нових рівнів — саме тому пул рахується
       // всередині транзакції, після запису рівня. Вибір змінний будь-коли, тож приходить повний
       // набір і повністю заміщає попередній (рішення власника 2026-08-30).
@@ -1396,6 +1460,49 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       if (speciesGrants.spells.length > 0) {
         await tx.persSpell.createMany({
           data: buildSpeciesPersSpellRows(persId, speciesGrants.spells, nextLevel),
+          skipDuplicates: true,
+        });
+      }
+
+      // «Ви завжди маєте ці заклинання підготовленими» — те, що клас і підклас дають рівнем свого
+      // класу. Понад ліміт підготовки, тому окремими рядками з власним джерелом (KR31.5).
+      const classesAtLevel = collectClassesAtLevel({
+        pers,
+        mainClassLevel,
+        selectedClassId,
+        selectedSubclassId: subclassIdForSelectedClass,
+        classLevelAfter,
+      });
+      const ownedSpellIds = pers.persSpells.map((spell) => spell.spellId);
+
+      const classSpells = await findMissingClassSpells(tx, { classes: classesAtLevel, ownedSpellIds });
+      if (classSpells.length > 0) {
+        await tx.persSpell.createMany({
+          data: buildClassPersSpellRows(persId, classSpells, nextLevel),
+          skipDuplicates: true,
+        });
+      }
+
+      const subclassSpells = await findMissingSubclassSpells(tx, {
+        subclasses: classesAtLevel.flatMap((row) =>
+          row.subclassId ? [{ subclassId: row.subclassId, classLevel: row.classLevel, ability: row.ability }] : [],
+        ),
+        ownedSpellIds: [...ownedSpellIds, ...classSpells.map((spell) => spell.spellId)],
+      });
+      if (subclassSpells.length > 0) {
+        await tx.persSpell.createMany({
+          data: buildSubclassPersSpellRows(persId, subclassSpells, nextLevel),
+          skipDuplicates: true,
+        });
+      }
+
+      // Риса, що називає заклинання поіменно (Доторк феї → Туманний крок), — після класу й
+      // підкласу, щоб за Р38 уже наявне заклинання другим рядком не лягало.
+      // Обране гравцем у тій самій рисі (Доторк феї → заклинання Ворожіння) — тим самим рядком.
+      const featSpells = [...(await findMissingFeatSpells(tx, persId)), ...chosenFeatSpells];
+      if (featSpells.length > 0) {
+        await tx.persSpell.createMany({
+          data: buildFeatPersSpellRows(persId, featSpells, nextLevel),
           skipDuplicates: true,
         });
       }
