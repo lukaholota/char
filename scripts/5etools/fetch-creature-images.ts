@@ -1,4 +1,5 @@
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "fs";
+import { createHash } from "crypto";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "fs";
 import { basename, dirname, join } from "path";
 import sharp from "sharp";
 import { fetchBinaryPolitely, pause } from "../lib/polite-http";
@@ -44,8 +45,13 @@ async function importCreatureImagesFrom5etools(): Promise<void> {
   if (process.argv.includes("--dry-run")) return;
 
   const downloaded = await downloadOriginals(picks);
+  const previousFiles = new Set(
+    Object.values(readCreatureImageManifestFile(FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH)[ruleset]).map((image) => image.file),
+  );
   const converted = await convertToWebp(ruleset, downloaded);
   writeManifest(ruleset, converted);
+  const superseded = removeSupersededFiles(ruleset, new Set([...converted.values()].map((image) => image.file)), previousFiles);
+  if (superseded > 0) console.log(`  🧹 ${superseded} застарілих файлів прибрано`);
 
   console.log(`✅ ${ruleset}: ${converted.size} істот із картинкою 5etools у ${findImageDir(ruleset)}, маніфест ${FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH}`);
 }
@@ -131,7 +137,15 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
   let written = 0;
 
   for (const pick of picks) {
-    const file = buildWebpName(pick);
+    let source: string;
+    try {
+      source = pick.kind === "token" ? await cutTokenDisc(findOriginalPath(pick)) : findOriginalPath(pick);
+    } catch {
+      broken.push(pick.path);
+      continue;
+    }
+
+    const file = buildWebpName(pick, readContentTag(source));
     const known = byFile.get(file);
     if (known) {
       converted.set(pick.nameEng, known);
@@ -148,7 +162,6 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
       if (!force && existsSync(targetPath)) {
         image = await measureImage(targetPath, file);
       } else {
-        const source = pick.kind === "token" ? await cutTokenDisc(findOriginalPath(pick)) : findOriginalPath(pick);
         image = await compressToWebp(source, targetPath);
         written += 1;
       }
@@ -247,10 +260,36 @@ function findOriginalPath(pick: PicturePick): string {
 /// Named after the mirror file with its book code in front (`mm-dire-wolf.webp`), not after our
 /// creature: aidedd names its files after the page slug, and «The Wretched» from 5etools would
 /// otherwise land on the `the-wretched.webp` aidedd already holds for «Wretched Sorrowsworn».
-function buildWebpName(pick: PicturePick): string {
+/// Імʼя несе відбиток вмісту, бо інакше змінена картинка їде під старою адресою. Оптимізатор
+/// картинок Next кешує за URL на `minimumCacheTTL` — тиждень, — а на сервері та тека спільна для
+/// обох слотів і переживає деплой (docs/SERVER.md). Перерізавши 231 токен під круг, ми б тиждень
+/// віддавали користувачам попередні. Той самий прийом, що в спрайта іконок заклинань.
+const CONTENT_TAG_LENGTH = 10;
+
+function readContentTag(path: string): string {
+  return createHash("sha256").update(readFileSync(path)).digest("hex").slice(0, CONTENT_TAG_LENGTH);
+}
+
+function buildWebpName(pick: PicturePick, contentTag: string): string {
   const slug = normalizeName(foldDiacritics(basename(pick.path, ".webp"))).replace(/ /g, "-");
   const prefix = pick.source.toLowerCase();
-  return pick.kind === "token" ? `${prefix}-${slug}-token.webp` : `${prefix}-${slug}.webp`;
+  const kind = pick.kind === "token" ? "-token" : "";
+  return `${prefix}-${slug}${kind}-${contentTag}.webp`;
+}
+
+/// Відбиток міняє імʼя, тож попередній файл лишився б у теці назавжди. Прибираємо рівно те, що
+/// ця редакція клала сама — файли з попереднього маніфесту 5etools плюс будь-який із відбитком.
+/// Картинки aidedd лежать у тій самій теці, і чіпати їх не можна: вони в іншому маніфесті.
+function removeSupersededFiles(ruleset: CreatureRuleset, kept: Set<string>, previous: Set<string>): number {
+  const dir = findImageDir(ruleset);
+  let removed = 0;
+  for (const file of readdirSync(dir)) {
+    if (kept.has(file)) continue;
+    if (!previous.has(file) && !/-[0-9a-f]{10}\.webp$/.test(file)) continue;
+    rmSync(join(dir, file));
+    removed += 1;
+  }
+  return removed;
 }
 
 function readRuleset(): CreatureRuleset {
