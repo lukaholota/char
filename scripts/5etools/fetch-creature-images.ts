@@ -148,7 +148,7 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
       if (!force && existsSync(targetPath)) {
         image = await measureImage(targetPath, file);
       } else {
-        const source = pick.kind === "token" ? await cutTransparentMargin(findOriginalPath(pick)) : findOriginalPath(pick);
+        const source = pick.kind === "token" ? await cutTokenDisc(findOriginalPath(pick)) : findOriginalPath(pick);
         image = await compressToWebp(source, targetPath);
         written += 1;
       }
@@ -165,12 +165,47 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
   return converted;
 }
 
-/// Навколо диска токена лишається прозорий запас — близько десятої частини сторони. Без нього
-/// кружечок у списку читався б меншим за сусідні квадратні картки; із ним діаметр дорівнює
-/// стороні рамки. `trim` іде саме по альфі: кути токена прозорі.
-async function cutTransparentMargin(tokenPath: string): Promise<string> {
+/// Ріжемо по самому диску, а не по вмісту. `trim` по альфі здавався простішим, але в частини
+/// токенів малюнок навмисно вилазить за кільце — у косатки це хвіст і обличчя збоку, — і обрізка
+/// «по непрозорому» лишала майже прямокутник, який у списку читався квадратом, а не кружечком.
+///
+/// Радіус диска міряється надійно: це найбільше коло, уздовж якого майже вся довжина непрозора.
+/// Те, що стирчить за ним, у медальйон не їде — кружечок має бути кружечком.
+const DISC_EDGE_SAMPLES = 180;
+const DISC_EDGE_OPACITY = 0.95;
+
+async function cutTokenDisc(tokenPath: string): Promise<string> {
+  const { data, info } = await sharp(tokenPath).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const { width, height, channels } = info;
+  const centerX = width / 2;
+  const centerY = height / 2;
+  const isOpaqueAt = (x: number, y: number) =>
+    data[(Math.round(y) * width + Math.round(x)) * channels + 3] > 200;
+
+  let radius = 0;
+  for (let candidate = Math.floor(Math.min(centerX, centerY)) - 1; candidate > 0; candidate--) {
+    let opaque = 0;
+    for (let sample = 0; sample < DISC_EDGE_SAMPLES; sample++) {
+      const angle = (sample / DISC_EDGE_SAMPLES) * Math.PI * 2;
+      if (isOpaqueAt(centerX + candidate * Math.cos(angle), centerY + candidate * Math.sin(angle))) opaque++;
+    }
+    if (opaque >= DISC_EDGE_SAMPLES * DISC_EDGE_OPACITY) {
+      radius = candidate;
+      break;
+    }
+  }
+  if (!radius) return tokenPath;
+
+  const side = radius * 2;
+  const mask = Buffer.from(
+    `<svg width="${side}" height="${side}"><circle cx="${radius}" cy="${radius}" r="${radius}" fill="#fff"/></svg>`,
+  );
   const cutPath = tokenPath.replace(/\.webp$/, ".disc.png");
-  await sharp(tokenPath).trim().png().toFile(cutPath);
+  await sharp(tokenPath)
+    .extract({ left: Math.round(centerX - radius), top: Math.round(centerY - radius), width: side, height: side })
+    .composite([{ input: mask, blend: "dest-in" }])
+    .png()
+    .toFile(cutPath);
   return cutPath;
 }
 

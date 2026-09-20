@@ -20,6 +20,9 @@ export type CreatureIndexEntry = {
   ac: string;
   hp: string;
   imageUrl?: string;
+  /// Круглий токен малюється без рамки (Р48), і знає про це список — а він бачить лише цю
+  /// проєкцію, не весь запис. Ключ ставиться, тільки коли форма кругла: решті він не потрібен.
+  imageShape?: "round";
   /// Швидкості, які питає правило придатності Дикої форми (KR24.1): політ і плавання обмежені
   /// рівнем друїда, лазіння не обмежене ніде, але фільтр каталогу ним користується. Ключ без
   /// швидкості означає «режиму немає» — розріджений запис коштує 12,5 КіБ на 1 490 істот проти
@@ -74,6 +77,7 @@ export function buildCreatureIndexEntry(creature: CreatureData): CreatureIndexEn
     ac: creature.ac,
     hp: creature.hp,
     ...(creature.imageUrl ? { imageUrl: creature.imageUrl } : {}),
+    ...(creature.imageShape ? { imageShape: creature.imageShape } : {}),
     ...findIndexedSpeeds(creature),
   };
 }
