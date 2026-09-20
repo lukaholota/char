@@ -40,7 +40,7 @@ declare global {
   }
 }
 
-export default function GoogleOneTap() {
+export default function GoogleOneTap({ suppressed = false }: { suppressed?: boolean }) {
   const { data: session, status, update } = useSession();
   const router = useRouter();
   const [ ready, setReady ] = useState(false);
@@ -101,8 +101,18 @@ export default function GoogleOneTap() {
   }, [session, status, handleCredentialResponse]);
 
   useEffect(() => {
-    if (ready && !session && status !== 'loading') init();
-  }, [ready, init, session, status])
+    if (ready && !suppressed && !session && status !== 'loading') init();
+  }, [ready, init, session, status, suppressed])
+
+  /// Дві спливні картки одночасно — це не інтерфейс: поки відкрите «що нового», підказку Google
+  /// гасимо, а після закриття вона показується як звичайно.
+  useEffect(() => {
+    if (!suppressed || !window.google) return;
+    window.google.accounts.id.cancel();
+    initialized.current = false;
+    window.__gsiInit = false;
+    window.__gsiInFlight = false;
+  }, [suppressed])
 
   useEffect(() => {
     if (session && window.google) {

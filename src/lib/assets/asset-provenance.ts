@@ -33,6 +33,8 @@ const PROVENANCE_BY_PREFIX: ReadonlyArray<readonly [string, ImageProvenance]> = 
   ["/images/creatures/", "manual"],
   ["/images/manual/", "manual"],
   ["/images/home-", "drawn"],
+  /// Сітка іконок заклинань для «що нового» — намальовані ігрові іконки, не генерація.
+  ["/images/whats-new/spell-icons.webp", "drawn"],
 ];
 
 export function findImageProvenance(src: string | null | undefined): ImageProvenance {
