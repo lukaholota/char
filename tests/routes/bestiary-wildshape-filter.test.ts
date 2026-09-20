@@ -85,6 +85,12 @@ describe("адреса пікера форм", () => {
     });
   });
 
+  it("пікер відкривається з сортуванням за CR від більшого", () => {
+    const url = buildWildshapePickerUrl({ persId: 42, ruleset: "RULES_2014", onlyEligible: true });
+
+    expect(new URLSearchParams(url.split("?")[1]).get("sort")).toBe("cr-desc");
+  });
+
   it("редакція персонажа обирає каталог", () => {
     const url = buildWildshapePickerUrl({ persId: 42, ruleset: "RULES_2024", onlyEligible: true });
 

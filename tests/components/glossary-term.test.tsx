@@ -1,10 +1,35 @@
 // @vitest-environment jsdom
-import { afterEach, describe, expect, it } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import { GlossaryTerm } from "@/components/ui/GlossaryTerm";
+import type { TermCard } from "@/lib/term-card";
+import { TERM_OPEN_EVENT } from "@/lib/term-link";
+
+const cardOnClick = vi.hoisted(() => ({ current: null as TermCard | null }));
+vi.mock("@/lib/term-catalog-chunk", () => ({ findTermCard: async () => cardOnClick.current }));
 
 afterEach(cleanup);
+
+function buildCard(overrides: Partial<TermCard> = {}): TermCard {
+  return {
+    original: "Insight",
+    ruleset: "RULES_2014",
+    dictionary: [],
+    aliases: [],
+    article: null,
+    condition: null,
+    otherEdition: null,
+    catalog: null,
+    ...overrides,
+  };
+}
+
+function listenForTermOpen(): string[] {
+  const opened: string[] = [];
+  window.addEventListener(TERM_OPEN_EVENT, (event) => opened.push((event as CustomEvent).detail.original));
+  return opened;
+}
 
 /// Рішення власника 2026-09-02: оригінал показується плаваючою підказкою, а не текстом у
 /// потоці. Попередня версія дописувала «[Insight]» поруч із терміном — на статблоці з десятком
@@ -39,12 +64,28 @@ describe("GlossaryTerm", () => {
     expect(paragraph?.textContent).not.toContain("[Insight]");
   });
 
-  it("на дотику перше натискання відкриває підказку, друге ховає її й передає термін модалці (KR30.3)", () => {
+  it("на дотику перше натискання відкриває підказку, друге ховає її й передає термін модалці (KR30.3)", async () => {
+    cardOnClick.current = buildCard({
+      article: { title: "Аналіз поведінки", summary: "", href: "/rules/skills#insight", ruleset: "RULES_2014", subsection: null },
+    });
+    const opened = listenForTermOpen();
     const term = renderTerm();
     fireEvent.click(term);
     expect(screen.getByRole("tooltip")).toBeTruthy();
     fireEvent.click(term);
-    expect(screen.queryByRole("tooltip")).toBeNull();
+    await waitFor(() => expect(screen.queryByRole("tooltip")).toBeNull());
+    expect(opened).toContain("Insight");
+  });
+
+  it("коли про термін немає нічого, крім оригіналу, друге натискання модалку не відкриває", async () => {
+    cardOnClick.current = buildCard({ dictionary: [{ term: "аналіз поведінки", section: "навички" }] });
+    const opened = listenForTermOpen();
+    const term = renderTerm();
+    fireEvent.click(term);
+    fireEvent.click(term);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(opened).toEqual([]);
+    expect(screen.getByRole("tooltip").textContent).toBe("Insight");
   });
 
   it("мишею відкриває на наведення й закриває, коли курсор пішов", () => {

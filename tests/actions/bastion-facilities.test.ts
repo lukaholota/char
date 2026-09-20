@@ -7,7 +7,10 @@ import {
   createBastionForPers,
   loadBastion,
   loadBastionPicker,
+  loadSharedBastion,
   removeFacility,
+  replaceFacility,
+  saveBastionMaintaining,
   saveFacilityState,
 } from "@/lib/actions/bastion-actions";
 import { findFacilityMatch, findSpecialFacilityUsage } from "@/rules/bastions";
@@ -437,5 +440,150 @@ describe("стан приміщення — KR19.4", () => {
 
     const after = await prisma.pers.findUniqueOrThrow({ where: { persId: pers.persId } });
     expect(after).toEqual(before);
+  });
+});
+
+describe("KR31.15 — розмір приміщення міняється на місці (L14-bastions-02)", () => {
+  it("базова спальня стає просторою й зберігає нотатки, а розміру поза каталогом кузня не приймає", async () => {
+    const { pers } = await createPlayerWithBastion({
+      email: "bastion-resize@example.test",
+      className: "WIZARD_2024",
+      level: 5,
+    });
+    const bedroom = await addFacility({ persId: pers.persId, slug: "bedroom", space: "cramped" });
+    if (!bedroom.ok) throw new Error(bedroom.error);
+    const smithy = await addFacility({ persId: pers.persId, slug: "smithy" });
+    if (!smithy.ok) throw new Error(smithy.error);
+    const [bedroomRow, smithyRow] = smithy.standing.bastion!.facilities;
+
+    const resized = await saveFacilityState({
+      persId: pers.persId,
+      facilityId: bedroomRow.facilityId,
+      space: "roomy",
+      currentOrder: null,
+      defenders: 2,
+      hirelings: "",
+      notes: "Гостьова кімната",
+    });
+    if (!resized.ok) throw new Error(resized.error);
+    expect(resized.standing.bastion?.facilities[0]).toMatchObject({ space: "ROOMY", defenders: 2, notes: "Гостьова кімната" });
+
+    const refused = await saveFacilityState({
+      persId: pers.persId,
+      facilityId: smithyRow.facilityId,
+      space: "vast",
+      currentOrder: "CRAFT",
+      defenders: 0,
+      hirelings: "",
+      notes: "",
+    });
+    expect(refused).toMatchObject({ ok: false });
+    expect((await readFacilities(pers.persId))[1]).toMatchObject({ space: smithyRow.space, currentOrder: null });
+  });
+});
+
+describe("KR31.15 — «Утримання» віддається всьому бастіону (L14-bastions-08)", () => {
+  it("перемикач бастіону зберігається, а приміщенню «Утримання» не віддається", async () => {
+    const { pers } = await createPlayerWithBastion({
+      email: "bastion-maintain@example.test",
+      className: "WIZARD_2024",
+      level: 5,
+    });
+    const added = await addFacility({ persId: pers.persId, slug: "smithy" });
+    if (!added.ok) throw new Error(added.error);
+    const facilityId = added.standing.bastion!.facilities[0].facilityId;
+
+    const maintained = await saveBastionMaintaining({ persId: pers.persId, isMaintaining: true });
+    if (!maintained.ok) throw new Error(maintained.error);
+    expect(maintained.standing.bastion?.isMaintaining).toBe(true);
+
+    const refused = await saveFacilityState({
+      persId: pers.persId,
+      facilityId,
+      currentOrder: "MAINTAIN",
+      defenders: 0,
+      hirelings: "",
+      notes: "",
+    });
+    expect(refused).toEqual({ ok: false, error: "«Утримання» віддається всьому бастіону, а не приміщенню" });
+  });
+});
+
+describe("KR31.15 — заміна спеціального приміщення на підвищенні (L14-bastions-03)", () => {
+  it("кузня стає майстернею з тим самим розміром, наказом «Ремесло», захисниками й нотатками; на базове не міняється", async () => {
+    const { pers } = await createPlayerWithBastion({
+      email: "bastion-replace@example.test",
+      className: "WIZARD_2024",
+      level: 9,
+    });
+    const added = await addFacility({ persId: pers.persId, slug: "smithy" });
+    if (!added.ok) throw new Error(added.error);
+    const facilityId = added.standing.bastion!.facilities[0].facilityId;
+    const saved = await saveFacilityState({
+      persId: pers.persId, facilityId, currentOrder: "CRAFT", defenders: 3, hirelings: "Бран", notes: "Горн на сході",
+    });
+    if (!saved.ok) throw new Error(saved.error);
+
+    const replaced = await replaceFacility({ persId: pers.persId, facilityId, slug: "workshop" });
+    if (!replaced.ok) throw new Error(replaced.error);
+    expect(replaced.standing.bastion?.facilities).toEqual([
+      expect.objectContaining({ facilityId, facilitySlug: "workshop", space: "ROOMY", currentOrder: "CRAFT", defenders: 3, hirelings: "Бран", notes: "Горн на сході" }),
+    ]);
+
+    const toLibrary = await replaceFacility({ persId: pers.persId, facilityId, slug: "library" });
+    if (!toLibrary.ok) throw new Error(toLibrary.error);
+    expect(toLibrary.standing.bastion?.facilities[0]).toMatchObject({ facilitySlug: "library", currentOrder: null, defenders: 3 });
+
+    await expect(replaceFacility({ persId: pers.persId, facilityId, slug: "bedroom" })).resolves.toEqual({
+      ok: false,
+      error: "Замінити можна лише на спеціальне приміщення",
+    });
+  });
+
+  it("пікер пропонує на заміну спеціальні приміщення, яких у бастіоні ще немає", async () => {
+    const { pers } = await createPlayerWithBastion({
+      email: "bastion-replace-options@example.test",
+      className: "WIZARD_2024",
+      level: 5,
+    });
+    await addFacility({ persId: pers.persId, slug: "smithy" });
+
+    const picker = await loadBastionPicker(pers.persId);
+    if (!picker.ok) throw new Error(picker.error);
+    const slugs = picker.picker.replacementOptions.map((option) => option.slug);
+    expect(slugs).toContain("workshop");
+    expect(slugs).not.toContain("smithy");
+    expect(slugs).not.toContain("bedroom");
+  });
+});
+
+describe("KR31.15 — бастіон у поширеному листі (L14-bastions-07)", () => {
+  it("за токеном читання видно приміщення, наказ і захисників, але не нотатки; знімок бастіону не показує", async () => {
+    const { pers } = await createPlayerWithBastion({
+      email: "bastion-shared@example.test",
+      className: "WIZARD_2024",
+      level: 5,
+    });
+    const added = await addFacility({ persId: pers.persId, slug: "smithy" });
+    if (!added.ok) throw new Error(added.error);
+    await saveFacilityState({
+      persId: pers.persId, facilityId: added.standing.bastion!.facilities[0].facilityId,
+      currentOrder: "CRAFT", defenders: 2, hirelings: "", notes: "Таємний хід",
+    });
+    await prisma.pers.update({ where: { persId: pers.persId }, data: { shareToken: "bastion-share-token" } });
+    vi.mocked(auth).mockResolvedValue(null as never);
+
+    const shared = await loadSharedBastion("bastion-share-token");
+    expect(shared).toEqual({
+      name: "Стара вежа",
+      description: "",
+      isMaintaining: false,
+      facilities: [expect.objectContaining({ name: "Кузня", space: "ROOMY", isSpecial: true, currentOrder: "CRAFT", defenders: 2 })],
+    });
+    expect(JSON.stringify(shared)).not.toContain("Таємний хід");
+    await expect(loadSharedBastion("unknown-token")).resolves.toBeNull();
+
+    await prisma.pers.update({ where: { persId: pers.persId }, data: { isSnapshot: true } });
+    await expect(loadSharedBastion("bastion-share-token")).resolves.toBeNull();
   });
 });

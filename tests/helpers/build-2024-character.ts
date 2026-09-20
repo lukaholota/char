@@ -1,4 +1,5 @@
 import type { BackgroundCategory, Classes, Feats, Races, Subclasses, WeaponCategory } from "@prisma/client";
+import { withCreationSpells, withLevelUpSpells } from "./creation-spells";
 import { prisma } from "@/lib/prisma";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type {
@@ -95,7 +96,7 @@ async function buildCreationForm(fixture: Acceptance2024Fixture): Promise<PersFo
   const speciesFeat = input.speciesFeat ? await findFeat2024(input.speciesFeat) : null;
   const originFeat = await findFeat2024(input.originFeat);
 
-  return minimalForm({
+  const form = minimalForm({
     name: fixture.title,
     raceId: race.raceId,
     classId: characterClass.classId,
@@ -117,6 +118,7 @@ async function buildCreationForm(fixture: Acceptance2024Fixture): Promise<PersFo
       anyWeaponSelection: {},
     },
   });
+  return withCreationSpells(form, input.creationSpells);
 }
 
 /**
@@ -146,7 +148,7 @@ async function raiseToFifthLevel(
   const errors: string[] = [];
 
   for (const pick of fixture.input.levelUps) {
-    const result = await actions.levelUpCharacter(persId, await buildLevelUpForm(fixture, pick));
+    const result = await actions.levelUpCharacter(persId, await withLevelUpSpells(persId, await buildLevelUpForm(fixture, pick)));
     if (result && "error" in result && result.error) {
       errors.push(`рівень ${pick.level}: ${result.error}`);
     }
@@ -315,6 +317,7 @@ function toCustomAsiEntries(scores: Record<AbilityCode, number>) {
 }
 
 async function readAcceptanceSnapshot(persId: number): Promise<Acceptance2024Snapshot> {
+  const featNamedSpellIds = await findFeatNamedSpellIds(persId);
   const pers = await prisma.pers.findUniqueOrThrow({
     where: { persId },
     include: {
@@ -327,7 +330,7 @@ async function readAcceptanceSnapshot(persId: number): Promise<Acceptance2024Sna
       raceChoiceOptions: { select: { choiceGroupName: true, optionName: true } },
       skills: { select: { name: true, proficiencyType: true } },
       persSpells: {
-        select: { origin: true, sourceName: true, isPrepared: true, spell: { select: { engName: true } } },
+        select: { origin: true, sourceName: true, isPrepared: true, excludeFromPreparedCount: true, spellId: true, spell: { select: { engName: true } } },
       },
       pers_weapon_mastery: {
         select: { weapon: { select: { name: true } } },
@@ -353,7 +356,8 @@ async function readAcceptanceSnapshot(persId: number): Promise<Acceptance2024Sna
       .sort(),
     skills: pers.skills.map((skill) => ({ name: skill.name, proficiencyType: skill.proficiencyType })),
     spellNames: pers.persSpells.map((entry) => entry.spell.engName).sort(),
-    grantedSpells: pers.persSpells.map((entry) => ({
+    // Заклинання, які гравець обрав кроком «Заклинання» чи «Заклинання риси», дарованими правилом не є.
+    grantedSpells: pers.persSpells.filter((entry) => isGrantedByRule(entry, featNamedSpellIds)).map((entry) => ({
       engName: entry.spell.engName,
       sourceName: entry.sourceName,
       origin: entry.origin,
@@ -411,3 +415,17 @@ const findFeat2024 = (name: string) =>
 
 const findSubclass2024 = (classId: number, name: string) =>
   prisma.subclass.findFirstOrThrow({ where: { classId, name: name as Subclasses } });
+
+async function findFeatNamedSpellIds(persId: number): Promise<Set<number>> {
+  const feats = await prisma.persFeat.findMany({
+    where: { persId },
+    select: { feat: { select: { grantsFeature: { select: { givesSpells: { select: { spellId: true } } } } } } },
+  });
+  return new Set(feats.flatMap((row) => row.feat.grantsFeature.flatMap((feature) => feature.givesSpells.map((spell) => spell.spellId))));
+}
+
+function isGrantedByRule(entry: { origin: string; excludeFromPreparedCount: boolean; spellId: number }, featNamedSpellIds: Set<number>): boolean {
+  if (entry.origin === "CLASS") return entry.excludeFromPreparedCount;
+  if (entry.origin === "FEAT") return featNamedSpellIds.has(entry.spellId);
+  return true;
+}

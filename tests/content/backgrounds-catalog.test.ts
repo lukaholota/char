@@ -13,6 +13,7 @@ import { generateStaticParams as generateBackgrounds2014Params } from "@/app/bac
 import { generateStaticParams as generateBackgrounds2024Params } from "@/app/2024/backgrounds/[backgroundId]/page";
 import sitemap from "@/app/sitemap";
 import { Compass, Scroll } from "lucide-react";
+import { backgroundTranslations } from "@/lib/refs/translation";
 
 describe("KR13.3 — Backgrounds catalog", () => {
   describe("Completeness of both sets", () => {
@@ -68,7 +69,15 @@ describe("KR13.3 — Backgrounds catalog", () => {
         expect(background.originFeat?.nameUa, `${background.engName}: originFeat`).toBeTruthy();
         expect(background.tools.length, `${background.engName}: tools`).toBe(1);
         expect(background.grantsGoldInstead, `${background.engName}: gold`).toBe(50);
-        expect(background.equipmentEngText, `${background.engName}: equipment`).toBeTruthy();
+        expect(background.equipmentItems.length, `${background.engName}: equipment`).toBeGreaterThan(0);
+      }
+    });
+
+    it("names every 2024 background the way the creator and the dictionary do", () => {
+      const names = backgroundTranslations as Record<string, string>;
+      for (const background of getAllBackgrounds("RULES_2024")) {
+        const dictionaryName = names[`${background.key}_2024`] ?? names[background.key];
+        expect(background.name, background.engName).toBe(dictionaryName);
       }
     });
 
@@ -88,7 +97,7 @@ describe("KR13.3 — Backgrounds catalog", () => {
       const acolyte2024 = getBackgroundByIdOrSlug("acolyte", "RULES_2024");
 
       expect(acolyte2014?.name).toBe("Послушник");
-      expect(acolyte2024?.name).toBe("Служитель");
+      expect(acolyte2024?.name).toBe("Послушник");
       expect(acolyte2024?.originFeat?.engName).toBe("Magic Initiate (Cleric)");
     });
   });

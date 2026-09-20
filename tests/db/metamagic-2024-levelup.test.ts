@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { findCreatorContent, type CreatorContent } from "@/server/db/creator-content-query";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { minimalForm } from "../helpers/build-form";
+import { withCreationSpells, withLevelUpSpells } from "../helpers/creation-spells";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -34,11 +35,11 @@ it.each([2, 10, 17])("метамагія на %i рівні зберігає р�
   const sorcerer = content.classes.find(cls => cls.name === "SORCERER_2024")!;
   const dwarf = content.races.find(race => race.name === "DWARF_2024")!;
   const soldier = content.backgrounds.find(background => background.name === "SOLDIER_2024")!;
-  const created = await createCharacter(minimalForm({
+  const created = await createCharacter(await withCreationSpells(minimalForm({
     classId: sorcerer.classId, raceId: dwarf.raceId, backgroundId: soldier.backgroundId,
     ruleset: "RULES_2024", backgroundAsiChoice: { mode: "+2/+1", plusTwo: "STR", plusOne: "CON" },
     languagesSchema: { languages: ["DWARVISH", "ELVISH"] },
-  }));
+  })));
   expect(created).not.toHaveProperty("error");
   const persId = created.persId!;
   const options = sorcerer.classChoiceOptions.filter(link => link.choiceOption.groupName === "Метамагія");
@@ -55,9 +56,9 @@ it.each([2, 10, 17])("метамагія на %i рівні зберігає р�
     classId: sorcerer.classId, classChoiceSelections: { "Метамагія": picks.slice(0, 1) },
   }));
   expect(rejected).toHaveProperty("error", "Оберіть 2 опц.");
-  const accepted = await levelUpCharacter(persId, minimalLevelUpForm({
+  const accepted = await levelUpCharacter(persId, await withLevelUpSpells(persId, minimalLevelUpForm({
     classId: sorcerer.classId, classChoiceSelections: { "Метамагія": picks },
-  }));
+  })));
   expect(accepted).not.toHaveProperty("error");
   const saved = await prisma.pers.findUniqueOrThrow({ where: { persId }, include: { choiceOptions: true } });
   expect(saved.level).toBe(level);

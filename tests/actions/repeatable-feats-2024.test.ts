@@ -18,6 +18,7 @@ afterAll(disconnectDatabase);
 
 const proficiency = (option: string): NamedPick => ({ choice: "Володіння", option });
 const spellList = (option: string): NamedPick => ({ choice: "Список заклинань", option });
+const castingAbility = (option: string): NamedPick => ({ choice: "Базова характеристика заклинань", option });
 
 describe("KR27.4 — повторювана риса береться двічі, неповторювана відхиляється з причиною", () => {
   it("Skilled від походження і від Універсальності Людини — два рядки й шість володінь", async () => {
@@ -46,9 +47,9 @@ describe("KR27.4 — повторювана риса береться двічі
       background: "ACOLYTE",
       backgroundAsi: { mode: "+2/+1", plusTwo: "WIS", plusOne: "INT" },
       originFeat: "MAGIC_INITIATE",
-      originFeatChoices: [spellList("Cleric")],
+      originFeatChoices: [spellList("Cleric"), castingAbility("WIS")],
       speciesFeat: "Magic Initiate",
-      speciesFeatChoices: [spellList("Cleric")],
+      speciesFeatChoices: [spellList("Cleric"), castingAbility("WIS")],
     });
     expect(sameList.persId).toBeNull();
     expect(sameList.creationError).toContain("іншим вибором");
@@ -57,9 +58,9 @@ describe("KR27.4 — повторювана риса береться двічі
       background: "ACOLYTE",
       backgroundAsi: { mode: "+2/+1", plusTwo: "WIS", plusOne: "INT" },
       originFeat: "MAGIC_INITIATE",
-      originFeatChoices: [spellList("Cleric")],
+      originFeatChoices: [spellList("Cleric"), castingAbility("WIS")],
       speciesFeat: "Magic Initiate",
-      speciesFeatChoices: [spellList("Wizard")],
+      speciesFeatChoices: [spellList("Wizard"), castingAbility("INT")],
     });
     expect(otherList.creationError).toBeNull();
     expect(otherList.atLevel1?.magicInitiateLists).toEqual(["Cleric", "Wizard"]);

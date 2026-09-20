@@ -9,6 +9,7 @@ describe("доступ до бастіону", () => {
       isOffered: false,
       isBelowStandardLevel: false,
       isEntryCardShown: false,
+      isEntryCardMuted: false,
     });
   });
 
@@ -23,18 +24,19 @@ describe("доступ до бастіону", () => {
     expect(access.isBelowStandardLevel).toBe(true);
   });
 
-  it("картка на слайді фіч зʼявляється зі стандартного рівня", () => {
-    const below = findBastionAccess({ ruleset: "RULES_2024", characterLevel: 4, hasBastion: false });
+  /// KR31.15 (L14-bastions-09): до 5-го рівня картка є, але приглушена — вхід, який дозволяє Р26.
+  it("нижче стандартного рівня картка приглушена, а не прихована", () => {
+    const below = findBastionAccess({ ruleset: "RULES_2024", characterLevel: 1, hasBastion: false });
     const at = findBastionAccess({ ruleset: "RULES_2024", characterLevel: 5, hasBastion: false });
 
-    expect(below.isEntryCardShown).toBe(false);
-    expect(at.isEntryCardShown).toBe(true);
+    expect(below).toMatchObject({ isEntryCardShown: true, isEntryCardMuted: true });
+    expect(at).toMatchObject({ isEntryCardShown: true, isEntryCardMuted: false });
   });
 
-  it("створений бастіон лишає картку видимою й нижче стандартного рівня", () => {
+  it("створений бастіон нижче стандартного рівня — звичайна картка", () => {
     const access = findBastionAccess({ ruleset: "RULES_2024", characterLevel: 4, hasBastion: true });
 
-    expect(access.isEntryCardShown).toBe(true);
+    expect(access).toMatchObject({ isEntryCardShown: true, isEntryCardMuted: false });
   });
 
   it("бастіон 2014-персонажа картки не дає навіть якщо рядок у базі є", () => {

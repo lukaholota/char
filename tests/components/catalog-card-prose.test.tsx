@@ -68,6 +68,30 @@ describe("KR33.3 — проза в картках каталогу", () => {
     expect(screen.getByText(CLASS_PROSE)).toBeTruthy();
   });
 
+  it("картка класу домальовує риси й підкласи після першого екрана", async () => {
+    const characterClass: ClassData = {
+      ...buildClass(CLASS_PROSE),
+      features: [{ level: 1, name: "Натхнення барда", engName: "Bardic Inspiration", description: "Опис натхнення." }],
+      subclasses: [
+        {
+          subclassId: 7,
+          key: "LORE",
+          slug: "lore",
+          name: "Колегія знань",
+          engName: "College of Lore",
+          description: "Опис колегії.",
+          features: [{ level: 3, name: "Ріжучі слова", engName: "Cutting Words", description: "Опис слів." }],
+        },
+      ],
+    };
+
+    render(<ClassDetailCard characterClass={characterClass} />);
+
+    expect(await screen.findByText("Опис натхнення.")).toBeTruthy();
+    expect(screen.getByText("Опис колегії.")).toBeTruthy();
+    expect(screen.getByText("Опис слів.")).toBeTruthy();
+  });
+
   it("картка класу без опису не малює порожнього блоку", () => {
     const { container } = render(<ClassDetailCard characterClass={buildClass(null)} />);
 

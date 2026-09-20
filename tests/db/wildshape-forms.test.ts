@@ -249,7 +249,7 @@ describe("що каталог пропонує саме цьому персон�
 
     expect(standing.ruleset).toBe("RULES_2014");
     expect(standing.limitNotes).toEqual([
-      "КР до 1",
+      "ПН до 1",
       "політ з 8 рівня",
       "плавання з 4 рівня",
       "лазіння без обмежень",

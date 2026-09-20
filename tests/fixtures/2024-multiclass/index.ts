@@ -1,3 +1,4 @@
+import type { CreationSpellPicks } from "../../helpers/creation-spells";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -67,6 +68,8 @@ export type Multiclass2024Fixture = {
     /** Навички класу, які гравець обирає на створенні: книга дає Пройдисвіту чотири. */
     classSkills?: string[];
     weaponMastery?: string[];
+    /** Заклинання кроку «Заклинання» конструктора; чого не названо, те харнес добирає за абеткою. */
+    creationSpells?: CreationSpellPicks;
     levelUps: MulticlassLevelUpPick[];
   };
   expected: {

@@ -8,7 +8,7 @@ const REGISTRY_FILES = ["src/lib/refs/translation.ts", "src/lib/refs/dictionary.
 
 const OLD_FORMS = [
   /Ковалівськ/,
-  /Лімбо/,
+  /Лімбо(?![а-яіїєґʼ])/,
   /Девʼять Пеклів/,
   /Далекий Обшир/,
   /Міжчасся заново/,
@@ -30,13 +30,9 @@ const OLD_FORMS = [
 /// у файлах корекцій ліва половина заміни мусить містити саме стару форму, інакше сід її не
 /// знайде. Рядок знімається, коли зникає причина, а не «щоб було зелено».
 const EXPECTED_OLD_FORMS: Record<string, RegExp[]> = {
-  "src/lib/generated/magicItems.json": [/Іссгард/],
-  "src/lib/generated/spells.json": [/Фейвальд/],
   "src/lib/generated/backgrounds.json": [/Теслярські інструменти/],
   "src/lib/generated/creator-content-2014.json": [/Теслярські інструменти/],
   "src/lib/generated/creator-content-2024.json": [/Інструменти кухаря/, /Теслярські інструменти/],
-  "data/2014/corrections/spell-terminology-batch11.json": [/Фейвальд/],
-  "data/2014/corrections/spell-terminology-batch16.json": [/Фейвальд/],
 };
 
 function isExpected(file: string, pattern: RegExp): boolean {

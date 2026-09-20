@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { createCharacter } from "@/lib/actions/character";
 import { levelUpCharacter } from "@/lib/actions/levelup";
 import { minimalForm } from "../helpers/build-form";
+import { withLevelUpSpells } from "../helpers/creation-spells";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { disconnectDatabase, resetUserData } from "../user-data";
@@ -38,7 +39,7 @@ describe("KR31.9 — мультиклас без 13+ у ключовій хар�
 
     const result = await levelUpCharacter(
       created.persId,
-      minimalLevelUpForm({ classId: cleric.classId, levelUpPath: "MULTICLASS" }),
+      await withLevelUpSpells(created.persId, minimalLevelUpForm({ classId: cleric.classId, levelUpPath: "MULTICLASS" })),
     );
 
     expect(result).not.toHaveProperty("error");

@@ -7,7 +7,6 @@ import { disconnectDatabase } from "../user-data";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { getBaseEquipment } from "@/server/db/equipment-actions";
 import { loadFightingStyleOptions } from "@/server/db/progression-content";
-import { getSpellsList } from "@/server/db/spell-actions";
 import { buildSpellsForGenerationQuery } from "../../scripts/generate-spells";
 import { buildMagicItemsForGenerationQuery } from "../../scripts/generate-magic-items";
 
@@ -65,9 +64,9 @@ describe("KR6.3 — levelup-content (клас/риса/інфузія катал
 });
 
 describe("KR6.3 — getBaseEquipment", () => {
-  it("зброя з RULES_2024 не потрапляє у список", async () => {
+  it("зброя з RULES_2024 не потрапляє у список персонажа 2014", async () => {
     const weapon2024 = await prisma.weapon.findFirstOrThrow({ where: { ruleset: "RULES_2024" } });
-    const result = await getBaseEquipment();
+    const result = await getBaseEquipment("RULES_2014");
     if (!result.success || !result.weapons || !result.armors) {
       throw new Error("getBaseEquipment failed: " + JSON.stringify(result));
     }
@@ -93,19 +92,6 @@ describe("KR6.3 — loadFightingStyleOptions", () => {
     } finally {
       await prisma.fightingStyle.delete({ where: { id: fixture.id } });
     }
-  });
-});
-
-describe("KR6.3 — spell-actions", () => {
-  /// `getSpellForModal` тут більше немає: KR25.1 прибрала її разом із запитом у базу — модалка
-  /// читає генерований каталог обох редакцій. Межу редакцій тепер тримає
-  /// tests/components/spell-link.test.tsx, і тримає її з іншого боку: не «2024 не знаходиться»,
-  /// а «за адресою 2024 знаходиться саме заклинання 2024».
-  it("getSpellsList виключає заклинання з RULES_2024", async () => {
-    const spell2024 = await prisma.spell.findFirstOrThrow({ where: { ruleset: "RULES_2024" } });
-
-    const spells = await getSpellsList();
-    expect(spells.some((s) => s.spellId === spell2024.spellId)).toBe(false);
   });
 });
 

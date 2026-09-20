@@ -2,6 +2,7 @@ import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { Classes, Races, BackgroundCategory } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { minimalForm } from "../helpers/build-form";
+import { withCreationSpells, withLevelUpSpells } from "../helpers/creation-spells";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { CHOICE_GROUPS } from "@/lib/logic/choicePoolRules";
@@ -24,7 +25,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
     const user = await signIn("kr18-8-ok");
 
     const created = await createCharacter(
-      minimalForm({
+      await withCreationSpells(minimalForm({
         raceId: race.raceId,
         classId: characterClass.classId,
         backgroundId: background.backgroundId,
@@ -32,7 +33,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
         equipmentSchema: { choiceGroupToId: {}, anyWeaponSelection: {} },
         backgroundAsiChoice: { mode: "+2/+1", plusTwo: "CHA", plusOne: "CON" },
         classChoiceSelections: { [INVOCATIONS]: armorOfShadows.choiceOptionId },
-      }),
+      })),
     );
 
     expect("error" in created && created.error).toBeFalsy();
@@ -44,7 +45,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
     await signIn("kr18-8-no-pact");
 
     const created = await createCharacter(
-      minimalForm({
+      await withCreationSpells(minimalForm({
         raceId: race.raceId,
         classId: characterClass.classId,
         backgroundId: background.backgroundId,
@@ -52,7 +53,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
         equipmentSchema: { choiceGroupToId: {}, anyWeaponSelection: {} },
         backgroundAsiChoice: { mode: "+2/+1", plusTwo: "CHA", plusOne: "CON" },
         classChoiceSelections: { [INVOCATIONS]: investmentOfChainMaster.choiceOptionId },
-      }),
+      })),
     );
 
     expect("error" in created ? created.error : undefined).toBe(
@@ -66,7 +67,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
     const user = await signIn("kr18-8-same-batch");
 
     const created = await createCharacter(
-      minimalForm({
+      await withCreationSpells(minimalForm({
         raceId: race.raceId,
         classId: characterClass.classId,
         backgroundId: background.backgroundId,
@@ -74,18 +75,18 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
         equipmentSchema: { choiceGroupToId: {}, anyWeaponSelection: {} },
         backgroundAsiChoice: { mode: "+2/+1", plusTwo: "CHA", plusOne: "CON" },
         classChoiceSelections: { [INVOCATIONS]: armorOfShadows.choiceOptionId },
-      }),
+      })),
     );
     if ("error" in created && created.error) throw new Error(created.error);
 
     const leveledUp = await levelUpCharacter(
       created.persId!,
-      minimalLevelUpForm({
+      await withLevelUpSpells(created.persId!, minimalLevelUpForm({
         classId: characterClass.classId,
         classChoiceSelections: {
           [INVOCATIONS]: [pactOfTheChain.choiceOptionId, investmentOfChainMaster.choiceOptionId],
         },
-      }),
+      })),
     );
 
     expect("error" in leveledUp && leveledUp.error).toBeFalsy();
@@ -98,7 +99,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
     await signIn("kr18-8-reject-batch");
 
     const created = await createCharacter(
-      minimalForm({
+      await withCreationSpells(minimalForm({
         raceId: race.raceId,
         classId: characterClass.classId,
         backgroundId: background.backgroundId,
@@ -106,7 +107,7 @@ describe("KR18.8 — потойбічні виклики Чорнокнижни�
         equipmentSchema: { choiceGroupToId: {}, anyWeaponSelection: {} },
         backgroundAsiChoice: { mode: "+2/+1", plusTwo: "CHA", plusOne: "CON" },
         classChoiceSelections: { [INVOCATIONS]: armorOfShadows.choiceOptionId },
-      }),
+      })),
     );
     if ("error" in created && created.error) throw new Error(created.error);
 

@@ -1,26 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { buildTermCard, type TermSources } from "@/lib/term-card";
+import { buildTermCard, hasTermCardMoreThanOriginal, listDictionaryFormsUnlikeTerm, type TermSources } from "@/lib/term-card";
 import type { RuleArticle } from "@/lib/rulesData";
-import { getAllConditions } from "@/lib/rulesData";
-import { getAllRuleArticles2014 } from "@/lib/rules2014Data";
-import { getAllRuleArticles2024, getConditions2024 } from "@/lib/rules2024Data";
-import { getAllWeapons } from "@/lib/weaponsData";
-import { getAllArmors } from "@/lib/armorData";
-import { findAliasVariants } from "@/lib/search/searchAliases";
 import dictionary from "@/lib/refs/dictionary.json";
+import { collectTermSources } from "@/lib/term-sources";
 
 /// KR30.3 — картка терміна за маркером `{{Original}}`: словник, аліаси, стаття довідника,
 /// стан, каталог. Спершу на справжніх джерелах (те, що приїде в модалку), потім на
 /// фікстурах — де важливо, з якої редакції взято статтю.
-const realSources: TermSources = {
-  articles: { RULES_2014: getAllRuleArticles2014(), RULES_2024: getAllRuleArticles2024() },
-  conditions: { RULES_2014: getAllConditions("RULES_2014"), RULES_2024: getConditions2024() },
-  dictionary: dictionary.DND_DICTIONARY as Record<string, unknown>,
-  weapons: { RULES_2014: getAllWeapons("RULES_2014"), RULES_2024: getAllWeapons("RULES_2024") },
-  armors: { RULES_2014: getAllArmors("RULES_2014"), RULES_2024: getAllArmors("RULES_2024") },
-  findAliases: findAliasVariants,
-};
+const realSources: TermSources = collectTermSources();
 
 const skills = (dictionary.DND_DICTIONARY as { skills: Record<string, string> }).skills;
 const statblockFeatures = (dictionary.DND_DICTIONARY as { statblockFeatures: Record<string, string> })
@@ -40,7 +28,7 @@ describe("KR30.3 — картка терміна на справжніх дже�
   it("стан дає опис, пункти й якір на сторінку станів своєї редакції", () => {
     const card = buildTermCard({ original: "Blinded", ruleset: "RULES_2024" }, realSources);
     expect(card.condition?.ruleset).toBe("RULES_2024");
-    expect(card.condition?.href).toBe("/2024/rules/conditions#blinded");
+    expect(card.condition?.href).toBe("/2024/rules/conditions#condition-blinded");
     expect(card.condition?.bulletPoints.length).toBeGreaterThan(0);
   });
 
@@ -50,7 +38,7 @@ describe("KR30.3 — картка терміна на справжніх дже�
   });
 
   it("назву дії істоти, якої немає ніде, віддає порожньою карткою, а не помилкою", () => {
-    const card = buildTermCard({ original: "Gore", ruleset: "RULES_2014" }, realSources);
+    const card = buildTermCard({ original: "Rend", ruleset: "RULES_2014" }, realSources);
     expect(card).toMatchObject({ dictionary: [], article: null, condition: null, catalog: null });
   });
 });
@@ -92,20 +80,109 @@ describe("KR30.3 — з якої редакції стаття", () => {
     expect(card.article?.href).toBe("/2024/rules/combat#flanking");
   });
 
-  it("падає на іншу редакцію, коли у своїй статті немає, і каже про це редакцією в картці", () => {
-    const card = buildTermCard({ original: "Opportunity Attacks", ruleset: "RULES_2024" }, fixtureSources);
-    expect(card.article).toMatchObject({ ruleset: "RULES_2014", href: "/rules/combat#sub-1" });
-    expect(card.article?.subsection).toEqual({ title: "Підрозділ Opportunity Attacks", content: "Текст підрозділу" });
-  });
-
   it("аліаси статті беруться за її слагом", () => {
     const card = buildTermCard({ original: "Flanking", ruleset: "RULES_2014" }, fixtureSources);
     expect(card.aliases).toEqual(["фланг", "фланкування"]);
   });
 
-  it("однину й множину, camelCase і дефіс не плутає, але й не склеює різні терміни", () => {
+  it("однину знаходить за назвою статті в множині, camelCase і дефіс не плутає", () => {
     const attack = buildTermCard({ original: "opportunity-attack", ruleset: "RULES_2014" }, fixtureSources);
     expect(attack.dictionary).toEqual([{ term: "Атака нагоди", section: "дії в бою" }]);
-    expect(attack.article).toBeNull();
+    expect(attack.article).toMatchObject({ ruleset: "RULES_2014", href: "/rules/combat#sub-1" });
+  });
+
+  it("різні слова з однаковим початком не склеює", () => {
+    const card = buildTermCard({ original: "Flank", ruleset: "RULES_2014" }, fixtureSources);
+    expect(card.article).toBeNull();
+  });
+});
+
+describe("KR34.1 — текст правила іншої редакції в картку не потрапляє", () => {
+  it("коли у своїй редакції статті немає, дає лише посилання на статтю іншої, без тексту", () => {
+    const card = buildTermCard({ original: "Opportunity Attacks", ruleset: "RULES_2024" }, fixtureSources);
+    expect(card.article).toBeNull();
+    expect(card.otherEdition).toEqual({ ruleset: "RULES_2014", href: "/rules/combat#sub-1" });
+  });
+
+  it("на 2014 бонусна дія, реакція й рятівний кидок відкривають статтю 2014", () => {
+    for (const original of ["Bonus Action", "Reaction", "Saving Throw"]) {
+      const card = buildTermCard({ original, ruleset: "RULES_2014" }, realSources);
+      expect(card.article?.ruleset, original).toBe("RULES_2014");
+      expect(card.otherEdition, original).toBeNull();
+    }
+  });
+
+  it("критичний удар на 2014 — без тексту 2024, лише посилання туди", () => {
+    const card = buildTermCard({ original: "Critical Hit", ruleset: "RULES_2014" }, realSources);
+    expect(card.article).toBeNull();
+    expect(card.otherEdition).toEqual({ ruleset: "RULES_2024", href: "/2024/rules/combat#critical-hit--critical-hit" });
+  });
+
+  it("перевага й концентрація на 2014 беруть підрозділ 2014 з реєстру, хоч назва статті інша", () => {
+    const advantage = buildTermCard({ original: "Advantage", ruleset: "RULES_2014" }, realSources);
+    const concentration = buildTermCard({ original: "Concentration", ruleset: "RULES_2014" }, realSources);
+    expect(advantage.article?.href).toBe("/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage");
+    expect(concentration.article?.href).toBe("/rules/spellcasting#concentration-rules");
+    expect(concentration.article?.subsection?.content).toMatch(/концентрац/i);
+  });
+
+  it("жоден термін словника не дає статтю чи стан чужої редакції", () => {
+    const originals = collectDictionaryKeys(dictionary.DND_DICTIONARY);
+    const leaks: string[] = [];
+    for (const ruleset of ["RULES_2014", "RULES_2024"] as const) {
+      for (const original of originals) {
+        const card = buildTermCard({ original, ruleset }, realSources);
+        if (card.article && card.article.ruleset !== ruleset) leaks.push(`${ruleset} ${original}: стаття`);
+        if (card.condition && card.condition.ruleset !== ruleset) leaks.push(`${ruleset} ${original}: стан`);
+      }
+    }
+    expect(leaks).toEqual([]);
+  });
+});
+
+function collectDictionaryKeys(value: unknown): string[] {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return [];
+  return Object.entries(value as Record<string, unknown>).flatMap(([key, leaf]) =>
+    typeof leaf === "string" ? [key] : collectDictionaryKeys(leaf)
+  );
+}
+
+describe("KR30.3 — яку словникову форму показувати в модалці", () => {
+  it("на справжньому «Claw» поруч із натиснутим «Пазур» віддає «Кіготь»", () => {
+    const card = buildTermCard({ original: "Claw", ruleset: "RULES_2014" }, realSources);
+    expect(listDictionaryFormsUnlikeTerm(card, "Пазур")).toEqual([statblockFeatures.Claw]);
+  });
+
+  it("форму, що дорівнює натиснутому слову без огляду на регістр, не показує", () => {
+    const card = buildTermCard({ original: "Multiattack", ruleset: "RULES_2014" }, realSources);
+    expect(listDictionaryFormsUnlikeTerm(card, statblockFeatures.Multiattack.toUpperCase())).toEqual([]);
+  });
+
+  it("поруч зі станом або статтею не показує нічого", () => {
+    const card = buildTermCard({ original: "Blinded", ruleset: "RULES_2024" }, realSources);
+    expect(card.condition).not.toBeNull();
+    expect(listDictionaryFormsUnlikeTerm(card, "осліплена")).toEqual([]);
+  });
+});
+
+describe("картка, варта модалки", () => {
+  it("«Мультиатака» без статті, де словник повторює натиснуте слово, нічого не додає до оригіналу", () => {
+    const card = buildTermCard({ original: "Multiattack", ruleset: "RULES_2014" }, realSources);
+    expect(hasTermCardMoreThanOriginal(card, statblockFeatures.Multiattack)).toBe(false);
+  });
+
+  it("інша словникова форма — вже причина відкрити модалку", () => {
+    const card = buildTermCard({ original: "Claw", ruleset: "RULES_2014" }, realSources);
+    expect(hasTermCardMoreThanOriginal(card, "Пазур")).toBe(true);
+  });
+
+  it("стан — причина відкрити модалку", () => {
+    const card = buildTermCard({ original: "Blinded", ruleset: "RULES_2024" }, realSources);
+    expect(hasTermCardMoreThanOriginal(card, "осліплена")).toBe(true);
+  });
+
+  it("зброя з каталогу — причина відкрити модалку", () => {
+    const card = buildTermCard({ original: "Greatsword", ruleset: "RULES_2014" }, realSources);
+    expect(hasTermCardMoreThanOriginal(card, "дворучний меч")).toBe(true);
   });
 });

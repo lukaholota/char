@@ -36,6 +36,12 @@ const CATALOGS: CatalogSpec[] = [
     expectedCount: 50,
     requiredFields: ["nameUa", "engName", "description", "shortDescription"],
   },
+  {
+    label: "metamagic",
+    file: "metamagic.json",
+    expectedCount: 10,
+    requiredFields: ["nameUa", "engName", "cost", "description", "shortDescription"],
+  },
 ];
 
 function readCatalogRaw(spec: CatalogSpec): string {

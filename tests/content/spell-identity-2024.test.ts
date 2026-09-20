@@ -4,7 +4,7 @@
 // вже проіндексованих і збережених адрес.
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import spells2024Json from "../../data/2024/normalized/spells.json";
 import {
@@ -23,6 +23,8 @@ import spellModal2014 from "@/app/spells/@modal/(.)[spellId]/page";
 import { generateStaticParams as buildStaticParams2024 } from "@/app/2024/spells/[spellId]/page";
 import { generateStaticParams as buildStaticParams2014 } from "@/app/spells/[spellId]/page";
 import sitemap from "@/app/sitemap";
+
+vi.mock("@/components/spells/SpellDiscussion", () => ({ SpellDiscussion: () => null }));
 
 const RAW_2024 = spells2024Json as Raw2024Spell[];
 

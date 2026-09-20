@@ -37,18 +37,49 @@ function stringifyStably(value: unknown): string {
 
 const species: SpeciesJson[] = JSON.parse(readFileSync(join(process.cwd(), SPECIES_JSON), "utf-8"));
 
+/**
+ * Рішення власника 2026-09-20: лічильник вибору виду стоїть на **обраному** варіанті, а не на
+ * рисі-меню. Книга пише число в текст меню, бо там це один абзац із переліком; на листі витрачає
+ * використання обране благословення, а меню перелічує ще пʼять чужих. Переносить їх
+ * `seed:species-choices-2024`, тому файл-джерело лишається дзеркалом книги, а база — ні.
+ */
+const MENU_TRAITS_HANDING_USES_TO_OPTIONS: Record<string, string> = {
+  "Elf: Elven Lineage (2024)": "Elven Lineage: ",
+  "Goliath: Giant Ancestry (2024)": "Giant Ancestry: ",
+  "Tiefling: Fiendish Legacy (2024)": "Fiendish Legacy: ",
+};
+
+const NO_USES = {
+  limitedUsesPer: null,
+  usesCount: null,
+  usesCountSpecial: null,
+  usesCountDependsOnProficiencyBonus: false,
+} as const;
+
+function readTraitUses(trait: TraitJson) {
+  return {
+    limitedUsesPer: trait.uses?.limitedUsesPer ?? null,
+    usesCount: trait.uses?.usesCount ?? null,
+    usesCountSpecial: trait.uses?.usesCountSpecial ?? null,
+    usesCountDependsOnProficiencyBonus: trait.uses?.usesCountDependsOnProficiencyBonus ?? false,
+    displayType: trait.displayType ?? ["PASSIVE"],
+  };
+}
+
 const expectedByEngName = new Map(
   species.flatMap((one) =>
-    (one.traits ?? []).map((trait) => [
-      `${one.engName}: ${trait.engName} (2024)`,
-      {
-        limitedUsesPer: trait.uses?.limitedUsesPer ?? null,
-        usesCount: trait.uses?.usesCount ?? null,
-        usesCountSpecial: trait.uses?.usesCountSpecial ?? null,
-        usesCountDependsOnProficiencyBonus: trait.uses?.usesCountDependsOnProficiencyBonus ?? false,
-        displayType: trait.displayType ?? ["PASSIVE"],
-      },
-    ]),
+    (one.traits ?? []).map((trait) => {
+      const engName = `${one.engName}: ${trait.engName} (2024)`;
+      const fromFile = readTraitUses(trait);
+      const handsOver = engName in MENU_TRAITS_HANDING_USES_TO_OPTIONS;
+
+      return [
+        engName,
+        handsOver
+          ? { ...NO_USES, displayType: fromFile.displayType.filter((type) => type !== "CLASS_RESOURCE") }
+          : fromFile,
+      ];
+    }),
   ),
 );
 
@@ -109,6 +140,37 @@ describe("лічильники рис видів 2024 у базі", () => {
 
     expect(carrying.map((feature) => feature.engName).sort()).toEqual(expectedCarrying);
   });
+
+  it.each(Object.entries(MENU_TRAITS_HANDING_USES_TO_OPTIONS))(
+    "лічильник «%s» несуть її варіанти, а не вона сама",
+    async (menuEngName, optionPrefix) => {
+      const fromFile = species
+        .flatMap((one) => (one.traits ?? []).map((trait) => [`${one.engName}: ${trait.engName} (2024)`, trait] as const))
+        .find(([engName]) => engName === menuEngName)![1];
+
+      const options = await prisma.feature.findMany({
+        where: { ruleset: "RULES_2024", engName: { startsWith: optionPrefix } },
+        select: {
+          engName: true,
+          limitedUsesPer: true,
+          usesCount: true,
+          usesCountSpecial: true,
+          usesCountDependsOnProficiencyBonus: true,
+          displayType: true,
+        },
+        orderBy: { engName: "asc" },
+      });
+
+      expect(options.length).toBeGreaterThan(1);
+
+      const expected = { ...readTraitUses(fromFile), displayType: ["PASSIVE", "CLASS_RESOURCE"] };
+      const mismatched = options
+        .filter(({ engName: _engName, ...actual }) => stringifyStably(actual) !== stringifyStably(expected))
+        .map(({ engName, ...actual }) => `${engName}: ${stringifyStably(actual)}`);
+
+      expect(mismatched).toEqual([]);
+    },
+  );
 
   /**
    * BUG-011: `usesCountSpecial` — це максимум, а не маркер; будь-який непорожній обʼєкт там

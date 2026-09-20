@@ -576,3 +576,23 @@ describe("Дика форма 2024 на сервері", () => {
     expect(loaded.ok && loaded.standing.knownFormsLimit).toBeNull();
   });
 });
+
+/// KR31.15 (`L13-wildshape-01`, `P5-druid-secondary-flows-05`). Фіча 2024 зветься
+/// «Druid: Wild Shape (2024)», а платника шукали рівно за «Wild Shape» — лічильника на картці
+/// не було, і вхід у форму нічого не списував.
+describe("друїд 2024 бачить використання Дикої форми й витрачає їх", () => {
+  it("2 рівень — «2 / 2», вхід у вовка знімає одне", async () => {
+    const { user, pers } = await createDruid({ email: "wildshape-uses-2024@example.test", level: 2, moonCircle: false, ruleset: "RULES_2024" });
+    signInAs(user.email!);
+    const wolfKey = getAllCreatures("RULES_2024").find((c) => c.nameEng === "Wolf")!.nameEng;
+    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: wolfKey, ruleset: "RULES_2024" });
+    if (!attached.ok) throw new Error(attached.error);
+
+    expect(await findWildshapeUses({ persId: pers.persId })).toMatchObject({ remaining: 2, max: 2, price: 1, isUnlimited: false });
+
+    const entered = await enterWildshapeForm({ persId: pers.persId, wildshapeId: attached.form.wildshapeId });
+    if (!entered.ok) throw new Error(entered.error);
+
+    expect(await findWildshapeUses({ persId: pers.persId })).toMatchObject({ remaining: 1, max: 2 });
+  });
+});

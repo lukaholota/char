@@ -13,7 +13,6 @@ import { prisma } from "@/lib/prisma";
 import normalizedSubclasses from "../../data/2024/normalized/subclasses.json";
 import { disconnectDatabase } from "../user-data";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
-import { getSpellsList } from "@/server/db/spell-actions";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: T) => fn }));
@@ -55,7 +54,8 @@ describe("KR6.3 Step 3 — 2024 Content Isolation", () => {
     // KR31.4, 2026-09-06: 74, а не 75 — рису «Ability Score Improvement» прибрано з переліку
     // рішенням власника, бо той самий вибір уже є окремою гілкою кроку ASI.
     expect(feats2024).toBe(74);
-    expect(weapons2024).toBe(38);
+    // KR31.6: 38 книжкових одиниць зброї + рядок правила UNARMED_STRIKE (seedUnarmedStrike2024).
+    expect(weapons2024).toBe(39);
     expect(spells2024).toBe(391);
     expect(subclasses2024).toBe(normalizedSubclasses.length);
   });
@@ -103,21 +103,6 @@ describe("KR6.3 Step 3 — 2024 Content Isolation", () => {
     }
     for (const feat of feats) {
       expect(feat.ruleset).toBe("RULES_2014");
-    }
-  });
-
-  it("does not leak RULES_2024 spells into default spells list", async () => {
-    const spells = await getSpellsList();
-    expect(spells.length).toBeGreaterThan(0);
-
-    const spellIds = spells.map((s) => s.spellId);
-    const rulesetsInDb = await prisma.spell.findMany({
-      where: { spellId: { in: spellIds } },
-      select: { ruleset: true },
-    });
-
-    for (const spell of rulesetsInDb) {
-      expect(spell.ruleset).toBe("RULES_2014");
     }
   });
 });

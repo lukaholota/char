@@ -24,6 +24,14 @@ describe("countOriginLanguageChoices", () => {
   it("2024 дає дві мови й тоді, коли жодне джерело нічого не обіцяє", () => {
     expect(countOriginLanguageChoices("RULES_2024", [0, 0, 0])).toBe(2);
   });
+
+  it("2024 додає до двох мов походження мови на вибір від рис класу — Жаргон злодіїв дає ще одну", () => {
+    expect(countOriginLanguageChoices("RULES_2024", [3, 2, 1], [1, 0, null])).toBe(3);
+  });
+
+  it("2014 складає й мови від рис разом з рештою джерел", () => {
+    expect(countOriginLanguageChoices("RULES_2014", [1, 2], [1])).toBe(4);
+  });
 });
 
 describe("collectOriginLanguages", () => {
@@ -42,7 +50,25 @@ describe("collectOriginLanguages", () => {
 
 describe("listChoosableLanguages", () => {
   it("2024 пропонує лише стандартні мови", () => {
-    expect(listChoosableLanguages("RULES_2024", ALL_LANGUAGES, [])).toEqual([...STANDARD_LANGUAGES_2024]);
+    const choosable = listChoosableLanguages("RULES_2024", ALL_LANGUAGES, []);
+
+    expect([...choosable].sort()).toEqual([...STANDARD_LANGUAGES_2024].sort());
+  });
+
+  /// Таблиця SRD відсортована за англійською назвою, тож одразу за Загальною стоїть Загальна
+  /// мова жестів — варіант, який бере кожен пʼятнадцятий. Список вибору йде за поширеністю.
+  it("першими стоять поширені мови, а не сусіди по абетці", () => {
+    const choosable = listChoosableLanguages("RULES_2024", ALL_LANGUAGES, ["COMMON"]);
+
+    expect(choosable[0]).toBe("ELVISH");
+    expect(choosable.indexOf("COMMON_SIGN_LANGUAGE")).toBeGreaterThan(choosable.indexOf("DWARVISH"));
+  });
+
+  it("мову поза виміряним порядком не губить", () => {
+    const choosable = listChoosableLanguages("RULES_2014", [...ALL_LANGUAGES, "LOXODON"], []);
+
+    expect(choosable).toContain("LOXODON");
+    expect(choosable.indexOf("LOXODON")).toBeGreaterThan(choosable.indexOf("UNDERCOMMON"));
   });
 
   it("2024 не пропонує рідкісні мови", () => {
@@ -60,8 +86,8 @@ describe("listChoosableLanguages", () => {
   it("2014 пропонує весь перелік мов застосунку", () => {
     expect(listChoosableLanguages("RULES_2014", ALL_LANGUAGES, ["COMMON"])).toEqual([
       "ELVISH",
-      "DRACONIC",
       "INFERNAL",
+      "DRACONIC",
       "DRUIDIC",
       "UNDERCOMMON",
     ]);

@@ -1,8 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { getAllCreatures, CreatureData } from "@/lib/bestiaryData";
-import { buildOmniSearchIndex } from "@/lib/omniSearchData";
+import { buildOmniSearchIndex, isCatalogShortcut } from "@/lib/omniSearchData";
 import dictionaryFile from "@/lib/refs/dictionary.json";
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+import { stripRuleTermAnchors } from "@/lib/term-link";
+import { stripSpellAnchors } from "@/lib/spell-link";
 import {
   LanguageTranslations,
   armorTranslations,
@@ -891,7 +893,8 @@ describe("KR12.2 — записи перекладених партій", () => 
         creature.reactions,
       ].join("");
       expect(sections).toMatch(/[Ѐ-ӿ]/);
-      expect(sections).toMatch(/^(<p><b>[^<]+\.<\/b> [^<]+<\/p>)+$/);
+      /// Форма секції — абзаци «<b>Назва.</b> текст»; посилання на стан (O34) і заклинання (KR25.6) її не міняють.
+      expect(stripSpellAnchors(stripRuleTermAnchors(sections))).toMatch(/^(<p><b>[^<]+\.<\/b> [^<]+<\/p>)+$/);
     }
   });
 
@@ -1071,10 +1074,10 @@ describe("KR12.2 — терміни лише із затвердженого р�
 describe("KR12.2 — позначка редакції у видачі бестіарію", () => {
   it("підписує істот у Cmd+K редакцією, а решту категорій — ні", () => {
     const creatures2024 = buildOmniSearchIndex("RULES_2024").filter(
-      (item) => item.category === "bestiary"
+      (item) => item.category === "bestiary" && !isCatalogShortcut(item)
     );
     const creatures2014 = buildOmniSearchIndex("RULES_2014").filter(
-      (item) => item.category === "bestiary"
+      (item) => item.category === "bestiary" && !isCatalogShortcut(item)
     );
 
     expect(creatures2024.length).toBeGreaterThanOrEqual(53);

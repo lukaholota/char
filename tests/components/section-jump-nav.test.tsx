@@ -1,10 +1,13 @@
 // @vitest-environment jsdom
 import { describe, it, expect, afterEach, vi } from "vitest";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 
 import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/SectionJumpNav";
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.useRealTimers();
+});
 
 const ITEMS = [
   { id: "LORE", label: "Колегія знань" },
@@ -54,4 +57,29 @@ describe("KR33.2 — навігація розділами картки", () => 
     expect(scrollIntoView.mock.contexts[0]).toBe(screen.getByTestId("modal-VALOR"));
     expect(scrollIntoView).toHaveBeenCalledWith({ block: "start", behavior: "smooth" });
   });
+
+  it("ціль, домальована після кліку, все одно отримує прокрутку", () => {
+    vi.useFakeTimers({ toFake: ["requestAnimationFrame"] });
+    const scrollIntoView = vi.fn();
+    Element.prototype.scrollIntoView = scrollIntoView;
+    const { rerender } = render(<LateCard isTargetRendered={false} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Колегія звитяги" }));
+    expect(scrollIntoView).not.toHaveBeenCalled();
+
+    rerender(<LateCard isTargetRendered />);
+    act(() => vi.advanceTimersToNextFrame());
+
+    expect(scrollIntoView).toHaveBeenCalledTimes(1);
+    expect(scrollIntoView.mock.contexts[0]).toBe(screen.getByTestId("late-VALOR"));
+  });
 });
+
+function LateCard({ isTargetRendered }: { isTargetRendered: boolean }) {
+  return (
+    <div {...jumpTargetAttributes.scope}>
+      <SectionJumpNav title="Підкласи" items={ITEMS} />
+      {isTargetRendered ? <div data-testid="late-VALOR" {...jumpTargetAttributes.target("VALOR")} /> : null}
+    </div>
+  );
+}

@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { minimalForm } from "../helpers/build-form";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
+import { withLevelUpSpells } from "../helpers/creation-spells";
 import { backgroundByName, classByName, raceByName, subclassByName } from "../helpers/seed-lookup";
 import { build2024MulticlassCharacter } from "../helpers/build-2024-multiclass-character";
 import type { Multiclass2024Fixture } from "../fixtures/2024-multiclass";
@@ -45,7 +46,7 @@ async function buildEldritchKnight2014(topLevel: 2 | 3): Promise<number> {
   await levelUpOrThrow(created.persId, minimalLevelUpForm({ classId: fighter.classId }));
   if (topLevel === 3) {
     const eldritchKnight = await subclassByName(fighter.classId, Subclasses.ELDRITCH_KNIGHT);
-    await levelUpOrThrow(created.persId, minimalLevelUpForm({ classId: fighter.classId, subclassId: eldritchKnight.subclassId }));
+    await levelUpOrThrow(created.persId, await withLevelUpSpells(created.persId, minimalLevelUpForm({ classId: fighter.classId, subclassId: eldritchKnight.subclassId })));
   }
 
   return created.persId;

@@ -1,8 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { buildCreationAbilityScores, buildInitialCharacterState, getInitialHitPoints, getInitialSpellSlots } from "@/rules/character-creation";
 
+const abilityChoiceFeat = (name: string, optionNameEng: string, effectAbility: string) => ({
+  name,
+  ruleset: "RULES_2014",
+  grantedASI: {},
+  grantedSkills: null,
+  featChoiceOptions: [{ choiceOptionId: 1, choiceOption: { optionNameEng, effectKind: "ASI", effectAbility, effectAmount: 1 } }],
+});
+
 describe("KR3.2 — pure character creation rules", () => {
-  it("combines fixed, flexible and legacy feat ASI while preserving Resilient", () => {
+  it("combines fixed, flexible and feat ASI while preserving Resilient", () => {
     expect(buildCreationAbilityScores({
       asiSystem: "POINT_BUY",
       pointBuy: [{ ability: "STR", value: 15 }, { ability: "DEX", value: 14 }],
@@ -12,8 +20,16 @@ describe("KR3.2 — pure character creation rules", () => {
       subraceReplacesASI: false,
       racialChoices: { basicChoices: [], tashaChoices: [] },
       raceChoiceAbilityBonuses: [{ ASI: { DEX: 1 } }],
-      feats: [{ grantedASI: {}, selectedChoiceOptionIds: [1], choiceOptions: [{ choiceOptionId: 1, optionNameEng: "Resilient (Dexterity)" }], resilient: true }],
+      feats: [{ source: abilityChoiceFeat("RESILIENT", "Resilient (Dexterity)", "DEX"), chosenOptionIds: [1] }],
     })).toEqual({ scores: { STR: 17, DEX: 16, CON: 10, INT: 10, WIS: 10, CHA: 10 }, resilientSavingThrows: ["DEX"] });
+  });
+
+  it("половинна риса дає +1 при створенні — те саме правило, що й підвищення рівня", () => {
+    expect(buildCreationAbilityScores({
+      asiSystem: "SIMPLE", pointBuy: [], simple: [{ ability: "WIS", value: 13 }], isDefaultASI: false,
+      raceASI: {}, subraceReplacesASI: false,
+      feats: [{ source: abilityChoiceFeat("OBSERVANT", "OBSERVANT Ability (Wisdom)", "WIS"), chosenOptionIds: [1] }],
+    })).toEqual({ scores: { STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 14, CHA: 10 }, resilientSavingThrows: [] });
   });
 
   it("keeps standard and pact slots separate and calculates Tough HP", () => {

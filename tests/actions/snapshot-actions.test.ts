@@ -2,7 +2,6 @@ import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import {
-  activateSnapshot,
   createCharacterSnapshot,
   getSnapshots,
 } from "@/lib/actions/snapshot-actions";
@@ -20,7 +19,7 @@ beforeEach(resetUserData);
 afterAll(disconnectDatabase);
 
 describe("snapshot actions", () => {
-  it("clones, lists, and activates a character snapshot", async () => {
+  it("clones and lists a character snapshot", async () => {
     const user = await prisma.user.create({
       data: { email: "snapshot-actions@golden.test", name: "Snapshot Actions Test User" },
     });
@@ -60,10 +59,5 @@ describe("snapshot actions", () => {
     await expect(getSnapshots(created.persId)).resolves.toEqual([
       expect.objectContaining({ persId: snapshotResult.snapshotId, snapshotLevel: 1, isActive: false }),
     ]);
-    await expect(activateSnapshot(snapshotResult.snapshotId)).resolves.toEqual({ success: true });
-    await expect(prisma.pers.findUnique({
-      where: { persId: snapshotResult.snapshotId },
-      select: { isActive: true },
-    })).resolves.toEqual({ isActive: true });
   });
 });

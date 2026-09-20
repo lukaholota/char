@@ -1,5 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { getAllCreatures, CreatureData } from "@/lib/bestiaryData";
+import { stripRuleTermAnchors } from "@/lib/term-link";
+import { stripSpellAnchors } from "@/lib/spell-link";
 import manifest from "../../data/aidedd/import-manifest.json";
 import { findSourceKey2014 } from "../../scripts/aidedd/build-creature-record";
 import dictionary from "@/lib/refs/dictionary.json";
@@ -785,8 +787,15 @@ const expectedStatusAfterGleaning = (slug: string) => {
   return "pending";
 };
 
+/// Перевірки фраз читають текст статблока: посилання на заклинання (KR25.6) фразу не міняє.
 const byNameEng = (list: CreatureData[]) =>
-  new Map(list.map((creature) => [creature.nameEng, creature]));
+  new Map(list.map((creature) => [creature.nameEng, stripSpellAnchorsFromCreature(creature)]));
+
+function stripSpellAnchorsFromCreature(creature: CreatureData): CreatureData {
+  return Object.fromEntries(
+    Object.entries(creature).map(([key, value]) => [key, typeof value === "string" ? stripSpellAnchors(value) : value])
+  ) as CreatureData;
+}
 
 describe("KR12.3 — маніфест партій імпорту 2014", () => {
   it("тримає рядок на кожну з 934 істот 2014, ID не перетинає діапазон 2024", () => {
@@ -1530,7 +1539,10 @@ describe("KR12.3 — добірка партій 33–34 у зібраному �
     // рядки не походять із маніфесту aidedd: він дає три збірні сторінки `*-greatwyrm` без
     // статблоків, а корпус 5etools тримає всі пʼятнадцять. Заступлених жодного; позаписний
     // diff проти зрізу, знятого до партії: додано 15, видалено 0, змінено 0.
-    expect(list.length).toBe(974);
+    // 974 → 962 (2026-09-18): з партії 10 `scripts/data/` знято 12 статблоків, написаних із
+    // памʼяті під позначкою MM, яких немає в жодному джерелі (Aquatic Chimera, Solar Exarch,
+    // Dire Bear, Ghoul Stalker…). Заступлених жодного: ці id ніхто з імпортів не займав.
+    expect(list.length).toBe(962);
     for (const [creatureId, nameEng] of [
       [159, "Winter Wolf"],
       [292, "Gynosphinx"],
@@ -1654,7 +1666,7 @@ describe("KR12.3 — партія 32 у зібраному каталозі 2014
 
   it("відновлює дві альтернативи Бойової ролі й у воїнів 4–6 рівня", () => {
     for (let level = 4; level <= 6; level += 1) {
-      const entry = catalog.get(`Warrior (lvl ${level})`)?.specialAbilities ?? "";
+      const entry = stripRuleTermAnchors(catalog.get(`Warrior (lvl ${level})`)?.specialAbilities ?? "");
       expect(entry).toContain("Нападник. Воїн отримує бонус +2 до кидків атаки.");
       expect(entry).toContain("Захисник. Воїн отримує реакцію Захист, наведену нижче.");
     }
@@ -1916,7 +1928,7 @@ describe("KR12.3 — партія 31 у зібраному каталозі 2014
 
   it("відновлює дві альтернативи Бойової ролі, які парсер відкидає разом з абзацом", () => {
     for (const nameEng of ["Warrior (lvl 1)", "Warrior (lvl 2)", "Warrior (lvl 3)"]) {
-      const entry = catalog.get(nameEng)?.specialAbilities ?? "";
+      const entry = stripRuleTermAnchors(catalog.get(nameEng)?.specialAbilities ?? "");
       expect(entry).toContain("Нападник. Воїн отримує бонус +2 до кидків атаки.");
       expect(entry).toContain("Захисник. Воїн отримує реакцію Захист, наведену нижче.");
     }
@@ -2170,7 +2182,7 @@ describe("KR12.3 — партія 30 у зібраному каталозі 2014
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 247).length).toBe(1);
     expect(catalog.get("Tarrasque")?.creatureId).toBe(247);
-    expect(catalog.get("Tarrasque")?.name).toBe("Тараск (Tarrasque)");
+    expect(catalog.get("Tarrasque")?.name).toBe("Тараск");
   });
 
   it("додає девʼять нових записів партії 30", () => {
@@ -2629,7 +2641,7 @@ describe("KR12.3 — партія 27 у зібраному каталозі 2014
     expect(catalog.get("Iron Golem")?.name).toBe("Залізний голем");
     expect(catalog.get("Marilith")?.name).toBe("Маріліт (Шестирука демониця)");
     expect(catalog.get("Planetar")?.name).toBe("Планетар (Вищий ангел)");
-    expect(catalog.get("Dragon Turtle")?.name).toBe("Драконяча черепаха (Драгон Тьортл)");
+    expect(catalog.get("Dragon Turtle")?.name).toBe("Драконяча черепаха");
   });
 
   it("додає сім нових записів партії 27", () => {
@@ -2801,7 +2813,7 @@ describe("KR12.3 — партія 26 у зібраному каталозі 2014
     expect(catalog.get("Storm Giant")?.creatureId).toBe(225);
     expect(catalog.get("Ice Devil")?.creatureId).toBe(314);
     expect(catalog.get("Vampire")?.name).toBe("Вампір (Лорд ночі)");
-    expect(catalog.get("Storm Giant")?.name).toBe("Штормовий велетень (Сторм Джайент)");
+    expect(catalog.get("Storm Giant")?.name).toBe("Штормовий велетень");
     expect(catalog.get("Ice Devil")?.name).toBe("Крижаний диявол (Гелугон)");
   });
 
@@ -3139,7 +3151,7 @@ describe("KR12.3 — партія 24 у зібраному каталозі 2014
     expect(catalog.get("Horned Devil")?.creatureId).toBe(313);
     expect(catalog.get("Remorhaz")?.creatureId).toBe(249);
     expect(catalog.get("Roc")?.creatureId).toBe(248);
-    expect(catalog.get("Efreeti")?.name).toBe("Іфрит (Ефріті)");
+    expect(catalog.get("Efreeti")?.name).toBe("Іфрит");
     expect(catalog.get("Horned Devil")?.name).toBe("Рогатий диявол (Корнугон)");
     expect(catalog.get("Roc")?.name).toBe("Птах Рок");
   });
@@ -3285,7 +3297,7 @@ describe("KR12.3 — партія 23 у зібраному каталозі 2014
     expect(catalog.get("Guardian Naga")?.creatureId).toBe(375);
     expect(catalog.get("Glabrezu")?.name).toBe("Глабрезу (Чотирирукий демон)");
     expect(catalog.get("Treant")?.name).toBe("Ент (Треант)");
-    expect(catalog.get("Guardian Naga")?.name).toBe("Нага-охоронниця (Гардіан Нага)");
+    expect(catalog.get("Guardian Naga")?.name).toBe("Нага-охоронниця");
   });
 
   it("додає сім нових записів партії 23", () => {
@@ -3869,7 +3881,7 @@ describe("KR12.3 — партія 19 у зібраному каталозі 2014
     expect(catalog.get("Water Elemental")?.creatureId).toBe(212);
     expect(catalog.get("Yuan-ti Pit Master")?.creatureId).toBe(423);
     expect(catalog.get("Xorn")?.name).toBe("Ксорн (Камʼяний пожирач)");
-    expect(catalog.get("Werebear")?.name).toBe("Перевертень: Ведмідь-перевертень (Вербер)");
+    expect(catalog.get("Werebear")?.name).toBe("Перевертень: Ведмідь-перевертень");
   });
 
   it("додає девʼять нових записів партії 19", () => {
@@ -4029,7 +4041,7 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
     // Рішення власника 2026-08-25 (питання 29): `hill` — це пагорб, а не гора, і «Гірський»
     // вже зайнятий Mountain Dwarf. Термін ратифіковано як **«Пагорбовий велетень»** і зведено
     // по обох каталогах, аліасах пошуку, сіді рис і прозі магічних предметів.
-    expect(catalog.get("Hill Giant")?.name).toBe("Пагорбовий велетень (Хілл Джайент)");
+    expect(catalog.get("Hill Giant")?.name).toBe("Пагорбовий велетень");
     expect(catalog.get("Giant Shark")?.name).toBe("Гігантська акула (Мегалодон)");
   });
 
@@ -4075,10 +4087,11 @@ describe("KR12.3 — партія 18 у зібраному каталозі 2014
   });
 
   it("тримає словникові стани проти дрейфу: Скований, Засліплений, Окамʼянілий", () => {
-    expect(catalog.get("Roper")?.actions).toContain("стан Скований");
-    expect(catalog.get("Roper")?.actions).not.toContain("Знерухомлений");
-    expect(catalog.get("Shambling Mound")?.actions).toContain("стани Засліплений і Скований");
-    expect(catalog.get("Gorgon")?.actions).toContain("стан Окамʼянілий");
+    const readPlain = (engName: string) => stripRuleTermAnchors(catalog.get(engName)?.actions ?? "");
+    expect(readPlain("Roper")).toContain("стан Скований");
+    expect(readPlain("Roper")).not.toContain("Знерухомлений");
+    expect(readPlain("Shambling Mound")).toContain("стани Засліплений і Скований");
+    expect(readPlain("Gorgon")).toContain("стан Окамʼянілий");
   });
 
   it("дає рогатій істоті ратифіковане «Буцання» — той самий поділ Gore, що в партії 16", () => {
@@ -4194,8 +4207,8 @@ describe("KR12.3 — партія 17 у зібраному каталозі 2014
     expect(catalog.get("Bulette")?.creatureId).toBe(206);
     expect(catalog.get("Red Dragon Wyrmling")?.creatureId).toBe(226);
     expect(catalog.get("Neogi Master")?.creatureId).toBe(405);
-    expect(catalog.get("Wereboar")?.name).toBe("Перевертень: Вепр-перевертень (Вербоар)");
-    expect(catalog.get("Weretiger")?.name).toBe("Перевертень: Тигр-перевертень (Вертайгер)");
+    expect(catalog.get("Wereboar")?.name).toBe("Перевертень: Вепр-перевертень");
+    expect(catalog.get("Weretiger")?.name).toBe("Перевертень: Тигр-перевертень");
   });
 
   it("додає дванадцять нових записів партії 17", () => {
@@ -4209,9 +4222,8 @@ describe("KR12.3 — партія 17 у зібраному каталозі 2014
     expect(catalog.get("Catoblepas")?.name).toBe("Катоблепас");
   });
 
-  it("не плутає нову назву з успадкованим «Король людоящурів»", () => {
-    expect(catalog.get("Lizardfolk King")?.name).toBe("Король людоящурів (Лізардфолк Кінг)");
-    expect(catalog.get("Lizardfolk King")?.creatureId).not.toBe(812);
+  it("успадкованого «Lizardfolk King» поруч із ратифікованим записом більше немає", () => {
+    expect(catalog.get("Lizardfolk King")).toBeUndefined();
   });
 
   it("тримає обмеження за подобою в назвах дій обох перевертнів, хоч ратифікований глосарій його зрізає", () => {
@@ -4364,7 +4376,7 @@ describe("KR12.3 — партія 16 у зібраному каталозі 2014
     expect(catalog.get("Veteran")?.creatureId).toBe(126);
     expect(catalog.get("Ghost")?.creatureId).toBe(151);
     expect(catalog.get("Black Pudding")?.creatureId).toBe(185);
-    expect(catalog.get("Werewolf")?.name).toBe("Перевертень: Вовкулака (Вервульф)");
+    expect(catalog.get("Werewolf")?.name).toBe("Перевертень: Вовкулака");
   });
 
   it("додає девʼять нових записів партії 16", () => {
@@ -4772,7 +4784,7 @@ describe("KR12.3 — партія 12 у зібраному каталозі 2014
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 110).length).toBe(1);
     expect(catalog.get("Ogre")?.name).toBe("Огр");
-    expect(catalog.get("Ochre Jelly")?.name).toBe("Охристий желе (Охре Джеллі)");
+    expect(catalog.get("Ochre Jelly")?.name).toBe("Охристий желе");
   });
 
   it("додає девʼять нових записів партії 12, зокрема перший запис на джерелі з непризначеного ще enum", () => {
@@ -5168,7 +5180,7 @@ describe("KR12.3 — партія 9 у зібраному каталозі 2014"
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 178).length).toBe(1);
-    expect(catalog.get("Bugbear")?.name).toBe("Ведмебай (Баґбер)");
+    expect(catalog.get("Bugbear")?.name).toBe("Ведмебай");
     expect(catalog.get("Duergar")?.name).toBe("Дуергар (Сірий дворф)");
   });
 
@@ -5250,7 +5262,7 @@ describe("KR12.3 — партія 7 у зібраному каталозі 2014"
     const list = getAllCreatures("RULES_2014");
     expect(new Set(list.map((c) => c.creatureId)).size).toBe(list.length);
     expect(list.filter((c) => c.creatureId === 358).length).toBe(1);
-    expect(catalog.get("Violet Fungus")?.name).toBe("Фіолетовий гриб (Віолет Фангус)");
+    expect(catalog.get("Violet Fungus")?.name).toBe("Фіолетовий гриб");
     expect(catalog.get("Gnoll")?.name).toBe("Гнол");
   });
 

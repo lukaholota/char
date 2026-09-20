@@ -48,7 +48,7 @@ async function buildLifeDomainCleric(topLevel: 3 | 5) {
       baseAbilityScores: { STR: 10, DEX: 12, CON: 14, INT: 8, WIS: 15, CHA: 13 },
       backgroundAsi: { mode: "+2/+1" as const, plusTwo: "WIS" as const, plusOne: "CHA" as const },
       originFeat: "MAGIC_INITIATE",
-      originFeatChoices: [{ choice: "Список заклинань", option: "Cleric" }],
+      originFeatChoices: [{ choice: "Список заклинань", option: "Cleric" }, { choice: "Базова характеристика заклинань", option: "WIS" }],
       classChoices: [{ choice: "Божественний орден", option: "Divine Order: Protector" }],
       speciesChoices: [],
       levelUps,

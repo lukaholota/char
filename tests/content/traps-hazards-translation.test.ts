@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { getTrapsHazards } from "@/lib/trapsHazardsData";
 import { expandGlossaryMarkersToHtml, findGlossaryMarkers, stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+import { stripSpellAnchors } from "@/lib/spell-link";
 
 const CYRILLIC = /[а-яіїєґ]/i;
 const TRANSLATIONS_DIR_2014 = join(process.cwd(), "data/2014/traps-hazards-uk");
@@ -51,7 +52,7 @@ describe("KR23.3 — переклад пасток і небезпек поза 
   it("лишає латиницю тільки всередині маркера оригіналу й назв заклинань/предметів", () => {
     for (const article of all) {
       for (const subsection of article.subsections) {
-        const bare = stripGlossaryMarkers(subsection.content).replace(/\[[^\]]*\]/g, "");
+        const bare = stripSpellAnchors(stripGlossaryMarkers(subsection.content)).replace(/\[[^\]]*\]/g, "");
         const latin = (bare.match(/[A-Za-z]{2,}/g) ?? []).filter((word) => word !== "CR");
         expect(latin, subsection.id).toEqual([]);
       }

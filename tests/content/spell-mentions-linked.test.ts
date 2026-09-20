@@ -16,6 +16,7 @@ import {
   measureSurfaces,
   readAmbiguousNamesFile,
   readNotASpellFile,
+  STATBLOCK_PROSE_KEYS,
   type CoverageRow,
   type SpellRegistry,
 } from "../../scripts/spell-links/spell-mentions";
@@ -24,7 +25,7 @@ import {
 /// покриттю впасти. Зачіпка — лише маркер: український текст стоїть у відмінках, зшивати по
 /// формах слова заборонено тим самим правилом, що й `sed`. Планки нижче — стан після
 /// KR25.4 (весь контент 2024, поверхні після прогону сідів і неоднозначні назви за рішенням
-/// власника П5 — усе 2026-09-04); їх піднімають KR25.5–KR25.6, знижувати не можна.
+/// власника П5 — усе 2026-09-04) бестіарію обох редакцій (KR25.6) і хвоста 2014 (KR25.5) — 2026-09-14; знижувати не можна.
 
 const registry = collectSpellRegistry();
 
@@ -80,6 +81,7 @@ describe("KR25.3 — що загортається, а що йде у звіт",
       "const features = [{",
       '  name: "Вогнекуля [Fireball]",',
       '  engName: "Fireball",',
+      '  optionName: "Вогнекуля [Fireball] необмежено",',
       '  description: "Ви знаєте Вогнекуля [Fireball].",',
       "  shortDescription: 'Ви знаєте Магічна рука [Mage Hand].',",
       "  notes: `Знову Вогнекуля [Fireball]`,",
@@ -90,6 +92,7 @@ describe("KR25.3 — що загортається, а що йде у звіт",
     expect(text).toContain("shortDescription: 'Ви знаєте <a href=\"/spells/mage-hand\">Магічна рука [Mage Hand]</a>.',");
     expect(text).toContain('notes: `Знову <a href="/spells/fireball">Вогнекуля [Fireball]</a>`,');
     expect(text).toContain('name: "Вогнекуля [Fireball]",');
+    expect(text).toContain('optionName: "Вогнекуля [Fireball] необмежено",');
     expect(report).toMatchObject({ mentions: 3, wrapped: 3 });
   });
 
@@ -143,6 +146,33 @@ describe("KR25.4 — неоднозначну назву загортає лиш
   });
 });
 
+describe("KR25.6 — статблок: посилання лише в прозі", () => {
+  const testRegistry = buildTestRegistry();
+  const creature = {
+    name: "Маг",
+    fields: { damageResistance: "Колюча (від Вогнекуля [Fireball])" },
+    actions: [{ name: "Чаклунство", text: "За бажанням: Магічна рука [Mage Hand]" }],
+    lairInfo: "У лігві діє Вогнекуля [Fireball].",
+  };
+
+  it("механічне поле малюється простим текстом і лишається без якоря, дія й лігво — з якорем", () => {
+    const linked = linkMentionsInJson(creature, testRegistry, "RULES_2014", undefined, [], "", { proseKeys: STATBLOCK_PROSE_KEYS }) as typeof creature;
+
+    expect(linked.fields.damageResistance).toBe(creature.fields.damageResistance);
+    expect(linked.actions[0].text).toBe('За бажанням: <a href="/spells/mage-hand">Магічна рука [Mage Hand]</a>');
+    expect(linked.lairInfo).toBe('У лігві діє <a href="/spells/fireball">Вогнекуля [Fireball]</a>.');
+    expect(countJsonCoverage(linked, testRegistry, undefined, "", STATBLOCK_PROSE_KEYS)).toEqual({ mentions: 2, linked: 2 });
+  });
+
+  it("партії бестіарію обох редакцій — носії зі статблоковими ключами", () => {
+    const bestiary = listCarriers().filter((carrier) => /\/translations\/monsters-20(14|24)\//.test(carrier.path));
+
+    expect(bestiary.length).toBeGreaterThanOrEqual(71);
+    expect(bestiary.filter((carrier) => !carrier.proseKeys?.has("text") || carrier.proseKeys.has("damageResistance")).map((carrier) => carrier.path)).toEqual([]);
+    expect(new Set(bestiary.map((carrier) => carrier.edition))).toEqual(new Set(["RULES_2014", "RULES_2024"]));
+  });
+});
+
 /// Файл винятків обслуговує два правила: неоднозначну назву, яку не можна загортати в
 /// посилання, і англійську назву, що в українському тексті стоїть предметом розмови, а не
 /// згадкою («2014 Branding Smite — Втілення»). Спільне в них одне — запис мусить показувати на
@@ -186,28 +216,46 @@ describe("KR25.3 — неоднозначні назви лежать у реп�
 /// посилання, і від нового контенту без посилань — саме для цього гейт існує.
 type Floor = { mentions: number; linked: number };
 const CARRIER_FLOORS: Record<string, Floor> = {
-  "data/2024/normalized · RULES_2024": { mentions: 732, linked: 697 },
+  "data/2024/normalized · RULES_2024": { mentions: 889, linked: 856 },
   "data/2024/rules-uk · RULES_2024": { mentions: 39, linked: 32 },
   "data/2024/bastions-uk · RULES_2024": { mentions: 21, linked: 20 },
-  "data/2014/rules-uk · RULES_2014": { mentions: 71, linked: 0 },
-  "data/2014/beyond-srd-uk · RULES_2014": { mentions: 48, linked: 0 },
-  "data/2014/traps-hazards-uk · RULES_2014": { mentions: 8, linked: 0 },
-  "prisma/seed · RULES_2014": { mentions: 1123, linked: 1001 },
+  "data/2024/beyond-srd-uk · RULES_2024": { mentions: 39, linked: 37 },
+  "data/2024/traps-hazards-uk · RULES_2024": { mentions: 9, linked: 9 },
+  "data/2014/rules-uk · RULES_2014": { mentions: 71, linked: 56 },
+  "data/2014/beyond-srd-uk · RULES_2014": { mentions: 48, linked: 47 },
+  "data/2014/traps-hazards-uk · RULES_2014": { mentions: 8, linked: 8 },
+  "data/2014/spells.json · RULES_2014": { mentions: 13, linked: 11 },
+  "prisma/seed · RULES_2014": { mentions: 1468, linked: 1453 },
   "prisma/seed · RULES_2024": { mentions: 16, linked: 16 },
-  "data/aidedd · RULES_2014": { mentions: 334, linked: 0 },
+  "data/aidedd · RULES_2014": { mentions: 334, linked: 316 },
+  "data/5etools/translations/magic-items-2014 · RULES_2014": { mentions: 270, linked: 262 },
+  "data/aidedd/translations/monsters-2014 · RULES_2014": { mentions: 1211, linked: 1205 },
+  "data/5etools/translations/monsters-2014 · RULES_2014": { mentions: 1027, linked: 1016 },
+  "data/aidedd/translations/monsters-2024 · RULES_2024": { mentions: 774, linked: 751 },
+  "data/5etools/translations/monsters-2024 · RULES_2024": { mentions: 41, linked: 41 },
 };
-/// Поверхні 2024 приїхали після прогону сідів власником 2026-09-04 — доти вони стояли на нулі,
-/// бо між нормалізованим JSON і сторінкою класу, підкласу й виду стоїть база.
+/// Поверхні, що збираються з бази, приїхали після прогону сідів: 2024 — власником 2026-09-04, хвіст 2014
+/// (KR25.5) — 2026-09-14. Між джерелом і сторінкою класу, виду чи предмета стоїть база.
 const SURFACE_FLOORS: Record<string, Floor> = {
   "src/lib/generated/rules-2024.json": { mentions: 39, linked: 32 },
   "src/lib/generated/bastions.json": { mentions: 21, linked: 20 },
-  "src/lib/generated/creator-content-2024.json": { mentions: 390, linked: 353 },
-  "src/lib/generated/classes.json": { mentions: 907, linked: 885 },
-  "src/lib/generated/races.json": { mentions: 233, linked: 157 },
+  "src/lib/generated/creator-content-2024.json": { mentions: 571, linked: 550 },
+  "src/lib/generated/creator-content-2014.json": { mentions: 1208, linked: 1191 },
+  "src/lib/generated/classes.json": { mentions: 1024, linked: 1012 },
+  "src/lib/generated/races.json": { mentions: 233, linked: 217 },
+  "src/lib/generated/feats.json": { mentions: 12, linked: 11 },
+  "src/lib/generated/infusions.json": { mentions: 18, linked: 16 },
+  "src/lib/generated/magicItems.json": { mentions: 655, linked: 629 },
+  "src/lib/generated/spells.json": { mentions: 13, linked: 11 },
+  "src/lib/generated/rules-2014.json": { mentions: 71, linked: 56 },
+  "src/lib/generated/rules-beyond-srd.json": { mentions: 87, linked: 84 },
+  "src/lib/generated/traps-hazards.json": { mentions: 17, linked: 17 },
+  "src/lib/generated/creatures.json": { mentions: 2243, linked: 2221 },
+  "src/lib/generated/creatures2024.json": { mentions: 817, linked: 792 },
 };
 
 function groupKey(path: string, edition: string): string {
-  const depth = path.startsWith("prisma/seed") || path.startsWith("data/aidedd") ? 2 : 3;
+  const depth = path.includes("/translations/") ? 4 : path.startsWith("prisma/seed") || path.startsWith("data/aidedd") ? 2 : 3;
   return `${path.split("/").slice(0, depth).join("/")} · ${edition}`;
 }
 
@@ -215,7 +263,7 @@ function measureGroups(): Record<string, Floor> {
   const groups: Record<string, Floor> = {};
   for (const carrier of listCarriers()) {
     const key = groupKey(carrier.path, carrier.edition);
-    const coverage = countCoverage(readFileSync(join(process.cwd(), carrier.path), "utf-8"), carrier.format, registry);
+    const coverage = countCoverage(readFileSync(join(process.cwd(), carrier.path), "utf-8"), carrier.format, registry, carrier.proseKeys);
     groups[key] = { mentions: (groups[key]?.mentions ?? 0) + coverage.mentions, linked: (groups[key]?.linked ?? 0) + coverage.linked };
   }
   return groups;

@@ -5,6 +5,7 @@ import {
   findPoolsAfterLongRest,
   findPoolsAfterSetting,
   findPoolsAfterSpending,
+  rollHitPointsFromHitDice,
   serializeHitDicePools,
 } from "@/rules/hit-dice";
 
@@ -120,5 +121,26 @@ describe("довгий відпочинок — кубики здоровʼя", 
     expect(
       findPoolsAfterLongRest([spent(3, 3, 1), spent(2, 0, 2)], "RULES_2014"),
     ).toEqual([spent(3, 3, 1), spent(2, 2, 2)]);
+  });
+});
+
+describe("кидок кубиків здоровʼя — спільний для сервера й офлайн-листа", () => {
+  const pools = [
+    { classId: 1, hitDie: 10, max: 3, current: 3 },
+    { classId: 2, hitDie: 6, max: 2, current: 2 },
+  ];
+
+  it("сумує кубик плюс Статуру за кожен витрачений кубик кожного класу", () => {
+    const highest = () => 0.999;
+    expect(rollHitPointsFromHitDice(pools, [{ classId: 1, count: 2 }, { classId: 2, count: 1 }], 2, highest)).toBe(12 + 12 + 8);
+  });
+
+  it("кожен кубик дає щонайменше один хіт навіть з відʼємною Статурою", () => {
+    const lowest = () => 0;
+    expect(rollHitPointsFromHitDice(pools, [{ classId: 1, count: 3 }], -3, lowest)).toBe(3);
+  });
+
+  it("невідомий клас не кидається", () => {
+    expect(rollHitPointsFromHitDice(pools, [{ classId: 99, count: 4 }], 0, () => 0.5)).toBe(0);
   });
 });

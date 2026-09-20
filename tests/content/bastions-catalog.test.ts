@@ -9,7 +9,7 @@ import {
   translateOrder,
   translateSpace,
 } from "@/lib/bastionsData";
-import { buildOmniSearchIndex } from "@/lib/omniSearchData";
+import { buildOmniSearchIndex, isCatalogShortcut } from "@/lib/omniSearchData";
 import { collectHomeCategories } from "@/components/home/homeCategories";
 import sitemap from "@/app/sitemap";
 import {
@@ -144,7 +144,7 @@ describe("KR19.1 — каталог приміщень бастіону", () => 
   });
 
   it("додає приміщення в омні-пошук 2024 і не додає їх у 2014", () => {
-    const index2024 = buildOmniSearchIndex("RULES_2024").filter((item) => item.category === "bastions");
+    const index2024 = buildOmniSearchIndex("RULES_2024").filter((item) => item.category === "bastions" && !isCatalogShortcut(item));
     const index2014 = buildOmniSearchIndex("RULES_2014").filter((item) => item.category === "bastions");
 
     expect(index2024).toHaveLength(61);

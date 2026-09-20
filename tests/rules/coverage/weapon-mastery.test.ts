@@ -134,6 +134,13 @@ describe("KR18.6 — пул мультикласу", () => {
 
     expect(options).toEqual([]);
   });
+
+  // У базі такі класи несуть двадцять нулів, а не порожній масив.
+  it("прогресія з нулів — теж клас без майстерності", () => {
+    const options = findWeaponMasteryOptionsForClasses([{ ...wizard, masteryProgression: MONK_PROGRESSION }], WEAPONS);
+
+    expect(options).toEqual([]);
+  });
 });
 
 describe("KR18.6 — три форми запису володіння зброєю", () => {

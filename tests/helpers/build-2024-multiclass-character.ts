@@ -1,4 +1,5 @@
 import type { BackgroundCategory, Classes, Feats, Races, Subclasses, WeaponCategory } from "@prisma/client";
+import { withCreationSpells, withLevelUpSpells } from "./creation-spells";
 import { prisma } from "@/lib/prisma";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type {
@@ -145,7 +146,7 @@ async function buildCreationForm(fixture: Multiclass2024Fixture): Promise<PersFo
   const originFeat = await findFeat2024(input.originFeat);
   const speciesFeat = await findSpeciesFeat2024(input.speciesChoices);
 
-  return minimalForm({
+  const form = minimalForm({
     name: fixture.title,
     raceId: race.raceId,
     classId: startingClass.classId,
@@ -164,6 +165,7 @@ async function buildCreationForm(fixture: Multiclass2024Fixture): Promise<PersFo
     skills: input.classSkills ?? [],
     weaponMasteryWeaponIds: await findWeaponIds2024(input.weaponMastery),
   });
+  return withCreationSpells(form, input.creationSpells);
 }
 
 /**
@@ -187,7 +189,7 @@ async function raiseThroughEveryClass(
     const offer = await readAbilityScoreOffer(persId, fixture.input.startingClass, step, classLevel, actions);
     if (offer) offers.push(offer);
 
-    const form = await buildMulticlassLevelUpForm(step, classLevel);
+    const form = await withLevelUpSpells(persId, await buildMulticlassLevelUpForm(step, classLevel));
     const result = await actions.levelUpCharacter(persId, form);
     if (result && "error" in result && result.error) {
       errors.push(`рівень ${step.characterLevel} (${step.class} ${classLevel}): ${result.error}`);
@@ -240,7 +242,7 @@ async function buildMulticlassLevelUpForm(step: MulticlassLevelUpPick, classLeve
     customAsi: step.asi ?? [],
     expertiseSchema: { expertises: step.expertise ?? [] },
     ...(step.weaponMastery ? { weaponMasteryWeaponIds: await findWeaponIds2024(step.weaponMastery) } : {}),
-    featSpellIds: await findSpellIds2024(step.featSpells),
+    ...(step.featSpells ? { featSpellIds: await findSpellIds2024(step.featSpells) } : {}),
   });
 }
 
@@ -515,7 +517,8 @@ type PersFeatRow = {
 function readMagicInitiateLists(feats: PersFeatRow[]): string[] {
   return feats
     .filter((entry) => entry.feat.name === "MAGIC_INITIATE")
-    .flatMap((entry) => entry.choices.map((choice) => choice.choiceOption?.optionNameEng ?? ""))
+    .flatMap((entry) => entry.choices.filter((choice) => choice.choiceOption?.groupName === "Список заклинань"))
+    .map((choice) => choice.choiceOption?.optionNameEng ?? "")
     .map((label) => label.match(/\(([^)]+)\)\s*$/)?.[1] ?? label)
     .filter(Boolean)
     .sort();

@@ -83,3 +83,21 @@ describe("KR22.6 — видимий стан незбережених право
     expect(screen.getByRole("status").textContent).toContain("Надсилаю");
   });
 });
+
+describe("Офлайн-аудит 2026-09-18 — бейдж каже, чому зміни не поїхали", () => {
+  it("на протухлій сесії просить увійти знову", async () => {
+    setConnection(true);
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ error: "Не авторизовано" }), { status: 401 })));
+    await renderBadgeWith([unsyncedDamage("op-badge-0000004")]);
+
+    await vi.waitFor(() => expect(screen.getByRole("status").textContent).toContain("Увійдіть знову"));
+  });
+
+  it("коли сервер не відповів, показує невдачу й обіцяє повтор", async () => {
+    setConnection(true);
+    vi.stubGlobal("fetch", vi.fn(async () => { throw new Error("сервер мовчить"); }));
+    await renderBadgeWith([unsyncedDamage("op-badge-0000005")]);
+
+    await vi.waitFor(() => expect(screen.getByRole("status").textContent).toContain("Не вдалося надіслати"));
+  });
+});

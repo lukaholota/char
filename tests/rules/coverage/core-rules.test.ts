@@ -119,11 +119,11 @@ describe("KR3.5 — pure rules coverage", () => {
       asiSystem: "CUSTOM", pointBuy: [], simple: [], custom: [{ ability: "CON", value: "14" }, { ability: "LUCK", value: 99 }],
       isDefaultASI: false, raceASI: { STR: 2 }, subraceASI: { DEX: 1 }, subraceReplacesASI: false,
       racialChoices: { basicChoices: [], tashaChoices: [{ groupIndex: 0, selectedAbilities: ["STR"] }, { groupIndex: 1, selectedAbilities: ["DEX"] }] },
-      feats: [{ grantedASI: { WIS: 1 }, selectedChoiceOptionIds: [[1, 2], 99], choiceOptions: [
-        { choiceOptionId: 1, effectKind: "ASI", effectAbility: "CHA", effectAmount: 2 },
-        { choiceOptionId: 2, optionNameEng: "Resilient (Constitution)" },
-      ], resilient: true }],
-    })).toEqual({ scores: { STR: 12, DEX: 11, CON: 15, INT: 10, WIS: 11, CHA: 12 }, resilientSavingThrows: ["CON"] });
+      feats: [{ source: { name: "RESILIENT", ruleset: "RULES_2014", grantedASI: { WIS: 1 }, grantedSkills: null, featChoiceOptions: [
+        { choiceOptionId: 1, choiceOption: { effectKind: "ASI", effectAbility: "CHA", effectAmount: 2 } },
+        { choiceOptionId: 2, choiceOption: { optionNameEng: "Resilient (Constitution)", effectKind: "ASI", effectAbility: "CON", effectAmount: 1 } },
+      ] }, chosenOptionIds: [1, 2, 99] }],
+    })).toEqual({ scores: { STR: 12, DEX: 11, CON: 15, INT: 10, WIS: 11, CHA: 12 }, resilientSavingThrows: ["CHA", "CON"] });
     expect(getInitialSpellSlots({ className: "NONE", spellcastingType: "NONE", standardProgression: {}, pactProgression: {} })).toEqual({ currentSpellSlots: [0, 0, 0, 0, 0, 0, 0, 0, 0], currentPactSlots: 0 });
     expect(buildInitialCharacterState({
       asiSystem: "SIMPLE", pointBuy: [], simple: [{ ability: "CON", value: 22 }], isDefaultASI: true, raceASI: { STR: 1 }, subraceReplacesASI: false,
@@ -133,7 +133,7 @@ describe("KR3.5 — pure rules coverage", () => {
     expect(buildCreationAbilityScores({
       asiSystem: "POINT_BUY", pointBuy: [{ ability: "STR", value: 19 }], simple: [], isDefaultASI: true,
       raceASI: { basic: { simple: { STR: 1 } } }, subraceASI: { DEX: 1 }, subraceReplacesASI: false,
-      feats: [{ grantedASI: {}, selectedChoiceOptionIds: [1], choiceOptions: [{ choiceOptionId: 1, optionNameEng: "Unrelated option" }], resilient: true }],
+      feats: [{ source: { name: "RESILIENT", ruleset: "RULES_2014", grantedASI: {}, grantedSkills: null, featChoiceOptions: [{ choiceOptionId: 1, choiceOption: { optionNameEng: "Unrelated option" } }] }, chosenOptionIds: [1] }],
     })).toEqual({ scores: { STR: 20, DEX: 11, CON: 10, INT: 10, WIS: 10, CHA: 10 }, resilientSavingThrows: [] });
   });
 

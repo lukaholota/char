@@ -13,7 +13,7 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
 
 import { auth } from "@/lib/auth";
 import { getPersById } from "@/lib/actions/pers";
-import { calculatePersProficiencies, formatPersProficiencyLines } from "@/lib/logic/pers-proficiencies";
+import { appendMissingProficiencies, calculatePersProficiencies } from "@/lib/logic/pers-proficiencies";
 
 const EMAIL = "pers-proficiencies@test.local";
 
@@ -62,11 +62,11 @@ describe("похідні володіння дворфа Воїн 3 / Пройд
     expect(derived.languages).toEqual(["COMMON", "DWARVISH", "THIEVES_CANT"]);
   });
 
-  it("форматує українськими назвами", async () => {
-    const lines = formatPersProficiencyLines(calculatePersProficiencies(await loadDwarfFighterRogue()));
+  it("дописує в порожній текст українськими назвами", async () => {
+    const text = appendMissingProficiencies({ proficiencies: "", languages: "" }, calculatePersProficiencies(await loadDwarfFighterRogue()));
 
-    expect(lines.proficiencies[0]).toMatch(/^Обладунки: /);
-    expect(lines.proficiencies.some((line) => line.startsWith("Інструменти: ") && !line.includes("THIEVES"))).toBe(true);
-    expect(lines.languages).not.toMatch(/[A-Z_]{4,}/);
+    expect(text.proficiencies).toMatch(/^Обладунки: /);
+    expect(text.proficiencies.split("\n").some((line) => line.startsWith("Інструменти: ") && !line.includes("THIEVES"))).toBe(true);
+    expect(text.languages).not.toMatch(/[A-Z_]{4,}/);
   });
 });

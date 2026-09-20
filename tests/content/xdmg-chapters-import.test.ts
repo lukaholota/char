@@ -1,15 +1,16 @@
 import { describe, expect, it } from "vitest";
 
 import { MIRROR_REVISION } from "../../scripts/5etools/mirror";
+import { parseXdmgChapters } from "../../scripts/5etools/xdmg-chapters";
 import { getBeyondSrdArticlesByRuleset } from "@/lib/rulesBeyondSrdData";
 import { getAllRuleArticles2024, getImportedRuleArticles2024 } from "@/lib/rules2024Data";
 import { findHandwrittenArticles, RULE_CATEGORIES } from "@/lib/rulesData";
 import { isBeyondSrd, isFromSrd } from "@/lib/rulesProvenance";
 
-const EXPECTED_ARTICLES = 32;
+const EXPECTED_ARTICLES = 33;
 const EXPECTED_PER_CATEGORY = {
   gamemaster: 26,
-  adventuring: 4,
+  adventuring: 5,
   combat: 1,
   equipment: 1,
   spellcasting: 0,
@@ -19,8 +20,8 @@ const EXPECTED_PER_CATEGORY = {
 
 const xdmg = getBeyondSrdArticlesByRuleset("RULES_2024");
 
-describe("KR23.4 — DMG 2024 глави 1–3 з book-xdmg.json", () => {
-  it("імпортує 32 підрозділи з 40 у главах 1–3 після звірки з наявним корпусом", () => {
+describe("KR23.4 — DMG 2024 глави 1–3 і 8 з book-xdmg.json", () => {
+  it("імпортує 32 підрозділи з 40 у главах 1–3 після звірки з наявним корпусом і главу 8 однією статтею", () => {
     expect(xdmg.length).toBe(EXPECTED_ARTICLES);
 
     const counted = Object.fromEntries(
@@ -105,7 +106,35 @@ describe("KR23.4 — DMG 2024 глави 1–3 з book-xdmg.json", () => {
     expect(body).not.toMatch(/\{@\w+/);
   });
 
-  it("не заходить у категорії, яких у главах 1–3 немає", () => {
+  /// L14-bastions-06: глава 8 — одна стаття з підрозділами книги. Статблоки 29 спеціальних
+  /// приміщень уже в каталозі бастіонів і сюди не потрапляють, як і кнопка «Download PDF».
+  it("бере главу 8 «Bastions» однією статтею без статблоків приміщень", () => {
+    const bastions = xdmg.find((article) => article.engTitle === "Bastions");
+    if (!bastions) throw new Error("стаття «Bastions» не імпортована");
+
+    expect(bastions.slug).toBe("bastions");
+    expect(bastions.category).toBe("adventuring");
+    expect(bastions.provenance.kind === "beyond-srd" && bastions.provenance.url).toBe("https://5e.tools/book.html#xdmg,7");
+    expect(bastions.subsections.map((subsection) => subsection.engTitle)).toEqual([
+      "Bastions",
+      "Gaining a Bastion",
+      "Bastion Turns",
+      "Bastion Map",
+      "Basic Facilities",
+      "Special Facilities",
+      "Special Facility Descriptions",
+      "Bastion Events",
+      "Fall of a Bastion",
+    ]);
+
+    const parsed = parseXdmgChapters().find((article) => article.engTitle === "Bastions");
+    const english = (parsed?.subsections ?? []).map((subsection) => subsection.engContent).join("\n");
+    expect(english).toContain("Special facilities are presented in alphabetical order.");
+    expect(english).not.toContain("An Arcane Study is a place of quiet research");
+    expect(english).not.toContain("Download PDF");
+  });
+
+  it("не заходить у категорії, яких у главах 1–3 і 8 немає", () => {
     for (const article of xdmg) {
       expect(["gamemaster", "adventuring", "combat", "equipment"]).toContain(article.category);
     }

@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { getBeyondSrdArticlesByRuleset } from "@/lib/rulesBeyondSrdData";
 import { CONDITIONS_DATA } from "@/lib/rulesData";
 import { expandGlossaryMarkersToHtml, findGlossaryMarkers, stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+import { stripSpellAnchors } from "@/lib/spell-link";
 import dictionary from "@/lib/refs/dictionary.json";
 
 const CYRILLIC = /[а-яіїєґ]/i;
@@ -89,7 +90,7 @@ describe("KR23.2 — переклад варіантних правил 2014 п�
   it("лишає латиницю тільки всередині маркера оригіналу й назв заклинань", () => {
     for (const article of beyondSrd) {
       for (const subsection of article.subsections) {
-        const bare = stripGlossaryMarkers(subsection.content).replace(/\[[^\]]*\]/g, "");
+        const bare = stripSpellAnchors(stripGlossaryMarkers(subsection.content)).replace(/\[[^\]]*\]/g, "");
         const latin = (bare.match(/[A-Za-z]{2,}/g) ?? []).filter((word) => word !== "CR");
         expect(latin, subsection.id).toEqual([]);
       }

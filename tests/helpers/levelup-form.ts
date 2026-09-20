@@ -22,6 +22,14 @@ export interface LevelUpFormData {
   infusionSelections: number[];
   /** KR18.6: повний набір майстерності зброї після цього рівня. Немає ключа — набір не чіпають. */
   weaponMasteryWeaponIds?: number[];
+  /** KR31.5: замовляння, книга й підготовлені, які клас дає обрати на цьому рівні. */
+  classSpells?: { cantripIds: number[]; preparedIds: number[]; spellbookIds: number[] };
+  /** KR31.5: заклинання, які риса дає обрати (Доторк феї, Посвячений у магію). */
+  featSpellIds?: number[];
+  /** KR31.5: ще заклинання вже взятої риси, коли росте бонус майстерності (Ritual Caster). */
+  featGrowthSpellIds?: number[];
+  /** Книга тіней Pact of the Tome, узятого на цьому рівні. */
+  classOptionSpellIds?: number[];
   levelUpHpIncrease?: number;
 }
 

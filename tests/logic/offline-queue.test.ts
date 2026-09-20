@@ -114,3 +114,71 @@ describe("KR22.6 — черга офлайн-операцій у localStorage", 
     expect(listener).toHaveBeenCalledTimes(1);
   });
 });
+
+describe("Офлайн-аудит 2026-09-18 — черга сама повторює відправку", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    Object.defineProperty(window.navigator, "onLine", { value: true, configurable: true });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("після невдачі планує повтор із паузою, а після успіху повертається в спокій", async () => {
+    const queue = await loadQueueModule();
+    queue.queueOfflineOperation(damageOperation("op-retry-000001"));
+
+    const fetchMock = vi
+      .fn()
+      .mockRejectedValueOnce(new Error("сервер не відповів"))
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ applied: ["op-retry-000001"], rejected: [] }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }),
+      );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(queue.flushOfflineQueue()).rejects.toThrow();
+    expect(queue.readOfflineSyncStatus()).toMatchObject({ state: "retrying", attempt: 1 });
+
+    await vi.advanceTimersByTimeAsync(5_000);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(queue.readOfflineQueue()).toHaveLength(0);
+    expect(queue.readOfflineSyncStatus()).toMatchObject({ state: "idle", attempt: 0 });
+  });
+
+  it("на 401 каже, що треба увійти знову, і не викидає черги", async () => {
+    const queue = await loadQueueModule();
+    queue.queueOfflineOperation(damageOperation("op-unauth-00001"));
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response(JSON.stringify({ error: "Не авторизовано" }), { status: 401 })),
+    );
+
+    await expect(queue.flushOfflineQueue()).rejects.toThrow();
+    expect(queue.readOfflineSyncStatus().state).toBe("unauthorized");
+    expect(queue.readOfflineQueue()).toHaveLength(1);
+  });
+
+  it("операції, які сервер ні застосував, ні відхилив, лишаються й ідуть повторно", async () => {
+    const queue = await loadQueueModule();
+    queue.queueOfflineOperation(damageOperation("op-transient-001"));
+
+    const fetchMock = vi.fn(async () =>
+      new Response(JSON.stringify({ applied: [], rejected: [] }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(queue.flushOfflineQueue()).resolves.toBe(0);
+    expect(queue.readOfflineSyncStatus().state).toBe("retrying");
+
+    await vi.advanceTimersByTimeAsync(5_000);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});

@@ -31,3 +31,10 @@ test("каталог без запиту відкривається порожн
   const search = page.getByRole("textbox").first();
   await expect(search).toHaveValue("");
 });
+
+test("посилання на клас одразу відкриває його модалку на телефоні", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/classes?class=fighter");
+
+  await expect(page.getByRole("dialog", { name: "Воїн" })).toBeVisible();
+});

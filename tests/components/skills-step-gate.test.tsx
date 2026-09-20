@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 
 import SkillsForm from "@/lib/components/characterCreator/SkillsForm";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
@@ -64,7 +64,7 @@ const SAGE = {
   skillProficiencies: ["ARCANA", "HISTORY"],
 } as unknown as BackgroundI;
 
-function renderSkillsStep(selectedClassSkills: string[]) {
+function renderSkillsStep(selectedClassSkills: string[], selectedClass: ClassI = WIZARD) {
   const onNextDisabledChange = vi.fn();
 
   usePersFormStore.setState({
@@ -80,7 +80,7 @@ function renderSkillsStep(selectedClassSkills: string[]) {
   render(
     <SkillsForm
       race={HUMAN}
-      selectedClass={WIZARD}
+      selectedClass={selectedClass}
       background={SAGE}
       formId="skills-form"
       onNextDisabledChange={onNextDisabledChange}
@@ -106,5 +106,17 @@ describe("крок «Навички» конструктора", () => {
 
   it("пускає далі, коли обрано рівно стільки, скільки дає клас", () => {
     expect(lastDisabledState(renderSkillsStep(["ARCANA", "HISTORY"]))).toBe(false);
+  });
+});
+
+describe("KR31.14 — «Правила Таші» лише в 2014 (P6-class-sweep-level1-11)", () => {
+  it("конструктор 2014 пропонує перемикач Таші", () => {
+    renderSkillsStep([]);
+    expect(screen.queryByText("Правила Таші")).not.toBeNull();
+  });
+
+  it("конструктор 2024 перемикача не показує — у PHB 2024 цього правила немає", () => {
+    renderSkillsStep([], { ...WIZARD, name: "WIZARD_2024", ruleset: "RULES_2024" } as ClassI);
+    expect(screen.queryByText("Правила Таші")).toBeNull();
   });
 });

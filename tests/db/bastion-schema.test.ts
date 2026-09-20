@@ -227,6 +227,7 @@ describe("стан приміщення — колонки під KR19.4", () =>
 
     await updateBastionFacilityState({
       facilityId: facility.facilityId,
+      space: "roomy",
       currentOrder: "CRAFT",
       defenders: 5,
       hirelings: "Коваль Остап",
@@ -252,6 +253,7 @@ describe("стан приміщення — колонки під KR19.4", () =>
     });
     await updateBastionFacilityState({
       facilityId: facility.facilityId,
+      space: "roomy",
       currentOrder: "CRAFT",
       defenders: 0,
       hirelings: "",
@@ -261,6 +263,7 @@ describe("стан приміщення — колонки під KR19.4", () =>
 
     await updateBastionFacilityState({
       facilityId: facility.facilityId,
+      space: "roomy",
       currentOrder: null,
       defenders: 0,
       hirelings: "",

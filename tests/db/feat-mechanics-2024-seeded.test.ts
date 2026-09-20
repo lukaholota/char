@@ -1,5 +1,6 @@
 import { afterAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
+import { ENERGY_RESISTANCE_DAMAGE_TYPES } from "../../prisma/seed/featMechanics2024";
 import { FIGHTING_STYLE_MECHANICS_2024 } from "../../prisma/seed/fightingStyle2024";
 import { disconnectDatabase } from "../user-data";
 
@@ -59,6 +60,19 @@ describe("KR31.4 — механіка рис 2024 у базі", () => {
     expect(countOptionsInGroup(feat, "Тип шкоди")).toBe(5);
   });
 
+  it("Дар опору стихіям: девʼять типів шкоди, і кожна опція дає фічу з опором саме до свого", async () => {
+    const feat = await prisma.feat.findFirstOrThrow({
+      where: { ruleset: RULESET, engName: "Boon Of Energy Resistance" },
+      include: { featChoiceOptions: { include: { choiceOption: { include: { features: { include: { feature: true } } } } } } },
+    });
+    const resistancesByOption = feat.featChoiceOptions
+      .filter((link) => link.choiceOption.groupName === "Тип шкоди")
+      .map((link) => link.choiceOption.features.map((granted) => granted.feature.damageResistances));
+
+    expect(resistancesByOption.every((features) => features.length === 1 && features[0].length === 1)).toBe(true);
+    expect(resistancesByOption.flat(2).sort()).toEqual([...ENERGY_RESISTANCE_DAMAGE_TYPES].sort());
+  });
+
   it.each([
     ["Speedy", { speedBonus: 10 }],
     ["Boon Of Speed", { speedBonus: 30 }],
@@ -67,6 +81,12 @@ describe("KR31.4 — механіка рис 2024 у базі", () => {
   ] as const)("риса %s дає фічу з числом, яке читає лист", async (engName, expected) => {
     const feat = await findFeat2024(engName);
     expect(feat.grantsFeature).toContainEqual(expect.objectContaining(expected));
+  });
+
+  it("Дар істинного зору дає рису в списку фіч, а не число чуття (рішення власника 2026-09-14)", async () => {
+    const feat = await findFeat2024("Boon Of Truesight");
+    expect(feat.grantsFeature.map((feature) => feature.engName)).toEqual(["Boon of Truesight: Truesight (2024)"]);
+    expect(feat.grantsFeature[0].description).toContain("60 футів");
   });
 
   it("Дар умілості дає всі 18 навичок і експертизу на вибір", async () => {
@@ -81,6 +101,18 @@ describe("KR31.4 — механіка рис 2024 у базі", () => {
       select: { featId: true },
     });
     expect(feat).toBeNull();
+  });
+
+  it("Посвячений у магію: характеристику заклинань гравець обирає окремо від списку (L03-feats-07)", async () => {
+    const feat = await findFeat2024("Magic Initiate");
+    const abilityOf = (groupName: string) =>
+      feat.featChoiceOptions
+        .filter((link) => link.choiceOption.groupName === groupName)
+        .map((link) => link.choiceOption.effectAbility)
+        .sort();
+
+    expect(abilityOf("Базова характеристика заклинань")).toEqual(["CHA", "INT", "WIS"]);
+    expect(abilityOf("Список заклинань")).toEqual([null, null, null]);
   });
 
   it("Weapon Master лишається без власної фічі — слот дає правило, а не дані", async () => {

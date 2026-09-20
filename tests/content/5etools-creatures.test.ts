@@ -21,6 +21,8 @@ import {
 import { findLooseNameKey, readCreatures } from "../../scripts/5etools/schema";
 import { readSourceStatblock } from "../../scripts/5etools/creature-statblock";
 import { stripGlossaryMarkers } from "../../src/lib/refs/glossary-marker";
+import { stripRuleTermAnchors } from "../../src/lib/term-link";
+import { stripSpellAnchors } from "../../src/lib/spell-link";
 
 const EXPECTED_BATCH_1 = [
   "Fox",
@@ -892,18 +894,19 @@ function findSectionNumberProblems(
     ["mythicInfo", record.mythicInfo ?? ""],
   ];
 
+  /// Посилання на стан (O34) несе в адресі `/2024/rules/…` — рахувати його рік як число статблока не можна.
   /// Маркер оригіналу `назва{{English}}` — не переклад, а оригінал поруч, і цифри з нього
   /// («{{1-2: Blazing Red}}», «{{Legendary Resistance (1/Day)}}») подвоїли б лічбу. Знімається
   /// тим самим кодом, що й у [11], перш ніж рахувати.
   return [
     ...prose
-      .filter(([key, html]) => !haveSameNumbers(String(source[key] ?? ""), stripGlossaryMarkers(html)))
+      .filter(([key, html]) => !haveSameNumbers(String(source[key] ?? ""), stripSpellAnchors(stripRuleTermAnchors(stripGlossaryMarkers(html)))))
       .map(([key]) => `${row.nameEng}: ${String(key)}`),
     ...sections
       .filter(([key, html]) => {
         const entries = source[key] as Array<{ name: string; text: string }>;
         const english = entries.map((entry) => `${entry.name} ${entry.text}`).join(" ");
-        return !haveSameNumbers(english, stripGlossaryMarkers(html));
+        return !haveSameNumbers(english, stripSpellAnchors(stripRuleTermAnchors(stripGlossaryMarkers(html))));
       })
       .map(([key]) => `${row.nameEng}: ${String(key)}`),
   ];

@@ -11,9 +11,9 @@ const APP = join(process.cwd(), "src/app");
 
 const STATIC_LISTS = [
   "armor", "backgrounds", "bestiary", "classes", "feats",
-  "infusions", "invocations", "races", "weapons",
+  "infusions", "invocations", "metamagic", "races", "weapons",
   "2024/armor", "2024/backgrounds", "2024/bastions", "2024/bestiary", "2024/classes",
-  "2024/feats", "2024/invocations", "2024/races", "2024/weapons",
+  "2024/feats", "2024/invocations", "2024/metamagic", "2024/races", "2024/weapons",
 ];
 
 /// Ці чотири лишаються динамічними свідомо: вони несуть режим вбудовування з листа персонажа
@@ -34,7 +34,7 @@ function findDynamicMarkers(route: string): string[] {
 
 describe("списки каталогів статичні", () => {
   it("перелік списків не всох", () => {
-    expect(STATIC_LISTS.length).toBe(18);
+    expect(STATIC_LISTS.length).toBe(20);
   });
 
   it("жоден статичний список не чекає на searchParams і не кличе auth()", () => {

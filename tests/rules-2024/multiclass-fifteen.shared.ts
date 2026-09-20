@@ -7,6 +7,7 @@ import {
   findMulticlassFixture,
   type Multiclass2024Fixture,
 } from "../fixtures/2024-multiclass";
+import { MULTICLASS_SHARDS, findShardFixtureIds } from "../fixtures/2024-multiclass/shards";
 import {
   build2024MulticlassCharacter,
   toWeaponCode,
@@ -43,24 +44,62 @@ const BUILD_TIMEOUT_MS = 1_800_000;
 
 const built = new Map<string, Built2024MulticlassCharacter>();
 let content: CreatorContent;
+let shardFixtures: Multiclass2024Fixture[] = [];
+let shardNumber = 0;
 
-beforeAll(async () => {
+/**
+ * Матриця М1–М27 на підмножині фікстур одного шарда (tests/fixtures/2024-multiclass/shards.ts).
+ * Перевірки по всьому набору йдуть у кожному шарді над його фікстурами; перевірки, що
+ * називають персонажів поіменно, збираються лише в шарді, де ті персонажі є; перевірки без
+ * фікстур — у першому. Разом чотири шарди дають рівно ті самі твердження, що й один файл.
+ */
+export function describeMulticlassShard(number: number): void {
+  shardNumber = number;
+  const ids = findShardFixtureIds(number);
+  shardFixtures = ids.map(findMulticlassFixture);
+
+  describe(`KR27.1 — приймання мультикласу 2024 на пʼятнадцяти персонажах (reference-fifteen.md, матриця М1–М27), шард ${number}/${MULTICLASS_SHARDS.length}: ${ids.map((id) => id.split("-")[0]).join(", ")}`, () => {
+    beforeAll(buildShardCharacters, BUILD_TIMEOUT_MS);
+    afterAll(disconnectDatabase);
+    declareMatrix();
+  });
+}
+
+async function buildShardCharacters(): Promise<void> {
   content = await findCreatorContent(prisma, "RULES_2024");
   vi.mocked(findCharacterCreatorOptions).mockImplementation(ruleset => {
     if (ruleset !== "RULES_2024") throw new Error(`Неочікуваний ruleset у multiclass-тесті: ${ruleset}`);
     return content;
   });
   await resetUserData();
-  for (const fixture of multiclass2024Fixtures) {
+  for (const fixture of shardFixtures) {
     await signInAsOwner(fixture.id);
     built.set(
       fixture.id,
       await build2024MulticlassCharacter(fixture, { createCharacter, levelUpCharacter, getLevelUpInfo }),
     );
   }
-}, BUILD_TIMEOUT_MS);
+}
 
-afterAll(disconnectDatabase);
+function hasFixture(id: string): boolean {
+  findMulticlassFixture(id);
+  return shardFixtures.some((fixture) => fixture.id === id);
+}
+
+/** Перевірка, що називає персонажів поіменно: збирається лише там, де вони всі збудовані. */
+function itWithFixtures(ids: string[], name: string, run: () => void | Promise<void>): void {
+  const present = ids.filter(hasFixture);
+  if (present.length === 0) return;
+  if (present.length !== ids.length) {
+    throw new Error(`«${name}» називає фікстури з різних шардів: ${ids.join(", ")} — поклади їх в один у shards.ts`);
+  }
+  it(name, run);
+}
+
+/** Перевірка без фікстур: іде один раз, у першому шарді. */
+function itOnce(name: string, run: () => void | Promise<void>): void {
+  if (shardNumber === 1) it(name, run);
+}
 
 async function signInAsOwner(handle: string): Promise<void> {
   const user = await prisma.user.create({ data: { email: `${handle}@holota.family`, name: handle } });
@@ -82,7 +121,7 @@ function readBuilt(id: string): Built2024MulticlassCharacter {
 }
 
 function everyBuilt(): Built2024MulticlassCharacter[] {
-  return multiclass2024Fixtures.map((fixture) => readBuilt(fixture.id));
+  return shardFixtures.map((fixture) => readBuilt(fixture.id));
 }
 
 function readFinal(id: string): Multiclass2024Snapshot {
@@ -102,7 +141,7 @@ function compareWhereExpected<Value>(
   readExpected: (fixture: Multiclass2024Fixture) => Value | undefined,
   readActual: (snapshot: Multiclass2024Snapshot, fixture: Multiclass2024Fixture) => Value,
 ): { actual: Record<string, Value>; expected: Record<string, Value> } {
-  const withExpectation = multiclass2024Fixtures.filter((fixture) => readExpected(fixture) !== undefined);
+  const withExpectation = shardFixtures.filter((fixture) => readExpected(fixture) !== undefined);
 
   return {
     actual: Object.fromEntries(
@@ -204,7 +243,7 @@ async function readFacilityStatuses(persId: number, facilityNames: string[]): Pr
   );
 }
 
-describe("KR27.1 — приймання мультикласу 2024 на пʼятнадцяти персонажах (reference-fifteen.md, матриця М1–М27)", () => {
+function declareMatrix(): void {
   it("М27 · усі пʼятнадцять доростають до свого рівня без помилки серверної дії", () => {
     const broken = everyBuilt()
       .filter(
@@ -223,7 +262,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(broken).toEqual([]);
   });
 
-  it("М1 · Додаткова атака відкривається рівнем класу: персонаж 8-го рівня з Воїном 4 і Паладином 4 її не має", () => {
+  itWithFixtures(["22-blue-dragonborn-fighter4-paladin4"], "М1 · Додаткова атака відкривається рівнем класу: персонаж 8-го рівня з Воїном 4 і Паладином 4 її не має", () => {
     const fighterPaladin = readFinal("22-blue-dragonborn-fighter4-paladin4");
     const absent = findMulticlassFixture("22-blue-dragonborn-fighter4-paladin4").expected.absentFeatures ?? [];
 
@@ -247,10 +286,12 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     );
 
     expect(actual).toEqual(expected);
-    expect(readFinal("25-orc-wizard1-fighter5-rogue1").hitDiceByType).toEqual({ d6: 1, d10: 5, d8: 1 });
+    if (hasFixture("25-orc-wizard1-fighter5-rogue1")) {
+      expect(readFinal("25-orc-wizard1-fighter5-rogue1").hitDiceByType).toEqual({ d6: 1, d10: 5, d8: 1 });
+    }
   });
 
-  it("М4 · сервер відхиляє вхід у клас без 13+ у базовій характеристиці нового й усіх наявних", async () => {
+  itOnce("М4 · сервер відхиляє вхід у клас без 13+ у базовій характеристиці нового й усіх наявних", async () => {
     const newClassUnmet = await tryForbiddenMulticlassEntry({
       handle: "multiclass-req-new-class",
       species: "ORC_2024",
@@ -276,7 +317,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(existingClassUnmet).toMatchObject({ error: expect.any(String) });
   });
 
-  it("М5 · початковий клас дає повний стартовий пакет володінь, узятий пізніше — лише скорочений", () => {
+  itWithFixtures(["17-dwarf-fighter3-wizard5", "25-orc-wizard1-fighter5-rogue1"], "М5 · початковий клас дає повний стартовий пакет володінь, узятий пізніше — лише скорочений", () => {
     const startedAsFighter = readFinal("17-dwarf-fighter3-wizard5");
     const tookFighterLater = readFinal("25-orc-wizard1-fighter5-rogue1");
     const heavyArmor = formatArmorProficiencies([ArmorType.HEAVY]);
@@ -297,14 +338,16 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     );
 
     expect(actual).toEqual(expected);
-    expect(readFinal("25-orc-wizard1-fighter5-rogue1").classLevels).toEqual({
-      WIZARD_2024: 1,
-      FIGHTER_2024: 5,
-      ROGUE_2024: 1,
-    });
+    if (hasFixture("25-orc-wizard1-fighter5-rogue1")) {
+      expect(readFinal("25-orc-wizard1-fighter5-rogue1").classLevels).toEqual({
+        WIZARD_2024: 1,
+        FIGHTER_2024: 5,
+        ROGUE_2024: 1,
+      });
+    }
   });
 
-  it("М7 · воїн отримує підвищення характеристик на 6-му рівні класу, пройдисвіт — на 10-му", () => {
+  itWithFixtures(["14-human-fighter6-rogue4"], "М7 · воїн отримує підвищення характеристик на 6-му рівні класу, пройдисвіт — на 10-му", () => {
     const fighterRogue = readBuilt("14-human-fighter6-rogue4");
     const offeredAt = fighterRogue.offers
       .filter((offer) => offer.isAbilityScoreLevel)
@@ -314,7 +357,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
   });
 
   it("М8 · повторювана риса береться двічі й обидва рази щось дає", () => {
-    const withRepeat = multiclass2024Fixtures.filter((fixture) => fixture.expected.repeatedFeat);
+    const withRepeat = shardFixtures.filter((fixture) => fixture.expected.repeatedFeat);
     const actual = Object.fromEntries(
       withRepeat.map((fixture) => {
         const snapshot = readFinal(fixture.id);
@@ -348,7 +391,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
   });
 
   it("М10 · Універсальність Людини дає другу рису походження понад ту, що дало походження", () => {
-    const humans = multiclass2024Fixtures.filter((fixture) => fixture.input.species === "HUMAN_2024");
+    const humans = shardFixtures.filter((fixture) => fixture.input.species === "HUMAN_2024");
     const wrong = humans.flatMap((fixture) => {
       const snapshot = readFinal(fixture.id);
       const chosen = fixture.input.speciesChoices.find((pick) => pick.choice === "Риса походження");
@@ -357,10 +400,10 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     });
 
     expect(wrong).toEqual([]);
-    expect(humans.map((fixture) => fixture.id)).toHaveLength(3);
+    expect(multiclass2024Fixtures.filter((fixture) => fixture.input.species === "HUMAN_2024")).toHaveLength(3);
   });
 
-  it("М11 · половина рівнів паладина й слідопита округлюється вгору", () => {
+  itWithFixtures(["12-drow-paladin5-sorcerer3", "15-wood-elf-ranger5-druid3"], "М11 · половина рівнів паладина й слідопита округлюється вгору", () => {
     const halfCasters = ["12-drow-paladin5-sorcerer3", "15-wood-elf-ranger5-druid3"];
     const actual = Object.fromEntries(halfCasters.map((id) => [id, readFinal(id).casterLevel]));
     const expected = Object.fromEntries(
@@ -370,7 +413,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(actual).toEqual(expected);
   });
 
-  it("М12 · третина рівнів воїна й пройдисвіта з підкласом-заклиначем округлюється вниз", () => {
+  itWithFixtures(["17-dwarf-fighter3-wizard5", "18-halfling-rogue4-bard4"], "М12 · третина рівнів воїна й пройдисвіта з підкласом-заклиначем округлюється вниз", () => {
     const thirdCasters = ["17-dwarf-fighter3-wizard5", "18-halfling-rogue4-bard4"];
     const actual = Object.fromEntries(thirdCasters.map((id) => [id, readFinal(id).casterLevel]));
     const expected = Object.fromEntries(
@@ -380,7 +423,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(actual).toEqual(expected);
   });
 
-  it("М13 · Pact Magic — окремий пул, який не зливається зі звичайними слотами", () => {
+  itWithFixtures(["16-infernal-tiefling-warlock5-bard3", "19-forest-gnome-sorcerer9-warlock4", "24-aasimar-sorcerer19-warlock1"], "М13 · Pact Magic — окремий пул, який не зливається зі звичайними слотами", () => {
     const warlocks = ["16-infernal-tiefling-warlock5-bard3", "19-forest-gnome-sorcerer9-warlock4", "24-aasimar-sorcerer19-warlock1"];
     const actual = Object.fromEntries(
       warlocks.map((id) => {
@@ -398,7 +441,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(actual).toEqual(expected);
   });
 
-  it("М14 · слоти можуть бути вищого рівня, ніж будь-яке доступне заклинання", () => {
+  itWithFixtures(["18-halfling-rogue4-bard4", "21-human-wizard4-cleric4"], "М14 · слоти можуть бути вищого рівня, ніж будь-яке доступне заклинання", () => {
     const gapCharacters = ["18-halfling-rogue4-bard4", "21-human-wizard4-cleric4"];
     const actual = Object.fromEntries(
       gapCharacters.map((id) => {
@@ -417,7 +460,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
   });
 
   it("М15 · підготовлені заклинання рахуються окремо за кожним класом", () => {
-    const withLines = multiclass2024Fixtures.filter((fixture) => fixture.expected.preparedSpellLineClasses);
+    const withLines = shardFixtures.filter((fixture) => fixture.expected.preparedSpellLineClasses);
     const actual = Object.fromEntries(
       withLines.map((fixture) => {
         const keys = readFinal(fixture.id).preparedSpellLineKeys;
@@ -436,7 +479,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(actual).toEqual(expected);
   });
 
-  it("М16 · те саме заклинання з двох джерел — один запис, і друге джерело не падає (Р38)", async () => {
+  itWithFixtures(["21-human-wizard4-cleric4"], "М16 · те саме заклинання з двох джерел — один запис, і друге джерело не падає (Р38)", async () => {
     const persId = readPersId("21-human-wizard4-cleric4");
     await signInAsOwnerOf(persId);
 
@@ -444,7 +487,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
   });
 
   it("М17 · характеристика заклинань береться з джерела, а не одна на персонажа", () => {
-    const withSources = multiclass2024Fixtures.filter((fixture) => fixture.expected.classSpellSources);
+    const withSources = shardFixtures.filter((fixture) => fixture.expected.classSpellSources);
     const actual = Object.fromEntries(
       withSources.map((fixture) => [
         fixture.id,
@@ -462,7 +505,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
   });
 
   it("М18 · книга заклинань чарівника — окремий шар над підготовленим набором", () => {
-    const withSpellbook = multiclass2024Fixtures.filter((fixture) => fixture.expected.spellbookClass);
+    const withSpellbook = shardFixtures.filter((fixture) => fixture.expected.spellbookClass);
     const actual = Object.fromEntries(
       withSpellbook.map((fixture) => {
         const notes = readFinal(fixture.id).spellbookNoteKeys;
@@ -474,7 +517,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(actual).toEqual(expected);
   });
 
-  it("М19 · Додаткова атака з двох класів дає дві атаки, не три", () => {
+  itWithFixtures(["20-orc-barbarian5-fighter5"], "М19 · Додаткова атака з двох класів дає дві атаки, не три", () => {
     const barbarianFighter = readFinal("20-orc-barbarian5-fighter5");
 
     expect(barbarianFighter.featureNames).toEqual(
@@ -483,7 +526,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
     expect(barbarianFighter.attacksPerAction).toBe(2);
   });
 
-  it("М20 · дві альтернативні формули базового КЗ не складаються", () => {
+  itWithFixtures(["23-dwarf-monk4-sorcerer4"], "М20 · дві альтернативні формули базового КЗ не складаються", () => {
     const monkSorcerer = readFinal("23-dwarf-monk4-sorcerer4");
 
     expect(monkSorcerer.featureNames).toEqual(
@@ -536,7 +579,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
   // Порядок комірок майстерності — це порядок каталогу зброї, а не порядок, у якому гравець
   // тицяв: `findPersWeaponMasteryOffer` сортує пул за `sortOrder`. Критерій про склад набору.
   it("М24 · майстерність зброї з двох бойових класів не губиться", () => {
-    const withMastery = multiclass2024Fixtures.filter((fixture) => fixture.expected.weaponMastery);
+    const withMastery = shardFixtures.filter((fixture) => fixture.expected.weaponMastery);
     const actual = Object.fromEntries(
       withMastery.map((fixture) => {
         const mastery = readFinal(fixture.id).weaponMastery;
@@ -566,7 +609,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
   });
 
   it("М26 · відповідність приміщення читається зі здатностей персонажа, а не з назви класу", async () => {
-    const withMatches = multiclass2024Fixtures.filter((fixture) => fixture.expected.bastionFacilityMatches);
+    const withMatches = shardFixtures.filter((fixture) => fixture.expected.bastionFacilityMatches);
     const actual: Record<string, Record<string, string>> = {};
     for (const fixture of withMatches) {
       actual[fixture.id] = await readFacilityStatuses(
@@ -580,7 +623,7 @@ describe("KR27.1 — приймання мультикласу 2024 на пʼя�
 
     expect(actual).toEqual(expected);
   });
-});
+}
 
 const bySourceName = (left: { source: string }, right: { source: string }) =>
   left.source.localeCompare(right.source);

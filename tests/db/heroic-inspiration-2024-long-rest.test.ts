@@ -2,6 +2,7 @@
  * KR31.3 — наскрізний доказ Героїчного натхнення 2024: Людина дістає його після довгого
  * відпочинку через рису «Винахідливість», витрачає з листа й лишається без нього; не-людина
  * після того самого відпочинку його не дістає, але може ввімкнути руками — його дає й майстер.
+ * Зі стаканням (рішення власника 2026-09-13) кожен відпочинок Людини додає ще одне.
  */
 
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
@@ -14,7 +15,7 @@ vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
 
 import { auth } from "@/lib/auth";
-import { setHeroicInspiration } from "@/lib/actions/combat-actions";
+import { setCanStackHeroicInspiration, setHeroicInspirationCount } from "@/lib/actions/combat-actions";
 import { longRest } from "@/server/db/rest-actions";
 import { listFeaturesGrantingHeroicInspirationOnLongRest } from "@/rules/heroic-inspiration";
 
@@ -63,9 +64,9 @@ async function grantSpeciesTraits(persId: number, raceId: number) {
   });
 }
 
-async function findHeroicInspiration(persId: number) {
-  const row = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { hasHeroicInspiration: true } });
-  return row.hasHeroicInspiration;
+async function findHeroicInspirationCount(persId: number) {
+  const row = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { heroicInspirationCount: true } });
+  return row.heroicInspirationCount;
 }
 
 describe("Героїчне натхнення 2024 на живому персонажі", () => {
@@ -79,38 +80,65 @@ describe("Героїчне натхнення 2024 на живому персо�
 
   it("людина дістає натхнення після довгого відпочинку, витрачає його й лишається без нього", async () => {
     const persId = await createSpeciesCharacter("HUMAN_2024");
-    expect(await findHeroicInspiration(persId)).toBe(false);
+    expect(await findHeroicInspirationCount(persId)).toBe(0);
 
     const rested = await longRest(persId);
     expect(rested).toMatchObject({ success: true });
-    expect(await findHeroicInspiration(persId)).toBe(true);
-
-    expect(await setHeroicInspiration({ persId, hasHeroicInspiration: false })).toEqual({ success: true, hasHeroicInspiration: false });
-    expect(await findHeroicInspiration(persId)).toBe(false);
+    expect(await findHeroicInspirationCount(persId)).toBe(1);
 
     expect(await longRest(persId)).toMatchObject({ success: true });
-    expect(await findHeroicInspiration(persId)).toBe(true);
+    expect(await findHeroicInspirationCount(persId)).toBe(1);
+
+    expect(await setHeroicInspirationCount({ persId, heroicInspirationCount: 0 })).toEqual({
+      success: true,
+      heroicInspirationCount: 0,
+      canStackHeroicInspiration: false,
+    });
+    expect(await findHeroicInspirationCount(persId)).toBe(0);
+
+    expect(await longRest(persId)).toMatchObject({ success: true });
+    expect(await findHeroicInspirationCount(persId)).toBe(1);
   });
 
   it("не-людина після того самого відпочинку натхнення не дістає, але може ввімкнути руками", async () => {
     const persId = await createSpeciesCharacter("ORC_2024");
 
     expect(await longRest(persId)).toMatchObject({ success: true });
-    expect(await findHeroicInspiration(persId)).toBe(false);
+    expect(await findHeroicInspirationCount(persId)).toBe(0);
 
-    expect(await setHeroicInspiration({ persId, hasHeroicInspiration: true })).toEqual({ success: true, hasHeroicInspiration: true });
+    expect(await setHeroicInspirationCount({ persId, heroicInspirationCount: 5 })).toMatchObject({ success: true, heroicInspirationCount: 1 });
 
     // Відпочинок натхнення не забирає: у книги немає терміну дії.
     expect(await longRest(persId)).toMatchObject({ success: true });
-    expect(await findHeroicInspiration(persId)).toBe(true);
+    expect(await findHeroicInspirationCount(persId)).toBe(1);
   });
 
   it("чужому персонажу натхнення не перемкнути", async () => {
     const persId = await createSpeciesCharacter("HUMAN_2024");
     vi.mocked(auth).mockResolvedValue({ user: { email: "stranger@test.local" } } as never);
 
-    const result = await setHeroicInspiration({ persId, hasHeroicInspiration: true });
+    const result = await setHeroicInspirationCount({ persId, heroicInspirationCount: 1 });
     expect(result.success).toBe(false);
-    expect(await findHeroicInspiration(persId)).toBe(false);
+    expect((await setCanStackHeroicInspiration({ persId, canStackHeroicInspiration: true })).success).toBe(false);
+    expect(await findHeroicInspirationCount(persId)).toBe(0);
+  });
+
+  it("зі стаканням людина накопичує по одному за відпочинок, а вимкнення лишає одне", async () => {
+    const persId = await createSpeciesCharacter("HUMAN_2024");
+    expect(await setCanStackHeroicInspiration({ persId, canStackHeroicInspiration: true })).toMatchObject({ success: true });
+
+    await longRest(persId);
+    await longRest(persId);
+    expect(await findHeroicInspirationCount(persId)).toBe(2);
+
+    expect(await setHeroicInspirationCount({ persId, heroicInspirationCount: 5 })).toMatchObject({ heroicInspirationCount: 5 });
+    await longRest(persId);
+    expect(await findHeroicInspirationCount(persId)).toBe(6);
+
+    expect(await setCanStackHeroicInspiration({ persId, canStackHeroicInspiration: false })).toEqual({
+      success: true,
+      heroicInspirationCount: 1,
+      canStackHeroicInspiration: false,
+    });
   });
 });

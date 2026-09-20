@@ -303,7 +303,9 @@ function findLatinLeaks(): string[] {
   return readBuilt().flatMap((row) => {
     const text = stripGlossaryMarkers(
       [row.name, row.shortDescription, row.description].join(" ")
-    ).replace(/\[[^\]]*\]/g, "");
+    )
+      .replace(/<\/?a\b[^>]*>/g, "")
+      .replace(/\[[^\]]*\]/g, "");
     if (!/[A-Za-z]/.test(text)) return [];
     return [`${row.slug}: ${/[A-Za-z][A-Za-z' ]*/.exec(text)?.[0]}`];
   });

@@ -23,6 +23,8 @@ const EXPECTED_BY_CARRIER: Record<string, number> = {
   "data/2024/normalized/invocations.json": 0,
   "data/2024/normalized/feats.json": 0,
   "data/2024/normalized/species.json": 0,
+  "data/2024/normalized/subclasses.json": 0,
+  "data/2024/normalized/class-choices.json": 0,
   "src/lib/generated/races.json": 0,
   "src/lib/generated/creator-content-2014.json": 0,
   "src/lib/generated/creator-content-2024.json": 0,

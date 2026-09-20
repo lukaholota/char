@@ -23,9 +23,10 @@ export default defineConfig({
       // KR27.1: пʼятнадцять мультикласових персонажів — ~123 виклики `levelUpCharacter`,
       // кожен зі снапшотом і транзакцією. Бʼє по базі так само, як десятка, тому стоїть у
       // тій самій парі місць: у `DB_INTEGRATION_TEST_FILES` юніт-конфігу й тут.
-      "tests/rules-2024/multiclass-fifteen.test.ts",
+      "tests/rules-2024/multiclass-fifteen.shard-*.test.ts",
       "tests/actions/**/*.test.ts",
       "tests/db/**/*.test.ts",
+      "tests/pdf/**/*.test.ts",
       // KR22.5: golden створення й похідного стану не входили в жоден конфіг —
       // `bun run test tests/golden/creation.test.ts` відповідав «No test files found». Сітка
       // безпеки, яка ніде не запускається, не сітка. Левелап-golden лишається у vitest.config.mts,
@@ -41,11 +42,13 @@ export default defineConfig({
       "tests/golden/derived-state/**/*.test.ts",
     ],
     setupFiles: ["tests/setup.ts"],
-    // Замок на spells_test береться тут, а не в `setupFiles`: `globalSetup` спрацьовує один
-    // раз на прогін, тож межу бачить і прямий `bunx vitest --config …`, якого
-    // scripts/with-test-db-lock.sh не бачив. Замок той самий — спільний каталог у TMPDIR.
-    globalSetup: ["tests/global-setup-db-lock.ts"],
-    fileParallelism: false,
+    // Кожен воркер отримує власну копію spells_test (див. tests/global-setup-db-copies.ts),
+    // тому файли можуть іти паралельно й прогони різних сесій не заважають один одному.
+    // Набір упирається в затримку тунелю, а не в CPU: більше воркерів — коротший прогін,
+    // поки сервер витримує. TEST_DB_WORKERS=1 повертає послідовний прогін.
+    globalSetup: ["tests/global-setup-db-copies.ts"],
+    reporters: ["default", "./tests/reporters/file-durations.ts"],
+    maxWorkers: Number(process.env.TEST_DB_WORKERS ?? 4),
     testTimeout: 15000,
     hookTimeout: 15000,
   },

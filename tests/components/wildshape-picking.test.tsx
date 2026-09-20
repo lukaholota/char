@@ -117,7 +117,7 @@ describe("секція «Дика форма» серед фільтрів бе�
     isMoonCircle: false,
     ruleset: "RULES_2014",
     limits: { maxChallengeRating: 0.5, allowsFlySpeed: false, allowsSwimSpeed: true },
-    limitNotes: ["КР до 1/2", "лазіння без обмежень"],
+    limitNotes: ["ПН до 1/2", "лазіння без обмежень"],
     ...overrides,
   });
 
@@ -171,6 +171,6 @@ describe("секція «Дика форма» серед фільтрів бе�
     const standing: WildshapeStanding = character();
     renderSection({ persId: 7, standing });
 
-    expect(screen.getByText("КР до 1/2 · лазіння без обмежень")).toBeTruthy();
+    expect(screen.getByText("ПН до 1/2 · лазіння без обмежень")).toBeTruthy();
   });
 });

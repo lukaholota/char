@@ -166,6 +166,12 @@ describe("пошук у каталозі після виносу прози на
     expect(deep.length).toBeGreaterThan(30);
   });
 
+  it("посилання на стан посеред фрази не рве пошук: «отримує стан повалений» знаходить алозавра, де фраза стоїть лише з якорем", async () => {
+    const deep = await findCreatureKeysMatchingText("отримує стан повалений", "RULES_2014");
+
+    expect(deep).toContain(toEntitySlug("Allosaurus"));
+  });
+
   it("порожній запит не ганяє сервер", async () => {
     expect(await findCreatureKeysMatchingText("   ", "RULES_2014")).toEqual([]);
   });

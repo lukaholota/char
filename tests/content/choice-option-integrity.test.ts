@@ -6,34 +6,34 @@ import knownNoOps from "./known-no-op-choice-options.json";
 
 /**
  * Not a golden test: an invariant check over ALL 370+ ChoiceOption rows attached to a
- * feat/class/subclass. createCharacter grants an option's effect through exactly three
- * channels — a linked ChoiceOptionFeature, an ASI (effectKind="ASI" or legacy name-substring
- * match), or a skill/expertise (extractSkillsFromChoiceOption, same fallback the real action
- * uses). An option matching none of the three does literally nothing when picked.
+ * feat/class/subclass. createCharacter grants an option's effect through exactly four
+ * channels — a linked ChoiceOptionFeature, an ASI (effectKind="ASI" only: since BUG-004 was fixed
+ * on 2026-09-15, `src/rules/feat-grants.ts` no longer reads ability names), a skill/expertise (extractSkillsFromChoiceOption, same fallback the real action
+ * uses), or a spellcasting ability (effectAbility without effectKind — the feat becomes a spell
+ * source with that ability, `findFeatSources` in src/rules/spell-sources.ts). An option matching
+ * none of the four does literally nothing when picked.
  *
- * IMPORTANT caveat found the same day (see BUG-004 in docs/KNOWN-BUGS.md): a raw no-op here does
- * NOT by itself mean a live player can reach it. 29 feats each carry a duplicate ChoiceOption
- * group — one working, one dead — and the character creator's own dedup logic always prefers the
- * working one, confirmed against real PersFeatChoice rows in prod (0% of live picks hit the dead
- * group). So this test finds dead/duplicate data reliably, but "reachable via the real UI" needs
- * a separate check against actual usage before calling something a live bug — this test alone
- * isn't that check.
+ * A raw no-op here does NOT by itself mean a live player can reach it (BUG-004 in
+ * docs/KNOWN-BUGS.md: 30 feats carried a duplicate group the creator hid, 0 live picks) — check
+ * actual usage before calling something a live bug.
  *
- * Known offenders are pinned in known-no-op-choice-options.json (BUG-004, BUG-005 in
- * docs/KNOWN-BUGS.md) so this test stays green while still catching any NEW no-op — the same
+ * Known offenders are pinned in known-no-op-choice-options.json (BUG-005: the Elemental Adept
+ * element is stored and shown, damage resistance is not modelled) so this test stays green while
+ * still catching any NEW no-op — the same
  * "pin current state, flag drift" idea as the golden tests, applied to a correctness invariant
  * instead of a behavior snapshot.
  */
 
-const ABILITY_SUBSTRINGS = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
-
-function hasAsiEffect(option: { effectKind: string | null; effectAbility: string | null; optionNameEng: string }) {
-  if (option.effectKind === "ASI" && option.effectAbility) return true;
-  return ABILITY_SUBSTRINGS.some((word) => option.optionNameEng.includes(word));
+function hasAsiEffect(option: { effectKind: string | null; effectAbility: string | null }) {
+  return option.effectKind === "ASI" && option.effectAbility !== null;
 }
 
 function hasSkillEffect(option: { effectKind: string | null; effectSkill: string | null; optionNameEng: string; optionName: string }) {
   return extractSkillsFromChoiceOption(option).some((skill) => Object.values(Skills).includes(skill as Skills));
+}
+
+function hasSpellcastingAbilityEffect(option: { effectKind: string | null; effectAbility: string | null }) {
+  return option.effectKind === null && option.effectAbility !== null;
 }
 
 type Context = { source: string; label: string; choiceOptionId: number };
@@ -58,7 +58,7 @@ async function findNoOpOptions(): Promise<Array<Context & { optionNameEng: strin
   ];
 
   return rows
-    .filter(({ option }) => option.features.length === 0 && !hasAsiEffect(option) && !hasSkillEffect(option))
+    .filter(({ option }) => option.features.length === 0 && !hasAsiEffect(option) && !hasSkillEffect(option) && !hasSpellcastingAbilityEffect(option))
     .map(({ source, label, choiceOptionId, option }) => ({ source, label, choiceOptionId, optionNameEng: option.optionNameEng }))
     .sort((a, b) => a.choiceOptionId - b.choiceOptionId);
 }

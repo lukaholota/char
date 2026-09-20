@@ -4,17 +4,18 @@ import { describe, expect, it } from "vitest";
 
 import { getBeyondSrdArticlesByRuleset } from "@/lib/rulesBeyondSrdData";
 import { expandGlossaryMarkersToHtml, findGlossaryMarkers, stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+import { stripSpellAnchors } from "@/lib/spell-link";
 import dictionary from "@/lib/refs/dictionary.json";
 
 const CYRILLIC = /[а-яіїєґ]/i;
 const TRANSLATIONS_DIR = join(process.cwd(), "data/2024/beyond-srd-uk");
-const EXPECTED_ARTICLES = 32;
+const EXPECTED_ARTICLES = 33;
 
 const xdmg = getBeyondSrdArticlesByRuleset("RULES_2024");
 const body = xdmg.flatMap((article) => article.subsections.map((subsection) => subsection.content)).join("\n");
 
 describe("KR23.4 — переклад глав 1–3 XDMG поза SRD", () => {
-  it("перекладає всі 32 статті без жодного англійського підрозділу", () => {
+  it("перекладає всі 33 статті без жодного англійського підрозділу", () => {
     expect(xdmg.length).toBe(EXPECTED_ARTICLES);
     expect(xdmg.filter((article) => !article.isTranslated).map((article) => article.id)).toEqual([]);
 
@@ -66,7 +67,7 @@ describe("KR23.4 — переклад глав 1–3 XDMG поза SRD", () => {
   it("лишає латиницю тільки всередині маркера оригіналу, назв заклинань і бренду розробника", () => {
     for (const article of xdmg) {
       for (const subsection of article.subsections) {
-        const bare = stripGlossaryMarkers(subsection.content)
+        const bare = stripSpellAnchors(stripGlossaryMarkers(subsection.content))
           .replace(/\[[^\]]*\]/g, "")
           .replaceAll(ALLOWED_LATIN_PHRASE, "");
         const latin = (bare.match(/[A-Za-z]{2,}/g) ?? []).filter(

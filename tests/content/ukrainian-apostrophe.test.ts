@@ -15,11 +15,15 @@ function collectTextFiles(path: string): string[] {
   return readdirSync(path).flatMap((entry) => collectTextFiles(join(path, entry)));
 }
 
+/// У джерелі TS апостроф у рядку в одинарних лапках екранується — `'З\'ява'`, і між літерою та
+/// апострофом стоїть зворотна риска: так 69 входжень у сідах пройшли повз гейт і розвели сіди з базою.
+const ESCAPED_APOSTROPHE_IN_WORD = /(?<=\p{Script=Cyrillic})\\['’‘`´](?=[яюєїЯЮЄЇ])/u;
+
 function findNoncanonicalApostrophes(file: string): string[] {
-  const pattern = new RegExp(NONCANONICAL_APOSTROPHE_IN_WORD.source, "u");
+  const patterns = [new RegExp(NONCANONICAL_APOSTROPHE_IN_WORD.source, "u"), ESCAPED_APOSTROPHE_IN_WORD];
   return readFileSync(file, "utf-8")
     .split("\n")
-    .flatMap((line, index) => (pattern.test(line) ? [`${relative(process.cwd(), file)}:${index + 1}`] : []));
+    .flatMap((line, index) => (patterns.some((pattern) => pattern.test(line)) ? [`${relative(process.cwd(), file)}:${index + 1}`] : []));
 }
 
 describe("апостроф усередині слова — тільки ʼ (U+02BC)", () => {

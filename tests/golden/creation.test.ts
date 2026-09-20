@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { normalizeForGolden, readFullPers } from "../helpers/normalize-golden";
 import { builds } from "../fixtures/builds";
+import { withCreationSpells } from "../helpers/creation-spells";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
@@ -26,7 +27,7 @@ describe("KR2.2 — golden-тести createCharacter", () => {
       });
       vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
 
-      const form = await build.form();
+      const form = await withCreationSpells(await build.form());
       const result = await createCharacter(form);
 
       if ("error" in result) {

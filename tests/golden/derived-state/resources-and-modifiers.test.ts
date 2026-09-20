@@ -5,6 +5,7 @@ import { Ability, BackgroundCategory, Classes, Races, RestType } from "@prisma/c
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../../user-data";
 import { minimalForm } from "../../helpers/build-form";
+import { withCreationSpells } from "../../helpers/creation-spells";
 import { backgroundByName, classByName, raceByName } from "../../helpers/seed-lookup";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -106,9 +107,7 @@ async function createOwnedFighter(): Promise<number> {
     classByName(Classes.FIGHTER_2014),
     backgroundByName(BackgroundCategory.SOLDIER),
   ]);
-  const result = await createCharacter(
-    minimalForm({ raceId: race.raceId, classId: fighterClass.classId, backgroundId: background.backgroundId }),
-  );
+  const result = await createCharacter(await withCreationSpells(minimalForm({ raceId: race.raceId, classId: fighterClass.classId, backgroundId: background.backgroundId })));
   if ("error" in result) throw new Error(`createCharacter повернув ${result.error}`);
   return result.persId;
 }

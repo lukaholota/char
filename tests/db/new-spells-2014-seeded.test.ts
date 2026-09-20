@@ -28,7 +28,7 @@ async function readSeededSpells() {
 }
 
 describe("KR17.3 — нові заклинання 2014 у spells_test", () => {
-  it("містить кожен ready-запис із точними полями", () => {
+  it("містить кожен ready-запис із його класами", () => {
     const byName = new Map(seeded.map((spell) => [spell.engName, spell]));
     const mismatches: string[] = [];
 
@@ -56,22 +56,9 @@ describe("KR17.3 — нові заклинання 2014 у spells_test", () => {
   });
 });
 
+/// Текст і механіку цих заклинань з KR34.5 звіряє `spell-source-2014-seeded` проти
+/// `data/2014/spells.json`; партія імпорту лишилася джерелом лише для списку класів.
 function readDifferentFields(actual: SeededSpell, expected: (typeof ready)[number]): string[] {
-  const fields = [
-    "name",
-    "level",
-    "school",
-    "castingTime",
-    "range",
-    "components",
-    "duration",
-    "hasRitual",
-    "hasConcentration",
-    "description",
-    "source",
-  ] as const;
-  const differences = fields.filter((field) => actual[field] !== expected[field]);
   const actualClasses = actual.spellClasses.map((row) => row.className).sort();
-  if (actualClasses.join("|") !== [...expected.classes].sort().join("|")) differences.push("classes");
-  return differences;
+  return actualClasses.join("|") === [...expected.classes].sort().join("|") ? [] : ["classes"];
 }

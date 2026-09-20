@@ -25,6 +25,18 @@ const CLIENT_CATALOG_HOLDERS: Record<string, string> = {
 
 const HEAVY_CATALOG = /^lib\/generated\/.+\.json$/;
 
+/// Згенеровані таблиці, які не є каталогами: крихітні й потрібні там, де немає ні сервера, ні
+/// мережі. Розмір обмежено нижче, щоб сюди не проїхав каталог під виглядом таблиці.
+const CLIENT_SAFE_TABLES: Record<string, string> = {
+  "lib/generated/wild-magic-surge-table.json": "к100 Сплеску дикої магії для екрана помилки — error boundary не має на кого покластися",
+  "lib/generated/spell-icon-sprite.json": "позиції іконок у спрайті — іконку малює браузер, сервер тут ні до чого",
+};
+const CLIENT_SAFE_TABLE_LIMIT_BYTES = 16 * 1024;
+
+function isHeavyCatalog(name: string): boolean {
+  return HEAVY_CATALOG.test(name) && !(name in CLIENT_SAFE_TABLES);
+}
+
 const IMPORT_CLAUSE = /(?:^|\n)\s*(?:import|export)\s+(?!type\s)([^;]*?)from\s*["']([^"']+)["']/g;
 const BARE_IMPORT = /(?:^|\n)\s*import\s*["']([^"']+)["']/g;
 
@@ -169,7 +181,7 @@ describe("KR20.6 — клієнтські модулі не тягнуть ка�
 
       const reachedVia = collectReachableFiles(clientModule);
       for (const file of reachedVia.keys()) {
-        if (HEAVY_CATALOG.test(relative(SRC, file))) offenders.push(describeImportChain(reachedVia, file));
+        if (isHeavyCatalog(relative(SRC, file))) offenders.push(describeImportChain(reachedVia, file));
       }
     }
 
@@ -179,9 +191,17 @@ describe("KR20.6 — клієнтські модулі не тягнуть ка�
   it("кожен запис CLIENT_CATALOG_HOLDERS ще потрібен", () => {
     const stale = Object.keys(CLIENT_CATALOG_HOLDERS).filter((name) => {
       const reachedVia = collectReachableFiles(join(SRC, name));
-      return ![...reachedVia.keys()].some((file) => HEAVY_CATALOG.test(relative(SRC, file)));
+      return ![...reachedVia.keys()].some((file) => isHeavyCatalog(relative(SRC, file)));
     });
 
     expect(stale, "ці вже не тягнуть каталог — прибери з таблиці").toEqual([]);
+  });
+
+  it("дозволені таблиці лишаються таблицями, а не каталогами", () => {
+    const oversized = Object.keys(CLIENT_SAFE_TABLES).filter(
+      (name) => statSync(join(SRC, name)).size > CLIENT_SAFE_TABLE_LIMIT_BYTES,
+    );
+
+    expect(oversized, "таблиця виросла до каталогу — прибери з CLIENT_SAFE_TABLES").toEqual([]);
   });
 });

@@ -1,3 +1,4 @@
+import type { CreationSpellPicks } from "../../helpers/creation-spells";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -53,6 +54,8 @@ export type Acceptance2024Fixture = {
     weaponMastery?: string[];
     /** Літера класового стартового спорядження 2024 («a» / «b» / «c»), як її показує книга. */
     classEquipment?: string;
+    /** Заклинання кроку «Заклинання» конструктора; чого не названо, те харнес добирає за абеткою. */
+    creationSpells?: CreationSpellPicks;
     levelUps: LevelUpPick[];
   };
   expected: {

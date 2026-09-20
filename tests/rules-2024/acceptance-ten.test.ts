@@ -11,6 +11,7 @@ import {
 import { build2024Character, ORIGIN_LANGUAGE_PICKS, type Built2024Character } from "../helpers/build-2024-character";
 import { LanguageTranslations } from "@/lib/refs/translation";
 import { minimalForm } from "../helpers/build-form";
+import { withCreationSpells, withLevelUpSpells } from "../helpers/creation-spells";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -109,7 +110,7 @@ async function buildWizardTwoFighterThree() {
   };
 
   const created = await createCharacter(
-    minimalForm({
+    await withCreationSpells(minimalForm({
       name: "Чарівник 2 / Воїн 3",
       raceId: race.raceId,
       classId: wizard.classId,
@@ -127,7 +128,7 @@ async function buildWizardTwoFighterThree() {
       ],
       backgroundAsiChoice: { mode: "+2/+1", plusTwo: "INT", plusOne: "CON" },
       raceChoiceSelections: { [ancestry.choiceGroupName]: ancestry.optionId },
-    }),
+    })),
   );
   if (!created.persId) throw new Error(`Мультиклас не створився: ${created.error} ${JSON.stringify(created.details)}`);
 
@@ -139,7 +140,7 @@ async function buildWizardTwoFighterThree() {
     { classId: fighter.classId, levelUpPath: "EXISTING" as const, subclassId: champion.subclassId },
   ];
   for (const step of steps) {
-    const result = await levelUpCharacter(created.persId, minimalLevelUpForm(step));
+    const result = await levelUpCharacter(created.persId, await withLevelUpSpells(created.persId, minimalLevelUpForm(step)));
     if (result && "error" in result && result.error) throw new Error(`підвищення рівня: ${result.error}`);
   }
 

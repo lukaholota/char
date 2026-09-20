@@ -88,7 +88,8 @@ describe("серверні дії бастіону", () => {
     expect(before.standing.access).toMatchObject({
       isOffered: true,
       isBelowStandardLevel: true,
-      isEntryCardShown: false,
+      isEntryCardShown: true,
+      isEntryCardMuted: true,
     });
     expect(before.standing.bastion).toBeNull();
 
@@ -107,6 +108,7 @@ describe("серверні дії бастіону", () => {
     expect(created.standing.access).toMatchObject({
       isBelowStandardLevel: true,
       isEntryCardShown: true,
+      isEntryCardMuted: false,
     });
   });
 

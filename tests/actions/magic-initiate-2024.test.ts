@@ -17,6 +17,41 @@ beforeEach(resetUserData);
 afterAll(disconnectDatabase);
 
 const spellList = (option: string): NamedPick => ({ choice: "Список заклинань", option });
+const castingAbility = (option: string): NamedPick => ({ choice: "Базова характеристика заклинань", option });
+
+describe("KR31.5 — характеристика «Посвяченого у магію» 2024 — вибір гравця, а не список (L03-feats-07)", () => {
+  it("список чарівника з Харизмою дає джерело MAGIC_INITIATE · CHA, а не INT від списку", async () => {
+    const user = await prisma.user.create({ data: { email: `initiate-cha-${Math.random()}@holota.family`, name: "Initiate" } });
+    vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
+
+    const built = await build2024MulticlassCharacter(
+      {
+        ...humanWizardWithTwoInitiates,
+        id: "kr31.5-initiate-wizard-list-cha",
+        input: {
+          ...humanWizardWithTwoInitiates.input,
+          startingClass: "FIGHTER_2024",
+          background: "SAGE_2024",
+          classChoices: [{ choice: "Бойовий стиль", option: "Defense" }],
+          weaponMastery: ["Longsword", "Greatsword", "Longbow"],
+          backgroundAsi: { mode: "+2/+1", plusTwo: "INT", plusOne: "CON" },
+          originFeat: "MAGIC_INITIATE",
+          originFeatChoices: [spellList("Wizard"), castingAbility("CHA")],
+          speciesChoices: [{ choice: "Риса походження", option: "Tough" }],
+          speciesFeatChoices: [],
+        },
+      },
+      { createCharacter, levelUpCharacter, getLevelUpInfo },
+    );
+
+    expect(built.creationError).toBeNull();
+    expect(built.atLevel1?.magicInitiateLists).toEqual(["Wizard"]);
+    expect(built.atLevel1?.spellSources.filter((source) => source.kind === "FEAT")).toEqual([
+      { key: "MAGIC_INITIATE", ability: "CHA", kind: "FEAT" },
+    ]);
+  });
+});
+
 const LIST_FEATURES = ["Magic Initiate: Cleric list (2024)", "Magic Initiate: Druid list (2024)"];
 
 describe("KR27.5 — безкоштовне застосування «Посвяченого у магію» — використання фічі списку (Р38)", () => {
@@ -57,9 +92,9 @@ const humanWizardWithTwoInitiates: Multiclass2024Fixture = {
     baseAbilityScores: { STR: 8, DEX: 10, CON: 13, INT: 15, WIS: 14, CHA: 12 },
     backgroundAsi: { mode: "+2/+1", plusTwo: "WIS", plusOne: "INT" },
     originFeat: "MAGIC_INITIATE",
-    originFeatChoices: [spellList("Cleric")],
+    originFeatChoices: [spellList("Cleric"), castingAbility("WIS")],
     speciesChoices: [{ choice: "Риса походження", option: "Magic Initiate" }],
-    speciesFeatChoices: [spellList("Druid")],
+    speciesFeatChoices: [spellList("Druid"), castingAbility("WIS")],
     levelUps: [],
   },
   expected: {

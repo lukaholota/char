@@ -5,6 +5,7 @@ import { BackgroundCategory, Classes, Races, Subclasses } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../../user-data";
 import { minimalForm } from "../../helpers/build-form";
+import { withCreationSpells } from "../../helpers/creation-spells";
 import { backgroundByName, classByName, raceByName, subclassByName } from "../../helpers/seed-lookup";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -173,9 +174,7 @@ async function createOwnedCharacter(
     backgroundByName(BackgroundCategory.SAGE),
   ]);
   const subclass = subclassName ? await subclassByName(characterClass.classId, subclassName) : null;
-  const result = await createCharacter(
-    minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId }),
-  );
+  const result = await createCharacter(await withCreationSpells(minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId })));
   if ("error" in result) throw new Error(`${emailPrefix}: createCharacter повернув ${result.error}`);
 
   await prisma.pers.update({

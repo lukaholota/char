@@ -5,6 +5,7 @@ import {
   listLinkedCreationStepIds,
   STEPS_WITHOUT_RULE_ARTICLE,
 } from "@/lib/components/characterCreator/creation-step-rule-links";
+import { collectCreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 import { getAllRuleArticles2014 } from "@/lib/rules2014Data";
 import { getAllRuleArticles2024 } from "@/lib/rules2024Data";
@@ -31,6 +32,8 @@ const everyStepId = resolveCreationSteps({
   hasLevelOneChoices: true,
   hasLevelOneOptionalFeatures: true,
   hasWeaponMastery: true,
+  hasSpellChoice: true,
+  hasFeatSpellChoice: true,
   hasFeatChoice: true,
   hasFeatChoices: true,
   hasBackgroundFeatChoice: true,
@@ -53,8 +56,7 @@ describe("KR29.3 — з кроку майстра створення персо�
         expect(both).toEqual([]);
       });
 
-      it("кожне посилання веде на наявний якір категорії «abilities» і несе справжній заголовок статті", () => {
-        const abilities = ARTICLES[ruleset].filter((article) => article.category === "abilities");
+      it("кожне посилання веде на наявний якір своєї категорії і несе справжній заголовок статті", () => {
         const prefix = ruleset === "RULES_2024" ? "/2024" : "";
 
         for (const stepId of listLinkedCreationStepIds(ruleset)) {
@@ -62,11 +64,24 @@ describe("KR29.3 — з кроку майстра створення персо�
           expect(link, stepId).not.toBeNull();
 
           const [path, anchor] = link!.href.split("#");
-          expect(path, stepId).toBe(`${prefix}/rules/abilities`);
+          expect(path, stepId).toBe(`${prefix}/rules/${link!.category}`);
+          expect(anchor, stepId).toBe(link!.anchor);
 
-          const article = findArticleByAnchor(abilities, anchor);
+          const inCategory = ARTICLES[ruleset].filter((article) => article.category === link!.category);
+          const article = findArticleByAnchor(inCategory, anchor);
           expect(article, `${ruleset} ${stepId} → #${anchor}`).toBeDefined();
           expect(link!.articleTitle, `${ruleset} ${stepId}`).toBe(article!.title);
+        }
+      });
+
+      it("кожен крок із посиланням має початок статті для модалки", () => {
+        const excerpts = collectCreationStepRuleExcerpts()[ruleset];
+
+        for (const stepId of listLinkedCreationStepIds(ruleset)) {
+          const excerpt = excerpts[stepId];
+          expect(excerpt, `${ruleset} ${stepId}`).toBeDefined();
+          expect(excerpt.excerpt.length, `${ruleset} ${stepId}`).toBeGreaterThan(40);
+          expect(excerpt.href, `${ruleset} ${stepId}`).toBe(findCreationStepRuleLink(stepId, ruleset)!.href);
         }
       });
     });
@@ -79,5 +94,15 @@ describe("KR29.3 — з кроку майстра створення персо�
       "/2024/rules/abilities#step-2-character-origin--choose-a-species"
     );
     expect(findCreationStepRuleLink("weaponMastery", "RULES_2014")).toBeNull();
+  });
+
+  it("майстерність зброї 2024 веде на «Властивості майстерності» в розділі спорядження", () => {
+    const link = findCreationStepRuleLink("weaponMastery", "RULES_2024");
+    expect(link?.href).toBe("/2024/rules/equipment#weapons--mastery-properties");
+
+    const excerpt = collectCreationStepRuleExcerpts().RULES_2024.weaponMastery;
+    expect(excerpt.sectionTitle).toBe("Властивості майстерності");
+    expect(excerpt.excerpt).toContain("властивість майстерності");
+    expect(excerpt.isTruncated).toBe(true);
   });
 });

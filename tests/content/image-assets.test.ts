@@ -10,7 +10,7 @@ import {
 } from "@/lib/assets/image-manifest";
 import { getAllBackgrounds } from "@/lib/backgroundsData";
 import { RULE_CATEGORIES } from "@/lib/rulesData";
-import { collectHomeCategories } from "@/components/home/homeCategories";
+import { collectHomeCardRows } from "@/components/home/homeCategories";
 import { getRaceVisual, getClassVisual } from "@/components/characterCreator/creation-visuals";
 import {
   raceTranslations,
@@ -211,11 +211,10 @@ describe("Image Assets & Manifest Verification", () => {
   describe("Aspect ratios", () => {
     it("keeps every home tile vertical 3:4", () => {
       const wrong: string[] = [];
-      for (const category of collectHomeCategories("2014")) {
-        if (category.tier !== "tile") continue;
-        const { width, height } = readWebpSize(category.imageSrc);
+      for (const tile of collectHomeCardRows("2014").tiles) {
+        const { width, height } = readWebpSize(tile.imageSrc);
         if (Math.abs(width / height - 0.75) > 0.02) {
-          wrong.push(`${category.imageSrc} = ${width}x${height}`);
+          wrong.push(`${tile.imageSrc} = ${width}x${height}`);
         }
       }
       expect(wrong).toEqual([]);
@@ -228,11 +227,11 @@ describe("Image Assets & Manifest Verification", () => {
       const AWAITING_REGENERATION = new Set(["characters"]);
       const wrong: string[] = [];
 
-      for (const category of collectHomeCategories("2014")) {
-        if (category.tier !== "hero" || AWAITING_REGENERATION.has(category.slug)) continue;
-        const { width, height } = readWebpSize(category.imageSrc);
+      for (const hero of collectHomeCardRows("2014").heroes) {
+        if (AWAITING_REGENERATION.has(hero.category.slug)) continue;
+        const { width, height } = readWebpSize(hero.imageSrc);
         if (Math.abs(width / height - 2 / 3) > 0.02) {
-          wrong.push(`${category.imageSrc} = ${width}x${height}`);
+          wrong.push(`${hero.imageSrc} = ${width}x${height}`);
         }
       }
 

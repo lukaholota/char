@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { findCreatorContent, type CreatorContent } from "@/server/db/creator-content-query";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { minimalForm } from "../helpers/build-form";
+import { withCreationSpells, withLevelUpSpells } from "../helpers/creation-spells";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -41,7 +42,7 @@ async function baseForm(className: string, ids: number[]) {
   const characterClass = content.classes.find(entry => entry.name === className)!;
   const dwarf = content.races.find(race => race.name === "DWARF_2024")!;
   const soldier = content.backgrounds.find(background => background.name === "SOLDIER_2024")!;
-  return minimalForm({
+  return withCreationSpells(minimalForm({
     classId: characterClass.classId,
     raceId: dwarf.raceId,
     backgroundId: soldier.backgroundId,
@@ -49,7 +50,7 @@ async function baseForm(className: string, ids: number[]) {
     backgroundAsiChoice: { mode: "+2/+1", plusTwo: "STR", plusOne: "CON" },
     languagesSchema: { languages: ["DWARVISH", "ELVISH"] },
     classChoiceSelections: { "Класові інструменти": ids },
-  });
+  }));
 }
 
 describe("KR31.2 — класові інструменти під час створення", () => {
@@ -114,13 +115,13 @@ describe("KR31.2 — класові інструменти під час ств�
 
     const bard = content.classes.find(entry => entry.name === "BARD_2024")!;
     const selected = toolChoices("BARD_2024").slice(0, 3);
-    const raised = await levelUpCharacter(created.persId!, minimalLevelUpForm({
+    const raised = await levelUpCharacter(created.persId!, await withLevelUpSpells(created.persId!, minimalLevelUpForm({
       classId: bard.classId,
       levelUpPath: "MULTICLASS",
       classChoiceSelections: {
         "Класові інструменти": selected.map(option => option.choiceOptionId),
       },
-    }));
+    })));
     expect(raised).not.toHaveProperty("error");
 
     const character = await prisma.pers.findUniqueOrThrow({

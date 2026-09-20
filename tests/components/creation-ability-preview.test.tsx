@@ -89,3 +89,34 @@ describe("превʼю характеристики на кроці «Опції
     expect(screen.getByText(/14 → 15/)).toBeTruthy();
   });
 });
+
+const MAGIC_INITIATE = {
+  featId: 3029,
+  name: "MAGIC_INITIATE",
+  category: "ORIGIN",
+  grantsFeature: [],
+  featChoiceOptions: (["INT", "WIS", "CHA"] as const).map((ability, index) => ({
+    choiceOption: {
+      choiceOptionId: 4860 + index,
+      groupName: "Базова характеристика заклинань",
+      optionName: { INT: "Інтелект", WIS: "Мудрість", CHA: "Харизма" }[ability],
+      optionNameEng: `Magic Initiate 2024 (${ability})`,
+      effectAbility: ability,
+      effectKind: null,
+      description: "",
+    },
+  })),
+} as unknown as FeatPrisma;
+
+describe("KR31.5 — вибір характеристики замовляння в рисі не малюється як підвищення (L03-feats-07)", () => {
+  it("Посвячений у магію показує «Харизма», а не «Харизма: 10 → 11»", () => {
+    usePersFormStore.setState({
+      formData: { featId: MAGIC_INITIATE.featId, asiSystem: "POINT_BUY", asi: FORM_ASI } as never,
+      isHydrated: true,
+    });
+    render(<FeatChoiceOptionsForm selectedFeat={MAGIC_INITIATE} formId="feat-choices-form" />);
+
+    expect(screen.getAllByText("Харизма").length).toBeGreaterThan(0);
+    expect(screen.queryByText(/→/)).toBeNull();
+  });
+});

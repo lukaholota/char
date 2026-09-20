@@ -5,9 +5,8 @@ import type { CreatureData } from "@/lib/bestiaryData";
 
 const loadCreatureStatblock = vi.fn();
 
-vi.mock("@/lib/actions/bestiary-actions", () => ({
-  loadCreatureStatblock: (key: string, ruleset: string) => loadCreatureStatblock(key, ruleset),
-  findCreatureKeysMatchingText: vi.fn(async () => []),
+vi.mock("@/lib/catalog-reads", () => ({
+  fetchCreatureStatblock: (key: string, ruleset: string) => loadCreatureStatblock(key, ruleset),
 }));
 
 const { useCreatureStatblock } = await import("@/hooks/useCreatureStatblock");
@@ -24,7 +23,7 @@ function StatblockProbe({ creatureKey, initial }: { creatureKey: string | null; 
 beforeEach(() => loadCreatureStatblock.mockReset());
 afterEach(cleanup);
 
-/// KR20.9: список бестіарію тримає лише вузький індекс, тож статблок приходить серверною дією.
+/// KR20.9: список бестіарію тримає лише вузький індекс, тож статблок приходить окремим GET-запитом.
 describe("статблок істоти довантажується на розкриття", () => {
   it("перша істота каталогу малюється без жодного запиту", () => {
     render(<StatblockProbe creatureKey="aboleth" initial={buildCreature("Aboleth")} />);
@@ -33,7 +32,7 @@ describe("статблок істоти довантажується на роз
     expect(loadCreatureStatblock).not.toHaveBeenCalled();
   });
 
-  it("інша істота приїжджає серверною дією", async () => {
+  it("інша істота приїжджає окремим запитом", async () => {
     loadCreatureStatblock.mockResolvedValue(buildCreature("Beholder"));
 
     render(<StatblockProbe creatureKey="beholder" initial={buildCreature("Aboleth")} />);

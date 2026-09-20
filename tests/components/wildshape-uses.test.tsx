@@ -5,6 +5,7 @@ import { getAllCreatures } from "@/lib/bestiaryData";
 import { WildshapeCard } from "@/lib/components/characterSheet/WildshapeCard";
 import type { WildshapeState } from "@/lib/components/characterSheet/useWildshapeState";
 import { enterWildshapeForm } from "@/server/db/wildshape-actions";
+import { restoreFeatureUse, spendFeatureUse } from "@/lib/actions/feature-uses";
 import { toast } from "sonner";
 
 /// KR24.5. Перевтілення й лічильник стали однією дією, тож картка мусить показувати залишок там,
@@ -17,6 +18,12 @@ vi.mock("@/server/db/wildshape-actions", () => ({
   enterWildshapeForm: vi.fn(),
   detachWildshapeForm: vi.fn(),
   loadWildshapeForms: vi.fn(),
+}));
+/// Лічильник тисне ті самі серверні дії, що й слайд Рис; тягнути їх у jsdom означає тягнути
+/// next-auth, тож тут вони підмінені.
+vi.mock("@/lib/actions/feature-uses", () => ({
+  spendFeatureUse: vi.fn(),
+  restoreFeatureUse: vi.fn(),
 }));
 /// Пікер — це `/bestiary` в iframe; тут перевіряється лічильник, а не він.
 vi.mock("@/lib/components/characterSheet/AddWildshapeFormDialog", () => ({
@@ -48,7 +55,7 @@ function buildState(overrides: Partial<WildshapeState> = {}): WildshapeState {
       isMoonCircle: true,
       ruleset: "RULES_2014",
       limits: { maxChallengeRating: 2, allowsFlySpeed: false, allowsSwimSpeed: true },
-      limitNotes: ["КР до 2"],
+      limitNotes: ["ПН до 2"],
       knownFormsLimit: null,
     },
     active: null,
@@ -56,6 +63,7 @@ function buildState(overrides: Partial<WildshapeState> = {}): WildshapeState {
     isLoaded: true,
     isPending: false,
     reload: vi.fn(),
+    applyUsesRemaining: vi.fn(),
     ...overrides,
   };
 }
@@ -142,5 +150,71 @@ describe("попередження про порожній пул доходит
 
     await waitFor(() => expect(state.reload).toHaveBeenCalled());
     expect(toast.warning).not.toHaveBeenCalled();
+  });
+});
+
+/// Лічильник Дикої форми ділить пул зі слайдом Рис, тож і серверну частину він ділить: своїх
+/// дій картка не заводить. Число ж міняється до відповіді — інакше кожне натискання чекало б
+/// на мережу.
+describe("витрата й відновлення просто з картки", () => {
+  it("мінус малює новий залишок одразу, а сервер його лише уточнює", async () => {
+    vi.mocked(spendFeatureUse).mockResolvedValue({ success: true, usesRemaining: 0 });
+    const state = buildState();
+
+    render(<WildshapeCard persId={1} persName="Друїд" wildshape={state} />);
+    fireEvent.click(screen.getByLabelText("Витратити використання Дикої форми"));
+
+    expect(state.applyUsesRemaining).toHaveBeenCalledWith(0);
+    await waitFor(() => expect(spendFeatureUse).toHaveBeenCalledWith({ persId: 1, featureId: 17928 }));
+    expect(restoreFeatureUse).not.toHaveBeenCalled();
+  });
+
+  it("плюс повертає використання тією самою дією слайда Рис", async () => {
+    vi.mocked(restoreFeatureUse).mockResolvedValue({ success: true, usesRemaining: 2 });
+    const state = buildState();
+
+    render(<WildshapeCard persId={1} persName="Друїд" wildshape={state} />);
+    fireEvent.click(screen.getByLabelText("Відновити використання Дикої форми"));
+
+    expect(state.applyUsesRemaining).toHaveBeenCalledWith(2);
+    await waitFor(() => expect(restoreFeatureUse).toHaveBeenCalledWith({ persId: 1, featureId: 17928 }));
+  });
+
+  it("відмова сервера повертає залишок назад і каже чому", async () => {
+    vi.mocked(spendFeatureUse).mockResolvedValue({ success: false, error: "Немає доступу до персонажа" });
+    const state = buildState();
+
+    render(<WildshapeCard persId={1} persName="Друїд" wildshape={state} />);
+    fireEvent.click(screen.getByLabelText("Витратити використання Дикої форми"));
+
+    await waitFor(() => expect(toast.error).toHaveBeenCalledWith("Немає доступу до персонажа"));
+    expect(vi.mocked(state.applyUsesRemaining).mock.calls).toEqual([[0], [1]]);
+  });
+
+  it("порожній пул не дає списати, повний — відновити", () => {
+    const { rerender } = render(
+      <WildshapeCard
+        persId={1}
+        persName="Друїд"
+        wildshape={buildState({ uses: { featureId: 17928, price: 1, remaining: 0, max: 2, isUnlimited: false } })}
+      />
+    );
+    expect(screen.getByLabelText("Витратити використання Дикої форми").hasAttribute("disabled")).toBe(true);
+
+    rerender(
+      <WildshapeCard
+        persId={1}
+        persName="Друїд"
+        wildshape={buildState({ uses: { featureId: 17928, price: 1, remaining: 2, max: 2, isUnlimited: false } })}
+      />
+    );
+    expect(screen.getByLabelText("Відновити використання Дикої форми").hasAttribute("disabled")).toBe(true);
+  });
+
+  it("читач чужого листа кнопок не бачить", () => {
+    render(<WildshapeCard persId={1} persName="Друїд" isReadOnly wildshape={buildState()} />);
+
+    expect(screen.queryByLabelText("Витратити використання Дикої форми")).toBeNull();
+    expect(screen.queryByLabelText("Відновити використання Дикої форми")).toBeNull();
   });
 });

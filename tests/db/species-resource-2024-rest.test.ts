@@ -27,7 +27,7 @@ const EMAIL = "species-resource-2024@test.local";
 beforeEach(resetUserData);
 afterAll(disconnectDatabase);
 
-async function createSpeciesCharacter(raceName: Races, level: number) {
+async function createSpeciesCharacter(raceName: Races, level: number, chosenOptionFeatureEngName?: string) {
   const [cls, race, background] = await Promise.all([
     classByName("FIGHTER_2024"),
     raceByName(raceName),
@@ -51,9 +51,16 @@ async function createSpeciesCharacter(raceName: Races, level: number) {
   });
 
   await grantSpeciesTraits(pers.persId, race.raceId);
+  if (chosenOptionFeatureEngName) await grantChosenOption(pers.persId, chosenOptionFeatureEngName);
 
   vi.mocked(auth).mockResolvedValue({ user: { email: EMAIL } } as never);
   return pers.persId;
+}
+
+/// Вибір виду створення кладе окремим рядком `pers_feature` — саме на ньому тепер лічильник.
+async function grantChosenOption(persId: number, featureEngName: string) {
+  const feature = await prisma.feature.findFirstOrThrow({ where: { engName: featureEngName } });
+  await prisma.persFeature.create({ data: { persId, featureId: feature.featureId, usesRemaining: null } });
 }
 
 /**
@@ -132,20 +139,47 @@ describe("ресурси рис видів 2024 на живому персона
    * Рішення власника 2026-09-08: носій показує стільки безкоштовних застосувань, скільки їх є.
    * На 3-му рівні заклинання родоводу одне, на 5-му — два, і рахуються вони за рівнем
    * **персонажа**, а не класу.
+   *
+   * Рішення власника 2026-09-20: лічильник стоїть біля **обраного** родоводу, а не біля
+   * риси-меню, яка перелічує всі три.
    */
-  it("ельф бачить одне безкоштовне застосування родоводу на 3-му рівні й два на 5-му", async () => {
-    const atThird = await createSpeciesCharacter("ELF_2024", 3);
-    const lineage = await findFeature("Elf: Elven Lineage (2024)");
+  it("ельф бачить одне безкоштовне застосування обраного родоводу на 3-му рівні й два на 5-му", async () => {
+    const atThird = await createSpeciesCharacter("ELF_2024", 3, "Elven Lineage: High Elf (2024)");
+    const lineage = await findFeature("Elven Lineage: High Elf (2024)");
+    const menu = await findFeature("Elf: Elven Lineage (2024)");
 
     expect(await findSheetResource(atThird, lineage.name)).toMatchObject({ usesPer: 1, restType: "LONG_REST" });
+    expect(await findSheetResource(atThird, menu.name)).toBeUndefined();
 
     await resetUserData();
-    const atFifth = await createSpeciesCharacter("ELF_2024", 5);
+    const atFifth = await createSpeciesCharacter("ELF_2024", 5, "Elven Lineage: High Elf (2024)");
 
     expect(await findSheetResource(atFifth, lineage.name)).toMatchObject({ usesPer: 2, restType: "LONG_REST" });
     expect(await spendEverything(atFifth, lineage.featureId, 2)).toEqual([1, 0]);
 
     expect((await longRest(atFifth)).success).toBe(true);
     expect(await findFeatureUses(atFifth, lineage.featureId)).toBe(2);
+  });
+
+  /**
+   * Той самий розкол, що його помітив власник на Голіафі: вибір зберігається окремою фічею, а
+   * лічильник стояв на меню з шістьма благословеннями. Голіаф рахує використання бонусом
+   * майстерності, тож на 5-му рівні їх три.
+   */
+  it("голіаф витрачає обране благословення, а не меню з шістьма", async () => {
+    const persId = await createSpeciesCharacter("GOLIATH_2024", 5, "Giant Ancestry: Stone's Endurance (2024)");
+    const boon = await findFeature("Giant Ancestry: Stone's Endurance (2024)");
+    const menu = await findFeature("Goliath: Giant Ancestry (2024)");
+
+    expect(await findSheetResource(persId, boon.name)).toMatchObject({ usesPer: 3, restType: "LONG_REST" });
+    expect(await findSheetResource(persId, menu.name)).toBeUndefined();
+
+    expect(await spendEverything(persId, boon.featureId, 3)).toEqual([2, 1, 0]);
+
+    expect((await shortRest(persId, [])).success).toBe(true);
+    expect(await findFeatureUses(persId, boon.featureId)).toBe(0);
+
+    expect((await longRest(persId)).success).toBe(true);
+    expect(await findFeatureUses(persId, boon.featureId)).toBe(3);
   });
 });

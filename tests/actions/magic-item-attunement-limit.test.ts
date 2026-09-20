@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { createCharacter } from "@/lib/actions/character";
 import { updateMagicItem } from "@/lib/actions/magic-item-actions";
 import { minimalForm } from "../helpers/build-form";
+import { withCreationSpells } from "../helpers/creation-spells";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
@@ -21,7 +22,7 @@ async function createOwnedCharacter(email: string, classId: number) {
     backgroundByName(BackgroundCategory.SOLDIER),
   ]);
   vi.mocked(auth).mockResolvedValue({ user: { email } } as never);
-  const created = await createCharacter(minimalForm({ raceId: race.raceId, classId, backgroundId: background.backgroundId }));
+  const created = await createCharacter(await withCreationSpells(minimalForm({ raceId: race.raceId, classId, backgroundId: background.backgroundId })));
   if ("error" in created) throw new Error(created.error);
   return created.persId;
 }

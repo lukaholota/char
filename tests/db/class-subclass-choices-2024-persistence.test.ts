@@ -2,6 +2,7 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vites
 import { prisma } from "@/lib/prisma";
 import { findCreatorContent, type CreatorContent } from "@/server/db/creator-content-query";
 import { minimalForm } from "../helpers/build-form";
+import { withCreationSpells, withLevelUpSpells } from "../helpers/creation-spells";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
@@ -46,7 +47,7 @@ function optionId(owner: { classChoiceOptions?: any[]; subclassChoiceOptions?: a
 
 async function createBase(className: string, classChoiceSelections: Record<string, number | number[]> = {}) {
   const { characterClass, race, background } = fixtures(className);
-  return createCharacter(minimalForm({
+  return createCharacter(await withCreationSpells(minimalForm({
     classId: characterClass.classId,
     raceId: race.raceId,
     backgroundId: background.backgroundId,
@@ -54,7 +55,7 @@ async function createBase(className: string, classChoiceSelections: Record<strin
     backgroundAsiChoice: { mode: "+2/+1", plusTwo: "STR", plusOne: "CON" },
     languagesSchema: { languages: ["DWARVISH", "ELVISH"] },
     classChoiceSelections,
-  }));
+  })));
 }
 
 describe("KR31.2 — persistence of 2024 choices", () => {
@@ -119,10 +120,10 @@ describe("KR31.2 — persistence of 2024 choices", () => {
     const selected = characterClass.classChoiceOptions.find(
       (link) => link.choiceOption.groupName === levelSevenGroup,
     )!;
-    const result = await levelUpCharacter(created.persId!, minimalLevelUpForm({
+    const result = await levelUpCharacter(created.persId!, await withLevelUpSpells(created.persId!, minimalLevelUpForm({
       classId: characterClass.classId,
       classChoiceSelections: { [levelSevenGroup]: selected.choiceOptionId },
-    }));
+    })));
     expect(result).not.toHaveProperty("error");
     const saved = await prisma.pers.findUniqueOrThrow({ where: { persId: created.persId! }, include: { choiceOptions: true } });
     expect(saved.choiceOptions.map((option) => option.choiceOptionId)).toContain(selected.choiceOptionId);
@@ -149,11 +150,11 @@ describe("KR31.2 — persistence of 2024 choices", () => {
       data: { level: level - 1, subclassId: level > 3 ? subclass.subclassId : null },
     });
     const picks = Array.from({ length: pickCount }, (_, index) => optionId(subclass, groupName, index));
-    const result = await levelUpCharacter(created.persId!, minimalLevelUpForm({
+    const result = await levelUpCharacter(created.persId!, await withLevelUpSpells(created.persId!, minimalLevelUpForm({
       classId: characterClass.classId,
       ...(level === 3 ? { subclassId: subclass.subclassId } : {}),
       subclassChoiceSelections: { [groupName]: picks },
-    }));
+    })));
     expect(result).not.toHaveProperty("error");
 
     const saved = await prisma.pers.findUniqueOrThrow({ where: { persId: created.persId! }, include: { choiceOptions: true } });

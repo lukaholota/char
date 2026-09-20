@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 const ORIGIN = "https://char.holota.family";
 const SERVICE_WORKER_PATH = path.join(process.cwd(), "public", "sw.js");
@@ -166,5 +166,54 @@ describe("KR22.6 — service worker віддає збережений лист",
     await worker.dispatch("message", { data: "forget-offline-pages" });
 
     expect(worker.caches.stores.has("char-pages-v1")).toBe(false);
+  });
+});
+
+describe("Офлайн-аудит 2026-09-18 — картинки листа й каталогів теж кешуються", () => {
+  it("ілюстрації з public і з оптимізатора кладуться в кеш медіа й далі віддаються з нього", async () => {
+    const served = vi.fn(async () => new Response("картинка"));
+    const worker = startServiceWorker(served);
+
+    await requestPage(worker, { url: `${ORIGIN}/images/races/elf.png`, method: "GET" });
+    await requestPage(worker, { url: `${ORIGIN}/_next/image?url=%2Fimages%2Fdragon.png&w=640&q=75`, method: "GET" });
+    await requestPage(worker, { url: `${ORIGIN}/images/races/elf.png`, method: "GET" });
+
+    expect(served).toHaveBeenCalledTimes(2);
+    const media = worker.caches.stores.get("char-media-v1");
+    expect(media?.has(`${ORIGIN}/images/races/elf.png`)).toBe(true);
+    expect(media?.has(`${ORIGIN}/_next/image?url=%2Fimages%2Fdragon.png&w=640&q=75`)).toBe(true);
+  });
+
+  it("портрет із медіа-домену кешується навіть непрозорою відповіддю", async () => {
+    const opaque = new Response(null, { status: 200 });
+    Object.defineProperty(opaque, "type", { value: "opaque" });
+    Object.defineProperty(opaque, "ok", { value: false });
+    const worker = startServiceWorker(async () => opaque);
+
+    const portrait = "https://media.char.holota.family/portraits/42/full.webp";
+    await requestPage(worker, { url: portrait, method: "GET" });
+
+    expect(worker.caches.stores.get("char-media-v1")?.has(portrait)).toBe(true);
+  });
+
+  it("текстури й фізика 3D-кубиків кешуються, щоб кидок працював без мережі", async () => {
+    const served = vi.fn(async () => new Response("файл кубиків"));
+    const worker = startServiceWorker(served);
+
+    const physics = `${ORIGIN}/assets/dice-box/ammo/ammo.wasm.wasm`;
+    const texture = `${ORIGIN}/assets/dice-box/themes/default/diffuse-dark.png`;
+    await requestPage(worker, { url: physics, method: "GET" });
+    await requestPage(worker, { url: texture, method: "GET" });
+    await requestPage(worker, { url: physics, method: "GET" });
+
+    expect(served).toHaveBeenCalledTimes(2);
+    const shell = worker.caches.stores.get("char-shell-v1");
+    expect(shell?.has(physics)).toBe(true);
+    expect(shell?.has(texture)).toBe(true);
+  });
+
+  it("інші чужі домени воркер не чіпає", async () => {
+    const worker = startServiceWorker(async () => new Response("не мало б викликатись"));
+    expect(await requestPage(worker, { url: "https://example.com/x.png", method: "GET" })).toBeNull();
   });
 });

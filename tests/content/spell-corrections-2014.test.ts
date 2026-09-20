@@ -5,9 +5,9 @@
  * щоб розібрані факти зійшлися з 5etools. Помилка у виправленні — це червоний тест, а не тихо
  * зіпсований каталог.
  *
- * Каталог тут — `src/lib/generated/spells.json`, похідний від бази. Відколи власник прогнав
- * `seed:spell-fixes:prod`, він тримає вже **виправлений** стан, тож перевірки описують саме
- * його: виправлення мусить бути правильним і вже застосованим, а не «ще щось міняти».
+ * Каталог тут — `src/lib/generated/spells.json`, похідний від бази: списки класів є лише в ньому.
+ * Виправлення давно в прод-базі, а з KR34.5 текст заклинань живе в `data/2014/spells.json`;
+ * перевірки описують застосований стан, а не «ще щось міняти».
  */
 
 import { describe, expect, it } from "vitest";
@@ -16,7 +16,6 @@ import aliasFile from "@/lib/refs/search-aliases.json";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { toEntitySlug } from "@/lib/slug-utils";
 import {
-  findDuplicateClassRowIds,
   readSpellCorrections2014,
   SpellCorrection,
 } from "../../prisma/seed/spellCorrections2014";
@@ -300,17 +299,6 @@ describe("виправлення каталогу заклинань 2014", () =
     expect(addedExpanded).toEqual([]);
   });
 
-  it("однакові рядки spell_classes зводяться до одного, різні лишаються", () => {
-    const rows = [
-      { classId: 1, spellId: 10, className: "Друїд" },
-      { classId: 2, spellId: 10, className: "Коло землі" },
-      { classId: 3, spellId: 10, className: "Коло землі" },
-      { classId: 4, spellId: 11, className: "Коло землі" },
-      { classId: 5, spellId: 10, className: "Коло землі" },
-    ];
-
-    expect(findDuplicateClassRowIds(rows)).toEqual([3, 5]);
-  });
 });
 
 describe("дублікати під назвами SRD", () => {

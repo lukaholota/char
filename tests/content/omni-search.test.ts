@@ -1,28 +1,27 @@
 import { describe, it, expect } from "vitest";
-import { buildOmniSearchIndex, searchOmniIndex } from "@/lib/omniSearchData";
+import { buildOmniSearchIndex, isCatalogShortcut, searchOmniIndex } from "@/lib/omniSearchData";
+import { collectSearchCatalogs } from "@/lib/catalogs/catalog-registry";
 import { findAliasEntry } from "@/lib/search/searchAliases";
 import { buildQueryMatcher, buildSearchableText, matchesQuery } from "@/lib/search/searchQuery";
 import { findOmniSearchVisual } from "@/lib/search/searchVisuals";
 
 describe("Omni-Search Index and Querying (KR10.2)", () => {
-  it("builds 2014 index with all 10 categories", () => {
-    const index2014 = buildOmniSearchIndex("RULES_2014");
-    expect(index2014.length).toBeGreaterThan(500);
+  /// O36: перелік категорій іде з реєстру каталогів, а не набирається тут руками — так гейт
+  /// бачить каталог, який дописали в реєстр і забули провести в індекс.
+  it.each(["2014", "2024"] as const)("індекс %s містить кожен каталог реєстру, що шукається індексом", (edition) => {
+    const ruleset = edition === "2024" ? "RULES_2024" : "RULES_2014";
+    const index = buildOmniSearchIndex(ruleset);
+    expect(index.length).toBeGreaterThan(500);
 
-    const categories = new Set(index2014.map((item) => item.category));
-    expect(categories.has("spells")).toBe(true);
-    expect(categories.has("magic-items")).toBe(true);
-    expect(categories.has("weapons")).toBe(true);
-    expect(categories.has("armor")).toBe(true);
-    expect(categories.has("bestiary")).toBe(true);
-    expect(categories.has("feats")).toBe(true);
-    expect(categories.has("invocations")).toBe(true);
-    expect(categories.has("classes")).toBe(true);
-    expect(categories.has("races")).toBe(true);
-    expect(categories.has("rules")).toBe(true);
+    const categories = new Set(index.filter((item) => !isCatalogShortcut(item)).map((item) => item.category));
+    for (const entry of collectSearchCatalogs(edition)) {
+      if (entry.search !== "index") continue;
+      expect(categories.has(entry.slug), `каталог «${entry.slug}» без рядків в індексі ${edition}`).toBe(true);
+    }
+  });
 
-    // Ensure 2014 URLs do not have /2024 prefix
-    const spell = index2014.find((i) => i.category === "spells");
+  it("2014 URLs do not have the /2024 prefix", () => {
+    const spell = buildOmniSearchIndex("RULES_2014").find((i) => i.category === "spells" && !isCatalogShortcut(i));
     expect(spell).toBeDefined();
     expect(spell?.href.startsWith("/spells")).toBe(true);
     expect(spell?.href.startsWith("/2024")).toBe(false);
@@ -30,25 +29,12 @@ describe("Omni-Search Index and Querying (KR10.2)", () => {
 
   it("builds 2024 index with segregated 2024 URLs", () => {
     const index2024 = buildOmniSearchIndex("RULES_2024");
-    expect(index2024.length).toBeGreaterThan(500);
 
-    const categories = new Set(index2024.map((item) => item.category));
-    expect(categories.has("spells")).toBe(true);
-    expect(categories.has("magic-items")).toBe(true);
-    expect(categories.has("weapons")).toBe(true);
-    expect(categories.has("armor")).toBe(true);
-    expect(categories.has("feats")).toBe(true);
-    expect(categories.has("invocations")).toBe(true);
-    expect(categories.has("classes")).toBe(true);
-    expect(categories.has("races")).toBe(true);
-    expect(categories.has("rules")).toBe(true);
-
-    // Ensure 2024 URLs have /2024 prefix
-    const spell = index2024.find((i) => i.category === "spells");
+    const spell = index2024.find((i) => i.category === "spells" && !isCatalogShortcut(i));
     expect(spell).toBeDefined();
     expect(spell?.href.startsWith("/2024/spells")).toBe(true);
 
-    const rule = index2024.find((i) => i.category === "rules");
+    const rule = index2024.find((i) => i.category === "rules" && !isCatalogShortcut(i));
     expect(rule).toBeDefined();
     expect(rule?.href.startsWith("/2024/rules")).toBe(true);
   });

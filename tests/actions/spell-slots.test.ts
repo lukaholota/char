@@ -9,6 +9,7 @@ import {
   spendSpellSlot,
 } from "@/lib/actions/spell-slots";
 import { minimalForm } from "../helpers/build-form";
+import { withCreationSpells } from "../helpers/creation-spells";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
@@ -32,9 +33,7 @@ describe("spell slot actions", () => {
       classByName(Classes.WARLOCK_2014),
       backgroundByName(BackgroundCategory.SAGE),
     ]);
-    const created = await createCharacter(
-      minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId }),
-    );
+    const created = await createCharacter(await withCreationSpells(minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId })));
     if ("error" in created) throw new Error(created.error);
 
     await prisma.pers.update({

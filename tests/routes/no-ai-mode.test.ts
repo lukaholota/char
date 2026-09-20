@@ -9,7 +9,7 @@ import {
   stripNoAiPrefix,
 } from "@/lib/no-ai/no-ai-route";
 import { findImageProvenance, findVisibleImageSrc, isAiGeneratedImage } from "@/lib/assets/asset-provenance";
-import { collectHomeCategories } from "@/components/home/homeCategories";
+import { collectHomeCardRows, collectHomeCategories } from "@/components/home/homeCategories";
 
 const srcDir = path.resolve(process.cwd(), "src");
 const appDir = path.join(srcDir, "app");
@@ -87,6 +87,7 @@ describe("Режим без ШІ — походження зображень", (
   it("великі обкладинки головної не ховаються", () => {
     expect(isAiGeneratedImage("/images/home/characters.webp")).toBe(false);
     expect(isAiGeneratedImage("/images/home/spells.webp")).toBe(false);
+    expect(isAiGeneratedImage("/images/home/bestiary.webp"), "обкладинка бестіарію — кроп плитки").toBe(true);
   });
 });
 
@@ -159,8 +160,9 @@ describe("Головна — картки категорій", () => {
   it("обкладинка кожної картки лежить на диску", () => {
     const missing = new Set<string>();
     for (const edition of ["2014", "2024"] as const) {
-      for (const category of collectHomeCategories(edition)) {
-        for (const src of [category.imageSrc, category.noAiImageSrc]) {
+      const { heroes, tiles } = collectHomeCardRows(edition);
+      for (const card of [...heroes, ...tiles]) {
+        for (const src of [card.imageSrc, card.category.noAiImageSrc]) {
           if (!src) continue;
           const file = path.resolve(process.cwd(), "public", src.replace(/^\//, ""));
           if (!fs.existsSync(file)) missing.add(src);

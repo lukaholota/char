@@ -6,7 +6,7 @@ export function assertTestDatabaseUrl(url: string | undefined): string {
   if (!url) {
     throw new Error(
       "DATABASE_URL не заданий. Тести читають його з .env.test — цей файл у git не зберігається.\n" +
-        "Підняти базу і взяти URL: ./scripts/db-clone.sh spells_test",
+        "Підняти локальну базу: ./scripts/local-test-db.sh clone",
     );
   }
 

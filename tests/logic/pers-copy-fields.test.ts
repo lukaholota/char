@@ -7,18 +7,14 @@ import path from "node:path";
  * коли в таблиці з'являється стовпець, обидва списки мовчки старіють: саме так копія 2024
  * персонажа падала на `ruleset` за замовчуванням і ставала персонажем 2014.
  */
+/// KR31.7: знімок, копія теки й копія за посиланням ідуть через ту саму `clonePersWithRelations`,
+/// тож джерело одне. Звʼязки й поля дочірніх таблиць звіряє `tests/db/pers-copy-completeness.test.ts`.
 const COPY_SOURCES = [
   {
     file: "src/lib/logic/pers-duplication.ts",
     what: "копія персонажа",
-    /// Копія — новий персонаж іншого власника: власний ключ, час, посилання на знімок і токен
-    /// доступу не переносяться навмисно.
-    skipped: ["persId", "createdAt", "updatedAt", "shareToken", "parentPersId", "snapshotLevel"],
-  },
-  {
-    file: "src/server/db/snapshots.ts",
-    what: "знімок рівня",
-    skipped: ["persId", "createdAt", "updatedAt", "shareToken", "folderId", "isPinned"],
+    /// Власний ключ, час і токен доступу — ознаки саме цього рядка, не персонажа.
+    skipped: ["persId", "createdAt", "updatedAt", "shareToken"],
   },
 ];
 
@@ -94,7 +90,7 @@ describe("Копія персонажа не губить стовпців та�
     expect(missing, `${file} не копіює: ${missing.join(", ")}`).toEqual([]);
   });
 
-  it("редакція правил їде з персонажем в обидвох шляхах", () => {
+  it("редакція правил їде з персонажем", () => {
     for (const { file } of COPY_SOURCES) {
       expect(readWrittenFields(file), file).toContain("ruleset");
     }

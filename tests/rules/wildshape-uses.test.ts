@@ -36,6 +36,12 @@ describe("яка фіча платить за вхід у форму", () => {
     expect(findFormFeature([WILD_SHAPE], "Елементаль")).toBeNull();
   });
 
+  it("KR31.15 — за звіра друїда 2024 платить «Druid: Wild Shape (2024)», а не Зоряна форма кола", () => {
+    const wildShape2024 = { featureId: 48895, engName: "Druid: Wild Shape (2024)", usePrice: 1 };
+    const starryForm2024 = { featureId: 48635, engName: "Circle of the Stars: Starry Form (2024)", usePrice: 1 };
+    expect(findFormFeature([starryForm2024, wildShape2024], "Звір")).toBe(wildShape2024);
+  });
+
   it("тип, на який Дика форма не перетворює, платника не має", () => {
     expect(findFormFeature(MOON_DRUID_FEATURES, "Дракон")).toBeNull();
   });
