@@ -1,7 +1,11 @@
 const SHELL_CACHE = "char-shell-v1";
 const PAGE_CACHE = "char-pages-v1";
+const MEDIA_CACHE = "char-media-v1";
 const OFFLINE_URL = "/offline";
 const MAX_CACHED_PAGES = 60;
+const MAX_CACHED_SHELL_FILES = 600;
+const MAX_CACHED_MEDIA_FILES = 400;
+const MEDIA_ORIGINS = ["https://media.char.holota.family"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -19,7 +23,9 @@ self.addEventListener("activate", (event) => {
       .keys()
       .then((names) =>
         Promise.all(
-          names.filter((name) => name !== SHELL_CACHE && name !== PAGE_CACHE).map((name) => caches.delete(name)),
+          names
+            .filter((name) => name !== SHELL_CACHE && name !== PAGE_CACHE && name !== MEDIA_CACHE)
+            .map((name) => caches.delete(name)),
         ),
       )
       .then(() => self.clients.claim()),
@@ -35,6 +41,12 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
+
+  if (MEDIA_ORIGINS.includes(url.origin)) {
+    event.respondWith(respondFromCacheFirst(request, MEDIA_CACHE, MAX_CACHED_MEDIA_FILES));
+    return;
+  }
+
   if (url.origin !== self.location.origin) return;
   if (url.pathname.startsWith("/api/")) return;
 
@@ -43,8 +55,17 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.startsWith("/_next/static/") || url.pathname.startsWith("/fonts/")) {
-    event.respondWith(respondFromCacheFirst(request));
+  if (
+    url.pathname.startsWith("/_next/static/") ||
+    url.pathname.startsWith("/fonts/") ||
+    url.pathname.startsWith("/assets/")
+  ) {
+    event.respondWith(respondFromCacheFirst(request, SHELL_CACHE, MAX_CACHED_SHELL_FILES));
+    return;
+  }
+
+  if (url.pathname.startsWith("/images/") || url.pathname.startsWith("/_next/image")) {
+    event.respondWith(respondFromCacheFirst(request, MEDIA_CACHE, MAX_CACHED_MEDIA_FILES));
   }
 });
 
@@ -77,19 +98,27 @@ async function findOfflinePage() {
 async function rememberPage(request, response) {
   const cache = await caches.open(PAGE_CACHE);
   await cache.put(request, response);
-
-  const cached = await cache.keys();
-  for (const stale of cached.slice(0, Math.max(0, cached.length - MAX_CACHED_PAGES))) {
-    await cache.delete(stale);
-  }
+  await dropOldestEntries(cache, MAX_CACHED_PAGES);
 }
 
-async function respondFromCacheFirst(request) {
-  const cache = await caches.open(SHELL_CACHE);
+// Портрети й ілюстрації з іншого origin приходять непрозорими (status 0) — їх теж кладемо: без
+// картинок збережений лист і каталог виглядають зламаними, а не «офлайн».
+async function respondFromCacheFirst(request, cacheName, limit) {
+  const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
   if (cached) return cached;
 
   const response = await fetch(request);
-  if (response.ok) await cache.put(request, response.clone());
+  if (response.ok || response.type === "opaque") {
+    await cache.put(request, response.clone());
+    await dropOldestEntries(cache, limit);
+  }
   return response;
+}
+
+async function dropOldestEntries(cache, limit) {
+  const cached = await cache.keys();
+  for (const stale of cached.slice(0, Math.max(0, cached.length - limit))) {
+    await cache.delete(stale);
+  }
 }
