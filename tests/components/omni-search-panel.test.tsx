@@ -72,8 +72,10 @@ describe("KR36.4 — «ще K у каталозі» перемикає філь�
     const input = renderPanel();
     fireEvent.change(input, { target: { value: "магія" } });
 
+    /// Саме «Заклинання»: каталог, який після перемикання влазить у 50 рядків цілком, тож
+    /// зникнути мають усі рядки «ще K». У «Довідника правил» їх тисячі — там він лишається.
     const rows = [...document.querySelectorAll<HTMLElement>("[data-omni-index]")];
-    const moreIndex = rows.findIndex((row) => /^Ще \d+ у каталозі/.test(row.textContent ?? ""));
+    const moreIndex = rows.findIndex((row) => /^Ще \d+ у каталозі «Заклинання»/.test(row.textContent ?? ""));
     expect(moreIndex).toBeGreaterThan(0);
 
     for (let step = 0; step < moreIndex; step += 1) fireEvent.keyDown(input, { key: "ArrowDown" });
@@ -82,7 +84,7 @@ describe("KR36.4 — «ще K у каталозі» перемикає філь�
     expect(state.push).not.toHaveBeenCalled();
     expect(screen.queryByRole("button", { name: /^Ще \d+ у каталозі/ })).toBeNull();
     const firstRow = document.querySelector<HTMLElement>('[data-omni-index="0"]')!;
-    expect(within(firstRow).getByText(/Заклинання|Бестіарій|Правила|Риси|Предмети|Зброя|Обладунки|Виклики|Метамагія|Походження|Класи|Раси|Вливання/i)).toBeTruthy();
+    expect(within(firstRow).getAllByText("Заклинання").length).toBeGreaterThan(0);
   });
 
   it("Enter на результаті навігує на його адресу", () => {
