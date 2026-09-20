@@ -11,6 +11,10 @@
 
 import { Ruleset } from '@prisma/client';
 
+/// `round` — токен 5etools: кругла картина у власному кільці, з прозорими кутами. Така картинка
+/// не кадрується у квадрат і не бере нашу рамку — і те, і те зрізало б половину малюнка.
+export type CreatureImageShape = "round";
+
 export type GeneratedCreature = {
   creatureId: number;
   name: string;
@@ -59,6 +63,8 @@ export type GeneratedCreature = {
   /// Розміри локального webp (KR12.4) — картка резервує місце під картинку до завантаження.
   imageWidth?: number;
   imageHeight?: number;
+  /// `round` для токенів 5etools: круглий арт із прозорими кутами, який малюється без рамки.
+  imageShape?: CreatureImageShape;
   /// Міфічні дії (KR16.3, партія 16). Опційні: у корпусі 2014 їх несе один запис із 935.
   mythicInfo?: string;
   mythicActions?: string;

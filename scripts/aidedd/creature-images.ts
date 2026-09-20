@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import sharp from "sharp";
 import { AIDEDD_DIR } from "./aidedd-catalogs";
-import { GeneratedCreature } from "../generate-creatures";
+import { CreatureImageShape, GeneratedCreature } from "../generate-creatures";
 
 export type CreatureRuleset = "RULES_2014" | "RULES_2024";
 
@@ -10,6 +10,7 @@ export type CreatureImage = {
   file: string;
   width: number;
   height: number;
+  shape?: CreatureImageShape;
 };
 
 export type CreatureImageManifest = Record<CreatureRuleset, Record<string, CreatureImage>>;
@@ -84,6 +85,7 @@ export function stampCreatureImages(
       imageUrl: buildPublicImagePath(ruleset, image.file),
       imageWidth: image.width,
       imageHeight: image.height,
+      ...(image.shape ? { imageShape: image.shape } : {}),
     };
   });
 }

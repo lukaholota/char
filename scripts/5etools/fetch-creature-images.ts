@@ -24,9 +24,10 @@ const IMAGE_MIRROR_REVISION = "64a508983f48a7812986ca0fe3ee75abaf7c6d0e";
 const ORIGINAL_DIR = join(RAW_CACHE_DIR, "img");
 const PAUSE_MS = 250;
 
-/// A 5etools token is the book illustration inside a round bronze frame. The square inscribed in
-/// the frame's inner circle keeps only the painting — the frame would clash with the site's own.
-const TOKEN_INNER_SQUARE_RATIO = 0.58;
+/// Токен 5etools — кругла картина у власному кільці, з прозорими кутами. Раніше ми вирізали з
+/// нього квадрат у 58% сторони, щоб кільце не сперечалося з рамкою сайта, і втрачали більшу
+/// частину малюнка разом із силуетом. Рішення власника 2026-09-20: брати токен як є й малювати
+/// його без рамки — композиція намальована під круг, і круглою вона й лишається.
 
 const CATALOGUE_FILES: Record<CreatureRuleset, string> = {
   RULES_2014: "src/lib/generated/creatures.json",
@@ -147,12 +148,12 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
       if (!force && existsSync(targetPath)) {
         image = await measureImage(targetPath, file);
       } else {
-        const original = pick.kind === "token" ? await cutTokenPainting(findOriginalPath(pick)) : findOriginalPath(pick);
-        image = await compressToWebp(original, targetPath);
+        image = await compressToWebp(findOriginalPath(pick), targetPath);
         written += 1;
       }
-      byFile.set(file, image);
-      converted.set(pick.nameEng, image);
+      const stamped = pick.kind === "token" ? { ...image, shape: "round" as const } : image;
+      byFile.set(file, stamped);
+      converted.set(pick.nameEng, stamped);
     } catch {
       broken.push(pick.path);
     }
@@ -161,19 +162,6 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
   console.log(`  🗜  ${written} стиснуто у webp, ${byFile.size - written} вже було, ${converted.size} істот`);
   if (broken.length > 0) console.log(`  ⚠️  ${broken.length} не читається: ${broken.slice(0, 5).join(", ")}`);
   return converted;
-}
-
-async function cutTokenPainting(tokenPath: string): Promise<string> {
-  const { width, height } = await sharp(tokenPath).metadata();
-  if (!width || !height) throw new Error(`Не читається як картинка: ${tokenPath}`);
-
-  const side = Math.floor(Math.min(width, height) * TOKEN_INNER_SQUARE_RATIO);
-  const cutPath = tokenPath.replace(/\.webp$/, ".square.png");
-  await sharp(tokenPath)
-    .extract({ left: Math.floor((width - side) / 2), top: Math.floor((height - side) / 2), width: side, height: side })
-    .png()
-    .toFile(cutPath);
-  return cutPath;
 }
 
 function writeManifest(ruleset: CreatureRuleset, converted: Map<string, CreatureImage>): void {
