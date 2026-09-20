@@ -2,9 +2,10 @@
 
 import { Logo } from "@/lib/components/icons/Logo";
 import { DragonIcon } from "@/lib/components/icons/DragonIcon";
+import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useSearchParams } from "next/navigation";
-import { BookOpen, Dices, Eye, Home, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
+import { BookOpen, Eye, Home, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -12,10 +13,12 @@ import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
 import { NavExtraMenu } from "@/components/ui/NavExtraMenu";
 import { EditionSwitcher } from "@/components/ui/EditionSwitcher";
 import { useRoutePathname } from "@/components/no-ai/NoAiModeProvider";
-import { getEditionFromPathname, type Edition } from "@/rules/route-helpers";
+import { type Edition } from "@/rules/route-helpers";
+import { type AccentSchemeName, findEditionAccent } from "@/styles/edition-accent";
+import { useActiveEdition } from "@/components/ui/PersEditionPin";
 
-const EDITION_ACCENT = {
-	"2014": {
+const NAV_ACCENT = {
+	arcane: {
 		activeItem: "bg-arcane-400/10 text-arcane-200 ring-1 ring-inset ring-arcane-300/25",
 		activeMarker: "bg-arcane-300",
 		activeIcon: "drop-shadow-[0_0_6px_rgba(45,212,191,0.5)]",
@@ -23,15 +26,15 @@ const EDITION_ACCENT = {
 		ornament: "text-arcane-300/60",
 		logoRing: "ring-arcane-400/20",
 	},
-	"2024": {
-		activeItem: "bg-amber-400/10 text-amber-200 ring-1 ring-inset ring-amber-300/25",
-		activeMarker: "bg-amber-300",
-		activeIcon: "drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]",
-		edgeLine: "via-amber-400/30",
-		ornament: "text-amber-300/60",
-		logoRing: "ring-amber-400/20",
+	prism: {
+		activeItem: "bg-prism-400/10 text-prism-200 ring-1 ring-inset ring-prism-300/25",
+		activeMarker: "bg-prism-300",
+		activeIcon: "drop-shadow-[0_0_6px_rgba(215,116,238,0.5)]",
+		edgeLine: "via-prism-400/30",
+		ornament: "text-prism-300/60",
+		logoRing: "ring-prism-400/20",
 	},
-} satisfies Record<Edition, Record<string, string>>;
+} satisfies Record<AccentSchemeName, Record<string, string>>;
 
 // Kept in step with the button inside NavExtraMenu — "Меню" sits in the same row and must not
 // drift away from its neighbours.
@@ -156,7 +159,7 @@ function NavItemButton({
 }: {
 	item: NavItem;
 	isActive: boolean;
-	accent: (typeof EDITION_ACCENT)[Edition];
+	accent: (typeof NAV_ACCENT)[AccentSchemeName];
 }) {
 	const body = (
 		<>
@@ -221,6 +224,7 @@ export const Navigation = () => {
 	const isInsideIframe = useIsInsideIframe();
 	const { toggle: toggleDice } = useDiceUIStore();
 	const { open: openSearch } = useOmniSearchStore();
+	const edition = useActiveEdition();
 
 	const isEmbed =
 		(pathname.startsWith("/spells") || pathname.startsWith("/magic-items") || pathname.startsWith("/2024/spells") || pathname.startsWith("/2024/magic-items")) &&
@@ -230,15 +234,17 @@ export const Navigation = () => {
 		return null;
 	}
 
-	const edition = getEditionFromPathname(pathname);
-	const accent = EDITION_ACCENT[edition];
+	const accent = NAV_ACCENT[findEditionAccent(edition).scheme];
 	const items = buildNavItems(edition, openSearch);
 	const homeHref = edition === "2024" ? "/2024" : "/";
 
+	// Панель меню всередині <nav> не може вибитися вище за сам <nav>: fixed + z-index робить із
+	// нього контекст накладання. Тому рамка застосунку стоїть вище за плаваючі панелі сторінок
+	// (крокова панель конструктора й левелапа — z-[60]), інакше вони ріжуть відкрите меню.
 	return (
 		<nav
 			className={cn(
-				"fixed bottom-0 left-0 z-50 flex w-full flex-row items-center justify-between gap-1 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))]",
+				"fixed bottom-0 left-0 z-[70] flex w-full flex-row items-center justify-between gap-1 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))]",
 				"border-t border-white/[0.07] bg-[#0b0b11] bg-[linear-gradient(to_top,#08080c,#0e0e16)]",
 				"md:top-0 md:w-[88px] md:flex-col md:justify-between md:gap-0 md:border-t-0 md:border-r md:border-white/[0.07] md:px-0 md:py-6",
 				"md:bg-[linear-gradient(to_bottom,#0e0e16,#08080c)]"
@@ -296,7 +302,7 @@ export const Navigation = () => {
 					onClick={toggleDice}
 					className={cn(ITEM, "flex text-amber-400/80 hover:bg-amber-500/10 hover:text-amber-400")}
 				>
-					<NavIcon icon={Dices} />
+					<D20Icon strokeWidth={NAV_ICON_STROKE} />
 					<span className={ITEM_LABEL}>Кубики</span>
 				</button>
 

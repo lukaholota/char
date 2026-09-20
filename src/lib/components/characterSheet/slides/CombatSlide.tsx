@@ -22,6 +22,7 @@ import AddMagicItemDialog from "../AddMagicItemDialog";
 import { WildshapeCard } from "../WildshapeCard";
 import type { WildshapeState } from "../useWildshapeState";
 import { updateMagicItem, deleteMagicItem } from "@/lib/actions/magic-item-actions";
+import { MagicItemChargesControl } from "../MagicItemChargesControl";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { Ability, AbilityBonusType } from "@prisma/client";
@@ -37,6 +38,7 @@ function MagicItemRow({
     onDelete, 
     onUpdate,
     onSelect,
+    onChargesChanged,
     isRemoving
 }: { 
     pmi: PersWithRelations['magicItems'][number] & { magicItem: NonNullable<PersWithRelations['magicItems'][number]['magicItem']> };
@@ -44,6 +46,7 @@ function MagicItemRow({
     onDelete: () => void;
     onUpdate: (updates: { isEquipped?: boolean; isAttuned?: boolean }) => void;
     onSelect: () => void;
+    onChargesChanged: () => void;
     isRemoving: boolean;
 }) {
     const [confirmDelete, setConfirmDelete] = useState(false);
@@ -72,6 +75,13 @@ function MagicItemRow({
                 </div>
 
                 <div className="flex items-center gap-2 ml-2" onClick={e => e.stopPropagation()}>
+                    <MagicItemChargesControl
+                        persId={pmi.persId}
+                        persMagicItemId={pmi.persMagicItemId}
+                        charges={{ chargesMax: pmi.chargesMax, chargesCurrent: pmi.chargesCurrent }}
+                        isReadOnly={isReadOnly}
+                        onChanged={onChargesChanged}
+                    />
                     {!isReadOnly && (
                         <>
                             {/* Toggle Attunement if required */}
@@ -328,7 +338,7 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
             <Shield className="w-5 h-5" />
             Обладунок та захист
           </CardTitle>
-          {!isReadOnly && <AddArmorDialog persId={pers.persId} />}
+          {!isReadOnly && <AddArmorDialog persId={pers.persId} ruleset={pers.ruleset} />}
         </CardHeader>
         <CardContent className="p-2 space-y-4">
           <div className="space-y-2">
@@ -495,7 +505,7 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
             </span>
           </CardTitle>
           <div className="flex items-center gap-1">
-            {!isReadOnly && <AddMagicItemDialog persId={pers.persId} persName={pers.name} />}
+            {!isReadOnly && <AddMagicItemDialog persId={pers.persId} persName={pers.name} ruleset={pers.ruleset} />}
           </div>
         </CardHeader>
         <CardContent className="p-2 space-y-0">
@@ -507,6 +517,7 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
                  isReadOnly={isReadOnly} 
                  isRemoving={removingMagicItemIds.has(pmi.persMagicItemId)}
                  onSelect={() => setSelectedMagicItem(pmi.magicItem)}
+                 onChargesChanged={() => router.refresh()}
                  onDelete={async () => {
                    setRemovingMagicItemIds(prev => new Set(prev).add(pmi.persMagicItemId));
                    setTimeout(async () => {
@@ -549,7 +560,7 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
       />
       {selectedWeapon && (
         <WeaponCustomizeModal 
-          persWeapon={selectedWeapon as any} 
+          persWeapon={selectedWeapon}
           open={!!selectedWeapon} 
           onOpenChange={(open) => !open && setSelectedWeapon(null)} 
         />

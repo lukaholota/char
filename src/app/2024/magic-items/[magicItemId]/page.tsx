@@ -56,9 +56,9 @@ export async function generateMetadata({
 
 function MagicItemDetailCard({ item }: { item: MagicItemWithSpells }) {
   return (
-    <div className="glass-card border border-white/10 bg-slate-950/60 p-3 shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20 backdrop-blur-xl sm:p-6 break-words max-w-full overflow-hidden">
+    <div className="glass-card border border-white/10 bg-slate-950/60 p-3 shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20 backdrop-blur-xl sm:p-6 break-words max-w-full overflow-hidden">
       <div className="flex items-start justify-between gap-2">
-        <h1 className="flex-1 min-w-0 font-sans text-base sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500 truncate">
+        <h1 className="flex-1 min-w-0 font-sans text-base sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-prism-300 to-prism-500 truncate">
           {item.name}
         </h1>
         {item.engName && (
@@ -77,7 +77,7 @@ function MagicItemDetailCard({ item }: { item: MagicItemWithSpells }) {
             <span className="text-slate-300">{rarityLabel(item.rarity)}</span>
           </div>
 
-          <div className="min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs text-amber-300 truncate">
+          <div className="min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs text-prism-300 truncate">
             {item.requiresAttunement ? "Потребує налаштування" : "Без налаштування"}
           </div>
         </div>
@@ -103,7 +103,7 @@ export default async function MagicItemDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.05),transparent_50%)] overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(192,74,224,0.05),transparent_50%)] overflow-x-hidden">
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/20 backdrop-blur-xl">
         <div className="mx-auto max-w-2xl px-4 py-3">
           <Link

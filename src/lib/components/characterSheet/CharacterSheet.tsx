@@ -1,5 +1,6 @@
 "use client";
 
+import { SheetPortraitButton } from "@/lib/components/portrait/SheetPortraitButton";
 import { useCallback, useEffect, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { getCharacterFeaturesGrouped, getCharacterFeaturesGroupedByShareToken, renamePers } from "@/lib/actions/pers";
@@ -10,7 +11,8 @@ import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
 import RestButton from "./RestButton";
 import { Badge } from "@/components/ui/badge";
 import { ShareDialog } from "./ShareDialog";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { acceptPersEditShareToken, copyPersByToken } from "@/lib/actions/share-actions";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
@@ -25,28 +27,36 @@ import {
 import { Input } from "@/components/ui/input";
 import OfflineStatusBadge from "./OfflineStatusBadge";
 import { useIsOnline } from "@/hooks/useIsOnline";
-import { applyQueuedOperations } from "@/lib/offline/operations";
+import { applyQueuedOperationsToSheet } from "@/lib/offline/sheet-state";
 import { readOfflineQueue } from "@/lib/offline/queue";
+import { useSignInGate } from "@/components/discussion/useSignInGate";
+import type { SpellBuffCatalogEntry } from "@/lib/logic/state-labels";
+import { SheetStatesProvider } from "./states/SheetStatesContext";
+import { StatesSheet } from "./states/StatesSheet";
+import { StatusChips } from "./states/StatusChips";
+import { useSheetStates } from "./states/useSheetStates";
 
-const mobileIconButtonClassName = "h-9 w-9 gap-0 p-0 sm:h-8 sm:w-8";
-const mobileTextButtonClassName = "h-9 min-w-[5.5rem] justify-start gap-1.5 px-2 text-left sm:h-8 sm:min-w-0 sm:justify-center sm:gap-2 sm:px-3";
+const mobileIconButtonClassName = "h-10 w-10 gap-0 p-0 sm:h-8 sm:w-8";
+const mobileTextButtonClassName = "h-10 min-w-[5.5rem] justify-start gap-1.5 px-2 text-left sm:h-8 sm:min-w-0 sm:justify-center sm:gap-2 sm:px-3";
 const mobileTextLabelClassName = "block text-[10px] leading-none sm:text-sm";
 
 interface CharacterSheetProps {
   pers: PersWithRelations;
   spellcastingSources: readonly SpellSource[];
   groupedFeatures: CharacterFeaturesGroupedResult | null;
+  spellBuffCatalog?: readonly SpellBuffCatalogEntry[];
   isPublicView?: boolean;
   editShareToken?: string | null;
+  canShare?: boolean;
 }
 
-export default function CharacterSheet({ pers, spellcastingSources, groupedFeatures, isPublicView, editShareToken }: CharacterSheetProps) {
+export default function CharacterSheet({ pers, spellcastingSources, groupedFeatures, spellBuffCatalog = [], isPublicView, editShareToken, canShare }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
   const isReadOnly = isPublicView || pers.isSnapshot;
   const params = useParams();
-  const router = useRouter();
+  const router = useModeRouter();
   const [isCopyPending, startCopyTransition] = useTransition();
   const [isAcceptPending, startAcceptTransition] = useTransition();
   const [isRenamePending, startRenameTransition] = useTransition();
@@ -54,21 +64,23 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
   const isOnline = useIsOnline();
+  const { requireSignIn, signInDialog } = useSignInGate();
 
   const shareToken = (params as any)?.token as string | undefined;
 
   // Офлайн сторінка приїжджає з кешу service worker, тобто зі станом на момент кешування.
   // Незбережені операції лежать у черзі — без них лист показував би застарілі хіти й комірки.
-  useEffect(() => {
-    setLocalPers(applyQueuedOperations(pers, readOfflineQueue()));
-  }, [pers]);
+  const showQueuedOperations = useCallback(() => {
+    const composed = applyQueuedOperationsToSheet(pers, groupedFeatures, readOfflineQueue());
+    setLocalPers(composed.pers);
+    setLocalGroupedFeatures(composed.groupedFeatures);
+  }, [pers, groupedFeatures]);
 
-  useEffect(() => {
-    setLocalGroupedFeatures(groupedFeatures);
-  }, [groupedFeatures]);
+  useEffect(() => showQueuedOperations(), [showQueuedOperations]);
+  const sheetStates = useSheetStates({ pers: localPers, onPersUpdate: setLocalPers, groupedFeatures: localGroupedFeatures, catalog: spellBuffCatalog, isReadOnly, onFeaturesChanged: () => reloadFeatures() });
 
   const reloadFeatures = useCallback(() => {
-    if (!localPers?.persId) return;
+    if (!localPers?.persId || !navigator.onLine) return;
 
     startFeaturesTransition(async () => {
       try {
@@ -97,7 +109,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
     const token = params?.token as string;
     if (!token) return;
 
-    startCopyTransition(async () => {
+    requireSignIn(() => startCopyTransition(async () => {
         const result = await copyPersByToken(token);
         if (result.success && result.persId) {
             toast.success("Персонажа скопійовано до вашого профілю!");
@@ -105,13 +117,13 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
         } else {
             toast.error(result.error || "Не вдалося скопіювати персонажа");
         }
-    });
+    }));
   };
 
   const handleAcceptEditAccess = () => {
     if (!editShareToken) return;
 
-    startAcceptTransition(async () => {
+    requireSignIn(() => startAcceptTransition(async () => {
       const result = await acceptPersEditShareToken(editShareToken);
       if (result.success && result.persId) {
         toast.success("Доступ до редагування надано!");
@@ -119,7 +131,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
       } else {
         toast.error(result.error || "Не вдалося отримати доступ");
       }
-    });
+    }));
   };
 
   const handleRename = () => {
@@ -171,9 +183,17 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
   };
 
   return (
+    <SheetStatesProvider control={sheetStates}>
     <div className="h-full overflow-hidden w-full bg-slate-900 flex flex-col">
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-900/70 p-3 px-4 backdrop-blur">
            <div className="flex items-start justify-between gap-2 sm:items-center">
+             <SheetPortraitButton
+               persId={localPers.persId}
+               name={localPers.name}
+               portraitKey={localPers.portraitKey}
+               canEdit={!isReadOnly}
+               onPortraitChange={(portraitKey) => setLocalPers({ ...localPers, portraitKey })}
+             />
              <div className="min-w-0 flex-1 pr-1">
                {!isReadOnly ? (
                  <Dialog open={renameOpen} onOpenChange={setRenameOpen}>
@@ -224,13 +244,15 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
                  <span>Рівень {localPers.level}</span>
                  {!isReadOnly && <OfflineStatusBadge />}
                </div>
+               <StatusChips />
                {isReadOnly && (
-                 <Badge variant="outline" className="mt-2 bg-amber-500/10 text-amber-500 border-amber-500/20">
-                   {isPublicView ? "Тільки для читання" : `Знімок: Рівень ${pers.snapshotLevel || pers.level}`}
-                 </Badge>
+                 <ReadOnlyBadge
+                   label={describeReadOnlyView({ isPublicView, canEditByLink: Boolean(editShareToken), level: pers.snapshotLevel || pers.level })}
+                   canEditByLink={Boolean(isPublicView && editShareToken)}
+                 />
                )}
              </div>
-             <div className="grid shrink-0 grid-cols-[2.25rem_auto] gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:justify-end sm:gap-2">
+             <div className="grid shrink-0 grid-cols-[2.5rem_auto] gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:justify-end sm:gap-2">
                {isPublicView && (
                    <Button 
                        size="sm" 
@@ -269,15 +291,15 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
                    pers={localPers}
                    onPersUpdate={setLocalPers}
                    onGroupedFeaturesRefresh={() => refreshGroupedFeatures()}
+                   onRestQueued={showQueuedOperations}
                    triggerClassName={mobileTextButtonClassName}
                    triggerLabel="Відпочинок"
                    triggerLabelClassName={mobileTextLabelClassName}
                  />
                )}
-               {!isReadOnly && (
+               {!isReadOnly && canShare && (
                  <ShareDialog
                    persId={localPers.persId}
-                   initialToken={localPers.shareToken}
                    triggerVariant="secondary"
                    triggerClassName={`${mobileIconButtonClassName} text-slate-200`}
                    triggerLabel="Поділитися"
@@ -307,7 +329,26 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
       <div className="flex-1 min-h-0 md:pb-0 md:overflow-hidden">
         <CharacterCarousel pers={localPers} spellcastingSources={spellcastingSources} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} reloadFeatures={reloadFeatures} />
       </div>
+      {isPublicView && signInDialog}
+      <StatesSheet />
     </div>
+    </SheetStatesProvider>
+  );
+}
+
+function describeReadOnlyView({ isPublicView, canEditByLink, level }: { isPublicView?: boolean; canEditByLink: boolean; level: number }): string {
+  if (!isPublicView) return `Знімок: Рівень ${level}`;
+  return canEditByLink ? "Посилання для редагування — натисніть «Редагувати»" : "Тільки для читання";
+}
+
+function ReadOnlyBadge({ label, canEditByLink }: { label: string; canEditByLink: boolean }) {
+  const colorClassName = canEditByLink
+    ? "bg-emerald-500/10 text-emerald-300 border-emerald-500/30"
+    : "bg-amber-500/10 text-amber-500 border-amber-500/20";
+  return (
+    <Badge variant="outline" className={`mt-2 ${colorClassName}`}>
+      {label}
+    </Badge>
   );
 }
 

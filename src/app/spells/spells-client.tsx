@@ -1,15 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import {
   Printer,
   UserPlus,
   Check,
-  Loader2,
   Trash2,
   Wand2,
-  Sparkles,
-  Clock3,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,7 +17,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { spellSchoolTranslations } from "@/lib/refs/translation";
 import {
   clearSourceParams,
   collectCatalogSources,
@@ -43,9 +39,6 @@ import {
   findSpellRangeBucket,
   type SpellComponent,
 } from "@/lib/spell-filter-facets";
-import { getUserPersesSpellIndex } from "@/lib/actions/pers";
-import { setSpellPresenceForPersByLink } from "@/lib/actions/spell-actions";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -56,14 +49,25 @@ import {
   replaceUrlSearchParams,
 } from "@/lib/catalog-url-helpers";
 import { ContentListPage } from "@/components/catalogs/ContentListPage";
-import { getSpellSchoolVisual } from "@/components/catalogs/catalog-visuals";
 import { SpellDetailCard } from "@/components/spells/SpellDetailCard";
+import { SpellIconAttribution } from "@/components/spells/SpellIconAttribution";
+import { SpellSummary } from "@/components/spells/SpellSummary";
 import { SpellModalCard } from "@/components/spells/SpellModalCard";
 import { SpellsFilterDialog } from "@/components/spells/SpellsFilterDialog";
 import { SpellData } from "@/lib/spellsData";
-import { buildSpellLinkForSpell, buildSpellSlug, type SpellLink } from "@/lib/spell-link";
+import { buildSpellLinkForSpell, buildSpellSlug } from "@/lib/spell-link";
 import { Ruleset } from "@prisma/client";
 import { cn } from "@/lib/utils";
+import { EditionAccentChip, EditionAccentTitle } from "@/components/ui/EditionAccent";
+import { findEditionAccent } from "@/styles/edition-accent";
+import { HomebrewCatalogBanner } from "@/components/homebrew/HomebrewCatalogBanner";
+import { HomebrewToggleButton } from "@/components/homebrew/HomebrewToggleButton";
+import { HomebrewByline, HomebrewEntryButtons } from "@/components/homebrew/HomebrewEntryDetails";
+import { includeHomebrewSource, type HomebrewOnlyCatalog } from "@/components/homebrew/homebrew-only-catalog";
+import { useCatalogHomebrew } from "@/hooks/useCommunityHomebrew";
+import { buildHomebrewSpellKey, type HomebrewSpellEntry } from "@/lib/logic/homebrew-view";
+import { SpellDiscussion } from "@/components/spells/SpellDiscussion";
+import { SpellbookDropdown, setSpellbookPresence, type PersIndexItem, type SpellbookTarget } from "@/components/spells/SpellbookDropdown";
 
 export type SpellListItem = {
   spellId: number;
@@ -181,6 +185,10 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
   };
 };
 
+function isHomebrewRow(spell: SpellListItem): boolean {
+  return spell.source === "HOMEBREW" && spell.spellId < 0;
+}
+
 function isYesFlag(value: string | null | undefined): boolean {
   const v = (value ?? "").trim().toLowerCase();
   if (!v) return false;
@@ -191,122 +199,25 @@ function levelHeaderLabel(level: number) {
   return level === 0 ? "Замовляння" : `Рівень ${level}`;
 }
 
-function schoolLabel(school: string | null) {
-  if (!school) return "";
-  return spellSchoolTranslations[school as keyof typeof spellSchoolTranslations] || school;
-}
-
-type PersIndexItem = {
-  persId: number;
-  name: string;
-  spellIds: number[];
-  spellKeys: string[];
-};
-
-function SpellbookDropdown({
-  link,
-  persIndex,
-  setPersIndex,
-}: {
-  link: SpellLink;
-  persIndex: PersIndexItem[] | null;
-  setPersIndex: (value: PersIndexItem[] | null) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  useModalBackButton(open, () => setOpen(false));
-
-  const load = async () => {
-    if (persIndex) return;
-    setLoading(true);
-    try {
-      const data = await getUserPersesSpellIndex();
-      setPersIndex(data);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <DropdownMenu
-      open={open}
-      onOpenChange={(next) => {
-        setOpen(next);
-        if (next) void load();
-      }}
-    >
-      <DropdownMenuTrigger asChild>
-        <button
-          type="button"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:text-arcane-300"
-          aria-label="Додати до персонажа"
-        >
-          <UserPlus className="h-4 w-4" />
-        </button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-64">
-        <DropdownMenuLabel>Додати до персонажа</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-
-        {loading ? (
-          <div className="px-2 py-2 text-xs text-slate-400 flex items-center gap-2">
-            <Loader2 className="h-4 w-4 animate-spin" /> Завантаження…
-          </div>
-        ) : persIndex && persIndex.length === 0 ? (
-          <div className="px-2 py-2 text-xs text-slate-400">Немає персонажів</div>
-        ) : (
-          persIndex?.map((p) => {
-            const has = p.spellKeys.includes(link.spellKey);
-            const label = p.name || `Персонаж #${p.persId}`;
-            return (
-              <DropdownMenuItem
-                key={p.persId}
-                className="flex items-center justify-between gap-2 cursor-pointer"
-                onSelect={async (e) => {
-                  e.preventDefault();
-                  const res = await setSpellPresenceForPersByLink({ persId: p.persId, link, present: !has });
-                  if (!res.success) return;
-
-                  setPersIndex(
-                    (persIndex || []).map((item) =>
-                      item.persId !== p.persId
-                        ? item
-                        : {
-                            ...item,
-                            spellKeys: res.present
-                              ? [...item.spellKeys, link.spellKey]
-                              : item.spellKeys.filter((key) => key !== link.spellKey),
-                          }
-                    )
-                  );
-                }}
-              >
-                <span className="truncate">{label}</span>
-                {has ? <Check className="h-4 w-4 text-arcane-400" /> : null}
-              </DropdownMenuItem>
-            );
-          })
-        )}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
-
 type RowItem =
   | { kind: "header"; level: number; count: number }
-  | { kind: "spell"; spell: SpellListItem };
+  | { kind: "spell"; spell: SpellListItem }
+  | { kind: "attribution" };
 
 export function SpellsClient({
-  spells,
+  spells: catalogSpells,
   initialSearchParams = {},
   ruleset = "RULES_2014",
+  homebrewOnly,
 }: {
   spells: SpellListItem[];
   initialSearchParams?: InitialSearchParams;
   ruleset?: Ruleset | string;
+  homebrewOnly?: HomebrewOnlyCatalog;
 }) {
   const is2024 = ruleset === "RULES_2024";
+  const listEdition = is2024 ? "2024" : "2014";
+  const listAccent = findEditionAccent(listEdition);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
   const [selectedModalSpell, setSelectedModalSpell] = useState<SpellListItem | null>(null);
@@ -326,14 +237,18 @@ export function SpellsClient({
   const [isAddingSpell, setIsAddingSpell] = useState(false);
   const [addedSpellIds, setAddedSpellIds] = useState<Set<number>>(new Set());
 
-  const buildRowLink = (spell: SpellListItem) =>
-    buildSpellLinkForSpell({ spellId: spell.spellId, engName: spell.engName, ruleset: is2024 ? "RULES_2024" : "RULES_2014" });
+  const buildRowTarget = (spell: SpellListItem): SpellbookTarget => {
+    const ruleset = is2024 ? "RULES_2024" : "RULES_2014";
+    if (isHomebrewRow(spell)) return { kind: "HOMEBREW", ruleset, spellKey: buildHomebrewSpellKey(-spell.spellId), entryId: -spell.spellId };
+    const link = buildSpellLinkForSpell({ spellId: spell.spellId, engName: spell.engName, ruleset });
+    return { kind: "CATALOG", ruleset, spellKey: link.spellKey, link };
+  };
 
   const handleAddSpell = async (spell: SpellListItem) => {
     if (!embedParams.persId) return;
     setIsAddingSpell(true);
     try {
-      const res = await setSpellPresenceForPersByLink({ persId: embedParams.persId, link: buildRowLink(spell), present: true });
+      const res = await setSpellbookPresence(buildRowTarget(spell), embedParams.persId, true);
       if (res.success) {
         setAddedSpellIds((prev) => new Set(prev).add(spell.spellId));
         window.parent.postMessage(
@@ -349,6 +264,15 @@ export function SpellsClient({
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
     parseSelection,
     initialSearchParams
+  );
+
+  const catalogRuleset = is2024 ? "RULES_2024" : "RULES_2014";
+  const communityHomebrew = useCatalogHomebrew({ kind: "SPELL", ruleset: catalogRuleset, isOn: selection.source.homebrew, onlyHomebrewSort: homebrewOnly?.sort ?? null });
+  const findCommunityEntry = (spell: SpellListItem) =>
+    communityHomebrew.find((entry): entry is HomebrewSpellEntry => entry.kind === "SPELL" && -entry.entryId === spell.spellId) ?? null;
+  const spells = useMemo(
+    () => [...catalogSpells, ...communityHomebrew.flatMap((entry) => (entry.kind === "SPELL" ? [entry.spell as SpellListItem] : []))],
+    [catalogSpells, communityHomebrew],
   );
 
   const filtered = useMemo(() => {
@@ -391,7 +315,7 @@ export function SpellsClient({
         return false;
       }
 
-      if (!matchesSourceSelection(spell.source, selection.source)) {
+      if (!matchesSourceSelection(spell.source, homebrewOnly ? includeHomebrewSource(selection).source : selection.source)) {
         return false;
       }
 
@@ -424,7 +348,7 @@ export function SpellsClient({
 
       return true;
     });
-  }, [spells, selection, embedParams.maxSpellLevelByClass]);
+  }, [spells, selection, embedParams.maxSpellLevelByClass, homebrewOnly]);
 
   const selectedSpell = useMemo(() => {
     if (selection.spell) {
@@ -475,9 +399,9 @@ export function SpellsClient({
       subclassesByClass,
       schools: Array.from(schools).sort((a, b) => a.localeCompare(b, "uk")),
       times: Array.from(times).sort((a, b) => a.localeCompare(b, "uk")),
-      sources: collectCatalogSources(spells),
+      sources: { ...collectCatalogSources(spells), hasHomebrew: !homebrewOnly },
     };
-  }, [spells]);
+  }, [spells, homebrewOnly]);
 
   const clearFilters = () => {
     setParams((next) => {
@@ -500,10 +424,17 @@ export function SpellsClient({
     (selection.conc !== null ? 1 : 0);
   const hasActiveFilters = activeFiltersCount > 0;
 
+  const collectPrintKeys = () =>
+    printIds.flatMap((spellId) => {
+      const spell = spells.find((row) => row.spellId === spellId);
+      return spell ? [buildRowTarget(spell).spellKey] : [];
+    });
+
   const doPrint = () => {
-    if (printIds.length === 0) return;
-    const ids = encodeURIComponent(printIds.join(","));
-    window.open(`/api/spells/print?ids=${ids}`, "_blank", "noopener,noreferrer");
+    const keys = collectPrintKeys();
+    if (keys.length === 0) return;
+    const query = new URLSearchParams({ ruleset: catalogRuleset, keys: keys.join(",") });
+    window.open(`/api/spells/print?${query}`, "_blank", "noopener,noreferrer");
   };
 
   const flatRows = useMemo<RowItem[]>(() => {
@@ -515,22 +446,25 @@ export function SpellsClient({
     }
 
     const sortedLevels = Array.from(grouped.keys()).sort((a, b) => a - b);
-    return sortedLevels.flatMap((lvl) => {
+    const rows = sortedLevels.flatMap((lvl) => {
       const list = grouped.get(lvl) || [];
-      list.sort((a, b) => a.name.localeCompare(b.name, "uk"));
+      if (!homebrewOnly) list.sort((a, b) => a.name.localeCompare(b.name, "uk"));
       return [
         { kind: "header" as const, level: lvl, count: list.length },
         ...list.map((spell) => ({ kind: "spell" as const, spell })),
       ];
     });
-  }, [filtered]);
+    return rows.length ? [...rows, { kind: "attribution" as const }] : rows;
+  }, [filtered, homebrewOnly]);
 
   return (
     <ContentListPage<SpellListItem, RowItem>
-      title={is2024 ? "Заклинання 2024" : "Заклинання"}
+      title={homebrewOnly ? "Хоумбрю: заклинання" : is2024 ? "Заклинання 2024" : "Заклинання"}
       is2024={is2024}
       topBanner={
-        isEmbedMode && (
+        homebrewOnly ? homebrewOnly.header : !isEmbedMode && selection.source.homebrew ? (
+          <HomebrewCatalogBanner kind="SPELL" edition={is2024 ? "2024" : "2014"} count={communityHomebrew.length} />
+        ) : isEmbedMode && (
           <div className="mb-4 rounded-xl border border-arcane-500/30 bg-arcane-500/10 p-2.5 backdrop-blur-xl">
             <div className="flex items-center gap-2 text-sm text-arcane-200">
               <UserPlus className="h-4 w-4" />
@@ -550,6 +484,8 @@ export function SpellsClient({
       onClearFilters={clearFilters}
       headerActions={
         !isEmbedMode && (
+          <div className="flex items-center gap-2">
+          {homebrewOnly ? null : <HomebrewToggleButton isOn={selection.source.homebrew} onToggle={() => setParams((next) => toggleHomebrewParam(next))} />}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -580,6 +516,7 @@ export function SpellsClient({
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          </div>
         )
       }
       data={flatRows}
@@ -596,24 +533,19 @@ export function SpellsClient({
         </div>
       }
       renderItem={(_index, row) => {
+        if (row.kind === "attribution") return <SpellIconAttribution />;
+
         if (row.kind === "header") {
           return (
             <div className="pt-3 pb-1 px-1">
               <div
-                className={cn(
-                  "rounded-xl border bg-slate-900/70 px-3.5 py-2 text-slate-200 backdrop-blur-xl flex items-center justify-between shadow-sm",
-                  is2024 ? "border-amber-500/20" : "border-arcane-500/20"
-                )}
+                style={listAccent.vars}
+                className="sheen-ring rounded-xl border border-transparent bg-slate-900/70 px-3.5 py-2 text-slate-200 backdrop-blur-xl flex items-center justify-between shadow-sm"
               >
-                <span
-                  className={cn(
-                    "font-sans text-sm sm:text-base font-semibold tracking-wide text-transparent bg-clip-text",
-                    is2024
-                      ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-                      : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-arcane-400"
-                  )}
-                >
-                  {levelHeaderLabel(row.level)}
+                <span className="font-sans text-sm sm:text-base font-semibold tracking-wide">
+                  <EditionAccentTitle edition={listEdition}>
+                    {levelHeaderLabel(row.level)}
+                  </EditionAccentTitle>
                 </span>
                 <span className="text-xs font-mono font-medium text-slate-400">({row.count})</span>
               </div>
@@ -624,12 +556,11 @@ export function SpellsClient({
         const spell = row.spell;
         const isSelected = selectedSpell?.spellId === spell.spellId;
         const inPrint = printIds.includes(spell.spellId);
-        const visual = getSpellSchoolVisual(spell.school);
-        const Icon = visual.icon;
 
         return (
           <div key={spell.spellId} className="pt-2 pb-0.5 px-0.5">
             <div
+              style={isSelected ? listAccent.vars : undefined}
               onClick={() => {
                 setParams((next) => next.set("spell", String(spell.spellId)));
                 if (typeof window !== "undefined" && window.innerWidth < 1024) {
@@ -639,69 +570,38 @@ export function SpellsClient({
               className={cn(
                 "glass-panel group relative overflow-hidden rounded-xl border p-3 transition-all duration-300 cursor-pointer",
                 isSelected
-                  ? is2024
-                    ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
+                  ? "sheen-ring sheen-glow border-transparent bg-white/5 text-white"
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
               <div className="flex items-center justify-between gap-3">
-                {/* Left school icon badge */}
-                <div className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border", visual.iconWrap)}>
-                  <Icon className={cn("h-5 w-5", visual.iconColor)} />
-                </div>
-
-                {/* Center spell info */}
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-baseline gap-2">
-                    <span
-                      className={cn(
-                        "truncate text-[15px] font-semibold transition-colors",
-                        isSelected
-                          ? is2024 ? "text-amber-300" : "text-arcane-300"
-                          : "text-slate-100 group-hover:text-white"
+                <SpellSummary
+                  spell={{
+                    name: spell.name,
+                    engName: spell.engName,
+                    level: spell.level,
+                    school: spell.school,
+                    castingTime: spell.castingTime,
+                    isRitual: isYesFlag(spell.hasRitual),
+                    isConcentration: isYesFlag(spell.hasConcentration),
+                  }}
+                  is2024={is2024}
+                  isSelected={isSelected}
+                  nameBadges={
+                    <>
+                      {is2024 && spell.kind === "new" && (
+                        <span className="rounded px-1.5 py-0.5 text-[9px] font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 shrink-0">
+                          Нове
+                        </span>
                       )}
-                    >
-                      {spell.name} {spell.engName && <span className="font-normal text-slate-400 text-sm ml-1">[{spell.engName}]</span>}
-                    </span>
-                    {is2024 && spell.kind === "new" && (
-                      <span className="rounded px-1.5 py-0.5 text-[9px] font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 shrink-0">
-                        Нове
-                      </span>
-                    )}
-                    {is2024 && spell.differsFrom2014 && (
-                      <span className="rounded px-1.5 py-0.5 text-[9px] font-medium border border-amber-500/30 bg-amber-500/10 text-amber-300 shrink-0">
-                        Змінено
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-slate-400">
-                    <span className="flex items-center gap-1">
-                      <Sparkles className="h-3.5 w-3.5 text-slate-400" />
-                      {spell.level === 0 ? "Замовляння" : `Рівень ${spell.level}`}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock3 className="h-3.5 w-3.5 text-slate-400" />
-                      {shortenCastingTime(spell.castingTime) || "—"}
-                    </span>
-                    {spell.school && (
-                      <span className={cn("rounded-md px-2 py-0.5 text-[11px] font-medium border", visual.badgeClass)}>
-                        {schoolLabel(spell.school)}
-                      </span>
-                    )}
-                    {isYesFlag(spell.hasRitual) && (
-                      <span className="rounded px-1.5 py-0.5 text-[10px] font-medium border border-cyan-500/30 bg-cyan-500/10 text-cyan-300">
-                        Ритуал
-                      </span>
-                    )}
-                    {isYesFlag(spell.hasConcentration) && (
-                      <span className="rounded px-1.5 py-0.5 text-[10px] font-medium border border-indigo-500/30 bg-indigo-500/10 text-indigo-300">
-                        Концентрація
-                      </span>
-                    )}
-                  </div>
-                </div>
+                      {is2024 && spell.differsFrom2014 && (
+                        <EditionAccentChip edition={listEdition} className="text-[9px] shrink-0">
+                          Змінено
+                        </EditionAccentChip>
+                      )}
+                    </>
+                  }
+                />
 
                 {/* Right actions */}
                 <div className="flex flex-shrink-0 items-center gap-1" onClick={(e) => e.stopPropagation()}>
@@ -710,7 +610,7 @@ export function SpellsClient({
                       <button
                         type="button"
                         className={cn(
-                          "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
+                          "inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5 md:h-9 md:w-9",
                           inPrint && "text-arcane-300 bg-arcane-500/10"
                         )}
                         onClick={() => {
@@ -726,7 +626,7 @@ export function SpellsClient({
                       </button>
 
                       <SpellbookDropdown
-                        link={buildRowLink(spell)}
+                        target={buildRowTarget(spell)}
                         persIndex={persIndex}
                         setPersIndex={setPersIndex}
                       />
@@ -739,7 +639,7 @@ export function SpellsClient({
                       onClick={() => handleAddSpell(spell)}
                       disabled={isAddingSpell}
                       className={cn(
-                        "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
+                        "inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5 md:h-9 md:w-9",
                         isAddingSpell && "opacity-50"
                       )}
                       aria-label="Додати до персонажа"
@@ -755,7 +655,12 @@ export function SpellsClient({
       }}
       desktopDetailView={
         selectedSpell ? (
-          <SpellDetailCard spell={selectedSpell as unknown as SpellData} is2024={is2024} />
+          <div className="space-y-6">
+            <HomebrewEntryFrame entry={findCommunityEntry(selectedSpell)} is2024={is2024}>
+              <SpellDetailCard spell={selectedSpell as unknown as SpellData} is2024={is2024} />
+            </HomebrewEntryFrame>
+            <SpellDiscussion spell={selectedSpell} is2024={is2024} />
+          </div>
         ) : (
           <div className="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
             <p className="text-sm text-slate-400">Оберіть заклинання для перегляду деталей</p>
@@ -766,11 +671,16 @@ export function SpellsClient({
       onCloseModal={() => setSelectedModalSpell(null)}
       modalTitle={selectedModalSpell?.name || "Деталі заклинання"}
       renderModalContent={(spell) => (
-        <SpellModalCard
-          spell={spell as unknown as SpellData}
-          onClose={() => setSelectedModalSpell(null)}
-          is2024={is2024}
-        />
+        <div className="space-y-6">
+          <HomebrewEntryFrame entry={findCommunityEntry(spell)} is2024={is2024}>
+            <SpellModalCard
+              spell={spell as unknown as SpellData}
+              onClose={() => setSelectedModalSpell(null)}
+              is2024={is2024}
+            />
+          </HomebrewEntryFrame>
+          <SpellDiscussion spell={spell} is2024={is2024} />
+        </div>
       )}
       filterDialogOpen={filtersOpen}
       onFilterDialogClose={() => setFiltersOpen(false)}
@@ -812,5 +722,16 @@ export function SpellsClient({
         />
       }
     />
+  );
+}
+
+function HomebrewEntryFrame({ entry, is2024, children }: { entry: HomebrewSpellEntry | null; is2024: boolean; children: ReactNode }) {
+  if (!entry) return <>{children}</>;
+  return (
+    <div className="space-y-3">
+      <HomebrewByline entry={entry} />
+      {children}
+      <HomebrewEntryButtons entry={entry} pageHref={`/homebrew/${entry.entryId}${is2024 ? "?edition=2024" : ""}`} />
+    </div>
   );
 }

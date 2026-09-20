@@ -5,7 +5,7 @@ import type { ComponentType, KeyboardEvent, ReactNode } from "react";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { PlainTitleCard } from "@/components/no-ai/PlainTitleCard";
 import { useIsArtHidden } from "@/components/no-ai/ContentImage";
-import { pickEditionAccent } from "@/components/ui/edition-accent";
+import { findEditionAccent } from "@/styles/edition-accent";
 import { cn } from "@/lib/utils";
 
 type CatalogIllustrationCardProps = {
@@ -30,7 +30,7 @@ export function CatalogIllustrationCard({
   onSelect,
 }: CatalogIllustrationCardProps) {
   const isArtHidden = useIsArtHidden(imageSrc);
-  const accent = pickEditionAccent(is2024);
+  const accent = findEditionAccent(is2024 ? "2024" : "2014").cutFrame;
 
   const selectOnEnterOrSpace = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key !== "Enter" && event.key !== " ") return;

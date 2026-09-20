@@ -1,6 +1,7 @@
 import MultiStepForm from "@/lib/components/characterCreator/MultiStepForm";
 import { NetworkRequiredNotice } from "@/components/ui/NetworkRequiredNotice";
 import { findCharacterCreationOptions } from "@/lib/content/creator-content";
+import { collectCreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
 import { auth } from "@/lib/auth";
 import { isRules2024Allowed } from "@/rules/access";
@@ -49,6 +50,7 @@ export default async function Page({
         weapons={weapons}
         feats={feats}
         initialRuleset={effectiveRuleset}
+        ruleExcerpts={collectCreationStepRuleExcerpts()}
       />
     </>
   );

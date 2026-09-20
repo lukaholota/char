@@ -20,12 +20,16 @@ export type ImageProvenance =
 const PROVENANCE_BY_PREFIX: ReadonlyArray<readonly [string, ImageProvenance]> = [
   ["/images/categories/", "ai"],
   /// Owner's call 2026-08-28: the two home covers — spells and characters — count as non-AI
-  /// and stay on screen in the no-AI mode, generated or not.
-  ["/images/home/", "drawn"],
+  /// and stay on screen in the no-AI mode, generated or not. Any other cover under
+  /// `/images/home/` is a 2:3 crop of its generated tile and hides together with the tile.
+  ["/images/home/characters.webp", "drawn"],
+  ["/images/home/spells.webp", "drawn"],
+  ["/images/home/", "ai"],
   ["/images/races/", "ai"],
   ["/images/classes/", "ai"],
   ["/images/backgrounds/", "ai"],
   ["/images/rules/", "ai"],
+  ["/images/errors/", "ai"],
   ["/images/creatures/", "manual"],
   ["/images/manual/", "manual"],
   ["/images/home-", "drawn"],

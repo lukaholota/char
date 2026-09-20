@@ -1,61 +1,58 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { diceService } from "./diceService";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
-import { cn } from "@/lib/utils";
+import { DICE_OVERLAY_Z_INDEX, DICE_TRAY_HEIGHT_VAR } from "./dice-tray-layout";
+
+const INIT_DELAY_MS = 100;
 
 export function DiceOverlay() {
   const initRef = useRef(false);
   const { isOpen, mode } = useDiceUIStore();
 
   useEffect(() => {
-    // Prevent double initialization in strict mode
     if (initRef.current) return;
     initRef.current = true;
 
-    // Initialize dice-box after DOM is ready
-    const initDice = async () => {
+    const timer = setTimeout(async () => {
       try {
         await diceService.init("#dice-box");
+        window.dispatchEvent(new Event("resize"));
       } catch (error) {
         console.error("Failed to initialize dice overlay:", error);
-        initRef.current = false; // Allow retry
+        initRef.current = false;
       }
-    };
+    }, INIT_DELAY_MS);
 
-    // Small delay to ensure DOM is mounted
-    const timer = setTimeout(initDice, 100);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
+  // До кінця `init()` resize іде у фізичний воркер, де ще немає Ammo, і падає з
+  // `reading 'setValue'` (Sentry JAVASCRIPT-NEXTJS-8/-A); після init його шле сам ефект вище.
   useEffect(() => {
-    // Force a resize so the canvas matches the new overlay bounds
-    if (typeof window !== "undefined") {
-      diceService.setVisualPreset(mode === "weapon" ? "weapon" : "general");
-      window.dispatchEvent(new Event("resize"));
-    }
+    if (diceService.getStatus() !== "ready") return;
+    diceService.setVisualPreset(mode);
+    window.dispatchEvent(new Event("resize"));
   }, [isOpen, mode]);
+
+  const status = useSyncExternalStore(diceService.subscribeStatus.bind(diceService), () => diceService.getStatus(), () => "loading" as const);
 
   return (
     <div
       id="dice-overlay-root"
-      className={cn(
-        "pointer-events-none fixed inset-y-0 left-0 z-[2147483647]",
-        isOpen && mode === "weapon" ? "right-0 md:left-auto md:w-1/2" : ""
-      )}
-      style={{ background: "transparent", right: isOpen ? (mode === "weapon" ? 0 : "7rem") : 0 }}
+      className="pointer-events-none fixed inset-x-0 top-0"
+      style={{ zIndex: DICE_OVERLAY_Z_INDEX, bottom: isOpen ? `var(${DICE_TRAY_HEIGHT_VAR}, 0px)` : 0 }}
     >
-      <div className={cn("absolute", mode === "weapon" ? "bottom-6 left-4 right-4 h-[46dvh] md:h-[44dvh]" : "inset-y-0 left-0 right-0") }>
+      <div id="dice-box" className="pointer-events-none h-full w-full" />
+      {isOpen && status === "fallback" && (
         <div
-          id="dice-box"
-          className="h-full w-full pointer-events-none"
-          style={{ background: "transparent" }}
-        />
-      </div>
+          data-dice-fallback
+          className="absolute inset-x-0 bottom-2 mx-auto w-fit rounded-full bg-slate-950/70 px-3 py-1 text-[11px] text-amber-200/90"
+        >
+          3D-кубики на цьому пристрої не завантажились — результати без анімації
+        </div>
+      )}
     </div>
   );
 }

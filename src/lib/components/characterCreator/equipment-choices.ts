@@ -1,4 +1,5 @@
 import { armorTranslations, equipmentCategoryTranslations, weaponTranslations } from "@/lib/refs/translation";
+import { describeArmorStats, describeWeaponStats, type ArmorStats, type WeaponStats } from "@/lib/logic/equipment-stats";
 import { findCoinKind } from "@/rules/starting-money";
 
 export type EquipmentPackView = {
@@ -13,15 +14,22 @@ export type EquipmentOptionRow = {
   quantity: number;
   description?: string | null;
   item?: string | null;
-  weapon?: { name: string } | null;
-  armor?: { name: string } | null;
+  weapon?: ({ name: string } & Partial<WeaponStats>) | null;
+  armor?: ({ name: string } & Partial<ArmorStats>) | null;
   equipmentPack?: { name: string; description?: string | null; items?: unknown } | null;
+};
+
+export type EquipmentCatalogItem = {
+  kind: "weapon" | "armor";
+  code: string;
 };
 
 export type EquipmentLine = {
   key: string;
   text: string;
+  stats: string | null;
   pack: EquipmentPackView | null;
+  catalogItem: EquipmentCatalogItem | null;
 };
 
 export type EquipmentLines = {
@@ -108,11 +116,31 @@ export const findPackView = (row: EquipmentOptionRow): EquipmentPackView | null 
 
 const toLine = (row: EquipmentOptionRow): EquipmentLine => ({
   key: String(row.optionId),
-  text: describeRow(row),
+  text: describeEquipmentRow(row),
+  stats: describeItemStats(row),
   pack: findPackView(row),
+  catalogItem: findCatalogItem(row),
 });
 
-const describeRow = (row: EquipmentOptionRow): string => {
+const describeItemStats = (row: EquipmentOptionRow): string | null => {
+  if (row.weapon && hasWeaponStats(row.weapon)) return describeWeaponStats(row.weapon);
+  if (row.armor && hasArmorStats(row.armor)) return describeArmorStats(row.armor);
+  return null;
+};
+
+const findCatalogItem = (row: EquipmentOptionRow): EquipmentCatalogItem | null => {
+  if (row.weapon) return { kind: "weapon", code: row.weapon.name };
+  if (row.armor) return { kind: "armor", code: row.armor.name };
+  return null;
+};
+
+const hasWeaponStats = (weapon: Partial<WeaponStats>): weapon is WeaponStats =>
+  typeof weapon.damage === "string" && Array.isArray(weapon.properties);
+
+const hasArmorStats = (armor: Partial<ArmorStats>): armor is ArmorStats =>
+  typeof armor.baseAC === "number" && typeof armor.armorType === "string";
+
+export const describeEquipmentRow = (row: EquipmentOptionRow): string => {
   if (isCoinRow(row)) return `${row.quantity} ${String(row.item).trim()}`;
 
   const described = row.description?.trim();

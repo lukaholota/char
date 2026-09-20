@@ -29,7 +29,7 @@ export function BackgroundInterceptModal({
   return (
     <Dialog enableBackButtonClose={false} open onOpenChange={(open) => !open && close()}>
       <DialogContent
-        className="max-h-[90dvh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden border-0 bg-transparent p-0"
+        className="max-h-[90dvh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden border-0 bg-transparent p-0 pt-11"
         aria-describedby={undefined}
       >
         <DialogTitle className="sr-only">{background.name}</DialogTitle>

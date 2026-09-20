@@ -5,11 +5,12 @@ import { toast } from "sonner";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { reportProblem } from "@/lib/actions/problem-report-actions";
+import { ReportAttachments, useReportAttachments } from "./ReportAttachments";
 
 type Props = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  pathname: string;
+  pathname?: string;
 };
 
 function collectClientContext() {
@@ -27,6 +28,7 @@ function collectClientContext() {
 export function ReportProblemDialog({ open, onOpenChange, pathname }: Props) {
   const [message, setMessage] = useState("");
   const [isPending, startTransition] = useTransition();
+  const attachments = useReportAttachments();
 
   function submit() {
     const trimmed = message.trim();
@@ -38,7 +40,8 @@ export function ReportProblemDialog({ open, onOpenChange, pathname }: Props) {
     startTransition(async () => {
       const result = await reportProblem({
         message: trimmed,
-        pagePath: pathname,
+        pagePath: pathname ?? window.location.pathname,
+        attachmentUrls: attachments.urls,
         ...collectClientContext(),
       });
 
@@ -49,6 +52,7 @@ export function ReportProblemDialog({ open, onOpenChange, pathname }: Props) {
 
       toast.success("Дякуємо! Повідомлення надіслано.");
       setMessage("");
+      attachments.clear();
       onOpenChange(false);
     });
   }
@@ -70,8 +74,10 @@ export function ReportProblemDialog({ open, onOpenChange, pathname }: Props) {
           className="w-full rounded-lg border border-white/10 bg-slate-900/60 p-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-arcane-400/50"
         />
 
+        <ReportAttachments attachments={attachments} disabled={isPending} />
+
         <DialogFooter>
-          <Button type="button" disabled={isPending || !message.trim()} onClick={submit}>
+          <Button type="button" disabled={isPending || attachments.isUploading || !message.trim()} onClick={submit}>
             {isPending ? "Надсилання…" : "Надіслати"}
           </Button>
         </DialogFooter>

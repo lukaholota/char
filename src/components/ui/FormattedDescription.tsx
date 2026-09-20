@@ -7,8 +7,10 @@ import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import { expandGlossaryMarkersToHtml } from "@/lib/refs/glossary-marker";
 import { GlossaryTerm } from "@/components/ui/GlossaryTerm";
-import { buildSpellHref, findSpellLinkInHref, openSpellLink } from "@/lib/spell-link";
-import { useNoAiHref } from "@/components/no-ai/NoAiModeProvider";
+import { findSpellLinkInHref } from "@/lib/spell-link";
+import { SpellAnchor } from "@/components/ui/SpellAnchor";
+import { RuleTermAnchor } from "@/components/ui/RuleTermAnchor";
+import { findTermLinkInHref } from "@/lib/term-link";
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -59,30 +61,37 @@ function preserveSingleLineBreaks(markdown?: string | null): string {
     .join("```");
 }
 
-export function FormattedDescription({
+export const FormattedDescription = React.memo(function FormattedDescription({
   content,
   className,
 }: {
   content?: string | null;
   className?: string;
 }) {
-  const buildNoAiHref = useNoAiHref();
-
   return (
     <div className={className}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
         components={{
-          strong: ({ children }) => <span className="font-semibold text-arcane-400">{children}</span>,
+          strong: ({ children }) => <span className="accent-strong font-semibold">{children}</span>,
           a: ({ href, children }) => {
             const spellLink = findSpellLinkInHref(href);
+            const termLink = spellLink ? null : findTermLinkInHref(href);
+
+            if (termLink) {
+              return (
+                <RuleTermAnchor href={href ?? ""} termLink={termLink}>
+                  {children}
+                </RuleTermAnchor>
+              );
+            }
 
             if (!spellLink) {
               return (
                 <a
                   href={href}
-                  className="text-arcane-400 underline underline-offset-2 hover:text-arcane-300"
+                  className="accent-link underline underline-offset-2 hover:opacity-80"
                   target={href?.startsWith("http") ? "_blank" : undefined}
                   rel={href?.startsWith("http") ? "noreferrer" : undefined}
                 >
@@ -91,20 +100,7 @@ export function FormattedDescription({
               );
             }
 
-            return (
-              <a
-                href={buildNoAiHref(buildSpellHref(spellLink))}
-                className="text-arcane-400 underline underline-offset-2 hover:text-arcane-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-
-                  openSpellLink(spellLink);
-                }}
-              >
-                {children}
-              </a>
-            );
+            return <SpellAnchor spellLink={spellLink}>{children}</SpellAnchor>;
           },
           p: ({ children }) => <p className="mb-3 text-sm leading-relaxed text-inherit last:mb-0">{children}</p>,
           ul: ({ children }) => <ul className="mb-3 list-disc space-y-1 pl-5 text-sm text-inherit">{children}</ul>,
@@ -128,4 +124,4 @@ export function FormattedDescription({
       </ReactMarkdown>
     </div>
   );
-}
+});

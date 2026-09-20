@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { HelpCircle, RefreshCcw } from "lucide-react";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { LinkedPreview } from "@/components/ui/LinkedPreview";
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 import clsx from "clsx";
@@ -20,14 +21,6 @@ interface Props {
   onSelectionChange: (replacement: { oldId: number; newId: number } | null) => void;
   formId: string;
 }
-
-const stripMarkdownPreview = (value: string) => {
-  return value
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-    .replace(/\s+/g, " ")
-    .trim();
-};
 
 export default function ChoiceReplacementForm({
   title,
@@ -75,13 +68,14 @@ export default function ChoiceReplacementForm({
     });
   }, [groupedAvailable, currentChoices, classLevel, pact]);
 
+  const latestOnSelectionChange = useRef(onSelectionChange);
+  latestOnSelectionChange.current = onSelectionChange;
+
   useEffect(() => {
-    if (selectedOldId && selectedNewId) {
-      onSelectionChange({ oldId: selectedOldId, newId: selectedNewId });
-    } else {
-      onSelectionChange(null);
-    }
-  }, [selectedOldId, selectedNewId, onSelectionChange]);
+    latestOnSelectionChange.current(
+      selectedOldId && selectedNewId ? { oldId: selectedOldId, newId: selectedNewId } : null,
+    );
+  }, [selectedOldId, selectedNewId]);
 
   const openInfo = (label: string, features: any[]) => {
     setInfoTitle(label);
@@ -195,11 +189,7 @@ export default function ChoiceReplacementForm({
                       <p className="text-[10px] text-slate-400 font-medium italic">Вже відомо</p>
                     )}
 
-                    {previewText && (
-                      <p className="text-xs text-slate-400 line-clamp-1 italic">
-                        {stripMarkdownPreview(previewText)}
-                      </p>
-                    )}
+                    <LinkedPreview markup={previewText} className="text-xs text-slate-400 line-clamp-1 italic" />
                   </CardContent>
                 </Card>
               );

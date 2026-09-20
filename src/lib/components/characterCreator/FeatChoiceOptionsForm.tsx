@@ -16,7 +16,9 @@ import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { LinkedPreview } from "@/components/ui/LinkedPreview";
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
+import { findFeatChoicePickCount } from "@/rules/feat-choice-pick-count";
 import {
   findAbilityScoreCeiling,
   findFeatAbilityScoreSource,
@@ -130,6 +132,12 @@ const getChoiceOptionEffect = (
   return null;
 };
 
+/** «Посвячений у магію»: обрана характеристика — та, якою чаклуються заклинання риси, а не +1 до неї. */
+const isSpellcastingAbilityOption = (opt: NonNullable<FeatPrisma["featChoiceOptions"]>[number]): boolean => {
+  const co: any = opt?.choiceOption;
+  return !co?.effectKind && Boolean(co?.effectAbility);
+};
+
 const isAbilityOptionGroup = (options: NonNullable<FeatPrisma["featChoiceOptions"]>): boolean => {
   // Prefer explicit effect metadata if present.
   const allHaveAsiEffect = options.every((opt) => {
@@ -137,6 +145,7 @@ const isAbilityOptionGroup = (options: NonNullable<FeatPrisma["featChoiceOptions
     return eff?.kind === "ASI";
   });
   if (allHaveAsiEffect) return true;
+  if (options.every(isSpellcastingAbilityOption)) return false;
 
   // Fallback to legacy string heuristics.
   return options.every((opt) => {
@@ -184,7 +193,11 @@ const cleanGroupName = (groupName: string): string => {
       .trim();
 };
 
+// Ключ лежить у чернетках гравців як назва групи, тож перейменовувати можна лише підпис.
+const SKILLED_SKILLS_GROUP_KEY = "Skilled Options";
+
 const localizeGroupName = (groupName: string, featKey?: string | null): string => {
+  if (groupName === SKILLED_SKILLS_GROUP_KEY) return "Навички";
   const cleaned = cleanGroupName(groupName);
   if (!featKey) return cleaned;
 
@@ -424,34 +437,11 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     );
   }, []);
 
-  const stripMarkdownPreview = useCallback((value: string) => {
-    return value
-      .replace(/\r\n/g, "\n")
-      .replace(/<a\s+[^>]*>(.*?)<\/a>/gi, "$1")
-      .replace(/<[^>]+>/g, " ")
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
-      .replace(/`{1,3}([^`]+)`{1,3}/g, "$1")
-      .replace(/\*\*([^*]+)\*\*/g, "$1")
-      .replace(/__([^_]+)__/g, "$1")
-      .replace(/\*([^*]+)\*/g, "$1")
-      .replace(/_([^_]+)_/g, "$1")
-      .replace(/^#{1,6}\s+/gm, "")
-      .replace(/^>\s?/gm, "")
-      .replace(/^\s*[-*+]\s+/gm, "")
-      .replace(/^\s*\d+\.\s+/gm, "")
-      .replace(/\s+/g, " ")
-      .trim();
+  const findPreviewMarkup = useCallback((features?: any[]) => {
+    const list = (features || []).map((x) => x?.feature).filter(Boolean) as any[];
+    const first = list.find((f) => (f.shortDescription || f.description) && String(f.shortDescription || f.description).trim());
+    return first ? String(first.shortDescription || first.description) : "";
   }, []);
-
-  const previewTextFromChoiceOption = useCallback(
-    (features?: any[]) => {
-      const list = (features || []).map((x) => x?.feature).filter(Boolean) as any[];
-      const first = list.find((f) => (f.shortDescription || f.description) && String(f.shortDescription || f.description).trim());
-      if (!first) return "";
-      return stripMarkdownPreview(String(first.shortDescription || first.description));
-    },
-    [stripMarkdownPreview]
-  );
 
   const openFeaturesInfo = useCallback((title: string, features?: any[]) => {
     const normalized = (features || [])
@@ -492,7 +482,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
       // Special handling for legacy/duplicate "Skilled" feat groups
       if (selectedFeat?.name === 'SKILLED' && isSkillOption(fco.choiceOption.optionNameEng)) {
-          groupName = "Skilled Options"; // Unified group name
+          groupName = SKILLED_SKILLS_GROUP_KEY;
       }
 
       const bucket = groups.get(groupName) ?? [];
@@ -521,21 +511,10 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       const isSkill = isSkillGroup(options);
       const isAbility = isAbilityOptionGroup(options);
       const isExpertiseByEffect = options.every((opt) => getChoiceOptionEffect(opt)?.kind === "SKILL_EXPERTISE");
-      let pickCount = 1;
-
-      // Use grantedSkillCount for SKILLED feat
-      if (selectedFeat?.name === "SKILLED" && isSkill) {
-        pickCount = (selectedFeat as any).grantedSkillCount || 3;
-      }
-
       const isManeuver = options.every((opt) => isManeuverOption(opt.choiceOption.optionNameEng, groupName));
       const isInvocation = isInvocationGroupName(groupName);
       const isFightingStyle = isFightingStyleGroupName(groupName);
-
-      // Feat-specific pick count overrides.
-      if (selectedFeat?.name === "MARTIAL_ADEPT" && isManeuver) {
-        pickCount = 2;
-      }
+      const pickCount = findFeatChoicePickCount(selectedFeat, { isSkill, isAbility, isManeuver });
 
       return {
         groupName,
@@ -852,11 +831,6 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       }
     }
     
-    // If group is full and we are NOT selected -> disable
-    if (!isSelected && currentSelected.length >= group.pickCount) {
-        return { disabled: true, reason: undefined }; // Just visual disable, no text reason needed often, or "Max choices"
-    }
-
     // If this is a SKILL group (not expertise)
     if (group.isSkill && !group.isExpertise) {
       if (!isSelected && existingSkills.includes(optionSkill)) {
@@ -893,6 +867,13 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       }
     }
     
+    /// Останньою — і лише коли конкретнішої причини не знайшлося: група заповнена, тож
+    /// решта варіантів неактивна просто через ліміт. Поки ця перевірка стояла першою, третій
+    /// вибір стирав підпис «Вже володієте цією навичкою» з усіх варіантів одразу.
+    if (!isSelected && currentSelected.length >= group.pickCount) {
+      return { disabled: true, reason: undefined };
+    }
+
     return { disabled: false };
   };
 
@@ -1031,7 +1012,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                         }
                       }
 
-                      const preview = previewTextFromChoiceOption((opt as any)?.choiceOption?.features);
+                      const previewMarkup = findPreviewMarkup((opt as any)?.choiceOption?.features);
 
                       return (
                         <Card
@@ -1067,9 +1048,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
                                   <div className="truncate text-lg font-semibold text-white">
                                     {label}
                                   </div>
-                                  {preview ? (
-                                    <div className="mt-1 line-clamp-2 text-sm text-slate-300">{preview}</div>
-                                  ) : null}
+                                  <LinkedPreview markup={previewMarkup} className="mt-1 line-clamp-2 text-sm text-slate-300" />
                                   {reason ? (
                                     <div className={clsx("mt-1 text-xs font-medium", disabled || prereqUnmet ? "text-rose-400" : "text-slate-400")}>
                                       {disabled || prereqUnmet ? `(${reason})` : reason}

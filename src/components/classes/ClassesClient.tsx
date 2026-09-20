@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Ruleset } from "@prisma/client";
 import { Shield } from "lucide-react";
 
@@ -107,6 +107,14 @@ export function ClassesClient({
     }
     return filtered[0] ?? null;
   }, [classes, filtered, selection.class]);
+
+  useEffect(() => {
+    const matchesClassParam =
+      selectedClass &&
+      (selectedClass.slug === selection.class || String(selectedClass.classId) === selection.class);
+    if (!matchesClassParam || window.innerWidth >= 1024) return;
+    setSelectedModalClass(selectedClass);
+  }, [selectedClass, selection.class]);
 
   const setParams = useCallback((mutate: (next: URLSearchParams) => void) => {
     const next = getSearchParamsFromLocation();

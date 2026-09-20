@@ -3,6 +3,8 @@ import { findLevelRangeLabel, findThreatLabel, findTrapHazTypeLabel } from "@/li
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Skull } from "lucide-react";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 type Props = {
   article: GeneratedTrapHazard;
@@ -27,12 +29,10 @@ export function TrapHazardStatblockCard({ article, className }: Props) {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-5">
         <div>
           <div className="flex items-center gap-2.5">
-            <Skull className={cn("h-5 w-5 shrink-0", is2024 ? "text-amber-400" : "text-arcane-400")} />
+            <Skull className={cn("h-5 w-5 shrink-0", findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" }))} />
             <h2 className="font-rpg-display text-2xl md:text-3xl text-slate-100 tracking-wide">{article.title}</h2>
             {is2024 && (
-              <span className="rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-amber-300">
-                2024
-              </span>
+              <EditionAccentChip edition="2024" className="text-xs">2024</EditionAccentChip>
             )}
           </div>
           <p className="mt-1 text-xs text-slate-400 font-mono italic">
@@ -46,7 +46,7 @@ export function TrapHazardStatblockCard({ article, className }: Props) {
         <span
           className={cn(
             "rounded-lg border px-2.5 py-1 text-xs font-medium",
-            is2024 ? "border-amber-500/30 bg-amber-500/10 text-amber-300" : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
+            findAccentVariant(is2024, { prism: "border-prism-500/30 bg-prism-500/10 text-prism-300", arcane: "border-arcane-500/30 bg-arcane-500/10 text-arcane-300" })
           )}
         >
           {typeLabel}
@@ -75,11 +75,11 @@ export function TrapHazardStatblockCard({ article, className }: Props) {
             id={sub.id}
             className={cn(
               "rounded-xl border border-white/10 bg-slate-900/60 p-5 md:p-6 scroll-mt-24 shadow-md",
-              is2024 ? "border-l-4 border-l-amber-500/70" : "border-l-4 border-l-arcane-500/70"
+              findAccentVariant(is2024, { prism: "border-l-4 border-l-prism-500/70", arcane: "border-l-4 border-l-arcane-500/70" })
             )}
           >
             <h3 className="font-rpg-display text-lg md:text-xl text-slate-100 font-semibold tracking-wide flex items-center gap-2 pb-2 border-b border-white/5">
-              <ArrowRight className={cn("h-4 w-4 shrink-0", is2024 ? "text-amber-400" : "text-arcane-400")} />
+              <ArrowRight className={cn("h-4 w-4 shrink-0", findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" }))} />
               <span>{sub.title}</span>
               <span className="text-xs text-slate-400 font-mono font-normal">({sub.engTitle})</span>
             </h3>

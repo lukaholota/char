@@ -46,8 +46,20 @@ export function SectionJumpNav({
   );
 }
 
+/// Картка домальовує розділи у фоні (useIsDeferredRenderReady), тож ранній тап може не
+/// застати ціль — чекаємо її кілька кадрів, а не мовчки ігноруємо тап.
+const MAX_FRAMES_TO_WAIT_FOR_TARGET = 60;
+
 function scrollToJumpTarget(event: MouseEvent<HTMLButtonElement>, id: string) {
   const scope = event.currentTarget.closest(`[${SCOPE_ATTRIBUTE}]`);
-  const target = scope?.querySelector(`[${TARGET_ATTRIBUTE}="${CSS.escape(id)}"]`);
-  target?.scrollIntoView({ block: "start", behavior: "smooth" });
+  if (scope) scrollWhenTargetAppears(scope, id, MAX_FRAMES_TO_WAIT_FOR_TARGET);
+}
+
+function scrollWhenTargetAppears(scope: Element, id: string, framesLeft: number) {
+  const target = scope.querySelector(`[${TARGET_ATTRIBUTE}="${CSS.escape(id)}"]`);
+  if (target) {
+    target.scrollIntoView({ block: "start", behavior: "smooth" });
+    return;
+  }
+  if (framesLeft > 0) requestAnimationFrame(() => scrollWhenTargetAppears(scope, id, framesLeft - 1));
 }

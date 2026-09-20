@@ -5,7 +5,10 @@ import type { CreatureData } from "@/lib/bestiaryData";
 import { findSourceLabel } from "@/lib/refs/source-label";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { cn } from "@/lib/utils";
+import { formatCreatureXp } from "@/lib/logic/creature-xp";
 import { Shield, Heart, Zap, Swords } from "lucide-react";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 export function CreatureStatblockCard({
   creature,
@@ -15,7 +18,9 @@ export function CreatureStatblockCard({
   is2024?: boolean;
 }) {
   const sourceLabel = findSourceLabel(creature.source);
-  const actionTone = is2024 ? "text-amber-400" : "text-arcane-400";
+  const actionTone = findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" });
+  const xp = formatCreatureXp(creature.xp);
+  const xpInLair = formatCreatureXp(creature.xpInLair);
 
   const abilities = [
     { label: "СИЛ", eng: "STR", val: creature.strength || "10 (+0)" },
@@ -30,9 +35,7 @@ export function CreatureStatblockCard({
     <div
       className={cn(
         "glass-card border border-white/10 bg-slate-950/70 p-4 sm:p-6 backdrop-blur-xl break-words max-w-full overflow-hidden rounded-2xl",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10"
+        findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10" })
       )}
     >
       {/* Top Header */}
@@ -42,32 +45,26 @@ export function CreatureStatblockCard({
             <h1
               className={cn(
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
-                is2024
-                  ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
+                findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 via-prism-200 to-prism-500", arcane: "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300" })
               )}
             >
               {creature.name}
             </h1>
             {is2024 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                2024
-              </span>
+              <EditionAccentChip edition="2024">2024</EditionAccentChip>
             )}
           </div>
           <div className="text-xs text-slate-400 italic mt-0.5">
             {[creature.size, creature.type, creature.alignment].filter(Boolean).join(", ")}
           </div>
-          <div className="text-[11px] font-mono text-slate-500 mt-0.5">[{creature.nameEng}]</div>
+          {creature.nameEng ? <div className="text-[11px] font-mono text-slate-500 mt-0.5">[{creature.nameEng}]</div> : null}
         </div>
 
         {/* Source Badge */}
         <div
           className={cn(
             "shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border",
-            is2024
-              ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
+            findAccentVariant(is2024, { prism: "border-prism-500/30 bg-prism-500/10 text-prism-300", arcane: "border-arcane-500/30 bg-arcane-500/10 text-arcane-300" })
           )}
         >
           {sourceLabel}
@@ -84,7 +81,7 @@ export function CreatureStatblockCard({
         )}
       >
         <div className="flex items-center gap-2.5 rounded-xl border border-white/5 bg-slate-900/40 p-2.5 glass-panel">
-          <Shield className={cn("h-5 w-5 shrink-0", is2024 ? "text-amber-400" : "text-arcane-400")} />
+          <Shield className={cn("h-5 w-5 shrink-0", findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" }))} />
           <div className="min-w-0">
             <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Клас обладунку</div>
             <div className="text-xs sm:text-sm font-semibold text-slate-200 truncate">{creature.ac || "10"}</div>
@@ -128,7 +125,7 @@ export function CreatureStatblockCard({
               <span
                 className={cn(
                   "mt-0.5 text-xs sm:text-sm font-semibold",
-                  is2024 ? "text-amber-200" : "text-arcane-200"
+                  findAccentVariant(is2024, { prism: "text-prism-200", arcane: "text-arcane-200" })
                 )}
               >
                 {ab.val}
@@ -191,14 +188,14 @@ export function CreatureStatblockCard({
 
         <div className="flex flex-wrap items-center justify-between gap-2 pt-2.5 mt-2.5 border-t border-white/5 font-medium">
           <div>
-            <span className="text-slate-400">Показник небезпеки (CR):</span>{" "}
-            <span className={is2024 ? "text-amber-300 font-bold" : "text-arcane-300 font-bold"}>
+            <span className="text-slate-400">Показник небезпеки (ПН):</span>{" "}
+            <span className={findAccentVariant(is2024, { prism: "text-prism-300 font-bold", arcane: "text-arcane-300 font-bold" })}>
               {creature.challenge || "-"}
             </span>
-            {creature.xp && creature.xp !== "-" && (
+            {xp && (
               <span className="text-slate-500 ml-1.5">
-                ({creature.xp} XP
-                {creature.xpInLair ? `, ${creature.xpInLair} XP у лігві` : ""})
+                ({xp}
+                {xpInLair ? `, ${xpInLair} у лігві` : ""})
               </span>
             )}
           </div>

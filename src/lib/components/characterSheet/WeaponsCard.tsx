@@ -1,16 +1,27 @@
 "use client";
 
+import { describeRollState } from "@/lib/logic/state-labels";
 import { useMemo } from "react";
-import { Dices, Settings2, Sword } from "lucide-react";
+import { Settings2, Sword } from "lucide-react";
+import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { PersWeaponWithWeapon, PersWithRelations } from "@/lib/actions/pers";
-import { calculateWeaponAttackBonus, calculateWeaponDamageBonus, calculateWeaponDamageDice } from "@/lib/logic/bonus-calculator";
+import {
+  calculateWeaponAttackBonus,
+  calculateWeaponDamageBonus,
+  calculateWeaponDamageDice,
+  findWeaponDamageType,
+  findWeaponRange,
+} from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
+import { formatDiceUkr } from "@/lib/logic/equipment-stats";
 import { damageTypeTranslations, weaponTranslations } from "@/lib/refs/translation";
-import { formatWeaponMasteryLabel } from "@/lib/refs/weapon-mastery";
+import { WeaponMasteryInfoButton } from "./WeaponMasteryInfoButton";
 import { findAttacksPerAction } from "@/rules/attacks-per-action";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
+import { ExtraDiceMark } from "@/lib/components/dice/ExtraDiceMark";
 import AddWeaponDialog from "./AddWeaponDialog";
 
 type Props = {
@@ -26,7 +37,7 @@ type Props = {
  * рядків: слайд і без цього перевалює за межу декомпозиції, а сама секція самодостатня.
  */
 export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props) {
-  const { openWeapon } = useDiceUIStore();
+  const openRoll = useDiceUIStore((state) => state.openRoll);
 
   // Додаткова атака з кількох класів не складається — правило рахує максимум по виданих фічах.
   const attacksPerAction = findAttacksPerAction(
@@ -38,19 +49,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
 
   const getDamageBonus = (pw: PersWeaponWithWeapon) => calculateWeaponDamageBonus(pers, pw);
 
-  const getDamageDiceNotation = (pw: PersWeaponWithWeapon): string => {
-    const raw = String(calculateWeaponDamageDice(pers, pw) || "1d4").toLowerCase();
-    const normalized = raw
-      .replace(/[×х]/g, "x")
-      .replace(/к/g, "d")
-      .replace(/k/g, "d")
-      .replace(/\s+/g, "");
-    const match = normalized.match(/(\d*)d(\d+)/);
-    if (!match) return "1d4";
-    const count = Math.max(1, Math.trunc(Number(match[1] || "1")));
-    const sides = Math.max(2, Math.trunc(Number(match[2] || "4")));
-    return `${count}d${sides}`;
-  };
+  const attackState = describeRollState(pers, { kind: "attack" }, "ATTACK");
 
   const triggerWeaponRollMode = (pw: PersWeaponWithWeapon) => {
     const weaponName =
@@ -58,13 +57,16 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
       (weaponTranslations[pw.weapon?.name as keyof typeof weaponTranslations] || pw.weapon?.name) ||
       "Зброя";
 
-    openWeapon({
-      persWeaponId: pw.persWeaponId,
-      weaponName,
-      attackBonus: getAttackBonus(pw),
-      damageBonus: getDamageBonus(pw),
-      damageDice: getDamageDiceNotation(pw),
-    });
+    openRoll(
+      buildWeaponRollContext({
+        weaponName,
+        attackBonus: getAttackBonus(pw),
+        damageBonus: getDamageBonus(pw),
+        damageDice: String(calculateWeaponDamageDice(pers, pw) || "1d4"),
+        attackState,
+        damageExtraDice: describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice,
+      }),
+    );
   };
 
   const masteryByWeaponId = useMemo(
@@ -79,7 +81,8 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
       const hasCustomAbility = !!pw.customDamageAbility;
       const hasCustomBonus = typeof pw.customDamageBonus === "number" ? pw.customDamageBonus !== 0 : !!pw.customDamageBonus;
       const hasAttackBonus = typeof (pw as any).attackBonus === "number" ? (pw as any).attackBonus !== 0 : false;
-      return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !pw.isMagical;
+      const hasOverrides = pw.overrideDamageType !== null || pw.overrideNormalRange !== null || pw.overrideLongRange !== null;
+      return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !hasOverrides && !pw.isMagical;
     };
 
     const byWeaponId = new Map<number, PersWeaponWithWeapon[]>();
@@ -125,7 +128,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
             </span>
           )}
         </CardTitle>
-        {!isReadOnly && <AddWeaponDialog persId={pers.persId} />}
+        {!isReadOnly && <AddWeaponDialog persId={pers.persId} ruleset={pers.ruleset} />}
       </CardHeader>
       <CardContent className="p-2 space-y-2">
         {pers.weapons.length > 0 ? (
@@ -147,22 +150,24 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                   )}
                   {pw.isMagical && <span className="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30 flex-shrink-0">MAG</span>}
                   {pw.weaponId && masteryByWeaponId.has(pw.weaponId) && (
-                    <span
+                    <WeaponMasteryInfoButton
+                      mastery={masteryByWeaponId.get(pw.weaponId)}
                       className="text-[10px] bg-amber-500/15 text-amber-200 px-1.5 py-0.5 rounded border border-amber-400/30 flex-shrink-0"
-                      title="Властивість майстерності доступна цьому персонажу"
-                    >
-                      {formatWeaponMasteryLabel(masteryByWeaponId.get(pw.weaponId))}
-                    </span>
+                    />
                   )}
                 </div>
                 <div className="text-xs text-slate-400 flex items-center gap-2 mt-0.5">
                   <span className="text-amber-400 font-bold text-sm">
-                    {calculateWeaponDamageDice(pers, pw)}{formatModifier(getDamageBonus(pw))}
+                    {formatDiceUkr(calculateWeaponDamageDice(pers, pw))}{formatModifier(getDamageBonus(pw))}
                   </span>
                   <span className="text-slate-600">•</span>
-                  <span className="truncate">
-                    {damageTypeTranslations[pw.weapon?.damageType as keyof typeof damageTypeTranslations] || pw.weapon?.damageType}
-                  </span>
+                  <span className="truncate">{formatWeaponDamageType(pw)}</span>
+                  {findWeaponRange(pw) && (
+                    <>
+                      <span className="text-slate-600">•</span>
+                      <span className="whitespace-nowrap">{formatWeaponRange(pw)}</span>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -172,20 +177,23 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="h-8 w-8 text-amber-300 hover:bg-amber-500/15 hover:text-amber-200"
+                      className="h-8 w-8 text-slate-400 hover:bg-white/10 hover:text-slate-100"
                       onClick={(e) => {
                         e.stopPropagation();
                         triggerWeaponRollMode(pw);
                       }}
                       title="Кинути кубики зброї"
                     >
-                      <Dices className="h-4 w-4" />
+                      <D20Icon className="h-4 w-4" />
                     </Button>
                   </div>
                 )}
 
                 <div className="text-center">
-                  <div className="text-xl font-black text-slate-50 leading-none">{formatModifier(getAttackBonus(pw))}</div>
+                  <div className="text-xl font-black text-slate-50 leading-none">
+                    {formatModifier(getAttackBonus(pw))}
+                    <ExtraDiceMark dice={attackState.extraDice} className="ml-1 text-xs" />
+                  </div>
                   <div className="text-[9px] uppercase font-bold text-slate-500 mt-0.5">влучання</div>
                 </div>
                 {!isReadOnly && (
@@ -215,3 +223,14 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
 }
 
 export default WeaponsCard;
+
+function formatWeaponDamageType(pw: PersWeaponWithWeapon): string {
+  const damageType = findWeaponDamageType(pw);
+  return damageType ? damageTypeTranslations[damageType] ?? damageType : "";
+}
+
+function formatWeaponRange(pw: PersWeaponWithWeapon): string {
+  const range = findWeaponRange(pw);
+  if (!range) return "";
+  return range.long ? `${range.normal}/${range.long} фт` : `${range.normal} фт`;
+}

@@ -15,6 +15,7 @@ import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translatio
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { EquipmentOptionCard } from "@/lib/components/characterCreator/EquipmentOptionCard";
 import { EquipmentWeaponPicks } from "@/lib/components/characterCreator/EquipmentWeaponPicks";
+import { EquipmentCatalogDialog } from "@/lib/components/characterCreator/EquipmentCatalogDialog";
 import {
   buildChoiceHeading,
   buildDefaultSelection,
@@ -22,6 +23,7 @@ import {
   buildItemLines,
   findDefaultLetterRows,
   formatVariantTitle,
+  type EquipmentCatalogItem,
   type EquipmentLine,
   type EquipmentPackView,
 } from "@/lib/components/characterCreator/equipment-choices";
@@ -110,6 +112,7 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
   const [packInfoTitle, setPackInfoTitle] = useState<string>("");
   const [packInfoDescription, setPackInfoDescription] = useState<string>("");
   const [packInfoItems, setPackInfoItems] = useState<Array<{ name: string; quantity: number }>>([]);
+  const [catalogItem, setCatalogItem] = useState<EquipmentCatalogItem | null>(null);
 
   const buildWeaponIds = useCallback((weaponCount: number, existing: number[] = []): number[] => {
     if (!weaponFilter) return [];
@@ -167,7 +170,12 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
     form.register("anyWeaponSelection");
   }, [form]);
 
-  const openPackInfo = (line: EquipmentLine) => {
+  const openLineInfo = (line: EquipmentLine) => {
+    if (line.catalogItem) {
+      setCatalogItem(line.catalogItem);
+      return;
+    }
+
     const pack: EquipmentPackView | null = line.pack;
     if (!pack) return;
 
@@ -346,7 +354,7 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
                           lines={buildEquipmentLines(optionGroup)}
                           selected={checked}
                           onSelect={isChoice ? () => chooseOption(optionGroup) : undefined}
-                          onPackInfo={openPackInfo}
+                          onInfo={openLineInfo}
                         >
                           {anyWeaponRow && (checked || !isChoice)
                             ? renderWeaponPicks(choiceGroup, anyWeaponRow)
@@ -363,6 +371,7 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
       )}
       {renderBackgroundGoldChoice()}
       {renderWeaponDialog()}
+      <EquipmentCatalogDialog item={catalogItem} ruleset={selectedClass.ruleset} onClose={() => setCatalogItem(null)} />
 
       <ControlledInfoDialog
         open={packInfoOpen}

@@ -19,7 +19,7 @@ import { ARCANE } from "@/styles/palette";
 import { Badge } from "@/components/ui/badge";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { ChevronLeft, ChevronRight, Check, Loader2 } from "lucide-react";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
@@ -67,6 +67,7 @@ import {
 } from "@/lib/components/characterCreator/infoUtils";
 import { calculateFinalAbilityScores, calculateFinalStat } from "@/lib/logic/bonus-calculator";
 import { describeMulticlassEntryProblem, findMulticlassEntryProblem, type MulticlassRuleset } from "@/rules/multiclass-entry";
+import { describeMulticlassLock } from "./multiclass-lock-note";
 import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
 import { getRulesStrategy } from "@/rules/strategies";
 import { findInfusionPicksAtLevel } from "@/rules/artificer-infusions";
@@ -82,8 +83,20 @@ import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LevelUpWeaponMasteryStep } from "@/lib/components/levelUp/LevelUpWeaponMasteryStep";
 import { findLevelUpWeaponMastery } from "@/lib/components/levelUp/levelup-weapon-mastery";
+import { NO_WEAPON_PROFICIENCY } from "@/rules/weapon-mastery";
 import { LevelUpFeatSpellStep } from "@/lib/components/levelUp/LevelUpFeatSpellStep";
+import { useLevelUpClassOptionSpellOffer } from "@/lib/components/levelUp/level-up-class-option-spell-offer";
+import { ClassSpellChoiceStep } from "@/components/spells/ClassSpellChoiceStep";
+import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
+import {
+  useLevelUpFeatSpellGrowthOffer,
+  useLevelUpFeatSpellOffer,
+  useLevelUpSpellOffer,
+  withoutSpells,
+} from "@/lib/components/levelUp/level-up-spell-offers";
+import type { RulesetId } from "@/rules/strategies/types";
 import { findVisibleOptionalFeatures } from "@/lib/components/levelUp/levelup-optional-features";
+import { BastionLevelUpNote } from "@/components/bastions/BastionLevelUpNote";
 
 import {
   CHOICE_GROUPS,
@@ -239,7 +252,7 @@ export default function LevelUpWizard({ info }: Props) {
   activateLevelUpDraftStorage();
 
   const { resetForm, formData } = usePersFormStore();
-  const router = useRouter();
+  const router = useModeRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [nextDisabled, setNextDisabled] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -263,6 +276,7 @@ export default function LevelUpWizard({ info }: Props) {
   const classes = useMemo(() => info?.classes || [], [info?.classes]);
   const feats = useMemo(() => info?.feats || [], [info?.feats]);
   const weapons = useMemo(() => info?.weapons || [], [info?.weapons]);
+  const weaponProficiency = isError ? NO_WEAPON_PROFICIENCY : info.weaponProficiency;
 
   const selectedFeatId = useMemo(() => {
     const raw = (formData as any)?.featId;
@@ -282,11 +296,14 @@ export default function LevelUpWizard({ info }: Props) {
     );
   }, [feats, selectedFeatId]);
 
-  const selectedFeatSpellOffer = useMemo(() => {
-    const featName = (selectedFeat as { name?: string } | undefined)?.name;
-    if (isError || !featName) return undefined;
-    return info.featSpellChoiceOffers[featName];
-  }, [info, isError, selectedFeat]);
+  const selectedFeatSpellOffer = useLevelUpFeatSpellOffer({
+    persId: pers?.persId,
+    hasSpellChoice: hasFeatSpellChoice(pers?.ruleset as RulesetId, (selectedFeat as { name?: string } | undefined)?.name),
+    featId: selectedFeatId,
+    featChoiceSelections: formData.featChoiceSelections,
+  });
+
+  const featSpellGrowth = useLevelUpFeatSpellGrowthOffer(pers?.persId, pers?.ruleset === "RULES_2024");
 
   const selectedFeatHasChoices = useMemo(() => {
     const n = (selectedFeat as any)?.featChoiceOptions?.length ?? 0;
@@ -406,8 +423,9 @@ export default function LevelUpWizard({ info }: Props) {
         classLevelAfter,
         mainClassLevel,
         weapons,
+        proficiency: weaponProficiency,
       }),
-    [pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel, weapons],
+    [pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel, weapons, weaponProficiency],
   );
 
   const currentSubclassIdForSelectedClass = useMemo(() => {
@@ -431,6 +449,28 @@ export default function LevelUpWizard({ info }: Props) {
       ) ?? null
     );
   }, [selectedClass, effectiveSubclassId]);
+
+  const classSpellOffer = useLevelUpSpellOffer({
+    persId: pers?.persId,
+    classId: selectedClassId,
+    subclassId: effectiveSubclassId ?? null,
+    classChoiceSelections: formData.classChoiceSelections,
+  });
+
+  const classOptionSpellOffer = useLevelUpClassOptionSpellOffer({
+    persId: pers?.persId,
+    classId: selectedClassId,
+    subclassId: effectiveSubclassId ?? null,
+    classChoiceSelections: formData.classChoiceSelections,
+  });
+
+  const classSpellOfferWithoutFeatSpells = useMemo(
+    () =>
+      classSpellOffer
+        ? withoutSpells(classSpellOffer, [...(formData.featSpellIds ?? []), ...(formData.featGrowthSpellIds ?? []), ...(formData.classOptionSpellIds ?? [])])
+        : null,
+    [classSpellOffer, formData.featSpellIds, formData.featGrowthSpellIds, formData.classOptionSpellIds],
+  );
 
   const currentLevelFeatures = useMemo(() => {
     if (!selectedClass) return [];
@@ -715,7 +755,7 @@ export default function LevelUpWizard({ info }: Props) {
 
   // Передумова мультикласу — попередження, не заборона (рішення власника 2026-09-06, KR31.9):
   // характеристика могла впасти вже після того, як клас узятий, а книга клас за це не забирає.
-  // Список несе всі ще не взяті класи; сам факт «13+ не вистачає» показує PathStep попередженням.
+  // Список несе всі ще не взяті класи; «13+ не вистачає» PathStep малює замком на картці.
   const eligibleMulticlassClasses = useMemo(() => {
     if (!pers) return [] as ClassI[];
     const allClasses = classes as unknown as ClassI[];
@@ -900,6 +940,18 @@ export default function LevelUpWizard({ info }: Props) {
       }
     }
 
+    if (featSpellGrowth) result.push({ id: "feat-growth-spells", title: "Заклинання риси", initialDisabled: true });
+
+    if (classOptionSpellOffer) result.push({ id: "class-option-spells", title: classOptionSpellOffer.label, initialDisabled: true });
+
+    if (classSpellOffer) {
+      result.push({
+        id: "class-spells",
+        title: "Заклинання",
+        initialDisabled: true,
+      });
+    }
+
     if (needsInfusions) {
       result.push({
         id: "infusions",
@@ -997,6 +1049,9 @@ export default function LevelUpWizard({ info }: Props) {
     selectedFeatHasChoices,
     selectedFeatId,
     selectedFeatSpellOffer,
+    featSpellGrowth,
+    classOptionSpellOffer,
+    classSpellOffer,
     pers,
     selectedClass,
     selectedClassId,
@@ -1118,6 +1173,27 @@ export default function LevelUpWizard({ info }: Props) {
             onNextDisabledChange={onNextDisabledChange}
           />
         ) : null;
+      case "feat-growth-spells":
+        return featSpellGrowth ? (
+          <LevelUpFeatSpellStep
+            featLabel={featTranslations[featSpellGrowth.featName as keyof typeof featTranslations] ?? featSpellGrowth.featName}
+            offer={featSpellGrowth.offer}
+            field="featGrowthSpellIds"
+            onNextDisabledChange={onNextDisabledChange}
+          />
+        ) : null;
+      case "class-option-spells":
+        return classOptionSpellOffer ? (
+          <LevelUpFeatSpellStep
+            featLabel={classOptionSpellOffer.label}
+            title={classOptionSpellOffer.label}
+            offer={classOptionSpellOffer.offer}
+            field="classOptionSpellIds"
+            onNextDisabledChange={onNextDisabledChange}
+          />
+        ) : null;
+      case "class-spells":
+        return classSpellOfferWithoutFeatSpells ? <ClassSpellChoiceStep offer={classSpellOfferWithoutFeatSpells} onNextDisabledChange={onNextDisabledChange} /> : null;
       case "infusions": {
         const known =
           (pers as any)?.persInfusions
@@ -1696,6 +1772,7 @@ function ConfirmStep({
             </div>
           )}
         </div>
+        <BastionLevelUpNote persId={pers.persId} ruleset={pers.ruleset} fromLevel={pers.level} toLevel={totalLevel} />
 
         <div className="space-y-2">
           {formData.subclassId ? (
@@ -1827,19 +1904,16 @@ function PathStep({
     return classes.find((c) => c.classId === chosenClassId) ?? null;
   }, [levelUpPath, chosenClassId, classes]);
 
-  // Попередження, не заборона (KR31.9, рішення власника 2026-09-06) — див. коментар біля
-  // eligibleMulticlassClasses вище.
-  const multiclassEntryProblem = useMemo(() => {
-    if (!selectedMulticlassClass) return null;
+  // Замок і підтвердження, не заборона (KR31.9, рішення власника 2026-09-06).
+  const findEntryProblem = useMemo(() => {
     const existingClassIds = new Set(existingEntries.map((entry) => entry.classId));
     const currentClasses = classes.filter((c) => existingClassIds.has(c.classId));
-    return findMulticlassEntryProblem({
-      ruleset: (pers.ruleset as MulticlassRuleset) ?? "RULES_2014",
-      abilityScores: calculateFinalAbilityScores(pers),
-      currentClasses,
-      newClass: selectedMulticlassClass,
-    });
-  }, [selectedMulticlassClass, existingEntries, classes, pers]);
+    const ruleset = (pers.ruleset as MulticlassRuleset) ?? "RULES_2014";
+    const abilityScores = calculateFinalAbilityScores(pers);
+    return (newClass: ClassI) => findMulticlassEntryProblem({ ruleset, abilityScores, currentClasses, newClass });
+  }, [existingEntries, classes, pers]);
+  const multiclassEntryProblem = selectedMulticlassClass ? findEntryProblem(selectedMulticlassClass) : null;
+  const findMulticlassLock = (cls: ClassI) => describeMulticlassLock(findEntryProblem(cls), cls.name);
 
   const getClassName = (classId: number) => {
     const cls = classes.find((c) => c.classId === classId);
@@ -2127,8 +2201,8 @@ function PathStep({
               <p className="text-sm text-slate-400">
                 Вимога мультикласу — зазвичай{" "}
                 <span className="font-semibold text-slate-200">13+</span> у
-                ключовій характеристиці. Це підказка, не заборона: обрати
-                можна будь-який клас.
+                ключовій характеристиці. Класи під замком — проти правил, але
+                якщо дуже треба, взяти їх однаково можна.
               </p>
 
               <div className="glass-panel border-gradient-rpg rounded-xl p-3 text-sm text-slate-300">
@@ -2155,6 +2229,7 @@ function PathStep({
                     resetLevelUpChoices();
                   }}
                   onNextDisabledChange={onNextDisabledChange}
+                  findRulesLock={findMulticlassLock}
                 />
               ) : (
                 <Card className="glass-card p-4 text-center text-slate-200">
@@ -2165,7 +2240,7 @@ function PathStep({
               {multiclassEntryProblem ? (
                 <div className="glass-panel rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200">
                   ⚠ Не за правилами: {describeMulticlassEntryProblem(multiclassEntryProblem, translateValue)}{" "}
-                  Мультиклас усе одно дозволено — це попередження, не заборона.
+                  Узгодь зі своїм майстром.
                 </div>
               ) : null}
             </div>

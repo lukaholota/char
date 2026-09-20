@@ -9,6 +9,7 @@ import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
 import { hasCatalogSources, type CatalogSources, type SourceSelection } from "@/lib/catalog-source-filter";
 import { MAGIC_ITEM_TRAIT_LABELS, type MagicItemTrait } from "@/lib/magic-item-traits";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 const rarityLabel = (rarity: string) =>
   itemRarityTranslations[rarity as keyof typeof itemRarityTranslations] || rarity;
@@ -59,9 +60,7 @@ export function MagicItemsFilterDialog({
   setAttunement,
   clearFilters,
 }: Props) {
-  const activeBadgeClass = is2024
-    ? "bg-amber-500/15 text-amber-300 border-amber-500/30"
-    : "bg-arcane-500/15 text-arcane-300 border-arcane-500/30";
+  const activeBadgeClass = findAccentVariant(is2024, { prism: "bg-prism-500/15 text-prism-300 border-prism-500/30", arcane: "bg-arcane-500/15 text-arcane-300 border-arcane-500/30" });
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -71,7 +70,7 @@ export function MagicItemsFilterDialog({
             <DialogTitle
               className={cn(
                 "font-rpg-display text-2xl font-semibold tracking-wide",
-                is2024 ? "text-amber-400" : "text-arcane-400"
+                findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" })
               )}
             >
               Фільтри
@@ -203,7 +202,7 @@ export function MagicItemsFilterDialog({
               </Button>
               <Button
                 type="button"
-                className={cn("border font-medium", is2024 ? "bg-amber-500/20 text-amber-300 border-amber-500/40" : "bg-arcane-500/20 text-arcane-300 border-arcane-500/40")}
+                className={cn("border font-medium", findAccentVariant(is2024, { prism: "bg-prism-500/20 text-prism-300 border-prism-500/40", arcane: "bg-arcane-500/20 text-arcane-300 border-arcane-500/40" }))}
                 onClick={() => onOpenChange(false)}
               >
                 Застосувати

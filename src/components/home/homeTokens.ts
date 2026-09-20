@@ -6,16 +6,21 @@ export const HOME_TILE_RATIO = 3 / 4;
 
 /// Caps how tall the hero row may grow, so the first category row always peeks into the
 /// first screen (KR13.7 §6). Width is derived from the ratio, so the cap survives a ratio change —
-/// but a portrait ratio makes the height cap alone squeeze the two covers into slivers, so the row
-/// also has a floor: it never gets narrower than this share of the container.
+/// but a portrait ratio makes the height cap alone squeeze the covers into slivers, so the row
+/// also has a floor: no cover gets narrower than the 298 px calibrated with the owner on 1440×900,
+/// however many columns the row has.
 const HERO_ROW_MAX_HEIGHT = "44svh";
-const HERO_ROW_MIN_WIDTH = "min(620px, 100%)";
+const HERO_CARD_MIN_WIDTH = "298px";
+const HERO_ROW_GAP = "1.5rem";
 
-const heroRowWidthFromHeight = `calc(${HERO_ROW_MAX_HEIGHT} * ${HOME_HERO_RATIO} * 2 + 1.5rem)`;
+export function buildHomeHeroRowMaxWidth(columns: number): string {
+  const gaps = `${HERO_ROW_GAP} * ${columns - 1}`;
+  const floor = `min(calc(${HERO_CARD_MIN_WIDTH} * ${columns} + ${gaps}), 100%)`;
+  const fromHeight = `calc(${HERO_ROW_MAX_HEIGHT} * ${HOME_HERO_RATIO} * ${columns} + ${gaps})`;
+  return `max(${floor}, ${fromHeight})`;
+}
 
-export const HOME_HERO_ROW_MAX_WIDTH = `max(${HERO_ROW_MIN_WIDTH}, ${heroRowWidthFromHeight})`;
-
-export type HomeAccentName = "arcaneViolet" | "runicCyan" | "emberGold" | "ashenSteel";
+export type HomeAccentName = "arcaneViolet" | "runicCyan" | "emberGold" | "prismSheen" | "ashenSteel";
 
 type HomeAccent = {
   textClassName: string;
@@ -42,6 +47,12 @@ export const HOME_ACCENTS: Record<HomeAccentName, HomeAccent> = {
     hoverTextClassName: "group-hover:text-amber-200",
     frameClassName: "bg-amber-300/25",
     glowColor: "rgba(252,211,77,0.45)",
+  },
+  prismSheen: {
+    textClassName: "text-prism-300",
+    hoverTextClassName: "group-hover:text-prism-200",
+    frameClassName: "bg-prism-300/25",
+    glowColor: "rgba(192,74,224,0.45)",
   },
   ashenSteel: {
     textClassName: "text-slate-400",

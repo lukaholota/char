@@ -16,6 +16,7 @@ import {
   type SpellComponent,
 } from "@/lib/spell-filter-facets";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 type Props = {
   open: boolean;
@@ -93,15 +94,13 @@ export function SpellsFilterDialog({
   const [classFilter, setClassFilter] = useState("");
   const [subclassFilter, setSubclassFilter] = useState("");
 
-  const activeBadgeClass = is2024
-    ? "bg-amber-500/15 text-amber-300 border-amber-500/30"
-    : "bg-arcane-500/15 text-arcane-300 border-arcane-500/30";
+  const activeBadgeClass = findAccentVariant(is2024, { prism: "bg-prism-500/15 text-prism-300 border-prism-500/30", arcane: "bg-arcane-500/15 text-arcane-300 border-arcane-500/30" });
 
   const chip = (key: string, label: ReactNode, active: boolean, onClick: () => void) => (
     <Badge
       key={key}
       variant={active ? "default" : "outline"}
-      className={cn("cursor-pointer transition-colors", active ? activeBadgeClass : "")}
+      className={cn("cursor-pointer justify-center transition-colors max-md:min-h-10 max-md:min-w-10", active ? activeBadgeClass : "")}
       onClick={onClick}
       role="button"
     >
@@ -119,7 +118,7 @@ export function SpellsFilterDialog({
             <DialogTitle
               className={cn(
                 "font-rpg-display text-2xl font-semibold tracking-wide",
-                is2024 ? "text-amber-400" : "text-arcane-400"
+                findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" })
               )}
             >
               Фільтри
@@ -127,7 +126,7 @@ export function SpellsFilterDialog({
             <button
               type="button"
               onClick={() => onOpenChange(false)}
-              className="glass-panel inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90 hover:text-slate-100"
+              className="glass-panel inline-flex h-10 w-10 md:h-9 md:w-9 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90 hover:text-slate-100"
               aria-label="Закрити"
             >
               <X className="h-4 w-4" />
@@ -150,7 +149,7 @@ export function SpellsFilterDialog({
                   value={classFilter}
                   onChange={(e) => setClassFilter(e.target.value)}
                   placeholder="Пошук класів…"
-                  className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
+                  className="h-10 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500 md:h-9"
                 />
               }
             >
@@ -170,7 +169,7 @@ export function SpellsFilterDialog({
                     value={subclassFilter}
                     onChange={(e) => setSubclassFilter(e.target.value)}
                     placeholder="Пошук підкласів…"
-                    className="h-9 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500"
+                    className="h-10 border-white/10 bg-slate-950/40 text-slate-200 placeholder:text-slate-500 md:h-9"
                   />
                 }
                 stacked
@@ -253,7 +252,7 @@ export function SpellsFilterDialog({
               </Button>
               <Button
                 type="button"
-                className={cn("border font-medium", is2024 ? "bg-amber-500/20 text-amber-300 border-amber-500/40" : "bg-arcane-500/20 text-arcane-300 border-arcane-500/40")}
+                className={cn("border font-medium", findAccentVariant(is2024, { prism: "bg-prism-500/20 text-prism-300 border-prism-500/40", arcane: "bg-arcane-500/20 text-arcane-300 border-arcane-500/40" }))}
                 onClick={() => onOpenChange(false)}
               >
                 Застосувати

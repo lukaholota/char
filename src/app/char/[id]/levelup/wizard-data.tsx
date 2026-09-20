@@ -1,5 +1,6 @@
 import { getLevelUpInfo } from "@/lib/actions/levelup";
 import LevelUpWizard from "@/lib/components/levelUp/LevelUpWizard";
+import { PersEditionPin } from "@/components/ui/PersEditionPin";
 
 export default async function LevelUpData({ id }: { id: number }) {
   const info = await getLevelUpInfo(id);
@@ -8,5 +9,10 @@ export default async function LevelUpData({ id }: { id: number }) {
     return <div>Error: {info.error}</div>;
   }
 
-  return <LevelUpWizard info={info} />;
+  return (
+    <>
+      <PersEditionPin ruleset={info.pers.ruleset} />
+      <LevelUpWizard info={info} />
+    </>
+  );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, createContext, useCallback, useContext, useMemo } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { buildHrefForNoAiMode, hasNoAiPrefix, stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
 
@@ -39,4 +39,20 @@ export function useRoutePathname(): string {
 export function useNoAiHref(): (href: string) => string {
   const { enabled } = useNoAiMode();
   return useCallback((href: string) => buildHrefForNoAiMode(href, enabled), [enabled]);
+}
+
+/// `useRouter()`, що не губить `/no-ai` на програмному переході — пара до `ModeLink`.
+export function useModeRouter(): ReturnType<typeof useRouter> {
+  const router = useRouter();
+  const buildHref = useNoAiHref();
+
+  return useMemo(
+    () => ({
+      ...router,
+      push: (href, options) => router.push(buildHref(href), options),
+      replace: (href, options) => router.replace(buildHref(href), options),
+      prefetch: (href, options) => router.prefetch(buildHref(href), options),
+    }),
+    [router, buildHref]
+  );
 }

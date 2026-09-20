@@ -8,9 +8,10 @@
 import {
   type MasteryClassOffer,
   type MasteryWeapon,
+  type WeaponProficiencyGrant,
   countFeatMasterySlots,
   findWeaponMasteryCapacity,
-  findWeaponMasteryOptionsForClasses,
+  findWeaponMasteryOptionsForCharacter,
 } from "@/rules/weapon-mastery";
 
 type ClassRow = {
@@ -44,17 +45,19 @@ export function findLevelUpWeaponMastery<Weapon extends MasteryWeapon>(input: {
   classLevelAfter: number;
   mainClassLevel: number;
   weapons: readonly Weapon[];
+  proficiency: WeaponProficiencyGrant;
 }): LevelUpWeaponMastery<Weapon> {
-  const { pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel, weapons } = input;
+  const { pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel, weapons, proficiency } = input;
   if (!pers) return { capacity: 0, options: [], currentWeaponIds: [], needsChoice: false };
 
-  const offers = collectClassOffers({ pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel });
-  const capacity = findWeaponMasteryCapacity(offers, countFeatMasterySlots(readFeatNames(pers)));
+  const classes = collectClassOffers({ pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel });
+  const featSlots = countFeatMasterySlots(readFeatNames(pers));
+  const capacity = findWeaponMasteryCapacity(classes, featSlots);
   const currentWeaponIds = (pers.pers_weapon_mastery ?? []).map((entry) => entry.weapon_id);
 
   return {
     capacity,
-    options: findWeaponMasteryOptionsForClasses(offers, weapons),
+    options: findWeaponMasteryOptionsForCharacter({ classes, featSlots, proficiency }, weapons),
     currentWeaponIds,
     needsChoice: capacity > currentWeaponIds.length,
   };

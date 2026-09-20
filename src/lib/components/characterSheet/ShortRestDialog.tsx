@@ -6,12 +6,17 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { shortRest, HitDiceToUse } from "@/lib/actions/rest-actions";
+import { useOfflineQueue } from "@/hooks/useOfflineQueue";
+import { createOperationId } from "@/lib/offline/queue";
+import { rollHitPointsFromHitDice } from "@/rules/hit-dice";
 import { restTranslations } from "@/lib/refs/translation";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { getAbilityMod } from "@/lib/logic/utils";
 import { Input } from "@/components/ui/input";
 import { collectPersHitDicePools, type PersHitDicePool } from "@/lib/logic/pers-hit-dice";
 import { Minus, Plus, Dice6 } from "lucide-react";
+import { endAllFeatureStates } from "@/lib/logic/feature-state-rows";
+import { endEffectsAfterRest } from "@/lib/logic/pers-effect-rows";
 
 interface ShortRestDialogProps {
   pers: PersWithRelations;
@@ -19,10 +24,12 @@ interface ShortRestDialogProps {
   onOpenChange: (open: boolean) => void;
   onPersUpdate?: (next: PersWithRelations) => void;
   onGroupedFeaturesRefresh?: () => void;
+  onRestQueued?: () => void;
 }
 
-export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate, onGroupedFeaturesRefresh }: ShortRestDialogProps) {
+export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate, onGroupedFeaturesRefresh, onRestQueued }: ShortRestDialogProps) {
   const router = useRouter();
+  const { commitOperation } = useOfflineQueue();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hitDice, setHitDice] = useState<PersHitDicePool[]>([]);
@@ -76,7 +83,28 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
     setIsSubmitting(true);
     (async () => {
       try {
-        const res = await shortRest(pers.persId, hitDiceToUse, rolledHitPoints);
+        const restoredHitPoints = rolledHitPoints ?? rollHitPointsFromHitDice(derivedHitDice, hitDiceToUse, conMod);
+        const outcome = await commitOperation(
+          {
+            kind: "short-rest",
+            hitDiceSpent: hitDiceToUse,
+            restoredHitPoints,
+            operationId: createOperationId(),
+            persId: pers.persId,
+            createdAt: new Date().toISOString(),
+          },
+          () => shortRest(pers.persId, hitDiceToUse, rolledHitPoints),
+        );
+        if (outcome.queued) {
+          onRestQueued?.();
+          toast.success(restTranslations.shortRestComplete, {
+            description: `${restTranslations.hpRestored}: ${restoredHitPoints}. ${restTranslations.savedOffline}`,
+          });
+          onOpenChange(false);
+          return;
+        }
+
+        const res = outcome.result;
         if (!res.success) {
           toast.error(res.error);
           return;
@@ -85,7 +113,7 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
         // Apply immediate local update (so UI doesn't wait for router.refresh)
         // Note: short rest doesn't change maxHp; just currentHp + hit dice.
         const nextPers: PersWithRelations = {
-          ...pers,
+          ...endEffectsAfterRest(endAllFeatureStates(pers), "SHORT"),
           currentHp: res.newCurrentHp,
           currentHitDice: res.currentHitDice as any,
           currentPactSlots: (res as any).currentPactSlots ?? (pers as any).currentPactSlots,

@@ -43,6 +43,12 @@ export function setBoolParam(params: URLSearchParams, key: string, value: boolea
   }
 }
 
+export function updateUrlSearchParams(mutate: (next: URLSearchParams) => void) {
+  const next = getSearchParamsFromLocation();
+  mutate(next);
+  replaceUrlSearchParams(next);
+}
+
 export function replaceUrlSearchParams(next: URLSearchParams) {
   if (typeof window === "undefined") return;
   const search = next.toString();

@@ -17,6 +17,10 @@ export const CREATURE_SORT_MODES: readonly { mode: CreatureSortMode; label: stri
 
 export const DEFAULT_CREATURE_SORT: CreatureSortMode = "random";
 
+/// Пікер звіриних форм відкривається з CR згори — там читач шукає найсильнішу доступну форму,
+/// а не гортає каталог.
+export const WILDSHAPE_PICKER_SORT: CreatureSortMode = "cr-desc";
+
 export function parseCreatureSortMode(raw: string | null): CreatureSortMode {
   return CREATURE_SORT_MODES.some((option) => option.mode === raw)
     ? (raw as CreatureSortMode)

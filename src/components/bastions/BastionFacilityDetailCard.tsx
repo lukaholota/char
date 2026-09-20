@@ -12,6 +12,7 @@ import {
 import { findSourceLabel } from "@/lib/refs/source-label";
 import { bastionFacilityTypeTranslations } from "@/lib/refs/translation";
 import { cn } from "@/lib/utils";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 export function BastionFacilityDetailCard({ facility }: { facility: BastionFacilityData }) {
   const visual = getBastionFacilityVisual(facility.orders[0]);
@@ -29,9 +30,7 @@ export function BastionFacilityDetailCard({ facility }: { facility: BastionFacil
             <h1 className="font-rpg-display bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500 bg-clip-text text-xl font-bold uppercase tracking-wider text-transparent sm:text-2xl">
               {facility.name}
             </h1>
-            <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-              2024
-            </span>
+            <EditionAccentChip edition="2024">2024</EditionAccentChip>
           </div>
           <div className="mt-0.5 font-mono text-xs text-slate-400">[{facility.engName}]</div>
         </div>

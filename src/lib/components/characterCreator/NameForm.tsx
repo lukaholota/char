@@ -14,7 +14,7 @@ import {
   classTranslations,
   raceTranslations,
   weaponTranslations,
-  armorTranslations,
+  featTranslations,
   asiSystemTranslations,
   asiModeTranslations,
   sourceTranslations,
@@ -54,6 +54,7 @@ import { BackgroundInfoModal } from "@/lib/components/characterCreator/modals/Ba
 import { SubraceInfoModal } from "@/lib/components/characterCreator/modals/SubraceInfoModal";
 import { RaceVariantInfoModal } from "@/lib/components/characterCreator/modals/RaceVariantInfoModal";
 import { FeatInfoModal } from "@/lib/components/characterCreator/modals/FeatInfoModal";
+import { describeEquipmentRow } from "@/lib/components/characterCreator/equipment-choices";
 
 interface Props {
   formId: string;
@@ -359,22 +360,8 @@ export const NameForm = ({
   };
 
   const resolveEquipmentOptionLabel = (optionId: number) => {
-    const item = equipmentByOptionId.get(Number(optionId));
-    const parts: string[] = [];
-    const weapon = (item as any)?.weapon;
-    const armor = (item as any)?.armor;
-    const pack = (item as any)?.equipmentPack;
-    const desc = (item as any)?.description;
-    const qty = Number((item as any)?.quantity);
-    
-    if (typeof desc === "string" && desc.trim()) parts.push(desc.trim());
-    if (weapon?.name) parts.push(weaponTranslations[weapon.name as keyof typeof weaponTranslations] ?? String(weapon.name));
-    if (armor?.name) parts.push(armorTranslations[armor.name as keyof typeof armorTranslations] ?? String(armor.name));
-    if (pack?.name) parts.push(translateValue(pack.name));
-    
-    const label = parts.filter(Boolean).join(" • ");
-    const q = Number.isFinite(qty) && qty > 1 ? ` x${qty}` : "";
-    return label ? `${label}${q}` : String(optionId);
+    const row = equipmentByOptionId.get(Number(optionId));
+    return (row && describeEquipmentRow(row)) || String(optionId);
   };
 
 
@@ -555,7 +542,7 @@ export const NameForm = ({
               <SubclassInfoModal subclass={subclass} trigger={<SummaryCard label="Підклас" value={subclassName} hasModal />} />
             )}
             {background && (
-              <BackgroundInfoModal background={background} trigger={<SummaryCard label="Передісторія" value={bgName} hasModal />} />
+              <BackgroundInfoModal background={background} originFeat={backgroundFeat ? { name: featTranslations[backgroundFeat.name] ?? backgroundFeat.name, description: backgroundFeat.description } : undefined} trigger={<SummaryCard label="Передісторія" value={bgName} hasModal />} />
             )}
             {feat && (
               <FeatInfoModal feat={feat as any} trigger={<SummaryCard label="Риса" value={featName} hasModal />} />

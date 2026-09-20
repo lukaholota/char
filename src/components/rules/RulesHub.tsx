@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { useNoAiMode } from "@/components/no-ai/NoAiModeProvider";
 import { getRuleCategoryVisual } from "@/components/catalogs/catalog-visuals";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -122,7 +123,7 @@ export function RulesHub({
                   vignette="lg"
                   imageClassName="opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
                   hoverGlowColor={
-                    is2024 ? "rgba(245,158,11,0.35)" : "rgba(45,212,191,0.35)"
+                    findAccentVariant(is2024, { prism: "rgba(192,74,224,0.35)", arcane: "rgba(45,212,191,0.35)" })
                   }
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
@@ -135,7 +136,7 @@ export function RulesHub({
                     <p className="text-xs sm:text-sm text-slate-200/90 leading-relaxed line-clamp-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                       {cat.description}
                     </p>
-                    <div className="pt-1 flex items-center gap-1.5 text-xs font-semibold text-arcane-400 group-hover:text-amber-300 transition-colors">
+                    <div className="pt-1 flex items-center gap-1.5 text-xs font-semibold text-arcane-400 group-hover:text-prism-300 transition-colors">
                       <span>Відкрити розділ</span>
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                     </div>

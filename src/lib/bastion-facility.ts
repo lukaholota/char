@@ -24,13 +24,24 @@ export function toBastionOrderCode(order: BastionOrder): BastionOrderCode {
   return ORDER_CODES[order];
 }
 
-/// MAINTAIN не належить жодному приміщенню в корпусі 5etools — це загальне «нічого особливого
-/// цей хід», доступне будь-якому приміщенню, включно з базовими. Решта наказів — специфічні,
-/// каталог дає їх лише деяким спеціальним приміщенням (Р26: підказка, а не замок).
+/// Каталог дає накази лише деяким спеціальним приміщенням (Р26: підказка, а не замок).
+/// «Утримання» сюди не входить: DMG 2024 віддає його всьому бастіону — `pers_bastion.is_maintaining`.
 export function findAllowedOrderCodes(
   facility: Pick<BastionFacilityData, "orders">
 ): BastionOrderCode[] {
-  return [...facility.orders.map(toBastionOrderCode), "MAINTAIN"];
+  return facility.orders.map(toBastionOrderCode);
+}
+
+export const BASTION_WIDE_ORDER_CODE: BastionOrderCode = "MAINTAIN";
+
+export const FACILITY_ORDER_CODES = ALL_BASTION_ORDER_CODES.filter((code) => code !== BASTION_WIDE_ORDER_CODE);
+
+/// Кожне спеціальне приміщення DMG 2024 має рівно один наказ, базові — жодного. Решта лишається вибором «поза каталогом» (Р26).
+export function splitOrderCodesByCatalog(allowedOrderCodes: readonly BastionOrderCode[]) {
+  return {
+    catalog: FACILITY_ORDER_CODES.filter((code) => allowedOrderCodes.includes(code)),
+    other: FACILITY_ORDER_CODES.filter((code) => !allowedOrderCodes.includes(code)),
+  };
 }
 
 export type BastionHirelings = { exact: number | null; min: number | null; space: BastionSpace | null };
@@ -64,7 +75,21 @@ export type BastionFacilityData = {
 /// каталозі вони позначаються своїм джерелом, а не змішуються з ядром.
 export const CORE_BASTION_SOURCE = "DMG_2024";
 
+export const BASTION_RULES_HREF = "/2024/rules/adventuring#bastions";
+
 export const BASTION_LEVELS = [5, 9, 13, 17] as const;
+
+export type BastionSpaceCode = keyof typeof bastionSpaceTranslations;
+
+const SPACE_BY_CODE: Record<BastionSpaceCode, BastionSpace> = {
+  CRAMPED: "cramped",
+  ROOMY: "roomy",
+  VAST: "vast",
+};
+
+export function toBastionSpace(code: BastionSpaceCode): BastionSpace {
+  return SPACE_BY_CODE[code];
+}
 
 export function translateSpace(space: BastionSpace): string {
   return bastionSpaceTranslations[space.toUpperCase() as keyof typeof bastionSpaceTranslations] ?? space;

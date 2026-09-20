@@ -28,6 +28,7 @@ import {
 import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getArmorVisual } from "@/components/catalogs/catalog-visuals";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 type SelectionState = {
   types: Set<string>;
@@ -206,11 +207,9 @@ export function ArmorClient({ armors, ruleset = "RULES_2014" }: Props) {
                 type="button"
                 onClick={() => selectSingleTypeTab(tab.key)}
                 className={cn(
-                  "rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 border",
+                  "rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 border max-md:min-h-10",
                   isSelected
-                    ? is2024
-                      ? "border-amber-500/50 bg-amber-500/20 text-amber-200 shadow-sm"
-                      : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm"
+                    ? findAccentVariant(is2024, { prism: "border-prism-500/50 bg-prism-500/20 text-prism-200 shadow-sm", arcane: "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm" })
                     : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
                 )}
               >
@@ -251,9 +250,7 @@ export function ArmorClient({ armors, ruleset = "RULES_2014" }: Props) {
               className={cn(
                 "glass-panel group relative overflow-hidden rounded-xl border p-3 transition-all duration-300 cursor-pointer",
                 isSelected
-                  ? is2024
-                    ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
+                  ? findAccentVariant(is2024, { prism: "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-prism-400/40", arcane: "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40" })
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -270,7 +267,7 @@ export function ArmorClient({ armors, ruleset = "RULES_2014" }: Props) {
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-arcane-300"
+                          ? findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" })
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >

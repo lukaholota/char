@@ -8,10 +8,14 @@ import {
   flushOfflineQueue,
   queueOfflineOperation,
   readOfflineQueue,
+  readOfflineSyncStatus,
   subscribeToOfflineQueue,
+  subscribeToOfflineSyncStatus,
+  type OfflineSyncStatus,
 } from "@/lib/offline/queue";
 
 const NO_OPERATIONS: OfflineOperation[] = [];
+const IDLE_STATUS: OfflineSyncStatus = { state: "idle", attempt: 0, error: null };
 
 export type OfflineCommitOutcome<TResult> = { queued: true } | { queued: false; result: TResult };
 
@@ -21,6 +25,7 @@ export function useOfflineQueue() {
     readOfflineQueue,
     () => NO_OPERATIONS,
   );
+  const syncStatus = useSyncExternalStore(subscribeToOfflineSyncStatus, readOfflineSyncStatus, () => IDLE_STATUS);
   const isOnline = useIsOnline();
 
   const flush = useCallback(() => {
@@ -30,6 +35,18 @@ export function useOfflineQueue() {
   useEffect(() => {
     if (isOnline) flush();
   }, [isOnline, flush]);
+
+  useEffect(() => {
+    const flushWhenVisible = () => {
+      if (document.visibilityState === "visible" && navigator.onLine && readOfflineQueue().length > 0) flush();
+    };
+    document.addEventListener("visibilitychange", flushWhenVisible);
+    window.addEventListener("focus", flushWhenVisible);
+    return () => {
+      document.removeEventListener("visibilitychange", flushWhenVisible);
+      window.removeEventListener("focus", flushWhenVisible);
+    };
+  }, [flush]);
 
   const commitOperation = useCallback(
     async <TResult>(
@@ -56,6 +73,7 @@ export function useOfflineQueue() {
   return {
     isOnline,
     pendingCount: queuedOperations.length,
+    syncStatus,
     commitOperation,
     flush,
   };

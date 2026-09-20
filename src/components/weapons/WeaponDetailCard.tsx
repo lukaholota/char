@@ -11,6 +11,8 @@ import { findWeaponMasteryDescription, formatWeaponMasteryLabel } from "@/lib/re
 import { cn } from "@/lib/utils";
 import { Sword, Crosshair, Target, ShieldAlert, Sparkles, Weight, Coins } from "lucide-react";
 import { getWeaponVisual } from "@/components/catalogs/catalog-visuals";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 const PROPERTY_DESCRIPTIONS: Record<string, string> = {
   FINESSE: "При здійсненні атаки ви можете використовувати модифікатор Сили або Спритності для кидків атаки та шкоди.",
@@ -42,9 +44,7 @@ export function WeaponDetailCard({
     <div
       className={cn(
         "glass-card border border-white/10 bg-slate-950/60 p-4 sm:p-6 backdrop-blur-xl break-words max-w-full overflow-hidden rounded-2xl",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10"
+        findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10" })
       )}
     >
       {/* Header */}
@@ -54,17 +54,13 @@ export function WeaponDetailCard({
             <h1
               className={cn(
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
-                is2024
-                  ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
+                findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 via-prism-200 to-prism-500", arcane: "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300" })
               )}
             >
               {weapon.nameUa}
             </h1>
             {is2024 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                2024
-              </span>
+              <EditionAccentChip edition="2024">2024</EditionAccentChip>
             )}
           </div>
           <div className="text-xs font-mono text-slate-400 mt-0.5">[{weapon.engName}]</div>
@@ -74,9 +70,7 @@ export function WeaponDetailCard({
         <div
           className={cn(
             "shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border",
-            is2024
-              ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
+            findAccentVariant(is2024, { prism: "border-prism-500/30 bg-prism-500/10 text-prism-300", arcane: "border-arcane-500/30 bg-arcane-500/10 text-arcane-300" })
           )}
         >
           {sourceLabel}
@@ -87,7 +81,7 @@ export function WeaponDetailCard({
       <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         <div className="rounded-xl border border-white/5 bg-slate-900/40 p-3 text-center">
           <div className="text-[11px] text-slate-400 font-medium">Шкода</div>
-          <div className={cn("text-lg font-bold mt-0.5", is2024 ? "text-amber-300" : "text-arcane-300")}>
+          <div className={cn("text-lg font-bold mt-0.5", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>
             {weapon.damage || "-"}
           </div>
           <div className="text-[11px] text-slate-400 truncate">{damageTypeLabel}</div>
@@ -126,10 +120,10 @@ export function WeaponDetailCard({
 
       {/* 2024 Weapon Mastery Callout */}
       {is2024 && weapon.mastery && (
-        <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3.5">
+        <div className="mt-4 rounded-xl border border-prism-500/30 bg-prism-500/10 p-3.5">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-amber-400" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <Sparkles className="h-4 w-4 text-prism-400" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-prism-300">
               Майстерність зброї (Weapon Mastery): {formatWeaponMasteryLabel(weapon.mastery) ?? weapon.masteryNameUa ?? weapon.mastery}
             </span>
           </div>
@@ -158,7 +152,7 @@ export function WeaponDetailCard({
 
               return (
                 <div key={propKey} className="rounded-xl border border-white/5 bg-slate-900/40 p-3">
-                  <div className={cn("text-xs font-semibold", is2024 ? "text-amber-300" : "text-arcane-300")}>
+                  <div className={cn("text-xs font-semibold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>
                     {label} [{propKey}]
                   </div>
                   {desc && (

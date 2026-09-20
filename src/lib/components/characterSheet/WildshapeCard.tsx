@@ -1,6 +1,6 @@
 "use client";
 
-import { PawPrint, Plus, Trash2 } from "lucide-react";
+import { Minus, PawPrint, Plus, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +11,7 @@ import { describeKnownFormsOverflow } from "@/rules/wildshape";
 import type { AttachedForm, WildshapeStanding } from "@/server/db/wildshape";
 import type { WildshapeUses } from "@/server/db/wildshape-uses";
 import { detachWildshapeForm, enterWildshapeForm } from "@/server/db/wildshape-actions";
+import { restoreFeatureUse, spendFeatureUse } from "@/lib/actions/feature-uses";
 import { AddWildshapeFormDialog } from "./AddWildshapeFormDialog";
 import { ActiveForm } from "./WildshapeActiveForm";
 import type { WildshapeState } from "./useWildshapeState";
@@ -27,7 +28,7 @@ interface WildshapeCardProps {
 }
 
 export function WildshapeCard({ persId, persName, isReadOnly, wildshape }: WildshapeCardProps) {
-  const { forms, standing, active, uses, isLoaded, isPending, reload } = wildshape;
+  const { forms, standing, active, uses, isLoaded, isPending, reload, applyUsesRemaining } = wildshape;
 
   // Персонаж без Дикої форми не бачить модуля взагалі — це не порожній стан, а відсутність фічі.
   if (!isLoaded || !standing?.limits) return null;
@@ -55,7 +56,15 @@ export function WildshapeCard({ persId, persName, isReadOnly, wildshape }: Wilds
       </CardHeader>
 
       <CardContent className="p-3 space-y-3">
-        <LimitsLine standing={standing} uses={uses} attachedCount={forms.length} />
+        <LimitsLine
+          standing={standing}
+          uses={uses}
+          attachedCount={forms.length}
+          persId={persId}
+          isReadOnly={isReadOnly}
+          isPending={isPending}
+          onUsesRemaining={applyUsesRemaining}
+        />
 
         {active ? (
           <ActiveForm
@@ -85,10 +94,18 @@ function LimitsLine({
   standing,
   uses,
   attachedCount,
+  persId,
+  isReadOnly,
+  isPending,
+  onUsesRemaining,
 }: {
   standing: WildshapeStanding;
   uses: WildshapeUses | null;
   attachedCount: number;
+  persId: number;
+  isReadOnly?: boolean;
+  isPending: boolean;
+  onUsesRemaining: (remaining: number) => void;
 }) {
   const overflow = describeKnownFormsOverflow({ attached: attachedCount, limit: standing.knownFormsLimit });
 
@@ -104,9 +121,13 @@ function LimitsLine({
           </Badge>
         )}
         {uses && (
-          <Badge variant="outline" className="border-purple-500/40 text-purple-300">
-            {uses.isUnlimited ? "Використань без обмежень" : `Використань ${uses.remaining} / ${uses.max}`}
-          </Badge>
+          <UsesCounter
+            uses={uses}
+            persId={persId}
+            isReadOnly={isReadOnly}
+            isPending={isPending}
+            onUsesRemaining={onUsesRemaining}
+          />
         )}
         {standing.knownFormsLimit !== null && (
           <Badge
@@ -120,6 +141,87 @@ function LimitsLine({
       </div>
       {overflow && <p className="text-xs text-amber-400/90">{overflow}</p>}
     </div>
+  );
+}
+
+/// Лічильник тут — не другий пул, а той самий `WILD_SHAPE`, за який відповідають серверні дії
+/// слайда Рис: картка лише натискає їх фічею з `uses.featureId`. Крок — ціна перевтілення, бо
+/// стільки ж знімає вхід у форму. Число міняється одразу, а відповідь сервера його або уточнює,
+/// або повертає назад.
+function UsesCounter({
+  uses,
+  persId,
+  isReadOnly,
+  isPending,
+  onUsesRemaining,
+}: {
+  uses: WildshapeUses;
+  persId: number;
+  isReadOnly?: boolean;
+  isPending: boolean;
+  onUsesRemaining: (remaining: number) => void;
+}) {
+  const router = useRouter();
+
+  if (uses.isUnlimited) {
+    return (
+      <Badge variant="outline" className="border-purple-500/40 text-purple-300">
+        Використань без обмежень
+      </Badge>
+    );
+  }
+
+  async function change(step: "spend" | "restore") {
+    const before = uses.remaining;
+    onUsesRemaining(step === "spend" ? before - uses.price : before + uses.price);
+
+    const result = await (step === "spend"
+      ? spendFeatureUse({ persId, featureId: uses.featureId })
+      : restoreFeatureUse({ persId, featureId: uses.featureId }));
+
+    if (!result.success) {
+      onUsesRemaining(before);
+      toast.error(result.error);
+      return;
+    }
+
+    if (typeof result.usesRemaining === "number") onUsesRemaining(result.usesRemaining);
+    router.refresh();
+  }
+
+  return (
+    <Badge
+      variant="outline"
+      className="gap-1 border-purple-500/40 py-0 pl-1 pr-1 font-normal text-purple-300"
+    >
+      {!isReadOnly && (
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label="Витратити використання Дикої форми"
+          className="h-5 w-5 rounded-md text-purple-300 hover:bg-white/10"
+          disabled={isPending || uses.remaining < uses.price}
+          onClick={() => change("spend")}
+        >
+          <Minus className="h-3 w-3" />
+        </Button>
+      )}
+      <span>
+        Використань {uses.remaining} / {uses.max}
+      </span>
+      {!isReadOnly && (
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label="Відновити використання Дикої форми"
+          className="h-5 w-5 rounded-md text-purple-300 hover:bg-white/10"
+          disabled={isPending || uses.remaining >= uses.max}
+          onClick={() => change("restore")}
+        >
+          <Plus className="h-3 w-3" />
+        </Button>
+      )}
+    </Badge>
   );
 }
 
@@ -209,7 +311,7 @@ function FormRow({
         </div>
         <div className="text-xs text-slate-400 truncate">
           {form.creature
-            ? `КР ${form.creature.challenge} · ${form.creature.hp} хітів · ${form.creature.speed}`
+            ? `ПН ${form.creature.challenge} · ${form.creature.hp} хітів · ${form.creature.speed}`
             : "Цієї істоти більше немає в каталозі"}
         </div>
         {blockingReasons.map((reason) => (

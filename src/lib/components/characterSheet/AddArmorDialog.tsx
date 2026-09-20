@@ -10,15 +10,16 @@ import {
   addArmor 
 } from "@/lib/actions/equipment-actions";
 import { armorTranslations, armorTypeTranslations } from "@/lib/refs/translation";
-import { Armor, ArmorType } from "@prisma/client";
+import { Armor, ArmorType, type Ruleset } from "@prisma/client";
 import { toast } from "sonner";
 
 interface AddArmorDialogProps {
   persId: number;
+  ruleset: Ruleset;
   onSuccess?: () => void;
 }
 
-export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProps) {
+export default function AddArmorDialog({ persId, ruleset, onSuccess }: AddArmorDialogProps) {
   const [open, setOpen] = useState(false);
   const [armors, setArmors] = useState<Armor[]>([]);
   const [search, setSearch] = useState("");
@@ -31,14 +32,14 @@ export default function AddArmorDialog({ persId, onSuccess }: AddArmorDialogProp
       setSearch("");
       setTypeFilter("ALL");
       setIsLoading(true);
-      getBaseEquipment().then((res) => {
+      getBaseEquipment(ruleset).then((res) => {
         if (res.success && res.armors) {
           setArmors(res.armors.filter((a) => a.armorType !== ArmorType.SHIELD));
         }
         setIsLoading(false);
       });
     }
-  }, [open]);
+  }, [open, ruleset]);
 
   const filteredArmors = armors.filter((a) => {
     const name = armorTranslations[a.name as keyof typeof armorTranslations] || a.name;

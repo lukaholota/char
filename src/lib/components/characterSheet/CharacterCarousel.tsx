@@ -17,6 +17,7 @@ import { buildBeastFormPers, listBeastAbilities } from "@/lib/logic/beast-form";
 import { BeastFormBar } from "./BeastFormBar";
 import type { BeastFormView } from "./BeastFormMarks";
 import { useWildshapeState } from "./useWildshapeState";
+import { applyActiveStates } from "@/lib/logic/active-states";
 import type { SpellSource } from "@/rules/spell-sources";
 
 interface CharacterCarouselProps {
@@ -68,10 +69,12 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
     };
   }, [wildshape.active, wildshape.standing, wildshape.reload, showBeastLayer, pers]);
 
+  /// Стани лягають поверх звіриної форми: варвар-друїд 2014 може лютувати й звіром.
   const sheetPers = useMemo(
-    () => (beastForm ? buildBeastFormPers(pers, beastForm.layer) : pers),
+    () => applyActiveStates(beastForm ? buildBeastFormPers(pers, beastForm.layer) : pers),
     [beastForm, pers]
   );
+  const ownPersWithStates = useMemo(() => applyActiveStates(pers), [pers]);
 
   type SlideId = "stats" | "skills" | "equipment" | "magic" | "features";
   type SlideDef = { id: SlideId; label: string };
@@ -107,13 +110,14 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
 
   /// Спорядження, магія й риси лишаються персонажевими: обладунок у формі злився з подобою,
   /// заклинальна характеристика ніколи не Сила й не Спритність, а риси форма не міняє. Туди
-  /// їде власний лист — щоб підміна не протекла в те, що вона змінювати не мусить.
+  /// їде власний лист — щоб підміна не протекла в те, що вона змінювати не мусить. Стани рис
+  /// спорядження все ж бачить: Робота клинком і бонус шкоди Люті живуть у зброї.
   const renderSlide = (id: SlideId) => {
     if (id === "stats") return <MainStatsSlide pers={sheetPers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} beastForm={beastForm} />;
     if (id === "skills") return <SkillsSlide pers={sheetPers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} beastForm={beastForm} />;
-    if (id === "equipment") return <CombatSlide pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} wildshape={wildshape} />;
-    if (id === "magic") return <MagicSlide pers={pers} spellcastingSources={spellcastingSources} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
-    if (id === "features") return <FeaturesSlide pers={pers} onPersUpdate={onPersUpdate} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} onResourcesChanged={wildshape.reload} />;
+    if (id === "equipment") return <CombatSlide pers={ownPersWithStates} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} wildshape={wildshape} />;
+    if (id === "magic") return <MagicSlide pers={ownPersWithStates} spellcastingSources={spellcastingSources} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} onFeaturesChanged={reloadFeatures} />;
+    if (id === "features") return <FeaturesSlide pers={pers} onPersUpdate={onPersUpdate} groupedFeatures={groupedFeatures} isReadOnly={isReadOnly} onResourcesChanged={wildshape.reload} onFeaturesChanged={reloadFeatures} />;
     return null;
   };
 
@@ -130,7 +134,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
 
       {/* Content */}
       <div className="relative flex-1 min-h-0 overflow-hidden">
-        <div className="h-full min-h-0 px-3 pt-3 pb-2 md:px-4 md:pt-4 md:absolute md:inset-0">
+        <div className="h-full min-h-0 px-3 pt-3 pb-16 md:px-4 md:pt-4 md:pb-2 md:absolute md:inset-0">
           <Swiper
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
@@ -170,32 +174,30 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
             ))}
           </Swiper>
 
-          {/* Side navigation arrows (all breakpoints) */}
           <Button
-            className="fixed left-2 md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-800/60 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="hidden md:flex fixed md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-800/60 border border-white/20 text-white rounded-full md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
-            aria-label="Previous slide"
+            aria-label="Попередній слайд"
             onClick={() => {
               swiperRef.current?.slidePrev(100);
             }}
           >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            <ChevronLeft className="md:w-6 md:h-6" />
           </Button>
           <Button
-            className="fixed right-2 md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-800/60 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 p-0 shadow-xl z-10"
+            className="hidden md:flex fixed md:right-6 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-800/60 border border-white/20 text-white rounded-full md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
-            aria-label="Next slide"
+            aria-label="Наступний слайд"
             onClick={() => {
               swiperRef.current?.slideNext(100);
             }}
           >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            <ChevronRight className="md:w-6 md:h-6" />
           </Button>
         </div>
       </div>
 
-      {/* Bottom navigation (always visible) */}
-      <div className="fixed bottom-[75px] left-0 w-full md:sticky md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
+      <div className="fixed bottom-[calc(75px+env(safe-area-inset-bottom,0px))] left-0 w-full md:sticky md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
         <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
           {allSlides.map((s, idx) => {
             const active = idx === currentIndex;
@@ -207,7 +209,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
                   swiperRef.current?.slideToLoop(idx);
                 }}
                 className={
-                  "px-2 py-1 rounded-md text-[10px] sm:text-xs transition border " +
+                  "px-2 py-1 rounded-md text-[10px] sm:text-xs transition border max-md:min-h-10 max-md:min-w-10 " +
                   (active
                     ? "bg-indigo-500/20 border-indigo-400/40 text-indigo-100"
                     : "bg-white/5 border-white/10 text-slate-200/80 hover:bg-white/10")

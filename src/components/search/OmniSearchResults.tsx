@@ -1,18 +1,21 @@
 "use client";
 
-import type { OmniSearchItem } from "@/lib/omniSearchData";
+import type { OmniSearchCategory, OmniSearchItem } from "@/lib/omniSearchData";
+import type { OmniSearchRow } from "@/lib/search/omniSearchRows";
 import { OmniSearchItemRow } from "@/components/search/OmniSearchItemRow";
+import { OmniSearchMoreRow } from "@/components/search/OmniSearchMoreRow";
 
 type Props = {
-  results: OmniSearchItem[];
+  rows: OmniSearchRow[];
   selectedIndex: number;
   onSelect: (item: OmniSearchItem) => void;
+  onShowMore: (category: OmniSearchCategory) => void;
   query: string;
   pendingItemId?: string | null;
 };
 
-export function OmniSearchResults({ results, selectedIndex, onSelect, query, pendingItemId }: Props) {
-  if (results.length === 0) {
+export function OmniSearchResults({ rows, selectedIndex, onSelect, onShowMore, query, pendingItemId }: Props) {
+  if (rows.length === 0) {
     return (
       <div className="py-12 px-4 text-center">
         <p className="text-base font-semibold text-slate-300">Нічого не знайдено</p>
@@ -25,14 +28,23 @@ export function OmniSearchResults({ results, selectedIndex, onSelect, query, pen
 
   return (
     <div className="space-y-1 py-2 pr-1">
-      {results.map((item, index) => (
-        <div key={item.id} data-omni-index={index}>
-          <OmniSearchItemRow
-            item={item}
-            isSelected={index === selectedIndex}
-            isPending={item.id === pendingItemId}
-            onSelect={() => onSelect(item)}
-          />
+      {rows.map((row, index) => (
+        <div key={row.key} data-omni-index={index}>
+          {row.kind === "item" ? (
+            <OmniSearchItemRow
+              item={row.item}
+              isSelected={index === selectedIndex}
+              isPending={row.item.id === pendingItemId}
+              onSelect={() => onSelect(row.item)}
+            />
+          ) : (
+            <OmniSearchMoreRow
+              categoryLabel={row.categoryLabel}
+              hiddenCount={row.hiddenCount}
+              isSelected={index === selectedIndex}
+              onSelect={() => onShowMore(row.category)}
+            />
+          )}
         </div>
       ))}
     </div>

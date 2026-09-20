@@ -8,6 +8,7 @@ import { SrdAttribution } from "@/components/rules/SrdAttribution";
 import type { Edition } from "@/rules/route-helpers";
 
 const FEEDBACK_URL = "https://www.reddit.com/r/char_holota_family/";
+const ARTIST_URL = "https://t.me/tremblingsea";
 const LINK = "text-slate-100 underline underline-offset-4 hover:text-slate-50";
 
 const blockMotion = {
@@ -40,7 +41,11 @@ export function HomeFooter({ edition, className }: { edition: Edition; className
       </p>
 
       <p className="mt-2 text-sm text-slate-300">
-        Безмежно дякуємо @tremblingsea за надзвичайні арти на головній!
+        Безмежно дякуємо{" "}
+        <a href={ARTIST_URL} target="_blank" rel="noreferrer" className={LINK}>
+          @tremblingsea
+        </a>{" "}
+        за надзвичайні арти на головній!
       </p>
 
       <div className="mt-8 space-y-4 text-xs leading-relaxed text-slate-400">

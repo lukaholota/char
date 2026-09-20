@@ -110,7 +110,7 @@ function AddToPersDropdown({ link, spellLevel }: { link: SpellLink; spellLevel?:
     if (persIndex) return;
     setLoading(true);
     try {
-      const data = await getUserPersesSpellIndex();
+      const data = await getUserPersesSpellIndex(link.ruleset);
       setPersIndex(data);
     } finally {
       setLoading(false);
@@ -148,7 +148,7 @@ function AddToPersDropdown({ link, spellLevel }: { link: SpellLink; spellLevel?:
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 md:h-9 md:w-9"
           aria-label="Додати до персонажа"
         >
           <UserPlus className="h-4 w-4" />
@@ -196,7 +196,7 @@ function AddToSinglePersButton({ link, persId, spellLevel }: { link: SpellLink; 
     async function check() {
       setLoading(true);
       try {
-        const data = await getUserPersesSpellIndex();
+        const data = await getUserPersesSpellIndex(link.ruleset);
         const p = data.find((item) => item.persId === persId);
         setHas(p ? hasSpellLink(p, link) : false);
       } finally {
@@ -226,7 +226,7 @@ function AddToSinglePersButton({ link, persId, spellLevel }: { link: SpellLink; 
       type="button"
       onClick={handleToggle}
       disabled={loading}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 disabled:opacity-50"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 md:h-9 md:w-9 disabled:opacity-50"
       aria-label="Додати до персонажа"
     >
       {loading ? (
@@ -403,7 +403,7 @@ export function SpellInfoModal() {
             <DialogTitle className="min-w-0 font-sans text-lg sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-arcane-400 to-violet-400">
               {spell?.name ?? (loading ? "Завантаження…" : "Заклинання")}
             </DialogTitle>
-            {spell && spellLinkForPers && (
+            {spell && spellLinkForPers && spell.spellId > 0 && (
               isIdValid
                 ? <AddToSinglePersButton link={spellLinkForPers} persId={currentPersId as number} spellLevel={spell.level} />
                 : <AddToPersDropdown link={spellLinkForPers} spellLevel={spell.level} />

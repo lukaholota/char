@@ -4,6 +4,7 @@ import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { buildSpellKey, getAllSpells, getSpellByIdOrSlug } from "@/lib/spellsData";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { SpellDetailCard } from "@/components/spells/SpellDetailCard";
+import { SpellDiscussion } from "@/components/spells/SpellDiscussion";
 import { getDescriptionSnippet } from "@/lib/seo-utils";
 
 // Generate all spell pages at build time
@@ -67,7 +68,7 @@ export default async function SpellDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)] overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)] overflow-x-hidden">
       {/* Header with back button */}
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/20 backdrop-blur-xl">
         <div className="mx-auto max-w-2xl px-4 py-3">
@@ -83,8 +84,9 @@ export default async function SpellDetailPage({
         </div>
       </div>
       
-      <div className="mx-auto max-w-2xl px-4 py-6">
+      <div className="mx-auto max-w-2xl space-y-6 px-4 py-6">
         <SpellDetailCard spell={spell} />
+        <SpellDiscussion spell={spell} is2024={false} />
       </div>
     </div>
   );

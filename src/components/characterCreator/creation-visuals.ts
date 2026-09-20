@@ -359,7 +359,7 @@ export function getClassVisual(className: string | null | undefined): CreationVi
   };
 }
 
-export function getBackgroundVisual(backgroundName: string | null | undefined): CreationVisual {
+export function getBackgroundCreationVisual(backgroundName: string | null | undefined): CreationVisual {
   return {
     icon: Compass,
     bgGradient: "from-slate-900/90 via-indigo-950/40 to-slate-950",

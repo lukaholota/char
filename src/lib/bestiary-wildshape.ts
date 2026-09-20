@@ -6,6 +6,7 @@ import {
   findWildshapeEligibility,
 } from "@/rules/wildshape";
 import type { CreatureIndexEntry } from "./bestiary-index";
+import { WILDSHAPE_PICKER_SORT } from "./bestiary-sort";
 import {
   buildCatalogEmbedParams,
   findCatalogEmbed,
@@ -74,7 +75,9 @@ export function matchesWildshapeFilter(
   return findEntryEligibility(entry, context).eligible;
 }
 
-/// Адреса пікера форм: той самий бестіарій, відкритий із листа. Замовчування — з фільтром.
+/// Адреса пікера форм: той самий бестіарій, відкритий із листа. Замовчування — з фільтром і
+/// сильнішими формами згори: друїд обирає форму за CR, а випадковий порядок каталогу змушує його
+/// гортати.
 export function buildWildshapePickerUrl(input: {
   persId: number;
   persName?: string;
@@ -83,6 +86,7 @@ export function buildWildshapePickerUrl(input: {
 }): string {
   const params = new URLSearchParams(buildCatalogEmbedParams(input));
   writeWildshapeFilter(params, { persId: input.persId, onlyEligible: input.onlyEligible });
+  params.set("sort", WILDSHAPE_PICKER_SORT);
 
   return `${input.ruleset === "RULES_2024" ? "/2024" : ""}/bestiary?${params.toString()}`;
 }

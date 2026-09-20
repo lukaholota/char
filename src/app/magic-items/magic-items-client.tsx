@@ -48,6 +48,7 @@ import {
 import { collectMagicItemTraits, hasMagicItemTrait } from "@/lib/magic-item-traits";
 import { toggleMagicItemForPers } from "@/lib/actions/magic-item-actions";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 export type MagicItemListItem = {
   magicItemId: number;
@@ -137,10 +138,12 @@ type PersIndexItem = {
 
 function InventoryDropdown({
   magicItemId,
+  ruleset,
   persIndex,
   setPersIndex,
 }: {
   magicItemId: number;
+  ruleset: Ruleset;
   persIndex: PersIndexItem[] | null;
   setPersIndex: (value: PersIndexItem[] | null) => void;
 }) {
@@ -153,7 +156,7 @@ function InventoryDropdown({
     if (persIndex) return;
     setLoading(true);
     try {
-      const data = await getUserPersesMagicItemIndex();
+      const data = await getUserPersesMagicItemIndex(ruleset);
       setPersIndex(data);
     } finally {
       setLoading(false);
@@ -171,7 +174,7 @@ function InventoryDropdown({
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:text-arcane-300"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-400 transition hover:text-arcane-300 md:h-8 md:w-8"
           aria-label="Додати до персонажа"
         >
           <UserPlus className="h-4 w-4" />
@@ -491,15 +494,13 @@ export function MagicItemsClient({
               <div
                 className={cn(
                   "rounded-xl border bg-slate-900/70 px-3.5 py-2 text-slate-200 backdrop-blur-xl flex items-center justify-between shadow-sm",
-                  is2024 ? "border-amber-500/20" : "border-arcane-500/20"
+                  findAccentVariant(is2024, { prism: "border-prism-500/20", arcane: "border-arcane-500/20" })
                 )}
               >
                 <span
                   className={cn(
                     "font-sans text-sm sm:text-base font-semibold tracking-wide text-transparent bg-clip-text",
-                    is2024
-                      ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-                      : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-arcane-400"
+                    findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 via-prism-100 to-prism-400", arcane: "bg-gradient-to-r from-arcane-300 via-arcane-100 to-arcane-400" })
                   )}
                 >
                   {rarityLabel(row.rarity)}
@@ -529,9 +530,7 @@ export function MagicItemsClient({
               className={cn(
                 "glass-panel group relative overflow-hidden rounded-xl border p-3 transition-all duration-300 cursor-pointer",
                 isSelected
-                  ? is2024
-                    ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
+                  ? findAccentVariant(is2024, { prism: "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-prism-400/40", arcane: "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40" })
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -548,7 +547,7 @@ export function MagicItemsClient({
                       className={cn(
                         "truncate text-[15px] font-semibold transition-colors",
                         isSelected
-                          ? is2024 ? "text-amber-300" : "text-arcane-300"
+                          ? findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" })
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
@@ -575,7 +574,7 @@ export function MagicItemsClient({
                       <button
                         type="button"
                         className={cn(
-                          "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
+                          "inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5 md:h-9 md:w-9",
                           inPrint && "text-arcane-300 bg-arcane-500/10"
                         )}
                         onClick={() => {
@@ -592,6 +591,7 @@ export function MagicItemsClient({
 
                       <InventoryDropdown
                         magicItemId={item.magicItemId}
+                        ruleset={is2024 ? "RULES_2024" : "RULES_2014"}
                         persIndex={persIndex}
                         setPersIndex={setPersIndex}
                       />
@@ -604,7 +604,7 @@ export function MagicItemsClient({
                       onClick={() => handleAddItem(item.magicItemId)}
                       disabled={isPending}
                       className={cn(
-                        "inline-flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5",
+                        "inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5 md:h-9 md:w-9",
                         isPending && "opacity-50"
                       )}
                     >

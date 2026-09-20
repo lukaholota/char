@@ -19,6 +19,7 @@ import {
   collectCreatureTypes,
   findEditionLabel,
   matchesCreatureSelection,
+  rankNameMatchesFirst,
 } from "@/lib/bestiary-index";
 import {
   clearSourceParams,
@@ -32,15 +33,11 @@ import {
 import type { CreatureData } from "@/lib/bestiaryData";
 import { useCreatureStatblock } from "@/hooks/useCreatureStatblock";
 import { CreatureMedallion } from "@/components/bestiary/CreatureMedallion";
-import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
+import { StatblockPanel } from "@/components/bestiary/BestiaryStatblockPanel";
 import { BestiaryFilterDialog } from "@/components/bestiary/BestiaryFilterDialog";
-import {
-  WildshapeAddFormButton,
-  WildshapeFilterSection,
-  WildshapeRowNote,
-} from "@/components/bestiary/BestiaryWildshapePicking";
-import { useDeepSearchMatches, useShuffleSeed } from "@/components/bestiary/useCreatureListing";
-import { type WildshapePicking, useWildshapePicking } from "@/components/bestiary/useWildshapePicking";
+import { WildshapeFilterSection, WildshapeRowNote } from "@/components/bestiary/BestiaryWildshapePicking";
+import { isCommunityCreature, useDeepSearchMatches, useIndexWithCommunityHomebrew, useShuffleSeed } from "@/components/bestiary/useCreatureListing";
+import { useWildshapePicking } from "@/components/bestiary/useWildshapePicking";
 import { BestiarySortMenu } from "@/components/bestiary/BestiarySortMenu";
 import {
   DEFAULT_CREATURE_SORT,
@@ -59,6 +56,10 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getCreatureVisual } from "@/components/catalogs/catalog-visuals";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { cn } from "@/lib/utils";
+import { HomebrewCatalogBanner } from "@/components/homebrew/HomebrewCatalogBanner";
+import { HomebrewToggleButton } from "@/components/homebrew/HomebrewToggleButton";
+import { includeHomebrewSource, type HomebrewOnlyCatalog } from "@/components/homebrew/homebrew-only-catalog";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 type SelectionState = {
   types: Set<string>;
@@ -87,9 +88,10 @@ type Props = {
   ruleset?: Ruleset;
   index: CreatureIndexEntry[];
   initialCreature: CreatureData | null;
+  homebrewOnly?: HomebrewOnlyCatalog;
 };
 
-export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature }: Props) {
+export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, initialCreature, homebrewOnly }: Props) {
   const is2024 = ruleset === "RULES_2024";
   const editionLabel = findEditionLabel(ruleset);
 
@@ -101,22 +103,23 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
     parseSelection
   );
 
+  const { index, communityCount, findCommunityEntry } = useIndexWithCommunityHomebrew(catalogIndex, ruleset, selection.source.homebrew, homebrewOnly?.sort ?? null);
   const deepMatchKeys = useDeepSearchMatches(selection.q, ruleset);
   const wildshape = useWildshapePicking(ruleset);
 
   const filtered = useMemo(
     () =>
       index.filter(
-        (entry) => matchesCreatureSelection(entry, selection, deepMatchKeys) && wildshape.matches(entry)
+        (entry) => matchesCreatureSelection(entry, homebrewOnly ? includeHomebrewSource(selection) : selection, deepMatchKeys) && wildshape.matches(entry)
       ),
-    [index, selection, deepMatchKeys, wildshape]
+    [index, selection, deepMatchKeys, wildshape, homebrewOnly]
   );
 
   const shuffleSeed = useShuffleSeed();
 
   const ordered = useMemo(
-    () => sortCreatureIndex(filtered, selection.sort, shuffleSeed),
-    [filtered, selection.sort, shuffleSeed]
+    () => rankNameMatchesFirst(homebrewOnly ? filtered : sortCreatureIndex(filtered, selection.sort, shuffleSeed), selection.q),
+    [filtered, selection.sort, selection.q, shuffleSeed, homebrewOnly]
   );
 
   const selectedCreature = useMemo(() => {
@@ -133,7 +136,9 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
     return ordered[0] ?? null;
   }, [ordered, selection.creature, index]);
 
-  const statblock = useCreatureStatblock(selectedCreature?.key ?? null, ruleset, initialCreature);
+  const selectedCommunityEntry = findCommunityEntry(selectedCreature);
+  const catalogStatblock = useCreatureStatblock(selectedCommunityEntry ? null : selectedCreature?.key ?? null, ruleset, initialCreature);
+  const statblock = selectedCommunityEntry?.creature ?? catalogStatblock;
 
   const setParams = useCallback((mutate: (next: URLSearchParams) => void) => {
     const next = getSearchParamsFromLocation();
@@ -180,7 +185,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
   const availableTypes = useMemo(() => collectCreatureTypes(index), [index]);
   const availableSizes = useMemo(() => collectCreatureSizes(index), [index]);
   const availableCRs = useMemo(() => collectCreatureCRs(index), [index]);
-  const availableSources = useMemo(() => collectCatalogSources(index), [index]);
+  const availableSources = useMemo(() => ({ ...collectCatalogSources(index), hasHomebrew: !homebrewOnly }), [index, homebrewOnly]);
 
   const printCreatures = () => {
     if (printKeys.length === 0) return;
@@ -194,8 +199,9 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
 
   return (
     <ContentListPage<CreatureIndexEntry>
-      title="Бестіарій"
+      title={homebrewOnly ? "Хоумбрю: істоти" : "Бестіарій"}
       is2024={is2024}
+      topBanner={homebrewOnly ? homebrewOnly.header : selection.source.homebrew ? <HomebrewCatalogBanner kind="CREATURE" edition={is2024 ? "2024" : "2014"} count={communityCount} /> : null}
       searchQuery={qInput}
       onSearchChange={setQInput}
       searchPlaceholder="Пошук істот..."
@@ -205,7 +211,8 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
       onClearFilters={clearFilters}
       headerActions={
         <div className="flex items-center gap-2">
-          <BestiarySortMenu mode={selection.sort} onChange={changeSort} is2024={is2024} />
+          {homebrewOnly ? null : <HomebrewToggleButton isOn={selection.source.homebrew} onToggle={() => setParams((next) => toggleHomebrewParam(next))} />}
+          {homebrewOnly ? null : <BestiarySortMenu mode={selection.sort} onChange={changeSort} is2024={is2024} />}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -260,7 +267,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
           <div key={creature.creatureId} className="pt-2.5 pb-0.5 px-0.5">
             <div
               onClick={() => {
-                setParams((next) => next.set("creature", toEntitySlug(creature.nameEng)));
+                setParams((next) => next.set("creature", isCommunityCreature(creature) ? creature.key : toEntitySlug(creature.nameEng)));
                 if (typeof window !== "undefined" && window.innerWidth < 1024) {
                   setModalCreature(creature);
                 }
@@ -268,9 +275,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
               className={cn(
                 "glass-panel group relative overflow-hidden rounded-2xl border p-3.5 sm:p-4 transition-all duration-300 cursor-pointer",
                 isSelected
-                  ? is2024
-                    ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-amber-400/40"
-                    : "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40"
+                  ? findAccentVariant(is2024, { prism: "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-prism-400/40", arcane: "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white ring-1 ring-arcane-400/40" })
                   : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/7"
               )}
             >
@@ -285,7 +290,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
                         className={cn(
                           "block truncate text-base sm:text-[17px] font-semibold transition-colors",
                           isSelected
-                            ? is2024 ? "text-amber-300" : "text-arcane-300"
+                            ? findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" })
                             : "text-slate-100 group-hover:text-white"
                         )}
                       >
@@ -301,9 +306,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
                     <span
                       className={cn(
                         "rounded-md px-1.5 py-0.5 text-[11px] font-bold border",
-                        is2024
-                          ? "border-amber-500/40 bg-amber-500/10 text-amber-300"
-                          : "border-arcane-500/40 bg-arcane-500/10 text-arcane-300"
+                        findAccentVariant(is2024, { prism: "border-prism-500/40 bg-prism-500/10 text-prism-300", arcane: "border-arcane-500/40 bg-arcane-500/10 text-arcane-300" })
                       )}
                     >
                       {editionLabel}
@@ -338,7 +341,8 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
                   type="button"
                   className={cn(
                     "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-arcane-300",
-                    isSelectedForPrint && "bg-arcane-500/10 text-arcane-300"
+                    isSelectedForPrint && "bg-arcane-500/10 text-arcane-300",
+                    isCommunityCreature(creature) && "hidden"
                   )}
                   onClick={(event) => {
                     event.stopPropagation();
@@ -365,6 +369,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
               statblock={statblock}
               is2024={is2024}
               wildshape={wildshape}
+              homebrewEntry={selectedCommunityEntry}
             />
           </div>
         ) : (
@@ -378,7 +383,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
       modalTitle={modalCreature?.name || "Статблок істоти"}
       renderModalContent={(creature) => (
         <div className="space-y-3">
-          <StatblockPanel creature={creature} statblock={statblock} is2024={is2024} wildshape={wildshape} />
+          <StatblockPanel creature={creature} statblock={statblock} is2024={is2024} wildshape={wildshape} homebrewEntry={findCommunityEntry(creature)} />
         </div>
       )}
       filterDialogOpen={filtersOpen}
@@ -417,40 +422,5 @@ export function BestiaryClient({ ruleset = "RULES_2014", index, initialCreature 
         />
       }
     />
-  );
-}
-
-function StatblockPanel({
-  creature,
-  statblock,
-  is2024,
-  wildshape,
-}: {
-  creature: CreatureIndexEntry;
-  statblock: CreatureData | null;
-  is2024: boolean;
-  wildshape: WildshapePicking;
-}) {
-  const eligibility = wildshape.findEligibility(creature);
-
-  return (
-    <div className="space-y-3">
-      {eligibility && (
-        <WildshapeAddFormButton
-          eligibility={eligibility}
-          isAttached={wildshape.isAttached(creature)}
-          isPending={wildshape.isAdding}
-          onAdd={() => wildshape.addForm(creature)}
-        />
-      )}
-
-      {statblock && statblock.creatureId === creature.creatureId ? (
-        <CreatureStatblockCard creature={statblock} is2024={is2024} />
-      ) : (
-        <div className="flex h-40 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
-          <p className="text-sm text-slate-400">Завантаження статблоку {creature.name}…</p>
-        </div>
-      )}
-    </div>
   );
 }

@@ -5,6 +5,7 @@ import {
   buildDefaultSelection,
   buildEquipmentLines,
   buildItemLines,
+  describeEquipmentRow,
   formatVariantTitle,
   type EquipmentOptionRow,
 } from "./equipment-choices";
@@ -90,6 +91,38 @@ describe("рядки варіанта", () => {
     ]);
   });
 
+  it("зброя й обладунок із засіяними характеристиками несуть рядок характеристик і звʼязок із каталогом", () => {
+    const [leather, quarterstaff] = buildEquipmentLines([
+      row({
+        optionId: 30,
+        armor: { name: "LEATHER", armorType: "LIGHT", baseAC: 11, abilityBonusType: "FULL", strengthReq: null, stealthDisadvantage: false },
+      }),
+      row({
+        optionId: 31,
+        weapon: {
+          name: "QUARTERSTAFF",
+          damage: "1d6",
+          damageType: "BLUDGEONING",
+          properties: ["VERSATILE"],
+          versatileDamage: "1d8",
+          normalRange: null,
+          longRange: null,
+          isRanged: false,
+        },
+      }),
+    ]).belongings;
+
+    expect(leather).toMatchObject({
+      text: "Шкіряний обладунок",
+      stats: "легкі обладунки · КБ 11 + Мод. СПР",
+      catalogItem: { kind: "armor", code: "LEATHER" },
+    });
+    expect(quarterstaff).toMatchObject({
+      stats: "1к6 + СИЛ, дробяча шкода · універсальна (1к8)",
+      catalogItem: { kind: "weapon", code: "QUARTERSTAFF" },
+    });
+  });
+
   it("майно походження розкладається тим самим кодом", () => {
     const lines = buildItemLines([
       { name: "Священний символ", quantity: 1 },
@@ -116,5 +149,12 @@ describe("вибір за замовчуванням", () => {
     });
 
     expect(selection["2"]).toEqual([7]);
+  });
+});
+
+describe("KR31.14 — підсумок спорядження на кроці «Імʼя» (P2-elf-wizard-09)", () => {
+  it("предмет 2024, записаний лише назвою, підписаний назвою, а не id рядка", () => {
+    expect(describeEquipmentRow(row({ optionId: 204, item: "Містичне фокусування (палиця)" }))).toBe("Містичне фокусування (палиця)");
+    expect(describeEquipmentRow(row({ optionId: 203, quantity: 2, weapon: { name: "DAGGER" } }))).toBe("Кинджал x2");
   });
 });

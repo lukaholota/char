@@ -1,6 +1,6 @@
 "use client";
 
-import { Minus, Plus, Info } from "lucide-react";
+import { Minus, Plus, Info, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FeatureDisplayType } from "@prisma/client";
@@ -10,7 +10,7 @@ import {
   getFeatureSourceLabel, 
   isClassRelatedSource, 
   getFeatureDisplayName, 
-  stripMarkdownPreview
+  findFeaturePreview
 } from "@/lib/utils/features";
 
 export interface FeatureItemData {
@@ -27,6 +27,8 @@ export interface FeatureItemData {
   sourceName?: string;
   magicItem?: any;
 }
+
+export type FeatureStateToggle = { isActive: boolean; disabled: boolean; onChange: (next: boolean) => void };
 
 export function ResourceCard({ 
   feature, 
@@ -68,9 +70,9 @@ export function ResourceCard({
               </span>
             )}
           </div>
-          {(feature.shortDescription || feature.description) && (
+          {findFeaturePreview(feature) && (
             <div className="text-[11px] text-purple-300/80 truncate pr-2">
-              {stripMarkdownPreview(feature.shortDescription || feature.description)}
+              {findFeaturePreview(feature)}
             </div>
           )}
         </div>
@@ -135,14 +137,16 @@ export function FeatureCard({
   onRestore, 
   onClick, 
   isPending,
-  isReadOnly
+  isReadOnly,
+  stateToggle
 }: { 
   feature: FeatureItemData, 
   onSpend?: () => void, 
   onRestore?: () => void,
   onClick?: () => void,
   isPending?: boolean,
-  isReadOnly?: boolean
+  isReadOnly?: boolean,
+  stateToggle?: FeatureStateToggle
 }) {
   const hasTracker = feature.restType && feature.usesCount !== null;
   const cost = Math.max(1, Number(feature.usePrice ?? 1));
@@ -161,6 +165,7 @@ export function FeatureCard({
         isClass 
           ? 'bg-purple-900/10 border-purple-500/20 hover:border-purple-500/40' 
           : 'bg-slate-900/30 border-white/10 hover:border-white/20',
+        stateToggle?.isActive && "border-amber-400/60 bg-amber-500/10",
         onClick && "cursor-pointer"
       )}
       onClick={onClick}
@@ -178,13 +183,14 @@ export function FeatureCard({
               </span>
             )}
           </div>
-          {feature.shortDescription || feature.description ? (
+          {findFeaturePreview(feature) ? (
             <div className="text-xs text-slate-400 line-clamp-2 pr-2">
-              {stripMarkdownPreview(feature.shortDescription || feature.description)}
+              {findFeaturePreview(feature)}
             </div>
           ) : (
             <div className="text-[10px] italic text-slate-500">Натисніть для деталей...</div>
           )}
+          {stateToggle && <StateToggleButton name={displayName} toggle={stateToggle} />}
         </div>
 
         {hasTracker && (
@@ -226,5 +232,26 @@ export function FeatureCard({
         )}
       </div>
     </div>
+  );
+}
+
+/// Одна кнопка замість перемикача з підписом: «Увімкнути» → «Активна». Клас `swiper-no-swiping` —
+/// інакше Swiper слайда гасить тап.
+function StateToggleButton({ name, toggle }: { name: string; toggle: FeatureStateToggle }) {
+  return (
+    <button
+      type="button"
+      aria-pressed={toggle.isActive}
+      aria-label={toggle.isActive ? `${name}: активна, завершити` : `${name}: увімкнути`}
+      disabled={toggle.disabled}
+      onClick={(e) => { e.stopPropagation(); toggle.onChange(!toggle.isActive); }}
+      className={clsx(
+        "swiper-no-swiping mt-2 inline-flex h-7 items-center gap-1 rounded-full border px-2.5 text-[11px] font-bold transition active:scale-95 disabled:opacity-40",
+        toggle.isActive ? "border-amber-300/70 bg-amber-500/25 text-amber-50" : "border-amber-400/40 text-amber-200 hover:bg-amber-500/10"
+      )}
+    >
+      <Flame className={clsx("h-3.5 w-3.5", toggle.isActive && "fill-amber-300/60")} aria-hidden />
+      {toggle.isActive ? "Активна" : "Увімкнути"}
+    </button>
   );
 }

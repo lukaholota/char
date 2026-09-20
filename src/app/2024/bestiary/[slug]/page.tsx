@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { getAllCreatures, getCreatureByIdOrSlug } from "@/lib/bestiaryData";
 import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
+import { CreatureDiscussion } from "@/components/bestiary/CreatureDiscussion";
+import { CreatureLoreSection } from "@/components/bestiary/CreatureLoreSection";
+import { findCreatureLoreGroup } from "@/lib/bestiaryLore";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { getDescriptionSnippet } from "@/lib/seo-utils";
 import { ChevronLeft } from "lucide-react";
@@ -62,7 +65,7 @@ export default async function Creature2024DetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.05),transparent_50%)] overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(192,74,224,0.05),transparent_50%)] overflow-x-hidden">
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/40 backdrop-blur-xl">
         <div className="mx-auto max-w-3xl px-4 py-3">
           <Link
@@ -75,8 +78,10 @@ export default async function Creature2024DetailPage({
         </div>
       </div>
 
-      <div className="mx-auto max-w-3xl px-4 py-6">
+      <div className="mx-auto max-w-3xl space-y-6 px-4 py-6">
         <CreatureStatblockCard creature={creature} is2024={true} />
+        <CreatureLoreSection group={findCreatureLoreGroup(creature.creatureId, "RULES_2024")} is2024={true} />
+        <CreatureDiscussion creature={creature} is2024={true} />
       </div>
     </div>
   );

@@ -6,10 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { PersWithRelations } from "@/lib/actions/pers";
 import { weaponTranslations } from "@/lib/refs/translation";
-import { formatWeaponMasteryLabel } from "@/lib/refs/weapon-mastery";
 import { findMainClassLevel } from "@/rules/hit-dice";
 import { findWeaponMasteryCapacity } from "@/rules/weapon-mastery";
 import WeaponMasteryDialog from "./WeaponMasteryDialog";
+import { WeaponMasteryInfoButton } from "./WeaponMasteryInfoButton";
 
 type Props = {
   pers: PersWithRelations;
@@ -57,9 +57,10 @@ export function WeaponMasteryCard({ pers, isReadOnly }: Props) {
               <span className="truncate font-bold text-slate-50">
                 {weaponTranslations[entry.weapon.name as keyof typeof weaponTranslations] || entry.weapon.name}
               </span>
-              <span className="ml-2 flex-shrink-0 text-xs font-semibold text-amber-300">
-                {formatWeaponMasteryLabel(entry.weapon.mastery)}
-              </span>
+              <WeaponMasteryInfoButton
+                mastery={entry.weapon.mastery}
+                className="ml-2 flex-shrink-0 text-xs font-semibold text-amber-300"
+              />
             </div>
           ))
         ) : (

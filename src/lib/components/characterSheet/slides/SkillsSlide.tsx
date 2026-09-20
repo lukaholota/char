@@ -8,11 +8,16 @@ import { ModifyConfig } from "../ModifyStatModal";
 import ModifyStatModal from "../ModifyStatModal";
 import {
   calculateFinalSkill,
+  findSkillAbility,
   hasSkillBonus,
 } from "@/lib/logic/bonus-calculator";
 import { bonusTranslations, skillTranslations } from "@/lib/refs/translation";
 import { BEAST_VALUE_RING, OwnValue, isBeastAbility, type BeastFormView } from "@/lib/components/characterSheet/BeastFormMarks";
 import type { Ability } from "@prisma/client";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { RollPill } from "@/lib/components/dice/RollPill";
+import { buildSkillRollContext } from "@/lib/components/dice/roll-contexts";
+import { describeRollState } from "@/lib/logic/state-labels";
 
 interface SkillsSlideProps {
   pers: PersWithRelations;
@@ -25,6 +30,7 @@ interface SkillsSlideProps {
 
 const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly, beastForm }: SkillsSlideProps) {
   const editablePers = beastForm?.ownPers ?? pers;
+  const openRoll = useDiceUIStore((state) => state.openRoll);
   // Bonus modification modal state
   const [modifyOpen, setModifyOpen] = useState(false);
   const [modifyConfig, setModifyConfig] = useState<ModifyConfig | null>(null);
@@ -78,6 +84,12 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly, 
       const fromBeast = isBeastAbility(beastForm, skillInfo.ability as Ability);
       const showHeader = lastAbility !== skillInfo.ability;
       if (showHeader) lastAbility = skillInfo.ability;
+      const skillName = skillTranslations[skillInfo.skill] ?? skillInfo.skill;
+      const abilityName = bonusTranslations.statNames[skillInfo.ability as keyof typeof bonusTranslations.statNames];
+      const canEdit = !isReadOnly && !fromBeast;
+      const rollAbility = findSkillAbility(pers, skillInfo.skill) ?? (skillInfo.ability as Ability);
+      const rollState = describeRollState(pers, { kind: "check", ability: rollAbility, skill: skillInfo.skill });
+      const rollContext = buildSkillRollContext(skillName, abilityName, total, canEdit ? () => openModify(skillInfo.skill) : undefined, rollState);
 
       return (
         <div key={skillInfo.skill}>
@@ -86,47 +98,47 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly, 
               {bonusTranslations.statNames[skillInfo.ability as keyof typeof bonusTranslations.statNames]}
             </div>
           )}
-          <button
-            type="button"
-            onClick={() => !isReadOnly && !fromBeast && openModify(skillInfo.skill)}
-            className={`w-full text-left ${isReadOnly ? 'cursor-default' : ''}`}
+          <div
+            className={`flex items-center gap-1 rounded py-1 pl-2 pr-1 transition-all ${
+              isProficient
+                ? "bg-cyan-500/10 border-l-2 border-cyan-400/60"
+                : "bg-slate-800/25 border-l-2 border-slate-700/40"
+            } ${fromBeast ? BEAST_VALUE_RING : hasBonus ? "ring-1 ring-amber-400/40" : ""}`}
           >
-            <div
-              className={`flex justify-between items-center py-2 px-2 rounded transition-all hover:bg-white/5 ${
-                isProficient
-                  ? "bg-cyan-500/10 border-l-2 border-cyan-400/60"
-                  : "bg-slate-800/25 border-l-2 border-slate-700/40"
-              } ${fromBeast ? BEAST_VALUE_RING : hasBonus ? "ring-1 ring-amber-400/40" : ""}`}
+            <button
+              type="button"
+              onClick={() => (canEdit ? openModify(skillInfo.skill) : openRoll(rollContext))}
+              aria-label={canEdit ? `Редагувати: ${skillName}` : `Перевірка: ${skillName}`}
+              className="flex min-h-7 min-w-0 flex-1 items-center rounded text-left hover:bg-white/5"
             >
-              <div className="flex items-center gap-2 mr-2">
-                <span
-                  className={`text-sm transition ${
-                    isProficient ? "text-slate-50 opacity-100 font-medium" : "text-slate-300/80"
-                  }`}
-                >
-                  {skillTranslations[skillInfo.skill] ?? skillInfo.skill}
-                </span>
-              </div>
-              <span className="flex items-baseline gap-1">
-                <span
-                  className={`text-sm font-bold transition ${
-                    fromBeast
-                      ? "text-emerald-300"
-                      : proficiency === "EXPERTISE"
-                        ? "text-amber-300 opacity-100"
-                        : proficiency === "PROFICIENT"
-                          ? "text-cyan-300 opacity-100"
-                          : "text-slate-300/70"
-                  }`}
-                >
-                  {formatModifier(total)}
-                </span>
-                {fromBeast && beastForm && (
-                  <OwnValue value={formatModifier(calculateFinalSkill(beastForm.ownPers, skillInfo.skill).total)} />
-                )}
+              <span
+                className={`text-sm transition ${
+                  isProficient ? "text-slate-50 opacity-100 font-medium" : "text-slate-300/80"
+                }`}
+              >
+                {skillName}
               </span>
-            </div>
-          </button>
+            </button>
+            {fromBeast && beastForm && (
+              <OwnValue value={formatModifier(calculateFinalSkill(beastForm.ownPers, skillInfo.skill).total)} />
+            )}
+            <RollPill
+              size="sm"
+              value={formatModifier(total)}
+              label={`Перевірка: ${skillName} ${formatModifier(total)}`}
+              onRoll={() => openRoll(rollContext)}
+              mode={rollState.mode}
+              valueClassName={
+                fromBeast
+                  ? "text-emerald-300"
+                  : proficiency === "EXPERTISE"
+                    ? "text-amber-300"
+                    : proficiency === "PROFICIENT"
+                      ? "text-cyan-300"
+                      : "text-slate-200"
+              }
+            />
+          </div>
         </div>
       );
     });

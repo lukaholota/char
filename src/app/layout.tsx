@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import Script from "next/script";
 import { Cinzel, Forum, Inter, JetBrains_Mono } from "next/font/google";
 import { Metadata, Viewport } from "next";
 import './globals.css'
@@ -10,7 +9,7 @@ import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
 import { TermInfoModal } from "@/components/rules/TermInfoModal";
 import { OmniSearchDialog } from "@/components/search/OmniSearchDialog";
 import { DiceOverlay } from "@/lib/components/dice/DiceOverlay";
-import { DiceSidebar } from "@/lib/components/dice/DiceSidebar";
+import { DiceTray } from "@/lib/components/dice/DiceTray";
 import { RootGrid } from "@/components/ui/RootGrid";
 import { PlatformBackdrop } from "@/components/ui/PlatformBackdrop";
 import { OfflineServiceWorker } from "@/components/ui/OfflineServiceWorker";
@@ -86,11 +85,6 @@ export default function RootLayout(
     <html lang={ 'uk' } className="h-full w-full dark" suppressHydrationWarning>
     <body
       className={ `${ jetBrainsMono.variable } ${ inter.variable } ${ cinzel.variable } ${ rpgDisplay.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden antialiased` }>
-    <Script
-      src="https://cloud.umami.is/script.js"
-      data-website-id="527c4413-3d86-4a9e-a886-a9e2548838c3"
-      strategy="afterInteractive"
-    />
     <PlatformBackdrop />
     <OfflineServiceWorker />
     <Providers>
@@ -105,9 +99,8 @@ export default function RootLayout(
         <TermInfoModal />
       </Suspense>
       <OmniSearchDialog />
-      {/* Dice overlay - mounted globally, stays on top of everything */}
       <DiceOverlay />
-      <DiceSidebar />
+      <DiceTray />
     </Providers>
     </body>
     </html>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useTransition, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import {
   Dialog,
   DialogContent,
@@ -67,7 +67,7 @@ export function SnapshotHistoryModal({
     setIsOpen(open);
   };
 
-  const router = useRouter();
+  const router = useModeRouter();
 
   const handleCopy = (snapshotId: number) => {
     startTransition(async () => {

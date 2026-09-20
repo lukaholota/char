@@ -6,10 +6,13 @@ import { Copy, Loader2, Pencil } from "lucide-react";
 import { acceptFolderEditShareToken, copyFolderByShareToken } from "@/lib/actions/share-actions";
 import { toast } from "sonner";
 import { CharHomeClient, PersHomeItem, PersFolderHomeItem } from "@/app/char/home/CharHomeClient";
+import { collectPersClassNames, collectPersSubclassNames } from "@/lib/logic/pers-class-names";
+import type { Ruleset } from "@prisma/client";
 
 interface SharedFolderPers {
   persId: number;
   name: string;
+  portraitKey?: string | null;
   level: number;
   folderId?: number | null;
   currentHp?: number | null;
@@ -17,9 +20,12 @@ interface SharedFolderPers {
   isPinned?: boolean | null;
   shareToken?: string | null;
   editToken?: string | null;
+  ruleset?: string | null;
   race?: { name: string } | null;
   class?: { name: string } | null;
+  subclass?: { name: string } | null;
   background?: { name: string } | null;
+  multiclasses?: { class: { name: string } | null; subclass: { name: string } | null }[];
 }
 
 interface SharedFolderItem {
@@ -33,6 +39,7 @@ interface SharedFolderItem {
 interface SharedFolderData {
   folderId: number;
   name: string;
+  ruleset: Ruleset;
   color?: string | null;
   isPinned?: boolean | null;
   perses: SharedFolderPers[];
@@ -71,6 +78,7 @@ export function SharedFolderView({ token, folder, canEdit }: SharedFolderViewPro
     const persItems: PersHomeItem[] = (folder.perses ?? []).map((p) => ({
       persId: p.persId,
       name: p.name,
+      portraitKey: p.portraitKey ?? null,
       level: p.level,
       currentHp: p.currentHp ?? 0,
       maxHp: p.maxHp ?? 0,
@@ -78,8 +86,12 @@ export function SharedFolderView({ token, folder, canEdit }: SharedFolderViewPro
       className: p.class?.name ?? "Інше",
       backgroundName: p.background?.name ?? "Інше",
       shareToken: p.shareToken ?? null,
+      isOwned: false,
       folderId: p.folderId ?? folder.folderId,
       isPinned: Boolean(p.isPinned),
+      ruleset: p.ruleset ?? null,
+      classNames: collectPersClassNames({ class: p.class, subclass: p.subclass, multiclasses: p.multiclasses }),
+      subclassNames: collectPersSubclassNames({ class: p.class, subclass: p.subclass, multiclasses: p.multiclasses }),
     }));
 
     return { persItems, folderItems };
@@ -151,10 +163,11 @@ export function SharedFolderView({ token, folder, canEdit }: SharedFolderViewPro
     <CharHomeClient
       perses={persItems}
       folders={folderItems}
+      ruleset={folder.ruleset}
       initialFolderId={folder.folderId}
       persLinkResolver={persLinkResolver}
       extraHeaderActions={extraHeaderActions}
-      rootHref="/char/home"
+      rootHref={folder.ruleset === "RULES_2024" ? "/2024/char/home" : "/char/home"}
     />
   );
 }

@@ -91,9 +91,8 @@ export const LanguagesForm = ({
       background.languagesToChooseCount,
       feat?.grantedLanguageCount,
       backgroundFeat?.grantedLanguageCount,
-      ...activeFeatures.map((f) => f.languagesToChooseCount),
       ...raceChoiceCounts,
-    ]);
+    ], activeFeatures.map((f) => f.languagesToChooseCount));
   }, [race, selectedClass, subclass, selectedSubrace, background, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections, forcedLanguagesToChooseCount, originRuleset]);
 
   const selectedLanguages = form.watch("languages") ?? EMPTY_LANGUAGES;

@@ -1,3 +1,4 @@
+import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 import { featTranslations } from "@/lib/refs/translation";
 
 // FeatureSource enum values from backend
@@ -97,3 +98,47 @@ export function stripMarkdownPreview(value: string): string {
     .replace(/\n\s*\n/g, "\n")   // Collapse multiple newlines
     .trim();
 }
+
+type FeatureText = {
+  name: string;
+  shortDescription?: string | null;
+  description?: string | null;
+  source?: string | null;
+  sourceName?: string | null;
+};
+
+/// Сіди 2024 пишуть у `shortDescription` саму назву фічі, і картка під назвою повторювала її
+/// ж. Такий короткий опис нічого не каже — замість нього показується початок повного.
+export function findFeaturePreview(feature: FeatureText): string {
+  const short = toPlainPreview(feature.shortDescription);
+  if (short && !isSameWording(short, feature.name)) return short;
+
+  const full = toPlainPreview(feature.description);
+  return isSameWording(full, feature.name) ? "" : full;
+}
+
+export function filterFeaturesByQuery<T extends FeatureText>(features: T[], query: string): T[] {
+  const needle = normalizeSearchText(query);
+  if (!needle) return features;
+  return features.filter((feature) => normalizeSearchText(collectSearchableText(feature)).includes(needle));
+}
+
+const collectSearchableText = (feature: FeatureText): string =>
+  [
+    feature.name,
+    getFeatureDisplayName(feature.name, feature.source),
+    feature.sourceName,
+    toPlainPreview(feature.shortDescription),
+    toPlainPreview(feature.description),
+  ].join("\n");
+
+const toPlainPreview = (value: string | null | undefined): string =>
+  value ? stripMarkdownPreview(stripGlossaryMarkers(value)).replace(/[*_]+/g, "") : "";
+
+const isSameWording = (left: string, right: string): boolean => toWording(left) === toWording(right);
+
+const toWording = (value: string): string =>
+  String(value ?? "").toLocaleLowerCase("uk").replace(/[^\p{L}\p{N}]+/gu, "");
+
+const normalizeSearchText = (value: string): string =>
+  value.toLocaleLowerCase("uk").replace(/['’ʼ]/g, "ʼ").replace(/\s+/g, " ").trim();

@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { RaceI } from "@/lib/types/model-types";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { buildSelectableCardProps } from "@/lib/components/characterCreator/selectable-card-props";
 
 interface Props {
   race?: RaceI | null;
@@ -112,7 +113,7 @@ const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }
     <form id={formId} onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-1 text-center">
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
-          Опції раси
+          {race.ruleset === "RULES_2024" ? "Опції виду" : "Опції раси"}
         </h2>
         <p className="text-sm text-slate-400">
           Оберіть 1 варіант у кожній групі.
@@ -144,7 +145,11 @@ const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }
                         "glass-card cursor-pointer transition-all duration-200",
                         selected ? "glass-active" : ""
                       )}
-                      onClick={() => selectOption(groupName, opt.optionId)}
+                      {...buildSelectableCardProps({
+                        isSelected: selected,
+                        isMultiSelect: false,
+                        onSelect: () => selectOption(groupName, opt.optionId),
+                      })}
                     >
                       <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
                         <div className="flex items-center justify-between gap-2">

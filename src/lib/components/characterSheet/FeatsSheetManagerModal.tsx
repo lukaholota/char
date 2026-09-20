@@ -12,7 +12,10 @@ import {
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import type { FeatData } from "@/lib/featsData";
-import { addFeatToPers, removeFeatFromPers } from "@/lib/actions/feat-actions";
+import { addFeatToPers, getSheetFeatAcquisitionContent, removeFeatFromPers, type SheetFeatAcquisitionContent } from "@/lib/actions/feat-actions";
+import { FeatAcquisitionDialog } from "@/lib/components/characterSheet/feats/FeatAcquisitionDialog";
+import { FeatRemovalDialog } from "@/lib/components/characterSheet/feats/FeatRemovalDialog";
+import type { SheetFeatExistingState } from "@/lib/components/characterSheet/feats/sheet-feat-existing-state";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { AcquiredFeatsTab, CharacterFeatItem } from "@/lib/components/characterSheet/feats/AcquiredFeatsTab";
 import { FeatCatalogTab } from "@/lib/components/characterSheet/feats/FeatCatalogTab";
@@ -27,6 +30,7 @@ type CatalogState = { status: "loading" } | { status: "ready"; feats: FeatData[]
 
 type Props = {
   persId: number;
+  existing: SheetFeatExistingState;
   ruleset?: Ruleset;
   persFeats: CharacterFeatItem[];
   open: boolean;
@@ -36,6 +40,7 @@ type Props = {
 
 export function FeatsSheetManagerModal({
   persId,
+  existing,
   ruleset = "RULES_2014",
   persFeats,
   open,
@@ -46,6 +51,8 @@ export function FeatsSheetManagerModal({
   const [activeTab, setActiveTab] = useState<"acquired" | "catalog">("acquired");
   const [selectedDetailFeat, setSelectedDetailFeat] = useState<FeatData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<number | null>(null);
+  const [acquiring, setAcquiring] = useState<{ feat: FeatData; content: SheetFeatAcquisitionContent } | null>(null);
+  const [removing, setRemoving] = useState<{ featId: number; name: string } | null>(null);
 
   const [catalog, setCatalog] = useState<CatalogState>({ status: "loading" });
 
@@ -68,18 +75,19 @@ export function FeatsSheetManagerModal({
   }, [open, ruleset]);
 
   const acquiredFeatIds = useMemo(() => {
-    return new Set(persFeats.map((pf) => pf.featId || pf.feat?.featId).filter(Boolean) as number[]);
-  }, [persFeats]);
+    const acquiredEngNames = new Set(persFeats.map((pf) => pf.feat?.engName).filter(Boolean));
+    return new Set(catalog.status === "ready" ? catalog.feats.filter((feat) => acquiredEngNames.has(feat.engName)).map((feat) => feat.featId) : []);
+  }, [persFeats, catalog]);
 
-  const handleAddFeat = async (feat: FeatData) => {
-    if (isReadOnly) return;
+  const acquireFeat = async (feat: FeatData, databaseFeatId: number, selection: { choiceOptionIds: number[]; featSpellIds: number[] }) => {
     setIsSubmitting(feat.featId);
     try {
-      const res = await addFeatToPers({ persId, featId: feat.featId });
+      const res = await addFeatToPers({ persId, featId: databaseFeatId, ...selection });
       if (!res.success) {
         toast.error(res.error);
         return;
       }
+      setAcquiring(null);
       toast.success(`Рису «${feat.name}» додано!`);
       router.refresh();
     } catch {
@@ -87,6 +95,22 @@ export function FeatsSheetManagerModal({
     } finally {
       setIsSubmitting(null);
     }
+  };
+
+  const handleAddFeat = async (feat: FeatData) => {
+    if (isReadOnly) return;
+    setIsSubmitting(feat.featId);
+    const content = await getSheetFeatAcquisitionContent(persId, feat.engName).catch(() => null);
+    setIsSubmitting(null);
+    if (!content) {
+      toast.error("Не вдалося завантажити рису");
+      return;
+    }
+    if (content.feat.featChoiceOptions.length === 0 && !content.hasSpellChoice) {
+      await acquireFeat(feat, content.feat.featId, { choiceOptionIds: [], featSpellIds: [] });
+      return;
+    }
+    setAcquiring({ feat, content });
   };
 
   const handleRemoveFeat = async (featId: number, featName: string) => {
@@ -98,6 +122,7 @@ export function FeatsSheetManagerModal({
         toast.error(res.error);
         return;
       }
+      setRemoving(null);
       toast.success(`Рису «${featName}» видалено`);
       router.refresh();
     } catch {
@@ -155,7 +180,7 @@ export function FeatsSheetManagerModal({
               persFeats={persFeats}
               isReadOnly={isReadOnly}
               isSubmitting={isSubmitting}
-              onRemoveFeat={handleRemoveFeat}
+              onRemoveFeat={(featId, name) => setRemoving({ featId, name })}
               onSwitchToCatalog={() => setActiveTab("catalog")}
             />
           ) : catalog.status === "ready" ? (
@@ -179,6 +204,26 @@ export function FeatsSheetManagerModal({
             </div>
           )}
         </div>
+
+        <FeatRemovalDialog
+          persId={persId}
+          feat={removing}
+          isRemoving={removing !== null && isSubmitting === removing.featId}
+          onCancel={() => setRemoving(null)}
+          onConfirm={handleRemoveFeat}
+        />
+
+        {acquiring && (
+          <FeatAcquisitionDialog
+            persId={persId}
+            existing={existing}
+            featLabel={acquiring.feat.name}
+            content={acquiring.content}
+            isSubmitting={isSubmitting === acquiring.feat.featId}
+            onClose={() => setAcquiring(null)}
+            onAcquire={(selection) => acquireFeat(acquiring.feat, acquiring.content.feat.featId, selection)}
+          />
+        )}
 
         {/* Selected Feat Quick Detail View Dialog */}
         {selectedDetailFeat && (

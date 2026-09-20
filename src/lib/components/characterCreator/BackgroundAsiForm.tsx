@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CardContent } from "@/components/ui/card";
 import { backgroundTranslations } from "@/lib/refs/translation";
@@ -8,16 +7,17 @@ import type { BackgroundCategory } from "@prisma/client";
 import { Check } from "lucide-react";
 import type { BackgroundAsiDraft, BackgroundAsiMode, BackgroundAsiStep } from "@/rules/background-asi";
 import {
+  raiseScoresByBackgroundAsi,
   startBackgroundAsiDraft,
-  sumBackgroundAsiBonuses,
   toggleBackgroundAsiSpread,
 } from "@/rules/background-asi";
-import type { AbilityKey } from "@/rules/types";
+import type { AbilityKey, AbilityScores } from "@/rules/types";
 
 export interface BackgroundAsiFormProps {
   step: BackgroundAsiStep;
   background?: { name: BackgroundCategory; abilityOptions?: string[] | null } | null;
   draft: BackgroundAsiDraft | null;
+  scoresBefore: AbilityScores;
   onChange: (draft: BackgroundAsiDraft) => void;
 }
 
@@ -35,9 +35,8 @@ const MODE_LABELS: Record<BackgroundAsiMode, string> = {
   "+1/+1/+1": "+1 до всіх трьох",
 };
 
-export function BackgroundAsiForm({ step, background, draft, onChange }: BackgroundAsiFormProps) {
+export function BackgroundAsiForm({ step, background, draft, scoresBefore, onChange }: BackgroundAsiFormProps) {
   const mode = draft?.mode ?? "+2/+1";
-  const bonuses = sumBackgroundAsiBonuses(draft);
   const backgroundName = background ? backgroundTranslations[background.name] ?? background.name : "походження";
 
   return (
@@ -70,6 +69,8 @@ export function BackgroundAsiForm({ step, background, draft, onChange }: Backgro
           title="По +1 кожній із трьох"
           abilities={step.allowedAbilities}
           selected={draft.abilities}
+          bonus={1}
+          scoresBefore={scoresBefore}
           onPick={(ability) => onChange(toggleBackgroundAsiSpread(draft, ability))}
         />
       ) : (
@@ -78,24 +79,20 @@ export function BackgroundAsiForm({ step, background, draft, onChange }: Backgro
             title="Кому +2"
             abilities={step.allowedAbilities}
             selected={draft?.mode === "+2/+1" && draft.plusTwo ? [draft.plusTwo] : []}
+            bonus={2}
+            scoresBefore={scoresBefore}
             onPick={(ability) => onChange(pickPlusTwo(draft, ability))}
           />
           <AbilityPicker
             title="Кому +1"
             abilities={step.allowedAbilities}
             selected={draft?.mode === "+2/+1" && draft.plusOne ? [draft.plusOne] : []}
+            bonus={1}
+            scoresBefore={scoresBefore}
             onPick={(ability) => onChange(pickPlusOne(draft, ability))}
           />
         </>
       )}
-
-      <div className="flex flex-wrap gap-2" data-testid="background-asi-summary">
-        {step.allowedAbilities.map((ability) => (
-          <Badge key={ability} variant="outline" className="border-white/15 bg-white/5 text-slate-100">
-            {ABILITY_LABELS[ability]} +{bonuses[ability] ?? 0}
-          </Badge>
-        ))}
-      </div>
     </CardContent>
   );
 }
@@ -104,11 +101,15 @@ function AbilityPicker({
   title,
   abilities,
   selected,
+  bonus,
+  scoresBefore,
   onPick,
 }: {
   title: string;
   abilities: AbilityKey[];
   selected: AbilityKey[];
+  bonus: number;
+  scoresBefore: AbilityScores;
   onPick: (ability: AbilityKey) => void;
 }) {
   return (
@@ -117,6 +118,7 @@ function AbilityPicker({
       <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
         {abilities.map((ability) => {
           const isSelected = selected.includes(ability);
+          const scoresAfter = raiseScoresByBackgroundAsi(scoresBefore, { [ability]: bonus });
           return (
             <Button
               key={ability}
@@ -127,13 +129,21 @@ function AbilityPicker({
               onClick={() => onPick(ability)}
             >
               <span className="text-sm">{ABILITY_LABELS[ability]}</span>
-              {isSelected && <Check className="h-4 w-4" />}
+              <span className="flex items-center gap-2 text-sm tabular-nums text-slate-300">
+                {formatScoreChange(scoresBefore[ability], scoresAfter[ability])}
+                {isSelected && <Check className="h-4 w-4" />}
+              </span>
             </Button>
           );
         })}
       </div>
     </div>
   );
+}
+
+function formatScoreChange(before: number, after: number): string {
+  if (!Number.isFinite(before)) return "—";
+  return before === after ? String(before) : `${before} → ${after}`;
 }
 
 function pickPlusTwo(draft: BackgroundAsiDraft | null, ability: AbilityKey): BackgroundAsiDraft {

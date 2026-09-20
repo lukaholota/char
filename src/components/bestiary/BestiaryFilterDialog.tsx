@@ -8,6 +8,7 @@ import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
 import { CREATURE_MOVE_LABELS, type CreatureMove } from "@/lib/bestiary-index";
 import type { CatalogSources, SourceSelection } from "@/lib/catalog-source-filter";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 const CREATURE_MOVES = Object.keys(CREATURE_MOVE_LABELS) as CreatureMove[];
 
@@ -75,7 +76,7 @@ export function BestiaryFilterDialog({
           {availableCRs.length > 0 && (
             <div>
               <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
-                Показник небезпеки (CR)
+                Показник небезпеки (ПН)
               </label>
               <div className="grid grid-cols-4 sm:grid-cols-6 gap-1.5 max-h-32 overflow-y-auto pr-1">
                 {availableCRs.map((cr) => {
@@ -87,9 +88,7 @@ export function BestiaryFilterDialog({
                       className={cn(
                         "flex items-center justify-center rounded-xl px-2.5 py-1.5 text-xs font-mono font-medium border transition-all text-center",
                         isSelected
-                          ? is2024
-                            ? "border-amber-500/50 bg-amber-500/20 text-amber-200 font-bold"
-                            : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 font-bold"
+                          ? findAccentVariant(is2024, { prism: "border-prism-500/50 bg-prism-500/20 text-prism-200 font-bold", arcane: "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 font-bold" })
                           : "border-white/5 bg-slate-900/60 text-slate-300 hover:bg-white/5"
                       )}
                     >
@@ -116,9 +115,7 @@ export function BestiaryFilterDialog({
                     className={cn(
                       "flex items-center justify-between rounded-xl px-3 py-2 text-xs font-medium border transition-all text-left truncate",
                       isSelected
-                        ? is2024
-                          ? "border-amber-500/50 bg-amber-500/20 text-amber-200"
-                          : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200"
+                        ? findAccentVariant(is2024, { prism: "border-prism-500/50 bg-prism-500/20 text-prism-200", arcane: "border-arcane-500/50 bg-arcane-500/20 text-arcane-200" })
                         : "border-white/5 bg-slate-900/60 text-slate-300 hover:bg-white/5"
                     )}
                   >
@@ -146,9 +143,7 @@ export function BestiaryFilterDialog({
                       className={cn(
                         "flex items-center justify-center rounded-xl px-2.5 py-1.5 text-xs font-medium border transition-all text-center truncate",
                         isSelected
-                          ? is2024
-                            ? "border-amber-500/50 bg-amber-500/20 text-amber-200"
-                            : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200"
+                          ? findAccentVariant(is2024, { prism: "border-prism-500/50 bg-prism-500/20 text-prism-200", arcane: "border-arcane-500/50 bg-arcane-500/20 text-arcane-200" })
                           : "border-white/5 bg-slate-900/60 text-slate-300 hover:bg-white/5"
                       )}
                     >
@@ -190,7 +185,7 @@ export function BestiaryFilterDialog({
             onClick={() => onOpenChange(false)}
             className={cn(
               "rounded-xl text-xs font-semibold",
-              is2024 ? "bg-amber-500 text-slate-950 hover:bg-amber-400" : "bg-arcane-500 text-slate-950 hover:bg-arcane-400"
+              findAccentVariant(is2024, { prism: "bg-prism-500 text-slate-950 hover:bg-prism-400", arcane: "bg-arcane-500 text-slate-950 hover:bg-arcane-400" })
             )}
           >
             Застосувати

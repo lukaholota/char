@@ -1,23 +1,22 @@
 "use client";
 
-import type { ComponentProps } from "react";
-import React, { useState } from "react";
+import type { ComponentProps, ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Share2, Copy, Check, Link as LinkIcon, ShieldCheck } from "lucide-react";
-import { generateEditShareToken, generateShareToken } from "@/lib/actions/share-actions";
+import { Check, Copy, Eye, Loader2, Pencil, Share2 } from "lucide-react";
+import { ensurePersShareLinks } from "@/lib/actions/share-actions";
 import { toast } from "sonner";
-import { Switch } from "@/components/ui/switch";
 
 interface ShareDialogProps {
   persId: number;
-  initialToken?: string | null;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   noButtonTrigger?: boolean;
@@ -27,9 +26,17 @@ interface ShareDialogProps {
   triggerVariant?: ComponentProps<typeof Button>["variant"];
 }
 
+type ShareLinks = { viewUrl: string; editUrl: string };
+type LinksState = { status: "loading" } | { status: "ready"; links: ShareLinks } | { status: "failed"; error: string };
+
+const SITE_ORIGIN = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://char.holota.family").replace(/\/$/, "");
+
+function buildShareUrl(token: string): string {
+  return `${SITE_ORIGIN}/char/share/${token}`;
+}
+
 export function ShareDialog({
   persId,
-  initialToken,
   open: openOverride,
   onOpenChange: onOpenChangeOverride,
   noButtonTrigger: hideTrigger,
@@ -41,61 +48,7 @@ export function ShareDialog({
   const [internalOpen, setInternalOpen] = useState(false);
   const isOpen = openOverride !== undefined ? openOverride : internalOpen;
   const setIsOpen = onOpenChangeOverride !== undefined ? onOpenChangeOverride : setInternalOpen;
-
-  const [token, setToken] = useState<string | null>(initialToken || null);
-  const [editToken, setEditToken] = useState<string | null>(null);
-  const [editEnabled, setEditEnabled] = useState(false);
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [isGeneratingEdit, setIsGeneratingEdit] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [editCopied, setEditCopied] = useState(false);
-
-  // Use a stable origin to avoid layout shift on open (SSR -> hydration).
-  // Keep consistent with other places in the app (e.g. sitemap/robots).
-  const origin = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://char.holota.family").replace(/\/$/, "");
-
-  const handleGenerate = async () => {
-    setIsGenerating(true);
-    const result = await generateShareToken(persId);
-    setIsGenerating(false);
-    if (result.success && result.token) {
-      setToken(result.token);
-      toast.success("Посилання згенеровано!");
-    } else {
-      toast.error(result.error || "Не вдалося згенерувати посилання");
-    }
-  };
-
-  const handleGenerateEdit = async () => {
-    setIsGeneratingEdit(true);
-    const result = await generateEditShareToken(persId);
-    setIsGeneratingEdit(false);
-    if (result.success && result.token) {
-      setEditToken(result.token);
-      toast.success("Посилання для редагування згенеровано!");
-    } else {
-      toast.error(result.error || "Не вдалося згенерувати посилання для редагування");
-    }
-  };
-
-  const shareUrl = token && origin ? `${origin}/char/share/${token}` : "";
-  const editShareUrl = editToken && origin ? `${origin}/char/share/${editToken}` : "";
-
-  const copyToClipboard = () => {
-    if (!shareUrl) return;
-    navigator.clipboard.writeText(shareUrl);
-    setCopied(true);
-    toast.success("Посилання скопійовано!");
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const copyEditToClipboard = () => {
-    if (!editShareUrl) return;
-    navigator.clipboard.writeText(editShareUrl);
-    setEditCopied(true);
-    toast.success("Посилання скопійовано!");
-    setTimeout(() => setEditCopied(false), 2000);
-  };
+  const linksState = useShareLinks(persId, isOpen);
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -104,6 +57,7 @@ export function ShareDialog({
           <Button
             variant={triggerVariant}
             size="sm"
+            title="Поділитися"
             className={triggerClassName ?? "h-8 w-8 text-slate-300 hover:text-white"}
           >
             <Share2 className="h-4 w-4" />
@@ -111,85 +65,139 @@ export function ShareDialog({
           </Button>
         </DialogTrigger>
       )}
-      <DialogContent 
-        className="w-[calc(100%-2rem)] max-w-[425px] overflow-hidden glass-card border-white/10 text-slate-100"
+      <DialogContent
+        className="w-[calc(100%-2rem)] max-w-[440px] overflow-hidden glass-card border-white/10 text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <LinkIcon className="h-5 w-5" />
+            <Share2 className="h-5 w-5" />
             Поділитися персонажем
           </DialogTitle>
+          <DialogDescription className="text-slate-400">
+            Оберіть, що зможе робити людина, якій ви надішлете посилання.
+          </DialogDescription>
         </DialogHeader>
-        
-        <div className="w-full py-4 space-y-4 max-w-full min-w-0">
-          <p className="text-sm text-slate-400">
-            Згенеруйте публічне посилання, щоб інші могли переглянути вашого персонажа (тільки для читання).
-          </p>
-          
-          {token ? (
-            <div className="w-full space-y-3 max-w-full">
-              <div className="w-full flex min-w-0 max-w-full items-center gap-2 overflow-hidden p-2 bg-black/30 rounded border border-white/10">
-                <code className="block min-w-0 max-w-full flex-1 truncate text-xs text-indigo-300">
-                  {origin}/char/share/{token.slice(0, 8)}...
-                </code>
-                <Button size="icon" variant="ghost" className="h-8 w-8" onClick={copyToClipboard}>
-                  {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
-                </Button>
-              </div>
-              <p className="text-[10px] text-slate-500 text-center">
-                Будь-хто з цим посиланням зможе бачити вашого персонажа.
-              </p>
-            </div>
-          ) : (
-            <Button 
-                onClick={handleGenerate} 
-                disabled={isGenerating}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-slate-200"
-            >
-              {isGenerating ? "Генерація..." : "Згенерувати посилання"}
-            </Button>
-          )}
 
-          <div className="rounded-lg border border-white/10 bg-black/20 p-3 space-y-3">
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2 text-sm text-slate-200">
-                <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                Дати права на редагування
-              </div>
-              <Switch checked={editEnabled} onCheckedChange={setEditEnabled} />
-            </div>
-
-            <p className="text-xs text-slate-400">
-              Увімкніть, щоб створити посилання з доступом до редагування. Будь-хто з цим посиланням зможе
-              редагувати персонажа після входу.
-            </p>
-
-            {editEnabled && (
-              <div className="space-y-3">
-                {editToken ? (
-                  <div className="w-full flex min-w-0 max-w-full items-center gap-2 overflow-hidden p-2 bg-black/30 rounded border border-white/10">
-                    <code className="block min-w-0 max-w-full flex-1 truncate text-xs text-emerald-300">
-                      {origin}/char/share/{editToken.slice(0, 8)}...
-                    </code>
-                    <Button size="icon" variant="ghost" className="h-8 w-8" onClick={copyEditToClipboard}>
-                      {editCopied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
-                    </Button>
-                  </div>
-                ) : (
-                  <Button
-                    onClick={handleGenerateEdit}
-                    disabled={isGeneratingEdit}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-slate-200"
-                  >
-                    {isGeneratingEdit ? "Генерація..." : "Згенерувати посилання для редагування"}
-                  </Button>
-                )}
-              </div>
-            )}
+        {linksState.status === "loading" && (
+          <div className="flex items-center justify-center gap-2 py-8 text-sm text-slate-400">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Готуємо посилання…
           </div>
-        </div>
+        )}
+
+        {linksState.status === "failed" && (
+          <p className="py-6 text-center text-sm text-red-300">{linksState.error}</p>
+        )}
+
+        {linksState.status === "ready" && (
+          <div className="min-w-0 space-y-3">
+            <ShareLinkOption
+              icon={<Eye className="h-4 w-4 text-indigo-300" />}
+              title="Лише перегляд"
+              description="Для гравців і друзів: бачать лист, можуть надрукувати його або скопіювати персонажа собі."
+              url={linksState.links.viewUrl}
+              accentClassName="text-indigo-300"
+            />
+            <ShareLinkOption
+              icon={<Pencil className="h-4 w-4 text-emerald-300" />}
+              title="Може редагувати (наприклад, ДМ)"
+              description="Після входу через Google персонаж зʼявиться в списку цієї людини, і вона зможе змінювати його разом із вами."
+              url={linksState.links.editUrl}
+              accentClassName="text-emerald-300"
+            />
+          </div>
+        )}
       </DialogContent>
     </Dialog>
+  );
+}
+
+function useShareLinks(persId: number, isOpen: boolean): LinksState {
+  const [state, setState] = useState<LinksState>({ status: "loading" });
+  const loadedFor = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!isOpen || loadedFor.current === persId) return;
+    let cancelled = false;
+    setState({ status: "loading" });
+
+    ensurePersShareLinks(persId)
+      .then((result) => {
+        if (cancelled) return;
+        if (!result.success) {
+          setState({ status: "failed", error: result.error });
+          return;
+        }
+        loadedFor.current = persId;
+        setState({
+          status: "ready",
+          links: { viewUrl: buildShareUrl(result.viewToken), editUrl: buildShareUrl(result.editToken) },
+        });
+      })
+      .catch(() => {
+        if (!cancelled) setState({ status: "failed", error: "Не вдалося отримати посилання. Перевірте звʼязок." });
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isOpen, persId]);
+
+  return state;
+}
+
+function ShareLinkOption({
+  icon,
+  title,
+  description,
+  url,
+  accentClassName,
+}: {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  url: string;
+  accentClassName: string;
+}) {
+  const [copied, setCopied] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const copyUrl = () => {
+    navigator.clipboard.writeText(url).then(
+      () => {
+        setCopied(true);
+        toast.success("Посилання скопійовано");
+        setTimeout(() => setCopied(false), 2000);
+      },
+      () => {
+        inputRef.current?.select();
+        toast.error("Не вдалося скопіювати — виділіть посилання й скопіюйте вручну");
+      }
+    );
+  };
+
+  return (
+    <section className="min-w-0 space-y-2 rounded-lg border border-white/10 bg-black/20 p-3">
+      <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-100">
+        {icon}
+        {title}
+      </h3>
+      <p className="text-xs text-slate-400">{description}</p>
+      <div className="flex min-w-0 items-center gap-2">
+        <input
+          ref={inputRef}
+          readOnly
+          value={url}
+          aria-label={`Посилання: ${title}`}
+          onFocus={(e) => e.currentTarget.select()}
+          className={`min-w-0 flex-1 truncate rounded border border-white/10 bg-black/30 px-2 py-1.5 font-mono text-xs ${accentClassName}`}
+        />
+        <Button size="sm" variant="secondary" className="shrink-0 gap-1.5" onClick={copyUrl}>
+          {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
+          Копіювати
+        </Button>
+      </div>
+    </section>
   );
 }

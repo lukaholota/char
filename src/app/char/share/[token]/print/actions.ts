@@ -40,7 +40,6 @@ export async function generateCharacterPdfByTokenAction(token: string, config: P
       {
         pers: printablePers,
         features,
-        spellsByLevel: {},
         wildshapeForms,
       },
       config,

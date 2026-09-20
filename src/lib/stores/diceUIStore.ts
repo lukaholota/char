@@ -1,36 +1,56 @@
 import { create } from "zustand";
 
-export type DiceMode = "general" | "weapon";
+import type { D20Mode } from "@/rules/dice-roll";
 
-export interface WeaponDiceContext {
-  persWeaponId: number;
-  weaponName: string;
-  attackBonus: number;
-  damageBonus: number;
-  damageDice: string;
+export type DiceMode = "free" | "roll";
+
+/// Кубик, який стан додає до кидка: +к4 Благословення, −к4 Зменшення.
+export type ExtraDie = { sides: number; sign: 1 | -1; label: string };
+
+/// Що стан персонажа робить із кидком: режим к20, його джерела й додаткові кубики.
+export type RollStateView = { mode: D20Mode; sources: string[]; extraDice: ExtraDie[] };
+
+export interface DiceRollAction {
+  key: string;
+  label: string;
+  count: number;
+  sides: number;
+  bonus: number;
+  isD20: boolean;
+  /// Режим, у якому кидок іде сам: Лють дає перевагу на Атлетику без жодного натискання.
+  mode?: D20Mode;
+  modeSources?: string[];
+  extraDice?: ExtraDie[];
+}
+
+export interface DiceRollContext {
+  title: string;
+  subtitle?: string;
+  actions: DiceRollAction[];
+  /// Дія, яку панель кидає одразу після відкриття — тап по числу на листі і є кидком.
+  autoRollKey?: string;
+  onEdit?: () => void;
+  /// Кидок проти СЛ (ряткидок концентрації): панель показує вердикт і повідомляє про нього раз.
+  check?: { dc: number; successText: string; failureText: string; onResult: (isSuccess: boolean) => void };
 }
 
 interface DiceUIState {
   isOpen: boolean;
   mode: DiceMode;
-  weaponContext: WeaponDiceContext | null;
+  rollContext: DiceRollContext | null;
   toggle: () => void;
   open: () => void;
-  openWeapon: (context: WeaponDiceContext) => void;
+  openRoll: (context: DiceRollContext) => void;
   close: () => void;
 }
 
+const CLOSED = { isOpen: false, mode: "free", rollContext: null } as const;
+const FREE = { isOpen: true, mode: "free", rollContext: null } as const;
+
 export const useDiceUIStore = create<DiceUIState>((set) => ({
-  isOpen: false,
-  mode: "general",
-  weaponContext: null,
-  toggle: () =>
-    set((state) =>
-      state.isOpen
-        ? { isOpen: false, mode: "general", weaponContext: null }
-        : { isOpen: true, mode: "general", weaponContext: null }
-    ),
-  open: () => set({ isOpen: true, mode: "general", weaponContext: null }),
-  openWeapon: (context) => set({ isOpen: true, mode: "weapon", weaponContext: context }),
-  close: () => set({ isOpen: false, mode: "general", weaponContext: null }),
+  ...CLOSED,
+  toggle: () => set((state) => (state.isOpen ? CLOSED : FREE)),
+  open: () => set(FREE),
+  openRoll: (context) => set({ isOpen: true, mode: "roll", rollContext: context }),
+  close: () => set(CLOSED),
 }));

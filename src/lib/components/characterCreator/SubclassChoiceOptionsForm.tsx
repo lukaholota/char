@@ -13,6 +13,7 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { LinkedPreview } from "@/components/ui/LinkedPreview";
 
 interface Props {
   selectedSubclass?: SubclassI | null;
@@ -166,7 +167,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
             </div>
             <div className="grid grid-cols-1 gap-3">
               {options.map((opt) => {
-                const { title, preview } = findChoiceOptionCardText(opt.choiceOption, groupChoiceOptions);
+                const { title, previewMarkup } = findChoiceOptionCardText(opt.choiceOption, groupChoiceOptions);
                 const required = requiredCount;
 
                 return (
@@ -192,11 +193,7 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
                           <div className="truncate text-lg font-semibold text-white">
                             {title}
                           </div>
-                          {preview && (
-                            <div className="mt-1 line-clamp-2 text-sm text-slate-300">
-                              {preview}
-                            </div>
-                          )}
+                          <LinkedPreview markup={previewMarkup} className="mt-1 line-clamp-2 text-sm text-slate-300" />
                         </div>
 
                         <Button

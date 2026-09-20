@@ -8,7 +8,7 @@
  * керується catalog-visuals.ts, тож обидва місця викликають ту саму функцію з тим самим входом.
  */
 
-import { BookOpen, Shield, User, Users } from "lucide-react";
+import { BookOpen, FlaskConical, Shield, User, Users } from "lucide-react";
 import type { OmniSearchCategory, OmniSearchItem } from "@/lib/omniSearchData";
 import {
   getSpellSchoolVisual,
@@ -18,6 +18,8 @@ import {
   getCreatureVisual,
   getFeatVisual,
   getInvocationVisual,
+  getMetamagicVisual,
+  getInfusionVisual,
   getBastionFacilityVisual,
   getBackgroundVisual,
   getRuleCategoryVisual,
@@ -43,6 +45,13 @@ const CHARACTER_VISUAL: ItemVisual = {
   iconWrap: "bg-amber-950/60 border-amber-800/60",
   iconColor: "text-amber-300",
   badgeClass: "border-amber-800/50 bg-amber-950/40 text-amber-300",
+};
+
+const HOMEBREW_VISUAL: ItemVisual = {
+  icon: FlaskConical,
+  iconWrap: "bg-emerald-950/60 border-emerald-800/60",
+  iconColor: "text-emerald-300",
+  badgeClass: "border-emerald-800/50 bg-emerald-950/40 text-emerald-300",
 };
 
 const DEFAULT_VISUAL: ItemVisual = {
@@ -76,6 +85,10 @@ function dispatchVisual(
       return getFeatVisual(visualKey);
     case "invocations":
       return getInvocationVisual(visualKey, typeof visualKeySecondary === "number" ? visualKeySecondary : null);
+    case "metamagic":
+      return getMetamagicVisual(typeof visualKeySecondary === "number" ? visualKeySecondary : null, visualKey === "level");
+    case "infusions":
+      return getInfusionVisual(visualKey);
     case "bastions":
       return getBastionFacilityVisual(visualKey);
     case "backgrounds":
@@ -88,6 +101,8 @@ function dispatchVisual(
       return RACE_VISUAL;
     case "characters":
       return CHARACTER_VISUAL;
+    case "homebrew":
+      return HOMEBREW_VISUAL;
     default:
       return DEFAULT_VISUAL;
   }

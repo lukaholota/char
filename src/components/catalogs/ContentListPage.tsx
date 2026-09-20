@@ -5,6 +5,7 @@ import { Virtuoso } from "react-virtuoso";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CatalogHeader, type CatalogHeaderProps } from "./CatalogHeader";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
+import { findEditionAccent } from "@/styles/edition-accent";
 
 export type ContentListPageProps<TItem, TRow = TItem> = CatalogHeaderProps & {
   tabs?: ReactNode;
@@ -87,8 +88,15 @@ export function ContentListPage<TItem, TRow = TItem>({
   // No tab-bar allowance below: `App` already reserves 4.5rem plus the safe area for it. This
   // shell used to add 7rem of its own on top, and that was the empty strip between the list and
   // the tab bar (KR15.4 §2). What is left is breathing room, nothing more.
+  /// Змінні акценту ставимо на корінь сторінки, а не на кожну картку: описи малює
+  /// FormattedDescription із 128 місць, і прокидати туди редакцію пропом немає сенсу.
+  const accentVariables = findEditionAccent(is2024 ? "2024" : "2014").vars;
+
   return (
-    <div className="flex h-full w-full flex-col px-3 sm:px-6 pt-3 sm:pt-6 pb-3 md:pb-6 max-w-7xl mx-auto overflow-hidden">
+    <div
+      style={accentVariables}
+      className="flex h-full w-full flex-col px-3 sm:px-6 pt-3 sm:pt-6 pb-3 md:pb-6 max-w-7xl mx-auto overflow-hidden"
+    >
       {topBanner}
 
       <CatalogHeader
@@ -149,7 +157,7 @@ export function ContentListPage<TItem, TRow = TItem>({
           }}
         >
           <DialogContent
-            className="max-h-[90dvh] max-w-xl overflow-y-auto border-white/10 bg-slate-950/95 p-4 sm:p-6 backdrop-blur-2xl text-slate-100"
+            className="max-h-[90dvh] max-w-xl overflow-y-auto border-white/10 bg-slate-950/95 px-4 pb-4 pt-12 sm:px-6 sm:pb-6 backdrop-blur-2xl text-slate-100"
             aria-describedby={undefined}
           >
             <DialogTitle className="sr-only">

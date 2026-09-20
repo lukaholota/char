@@ -5,7 +5,16 @@ import { abilityTranslations, sourceTranslations } from "@/lib/refs/translation"
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { cn } from "@/lib/utils";
-import { Award, Coins, Languages, Package, Sparkles, Wrench } from "lucide-react";
+import { Award, Languages, Sparkles, Wrench } from "lucide-react";
+import { EquipmentOptionCard } from "@/lib/components/characterCreator/EquipmentOptionCard";
+import {
+  buildChoiceHeading,
+  buildItemLines,
+  formatVariantTitle,
+} from "@/lib/components/characterCreator/equipment-choices";
+import { findBackgroundStartingItems, hasGoldAlternative } from "@/rules/background-equipment";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 function MetaRow({
   icon: Icon,
@@ -34,6 +43,61 @@ function SectionBlock({ title, children }: { title: string; children: React.Reac
   );
 }
 
+function StartingEquipmentBlock({ background }: { background: BackgroundData }) {
+  const equipment = { items: background.equipmentItems, grantsGoldInstead: background.grantsGoldInstead };
+  const items = findBackgroundStartingItems(equipment, "EQUIPMENT");
+  if (items.length === 0) return null;
+
+  if (!hasGoldAlternative(equipment)) {
+    return (
+      <SectionBlock title="Стартове спорядження">
+        <EquipmentOptionCard radioName={`equipment-${background.slug}`} lines={buildItemLines(items)} selected={false} />
+      </SectionBlock>
+    );
+  }
+
+  const gold = findBackgroundStartingItems(equipment, "GOLD");
+
+  return (
+    <SectionBlock title="Стартове спорядження">
+      <p className="mb-2 text-sm font-semibold text-white">{buildChoiceHeading(["a", "b"])}</p>
+      <div className="space-y-2">
+        <EquipmentOptionCard
+          radioName={`equipment-${background.slug}`}
+          title={`${formatVariantTitle("a")}: пакунок спорядження`}
+          lines={buildItemLines(items)}
+          selected={false}
+        />
+        <EquipmentOptionCard
+          radioName={`equipment-${background.slug}`}
+          title={`${formatVariantTitle("b")}: гроші замість пакунка`}
+          lines={buildItemLines(gold)}
+          selected={false}
+        />
+      </div>
+    </SectionBlock>
+  );
+}
+
+/// Риса походження — найбільше, що дає передісторія 2024, тож її текст іде першим блоком:
+/// у плашках вище стоїть лише назва, а по неї гравець і приходить.
+function OriginFeatBlock({ background, is2024 }: { background: BackgroundData; is2024: boolean }) {
+  const feat = background.originFeat;
+  if (!feat?.description) return null;
+
+  return (
+    <SectionBlock title="Риса походження">
+      <p className={cn("text-sm font-semibold", findAccentVariant(is2024, { prism: "text-prism-200", arcane: "text-arcane-200" }))}>
+        {feat.nameUa} <span className="font-mono text-xs text-slate-500">[{feat.engName}]</span>
+      </p>
+      <FormattedDescription
+        content={feat.description}
+        className="mt-1.5 space-y-2 break-words text-xs leading-relaxed text-slate-300 sm:text-sm"
+      />
+    </SectionBlock>
+  );
+}
+
 function findSkillsLabel(background: BackgroundData): string | null {
   const fixed = background.skills.map((s) => s.nameUa);
   if (background.skillChoiceCount > 0) {
@@ -59,9 +123,7 @@ export function BackgroundDetailCard({
     <div
       className={cn(
         "glass-card border border-white/10 bg-slate-950/60 p-4 sm:p-6 backdrop-blur-xl break-words max-w-full overflow-hidden rounded-2xl",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10"
+        findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10" })
       )}
     >
       <div className="flex items-start justify-between gap-3">
@@ -83,17 +145,13 @@ export function BackgroundDetailCard({
             <h1
               className={cn(
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
-                is2024
-                  ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
+                findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 via-prism-200 to-prism-500", arcane: "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300" })
               )}
             >
               {background.name}
             </h1>
             {is2024 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                2024
-              </span>
+              <EditionAccentChip edition="2024">2024</EditionAccentChip>
             )}
           </div>
           <div className="mt-0.5 font-mono text-xs text-slate-400">[{background.engName}]</div>
@@ -102,9 +160,7 @@ export function BackgroundDetailCard({
         <div
           className={cn(
             "shrink-0 rounded-lg border px-2.5 py-1 text-xs font-medium",
-            is2024
-              ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
+            findAccentVariant(is2024, { prism: "border-prism-500/30 bg-prism-500/10 text-prism-300", arcane: "border-arcane-500/30 bg-arcane-500/10 text-arcane-300" })
           )}
         >
           {sourceLabel}
@@ -138,7 +194,7 @@ export function BackgroundDetailCard({
 
         {background.originFeat && (
           <MetaRow icon={Sparkles} label="Риса походження">
-            <span className={is2024 ? "text-amber-200" : "text-arcane-200"}>
+            <span className={findAccentVariant(is2024, { prism: "text-prism-200", arcane: "text-arcane-200" })}>
               {background.originFeat.nameUa}
             </span>{" "}
             <span className="font-mono text-xs text-slate-500">[{background.originFeat.engName}]</span>
@@ -146,33 +202,9 @@ export function BackgroundDetailCard({
         )}
       </div>
 
-      {background.equipmentItems.length > 0 && (
-        <SectionBlock title="Спорядження">
-          <ul className="grid gap-1 text-xs text-slate-300 sm:text-sm">
-            {background.equipmentItems.map((item) => (
-              <li key={item.name} className="flex items-start gap-2">
-                <Package className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500" />
-                <span>
-                  {item.name}
-                  {item.quantity > 1 && <span className="text-slate-400"> ×{item.quantity}</span>}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </SectionBlock>
-      )}
+      <OriginFeatBlock background={background} is2024={is2024} />
 
-      {background.equipmentEngText && (
-        <SectionBlock title="Спорядження (мовою оригіналу)">
-          <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">{background.equipmentEngText}</p>
-          {background.grantsGoldInstead && (
-            <p className="mt-2 flex items-center gap-1.5 text-xs text-amber-300">
-              <Coins className="h-3.5 w-3.5" />
-              Або {background.grantsGoldInstead} зм замість спорядження
-            </p>
-          )}
-        </SectionBlock>
-      )}
+      <StartingEquipmentBlock background={background} />
 
       <SectionBlock title={background.specialAbilityName || "Опис"}>
         <FormattedDescription

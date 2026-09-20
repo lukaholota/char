@@ -53,7 +53,7 @@ export default function OptionalFeaturesForm({
         ...patch,
       },
     };
-    updateFormData({ ...(formData as any), classOptionalFeatureReplacementSelections: next } as any);
+    updateFormData({ classOptionalFeatureReplacementSelections: next } as any);
   };
 
   const selectedChoiceIds = useMemo(() => {

@@ -10,15 +10,16 @@ import {
   addWeapon 
 } from "@/lib/actions/equipment-actions";
 import { weaponTranslations, damageTypeTranslations } from "@/lib/refs/translation";
-import { Weapon, Ability } from "@prisma/client";
+import type { Ruleset, Weapon } from "@prisma/client";
 import { toast } from "sonner";
 
 interface AddWeaponDialogProps {
   persId: number;
+  ruleset: Ruleset;
   onSuccess?: () => void;
 }
 
-export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogProps) {
+export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeaponDialogProps) {
   const [open, setOpen] = useState(false);
   const [weapons, setWeapons] = useState<Weapon[]>([]);
   const [search, setSearch] = useState("");
@@ -30,14 +31,14 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
   useEffect(() => {
     if (open) {
       setIsLoading(true);
-      getBaseEquipment().then((res) => {
+      getBaseEquipment(ruleset).then((res) => {
         if (res.success && res.weapons) {
           setWeapons(res.weapons);
         }
         setIsLoading(false);
       });
     }
-  }, [open]);
+  }, [open, ruleset]);
 
   const filteredWeapons = weapons.filter((w) => {
     const name = weaponTranslations[w.name as keyof typeof weaponTranslations] || w.name;
@@ -55,7 +56,6 @@ export default function AddWeaponDialog({ persId, onSuccess }: AddWeaponDialogPr
     startTransition(async () => {
       const res = await addWeapon(persId, weapon.weaponId, {
         overrideName: weaponTranslations[weapon.name as keyof typeof weaponTranslations] || weapon.name,
-        customDamageDice: weapon.damage,
         isProficient: true,
       });
 

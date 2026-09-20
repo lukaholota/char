@@ -20,7 +20,8 @@ import {
 } from "@/lib/components/characterCreator/infoUtils";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { classTranslations, attributesUkrShort } from "@/lib/refs/translation";
-import { SPELL_SLOT_PROGRESSION, sneakAttackDice } from "@/lib/refs/static";
+import { sneakAttackDice } from "@/lib/refs/static";
+import { findClassTableSpellSlots } from "@/rules/class-table-spell-slots";
 import { INFUSIONS_KNOWN_BY_ARTIFICER_LEVEL } from "@/rules/artificer-infusions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -157,55 +158,6 @@ const getCustomColumnValueAtLevel = (
 
   const bestMatch = valuesByLevel.filter((item) => level >= item.lvl).at(-1);
   return bestMatch ? String(bestMatch.value) : null;
-};
-
-const normalizeSlots = (value: unknown): number[] | null => {
-  if (!Array.isArray(value)) return null;
-  const normalized = value.slice(0, 9).map((entry) => {
-    const numeric = Number(entry);
-    return Number.isFinite(numeric) ? Math.max(0, Math.trunc(numeric)) : 0;
-  });
-
-  if (!normalized.some((slot) => slot > 0)) return null;
-  while (normalized.length < 9) normalized.push(0);
-  return normalized;
-};
-
-const ARTIFICER_LEVEL_ONE_SLOTS = [2, 0, 0, 0, 0, 0, 0, 0, 0] as const;
-
-const getSpellSlotsByLevel = (cls: ClassI, level: number): number[] | null => {
-  const special = cls.specialSpellSlotProgression as any;
-  if (special && typeof special === "object" && !Array.isArray(special)) {
-    const fromSpecial = normalizeSlots(
-      special[level] ?? special[String(level)],
-    );
-    if (fromSpecial) return fromSpecial;
-  }
-
-  if (cls.spellcastingType === "FULL") {
-    return normalizeSlots((SPELL_SLOT_PROGRESSION as any).FULL?.[level]);
-  }
-  if (cls.spellcastingType === "HALF") {
-    if (String(cls.name) === "ARTIFICER_2014" && level === 1) {
-      return [...ARTIFICER_LEVEL_ONE_SLOTS];
-    }
-    return normalizeSlots((SPELL_SLOT_PROGRESSION as any).HALF?.[level]);
-  }
-  if (cls.spellcastingType === "THIRD") {
-    return normalizeSlots((SPELL_SLOT_PROGRESSION as any).THIRD?.[level]);
-  }
-  if (cls.spellcastingType === "PACT") {
-    const pact = (SPELL_SLOT_PROGRESSION as any).PACT?.[level];
-    if (!pact) return null;
-    const pactSlots = Number(pact.slots);
-    const slotLevel = Number(pact.level);
-    if (!Number.isFinite(pactSlots) || !Number.isFinite(slotLevel)) return null;
-    const result = Array.from({ length: 9 }, () => 0);
-    if (slotLevel >= 1 && slotLevel <= 9) result[slotLevel - 1] = pactSlots;
-    return result;
-  }
-
-  return null;
 };
 
 interface Props {
@@ -740,7 +692,7 @@ export const ClassInfoModal = ({
                     ? cantripsTable[level - 1]
                     : null;
                   const slots = hasSpellSlotsColumn
-                    ? getSpellSlotsByLevel(cls, level)
+                    ? findClassTableSpellSlots(cls, level)
                     : null;
 
                   return (

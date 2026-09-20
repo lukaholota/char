@@ -9,7 +9,7 @@ import { OrnateFrame, type ChamferSize, type FrameWeight } from "@/components/ui
 import { StarDivider } from "@/components/ui/StarDivider";
 import { useVisibleImageSrc } from "@/components/no-ai/ContentImage";
 import { HOME_ACCENTS, HOME_HERO_RATIO, HOME_TILE_RATIO } from "./homeTokens";
-import type { HomeCardTier, HomeCategory } from "./homeCategories";
+import type { HomeCard, HomeCardTier } from "./homeCategories";
 
 type TierStyle = {
   ratio: number;
@@ -48,17 +48,19 @@ const cardMotion = {
 } as const;
 
 type HomeCategoryCardProps = {
-  category: HomeCategory;
+  card: HomeCard;
   priority?: boolean;
+  className?: string;
 };
 
-export function HomeCategoryCard({ category, priority }: HomeCategoryCardProps) {
-  const style = TIER_STYLES[category.tier];
+export function HomeCategoryCard({ card, priority, className }: HomeCategoryCardProps) {
+  const { category } = card;
+  const style = TIER_STYLES[card.tier];
   const accent = HOME_ACCENTS[category.accent];
-  const coverSrc = useVisibleImageSrc(category.imageSrc, category.noAiImageSrc);
+  const coverSrc = useVisibleImageSrc(card.imageSrc, card.noAiImageSrc);
 
   return (
-    <motion.div variants={cardMotion}>
+    <motion.div variants={cardMotion} className={className}>
       <Link
         href={category.href}
         className="group block transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:outline-none"

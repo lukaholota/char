@@ -5,6 +5,8 @@ import { featCategoryTranslations, sourceTranslations } from "@/lib/refs/transla
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { cn } from "@/lib/utils";
 import { Sparkles, Repeat, Award, ShieldAlert } from "lucide-react";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 export function FeatDetailCard({
   feat,
@@ -21,9 +23,7 @@ export function FeatDetailCard({
     <div
       className={cn(
         "glass-card border border-white/10 bg-slate-950/60 p-4 sm:p-6 backdrop-blur-xl break-words max-w-full overflow-hidden rounded-2xl",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10"
+        findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10" })
       )}
     >
       {/* Header */}
@@ -33,17 +33,13 @@ export function FeatDetailCard({
             <h1
               className={cn(
                 "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
-                is2024
-                  ? "bg-gradient-to-r from-amber-300 via-amber-200 to-amber-500"
-                  : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
+                findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 via-prism-200 to-prism-500", arcane: "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300" })
               )}
             >
               {feat.name}
             </h1>
             {is2024 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                2024
-              </span>
+              <EditionAccentChip edition="2024">2024</EditionAccentChip>
             )}
           </div>
           <div className="text-xs font-mono text-slate-400 mt-0.5">[{feat.engName}]</div>
@@ -53,9 +49,7 @@ export function FeatDetailCard({
         <div
           className={cn(
             "shrink-0 rounded-lg px-2.5 py-1 text-xs font-medium border",
-            is2024
-              ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-arcane-500/30 bg-arcane-500/10 text-arcane-300"
+            findAccentVariant(is2024, { prism: "border-prism-500/30 bg-prism-500/10 text-prism-300", arcane: "border-arcane-500/30 bg-arcane-500/10 text-arcane-300" })
           )}
         >
           {sourceLabel}
@@ -68,9 +62,7 @@ export function FeatDetailCard({
           <span
             className={cn(
               "inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold border",
-              is2024
-                ? "border-amber-500/40 bg-amber-500/15 text-amber-200"
-                : "border-arcane-500/40 bg-arcane-500/15 text-arcane-200"
+              findAccentVariant(is2024, { prism: "border-prism-500/40 bg-prism-500/15 text-prism-200", arcane: "border-arcane-500/40 bg-arcane-500/15 text-arcane-200" })
             )}
           >
             <Award className="h-3.5 w-3.5" />
@@ -111,7 +103,7 @@ export function FeatDetailCard({
                 <div
                   className={cn(
                     "text-sm font-semibold mb-1",
-                    is2024 ? "text-amber-300" : "text-arcane-300"
+                    findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" })
                   )}
                 >
                   {benefit.name}

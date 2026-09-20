@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 /// Оболонка діалогу фільтрів: заголовок, секції, «Скинути» і «Застосувати». Секції приходять
 /// дітьми — каталог складає їх із `FilterGroup`/`FilterChip` і `SourceFilterSection`.
@@ -43,9 +44,7 @@ export function CatalogFilterDialog({
             onClick={() => onOpenChange(false)}
             className={cn(
               "rounded-xl text-xs font-semibold",
-              is2024
-                ? "bg-amber-500 text-slate-950 hover:bg-amber-400"
-                : "bg-arcane-500 text-slate-950 hover:bg-arcane-400",
+              findAccentVariant(is2024, { prism: "bg-prism-500 text-slate-950 hover:bg-prism-400", arcane: "bg-arcane-500 text-slate-950 hover:bg-arcane-400" }),
             )}
           >
             Застосувати

@@ -23,6 +23,8 @@ type Skill = (typeof SkillsEnum)[number];
 const isSkill = (value: unknown): value is Skill =>
   typeof value === "string" && (SkillsEnum as readonly string[]).includes(value);
 
+type SkillChoiceFeature = { featureId: number; name: string; choiceCount: number; options: Skill[] };
+
 type NormalizedSkillProficiency =
   | { type: "fixed"; skills: Skill[] }
   | { type: "choice"; choiceCount: number; options: Skill[] };
@@ -95,7 +97,7 @@ export const LevelUpSkillProficienciesForm = ({
     return set;
   }, [extraExistingSkills]);
 
-  const choiceFeatures = useMemo(() => {
+  const choiceFeatures = useMemo<SkillChoiceFeature[]>(() => {
     return (activeFeatures || [])
       .map((f) => {
         const normalized = normalizeSkillProficiencies(f.skillProficiencies);
@@ -107,32 +109,42 @@ export const LevelUpSkillProficienciesForm = ({
           options: normalized.options,
         };
       })
-      .filter(Boolean) as Array<{ featureId: number; name: string; choiceCount: number; options: Skill[] }>;
+      .filter(Boolean) as SkillChoiceFeature[];
   }, [activeFeatures]);
 
   const watchedSelections = form.watch("levelUpSkillSelections");
   const selections = useMemo(() => watchedSelections || {}, [watchedSelections]);
 
-  const globalSelected = useMemo(() => {
-    const set = new Set<Skill>();
-    Object.values(selections).forEach((list) => {
-      (Array.isArray(list) ? list : []).forEach((s) => {
-        if (isSkill(s)) set.add(s);
-      });
+  /// Рахується під час рендера, а не в `useMemo` над `selections`: вибір пишеться вкладеним
+  /// `setValue`, і react-hook-form міняє масив усередині того самого обʼєкта. Посилання
+  /// лишається тим самим, тож будь-яка памʼять над ним застрягає на значенні з монтування —
+  /// і «обрано в іншій рисі» в UI, і гейт унизу.
+  const globalSelected = new Set<Skill>();
+  Object.values(selections).forEach((list) => {
+    (Array.isArray(list) ? list : []).forEach((s) => {
+      if (isSkill(s)) globalSelected.add(s);
     });
-    return set;
-  }, [selections]);
+  });
 
-  const isOverLimit = useMemo(() => {
-    return choiceFeatures.some((feature) => {
-      const current = (selections[feature.featureId] || []) as Skill[];
-      return current.length > feature.choiceCount;
-    });
-  }, [choiceFeatures, selections]);
+  /// Крок пускав далі з невитраченими виборами: риса лишалася без навички, а на листі це вже
+  /// не лагодиться — те саме, що рішення власника 2026-09-06 закрило в конструкторі. Вимога
+  /// обмежена тим, що справді можна натиснути: коли всі запропоновані навички персонаж уже
+  /// знає, крок не має права стати глухим кутом.
+  const countPickable = (feature: SkillChoiceFeature) => {
+    const chosenHere = (selections[feature.featureId] || []) as Skill[];
+    return feature.options.filter(
+      (skill) => !existingSkillsSet.has(skill) && (!globalSelected.has(skill) || chosenHere.includes(skill))
+    ).length;
+  };
+
+  const isSelectionUnspent = choiceFeatures.some((feature) => {
+    const chosenHere = ((selections[feature.featureId] || []) as Skill[]).length;
+    return chosenHere !== Math.min(feature.choiceCount, countPickable(feature));
+  });
 
   useEffect(() => {
-    onNextDisabledChange?.(isOverLimit);
-  }, [isOverLimit, onNextDisabledChange]);
+    onNextDisabledChange?.(isSelectionUnspent);
+  }, [isSelectionUnspent, onNextDisabledChange]);
 
   if (!choiceFeatures.length) return null;
 

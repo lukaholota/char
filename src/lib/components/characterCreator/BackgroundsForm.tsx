@@ -2,7 +2,7 @@
 
 // import type {Background} from "@prisma/client"
 import {
-  backgroundTranslations, backgroundTranslationsEng,
+  backgroundTranslations, backgroundTranslationsEng, featTranslations,
 } from "@/lib/refs/translation";
 import {useStepForm} from "@/hooks/useStepForm";
 import {backgroundSchema} from "@/lib/zod/schemas/persCreateSchema";
@@ -10,13 +10,14 @@ import { useEffect, useMemo, useCallback } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
-import { BackgroundInfoModal } from "@/lib/components/characterCreator/modals/BackgroundInfoModal";
+import { BackgroundInfoModal, type OriginFeat } from "@/lib/components/characterCreator/modals/BackgroundInfoModal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BackgroundI } from "@/lib/types/model-types";
+import { BackgroundI, FeatPrisma } from "@/lib/types/model-types";
 import {Source} from "@prisma/client";
 import { CreationCard } from "@/components/characterCreator/CreationCard";
-import { getBackgroundVisual } from "@/components/characterCreator/creation-visuals";
+import { formatSkillProficiencies } from "@/lib/components/characterCreator/infoUtils";
+import { getBackgroundCreationVisual } from "@/components/characterCreator/creation-visuals";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -29,6 +30,7 @@ const normalizeText = (value?: string) =>
 
 interface Props {
   backgrounds: BackgroundI[]
+  feats: FeatPrisma[]
   formId: string
   onNextDisabledChange?: (disabled: boolean) => void
 }
@@ -39,7 +41,7 @@ const PHB_BACKGROUNDS = new Set([
 ]);
 
 export const BackgroundsForm = (
-  {backgrounds, formId, onNextDisabledChange}: Props
+  {backgrounds, feats, formId, onNextDisabledChange}: Props
 ) => {
   const { updateFormData, nextStep } = usePersFormStore();
   
@@ -63,12 +65,11 @@ export const BackgroundsForm = (
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenBackgroundId]);
 
-  const matchesSearch = useCallback((name: string) => {
+  const matchesSearch = useCallback((background: BackgroundI) => {
     if (!normalizedBackgroundSearch) return true;
-    const ua = normalizeText(backgroundTranslations[name]);
-    const en = normalizeText(backgroundTranslationsEng[name]);
-    return ua.includes(normalizedBackgroundSearch) || en.includes(normalizedBackgroundSearch);
-  }, [normalizedBackgroundSearch]);
+    return collectSearchableTerms(background, feats)
+      .some((term) => normalizeText(term).includes(normalizedBackgroundSearch));
+  }, [normalizedBackgroundSearch, feats]);
 
   const getLabel = useCallback((name: string) => backgroundTranslations[name] || backgroundTranslationsEng[name] || name, []);
 
@@ -77,7 +78,7 @@ export const BackgroundsForm = (
   const primaryBackgrounds = useMemo(
     () => backgrounds
       .filter(b => is2024 ? true : PHB_BACKGROUNDS.has(b.name))
-      .filter(b => matchesSearch(b.name))
+      .filter(b => matchesSearch(b))
       .sort((a, b) => getLabel(a.name).localeCompare(getLabel(b.name), 'uk')),
     [backgrounds, is2024, matchesSearch, getLabel]
   );
@@ -85,7 +86,7 @@ export const BackgroundsForm = (
     () => is2024 ? [] : backgrounds
       .filter(b => b.source !== Source.PHB_2024)
       .filter(b => !PHB_BACKGROUNDS.has(b.name))
-      .filter(b => matchesSearch(b.name))
+      .filter(b => matchesSearch(b))
       .sort((a, b) => getLabel(a.name).localeCompare(getLabel(b.name), 'uk')),
     [backgrounds, is2024, matchesSearch, getLabel]
   );
@@ -93,22 +94,28 @@ export const BackgroundsForm = (
   const hasNoResults = !primaryBackgrounds.length && !otherBackgrounds.length;
   const forceOpenOther = Boolean(normalizedBackgroundSearch);
 
-  const renderBackgroundCard = (b: BackgroundI) => (
-    <CreationCard
-      key={b.backgroundId}
-      testId={`background-${b.name}`}
-      title={getLabel(b.name)}
-      englishTitle={backgroundTranslationsEng[b.name]}
-      visual={getBackgroundVisual(b.name)}
-      isSelected={b.backgroundId === chosenBackgroundId}
-      is2024={b.ruleset === "RULES_2024"}
-      infoModal={<BackgroundInfoModal background={b} />}
-      onClick={(e) => {
-        if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-        form.setValue('backgroundId', b.backgroundId);
-      }}
-    />
-  );
+  const renderBackgroundCard = (b: BackgroundI) => {
+    const originFeat = findOriginFeat(feats, b.originFeatId);
+
+    return (
+      <CreationCard
+        key={b.backgroundId}
+        testId={`background-${b.name}`}
+        title={getLabel(b.name)}
+        englishTitle={backgroundTranslationsEng[b.name]}
+        note={describeBackgroundSkills(b)}
+        secondaryNote={describeBackgroundFeature(b, originFeat)}
+        visual={getBackgroundCreationVisual(b.name)}
+        isSelected={b.backgroundId === chosenBackgroundId}
+        is2024={b.ruleset === "RULES_2024"}
+        infoModal={<BackgroundInfoModal background={b} originFeat={describeOriginFeat(originFeat)} />}
+        onClick={(e) => {
+          if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
+          form.setValue('backgroundId', b.backgroundId);
+        }}
+      />
+    );
+  };
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
@@ -194,3 +201,45 @@ export const BackgroundsForm = (
 };
 
 export default BackgroundsForm;
+
+/// Навички — перше, за чим передісторії порівнюють, а до картки модалки ще треба дійти.
+function describeBackgroundSkills(background: BackgroundI) {
+  const skills = formatSkillProficiencies(background.skillProficiencies);
+  return skills === "—" ? null : skills;
+}
+
+function findOriginFeat(feats: FeatPrisma[], featId: number | null): FeatPrisma | undefined {
+  if (!featId) return undefined;
+  return feats.find((candidate) => candidate.featId === featId);
+}
+
+function describeOriginFeat(feat?: FeatPrisma): OriginFeat | undefined {
+  if (!feat) return undefined;
+  return { name: findFeatLabel(feat), description: feat.description };
+}
+
+function findFeatLabel(feat: FeatPrisma) {
+  return featTranslations[feat.name] ?? feat.name;
+}
+
+/// Риса — друге, за чим передісторії порівнюють: у 2024 вона вирішує білд, у 2014 задає те,
+/// що персонаж уміє поза кубиками. Назва редакційна: модалка зве їх так само.
+function describeBackgroundFeature(background: BackgroundI, originFeat?: FeatPrisma) {
+  if (originFeat) return `Риса: ${findFeatLabel(originFeat)}`;
+  if (background.specialAbilityName) return `Особливість: ${background.specialAbilityName}`;
+  return null;
+}
+
+/// Пошук бере ті самі поля, що й пошук рис: українську назву й англійську, — плюс назву риси
+/// передісторії, бо гравці шукають передісторію саме за нею («хто дає Пильного»).
+function collectSearchableTerms(background: BackgroundI, feats: FeatPrisma[]) {
+  const originFeat = findOriginFeat(feats, background.originFeatId);
+
+  return [
+    backgroundTranslations[background.name],
+    backgroundTranslationsEng[background.name],
+    originFeat && findFeatLabel(originFeat),
+    originFeat?.engName,
+    background.specialAbilityName,
+  ].filter(Boolean) as string[];
+}

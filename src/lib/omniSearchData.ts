@@ -14,32 +14,39 @@ import { getAllArmors } from "@/lib/armorData";
 import { getAllCreatures, findEditionLabel } from "@/lib/bestiaryData";
 import { getAllFeats } from "@/lib/featsData";
 import { getAllInvocations } from "@/lib/invocationsData";
+import { getAllMetamagic } from "@/lib/metamagicData";
+import { describeMetamagicCost } from "@/lib/metamagic-cost";
+import { getAllInfusions } from "@/lib/infusionsData";
 import { getAllBastionFacilities } from "@/lib/bastionsData";
 import { getAllBackgrounds } from "@/lib/backgroundsData";
 import { getAllClasses } from "@/lib/classesData";
 import { getAllRaces, RACE_SINGULAR } from "@/lib/racesData";
-import { getAllRuleArticles, getAllConditions, RuleArticle } from "@/lib/rulesData";
+import { getAllConditions, getRuleCategory, RuleArticle } from "@/lib/rulesData";
 import { getAllRuleArticles2014 } from "@/lib/rules2014Data";
 import { getAllRuleArticles2024, getConditions2024 } from "@/lib/rules2024Data";
 import {
+  damageTypeTranslations,
+  featCategoryTranslations,
+  infusionTargetTranslations,
   itemRarityTranslations,
+  magicItemTypeTranslations,
+  weaponPropertyTranslations,
   weaponTranslations,
+  weaponTypeTranslations,
   armorTypeTranslations,
 } from "@/lib/refs/translation";
+import { findSourceLabel } from "@/lib/refs/source-label";
 import { toEntitySlug } from "@/lib/slug-utils";
 import {
-  findCategoryCatalogHref,
+  collectSearchCatalogs,
+  findCatalogEntry,
+  findCatalogHref,
+  findCatalogSearchTitle,
   findRoutePrefix,
-  OMNI_CATEGORY_LABELS,
-  type OmniSearchCategory,
-} from "@/lib/search/omni-categories";
+  toEdition,
+  type CatalogSlug,
+} from "@/lib/catalogs/catalog-registry";
 import { findAliasVariants } from "@/lib/search/searchAliases";
-
-export {
-  findCategoryCatalogHref,
-  OMNI_CATEGORY_LABELS,
-  type OmniSearchCategory,
-} from "@/lib/search/omni-categories";
 import {
   buildQueryMatcher,
   buildSearchableText,
@@ -49,6 +56,8 @@ import {
   QueryMatcher,
   SearchableText,
 } from "@/lib/search/searchQuery";
+
+export type OmniSearchCategory = CatalogSlug;
 
 export type OmniSearchItem = {
   id: string;
@@ -74,7 +83,22 @@ export type OmniSearchItem = {
   visualKeySecondary?: string | number | boolean | null;
 };
 
+export type OmniSearchOverflow = {
+  category: OmniSearchCategory;
+  categoryLabel: string;
+  hiddenCount: number;
+};
 
+export type OmniSearchOutcome = {
+  items: OmniSearchItem[];
+  overflow: OmniSearchOverflow[];
+};
+
+/// KR36.4: у режимі «Всі» стеля стоїть на кожен каталог окремо (рішення власника 2026-09-18 —
+/// плоский список, 8 рядків). Одна глобальна стеля після сортування віддавала всю видачу
+/// категорії з найбільшою кількістю збігів: «магія» не показувала жодного рядка Бестіарію й
+/// Метамагії, «дракон» — Довідника правил.
+export const PER_CATEGORY_RESULT_QUOTA = 8;
 const MAX_SEARCH_RESULTS = 50;
 const SHORT_ALIAS_LENGTH = 4;
 
@@ -97,6 +121,8 @@ type SearchEntry = {
   exactAliases: string[];
 };
 
+type RankedMatch = { item: OmniSearchItem; rank: number };
+
 /// The class, subclass and race lists used to be typed out here and drifted: the 2014 race list
 /// held 21 of the 66 rows in the database. They now come from the catalogs, which read the same
 /// tables the character creator does (KR15.6).
@@ -112,6 +138,8 @@ export function buildOmniSearchIndex(ruleset: Ruleset = "RULES_2014"): OmniSearc
     ...collectCreatureItems(ruleset),
     ...collectFeatItems(ruleset),
     ...collectInvocationItems(ruleset),
+    ...collectMetamagicItems(ruleset),
+    ...collectInfusionItems(ruleset),
     ...collectBastionItems(ruleset),
     ...collectBackgroundItems(ruleset),
     ...collectClassItems(ruleset),
@@ -119,10 +147,16 @@ export function buildOmniSearchIndex(ruleset: Ruleset = "RULES_2014"): OmniSearc
     ...collectRaceItems(ruleset),
     ...collectRuleItems(ruleset),
     ...collectConditionItems(ruleset),
+    ...collectCatalogShortcuts(ruleset),
   ];
 
   cachedIndexes[ruleset] = items;
   return items;
+}
+
+/// Рядок «Каталог» — один на кожен каталог редакції; гейти рахують записи каталогу без нього.
+export function isCatalogShortcut(item: OmniSearchItem): boolean {
+  return item.id.startsWith("category-");
 }
 
 export function searchOmniIndex(
@@ -130,10 +164,28 @@ export function searchOmniIndex(
   ruleset: Ruleset = "RULES_2014",
   categoryFilter?: OmniSearchCategory | "ALL"
 ): OmniSearchItem[] {
-  const matcher = buildQueryMatcher(query);
-  if (!matcher) return [];
+  return findOmniSearchOutcome(query, ruleset, categoryFilter).items;
+}
 
-  const ranked: Array<{ item: OmniSearchItem; rank: number }> = [];
+export function findOmniSearchOutcome(
+  query: string,
+  ruleset: Ruleset = "RULES_2014",
+  categoryFilter?: OmniSearchCategory | "ALL"
+): OmniSearchOutcome {
+  const matcher = buildQueryMatcher(query);
+  if (!matcher) return { items: [], overflow: [] };
+
+  const ranked = collectRankedMatches(matcher, ruleset, categoryFilter);
+  const isSingleCategory = Boolean(categoryFilter) && categoryFilter !== "ALL";
+  return isSingleCategory ? capWholeList(ranked) : capEachCategory(ranked);
+}
+
+function collectRankedMatches(
+  matcher: QueryMatcher,
+  ruleset: Ruleset,
+  categoryFilter?: OmniSearchCategory | "ALL"
+): RankedMatch[] {
+  const ranked: RankedMatch[] = [];
   for (const entry of collectSearchEntries(ruleset)) {
     if (categoryFilter && categoryFilter !== "ALL" && entry.item.category !== categoryFilter) continue;
     if (!matchesQuery(matcher, entry.text) && !matchesExactAlias(matcher, entry.exactAliases)) continue;
@@ -143,21 +195,71 @@ export function searchOmniIndex(
     });
   }
 
-  return ranked
-    .sort(
-      (a, b) =>
-        a.rank - b.rank ||
-        findCategoryTieBreakPriority(a.item.category) - findCategoryTieBreakPriority(b.item.category) ||
-        a.item.title.length - b.item.title.length
-    )
-    .slice(0, MAX_SEARCH_RESULTS)
-    .map((entry) => entry.item);
+  return ranked.sort(compareRankedMatches);
+}
+
+function compareRankedMatches(a: RankedMatch, b: RankedMatch): number {
+  return (
+    a.rank - b.rank ||
+    findCategoryTieBreakPriority(a.item.category) - findCategoryTieBreakPriority(b.item.category) ||
+    a.item.title.length - b.item.title.length
+  );
+}
+
+/// З вибраним фільтром користувач уже сказав, що дивиться один каталог, — стеля наскрізна.
+function capWholeList(ranked: RankedMatch[]): OmniSearchOutcome {
+  const items = ranked.slice(0, MAX_SEARCH_RESULTS).map((match) => match.item);
+  const hiddenCount = ranked.length - items.length;
+  const first = items[0];
+  const overflow =
+    hiddenCount > 0 && first
+      ? [{ category: first.category, categoryLabel: first.categoryLabel, hiddenCount }]
+      : [];
+  return { items, overflow };
+}
+
+/// Каталоги йдуть блоками за найкращим рангом у кожному («дракон» починається бестіарієм,
+/// «захист» — заклинаннями); усередині блоку — за рангом. Блок обрізається до квоти, а решта
+/// віддається як «ще K у каталозі X».
+function capEachCategory(ranked: RankedMatch[]): OmniSearchOutcome {
+  const blocks = groupByCategoryInRankOrder(ranked).sort(
+    (a, b) => compareRankedMatches(a[0], b[0]) || compareSearchOrder(a[0].item.category, b[0].item.category)
+  );
+
+  const items: OmniSearchItem[] = [];
+  const overflow: OmniSearchOverflow[] = [];
+  for (const block of blocks) {
+    const shown = block.slice(0, PER_CATEGORY_RESULT_QUOTA);
+    items.push(...shown.map((match) => match.item));
+    if (block.length > shown.length) {
+      overflow.push({
+        category: block[0].item.category,
+        categoryLabel: block[0].item.categoryLabel,
+        hiddenCount: block.length - shown.length,
+      });
+    }
+  }
+
+  return { items, overflow };
+}
+
+function groupByCategoryInRankOrder(ranked: RankedMatch[]): RankedMatch[][] {
+  const blocks = new Map<OmniSearchCategory, RankedMatch[]>();
+  for (const match of ranked) {
+    const block = blocks.get(match.item.category);
+    if (block) block.push(match);
+    else blocks.set(match.item.category, [match]);
+  }
+  return [...blocks.values()];
+}
+
+function compareSearchOrder(a: OmniSearchCategory, b: OmniSearchCategory): number {
+  return findCatalogEntry(a).searchOrder - findCatalogEntry(b).searchOrder;
 }
 
 function findCategoryTieBreakPriority(category: OmniSearchCategory): number {
   return CATEGORY_TIE_BREAK_PRIORITY[category] ?? DEFAULT_CATEGORY_TIE_BREAK_PRIORITY;
 }
-
 
 function matchesExactAlias(matcher: QueryMatcher, exactAliases: string[]): boolean {
   return exactAliases.length > 0 && matcher.phrases.some((phrase) => exactAliases.includes(phrase));
@@ -183,6 +285,9 @@ function collectSearchEntries(ruleset: Ruleset): SearchEntry[] {
   return entries;
 }
 
+function findLabel(category: OmniSearchCategory, ruleset: Ruleset): string {
+  return findCatalogSearchTitle(category, toEdition(ruleset));
+}
 
 /// Classes, subclasses and races used to send the reader into the character creator, because
 /// that was the only screen listing them. KR15.6 gave them catalogs, so a hit now opens the
@@ -217,7 +322,7 @@ function collectSpellItems(ruleset: Ruleset): OmniSearchItem[] {
       title: cleanTitle,
       subtitle: spell.engName,
       category: "spells" as const,
-      categoryLabel: OMNI_CATEGORY_LABELS.spells,
+      categoryLabel: findLabel("spells", ruleset),
       href: `${prefix}/spells?q=${encodeURIComponent(cleanTitle)}`,
       badge: levelLabel,
       keywords: [
@@ -232,25 +337,29 @@ function collectSpellItems(ruleset: Ruleset): OmniSearchItem[] {
   });
 }
 
+/// KR36.5: сирий енум лишається поруч із підписом — visualKey бере його ж (Б9), а частина людей
+/// шукає англійською; підпис додається, щоб «чудесний предмет» і «проста зброя» щось знаходили.
 function collectMagicItemItems(ruleset: Ruleset): OmniSearchItem[] {
   const prefix = findRoutePrefix(ruleset);
 
   return getAllMagicItems(ruleset).map((magicItem) => {
     const rarityLabel = itemRarityTranslations[magicItem.rarity] || magicItem.rarity;
     const cleanTitle = stripBracketedSuffix(magicItem.name);
-    const source = (magicItem as { source?: string }).source ?? "";
+    const source = String((magicItem as { source?: string }).source ?? "");
 
     return {
       id: `item-${magicItem.magicItemId}`,
       title: cleanTitle,
       subtitle: magicItem.engName,
       category: "magic-items" as const,
-      categoryLabel: OMNI_CATEGORY_LABELS["magic-items"],
+      categoryLabel: findLabel("magic-items", ruleset),
       href: `${prefix}/magic-items?q=${encodeURIComponent(cleanTitle)}`,
       badge: rarityLabel,
       keywords: [
         magicItem.itemType,
-        String(source),
+        findTranslation(magicItemTypeTranslations, magicItem.itemType),
+        source,
+        source ? findSourceLabel(source) : "",
         rarityLabel,
         magicItem.name,
       ],
@@ -266,25 +375,33 @@ function collectWeaponItems(ruleset: Ruleset): OmniSearchItem[] {
   return getAllWeapons(ruleset).map((weapon) => {
     const nameUa =
       weaponTranslations[weapon.code as keyof typeof weaponTranslations] || weapon.nameUa || weapon.name;
+    const weaponType = String(weapon.weaponType);
 
     return {
       id: `weapon-${weapon.id}`,
       title: nameUa,
       subtitle: weapon.engName,
       category: "weapons" as const,
-      categoryLabel: OMNI_CATEGORY_LABELS.weapons,
+      categoryLabel: findLabel("weapons", ruleset),
       href: `${prefix}/weapons?q=${encodeURIComponent(nameUa)}`,
-      badge: `${weapon.damage} ${weapon.damageType}`,
+      badge: `${weapon.damage} ${findTranslation(damageTypeTranslations, String(weapon.damageType)).toLowerCase() || weapon.damageType}`,
       keywords: [
-        String(weapon.weaponType),
+        weaponType,
+        findTranslation(weaponTypeTranslations, weaponType),
         weapon.source,
+        findSourceLabel(weapon.source),
         ...weapon.properties,
+        ...weapon.properties.map((property) => findTranslation(weaponPropertyTranslations, property)),
       ],
       aliases: findAliasVariants(ruleset, ["weapon"], [weapon.code, toEntitySlug(weapon.engName), nameUa]),
-      visualKey: String(weapon.weaponType),
+      visualKey: weaponType,
       visualKeySecondary: weapon.isRanged,
     };
   });
+}
+
+function findTranslation(table: Record<string, string>, code: string): string {
+  return table[code] ?? "";
 }
 
 function collectArmorItems(ruleset: Ruleset): OmniSearchItem[] {
@@ -300,7 +417,7 @@ function collectArmorItems(ruleset: Ruleset): OmniSearchItem[] {
       title,
       subtitle: armor.engName,
       category: "armor" as const,
-      categoryLabel: OMNI_CATEGORY_LABELS.armor,
+      categoryLabel: findLabel("armor", ruleset),
       href: `${prefix}/armor?q=${encodeURIComponent(title)}`,
       badge: `КБ ${armor.baseAC}`,
       keywords: [
@@ -325,7 +442,7 @@ function collectCreatureItems(ruleset: Ruleset): OmniSearchItem[] {
       title: creature.name,
       subtitle: creature.nameEng,
       category: "bestiary" as const,
-      categoryLabel: OMNI_CATEGORY_LABELS.bestiary,
+      categoryLabel: findLabel("bestiary", ruleset),
       href: `${prefix}/bestiary/${toEntitySlug(creature.nameEng)}`,
       badge: crLabel,
       edition: editionLabel,
@@ -351,11 +468,14 @@ function collectFeatItems(ruleset: Ruleset): OmniSearchItem[] {
     title: feat.name,
     subtitle: feat.engName,
     category: "feats" as const,
-    categoryLabel: OMNI_CATEGORY_LABELS.feats,
+    categoryLabel: findLabel("feats", ruleset),
     href: `${prefix}/feats?q=${encodeURIComponent(feat.name)}`,
-    badge: feat.category ?? undefined,
+    badge: feat.category ? findTranslation(featCategoryTranslations, feat.category) || feat.category : undefined,
     keywords: [
       feat.source,
+      findSourceLabel(feat.source),
+      feat.category ?? "",
+      feat.category ? findTranslation(featCategoryTranslations, feat.category) : "",
       feat.prerequisite ?? "",
     ],
     aliases: findAliasVariants(ruleset, ["feat"], [toEntitySlug(feat.engName), feat.name]),
@@ -374,7 +494,7 @@ function collectInvocationItems(ruleset: Ruleset): OmniSearchItem[] {
       title,
       subtitle: invocation.engName,
       category: "invocations" as const,
-      categoryLabel: OMNI_CATEGORY_LABELS.invocations,
+      categoryLabel: findLabel("invocations", ruleset),
       href: `${prefix}/invocations?q=${encodeURIComponent(title)}`,
       badge: invocation.minLevel ? `Рівень ${invocation.minLevel}` : undefined,
       keywords: [
@@ -384,6 +504,55 @@ function collectInvocationItems(ruleset: Ruleset): OmniSearchItem[] {
       aliases: findAliasVariants(ruleset, ["invocation"], [toEntitySlug(invocation.engName), title]),
       visualKey: invocation.pactRequirement,
       visualKeySecondary: invocation.minLevel,
+    };
+  });
+}
+
+function collectMetamagicItems(ruleset: Ruleset): OmniSearchItem[] {
+  const prefix = findRoutePrefix(ruleset);
+
+  return getAllMetamagic(ruleset).map((metamagic) => ({
+    id: `metamagic-${metamagic.id}`,
+    title: metamagic.nameUa,
+    subtitle: metamagic.engName,
+    category: "metamagic" as const,
+    categoryLabel: findLabel("metamagic", ruleset),
+    href: `${prefix}/metamagic/${toEntitySlug(metamagic.engName)}`,
+    badge: describeMetamagicCost(metamagic),
+    keywords: [metamagic.source, "метамагія", "metamagic"],
+    aliases: findAliasVariants(ruleset, ["metamagic"], [toEntitySlug(metamagic.engName), metamagic.nameUa]),
+    visualKey: metamagic.isCostSpellLevel ? "level" : null,
+    visualKeySecondary: metamagic.cost,
+  }));
+}
+
+/// KR36.2: інфузії Винахідника — каталог лише 2014 (TCoE); в індексі 2024 їх немає, як і
+/// маршруту. Сторінка запису вже збирається статично, тож рядок веде просто на неї.
+function collectInfusionItems(ruleset: Ruleset): OmniSearchItem[] {
+  if (ruleset !== "RULES_2014") return [];
+
+  return getAllInfusions().map((infusion) => {
+    const targetType = String(infusion.targetType);
+
+    return {
+      id: `infusion-${infusion.id}`,
+      title: infusion.nameUa,
+      subtitle: infusion.engName,
+      category: "infusions" as const,
+      categoryLabel: findLabel("infusions", ruleset),
+      href: `/infusions/${toEntitySlug(infusion.engName)}`,
+      badge: `Рівень ${infusion.minArtificerLevel}`,
+      keywords: [
+        infusion.source,
+        findSourceLabel(infusion.source),
+        targetType,
+        findTranslation(infusionTargetTranslations, targetType),
+        "вливання",
+        "інфузія",
+        "infusion",
+      ],
+      aliases: findAliasVariants(ruleset, ["infusion"], [toEntitySlug(infusion.engName), infusion.nameUa]),
+      visualKey: targetType,
     };
   });
 }
@@ -398,7 +567,7 @@ function collectBastionItems(ruleset: Ruleset): OmniSearchItem[] {
     title: facility.name,
     subtitle: facility.engName,
     category: "bastions" as const,
-    categoryLabel: OMNI_CATEGORY_LABELS.bastions,
+    categoryLabel: findLabel("bastions", ruleset),
     href: `/2024/bastions/${facility.slug}`,
     badge: facility.level === null ? "Базове" : `Рівень ${facility.level}`,
     keywords: [facility.source, facility.prerequisiteText, facility.shortDescription],
@@ -407,25 +576,20 @@ function collectBastionItems(ruleset: Ruleset): OmniSearchItem[] {
   }));
 }
 
-/// Доповнення власника, 2026-08-22: «бекграунд», «передісторія», «історія» мають вести на сам
-/// каталог Походжень, а не на конкретний запис — тому це один додатковий пункт індексу, а не
-/// аліас кожної з ~90 сутностей.
 /// Підрозділ «Ваш хід у бою» люди шукають словами, яких у тексті немає.
 const RULE_SUBSECTION_ALIASES: Record<string, string[]> = {
   "your-turn": ["вільна дія", "вільні дії", "безкоштовна дія", "основна дія"],
 };
 
-const BACKGROUND_CATEGORY_ALIASES = ["бекграунд", "бекграунди", "передісторія", "історія"];
-
 function collectBackgroundItems(ruleset: Ruleset): OmniSearchItem[] {
   const prefix = findRoutePrefix(ruleset);
 
-  const items = getAllBackgrounds(ruleset).map((background) => ({
+  return getAllBackgrounds(ruleset).map((background) => ({
     id: `background-${background.backgroundId}`,
     title: background.name,
     subtitle: background.engName,
     category: "backgrounds" as const,
-    categoryLabel: OMNI_CATEGORY_LABELS.backgrounds,
+    categoryLabel: findLabel("backgrounds", ruleset),
     href: `${prefix}/backgrounds/${background.slug}`,
     badge: background.originFeat ? background.originFeat.nameUa : background.specialAbilityName ?? undefined,
     keywords: [
@@ -436,20 +600,29 @@ function collectBackgroundItems(ruleset: Ruleset): OmniSearchItem[] {
     aliases: findAliasVariants(ruleset, ["background"], [background.slug, background.name]),
     visualKey: background.source,
   }));
-
-  return [...items, collectBackgroundCategoryShortcut(ruleset)];
 }
 
-function collectBackgroundCategoryShortcut(ruleset: Ruleset): OmniSearchItem {
-  return {
-    id: "category-backgrounds",
-    title: OMNI_CATEGORY_LABELS.backgrounds,
-    category: "backgrounds",
-    categoryLabel: OMNI_CATEGORY_LABELS.backgrounds,
-    href: findCategoryCatalogHref("backgrounds", ruleset),
-    badge: "Каталог",
-    aliases: BACKGROUND_CATEGORY_ALIASES,
-  };
+/// Доповнення власника, 2026-08-22: «бекграунд», «передісторія», «історія» мають вести на сам
+/// каталог Походжень, а не на конкретний запис — тому на кожен каталог редакції є один рядок
+/// «Каталог», а його народні назви живуть у search-aliases.json під entityType «catalog».
+function collectCatalogShortcuts(ruleset: Ruleset): OmniSearchItem[] {
+  const edition = toEdition(ruleset);
+
+  return collectSearchCatalogs(edition).flatMap((entry) => {
+    const href = findCatalogHref(entry.slug, edition);
+    if (!href) return [];
+    return [
+      {
+        id: `category-${entry.slug}`,
+        title: findLabel(entry.slug, ruleset),
+        category: entry.slug,
+        categoryLabel: findLabel(entry.slug, ruleset),
+        href,
+        badge: "Каталог",
+        aliases: findAliasVariants(ruleset, ["catalog"], [entry.slug]),
+      },
+    ];
+  });
 }
 
 function collectClassItems(ruleset: Ruleset): OmniSearchItem[] {
@@ -458,7 +631,7 @@ function collectClassItems(ruleset: Ruleset): OmniSearchItem[] {
     title: characterClass.name,
     subtitle: characterClass.engName,
     category: "classes" as const,
-    categoryLabel: OMNI_CATEGORY_LABELS.classes,
+    categoryLabel: findLabel("classes", ruleset),
     href: findClassHref(ruleset, characterClass.engName),
     badge: "Клас",
     keywords: ["персонаж", "створення", characterClass.engName],
@@ -477,7 +650,7 @@ function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
       title: subclass.name,
       subtitle: `${subclass.engName} · ${characterClass.name}`,
       category: "classes" as const,
-      categoryLabel: OMNI_CATEGORY_LABELS.classes,
+      categoryLabel: findLabel("classes", ruleset),
       href: findSubclassHref(ruleset, characterClass.engName, subclass.name),
       badge: "Підклас",
       keywords: ["підклас", "персонаж", "створення", subclass.engName, characterClass.name],
@@ -496,7 +669,7 @@ function collectRaceItems(ruleset: Ruleset): OmniSearchItem[] {
     title: race.name,
     subtitle: race.engName,
     category: "races" as const,
-    categoryLabel: OMNI_CATEGORY_LABELS.races,
+    categoryLabel: findLabel("races", ruleset),
     href: findRaceHref(ruleset, race.engName),
     badge: RACE_SINGULAR[ruleset],
     keywords: ["персонаж", "створення", race.engName],
@@ -514,20 +687,22 @@ function collectRuleArticles(ruleset: Ruleset): RuleArticle[] {
 
 function collectRuleItems(ruleset: Ruleset): OmniSearchItem[] {
   const prefix = findRoutePrefix(ruleset);
+  const categoryLabel = findLabel("rules", ruleset);
   const items: OmniSearchItem[] = [];
 
   for (const article of collectRuleArticles(ruleset)) {
     const articleAliases = findAliasVariants(ruleset, ["rule"], [article.slug, article.title]);
+    const sectionTitle = getRuleCategory(article.category)?.title ?? article.category;
 
     items.push({
       id: `rule-${article.id}`,
       title: article.title,
       subtitle: article.engTitle,
       category: "rules",
-      categoryLabel: OMNI_CATEGORY_LABELS.rules,
+      categoryLabel,
       href: `${prefix}/rules/${article.category}#${article.slug}`,
-      badge: article.category,
-      keywords: [article.category, ...article.tags, article.summary],
+      badge: sectionTitle,
+      keywords: [article.category, sectionTitle, ...article.tags, article.summary],
       aliases: articleAliases,
       visualKey: article.category,
     });
@@ -538,11 +713,12 @@ function collectRuleItems(ruleset: Ruleset): OmniSearchItem[] {
         title: subsection.title,
         subtitle: subsection.engTitle ?? article.title,
         category: "rules",
-        categoryLabel: OMNI_CATEGORY_LABELS.rules,
+        categoryLabel,
         href: `${prefix}/rules/${article.category}#${subsection.id}`,
         badge: article.title,
         keywords: [
           article.category,
+          sectionTitle,
           article.title,
           ...article.tags,
           subsection.content,
@@ -574,7 +750,7 @@ function collectConditionItems(ruleset: Ruleset): OmniSearchItem[] {
     title: condition.name,
     subtitle: condition.engName,
     category: "rules" as const,
-    categoryLabel: OMNI_CATEGORY_LABELS.rules,
+    categoryLabel: findLabel("rules", ruleset),
     href: `${prefix}/rules/conditions#${condition.id}`,
     badge: "Стан",
     keywords: [

@@ -96,7 +96,7 @@ const DialogContent = React.forwardRef<
       className,
       children,
       showClose = true,
-      closeLabel = "Close",
+      closeLabel = "Закрити",
       onPointerDownOutside,
       onInteractOutside,
       onFocusOutside,
@@ -133,7 +133,7 @@ const DialogContent = React.forwardRef<
     >
       {children}
       {showClose ? (
-        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+        <DialogPrimitive.Close className="absolute right-2 top-2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 md:h-8 md:w-8 bg-slate-900/90 text-slate-300 shadow-md shadow-black/40 transition-colors hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60 disabled:pointer-events-none">
           <X className="h-4 w-4" />
           <span className="sr-only">{closeLabel}</span>
         </DialogPrimitive.Close>

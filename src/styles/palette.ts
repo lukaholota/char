@@ -43,6 +43,23 @@ export const ARCANE = {
   950: "#1e0f33",
 } as const;
 
+/// Магічне переливання 2024: крига → фіолет → фуксія → малина. Шкала — суцільна частина
+/// акценту (чіпи, дрібні рамки, заливки); самі зупинки переливання живуть в
+/// `src/styles/edition-accent.ts`, бо це роль, а не колір.
+export const PRISM = {
+  50: "#fdf3fe",
+  100: "#fae5fd",
+  200: "#f5c9fa",
+  300: "#e9a9f7",
+  400: "#d774ee",
+  500: "#c04ae0",
+  600: "#a333c2",
+  700: "#82289a",
+  800: "#5c1c6d",
+  900: "#3d1349",
+  950: "#240a2b",
+} as const;
+
 /// Black base, violet glow overhead, a far weaker ember glow underfoot. Lifted out of the home
 /// screen so every route shares it.
 export const PLATFORM_BACKDROP = {

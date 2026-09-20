@@ -13,7 +13,7 @@ import {
   translateValue,
 } from "@/lib/components/characterCreator/infoUtils";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { backgroundTranslations } from "@/lib/refs/translation";
+import { abilityTranslations, backgroundTranslations } from "@/lib/refs/translation";
 import { BackgroundI } from "@/lib/types/model-types";
 
 import { ReactNode } from "react";
@@ -23,7 +23,10 @@ interface Props {
   triggerClassName?: string;
   sourceLabel?: string;
   trigger?: ReactNode;
+  originFeat?: OriginFeat;
 }
+
+export type OriginFeat = { name: string; description?: string | null };
 
 const parseItems = (items: unknown): string[] => {
   if (!Array.isArray(items)) return [];
@@ -43,9 +46,16 @@ const parseItems = (items: unknown): string[] => {
     .filter(Boolean) as string[];
 };
 
-export const BackgroundInfoModal = ({ background, triggerClassName, sourceLabel, trigger }: Props) => {
+const formatAbilityOptions = (abilities: readonly string[]) =>
+  abilities.length ? abilities.map((ability) => abilityTranslations[ability] ?? ability).join(" / ") : "—";
+
+const formatEquipmentChoice = (goldInstead: number | null) =>
+  goldInstead ? `пакунок або ${goldInstead} зм` : "пакунок";
+
+export const BackgroundInfoModal = ({ background, triggerClassName, sourceLabel, trigger, originFeat }: Props) => {
   const items = parseItems(background.items);
   const resolvedSource = sourceLabel || (background.source ? translateValue(background.source) : "—");
+  const is2024 = background.ruleset === "RULES_2024";
 
   return (
     <InfoDialog
@@ -64,15 +74,36 @@ export const BackgroundInfoModal = ({ background, triggerClassName, sourceLabel,
           label="Інструменти"
           value={formatToolProficiencies(background.toolProficiencies)}
         />
-        <InfoPill
-          label="Мови"
-          value={formatLanguages([], background.languagesToChooseCount)}
-        />
-        <InfoPill
-          label="Особливість"
-          value={background.specialAbilityName || "-"}
-        />
+        {is2024 ? (
+          <>
+            <InfoPill label="Характеристики на вибір" value={formatAbilityOptions(background.abilityOptions)} />
+            <InfoPill label="Риса походження" value={originFeat?.name ?? "—"} />
+            <InfoPill label="Спорядження" value={formatEquipmentChoice(background.grantsGoldInstead)} />
+          </>
+        ) : (
+          <>
+            <InfoPill
+              label="Мови"
+              value={formatLanguages([], background.languagesToChooseCount)}
+            />
+            <InfoPill
+              label="Особливість"
+              value={background.specialAbilityName || "-"}
+            />
+          </>
+        )}
       </InfoGrid>
+
+      {originFeat?.description ? (
+        <div className="space-y-1">
+          <InfoSectionTitle>Риса походження</InfoSectionTitle>
+          <p className="text-sm font-semibold text-white">{originFeat.name}</p>
+          <FormattedDescription
+            content={originFeat.description}
+            className="text-sm leading-relaxed text-slate-200/90"
+          />
+        </div>
+      ) : null}
 
       {items.length ? (
         <div className="space-y-1.5">
@@ -90,7 +121,7 @@ export const BackgroundInfoModal = ({ background, triggerClassName, sourceLabel,
 
       {(background.specialAbilityName || background.description) && (
         <div className="space-y-1">
-          <InfoSectionTitle>Опис особливості</InfoSectionTitle>
+          <InfoSectionTitle>{background.specialAbilityName ? "Опис особливості" : "Опис"}</InfoSectionTitle>
           {background.specialAbilityName ? (
             <p className="text-sm font-semibold text-white">
               {background.specialAbilityName}

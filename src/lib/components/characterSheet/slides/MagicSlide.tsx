@@ -1,10 +1,12 @@
 "use client";
 
+import { describeRollState } from "@/lib/logic/state-labels";
+import { useSheetStatesContext } from "@/lib/components/characterSheet/states/SheetStatesContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpDown, Check, ChevronDown, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
+import { ArrowUpDown, Check, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
 import { memo, useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
@@ -20,14 +22,21 @@ import { toast } from "sonner";
 import { buildSpellcastingStatRows } from "@/lib/logic/spellcasting-stats";
 import SpellcastingSourceCards from "@/lib/components/characterSheet/shared/SpellcastingSourceCards";
 import type { SpellSource } from "@/rules/spell-sources";
-import { buildSpellLinkForSpell, openSpellLink, type SpellLink } from "@/lib/spell-link";
+import { buildSpellLinkForSpell, openLoadedSpell, openSpellLink, type SpellLink } from "@/lib/spell-link";
+import { buildHomebrewSheetSpellRows, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import AddSpellDialog from "../AddSpellDialog";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { formatSpellCountValue, getSpellcastingCountsLines } from "@/lib/logic/spellcasting-progression";
+import { getSpellcastingCountsLines } from "@/lib/logic/spellcasting-progression";
+import SpellcastingCountsBlock from "@/lib/components/characterSheet/shared/SpellcastingCountsBlock";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import SpellListGroup from "@/lib/components/characterSheet/shared/SpellListGroup";
+import CastSpellMenu, { describeSlot } from "@/lib/components/characterSheet/shared/CastSpellMenu";
+import { listCastingSlotOptions, type CastingSlotOption } from "@/rules/spell-casting-slots";
+import { collectFreeSpellCasts } from "@/lib/logic/free-feat-spell-casts";
+import { findFreeSpellCastsForSpell } from "@/rules/free-feat-spell-casts";
+import { isAlwaysPreparedSpell } from "@/rules/always-prepared-spells";
+import { spendFeatureUse } from "@/lib/actions/feature-uses";
 import { classTranslations, raceTranslations, subclassTranslations, subraceTranslations, variantTranslations } from "@/lib/refs/translation";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -35,6 +44,8 @@ import {
   getEffectiveExcludeFromKnownCount,
   getEffectiveExcludeFromPreparedCount,
 } from "@/lib/logic/spell-prepared-exclusions";
+import { findPreparedRemaining, tallyPreparedSpellsByClass, type PreparedSpellRow } from "@/rules/prepared-spell-limits";
+import { tallyWizardSpellbook } from "@/rules/class-spell-choices-2024";
 
 const SPELL_BADGE_COLORS = [
   { name: "Sky", value: "#38bdf8" },
@@ -55,6 +66,7 @@ const BADGE_COLOR_BASE = "#a78bfa";
 interface MagicSlideProps {
   pers: PersWithRelations;
   spellcastingSources: readonly SpellSource[];
+  onFeaturesChanged?: () => void;
   onPersUpdate: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
 }
@@ -75,6 +87,10 @@ function buildPersSpellLink(persSpells: PersSpellRowLike[], spellId: number): Sp
     engName: spell.engName,
     ruleset: spell.ruleset === "RULES_2024" ? "RULES_2024" : "RULES_2014",
   });
+}
+
+function collectSheetSpells(pers: PersWithRelations): any[] {
+  return [...pers.persSpells, ...buildHomebrewSheetSpellRows(pers.homebrewSpells ?? [], pers.ruleset)];
 }
 
 function getPersSpellLevel(persSpell: any): number | null {
@@ -122,20 +138,33 @@ function countPreparedSpells(spells: any[], excludedSpellIds: Set<number>): numb
   return ids.size;
 }
 
-function getPreparedRemainingForSpells(spells: any[], preparedLimit: number | null, matchers: string[]): number | null {
-  if (!Number.isFinite(preparedLimit)) return null;
-  const excludedSpellIds = collectExcludedPreparedSpellIds(spells, matchers);
-  const preparedCount = countPreparedSpells(spells, excludedSpellIds);
-  return Number(preparedLimit) - preparedCount;
+function toPreparedSpellRows(spells: any[], excludedSpellIds: Set<number>): PreparedSpellRow[] {
+  return spells.flatMap((ps) => {
+    const spellId = getPersSpellId(ps);
+    if (spellId === null) return [];
+    return [{
+      level: getPersSpellLevel(ps) ?? 0,
+      isPrepared: Boolean(ps?.isPrepared),
+      badgeText: ps?.badgeText,
+      isExcludedFromPrepared: excludedSpellIds.has(spellId),
+    }];
+  });
 }
 
-const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersUpdate, isReadOnly }: MagicSlideProps) {
+const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersUpdate, isReadOnly, onFeaturesChanged }: MagicSlideProps) {
   const router = useRouter();
+  const sheetStates = useSheetStatesContext();
   const [isPending, startTransition] = useTransition();
-  const { isOnline, commitOperation } = useOfflineQueue();
+  const { commitOperation } = useOfflineQueue();
 
   const buildSlotOperation = (
-    body: { kind: "spend-spell-slot"; slotLevel: number } | { kind: "spend-pact-slot" },
+    body:
+      | { kind: "spend-spell-slot"; slotLevel: number }
+      | { kind: "restore-spell-slot"; slotLevel: number }
+      | { kind: "spend-pact-slot" }
+      | { kind: "restore-pact-slot" }
+      | { kind: "spell-prepared"; spellId: number; isPrepared: boolean }
+      | { kind: "feature-use"; featureId: number; direction: "spend" },
   ): OfflineOperation => ({
     ...body,
     operationId: createOperationId(),
@@ -166,12 +195,12 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     [localPers, spellcastingSources],
   );
 
-  const [localPersSpells, setLocalPersSpells] = useState(() => (localPers as any).persSpells ?? []);
+  const [localPersSpells, setLocalPersSpells] = useState(() => collectSheetSpells(localPers));
   const [spellQuery, setSpellQuery] = useState("");
 
   // If data refreshes from server, keep local list in sync.
   useEffect(() => {
-    setLocalPersSpells((localPers as any).persSpells ?? []);
+    setLocalPersSpells(collectSheetSpells(localPers));
   }, [localPers]);
 
   const [localCurrentSlots, setLocalCurrentSlots] = useState<number[]>(() => {
@@ -183,6 +212,21 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   });
 
   const [localPactSlots, setLocalPactSlots] = useState(pers.currentPactSlots ?? 0);
+
+  /// Залишок безкоштовних застосувань живе в рядку `pers_feature`, а витрата з листа має бути
+  /// видною до перечитування сторінки — звідси накладка поверх серверного числа.
+  const [freeCastRemainingByFeatureId, setFreeCastRemainingByFeatureId] = useState<Record<number, number>>({});
+
+  useEffect(() => {
+    setFreeCastRemainingByFeatureId({});
+  }, [pers]);
+
+  const freeSpellCasts = useMemo(() => {
+    return collectFreeSpellCasts(localPers).map((cast) => {
+      const override = freeCastRemainingByFeatureId[cast.featureId];
+      return typeof override === "number" ? { ...cast, remaining: override } : cast;
+    });
+  }, [localPers, freeCastRemainingByFeatureId]);
   const [openSlotLevel, setOpenSlotLevel] = useState<number | null>(null);
   const [openPactSlots, setOpenPactSlots] = useState(false);
 
@@ -226,16 +270,6 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     return collectExcludedKnownSpellIds(localPersSpells as any[]);
   }, [localPersSpells]);
 
-  const excludedFromPreparedCountCount = useMemo(
-    () => excludedFromPreparedCountSpellIds.size,
-    [excludedFromPreparedCountSpellIds]
-  );
-
-  const excludedFromKnownCountCount = useMemo(
-    () => excludedFromKnownCountSpellIds.size,
-    [excludedFromKnownCountSpellIds]
-  );
-
   const knownSpellsCount = useMemo(() => {
     const ids = new Set<number>();
     for (const ps of localPersSpells as any[]) {
@@ -266,27 +300,22 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     return countPreparedSpells(localPersSpells as any[], excludedFromPreparedCountSpellIds);
   }, [localPersSpells, excludedFromPreparedCountSpellIds]);
 
-  const preparedSpellsLimit = useMemo(() => {
-    let total = 0;
-    let hasPreparedLimit = false;
+  const wizardSpellbook = useMemo(() => {
+    const line = spellcastingCounts.find((entry) => entry.key.startsWith("class:WIZARD_2024:"));
+    if (!line) return null;
+    const owned = (localPersSpells as any[]).map((ps) => ({
+      level: getPersSpellLevel(ps) ?? 0,
+      isPrepared: Boolean(ps?.isPrepared),
+      badgeText: ps?.badgeText ?? null,
+      excludeFromPreparedCount: Boolean(ps?.excludeFromPreparedCount),
+    }));
+    return { lineKey: line.key, tally: tallyWizardSpellbook(line.level, owned) };
+  }, [spellcastingCounts, localPersSpells]);
 
-    for (const line of spellcastingCounts) {
-      if (!String(line?.spellsLabel ?? "").toLocaleLowerCase("uk").includes("можна підготувати")) {
-        continue;
-      }
-
-      const value =
-        line.spells.kind === "fixed"
-          ? line.spells.value
-          : (typeof line.spells.value === "number" ? line.spells.value : NaN);
-      if (!Number.isFinite(value)) continue;
-
-      total += Math.max(0, Math.trunc(value));
-      hasPreparedLimit = true;
-    }
-
-    return hasPreparedLimit ? total : null;
-  }, [spellcastingCounts]);
+  const preparedTallies = useMemo(
+    () => tallyPreparedSpellsByClass(spellcastingCounts, toPreparedSpellRows(localPersSpells as any[], excludedFromPreparedCountSpellIds)),
+    [spellcastingCounts, localPersSpells, excludedFromPreparedCountSpellIds]
+  );
 
   const maxSlots = useMemo(() => {
     const level = Math.max(0, Math.min(20, Math.trunc(caster.casterLevel || 0)));
@@ -390,7 +419,9 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   }, [spellsByLevel]);
 
   const openSpell = (spellId: number) => {
-    openSpellLink(buildPersSpellLink(localPersSpells, spellId));
+    const homebrewSpell = isHomebrewCatalogId(spellId) ? localPersSpells.find((ps: any) => ps.spellId === spellId)?.spell : null;
+    if (homebrewSpell) openLoadedSpell(homebrewSpell);
+    else openSpellLink(buildPersSpellLink(localPersSpells, spellId));
   };
 
   const openBadgeEditor = (ps: any) => {
@@ -438,11 +469,11 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     setLocalPersSpells(applyPreparedState(localPersSpells as any[], nextPrepared));
 
     startTransition(async () => {
-      const res = await setSpellPrepared({
-        persId: localPers.persId,
-        spellId,
-        isPrepared: nextPrepared,
-      });
+      const outcome = await commitOperation(
+        buildSlotOperation({ kind: "spell-prepared", spellId, isPrepared: nextPrepared }),
+        () => setSpellPrepared({ persId: localPers.persId, spellId, isPrepared: nextPrepared }),
+      );
+      const res = outcome.queued ? { success: true as const, isPrepared: nextPrepared } : outcome.result;
 
       if (!res.success) {
         router.refresh();
@@ -450,15 +481,20 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       }
 
       const nextSpells = applyPreparedState(localPersSpells as any[], res.isPrepared);
-      const nextRemaining = getPreparedRemainingForSpells(
-        nextSpells,
-        preparedSpellsLimit,
-        preparedCountAutoExcludeMatchers
-      );
+      const nextExcluded = collectExcludedPreparedSpellIds(nextSpells, preparedCountAutoExcludeMatchers);
+      /// Заклинання поза лімітом (риса, вид, підклас) ліміту класу не рухає, тож і числа класу
+      /// після нього не показуємо: інакше «Залишилось підготувати: 0» читається як наслідок
+      /// цього натискання й виглядає багом лічильника.
+      const nextRemaining = nextExcluded.has(spellId)
+        ? null
+        : findPreparedRemaining(
+            tallyPreparedSpellsByClass(spellcastingCounts, toPreparedSpellRows(nextSpells, nextExcluded)),
+            ps?.badgeText
+          );
 
       setLocalPersSpells(nextSpells);
 
-      if (Number.isFinite(nextRemaining)) {
+      if (nextRemaining !== null && Number.isFinite(nextRemaining)) {
         const left = Math.max(0, Number(nextRemaining));
         toast.info(`Залишилось підготувати: ${left}`);
       } else if (res.isPrepared) {
@@ -467,68 +503,119 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
         toast.info("Підготовку знято");
       }
 
+      if (!outcome.queued) router.refresh();
+    });
+  };
+
+  const spendSpellSlotOfLevel = (level: number) => {
+    const idx = level - 1;
+    setLocalCurrentSlots((prev) => prev.map((value, index) => (index === idx ? Math.max(0, value - 1) : value)));
+    startTransition(async () => {
+      const outcome = await commitOperation(
+        buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }),
+        () => spendSpellSlot(localPers.persId, level),
+      );
+      if (outcome.queued) return;
+      const res = outcome.result;
+      if (res.success) setLocalCurrentSlots(Array.from({ length: 9 }, (_, j) => Math.max(0, Math.trunc(Number(res.currentSpellSlots[j]) || 0))));
       router.refresh();
     });
   };
 
-  const renderSpellcastingCountsBlock = () => {
-    if (spellcastingCounts.length === 0) return null;
+  const spendPactSlotOnce = () => {
+    if (!pactInfo || localPactSlots <= 0) return;
+    setLocalPactSlots((v) => Math.max(0, v - 1));
+    startTransition(async () => {
+      const outcome = await commitOperation(buildSlotOperation({ kind: "spend-pact-slot" }), () => spendPactSlot(localPers.persId));
+      if (outcome.queued) return;
+      const res = outcome.result;
+      if (res.success) setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
+      router.refresh();
+    });
+  };
+
+  const spendFreeCastUse = (featureId: number, remaining: number) => {
+    if (remaining <= 0 || isReadOnly) return;
+    setFreeCastRemainingByFeatureId((prev) => ({ ...prev, [featureId]: remaining - 1 }));
+
+    startTransition(async () => {
+      const outcome = await commitOperation(
+        buildSlotOperation({ kind: "feature-use", featureId, direction: "spend" }),
+        () => spendFeatureUse({ persId: localPers.persId, featureId }),
+      );
+      if (outcome.queued) return;
+
+      const res = outcome.result;
+      if (!res.success) {
+        router.refresh();
+        return;
+      }
+
+      if (typeof res.usesRemaining === "number") {
+        setFreeCastRemainingByFeatureId((prev) => ({ ...prev, [featureId]: res.usesRemaining as number }));
+      }
+      onFeaturesChanged?.();
+      router.refresh();
+    });
+  };
+
+  const castSpell = (ps: any, option: CastingSlotOption) => {
+    if (option.kind === "FREE_USE") spendFreeCastUse(option.featureId, option.remaining);
+    else if (option.kind === "PACT_SLOT") spendPactSlotOnce();
+    else spendSpellSlotOfLevel(option.slotLevel);
+    const slotLabel = describeSlot(option).toLocaleLowerCase("uk");
+    if (sheetStates && ps?.spell) sheetStates.onSpellCast(ps.spell, slotLabel);
+    else toast.info(`«${ps?.spell?.name ?? "Заклинання"}»: ${slotLabel}`);
+  };
+
+  const renderSpellActions = (ps: any) => {
+    const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
+    const levelValue = Number(ps?.spell?.level ?? 0);
+    const isAlwaysPrepared = isAlwaysPreparedSpell({
+      level: levelValue,
+      origin: ps?.origin,
+      excludeFromPreparedCount: ps?.excludeFromPreparedCount,
+    });
+    const checked = isAlwaysPrepared || Boolean(ps?.isPrepared);
+    const isSpellWithPreparation = Number.isFinite(levelValue) && levelValue > 0 && !isAlwaysPrepared;
+    const castOptions = listCastingSlotOptions({
+      spellLevel: levelValue,
+      currentSpellSlots: localCurrentSlots,
+      maxSpellSlots: maxSlots,
+      pact: pactInfo ? { current: localPactSlots, max: pactInfo.max, slotLevel: pactInfo.slotLevel } : null,
+      freeCasts: findFreeSpellCastsForSpell(freeSpellCasts, spellId),
+    });
 
     return (
-      <Collapsible defaultOpen={false} className="rounded-lg border border-white/10 bg-white/5">
-        <CollapsibleTrigger className="w-full flex items-center justify-between gap-3 px-3 py-2 text-left">
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-wide text-slate-300">
-              Кількість відомих / підготовлених
-            </div>
-            <div className="text-xs text-slate-400">Залежить від рівня класу та модифікатора</div>
-          </div>
-          <ChevronDown className="h-4 w-4 text-slate-300" />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="px-3 pb-3">
-          <div className="mb-2 rounded-md border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100">
-            Заклинань: <span className="font-semibold">{knownSpellsCount}</span>
-            {" · "}
-            Замовлянь: <span className="font-semibold">{knownCantripsCount}</span>
-            {" · "}
-            Підготовлено: <span className="font-semibold">{preparedSpellsCount}</span>
-            {Number.isFinite(preparedSpellsLimit) ? (
-              <>
-                {" / "}
-                <span className="font-semibold">{preparedSpellsLimit}</span>
-              </>
-            ) : null}
-          </div>
-
-          {excludedFromPreparedCountCount > 0 ? (
-            <div className="mb-2 rounded-md border border-sky-500/20 bg-sky-500/10 px-3 py-2 text-xs text-sky-100/90">
-              Не рахуємо у підготовлених: {excludedFromPreparedCountCount}.
-            </div>
-          ) : null}
-
-          {excludedFromKnownCountCount > 0 ? (
-            <div className="mb-2 rounded-md border border-violet-500/20 bg-violet-500/10 px-3 py-2 text-xs text-violet-100/90">
-              Не рахуємо у відомих: {excludedFromKnownCountCount}.
-            </div>
-          ) : null}
-
-          <div className="space-y-2">
-            {spellcastingCounts.map((line) => (
-              <div key={line.key} className="rounded-md border border-white/10 bg-white/5 px-3 py-2">
-                <div className="text-sm font-semibold text-slate-100">
-                  {line.name} <span className="text-xs font-normal text-slate-400">(рів. {line.level})</span>
-                </div>
-                <div className="text-xs text-slate-200/80">
-                  Замовлянь: <span className="font-semibold text-slate-100">{line.cantrips}</span>
-                  {", "}
-                  {line.spellsLabel}: <span className="font-semibold text-slate-100">{formatSpellCountValue(line.spells)}</span>
-                  {line.spellsNote ? ` ${line.spellsNote}` : null}
-                </div>
-              </div>
-            ))}
-          </div>
-        </CollapsibleContent>
-      </Collapsible>
+      <div className="flex items-center gap-1">
+        {isReadOnly ? null : (
+          <CastSpellMenu spellName={String(ps?.spell?.name ?? "")} options={castOptions} disabled={isPending} onCast={(option) => castSpell(ps, option)} />
+        )}
+        <Button
+          type="button"
+          size="sm"
+          variant="ghost"
+          aria-label={isAlwaysPrepared ? "Завжди підготоване" : checked ? "Зняти підготовку" : "Підготувати заклинання"}
+          title={isAlwaysPrepared ? "Завжди підготоване — зняти не можна" : undefined}
+          disabled={!Number.isFinite(spellId) || isPending || isReadOnly || !isSpellWithPreparation}
+          className={
+            "h-7 sm:h-9 w-[62px] sm:w-[76px] shrink-0 rounded-md border transition-colors " +
+            (checked
+              ? "border-emerald-400/40 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
+              : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
+          }
+          onClick={(e) => {
+            e.stopPropagation();
+            if (!Number.isFinite(spellId) || !isSpellWithPreparation || isReadOnly) return;
+            setSpellPreparedInline(ps, !checked);
+          }}
+        >
+          <span className="inline-flex items-center gap-1 text-[10px] font-medium">
+            {checked ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
+            підгот.
+          </span>
+        </Button>
+      </div>
     );
   };
 
@@ -656,6 +743,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       <SpellcastingSourceCards
         rows={spellcastingStatRows}
         isReadOnly={isReadOnly}
+        attackState={describeRollState(localPers, { kind: "attack" }, "ATTACK")}
         onEdit={(field, ability) => setModifyConfig({ type: "simple", field, ability: ability ?? undefined })}
       />
 
@@ -663,7 +751,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       <Card className="glass-card bg-white/5 border-purple-300/20">
         <CardHeader className="pb-3">
           <CardTitle className="text-lg flex items-center gap-2 text-purple-50">
-            <span className="uppercase tracking-wide text-indigo-300">Комірки</span>
+            <span className="uppercase tracking-wide text-indigo-300">Слоти заклинань</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -681,7 +769,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                   <button
                     type="button"
                     disabled={isPending || max <= 0 || isReadOnly}
-                    title={isReadOnly ? "Режим перегляду" : max > 0 ? "Натисніть, щоб керувати комірками" : "Комірки недоступні"}
+                    title={isReadOnly ? "Режим перегляду" : max > 0 ? "Натисніть, щоб керувати слотами" : "Слотів цього рівня немає"}
                     onClick={(e) => {
                       e.stopPropagation();
                       if (max > 0 && !isReadOnly) {
@@ -714,34 +802,9 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                         <button
                           disabled={!canSpend || isPending}
                           className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
-                          onClick={async () => {
+                          onClick={() => {
                             setOpenSlotLevel(null);
-                            if (!canSpend) return;
-                            setLocalCurrentSlots((prev) => {
-                              const next = prev.slice();
-                              next[idx] = Math.max(0, (next[idx] ?? 0) - 1);
-                              return next;
-                            });
-                            startTransition(async () => {
-                              const outcome = await commitOperation(
-                                buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }),
-                                () => spendSpellSlot(localPers.persId, level),
-                              );
-                              if (outcome.queued) return;
-
-                              const res = outcome.result;
-                              if (!res.success) {
-                                router.refresh();
-                                return;
-                              }
-                              setLocalCurrentSlots(
-                                Array.from({ length: 9 }, (_, j) => {
-                                  const v = res.currentSpellSlots[j];
-                                  return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
-                                })
-                              );
-                              router.refresh();
-                            });
+                            if (canSpend) spendSpellSlotOfLevel(level);
                           }}
                         >
                           Витратити
@@ -752,17 +815,18 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                           onClick={async () => {
                             setOpenSlotLevel(null);
                             if (!canRestore) return;
-                            if (!isOnline) {
-                              toast.error("Відновлення комірок потребує мережі");
-                              return;
-                            }
                             setLocalCurrentSlots((prev) => {
                               const next = prev.slice();
                               next[idx] = Math.min(max, (next[idx] ?? 0) + 1);
                               return next;
                             });
                             startTransition(async () => {
-                              const res = await restoreSpellSlot(localPers.persId, level);
+                              const outcome = await commitOperation(
+                                buildSlotOperation({ kind: "restore-spell-slot", slotLevel: level }),
+                                () => restoreSpellSlot(localPers.persId, level),
+                              );
+                              if (outcome.queued) return;
+                              const res = outcome.result;
                               if (!res.success) {
                                 router.refresh();
                                 return;
@@ -792,7 +856,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
               <div>
                 <div className="text-[10px] uppercase tracking-[0.16em] text-slate-400">Магія пакту</div>
                 <div className="text-sm font-semibold text-slate-50">
-                  {localPactSlots}/{pactInfo.max} • рівень комірки: {pactInfo.slotLevel}
+                  {localPactSlots}/{pactInfo.max} • рівень слота: {pactInfo.slotLevel}
                 </div>
               </div>
               <Button
@@ -800,7 +864,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                 size="sm"
                 variant="secondary"
                 disabled={isPending || isReadOnly}
-                title={isReadOnly ? "Режим перегляду" : "Натисніть, щоб керувати комірками Магії пакту"}
+                title={isReadOnly ? "Режим перегляду" : "Натисніть, щоб керувати слотами Магії пакту"}
                 onClick={(e) => {
                   e.stopPropagation();
                   setOpenPactSlots(!openPactSlots);
@@ -823,25 +887,9 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                     <button
                       disabled={localPactSlots <= 0 || isPending}
                       className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
-                      onClick={async () => {
+                      onClick={() => {
                         setOpenPactSlots(false);
-                        if (!pactInfo || localPactSlots <= 0) return;
-                        setLocalPactSlots((v) => Math.max(0, v - 1));
-                        startTransition(async () => {
-                          const outcome = await commitOperation(
-                            buildSlotOperation({ kind: "spend-pact-slot" }),
-                            () => spendPactSlot(localPers.persId),
-                          );
-                          if (outcome.queued) return;
-
-                          const res = outcome.result;
-                          if (!res.success) {
-                            router.refresh();
-                            return;
-                          }
-                          setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
-                          router.refresh();
-                        });
+                        spendPactSlotOnce();
                       }}
                     >
                       Витратити
@@ -852,13 +900,14 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                       onClick={async () => {
                         setOpenPactSlots(false);
                         if (!pactInfo || localPactSlots >= pactInfo.max) return;
-                        if (!isOnline) {
-                          toast.error("Відновлення комірок потребує мережі");
-                          return;
-                        }
                         setLocalPactSlots((v) => Math.min(pactInfo.max, v + 1));
                         startTransition(async () => {
-                          const res = await restorePactSlot(localPers.persId);
+                          const outcome = await commitOperation(
+                            buildSlotOperation({ kind: "restore-pact-slot" }),
+                            () => restorePactSlot(localPers.persId),
+                          );
+                          if (outcome.queued) return;
+                          const res = outcome.result;
                           if (!res.success) {
                             router.refresh();
                             return;
@@ -897,7 +946,16 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
-          {renderSpellcastingCountsBlock()}
+          <SpellcastingCountsBlock
+            lines={spellcastingCounts}
+            knownSpellsCount={knownSpellsCount}
+            knownCantripsCount={knownCantripsCount}
+            preparedSpellsCount={preparedSpellsCount}
+            preparedTallies={preparedTallies}
+            excludedFromPreparedCount={excludedFromPreparedCountSpellIds.size}
+            excludedFromKnownCount={excludedFromKnownCountSpellIds.size}
+            spellbook={wizardSpellbook}
+          />
 
           <Input
             value={spellQuery}
@@ -953,38 +1011,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                     onOpenSpell={openSpell}
                     onOpenSettings={openBadgeEditor}
                     rightActionPlacement="belowMeta"
-                    rightAction={(ps: any) => {
-                      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-                      const checked = Boolean(ps?.isPrepared);
-                      const levelValue = Number(ps?.spell?.level ?? 0);
-                      const isSpellWithPreparation = Number.isFinite(levelValue) && levelValue > 0;
-
-                      return (
-                        <Button
-                          type="button"
-                          size="sm"
-                          variant="ghost"
-                          aria-label={checked ? "Зняти підготовку" : "Підготувати заклинання"}
-                          disabled={!Number.isFinite(spellId) || isPending || isReadOnly || !isSpellWithPreparation}
-                          className={
-                            "h-8 w-[68px] sm:w-[82px] shrink-0 rounded-md border transition-colors " +
-                            (checked
-                              ? "border-emerald-400/40 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
-                              : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
-                          }
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (!Number.isFinite(spellId) || !isSpellWithPreparation || isReadOnly) return;
-                            setSpellPreparedInline(ps, !checked);
-                          }}
-                        >
-                          <span className="inline-flex items-center gap-1 text-[11px] font-medium">
-                            {checked ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
-                            підгот.
-                          </span>
-                        </Button>
-                      );
-                    }}
+                    rightAction={renderSpellActions}
                   />
                 );
               })}
@@ -1004,38 +1031,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                     onOpenSettings={openBadgeEditor}
                     subtitleVariant="with-level"
                     rightActionPlacement="belowMeta"
-                    rightAction={(ps: any) => {
-                      const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
-                      const checked = Boolean(ps?.isPrepared);
-                      const levelValue = Number(ps?.spell?.level ?? 0);
-                      const isSpellWithPreparation = Number.isFinite(levelValue) && levelValue > 0;
-
-                      return (
-                        <Button
-                          type="button"
-                          size="sm"
-                          variant="ghost"
-                          aria-label={checked ? "Зняти підготовку" : "Підготувати заклинання"}
-                          disabled={!Number.isFinite(spellId) || isPending || isReadOnly || !isSpellWithPreparation}
-                          className={
-                            "h-8 w-[68px] sm:w-[82px] shrink-0 rounded-md border transition-colors " +
-                            (checked
-                              ? "border-emerald-400/40 bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
-                              : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
-                          }
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (!Number.isFinite(spellId) || !isSpellWithPreparation || isReadOnly) return;
-                            setSpellPreparedInline(ps, !checked);
-                          }}
-                        >
-                          <span className="inline-flex items-center gap-1 text-[11px] font-medium">
-                            {checked ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
-                            підгот.
-                          </span>
-                        </Button>
-                      );
-                    }}
+                    rightAction={renderSpellActions}
                   />
                 );
               })}

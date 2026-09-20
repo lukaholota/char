@@ -5,9 +5,10 @@ import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useMemo, useRef, useState, RefObject } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
-import { Menu, LogIn, LogOut, Home, Heart, Award, Eye, Sword, Swords, Shield, Users, Wrench, Sparkles, BookOpen, Search, ScrollText, Castle, MessageSquareWarning } from "lucide-react";
+import { Menu, LogIn, LogOut, Home, Heart, Search, MessageSquareWarning } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { forgetOfflinePages } from "@/lib/offline/service-worker";
+import { flushOfflineQueue } from "@/lib/offline/queue";
 
 import { cn } from "@/lib/utils";
 import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
@@ -17,10 +18,13 @@ import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { useTwoStepConfirm } from "@/hooks/useTwoStepConfirm";
 import { EditionSwitcher } from "@/components/ui/EditionSwitcher";
 import { NoAiSwitcher } from "@/components/no-ai/NoAiSwitcher";
+import { findEditionAccent } from "@/styles/edition-accent";
 import { useRoutePathname } from "@/components/no-ai/NoAiModeProvider";
-import { getEditionFromPathname } from "@/rules/route-helpers";
+import { useActiveEdition } from "@/components/ui/PersEditionPin";
 import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
+import { collectMenuCatalogs, findCatalogHref, findCatalogTitle, type CatalogEntry } from "@/lib/catalogs/catalog-registry";
+import type { Edition } from "@/rules/route-helpers";
 
 type Props = {
   showHomeLinkInMenu?: boolean;
@@ -52,30 +56,26 @@ type CatalogLink = {
 };
 
 function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
-  const prefix = is2024 ? "/2024" : "";
-  const year = is2024 ? " 2024" : "";
-  const accent = is2024 ? "text-amber-400" : "text-arcane-400";
+  const edition: Edition = is2024 ? "2024" : "2014";
+  const accent = findEditionAccent(is2024 ? "2024" : "2014").solid.text;
+  const home: CatalogLink[] = showHome
+    ? [{ href: is2024 ? "/2024" : "/", icon: Home, label: "Головна", iconClass: "text-slate-300" }]
+    : [];
 
-  const links: (CatalogLink | null)[] = [
-    showHome
-      ? { href: is2024 ? "/2024" : "/", icon: Home, label: "Головна", iconClass: "text-slate-300" }
-      : null,
-    { href: `${prefix}/races`, icon: Users, label: is2024 ? "Види" : "Раси" },
-    { href: `${prefix}/classes`, icon: Swords, label: `Класи${year}` },
-    { href: `${prefix}/rules`, icon: BookOpen, label: `Довідник правил${year}` },
-    { href: `${prefix}/weapons`, icon: Sword, label: `Зброя${year}` },
-    { href: `${prefix}/armor`, icon: Shield, label: `Обладунки${year}` },
-    { href: `${prefix}/feats`, icon: Award, label: `Риси${year}` },
-    { href: `${prefix}/invocations`, icon: Sparkles, label: `Потойбічні виклики${year}` },
-    is2024 ? null : { href: "/infusions", icon: Wrench, label: "Вливання Винахідника" },
-    { href: `${prefix}/backgrounds`, icon: ScrollText, label: `Походження${year}` },
-    is2024 ? { href: "/2024/bastions", icon: Castle, label: "Приміщення бастіону" } : null,
-    { href: `${prefix}/bestiary`, icon: Eye, label: `Бестіарій${year}` },
-  ];
+  const catalogs = collectMenuCatalogs(edition).flatMap((entry) => {
+    const href = findCatalogHref(entry.slug, edition);
+    return href ? [{ href, icon: entry.menuIcon, label: buildMenuLabel(entry, edition), iconClass: accent }] : [];
+  });
 
-  return links
-    .filter((link): link is CatalogLink => link !== null)
-    .map((link) => ({ ...link, iconClass: link.iconClass ?? accent }));
+  return [...home, ...catalogs];
+}
+
+/// Каталог, що є в обох редакціях під тією самою назвою, у 2024 несе рік — «Класи 2024»;
+/// перейменований («Види») чи однієї редакції («Вливання Винахідника») — ні.
+function buildMenuLabel(entry: CatalogEntry, edition: Edition): string {
+  const title = findCatalogTitle(entry.slug, edition);
+  const sharesTitleAcrossEditions = entry.editions.length === 2 && !entry.title2024;
+  return edition === "2024" && sharesTitleAcrossEditions ? `${title} 2024` : title;
 }
 
 function NavMenuItems({
@@ -88,7 +88,7 @@ function NavMenuItems({
   logoutConfirm,
 }: MenuItemsProps) {
   const { open: openSearch } = useOmniSearchStore();
-  const accent = is2024 ? "text-amber-400" : "text-arcane-400";
+  const accent = findEditionAccent(is2024 ? "2024" : "2014").solid.text;
 
   return (
     <div className="mt-1 grid gap-1">
@@ -192,6 +192,7 @@ function MenuOptionsRow({ showEdition, close }: { showEdition: boolean; close: (
 export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
   const pathname = useRoutePathname();
   const { data: session } = useSession();
+  const edition = useActiveEdition();
   const [open, setOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
@@ -211,6 +212,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
 
   const logoutConfirmMobile = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: async () => {
+      await flushOfflineQueue().catch(() => undefined);
       await forgetOfflinePages();
       await signOut({ callbackUrl: "/" });
     },
@@ -218,12 +220,12 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
 
   const logoutConfirmDesktop = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: async () => {
+      await flushOfflineQueue().catch(() => undefined);
       await forgetOfflinePages();
       await signOut({ callbackUrl: "/" });
     },
   });
 
-  const edition = getEditionFromPathname(pathname);
   const is2024 = edition === "2024";
 
   return (

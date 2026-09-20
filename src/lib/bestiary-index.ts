@@ -101,8 +101,25 @@ export function buildIndexedSearchText(entry: CreatureIndexEntry): string {
   return `${entry.name} ${entry.nameEng} ${entry.type} ${entry.size}`.toLowerCase();
 }
 
+/// Якір на стан (O34) стоїть посеред фрази — без зняття тегів «отримує стан повалений» не знаходився б.
 export function buildFullSearchText(creature: CreatureData): string {
-  return `${creature.name} ${creature.nameEng} ${creature.type} ${creature.size} ${creature.description} ${creature.specialAbilities} ${creature.actions}`.toLowerCase();
+  return `${creature.name} ${creature.nameEng} ${creature.type} ${creature.size} ${creature.description} ${creature.specialAbilities} ${creature.actions}`
+    .replace(/<\/?a\b[^>]*>/g, "")
+    .toLowerCase();
+}
+
+export function rankNameMatchesFirst(entries: readonly CreatureIndexEntry[], query: string): CreatureIndexEntry[] {
+  const needle = query.trim().toLowerCase();
+  if (!needle) return [...entries];
+  const tiers: CreatureIndexEntry[][] = [[], [], []];
+  for (const entry of entries) tiers[findNameMatchTier(entry, needle)].push(entry);
+  return tiers.flat();
+}
+
+function findNameMatchTier(entry: CreatureIndexEntry, needle: string): number {
+  const words = `${entry.name} ${entry.nameEng}`.toLowerCase().split(/[\s\-()[\],]+/);
+  if (words.some((word) => word.startsWith(needle))) return 0;
+  return words.join(" ").includes(needle) ? 1 : 2;
 }
 
 export function matchesCreatureSelection(

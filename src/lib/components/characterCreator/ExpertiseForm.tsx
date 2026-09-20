@@ -66,13 +66,20 @@ export const ExpertiseForm = ({ activeFeatures, formId, onNextDisabledChange, ex
     }
     
     // From skillsSchema (Tasha or basic choices)
+    /// Запасний шлях на випадок, коли `formData.skills` ще не зібрано. Він мусить знати всі
+    /// джерела кроку навичок: передісторія й опції раси теж дають володіння, і без них
+    /// експертиза не бачила б навичку, яку гравець щойно обрав.
     if (formData.skillsSchema) {
       if (formData.skillsSchema.isTasha) {
         formData.skillsSchema.tashaChoices?.forEach(skill => skills.add(skill));
       } else {
         formData.skillsSchema.basicChoices?.race?.forEach(skill => skills.add(skill));
         formData.skillsSchema.basicChoices?.selectedClass?.forEach(skill => skills.add(skill));
+        formData.skillsSchema.basicChoices?.background?.forEach(skill => skills.add(skill));
       }
+      Object.values(formData.skillsSchema.choiceOptions ?? {}).forEach(chosen => {
+        (chosen ?? []).forEach(skill => skills.add(skill));
+      });
     }
 
     // From feats and other extra sources

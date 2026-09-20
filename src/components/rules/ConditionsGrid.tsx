@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { ShieldAlert, Search, Sparkles } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { buildConditionAnchor } from "@/lib/term-card";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 type Props = {
   conditions: ConditionData[];
@@ -54,13 +56,12 @@ export function ConditionsGrid({ conditions, is2024 = false, className }: Props)
           return (
             <div
               key={cond.id}
+              id={buildConditionAnchor(cond.id)}
               onClick={() => setSelectedCondition(isSelected ? null : cond)}
               className={cn(
-                "glass-card rounded-2xl border p-5 transition-all duration-300 cursor-pointer flex flex-col justify-between group",
+                "glass-card scroll-mt-24 rounded-2xl border p-5 transition-all duration-300 cursor-pointer flex flex-col justify-between group",
                 isSelected
-                  ? is2024
-                    ? "border-amber-500/60 bg-amber-950/20 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
-                    : "border-arcane-500/60 bg-arcane-950/20 shadow-[0_0_20px_rgba(45,212,191,0.2)]"
+                  ? findAccentVariant(is2024, { prism: "border-prism-500/60 bg-prism-950/20 shadow-[0_0_20px_rgba(192,74,224,0.2)]", arcane: "border-arcane-500/60 bg-arcane-950/20 shadow-[0_0_20px_rgba(45,212,191,0.2)]" })
                   : "border-white/10 bg-slate-950/50 hover:border-white/20 hover:bg-slate-900/60"
               )}
             >
@@ -71,14 +72,14 @@ export function ConditionsGrid({ conditions, is2024 = false, className }: Props)
                       <ShieldAlert className="h-4 w-4" />
                     </div>
                     <div>
-                      <h3 className="font-rpg-display text-xl text-slate-100 group-hover:text-amber-300 transition-colors">
+                      <h3 className="font-rpg-display text-xl text-slate-100 group-hover:text-prism-300 transition-colors">
                         {cond.name}
                       </h3>
                       <p className="text-xs text-slate-400 font-mono italic">{cond.engName}</p>
                     </div>
                   </div>
                   {cond.ruleset === "RULES_2024" && (
-                    <span className="rounded-md border border-amber-500/30 bg-amber-500/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-amber-300">
+                    <span className="rounded-md border border-prism-500/30 bg-prism-500/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-prism-300">
                       2024
                     </span>
                   )}
@@ -101,8 +102,8 @@ export function ConditionsGrid({ conditions, is2024 = false, className }: Props)
               </div>
 
               {is2024 && cond.editionDiff && (
-                <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-950/30 p-2.5 flex items-start gap-2 text-[11px] text-amber-200">
-                  <Sparkles className="h-3.5 w-3.5 shrink-0 text-amber-400 mt-0.5" />
+                <div className="mt-4 rounded-xl border border-prism-500/30 bg-prism-950/30 p-2.5 flex items-start gap-2 text-[11px] text-prism-200">
+                  <Sparkles className="h-3.5 w-3.5 shrink-0 text-prism-400 mt-0.5" />
                   <div>{cond.editionDiff}</div>
                 </div>
               )}

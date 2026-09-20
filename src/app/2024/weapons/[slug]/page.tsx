@@ -63,7 +63,7 @@ export default async function Weapon2024DetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.05),transparent_50%)] overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(192,74,224,0.05),transparent_50%)] overflow-x-hidden">
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/20 backdrop-blur-xl">
         <div className="mx-auto max-w-2xl px-4 py-3">
           <Link

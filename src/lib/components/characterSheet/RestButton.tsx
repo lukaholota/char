@@ -20,15 +20,20 @@ import { Moon, Sun, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { longRest } from "@/lib/actions/rest-actions";
-import { findHeroicInspirationAfterLongRest } from "@/rules/heroic-inspiration";
+import { findHeroicInspirationCountAfterLongRest } from "@/rules/heroic-inspiration";
 import { restTranslations } from "@/lib/refs/translation";
 import ShortRestDialog from "./ShortRestDialog";
 import { PersWithRelations } from "@/lib/actions/pers";
+import { useOfflineQueue } from "@/hooks/useOfflineQueue";
+import { createOperationId } from "@/lib/offline/queue";
+import { endAllFeatureStates } from "@/lib/logic/feature-state-rows";
+import { endEffectsAfterRest } from "@/lib/logic/pers-effect-rows";
 
 interface RestButtonProps {
   pers: PersWithRelations;
   onPersUpdate?: (next: PersWithRelations) => void;
   onGroupedFeaturesRefresh?: () => void;
+  onRestQueued?: () => void;
   triggerClassName?: string;
   triggerLabel?: string;
   triggerLabelClassName?: string;
@@ -38,11 +43,13 @@ export default function RestButton({
   pers,
   onPersUpdate,
   onGroupedFeaturesRefresh,
+  onRestQueued,
   triggerClassName,
   triggerLabel,
   triggerLabelClassName,
 }: RestButtonProps) {
   const router = useRouter();
+  const { commitOperation } = useOfflineQueue();
   const [isRefreshing, startRefreshTransition] = useTransition();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shortRestOpen, setShortRestOpen] = useState(false);
@@ -58,7 +65,18 @@ export default function RestButton({
     if (isSubmitting) return;
     setIsSubmitting(true);
     try {
-      const res = await longRest(pers.persId);
+      const outcome = await commitOperation(
+        { kind: "long-rest", operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
+        () => longRest(pers.persId),
+      );
+      if (outcome.queued) {
+        onRestQueued?.();
+        toast.success(restTranslations.longRestComplete, { description: restTranslations.savedOffline });
+        setLongRestOpen(false);
+        return;
+      }
+
+      const res = outcome.result;
       if (!res.success) {
         toast.error(res.error);
         return;
@@ -66,13 +84,14 @@ export default function RestButton({
 
       /// Те саме правило, що й на сервері (`longRest`): відповідь дії його не несе, бо її
       /// дослівно фіксують золоті знімки, а лист має показати натхнення до оновлення сторінки.
-      const hasHeroicInspiration = findHeroicInspirationAfterLongRest({
-        hasHeroicInspiration: pers.hasHeroicInspiration,
+      const heroicInspirationCount = findHeroicInspirationCountAfterLongRest({
+        heroicInspirationCount: pers.heroicInspirationCount,
+        canStackHeroicInspiration: pers.canStackHeroicInspiration,
         featureEngNames: pers.features.map((persFeature) => persFeature.feature.engName),
       });
 
       onPersUpdate?.({
-        ...pers,
+        ...endEffectsAfterRest(endAllFeatureStates(pers), "LONG"),
         currentHp: res.newCurrentHp,
         tempHp: 0,
         currentHitDice: res.currentHitDice as any,
@@ -81,12 +100,12 @@ export default function RestButton({
         deathSaveSuccesses: 0 as any,
         deathSaveFailures: 0 as any,
         isDead: false as any,
-        hasHeroicInspiration,
+        heroicInspirationCount,
       });
 
       onGroupedFeaturesRefresh?.();
 
-      const gainedHeroicInspiration = hasHeroicInspiration && !pers.hasHeroicInspiration;
+      const gainedHeroicInspiration = heroicInspirationCount > pers.heroicInspirationCount;
       toast.success(restTranslations.longRestComplete, {
         description: `HP: ${res.newCurrentHp}, ${restTranslations.featuresRestored}: ${res.featuresRestored}${
           gainedHeroicInspiration ? `, ${restTranslations.heroicInspirationGained}` : ""
@@ -135,6 +154,7 @@ export default function RestButton({
         onOpenChange={setShortRestOpen}
         onPersUpdate={onPersUpdate ? (next) => onPersUpdate(next) : undefined}
         onGroupedFeaturesRefresh={onGroupedFeaturesRefresh}
+        onRestQueued={onRestQueued}
       />
 
       <Dialog open={longRestOpen} onOpenChange={setLongRestOpen}>

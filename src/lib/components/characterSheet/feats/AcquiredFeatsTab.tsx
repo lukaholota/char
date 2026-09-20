@@ -24,6 +24,7 @@ export type CharacterFeatItem = {
   featId: number;
   feat?: {
     featId?: number;
+    engName?: string;
     name: string;
     description: string;
     category?: string | null;
@@ -108,7 +109,8 @@ export function AcquiredFeatsTab({
                   variant="ghost"
                   disabled={isSubmitting === pf.featId}
                   onClick={() => onRemoveFeat(pf.featId, translatedName)}
-                  className="h-7 px-2 text-rose-400 hover:text-rose-300 hover:bg-rose-500/15 shrink-0"
+                  aria-label={`Видалити рису ${translatedName}`}
+                  className="h-10 w-10 px-0 sm:h-7 sm:w-auto sm:px-2 text-rose-400 hover:text-rose-300 hover:bg-rose-500/15 shrink-0"
                 >
                   {isSubmitting === pf.featId ? (
                     <Loader2 className="w-3.5 h-3.5 animate-spin" />

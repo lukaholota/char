@@ -103,6 +103,11 @@ export function openSpellLink(link: SpellLink): void {
   dispatchLocationChange();
 }
 
+export function openLoadedSpell(spell: { spellId: number; ruleset?: string | null }): void {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new CustomEvent("spell:open", { detail: { spell, ruleset: spell.ruleset } }));
+}
+
 export function closeSpellLink(): void {
   if (typeof window === "undefined") return;
 

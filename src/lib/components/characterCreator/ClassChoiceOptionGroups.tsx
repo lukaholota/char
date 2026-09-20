@@ -3,10 +3,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { LinkedPreview } from "@/components/ui/LinkedPreview";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { findChoiceOptionCardText } from "@/lib/logic/choice-option-card-text";
 import { checkPrerequisite, PrerequisiteResult } from "@/lib/logic/prerequisiteUtils";
 import { ClassI } from "@/lib/types/model-types";
+import { buildSelectableCardProps } from "@/lib/components/characterCreator/selectable-card-props";
 import clsx from "clsx";
 import { HelpCircle } from "lucide-react";
 
@@ -101,7 +103,7 @@ function ClassChoiceOptionGroup({
   );
 }
 
-type CardText = { title: string; preview: string };
+type CardText = ReturnType<typeof findChoiceOptionCardText>;
 
 type CardProps = Omit<GroupProps, "groupName"> & {
   groupName: string;
@@ -121,16 +123,16 @@ function ClassChoiceOptionCard({
   onShowFeatures,
 }: CardProps) {
   const label = cardText.title || translateOptionNameEng(option);
-  const previewText = cardText.preview;
   const locked = !prerequisite.met;
 
   return (
     <Card
       className={getCardClassName(groupName, option.choiceOptionId, selectionState, locked)}
-      onClick={(event) => {
-        if ((event.target as HTMLElement | null)?.closest?.("[data-stop-card-click]")) return;
-        onSelectOption(groupName, option.choiceOptionId, options);
-      }}
+      {...buildSelectableCardProps({
+        isSelected: isOptionSelected(groupName, option.choiceOptionId, selectionState),
+        isMultiSelect: getRequiredSelections(groupName, selectionState) > 1,
+        onSelect: () => onSelectOption(groupName, option.choiceOptionId, options),
+      })}
     >
       <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
         <div className="flex items-start justify-between gap-2">
@@ -141,7 +143,7 @@ function ClassChoiceOptionCard({
                 type="button"
                 size="icon"
                 variant="secondary"
-                className="glass-panel border-gradient-rpg h-8 w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-arcane-400/30"
+                className="glass-panel border-gradient-rpg h-10 w-10 md:h-8 md:w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-arcane-400/30"
                 aria-label={`Інформація про ${label}`}
                 onClick={() => onShowFeatures(label || "Опція", option.choiceOption.features)}
               >
@@ -157,9 +159,10 @@ function ClassChoiceOptionCard({
           </div>
         ) : null}
 
-        {previewText ? (
-          <p className={clsx("line-clamp-2 text-sm", locked ? "text-slate-500" : "text-slate-400")}>{previewText}</p>
-        ) : null}
+        <LinkedPreview
+          markup={cardText.previewMarkup}
+          className={clsx("line-clamp-2 text-sm", locked ? "text-slate-500" : "text-slate-400")}
+        />
       </CardContent>
     </Card>
   );
@@ -198,12 +201,18 @@ function translateOptionNameEng(option: ChoiceOption) {
   return isEnumLike(englishLabel) ? translateValue(englishLabel) : englishLabel;
 }
 
+function isOptionSelected(groupName: string, optionId: number, selectionState: Props["selectionState"]) {
+  const selected = selectionState.selections[groupName];
+  const isMulti = getRequiredSelections(groupName, selectionState) > 1;
+  return isMulti ? Array.isArray(selected) && selected.includes(optionId) : selected === optionId;
+}
+
 function getCardClassName(groupName: string, optionId: number, selectionState: Props["selectionState"], locked: boolean) {
   const required = getRequiredSelections(groupName, selectionState);
   const selected = selectionState.selections[groupName];
   const selectedIds = Array.isArray(selected) ? selected : [];
   const isMulti = required > 1;
-  const isSelected = isMulti ? selectedIds.includes(optionId) : selected === optionId;
+  const isSelected = isOptionSelected(groupName, optionId, selectionState);
   const atLimit = isMulti && selectedIds.length >= required;
 
   return clsx(

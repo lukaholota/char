@@ -4,6 +4,12 @@ import { spellSchoolTranslations, sourceTranslations } from "@/lib/refs/translat
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { cn } from "@/lib/utils";
 import { Sparkles, Info } from "lucide-react";
+import {
+  EditionAccentChip,
+  EditionAccentFrame,
+  EditionAccentTitle,
+} from "@/components/ui/EditionAccent";
+import { findEditionAccent } from "@/styles/edition-accent";
 
 function normalizeFlag(value: string | null | undefined): boolean {
   const v = (value ?? "").trim().toLowerCase();
@@ -40,42 +46,26 @@ export function SpellDetailCard({
     new Set(spell.spellRaces.map((r) => r.raceName || "").filter(Boolean))
   ).sort((a, b) => a.localeCompare(b, "uk"));
 
+  const edition = is2024 ? "2024" : "2014";
+  const accent = findEditionAccent(edition);
+
   return (
-    <div
-      className={cn(
-        "glass-card border border-white/10 bg-slate-950/60 p-3 backdrop-blur-xl sm:p-6 break-words max-w-full overflow-hidden rounded-2xl",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10"
-      )}
-    >
+    <EditionAccentFrame edition={edition}>
+    <div className="glass-card border border-white/10 bg-slate-950/60 p-3 backdrop-blur-xl sm:p-6 break-words max-w-full overflow-hidden rounded-2xl">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
-            <h1
-              className={cn(
-                "font-sans text-base sm:text-xl font-semibold uppercase tracking-wider text-transparent bg-clip-text truncate",
-                is2024
-                  ? "bg-gradient-to-r from-amber-300 to-amber-500"
-                  : "bg-gradient-to-r from-arcane-400 to-violet-400"
-              )}
-            >
-              {spell.name}
+            <h1 className="font-sans text-base sm:text-xl font-semibold uppercase tracking-wider truncate">
+              <EditionAccentTitle edition={edition}>{spell.name}</EditionAccentTitle>
             </h1>
-            {is2024 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                2024
-              </span>
-            )}
+            {is2024 && <EditionAccentChip edition={edition}>2024</EditionAccentChip>}
             {is2024 && spell.kind === "new" && (
               <span className="rounded-md border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
                 Нове 2024
               </span>
             )}
             {is2024 && spell.differsFrom2014 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                Змінено у 2024
-              </span>
+              <EditionAccentChip edition={edition}>Змінено у 2024</EditionAccentChip>
             )}
           </div>
           <div className="text-xs font-mono text-slate-500 mt-0.5">[{spell.engName}]</div>
@@ -84,9 +74,9 @@ export function SpellDetailCard({
         <div
           className={cn(
             "min-w-0 max-w-[40%] shrink-0 text-right text-[10px] sm:text-xs truncate rounded-lg px-2.5 py-1 border",
-            is2024
-              ? "border-amber-500/30 bg-amber-500/10 text-amber-300"
-              : "border-arcane-500/30 bg-arcane-500/10 text-slate-300"
+            accent.solid.border,
+            accent.solid.fill,
+            accent.solid.text
           )}
         >
           {sourceLabel(spell.source)}
@@ -95,8 +85,8 @@ export function SpellDetailCard({
 
       {/* Note / mechanical changes */}
       {is2024 && spell.note && (
-        <div className="mt-2.5 flex items-start gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 p-2.5 text-xs text-amber-200">
-          <Info className="h-4 w-4 shrink-0 text-amber-400 mt-0.5" />
+        <div className="mt-2.5 flex items-start gap-2 rounded-xl border border-prism-500/30 bg-prism-500/10 p-2.5 text-xs text-prism-200">
+          <Info className="h-4 w-4 shrink-0 text-prism-400 mt-0.5" />
           <span>{spell.note}</span>
         </div>
       )}
@@ -144,5 +134,6 @@ export function SpellDetailCard({
         )}
       </div>
     </div>
+    </EditionAccentFrame>
   );
 }

@@ -140,7 +140,7 @@ function ChamferRing({
       style={{
         ...buildChamferStyle(notch + width),
         inset: -width,
-        backgroundColor: color,
+        background: color,
       }}
       className={cn("pointer-events-none absolute", className)}
     />

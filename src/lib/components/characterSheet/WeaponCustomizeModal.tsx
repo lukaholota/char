@@ -8,42 +8,24 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { updateWeapon, deleteWeapon } from "@/lib/actions/equipment-actions";
-import { Ability, PersWeapon } from "@prisma/client";
+import { Ability, DamageType } from "@prisma/client";
+import type { PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { toast } from "sonner";
 import { Trash2 } from "lucide-react";
-import { attributesUkrFull } from "@/lib/refs/translation";
+import { attributesUkrFull, damageTypeTranslations } from "@/lib/refs/translation";
 
 interface WeaponCustomizeModalProps {
-  persWeapon: PersWeapon;
+  persWeapon: PersWeaponWithWeapon;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
 export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }: WeaponCustomizeModalProps) {
   const [isPending, startTransition] = useTransition();
-  const defaultAbility = persWeapon.customDamageAbility ?? Ability.STR;
-  const [formData, setFormData] = useState({
-    overrideName: persWeapon.overrideName || "",
-    attackBonus: (persWeapon.attackBonus ?? 0).toString(),
-    customDamageBonus: (persWeapon.customDamageBonus ?? 0).toString(),
-    customDamageDice: persWeapon.customDamageDice || "",
-    customDamageAbility: defaultAbility,
-    isMagical: persWeapon.isMagical,
-    isProficient: persWeapon.isProficient,
-  });
+  const [formData, setFormData] = useState(() => buildWeaponFormState(persWeapon));
 
   useEffect(() => {
-    if (open) {
-      setFormData({
-        overrideName: persWeapon.overrideName || "",
-        attackBonus: (persWeapon.attackBonus ?? 0).toString(),
-        customDamageBonus: (persWeapon.customDamageBonus ?? 0).toString(),
-        customDamageDice: persWeapon.customDamageDice || "",
-        customDamageAbility: persWeapon.customDamageAbility ?? Ability.STR,
-        isMagical: persWeapon.isMagical,
-        isProficient: persWeapon.isProficient,
-      });
-    }
+    if (open) setFormData(buildWeaponFormState(persWeapon));
   }, [open, persWeapon]);
 
   const handleSave = () => {
@@ -54,6 +36,9 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
         customDamageBonus: parseInt(formData.customDamageBonus) || 0,
         overrideName: formData.overrideName || null,
         customDamageAbility: formData.customDamageAbility as Ability,
+        overrideDamageType: formData.overrideDamageType === BOOK_DAMAGE_TYPE ? null : formData.overrideDamageType,
+        overrideNormalRange: parseRangeInput(formData.overrideNormalRange),
+        overrideLongRange: parseRangeInput(formData.overrideLongRange),
       });
 
       if (res.success) {
@@ -180,6 +165,55 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
             </div>
           </div>
 
+          <div className="space-y-2">
+            <Label>Тип шкоди</Label>
+            <Select
+              value={formData.overrideDamageType}
+              onValueChange={(val) => setFormData({ ...formData, overrideDamageType: val as DamageType | typeof BOOK_DAMAGE_TYPE })}
+            >
+              <SelectTrigger className="bg-white/5 border-white/10">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value={BOOK_DAMAGE_TYPE}>
+                  Як у книзі{persWeapon.weapon?.damageType ? ` (${damageTypeTranslations[persWeapon.weapon.damageType]})` : ""}
+                </SelectItem>
+                {Object.values(DamageType).map((damageType) => (
+                  <SelectItem key={damageType} value={damageType}>
+                    {damageTypeTranslations[damageType] ?? damageType}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label>Дальність, фт</Label>
+              <Input
+                autoFocus={false}
+                type="text"
+                inputMode="numeric"
+                value={formData.overrideNormalRange}
+                onChange={(e) => /^\d*$/.test(e.target.value) && setFormData({ ...formData, overrideNormalRange: e.target.value })}
+                className="bg-white/5 border-white/10 text-slate-50"
+                placeholder={persWeapon.weapon?.normalRange ? String(persWeapon.weapon.normalRange) : "—"}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Макс. дальність, фт</Label>
+              <Input
+                autoFocus={false}
+                type="text"
+                inputMode="numeric"
+                value={formData.overrideLongRange}
+                onChange={(e) => /^\d*$/.test(e.target.value) && setFormData({ ...formData, overrideLongRange: e.target.value })}
+                className="bg-white/5 border-white/10 text-slate-50"
+                placeholder={persWeapon.weapon?.longRange ? String(persWeapon.weapon.longRange) : "—"}
+              />
+            </div>
+          </div>
+
           <div className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
             <div className="space-y-0.5">
               <Label>Магічна зброя</Label>
@@ -224,4 +258,39 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
       </DialogContent>
     </Dialog>
   );
+}
+
+const BOOK_DAMAGE_TYPE = "BOOK" as const;
+
+type WeaponFormState = {
+  overrideName: string;
+  attackBonus: string;
+  customDamageBonus: string;
+  customDamageDice: string;
+  customDamageAbility: Ability;
+  overrideDamageType: DamageType | typeof BOOK_DAMAGE_TYPE;
+  overrideNormalRange: string;
+  overrideLongRange: string;
+  isMagical: boolean;
+  isProficient: boolean;
+};
+
+function buildWeaponFormState(persWeapon: PersWeaponWithWeapon): WeaponFormState {
+  return {
+    overrideName: persWeapon.overrideName || "",
+    attackBonus: (persWeapon.attackBonus ?? 0).toString(),
+    customDamageBonus: (persWeapon.customDamageBonus ?? 0).toString(),
+    customDamageDice: persWeapon.customDamageDice || "",
+    customDamageAbility: persWeapon.customDamageAbility ?? Ability.STR,
+    overrideDamageType: persWeapon.overrideDamageType ?? BOOK_DAMAGE_TYPE,
+    overrideNormalRange: persWeapon.overrideNormalRange?.toString() ?? "",
+    overrideLongRange: persWeapon.overrideLongRange?.toString() ?? "",
+    isMagical: persWeapon.isMagical,
+    isProficient: persWeapon.isProficient,
+  };
+}
+
+function parseRangeInput(input: string): number | null {
+  const range = parseInt(input);
+  return range > 0 ? range : null;
 }

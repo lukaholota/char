@@ -5,8 +5,11 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/
 import { Button } from "@/components/ui/button";
 import { Plus, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
+import type { Ruleset } from "@prisma/client";
 
-export default function AddMagicItemDialog({ persId, persName }: { persId: number; persName?: string }) {
+type AddMagicItemDialogProps = { persId: number; persName?: string; ruleset: Ruleset };
+
+export default function AddMagicItemDialog({ persId, persName, ruleset }: AddMagicItemDialogProps) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
@@ -51,7 +54,7 @@ export default function AddMagicItemDialog({ persId, persName }: { persId: numbe
         <DialogTitle className="sr-only">Додати магічний предмет</DialogTitle>
         <div className="flex-1 w-full bg-slate-950">
           <iframe 
-            src={`/magic-items?${queryParams.toString()}`} 
+            src={`${ruleset === "RULES_2024" ? "/2024/magic-items" : "/magic-items"}?${queryParams.toString()}`}
             className="w-full h-full border-0"
             title="Магічні предмети"
           />

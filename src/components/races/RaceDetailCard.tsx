@@ -9,6 +9,7 @@ import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/Sect
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 export function RaceDetailCard({ race, is2024 = false }: { race: RaceData; is2024?: boolean }) {
   return (
@@ -16,9 +17,7 @@ export function RaceDetailCard({ race, is2024 = false }: { race: RaceData; is202
       {...jumpTargetAttributes.scope}
       className={cn(
         "glass-card max-w-full overflow-hidden break-words rounded-2xl border border-white/10 bg-slate-950/60 p-4 backdrop-blur-xl sm:p-6",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(141,99,238,0.08)] ring-1 ring-white/10",
+        findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(141,99,238,0.08)] ring-1 ring-white/10" }),
       )}
     >
       <Header race={race} is2024={is2024} />
@@ -76,7 +75,7 @@ function Header({ race, is2024 }: { race: RaceData; is2024: boolean }) {
         <h1
           className={cn(
             "font-rpg-display text-xl uppercase tracking-wide sm:text-2xl",
-            is2024 ? "text-amber-200" : "text-arcane-200",
+            findAccentVariant(is2024, { prism: "text-prism-200", arcane: "text-arcane-200" }),
           )}
         >
           {race.name}

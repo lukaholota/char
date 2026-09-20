@@ -2,6 +2,7 @@
 
 import type { MouseEvent, ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { findEditionAccent } from "@/styles/edition-accent";
 
 /// Один чип фільтра на всі каталоги: раніше кожен діалог тримав свою копію цієї кнопки, і
 /// вони потроху розходилися.
@@ -18,17 +19,17 @@ export function FilterChip({
   is2024?: boolean;
   title?: string;
 }) {
+  const accent = findEditionAccent(is2024 ? "2024" : "2014");
+
   return (
     <button
       type="button"
       onClick={onClick}
       title={title}
       className={cn(
-        "max-w-full truncate rounded-lg border px-2.5 py-1 text-xs font-medium transition-all",
+        "max-w-full truncate rounded-lg border px-2.5 py-1 text-xs font-medium transition-all max-md:min-h-10",
         selected
-          ? is2024
-            ? "border-amber-500/50 bg-amber-500/20 text-amber-200"
-            : "border-arcane-500/50 bg-arcane-500/20 text-arcane-200"
+          ? cn(accent.solid.border, "bg-white/[0.06]", accent.solid.mutedText)
           : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
       )}
     >

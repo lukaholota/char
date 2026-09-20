@@ -39,11 +39,6 @@
         box-shadow: 0 4px 16px -8px rgba(0,0,0,0.6);
     }
 
-    .glass-card:hover {
-        @apply bg-slate-900/75 border-white/15;
-        box-shadow: 0 6px 20px -8px rgba(0,0,0,0.7);
-    }
-
     /* Same vibe, but for inset panels (search boxes, sidebars) */
     .glass-panel {
         /* Stabilize: prefer clean translucency over blur for perf */
@@ -70,6 +65,77 @@
             0 0 0 1px rgba(141, 99, 238, 0.35),
             0 5px 25px -5px rgba(117, 71, 225, 0.52),
             inset 0 0 21px rgba(141, 99, 238, 0.11);
+    }
+
+    /* Переливання редакції. Змінні ставить findEditionAccent — src/styles/edition-accent.ts. */
+    .sheen-text {
+        background-image: var(--sheen);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* Рамка-градієнт через маску, а не через background-clip: картка лишається напівпрозорою
+       зі своїм backdrop-blur, тож скло не втрачається. */
+    .sheen-ring {
+        position: relative;
+    }
+
+    .sheen-ring::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background-image: var(--sheen-frame);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+
+    .sheen-glow {
+        box-shadow:
+            0 0 40px -6px var(--sheen-glow-near),
+            0 0 54px -4px var(--sheen-glow-far),
+            0 4px 16px -8px rgba(0, 0, 0, 0.6);
+    }
+
+    @keyframes sheenDrift {
+        from { background-position: 0% 50%; }
+        to { background-position: 200% 50%; }
+    }
+
+    /* Рух живе тільки на рамці — ніколи на тексті: назва, що переливається під курсором,
+       читається як збій, а не як ефект. Стрічка тут дзеркальна (--sheen-loop), інакше на
+       кінці циклу видно стрибок з останнього кольору в перший. */
+    .sheen-drift::before {
+        background-image: var(--sheen-loop);
+        background-size: 200% 100%;
+        animation: sheenDrift 9s linear infinite;
+        animation-play-state: paused;
+    }
+
+    .sheen-drift-always::before,
+    .sheen-drift-hover:hover::before {
+        animation-play-state: running;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .sheen-drift::before {
+            animation: none;
+        }
+    }
+
+    /* Зачин абзацу й посилання всередині опису. Фолбек — arcane-400, тобто поведінка до
+       появи схеми: поза карткою редакції змінної немає. */
+    .accent-strong {
+        color: var(--accent-strong, #8d63ee);
+    }
+
+    .accent-link {
+        color: var(--accent-link, #8d63ee);
     }
 
     .border-gradient-rpg {

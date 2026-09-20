@@ -234,7 +234,7 @@ export function InfusionsClient({ infusions }: Props) {
                 type="button"
                 onClick={() => selectSingleLevelTab(tab.key)}
                 className={cn(
-                  "rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 border",
+                  "rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 border max-md:min-h-10",
                   isSelected
                     ? "border-arcane-500/50 bg-arcane-500/20 text-arcane-200 shadow-sm"
                     : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"

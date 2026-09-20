@@ -21,6 +21,11 @@ import clsx from "clsx";
 import NameForm from "@/lib/components/characterCreator/NameForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
 import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
+import CreationSpellsForm from "@/lib/components/characterCreator/CreationSpellsForm";
+import CreationFeatSpellsForm, { type CreationSpellFeat } from "@/lib/components/characterCreator/CreationFeatSpellsForm";
+import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
+import { findCreationSpellQuota } from "@/rules/class-spell-choices-2024";
+import { hasCreationSpellChoice2014 } from "@/rules/class-spell-choices-2014";
 import ClassOptionalFeaturesForm from "@/lib/components/characterCreator/ClassOptionalFeaturesForm";
 import RaceSubraceVariantForm from "@/lib/components/characterCreator/RaceSubraceVariantForm";
 import RaceChoiceOptionsForm from "@/lib/components/characterCreator/RaceChoiceOptionsForm";
@@ -34,13 +39,15 @@ import { resolveCreationSteps } from "@/lib/components/characterCreator/creation
 import { buildCreationAbilityScores } from "@/rules/character-creation";
 import WeaponMasteryForm from "@/lib/components/characterCreator/WeaponMasteryForm";
 import { CreationStepRuleLink } from "@/lib/components/characterCreator/CreationStepRuleLink";
+import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 
 import { createCharacter } from "@/lib/actions/character";
 import { extractSkillsFromChoiceOption, extractExpertisesFromChoiceOption, extractSkillFromOptionName } from "@/lib/logic/characterUtils";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { getRulesStrategy } from "@/rules/strategies";
 import { countOriginLanguageChoices } from "@/rules/languages";
+import { isCreationStepCompleted } from "./creation-step-completion";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
@@ -53,6 +60,7 @@ interface Props {
   weapons: Weapon[];
   feats: FeatPrisma[];
   initialRuleset?: "RULES_2014" | "RULES_2024";
+  ruleExcerpts?: CreationStepRuleExcerpts;
 }
 
 export const MultiStepForm = (
@@ -63,6 +71,7 @@ export const MultiStepForm = (
     weapons,
     feats,
     initialRuleset = "RULES_2014",
+    ruleExcerpts,
   }: Props
 ) => {
   activateCreatorDraftStorage(initialRuleset);
@@ -85,7 +94,7 @@ export const MultiStepForm = (
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [initialDataForStep, setInitialDataForStep] = useState<string>("");
   const [highestStepCompleted, setHighestStepCompleted] = useState<number>(0);
-  const router = useRouter();
+  const router = useModeRouter();
   const didMountRef = useRef(false);
 
   const currentRuleset = (formData.ruleset ?? initialRuleset ?? "RULES_2014") as "RULES_2014" | "RULES_2024";
@@ -592,9 +601,8 @@ export const MultiStepForm = (
       bg?.languagesToChooseCount,
       feat?.grantedLanguageCount,
       backgroundFeat?.grantedLanguageCount,
-      ...activeFeatures.map((f) => f.languagesToChooseCount),
       ...raceChoiceCounts,
-    ]) > 0;
+    ], activeFeatures.map((f) => f.languagesToChooseCount)) > 0;
   }, [race, cls, subclass, subrace, bg, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections, currentRuleset]);
 
   /// Майстерність зброї має лише той клас, чия прогресія дає ємність на першому рівні —
@@ -604,9 +612,27 @@ export const MultiStepForm = (
     [cls],
   );
 
+  const hasSpellChoice = useMemo(
+    () => Boolean(cls && (currentRuleset === "RULES_2024" ? findCreationSpellQuota(cls.name, []) : hasCreationSpellChoice2014(cls.name))),
+    [cls, currentRuleset],
+  );
+
+  const spellChoiceFeats = useMemo((): CreationSpellFeat[] => {
+    if (currentRuleset !== "RULES_2024") return [];
+    return [
+      ...(backgroundFeat && hasFeatSpellChoice(currentRuleset, backgroundFeat.name)
+        ? [{ source: "BACKGROUND_ORIGIN" as const, featId: backgroundFeat.featId, featName: backgroundFeat.name, selections: formData.backgroundFeatChoiceSelections }]
+        : []),
+      ...(speciesFeat && hasFeatSpellChoice(currentRuleset, speciesFeat.name)
+        ? [{ source: "SPECIES_VERSATILITY" as const, featId: speciesFeat.featId, featName: speciesFeat.name, selections: formData.speciesFeatChoiceSelections }]
+        : []),
+    ];
+  }, [backgroundFeat, speciesFeat, currentRuleset, formData.backgroundFeatChoiceSelections, formData.speciesFeatChoiceSelections]);
+  const hasFeatSpellStep = spellChoiceFeats.length > 0;
+
   const steps = useMemo(() => {
     return resolveCreationSteps({
-      hasSubraces,
+      is2024: currentRuleset === "RULES_2024", hasSubraces,
       hasRaceVariants,
       hasRaceChoiceOptions,
       hasSpeciesFeatChoices,
@@ -615,15 +641,18 @@ export const MultiStepForm = (
       hasLevelOneChoices,
       hasLevelOneOptionalFeatures,
       hasWeaponMastery: hasClassWeaponMastery,
+      hasSpellChoice,
       hasFeatChoice,
       hasFeatChoices,
       hasBackgroundFeatChoice,
       hasBackgroundFeatChoices,
+      hasFeatSpellChoice: hasFeatSpellStep,
       hasExpertiseChoice,
       hasLanguageChoice,
     });
   }, [
     hasClassWeaponMastery,
+    hasSpellChoice,
     hasLevelOneChoices,
     hasLevelOneOptionalFeatures,
     hasSubraces,
@@ -636,8 +665,9 @@ export const MultiStepForm = (
     hasFeatChoices,
     hasBackgroundFeatChoice,
     hasBackgroundFeatChoices,
+    hasFeatSpellStep,
     hasExpertiseChoice,
-    hasLanguageChoice
+    hasLanguageChoice, currentRuleset
   ]);
 
   useEffect(() => {
@@ -679,33 +709,6 @@ export const MultiStepForm = (
     }
   }, [steps, currentStep, isHydrated, formData, setCurrentStep, setTotalSteps]);
 
-  const isStepCompleted = useCallback((stepId: string, data: any) => {
-    if (!data) return false;
-    switch (stepId) {
-      case "race": return !!data.raceId;
-      case "raceDetails": return !!(data.subraceId || data.raceVariantId);
-      case "raceChoices": return Object.keys(data.raceChoiceSelections || {}).length > 0;
-      case "speciesFeatChoices": return Object.keys(data.speciesFeatChoiceSelections || {}).length > 0;
-      case "class": return !!data.classId;
-      case "subclass": return !!data.subclassId;
-      case "subclassChoices": return Object.keys(data.subclassChoiceSelections || {}).length > 0;
-      case "classChoices": return Object.keys(data.classChoiceSelections || {}).length > 0;
-      case "classOptional": return Object.keys(data.classOptionalFeatureSelections || {}).length > 0;
-      case "weaponMastery": return (data.weaponMasteryWeaponIds || []).length > 0;
-      case "background": return !!data.backgroundId;
-      case "asi": return !!data.asiSystem;
-      case "skills": return (data.skills || []).length > 0;
-      case "expertise": return !!(data.expertiseSchema?.expertises?.length);
-      case "feat": return !!data.featId;
-      case "featChoices": return Object.keys(data.featChoiceSelections || {}).length > 0;
-      case "backgroundFeat": return !!data.backgroundFeatId;
-      case "backgroundFeatChoices": return Object.keys(data.backgroundFeatChoiceSelections || {}).length > 0;
-      case "equipment": return !!(data.equipmentSchema?.choiceGroupToId);
-      case "name": return !!data.name;
-      default: return false;
-    }
-  }, []);
-
   const jumpToStep = useCallback((stepOrder: number) => {
     const targetStep = steps[stepOrder - 1];
     if (!targetStep) return;
@@ -717,11 +720,11 @@ export const MultiStepForm = (
     }
     
     // Allow jumping forward only to the next step OR any already completed step
-    const canJumpForward = stepOrder === currentStep + 1 || isStepCompleted(targetStep.id, formData);
+    const canJumpForward = stepOrder === currentStep + 1 || isCreationStepCompleted(targetStep.id, formData);
     if (canJumpForward) {
       setCurrentStep(stepOrder);
     }
-  }, [steps, currentStep, setCurrentStep, isStepCompleted, formData]);
+  }, [steps, currentStep, setCurrentStep, formData]);
 
   const renderStep = () => {
     const activeComponent = steps[currentStep - 1]?.component;
@@ -823,6 +826,14 @@ export const MultiStepForm = (
             extraExistingExpertises={[...featSelectedExpertises, ...allSelectionsExpertises]}
           />
         );
+      case "featSpells":
+        return (
+          <CreationFeatSpellsForm
+            feats={spellChoiceFeats}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
       case "class":
         return (
           <ClassesForm
@@ -872,10 +883,18 @@ export const MultiStepForm = (
             onNextDisabledChange={handleNextDisabledChange}
           />
         );
+      case "spells":
+        return (
+          <CreationSpellsForm
+            selectedClass={cls}
+            formId={activeFormId}
+            onNextDisabledChange={handleNextDisabledChange}
+          />
+        );
       case "background":
         return (
           <BackgroundsForm
-            backgrounds={backgrounds}
+            backgrounds={backgrounds} feats={feats}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
           />
@@ -990,7 +1009,7 @@ export const MultiStepForm = (
     }
   }
 
-  const completedStepCount = steps.filter((step) => isStepCompleted(step.id, formData)).length;
+  const completedStepCount = steps.filter((step) => isCreationStepCompleted(step.id, formData)).length;
   const progress = Math.round((completedStepCount / steps.length) * 100);
   const activeFormId = `character-step-form-${currentStep}`;
 
@@ -1019,7 +1038,11 @@ export const MultiStepForm = (
       <Card className="border-none bg-transparent shadow-none">
         <CardContent className="grid gap-3 p-0 sm:gap-4 md:grid-cols-[1fr,300px]">
           <div className="glass-panel border-gradient-rpg space-y-3 rounded-xl p-3 sm:space-y-4 sm:p-4 md:p-5">
-            <CreationStepRuleLink stepId={steps[currentStep - 1]?.id} ruleset={currentRuleset} />
+            <CreationStepRuleLink
+              stepId={steps[currentStep - 1]?.id}
+              ruleset={currentRuleset}
+              excerpts={ruleExcerpts}
+            />
             {renderStep()}
           </div>
 
@@ -1035,9 +1058,9 @@ export const MultiStepForm = (
               <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
                 {steps.map((step, index) => {
                   const stepOrder = index + 1;
-                  const isDone = stepOrder <= highestStepCompleted && isStepCompleted(step.id, formData);
+                  const isDone = stepOrder <= highestStepCompleted && isCreationStepCompleted(step.id, formData);
                   const isActive = stepOrder === currentStep;
-                  const canJump = stepOrder <= highestStepCompleted + 1 || isStepCompleted(step.id, formData);
+                  const canJump = stepOrder <= highestStepCompleted + 1 || isCreationStepCompleted(step.id, formData);
 
                   return (
                     <button
@@ -1107,7 +1130,7 @@ export const MultiStepForm = (
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="border border-white/10 bg-white/5 text-sm text-slate-200 hover:bg-white/7 sm:text-base"
+                className="h-11 border border-white/10 bg-white/5 px-4 text-sm text-slate-200 hover:bg-white/7 sm:text-base md:h-9 md:px-3"
                 onClick={prevStep}
               >
                 <ChevronLeft className="mr-2 h-4 w-4" />
@@ -1119,7 +1142,7 @@ export const MultiStepForm = (
               form={activeFormId}
               disabled={nextDisabled || isSubmitting}
               size="sm"
-              className="bg-arcane-600/90 text-sm text-white shadow-lg shadow-arcane-900/40 hover:bg-arcane-500 sm:text-base"
+              className="h-11 bg-arcane-600/90 px-5 text-sm text-white shadow-lg shadow-arcane-900/40 hover:bg-arcane-500 sm:text-base md:h-9 md:px-3"
             >
               {currentStep === steps.length ? (isSubmitting ? "Створення..." : "Створити") : "Далі →"}
             </Button>

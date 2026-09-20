@@ -1,4 +1,5 @@
 export interface CreationStepConditions {
+  is2024?: boolean;
   hasSubraces: boolean;
   hasRaceVariants: boolean;
   hasRaceChoiceOptions: boolean;
@@ -9,10 +10,13 @@ export interface CreationStepConditions {
   hasLevelOneChoices: boolean;
   hasLevelOneOptionalFeatures: boolean;
   hasWeaponMastery?: boolean;
+  hasSpellChoice?: boolean;
   hasFeatChoice: boolean;
   hasFeatChoices: boolean;
   hasBackgroundFeatChoice: boolean;
   hasBackgroundFeatChoices: boolean;
+  /** «Посвячений у магію» 2024 від передісторії чи виду просить обрати заклинання. */
+  hasFeatSpellChoice?: boolean;
   hasExpertiseChoice: boolean;
   hasLanguageChoice: boolean;
 }
@@ -31,7 +35,7 @@ const coreSteps: CreationStep[] = [
 
 export function resolveCreationSteps(conditions: CreationStepConditions): CreationStep[] {
   return [
-    { id: "race", name: "Раса", component: "races" },
+    { id: "race", name: conditions.is2024 ? "Вид" : "Раса", component: "races" },
     ...resolveRaceSteps(conditions),
     { id: "class", name: "Клас", component: "class" },
     ...resolveClassSteps(conditions),
@@ -46,7 +50,7 @@ function resolveRaceSteps(conditions: CreationStepConditions): CreationStep[] {
   const steps: CreationStep[] = [];
   const raceDetailsName = resolveRaceDetailsName(conditions);
   if (raceDetailsName) steps.push({ id: "raceDetails", name: raceDetailsName, component: "raceDetails" });
-  if (conditions.hasRaceChoiceOptions) steps.push({ id: "raceChoices", name: "Опції раси", component: "raceChoices" });
+  if (conditions.hasRaceChoiceOptions) steps.push({ id: "raceChoices", name: conditions.is2024 ? "Опції виду" : "Опції раси", component: "raceChoices" });
   if (conditions.hasSpeciesFeatChoices) steps.push({ id: "speciesFeatChoices", name: "Опції риси виду", component: "speciesFeatChoices" });
   return steps;
 }
@@ -65,6 +69,7 @@ function resolveClassSteps(conditions: CreationStepConditions): CreationStep[] {
   if (conditions.hasLevelOneChoices) steps.push({ id: "classChoices", name: "Опції класу", component: "classChoices" });
   if (conditions.hasLevelOneOptionalFeatures) steps.push({ id: "classOptional", name: "Додаткові риси", component: "classOptional" });
   if (conditions.hasWeaponMastery) steps.push({ id: "weaponMastery", name: "Майстерність зброї", component: "weaponMastery" });
+  if (conditions.hasSpellChoice) steps.push({ id: "spells", name: "Заклинання", component: "spells" });
   return steps;
 }
 
@@ -74,6 +79,7 @@ function resolveChoiceSteps(conditions: CreationStepConditions): CreationStep[] 
   if (conditions.hasFeatChoices) steps.push({ id: "featChoices", name: "Опції риси", component: "featChoices" });
   if (conditions.hasBackgroundFeatChoice) steps.push({ id: "backgroundFeat", name: "Риса походження", component: "backgroundFeat" });
   if (conditions.hasBackgroundFeatChoices) steps.push({ id: "backgroundFeatChoices", name: "Опції риси походження", component: "backgroundFeatChoices" });
+  if (conditions.hasFeatSpellChoice) steps.push({ id: "featSpells", name: "Заклинання риси", component: "featSpells" });
   if (conditions.hasExpertiseChoice) steps.push({ id: "expertise", name: "Експертиза", component: "expertise" });
   if (conditions.hasLanguageChoice) steps.push({ id: "languages", name: "Мови", component: "languages" });
   return steps;

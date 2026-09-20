@@ -11,6 +11,7 @@ import { skillTranslations, toolTranslations } from "@/lib/refs/translation";
 import { getBackgroundImagePath } from "@/lib/assets/image-manifest";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { getDescriptionSnippet } from "@/lib/seo-utils";
+import { getAllFeats } from "@/lib/featsData";
 
 export type BackgroundSkill = {
   enum: string;
@@ -22,9 +23,12 @@ export type BackgroundEquipmentItem = {
   quantity: number;
 };
 
+type RawOriginFeat = { engName: string; nameUa: string };
+
 export type BackgroundOriginFeat = {
   engName: string;
   nameUa: string;
+  description: string | null;
 };
 
 export type BackgroundData = {
@@ -41,7 +45,6 @@ export type BackgroundData = {
   tools: string[];
   languagesToChooseCount: number;
   equipmentItems: BackgroundEquipmentItem[];
-  equipmentEngText: string | null;
   grantsGoldInstead: number | null;
   specialAbilityName: string | null;
   abilityOptions: string[];
@@ -73,8 +76,8 @@ type Raw2024Background = {
   abilityOptions?: string[];
   skillProficiencies?: Array<{ enum: string; nameUa: string }>;
   toolProficiency?: { nameUa?: string; engText?: string } | null;
-  originFeat?: BackgroundOriginFeat | null;
-  equipmentEngText?: string;
+  originFeat?: RawOriginFeat | null;
+  equipmentPackage?: BackgroundEquipmentItem[];
   grantsGoldInstead?: number | null;
   source?: string;
 };
@@ -101,7 +104,6 @@ const backgrounds2014: BackgroundData[] = (backgrounds2014Json as Raw2014Backgro
   tools: (b.toolProficiencies ?? []).map(findToolLabel),
   languagesToChooseCount: b.languagesToChooseCount ?? 0,
   equipmentItems: b.items ?? [],
-  equipmentEngText: null,
   grantsGoldInstead: null,
   specialAbilityName: b.specialAbilityName,
   abilityOptions: [],
@@ -109,6 +111,21 @@ const backgrounds2014: BackgroundData[] = (backgrounds2014Json as Raw2014Backgro
   imageSrc: getBackgroundImagePath(b.key),
   ruleset: "RULES_2014" as Ruleset,
 }));
+
+/// Партія походжень несе лише назву риси, а гравцеві на сторінці потрібен її текст —
+/// беремо його з каталогу рис за англійською назвою, як робить пошук. Клас у дужках
+/// («Magic Initiate (Cleric)») задає саме походження, а риса в каталозі одна на всі класи.
+function describeOriginFeat(originFeat?: RawOriginFeat | null): BackgroundOriginFeat | null {
+  if (!originFeat) return null;
+
+  const feats = getAllFeats("RULES_2024");
+  const withoutVariant = originFeat.engName.replace(/\s*\([^)]*\)\s*$/, "");
+  const feat =
+    feats.find((candidate) => candidate.engName === originFeat.engName) ??
+    feats.find((candidate) => candidate.engName === withoutVariant);
+
+  return { ...originFeat, description: feat?.description ?? null };
+}
 
 const backgrounds2024: BackgroundData[] = (backgrounds2024Json as Raw2024Background[]).map((b, index) => {
   const toolLabel = b.toolProficiency?.nameUa || b.toolProficiency?.engText || "";
@@ -130,12 +147,11 @@ const backgrounds2024: BackgroundData[] = (backgrounds2024Json as Raw2024Backgro
     skillChoiceCount: 0,
     tools: toolLabel ? [toolLabel] : [],
     languagesToChooseCount: 0,
-    equipmentItems: [],
-    equipmentEngText: b.equipmentEngText || null,
+    equipmentItems: b.equipmentPackage ?? [],
     grantsGoldInstead: b.grantsGoldInstead ?? null,
     specialAbilityName: null,
     abilityOptions: b.abilityOptions ?? [],
-    originFeat: b.originFeat ?? null,
+    originFeat: describeOriginFeat(b.originFeat),
     imageSrc: getBackgroundImagePath(key),
     ruleset: "RULES_2024" as Ruleset,
   };

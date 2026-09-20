@@ -12,15 +12,21 @@ import { buildCatalogEmbedParams } from "@/lib/catalog-url-helpers";
 export function AddBastionFacilityDialog({
   persId,
   persName,
+  label = "Додати приміщення",
+  levelTab,
   onFacilityAdded,
 }: {
   persId: number;
   persName: string;
+  label?: string;
+  levelTab?: "BASIC";
   onFacilityAdded: () => void;
 }) {
   const [open, setOpen] = useState(false);
 
+  /// На сторінці два таких діалоги: слухає лише відкритий, інакше одне додавання перезавантажує дані двічі.
   useEffect(() => {
+    if (!open) return;
     const handleMessage = (event: MessageEvent) => {
       if (event.origin !== window.location.origin) return;
       if (event.data?.type === "BASTION_FACILITY_ADDED") onFacilityAdded();
@@ -28,14 +34,16 @@ export function AddBastionFacilityDialog({
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, [onFacilityAdded]);
+  }, [open, onFacilityAdded]);
+
+  const catalogParams = buildCatalogEmbedParams({ persId, persName }) + (levelTab ? `&lvl=${levelTab}` : "");
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size="sm" variant="outline" className="gap-1 border-emerald-500/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20">
           <Plus className="h-3.5 w-3.5" />
-          Додати приміщення
+          {label}
         </Button>
       </DialogTrigger>
       <DialogContent
@@ -45,7 +53,7 @@ export function AddBastionFacilityDialog({
         <DialogTitle className="sr-only">Додати приміщення бастіону</DialogTitle>
         <div className="w-full flex-1 bg-slate-950">
           <iframe
-            src={`/2024/bastions?${buildCatalogEmbedParams({ persId, persName })}`}
+            src={`/2024/bastions?${catalogParams}`}
             className="h-full w-full border-0"
             title="Приміщення бастіону"
           />

@@ -3,22 +3,25 @@
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType } from "@prisma/client";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";
+import { useOfflineQueue } from "@/hooks/useOfflineQueue";
+import { createOperationId } from "@/lib/offline/queue";
+import type { FeatureUseDirection } from "@/lib/offline/operations";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { FeatureCard } from "@/lib/components/characterSheet/shared/FeatureCards";
+import { FeatureCard, type FeatureStateToggle } from "@/lib/components/characterSheet/shared/FeatureCards";
+import { useSheetStatesContext } from "@/lib/components/characterSheet/states/SheetStatesContext";
+import { Input } from "@/components/ui/input";
+import { filterFeaturesByQuery } from "@/lib/utils/features";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { FeatsSheetManagerModal } from "@/lib/components/characterSheet/FeatsSheetManagerModal";
-import { type BastionEntryCard, FeaturesHeaderCards } from "@/lib/components/characterSheet/slides/FeaturesHeaderCards";
-import { loadBastion } from "@/lib/actions/bastion-actions";
+import { FeatureDetailsDialog } from "@/lib/components/characterSheet/FeatureDetailsDialog";
+import { collectFeatureSpells } from "@/lib/logic/free-feat-spell-casts";
+import { findSheetFeatExistingState } from "@/lib/components/characterSheet/feats/sheet-feat-existing-state";
+import { FeaturesHeaderCards } from "@/lib/components/characterSheet/slides/FeaturesHeaderCards";
+import { useBastionEntry } from "@/lib/components/characterSheet/slides/useBastionEntry";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { toast } from "sonner";
@@ -68,6 +71,7 @@ interface FeaturesSlideProps {
   isReadOnly?: boolean;
   /// Пул використань спільний із Дикою формою (KR24.5): її бейдж мусить побачити ручну витрату.
   onResourcesChanged?: () => void;
+  onFeaturesChanged?: () => void;
 }
 
 type CategoryKind = "passive" | "action" | "bonus" | "reaction" | "resource";
@@ -132,8 +136,10 @@ function categoryVariant(kind: CategoryKind) {
 
 // Redundant local FeatureCard removed - using shared/FeatureCards.tsx
 
-const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly, onResourcesChanged }: FeaturesSlideProps) {
+const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly, onResourcesChanged, onFeaturesChanged }: FeaturesSlideProps) {
+  const featureStates = useSheetStatesContext();
   const router = useRouter();
+  const { commitOperation } = useOfflineQueue();
 
   const [selected, setSelected] = useState<CharacterFeatureItem | null>(null);
   const [entityOpen, setEntityOpen] = useState(false);
@@ -141,8 +147,9 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
   const [entityVariantIndex, setEntityVariantIndex] = useState(0);
   const [magicItemToShow, setMagicItemToShow] = useState<any>(null);
   const [featsManagerOpen, setFeatsManagerOpen] = useState(false);
+  const [featureQuery, setFeatureQuery] = useState("");
 
-  const [bastionEntry, setBastionEntry] = useState<BastionEntryCard | null>(null);
+  const bastionEntry = useBastionEntry({ persId: pers.persId, ruleset: pers.ruleset, isReadOnly: Boolean(isReadOnly), isSnapshot: pers.isSnapshot });
 
   const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
   const [usesOverrideByPoolKey, setUsesOverrideByPoolKey] = useState<Record<string, number | null>>({});
@@ -153,28 +160,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     setUsesOverrideByPoolKey({});
   }, [groupedFeatures, pers.persId]);
 
-  // Бастіон є лише в правилах 2024, тож у 2014-персонажа запиту не буде взагалі. Знімок і
-  // поширений лист картки не показують: вести бастіон там нема кому.
-  useEffect(() => {
-    setBastionEntry(null);
-    if (isReadOnly || pers.ruleset !== "RULES_2024") return;
-
-    let isStale = false;
-    loadBastion(pers.persId)
-      .then((result) => {
-        if (isStale || !result.ok || !result.standing.access.isEntryCardShown) return;
-        setBastionEntry({
-          href: `/char/${pers.persId}/bastion`,
-          name: result.standing.bastion?.name ?? null,
-          facilityCount: result.standing.bastion?.facilities.length ?? 0,
-        });
-      })
-      .catch(() => {});
-
-    return () => {
-      isStale = true;
-    };
-  }, [isReadOnly, pers.persId, pers.ruleset]);
+  const featExistingState = useMemo(() => findSheetFeatExistingState(pers), [pers]);
 
   const classEntries = useMemo(() => {
     const multiclasses = ((pers as any).multiclasses || []) as any[];
@@ -255,6 +241,19 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     ];
   }, [groupedFeatures]);
 
+  /// Діалог опису лишається відкритим після збереження, тож перечитані фічі мусять
+  /// підмінити вибрану — інакше він показував би текст до правки.
+  useEffect(() => {
+    setSelected((current) => (current ? allItems.find((item) => item.key === current.key) ?? current : null));
+  }, [allItems]);
+
+  const featureSpells = useMemo(() => collectFeatureSpells(pers), [pers]);
+
+  const selectedFeatureSpells = useMemo(() => {
+    const featureId = selected?.featureId;
+    return featureId ? featureSpells.filter((spell) => spell.featureId === featureId) : [];
+  }, [featureSpells, selected]);
+
   const resourceItems = useMemo(() => {
     return allItems
       .filter((it) => Array.isArray(it.displayTypes) && (it.displayTypes.includes(FeatureDisplayType.CLASS_RESOURCE)))
@@ -316,6 +315,14 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
 
     return list;
   }, [groupedFeatures, resourceItems]);
+
+  const isSearching = featureQuery.trim().length > 0;
+  const shownCategories = useMemo(() => {
+    if (!isSearching) return categories.filter((category) => category.items.length > 0);
+    return categories
+      .map((category) => ({ ...category, items: filterFeaturesByQuery(category.items, featureQuery) }))
+      .filter((category) => category.items.length > 0);
+  }, [categories, featureQuery, isSearching]);
 
 // limitedUseGroups removed
 
@@ -392,22 +399,9 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     applyOptimisticRemaining(item, (current) => current - cost);
     const { mutationKey, version } = bumpMutationVersion(item);
 
-    void (async () => {
-      const res = await spendFeatureUse({ persId: pers.persId, featureId: item.featureId! });
-      if (!res.success) {
-        if (isLatestMutation(mutationKey, version)) {
-          toast.error(res.error);
-          router.refresh();
-        }
-        return;
-      }
-
-      if (isLatestMutation(mutationKey, version)) {
-        applyServerRemaining(item, res.usesRemaining);
-        router.refresh();
-        onResourcesChanged?.();
-      }
-    })();
+    void commitFeatureUse(item, "spend", mutationKey, version, () =>
+      spendFeatureUse({ persId: pers.persId, featureId: item.featureId! }),
+    );
   };
 
   const restoreOneUse = (item: CharacterFeatureItem) => {
@@ -420,22 +414,54 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     applyOptimisticRemaining(item, (current, currentMax) => Math.min(currentMax, current + cost));
     const { mutationKey, version } = bumpMutationVersion(item);
 
-    void (async () => {
-      const res = await restoreFeatureUse({ persId: pers.persId, featureId: item.featureId! });
-      if (!res.success) {
-        if (isLatestMutation(mutationKey, version)) {
-          toast.error(res.error);
-          router.refresh();
-        }
-        return;
-      }
+    void commitFeatureUse(item, "restore", mutationKey, version, () =>
+      restoreFeatureUse({ persId: pers.persId, featureId: item.featureId! }),
+    );
+  };
 
-      if (isLatestMutation(mutationKey, version)) {
-        applyServerRemaining(item, res.usesRemaining);
-        router.refresh();
-        onResourcesChanged?.();
-      }
-    })();
+  /// Увімкнення Люті чи Великої форми списує одне використання — так само, як на сервері.
+  const findStateToggle = (item: CharacterFeatureItem, remaining: number): FeatureStateToggle | undefined => {
+    const featureId = item.featureId;
+    if (!featureStates || !featureId || !featureStates.toggleableFeatures.some((feature) => feature.featureId === featureId)) return undefined;
+
+    const cost = Math.max(1, Number(item.usePrice ?? 1));
+    const hasCounter = typeof item.usesPer === "number";
+    const isActive = featureStates.isFeatureActive(featureId);
+    return {
+      isActive,
+      disabled: Boolean(isReadOnly) || (!isActive && ((hasCounter && remaining < cost) || !featureStates.canActivateFeature(featureId))),
+      onChange: (next) => {
+        if (next && hasCounter) applyOptimisticRemaining(item, (current) => current - cost);
+        featureStates.setFeatureActive(featureId, next);
+      },
+    };
+  };
+
+  /// Витрата й відновлення йдуть через офлайн-чергу: без мережі оптимістичне значення лишається,
+  /// а сервер відтворює операцію тим самим правилом, коли звʼязок повернеться.
+  const commitFeatureUse = async (
+    item: CharacterFeatureItem,
+    direction: FeatureUseDirection,
+    mutationKey: string,
+    version: number,
+    sendToServer: () => Promise<{ success: true; usesRemaining: number | null } | { success: false; error: string }>,
+  ) => {
+    const outcome = await commitOperation(
+      { kind: "feature-use", featureId: item.featureId!, direction, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
+      sendToServer,
+    );
+    if (outcome.queued) return;
+
+    const res = outcome.result;
+    if (!isLatestMutation(mutationKey, version)) return;
+    if (!res.success) {
+      toast.error(res.error);
+      router.refresh();
+      return;
+    }
+    applyServerRemaining(item, res.usesRemaining);
+    router.refresh();
+    onResourcesChanged?.();
   };
 
   const raceName = useMemo(
@@ -722,17 +748,33 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
 
 
 
+      {groupedFeatures ? (
+        <label className="relative block">
+          <span className="sr-only">Пошук по здібностях</span>
+          <Search aria-hidden className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Input
+            type="search"
+            value={featureQuery}
+            onChange={(event) => setFeatureQuery(event.target.value)}
+            placeholder="Пошук по здібностях"
+            className="pl-9"
+          />
+        </label>
+      ) : null}
+
       {!groupedFeatures ? (
         <div className="text-sm text-slate-400">Завантаження фіч…</div>
+      ) : shownCategories.length === 0 ? (
+        <div className="text-sm text-slate-400">{isSearching ? "Нічого не знайдено" : "Немає здібностей"}</div>
       ) : (
         <div className="space-y-2">
-          {categories.map((category) => {
+          {shownCategories.map((category) => {
             const variant = categoryVariant(category.kind);
             const total = category.items.length;
 
             return (
               <Collapsible
-                key={category.title}
+                key={isSearching ? `${category.title}:search` : category.title}
                 defaultOpen={total > 0}
                 className={
                   "group border-l-2 bg-gradient-to-r to-transparent rounded-r-lg p-3 sm:p-4 transition-all duration-300 " +
@@ -771,6 +813,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
                               isReadOnly={isReadOnly}
                               onSpend={() => spendOneUse(item)}
                               onRestore={() => restoreOneUse(item)}
+                              stateToggle={findStateToggle(item, remaining)}
                           />
                         );
                       })}
@@ -783,20 +826,15 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
         </div>
       )}
 
-      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
-        <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-bold">
-              {selected?.source === "FEAT" ? translateFeatName(selected?.name) : selected?.name}
-            </DialogTitle>
-          </DialogHeader>
-          {selected?.description ? (
-            <div className="glass-panel rounded-xl border border-slate-800/70 p-4">
-              <FormattedDescription content={selected.description} className="text-slate-200/90" />
-            </div>
-          ) : null}
-        </DialogContent>
-      </Dialog>
+      <FeatureDetailsDialog
+        persId={pers.persId}
+        feature={selected}
+        spells={selectedFeatureSpells}
+        title={selected?.source === "FEAT" ? translateFeatName(selected.name) : selected?.name ?? ""}
+        isReadOnly={isReadOnly}
+        onClose={() => setSelected(null)}
+        onDescriptionSaved={() => onFeaturesChanged?.()}
+      />
 
       <ControlledInfoDialog
         open={entityOpen}
@@ -815,6 +853,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
 
         <FeatsSheetManagerModal
           persId={pers.persId}
+          existing={featExistingState}
           ruleset={pers.ruleset}
           persFeats={(pers as any).feats ?? []}
           open={featsManagerOpen}

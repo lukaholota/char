@@ -73,6 +73,10 @@ export function toggleHomebrewParam(params: URLSearchParams): void {
   else params.set("hb", "1");
 }
 
+export function enableHomebrewParam(params: URLSearchParams): void {
+  params.set("hb", "1");
+}
+
 export function clearSourceParams(params: URLSearchParams): void {
   params.delete("src");
   params.delete("hb");

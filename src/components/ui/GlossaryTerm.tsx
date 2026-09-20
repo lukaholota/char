@@ -4,6 +4,9 @@ import React from "react";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
 import { cn } from "@/lib/utils";
 import { findRulesetInPathname, openTermLink } from "@/lib/term-link";
+import { findPinnedRuleset } from "@/components/ui/PersEditionPin";
+import { findTermCard } from "@/lib/term-catalog-chunk";
+import { hasTermCardMoreThanOriginal } from "@/lib/term-card";
 
 /// Український термін з англійським оригіналом поруч ([Р20](../../../docs/DECISIONS.md#р20)).
 ///
@@ -18,6 +21,7 @@ import { findRulesetInPathname, openTermLink } from "@/lib/term-link";
 ///
 /// Друге натискання — коли оригінал уже видно — відкриває модалку терміна (KR30.3): мишею це
 /// клік по наведеному слову, на телефоні — другий дотик. Редакція береться зі сторінки.
+/// Коли про термін немає нічого, крім оригіналу, модалка не відкривається — він уже в підказці.
 /// «Чи було видно» рахується на момент `pointerdown`, а не `click`: на дотику між ними стає
 /// `focus`, який сам відкриває підказку, і один дотик відкривав би модалку одразу.
 export function GlossaryTerm({
@@ -32,15 +36,29 @@ export function GlossaryTerm({
   const wrapper = React.useRef<HTMLSpanElement>(null);
   const bubble = React.useRef<HTMLSpanElement>(null);
   const wasOpenAtPress = React.useRef<boolean | null>(null);
+  const isOpeningTerm = React.useRef(false);
 
   useCloseOnOutsidePress(isOpen, wrapper, () => setIsOpen(false));
   useKeepInsideViewport(isOpen, bubble, setNudge);
 
   if (original === "") return <>{children}</>;
 
-  const openTerm = () => {
-    setIsOpen(false);
-    openTermLink({ original, ruleset: findRulesetInPathname(window.location.pathname) }, readPlainText(children));
+  /// Поки чанк картки вантажиться, підказка ще відкрита, і кожен наступний дотик знову йшов би
+  /// сюди. Не довантажився (немає мережі) — лишається підказка з оригіналом.
+  const openTerm = async () => {
+    if (isOpeningTerm.current) return;
+    isOpeningTerm.current = true;
+    try {
+      const link = { original, ruleset: findPinnedRuleset() ?? findRulesetInPathname(window.location.pathname) };
+      const term = readPlainText(children);
+      if (!hasTermCardMoreThanOriginal(await findTermCard(link), term)) return;
+      setIsOpen(false);
+      openTermLink(link, term);
+    } catch {
+      return;
+    } finally {
+      isOpeningTerm.current = false;
+    }
   };
 
   return (
@@ -59,7 +77,7 @@ export function GlossaryTerm({
           event.stopPropagation();
           const wasOpen = wasOpenAtPress.current ?? isOpen;
           wasOpenAtPress.current = null;
-          if (wasOpen) return openTerm();
+          if (wasOpen) return void openTerm();
           setIsOpen(true);
         }}
         onFocus={() => setIsOpen(true)}
@@ -69,7 +87,7 @@ export function GlossaryTerm({
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
           event.stopPropagation();
-          if (isOpen) return openTerm();
+          if (isOpen) return void openTerm();
           setIsOpen(true);
         }}
         className="cursor-pointer border-b border-dotted border-slate-500 no-underline outline-none hover:border-arcane-400 focus-visible:border-arcane-400"

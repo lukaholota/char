@@ -8,6 +8,7 @@ import { Ruleset, ArmorType, AbilityBonusType } from "@prisma/client";
 import armor2014Json from "./generated/armor.json";
 import armor2024Json from "../../data/2024/normalized/armor.json";
 import { toEntitySlug } from "./slug-utils";
+import { translateCost, translateDonDoffTime, translateWeight } from "./logic/equipment-units";
 
 export type ArmorData = {
   id: number;
@@ -90,9 +91,9 @@ const armor2024: ArmorData[] = (armor2024Json as Array<{
   abilityBonusType: a.abilityBonusType as AbilityBonusType,
   strengthReq: a.strengthReq,
   stealthDisadvantage: a.stealthDisadvantage,
-  weight: a.weight,
-  cost: a.cost,
-  donDoffTime: a.donDoffTime,
+  weight: translateWeight(a.weight),
+  cost: translateCost(a.cost),
+  donDoffTime: translateDonDoffTime(a.donDoffTime),
   isStandardEquipment: a.isStandardEquipment,
   ruleset: "RULES_2024" as Ruleset,
   source: a.source || "PHB_2024",

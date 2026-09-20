@@ -6,6 +6,8 @@ import { spellSchoolTranslations, sourceTranslations } from "@/lib/refs/translat
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { X, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 function normalizeFlag(value: string | null | undefined): boolean {
   const v = (value ?? "").trim().toLowerCase();
@@ -48,9 +50,7 @@ export function SpellModalCard({
     <div
       className={cn(
         "glass-card border border-white/10 bg-slate-950/60 p-3 backdrop-blur-xl sm:p-5 max-w-full overflow-x-hidden",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10"
+        findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10" })
       )}
     >
       <div className="flex items-start justify-between gap-2">
@@ -59,17 +59,13 @@ export function SpellModalCard({
             <h2
               className={cn(
                 "font-sans text-base sm:text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text truncate",
-                is2024
-                  ? "bg-gradient-to-r from-amber-300 to-amber-500"
-                  : "bg-gradient-to-r from-arcane-400 to-violet-400"
+                findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 to-prism-500", arcane: "bg-gradient-to-r from-arcane-400 to-violet-400" })
               )}
             >
               {spell.name}
             </h2>
             {is2024 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                2024
-              </span>
+              <EditionAccentChip edition="2024">2024</EditionAccentChip>
             )}
             {is2024 && spell.kind === "new" && (
               <span className="rounded-md border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
@@ -77,9 +73,7 @@ export function SpellModalCard({
               </span>
             )}
             {is2024 && spell.differsFrom2014 && (
-              <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-                Змінено у 2024
-              </span>
+              <EditionAccentChip edition="2024">Змінено у 2024</EditionAccentChip>
             )}
           </div>
           <div className="text-xs font-mono text-slate-500 mt-0.5">[{spell.engName}]</div>
@@ -90,7 +84,7 @@ export function SpellModalCard({
           onClick={onClose}
           className={cn(
             "glass-panel inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90",
-            is2024 ? "hover:text-amber-300" : "hover:text-arcane-300"
+            findAccentVariant(is2024, { prism: "hover:text-prism-300", arcane: "hover:text-arcane-300" })
           )}
           aria-label="Закрити"
         >
@@ -100,8 +94,8 @@ export function SpellModalCard({
 
       {/* Note / mechanical changes */}
       {is2024 && spell.note && (
-        <div className="mt-2 flex items-start gap-2 rounded-xl border border-amber-500/30 bg-amber-500/10 p-2 text-xs text-amber-200">
-          <Info className="h-3.5 w-3.5 shrink-0 text-amber-400 mt-0.5" />
+        <div className="mt-2 flex items-start gap-2 rounded-xl border border-prism-500/30 bg-prism-500/10 p-2 text-xs text-prism-200">
+          <Info className="h-3.5 w-3.5 shrink-0 text-prism-400 mt-0.5" />
           <span>{spell.note}</span>
         </div>
       )}
@@ -116,7 +110,7 @@ export function SpellModalCard({
           <div
             className={cn(
               "min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs truncate",
-              is2024 ? "text-amber-300" : "text-slate-400"
+              findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-slate-400" })
             )}
           >
             {sourceLabel(spell.source)}

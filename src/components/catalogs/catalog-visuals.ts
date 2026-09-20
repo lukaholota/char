@@ -499,6 +499,34 @@ export function getInvocationVisual(pact: string | null | undefined, minLevel?: 
   };
 }
 
+// 8a. Metamagic Visuals — за ціною в очках чародійства
+export function getMetamagicVisual(cost: number | null | undefined, isCostSpellLevel = false): ItemVisual {
+  if (isCostSpellLevel || (cost ?? 0) >= 3) {
+    return {
+      icon: WandSparkles,
+      iconWrap: "bg-fuchsia-950/60 border-fuchsia-800/60",
+      iconColor: "text-fuchsia-300",
+      badgeClass: "border-fuchsia-800/50 bg-fuchsia-950/40 text-fuchsia-300",
+    };
+  }
+
+  if (cost === 2) {
+    return {
+      icon: Sparkles,
+      iconWrap: "bg-violet-950/60 border-violet-800/60",
+      iconColor: "text-violet-300",
+      badgeClass: "border-violet-800/50 bg-violet-950/40 text-violet-300",
+    };
+  }
+
+  return {
+    icon: Wand2,
+    iconWrap: "bg-sky-950/60 border-sky-800/60",
+    iconColor: "text-sky-300",
+    badgeClass: "border-sky-800/50 bg-sky-950/40 text-sky-300",
+  };
+}
+
 // 8b. Bastion Facility Visuals — за наказом, який приміщення виконує
 export function getBastionFacilityVisual(order: string | null | undefined): ItemVisual {
   const key = String(order ?? "").toLowerCase();

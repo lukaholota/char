@@ -5,24 +5,38 @@ import { Card, CardContent } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Skills } from "@prisma/client";
 import { attributesUkrShort, damageTypeTranslations } from "@/lib/refs/translation";
-import { Heart, Shield, Sparkles, Sword } from "lucide-react";
+import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { memo, useEffect, useMemo, useState, useTransition, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { applyHpChange, reviveCharacter, setDeathSaves, setHeroicInspiration } from "@/lib/actions/combat-actions";
-import { ToggleRow } from "@/lib/components/characterSheet/shared/ToggleRow";
+import {
+  applyHpChange,
+  reviveCharacter,
+  setCanStackHeroicInspiration,
+  setDeathSaves,
+  setHeroicInspirationCount,
+} from "@/lib/actions/combat-actions";
+import { HeroicInspirationRow } from "@/lib/components/characterSheet/HeroicInspirationRow";
+import { grantsHeroicInspirationOnLongRest, limitHeroicInspirationCount } from "@/rules/heroic-inspiration";
 import { applyOfflineOperation, type OfflineOperation, type OfflinePersState } from "@/lib/offline/operations";
 import { createOperationId } from "@/lib/offline/queue";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { updateCharacterAction } from "@/lib/actions/update-character";
-import { LanguageTranslations } from "@/lib/refs/translation";
+import { LanguageTranslations, toolTranslations } from "@/lib/refs/translation";
+import { TermPickerDialog } from "@/lib/components/characterSheet/TermPickerDialog";
 import { toast } from "sonner";
 import ModifyStatModal, { ModifyConfig } from "@/lib/components/characterSheet/ModifyStatModal";
 import HitDiceDialog from "@/lib/components/characterSheet/HitDiceDialog";
 import { collectPersHitDicePools, formatHitDicePools } from "@/lib/logic/pers-hit-dice";
-import { calculatePersProficiencies, formatPersProficiencyLines } from "@/lib/logic/pers-proficiencies";
+import {
+  appendMissingProficiencies,
+  appendToolProficiencies,
+  calculatePersProficiencies,
+  findMentionedTerms,
+  splitTermTokens,
+} from "@/lib/logic/pers-proficiencies";
 import {
   hasStatBonuses,
   hasSimpleBonus,
@@ -36,7 +50,10 @@ import {
   calculateFinalStat,
   calculateFinalModifier,
   calculateFinalSave,
+  calculateAbilityCheckBonus,
 } from "@/lib/logic/bonus-calculator";
+import { describeAbilityRollStates, describeRollState, findStateValueTone } from "@/lib/logic/state-labels";
+import { useSheetStatesContext } from "@/lib/components/characterSheet/states/SheetStatesContext";
 import {
   BEAST_HITPOINTS_RING,
   hasBeastHitPoints,
@@ -46,6 +63,10 @@ import {
   type BeastFormView,
 } from "@/lib/components/characterSheet/BeastFormMarks";
 import { BeastHitPointsDialog } from "@/lib/components/characterSheet/BeastHitPointsDialog";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { D20Icon } from "@/lib/components/icons/D20Icon";
+import { buildAbilityRollContext, buildInitiativeRollContext } from "@/lib/components/dice/roll-contexts";
+import { AbilityScoreCard } from "@/lib/components/characterSheet/AbilityScoreCard";
 
 interface MainStatsSlideProps {
   pers: PersWithRelations;
@@ -59,11 +80,13 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   /// Правки завжди пишуться у власний лист, а не в синтетичний: інакше «зберегти» записало б
   /// персонажу характеристики ведмедя.
   const editablePers = beastForm?.ownPers ?? pers;
+  const openRoll = useDiceUIStore((state) => state.openRoll);
   /// Стос хітів звіра має лише 2014: у 2024 блок лишається власним і редагується як завжди.
   const beastHitPoints = hasBeastHitPoints(beastForm);
   const [beastHpOpen, setBeastHpOpen] = useState(false);
   const router = useRouter();
   const persId = pers.persId;
+  const sheetStates = useSheetStatesContext();
   const { commitOperation } = useOfflineQueue();
   const [isHpPending, startHpTransition] = useTransition();
   const [isDetailsPending, startDetailsTransition] = useTransition();
@@ -94,10 +117,10 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   const [deathSuccesses, setDeathSuccesses] = useState<number>(() => (pers as any).deathSaveSuccesses ?? 0);
   const [deathFailures, setDeathFailures] = useState<number>(() => (pers as any).deathSaveFailures ?? 0);
   const [isDead, setIsDead] = useState<boolean>(() => Boolean((pers as any).isDead));
-  const [hasHeroicInspiration, setHasHeroicInspiration] = useState<boolean>(() => Boolean(pers.hasHeroicInspiration));
+  const [heroicInspirationCount, setHeroicInspirationCountState] = useState<number>(() => pers.heroicInspirationCount);
+  const [canStackHeroicInspiration, setCanStackHeroicInspirationState] = useState<boolean>(() => pers.canStackHeroicInspiration);
 
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const proficiencyLines = useMemo(() => formatPersProficiencyLines(calculatePersProficiencies(pers)), [pers]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -115,10 +138,11 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   }, []);
 
   const [languagesOpen, setLanguagesOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [didInitDetails, setDidInitDetails] = useState(false);
 
-  const [draftProficiencies, setDraftProficiencies] = useState<string>(() => String((pers as any).customProficiencies ?? ""));
-  const [draftLanguages, setDraftLanguages] = useState<string>(() => String((pers as any).customLanguagesKnown ?? ""));
+  const [draftProficiencies, setDraftProficiencies] = useState<string>(() => readProficiencyText(pers).proficiencies);
+  const [draftLanguages, setDraftLanguages] = useState<string>(() => readProficiencyText(pers).languages);
   const [draftEquipment, setDraftEquipment] = useState<string>(() => String((pers as any).customEquipment ?? ""));
   const [draftTraits, setDraftTraits] = useState<string>(() => String(pers.personalityTraits ?? ""));
   const [draftIdeals, setDraftIdeals] = useState<string>(() => String(pers.ideals ?? ""));
@@ -137,14 +161,6 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   // Track the version of data currently in drafts to avoid "blinking" during sync
   const lastSavedDataRef = useRef<any>(null);
 
-  const [selectedLanguages, setSelectedLanguages] = useState<Set<string>>(() => {
-    const raw = String((pers as any).customLanguagesKnown ?? "");
-    const tokens = raw
-      .split(/[\n,]/g)
-      .map((s) => s.trim())
-      .filter(Boolean);
-    return new Set(tokens);
-  });
 
   useEffect(() => {
     setLocalCurrentHp(pers.currentHp);
@@ -153,15 +169,17 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     setDeathSuccesses(Number.isFinite((pers as any).deathSaveSuccesses) ? Math.max(0, Math.trunc((pers as any).deathSaveSuccesses)) : 0);
     setDeathFailures(Number.isFinite((pers as any).deathSaveFailures) ? Math.max(0, Math.trunc((pers as any).deathSaveFailures)) : 0);
     setIsDead(Boolean((pers as any).isDead));
-    setHasHeroicInspiration(Boolean(pers.hasHeroicInspiration));
+    setHeroicInspirationCountState(pers.heroicInspirationCount);
+    setCanStackHeroicInspirationState(pers.canStackHeroicInspiration);
 
     // Keep Detailed Info in sync if server data refreshes, but ONLY if we are NOT currently saving
     // AND only if the incoming data is actually DIFFERENT from what we last saved.
     // This prevents the "blink" where local state is overwritten by old server data
     // before the server data has had a chance to update.
     if (!isDetailsPending) {
-      const serverProf = String((pers as any).customProficiencies ?? "");
-      const serverLang = String((pers as any).customLanguagesKnown ?? "");
+      const serverProficiencyText = readProficiencyText(pers);
+      const serverProf = serverProficiencyText.proficiencies;
+      const serverLang = serverProficiencyText.languages;
       const serverEquip = String((pers as any).customEquipment ?? "");
       const serverTraits = String(pers.personalityTraits ?? "");
       const serverIdeals = String(pers.ideals ?? "");
@@ -235,13 +253,6 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         setDraftSp(serverSp);
         setDraftGp(serverGp);
         setDraftPp(serverPp);
-        setSelectedLanguages(() => {
-          const tokens = serverLang
-            .split(/[\n,]/g)
-            .map((s) => s.trim())
-            .filter(Boolean);
-          return new Set(tokens);
-        });
         
         // Clear the ref once we've successfully synced with the new data
         if (isSameAsLastSaved) {
@@ -253,7 +264,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   }, [pers, isDetailsPending]);
 
   useEffect(() => {
-    if (!didInitDetails) return;
+    if (!didInitDetails || isReadOnly) return;
 
     const isDirty =
       draftProficiencies !== String((pers as any).customProficiencies ?? "") ||
@@ -335,6 +346,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     draftPp,
     pers,
     persId,
+    isReadOnly,
     startDetailsTransition,
     commitOperation,
   ]);
@@ -391,8 +403,11 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     deathSaveFailures: deathFailures,
     isDead,
     currentSpellSlots: pers.currentSpellSlots ?? [],
+    maxSpellSlots: [],
     currentPactSlots: pers.currentPactSlots ?? 0,
-    hasHeroicInspiration,
+    maxPactSlots: 0,
+    heroicInspirationCount,
+    canStackHeroicInspiration,
   });
 
   const writeCombatState = (state: OfflinePersState) => {
@@ -402,7 +417,8 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     setDeathSuccesses(state.deathSaveSuccesses);
     setDeathFailures(state.deathSaveFailures);
     setIsDead(state.isDead);
-    setHasHeroicInspiration(state.hasHeroicInspiration);
+    setHeroicInspirationCountState(state.heroicInspirationCount);
+    setCanStackHeroicInspirationState(state.canStackHeroicInspiration);
   };
 
   const buildOperation = <T extends Omit<OfflineOperation, "operationId" | "persId" | "createdAt">>(body: T) =>
@@ -447,6 +463,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       () => applyHpChange({ persId, mode: hpMode, amount }),
       "Не вдалося оновити HP",
     );
+    if (hpMode === "damage") sheetStates?.promptConcentrationCheck(amount);
   };
 
   const setSaves = (nextSuccess: number, nextFail: number) => {
@@ -460,12 +477,36 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     );
   };
 
-  const toggleHeroicInspiration = (next: boolean) => {
+  const changeHeroicInspirationCount = (next: number) => {
     commitCombatOperation(
-      buildOperation({ kind: "heroic-inspiration", hasHeroicInspiration: next }),
-      () => setHeroicInspiration({ persId, hasHeroicInspiration: next }),
-      "Не вдалося оновити Героїчне натхнення",
+      buildOperation({ kind: "heroic-inspiration", heroicInspirationCount: next }),
+      () => setHeroicInspirationCount({ persId, heroicInspirationCount: next }),
+      "Не вдалося оновити натхнення",
     );
+  };
+
+  /// Налаштування не йде в офлайн-чергу: воно міняється рідко, а черга несе лише стан гри.
+  const changeCanStackHeroicInspiration = (canStack: boolean) => {
+    const previous = readCombatState();
+    const optimistic = {
+      ...previous,
+      canStackHeroicInspiration: canStack,
+      heroicInspirationCount: limitHeroicInspirationCount({ heroicInspirationCount: previous.heroicInspirationCount, canStackHeroicInspiration: canStack }),
+    };
+    writeCombatState(optimistic);
+
+    startHpTransition(async () => {
+      const res = await setCanStackHeroicInspiration({ persId, canStackHeroicInspiration: canStack }).catch(
+        (error: unknown) => ({ success: false as const, error: error instanceof Error ? error.message : "Немає звʼязку" }),
+      );
+      if (!res.success) {
+        writeCombatState(previous);
+        toast.error("Не вдалося змінити налаштування натхнення", { description: res.error });
+        return;
+      }
+      writeCombatState({ ...optimistic, ...res });
+      router.refresh();
+    });
   };
 
   const CircleRow = ({
@@ -524,7 +565,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
           <Card className={`glass-card bg-indigo-500/15 border-indigo-500/40 h-24 ${!isReadOnly ? 'hover:bg-indigo-500/25 transition' : ''} ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'ac') ? 'ring-1 ring-indigo-400/50' : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
               <div className="text-[9px] font-bold uppercase tracking-wide text-indigo-300">Клас Броні</div>
-              <div className={`text-3xl font-bold mt-1 ${beastForm ? 'text-emerald-200' : 'text-white'}`}>{calculateFinalAC(pers)}</div>
+              <div className={`text-3xl font-bold mt-1 ${beastForm ? 'text-emerald-200' : 'text-white'} ${findStateValueTone(pers, calculateFinalAC)}`}>{calculateFinalAC(pers)}</div>
               {beastForm
                 ? <OwnValue value={calculateFinalAC(beastForm.ownPers)} />
                 : <Shield className="w-4 h-4 text-indigo-400 opacity-60 mt-1" />}
@@ -551,15 +592,27 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
           </Card>
         </button>
 
-        <button 
-          type="button" 
-          onClick={() => !isReadOnly && !beastForm && openModify({ type: 'simple', field: 'initiative' })}
-          className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
+        <button
+          type="button"
+          aria-label={`Кинути ініціативу ${formatModifier(calculateFinalInitiative(pers))}`}
+          onClick={() =>
+            openRoll(
+              buildInitiativeRollContext(
+                calculateFinalInitiative(pers),
+                !isReadOnly && !beastForm ? () => openModify({ type: 'simple', field: 'initiative' }) : undefined,
+                describeRollState(pers, { kind: "check", ability: "DEX" }),
+              ),
+            )
+          }
+          className="swiper-no-swiping text-left"
         >
-          <Card className={`glass-card bg-emerald-500/15 border-emerald-500/40 h-24 ${!isReadOnly ? 'hover:bg-emerald-500/25 transition' : ''} ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'initiative') ? 'ring-1 ring-emerald-400/50' : ''}`}>
+          <Card className={`glass-card bg-emerald-500/15 border-emerald-500/40 h-24 hover:bg-emerald-500/25 transition active:scale-[0.98] ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'initiative') ? 'ring-1 ring-emerald-400/50' : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
               <div className="text-[9px] font-bold uppercase tracking-wide text-emerald-300">Ініціатива</div>
-              <div className="text-3xl font-bold text-white mt-1">{formatModifier(calculateFinalInitiative(pers))}</div>
+              <div className="mt-1 flex items-center gap-1.5 text-3xl font-bold text-white">
+                <D20Icon className="h-4 w-4 text-emerald-300" />
+                {formatModifier(calculateFinalInitiative(pers))}
+              </div>
               {beastForm && <OwnValue value={formatModifier(calculateFinalInitiative(beastForm.ownPers))} />}
             </CardContent>
           </Card>
@@ -576,7 +629,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
           <Card className={`glass-card bg-cyan-500/15 border-cyan-400/40 h-16 ${!isReadOnly ? 'hover:bg-cyan-500/25 transition' : ''} ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'speed') ? 'ring-1 ring-cyan-400/50' : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
               <div className="text-[9px] font-bold uppercase tracking-wide text-cyan-300">Швидкість</div>
-              <div className={`text-xl font-bold ${beastForm ? 'text-emerald-200' : 'text-cyan-50'}`}>{calculateFinalSpeed(pers)}</div>
+              <div className={`text-xl font-bold ${beastForm ? 'text-emerald-200' : 'text-cyan-50'} ${findStateValueTone(pers, calculateFinalSpeed)}`}>{calculateFinalSpeed(pers)}</div>
               {beastForm && <OwnValue value={calculateFinalSpeed(beastForm.ownPers)} />}
             </CardContent>
           </Card>
@@ -607,15 +660,55 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         </button>
       </div>
 
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        {attributes.map((attr) => {
+          const ability = abilityByKey[attr.key];
+          const fromBeast = isBeastAbility(beastForm, ability);
+          const canEdit = !isReadOnly && !fromBeast;
+          const openEdit = () => openModify({ type: 'stat', ability });
+
+          return (
+            <AbilityScoreCard
+              key={attr.key}
+              shortName={attr.name}
+              fullName={attr.fullName}
+              borderClassName={attr.borderColor}
+              score={calculateFinalStat(pers, ability)}
+              modifier={calculateFinalModifier(pers, ability)}
+              save={calculateFinalSave(pers, ability)}
+              hasSaveProficiency={proficientSaves.has(ability)}
+              hasBonuses={hasStatBonuses(pers, ability)}
+              fromBeast={fromBeast}
+              ownScore={fromBeast && beastForm ? calculateFinalStat(beastForm.ownPers, ability) : undefined}
+              canEdit={canEdit}
+              onEdit={openEdit}
+              rollStates={describeAbilityRollStates(pers, ability)}
+              onRoll={(kind) =>
+                openRoll(
+                  buildAbilityRollContext(
+                    attr.fullName,
+                    calculateAbilityCheckBonus(pers, ability),
+                    calculateFinalSave(pers, ability),
+                    kind,
+                    canEdit ? openEdit : undefined,
+                    describeAbilityRollStates(pers, ability),
+                  ),
+                )
+              }
+            />
+          );
+        })}
+      </div>
+
       <div className="grid grid-cols-3 gap-2">
         {[
-          ["Сприйняття", Skills.PERCEPTION],
-          ["Аналіз", Skills.INVESTIGATION],
-          ["Проникливість", Skills.INSIGHT],
+          ["Пасивна уважність", Skills.PERCEPTION],
+          ["Пасивне розслідування", Skills.INVESTIGATION],
+          ["Пасивний аналіз поведінки", Skills.INSIGHT],
         ].map(([label, skill]) => (
-          <Card key={skill} className="glass-card bg-slate-900/60 border border-white/10 h-14">
+          <Card key={skill} className="glass-card bg-slate-900/60 border border-white/10 min-h-14">
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-              <div className="text-[8px] font-bold uppercase tracking-wide text-slate-400 text-center">Пасивне {label}</div>
+              <div className="text-[8px] font-bold uppercase tracking-wide text-slate-400 text-center">{label}</div>
               <div className="text-lg font-bold text-slate-50">{calculatePassiveSkill(pers, skill as Skills)}</div>
             </CardContent>
           </Card>
@@ -627,74 +720,16 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         damageResistances={calculateDamageResistances(pers).map((type) => damageTypeTranslations[type] ?? type)}
       />
 
-      {pers.ruleset === "RULES_2024" && (
-        <ToggleRow
-          icon={Sparkles}
-          tone="amber"
-          label="Героїчне натхнення"
-          description={
-            hasHeroicInspiration
-              ? "Є — витрать, щоб перекинути будь-який кубик одразу після кидка"
-              : "Немає — дає майстер або довгий відпочинок (Людина)"
-          }
-          checked={hasHeroicInspiration}
-          onCheckedChange={toggleHeroicInspiration}
-          disabled={isReadOnly || isHpPending}
-        />
-      )}
-
-      {/* ABILITY SCORES GRID (Perfectly Balanced Layout) */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-        {attributes.map((attr) => {
-          const ability = abilityByKey[attr.key];
-          const hasSaveProficiency = proficientSaves.has(ability);
-          const fromBeast = isBeastAbility(beastForm, ability);
-
-          return (
-            <button
-              key={attr.name}
-              type="button"
-              onClick={() => !isReadOnly && !fromBeast && openModify({ type: 'stat', ability: abilityByKey[attr.key] })}
-              className={`text-left ${isReadOnly ? 'cursor-default' : ''}`}
-            >
-              <Card className={`glass-card bg-slate-900/60 ${attr.borderColor} border h-14 ${!isReadOnly ? 'hover:bg-slate-800/60 transition' : ''} ${fromBeast ? BEAST_VALUE_RING : hasStatBonuses(pers, abilityByKey[attr.key]) ? 'ring-1 ring-white/30' : ''}`}>
-                <CardContent className="h-full px-1 py-1 grid grid-cols-[1fr_auto_1fr] items-center gap-0">
-                  {/* Left: Ability Name & Score */}
-                  <div className="flex flex-col items-center justify-center gap-0">
-                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{attr.name}</span>
-                    <span className={`text-[9px] font-mono ${fromBeast ? 'text-emerald-300' : 'text-slate-500'}`}>
-                      {calculateFinalStat(pers, abilityByKey[attr.key])}
-                    </span>
-                    {fromBeast && beastForm && <OwnValue value={calculateFinalStat(beastForm.ownPers, ability)} />}
-                  </div>
-
-                  {/* Center: Modifier (Main Focus) */}
-                  <div className="flex items-center justify-center w-6">
-                    <span className="text-2xl font-black text-white tracking-tight">
-                      {formatModifier(calculateFinalModifier(pers, abilityByKey[attr.key]))}
-                    </span>
-                  </div>
-
-                  {/* Right: Saving Throw */}
-                  <div className="flex flex-col items-center justify-center gap-0.5">
-                    <span className="text-[8px] text-slate-500 uppercase tracking-tighter">РятК</span>
-                    <div className="flex items-center gap-1">
-                      <span className={`text-xs font-bold ${
-                        hasSaveProficiency ? "text-indigo-400" : "text-slate-400"
-                      }`}>
-                        {formatModifier(calculateFinalSave(pers, abilityByKey[attr.key]))}
-                      </span>
-                      {hasSaveProficiency && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_5px_rgba(99,102,241,0.5)]" />
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </button>
-          );
-        })}
-      </div>
+      <HeroicInspirationRow
+        ruleset={pers.ruleset}
+        heroicInspirationCount={heroicInspirationCount}
+        canStackHeroicInspiration={canStackHeroicInspiration}
+        gainsOnLongRest={pers.features.some((persFeature) => grantsHeroicInspirationOnLongRest(persFeature.feature.engName))}
+        disabled={Boolean(isReadOnly) || isHpPending}
+        isReadOnly={Boolean(isReadOnly)}
+        onCountChange={changeHeroicInspirationCount}
+        onCanStackChange={changeCanStackHeroicInspiration}
+      />
 
       <Dialog open={hpOpen} onOpenChange={setHpOpen}>
         <DialogContent className="max-w-md">
@@ -958,8 +993,14 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
             </div>
 
             <div className="space-y-1">
-              <div className="text-xs font-semibold text-slate-200">Володіння (броня/зброя/інструменти)</div>
-              <DerivedFromSourcesLines lines={proficiencyLines.proficiencies} />
+              <div className="flex items-center justify-between gap-2">
+                <div className="text-xs font-semibold text-slate-200">Володіння (броня/зброя/інструменти)</div>
+                {!isReadOnly && (
+                  <Button type="button" size="sm" variant="secondary" onClick={() => setToolsOpen(true)}>
+                    Обрати інструменти
+                  </Button>
+                )}
+              </div>
               <textarea
                 value={draftProficiencies}
                 onChange={(e) => setDraftProficiencies(e.target.value)}
@@ -989,7 +1030,6 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
                   Показати мови
                 </Button>
               </div>
-              <DerivedFromSourcesLines lines={proficiencyLines.languages ? [proficiencyLines.languages] : []} />
               <textarea
                 value={draftLanguages}
                 onChange={(e) => setDraftLanguages(e.target.value)}
@@ -1052,53 +1092,23 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         ) : null}
       </div>
 
-      <Dialog open={languagesOpen} onOpenChange={setLanguagesOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-lg">Мови</DialogTitle>
-          </DialogHeader>
+      <TermPickerDialog
+        open={languagesOpen}
+        onOpenChange={setLanguagesOpen}
+        title="Мови"
+        terms={LanguageTranslations}
+        initialLabels={splitTermTokens(draftLanguages)}
+        onApply={(labels) => setDraftLanguages(labels.join(", "))}
+      />
 
-          <div className="max-h-[50vh] overflow-y-auto space-y-2">
-            {Object.entries(LanguageTranslations).map(([key, label]) => {
-              const checked = selectedLanguages.has(label) || selectedLanguages.has(key);
-              return (
-                <label key={key} className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2">
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={(e) => {
-                      setSelectedLanguages((prev) => {
-                        const next = new Set(prev);
-                        if (e.target.checked) next.add(label);
-                        else next.delete(label);
-                        return next;
-                      });
-                    }}
-                  />
-                  <span className="text-sm text-slate-100">{label}</span>
-                </label>
-              );
-            })}
-          </div>
-
-          <div className="flex items-center justify-end gap-2">
-            <Button type="button" variant="secondary" onClick={() => setLanguagesOpen(false)}>
-              Закрити
-            </Button>
-            <Button
-              type="button"
-              onClick={() => {
-                const list = Array.from(selectedLanguages);
-                const text = list.join(", ");
-                setDraftLanguages(text);
-                setLanguagesOpen(false);
-              }}
-            >
-              Підставити
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <TermPickerDialog
+        open={toolsOpen}
+        onOpenChange={setToolsOpen}
+        title="Інструменти"
+        terms={toolTranslations}
+        initialLabels={findMentionedTerms(draftProficiencies, toolTranslations)}
+        onApply={(labels) => setDraftProficiencies((text) => appendToolProficiencies(text, labels))}
+      />
 
       <HitDiceDialog
         pers={editablePers}
@@ -1123,16 +1133,10 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   );
 });
 
-function DerivedFromSourcesLines({ lines }: { lines: string[] }) {
-  if (lines.length === 0) return null;
-
-  return (
-    <div className="rounded-md border border-white/10 bg-slate-900/60 px-3 py-2 text-sm text-slate-100">
-      <div className="text-[9px] font-bold uppercase tracking-wide text-slate-400">З джерел персонажа</div>
-      {lines.map((line) => (
-        <div key={line}>{line}</div>
-      ))}
-    </div>
+function readProficiencyText(pers: PersWithRelations) {
+  return appendMissingProficiencies(
+    { proficiencies: String(pers.customProficiencies ?? ""), languages: String(pers.customLanguagesKnown ?? "") },
+    calculatePersProficiencies(pers),
   );
 }
 

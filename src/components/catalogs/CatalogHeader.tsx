@@ -5,6 +5,8 @@ import { Filter, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { EditionAccentTitle } from "@/components/ui/EditionAccent";
+import { findEditionAccent } from "@/styles/edition-accent";
 
 export type CatalogHeaderProps = {
   title: string;
@@ -34,18 +36,14 @@ export function CatalogHeader({
   onClearFilters,
   headerActions,
 }: CatalogHeaderProps) {
+  const edition = is2024 ? "2024" : "2014";
+  const accent = findEditionAccent(edition);
+
   return (
     <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shrink-0">
       <div className="flex items-center gap-2">
-        <h1
-          className={cn(
-            "font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider text-transparent bg-clip-text",
-            is2024
-              ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-              : "bg-gradient-to-r from-arcane-300 via-arcane-100 to-violet-300"
-          )}
-        >
-          {title}
+        <h1 className="font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider">
+          <EditionAccentTitle edition={edition}>{title}</EditionAccentTitle>
         </h1>
       </div>
 
@@ -56,7 +54,7 @@ export function CatalogHeader({
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder={searchPlaceholder}
-            className="pl-9 pr-8 bg-slate-900/60 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl h-9 text-xs"
+            className="pl-9 pr-8 bg-slate-900/60 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl h-10 text-xs md:h-9"
           />
           {searchQuery && (
             <button
@@ -76,11 +74,8 @@ export function CatalogHeader({
             size="sm"
             onClick={onOpenFilters}
             className={cn(
-              "h-9 gap-1.5 rounded-xl border-white/10 bg-slate-900/60 text-xs",
-              hasActiveFilters &&
-                (is2024
-                  ? "text-amber-300 border-amber-500/40 bg-amber-500/10"
-                  : "text-arcane-300 border-arcane-500/40 bg-arcane-500/10")
+              "h-10 gap-1.5 rounded-xl border-white/10 bg-slate-900/60 text-xs md:h-9",
+              hasActiveFilters && cn(accent.solid.text, accent.solid.border, accent.solid.fill)
             )}
           >
             <Filter className="h-3.5 w-3.5" />
@@ -89,7 +84,8 @@ export function CatalogHeader({
               <span
                 className={cn(
                   "ml-1 flex h-4 w-4 items-center justify-center rounded-full text-[10px] font-bold",
-                  is2024 ? "bg-amber-500 text-slate-950" : "bg-arcane-500 text-slate-950"
+                  accent.solid.strongFill,
+                  "text-slate-950"
                 )}
               >
                 {activeFiltersCount}
@@ -103,7 +99,7 @@ export function CatalogHeader({
             variant="ghost"
             size="sm"
             onClick={onClearFilters}
-            className="h-9 px-2 text-xs text-slate-400 hover:text-slate-200"
+            className="h-10 px-2 text-xs text-slate-400 hover:text-slate-200 md:h-9"
           >
             Скинути
           </Button>

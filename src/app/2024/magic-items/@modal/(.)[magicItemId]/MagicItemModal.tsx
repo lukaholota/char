@@ -21,15 +21,15 @@ function rarityLabel(rarity: string) {
 
 function MagicItemModalCard({ item, onClose }: { item: MagicItemWithSpells; onClose: () => void }) {
   return (
-    <div className="glass-card border border-white/10 bg-slate-950/60 p-3 shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20 backdrop-blur-xl sm:p-5 max-w-full overflow-x-hidden">
+    <div className="glass-card border border-white/10 bg-slate-950/60 p-3 shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20 backdrop-blur-xl sm:p-5 max-w-full overflow-x-hidden">
       <div className="flex items-start justify-between gap-2">
-        <h2 className="flex-1 min-w-0 font-sans text-base sm:text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500 truncate">
+        <h2 className="flex-1 min-w-0 font-sans text-base sm:text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-prism-300 to-prism-500 truncate">
           {item.name}
         </h2>
         <button
           type="button"
           onClick={onClose}
-          className="glass-panel inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90 hover:text-amber-300"
+          className="glass-panel inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/50 text-slate-200/90 hover:text-prism-300"
           aria-label="Закрити"
         >
           <X className="h-4 w-4" />
@@ -44,7 +44,7 @@ function MagicItemModalCard({ item, onClose }: { item: MagicItemWithSpells; onCl
             <span className="text-slate-300">{rarityLabel(item.rarity)}</span>
           </div>
 
-          <div className="min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs text-amber-300 truncate">
+          <div className="min-w-0 max-w-[40%] flex-shrink text-right text-[10px] sm:text-xs text-prism-300 truncate">
             {item.requiresAttunement ? "Потребує налаштування" : "Без налаштування"}
           </div>
         </div>

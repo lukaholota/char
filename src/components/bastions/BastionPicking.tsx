@@ -28,10 +28,12 @@ export function BastionMatchBadge({
   level,
   prerequisiteText,
   match,
+  isAlreadyBuilt = false,
 }: {
   level: number | null;
   prerequisiteText: string;
   match: BastionFacilityMatch;
+  isAlreadyBuilt?: boolean;
 }) {
   const look = MATCH_LOOKS[match.status];
   const Icon = look.icon;
@@ -52,6 +54,12 @@ export function BastionMatchBadge({
           <span className="inline-flex items-center gap-1 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-semibold text-amber-300">
             <AlertTriangle className="h-3 w-3" />
             Рівень {level}+
+          </span>
+        ) : null}
+        {isAlreadyBuilt ? (
+          <span className="inline-flex items-center gap-1 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-semibold text-amber-300">
+            <AlertTriangle className="h-3 w-3" />
+            Вже в бастіоні — спеціальне береться один раз
           </span>
         ) : null}
       </div>

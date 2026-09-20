@@ -22,6 +22,7 @@ import { BackgroundAsiForm } from "@/lib/components/characterCreator/BackgroundA
 import { asiSystemCopy, asiSystems, attributes, attributesUrkShort } from "@/lib/components/characterCreator/asi-fields";
 import { useBackgroundAsi } from "@/lib/components/characterCreator/useBackgroundAsi";
 import type { RulesetId } from "@/rules/strategies/types";
+import { buildScoresBeforeBackgroundAsi } from "@/rules/character-creation";
 import { toast } from "sonner";
 
 
@@ -166,10 +167,32 @@ export const ASIForm = (
     control: form.control,
     name: 'simpleAsi'
   })
+  const watchedPointBuyAsi = useWatch({ control: form.control, name: 'asi' })
+  const watchedCustomAsi = useWatch({ control: form.control, name: 'customAsi' })
+  const raceChoiceSelections = usePersFormStore((s) => s.formData.raceChoiceSelections)
 
   const isDefaultASI = form.watch('isDefaultASI') ?? true
   const asiSystem = form.watch('asiSystem') || asiSystems.POINT_BUY
   const points = form.watch('points') || 0
+
+  const scoresBeforeBackgroundAsi = useMemo(() => {
+    const selectedOptionIds = new Set(Object.values(raceChoiceSelections ?? {}));
+    return buildScoresBeforeBackgroundAsi({
+      ruleset,
+      asiSystem,
+      pointBuy: watchedPointBuyAsi ?? [],
+      simple: watchedSimpleAsi ?? [],
+      custom: (watchedCustomAsi ?? []).map((entry) => ({ ability: entry.ability, value: entry.value ?? Number.NaN })),
+      isDefaultASI,
+      raceASI: race.ASI,
+      variantASI: raceVariant?.overridesRaceASI,
+      subraceASI: subrace?.additionalASI,
+      subraceReplacesASI: subraceReplacesAsi,
+      raceChoiceAbilityBonuses: (race.raceChoiceOptions ?? [])
+        .filter((option) => selectedOptionIds.has(option.optionId))
+        .map((option) => ({ ASI: option.ASI })),
+    });
+  }, [ruleset, asiSystem, watchedPointBuyAsi, watchedSimpleAsi, watchedCustomAsi, isDefaultASI, race, raceVariant, subrace, subraceReplacesAsi, raceChoiceSelections])
 
   useEffect(() => {
     const overspentPoints = asiSystem === asiSystems.POINT_BUY && points < 0;
@@ -492,22 +515,22 @@ export const ASIForm = (
             onValueChange={(value) => form.setValue('asiSystem', value)}
             className="w-full"
           >
-            <TabsList className="grid w-full grid-cols-3 bg-white/5 text-slate-300">
+            <TabsList className="grid w-full grid-cols-3 bg-white/5 text-slate-300 max-md:h-12">
               <TabsTrigger
                 value={asiSystems.POINT_BUY}
-                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white max-md:min-h-10"
               >
                 За очками
               </TabsTrigger>
               <TabsTrigger
                 value={asiSystems.SIMPLE}
-                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white max-md:min-h-10"
               >
                 Просто
               </TabsTrigger>
               <TabsTrigger
                 value={asiSystems.CUSTOM}
-                className="data-[state=active]:bg-white/7 data-[state=active]:text-white"
+                className="data-[state=active]:bg-white/7 data-[state=active]:text-white max-md:min-h-10"
               >
                 Вільно
               </TabsTrigger>
@@ -669,7 +692,7 @@ export const ASIForm = (
           </CardTitle>
         </CardHeader>
         {backgroundAsi.step ? (
-          <BackgroundAsiForm step={backgroundAsi.step} background={background} draft={backgroundAsi.draft} onChange={backgroundAsi.setDraft} />
+          <BackgroundAsiForm step={backgroundAsi.step} background={background} draft={backgroundAsi.draft} scoresBefore={scoresBeforeBackgroundAsi} onChange={backgroundAsi.setDraft} />
         ) : (
         <CardContent className="space-y-4">
           {form.formState.errors.racialBonusChoiceSchema && (

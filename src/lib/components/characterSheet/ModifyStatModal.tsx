@@ -23,6 +23,7 @@ import {
   calculateFinalAC,
   calculateFinalInitiative,
   calculateFinalProficiency,
+  calculateFinalSpeed,
   calculateSpellAttack,
   calculateSpellDC,
   explainFinalAC,
@@ -72,7 +73,6 @@ export default function ModifyStatModal({
   const [baseStatInput, setBaseStatInput] = useState<string>("");
   const [baseACInput, setBaseACInput] = useState<string>("");
   const [maxHpInput, setMaxHpInput] = useState<string>("");
-  
   // Local bonus states for immediate feedback
   const [localStatBonus, setLocalStatBonus] = useState(0);
   const [localModifierBonus, setLocalModifierBonus] = useState(0);
@@ -238,7 +238,7 @@ export default function ModifyStatModal({
       switch (config.field) {
         case "hp": baseValue = pers.maxHp; break;
         case "ac": baseValue = calculateFinalAC(effectivePers) - getSimpleBonus(pers, "ac"); break;
-        case "speed": baseValue = 30; break;
+        case "speed": baseValue = calculateFinalSpeed(pers) - getSimpleBonus(pers, "speed"); break;
         case "proficiency": baseValue = getProficiencyBonus(pers.level); break;
         case "initiative": baseValue = calculateFinalInitiative(pers) - getSimpleBonus(pers, "initiative"); break;
         case "spellAttack": {

@@ -4,12 +4,13 @@ import {createJSONStorage, persist} from "zustand/middleware";
 
 export type DraftRuleset = "RULES_2014" | "RULES_2024";
 
-type DraftScope = "CREATOR_2014" | "CREATOR_2024" | "LEVEL_UP";
+type DraftScope = "CREATOR_2014" | "CREATOR_2024" | "LEVEL_UP" | "SHEET_FEAT";
 
 const DRAFT_STORAGE_KEY_BY_SCOPE: Record<DraftScope, string> = {
   CREATOR_2014: "dnd-pers-form",
   CREATOR_2024: "dnd-2024-pers-form",
   LEVEL_UP: "dnd-pers-levelup",
+  SHEET_FEAT: "dnd-pers-sheet-feat",
 };
 
 const createEmptyDraft = () => ({
@@ -126,6 +127,10 @@ export function activateCreatorDraftStorage(ruleset: DraftRuleset): void {
 
 export function activateLevelUpDraftStorage(): void {
   activateDraftStorage("LEVEL_UP");
+}
+
+export function activateSheetFeatDraftStorage(): void {
+  activateDraftStorage("SHEET_FEAT");
 }
 
 function activateDraftStorage(scope: DraftScope): void {

@@ -7,6 +7,7 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getBastionFacilityVisual } from "@/components/catalogs/catalog-visuals";
 import { BastionFacilityDetailCard } from "@/components/bastions/BastionFacilityDetailCard";
 import { BastionsFilterDialog } from "@/components/bastions/BastionsFilterDialog";
+import { BastionRulesLink } from "@/components/bastions/BastionFacilityBasics";
 import {
   BastionAddFacility,
   BastionMatchBadge,
@@ -14,7 +15,7 @@ import {
 } from "@/components/bastions/BastionPicking";
 import { addFacility, loadBastionPicker } from "@/lib/actions/bastion-actions";
 import type { BastionPicker } from "@/server/db/bastions";
-import { findFacilityMatch, findSpecialFacilityUsage } from "@/rules/bastions";
+import { findFacilityMatch, findSpecialFacilityUsage, isSpecialFacilityAlreadyBuilt } from "@/rules/bastions";
 import { toast } from "sonner";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
@@ -167,7 +168,7 @@ export function BastionsClient({
               type="button"
               onClick={() => selectLevelTab(tab.key)}
               className={cn(
-                "shrink-0 rounded-xl border px-3 py-1.5 text-xs font-medium transition-all",
+                "shrink-0 rounded-xl border px-3 py-1.5 text-xs font-medium transition-all max-md:min-h-10",
                 activeTab === tab.key
                   ? "border-amber-500/50 bg-amber-500/20 text-amber-200 shadow-sm"
                   : "border-white/5 bg-slate-900/40 text-slate-400 hover:bg-white/5 hover:text-slate-200"
@@ -188,7 +189,9 @@ export function BastionsClient({
               used: picker.specialCount,
             })}
           />
-        ) : undefined
+        ) : (
+          <BastionRulesLink />
+        )
       }
       data={filtered}
       emptyState={
@@ -259,6 +262,7 @@ export function BastionsClient({
                     level={facility.level}
                     prerequisiteText={facility.prerequisiteText}
                     match={findFacilityMatch(facility, picker.profile)}
+                    isAlreadyBuilt={isSpecialFacilityAlreadyBuilt(facility, picker.facilityViews.map((view) => view.slug))}
                   />
                   <BastionAddFacility
                     facility={facility}

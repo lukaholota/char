@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { findLevelUpWeaponMastery } from "@/lib/components/levelUp/levelup-weapon-mastery";
+import { NO_WEAPON_PROFICIENCY } from "@/rules/weapon-mastery";
 
 const FIGHTER_PROGRESSION = [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6];
 
@@ -30,6 +31,7 @@ describe("майстерність зброї на підвищенні рівн
       classLevelAfter: 4,
       mainClassLevel: 3,
       weapons,
+      proficiency: NO_WEAPON_PROFICIENCY,
     });
 
     expect(mastery.capacity).toBe(4);
@@ -50,6 +52,7 @@ describe("майстерність зброї на підвищенні рівн
       classLevelAfter: 2,
       mainClassLevel: 3,
       weapons,
+      proficiency: NO_WEAPON_PROFICIENCY,
     });
 
     expect(mastery.capacity).toBe(3);
@@ -64,6 +67,7 @@ describe("майстерність зброї на підвищенні рівн
       classLevelAfter: 1,
       mainClassLevel: 3,
       weapons,
+      proficiency: NO_WEAPON_PROFICIENCY,
     });
 
     expect(mastery.capacity).toBe(3);
@@ -84,6 +88,7 @@ describe("слот майстерності від риси", () => {
       classLevelAfter: 4,
       mainClassLevel: 3,
       weapons,
+      proficiency: NO_WEAPON_PROFICIENCY,
     });
     const withFeat = findLevelUpWeaponMastery({
       pers: { classId: 1, class: fighter, multiclasses: [], feats: [weaponMaster], pers_weapon_mastery: [] },
@@ -92,13 +97,16 @@ describe("слот майстерності від риси", () => {
       classLevelAfter: 4,
       mainClassLevel: 3,
       weapons,
+      proficiency: NO_WEAPON_PROFICIENCY,
     });
 
     expect(withoutFeat.capacity).toBe(4);
     expect(withFeat.capacity).toBe(5);
   });
 
-  it("риса відкриває майстерність класу, який її не має", () => {
+  const simpleWeaponsOnly = { weaponTypes: ["SIMPLE_WEAPON"], specificWeaponNames: [] };
+
+  it("риса відкриває майстерність класу, який її не має, — із простої зброї, якою він володіє", () => {
     const mastery = findLevelUpWeaponMastery({
       pers: { classId: 2, class: wizard, multiclasses: [], feats: [weaponMaster], pers_weapon_mastery: [] },
       selectedClass: wizard,
@@ -106,9 +114,39 @@ describe("слот майстерності від риси", () => {
       classLevelAfter: 4,
       mainClassLevel: 3,
       weapons,
+      proficiency: simpleWeaponsOnly,
     });
 
     expect(mastery.capacity).toBe(1);
     expect(mastery.needsChoice).toBe(true);
+    expect(mastery.options.map((weapon) => weapon.name)).toEqual(["HANDAXE"]);
+  });
+
+  it("володіння бойовою зброєю від риси відкриває її для слота Weapon Master", () => {
+    const mastery = findLevelUpWeaponMastery({
+      pers: { classId: 2, class: wizard, multiclasses: [], feats: [weaponMaster], pers_weapon_mastery: [] },
+      selectedClass: wizard,
+      selectedClassId: 2,
+      classLevelAfter: 4,
+      mainClassLevel: 3,
+      weapons,
+      proficiency: { weaponTypes: ["SIMPLE_WEAPON", "MARTIAL_WEAPON"], specificWeaponNames: [] },
+    });
+
+    expect(mastery.options.map((weapon) => weapon.name)).toEqual(["GREATSWORD", "HANDAXE"]);
+  });
+
+  it("без риси володіння чарівника пулу не відкривають", () => {
+    const mastery = findLevelUpWeaponMastery({
+      pers: { classId: 2, class: wizard, multiclasses: [], feats: [], pers_weapon_mastery: [] },
+      selectedClass: wizard,
+      selectedClassId: 2,
+      classLevelAfter: 4,
+      mainClassLevel: 3,
+      weapons,
+      proficiency: simpleWeaponsOnly,
+    });
+
+    expect(mastery).toMatchObject({ capacity: 0, options: [], needsChoice: false });
   });
 });

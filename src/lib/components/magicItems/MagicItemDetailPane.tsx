@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { itemRarityTranslations, magicItemTypeTranslations } from "@/lib/refs/translation";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 export type MagicItemDetail = {
   magicItemId: number;
@@ -53,9 +55,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
     <div
       className={cn(
         "glass-card border border-white/10 p-4 backdrop-blur-xl sm:p-6 lg:max-w-3xl lg:mx-auto rounded-2xl",
-        is2024
-          ? "bg-slate-950/60 shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "bg-slate-950/15 shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10",
+        findAccentVariant(is2024, { prism: "bg-slate-950/60 shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "bg-slate-950/15 shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10" }),
         isEmbedMode ? "h-full overflow-y-auto" : "",
         className || ""
       )}
@@ -65,17 +65,13 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
           <h2
             className={cn(
               "font-sans text-xl font-semibold uppercase tracking-[0.16em] text-transparent bg-clip-text break-words whitespace-normal text-balance leading-tight",
-              is2024
-                ? "bg-gradient-to-r from-amber-300 via-amber-100 to-amber-400"
-                : "bg-gradient-to-r from-arcane-400 to-violet-400"
+              findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 via-prism-100 to-prism-400", arcane: "bg-gradient-to-r from-arcane-400 to-violet-400" })
             )}
           >
             {item.name}
           </h2>
           {is2024 && (
-            <span className="rounded-md border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
-              2024
-            </span>
+            <EditionAccentChip edition="2024">2024</EditionAccentChip>
           )}
         </div>
         {item.engName && item.engName !== item.name && (
@@ -101,7 +97,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
             {item.requiresAttunement && (
               <>
                 <span className="text-slate-500">•</span>
-                <span className={is2024 ? "text-amber-300/90" : "text-arcane-300/80"}>
+                <span className={findAccentVariant(is2024, { prism: "text-prism-300/90", arcane: "text-arcane-300/80" })}>
                   {item.attunementConditionEng ? `Налаштування (${item.attunementConditionEng})` : "Потребує налаштування"}
                 </span>
               </>
@@ -116,20 +112,20 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
           {item.bonusToAC && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
               <div className="text-xs text-slate-400 uppercase tracking-wider">Бонус до КБ</div>
-              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-arcane-300")}>+{item.bonusToAC}</div>
+              <div className={cn("mt-1 text-lg font-bold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>+{item.bonusToAC}</div>
               {item.noArmorOrShieldForACBonus && <div className="text-[10px] text-slate-500 leading-tight mt-1">Тільки без броні/щита</div>}
             </div>
           )}
           {item.bonusToRangedDamage && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
               <div className="text-xs text-slate-400 uppercase tracking-wider">Рендж шкода</div>
-              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-arcane-300")}>+{item.bonusToRangedDamage}</div>
+              <div className={cn("mt-1 text-lg font-bold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>+{item.bonusToRangedDamage}</div>
             </div>
           )}
           {savingThrowsBonus !== null && (
             <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
               <div className="text-xs text-slate-400 uppercase tracking-wider">Рятівні кидки</div>
-              <div className={cn("mt-1 text-lg font-bold", is2024 ? "text-amber-300" : "text-arcane-300")}>+{savingThrowsBonus}</div>
+              <div className={cn("mt-1 text-lg font-bold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>+{savingThrowsBonus}</div>
             </div>
           )}
         </div>

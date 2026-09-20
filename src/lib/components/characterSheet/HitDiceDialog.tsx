@@ -10,6 +10,8 @@ import { PersWithRelations } from "@/lib/actions/pers";
 import { setHitDice } from "@/lib/actions/rest-actions";
 import { restTranslations } from "@/lib/refs/translation";
 import { collectPersHitDicePools } from "@/lib/logic/pers-hit-dice";
+import { useOfflineQueue } from "@/hooks/useOfflineQueue";
+import { createOperationId } from "@/lib/offline/queue";
 
 interface HitDiceDialogProps {
   pers: PersWithRelations;
@@ -20,6 +22,7 @@ interface HitDiceDialogProps {
 
 export default function HitDiceDialog({ pers, open, onOpenChange, onPersUpdate }: HitDiceDialogProps) {
   const router = useRouter();
+  const { commitOperation } = useOfflineQueue();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [remaining, setRemaining] = useState<Record<number, number>>({});
 
@@ -51,15 +54,22 @@ export default function HitDiceDialog({ pers, open, onOpenChange, onPersUpdate }
     if (isSubmitting) return;
     setIsSubmitting(true);
     try {
-      const res = await setHitDice(pers.persId, remaining);
-      if (!res.success) {
-        toast.error(res.error);
-        return;
+      const outcome = await commitOperation(
+        { kind: "hit-dice", remainingByClass: remaining, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
+        () => setHitDice(pers.persId, remaining),
+      );
+      let currentHitDice: Record<number, number> = remaining;
+      if (!outcome.queued) {
+        if (!outcome.result.success) {
+          toast.error(outcome.result.error);
+          return;
+        }
+        currentHitDice = outcome.result.currentHitDice;
       }
 
-      onPersUpdate?.({ ...pers, currentHitDice: res.currentHitDice } as PersWithRelations);
+      onPersUpdate?.({ ...pers, currentHitDice } as PersWithRelations);
       onOpenChange(false);
-      router.refresh();
+      if (!outcome.queued) router.refresh();
     } finally {
       setIsSubmitting(false);
     }

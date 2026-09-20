@@ -9,6 +9,8 @@ import weapons2014Json from "./generated/weapons.json";
 import weapons2024Json from "../../data/2024/normalized/weapons.json";
 import { weaponTranslations } from "./refs/translation";
 import { toEntitySlug } from "./slug-utils";
+import { formatDiceUkr } from "./logic/equipment-stats";
+import { translateCost, translateWeight } from "./logic/equipment-units";
 
 export type WeaponData = {
   id: number;
@@ -126,19 +128,19 @@ const weapons2024: WeaponData[] = (weapons2024Json as Array<{
     name: `${ua} [${w.engName}]`,
     nameUa: ua,
     engName: w.engName,
-    damage: w.damage,
+    damage: formatDiceUkr(w.damage),
     damageType: w.damageType as DamageType,
     weaponType: w.weaponCategory === "SIMPLE" ? WeaponType.SIMPLE_WEAPON : WeaponType.MARTIAL_WEAPON,
     properties: props,
     normalRange,
     longRange,
-    versatileDamage,
+    versatileDamage: versatileDamage ? formatDiceUkr(versatileDamage) : null,
     isRanged: Boolean(w.isRanged),
     isAdditional: false,
     mastery: (w.mastery as WeaponMastery) ?? null,
     masteryNameUa: w.masteryNameUa ?? null,
-    weight: w.weight,
-    cost: w.cost,
+    weight: translateWeight(w.weight),
+    cost: translateCost(w.cost),
     ruleset: "RULES_2024" as Ruleset,
     source: w.source || "PHB_2024",
   };

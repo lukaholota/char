@@ -1,31 +1,23 @@
 "use client";
 
-import type { Ruleset } from "@prisma/client";
 import { ArrowUpRight } from "lucide-react";
-import { OMNI_CATEGORY_LABELS, findCategoryCatalogHref, type OmniSearchCategory } from "@/lib/search/omni-categories";
-
-/// Б3 з KR13.4: з вікна пошуку не було як потрапити в самі каталоги — «це даремно».
-const CATALOG_ORDER: OmniSearchCategory[] = [
-  "characters",
-  "rules",
-  "spells",
-  "magic-items",
-  "feats",
-  "bestiary",
-  "backgrounds",
-  "weapons",
-  "armor",
-  "invocations",
-  "classes",
-  "races",
-];
+import type { Edition } from "@/rules/route-helpers";
+import {
+  collectSearchCatalogs,
+  findCatalogHref,
+  findCatalogSearchTitle,
+  type CatalogSlug,
+} from "@/lib/catalogs/catalog-registry";
 
 type Props = {
-  ruleset: Ruleset;
-  onOpenCatalog: (category: OmniSearchCategory) => void;
+  edition: Edition;
+  onOpenCatalog: (category: CatalogSlug) => void;
 };
 
-export function OmniSearchCategoryLinks({ ruleset, onOpenCatalog }: Props) {
+/// Б3 з KR13.4: з вікна пошуку не було як потрапити в самі каталоги — «це даремно».
+/// Плитки йдуть із реєстру за редакцією, тож каталог однієї редакції (інфузії, бастіони)
+/// зʼявляється лише там, де має адресу.
+export function OmniSearchCategoryLinks({ edition, onOpenCatalog }: Props) {
   return (
     <div className="py-4">
       <p className="px-1 text-xs text-slate-400">
@@ -33,15 +25,15 @@ export function OmniSearchCategoryLinks({ ruleset, onOpenCatalog }: Props) {
       </p>
 
       <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2">
-        {CATALOG_ORDER.map((category) => (
+        {collectSearchCatalogs(edition).map((entry) => (
           <button
-            key={category}
+            key={entry.slug}
             type="button"
-            onClick={() => onOpenCatalog(category)}
-            title={findCategoryCatalogHref(category, ruleset)}
+            onClick={() => onOpenCatalog(entry.slug)}
+            title={findCatalogHref(entry.slug, edition) ?? undefined}
             className="flex items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-left text-xs font-medium text-slate-300 hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-amber-200 transition-all"
           >
-            <span className="truncate">{OMNI_CATEGORY_LABELS[category]}</span>
+            <span className="truncate">{findCatalogSearchTitle(entry.slug, edition)}</span>
             <ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-60" />
           </button>
         ))}

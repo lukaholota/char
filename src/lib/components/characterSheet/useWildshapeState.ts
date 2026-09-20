@@ -17,6 +17,9 @@ export type WildshapeState = {
   isLoaded: boolean;
   isPending: boolean;
   reload: () => void;
+  /// Оптимістичний залишок пулу: кнопка лічильника малює нове число до відповіді сервера, а на
+  /// невдачі повертає старе тим самим викликом.
+  applyUsesRemaining: (remaining: number) => void;
 };
 
 export function useWildshapeState(persId: number): WildshapeState {
@@ -29,17 +32,26 @@ export function useWildshapeState(persId: number): WildshapeState {
 
   useEffect(() => {
     let cancelled = false;
-
-    loadWildshapeForms(persId).then((result) => {
-      if (cancelled) return;
-      if (result.ok) {
-        setForms(result.forms);
-        setStanding(result.standing);
-        setActive(result.active);
-        setUses(result.uses);
-      }
+    if (!navigator.onLine) {
       setIsLoaded(true);
-    });
+      return;
+    }
+
+    loadWildshapeForms(persId)
+      .then((result) => {
+        if (cancelled) return;
+        if (result.ok) {
+          setForms(result.forms);
+          setStanding(result.standing);
+          setActive(result.active);
+          setUses(result.uses);
+        }
+        setIsLoaded(true);
+      })
+      .catch(() => {
+        // Без мережі дія не доходить до сервера — картка Дикої форми чесно лишається порожньою.
+        if (!cancelled) setIsLoaded(true);
+      });
 
     return () => {
       cancelled = true;
@@ -47,6 +59,7 @@ export function useWildshapeState(persId: number): WildshapeState {
   }, [persId]);
 
   const reload = useCallback(() => {
+    if (!navigator.onLine) return;
     startTransition(async () => {
       const result = await loadWildshapeForms(persId);
       if (!result.ok) return;
@@ -57,5 +70,11 @@ export function useWildshapeState(persId: number): WildshapeState {
     });
   }, [persId]);
 
-  return { forms, standing, active, uses, isLoaded, isPending, reload };
+  const applyUsesRemaining = useCallback((remaining: number) => {
+    setUses((current) =>
+      current ? { ...current, remaining: Math.max(0, Math.min(current.max, remaining)) } : current
+    );
+  }, []);
+
+  return { forms, standing, active, uses, isLoaded, isPending, reload, applyUsesRemaining };
 }

@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { findTermCard } from "@/lib/term-catalog-chunk";
-import type { TermCard } from "@/lib/term-card";
+import { listDictionaryFormsUnlikeTerm, type TermCard } from "@/lib/term-card";
 import {
   closeTermLink,
   findTermLinkInSearch,
@@ -18,8 +18,9 @@ import type { Ruleset } from "@prisma/client";
 
 /// Модалка терміна за маркером `термін{{Original}}` (KR30.3) — той самий механізм, що й у
 /// заклинань (KR25.1): адреса несе `?term=Insight`, дані приїжджають окремим чанком, кнопка
-/// «назад» закриває. Показує, що словник каже про оригінал, якими ще словами його шукають,
-/// і статтю довідника, стан чи запис каталогу, якщо вони є.
+/// «назад» закриває. Стан і стаття довідника йдуть одразу під заголовком; словникова форма —
+/// лише коли статті немає й вона відрізняється від натиснутого слова (у 97 % випадків вона
+/// повторювала заголовок, виміряно 2026-09-18); далі інші написання й запис каталогу.
 export function TermInfoModal() {
   const [termLink, setTermLink] = useState<TermLink | null>(() => findTermLinkInLocation());
   const [clickedTerm, setClickedTerm] = useState("");
@@ -75,7 +76,8 @@ export function TermInfoModal() {
   };
 
   const title = clickedTerm || card?.dictionary[0]?.term || card?.condition?.name || termLink?.original || "Термін";
-  const hasNothing = card !== null && card.dictionary.length === 0 && !card.article && !card.condition && !card.catalog;
+  const dictionaryForms = card ? listDictionaryFormsUnlikeTerm(card, title) : [];
+  const hasNothing = card !== null && dictionaryForms.length === 0 && !card.article && !card.condition && !card.catalog;
 
   return (
     <Dialog
@@ -98,23 +100,6 @@ export function TermInfoModal() {
                 <div className="h-4 w-full rounded bg-slate-700/30" />
               </div>
             </div>
-          )}
-
-          {card && card.dictionary.length > 0 && (
-            <TermSection label="У словнику">
-              {card.dictionary.map((entry) => (
-                <div key={`${entry.section}:${entry.term}`} className="text-sm">
-                  <span className="text-slate-200">{entry.term}</span>
-                  <span className="text-slate-500"> — {entry.section}</span>
-                </div>
-              ))}
-            </TermSection>
-          )}
-
-          {card && card.aliases.length > 0 && (
-            <TermSection label="Інші написання, за якими це шукають">
-              <div className="text-sm text-slate-300">{card.aliases.join(", ")}</div>
-            </TermSection>
           )}
 
           {card?.condition && (
@@ -143,6 +128,30 @@ export function TermInfoModal() {
                 className="mt-1 text-sm leading-relaxed text-slate-300 break-words"
               />
               <TermSectionLink href={card.article.href}>Відкрити статтю</TermSectionLink>
+            </TermSection>
+          )}
+
+          {card?.otherEdition && (
+            <TermSection label={`Довідник ${labelForRuleset(card.ruleset)}`}>
+              <p className="text-sm text-slate-300">
+                Статті {labelForRuleset(card.ruleset)} про це немає. У довіднику{" "}
+                {labelForRuleset(card.otherEdition.ruleset)} є, але правило там може відрізнятися.
+              </p>
+              <TermSectionLink href={card.otherEdition.href}>
+                Відкрити статтю {labelForRuleset(card.otherEdition.ruleset)}
+              </TermSectionLink>
+            </TermSection>
+          )}
+
+          {dictionaryForms.length > 0 && (
+            <TermSection label="У словнику">
+              <div className="text-sm text-slate-200">{dictionaryForms.join(", ")}</div>
+            </TermSection>
+          )}
+
+          {card && card.aliases.length > 0 && (
+            <TermSection label="Інші написання, за якими це шукають">
+              <div className="text-sm text-slate-300">{card.aliases.join(", ")}</div>
             </TermSection>
           )}
 

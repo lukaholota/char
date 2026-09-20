@@ -1,7 +1,8 @@
 "use client";
 
 import { Skills } from "@prisma/client";
-import { Dices, Shield, Sparkles, Wrench } from "lucide-react";
+import { Shield, Sparkles, Wrench } from "lucide-react";
+import { D20Icon } from "@/lib/components/icons/D20Icon";
 
 import type { ClassData, ClassFeature } from "@/lib/classesData";
 import { CatalogProse } from "@/components/catalogs/CatalogProse";
@@ -9,9 +10,11 @@ import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/Sect
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { useIsArtHidden } from "@/components/no-ai/ContentImage";
+import { useIsDeferredRenderReady } from "@/hooks/useIsDeferredRenderReady";
 import { cn } from "@/lib/utils";
 import { skillTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { describeSkillChoice, formatAnySkillsLabel, normalizeSkillProficiencies } from "@/rules/proficiency";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 const ALL_SKILLS = Object.values(Skills);
 
@@ -22,14 +25,14 @@ export function ClassDetailCard({
   characterClass: ClassData;
   is2024?: boolean;
 }) {
+  const isFeatureListReady = useIsDeferredRenderReady(characterClass);
+
   return (
     <div
       {...jumpTargetAttributes.scope}
       className={cn(
         "glass-card max-w-full overflow-hidden break-words rounded-2xl border border-white/10 bg-slate-950/60 p-4 backdrop-blur-xl sm:p-6",
-        is2024
-          ? "shadow-[0_0_30px_rgba(245,158,11,0.08)] ring-1 ring-amber-500/20"
-          : "shadow-[0_0_30px_rgba(141,99,238,0.08)] ring-1 ring-white/10",
+        findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(141,99,238,0.08)] ring-1 ring-white/10" }),
       )}
     >
       <Header characterClass={characterClass} is2024={is2024} />
@@ -41,6 +44,18 @@ export function ClassDetailCard({
       />
       <MetaGrid characterClass={characterClass} />
 
+      {isFeatureListReady ? (
+        <FeatureSections characterClass={characterClass} />
+      ) : (
+        <div aria-hidden className="min-h-[100dvh]" />
+      )}
+    </div>
+  );
+}
+
+function FeatureSections({ characterClass }: { characterClass: ClassData }) {
+  return (
+    <>
       {characterClass.features.length > 0 ? (
         <Section title={`Здібності класу (${characterClass.features.length})`}>
           <FeatureList features={characterClass.features} />
@@ -79,7 +94,7 @@ export function ClassDetailCard({
           </div>
         </Section>
       ) : null}
-    </div>
+    </>
   );
 }
 
@@ -105,7 +120,7 @@ function Header({ characterClass, is2024 }: { characterClass: ClassData; is2024:
         <h1
           className={cn(
             "font-rpg-display text-xl uppercase tracking-wide sm:text-2xl",
-            is2024 ? "text-amber-200" : "text-arcane-200",
+            findAccentVariant(is2024, { prism: "text-prism-200", arcane: "text-arcane-200" }),
           )}
         >
           {characterClass.name}
@@ -127,7 +142,7 @@ function MetaGrid({ characterClass }: { characterClass: ClassData }) {
 
   return (
     <div className="mt-4 grid gap-2 sm:grid-cols-2">
-      <MetaCell icon={Dices} label="Рятівні кидки" value={characterClass.savingThrows.join(", ") || "—"} />
+      <MetaCell icon={D20Icon} label="Рятівні кидки" value={characterClass.savingThrows.join(", ") || "—"} />
       <MetaCell icon={Sparkles} label="Чаротворення" value={casting} />
       <MetaCell
         icon={Shield}

@@ -17,6 +17,7 @@ import {
   type CreatureSortMode,
 } from "@/lib/bestiary-sort";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 export function BestiarySortMenu({
   mode,
@@ -39,9 +40,7 @@ export function BestiarySortMenu({
           className={cn(
             "h-9 gap-1.5 rounded-xl border-white/10 bg-slate-900/60 text-xs",
             !isDefault &&
-              (is2024
-                ? "text-amber-300 border-amber-500/40 bg-amber-500/10"
-                : "text-arcane-300 border-arcane-500/40 bg-arcane-500/10")
+              (findAccentVariant(is2024, { prism: "text-prism-300 border-prism-500/40 bg-prism-500/10", arcane: "text-arcane-300 border-arcane-500/40 bg-arcane-500/10" }))
           )}
         >
           <ArrowUpDown className="h-3.5 w-3.5" />
@@ -61,7 +60,7 @@ export function BestiarySortMenu({
           >
             <span className="truncate">{option.label}</span>
             {option.mode === mode && (
-              <Check className={cn("h-4 w-4", is2024 ? "text-amber-400" : "text-arcane-400")} />
+              <Check className={cn("h-4 w-4", findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" }))} />
             )}
           </DropdownMenuItem>
         ))}

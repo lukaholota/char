@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Ruleset } from "@prisma/client";
-import { loadCreatureStatblock } from "@/lib/actions/bestiary-actions";
+import { fetchCreatureStatblock } from "@/lib/catalog-reads";
 import type { CreatureData } from "@/lib/bestiaryData";
 import { toEntitySlug } from "@/lib/slug-utils";
 
@@ -36,11 +36,13 @@ export function useCreatureStatblock(
 
     setStatblock(null);
     let cancelled = false;
-    loadCreatureStatblock(key, ruleset).then((loaded) => {
-      if (cancelled || !loaded) return;
-      loadedRef.current.set(key, loaded);
-      setStatblock(loaded);
-    });
+    fetchCreatureStatblock(key, ruleset)
+      .then((loaded) => {
+        if (cancelled || !loaded) return;
+        loadedRef.current.set(key, loaded);
+        setStatblock(loaded);
+      })
+      .catch((error: unknown) => console.error("Не вдалося завантажити статблок", error));
 
     return () => {
       cancelled = true;

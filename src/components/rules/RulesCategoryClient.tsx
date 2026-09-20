@@ -22,6 +22,8 @@ import { Input } from "@/components/ui/input";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { cn } from "@/lib/utils";
+import { findAccentVariant } from "@/styles/edition-accent";
+import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
 type Props = {
   category: RuleCategory;
@@ -157,9 +159,7 @@ export function RulesCategoryClient({
                     {category.title}
                   </h1>
                   {is2024 && (
-                    <span className="rounded-lg border border-amber-500/40 bg-amber-500/15 px-2 py-0.5 text-xs font-semibold uppercase text-amber-300">
-                      2024
-                    </span>
+                    <EditionAccentChip edition="2024" className="text-xs">2024</EditionAccentChip>
                   )}
                 </div>
                 <p className="mt-1.5 text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed font-sans">
@@ -381,9 +381,7 @@ function TableOfContents({
                 className={cn(
                   "flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-semibold transition-colors duration-200",
                   isCurrentCategory
-                    ? is2024
-                      ? "bg-amber-500/15 text-amber-300 border border-amber-500/30"
-                      : "bg-arcane-500/15 text-arcane-300 border border-arcane-500/30"
+                    ? findAccentVariant(is2024, { prism: "bg-prism-500/15 text-prism-300 border border-prism-500/30", arcane: "bg-arcane-500/15 text-arcane-300 border border-arcane-500/30" })
                     : isExpanded
                     ? "border border-white/15 bg-white/10 text-white"
                     : "border border-transparent text-slate-300 hover:bg-white/5 hover:text-white"

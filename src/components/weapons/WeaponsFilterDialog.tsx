@@ -11,6 +11,7 @@ import {
 } from "@/lib/refs/translation";
 import { formatWeaponMasteryLabel, weaponMasteryNames } from "@/lib/refs/weapon-mastery";
 import { WEAPON_REACH_LABELS, type WeaponReach } from "@/lib/weapon-filter-facets";
+import { findAccentVariant } from "@/styles/edition-accent";
 
 type Props = {
   open: boolean;
@@ -114,7 +115,7 @@ export function WeaponsFilterDialog({
       </FilterGroup>
 
       {is2024 && selectedMasteries && toggleMastery && (
-        <FilterGroup title={<span className="text-amber-300">Майстерність зброї (Weapon Mastery 2024)</span>}>
+        <FilterGroup title={<span className={findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" })}>Майстерність зброї (Weapon Mastery 2024)</span>}>
           {MASTERY_PROPERTIES.map((m) => (
             <FilterChip
               key={m}

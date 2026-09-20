@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { buildCreatureIndexEntry, type CreatureIndexEntry } from "@/lib/bestiary-index";
+import { useCatalogHomebrew } from "@/hooks/useCommunityHomebrew";
+import { toHomebrewCatalogId, type HomebrewCatalogEntry, type HomebrewCreatureEntry } from "@/lib/logic/homebrew-view";
+import { buildHomebrewCreatureKey, type HomebrewSort } from "@/lib/logic/homebrew-catalog";
 import { Ruleset } from "@prisma/client";
-import { findCreatureKeysMatchingText } from "@/lib/actions/bestiary-actions";
+import { fetchCreatureKeysMatchingText } from "@/lib/catalog-reads";
 import { createCreatureShuffleSeed } from "@/lib/bestiary-sort";
 
 /// Механіка списку бестіарію, яка не є розміткою: у якому порядку показувати й що вважати збігом.
@@ -34,9 +38,11 @@ export function useDeepSearchMatches(query: string, ruleset: Ruleset): ReadonlyS
     }
 
     let cancelled = false;
-    findCreatureKeysMatchingText(trimmed, ruleset).then((keys) => {
-      if (!cancelled) setMatches({ query: trimmed, keys: new Set(keys) });
-    });
+    fetchCreatureKeysMatchingText(trimmed, ruleset)
+      .then((keys) => {
+        if (!cancelled) setMatches({ query: trimmed, keys: new Set(keys) });
+      })
+      .catch((error: unknown) => console.error("Не вдалося знайти збіги в статблоках", error));
 
     return () => {
       cancelled = true;
@@ -44,4 +50,23 @@ export function useDeepSearchMatches(query: string, ruleset: Ruleset): ReadonlyS
   }, [trimmed, ruleset]);
 
   return matches && matches.query === trimmed ? matches.keys : null;
+}
+
+/// Хоумбрю спільноти домішується до індексу, лише коли перемикач увімкнено (KR31.16); на `/homebrew` каталог порожній і хоумбрю ввімкнене завжди.
+export function useIndexWithCommunityHomebrew(catalogIndex: CreatureIndexEntry[], ruleset: Ruleset, isOn: boolean, onlyHomebrewSort: HomebrewSort | null) {
+  const communityHomebrew = useCatalogHomebrew({ kind: "CREATURE", ruleset, isOn, onlyHomebrewSort });
+  const index = useMemo(() => [...catalogIndex, ...communityHomebrew.flatMap(toHomebrewIndexEntry)], [catalogIndex, communityHomebrew]);
+  const findCommunityEntry = useCallback(
+    (creature: CreatureIndexEntry | null) => communityHomebrew.find((entry): entry is HomebrewCreatureEntry => entry.kind === "CREATURE" && toHomebrewCatalogId(entry.entryId) === creature?.creatureId) ?? null,
+    [communityHomebrew],
+  );
+  return { index, communityCount: communityHomebrew.length, findCommunityEntry };
+}
+
+export function isCommunityCreature(creature: CreatureIndexEntry): boolean {
+  return creature.source === "HOMEBREW" && creature.creatureId < 0;
+}
+
+function toHomebrewIndexEntry(entry: HomebrewCatalogEntry): CreatureIndexEntry[] {
+  return entry.kind === "CREATURE" ? [{ ...buildCreatureIndexEntry(entry.creature), key: buildHomebrewCreatureKey(entry.entryId) }] : [];
 }

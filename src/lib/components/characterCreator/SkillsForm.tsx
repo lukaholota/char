@@ -57,22 +57,29 @@ function normalizeSkillProficiencies(value: unknown): SkillProficiencies | null 
   return null
 }
 
-function getSkillProficienciesCount(skillProfs: SkillProficiencies | null): number {
+/// Скільки навичок це джерело дає **обрати**. Готовий список — не вибір: ельф просто має
+/// Уважність, кнопок для неї на кроці немає. Поки список рахувався як вибір, «Далі» вимагала
+/// вибору, якого ніде було зробити, і ельф, напіворк, табаксі та ще півтора десятка рас
+/// замикали конструктор намертво.
+function findSkillChoiceCount(skillProfs: SkillProficiencies | null): number {
   if (!skillProfs) return 0;
 
-  if (Array.isArray(skillProfs)) return skillProfs.length
+  if (Array.isArray(skillProfs)) return 0
 
   return skillProfs.choiceCount
 }
 
-interface hasSkills {
-  skillProficiencies: SkillProficiencies | null
-}
+/// «Будь-яка навичка» приходить двома виглядами: явним `ANY` (Своя раса) і порожнім списком —
+/// так лежать кенку, ворожденний і три раси з VRGtR, яким переліку в контенті просто не завели.
+/// Розгортається лише ці два випадки: раса зі **своїм** переліком (кентавр, людоящір, тортл)
+/// мусить лишитися при ньому, інакше крок дає обрати будь-що замість чотирьох названих навичок.
+function expandSkillOptions(profs: SkillProficienciesChoice | null | undefined): Skill[] {
+  if (!profs) return [];
 
-function populateSkills<T extends hasSkills>(model: T) {
-  if (model.skillProficiencies && !Array.isArray(model.skillProficiencies)) {
-    model.skillProficiencies.options = [...SkillsEnum]
-  }
+  const options = profs.options ?? [];
+  if (!options.length || options.includes("ANY" as unknown as Skill)) return [...SkillsEnum];
+
+  return options as Skill[];
 }
 
 export const SkillsForm = ({
@@ -87,6 +94,7 @@ export const SkillsForm = ({
   extraExistingExpertises = [],
 }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
+  const isTashaAllowed = selectedClass.ruleset !== "RULES_2024";
 
   const existingSkillsSet = useMemo(() => {
     const out = new Set<Skill>();
@@ -139,7 +147,7 @@ export const SkillsForm = ({
     // Build flat skills array from schema data
     const allSkills = new Set<string>();
     
-    if (data.isTasha) {
+    if (isTashaAllowed && data.isTasha) {
       // In Tasha mode, tashaChoices already contains ALL selected skills (no fixed skills - they become choices)
       data.tashaChoices.forEach(s => allSkills.add(s));
     } else {
@@ -219,9 +227,7 @@ export const SkillsForm = ({
 
     raceOptionChoices.forEach(({ option, proficiencies }) => {
       if (Array.isArray(proficiencies)) return;
-      byOption[option.optionId] = proficiencies.options?.includes("ANY" as unknown as Skill)
-        ? [...SkillsEnum]
-        : proficiencies.options ?? [];
+      byOption[option.optionId] = expandSkillOptions(proficiencies);
     });
 
     return byOption;
@@ -248,8 +254,6 @@ export const SkillsForm = ({
     return acc;
   }, 0);
 
-  populateSkills<typeof race>(race)
-
   useEffect(() => {
     form.register('basicChoices')
     form.register('basicChoices.race')
@@ -263,7 +267,11 @@ export const SkillsForm = ({
     form.register('_classCount')
   }, [form])
 
-  const isTasha = form.watch('isTasha') ?? false
+  const isTasha = isTashaAllowed && (form.watch('isTasha') ?? false)
+
+  useEffect(() => {
+    if (!isTashaAllowed && form.getValues('isTasha')) form.setValue('isTasha', false)
+  }, [isTashaAllowed, form])
   const tashaChoices = form.watch('tashaChoices') || []
   
   const watchedBasicChoices = form.watch('basicChoices');
@@ -299,10 +307,10 @@ export const SkillsForm = ({
     return normalizeSkillProficiencies(background.skillProficiencies) as SkillProficienciesChoice;
   }, [background.skillProficiencies]);
 
-  const raceCount = getSkillProficienciesCount(raceSkillProficiencies)
-  const classCount = getSkillProficienciesCount(selectedClass.skillProficiencies)
-  const backgroundCount = getSkillProficienciesCount(backgroundSkillProficiencies)
-  const subraceCount = getSkillProficienciesCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
+  const raceCount = findSkillChoiceCount(raceSkillProficiencies)
+  const classCount = findSkillChoiceCount(selectedClass.skillProficiencies)
+  const backgroundCount = findSkillChoiceCount(backgroundSkillProficiencies)
+  const subraceCount = findSkillChoiceCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
   const variantCount = 0
 
   // In Tasha mode, race/background/subrace fixed proficiencies become a unified choice pool.
@@ -337,25 +345,19 @@ export const SkillsForm = ({
 
   const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
 
-  const skillsByGroup = useMemo(() => {
-    const groups = {
-      race: raceSkillProficiencies as SkillProficienciesChoice,
-      selectedClass: selectedClass.skillProficiencies as SkillProficienciesChoice,
-      background: backgroundSkillProficiencies as SkillProficienciesChoice,
-    };
-
-    // Expand ANY for all groups
-    Object.values(groups).forEach(g => {
-      if (g?.options?.includes("ANY" as any)) {
-        g.options = [...SkillsEnum] as any;
-      }
-    });
-
-    return groups;
-  }, [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies]);
+  /// Тільки читається, нічого не переписує: раніше розгортання писало повний перелік навичок
+  /// просто в обʼєкт раси, а він лежить у кеші контенту на весь процес — і наступний персонаж
+  /// бачив уже зіпсований список.
+  const skillOptionsByGroup = useMemo((): Record<GroupName, Skill[]> => ({
+    race: Array.isArray(raceSkillProficiencies)
+      ? []
+      : expandSkillOptions(raceSkillProficiencies as SkillProficienciesChoice),
+    selectedClass: expandSkillOptions(selectedClass.skillProficiencies as SkillProficienciesChoice),
+    background: expandSkillOptions(backgroundSkillProficiencies),
+  }), [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies]);
 
   const groupsWithOptions = entries.filter(
-    ([groupName]) => (skillsByGroup[groupName]?.options?.length ?? 0) > 0
+    ([groupName]) => skillOptionsByGroup[groupName].length > 0
   );
 
   const checkIfSelectedByOthers = (groupName: GroupName | string, skill: Skill) => {
@@ -429,19 +431,46 @@ export const SkillsForm = ({
   /// Крок пускав далі з невитраченими виборами, і чарівник виходив без двох володінь навичками —
   /// а полагодити це на листі вже не можна (P4-regression-2014-07). Рішення власника 2026-09-06:
   /// «Далі» неактивна, доки вибори не витрачені.
+  ///
+  /// Рахується під час рендера, а не в ефекті: `basicChoices` і `choiceOptions` приходять із
+  /// react-hook-form, і `setValue` вкладеного шляху міняє масив усередині того самого обʼєкта.
+  /// Батьківське посилання лишається тим самим, ефект із ним у залежностях більше не спрацьовує —
+  /// і крок навічно тримав «Далі» вимкненою з тим значенням, яке порахував на монтуванні.
+  /// Вимагати можна лише стільки, скільки на кроці справді є що натиснути. Список класу
+  /// звужують попередні кроки — раса, передісторія, риса вже видали частину цих навичок, —
+  /// і варвар-підкидьок локата з рисою на Атлетику лишався б із порожнім вибором і
+  /// вимкненою «Далі».
+  const countPickable = (groupName: GroupName) =>
+    skillOptionsByGroup[groupName].filter(
+      (skill) => !checkIfSelectedByOthers(groupName, skill)
+    ).length;
+
+  const isGroupUnspent = (groupName: GroupName, declaredCount: number) => {
+    const chosen = (basicChoices[groupName] ?? []).length;
+    return chosen !== Math.min(declaredCount, countPickable(groupName));
+  };
+
+  const isRaceOptionUnspent = Object.entries(raceOptionCounts).some(([optId, max]) => {
+    const chosen = (choiceOptions[optId] ?? []).length;
+    const pickable = (raceOptionSkills[optId] ?? []).filter(
+      (skill) => !checkIfSelectedByOthers(optId, skill)
+    ).length;
+    return chosen !== Math.min(max || 0, pickable);
+  });
+
+  const isChoiceUnspent = isTasha
+    ? tashaChoices.length !== Math.min(
+        tashaChoiceCountTotal,
+        engEnumSkills.filter((skill) => !existingSkillsSet.has(skill.eng as Skill)).length,
+      )
+    : isGroupUnspent('selectedClass', classCount) ||
+      isGroupUnspent('race', raceCount) ||
+      isGroupUnspent('background', backgroundCount) ||
+      isRaceOptionUnspent;
+
   useEffect(() => {
-    const isRaceOptionUnspent = Object.entries(raceOptionCounts).some(
-      ([optId, max]) => (choiceOptions[optId] ?? []).length !== (max || 0)
-    );
-
-    const isUnspent = isTasha
-      ? tashaChoices.length !== tashaChoiceCountTotal
-      : (basicChoices.selectedClass ?? []).length !== classCount ||
-        (basicChoices.race ?? []).length !== raceCount ||
-        isRaceOptionUnspent;
-
-    onNextDisabledChange?.(isUnspent);
-  }, [isTasha, tashaChoices.length, tashaChoiceCountTotal, basicChoices, classCount, choiceOptions, raceOptionCounts, onNextDisabledChange, raceCount]);
+    onNextDisabledChange?.(isChoiceUnspent);
+  }, [isChoiceUnspent, onNextDisabledChange]);
 
   const handleToggleTashaSkill = (skill: Skill) => {
     if (existingSkillsSet.has(skill)) return;
@@ -494,14 +523,16 @@ export const SkillsForm = ({
           <div>
             <CardTitle className="text-white">Навички</CardTitle>
           </div>
-          <div className="flex items-center gap-3">
-            <Switch
-              id="isTasha"
-              checked={isTasha}
-              onCheckedChange={(checked) => form.setValue('isTasha', checked)}
-            />
-            <Label htmlFor="isTasha" className="text-slate-200">Правила Таші</Label>
-          </div>
+          {isTashaAllowed && (
+            <div className="flex items-center gap-3">
+              <Switch
+                id="isTasha"
+                checked={isTasha}
+                onCheckedChange={(checked) => form.setValue('isTasha', checked)}
+              />
+              <Label htmlFor="isTasha" className="text-slate-200">Правила Таші</Label>
+            </div>
+          )}
         </CardHeader>
 
         <CardContent className="space-y-4">
@@ -657,7 +688,7 @@ export const SkillsForm = ({
                     <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
                   </div>
                   <div className="grid gap-2 sm:grid-cols-2">
-                    {(skillsByGroup[groupName]?.options ?? []).map((skill, skillIndex) => {
+                    {skillOptionsByGroup[groupName].map((skill, skillIndex) => {
                       const skillGroup = engEnumSkills.find((s) => s.eng === skill)
                       if (!skillGroup) return null;
                       const isSelected = (choices ?? []).includes(skill)

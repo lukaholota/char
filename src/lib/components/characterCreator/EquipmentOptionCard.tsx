@@ -10,7 +10,7 @@ type Props = {
   lines: EquipmentLines;
   selected: boolean;
   onSelect?: () => void;
-  onPackInfo?: (pack: EquipmentLine) => void;
+  onInfo?: (line: EquipmentLine) => void;
   children?: ReactNode;
 };
 
@@ -22,7 +22,7 @@ export const EquipmentOptionCard = ({
   lines,
   selected,
   onSelect,
-  onPackInfo,
+  onInfo,
   children,
 }: Props) => {
   const selectFromCard = (event: { target: EventTarget | null }) => {
@@ -68,8 +68,11 @@ export const EquipmentOptionCard = ({
             {lines.belongings.map((line) => (
               <li key={line.key} className="flex items-start gap-2 text-sm text-slate-300">
                 <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-500" />
-                <span className="min-w-0 break-words">{line.text}</span>
-                {line.pack && onPackInfo ? <PackInfoButton line={line} onOpen={onPackInfo} /> : null}
+                <span className="min-w-0 break-words">
+                  {line.text}
+                  {line.stats ? <span className="block text-xs text-slate-400">{line.stats}</span> : null}
+                </span>
+                {(line.pack || line.catalogItem) && onInfo ? <LineInfoButton line={line} onOpen={onInfo} /> : null}
               </li>
             ))}
           </ul>
@@ -92,14 +95,14 @@ export const EquipmentOptionCard = ({
   );
 };
 
-const PackInfoButton = ({ line, onOpen }: { line: EquipmentLine; onOpen: (line: EquipmentLine) => void }) => (
+const LineInfoButton = ({ line, onOpen }: { line: EquipmentLine; onOpen: (line: EquipmentLine) => void }) => (
   <Button
     type="button"
     size="icon"
     variant="secondary"
     data-stop-card-click
     className="glass-panel border-gradient-rpg h-6 w-6 shrink-0 rounded-full text-slate-100 hover:text-white focus-visible:ring-arcane-400/30"
-    aria-label={`Що входить до: ${line.text}`}
+    aria-label={line.pack ? `Що входить до: ${line.text}` : `Докладніше: ${line.text}`}
     onClick={(event) => {
       event.stopPropagation();
       onOpen(line);

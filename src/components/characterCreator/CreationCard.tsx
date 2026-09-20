@@ -2,16 +2,19 @@
 
 import React, { ReactNode } from "react";
 import clsx from "clsx";
+import { Lock } from "lucide-react";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { PlainTitleCard } from "@/components/no-ai/PlainTitleCard";
 import { useIsArtHidden } from "@/components/no-ai/ContentImage";
-import { pickEditionAccent } from "@/components/ui/edition-accent";
+import { findAccentVariant, findEditionAccent } from "@/styles/edition-accent";
 import { CreationVisual } from "./creation-visuals";
 
 export interface CreationCardProps {
   testId?: string;
   title: string;
   englishTitle?: string;
+  note?: string | null;
+  secondaryNote?: string | null;
   visual: CreationVisual;
   isSelected?: boolean;
   is2024?: boolean;
@@ -20,12 +23,15 @@ export interface CreationCardProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
   imagePriority?: boolean;
+  lockNote?: string | null;
 }
 
 export const CreationCard: React.FC<CreationCardProps> = ({
   testId,
   title,
   englishTitle,
+  note,
+  secondaryNote,
   visual,
   isSelected = false,
   is2024 = false,
@@ -33,9 +39,14 @@ export const CreationCard: React.FC<CreationCardProps> = ({
   onClick,
   className,
   imagePriority = false,
+  lockNote,
 }) => {
   const isArtHidden = useIsArtHidden(visual.imageSrc);
-  const accent = pickEditionAccent(is2024);
+  const accent = findEditionAccent(is2024 ? "2024" : "2014").cutFrame;
+  const metaClassName = findAccentVariant(is2024, {
+    prism: "text-prism-200/75",
+    arcane: "text-arcane-200/75",
+  });
 
   if (isArtHidden) {
     return (
@@ -56,6 +67,7 @@ export const CreationCard: React.FC<CreationCardProps> = ({
           hoverTitleClassName={accent.hoverTitleClassName}
           highlightColor={isSelected ? accent.ringColor : null}
           glowColor={isSelected ? accent.glowColor : null}
+          meta={buildPlainCardMeta(lockNote, note, secondaryNote, metaClassName)}
         />
         {infoModal}
       </div>
@@ -81,7 +93,10 @@ export const CreationCard: React.FC<CreationCardProps> = ({
         priority={imagePriority}
         highlightColor={isSelected ? accent.ringColor : null}
         glowColor={isSelected ? accent.glowColor : null}
-        imageClassName="object-center transition-transform duration-500 group-hover:scale-105"
+        imageClassName={clsx(
+          "object-center transition-transform duration-500 group-hover:scale-105",
+          lockNote && !isSelected && "grayscale brightness-75"
+        )}
         fallback={<AmbientBackdrop visual={visual} />}
       >
         {visual.imageSrc ? (
@@ -100,6 +115,7 @@ export const CreationCard: React.FC<CreationCardProps> = ({
         {!visual.imageSrc && <TopLeftIconBadge visual={visual} />}
 
         <div className="absolute inset-x-0 bottom-0 z-10 p-4">
+          {lockNote ? <LockChip note={lockNote} className="mb-2" /> : null}
           <div
             className={clsx(
               "font-rpg-display text-xl uppercase leading-tight tracking-[0.08em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)] transition-colors duration-200 sm:text-2xl",
@@ -108,9 +124,16 @@ export const CreationCard: React.FC<CreationCardProps> = ({
           >
             {title}
           </div>
-          {englishTitle && (
-            <div className="mt-0.5 font-mono text-[11px] tracking-wide text-slate-300/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
+          {(englishTitle || note) && (
+            <div className="mt-0.5 line-clamp-2 font-mono text-[11px] leading-snug tracking-wide text-slate-300/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
               {englishTitle}
+              {englishTitle && note ? <span className="text-slate-400"> · </span> : null}
+              {note ? <span className="text-slate-300/80">{note}</span> : null}
+            </div>
+          )}
+          {secondaryNote && (
+            <div className={clsx("mt-0.5 line-clamp-1 font-mono text-[11px] leading-snug tracking-wide drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]", metaClassName)}>
+              {secondaryNote}
             </div>
           )}
         </div>
@@ -118,6 +141,31 @@ export const CreationCard: React.FC<CreationCardProps> = ({
     </div>
   );
 };
+
+function buildPlainCardMeta(lockNote: string | null | undefined, note: string | null | undefined, secondaryNote: string | null | undefined, metaClassName: string) {
+  if (!lockNote && !note && !secondaryNote) return null;
+  return (
+    <>
+      {lockNote ? <LockChip note={lockNote} /> : null}
+      {note ? <span>{note}</span> : null}
+      {secondaryNote ? <span className={metaClassName}>{secondaryNote}</span> : null}
+    </>
+  );
+}
+
+function LockChip({ note, className }: { note: string; className?: string }) {
+  return (
+    <span
+      className={clsx(
+        "inline-flex items-center gap-1.5 rounded-md border border-amber-500/40 bg-black/70 px-2 py-1 text-xs text-amber-200",
+        className
+      )}
+    >
+      <Lock className="h-3.5 w-3.5 shrink-0" />
+      {note}
+    </span>
+  );
+}
 
 function AmbientBackdrop({ visual }: { visual: CreationVisual }) {
   const Icon = visual.icon;

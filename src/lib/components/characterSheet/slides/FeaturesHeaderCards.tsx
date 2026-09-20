@@ -1,6 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { ModeLink } from "@/components/no-ai/ModeLink";
+import { SharedBastionDialog } from "@/components/bastions/SharedBastionDialog";
+import { cn } from "@/lib/utils";
+import { BASTION_STANDARD_LEVEL } from "@/rules/bastions";
+import type { SharedBastionView } from "@/server/db/bastions";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import {
@@ -24,13 +29,11 @@ type SubclassEntry = {
   subclass: any;
 };
 
-/// Вхід у бастіон: `name === null` означає, що бастіон персонажу вже доступний, але ще не
-/// створений. Картки немає взагалі, коли значення `null` — редакція 2014 або замалий рівень.
-export type BastionEntryCard = {
-  href: string;
-  name: string | null;
-  facilityCount: number;
-};
+/// Вхід у бастіон: `name === null` — бастіон доступний, але ще не створений. `shared` — поширений
+/// лист, лише перегляд. Картки немає взагалі, коли значення `null` — редакція 2014 або знімок.
+export type BastionEntryCard =
+  | { kind: "owner"; href: string; name: string | null; facilityCount: number; isMuted: boolean }
+  | { kind: "shared"; bastion: SharedBastionView };
 
 function countFacilities(count: number): string {
   const lastTwoDigits = count % 100;
@@ -179,20 +182,48 @@ export function FeaturesHeaderCards({
         </div>
       </button>
 
-      {bastionEntry ? (
-        <ModeLink
-          href={bastionEntry.href}
-          className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 hover:bg-emerald-500/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
-        >
-          <div className="text-[8px] uppercase tracking-[0.1em] text-emerald-400/80 leading-none mb-0.5">Бастіон</div>
-          <div className="text-[12px] font-semibold text-emerald-300 leading-tight whitespace-normal break-words w-full">
-            {bastionEntry.name ?? "Доступний"}
-          </div>
-          <div className="text-[9px] text-emerald-200/70 leading-none mt-0.5">
-            {bastionEntry.name ? countFacilities(bastionEntry.facilityCount) : "Створити"}
-          </div>
-        </ModeLink>
-      ) : null}
+      {bastionEntry?.kind === "owner" ? <OwnerBastionTile entry={bastionEntry} /> : null}
+      {bastionEntry?.kind === "shared" ? <SharedBastionTile bastion={bastionEntry.bastion} /> : null}
     </div>
+  );
+}
+
+const BASTION_TILE_CLASS =
+  "rounded-lg border border-emerald-500/20 bg-emerald-500/5 hover:bg-emerald-500/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto";
+
+function OwnerBastionTile({ entry }: { entry: Extract<BastionEntryCard, { kind: "owner" }> }) {
+  const subtitle = entry.name
+    ? countFacilities(entry.facilityCount)
+    : entry.isMuted
+      ? `за правилами з ${BASTION_STANDARD_LEVEL}-го рівня`
+      : "Створити";
+
+  return (
+    <ModeLink href={entry.href} className={cn(BASTION_TILE_CLASS, entry.isMuted && "border-white/10 bg-white/5 opacity-70")}>
+      <BastionTileText title={entry.name ?? "Доступний"} subtitle={subtitle} />
+    </ModeLink>
+  );
+}
+
+function SharedBastionTile({ bastion }: { bastion: SharedBastionView }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <button type="button" onClick={() => setIsOpen(true)} className={BASTION_TILE_CLASS}>
+        <BastionTileText title={bastion.name} subtitle={countFacilities(bastion.facilities.length)} />
+      </button>
+      <SharedBastionDialog bastion={bastion} open={isOpen} onOpenChange={setIsOpen} />
+    </>
+  );
+}
+
+function BastionTileText({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <>
+      <div className="text-[8px] uppercase tracking-[0.1em] text-emerald-400/80 leading-none mb-0.5">Бастіон</div>
+      <div className="text-[12px] font-semibold text-emerald-300 leading-tight whitespace-normal break-words w-full">{title}</div>
+      <div className="text-[9px] text-emerald-200/70 leading-none mt-0.5">{subtitle}</div>
+    </>
   );
 }

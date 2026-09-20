@@ -1,109 +1,10 @@
 "use client";
 
-import { ReactNode, type ComponentType } from "react";
+import { ReactNode } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SpellIcon } from "@/components/spells/SpellIcon";
 import { Button } from "@/components/ui/button";
-import {
-  Settings2,
-  Sparkles,
-  WandSparkles,
-  Clock3,
-  ArrowRight,
-  BookOpen,
-  Flame,
-  Skull,
-  Shield,
-  Eye,
-  Heart,
-  Ghost,
-  Atom,
-  CircleDashed,
-} from "lucide-react";
-
-type SchoolVisual = {
-  icon: ComponentType<{ className?: string }>;
-  iconWrap: string;
-  iconColor: string;
-  badgeClass: string;
-};
-
-const DEFAULT_SCHOOL_VISUAL: SchoolVisual = {
-  icon: CircleDashed,
-  iconWrap: "bg-slate-900/65 border-slate-600/60",
-  iconColor: "text-slate-300",
-  badgeClass: "border-slate-600/60 bg-slate-900/55",
-};
-
-function schoolVisualByValue(school: string | null | undefined): SchoolVisual {
-  const key = String(school ?? "").toLowerCase();
-
-  if (key.includes("evocation") || key.includes("втілен")) {
-    return {
-      icon: Flame,
-      iconWrap: "bg-rose-950/55 border-rose-800/50",
-      iconColor: "text-rose-300",
-      badgeClass: "border-rose-800/50 bg-rose-950/40",
-    };
-  }
-  if (key.includes("necromancy") || key.includes("некром")) {
-    return {
-      icon: Skull,
-      iconWrap: "bg-emerald-950/55 border-emerald-800/45",
-      iconColor: "text-emerald-300",
-      badgeClass: "border-emerald-800/45 bg-emerald-950/35",
-    };
-  }
-  if (key.includes("abjuration") || key.includes("огородж") || key.includes("захист")) {
-    return {
-      icon: Shield,
-      iconWrap: "bg-sky-950/55 border-sky-800/45",
-      iconColor: "text-sky-300",
-      badgeClass: "border-sky-800/45 bg-sky-950/35",
-    };
-  }
-  if (key.includes("conjuration") || key.includes("виклик")) {
-    return {
-      icon: WandSparkles,
-      iconWrap: "bg-arcane-950/55 border-arcane-800/45",
-      iconColor: "text-arcane-300",
-      badgeClass: "border-arcane-800/45 bg-arcane-950/35",
-    };
-  }
-  if (key.includes("divination") || key.includes("віщ") || key.includes("ворож")) {
-    return {
-      icon: Eye,
-      iconWrap: "bg-amber-950/55 border-amber-800/50",
-      iconColor: "text-amber-300",
-      badgeClass: "border-amber-800/50 bg-amber-950/35",
-    };
-  }
-  if (key.includes("enchantment") || key.includes("зачар") || key.includes("причар")) {
-    return {
-      icon: Heart,
-      iconWrap: "bg-pink-950/55 border-pink-800/50",
-      iconColor: "text-pink-300",
-      badgeClass: "border-pink-800/50 bg-pink-950/35",
-    };
-  }
-  if (key.includes("illusion") || key.includes("ілюз")) {
-    return {
-      icon: Ghost,
-      iconWrap: "bg-cyan-950/55 border-cyan-800/45",
-      iconColor: "text-cyan-100",
-      badgeClass: "border-cyan-800/45 bg-cyan-950/35",
-    };
-  }
-  if (key.includes("transmutation") || key.includes("перетвор")) {
-    return {
-      icon: Atom,
-      iconWrap: "bg-purple-950/60 border-purple-800/50",
-      iconColor: "text-purple-300",
-      badgeClass: "border-purple-800/50 bg-purple-950/40",
-    };
-  }
-
-  return DEFAULT_SCHOOL_VISUAL;
-}
+import { Settings2, Sparkles, Clock3, ArrowRight, BookOpen } from "lucide-react";
 
 function levelShortLabel(level: number): string {
   return level === 0 ? "Замовляння" : `${level} рівень`;
@@ -197,8 +98,6 @@ export default function SpellListGroup({
           const hasBadge = badgeText.length > 0;
           const isLongBadge = badgeText.length > 13;
           const showLevelMeta = _subtitleVariant === "with-level";
-          const schoolVisual = schoolVisualByValue(spell?.school);
-          const SchoolIcon = schoolVisual.icon;
           const hasRitual = isPositiveFlag(spell?.hasRitual);
           const castingTimeShort = normalizeCastingTimeShort(spell?.castingTime);
 
@@ -212,9 +111,11 @@ export default function SpellListGroup({
             >
               {rightActionPlacement === "belowMeta" ? (
                 <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] grid-rows-[auto_auto] items-stretch gap-x-2 gap-y-1.5 sm:gap-x-3">
-                  <div className={`row-start-1 col-start-1 flex items-center justify-center rounded-md border m-auto ${schoolVisual.iconWrap} ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}>
-                    <SchoolIcon className={`${compact ? "h-3 w-3 sm:h-3.5 sm:w-3.5" : "h-3 w-3 sm:h-4 sm:w-4"} ${schoolVisual.iconColor}`} />
-                  </div>
+                  <SpellIcon
+                    engName={spell?.engName}
+                    school={spell?.school}
+                    className={`row-start-1 col-start-1 m-auto ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}
+                  />
 
                   <button
                     type="button"
@@ -318,9 +219,11 @@ export default function SpellListGroup({
               ) : (
                 <div className="flex items-start gap-2 sm:gap-3">
                   <div className="shrink-0 flex flex-col items-center gap-1.5">
-                    <div className={`mt-0.5 flex shrink-0 items-center justify-center rounded-md border ${schoolVisual.iconWrap} ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}>
-                      <SchoolIcon className={`${compact ? "h-3 w-3 sm:h-3.5 sm:w-3.5" : "h-3 w-3 sm:h-4 sm:w-4"} ${schoolVisual.iconColor}`} />
-                    </div>
+                    <SpellIcon
+                      engName={spell?.engName}
+                      school={spell?.school}
+                      className={`mt-0.5 shrink-0 ${compact ? "h-7 w-7 sm:h-8 sm:w-8" : "h-7 w-7 sm:h-9 sm:w-9"}`}
+                    />
 
                     {!hideSettings ? (
                       <Button

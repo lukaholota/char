@@ -1,52 +1,38 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ArrowUpRight, Command, Search, X } from "lucide-react";
 import { OmniSearchResults } from "@/components/search/OmniSearchResults";
 import { OmniSearchCategoryLinks } from "@/components/search/OmniSearchCategoryLinks";
+import { useDeferredServerSearch } from "@/components/search/useDeferredServerSearch";
+import { findOmniSearchOutcome, type OmniSearchCategory, type OmniSearchItem } from "@/lib/omniSearchData";
+import { buildOmniSearchRows, type OmniSearchRow } from "@/lib/search/omniSearchRows";
 import {
-  findCategoryCatalogHref,
-  searchOmniIndex,
-  OMNI_CATEGORY_LABELS,
-  type OmniSearchCategory,
-  type OmniSearchItem,
-} from "@/lib/omniSearchData";
+  collectSearchCatalogs,
+  findCatalogHref,
+  findCatalogSearchTitle,
+} from "@/lib/catalogs/catalog-registry";
 import { searchUserPersAndFolders, type UserSearchHit } from "@/server/db/pers-search-actions";
-import { getEditionFromPathname } from "@/rules/route-helpers";
+import { searchHomebrewEntries, type HomebrewSearchHit } from "@/server/db/homebrew-search-actions";
+import { useActiveEdition } from "@/components/ui/PersEditionPin";
+import { useNoAiHref } from "@/components/no-ai/NoAiModeProvider";
+import type { Edition } from "@/rules/route-helpers";
 import { cn } from "@/lib/utils";
 
-const FILTER_TABS: Array<{ key: OmniSearchCategory | "ALL"; label: string }> = [
-  { key: "ALL", label: "Всі" },
-  { key: "characters", label: OMNI_CATEGORY_LABELS.characters },
-  { key: "spells", label: OMNI_CATEGORY_LABELS.spells },
-  { key: "magic-items", label: OMNI_CATEGORY_LABELS["magic-items"] },
-  { key: "rules", label: OMNI_CATEGORY_LABELS.rules },
-  { key: "feats", label: OMNI_CATEGORY_LABELS.feats },
-  { key: "bestiary", label: OMNI_CATEGORY_LABELS.bestiary },
-  { key: "weapons", label: OMNI_CATEGORY_LABELS.weapons },
-  { key: "armor", label: OMNI_CATEGORY_LABELS.armor },
-  { key: "invocations", label: OMNI_CATEGORY_LABELS.invocations },
-  { key: "backgrounds", label: OMNI_CATEGORY_LABELS.backgrounds },
-  { key: "classes", label: OMNI_CATEGORY_LABELS.classes },
-  { key: "races", label: OMNI_CATEGORY_LABELS.races },
-];
-
-const PERSONAL_SEARCH_DELAY_MS = 200;
-const MIN_PERSONAL_QUERY_LENGTH = 2;
+type CategoryFilter = OmniSearchCategory | "ALL";
 
 type Props = {
   onClose: () => void;
 };
 
 export function OmniSearchPanel({ onClose }: Props) {
-  const pathname = usePathname();
   const router = useRouter();
+  const buildHref = useNoAiHref();
 
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<OmniSearchCategory | "ALL">("ALL");
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>("ALL");
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [personalResults, setPersonalResults] = useState<OmniSearchItem[]>([]);
   const [pendingItemId, setPendingItemId] = useState<string | null>(null);
   const [isNavigating, startNavigation] = useTransition();
 
@@ -54,42 +40,31 @@ export function OmniSearchPanel({ onClose }: Props) {
   const scrollHostRef = useRef<HTMLDivElement>(null);
   const hasStartedNavigationRef = useRef(false);
 
-  const edition = getEditionFromPathname(pathname);
+  const edition = useActiveEdition();
   const ruleset = edition === "2024" ? "RULES_2024" : "RULES_2014";
 
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  useEffect(() => {
-    const trimmed = query.trim();
-    if (trimmed.length < MIN_PERSONAL_QUERY_LENGTH) {
-      setPersonalResults([]);
-      return;
-    }
+  const personalResults = useDeferredServerSearch(query, searchUserPersAndFolders);
+  const homebrewResults = useDeferredServerSearch(
+    query,
+    useCallback((trimmed: string) => searchHomebrewEntries(trimmed, ruleset), [ruleset]),
+  );
 
-    let active = true;
-    const timer = window.setTimeout(() => {
-      searchUserPersAndFolders(trimmed)
-        .then((hits) => {
-          if (active) setPersonalResults(hits.map(toPersonalItem));
-        })
-        .catch(() => {
-          if (active) setPersonalResults([]);
-        });
-    }, PERSONAL_SEARCH_DELAY_MS);
-
-    return () => {
-      active = false;
-      window.clearTimeout(timer);
-    };
-  }, [query]);
-
-  const results = useMemo(() => {
-    const staticResults = searchOmniIndex(query, ruleset, activeCategory);
-    const showPersonal = activeCategory === "ALL" || activeCategory === "characters";
-    return showPersonal ? [...staticResults, ...personalResults] : staticResults;
-  }, [query, ruleset, activeCategory, personalResults]);
+  const rows = useMemo(
+    () =>
+      buildRows({
+        query,
+        ruleset,
+        edition,
+        activeCategory,
+        personalResults,
+        homebrewResults,
+      }),
+    [query, ruleset, edition, activeCategory, personalResults, homebrewResults],
+  );
 
   useEffect(() => {
     setSelectedIndex(0);
@@ -97,7 +72,7 @@ export function OmniSearchPanel({ onClose }: Props) {
 
   useEffect(() => {
     scrollSelectedIntoView(scrollHostRef.current, selectedIndex);
-  }, [selectedIndex, results.length]);
+  }, [selectedIndex, rows.length]);
 
   /// Б8: закривати діалог одразу після router.push відкладено — Dialog реагує на закриття,
   /// пушнувши window.history.back() для власного injected back-entry, і цей back() встигає
@@ -117,10 +92,10 @@ export function OmniSearchPanel({ onClose }: Props) {
       if (hasStartedNavigationRef.current) return;
       hasStartedNavigationRef.current = true;
       startNavigation(() => {
-        router.push(href);
+        router.push(buildHref(href));
       });
     },
-    [router]
+    [router, buildHref]
   );
 
   const handleSelect = useCallback(
@@ -133,25 +108,33 @@ export function OmniSearchPanel({ onClose }: Props) {
 
   const openCatalog = useCallback(
     (category: OmniSearchCategory) => {
-      navigateTo(findCategoryCatalogHref(category, ruleset));
+      const href = findCatalogHref(category, edition);
+      if (href) navigateTo(href);
     },
-    [navigateTo, ruleset]
+    [navigateTo, edition]
   );
+
+  const showMoreOf = useCallback((category: OmniSearchCategory) => {
+    setActiveCategory(category);
+    inputRef.current?.focus();
+  }, []);
+
+  const activateRow = (row: OmniSearchRow | undefined) => {
+    if (!row) return;
+    if (row.kind === "item") handleSelect(row.item);
+    else showMoreOf(row.category);
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "ArrowDown") {
       event.preventDefault();
-      setSelectedIndex((prev) => (results.length > 0 ? (prev + 1) % results.length : 0));
+      setSelectedIndex((prev) => (rows.length > 0 ? (prev + 1) % rows.length : 0));
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
-      setSelectedIndex((prev) =>
-        results.length > 0 ? (prev - 1 + results.length) % results.length : 0
-      );
+      setSelectedIndex((prev) => (rows.length > 0 ? (prev - 1 + rows.length) % rows.length : 0));
     } else if (event.key === "Enter") {
       event.preventDefault();
-      if (results.length > 0 && results[selectedIndex]) {
-        handleSelect(results[selectedIndex]);
-      }
+      activateRow(rows[selectedIndex]);
     } else if (event.key === "Escape") {
       onClose();
     }
@@ -167,7 +150,7 @@ export function OmniSearchPanel({ onClose }: Props) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder={`Пошук по платформі D&D ${edition === "2024" ? "2024" : "2014"}…`}
+          placeholder={`Пошук по платформі D&D ${edition}…`}
           className="flex-1 bg-transparent text-slate-100 placeholder-slate-500 text-base focus:outline-none"
         />
         {query ? (
@@ -199,45 +182,25 @@ export function OmniSearchPanel({ onClose }: Props) {
         )}
       </div>
 
-      <div className="flex items-center gap-1 px-4 py-2 border-b border-white/5 overflow-x-auto no-scrollbar">
-        {FILTER_TABS.map((tab) => (
-          <button
-            key={tab.key}
-            type="button"
-            onClick={() => setActiveCategory(tab.key)}
-            className={cn(
-              "px-2.5 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all",
-              activeCategory === tab.key
-                ? "bg-amber-500/20 text-amber-300 border border-amber-500/40"
-                : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
-            )}
-          >
-            {tab.label}
-          </button>
-        ))}
-        {activeCategory !== "ALL" && (
-          <button
-            type="button"
-            onClick={() => openCatalog(activeCategory)}
-            className="ml-1 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap text-arcane-300 border border-arcane-500/40 bg-arcane-500/10 hover:bg-arcane-500/20 transition-all"
-          >
-            Відкрити каталог
-            <ArrowUpRight className="h-3 w-3" />
-          </button>
-        )}
-      </div>
+      <OmniSearchFilterTabs
+        edition={edition}
+        activeCategory={activeCategory}
+        onSelect={setActiveCategory}
+        onOpenCatalog={openCatalog}
+      />
 
       <div ref={scrollHostRef} className="px-3 flex-1 overflow-y-auto min-h-[160px]">
         {query.trim() ? (
           <OmniSearchResults
-            results={results}
+            rows={rows}
             selectedIndex={selectedIndex}
             onSelect={handleSelect}
+            onShowMore={showMoreOf}
             query={query}
             pendingItemId={pendingItemId}
           />
         ) : (
-          <OmniSearchCategoryLinks ruleset={ruleset} onOpenCatalog={openCatalog} />
+          <OmniSearchCategoryLinks edition={edition} onOpenCatalog={openCatalog} />
         )}
       </div>
 
@@ -254,25 +217,108 @@ export function OmniSearchPanel({ onClose }: Props) {
           </span>
         </div>
         <div>
-          Редакція: <span className="font-semibold text-slate-400">{edition === "2024" ? "2024" : "2014"}</span>
+          Редакція: <span className="font-semibold text-slate-400">{edition}</span>
         </div>
       </div>
     </>
   );
 }
 
-function scrollSelectedIntoView(host: HTMLDivElement | null, selectedIndex: number) {
-  const selected = host?.querySelector<HTMLElement>(`[data-omni-index="${selectedIndex}"]`);
-  selected?.scrollIntoView({ block: "nearest" });
+type FilterTabsProps = {
+  edition: Edition;
+  activeCategory: CategoryFilter;
+  onSelect: (category: CategoryFilter) => void;
+  onOpenCatalog: (category: OmniSearchCategory) => void;
+};
+
+/// Таби йдуть із реєстру за редакцією: каталог без адреси в цій редакції таба не має.
+function OmniSearchFilterTabs({ edition, activeCategory, onSelect, onOpenCatalog }: FilterTabsProps) {
+  const tabs: Array<{ key: CategoryFilter; label: string }> = [
+    { key: "ALL", label: "Всі" },
+    ...collectSearchCatalogs(edition).map((entry) => ({
+      key: entry.slug,
+      label: findCatalogSearchTitle(entry.slug, edition),
+    })),
+  ];
+
+  return (
+    <div className="flex items-center gap-1 px-4 py-2 border-b border-white/5 overflow-x-auto no-scrollbar">
+      {tabs.map((tab) => (
+        <button
+          key={tab.key}
+          type="button"
+          onClick={() => onSelect(tab.key)}
+          className={cn(
+            "px-2.5 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all",
+            activeCategory === tab.key
+              ? "bg-amber-500/20 text-amber-300 border border-amber-500/40"
+              : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
+          )}
+        >
+          {tab.label}
+        </button>
+      ))}
+      {activeCategory !== "ALL" && (
+        <button
+          type="button"
+          onClick={() => onOpenCatalog(activeCategory)}
+          className="ml-1 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap text-arcane-300 border border-arcane-500/40 bg-arcane-500/10 hover:bg-arcane-500/20 transition-all"
+        >
+          Відкрити каталог
+          <ArrowUpRight className="h-3 w-3" />
+        </button>
+      )}
+    </div>
+  );
 }
 
-function toPersonalItem(hit: UserSearchHit): OmniSearchItem {
+type RowsInput = {
+  query: string;
+  ruleset: "RULES_2014" | "RULES_2024";
+  edition: Edition;
+  activeCategory: CategoryFilter;
+  personalResults: UserSearchHit[];
+  homebrewResults: HomebrewSearchHit[];
+};
+
+function buildRows(input: RowsInput): OmniSearchRow[] {
+  const { items, overflow } = findOmniSearchOutcome(input.query, input.ruleset, input.activeCategory);
+  const showsCategory = (category: OmniSearchCategory) =>
+    input.activeCategory === "ALL" || input.activeCategory === category;
+
+  const serverItems = [
+    ...(showsCategory("characters") ? input.personalResults.map((hit) => toPersonalItem(hit, input.edition)) : []),
+    ...(showsCategory("homebrew") ? input.homebrewResults.map((hit) => toHomebrewItem(hit, input.edition)) : []),
+  ];
+
+  return buildOmniSearchRows([...items, ...serverItems], overflow);
+}
+
+function scrollSelectedIntoView(host: HTMLDivElement | null, selectedIndex: number) {
+  const selected = host?.querySelector<HTMLElement>(`[data-omni-index="${selectedIndex}"]`);
+  selected?.scrollIntoView?.({ block: "nearest" });
+}
+
+function toPersonalItem(hit: UserSearchHit, edition: Edition): OmniSearchItem {
   return {
     id: `${hit.kind}-${hit.id}`,
     title: hit.title,
     category: "characters",
-    categoryLabel: OMNI_CATEGORY_LABELS.characters,
+    categoryLabel: findCatalogSearchTitle("characters", edition),
     href: hit.href,
     badge: hit.subtitle,
+  };
+}
+
+function toHomebrewItem(hit: HomebrewSearchHit, edition: Edition): OmniSearchItem {
+  return {
+    id: `homebrew-${hit.entryId}`,
+    title: hit.title,
+    subtitle: hit.subtitle,
+    category: "homebrew",
+    categoryLabel: findCatalogSearchTitle("homebrew", edition),
+    href: hit.href,
+    badge: hit.badge,
+    visualKey: hit.kind,
   };
 }

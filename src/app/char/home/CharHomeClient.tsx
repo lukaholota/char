@@ -1,5 +1,6 @@
 "use client";
 
+import { PersCardBody } from "./PersCardBody";
 import React, {
   useCallback,
   useMemo,
@@ -7,7 +8,8 @@ import React, {
   useState,
   useTransition,
 } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import {
   Card,
   CardContent,
@@ -88,10 +90,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import type { Ruleset } from "@prisma/client";
 
 export interface PersHomeItem {
   persId: number;
   name: string;
+  portraitKey?: string | null;
   level: number;
   currentHp: number;
   maxHp: number;
@@ -99,6 +103,7 @@ export interface PersHomeItem {
   className: string;
   backgroundName: string;
   shareToken?: string | null;
+  isOwned?: boolean;
   folderId?: number | null;
   isPinned?: boolean;
   ruleset?: string | null;
@@ -117,6 +122,7 @@ export interface PersFolderHomeItem {
 interface Props {
   perses: PersHomeItem[];
   folders: PersFolderHomeItem[];
+  ruleset: Ruleset;
   initialFolderId?: number | null;
   persLinkResolver?: (pers: PersHomeItem) => string | null;
   extraHeaderActions?: React.ReactNode;
@@ -424,7 +430,7 @@ function PersCard({
   contextLabel?: string | null;
   linkResolver?: (pers: PersHomeItem) => string | null;
 }) {
-  const router = useRouter();
+  const router = useModeRouter();
   const [renameOpen, setRenameOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
@@ -585,10 +591,12 @@ function PersCard({
 
             <DropdownMenuSeparator className="bg-white/5" />
 
-            <DropdownMenuItem onClick={() => setShareOpen(true)}>
-              <Share2 className="mr-2 h-4 w-4" />
-              <span>Поширити</span>
-            </DropdownMenuItem>
+            {pers.isOwned !== false && (
+              <DropdownMenuItem onClick={() => setShareOpen(true)}>
+                <Share2 className="mr-2 h-4 w-4" />
+                <span>Поділитися</span>
+              </DropdownMenuItem>
+            )}
 
             <DropdownMenuItem onClick={() => setPrintOpen(true)}>
               <Printer className="mr-2 h-4 w-4" />
@@ -660,7 +668,6 @@ function PersCard({
 
         <ShareDialog
           persId={pers.persId}
-          initialToken={pers.shareToken}
           open={shareOpen}
           onOpenChange={setShareOpen}
           noButtonTrigger={true}
@@ -675,51 +682,7 @@ function PersCard({
         />
       </div>
 
-      <CardHeader className="relative">
-        {selectionMode && (
-          <div className="absolute left-4 top-4 z-10">
-            {isSelected ? (
-              <CheckSquare className="h-5 w-5 text-arcane-300" />
-            ) : (
-              <Square className="h-5 w-5 text-slate-500" />
-            )}
-          </div>
-        )}
-        <CardTitle
-          className={cn(
-            "pr-12 text-xl leading-tight flex items-center gap-2",
-            selectionMode && "pl-6",
-          )}
-        >
-          <span className="truncate">{pers.name}</span>
-          {pers.ruleset === "RULES_2024" && (
-            <Badge
-              variant="outline"
-              className="border-amber-500/40 bg-amber-500/10 text-[10px] text-amber-300 font-normal px-1.5 py-0"
-            >
-              2024
-            </Badge>
-          )}
-          {pers.isPinned && <Pin className="h-4 w-4 text-amber-300" />}
-        </CardTitle>
-        <CardDescription>
-          {translateValue(pers.raceName)} {translateValue(pers.className)}{" "}
-          {pers.level}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex justify-between text-sm text-muted-foreground">
-          <span>
-            HP: {pers.currentHp}/{pers.maxHp}
-          </span>
-          <span>Передісторія: {translateValue(pers.backgroundName)}</span>
-        </div>
-        {contextLabel && (
-          <div className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
-            {contextLabel}
-          </div>
-        )}
-      </CardContent>
+      <PersCardBody pers={pers} selectionMode={selectionMode} isSelected={isSelected} contextLabel={contextLabel} />
     </Card>
   );
 }
@@ -727,13 +690,14 @@ function PersCard({
 export function CharHomeClient({
   perses,
   folders,
+  ruleset,
   initialFolderId,
   persLinkResolver,
   extraHeaderActions,
   rootHref,
   createHref,
 }: Props) {
-  const router = useRouter();
+  const router = useModeRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [items, setItems] = useState<PersHomeItem[]>(perses);
@@ -1285,6 +1249,7 @@ export function CharHomeClient({
       if (folderDialogMode === "create") {
         const result = await createPersFolder({
           name,
+          ruleset,
           color: folderDialogColor,
           parentFolderId: currentFolderId,
         });
@@ -1351,6 +1316,7 @@ export function CharHomeClient({
     folderDialogTargetId,
     folderItems,
     currentFolderId,
+    ruleset,
     selectionMode,
     totalSelected,
     router,
@@ -1546,6 +1512,7 @@ export function CharHomeClient({
         bulkCreateParentId === "root" ? null : Number(bulkCreateParentId);
       const result = await createPersFolder({
         name,
+        ruleset,
         color: bulkCreateColor,
         parentFolderId: parentId,
       });
@@ -1567,6 +1534,7 @@ export function CharHomeClient({
     bulkCreateName,
     bulkCreateParentId,
     createPersFolder,
+    ruleset,
     router,
   ]);
 
