@@ -64,6 +64,8 @@ export default async function CreatureDetailPage({
     notFound();
   }
 
+  const loreGroup = findCreatureLoreGroup(creature.creatureId, "RULES_2014");
+
   return (
     <div className="w-full min-h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.05),transparent_50%)] overflow-x-hidden">
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/40 backdrop-blur-xl">
@@ -79,8 +81,8 @@ export default async function CreatureDetailPage({
       </div>
 
       <div className="mx-auto max-w-3xl space-y-6 px-4 py-6">
-        <CreatureStatblockCard creature={creature} is2024={false} />
-        <CreatureLoreSection group={findCreatureLoreGroup(creature.creatureId, "RULES_2014")} is2024={false} />
+        <CreatureStatblockCard creature={creature} is2024={false} loreGroupDescription={loreGroup?.description ?? null} />
+        <CreatureLoreSection group={loreGroup} is2024={false} />
         <CreatureDiscussion creature={creature} is2024={false} />
       </div>
     </div>

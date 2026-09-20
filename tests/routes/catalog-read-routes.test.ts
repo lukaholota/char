@@ -10,7 +10,12 @@ describe("читання каталогу звичайним GET", () => {
   it("віддає статблок істоти за ключем і редакцією", async () => {
     const response = await getStatblock(requestTo("/api/bestiary/statblock", { key: "goblin", ruleset: "RULES_2014" }));
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ nameEng: "Goblin" });
+    expect(await response.json()).toMatchObject({ creature: { nameEng: "Goblin" } });
+  });
+
+  it("несе разом зі статблоком вступ до групи істот, бо панель бестіарію малює його поруч", async () => {
+    const response = await getStatblock(requestTo("/api/bestiary/statblock", { key: "ancient-blue-dragon", ruleset: "RULES_2014" }));
+    expect(await response.json()).toMatchObject({ creature: { nameEng: "Ancient Blue Dragon" }, loreGroup: { key: "dragons" } });
   });
 
   it("знаходить істот за текстом статблока, а не лише за назвою", async () => {

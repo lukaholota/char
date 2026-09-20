@@ -7,7 +7,7 @@ import { findGlossaryMarkers } from "@/lib/refs/glossary-marker";
 import {
   BESTIARY_LORE_EDITIONS,
   BestiaryLoreEdition,
-  LORE_GROUPS_AWAITING_CREATURES,
+  isLoreGroupPublished,
   readBestiaryLoreSource,
 } from "../../scripts/lib/bestiary-lore-source";
 
@@ -92,7 +92,7 @@ describe("KR33.8 — файл-джерело лору груп", () => {
 
 describe("KR33.8 — каталог груп лору", () => {
   for (const edition of BESTIARY_LORE_EDITIONS) {
-    const entries = readBestiaryLoreSource(edition).filter((entry) => !LORE_GROUPS_AWAITING_CREATURES[edition].includes(entry.key));
+    const entries = readBestiaryLoreSource(edition).filter((entry) => isLoreGroupPublished(edition, entry.key));
     const groups = loreGroups.filter((group) => group.ruleset === edition);
 
     it(`${edition}: каталог несе кожну групу файлу з тим самим текстом`, () => {
@@ -126,13 +126,14 @@ describe("KR33.8 — каталог груп лору", () => {
     });
   }
 
-  it("дорослий червоний дракон іде до «Dragons» у 2014 і до «Red Dragons» у 2024", () => {
+  /// Мавпа — тварина: група «Animals» у MM 2024 несе пораду МД замість лору й до бестіарію не йде.
+  it("дорослий червоний дракон іде до «Dragons» у 2014 і до «Red Dragons» у 2024, а тварина — нікуди", () => {
     const find = (edition: BestiaryLoreEdition, nameEng: string) =>
       loreGroups.find((group) => group.ruleset === edition && group.creatureIds.includes(findCreatureId(edition, nameEng)))?.key;
 
     expect(find("RULES_2014", "Adult Red Dragon")).toBe("dragons");
     expect(find("RULES_2024", "Adult Red Dragon")).toBe("red-dragons");
     expect(find("RULES_2014", "Balor")).toBe("demons");
-    expect(find("RULES_2024", "Ape")).toBe("animals");
+    expect(find("RULES_2024", "Ape")).toBeUndefined();
   });
 });

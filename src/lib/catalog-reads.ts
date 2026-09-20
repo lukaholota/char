@@ -1,13 +1,19 @@
 import type { Ruleset } from "@prisma/client";
 import type { BastionFacilityData } from "@/lib/bastion-facility";
 import type { CreatureData } from "@/lib/bestiaryData";
+import type { CreatureLoreGroup } from "@/lib/bestiaryLore";
 import type { DiscussionView } from "@/lib/logic/content-discussion";
 import type { HomebrewKind } from "@/lib/logic/homebrew-input";
 import type { HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
 
+export type CreatureStatblockView = {
+  creature: CreatureData | null;
+  loreGroup: CreatureLoreGroup | null;
+};
+
 // Каталоги весь час переписують адресу через history.replaceState, а Next викидає серверну дію, яка в дорозі під час такого переходу.
 // Тому все, що каталог читає, їде звичайним GET.
-export function fetchCreatureStatblock(key: string, ruleset: Ruleset): Promise<CreatureData | null> {
+export function fetchCreatureStatblock(key: string, ruleset: Ruleset): Promise<CreatureStatblockView> {
   return fetchJson("/api/bestiary/statblock", { key, ruleset });
 }
 

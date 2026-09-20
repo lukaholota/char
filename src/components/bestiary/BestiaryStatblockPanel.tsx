@@ -6,18 +6,22 @@ import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCa
 import { WildshapeAddFormButton } from "@/components/bestiary/BestiaryWildshapePicking";
 import type { WildshapePicking } from "@/components/bestiary/useWildshapePicking";
 import { CreatureDiscussion } from "@/components/bestiary/CreatureDiscussion";
+import { CreatureLoreSection } from "@/components/bestiary/CreatureLoreSection";
 import { HomebrewByline, HomebrewEntryButtons } from "@/components/homebrew/HomebrewEntryDetails";
 import type { HomebrewCreatureEntry } from "@/lib/logic/homebrew-view";
+import type { CreatureLoreGroup } from "@/lib/bestiaryLore";
 
 export function StatblockPanel({
   creature,
   statblock,
+  loreGroup,
   is2024,
   wildshape,
   homebrewEntry,
 }: {
   creature: CreatureIndexEntry;
   statblock: CreatureData | null;
+  loreGroup: CreatureLoreGroup | null;
   is2024: boolean;
   wildshape: WildshapePicking;
   homebrewEntry: HomebrewCreatureEntry | null;
@@ -38,7 +42,8 @@ export function StatblockPanel({
       {statblock && statblock.creatureId === creature.creatureId ? (
         <>
           {homebrewEntry ? <HomebrewByline entry={homebrewEntry} /> : null}
-          <CreatureStatblockCard creature={statblock} is2024={is2024} />
+          <CreatureStatblockCard creature={statblock} is2024={is2024} loreGroupDescription={loreGroup?.description ?? null} />
+          <CreatureLoreSection group={loreGroup} is2024={is2024} />
           {homebrewEntry ? <HomebrewEntryButtons entry={homebrewEntry} pageHref={`/homebrew/${homebrewEntry.entryId}${is2024 ? "?edition=2024" : ""}`} /> : null}
           <CreatureDiscussion creature={statblock} is2024={is2024} />
         </>

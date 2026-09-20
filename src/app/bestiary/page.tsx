@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
 import { getAllCreatures, getCreatureIndex } from "@/lib/bestiaryData";
+import { findCreatureLoreGroup } from "@/lib/bestiaryLore";
+import type { CreatureStatblockView } from "@/lib/catalog-reads";
 import { BestiaryClient } from "@/components/bestiary/BestiaryClient";
 
 export const metadata: Metadata = {
@@ -15,9 +17,14 @@ export default function BestiaryPage() {
         <BestiaryClient
           ruleset="RULES_2014"
           index={getCreatureIndex("RULES_2014")}
-          initialCreature={getAllCreatures("RULES_2014")[0] ?? null}
+          initialStatblock={findFirstCreatureView()}
         />
       </Suspense>
     </div>
   );
+}
+
+function findFirstCreatureView(): CreatureStatblockView {
+  const creature = getAllCreatures("RULES_2014")[0] ?? null;
+  return { creature, loreGroup: creature ? findCreatureLoreGroup(creature.creatureId, "RULES_2014") : null };
 }

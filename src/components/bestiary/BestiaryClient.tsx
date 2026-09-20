@@ -30,7 +30,7 @@ import {
   toggleSourceParam,
   type SourceSelection,
 } from "@/lib/catalog-source-filter";
-import type { CreatureData } from "@/lib/bestiaryData";
+import type { CreatureStatblockView } from "@/lib/catalog-reads";
 import { useCreatureStatblock } from "@/hooks/useCreatureStatblock";
 import { CreatureMedallion } from "@/components/bestiary/CreatureMedallion";
 import { StatblockPanel } from "@/components/bestiary/BestiaryStatblockPanel";
@@ -87,11 +87,11 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
 type Props = {
   ruleset?: Ruleset;
   index: CreatureIndexEntry[];
-  initialCreature: CreatureData | null;
+  initialStatblock: CreatureStatblockView | null;
   homebrewOnly?: HomebrewOnlyCatalog;
 };
 
-export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, initialCreature, homebrewOnly }: Props) {
+export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, initialStatblock, homebrewOnly }: Props) {
   const is2024 = ruleset === "RULES_2024";
   const editionLabel = findEditionLabel(ruleset);
 
@@ -137,8 +137,9 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
   }, [ordered, selection.creature, index]);
 
   const selectedCommunityEntry = findCommunityEntry(selectedCreature);
-  const catalogStatblock = useCreatureStatblock(selectedCommunityEntry ? null : selectedCreature?.key ?? null, ruleset, initialCreature);
-  const statblock = selectedCommunityEntry?.creature ?? catalogStatblock;
+  const catalogStatblock = useCreatureStatblock(selectedCommunityEntry ? null : selectedCreature?.key ?? null, ruleset, initialStatblock);
+  const statblock = selectedCommunityEntry?.creature ?? catalogStatblock.creature;
+  const loreGroup = selectedCommunityEntry ? null : catalogStatblock.loreGroup;
 
   const setParams = useCallback((mutate: (next: URLSearchParams) => void) => {
     const next = getSearchParamsFromLocation();
@@ -201,6 +202,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
     <ContentListPage<CreatureIndexEntry>
       title={homebrewOnly ? "Хоумбрю: істоти" : "Бестіарій"}
       is2024={is2024}
+      topBannerScrollsWithListOnMobile={Boolean(homebrewOnly)}
       topBanner={homebrewOnly ? homebrewOnly.header : selection.source.homebrew ? <HomebrewCatalogBanner kind="CREATURE" edition={is2024 ? "2024" : "2014"} count={communityCount} /> : null}
       searchQuery={qInput}
       onSearchChange={setQInput}
@@ -367,6 +369,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
             <StatblockPanel
               creature={selectedCreature}
               statblock={statblock}
+              loreGroup={loreGroup}
               is2024={is2024}
               wildshape={wildshape}
               homebrewEntry={selectedCommunityEntry}
@@ -383,7 +386,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
       modalTitle={modalCreature?.name || "Статблок істоти"}
       renderModalContent={(creature) => (
         <div className="space-y-3">
-          <StatblockPanel creature={creature} statblock={statblock} is2024={is2024} wildshape={wildshape} homebrewEntry={findCommunityEntry(creature)} />
+          <StatblockPanel creature={creature} statblock={statblock} loreGroup={loreGroup} is2024={is2024} wildshape={wildshape} homebrewEntry={findCommunityEntry(creature)} />
         </div>
       )}
       filterDialogOpen={filtersOpen}

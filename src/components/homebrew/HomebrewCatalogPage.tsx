@@ -18,7 +18,7 @@ export async function HomebrewCatalogPage({ searchParams, is2024 }: { searchPara
     <div className="h-full w-full">
       <Suspense fallback={null}>
         {kind === "CREATURE" ? (
-          <BestiaryClient ruleset={ruleset} index={[]} initialCreature={null} homebrewOnly={homebrewOnly} />
+          <BestiaryClient ruleset={ruleset} index={[]} initialStatblock={null} homebrewOnly={homebrewOnly} />
         ) : (
           <SpellsClient spells={[]} initialSearchParams={searchParams} ruleset={ruleset} homebrewOnly={homebrewOnly} />
         )}

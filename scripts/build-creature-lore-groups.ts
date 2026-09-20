@@ -16,6 +16,7 @@ import {
   BESTIARY_LORE_EDITIONS,
   BestiaryLoreEdition,
   LORE_GROUPS_AWAITING_CREATURES,
+  LORE_GROUPS_WITHOUT_LORE,
   readBestiaryLoreSource,
 } from "./lib/bestiary-lore-source";
 import { failOnShrunkCatalog } from "./lib/fail-on-shrunk-catalog";
@@ -36,8 +37,9 @@ type LoreGroupRecord = {
 
 const OUTPUT_PATH = join(process.cwd(), "src/lib/generated/creature-lore-groups.json");
 
-/// Виміряно 2026-09-18: 26 коренів дерева в MM 2014 і 83 у MM 2024, з яких модрони 2024 чекають на істот.
-const MINIMUM_EXPECTED_LORE_GROUPS = 108;
+/// Виміряно 2026-09-18: 26 коренів дерева в MM 2014 і 83 у MM 2024, з яких модрони 2024 чекають
+/// на істот, а «Animals» несе службову врізку замість лору.
+const MINIMUM_EXPECTED_LORE_GROUPS = 107;
 
 const CATALOGS: Record<BestiaryLoreEdition, { rows: CatalogRow[]; source: string }> = {
   RULES_2014: { rows: creatures2014 as CatalogRow[], source: "MM" },
@@ -62,6 +64,7 @@ function buildEditionGroups(edition: BestiaryLoreEdition): LoreGroupRecord[] {
   return translated.flatMap((entry) => {
     const group = mirrored.get(entry.key);
     if (!group) throw new Error(`${edition}: групи «${entry.key}» немає в дереві лору 5etools`);
+    if (LORE_GROUPS_WITHOUT_LORE[edition].includes(entry.key)) return [];
     if (LORE_GROUPS_AWAITING_CREATURES[edition].includes(entry.key)) {
       failOnArrivedCreatures(group.memberNames, catalog, `${edition}/${entry.key}`);
       return [];

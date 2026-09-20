@@ -23,6 +23,19 @@ export const LORE_GROUPS_AWAITING_CREATURES: Record<BestiaryLoreEdition, readonl
   RULES_2024: ["modrons"],
 };
 
+/// Групи, чий текст у книзі — службова врізка для МД, а не лор: «Animals» у MM 2024 радить,
+/// якою твариною підмінити яку, і власного опису не має жодна з 96 тварин. Під заголовком «Лор»
+/// така порада читається уривком із правил, тож у каталог група не йде.
+export const LORE_GROUPS_WITHOUT_LORE: Record<BestiaryLoreEdition, readonly string[]> = {
+  RULES_2014: [],
+  RULES_2024: ["animals"],
+};
+
+/// Групу видно в бестіарії, лише якщо вона не чекає на істот і несе справжній лор.
+export function isLoreGroupPublished(edition: BestiaryLoreEdition, key: string): boolean {
+  return !LORE_GROUPS_AWAITING_CREATURES[edition].includes(key) && !LORE_GROUPS_WITHOUT_LORE[edition].includes(key);
+}
+
 const SOURCE_PATHS: Record<BestiaryLoreEdition, string> = {
   RULES_2014: "data/2014/bestiary-lore/groups.json",
   RULES_2024: "data/2024/bestiary-lore/groups.json",

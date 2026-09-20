@@ -2,45 +2,46 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Ruleset } from "@prisma/client";
-import { fetchCreatureStatblock } from "@/lib/catalog-reads";
-import type { CreatureData } from "@/lib/bestiaryData";
+import { fetchCreatureStatblock, type CreatureStatblockView } from "@/lib/catalog-reads";
 import { toEntitySlug } from "@/lib/slug-utils";
 
-/// Список бестіарію тримає лише вузький індекс (KR20.9), тож статблок приїжджає на розкриття й
-/// лишається в памʼяті вкладки: повторний клік по вже переглянутій істоті малюється миттєво.
-/// Перша істота каталогу передається сторінкою готовою, щоб типовий вхід на `/bestiary` не
-/// починався з порожньої панелі.
+const EMPTY_VIEW: CreatureStatblockView = { creature: null, loreGroup: null };
+
+/// Список бестіарію тримає лише вузький індекс (KR20.9), тож статблок і вступ до групи істот
+/// приїжджають на розкриття одним запитом і лишаються в памʼяті вкладки: повторний клік по вже
+/// переглянутій істоті малюється миттєво. Перша істота каталогу передається сторінкою готовою,
+/// щоб типовий вхід на `/bestiary` не починався з порожньої панелі.
 export function useCreatureStatblock(
   key: string | null,
   ruleset: Ruleset,
-  initial: CreatureData | null
-): CreatureData | null {
-  const loadedRef = useRef<Map<string, CreatureData>>(
-    new Map(initial ? [[toEntitySlug(initial.nameEng), initial]] : [])
+  initial: CreatureStatblockView | null
+): CreatureStatblockView {
+  const loadedRef = useRef<Map<string, CreatureStatblockView>>(
+    new Map(initial?.creature ? [[toEntitySlug(initial.creature.nameEng), initial]] : [])
   );
-  const [statblock, setStatblock] = useState<CreatureData | null>(
-    () => (key && loadedRef.current.get(key)) || null
+  const [view, setView] = useState<CreatureStatblockView>(
+    () => (key && loadedRef.current.get(key)) || EMPTY_VIEW
   );
 
   useEffect(() => {
     if (!key) {
-      setStatblock(null);
+      setView(EMPTY_VIEW);
       return;
     }
 
     const cached = loadedRef.current.get(key);
     if (cached) {
-      setStatblock(cached);
+      setView(cached);
       return;
     }
 
-    setStatblock(null);
+    setView(EMPTY_VIEW);
     let cancelled = false;
     fetchCreatureStatblock(key, ruleset)
       .then((loaded) => {
-        if (cancelled || !loaded) return;
+        if (cancelled || !loaded?.creature) return;
         loadedRef.current.set(key, loaded);
-        setStatblock(loaded);
+        setView(loaded);
       })
       .catch((error: unknown) => console.error("Не вдалося завантажити статблок", error));
 
@@ -49,5 +50,5 @@ export function useCreatureStatblock(
     };
   }, [key, ruleset]);
 
-  return statblock;
+  return view;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { CreaturePortrait } from "@/components/bestiary/CreaturePortrait";
+import { isDescriptionRepeatingLore } from "@/lib/logic/lore-duplication";
 import type { CreatureData } from "@/lib/bestiaryData";
 import { findSourceLabel } from "@/lib/refs/source-label";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -13,9 +14,11 @@ import { EditionAccentChip } from "@/components/ui/EditionAccent";
 export function CreatureStatblockCard({
   creature,
   is2024 = false,
+  loreGroupDescription = null,
 }: {
   creature: CreatureData;
   is2024?: boolean;
+  loreGroupDescription?: string | null;
 }) {
   const sourceLabel = findSourceLabel(creature.source);
   const actionTone = findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" });
@@ -233,8 +236,7 @@ export function CreatureStatblockCard({
         titleClassName="text-purple-300"
       />
 
-      {/* Description / Lore */}
-      {creature.description && (
+      {creature.description && !isDescriptionRepeatingLore(creature.description, loreGroupDescription) && (
         <div className="mt-4 pt-3 border-t border-white/10 text-xs text-slate-400 italic break-words">
           <FormattedDescription content={creature.description} />
         </div>
