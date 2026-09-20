@@ -130,10 +130,13 @@ describe("KR20.1 — імпорт правил 2014 з SRD 5.1 у довідни
 
     it("додає до рукописних статей 2014, які пережили зведення дублів", () => {
       const all = getAllRuleArticles2014();
+      /// Плюс один — «Дика магія», зібрана з сіду підкласу Чародія
+      /// (tests/content/wild-magic-rules-article.test.ts).
       expect(all.length).toBe(
         findHandwrittenArticles("RULES_2014").length +
           EXPECTED_ARTICLES +
-          getBeyondSrdArticlesByRuleset("RULES_2014").length
+          getBeyondSrdArticlesByRuleset("RULES_2014").length +
+          1
       );
       expect(all.some((article) => article.slug === "reactions")).toBe(true);
     });

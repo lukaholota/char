@@ -10,6 +10,7 @@ import { WildMagicSurgeTableDialog } from "./WildMagicSurgeTableDialog";
 import { useWildMagicErrorCopy } from "./useWildMagicErrorCopy";
 
 const ILLUSTRATION_SRC = "/images/errors/wild-magic-surge.webp";
+const OWNER_TELEGRAM_URL = "https://t.me/LukaHolota";
 
 type Props = {
   /// `error.digest` межі помилок — стабільне зерно для серверного рендеру.
@@ -73,6 +74,18 @@ export function WildMagicErrorScreen({ seed, onRetry }: Props) {
             Повідомити про проблему
           </Button>
         </div>
+
+        <p className="mt-5 text-sm leading-relaxed text-slate-400">
+          Для оперативного звʼязку пишіть мені{" "}
+          <a
+            href={OWNER_TELEGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="text-arcane-300 underline underline-offset-4 hover:text-arcane-200"
+          >
+            @LukaHolota
+          </a>
+        </p>
 
         <ReportProblemDialog open={isReportOpen} onOpenChange={setIsReportOpen} />
         <WildMagicSurgeTableDialog

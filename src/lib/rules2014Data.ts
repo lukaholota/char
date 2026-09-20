@@ -2,6 +2,7 @@ import importedArticles from "./generated/rules-2014.json";
 import { getBeyondSrdArticlesByRuleset } from "./rulesBeyondSrdData";
 import { findCanonicalSlug, findHandwrittenArticles, RuleArticle, RuleCategoryKey } from "./rulesData";
 import { ImportedRuleArticle } from "./rulesProvenance";
+import { buildWildMagicSurgeArticle } from "./wild-magic-surge-article";
 export { SRD_5_1_ATTRIBUTION } from "./refs/srd-attribution";
 
 const IMPORTED_RULE_ARTICLES = importedArticles as unknown as ImportedRuleArticle[];
@@ -11,6 +12,7 @@ export function getAllRuleArticles2014(): RuleArticle[] {
     ...findHandwrittenArticles("RULES_2014"),
     ...IMPORTED_RULE_ARTICLES,
     ...getBeyondSrdArticlesByRuleset("RULES_2014"),
+    buildWildMagicSurgeArticle(),
   ];
 }
 

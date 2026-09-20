@@ -30,7 +30,7 @@ describe("Сторінка помилки — екран Сплеску дико
     expect(html).not.toContain('href="/classes?class=sorcerer"');
     expect(html).toContain("Спробувати ще раз");
     expect(html).toContain("Повідомити про проблему");
-    expect(html).not.toContain("@LukaHolota");
+    expect(html).toContain("@LukaHolota");
     expect(html).toContain('href="/"');
   });
 
@@ -48,6 +48,12 @@ describe("Сторінка помилки — екран Сплеску дико
     fireEvent.click(screen.getByRole("button", { name: "Спробувати ще раз" }));
     expect(onRetry).toHaveBeenCalledTimes(1);
     expect(screen.getByRole("link", { name: "Повернутися на головну" }).getAttribute("href")).toBe("/");
+  });
+
+  it("показує телеграм власника для оперативного звʼязку", () => {
+    render(<WildMagicErrorScreen seed="x" onRetry={() => {}} />);
+    const link = screen.getByRole("link", { name: "@LukaHolota" });
+    expect(link.getAttribute("href")).toBe("https://t.me/LukaHolota");
   });
 
   it("«Повідомити про проблему» відкриває наявний діалог скарги", () => {
