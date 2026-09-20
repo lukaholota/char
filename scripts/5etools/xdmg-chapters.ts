@@ -1,6 +1,6 @@
 /**
  * Глави книжок 5etools (`book/book-*.json`) з пінованого дзеркала (Р19): DMG 2024, глави 1–3
- * (KR23.4) і PHB 2014, глави 1 і 4 (KR29.1). Дерево тут інше, ніж `variantrules.json`: блок
+ * (KR23.4) і 8 (L14-bastions-06) і PHB 2014, глави 1 і 4 (KR29.1). Дерево тут інше, ніж `variantrules.json`: блок
  * вкладений у блок (глава → підрозділ → под-блок), а не плаский список записів — тому окремий
  * розкладач, а не параметризація `variant-rules.ts`.
  *
@@ -67,6 +67,15 @@ const ARTICLE_META: Record<string, { category: ParsedRuleCategoryKey; chapterInd
   Renown: { category: "gamemaster", chapterIndex: 2 },
   Settlements: { category: "adventuring", chapterIndex: 2 },
   "Supernatural Gifts": { category: "gamemaster", chapterIndex: 2 },
+
+  Bastions: { category: "adventuring", chapterIndex: 7 },
+};
+
+/// Глава 8 — одна стаття на всю главу, а не стаття на підрозділ: «Gaining a Bastion» чи «Fall
+/// of a Bastion» — по двісті слів, і система читається лише разом. Статблоки 29 спеціальних
+/// приміщень уже є в каталозі бастіонів (`src/lib/generated/bastions.json`), тому не дублюються.
+const WHOLE_CHAPTER_ARTICLES: Record<string, string> = {
+  "Chapter 8: Bastions": "Bastions",
 };
 
 /// Ці сім підрозділів SRD 5.2.1 «Gameplay Toolbox» (`data/2024/srd/gameplay-toolbox.md`)
@@ -167,12 +176,18 @@ export function parseXdmgChapters(options: { reservedSlugs?: string[] } = {}): P
     }
   }
 
+  articles.push(...buildWholeChapterArticles(takenSlugs));
+
   return numberArticlesWithinCategory(articles);
 }
 
 export function buildXdmgChapterUrl(article: { engTitle: string }): string {
   const meta = ARTICLE_META[article.engTitle];
   if (!meta) throw new Error(`«${article.engTitle}»: невідомий підрозділ XDMG для посилання`);
+
+  if (Object.values(WHOLE_CHAPTER_ARTICLES).includes(article.engTitle)) {
+    return `https://5e.tools/book.html#xdmg,${meta.chapterIndex}`;
+  }
 
   const anchor = article.engTitle.toLowerCase().replace(/[^a-z0-9]+/g, "%20").trim();
   return `https://5e.tools/book.html#xdmg,${meta.chapterIndex},${anchor}`;
@@ -333,6 +348,39 @@ function buildPhbArticle(
   };
 }
 
+function buildWholeChapterArticles(takenSlugs: Set<string>): Omit<ParsedBeyondSrdArticle, "order">[] {
+  return findChapters("book/book-xdmg.json", Object.keys(WHOLE_CHAPTER_ARTICLES)).map(({ chapter, index }) => {
+    const engTitle = WHOLE_CHAPTER_ARTICLES[String(chapter.name)];
+    const meta = ARTICLE_META[engTitle];
+    if (meta.chapterIndex !== index) {
+      throw new Error(`XDMG-глава «${engTitle}» очікувалася під індексом ${meta.chapterIndex}, а знайдена під ${index}`);
+    }
+
+    const entries = Array.isArray(chapter.entries) ? chapter.entries : [];
+    const article = { ...chapter, name: engTitle, entries: entries.map(dropCatalogedBlocks) };
+    return buildArticle(article, meta.category, takenSlugs);
+  });
+}
+
+/// Статблок приміщення живе в каталозі бастіонів, а зображення з підписом-посиланням «Download
+/// PDF» (бланк Bastion Tracker) — не ілюстрація з текстом, а кнопка сайту 5etools.
+function dropCatalogedBlocks(entry: unknown): unknown {
+  if (!isSection(entry)) return entry;
+  const section = entry as Record<string, unknown>;
+  const entries = Array.isArray(section.entries) ? section.entries : [];
+  return { ...section, entries: entries.filter((block) => !isStatblock(block) && !isDownloadLinkImage(block)) };
+}
+
+function isStatblock(entry: unknown): boolean {
+  return typeof entry === "object" && entry !== null && (entry as Record<string, unknown>).type === "statblock";
+}
+
+function isDownloadLinkImage(entry: unknown): boolean {
+  if (typeof entry !== "object" || entry === null) return false;
+  const { type, title } = entry as Record<string, unknown>;
+  return type === "image" && typeof title === "string" && title.startsWith("{@5etoolsImg");
+}
+
 function isSection(entry: unknown): boolean {
   return typeof entry === "object" && entry !== null && (entry as Record<string, unknown>).type === "section";
 }
@@ -374,8 +422,9 @@ function splitNamedSubSections(
   substitutionSource: Record<string, unknown>,
   isAlreadyImported: (name: string) => boolean = () => false
 ): ParsedRuleSubSection[] {
-  const intro = entries.filter((entry) => !isNamedBlock(entry));
-  const named = (entries.filter(isNamedBlock) as Record<string, unknown>[]).filter(
+  const flow = liftNumberedBlocks(entries);
+  const intro = flow.filter((entry) => !isNamedBlock(entry));
+  const named = (flow.filter(isNamedBlock) as Record<string, unknown>[]).filter(
     (block) => !isAlreadyImported(String(block.name))
   );
   const takenIds = new Set<string>();
@@ -409,6 +458,41 @@ function buildSubSection(
     engTitle,
     engContent,
   };
+}
+
+/// «Example of Play» (XDMG) підписує репліки діалогу позначками «(1)»…«(7)», а нотатки Майстра
+/// на полях — «1»…«7». Це не заголовки: позначка стає початком першої репліки свого блоку, а
+/// нотатки йдуть після діалогу, як на полях сторінки, — інакше в довіднику зʼявлялися підрозділи
+/// з назвою «3» (власник, 2026-09-18).
+const NUMBERED_MARKER = /^\(?\d+\)?$/;
+
+function liftNumberedBlocks(entries: unknown[]): unknown[] {
+  const flow: unknown[] = [];
+  const marginNotes: unknown[] = [];
+
+  for (const entry of entries) {
+    if (!isNamedBlock(entry) || !NUMBERED_MARKER.test(String((entry as { name: string }).name))) {
+      flow.push(entry);
+      continue;
+    }
+    const { name, ...block } = entry as Record<string, unknown> & { name: string };
+    if (block.type === "list") flow.push({ ...block, items: markFirstListItem(block.items, name) });
+    else marginNotes.push({ ...block, entries: markFirstEntry(block.entries, `**${name}.** `) });
+  }
+
+  return [...flow, ...marginNotes];
+}
+
+function markFirstListItem(items: unknown, marker: string): unknown[] {
+  const [first, ...rest] = Array.isArray(items) ? items : [];
+  if (typeof first === "string") return [`${marker} ${first}`, ...rest];
+  if (isNamedBlock(first)) return [{ ...(first as Record<string, unknown>), name: `${marker} ${(first as { name: string }).name}` }, ...rest];
+  return [first, ...rest].filter((item) => item !== undefined);
+}
+
+function markFirstEntry(entries: unknown, prefix: string): unknown[] {
+  const [first, ...rest] = Array.isArray(entries) ? entries : [];
+  return typeof first === "string" ? [`${prefix}${first}`, ...rest] : [first, ...rest].filter((item) => item !== undefined);
 }
 
 function isNamedBlock(entry: unknown): boolean {

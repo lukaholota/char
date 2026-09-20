@@ -17,7 +17,10 @@ BASE_URL="${BASE_URL%/}"
 # контейнер зі свідомо зламаним DATABASE_URL віддав 200 на всіх трьох, бо `/spells` і
 # `/magic-items` читають згенеровані spells.json / magicItems.json, а `/` до бази не ходить.
 # Саме тому доданий `/api/health` — він робить `SELECT 1` і віддає 503, коли бази немає.
-ROUTES=(/ /api/health /spells /magic-items)
+#
+# Обидві редакції: конструктор і каталоги 2024 ідуть у реліз, тож без них контейнер, де половина
+# сайту віддає 500, пройшов би смоук і зняв би старий контейнер (KR31.11).
+ROUTES=(/ /api/health /spells /magic-items /char/create /2024 /2024/char /2024/spells /2024/classes)
 
 BOOT_ATTEMPTS="${SMOKE_BOOT_ATTEMPTS:-10}"
 BOOT_DELAY_SECONDS="${SMOKE_BOOT_DELAY_SECONDS:-6}"

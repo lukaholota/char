@@ -66,9 +66,13 @@ export const STANDALONE_FILES = [
   /// Класи й підкласи: механіка і проза лежать у різних файлах — KR33.5. Індекс `class/`
   /// тягнув би ще Mystic і Sidekick, яких у продукті немає, тож файли перелічено поіменно.
   ...MIRRORED_CLASSES.flatMap((name) => [`class/class-${name}.json`, `class/fluff-class-${name}.json`]),
+  /// Метамагія, відозви, маневри: класи посилаються на них `{@optfeature}`, а текст лежить тут — KR35.1.
+  "optionalfeatures.json",
 ];
 
-export const INDEX_FILES = ["bestiary/index.json", "spells/index.json"] as const;
+/// `bestiary/fluff-index.json` — лор істот по книгах (KR33.8): вступи до груп («Dragons»,
+/// «Demons») і тексти самих істот лежать окремо від статблоків, у `fluff-bestiary-*.json`.
+export const INDEX_FILES = ["bestiary/index.json", "bestiary/fluff-index.json", "spells/index.json"] as const;
 
 export type LockedFile = {
   bytes: number;

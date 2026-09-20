@@ -1,5 +1,5 @@
 /**
- * Текст класових фіч 2014 із сіду → база. Тільки `description`; звʼязки фіч і рівні видачі не
+ * Текст класових фіч 2014 із сіду → база: опис, короткий опис, пул і ціна використання; звʼязки фіч і рівні видачі не
  * чіпає, на відміну від повного `seedClassFeatures`.
  *
  *   bun run seed:class-feature-text:test
@@ -29,7 +29,7 @@ async function main() {
   console.log(`📝 Текст класових фіч 2014 → "${databaseName}" (--target ${target}, ${mode})\n`);
 
   const drift = await findClassFeatureTextDrift(prisma);
-  for (const feature of drift) console.log(`   ${feature.engName} — опис розходиться`);
+  for (const change of drift) console.log(`   ${change.engName} — ${change.field}`);
 
   if (drift.length === 0) {
     console.log("✅ База вже збігається із сідом — писати нема чого.");
@@ -37,12 +37,12 @@ async function main() {
   }
 
   if (!isApplying) {
-    console.log(`\n${drift.length} фіч розходяться із сідом. Запис: додайте --apply.`);
+    console.log(`\n${drift.length} полів розходяться із сідом. Запис: додайте --apply.`);
     return;
   }
 
   const applied = await syncClassFeatureTextFromSeed(prisma);
-  console.log(`\n✅ Оновлено ${applied.length} фіч.`);
+  console.log(`\n✅ Оновлено ${applied.length} полів.`);
 }
 
 main()

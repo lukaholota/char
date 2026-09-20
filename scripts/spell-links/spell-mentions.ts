@@ -11,26 +11,39 @@ import { buildSpellHref, buildSpellSlug } from "../../src/lib/spell-link";
 
 export type Edition = "RULES_2014" | "RULES_2024";
 
-export type Carrier = { path: string; edition: Edition; format: "json" | "ts" };
+export type Carrier = { path: string; edition: Edition; format: "json" | "ts"; proseKeys?: ReadonlySet<string> };
 
-/// Джерела, які проставляч має право правити. Бестіарій обох редакцій сюди свідомо не входить —
-/// його статблоки мають поля, що не рендеряться як проза (KR25.6).
-export const SOURCE_DIRECTORIES: ReadonlyArray<{ directory: string; edition: Edition; format: "json" | "ts" }> = [
+/// Проза статблока — те, що `CreatureStatblockCard` віддає в `ProseSection`. Поля `fields`
+/// (опори, імунітети, чуття) малюються простим текстом, і якір там показав би сирий тег.
+export const STATBLOCK_PROSE_KEYS: ReadonlySet<string> = new Set(["description", "text", "lairInfo", "mythicInfo"]);
+
+/// Джерела, які проставляч має право правити. У партіях бестіарію — лише проза статблока (KR25.6).
+export const SOURCE_DIRECTORIES: ReadonlyArray<{ directory: string; edition: Edition; format: "json" | "ts"; proseKeys?: ReadonlySet<string> }> = [
+  { directory: "data/aidedd/translations/monsters-2014", edition: "RULES_2014", format: "json", proseKeys: STATBLOCK_PROSE_KEYS },
+  { directory: "data/5etools/translations/monsters-2014", edition: "RULES_2014", format: "json", proseKeys: STATBLOCK_PROSE_KEYS },
+  { directory: "data/aidedd/translations/monsters-2024", edition: "RULES_2024", format: "json", proseKeys: STATBLOCK_PROSE_KEYS },
+  { directory: "data/5etools/translations/monsters-2024", edition: "RULES_2024", format: "json", proseKeys: STATBLOCK_PROSE_KEYS },
   { directory: "data/2024/normalized", edition: "RULES_2024", format: "json" },
   { directory: "data/2024/rules-uk", edition: "RULES_2024", format: "json" },
   { directory: "data/2024/bastions-uk", edition: "RULES_2024", format: "json" },
+  { directory: "data/2024/beyond-srd-uk", edition: "RULES_2024", format: "json" },
+  { directory: "data/2024/traps-hazards-uk", edition: "RULES_2024", format: "json" },
   { directory: "data/2014/rules-uk", edition: "RULES_2014", format: "json" },
   { directory: "data/2014/beyond-srd-uk", edition: "RULES_2014", format: "json" },
   { directory: "data/2014/traps-hazards-uk", edition: "RULES_2014", format: "json" },
   { directory: "data/2014/objects-uk", edition: "RULES_2014", format: "json" },
+  { directory: "data/5etools/translations/magic-items-2014", edition: "RULES_2014", format: "json" },
   /// `prisma/seed` тримає обидві редакції: файл із `2024` у назві — 2024, решта — 2014.
   { directory: "prisma/seed", edition: "RULES_2014", format: "ts" },
 ];
 
-/// `data/aidedd/magic-items-2014.json` — джерело партій `prisma/seed/magic-items/batch-*.json`
-/// (Р33): правити партію окремо не можна, її перегенерують.
+/// `data/aidedd/magic-items-2014.json` і переклади 5etools — джерела партій
+/// `prisma/seed/magic-items/batch-*.json` (Р33): правити партію окремо не можна, її перегенерують.
+/// `data/2014/spells.json` — файл-джерело заклинань 2014 (KR34.5).
 export const SOURCE_FILES: ReadonlyArray<Carrier> = [
   { path: "data/aidedd/magic-items-2014.json", edition: "RULES_2014", format: "json" },
+  { path: "prisma/seed/magic-items/baseline.json", edition: "RULES_2014", format: "json" },
+  { path: "data/2014/spells.json", edition: "RULES_2014", format: "json" },
 ];
 
 /// Поверхні — генеровані каталоги, які бачить читач. Їх не правлять; вимірювач лише доводить,
@@ -57,7 +70,11 @@ export const SURFACES: ReadonlyArray<string> = [
 ];
 
 /// Поля, що несуть назву сутності, а не прозу: власне `Назва [EngName]` запису — не згадка.
-const IDENTITY_KEYS = new Set(["name", "engName", "nameEng", "title", "engTitle", "slug", "key", "id", "source", "tags", "aliases"]);
+export const IDENTITY_KEYS = new Set(["name", "optionName", "engName", "nameEng", "title", "engTitle", "slug", "key", "id", "source", "tags", "aliases"]);
+
+function isProseKey(key: string, proseKeys: ReadonlySet<string> | undefined): boolean {
+  return proseKeys ? proseKeys.has(key) : !IDENTITY_KEYS.has(key);
+}
 
 const AMBIGUOUS_NAMES_PATH = "data/spell-links/ambiguous-names.json";
 /// Рішення власника 2026-09-04 (П5): у контенті неоднозначна назва майже завжди означає саме
@@ -214,13 +231,13 @@ function addCoverage(into: Coverage, text: string, registry: SpellRegistry, unes
 }
 
 /// Лічба обходить прозу так само, як проставляч: поля назви запису (`name`, `engName`…) — не згадки.
-export function countJsonCoverage(value: unknown, registry: SpellRegistry, into: Coverage = { mentions: 0, linked: 0 }, key = ""): Coverage {
+export function countJsonCoverage(value: unknown, registry: SpellRegistry, into: Coverage = { mentions: 0, linked: 0 }, key = "", proseKeys?: ReadonlySet<string>): Coverage {
   if (typeof value === "string") {
-    if (!IDENTITY_KEYS.has(key)) addCoverage(into, value, registry);
+    if (isProseKey(key, proseKeys)) addCoverage(into, value, registry);
   } else if (Array.isArray(value)) {
-    value.forEach((item) => countJsonCoverage(item, registry, into, key));
+    value.forEach((item) => countJsonCoverage(item, registry, into, key, proseKeys));
   } else if (value && typeof value === "object") {
-    for (const [k, v] of Object.entries(value as Record<string, unknown>)) countJsonCoverage(v, registry, into, k);
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) countJsonCoverage(v, registry, into, k, proseKeys);
   }
   return into;
 }
@@ -231,8 +248,8 @@ export function countTypeScriptCoverage(source: string, registry: SpellRegistry)
   return into;
 }
 
-export function countCoverage(source: string, format: "json" | "ts", registry: SpellRegistry): Coverage {
-  return format === "ts" ? countTypeScriptCoverage(source, registry) : countJsonCoverage(JSON.parse(source), registry);
+export function countCoverage(source: string, format: "json" | "ts", registry: SpellRegistry, proseKeys?: ReadonlySet<string>): Coverage {
+  return format === "ts" ? countTypeScriptCoverage(source, registry) : countJsonCoverage(JSON.parse(source), registry, undefined, "", proseKeys);
 }
 
 export function buildSpellAnchorHref(engName: string, edition: Edition): string {
@@ -254,7 +271,7 @@ function isAmbiguousLeftAsText(mention: Mention, options: WrapOptions): boolean 
   return !options.linkAmbiguous || (options.keepAsText?.has(mention.engName) ?? false);
 }
 
-function escapeForLiteral(anchor: string, quote: string | undefined): string {
+export function escapeForLiteral(anchor: string, quote: string | undefined): string {
   return quote === '"' ? anchor.replace(/"/g, '\\"') : anchor;
 }
 
@@ -294,18 +311,20 @@ type StringEdit = { original: string; linked: string };
 
 export type AmbiguityOptions = Pick<WrapOptions, "linkAmbiguous" | "keepAsText">;
 
-export function linkMentionsInJson(value: unknown, registry: SpellRegistry, edition: Edition, report = emptyReport(), edits: StringEdit[] = [], key = "", ambiguity: AmbiguityOptions = {}): unknown {
+export type JsonLinkOptions = AmbiguityOptions & { proseKeys?: ReadonlySet<string> };
+
+export function linkMentionsInJson(value: unknown, registry: SpellRegistry, edition: Edition, report = emptyReport(), edits: StringEdit[] = [], key = "", options: JsonLinkOptions = {}): unknown {
   if (typeof value === "string") {
-    if (IDENTITY_KEYS.has(key)) return value;
-    const linked = linkMentionsInText(value, registry, { edition, ...ambiguity });
+    if (!isProseKey(key, options.proseKeys)) return value;
+    const linked = linkMentionsInText(value, registry, { edition, linkAmbiguous: options.linkAmbiguous, keepAsText: options.keepAsText });
     mergeReports(report, linked.report);
     if (linked.text !== value) edits.push({ original: value, linked: linked.text });
     return linked.text;
   }
-  if (Array.isArray(value)) return value.map((item) => linkMentionsInJson(item, registry, edition, report, edits, key, ambiguity));
+  if (Array.isArray(value)) return value.map((item) => linkMentionsInJson(item, registry, edition, report, edits, key, options));
   if (value && typeof value === "object") {
     return Object.fromEntries(
-      Object.entries(value as Record<string, unknown>).map(([k, v]) => [k, linkMentionsInJson(v, registry, edition, report, edits, k, ambiguity)])
+      Object.entries(value as Record<string, unknown>).map(([k, v]) => [k, linkMentionsInJson(v, registry, edition, report, edits, k, options)])
     );
   }
   return value;
@@ -324,7 +343,9 @@ function dedupeEditsByOriginal(edits: StringEdit[]): StringEdit[] | null {
     if (seen && seen.linked !== edit.linked) return null;
     if (!seen) byOriginal.set(edit.original, edit);
   }
-  return [...byOriginal.values()];
+  /// Опис буває дослівним підрядком довшого опису сусіднього запису. Коротший першим переписав
+  /// би й шматок усередині довшого, і довший уже не знайшовся б — тож довші йдуть першими.
+  return [...byOriginal.values()].sort((a, b) => b.original.length - a.original.length);
 }
 
 export function applyJsonStringEdits(source: string, edits: StringEdit[], expected: unknown): string | null {
@@ -348,13 +369,13 @@ function isIdentityLiteral(node: ts.Node): boolean {
   return ts.isPropertyAssignment(parent) && parent.initializer === node && IDENTITY_KEYS.has(parent.name.getText());
 }
 
-function unescapeLiteral(quote: string) {
+export function unescapeLiteral(quote: string) {
   return (text: string) => (quote === "`" || quote === "}" ? text : text.replace(/\\(['"\\])/g, "$1"));
 }
 
 /// Сіди 2014 тримають описи в рядкових літералах трьох видів; якір іде в текст літерала з
 /// екрануванням під його лапки, а решта файлу не змінюється жодним байтом.
-function forEachProseLiteral(source: string, onLiteral: (raw: string, quote: string, start: number, end: number) => void): void {
+export function forEachProseLiteral(source: string, onLiteral: (raw: string, quote: string, start: number, end: number) => void): void {
   const file = ts.createSourceFile("carrier.ts", source, ts.ScriptTarget.Latest, true);
   const visit = (node: ts.Node) => {
     const isLiteral =
@@ -395,9 +416,15 @@ export type BareSpellMention = { path: string; key: string; engName: string; con
 
 const CYRILLIC = /[а-яіїєґА-ЯІЇЄҐ]/;
 
-function buildBareNamePattern(registry: SpellRegistry): RegExp {
+const bareNamePatterns = new WeakMap<SpellRegistry, RegExp>();
+
+function findBareNamePattern(registry: SpellRegistry): RegExp {
+  const cached = bareNamePatterns.get(registry);
+  if (cached) return cached;
   const names = [...registry.byEngName.values()].map((entry) => entry.engName).sort((a, b) => b.length - a.length);
-  return new RegExp(`(?<![\\w\\[>])(${names.map(escapeForPattern).join("|")})(?![\\w\\]])`, "g");
+  const pattern = new RegExp(`(?<![\\w\\[>])(${names.map(escapeForPattern).join("|")})(?![\\w\\]])`, "g");
+  bareNamePatterns.set(registry, pattern);
+  return pattern;
 }
 
 function escapeForPattern(value: string): string {
@@ -415,7 +442,7 @@ function hideCorrectForms(text: string): string {
 
 export function findBareSpellNamesInText(text: string, registry: SpellRegistry, keepAsText: ReadonlySet<string> = new Set()): string[] {
   if (!CYRILLIC.test(text)) return [];
-  return [...hideCorrectForms(text).matchAll(buildBareNamePattern(registry))]
+  return [...hideCorrectForms(text).matchAll(findBareNamePattern(registry))]
     .map((match) => match[1])
     .filter((engName) => !keepAsText.has(engName));
 }
@@ -439,7 +466,7 @@ export function findBareSpellNamesInCarrier(
     forEachProseLiteral(source, (raw) => collect(raw, "—"));
   } else {
     const walk = (value: unknown, key: string) => {
-      if (typeof value === "string") return IDENTITY_KEYS.has(key) ? undefined : collect(value, key);
+      if (typeof value === "string") return isProseKey(key, carrier.proseKeys) ? collect(value, key) : undefined;
       if (Array.isArray(value)) return value.forEach((item) => walk(item, key));
       if (value && typeof value === "object") {
         for (const [k, v] of Object.entries(value as Record<string, unknown>)) walk(v, k);
@@ -452,13 +479,13 @@ export function findBareSpellNamesInCarrier(
 
 export function listCarriers(root = process.cwd()): Carrier[] {
   const carriers: Carrier[] = [];
-  for (const { directory, edition, format } of SOURCE_DIRECTORIES) {
+  for (const { directory, edition, format, proseKeys } of SOURCE_DIRECTORIES) {
     const dir = join(root, directory);
     if (!existsSync(dir)) continue;
     for (const entry of readdirSync(dir).sort()) {
       const path = join(dir, entry);
       if (!statSync(path).isFile() || !entry.endsWith(`.${format}`)) continue;
-      carriers.push({ path: `${directory}/${entry}`, edition: /2024/.test(entry) ? "RULES_2024" : edition, format });
+      carriers.push({ path: `${directory}/${entry}`, edition: /2024/.test(entry) ? "RULES_2024" : edition, format, ...(proseKeys ? { proseKeys } : {}) });
     }
   }
   return [...carriers, ...SOURCE_FILES];
@@ -479,7 +506,7 @@ export function linkCarrier(carrier: Carrier, registry: SpellRegistry, root = pr
   } else {
     report = emptyReport();
     const edits: StringEdit[] = [];
-    const linkedValue = linkMentionsInJson(JSON.parse(source), registry, carrier.edition, report, edits, "", ambiguity);
+    const linkedValue = linkMentionsInJson(JSON.parse(source), registry, carrier.edition, report, edits, "", { ...ambiguity, proseKeys: carrier.proseKeys });
     const applied = edits.length ? applyJsonStringEdits(source, edits, linkedValue) : source;
     next = applied ?? source;
     if (applied === null) unwritable = "підстановка змінених рядків не відтворює файл";
@@ -495,7 +522,7 @@ export type CoverageRow = { path: string; mentions: number; linked: number };
 export function measureCarriers(registry: SpellRegistry, root = process.cwd()): CoverageRow[] {
   return listCarriers(root).map((carrier) => ({
     path: carrier.path,
-    ...countCoverage(readFileSync(join(root, carrier.path), "utf-8"), carrier.format, registry),
+    ...countCoverage(readFileSync(join(root, carrier.path), "utf-8"), carrier.format, registry, carrier.proseKeys),
   }));
 }
 

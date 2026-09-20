@@ -110,8 +110,10 @@ async function main() {
   const races = await prisma.race.findMany({
     include: {
       traits: { include: { feature: true } },
-      subraces: { include: { traits: { include: { feature: true } } } },
-      raceVariants: { include: { traits: { include: { feature: true } } } },
+      /// Без `orderBy` Postgres віддає рядки у фізичному порядку, і перший же `UPDATE` підраси
+      /// (сід прози KR33.6) переставив PHB-підраси в кінець картки й навігації.
+      subraces: { include: { traits: { include: { feature: true } } }, orderBy: { subraceId: "asc" } },
+      raceVariants: { include: { traits: { include: { feature: true } } }, orderBy: { raceVariantId: "asc" } },
     },
     orderBy: [{ ruleset: "asc" }, { sortOrder: "asc" }, { raceId: "asc" }],
   });
@@ -141,7 +143,7 @@ async function main() {
       key: variant.name,
       name: VARIANT_UA[variant.name] ?? variant.name,
       engName: VARIANT_ENG[variant.name] ?? variant.name,
-      description: null,
+      description: variant.description,
       traits: collectTraits(variant.traits),
     })),
     ruleset: race.ruleset,

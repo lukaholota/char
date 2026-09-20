@@ -52,32 +52,6 @@ PG_DUMP=$(require_client_binary pg_dump "$SERVER_MAJOR")
 PG_RESTORE=$(require_client_binary pg_restore "$SERVER_MAJOR")
 PSQL=$(require_client_binary psql "$SERVER_MAJOR")
 
-# Дані користувача — це pers / user / account і все, що на них транзитивно посилається.
-# Список рахується з самої бази, а не ведеться руками: писаний руками перелік пропускав
-# неявні m2m-таблиці Prisma (`_PersToSpell`, `_ChoiceOptionToPers` — вони не підпадають під
-# `pers*`), їхні рядки їхали в копію без самих pers, і відновлення падало на foreign key.
-find_user_data_tables() {
-  "$PSQL" "$SRC_URL" -tA <<'SQL'
-WITH RECURSIVE user_data(oid) AS (
-  SELECT c.oid
-    FROM pg_class c
-    JOIN pg_namespace n ON n.oid = c.relnamespace
-   WHERE n.nspname = 'public'
-     AND c.relkind = 'r'
-     AND c.relname IN ('pers', 'user', 'account')
-  UNION
-  SELECT con.conrelid
-    FROM pg_constraint con
-    JOIN user_data u ON con.confrelid = u.oid
-   WHERE con.contype = 'f'
-)
-SELECT format('public.%I', c.relname)
-  FROM user_data u
-  JOIN pg_class c ON c.oid = u.oid
- ORDER BY 1;
-SQL
-}
-
 echo "$SOURCE_DB → $TARGET_DB (режим: $MODE)"
 
 dump_args=(--no-owner --no-acl --format=custom)
@@ -93,7 +67,7 @@ case "$MODE" in
       [[ -n "$table" ]] || continue
       dump_args+=(--exclude-table-data="$table")
       echo "    $table"
-    done < <(find_user_data_tables)
+    done < <(list_user_data_tables "$PSQL" "$SRC_URL")
     ;;
   *)
     echo "Невідомий режим '$MODE'. Доступні: content, full, schema." >&2

@@ -78,6 +78,8 @@ const DISPLAY_ONLY_TAGS: Record<string, number> = {
   quickref: 4,
   /// `Renderer.Tag.TagStrikethroughShort` — `_TagTextStyle`, той самий шлях показу, що `{@b}`/`{@i}`.
   s: 0,
+  /// KR33.8: `Renderer.Tag.TagStyle` — `_TagTextStyle`, показує текст, клас оформлення ігнорує.
+  style: 0,
   table: 2,
   /// KR33.5: `Renderer.Tag.TagSubclass` — `_TagPipedDisplayTextFifth`, `TagSubclassFeature` —
   /// `_TagPipedDisplayTextEight`, `TagTip` — `_TagTextStyle`, як `{@b}`.

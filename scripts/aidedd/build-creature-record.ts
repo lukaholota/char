@@ -134,7 +134,6 @@ function assertSectionsAlign(parsed: ParsedCreature, translation: CreatureTransl
 
 /// 2014 pages fold the armour worn into the AC field itself ("16 (breastplate)"); 2024 never hits
 /// this branch because its statblocks list gear separately and AC is always a bare number.
-const ARMOR_NOUN_KEYS = new Set(["BREASTPLATE", "CHAIN_MAIL", "CHAIN_SHIRT", "HALF_PLATE", "PLATE", "SHIELD"]);
 
 function translateAc(ac: string): string {
   const withMageArmor = /^(\d+)\s*\((\d+)\s+with\s+mage armor\)$/i.exec(ac.trim());
@@ -161,8 +160,7 @@ function translateArmorPiece(item: string): string {
   if (!key) throw new Error(`Опис КЗ поза словником: «${item}»`);
 
   const term = (armorTranslations as Record<string, string>)[key];
-  const lower = term.charAt(0).toLocaleLowerCase("uk") + term.slice(1);
-  return ARMOR_NOUN_KEYS.has(key) ? lower : `${lower} обладунок`;
+  return term.charAt(0).toLocaleLowerCase("uk") + term.slice(1);
 }
 
 function translateSize(size: string): string {

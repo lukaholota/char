@@ -1,6 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "fs";
 import { join } from "path";
-import sharp from "sharp";
 import { DEFAULT_PAUSE_MS, fetchBinaryPolitely, pause } from "../lib/polite-http";
 import { AIDEDD_RAW_DIR, findRawDir } from "./aidedd-catalogs";
 import { findHeadingText, findPictureUrl } from "./html-statblock";
@@ -9,12 +8,11 @@ import {
   CreatureImage,
   CreatureRuleset,
   buildPublicImagePath,
+  compressToWebp,
   findImageDir,
-  readCreatureImageManifest,
+  measureImage,
+  readCreatureImageManifestFile,
 } from "./creature-images";
-
-const MAX_WIDTH = 640;
-const WEBP_QUALITY = 78;
 
 type ImageCatalog = {
   key: string;
@@ -135,11 +133,7 @@ async function convertToWebp(
         continue;
       }
 
-      const info = await sharp(originalPath)
-        .resize({ width: MAX_WIDTH, withoutEnlargement: true })
-        .webp({ quality: WEBP_QUALITY })
-        .toFile(targetPath);
-      converted.set(url, { file, width: info.width, height: info.height });
+      converted.set(url, await compressToWebp(originalPath, targetPath));
       written += 1;
     } catch {
       broken.push(url);
@@ -155,7 +149,7 @@ async function convertToWebp(
 }
 
 function writeManifest(catalog: ImageCatalog, refs: PictureRef[], converted: Map<string, CreatureImage>): void {
-  const manifest = readCreatureImageManifest();
+  const manifest = readCreatureImageManifestFile(CREATURE_IMAGE_MANIFEST_PATH);
   const entries: Record<string, CreatureImage> = {};
 
   for (const ref of refs.sort((left, right) => left.nameEng.localeCompare(right.nameEng))) {
@@ -166,12 +160,6 @@ function writeManifest(catalog: ImageCatalog, refs: PictureRef[], converted: Map
   manifest[catalog.ruleset] = entries;
   writeFileSync(CREATURE_IMAGE_MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, "utf-8");
   console.log(`  📒 ${Object.keys(entries).length} істот у маніфесті (${buildPublicImagePath(catalog.ruleset, "…")})`);
-}
-
-async function measureImage(path: string, file: string): Promise<CreatureImage> {
-  const { width, height } = await sharp(path).metadata();
-  if (!width || !height) throw new Error(`Не читається як картинка: ${path}`);
-  return { file, width, height };
 }
 
 function buildWebpName(url: string): string {

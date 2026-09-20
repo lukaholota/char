@@ -45,6 +45,8 @@ const CARRIERS = [
   "data/2024/normalized/invocations.json",
   "data/2024/normalized/feats.json",
   "data/2024/normalized/species.json",
+  "data/2024/normalized/subclasses.json",
+  "data/2024/normalized/class-choices.json",
   "src/lib/generated/races.json",
   "src/lib/generated/creator-content-2014.json",
   "src/lib/generated/creator-content-2024.json",

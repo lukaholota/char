@@ -10,6 +10,7 @@ import { join } from "path";
 import { ParsedBastionFacility } from "./5etools/bastion-facilities";
 import { stripGlossaryMarkers } from "../src/lib/refs/glossary-marker";
 import { stripSpellAnchors } from "../src/lib/spell-link";
+import { stripRuleTermAnchors } from "../src/lib/term-link";
 
 const NORMALIZED_PATH = join(process.cwd(), "data/2024/normalized/bastion-facilities.json");
 const TRANSLATIONS_DIR = join(process.cwd(), "data/2024/bastions-uk");
@@ -83,13 +84,13 @@ function mergeTranslation(
 
 /// Той самий гейт, що й у бестіарію: латиниця в українському полі означає недоперекладений
 /// запис. Дозволені оригінали в маркерах Р20, назви заклинань у квадратних дужках і маршрут
-/// каталогу в якорі на заклинання (O25, KR25.4).
+/// каталогу в якорі на заклинання (O25, KR25.4) чи на стан або дію (O34).
 function failOnUntranslated(
   facility: ParsedBastionFacility,
   translation: BastionFacilityTranslation
 ): void {
   for (const [field, value] of Object.entries(translation)) {
-    const clean = stripSpellAnchors(stripGlossaryMarkers(String(value))).replace(/\[[^\]]*\]/g, "");
+    const clean = stripRuleTermAnchors(stripSpellAnchors(stripGlossaryMarkers(String(value)))).replace(/\[[^\]]*\]/g, "");
     if (/[a-zA-Z]/.test(clean)) {
       throw new Error(`${facility.nameEng} › ${field}: лишилася англійська — «${clean.trim()}»`);
     }

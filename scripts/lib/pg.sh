@@ -79,3 +79,30 @@ require_client_binary() {
   fi
   printf '%s\n' "$found"
 }
+
+# Дані користувача — pers / user / account і все, що на них транзитивно посилається.
+# Список рахується з бази, а не ведеться руками: писаний руками перелік пропускав неявні
+# m2m-таблиці Prisma (`_PersToSpell`, `_ChoiceOptionToPers` — вони не підпадають під `pers*`).
+# Той самий запит, що в tests/user-data.ts — розходитися їм не можна.
+list_user_data_tables() {
+  local psql_bin="$1" url="$2"
+  "$psql_bin" "$url" -tA <<'SQL'
+WITH RECURSIVE user_data(oid) AS (
+  SELECT c.oid
+    FROM pg_class c
+    JOIN pg_namespace n ON n.oid = c.relnamespace
+   WHERE n.nspname = 'public'
+     AND c.relkind = 'r'
+     AND c.relname IN ('pers', 'user', 'account')
+  UNION
+  SELECT con.conrelid
+    FROM pg_constraint con
+    JOIN user_data u ON con.confrelid = u.oid
+   WHERE con.contype = 'f'
+)
+SELECT format('public.%I', c.relname)
+  FROM user_data u
+  JOIN pg_class c ON c.oid = u.oid
+ ORDER BY 1;
+SQL
+}

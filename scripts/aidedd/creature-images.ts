@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
+import sharp from "sharp";
 import { AIDEDD_DIR } from "./aidedd-catalogs";
 import { GeneratedCreature } from "../generate-creatures";
 
@@ -14,6 +15,10 @@ export type CreatureImage = {
 export type CreatureImageManifest = Record<CreatureRuleset, Record<string, CreatureImage>>;
 
 export const CREATURE_IMAGE_MANIFEST_PATH = join(AIDEDD_DIR, "creature-images.json");
+export const FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH = join(process.cwd(), "data/5etools/creature-images.json");
+
+export const MAX_IMAGE_WIDTH = 640;
+const WEBP_QUALITY = 78;
 
 const EDITION_DIRS: Record<CreatureRuleset, string> = {
   RULES_2014: "2014",
@@ -28,13 +33,32 @@ export function buildPublicImagePath(ruleset: CreatureRuleset, file: string): st
   return `/images/creatures/${EDITION_DIRS[ruleset]}/${file}`;
 }
 
+/// aidedd came first and its pictures are the ones the catalogue was tuned on, so where both
+/// sources know a creature the aidedd file wins; 5etools only fills the names aidedd has no art for.
 export function readCreatureImageManifest(): CreatureImageManifest {
-  if (!existsSync(CREATURE_IMAGE_MANIFEST_PATH)) {
+  return mergeCreatureImageManifests(
+    readCreatureImageManifestFile(CREATURE_IMAGE_MANIFEST_PATH),
+    readCreatureImageManifestFile(FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH)
+  );
+}
+
+export function readCreatureImageManifestFile(path: string): CreatureImageManifest {
+  if (!existsSync(path)) {
     return { RULES_2014: {}, RULES_2024: {} };
   }
 
-  const parsed = JSON.parse(readFileSync(CREATURE_IMAGE_MANIFEST_PATH, "utf-8")) as Partial<CreatureImageManifest>;
+  const parsed = JSON.parse(readFileSync(path, "utf-8")) as Partial<CreatureImageManifest>;
   return { RULES_2014: parsed.RULES_2014 ?? {}, RULES_2024: parsed.RULES_2024 ?? {} };
+}
+
+export function mergeCreatureImageManifests(
+  primary: CreatureImageManifest,
+  secondary: CreatureImageManifest
+): CreatureImageManifest {
+  return {
+    RULES_2014: { ...secondary.RULES_2014, ...primary.RULES_2014 },
+    RULES_2024: { ...secondary.RULES_2024, ...primary.RULES_2024 },
+  };
 }
 
 /// The catalogue record carries no aidedd slug, so the English name is the join key — it comes from
@@ -71,6 +95,20 @@ export function normalizeName(name: string): string {
     .replace(/['’]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+}
+
+export async function compressToWebp(originalPath: string, targetPath: string): Promise<CreatureImage> {
+  const info = await sharp(originalPath)
+    .resize({ width: MAX_IMAGE_WIDTH, withoutEnlargement: true })
+    .webp({ quality: WEBP_QUALITY })
+    .toFile(targetPath);
+  return { file: targetPath.split("/").pop() ?? "", width: info.width, height: info.height };
+}
+
+export async function measureImage(path: string, file: string): Promise<CreatureImage> {
+  const { width, height } = await sharp(path).metadata();
+  if (!width || !height) throw new Error(`Не читається як картинка: ${path}`);
+  return { file, width, height };
 }
 
 function buildNameIndex(entries: Record<string, CreatureImage>): Map<string, CreatureImage> {

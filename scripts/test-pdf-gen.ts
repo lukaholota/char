@@ -50,11 +50,6 @@ async function main() {
     ]
   };
 
-  const spellsByLevelMock = {
-    1: [{ spellId: 102, spell: { name: "Magic Missile", level: 1 } }],
-    3: [{ spellId: 101, spell: { name: "Fireball", level: 3 } }]
-  };
-
   console.log("Generating PDF...");
   const startTime = Date.now();
 
@@ -63,7 +58,6 @@ async function main() {
       {
         pers: persMock as any,
         features: featuresMock as any,
-        spellsByLevel: spellsByLevelMock as any,
         wildshapeForms: [],
       },
       {
