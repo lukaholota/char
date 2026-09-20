@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { buildDiscussionCommentTree, buildOptimisticVote, buildDiscussionTarget, buildDiscussionTargetHref, findCatalogDiscussionTarget, findReplyRootId, formatPublicAuthorName, parseDiscussionTarget } from "./content-discussion";
+import { buildDiscussionCommentTree, buildOptimisticVote, buildDiscussionTarget, buildDiscussionTargetHref, buildPublicAuthorName, findCatalogDiscussionTarget, findReplyRootId, formatPublicAuthorName, parseDiscussionTarget } from "./content-discussion";
 
 const at = new Date("2026-09-15T10:00:00Z");
 const comment = (id: number, parentCommentId: number | null, userId: number, deleted = false) => ({
-  contentCommentId: id, parentCommentId, userId, authorName: "Олена Петренко", body: `текст ${id}`, score: id, createdAt: at, deletedAt: deleted ? at : null,
+  contentCommentId: id, parentCommentId, userId, authorName: "Олена Петренко", authorDisplayName: null, authorEmail: "olena@example.com", body: `текст ${id}`, score: id, createdAt: at, deletedAt: deleted ? at : null,
 });
 
 describe("обговорення запису", () => {
@@ -35,6 +35,18 @@ describe("обговорення запису", () => {
     expect(formatPublicAuthorName("Олена Петренко")).toBe("Олена П.");
     expect(formatPublicAuthorName("Madonna")).toBe("Madonna");
     expect(formatPublicAuthorName("  ")).toBe("Гравець");
+  });
+
+  it("нік витісняє імʼя з Google, а коментар власника сайту несе бейдж", () => {
+    expect(buildPublicAuthorName({ displayName: "  Тінеблукач ", name: "Олена Петренко" })).toBe("Тінеблукач");
+    expect(buildPublicAuthorName({ displayName: "   ", name: "Олена Петренко" })).toBe("Олена П.");
+    const tree = buildDiscussionCommentTree(
+      [{ ...comment(1, null, 7), authorDisplayName: "Тінеблукач" }, { ...comment(2, null, 8), authorEmail: "LukaGolota1@Gmail.com" }],
+      { userId: null, isModerator: false },
+      new Map(),
+    );
+    expect(tree[0]).toMatchObject({ authorName: "Тінеблукач", isSiteOwner: false });
+    expect(tree[1]).toMatchObject({ authorName: "Олена П.", isSiteOwner: true });
   });
 
   it("відповіді вкладаються під свій коментар, несуть рейтинг і мій голос; видалений лишає місце без тексту", () => {

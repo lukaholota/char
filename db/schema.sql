@@ -4124,7 +4124,8 @@ CREATE TABLE public."user" (
     name text,
     email text,
     email_verified timestamp(3) without time zone,
-    image text
+    image text,
+    display_name character varying(24)
 );
 
 

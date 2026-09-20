@@ -5,7 +5,7 @@ import { Flag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { voteContent } from "@/lib/actions/content-discussion-actions";
 import { fetchDiscussion } from "@/lib/catalog-reads";
-import type { DiscussionCommentView, DiscussionView } from "@/lib/logic/content-discussion";
+import type { DiscussionCommentView, DiscussionView, DiscussionViewerName } from "@/lib/logic/content-discussion";
 import { cn } from "@/lib/utils";
 import { DiscussionCommentCard, DiscussionCommentForm } from "./DiscussionComment";
 import { ReportDialog } from "./ReportDialog";
@@ -45,11 +45,20 @@ export function ContentDiscussion({ target, ownTargetReason = "За свій з�
           ) : null}
         </div>
       </div>
-      <DiscussionCommentForm target={target} parentCommentId={null} placeholder="Що думаєте?" onDone={reload} />
+      <DiscussionCommentForm target={target} parentCommentId={null} placeholder="Що думаєте?" viewerName={discussion.viewerName} onDone={reload} />
       {discussion.comments.length === 0 ? <p className="text-sm text-slate-400">Поки ніхто не коментував.</p> : null}
       <ul className="space-y-3">
         {discussion.comments.map((comment) => (
-          <CommentThread key={comment.commentId} target={target} comment={comment} isReplying={replyTo === comment.commentId} onReply={setReplyTo} onChanged={reload} onReplied={afterReply} />
+          <CommentThread
+            key={comment.commentId}
+            target={target}
+            comment={comment}
+            viewerName={discussion.viewerName}
+            isReplying={replyTo === comment.commentId}
+            onReply={setReplyTo}
+            onChanged={reload}
+            onReplied={afterReply}
+          />
         ))}
       </ul>
       <ReportDialog target={target} commentId={null} open={isReporting} onOpenChange={setReporting} />
@@ -61,13 +70,14 @@ export function ContentDiscussion({ target, ownTargetReason = "За свій з�
 type ThreadProps = {
   target: string;
   comment: DiscussionCommentView;
+  viewerName: DiscussionViewerName | null;
   isReplying: boolean;
   onReply: (commentId: number | null) => void;
   onChanged: () => void;
   onReplied: () => void;
 };
 
-function CommentThread({ target, comment, isReplying, onReply, onChanged, onReplied }: ThreadProps) {
+function CommentThread({ target, comment, viewerName, isReplying, onReply, onChanged, onReplied }: ThreadProps) {
   const openReply = () => onReply(isReplying ? null : comment.commentId);
   return (
     <li className="space-y-2">
@@ -81,7 +91,7 @@ function CommentThread({ target, comment, isReplying, onReply, onChanged, onRepl
           ))}
           {isReplying ? (
             <li>
-              <DiscussionCommentForm target={target} parentCommentId={comment.commentId} placeholder="Ваша відповідь" onDone={onReplied} />
+              <DiscussionCommentForm target={target} parentCommentId={comment.commentId} placeholder="Ваша відповідь" viewerName={viewerName} onDone={onReplied} />
             </li>
           ) : null}
         </ul>

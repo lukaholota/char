@@ -32,6 +32,7 @@ model User {
   email                  String?                  @unique
   emailVerified          DateTime?                @map("email_verified")
   image                  String?
+  displayName            String?                  @map("display_name") @db.VarChar(24)
   accounts               Account[]
   contentComments        ContentComment[]
   contentCommentVotes    ContentCommentVote[]

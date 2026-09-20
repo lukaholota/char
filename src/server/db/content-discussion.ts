@@ -5,13 +5,16 @@ import { prisma } from "@/lib/prisma";
 import {
   buildDiscussionCommentTree,
   buildDiscussionTarget,
+  buildPublicAuthorName,
   findReplyRootId,
   isVoteValue,
   parseDiscussionTarget,
   type DiscussionTarget,
+  type DiscussionViewerName,
   type DiscussionView,
   type VoteValue,
 } from "@/lib/logic/content-discussion";
+import { readDisplayName } from "@/rules/display-name";
 import { COMMENTS_PER_HOUR, findCommentLimitStart, readCommentBody } from "@/rules/discussion-limits";
 import { findContentViewer, NOT_SIGNED_IN, type ContentViewer } from "@/server/db/content-viewer";
 import { findDiscussionTarget } from "@/server/db/content-targets";
@@ -35,6 +38,7 @@ export async function loadDiscussion(rawTarget: string): Promise<DiscussionView 
 
   return {
     target: key,
+    viewerName: buildViewerName(viewer),
     score,
     myVote,
     canVoteTarget: !isOwnTarget,
@@ -42,6 +46,16 @@ export async function loadDiscussion(rawTarget: string): Promise<DiscussionView 
     commentCount: comments.filter((comment) => !comment.deletedAt).length,
     comments: buildDiscussionCommentTree(comments, viewer, myCommentVotes),
   };
+}
+
+export async function saveDisplayName(raw: unknown): Promise<ActionResult> {
+  const viewer = await findContentViewer();
+  if (!viewer.userId) return { success: false, error: NOT_SIGNED_IN };
+  const parsed = readDisplayName(String(raw ?? ""));
+  if ("error" in parsed) return { success: false, error: parsed.error };
+
+  await prisma.user.update({ where: { id: viewer.userId }, data: { displayName: parsed.displayName } });
+  return { success: true };
 }
 
 export async function voteContent(rawTarget: string, value: unknown): Promise<VoteResult> {
@@ -131,8 +145,12 @@ async function findMyTargetVote(viewer: ContentViewer, target: string): Promise<
 }
 
 async function loadTargetComments(target: string) {
-  const comments = await prisma.contentComment.findMany({ where: { target }, include: { user: { select: { name: true } } }, orderBy: { createdAt: "asc" } });
-  return comments.map(({ user, ...comment }) => ({ ...comment, authorName: user.name }));
+  const comments = await prisma.contentComment.findMany({
+    where: { target },
+    include: { user: { select: { name: true, displayName: true, email: true } } },
+    orderBy: { createdAt: "asc" },
+  });
+  return comments.map(({ user, ...comment }) => ({ ...comment, authorName: user.name, authorDisplayName: user.displayName, authorEmail: user.email }));
 }
 
 async function loadMyCommentVotes(viewer: ContentViewer, commentIds: number[]): Promise<Map<number, VoteValue>> {
@@ -152,6 +170,11 @@ async function findReplyParentId(target: string, parentCommentId: number): Promi
     select: { contentCommentId: true, parentCommentId: true },
   });
   return parent ? findReplyRootId(parent) : null;
+}
+
+function buildViewerName(viewer: ContentViewer): DiscussionViewerName | null {
+  if (!viewer.userId) return null;
+  return { displayName: viewer.displayName, suggestion: buildPublicAuthorName({ displayName: viewer.displayName, name: viewer.name }) };
 }
 
 function toVoteValue(value: number | undefined): VoteValue {

@@ -2,7 +2,7 @@
 
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { buildDiscussionTarget, buildDiscussionTargetHref, formatPublicAuthorName, parseDiscussionTarget } from "@/lib/logic/content-discussion";
+import { buildDiscussionTarget, buildDiscussionTargetHref, buildPublicAuthorName, parseDiscussionTarget } from "@/lib/logic/content-discussion";
 import { findReportLimitStart, readReportInput, REPORTS_PER_DAY, type ReportReason } from "@/rules/discussion-limits";
 import { findContentViewer, NOT_SIGNED_IN } from "@/server/db/content-viewer";
 import { findDiscussionTarget } from "@/server/db/content-targets";
@@ -41,7 +41,7 @@ export async function listOpenContentReports(): Promise<OpenReportGroup[] | null
   if (!viewer.isModerator) return null;
   const reports = await prisma.contentReport.findMany({
     where: { status: "OPEN" },
-    include: { comment: { include: { user: { select: { name: true } } } } },
+    include: { comment: { include: { user: { select: { name: true, displayName: true } } } } },
     orderBy: { createdAt: "asc" },
   });
   const labels = await loadTargetLabels(reports.map((report) => report.target));
@@ -111,7 +111,7 @@ async function loadTargetLabels(targets: string[]): Promise<Map<string, string>>
   return new Map(targets.map((target) => [target, names.get(target) ?? target]));
 }
 
-type LoadedReport = Prisma.ContentReportGetPayload<{ include: { comment: { include: { user: { select: { name: true } } } } } }>;
+type LoadedReport = Prisma.ContentReportGetPayload<{ include: { comment: { include: { user: { select: { name: true, displayName: true } } } } } }>;
 
 function groupReports(reports: readonly LoadedReport[], labels: ReadonlyMap<string, string>): OpenReportGroup[] {
   const groups = new Map<string, OpenReportGroup>();
@@ -123,7 +123,7 @@ function groupReports(reports: readonly LoadedReport[], labels: ReadonlyMap<stri
       commentId: report.contentCommentId,
       targetLabel: labels.get(report.target) ?? report.target,
       commentBody: report.comment?.body ?? null,
-      commentAuthor: report.comment ? formatPublicAuthorName(report.comment.user.name) : null,
+      commentAuthor: report.comment ? buildPublicAuthorName(report.comment.user) : null,
       reasons: [],
     };
     group.reasons.push({ reason: report.reason as ReportReason, details: report.details, createdAt: report.createdAt.toISOString() });

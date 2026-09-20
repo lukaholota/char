@@ -15,7 +15,7 @@ import {
   type HomebrewRuleset,
 } from "@/lib/logic/homebrew-input";
 import { buildHomebrewCreatureData, buildHomebrewSpellData, type HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
-import { buildDiscussionTarget, formatPublicAuthorName, type VoteValue } from "@/lib/logic/content-discussion";
+import { buildDiscussionTarget, buildPublicAuthorName, type VoteValue } from "@/lib/logic/content-discussion";
 import { HOMEBREW_ENTRIES_PER_DAY, findEntryLimitStart } from "@/rules/homebrew-limits";
 import { deleteStoredImage, storeSquareImage } from "@/server/media/image-upload";
 import { findContentViewer, NOT_SIGNED_IN, type ContentViewer as Viewer } from "@/server/db/content-viewer";
@@ -27,7 +27,7 @@ type ActionResult = { success: true } | { success: false; error: string };
 const MAX_LISTED_ENTRIES = 500;
 
 const ENTRY_INCLUDE = {
-  author: { select: { name: true } },
+  author: { select: { name: true, displayName: true } },
   spell: true,
   creature: true,
 } satisfies Prisma.HomebrewEntryInclude;
@@ -190,7 +190,7 @@ function toCatalogEntry(entry: LoadedEntry, viewedRuleset: HomebrewRuleset, acti
     entryId: entry.homebrewEntryId,
     edition: toHomebrewEdition(entry.ruleset),
     name: entry.name,
-    authorName: formatPublicAuthorName(entry.author.name),
+    authorName: buildPublicAuthorName(entry.author),
     score: entry.score,
     ...activity,
     createdAt: entry.createdAt.toISOString(),

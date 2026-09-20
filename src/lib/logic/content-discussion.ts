@@ -1,3 +1,4 @@
+import { isSiteOwnerEmail } from "@/lib/logic/site-owner";
 import { toEntitySlug } from "@/lib/slug-utils";
 import type { HomebrewRuleset } from "./homebrew-input";
 
@@ -13,6 +14,7 @@ export type DiscussionCommentView = {
   body: string;
   createdAt: string;
   isDeleted: boolean;
+  isSiteOwner: boolean;
   score: number;
   myVote: VoteValue;
   isOwn: boolean;
@@ -20,8 +22,11 @@ export type DiscussionCommentView = {
   replies: DiscussionCommentView[];
 };
 
+export type DiscussionViewerName = { displayName: string | null; suggestion: string };
+
 export type DiscussionView = {
   target: string;
+  viewerName: DiscussionViewerName | null;
   score: number;
   myVote: VoteValue;
   canVoteTarget: boolean;
@@ -35,6 +40,8 @@ export type StoredDiscussionComment = {
   parentCommentId: number | null;
   userId: number;
   authorName: string | null;
+  authorDisplayName: string | null;
+  authorEmail: string | null;
   body: string;
   score: number;
   createdAt: Date;
@@ -81,6 +88,11 @@ export function buildOptimisticVote(current: { score: number; myVote: VoteValue 
   return { score: current.score - current.myVote + nextVote, myVote: nextVote };
 }
 
+export function buildPublicAuthorName(author: { displayName?: string | null; name?: string | null }): string {
+  const displayName = String(author.displayName ?? "").trim();
+  return displayName || formatPublicAuthorName(author.name);
+}
+
 export function formatPublicAuthorName(name: string | null | undefined): string {
   const [first, ...rest] = String(name ?? "").trim().split(/\s+/).filter(Boolean);
   if (!first) return "Гравець";
@@ -113,10 +125,11 @@ function toCommentView(comment: StoredDiscussionComment, viewer: DiscussionViewe
   const isOwn = viewer.userId === comment.userId;
   return {
     commentId: comment.contentCommentId,
-    authorName: isDeleted ? "" : formatPublicAuthorName(comment.authorName),
+    authorName: isDeleted ? "" : buildPublicAuthorName({ displayName: comment.authorDisplayName, name: comment.authorName }),
     body: isDeleted ? DELETED_COMMENT_BODY : comment.body,
     createdAt: comment.createdAt.toISOString(),
     isDeleted,
+    isSiteOwner: !isDeleted && isSiteOwnerEmail(comment.authorEmail),
     score: comment.score,
     myVote,
     isOwn,
