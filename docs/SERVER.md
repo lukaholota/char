@@ -105,8 +105,9 @@ ghcr.io/lukaholota/char:<sha коміта>   образ, зібраний у Git
 
 `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`, `AUTH_SECRET`, `AUTH_TRUST_HOST`, `NEXTAUTH_URL`,
 `NEXT_PUBLIC_GOOGLE_CLIENT_ID`, `NODE_ENV`, `PORT`, `PDF_RENDER_TIMEOUT_MS`,
-`PDF_SET_CONTENT_TIMEOUT_MS`, `PDF_STRICT_SECTIONS`, `PUPPETEER_DISABLE_DEV_SHM_USAGE`,
-`PUPPETEER_LAUNCH_TIMEOUT_MS`, `DATABASE_URL`.
+`PDF_SET_CONTENT_TIMEOUT_MS`, `PUPPETEER_DISABLE_DEV_SHM_USAGE`, `PUPPETEER_LAUNCH_TIMEOUT_MS`,
+`DATABASE_URL`. `PDF_STRICT_SECTIONS` код більше не читає (KR31.10): секція PDF, що не зібралася й
+з другої спроби, завжди стає сторінкою-заглушкою; змінну з `char.env` можна прибрати.
 
 Три речі, які легко зламати назад:
 

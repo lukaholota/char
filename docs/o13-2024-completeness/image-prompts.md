@@ -53,11 +53,13 @@
 | feats | золото |
 | backgrounds | свічковий бурштин |
 | invocations | фіолетовий |
+| metamagic | пурпурово-малиновий (токен плитки — `arcaneViolet`) |
 | rules | золото |
 | infusions | латунь + бірюзова іскра |
 | bastions | золото вогнища в бійницях |
 | races | холодна бірюза |
 | classes | ембер-золото |
+| homebrew | моторошна біолюмінесцентна бірюза (токен `runicCyan`) |
 
 **«Дії» окремою карткою не буде** — рішення власника 2026-08-28: дії живуть усередині
 довідника правил, тож ні маршрут, ні обкладинка їм не потрібні. `actions.webp` видалено.
@@ -180,6 +182,33 @@ Dark high-fantasy cover art, cinematic photoreal render. Near-black background, 
 Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in the upper two thirds of the frame; the bottom third is deliberately quiet and dark — floor, table surface, shadow or fog — so a caption bar and a dark gradient can be laid over it without covering anything important. Nothing important touches the outer 6% of any edge. Absolutely no text, no letters, no numerals, no runic writing that resembles legible script, no logos, no watermarks, no borders or frames drawn into the image.
 
 Subject: a tall oval black mirror in a blackened silver frame, standing in a cramped stone alcove. Its surface is not a reflection but churning smoke, and a long clawed hand is pressing through from the far side, fingertips already out of the glass. Abstract glowing marks — shapes, not writing — crawl around the frame's rim. A closed grimoire and a guttered candle sit on the shelf below, in shadow. Accent colour: deep violet.
+```
+
+## `public/images/categories/metamagic.webp` — Метамагія  *(O35)*
+
+Без книги, посоха й дзеркала — ці три вже несуть «Заклинання» і «Потойбічні виклики». Метамагія
+чародія — вроджена сила, яку гнуть голою рукою: одне заклинання розщеплюється надвоє.
+
+```
+Dark high-fantasy cover art, cinematic photoreal render. Near-black background, heavy chiaroscuro, a single dominant light source carving the subject out of darkness. Ornate late-gothic and baroque craftsmanship — engraved metal, filigree, aged patina, worn stone, weathered leather and parchment. Desaturated brown-black base palette lifted by exactly one saturated accent colour. Volumetric light shafts, drifting dust motes and floating embers, shallow depth of field with a softly blurred background, strong dark vignette on all four edges. Dense micro-detail on every surface, wet specular highlights on metal and stone. Sombre, reverent, weighty mood — no comedy, no bright daylight, no pastel colours.
+
+Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in the upper two thirds of the frame; the bottom third is deliberately quiet and dark — floor, table surface, shadow or fog — so a caption bar and a dark gradient can be laid over it without covering anything important. Nothing important touches the outer 6% of any edge. Absolutely no text, no letters, no numerals, no runic writing that resembles legible script, no logos, no watermarks, no borders or frames drawn into the image.
+
+Subject: a sorcerer's bare forearm and hand raised into the frame from below in a dark stone chamber, no book, no staff, no wand — the magic comes from the body itself: faint light glows through the veins of the wrist and faint scale-like marks shimmer on the skin. Between the long fingers a single stream of raw energy is being twisted like a ribbon of molten glass: it bends in a tight loop around the knuckles and then splits cleanly into two identical bolts that race upward side by side toward the top of the frame. Sparks shed from the fold point; a heavy engraved silver bracer on the wrist catches the glow. The sorcerer's face stays out of frame. Accent colour: deep magenta-crimson.
+```
+
+## `public/images/categories/homebrew.webp` — Хоумбрю спільноти  *(KR31.17)*
+
+Вигадане гравцями, а не книгою: звичайна корчмова річ, з якої лізе те, чого там бути не повинно.
+Кухоль пива зі щупальцем — ідея власника 2026-09-15. Гумор тримає сам сюжет, світло й тон
+лишаються серйозними, як у решти набору.
+
+```
+Dark high-fantasy cover art, cinematic photoreal render. Near-black background, heavy chiaroscuro, a single dominant light source carving the subject out of darkness. Ornate late-gothic and baroque craftsmanship — engraved metal, filigree, aged patina, worn stone, weathered leather and parchment. Desaturated brown-black base palette lifted by exactly one saturated accent colour. Volumetric light shafts, drifting dust motes and floating embers, shallow depth of field with a softly blurred background, strong dark vignette on all four edges. Dense micro-detail on every surface, wet specular highlights on metal and stone. Sombre, reverent, weighty mood — no comedy, no bright daylight, no pastel colours.
+
+Composition: vertical 3:4 portrait aspect ratio, 1200x1600. The subject sits in the upper two thirds of the frame; the bottom third is deliberately quiet and dark — floor, table surface, shadow or fog — so a caption bar and a dark gradient can be laid over it without covering anything important. Nothing important touches the outer 6% of any edge. Absolutely no text, no letters, no numerals, no runic writing that resembles legible script, no logos, no watermarks, no borders or frames drawn into the image.
+
+Subject: a heavy pewter tavern tankard with an engraved hinged lid stands alone on a scarred oak table in a dim, empty tavern after closing. The lid has been pushed up from inside: a single wet, glistening tentacle rises out of the dark ale, coiling once around the tankard's handle and lifting its tip toward the top of the frame, suckers catching the light. Thick foam spills down the engraved side and drips onto the table; a few drops hang in mid-air. The only light is a faint bioluminescent glow coming from beneath the ale's surface and along the underside of the tentacle, rim-lighting the pewter and the foam. Behind, out of focus, an extinguished candle stub and a stack of hand-written parchment pages with blank, unreadable scribbles hint that someone was inventing things here. Accent colour: eerie bioluminescent teal.
 ```
 
 ## `public/images/categories/rules.webp` — Довідник правил

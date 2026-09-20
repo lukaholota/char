@@ -146,10 +146,26 @@ before deciding a term is missing, and never invent one that grep would have fou
 Стани й типи шкоди — ні: їх 28 на весь корпус, гравець вивчає їх раз, а повторюються вони в
 кожному статблоці.
 
+**Стан чи дія в описі — посилання, а не маркер ([O34](docs/o34-rule-term-links/)).**
+`<a href="/rules/conditions#condition-paralyzed">паралізованою</a>` відкриває модалку на місці;
+реєстр адрес — `src/lib/refs/rule-term-links.json`, форми слова — переглянутий
+`data/rule-term-links/forms.json` (не стемінг: «перевагу» лише перед «на», «невидимий» лише про
+істоту). Ставить їх проставляч у файли-джерела: `bunx tsx scripts/link-rule-term-mentions.ts --list`
+для перегляду, `--write` для запису. Гейт `tests/content/rule-term-mentions-linked.test.ts` не
+пускає новий опис заклинання, риси, предмета чи статблока без таких посилань — червоний гейт лагодиться прогоном
+проставляча, а хибне посилання — правилом у словнику форм, не правкою тексту. Заклинання 2014 — носій
+`data/2014/spells.json`, у базу через `seed:spells-2014`. Рис 2014 у базу
+несе лише `seed:rule-term-anchors:test|prod` (переносить самі якорі — на стани, дії й заклинання, в `description` і `shortDescription`); повні сідери 2014 у прод
+не ганяти.
+
 **Термін виправляється у файлі-джерелі, а не проходом по базі — [Р33](docs/DECISIONS.md#р33).**
 Має запис файл (партія, сід-модуль, `data/2024/normalized/*.json`)? Правити файл і перелити
 сідом. Коригувальний прохід, що переписує текст уже в базі, дозволений рівно там, де файлу
-немає взагалі — це **тільки заклинання 2014** (`data/2014/corrections/`, 28 записів `radiant`).
+немає взагалі. З 2026-09-13 файл мають і **заклинання 2014** — `data/2014/spells.json`
+([KR34.5](docs/o34-rule-term-links/kr34.5-spell-source-2014.md)); у базу його несе лише
+`bun run seed:spells-2014:test|prod` (без `--apply` — показ), він тільки оновлює рядки й не
+створює та не видаляє їх. Гейт `tests/content/spell-source-2014-catalog.test.ts` червоніє, коли
+каталог розійшовся з файлом.
 Прохід поверх сіду робить текст у базі таким, що не дорівнює жодному файлу, і мовчки ламає
 кожну звірку «файл → база»: так `magic-items-seeded` червонів на шести цілком правильних
 предметах. Якщо звірка файлів із базою впала на тексті — шукати новий прохід поверх сіду, а не
@@ -212,33 +228,72 @@ schema diff is not evidence that `spells_test` has the change.** Check the clone
 production DB into another database on the same server. Targets must end in
 `_test`/`_staging`/`_dev`/`_scratch`; the script refuses anything else.
 
-**Tests that touch the database.** They run against `spells_test`, raised by
-`./scripts/db-clone.sh spells_test`. The URL lives in `.env.test`, which is **gitignored** — a fresh
-clone has to create it, and `tests/setup.ts` says so when it is missing. That setup file also refuses
-any database whose name does not end in `_test`, because the reset helper runs
-`TRUNCATE … CASCADE`. Values in `.env*` must be double-quoted: the URL contains `&`, and unquoted it
-breaks `source` in `scripts/lib/pg.sh`. Do not move the `beforeEach` reset into `tests/setup.ts` —
-that would drag the pure tests into Postgres. Never name a test helper `useSomething`:
-`react-hooks/rules-of-hooks` treats the `use` prefix as a React hook and fails the lint with an
-error, not a warning.
+**Tests that touch the database — local Postgres 17, not the server.** Since 2026-09-18
+([Р45](docs/DECISIONS.md#р45)) `.env.test` points at `127.0.0.1:5433/spells_test`, a Postgres
+that `scripts/local-test-db.sh` owns: `clone` copies the production content (no user data) into it
+in ~20 s, `start`/`stop`/`status` manage the process, and the integration global setup starts it
+by itself. It is one process on ~10 MB of RAM with `fsync = off`; data lives in
+`~/.spells-test-pg17`, and `rm -rf` of that directory removes everything. Why local: every query
+to the server costs ~40 ms of network, and a character creation is 26 sequential queries — the
+full integration run took 11 min on the server and takes 4 min locally, with zero transaction
+timeouts. The old `spells_test` on the server is still reachable through `TEST_DATABASE_URL`, but
+nothing needs it. `.env.test` is **gitignored** — a fresh clone creates it from the example and
+runs `scripts/local-test-db.sh clone`; `tests/setup.ts` says so when it is missing. That setup file
+also refuses any database whose name does not end in `_test`, because the reset helper runs
+`TRUNCATE … CASCADE`. Values in `.env*` must be double-quoted: URLs may contain `&`, and unquoted
+they break `source` in `scripts/lib/pg.sh`. Do not move the `beforeEach` reset into
+`tests/setup.ts` — that would drag the pure tests into Postgres. Never name a test helper
+`useSomething`: `react-hooks/rules-of-hooks` treats the `use` prefix as a React hook and fails
+the lint with an error, not a warning.
 
-**Замок на `spells_test` тепер бере сам vitest.** Набір робить `TRUNCATE` користувацьких
-таблиць, тож два прогони одночасно витирають одне одному фікстури й дають фальшиву червону
-збірку. Межу тримає `globalSetup: ["tests/global-setup-db-lock.ts"]` у
-`vitest.integration.config.mts` — один раз на прогін, тому її бачить і прямий
-`bunx vitest run --config vitest.integration.config.mts <файл>`.
-`scripts/with-test-db-lock.sh` лишається для npm-скриптів; замок **той самий** (спільний
-каталог у `TMPDIR`, той самий pid-файл і ті самі правила протухання), а `TEST_DB_LOCK_HELD`
-не дає `bun run test:integration` заблокувати сам себе. Правити один бік, не правлячи другий,
-не можна — вийдуть два незалежні замки, і межі не стане взагалі.
+Seeds (`bun run seed:*:test`) and `scripts/apply-db-change.sh` read the same `.env.test`, so they
+now land in the local database — the clone is yours, sync it yourself. A seed applied only on
+the server clone is invisible here: re-clone (`scripts/local-test-db.sh clone`) and re-seed.
 
-Чого замок **не** покриває: сідів. `bun run seed:2024:test` і решта пишуть у `spells_test` повз
-нього. Якщо прогін падає сотнею `Foreign key constraint violated` і «record required but not
-found» на `pers*` — це чужий запис у базу, а не регресія; перевіряти файли поодинці.
+**Інтеграційний прогін працює на власних копіях `spells_test`, замка немає.** Набір робить
+`TRUNCATE` користувацьких таблиць перед кожним тестом, тож два прогони на одній базі витирали
+б одне одному фікстури. До 2026-09-18 це стримував машинний замок, і кожна сесія чекала на
+попередню — при кількох сесіях Claude одночасно тести стояли в черзі більше, ніж ішли.
+Тепер `tests/global-setup-db-copies.ts` у `vitest.integration.config.mts` на старті робить
+`CREATE DATABASE spells_run_<pid>_w<N>_test TEMPLATE spells_test` по одній на воркер
+(~24 МБ, копіюється на сервері за секунду), `tests/setup.ts` підставляє воркеру його копію
+через `inject`, а teardown зносить копії `WITH (FORCE)`. Копії від впалого процесу прибирає
+наступний прогін по мертвому pid у назві. Прогони різних сесій не бачать одне одного, а файли
+всередині прогону йдуть паралельно (`TEST_DB_WORKERS`, за замовчуванням 4; набір упирається
+в затримку тунелю, а не в CPU). Юніт-конфіг (`bun run test`) бази не торкається ([Р32](docs/DECISIONS.md#р32))
+і замка ніколи не потребував — його з нього теж прибрано.
 
-У юніт-конфізі цього гака немає навмисно: після [Р32](docs/DECISIONS.md#р32) той набір бази не
-торкається. Не додавати замок у `tests/setup.ts` — він виконується для **кожного** файлу, тобто
-лишав би вікно між ними, і заразом серіалізував би 144 чисті тести.
+Одна умова Postgres: у момент копіювання до `spells_test` ніхто не має бути підключений.
+Сіди й dev-сервер на копії тримають зʼєднання секунди, тому сетап чекає до десяти хвилин і
+повторює спробу; рядок «до spells_test хтось підключений — чекаю» — це воно. Dev-сервер для
+браузерної перевірки — на окрему локальну базу (`scripts/local-test-db.sh clone spells_browser_test`),
+не на `spells_test`. Сіди
+(`bun run seed:*:test`) пишуть у саму `spells_test`, і копії, зняті **після** сіду, його
+бачать, а зняті до — ні: якщо тест не бачить щойно засіяного, перезапустити прогін.
+
+**Стандарт швидкості тестів (Р45).** Повний інтеграційний набір має вкладатися в кілька
+хвилин локально, і це тримається трьома правилами:
+
+1. **Файл — до 30 с локально.** `bun run test:integration` після прогону друкує пʼять
+   найповільніших файлів (`tests/reporters/file-durations.ts` → `.vitest/file-durations.json`)
+   і червоніє від 90 с (`scripts/check-test-file-durations.ts`, планка — `TEST_FILE_LIMIT_SECONDS`).
+   Планка навмисно втричі вища за норму, щоб не ловити машину під навантаженням, а лише
+   «один файл будує пʼятнадцять персонажів». Що довше 30 с — розрізати по фікстурах, як
+   `tests/rules-2024/multiclass-fifteen.shard-*.test.ts`: спільний модуль із матрицею перевірок,
+   тонкі файли-шарди, таблиця шардів у `tests/fixtures/2024-multiclass/shards.ts` і чистий тест,
+   що шарди покривають кожну фікстуру рівно раз. Перевірка, яка називає персонажів поіменно,
+   збирається лише в шарді, де вони всі є, і кидає помилку, якщо їх розкидано по різних.
+2. **Один `beforeAll` будує фікстури, тести читають знімки.** Створення персонажа — 26
+   запитів, левелап — стільки ж; `it`, який лише читає, не має будувати заново. `beforeEach(resetUserData)`
+   лишається там, де тест пише.
+3. **Файл, що ходить у базу, живе тільки в інтеграційному конфігу** — у `vitest.integration.config.mts`
+   і `vitest.db-integration-files.mts` одночасно. Юніт-набір без бази перевіряється
+   `bun run test:no-db`, а не оком.
+
+Що вже витиснуто й куди впирається далі: копії бази на воркер, локальний Postgres, 4 воркери,
+шарди матриці. Стеля тепер — node (компіляція й імпорт файлу, ~2 с на файл × 130) і сума
+роботи ÷ 4; `isolate: false` дав би ще, але ділить стан модулів між файлами й не вартий
+ризику для матриці правил.
 
 **Code style.** Follow the global style rules (minimal comments, verb-named functions, coordinator
 function on top reading as named steps, details in small helpers below). Applied here that means:
