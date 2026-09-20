@@ -1,13 +1,12 @@
 // @vitest-environment jsdom
 //
-// KR30.3 — маркер `термін{{Original}}` стає посиланням: перше натискання показує оригінал
-// (KR30.1), друге відкриває модалку терміна; редакція береться зі сторінки, а не з маркера.
-import { afterEach, beforeAll, beforeEach, describe, expect, it } from "vitest";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+// Модалку терміна відкриває посилання на правило, а не маркер звірки: рішення власника
+// 2026-09-20 звело маркер до підказки з оригіналом і зняло з нього друге натискання (KR30.3).
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 
 import { GlossaryTerm } from "@/components/ui/GlossaryTerm";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { findTermCard } from "@/lib/term-catalog-chunk";
 import { closeTermLink, findRulesetInPathname, findTermLinkInSearch, TERM_OPEN_EVENT } from "@/lib/term-link";
 
 function collectTermOpenDetails() {
@@ -17,20 +16,14 @@ function collectTermOpenDetails() {
   return { details, stop: () => window.removeEventListener(TERM_OPEN_EVENT, listener) };
 }
 
-/// Модалка відкривається лише після того, як чанк із картками терміна довантажився. Перше
-/// завантаження під повним набором довше за секунду `waitFor`, і подія долітала в наступний тест.
-beforeAll(async () => {
-  await findTermCard({ original: "Insight", ruleset: "RULES_2014" });
-}, 30_000);
-
 beforeEach(() => {
   window.history.replaceState({}, "", "/bestiary/goblin");
 });
 
 afterEach(cleanup);
 
-describe("KR30.3 — маркер відкриває модалку терміна", () => {
-  it("перше натискання показує оригінал, друге відкриває термін — подією і адресою", async () => {
+describe("Маркер звірки нічого не відкриває", () => {
+  it("скільки б разів не натиснути — лише підказка з оригіналом, без модалки й без адреси", async () => {
     const opened = collectTermOpenDetails();
     render(
       <p>
@@ -40,72 +33,24 @@ describe("KR30.3 — маркер відкриває модалку термін
     const term = screen.getByRole("button", { name: /Проникливість — Insight/ });
 
     fireEvent.click(term);
-    expect(screen.getByRole("tooltip")).toBeTruthy();
-    expect(opened.details).toEqual([]);
-
-    fireEvent.click(term);
-    await waitFor(() => expect(opened.details).toHaveLength(1));
-    opened.stop();
-
-    expect(opened.details).toEqual([{ original: "Insight", ruleset: "RULES_2014", term: "Проникливість" }]);
-    expect(window.location.search).toBe("?term=Insight");
-  });
-
-  it("на дотику фокус, що приходить перед кліком, не перетворює перший дотик на модалку", async () => {
-    const opened = collectTermOpenDetails();
-    render(
-      <p>
-        <GlossaryTerm original="Insight">Проникливість</GlossaryTerm>
-      </p>
-    );
-    const term = screen.getByRole("button", { name: /Проникливість — Insight/ });
-
-    fireEvent.pointerDown(term, { pointerType: "touch" });
-    fireEvent.focus(term);
-    fireEvent.click(term);
-    expect(screen.getByRole("tooltip")).toBeTruthy();
-    expect(opened.details).toEqual([]);
-
-    fireEvent.pointerDown(term, { pointerType: "touch" });
-    fireEvent.click(term);
-    await waitFor(() => expect(opened.details).toHaveLength(1));
-    opened.stop();
-    expect(opened.details).toEqual([{ original: "Insight", ruleset: "RULES_2014", term: "Проникливість" }]);
-  });
-
-  it("на сторінці 2024 термін відкривається в редакції 2024", async () => {
-    window.history.replaceState({}, "", "/2024/bestiary/goblin");
-    const opened = collectTermOpenDetails();
-    render(<FormattedDescription content="Проникливість{{Insight}} гобліна +1." />);
-    const term = screen.getByRole("button", { name: /Проникливість — Insight/ });
+    expect(screen.getByRole("tooltip").textContent).toBe("Insight");
 
     fireEvent.click(term);
     fireEvent.click(term);
-    await waitFor(() => expect(opened.details).toHaveLength(1));
-    opened.stop();
-
-    expect(opened.details).toEqual([{ original: "Insight", ruleset: "RULES_2024", term: "Проникливість" }]);
-    expect(window.location.search).toBe("?term=Insight&term-edition=2024");
-  });
-
-  it("термін, про який відомий лише оригінал, модалку не відкриває — оригінал уже в підказці", async () => {
-    const opened = collectTermOpenDetails();
-    render(<FormattedDescription content="Мультиатака{{Multiattack}}. Гоблін робить дві атаки." />);
-    const term = screen.getByRole("button", { name: /Мультиатака — Multiattack/ });
-
-    fireEvent.click(term);
-    fireEvent.click(term);
-    await findTermCard({ original: "Multiattack", ruleset: "RULES_2014" });
+    await new Promise((resolve) => setTimeout(resolve, 0));
     opened.stop();
 
     expect(opened.details).toEqual([]);
     expect(window.location.search).toBe("");
   });
 
-  it("закриття прибирає термін з адреси, не чіпаючи решти параметрів", () => {
-    window.history.replaceState({}, "", "/spells?level=3&term=Insight&edition=2024");
-    closeTermLink();
-    expect(window.location.search).toBe("?level=3");
+  it("маркер у тексті не малює підкреслення посилання — воно лишилося за посиланнями на правила", () => {
+    render(<FormattedDescription content="Проникливість{{Insight}} гобліна +1." />);
+
+    expect(screen.queryByRole("link")).toBeNull();
+    const term = screen.getByRole("button", { name: /Проникливість — Insight/ });
+    expect(term.className).not.toContain("dotted");
+    expect(term.textContent).toBe("Проникливістьen");
   });
 });
 

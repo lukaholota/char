@@ -3,10 +3,6 @@
 import React from "react";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
 import { cn } from "@/lib/utils";
-import { findRulesetInPathname, openTermLink } from "@/lib/term-link";
-import { findPinnedRuleset } from "@/components/ui/PersEditionPin";
-import { findTermCard } from "@/lib/term-catalog-chunk";
-import { hasTermCardMoreThanOriginal } from "@/lib/term-card";
 
 /// Український термін з англійським оригіналом поруч ([Р20](../../../docs/DECISIONS.md#р20)).
 ///
@@ -19,11 +15,11 @@ import { hasTermCardMoreThanOriginal } from "@/lib/term-card";
 /// Рідна підказка браузера (`<abbr title>`) тут не годиться: вона зʼявляється із затримкою
 /// в секунду, не стилізується й на дотику не показується ніколи.
 ///
-/// Друге натискання — коли оригінал уже видно — відкриває модалку терміна (KR30.3): мишею це
-/// клік по наведеному слову, на телефоні — другий дотик. Редакція береться зі сторінки.
-/// Коли про термін немає нічого, крім оригіналу, модалка не відкривається — він уже в підказці.
-/// «Чи було видно» рахується на момент `pointerdown`, а не `click`: на дотику між ними стає
-/// `focus`, який сам відкриває підказку, і один дотик відкривав би модалку одразу.
+/// Позначка — надрядкове «en», а не підкреслення (власник, 2026-09-20). Крапкова лінія
+/// лишилася рівно за посиланнями на правила (`RuleTermAnchor`): доти обидва малювалися
+/// однаково, і читач не міг знати, відкриється щось чи ні. «en» називає те, що покаже
+/// підказка, і не читається як сумнів перекладача. Звідти ж і друге правило: звірка більше
+/// нічого не відкриває — модалку терміна дає лише посилання.
 export function GlossaryTerm({
   original,
   children,
@@ -35,31 +31,12 @@ export function GlossaryTerm({
   const [nudge, setNudge] = React.useState(0);
   const wrapper = React.useRef<HTMLSpanElement>(null);
   const bubble = React.useRef<HTMLSpanElement>(null);
-  const wasOpenAtPress = React.useRef<boolean | null>(null);
-  const isOpeningTerm = React.useRef(false);
+  const lastPointerType = React.useRef<string | null>(null);
 
   useCloseOnOutsidePress(isOpen, wrapper, () => setIsOpen(false));
   useKeepInsideViewport(isOpen, bubble, setNudge);
 
   if (original === "") return <>{children}</>;
-
-  /// Поки чанк картки вантажиться, підказка ще відкрита, і кожен наступний дотик знову йшов би
-  /// сюди. Не довантажився (немає мережі) — лишається підказка з оригіналом.
-  const openTerm = async () => {
-    if (isOpeningTerm.current) return;
-    isOpeningTerm.current = true;
-    try {
-      const link = { original, ruleset: findPinnedRuleset() ?? findRulesetInPathname(window.location.pathname) };
-      const term = readPlainText(children);
-      if (!hasTermCardMoreThanOriginal(await findTermCard(link), term)) return;
-      setIsOpen(false);
-      openTermLink(link, term);
-    } catch {
-      return;
-    } finally {
-      isOpeningTerm.current = false;
-    }
-  };
 
   return (
     <span ref={wrapper} className="relative inline">
@@ -70,15 +47,15 @@ export function GlossaryTerm({
         aria-expanded={isOpen}
         onPointerEnter={(event) => event.pointerType === "mouse" && setIsOpen(true)}
         onPointerLeave={(event) => event.pointerType === "mouse" && setIsOpen(false)}
-        onPointerDown={() => {
-          wasOpenAtPress.current = isOpen;
+        onPointerDown={(event) => {
+          lastPointerType.current = event.pointerType;
         }}
+        /// Мишею підказкою керує наведення, і клік по наведеному терміну гасив би її просто
+        /// тому, що читач клікнув у текст. Перемикає лише дотик, де наведення не настає.
         onClick={(event) => {
           event.stopPropagation();
-          const wasOpen = wasOpenAtPress.current ?? isOpen;
-          wasOpenAtPress.current = null;
-          if (wasOpen) return void openTerm();
-          setIsOpen(true);
+          if (lastPointerType.current === "mouse") return;
+          setIsOpen((wasOpen) => !wasOpen);
         }}
         onFocus={() => setIsOpen(true)}
         onBlur={() => setIsOpen(false)}
@@ -87,12 +64,21 @@ export function GlossaryTerm({
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
           event.stopPropagation();
-          if (isOpen) return void openTerm();
-          setIsOpen(true);
+          setIsOpen((wasOpen) => !wasOpen);
         }}
-        className="cursor-pointer border-b border-dotted border-slate-500 no-underline outline-none hover:border-arcane-400 focus-visible:border-arcane-400"
+        className="group cursor-help no-underline outline-none"
       >
         {children}
+        <span
+          aria-hidden
+          className={cn(
+            "select-none align-super text-[0.6em] leading-none tracking-tight",
+            isOpen ? "text-arcane-400" : "text-slate-500 group-hover:text-arcane-400",
+            "group-focus-visible:text-arcane-400"
+          )}
+        >
+          en
+        </span>
       </span>
 
       {isOpen && (
