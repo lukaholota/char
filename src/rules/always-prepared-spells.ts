@@ -44,3 +44,29 @@ export function findEarnedAlwaysPreparedSpells(
 
   return earned;
 }
+
+export type PreparedLockSpellRow = {
+  level: number;
+  origin: string | null | undefined;
+  excludeFromPreparedCount: boolean | null | undefined;
+};
+
+/**
+ * «You always have that spell prepared»: рядок, покладений правилом (риса, вид, підклас, опція
+ * класу), підготований завжди й понад ліміт, тож зняти підготовку з нього не можна — на листі
+ * галочка замкнена, а сервер відмовляє й офлайн-черзі.
+ *
+ * Ознака — підпис самого рядка: його поклало правило (`origin` не `MANUAL`) і воно ж вивело його
+ * з ліміту підготовки. Заклинання, яке гравець вивів із ліміту руками в редакторі бейджа, лишається
+ * `MANUAL` і замку не підлягає.
+ */
+export function isAlwaysPreparedSpell(row: PreparedLockSpellRow): boolean {
+  if (row.level <= 0) return false;
+
+  return Boolean(row.excludeFromPreparedCount) && isGrantedByRule(row.origin);
+}
+
+function isGrantedByRule(origin: string | null | undefined): boolean {
+  const value = String(origin ?? "");
+  return value.length > 0 && value !== "MANUAL";
+}

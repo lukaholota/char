@@ -1,5 +1,6 @@
 import { isWornArmor } from "./armor";
 import type { Ruleset } from "./types";
+import { MONK_CLASS_NAMES } from "./unarmored-movement";
 
 export type MonkWeaponCandidate = {
   name: string;
@@ -21,6 +22,10 @@ export function canUseDexterousAttacks(input: DexterousAttacksInput): boolean {
     (MARTIAL_ARTS_FEATURE_ENG_NAMES as readonly string[]).includes(engName),
   );
   return hasMartialArts && !input.wearsShield && !input.equippedArmorNames.some(isWornArmor);
+}
+
+export function hasUnarmedStrikeFromStart(className: string): boolean {
+  return (MONK_CLASS_NAMES as readonly string[]).includes(className);
 }
 
 export function isMonkWeapon(weapon: MonkWeaponCandidate, ruleset: Ruleset): boolean {

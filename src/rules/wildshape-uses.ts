@@ -23,9 +23,9 @@ export type WildshapeUseFeature = {
 /// Єдине місце, де тип істоти звʼязаний із фічею, що на неї перетворює: у даних такого звʼязку
 /// немає — фіча елементальної форми ніде не називає своїх чотирьох статблоків (O24, «Поза
 /// межами»).
-const FORM_FEATURE_BY_CREATURE_TYPE = [
-  { creatureType: "звір", engName: "Wild Shape" },
-  { creatureType: "елементаль", engName: "Elemental Wild Shape" },
+const FORM_FEATURES_BY_CREATURE_TYPE = [
+  { creatureType: "звір", engNames: ["Wild Shape", "Druid: Wild Shape (2024)"] },
+  { creatureType: "елементаль", engNames: ["Elemental Wild Shape"] },
 ];
 
 /// `null` — персонаж не має фічі, яка перетворює на істоту цього типу; платити нема кому.
@@ -33,15 +33,13 @@ export function findFormFeature<T extends WildshapeUseFeature>(
   features: T[],
   creatureType: string
 ): T | null {
-  const engName = findFormFeatureName(creatureType);
-  if (!engName) return null;
-
-  return features.find((feature) => feature.engName === engName) ?? null;
+  const engNames = findFormFeatureNames(creatureType);
+  return features.find((feature) => feature.engName !== null && engNames.includes(feature.engName)) ?? null;
 }
 
-function findFormFeatureName(creatureType: string): string | null {
+function findFormFeatureNames(creatureType: string): string[] {
   const type = (creatureType ?? "").trim().toLowerCase();
-  return FORM_FEATURE_BY_CREATURE_TYPE.find((entry) => entry.creatureType === type)?.engName ?? null;
+  return FORM_FEATURES_BY_CREATURE_TYPE.find((entry) => entry.creatureType === type)?.engNames ?? [];
 }
 
 /// Ціна завжди щонайменше одна: фіча без `usePrice` коштує використання, а не нуль.

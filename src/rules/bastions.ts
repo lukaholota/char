@@ -8,7 +8,8 @@
  * теж додає — усе з написом, а не із замком.
  */
 
-import type { BastionFacilityData, BastionRequirement } from "@/lib/bastion-facility";
+import type { BastionFacilityData, BastionOrderCode, BastionRequirement, BastionSpace } from "@/lib/bastion-facility";
+import { bastionOrderTranslations } from "@/lib/refs/translation";
 import type { Ruleset } from "@/rules/types";
 
 export const BASTION_STANDARD_LEVEL = 5;
@@ -20,6 +21,7 @@ export type BastionAccess = {
   isOffered: boolean;
   isBelowStandardLevel: boolean;
   isEntryCardShown: boolean;
+  isEntryCardMuted: boolean;
 };
 
 export function findBastionAccess(input: {
@@ -33,7 +35,8 @@ export function findBastionAccess(input: {
   return {
     isOffered,
     isBelowStandardLevel,
-    isEntryCardShown: isOffered && (input.hasBastion || !isBelowStandardLevel),
+    isEntryCardShown: isOffered,
+    isEntryCardMuted: isOffered && isBelowStandardLevel && !input.hasBastion,
   };
 }
 
@@ -62,6 +65,146 @@ export function findSpecialFacilityUsage(input: {
   const limit = findSpecialFacilityLimit(input.characterLevel);
 
   return { used: input.used, limit, isOverLimit: input.used > limit };
+}
+
+export type SpecialFacilitySlotsSummary = {
+  counter: string | null;
+  hint: string | null;
+  isWarning: boolean;
+};
+
+/// «0 / 0» на 1-му рівні читається як баг: до 5-го рівня лічильника немає, є пояснення (Р26 — додати все одно можна).
+export function describeSpecialFacilitySlots(usage: BastionSpecialFacilityUsage & { characterLevel: number }): SpecialFacilitySlotsSummary {
+  if (usage.limit === 0) {
+    return {
+      counter: usage.used > 0 ? String(usage.used) : null,
+      hint: `За стандартними правилами спеціальні приміщення відкриваються на ${BASTION_STANDARD_LEVEL}-му рівні. Додати їх можна й зараз — як домашнє правило.`,
+      isWarning: usage.used > 0,
+    };
+  }
+
+  const counter = `${usage.used} / ${usage.limit}`;
+  if (usage.isOverLimit) {
+    return { counter, hint: `За стандартними правилами на цьому рівні їх ${usage.limit}`, isWarning: true };
+  }
+  if (usage.used < usage.limit) {
+    return { counter, hint: `Можна додати ще ${usage.limit - usage.used}`, isWarning: false };
+  }
+
+  const laterLevels = SPECIAL_FACILITY_LIMITS.map((row) => row.fromLevel).filter((level) => level > usage.characterLevel);
+  return { counter, hint: laterLevels.length > 0 ? `Наступне — на ${Math.min(...laterLevels)}-му рівні` : null, isWarning: false };
+}
+
+export type BastionFacilitiesSummary = { specialCount: number; basicCount: number; defenders: number };
+
+/// Рядок «одразу бачу»: скільки чого в бастіоні, без розшифровки за приміщеннями.
+export function summarizeFacilities(
+  facilities: readonly { match: { isSpecial: boolean } | null; defenders: number }[]
+): BastionFacilitiesSummary {
+  return facilities.reduce(
+    (summary, facility) => ({
+      specialCount: summary.specialCount + (facility.match?.isSpecial ?? true ? 1 : 0),
+      basicCount: summary.basicCount + (facility.match && !facility.match.isSpecial ? 1 : 0),
+      defenders: summary.defenders + facility.defenders,
+    }),
+    { specialCount: 0, basicCount: 0, defenders: 0 }
+  );
+}
+
+export type BastionTurnOrder = { facilityName: string; orderCode: BastionOrderCode };
+
+export function findTurnOrders(
+  facilities: readonly { name: string | null; slug: string; currentOrder: BastionOrderCode | null }[]
+): BastionTurnOrder[] {
+  return facilities.flatMap((facility) =>
+    facility.currentOrder ? [{ facilityName: facility.name ?? facility.slug, orderCode: facility.currentOrder }] : []
+  );
+}
+
+/// Журнал пише гравець (KR19.5): це лише заготовка тексту запису, яку він править перед збереженням.
+export function describeTurnOrders(input: { isMaintaining: boolean; orders: readonly BastionTurnOrder[] }): string {
+  const lines = input.orders.map((order) => `${order.facilityName} — ${bastionOrderTranslations[order.orderCode]}`);
+
+  return [...(input.isMaintaining ? [bastionOrderTranslations.MAINTAIN] : []), ...lines].join("\n");
+}
+
+/**
+ * DMG 2024, розділ 8, «Basic Facilities»: бастіон стартує з двох безкоштовних базових
+ * приміщень — одне тісне, одне просторе. Кожне наступне базове й кожне збільшення коштує золота
+ * й днів. Застосунок їх не списує — лише показує (Р26).
+ */
+const FREE_BASIC_FACILITY_SPACES: readonly BastionSpace[] = ["cramped", "roomy"];
+
+export const BASIC_FACILITY_COSTS: readonly { space: BastionSpace; gold: number; days: number }[] = [
+  { space: "cramped", gold: 500, days: 20 },
+  { space: "roomy", gold: 1000, days: 45 },
+  { space: "vast", gold: 3000, days: 125 },
+];
+
+export const BASIC_FACILITY_ENLARGEMENT_COSTS: readonly { from: BastionSpace; to: BastionSpace; gold: number; days: number }[] = [
+  { from: "cramped", to: "roomy", gold: 500, days: 25 },
+  { from: "roomy", to: "vast", gold: 2000, days: 80 },
+];
+
+export function findMissingFreeBasicSpaces(basicFacilitySpaces: readonly BastionSpace[]): BastionSpace[] {
+  return FREE_BASIC_FACILITY_SPACES.filter((space) => !basicFacilitySpaces.includes(space));
+}
+
+/// «Each special facility can be chosen only once unless its description says otherwise» —
+/// базових це не стосується: «A Bastion can have more than one of each basic facility».
+export function isSpecialFacilityAlreadyBuilt(
+  facility: Pick<BastionFacilityData, "slug" | "facilityType">,
+  builtSlugs: readonly string[]
+): boolean {
+  return facility.facilityType === "special" && builtSlugs.includes(facility.slug);
+}
+
+/// DMG 2024, «Orders»: «Issuing this order prohibits other orders from being issued to the Bastion
+/// on the current Bastion turn». Застосунок накази приміщень не стирає — лише попереджає (Р26).
+export function describeMaintainConflict(input: { isMaintaining: boolean; orderedFacilityCount: number }): string | null {
+  if (!input.isMaintaining || input.orderedFacilityCount === 0) return null;
+
+  return `Бастіон на Утриманні: цього ходу інші накази не віддаються, а приміщень із наказом — ${input.orderedFacilityCount}.`;
+}
+
+/// DMG 2024, «Special Facilities»: «Each new special facility immediately becomes part of the
+/// character's Bastion when the character reaches the level. Each time a character gains a level,
+/// that character can replace one of their Bastion's special facilities with another».
+export function describeBastionLevelUp(input: {
+  ruleset: Ruleset;
+  fromLevel: number;
+  toLevel: number;
+  hasBastion: boolean;
+}): string[] {
+  if (input.ruleset !== "RULES_2024") return [];
+  if (!input.hasBastion) return describeBastionUnlock(input.fromLevel, input.toLevel);
+
+  const gainedFacilities = findSpecialFacilityLimit(input.toLevel) - findSpecialFacilityLimit(input.fromLevel);
+  return [
+    ...(gainedFacilities > 0
+      ? [`Бастіон отримує нові спеціальні приміщення: +${gainedFacilities}, разом до ${findSpecialFacilityLimit(input.toLevel)}. Оберіть їх на сторінці бастіону.`]
+      : []),
+    "На новому рівні можна замінити одне спеціальне приміщення бастіону іншим, якому персонаж відповідає.",
+  ];
+}
+
+function describeBastionUnlock(fromLevel: number, toLevel: number): string[] {
+  if (fromLevel >= BASTION_STANDARD_LEVEL || toLevel < BASTION_STANDARD_LEVEL) return [];
+  return [`З ${BASTION_STANDARD_LEVEL}-го рівня персонаж може здобути бастіон — його можна створити на слайді Рис.`];
+}
+
+/// Заміна переносить стан рядка: розмір лишається, якщо новий каталог його дозволяє, і наказ —
+/// якщо новому приміщенню його дають.
+export function findReplacementState(input: {
+  currentSpace: BastionSpace;
+  currentOrder: BastionOrderCode | null;
+  allowedSpaces: readonly BastionSpace[];
+  allowedOrders: readonly BastionOrderCode[];
+}): { space: BastionSpace; keepsOrder: boolean } {
+  return {
+    space: input.allowedSpaces.includes(input.currentSpace) ? input.currentSpace : input.allowedSpaces[0],
+    keepsOrder: input.currentOrder !== null && input.allowedOrders.includes(input.currentOrder),
+  };
 }
 
 export const FIRST_BASTION_TURN_NUMBER = 1;

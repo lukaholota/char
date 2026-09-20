@@ -115,3 +115,25 @@ export function serializeHitDicePools(pools: HitDicePool[]): Record<number, numb
   for (const pool of pools) stored[pool.classId] = pool.current;
   return stored;
 }
+
+/// Кожен кубик відновлює щонайменше один хіт, навіть коли модифікатор Статури відʼємний.
+export function rollHitPointsFromHitDice(
+  pools: HitDicePool[],
+  spends: HitDiceSpend[],
+  constitutionModifier: number,
+  random: () => number = Math.random,
+): number {
+  let restored = 0;
+
+  for (const spend of spends) {
+    const pool = pools.find((candidate) => candidate.classId === spend.classId);
+    if (!pool) continue;
+
+    for (let die = 0; die < spend.count; die += 1) {
+      const roll = Math.floor(random() * pool.hitDie) + 1;
+      restored += Math.max(1, roll + constitutionModifier);
+    }
+  }
+
+  return restored;
+}

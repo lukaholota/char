@@ -1,6 +1,7 @@
 import { getRulesStrategy } from "./strategies";
 import type { RulesetId } from "./strategies/types";
-import type { AbilityKey, BackgroundASIChoice } from "./types";
+import { STANDARD_ABILITY_SCORE_CEILING, raiseAbilityScore } from "./ability-score-ceiling";
+import type { AbilityKey, AbilityScores, BackgroundASIChoice } from "./types";
 
 export type BackgroundAsiMode = BackgroundASIChoice["mode"];
 
@@ -110,6 +111,17 @@ export function sumBackgroundAsiBonuses(
     bonuses[ability] = (bonuses[ability] ?? 0) + 1;
     return bonuses;
   }, {});
+}
+
+export function raiseScoresByBackgroundAsi(
+  scoresBefore: AbilityScores,
+  bonuses: Partial<Record<AbilityKey, number>>,
+): AbilityScores {
+  const raised = { ...scoresBefore };
+  for (const ability of Object.keys(bonuses) as AbilityKey[]) {
+    raised[ability] = raiseAbilityScore(scoresBefore[ability], bonuses[ability] ?? 0, STANDARD_ABILITY_SCORE_CEILING);
+  }
+  return raised;
 }
 
 function collectAllowedAbilities(abilityOptions: readonly string[] | null | undefined): AbilityKey[] {

@@ -15,6 +15,7 @@ import type { AbilityKey, AbilityScores, BackgroundASIChoice, SpellcastingKind }
 import { getRulesStrategy } from "./strategies";
 import type { RulesetId } from "./strategies/types";
 import { STANDARD_ABILITY_SCORE_CEILING } from "./ability-score-ceiling";
+import { collectFeatGrants, type FeatGrantSource } from "./feat-grants";
 
 export type CreationAbilityInput = {
   ruleset?: RulesetId;
@@ -38,16 +39,8 @@ export type CreationAbilityInput = {
 };
 
 export type CreationFeatAbilityInput = {
-  grantedASI: unknown;
-  selectedChoiceOptionIds: Array<number | number[]>;
-  choiceOptions: Array<{
-    choiceOptionId: number;
-    optionNameEng?: string | null;
-    effectKind?: string | null;
-    effectAbility?: string | null;
-    effectAmount?: number | null;
-  }>;
-  resilient: boolean;
+  source: FeatGrantSource;
+  chosenOptionIds: number[];
 };
 
 export type CreationAbilityResult = {
@@ -102,7 +95,7 @@ export function buildCreationAbilityScores(input: CreationAbilityInput): Creatio
   for (const feat of input.feats) {
     const result = applyFeatAbilityScores(scores, feat);
     scores = result.scores;
-    if (result.resilientSavingThrow) resilientSavingThrows.push(result.resilientSavingThrow);
+    resilientSavingThrows.push(...result.resilientSavingThrows);
   }
 
   scores = applyRaceChoiceAbilityBonuses(scores, input.raceChoiceAbilityBonuses ?? []);
@@ -111,6 +104,10 @@ export function buildCreationAbilityScores(input: CreationAbilityInput): Creatio
     scores: clampAbilityScores(scores),
     resilientSavingThrows: Array.from(new Set(resilientSavingThrows)),
   };
+}
+
+export function buildScoresBeforeBackgroundAsi(input: Omit<CreationAbilityInput, "backgroundAsiChoice" | "feats">): AbilityScores {
+  return buildCreationAbilityScores({ ...input, backgroundAsiChoice: undefined, feats: [] }).scores;
 }
 
 function applyRaceChoiceAbilityBonuses(scores: AbilityScores, choices: Array<{ ASI: unknown }>): AbilityScores {
@@ -171,34 +168,14 @@ function applyRacialAbilityScores(scores: AbilityScores, input: CreationAbilityI
   return applyRacialChoices(updated, choices, [...raceGroups, ...fallbackGroups, ...extraGroups]) as AbilityScores;
 }
 
-function applyFeatAbilityScores(scores: AbilityScores, feat: CreationFeatAbilityInput): { scores: AbilityScores; resilientSavingThrow?: string } {
-  let updated = addAbilityBonuses(scores, getPlainBonuses(feat.grantedASI)) as AbilityScores;
-  updated = addAbilityBonuses(updated, getSimpleBonuses(feat.grantedASI)) as AbilityScores;
-  let resilientSavingThrow: string | undefined;
-
-  for (const selected of feat.selectedChoiceOptionIds.flatMap((value) => (Array.isArray(value) ? value : [value]))) {
-    const option = feat.choiceOptions.find((candidate) => candidate.choiceOptionId === Number(selected));
-    if (!option) continue;
-
-    const ability = getAbilityFromChoiceOption(option);
-    if (!ability) continue;
-    updated = addAbilityBonuses(updated, { [ability]: option.effectKind === "ASI" ? Number(option.effectAmount ?? 1) || 1 : 1 }) as AbilityScores;
-    if (feat.resilient) resilientSavingThrow = ability;
-  }
-
-  return { scores: updated, resilientSavingThrow };
-}
-
-function getAbilityFromChoiceOption(option: CreationFeatAbilityInput["choiceOptions"][number]): string | null {
-  if (option.effectKind === "ASI" && option.effectAbility && isAbilityKey(option.effectAbility)) return option.effectAbility;
-  const name = option.optionNameEng ?? "";
-  if (name.includes("Strength")) return "STR";
-  if (name.includes("Dexterity")) return "DEX";
-  if (name.includes("Constitution")) return "CON";
-  if (name.includes("Intelligence")) return "INT";
-  if (name.includes("Wisdom")) return "WIS";
-  if (name.includes("Charisma")) return "CHA";
-  return null;
+function applyFeatAbilityScores(scores: AbilityScores, feat: CreationFeatAbilityInput): { scores: AbilityScores; resilientSavingThrows: string[] } {
+  const grants = collectFeatGrants(feat.source, feat.chosenOptionIds);
+  const bonuses: Record<string, number> = {};
+  for (const { ability, amount } of grants.abilityIncreases) bonuses[ability] = (bonuses[ability] ?? 0) + amount;
+  return {
+    scores: addAbilityBonuses(scores, bonuses) as AbilityScores,
+    resilientSavingThrows: grants.saveProficiencies,
+  };
 }
 
 function clampAbilityScores(scores: AbilityScores): AbilityScores {

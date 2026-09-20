@@ -33,6 +33,8 @@ export type WeaponProficiencyGrant = {
   specificWeaponNames: readonly string[];
 };
 
+export const NO_WEAPON_PROFICIENCY: WeaponProficiencyGrant = { weaponTypes: [], specificWeaponNames: [] };
+
 const WEAPON_TYPES = ["SIMPLE_WEAPON", "MARTIAL_WEAPON", "FIREARMS"];
 
 /**
@@ -48,6 +50,16 @@ const MELEE_ONLY_MASTERY_CLASSES = new Set(["BARBARIAN_2024"]);
  */
 const MASTERY_SLOT_BY_FEAT: Record<string, number> = {
   WEAPON_MASTER: 1,
+};
+
+/** «…of one kind of Simple or Martial weapon of your choice, provided you have proficiency with it.» */
+const FEAT_MASTERY_WEAPON_TYPES = ["SIMPLE_WEAPON", "MARTIAL_WEAPON"];
+
+/** Персонаж у пулі: класи зі своїми рівнями, слоти від рис і володіння зброєю з усіх джерел. */
+export type MasteryCharacter = {
+  classes: readonly MasteryClassOffer[];
+  featSlots: number;
+  proficiency: WeaponProficiencyGrant;
 };
 
 export function countFeatMasterySlots(featNames: readonly string[]): number {
@@ -104,7 +116,7 @@ export function findWeaponMasteryOptionsForClasses<Weapon extends MasteryWeapon>
   const offered = new Set<number>();
 
   for (const entry of classes) {
-    if (entry.masteryProgression.length === 0) continue;
+    if (readCapacityAtLevel(entry) === 0) continue;
     const proficiency = readWeaponProficiencyGrant(entry.weaponProficiencies, entry.weaponProficienciesSpecial);
     for (const weapon of findWeaponMasteryOptions(weapons, proficiency, entry.className)) {
       offered.add(weapon.weaponId);
@@ -112,6 +124,32 @@ export function findWeaponMasteryOptionsForClasses<Weapon extends MasteryWeapon>
   }
 
   return weapons.filter((weapon) => offered.has(weapon.weaponId));
+}
+
+/**
+ * Слот риси не привʼязаний до класу: чарівник із Weapon Master обирає з простої зброї, якою
+ * володіє, хоча його клас майстерності не має. Пул класів і пул риси обʼєднуються.
+ */
+export function findWeaponMasteryOptionsForCharacter<Weapon extends MasteryWeapon>(
+  character: MasteryCharacter,
+  weapons: readonly Weapon[],
+): Weapon[] {
+  const offered = new Set(findWeaponMasteryOptionsForClasses(character.classes, weapons).map((weapon) => weapon.weaponId));
+  if (character.featSlots > 0) {
+    for (const weapon of findFeatMasteryOptions(weapons, character.proficiency)) offered.add(weapon.weaponId);
+  }
+
+  return weapons.filter((weapon) => offered.has(weapon.weaponId));
+}
+
+function findFeatMasteryOptions<Weapon extends MasteryWeapon>(weapons: readonly Weapon[], proficiency: WeaponProficiencyGrant): Weapon[] {
+  return weapons.filter(
+    (weapon) => Boolean(weapon.mastery) && FEAT_MASTERY_WEAPON_TYPES.includes(weapon.weaponType) && isProficientWith(weapon, proficiency),
+  );
+}
+
+export function toWeaponProficiencyGrant(derived: { weaponTypes: readonly string[]; weapons: readonly string[] }): WeaponProficiencyGrant {
+  return { weaponTypes: derived.weaponTypes, specificWeaponNames: derived.weapons };
 }
 
 function isProficientWith(weapon: MasteryWeapon, proficiency: WeaponProficiencyGrant): boolean {

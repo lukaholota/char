@@ -40,7 +40,7 @@ export interface WildshapeCandidate {
   hasConditionalSpeed: boolean;
 }
 
-/// Чому причина, а не просто «ні»: рядок обмежень «КР до 1 · без польоту, без плавання» не сказав
+/// Чому причина, а не просто «ні»: рядок обмежень «ПН до 1 · без польоту, без плавання» не сказав
 /// власникові, що лазіння дозволене свідомо, і година пішла на перевірку правила, яке весь час
 /// було правильне. Причина несе поріг, тож текст пишеться тут, а не збирається в UI зі шматків.
 export type EligibilityReason =
@@ -116,7 +116,7 @@ export function findDruidStanding(classes: ClassStanding[]): DruidStanding {
   };
 }
 
-/// `null` — Дикої форми немає взагалі. Не «межа нуль»: у каталозі повно звірів із КР 0, і
+/// `null` — Дикої форми немає взагалі. Не «межа нуль»: у каталозі повно звірів із ПН 0, і
 /// нульова межа пропустила б їх усіх недруїду. Відсутність фічі — не найсуворіша її межа.
 export function findWildshapeLimits(context: WildshapeContext): WildshapeLimits | null {
   const row = findBeastShapesRow(context);
@@ -138,7 +138,7 @@ function findBeastShapesRow(context: WildshapeContext): BeastShapesRow | undefin
   return BEAST_SHAPES_TABLES[context.ruleset].find((entry) => level >= entry.fromLevel);
 }
 
-/// «Форми кола» 2014: з 2 рівня КР до 1, з 6 — до третини рівня друїда, округленої донизу.
+/// «Форми кола» 2014: з 2 рівня ПН до 1, з 6 — до третини рівня друїда, округленої донизу.
 /// 2024: підклас починається з 3 рівня, і третина рівня діє одразу, без сходинки на 1.
 function findMoonCircleChallengeRating(context: WildshapeContext, tableChallengeRating: number): number {
   const level = Math.trunc(context.druidLevel);
@@ -151,7 +151,7 @@ function findMoonCircleChallengeRating(context: WildshapeContext, tableChallenge
 }
 
 /**
- * Придатність форми з усіма причинами одразу, а не з першою-ліпшою: КР завеликий **і** політ
+ * Придатність форми з усіма причинами одразу, а не з першою-ліпшою: ПН завеликий **і** політ
  * зарано — це дві різні речі, які гравець має побачити разом. Непридатна форма за
  * [Р-3](docs/o24-wildshape-second-layer/README.md) не зникає зі списку, а додається з
  * попередженням, тож причина мусить називати, чого саме бракує.
@@ -202,7 +202,7 @@ function findChallengeReasons(
     ];
   }
 
-  /// Без цього гравець не розуміє, чому його список ширший за таблицю: у колі Місяця КР рахується
+  /// Без цього гравець не розуміє, чому його список ширший за таблицю: у колі Місяця ПН рахується
   /// не за стовпчиком Max. CR, а за рівнем друїда.
   const beyondTable = challenge > findTableChallengeRating(context);
   return context.isMoonCircle && beyondTable
@@ -211,7 +211,7 @@ function findChallengeReasons(
           kind: "moonCircleChallenge",
           blocking: false,
           maxChallengeRating: limits.maxChallengeRating,
-          text: `Доступна завдяки Колу місяця: воно піднімає межу до КР ${formatChallengeRating(limits.maxChallengeRating)}`,
+          text: `Доступна завдяки Колу місяця: воно піднімає межу до ПН ${formatChallengeRating(limits.maxChallengeRating)}`,
         },
       ]
     : [];
@@ -265,7 +265,7 @@ function findSpeedReasons(
   return reasons;
 }
 
-/// Межа КР за самою таблицею, без «Форм кола» — потрібна, щоб сказати, що форму відкрило коло.
+/// Межа ПН за самою таблицею, без «Форм кола» — потрібна, щоб сказати, що форму відкрило коло.
 function findTableChallengeRating(context: WildshapeContext): number {
   return findBeastShapesRow(context)?.limits.maxChallengeRating ?? 0;
 }
@@ -294,7 +294,7 @@ export function describeWildshapeLimits(context: WildshapeContext): string[] {
   if (!limits) return [];
 
   return [
-    `КР до ${formatChallengeRating(limits.maxChallengeRating)}`,
+    `ПН до ${formatChallengeRating(limits.maxChallengeRating)}`,
     describeSpeedLimit("політ", limits.allowsFlySpeed, findSpeedUnlockLevel(context.ruleset, (row) => row.allowsFlySpeed)),
     describeSpeedLimit("плавання", limits.allowsSwimSpeed, findSpeedUnlockLevel(context.ruleset, (row) => row.allowsSwimSpeed)),
     "лазіння без обмежень",

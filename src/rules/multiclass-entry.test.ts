@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { describeMulticlassEntryProblem, findMulticlassEntryProblem, type MulticlassEntryClass } from "./multiclass-entry";
+import { describeMulticlassEntryProblem, describeMulticlassRequirement, findMulticlassEntryProblem, type MulticlassEntryClass } from "./multiclass-entry";
 import type { AbilityKey } from "./types";
 
 const BARBARIAN_2024: MulticlassEntryClass = { name: "BARBARIAN_2024", multiclassReqs: { score: 13, choice: ["STR"] } };
@@ -144,5 +144,16 @@ describe("опис попередження про мультиклас (KR31.9 
     expect(describeMulticlassEntryProblem(problem, identity)).toBe(
       "DRUID_2024 вимагає WIS 13; у персонажа WIS 8.",
     );
+  });
+
+  it("коротка вимога для замка на картці класу не згадує, що має персонаж", () => {
+    const problem = findMulticlassEntryProblem({
+      ruleset: "RULES_2014",
+      abilityScores: scores({ DEX: 8, WIS: 14 }),
+      currentClasses: [],
+      newClass: MONK_2014,
+    })!;
+
+    expect(describeMulticlassRequirement(problem, identity)).toBe("DEX 13 і WIS 13");
   });
 });

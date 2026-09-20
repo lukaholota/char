@@ -15,7 +15,7 @@ export function isWornArmor(armorName: string): boolean {
   return !ARMOR_CLASS_SOURCES_NOT_ARMOR.includes(armorName);
 }
 
-export type ArmorClassPartKey = "BASE" | "SPECIES" | "SHIELD" | "MANUAL" | "FEATURES" | "MAGIC_ITEMS";
+export type ArmorClassPartKey = "BASE" | "SPECIES" | "SHIELD" | "MANUAL" | "FEATURES" | "STATES" | "MAGIC_ITEMS";
 
 export type ArmorClassPart = { key: ArmorClassPartKey; value: number };
 
@@ -30,6 +30,7 @@ export function explainArmorClass(input: ArmorClassInput): ArmorClassPart[] {
     { key: "SHIELD", value: input.wearsShield ? 2 + input.shieldArmorClassBonus : 0 },
     { key: "MANUAL", value: input.simpleArmorClassBonus },
     { key: "FEATURES", value: input.featureArmorClassBonus },
+    { key: "STATES", value: input.stateArmorClassBonus ?? 0 },
     { key: "MAGIC_ITEMS", value: input.magicItemArmorClassBonus },
   ];
 }

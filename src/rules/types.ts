@@ -67,6 +67,7 @@ export type ArmorClassInput = {
   shieldArmorClassBonus: number;
   simpleArmorClassBonus: number;
   featureArmorClassBonus: number;
+  stateArmorClassBonus?: number;
   magicItemArmorClassBonus: number;
 };
 

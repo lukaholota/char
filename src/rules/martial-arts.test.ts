@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { isWornArmor } from "./armor";
-import { canUseDexterousAttacks, findMartialArtsDamageDice, findMartialArtsDie, isMonkWeapon } from "./martial-arts";
+import {
+  canUseDexterousAttacks,
+  findMartialArtsDamageDice,
+  findMartialArtsDie,
+  hasUnarmedStrikeFromStart,
+  isMonkWeapon,
+} from "./martial-arts";
 
 const weapon = (name: string, weaponType: string, properties: string[] = [], isRanged = false) => ({
   name,
@@ -37,6 +43,16 @@ describe("зброя монаха за редакцією", () => {
 
   it("беззбройний удар рахується як зброя монаха", () => {
     expect(isMonkWeapon(weapon("UNARMED_STRIKE", "SIMPLE_WEAPON"), "RULES_2014")).toBe(true);
+  });
+});
+
+describe("беззбройний удар при створенні", () => {
+  it.each(["MONK_2014", "MONK_2024"])("%s отримує його одразу", (className) => {
+    expect(hasUnarmedStrikeFromStart(className)).toBe(true);
+  });
+
+  it("інші класи — ні", () => {
+    expect(hasUnarmedStrikeFromStart("FIGHTER_2014")).toBe(false);
   });
 });
 

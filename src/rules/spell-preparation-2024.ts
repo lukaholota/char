@@ -107,6 +107,10 @@ export function findPreparableSpellLevelBySpellList(
   return byList;
 }
 
+export function findSpellListClass2024(className: string, subclassName: string | null): string {
+  return SPELL_LIST_CLASS_BY_THIRD_CASTER[subclassName ?? ""] ?? className;
+}
+
 function findPreparationTable(className: string, subclassName: string | null): SpellPreparationTable | null {
   if (SPELL_PREPARATION_2024[className]) return SPELL_PREPARATION_2024[className];
   if (subclassName && THIRD_CASTER_SUBCLASSES.has(subclassName)) return THIRD_CASTER_PREPARATION_2024;

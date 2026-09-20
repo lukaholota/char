@@ -90,14 +90,22 @@ export function describeMulticlassEntryProblem(
   problem: MulticlassEntryProblem,
   translate: (key: string) => string,
 ): string {
-  const demanded = problem.requiredAbilities
-    .map((ability) => `${translate(ability)} ${problem.score}`)
-    .join(problem.needsAll ? " і " : " або ");
+  const demanded = describeMulticlassRequirement(problem, translate);
   const owned = problem.unmetAbilities
     .map((unmet) => `${translate(unmet.ability)} ${unmet.actual}`)
     .join(", ");
 
   return `${translate(problem.className)} вимагає ${demanded}; у персонажа ${owned}.`;
+}
+
+/** «Спритність 13 і Мудрість 13» */
+export function describeMulticlassRequirement(
+  problem: MulticlassEntryProblem,
+  translate: (key: string) => string,
+): string {
+  return problem.requiredAbilities
+    .map((ability) => `${translate(ability)} ${problem.score}`)
+    .join(problem.needsAll ? " і " : " або ");
 }
 
 function readRequirement(

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { findEarnedAlwaysPreparedSpells, type AlwaysPreparedSpellSource } from "./always-prepared-spells";
+import { findEarnedAlwaysPreparedSpells, isAlwaysPreparedSpell, type AlwaysPreparedSpellSource } from "./always-prepared-spells";
 
 function buildLifeDomain(classLevel: number): AlwaysPreparedSpellSource {
   return {
@@ -58,5 +58,28 @@ describe("KR31.5 — завжди підготовлені заклинання 
       "LIFE_DOMAIN",
       "LIFE_DOMAIN",
     ]);
+  });
+});
+
+describe("замок підготовки — рядок, покладений правилом, зняти не можна", () => {
+  const featRow = { level: 1, origin: "FEAT", excludeFromPreparedCount: true };
+
+  it("заклинання риси, виду чи підкласу поза лімітом — завжди підготоване", () => {
+    expect(isAlwaysPreparedSpell(featRow)).toBe(true);
+    expect(isAlwaysPreparedSpell({ ...featRow, origin: "RACE" })).toBe(true);
+    expect(isAlwaysPreparedSpell({ ...featRow, origin: "CLASS" })).toBe(true);
+  });
+
+  it("власний вибір гравця замку не підлягає, навіть виведений із ліміту руками", () => {
+    expect(isAlwaysPreparedSpell({ ...featRow, origin: "MANUAL" })).toBe(false);
+    expect(isAlwaysPreparedSpell({ ...featRow, origin: null })).toBe(false);
+  });
+
+  it("заклинання класу в межах ліміту готується й знімається як завжди", () => {
+    expect(isAlwaysPreparedSpell({ ...featRow, excludeFromPreparedCount: false })).toBe(false);
+  });
+
+  it("замовляння підготовки не має взагалі", () => {
+    expect(isAlwaysPreparedSpell({ ...featRow, level: 0 })).toBe(false);
   });
 });

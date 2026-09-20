@@ -1,13 +1,14 @@
 /**
- * Героїчне натхнення 2024 (KR31.3, знахідки `L12-secondary-flows-10`, `L10-sheet-config-09`,
- * `L19-parity-competitors-04`).
+ * Натхнення (2014 «Inspiration», 2024 «Heroic Inspiration»; KR31.3).
  *
- * Це **стан**, а не ресурс із максимумом: «You can never have more than one instance of Heroic
- * Inspiration» (`data/2024/srd/playing-the-game.md`). Тому в персонажа одна булева колонка
- * `pers.has_heroic_inspiration`, а не лічильник, не пул і не `usesCountSpecial` — та колонка
- * перемикає суддю пулу (BUG-011), і натхнення туди класти не можна.
+ * Книги обох редакцій кажуть «або є, або немає»: «You can never have more than one instance of
+ * Heroic Inspiration» (`data/2024/srd/playing-the-game.md`). Білдер навмисно гнучкий (рішення
+ * власника 2026-09-13): персонаж зберігає лічильник `pers.heroic_inspiration_count`, а
+ * `pers.can_stack_heroic_inspiration` вирішує, чи лічильник тримається в 0..1, як у книзі, чи росте.
+ * У пул ресурсів (`usesCountSpecial`) натхнення не кладеться — та колонка перемикає суддю пулу
+ * (BUG-011).
  *
- * Дає натхнення здебільшого майстер, тож гравець вмикає й витрачає його з листа руками. Правила
+ * Дає натхнення здебільшого майстер, тож гравець додає й витрачає його з листа руками. Правила
  * нижче покривають лише те, що застосунок може вивести сам: довгий відпочинок носія риси й
  * підказки приміщень бастіону.
  */
@@ -29,15 +30,28 @@ export function listFeaturesGrantingHeroicInspirationOnLongRest(): string[] {
   return [...FEATURES_GRANTING_HEROIC_INSPIRATION_ON_LONG_REST];
 }
 
-export type LongRestHeroicInspiration = {
-  hasHeroicInspiration: boolean;
+export type HeroicInspiration = {
+  heroicInspirationCount: number;
+  canStackHeroicInspiration: boolean;
+};
+
+export function limitHeroicInspirationCount({ heroicInspirationCount, canStackHeroicInspiration }: HeroicInspiration): number {
+  const count = Number.isFinite(heroicInspirationCount) ? Math.max(0, Math.trunc(heroicInspirationCount)) : 0;
+  return canStackHeroicInspiration ? count : Math.min(1, count);
+}
+
+export type LongRestHeroicInspiration = HeroicInspiration & {
   featureEngNames: readonly (string | null | undefined)[];
 };
 
-/// Відпочинок натхнення не забирає: книга не знає терміну дії, а «друге» натхнення в того, хто
-/// вже має, просто губиться — булеве значення це й виражає.
-export function findHeroicInspirationAfterLongRest({ hasHeroicInspiration, featureEngNames }: LongRestHeroicInspiration): boolean {
-  return hasHeroicInspiration || featureEngNames.some(grantsHeroicInspirationOnLongRest);
+/// Відпочинок натхнення не забирає: книга не знає терміну дії. Без стакання «друге» натхнення в
+/// того, хто вже має, губиться; зі стаканням — додається.
+export function findHeroicInspirationCountAfterLongRest({
+  featureEngNames,
+  ...inspiration
+}: LongRestHeroicInspiration): number {
+  const gained = featureEngNames.some(grantsHeroicInspirationOnLongRest) ? 1 : 0;
+  return limitHeroicInspirationCount({ ...inspiration, heroicInspirationCount: inspiration.heroicInspirationCount + gained });
 }
 
 /**

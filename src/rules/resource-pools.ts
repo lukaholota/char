@@ -95,8 +95,19 @@ export type ShortRestRecovery = {
 };
 
 export function findUsesAfterShortRest({ engName, usesRemaining, maxUses }: ShortRestRecovery): number {
+  return findRegainedUsesAfterShortRest({ regainsOneUse: regainsOneUseOnShortRest(engName), usesRemaining, maxUses });
+}
+
+export type RegainedUsesAfterShortRest = {
+  regainsOneUse: boolean;
+  usesRemaining: number | null | undefined;
+  maxUses: number;
+};
+
+/// Лист не знає англійської назви риси — він отримує готовий прапорець `regainsOneUseOnShortRest`.
+export function findRegainedUsesAfterShortRest({ regainsOneUse, usesRemaining, maxUses }: RegainedUsesAfterShortRest): number {
   const max = toCount(maxUses);
-  if (!regainsOneUseOnShortRest(engName)) return max;
+  if (!regainsOneUse) return max;
   return Math.min(Math.min(toCount(usesRemaining ?? max), max) + 1, max);
 }
 
