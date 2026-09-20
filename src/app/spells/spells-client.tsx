@@ -461,6 +461,7 @@ export function SpellsClient({
     <ContentListPage<SpellListItem, RowItem>
       title={homebrewOnly ? "Хоумбрю: заклинання" : is2024 ? "Заклинання 2024" : "Заклинання"}
       is2024={is2024}
+      topBannerScrollsWithListOnMobile={Boolean(homebrewOnly)}
       topBanner={
         homebrewOnly ? homebrewOnly.header : !isEmbedMode && selection.source.homebrew ? (
           <HomebrewCatalogBanner kind="SPELL" edition={is2024 ? "2024" : "2014"} count={communityHomebrew.length} />

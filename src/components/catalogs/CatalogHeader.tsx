@@ -40,46 +40,46 @@ export function CatalogHeader({
   const accent = findEditionAccent(edition);
 
   return (
-    <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shrink-0">
-      <div className="flex items-center gap-2">
-        <h1 className="font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider">
-          <EditionAccentTitle edition={edition}>{title}</EditionAccentTitle>
-        </h1>
+    <div className="mb-3 flex flex-wrap items-center gap-2.5 shrink-0">
+      <h1 className="mr-auto font-rpg-display text-xl sm:text-2xl font-bold uppercase tracking-wider">
+        <EditionAccentTitle edition={edition}>{title}</EditionAccentTitle>
+      </h1>
+
+      {/* Телефон: рядок кнопок не тисне пошук — той переїжджає під нього на всю ширину. */}
+      <div className="relative order-last w-full sm:order-none sm:w-64">
+        <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
+        <Input
+          value={searchQuery}
+          onChange={(e) => onSearchChange(e.target.value)}
+          placeholder={searchPlaceholder}
+          className="pl-9 pr-8 bg-slate-900/60 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl h-10 text-xs md:h-9"
+        />
+        {searchQuery && (
+          <button
+            type="button"
+            onClick={() => onSearchChange("")}
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
+            aria-label="Очистити пошук"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        )}
       </div>
 
       <div className="flex items-center gap-2">
-        <div className="relative flex-1 sm:w-64">
-          <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
-          <Input
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            placeholder={searchPlaceholder}
-            className="pl-9 pr-8 bg-slate-900/60 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl h-10 text-xs md:h-9"
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => onSearchChange("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
-              aria-label="Очистити пошук"
-            >
-              <X className="h-3.5 w-3.5" />
-            </button>
-          )}
-        </div>
-
         {onOpenFilters && (
           <Button
             variant="outline"
             size="sm"
             onClick={onOpenFilters}
+            aria-label="Фільтри"
             className={cn(
               "h-10 gap-1.5 rounded-xl border-white/10 bg-slate-900/60 text-xs md:h-9",
               hasActiveFilters && cn(accent.solid.text, accent.solid.border, accent.solid.fill)
             )}
           >
             <Filter className="h-3.5 w-3.5" />
-            <span>Фільтри</span>
+            <span className="hidden sm:inline">Фільтри</span>
             {hasActiveFilters && activeFiltersCount > 0 && (
               <span
                 className={cn(
@@ -99,7 +99,7 @@ export function CatalogHeader({
             variant="ghost"
             size="sm"
             onClick={onClearFilters}
-            className="h-10 px-2 text-xs text-slate-400 hover:text-slate-200 md:h-9"
+            className="hidden h-10 px-2 text-xs text-slate-400 hover:text-slate-200 sm:inline-flex md:h-9"
           >
             Скинути
           </Button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import { Virtuoso } from "react-virtuoso";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CatalogHeader, type CatalogHeaderProps } from "./CatalogHeader";
@@ -10,6 +10,8 @@ import { findEditionAccent } from "@/styles/edition-accent";
 export type ContentListPageProps<TItem, TRow = TItem> = CatalogHeaderProps & {
   tabs?: ReactNode;
   topBanner?: ReactNode;
+  /// Телефон: банер їде разом зі списком, а не висить над ним увесь час.
+  topBannerScrollsWithListOnMobile?: boolean;
 
   // List data & rendering
   data: TRow[];
@@ -53,6 +55,7 @@ export function ContentListPage<TItem, TRow = TItem>({
   // Layout slots
   tabs,
   topBanner,
+  topBannerScrollsWithListOnMobile = false,
 
   // List props
   data,
@@ -92,12 +95,22 @@ export function ContentListPage<TItem, TRow = TItem>({
   /// FormattedDescription із 128 місць, і прокидати туди редакцію пропом немає сенсу.
   const accentVariables = findEditionAccent(is2024 ? "2024" : "2014").vars;
 
+  const listHeader = topBannerScrollsWithListOnMobile ? topBanner : null;
+
+  /// Virtuoso перемонтовує Header щоразу, коли це нова функція, тож вона memo-ситься,
+  /// а сам вузол банера приходить із незмінним посиланням. Порожній обʼєкт, а не undefined:
+  /// undefined затирає дефолт Virtuoso й ламає список на `components.EmptyPlaceholder`.
+  const listComponents = useMemo(
+    () => (listHeader ? { Header: () => <div className="px-1.5 lg:hidden">{listHeader}</div> } : {}),
+    [listHeader]
+  );
+
   return (
     <div
       style={accentVariables}
       className="flex h-full w-full flex-col px-3 sm:px-6 pt-3 sm:pt-6 pb-3 md:pb-6 max-w-7xl mx-auto overflow-hidden"
     >
-      {topBanner}
+      {topBanner ? <div className={topBannerScrollsWithListOnMobile ? "hidden lg:block" : undefined}>{topBanner}</div> : null}
 
       <CatalogHeader
         title={title}
@@ -122,15 +135,19 @@ export function ContentListPage<TItem, TRow = TItem>({
         {/* Left Column: Virtualized List */}
         <div className={listContainerClassName}>
           {data.length === 0 ? (
-            emptyState || (
-              <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
-                <p className="text-sm font-medium text-slate-400">Нічого не знайдено</p>
-                <p className="text-xs text-slate-500 mt-1">Спробуйте змінити фільтри або пошуковий запит</p>
-              </div>
-            )
+            <>
+              {listHeader ? <div className="px-1.5 pt-1 lg:hidden">{listHeader}</div> : null}
+              {emptyState || (
+                <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
+                  <p className="text-sm font-medium text-slate-400">Нічого не знайдено</p>
+                  <p className="text-xs text-slate-500 mt-1">Спробуйте змінити фільтри або пошуковий запит</p>
+                </div>
+              )}
+            </>
           ) : (
             <Virtuoso
               data={data}
+              components={listComponents}
               className={listClassName || "h-full py-1"}
               itemContent={(index, item) => (
                 /// The gutter lives on the row, not on the scroller: react-virtuoso sizes its

@@ -44,7 +44,8 @@ const ITEM_LABEL = "text-[11px] leading-none";
 
 /// The phone shows one row of five; the desktop column has room for the whole catalogue set.
 /// "Пошук" takes the slot "Предмети" used to hold on the phone (KR15.3 §1) and keeps its own
-/// slot at the foot of the desktop column, so neither layout loses an entry.
+/// slot at the foot of the desktop column, so neither layout loses an entry. On the phone the
+/// remaining catalogue slot goes to "Головна"; "Заклинання" stays reachable from "Меню".
 type NavWidth = "both" | "desktop" | "mobile";
 
 type NavItem = {
@@ -74,7 +75,7 @@ function buildNavItems(edition: Edition, openSearch: () => void): NavItem[] {
 			href: homeHref,
 			label: "Головна",
 			icon: Home,
-			width: "desktop",
+			width: "both",
 			matchesPathname: (pathname) => pathname === homeHref,
 		},
 		{
@@ -82,7 +83,7 @@ function buildNavItems(edition: Edition, openSearch: () => void): NavItem[] {
 			href: `${root}/spells`,
 			label: "Заклинання",
 			icon: Sparkles,
-			width: "both",
+			width: "desktop",
 			matchesPathname: startsWith(`${root}/spells`),
 		},
 		{
