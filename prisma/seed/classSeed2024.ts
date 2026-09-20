@@ -6,6 +6,7 @@ import {
   Ability,
   ArmorType,
   FeatureDisplayType,
+  Language,
   Prisma,
   PrismaClient,
   RestType,
@@ -45,6 +46,8 @@ type ClassFeatureEng2024 = {
   displayOrder: number;
   skillProficiencies?: { choiceCount: number; options: string[] };
   skillExpertises?: ClassFeature2024["skillExpertises"];
+  languagesToChooseCount?: number;
+  givesLanguages?: Language[];
   repeatAtLevels?: number[];
   displayType?: string[];
   uses?: FeatureUses2024;
@@ -407,6 +410,8 @@ async function seedClassFeatures(
       displayType: readDisplayTypes(sourceFeature),
       skillProficiencies: sourceFeature.skillProficiencies ?? feature.skillProficiencies ?? undefined,
       skillExpertises: sourceFeature.skillExpertises ?? feature.skillExpertises ?? undefined,
+      languagesToChooseCount: sourceFeature.languagesToChooseCount ?? 0,
+      givesLanguages: sourceFeature.givesLanguages ?? [],
       ...readUses(sourceFeature),
     };
 

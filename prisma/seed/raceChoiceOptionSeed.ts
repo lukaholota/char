@@ -663,7 +663,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             choiceGroupName: "Риса перевертання",
             optionName: "Дикий мисливець",
             legacy: { choiceGroupName: "Риса перевертання", optionName: "Wildhunt" },
-            description: "Дикий мисливець: 1к6+СТА тимчасових ОЗ + перевага на МДР.",
+            description: "Дикий мисливець: 1к6+СТА тимчасових ОЗ + <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевага</a> на МДР.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {
@@ -737,7 +737,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             subraceId: null,
             choiceGroupName: "Спадщина кобольдів",
             optionName: "Непокора",
-            description: "Ви маєте перевагу на ряткидки для уникнення або завершення стану Переляканості на собі.",
+            description: "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на ряткидки для уникнення або завершення стану Переляканості на собі.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {

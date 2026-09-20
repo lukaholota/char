@@ -3,7 +3,7 @@ import { Classes, Prisma, PrismaClient, Ruleset } from "@prisma/client";
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedClassChoiceOptions = async (prisma: PrismaClient) => {
-    console.log('🎯 Додаємо зв\'язки класів з опціями вибору...')
+    console.log('🎯 Додаємо звʼязки класів з опціями вибору...')
 
     const options: Prisma.ClassChoiceOptionCreateInput[] = [
         // === СТРІЛЬБА З ЛУКА ===
@@ -612,5 +612,5 @@ export const seedClassChoiceOptions = async (prisma: PrismaClient) => {
         });
     }
 
-    console.log('✅ Додано зв\'язків класів з опціями:', options.length)
+    console.log('✅ Додано звʼязків класів з опціями:', options.length)
 }

@@ -47,7 +47,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Чутливість до сонячного світла",
       engName: "Sunlight Sensitivity",
       description:
-        "Ви маєте перешкоду на кидки атаки та на перевірки  Уважність (Мудрість), які покладаються на зір, коли ви, ціль вашої атаки або те, що ви намагаєтеся сприйняти, знаходиться під прямим сонячним світлом.",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перешкоду</a> на кидки атаки та на перевірки  Уважність (Мудрість), які покладаються на зір, коли ви, ціль вашої атаки або те, що ви намагаєтеся сприйняти, знаходиться під прямим сонячним світлом.",
       shortDescription: "Перешкода на атаки/уважність на сонці",
       displayType: [FeatureDisplayType.PASSIVE],
     },
@@ -57,7 +57,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       description:
         'Ви знаєте заклинання <a href="/spell/1350">Мерехтливі вогники [Dancing Lights]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1041">Вогники фей [Faerie Fire]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1249">Темрява [Darkness]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою характеристикою для цих заклинань.',
       shortDescription:
-        "Мерехтливі вогники [Dancing Lights], Вогники фей [Faerie Fire], Темрява [Darkness]",
+        "<a href=\"/spells/dancing-lights\">Мерехтливі вогники [Dancing Lights]</a>, <a href=\"/spells/faerie-fire\">Вогники фей [Faerie Fire]</a>, <a href=\"/spells/darkness\">Темрява [Darkness]</a>",
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
@@ -83,7 +83,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       engName: "Fey Step (DMG)",
       description:
         'Ви можете використати заклинання <a href="/spell/1247">Туманний крок [Misty Step]</a> один раз, використовуючи цю рису. Ви відновлюєте можливість зробити це, коли завершуєте короткий або довгий відпочинок.',
-      shortDescription: "Туманний крок [Misty Step] раз на короткий відпочинок",
+      shortDescription: "<a href=\"/spells/misty-step\">Туманний крок [Misty Step]</a> раз на короткий відпочинок",
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.SHORT_REST,
       usesCount: 1,
@@ -122,7 +122,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Благословення Королеви Воронів",
       engName: "Blessing of the Raven Queen (Shadar-kai Subrace)",
       description:
-        "Бонусною дією ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Ви можете використовувати цю рису кількість разів, що дорівнює вашому бонусу майстерності, і відновлюєте всі витрачені використання, коли закінчуєте довгий відпочинок.\\n\\nПочинаючи з 3-го рівня, ви також отримуєте опір до всіх видів шкоди, коли телепортуєтеся за допомогою цієї риси. Опір триває до початку вашого наступного ходу. Протягом цього часу ви виглядаєте примарним і напівпрозорим.",
+        "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Ви можете використовувати цю рису кількість разів, що дорівнює вашому бонусу майстерності, і відновлюєте всі витрачені використання, коли закінчуєте довгий відпочинок.\\n\\nПочинаючи з 3-го рівня, ви також отримуєте опір до всіх видів шкоди, коли телепортуєтеся за допомогою цієї риси. Опір триває до початку вашого наступного ходу. Протягом цього часу ви виглядаєте примарним і напівпрозорим.",
       shortDescription:
         "Телепорт 30 футів + опір до всієї шкоди (з 3-го рівня)",
       displayType: [FeatureDisplayType.BONUSACTION],
@@ -135,7 +135,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Проникливе чуття",
       engName: "Incisive Sense",
       description:
-        "Ви маєте перевагу на перевірки Історії [Investigation] та Аналіз Поведінки [Insight].",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на перевірки Історії [Investigation] та Аналіз Поведінки [Insight].",
       shortDescription: "Перевага на Розслідування та Аналіз Поведінки",
       displayType: [FeatureDisplayType.PASSIVE],
     },
@@ -207,7 +207,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Стійкість дуергара",
       engName: "Duergar Resilience (Duergar Subrace)",
       description:
-        "Ви маєте перевагу на ряткидки проти ілюзій та проти того, щоб бути зачарованим або паралізованим.",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на ряткидки проти ілюзій та проти того, щоб бути зачарованим або <a href=\"/rules/conditions#condition-paralyzed\">паралізованим</a>.",
       shortDescription:
         "Перевага на ряткидки проти ілюзій, зачарування та паралічу",
       displayType: [FeatureDisplayType.PASSIVE],
@@ -242,7 +242,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Стійкість кремезних",
       engName: "Stout Resilience",
       description:
-        "Ви маєте перевагу на ряткидки проти отрути та опір до отруйної шкоди.",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на ряткидки проти отрути та опір до отруйної шкоди.",
       shortDescription: "Перевага на ряткидки проти отрути + опір до отрути",
       displayType: [FeatureDisplayType.PASSIVE],
     },
@@ -265,7 +265,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       engName: "Natural Illusionist",
       description:
         'Ви знаєте замовляння <a href="/spell/1351">Мала ілюзія [Minor Illusion]</a>. Інтелект є вашою заклинальною характеристикою для нього.',
-      shortDescription: "Замовляння Мала ілюзія [Minor Illusion]",
+      shortDescription: "Замовляння <a href=\"/spells/minor-illusion\">Мала ілюзія [Minor Illusion]</a>",
       displayType: [FeatureDisplayType.PASSIVE],
       givesSpells: {
         connect: [{ engName_ruleset: { engName: "Minor Illusion", ruleset: ACTIVE_RULESET } }],
@@ -311,7 +311,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Камʼяний камуфляж",
       engName: "Stone Camouflage (Deep Gnome Subrace)",
       description:
-        "Ви маєте перевагу на перевірки Спритності (Непомітність [Stealth]), щоб сховатися в камʼянистій місцевості.",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на перевірки Спритності (Непомітність [Stealth]), щоб сховатися в камʼянистій місцевості.",
       shortDescription: "Перевага на Непомітність у камʼянистій місцевості",
       displayType: [FeatureDisplayType.PASSIVE],
     },
@@ -323,7 +323,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Хроматичне огородження",
       engName: "Chromatic Warding",
       description:
-        "Починаючи з 5-го рівня, як дію ви можете направити свою драконячу енергію, щоб ненадовго оточити себе аурою, яка захищає ваших союзників. Аура поширюється на 10 футів від вас у всіх напрямках, але не через повне укриття. Ваші союзники в аурі отримують опір до кислотної, холодної, вогняної, блискавичної або отруйної шкоди (ви обираєте тип шкоди коли активуєте цю здібність). Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.",
+        "Починаючи з 5-го рівня, як дію ви можете направити свою драконячу енергію, щоб ненадовго оточити себе аурою, яка захищає ваших союзників. Аура поширюється на 10 футів від вас у всіх напрямках, але не через <a href=\"/rules/combat#making-an-attack--cover\">повне укриття</a>. Ваші союзники в аурі отримують опір до кислотної, холодної, вогняної, блискавичної або отруйної шкоди (ви обираєте тип шкоди коли активуєте цю здібність). Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.",
       shortDescription: "Аура захисту (опір до обраного типу шкоди)",
       displayType: [FeatureDisplayType.ACTION],
       limitedUsesPer: RestType.LONG_REST,
@@ -335,7 +335,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Металеве дихання",
       engName: "Metallic Breath Weapon",
       description:
-        "На 5-му рівні ви отримуєте другий різновид зброї дихання. Коли ви робите дію Breath Weapon, ви можете витратити використання свого Breath Weapon, щоб видихнути паралізуючий газ у конусі 15 футів. Кожна істота в цій області повинна зробити ряткидок Статури (СК = 8 + ваш модифікатор Статури + ваш бонус майстерності). При провалі істота паралізована до кінця вашого наступного ходу.",
+        "На 5-му рівні ви отримуєте другий різновид зброї дихання. Коли ви робите дію Breath Weapon, ви можете витратити використання свого Breath Weapon, щоб видихнути паралізуючий газ у конусі 15 футів. Кожна істота в цій області повинна зробити ряткидок Статури (СК = 8 + ваш модифікатор Статури + ваш бонус майстерності). При провалі істота <a href=\"/rules/conditions#condition-paralyzed\">паралізована</a> до кінця вашого наступного ходу.",
       shortDescription: "Паралізуюче дихання (конус 15 фт)",
       displayType: [FeatureDisplayType.ACTION],
       limitedUsesPer: RestType.SHORT_REST,
@@ -354,7 +354,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Самоцвітний політ",
       engName: "Gem Flight",
       description:
-        "Починаючи з 5-го рівня, ви можете використовувати бонусну дію, щоб маніфестувати мерехтливі самоцвітні крила, які дають вам швидкість польоту 30 футів. Ці крила тривають 1 хвилину. Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.",
+        "Починаючи з 5-го рівня, ви можете використовувати <a href=\"/rules/combat#order-of-combat--bonus-actions\">бонусну дію</a>, щоб маніфестувати мерехтливі самоцвітні крила, які дають вам швидкість польоту 30 футів. Ці крила тривають 1 хвилину. Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.",
       shortDescription: "Швидкість польоту 30 футів (1 хвилина)",
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,

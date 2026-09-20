@@ -676,7 +676,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
         },
         {
             groupName: 'Потойбічні виклики',
-            optionName: 'З\'ява стихійника [Conjure Elemental] 1/день',
+            optionName: 'Зʼява стихійника [Conjure Elemental] 1/день',
             optionNameEng: 'Minions of Chaos',
             prerequisites: { level: 9 },
             features: {

@@ -10,7 +10,7 @@
  * термінів тут не коіновано.
  */
 
-import { Ability, FeatureDisplayType, PrismaClient, Races, Ruleset, Skills } from "@prisma/client";
+import { Ability, FeatureDisplayType, Prisma, PrismaClient, Races, Ruleset, Skills } from "@prisma/client";
 import { featTranslations } from "../../src/lib/refs/translation";
 
 const RULESET: Ruleset = "RULES_2024";
@@ -49,13 +49,13 @@ const DRAGON_ANCESTORS: Array<[eng: string, uk: string, damage: string]> = [
   ["White", "Білий дракон", "холодом"],
 ];
 
-const GIANT_ANCESTRY_BOONS: Array<[eng: string, uk: string, description: string]> = [
-  ["Cloud's Jaunt", "Стрибок хмар", "Бонусною дією ви магічно телепортуєтеся на відстань до 30 футів у незайнятий простір, який бачите."],
-  ["Fire's Burn", "Палючий вогонь", "Коли ви влучаєте атакою і завдаєте шкоди, ви можете додати цілі +1к10 шкоди вогнем."],
-  ["Frost's Chill", "Морозний холод", "Коли ви влучаєте атакою і завдаєте шкоди, ви можете додати цілі +1к6 шкоди холодом і зменшити її швидкість на 10 футів до початку вашого наступного ходу."],
-  ["Hill's Tumble", "Збиття пагорбів", "Коли ви влучаєте атакою по істоті розміру Великий або менше і завдаєте їй шкоди, ви можете надати їй стан Повалений."],
-  ["Stone's Endurance", "Камʼяна стійкість", "Реакцією, коли ви отримуєте шкоду, ви кидаєте 1к12, додаєте свій модифікатор Статури і зменшуєте шкоду на цю суму."],
-  ["Storm's Thunder", "Грім бурі", "Реакцією, коли ви отримуєте шкоду від істоти в межах 60 футів, яку ви бачите, ви завдаєте їй +1к8 шкоди громом."],
+const GIANT_ANCESTRY_BOONS: Array<{ eng: string; uk: string; description: string }> = [
+  { eng: "Cloud's Jaunt", uk: "Стрибок хмар", description: "<a href=\"/2024/rules/combat#bonus-action--bonus-action\">Бонусною дією</a> ви магічно телепортуєтеся на відстань до 30 футів у незайнятий простір, який бачите." },
+  { eng: "Fire's Burn", uk: "Палючий вогонь", description: "Коли ви влучаєте атакою і завдаєте шкоди, ви можете додати цілі +1к10 шкоди вогнем." },
+  { eng: "Frost's Chill", uk: "Морозний холод", description: "Коли ви влучаєте атакою і завдаєте шкоди, ви можете додати цілі +1к6 шкоди холодом і зменшити її швидкість на 10 футів до початку вашого наступного ходу." },
+  { eng: "Hill's Tumble", uk: "Збиття пагорбів", description: "Коли ви влучаєте атакою по істоті розміру Великий або менше і завдаєте їй шкоди, ви можете надати їй стан <a href=\"/2024/rules/conditions#condition-prone\">Повалений</a>." },
+  { eng: "Stone's Endurance", uk: "Камʼяна стійкість", description: "<a href=\"/2024/rules/combat#reaction--reaction\">Реакцією</a>, коли ви отримуєте шкоду, ви кидаєте 1к12, додаєте свій модифікатор Статури і зменшуєте шкоду на цю суму." },
+  { eng: "Storm's Thunder", uk: "Грім бурі", description: "<a href=\"/2024/rules/combat#reaction--reaction\">Реакцією</a>, коли ви отримуєте шкоду від істоти в межах 60 футів, яку ви бачите, ви завдаєте їй +1к8 шкоди громом." },
 ];
 
 const SPELLCASTING_ABILITY_OPTIONS: Array<[Ability, string]> = [
@@ -72,11 +72,11 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
     options: DRAGON_ANCESTORS.map(([eng, uk, damage]) => ({
       optionNameEng: eng,
       optionName: uk,
-      description: `Ваш Подих завдає шкоди ${damage}, і ви маєте опір до шкоди ${damage}.`,
+      description: `Ваш Подих завдає шкоди ${damage}, і ви маєте <a href="/2024/rules/combat#resistance--resistance">опір</a> до шкоди ${damage}.`,
       grantsFeature: {
         engName: `Draconic Ancestry: ${eng} (2024)`,
         name: `Драконяче походження (${uk})`,
-        description: `Ваш Подих завдає шкоди ${damage}. Ви також маєте опір до шкоди ${damage}.`,
+        description: `Ваш Подих завдає шкоди ${damage}. Ви також маєте <a href="/2024/rules/combat#resistance--resistance">опір</a> до шкоди ${damage}.`,
       },
     })),
   },
@@ -169,7 +169,7 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
     race: "GOLIATH_2024",
     traitEngName: "Goliath: Giant Ancestry (2024)",
     groupName: "Велетенське походження",
-    options: GIANT_ANCESTRY_BOONS.map(([eng, uk, description]) => ({
+    options: GIANT_ANCESTRY_BOONS.map(({ eng, uk, description }) => ({
       optionNameEng: eng,
       optionName: uk,
       description,
@@ -188,33 +188,33 @@ const CHOICE_GROUPS: ChoiceGroupSeed[] = [
       {
         optionNameEng: "Abyssal",
         optionName: "Безодня",
-        description: "Ви маєте опір до шкоди отрутою. Ви також знаєте замовляння <a href=\"/2024/spells/poison-spray\">Отруйні бризки [Poison Spray]</a>.",
+        description: "Ви маєте <a href=\"/2024/rules/combat#resistance--resistance\">опір</a> до шкоди отрутою. Ви також знаєте замовляння <a href=\"/2024/spells/poison-spray\">Отруйні бризки [Poison Spray]</a>.",
         grantsFeature: {
           engName: "Fiendish Legacy: Abyssal (2024)",
           name: "Почварна спадщина (Безодня)",
-          description: "Ви маєте опір до шкоди отрутою. Ви також знаєте замовляння <a href=\"/2024/spells/poison-spray\">Отруйні бризки [Poison Spray]</a>.",
+          description: "Ви маєте <a href=\"/2024/rules/combat#resistance--resistance\">опір</a> до шкоди отрутою. Ви також знаєте замовляння <a href=\"/2024/spells/poison-spray\">Отруйні бризки [Poison Spray]</a>.",
           givesSpells: ["Poison Spray"],
         },
       },
       {
         optionNameEng: "Chthonic",
         optionName: "Хтонічна",
-        description: "Ви маєте опір до некротичної шкоди. Ви також знаєте замовляння <a href=\"/2024/spells/chill-touch\">Моторошний дотик [Chill Touch]</a>.",
+        description: "Ви маєте <a href=\"/2024/rules/combat#resistance--resistance\">опір</a> до некротичної шкоди. Ви також знаєте замовляння <a href=\"/2024/spells/chill-touch\">Моторошний дотик [Chill Touch]</a>.",
         grantsFeature: {
           engName: "Fiendish Legacy: Chthonic (2024)",
           name: "Почварна спадщина (Хтонічна)",
-          description: "Ви маєте опір до некротичної шкоди. Ви також знаєте замовляння <a href=\"/2024/spells/chill-touch\">Моторошний дотик [Chill Touch]</a>.",
+          description: "Ви маєте <a href=\"/2024/rules/combat#resistance--resistance\">опір</a> до некротичної шкоди. Ви також знаєте замовляння <a href=\"/2024/spells/chill-touch\">Моторошний дотик [Chill Touch]</a>.",
           givesSpells: ["Chill Touch"],
         },
       },
       {
         optionNameEng: "Infernal",
         optionName: "Пекельна",
-        description: "Ви маєте опір до шкоди вогнем. Ви також знаєте замовляння <a href=\"/2024/spells/fire-bolt\">Вогняний заряд [Fire Bolt]</a>.",
+        description: "Ви маєте <a href=\"/2024/rules/combat#resistance--resistance\">опір</a> до шкоди вогнем. Ви також знаєте замовляння <a href=\"/2024/spells/fire-bolt\">Вогняний заряд [Fire Bolt]</a>.",
         grantsFeature: {
           engName: "Fiendish Legacy: Infernal (2024)",
           name: "Почварна спадщина (Пекельна)",
-          description: "Ви маєте опір до шкоди вогнем. Ви також знаєте замовляння <a href=\"/2024/spells/fire-bolt\">Вогняний заряд [Fire Bolt]</a>.",
+          description: "Ви маєте <a href=\"/2024/rules/combat#resistance--resistance\">опір</a> до шкоди вогнем. Ви також знаєте замовляння <a href=\"/2024/spells/fire-bolt\">Вогняний заряд [Fire Bolt]</a>.",
           givesSpells: ["Fire Bolt"],
         },
       },
@@ -281,8 +281,12 @@ async function seedChoiceGroup(prisma: PrismaClient, group: ChoiceGroupSeed): Pr
     return 0;
   }
 
+  /// Лише фічі, заведені самим вибором: родоводи гнома перевикористовують риси виду, і
+  /// лічильник «Лісового гнома» не має розповзатися на «Скельного».
+  const ownFeatureIds: number[] = [];
   for (const option of group.options) {
     const featureId = await resolveOptionFeatureId(prisma, option);
+    if (featureId && option.grantsFeature) ownFeatureIds.push(featureId);
     await upsertRaceChoiceOption(prisma, {
       raceId: race.raceId,
       choiceGroupName: group.groupName,
@@ -297,7 +301,82 @@ async function seedChoiceGroup(prisma: PrismaClient, group: ChoiceGroupSeed): Pr
     });
   }
 
+  await moveTraitUsesToChosenOptions(prisma, trait.featureId, ownFeatureIds);
+
   return group.options.length;
+}
+
+/**
+ * Лічильник переїжджає з риси-меню на обране благословення.
+ *
+ * У книзі число використань стоїть у тексті самої риси («Велетенське походження», «Ельфійський
+ * родовід», «Почварна спадщина»), бо там це один абзац із переліком. На листі так не можна:
+ * витрачає використання **обраний** варіант, а меню перелічує ще пʼять чужих. Гном 2024 уже
+ * влаштований правильно — там лічильник несе «Лісовий гном», а не «Гномський родовід».
+ *
+ * `species.json` лишається дзеркалом книги — його гейти читають окремо; переносить лише сід.
+ * Лічильник шукається і на меню, і на варіантах, бо `upsertFeature` вище щоразу переписує
+ * варіантам `displayType`: без другого джерела повторний прогін лишав би їх без `CLASS_RESOURCE`.
+ */
+async function moveTraitUsesToChosenOptions(prisma: PrismaClient, traitFeatureId: number, optionFeatureIds: number[]) {
+  if (!optionFeatureIds.length) return;
+
+  const trait = await readFeatureUses(prisma, { featureId: traitFeatureId });
+  const uses = trait?.limitedUsesPer
+    ? trait
+    : await readFeatureUses(prisma, { featureId: { in: optionFeatureIds }, limitedUsesPer: { not: null } });
+  if (!uses?.limitedUsesPer) return;
+
+  await prisma.feature.updateMany({
+    where: { featureId: { in: optionFeatureIds } },
+    data: {
+      limitedUsesPer: uses.limitedUsesPer,
+      usesCount: uses.usesCount,
+      usesCountDependsOnProficiencyBonus: uses.usesCountDependsOnProficiencyBonus,
+      usesCountSpecial: uses.usesCountSpecial ?? Prisma.DbNull,
+      displayType: withClassResource(uses.displayType),
+    },
+  });
+
+  if (!trait?.limitedUsesPer) return;
+
+  await prisma.feature.update({
+    where: { featureId: traitFeatureId },
+    data: {
+      limitedUsesPer: null,
+      usesCount: null,
+      usesCountDependsOnProficiencyBonus: false,
+      usesCountSpecial: Prisma.DbNull,
+      displayType: withoutClassResource(trait.displayType),
+    },
+  });
+
+  console.log(`  • лічильник «${trait.name}» перенесено на ${optionFeatureIds.length} варіантів`);
+}
+
+function readFeatureUses(prisma: PrismaClient, where: Prisma.FeatureWhereInput) {
+  return prisma.feature.findFirst({
+    where,
+    select: {
+      name: true,
+      limitedUsesPer: true,
+      usesCount: true,
+      usesCountDependsOnProficiencyBonus: true,
+      usesCountSpecial: true,
+      displayType: true,
+    },
+  });
+}
+
+function withClassResource(displayType: FeatureDisplayType[]): FeatureDisplayType[] {
+  return displayType.includes(FeatureDisplayType.CLASS_RESOURCE)
+    ? displayType
+    : [...displayType, FeatureDisplayType.CLASS_RESOURCE];
+}
+
+function withoutClassResource(displayType: FeatureDisplayType[]): FeatureDisplayType[] {
+  const rest = displayType.filter((type) => type !== FeatureDisplayType.CLASS_RESOURCE);
+  return rest.length ? rest : [FeatureDisplayType.PASSIVE];
 }
 
 async function seedSpellcastingAbilityGroups(prisma: PrismaClient): Promise<number> {

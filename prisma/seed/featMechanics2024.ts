@@ -10,6 +10,7 @@
 import {
   Ability,
   ArmorType,
+  DamageType,
   FeatureDisplayType,
   Prisma,
   PrismaClient,
@@ -52,6 +53,8 @@ const MAGIC_INITIATE_SPELL_LISTS = [
 
 type MagicInitiateSpellList = (typeof MAGIC_INITIATE_SPELL_LISTS)[number];
 
+const MAGIC_INITIATE_CASTING_ABILITIES = ["INT", "WIS", "CHA"] as const satisfies readonly Ability[];
+
 const SKILLED_PICK_COUNT = 3;
 const SKILL_EXPERT_PICK_COUNT = 1;
 
@@ -85,6 +88,19 @@ const FEAT_PROFICIENCY_GRANTS_2024: Readonly<Record<string, {
 /** «Choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder.» */
 const ELEMENTAL_ADEPT_DAMAGE_TYPES = ["ACID", "COLD", "FIRE", "LIGHTNING", "THUNDER"] as const;
 
+/** «Resistance to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder.» */
+export const ENERGY_RESISTANCE_DAMAGE_TYPES = [
+  "ACID",
+  "COLD",
+  "FIRE",
+  "LIGHTNING",
+  "NECROTIC",
+  "POISON",
+  "PSYCHIC",
+  "RADIANT",
+  "THUNDER",
+] as const satisfies readonly DamageType[];
+
 type Feat2024Source = {
   engName: string;
   prerequisite?: string | null;
@@ -101,6 +117,7 @@ export const seedFeatMechanics2024 = async (prisma: PrismaClient) => {
   await seedSkilledChoiceOptions(prisma);
   await seedSkillExpertChoiceOptions(prisma);
   await seedElementalAdeptChoiceOptions(prisma);
+  await seedEnergyResistanceChoiceOptions(prisma);
   await seedMagicInitiateChoiceOptions(prisma);
 
   console.log("✅ Механіка рис 2024 на місці");
@@ -236,6 +253,52 @@ async function seedElementalAdeptChoiceOptions(prisma: PrismaClient) {
   console.log(`  • Адепт стихій: ${ELEMENTAL_ADEPT_DAMAGE_TYPES.length} типів шкоди`);
 }
 
+/**
+ * Дар опору стихіям 2024 — два типи шкоди на вибір. Опір лягає персонажу фічею обраної опції
+ * (`pers_feature`), тією самою дорогою, що й список «Посвяченого у магію», і лист читає його
+ * з `damage_resistances` поряд з опорами виду.
+ */
+async function seedEnergyResistanceChoiceOptions(prisma: PrismaClient) {
+  const boon = await prisma.feat.findFirst({
+    where: { ruleset: RULESET, name: "BOON_OF_ENERGY_RESISTANCE" },
+    select: { featId: true },
+  });
+  if (!boon) return console.warn("  ⚠️ Риси BOON_OF_ENERGY_RESISTANCE (2024) немає в базі");
+
+  for (const damageType of ENERGY_RESISTANCE_DAMAGE_TYPES) {
+    const feature = await upsertEnergyResistanceFeature(prisma, damageType);
+    const option = await upsertChoiceOption2024(prisma, {
+      groupName: CHOICE_GROUPS_2024.DAMAGE_TYPE,
+      optionName: damageTypeTranslations[damageType],
+      optionNameEng: `Boon of Energy Resistance 2024 (${damageType})`,
+    });
+    await linkFeatChoiceOption(prisma, boon.featId, option.choiceOptionId);
+    await linkChoiceOptionFeature(prisma, option.choiceOptionId, feature.featureId);
+  }
+  console.log(`  • Дар опору стихіям: ${ENERGY_RESISTANCE_DAMAGE_TYPES.length} типів шкоди з опором`);
+}
+
+async function upsertEnergyResistanceFeature(prisma: PrismaClient, damageType: DamageType) {
+  const engName = energyResistanceFeatureEngName(damageType);
+  const typeName = damageTypeTranslations[damageType];
+  const data = {
+    name: `Опір Стихіям: ${typeName}`,
+    description:
+      `Ви маєте <a href="/2024/rules/combat#resistance--resistance">опір</a> до обраного типу шкоди — ${typeName}. ` +
+      "Щоразу, коли ви завершуєте довгий відпочинок, ви можете змінити свій вибір.",
+    shortDescription: `Опір до шкоди: ${typeName}.`,
+    displayType: [FeatureDisplayType.PASSIVE],
+    damageResistances: [damageType],
+    ruleset: RULESET,
+  };
+
+  return prisma.feature.upsert({ where: { engName }, update: data, create: { ...data, engName } });
+}
+
+export function energyResistanceFeatureEngName(damageType: DamageType): string {
+  return `Boon of Energy Resistance: ${damageType} (2024)`;
+}
+
 function readUkrainianSkillName(skill: Skills): string {
   return engEnumSkills.find((entry) => entry.eng === skill)?.ukr ?? skill;
 }
@@ -265,29 +328,29 @@ async function seedMagicInitiateChoiceOptions(prisma: PrismaClient) {
   if (!magicInitiate) return console.warn("  ⚠️ Риси MAGIC_INITIATE (2024) немає в базі");
 
   for (const spellList of MAGIC_INITIATE_SPELL_LISTS) {
-    // Заклинання гравець обирає сам зі списку; опція каже лише, який це список і чим він
-    // чаклується — саме `effectAbility` робить рису окремим джерелом заклинань (KR18.4).
     const feature = await upsertSpellListFeature(prisma, spellList);
     const option = await upsertChoiceOption2024(prisma, {
       groupName: CHOICE_GROUPS_2024.SPELL_LIST,
       optionName: classTranslations[spellList.classKey],
       optionNameEng: `Magic Initiate 2024 (${spellList.engName})`,
-      effectAbility: await findCastingAbility(prisma, spellList.classKey),
     });
     await linkFeatChoiceOption(prisma, magicInitiate.featId, option.choiceOptionId);
     await linkChoiceOptionFeature(prisma, option.choiceOptionId, feature.featureId);
   }
-  console.log(`  • Посвячений у магію: ${MAGIC_INITIATE_SPELL_LISTS.length} списки заклинань`);
-}
 
-/** Характеристику списку не пишемо руками — вона вже стоїть на самому класі. */
-async function findCastingAbility(prisma: PrismaClient, classKey: string) {
-  const characterClass = await prisma.class.findFirst({
-    where: { ruleset: RULESET, name: classKey as never },
-    select: { primaryCastingStat: true },
-  });
-
-  return characterClass?.primaryCastingStat ?? undefined;
+  // «Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose
+  // when you select this feat)» — не колір списку. Саме `effectAbility` без виду ефекту робить рису
+  // джерелом заклинань (KR18.4), тож він живе на окремому виборі.
+  for (const ability of MAGIC_INITIATE_CASTING_ABILITIES) {
+    const option = await upsertChoiceOption2024(prisma, {
+      groupName: CHOICE_GROUPS_2024.SPELLCASTING_ABILITY,
+      optionName: attributesUkrFull[ability],
+      optionNameEng: `Magic Initiate 2024 (${ability})`,
+      effectAbility: ability,
+    });
+    await linkFeatChoiceOption(prisma, magicInitiate.featId, option.choiceOptionId);
+  }
+  console.log(`  • Посвячений у магію: ${MAGIC_INITIATE_SPELL_LISTS.length} списки заклинань і вибір характеристики`);
 }
 
 async function upsertSpellListFeature(prisma: PrismaClient, spellList: MagicInitiateSpellList) {
@@ -299,9 +362,11 @@ async function upsertSpellListFeature(prisma: PrismaClient, spellList: MagicInit
       "від риси Посвячений у магію беруться саме з нього. Заклинання 1-го рівня завжди підготоване; " +
       "раз на довгий відпочинок його можна накласти без слоту — це і є одне використання цієї риси.",
     shortDescription: `Заклинання риси беруться зі списку ${spellList.genitive}.`,
-    displayType: [FeatureDisplayType.PASSIVE],
     // Р38: безкоштовне застосування заклинання 1-го рівня раз на довгий відпочинок — це
     // використання фічі, а не другий рядок заклинання. Дві риси — два списки — два лічильники.
+    // CLASS_RESOURCE виводить лічильник у «Ресурси класу» — інакше гравець не бачить, що
+    // безкоштовне застосування взагалі є.
+    displayType: [FeatureDisplayType.PASSIVE, FeatureDisplayType.CLASS_RESOURCE],
     limitedUsesPer: RestType.LONG_REST,
     usesCount: 1,
     ruleset: RULESET,

@@ -5,6 +5,8 @@
 import { PrismaClient, Source } from "@prisma/client";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { buildShortDescription } from "../../src/lib/logic/short-description";
+import { REMOVED_FEAT_NAME_2024 } from "./removeAbilityScoreImprovementFeat2024";
 
 type Feat2024 = {
   ruleset: string;
@@ -24,7 +26,7 @@ function toEnumName(engName: string): string {
     .replace(/^_+|_+$/g, "");
 }
 
-function buildDescription(feat: Feat2024): string {
+export function buildFeat2024Description(feat: Feat2024): string {
   if (feat.description) return feat.description;
   if (feat.benefits && feat.benefits.length > 0) {
     return feat.benefits.map((b) => `**${b.name}**\n${b.description}`).join("\n\n");
@@ -32,12 +34,13 @@ function buildDescription(feat: Feat2024): string {
   return feat.engName;
 }
 
+export function readFeat2024SeedInputs(root = process.cwd()): Feat2024[] {
+  const feats: Feat2024[] = JSON.parse(readFileSync(join(root, "data/2024/normalized/feats.json"), "utf-8"));
+  return feats.filter((feat) => toEnumName(feat.engName) !== REMOVED_FEAT_NAME_2024);
+}
+
 export const seedFeats2024 = async (prisma: PrismaClient) => {
-  const raw = readFileSync(
-    join(process.cwd(), "data/2024/normalized/feats.json"),
-    "utf-8"
-  );
-  const feats: Feat2024[] = JSON.parse(raw);
+  const feats = readFeat2024SeedInputs();
 
   console.log(`🗡️ Seeding ${feats.length} 2024 feats…`);
   let upserted = 0;
@@ -45,7 +48,7 @@ export const seedFeats2024 = async (prisma: PrismaClient) => {
 
   for (const feat of feats) {
     const nameEnum = toEnumName(feat.engName);
-    const description = buildDescription(feat);
+    const description = buildFeat2024Description(feat);
 
     const payload = {
       name: nameEnum as any,
@@ -55,7 +58,7 @@ export const seedFeats2024 = async (prisma: PrismaClient) => {
       category: feat.category as any,
       isRepeatable: feat.isRepeatable,
       description,
-      shortDescription: description.slice(0, 240),
+      shortDescription: buildShortDescription(description),
     };
 
     try {

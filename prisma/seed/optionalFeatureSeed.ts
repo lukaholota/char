@@ -4,7 +4,7 @@ import ClassOptionalFeatureCreateInput = Prisma.ClassOptionalFeatureCreateInput;
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedClassOptionalFeatures = async (prisma: PrismaClient) => {
-    console.log('🌟 Додаємо необов\'язкові класові фічі...')
+    console.log('🌟 Додаємо необовʼязкові класові фічі...')
 
     const features: ClassOptionalFeatureCreateInput[] = [
         {

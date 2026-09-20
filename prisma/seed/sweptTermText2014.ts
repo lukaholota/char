@@ -1,12 +1,14 @@
 import type { PrismaClient, Subclasses } from "@prisma/client";
 import { readInfusionFeatureSeedInputs } from "./infusionFeaturesSeed";
+import { readRaceFeatureSeedInputs } from "./raceFeatureSeed";
 import { readSubclassFeatureSeedInputs } from "./subclassFeatureSeed";
 import { readSubclassSeedInputs } from "./subclassSeed";
 
 /// Повні сідери апсертять сотні рядків і переписують привʼязки, а ще тримають ASCII-апостроф
 /// там, де база вже має канонічний ʼ — широкий прохід відкотив би зачистку апострофа на
 /// 26 фічах. Тому текст їде за білим списком: рівно ті записи 2014, чий текст правила зачистка
-/// `radiant` (KR17.5, 2026-09-04). Записи 2024 везуть власні сіди з `data/2024/normalized/`.
+/// `radiant` (KR17.5, 2026-09-04) або переклад голих англійських назв заклинань (KR25.5). Записи 2024
+/// везуть власні сіди з `data/2024/normalized/`.
 const SWEPT_FEATURES_2014 = [
   "Channel Divinity: Radiance of the Dawn",
   "Corona of Light",
@@ -22,9 +24,46 @@ const SWEPT_FEATURES_2014 = [
   "Strength of the Grave",
   "Sun Shield",
   "Umbral Form",
+  /// Риси рас і драконячих міток: у сіді голі англійські назви заклинань уже переведено
+  /// («Ви знаєте Mending» → «Лагодження [Mending]»), у прод текст не їхав (KR25.5, 2026-09-14).
+  "Maker's Gift",
+  "Magical Detection",
+  "Wards and Seals",
+  "Shape Shadows",
+  "Finder's Magic",
+  "Innkeeper's Magic",
+  "Healing Touch",
+  "Healing Machine",
+  "Scribe's Insight",
+  "Spellsmith",
+  "Magical Passage",
+  "Primal Connection",
+  "Guardian's Shield",
+  /// O35: «очки чародійства» замість «очок метамагії» у підкласах чародія (`Umbral Form` уже вище).
+  "Psionic Sorcery",
+  "Revelation in Flesh",
+  "Warping Implosion",
+  "Bastion of Law",
+  "Trance of Order",
+  "Clockwork Cavalcade",
+  "Elemental Affinity",
+  "Draconic Presence",
+  "Empowered Healing",
+  "Lunar Boons",
+  "Waxing and Waning",
+  "Lunar Phenomenon",
+  "Eyes of the Dark",
+  "Hound of Ill Omen",
+  "Wild Magic Surge",
+  "Bend Luck",
 ] as const;
 
-const SWEPT_SUBCLASSES_2014: Subclasses[] = ["PATH_OF_THE_ZEALOT", "WAY_OF_THE_SUN_SOUL"];
+/// Фанатика тут більше немає: його опис звірено з джерелом і везе `seed:catalog-prose-2014` (KR33.7).
+const SWEPT_SUBCLASSES_2014: Subclasses[] = ["WAY_OF_THE_SUN_SOUL"];
+
+/// Назви підкласів 2024 частково збігаються з 2014 (`PATH_OF_THE_ZEALOT` є в обох), тож без
+/// редакції запис переписав би опис 2024 текстом 2014.
+const SUBCLASS_RULESET = "RULES_2014";
 
 const FEATURE_FIELDS = ["name", "shortDescription", "description"] as const;
 
@@ -58,7 +97,7 @@ export async function syncSweptTextFromSeed(prisma: PrismaClient): Promise<Swept
     const seeded = subclasses.get(change.key as Subclasses);
     if (seeded) {
       await prisma.subclass.updateMany({
-        where: { name: change.key as Subclasses },
+        where: { name: change.key as Subclasses, ruleset: SUBCLASS_RULESET },
         data: { description: seeded.description },
       });
     }
@@ -91,7 +130,7 @@ async function findSubclassDrift(prisma: PrismaClient): Promise<SweptTextChange[
 
   for (const seeded of readSweptSubclasses()) {
     const stored = await prisma.subclass.findMany({
-      where: { name: seeded.name },
+      where: { name: seeded.name, ruleset: SUBCLASS_RULESET },
       select: { description: true },
     });
     if (stored.some((row) => (row.description ?? "") !== seeded.description)) {
@@ -104,7 +143,7 @@ async function findSubclassDrift(prisma: PrismaClient): Promise<SweptTextChange[
 
 function readSweptFeatures(): { engName: string; name: string; shortDescription: string; description: string }[] {
   const swept = new Set<string>(SWEPT_FEATURES_2014);
-  const found = [...readSubclassFeatureSeedInputs(), ...readInfusionFeatureSeedInputs()]
+  const found = [...readSubclassFeatureSeedInputs(), ...readInfusionFeatureSeedInputs(), ...readRaceFeatureSeedInputs()]
     .filter((input) => swept.has(input.engName))
     .map((input) => ({
       engName: input.engName,

@@ -1,13 +1,7 @@
-import { PrismaClient, Feats, Ability, Skills, DamageType, Classes, Prisma, Ruleset } from "@prisma/client";
-import { 
-  damageTypeTranslations, 
-  engEnumSkills, 
-  attributesUkrFull,
-  featTranslations,
-  classTranslations
-} from "../../src/lib/refs/translation";
-import { translateValue } from "../../src/lib/components/characterCreator/infoUtils";
+import { PrismaClient, Feats, Ability, Skills, Prisma, Ruleset } from "@prisma/client";
+import { engEnumSkills, attributesUkrFull } from "../../src/lib/refs/translation";
 import { CHOICE_GROUPS } from "./helpers/groupNames";
+import { buildFeatChoiceOptions2014 } from "./featChoiceOptions2014";
 
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
@@ -133,27 +127,6 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
   };
 
   // ========================================================================
-  // RESILIENT (Стійкий)
-  // Choose one ability score to increase by 1, and gain proficiency in saving throws
-  // ========================================================================
-  const resilient = await findFeat(Feats.RESILIENT);
-  if (resilient) {
-    for (const ability of Object.values(Ability)) {
-      const ukrainianName = attributesUkrFull[ability];
-      
-      const option = await createChoiceOption(
-        "Resilient (здібність)",
-        ukrainianName,
-        `Resilient (${ability})`,
-        [],
-        { kind: "ASI", ability, amount: 1 }
-      );
-      await linkFeatChoice(resilient.featId, option.choiceOptionId);
-    }
-    console.log(`✅ Resilient: ${Object.values(Ability).length} ability choices`);
-  }
-
-  // ========================================================================
   // SKILLED (Умілець)
   // Gain proficiency in any combination of 3 skills or tools
   // ========================================================================
@@ -171,37 +144,6 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
       await linkFeatChoice(skilled.featId, option.choiceOptionId);
     }
     console.log(`✅ Skilled: ${Object.values(Skills).length} skill choices`);
-  }
-
-  
-
-  // ========================================================================
-  // ELEMENTAL ADEPT (Адепт стихій)
-  // Choose one damage type: acid, cold, fire, lightning, or thunder
-  // ========================================================================
-  const elementalAdept = await findFeat(Feats.ELEMENTAL_ADEPT);
-  if (elementalAdept) {
-    const elementalTypes = [
-      DamageType.ACID,
-      DamageType.COLD,
-      DamageType.FIRE,
-      DamageType.LIGHTNING,
-      DamageType.THUNDER,
-    ];
-
-    for (const dmgType of elementalTypes) {
-      const ukrainianName = damageTypeTranslations[dmgType];
-      
-      const option = await createChoiceOption(
-        "Elemental Adept (тип пошкодження)",
-        ukrainianName,
-        `Elemental Adept (${dmgType})`, // e.g., "Elemental Adept (FIRE)"
-        []
-      );
-      
-      await linkFeatChoice(elementalAdept.featId, option.choiceOptionId);
-    }
-    console.log(`✅ Elemental Adept: ${elementalTypes.length} damage type choices`);
   }
 
   // ========================================================================
@@ -340,105 +282,16 @@ export const seedFeatChoiceOptions = async (prisma: PrismaClient) => {
     console.log(`✅ Skill Expert: ${Object.values(Ability).length} abilities, ${Object.values(Skills).length * 2} skill options`);
   }
 
-  // ========================================================================
-  // PRODIGY (Вундеркінд)
-  // 1. Gain proficiency in one skill
-  // 2. Gain expertise in one skill
-  // 3. Gain proficiency in one tool
-  // 4. Learn one language
-  // ========================================================================
-  const prodigy = await findFeat(Feats.PRODIGY);
-  if (prodigy) {
-    // 1. Skill Proficiency
-    for (const skill of Object.values(Skills)) {
-      const skillTranslation = translateValue(skill);
-      
-      const option = await createChoiceOption(
-        "Навичка Вундеркінда",
-        skillTranslation,
-        `Prodigy Proficiency (${skill})`,
-        []
-      );
-      await linkFeatChoice(prodigy.featId, option.choiceOptionId);
-    }
-
-    // 2. Expertise
-    for (const skill of Object.values(Skills)) {
-      const skillTranslation = translateValue(skill);
-      
-      const option = await createChoiceOption(
-        "Експертиза Вундеркінда",
-        skillTranslation,
-        `Prodigy Expertise (${skill})`,
-        []
-      );
-      await linkFeatChoice(prodigy.featId, option.choiceOptionId);
-    }
-    
-    // Tools and Languages are handled differently in the schema usually, 
-    // but here we might need to add them if they are choice-based.
-    // For now, focusing on Skill/Expertise which was the reported issue.
-
-    console.log(`✅ Prodigy: ${Object.values(Skills).length * 2} skill/expertise options`);
-  }
-
-  // ========================================================================
-  // HALF-FEATS (ASI Choices)
-  // Many feats allow choosing between 2 or more ability scores to increase
-  // ========================================================================
-  const halfFeatConfigs: { feat: Feats, abilities: Ability[] }[] = [
-    { feat: Feats.ATHLETE, abilities: [Ability.STR, Ability.DEX] },
-    { feat: Feats.LIGHTLY_ARMORED, abilities: [Ability.STR, Ability.DEX] },
-    { feat: Feats.MODERATELY_ARMORED, abilities: [Ability.STR, Ability.DEX] },
-    { feat: Feats.OBSERVANT, abilities: [Ability.INT, Ability.WIS] },
-    { feat: Feats.TAVERN_BRAWLER, abilities: [Ability.STR, Ability.CON] },
-    { feat: Feats.WEAPON_MASTER, abilities: [Ability.STR, Ability.DEX] },
-    { feat: Feats.DRAGON_FEAR, abilities: [Ability.STR, Ability.CON, Ability.CHA] },
-    { feat: Feats.DRAGON_HIDE, abilities: [Ability.STR, Ability.CON, Ability.CHA] },
-    { feat: Feats.ELVEN_ACCURACY, abilities: [Ability.DEX, Ability.INT, Ability.WIS, Ability.CHA] },
-    { feat: Feats.FADE_AWAY, abilities: [Ability.DEX, Ability.INT] },
-    { feat: Feats.FLAMES_OF_PHLEGETHOS, abilities: [Ability.INT, Ability.CHA] },
-    { feat: Feats.ORCISH_FURY, abilities: [Ability.STR, Ability.CON] },
-    { feat: Feats.SECOND_CHANCE, abilities: [Ability.DEX, Ability.CON, Ability.CHA] },
-    { feat: Feats.SQUAT_NIMBLENESS, abilities: [Ability.STR, Ability.DEX] },
-    { feat: Feats.CHEF, abilities: [Ability.CON, Ability.WIS] },
-    { feat: Feats.CRUSHER, abilities: [Ability.STR, Ability.CON] },
-    { feat: Feats.PIERCER, abilities: [Ability.STR, Ability.DEX] },
-    { feat: Feats.SLASHER, abilities: [Ability.STR, Ability.DEX] },
-    { feat: Feats.TELEKINETIC, abilities: [Ability.INT, Ability.WIS, Ability.CHA] },
-    { feat: Feats.TELEPATHIC, abilities: [Ability.INT, Ability.WIS, Ability.CHA] },
-    { feat: Feats.GIFT_OF_THE_GEM_DRAGON, abilities: [Ability.INT, Ability.WIS, Ability.CHA] },
-    { feat: Feats.EMBER_OF_GIANTS, abilities: [Ability.STR, Ability.CON, Ability.WIS] },
-    { feat: Feats.FURY_OF_GIANTS, abilities: [Ability.STR, Ability.CON, Ability.WIS] },
-    { feat: Feats.GUILE_OF_GIANTS, abilities: [Ability.STR, Ability.CON, Ability.WIS] },
-    { feat: Feats.KEENNESS_OF_GIANTS, abilities: [Ability.STR, Ability.CON, Ability.WIS] },
-    { feat: Feats.SOUL_OF_GIANTS, abilities: [Ability.STR, Ability.CON, Ability.WIS] },
-    { feat: Feats.VIGOR_OF_GIANTS, abilities: [Ability.STR, Ability.CON, Ability.WIS] },
-    { feat: Feats.FEY_TOUCHED, abilities: [Ability.INT, Ability.WIS, Ability.CHA] },
-    { feat: Feats.SHADOW_TOUCHED, abilities: [Ability.INT, Ability.WIS, Ability.CHA] },
-  ];
-
-  let halfFeatCount = 0;
-  for (const config of halfFeatConfigs) {
-    const feat = await findFeat(config.feat);
+  for (const option of buildFeatChoiceOptions2014()) {
+    const feat = await findFeat(option.feat);
     if (!feat) continue;
-    
-    const featNameUkr = featTranslations[config.feat] || config.feat;
-    
-    for (const ability of config.abilities) {
-      const abilityNameUkr = attributesUkrFull[ability];
-      
-      const option = await createChoiceOption(
-        `${featNameUkr} (здібність)`,
-        abilityNameUkr,
-        `${config.feat} (${ability})`,
-        []
-      );
-      await linkFeatChoice(feat.featId, option.choiceOptionId);
-    }
-    halfFeatCount++;
+    const effect = option.effectKind
+      ? { kind: option.effectKind, ability: option.effectAbility ?? undefined, skill: option.effectSkill ?? undefined, amount: option.effectAmount ?? undefined }
+      : undefined;
+    const created = await createChoiceOption(option.groupName, option.optionName, option.optionNameEng, [], effect);
+    await linkFeatChoice(feat.featId, created.choiceOptionId);
   }
-  console.log(`✅ Half-feats: ${halfFeatCount} feats with ability choices`);
+  console.log(`✅ Стійкий, Адепт стихій, Вундеркінд і половинні риси: ${buildFeatChoiceOptions2014().length} опцій`);
 
   console.log('✅ Опції вибору для рис додано!');
 };

@@ -10,7 +10,7 @@
  * - вибір «Темнозір або навичка» Своєї раси — окремої фічі для варіанта Темнозору немає.
  */
 
-import { DamageType, PrismaClient, Ruleset } from "@prisma/client";
+import { DamageType, Prisma, PrismaClient, Ruleset } from "@prisma/client";
 
 export type SpeciesSenseAndResistanceGrant = {
   engName: string;
@@ -133,13 +133,22 @@ export async function syncSensesAndResistancesFromSeed(prisma: PrismaClient): Pr
   return drift;
 }
 
+const SPECIES_FEATURE = {
+  OR: [
+    { raceTraits: { some: {} } },
+    { subraceTraits: { some: {} } },
+    { raceVariantTraits: { some: {} } },
+    { raceChoiceOptionTraits: { some: {} } },
+  ],
+} satisfies Prisma.FeatureWhereInput;
+
 async function loadStoredValues(prisma: PrismaClient) {
   return prisma.feature.findMany({
     where: {
       OR: [
         { engName: { in: SPECIES_SENSE_AND_RESISTANCE_GRANTS.map((grant) => grant.engName) } },
-        { damageResistances: { isEmpty: false } },
-        { darkvisionRange: { not: null } },
+        // Опори дають і не види (Дар опору стихіям, KR31.4): реєстр видів судить лише фічі видів.
+        { AND: [SPECIES_FEATURE, { OR: [{ damageResistances: { isEmpty: false } }, { darkvisionRange: { not: null } }] }] },
       ],
     },
     select: { engName: true, ruleset: true, damageResistances: true, darkvisionRange: true },

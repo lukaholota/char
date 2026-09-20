@@ -24,6 +24,7 @@ type SubclassFeatureEng2024 = {
   name: string;
   displayType?: string[];
   uses?: SubclassFeatureUses2024;
+  skillProficiencies?: { choiceCount: number; options: string[] };
 };
 
 type SubclassJson2024 = {
@@ -171,6 +172,7 @@ async function seedSubclassFeatures(
       ruleset: "RULES_2024" as const,
       displayType: readDisplayTypes(sourceFeature),
       ...readUses(sourceFeature),
+      ...(sourceFeature?.skillProficiencies ? { skillProficiencies: sourceFeature.skillProficiencies } : {}),
     };
 
     const featureRecord = await prisma.feature.upsert({

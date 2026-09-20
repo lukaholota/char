@@ -13,6 +13,7 @@ export const CHOICE_GROUPS_2024 = {
   EXPERTISE: "Експертиза",
   DAMAGE_TYPE: "Тип шкоди",
   SPELL_LIST: "Список заклинань",
+  SPELLCASTING_ABILITY: "Базова характеристика заклинань",
   FIGHTING_STYLE: "Бойовий стиль",
 } as const;
 

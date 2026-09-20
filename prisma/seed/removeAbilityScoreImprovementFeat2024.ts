@@ -16,7 +16,7 @@
 import { PrismaClient, Ruleset } from "@prisma/client";
 
 const RULESET: Ruleset = "RULES_2024";
-const FEAT_NAME = "ABILITY_SCORE_IMPROVEMENT";
+export const REMOVED_FEAT_NAME_2024 = "ABILITY_SCORE_IMPROVEMENT";
 
 type FeatReferences = {
   characters: number;
@@ -28,7 +28,7 @@ export const removeAbilityScoreImprovementFeat2024 = async (prisma: PrismaClient
   console.log(`🧹 Риса «Ability Score Improvement» (2024)${apply ? "" : " — показ без запису"}…`);
 
   const feat = await prisma.feat.findFirst({
-    where: { ruleset: RULESET, name: FEAT_NAME },
+    where: { ruleset: RULESET, name: REMOVED_FEAT_NAME_2024 },
     select: { featId: true, engName: true },
   });
   if (!feat) return console.log("  • рядка вже немає — нічого робити");

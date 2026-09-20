@@ -55,6 +55,13 @@ const STAT_GRANTS_2024: readonly StatGrant[] = [
     description: "Ваш максимум хітів зростає на 40.",
     bonusHitPoints: 40,
   },
+  // Рішення власника 2026-09-14: Істинний зір — лише риса у списку фіч, без колонки чуття.
+  {
+    featEngName: "Boon Of Truesight",
+    featureEngName: "Boon of Truesight: Truesight (2024)",
+    name: "Дар істинного зору: істинний зір",
+    description: "Ви маєте {{Істинний зір|Truesight}} на відстань 60 футів.",
+  },
 ];
 
 export const seedFeatStatGrants2024 = async (prisma: PrismaClient) => {
