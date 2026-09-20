@@ -148,7 +148,8 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
       if (!force && existsSync(targetPath)) {
         image = await measureImage(targetPath, file);
       } else {
-        image = await compressToWebp(findOriginalPath(pick), targetPath);
+        const source = pick.kind === "token" ? await cutTransparentMargin(findOriginalPath(pick)) : findOriginalPath(pick);
+        image = await compressToWebp(source, targetPath);
         written += 1;
       }
       const stamped = pick.kind === "token" ? { ...image, shape: "round" as const } : image;
@@ -162,6 +163,15 @@ async function convertToWebp(ruleset: CreatureRuleset, picks: PicturePick[]): Pr
   console.log(`  🗜  ${written} стиснуто у webp, ${byFile.size - written} вже було, ${converted.size} істот`);
   if (broken.length > 0) console.log(`  ⚠️  ${broken.length} не читається: ${broken.slice(0, 5).join(", ")}`);
   return converted;
+}
+
+/// Навколо диска токена лишається прозорий запас — близько десятої частини сторони. Без нього
+/// кружечок у списку читався б меншим за сусідні квадратні картки; із ним діаметр дорівнює
+/// стороні рамки. `trim` іде саме по альфі: кути токена прозорі.
+async function cutTransparentMargin(tokenPath: string): Promise<string> {
+  const cutPath = tokenPath.replace(/\.webp$/, ".disc.png");
+  await sharp(tokenPath).trim().png().toFile(cutPath);
+  return cutPath;
 }
 
 function writeManifest(ruleset: CreatureRuleset, converted: Map<string, CreatureImage>): void {

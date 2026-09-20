@@ -1,5 +1,6 @@
 "use client";
 
+import { ContentImage } from "@/components/no-ai/ContentImage";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import type { CreatureData } from "@/lib/bestiaryData";
 
@@ -10,6 +11,24 @@ const FALLBACK_RATIO = 3 / 4;
 /// висоти жива в CSS (`--creature-portrait-h`), тому в модалці телефона портрет не зʼїдає екран.
 export function CreaturePortrait({ creature }: { creature: CreatureData }) {
   if (!creature.imageUrl) return null;
+
+  /// Токен малюється цілим і без рамки — вона додала б друге кільце поверх його власного.
+  if (creature.imageShape === "round") {
+    return (
+      <div className="mt-4 flex justify-center">
+        <div className="relative aspect-square w-[min(100%,320px)]">
+          <ContentImage
+            src={creature.imageUrl}
+            alt={creature.name}
+            provenance="manual"
+            fill
+            sizes="(max-width: 1024px) 70vw, 320px"
+            className="object-contain"
+          />
+        </div>
+      </div>
+    );
+  }
 
   const ratio =
     creature.imageWidth && creature.imageHeight
