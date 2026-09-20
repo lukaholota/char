@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
-import { ARCANE, OBSIDIAN } from "./src/styles/palette";
+import { ARCANE, OBSIDIAN, PRISM } from "./src/styles/palette.ts";
 
 const config: Config = {
   darkMode: ["class"],
@@ -9,6 +9,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/lib/**/*.{js,ts,jsx,tsx}",
+    "./src/styles/**/*.{js,ts,jsx,tsx}",
   ],
   safelist: [
     "bg-violet-700",
@@ -51,6 +52,7 @@ const config: Config = {
       colors: {
         slate: OBSIDIAN,
         arcane: ARCANE,
+        prism: PRISM,
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

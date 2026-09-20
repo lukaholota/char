@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     minimumCacheTTL: IMAGE_OPTIMIZER_CACHE_TTL,
+    remotePatterns: [{ protocol: "https", hostname: "media.char.holota.family" }],
   },
   async headers() {
     return buildStaticAssetHeaders();

@@ -38,6 +38,12 @@ jobs:
       - name: UI decomposition guard
         run: bun run check:ui-decomposition
 
+      # Тести правил імпортують enum-и `@prisma/client`, тож клієнт потрібен і тут.
+      - name: Prisma Generate
+        run: bunx prisma generate
+        env:
+          DATABASE_URL: "postgresql://none:none@127.0.0.1:1/none_test"
+
       - name: Rules coverage
         run: bun run test:rules:coverage
 
@@ -118,17 +124,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # `network=host` обов'язковий: кроки RUN усередині збірки інакше живуть у власній
-      # мережі, і 127.0.0.1:5454 там вказував би на сам build-контейнер, а не на тунель
-      # до бази, піднятий на раннері. Та сама пастка, що з `localhost` у docker run.
+      # `network=host` лишився від збірки з тунелем до бази, якої з 2026-08-28 немає (Р32).
+      # Збірці він більше не потрібен; прибирати разом із перевіреним прогоном образу (KR31.11).
       - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
         with:
           driver-opts: network=host
 
-      # `next build` пререндерить /char, який читає базу, тож збірці потрібен живий Postgres.
-      # Секрет монтується BuildKit-ом і в шарах образу не осідає (перевірено docker history).
-      # Беремо spells_ci_test: контент той самий, у прод заради збірки ходити не треба.
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
