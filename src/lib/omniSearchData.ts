@@ -19,7 +19,7 @@ import { describeMetamagicCost } from "@/lib/metamagic-cost";
 import { getAllInfusions } from "@/lib/infusionsData";
 import { getAllBastionFacilities } from "@/lib/bastionsData";
 import { getAllBackgrounds } from "@/lib/backgroundsData";
-import { getAllClasses } from "@/lib/classesData";
+import { getAllClasses, type SubclassData } from "@/lib/classesData";
 import { getAllRaces, RACE_SINGULAR } from "@/lib/racesData";
 import { getAllConditions, getRuleCategory, RuleArticle } from "@/lib/rulesData";
 import { getAllRuleArticles2014 } from "@/lib/rules2014Data";
@@ -81,7 +81,15 @@ export type OmniSearchItem = {
   /// Другий аргумент для категорій, чия іконка залежить від двох полів (isRanged для зброї,
   /// minLevel для потойбічних викликів).
   visualKeySecondary?: string | number | boolean | null;
+  /// Картинка замість lucide-іконки там, де корпус її вже має: клітинка спрайта в заклинань,
+  /// токен або портрет із мануалу в істот. Нових даних не приносить — обидва каталоги пошук
+  /// і так тримає в памʼяті. Немає картинки — рядок малює іконку категорії, як раніше.
+  art?: OmniSearchArt;
 };
+
+export type OmniSearchArt =
+  | { kind: "spell"; engName: string }
+  | { kind: "creature"; imageUrl: string; imageShape?: "round" };
 
 export type OmniSearchOverflow = {
   category: OmniSearchCategory;
@@ -301,9 +309,11 @@ function findClassHref(ruleset: Ruleset, engName: string): string {
 }
 
 /// A subclass has no page of its own — it opens its class and gets found by the catalog's own
-/// search box, which reads subclass names into its haystack.
-function findSubclassHref(ruleset: Ruleset, className: string, subclassName: string): string {
-  return `${findRoutePrefix(ruleset)}/classes?class=${toEntitySlug(className)}&q=${encodeURIComponent(subclassName)}`;
+/// search box, which reads subclass names into its haystack. `jump` is the section inside the
+/// class card the catalog scrolls to, so the reader lands on the subclass, not on the class top.
+function findSubclassHref(ruleset: Ruleset, className: string, subclass: SubclassData): string {
+  const params = `class=${toEntitySlug(className)}&q=${encodeURIComponent(subclass.name)}&jump=${subclass.slug}`;
+  return `${findRoutePrefix(ruleset)}/classes?${params}`;
 }
 
 function stripBracketedSuffix(name: string): string {
@@ -333,6 +343,7 @@ function collectSpellItems(ruleset: Ruleset): OmniSearchItem[] {
       ],
       aliases: findAliasVariants(ruleset, ["spell"], [toEntitySlug(spell.engName), cleanTitle]),
       visualKey: spell.school ?? null,
+      art: spell.engName ? { kind: "spell" as const, engName: spell.engName } : undefined,
     };
   });
 }
@@ -456,6 +467,9 @@ function collectCreatureItems(ruleset: Ruleset): OmniSearchItem[] {
       ],
       aliases: findAliasVariants(ruleset, ["creature"], [toEntitySlug(creature.nameEng), creature.name]),
       visualKey: creature.type,
+      art: creature.imageUrl
+        ? { kind: "creature" as const, imageUrl: creature.imageUrl, imageShape: creature.imageShape }
+        : undefined,
     };
   });
 }
@@ -651,7 +665,7 @@ function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
       subtitle: `${subclass.engName} · ${characterClass.name}`,
       category: "classes" as const,
       categoryLabel: findLabel("classes", ruleset),
-      href: findSubclassHref(ruleset, characterClass.engName, subclass.name),
+      href: findSubclassHref(ruleset, characterClass.engName, subclass),
       badge: "Підклас",
       keywords: ["підклас", "персонаж", "створення", subclass.engName, characterClass.name],
       aliases: findAliasVariants(

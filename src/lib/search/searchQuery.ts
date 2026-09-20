@@ -23,6 +23,7 @@ const UKRAINIAN_ENDING = /[аеєиіїоуюяьй]$/;
 const MAX_STEM_LENGTH_GAP = 3;
 const MIN_STEM_LENGTH = 2;
 const MIN_LOOSE_WORD_LENGTH = 3;
+const MAX_INFLECTION_LETTERS = 2;
 
 /// Згортає написання, які українці плутають однаково часто: ґ→г та и/ї→і. Це той самий клас
 /// проблеми, що й г↔х, тільки дешевший — тут не потрібен другий варіант запиту, бо згортання
@@ -146,6 +147,13 @@ function hasSameStem(queryWord: string, indexedWord: string): boolean {
   return queryStem.startsWith(indexedStem) || indexedStem.startsWith(queryStem);
 }
 
+/// Українське закінчення буває й дволітерним: «дикої магії» — це «дика магія» у родовому
+/// відмінку, а не інші слова. Тому основа зрізає до двох кінцевих голосних, доки лишається корінь.
 function stripInflection(word: string): string {
-  return word.length > MIN_STEM_LENGTH && UKRAINIAN_ENDING.test(word) ? word.slice(0, -1) : word;
+  let stem = word;
+  for (let letters = 0; letters < MAX_INFLECTION_LETTERS; letters++) {
+    if (stem.length <= MIN_STEM_LENGTH || !UKRAINIAN_ENDING.test(stem)) break;
+    stem = stem.slice(0, -1);
+  }
+  return stem;
 }

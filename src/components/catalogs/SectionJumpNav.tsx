@@ -55,8 +55,32 @@ function scrollToJumpTarget(event: MouseEvent<HTMLButtonElement>, id: string) {
   if (scope) scrollWhenTargetAppears(scope, id, MAX_FRAMES_TO_WAIT_FOR_TARGET);
 }
 
+/// Перехід із пошуку приходить не з кнопки всередині картки, а з адреси, тож своєї області в
+/// нього немає: беремо останню видиму — мобільна модалка малюється після десктопної панелі.
+export function scrollToVisibleJumpTarget(id: string | null | undefined) {
+  if (id) scrollWhenVisibleTargetAppears(id, MAX_FRAMES_TO_WAIT_FOR_TARGET);
+}
+
+function scrollWhenVisibleTargetAppears(id: string, framesLeft: number) {
+  const scopes = [...document.querySelectorAll(`[${SCOPE_ATTRIBUTE}]`)].reverse();
+  const scope = scopes.find((candidate) => isVisible(candidate) && findTarget(candidate, id));
+  if (scope) {
+    scrollWhenTargetAppears(scope, id, MAX_FRAMES_TO_WAIT_FOR_TARGET);
+    return;
+  }
+  if (framesLeft > 0) requestAnimationFrame(() => scrollWhenVisibleTargetAppears(id, framesLeft - 1));
+}
+
+function isVisible(element: Element): boolean {
+  return element instanceof HTMLElement && element.offsetParent !== null;
+}
+
+function findTarget(scope: Element, id: string): Element | null {
+  return scope.querySelector(`[${TARGET_ATTRIBUTE}="${CSS.escape(id)}"]`);
+}
+
 function scrollWhenTargetAppears(scope: Element, id: string, framesLeft: number) {
-  const target = scope.querySelector(`[${TARGET_ATTRIBUTE}="${CSS.escape(id)}"]`);
+  const target = findTarget(scope, id);
   if (target) {
     target.scrollIntoView({ block: "start", behavior: "smooth" });
     return;

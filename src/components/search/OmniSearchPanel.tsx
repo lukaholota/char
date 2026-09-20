@@ -8,6 +8,7 @@ import { OmniSearchCategoryLinks } from "@/components/search/OmniSearchCategoryL
 import { useDeferredServerSearch } from "@/components/search/useDeferredServerSearch";
 import { findOmniSearchOutcome, type OmniSearchCategory, type OmniSearchItem } from "@/lib/omniSearchData";
 import { buildOmniSearchRows, type OmniSearchRow } from "@/lib/search/omniSearchRows";
+import { announceSearchNavigation } from "@/lib/search/search-navigation";
 import {
   collectSearchCatalogs,
   findCatalogHref,
@@ -83,6 +84,7 @@ export function OmniSearchPanel({ onClose }: Props) {
   useEffect(() => {
     if (hasStartedNavigationRef.current && !isNavigating) {
       hasStartedNavigationRef.current = false;
+      announceSearchNavigation();
       onClose();
     }
   }, [isNavigating, onClose]);

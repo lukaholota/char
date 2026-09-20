@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { Ruleset } from "@prisma/client";
 import { Shield } from "lucide-react";
 
@@ -9,7 +9,9 @@ import { CatalogIllustrationCard } from "@/components/catalogs/CatalogIllustrati
 import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { ClassDetailCard } from "@/components/classes/ClassDetailCard";
 import { ClassesFilterDialog } from "@/components/classes/ClassesFilterDialog";
+import { scrollToVisibleJumpTarget } from "@/components/catalogs/SectionJumpNav";
 import type { ClassData } from "@/lib/classesData";
+import { useCatalogDeepLinkFocus } from "@/hooks/useCatalogDeepLinkFocus";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -108,13 +110,23 @@ export function ClassesClient({
     return filtered[0] ?? null;
   }, [classes, filtered, selection.class]);
 
-  useEffect(() => {
-    const matchesClassParam =
-      selectedClass &&
-      (selectedClass.slug === selection.class || String(selectedClass.classId) === selection.class);
-    if (!matchesClassParam || window.innerWidth >= 1024) return;
-    setSelectedModalClass(selectedClass);
-  }, [selectedClass, selection.class]);
+  /// Читаємо адресу, а не стан: той самий рядок пошуку можна натиснути вдруге, і тоді ні
+  /// `selection`, ні `selectedClass` не зміняться — а модалку все одно треба відкрити.
+  const focusClassFromUrl = useCallback(() => {
+    const params = getSearchParamsFromLocation();
+    const requested = params.get("class");
+    if (!requested) return;
+
+    const target = classes.find(
+      (characterClass) => characterClass.slug === requested || String(characterClass.classId) === requested,
+    );
+    if (!target) return;
+
+    if (window.innerWidth < 1024) setSelectedModalClass(target);
+    scrollToVisibleJumpTarget(params.get("jump"));
+  }, [classes]);
+
+  useCatalogDeepLinkFocus(focusClassFromUrl);
 
   const setParams = useCallback((mutate: (next: URLSearchParams) => void) => {
     const next = getSearchParamsFromLocation();

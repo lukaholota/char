@@ -10,7 +10,10 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: state.push, replace: vi.fn(), refresh: vi.fn(), prefetch: vi.fn() }),
 }));
 vi.mock("@/components/ui/PersEditionPin", () => ({ useActiveEdition: () => state.edition }));
-vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useNoAiHref: () => (href: string) => href }));
+vi.mock("@/components/no-ai/NoAiModeProvider", () => ({
+  useNoAiHref: () => (href: string) => href,
+  useNoAiMode: () => ({ enabled: false }),
+}));
 vi.mock("@/server/db/pers-search-actions", () => ({ searchUserPersAndFolders: vi.fn(async () => []) }));
 vi.mock("@/server/db/homebrew-search-actions", () => ({ searchHomebrewEntries: vi.fn(async () => []) }));
 

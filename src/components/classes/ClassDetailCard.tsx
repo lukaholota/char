@@ -39,7 +39,7 @@ export function ClassDetailCard({
       <CatalogProse content={characterClass.description} className="mt-4" />
       <SectionJumpNav
         title="Підкласи"
-        items={characterClass.subclasses.map((subclass) => ({ id: subclass.key, label: subclass.name }))}
+        items={characterClass.subclasses.map((subclass) => ({ id: subclass.slug, label: subclass.name }))}
         is2024={is2024}
       />
       <MetaGrid characterClass={characterClass} />
@@ -68,7 +68,7 @@ function FeatureSections({ characterClass }: { characterClass: ClassData }) {
         >
           <div className="space-y-5">
             {characterClass.subclasses.map((subclass) => (
-              <div key={subclass.key} {...jumpTargetAttributes.target(subclass.key)} className="scroll-mt-2">
+              <div key={subclass.key} {...jumpTargetAttributes.target(subclass.slug)} className="scroll-mt-2">
                 <div className="flex flex-wrap items-baseline gap-2">
                   <span className="text-sm font-semibold text-slate-100">{subclass.name}</span>
                   <span className="font-mono text-[11px] text-slate-500">[{subclass.engName}]</span>
