@@ -1811,6 +1811,111 @@ ALTER SEQUENCE public.class_starting_equipment_option_option_id_seq OWNED BY pub
 
 
 --
+-- Name: content_comment; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.content_comment (
+    content_comment_id integer NOT NULL,
+    target character varying(300) NOT NULL,
+    user_id integer NOT NULL,
+    parent_comment_id integer,
+    body text NOT NULL,
+    score integer DEFAULT 0 NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    deleted_at timestamp(3) without time zone,
+    CONSTRAINT content_comment_body_check CHECK (((char_length(body) >= 1) AND (char_length(body) <= 5000)))
+);
+
+
+--
+-- Name: content_comment_content_comment_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.content_comment_content_comment_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: content_comment_content_comment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.content_comment_content_comment_id_seq OWNED BY public.content_comment.content_comment_id;
+
+
+--
+-- Name: content_comment_vote; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.content_comment_vote (
+    content_comment_id integer NOT NULL,
+    user_id integer NOT NULL,
+    value smallint NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT content_comment_vote_value_check CHECK ((value = ANY (ARRAY['-1'::integer, 1])))
+);
+
+
+--
+-- Name: content_report; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.content_report (
+    content_report_id integer NOT NULL,
+    target character varying(300) NOT NULL,
+    content_comment_id integer,
+    reporter_user_id integer NOT NULL,
+    reason character varying(16) NOT NULL,
+    details text,
+    status character varying(16) DEFAULT 'OPEN'::character varying NOT NULL,
+    resolved_by_user_id integer,
+    resolved_at timestamp(3) without time zone,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT content_report_details_check CHECK ((char_length(details) <= 1000)),
+    CONSTRAINT content_report_reason_check CHECK (((reason)::text = ANY ((ARRAY['SPAM'::character varying, 'OFFENSIVE'::character varying, 'COPYRIGHT'::character varying, 'OTHER'::character varying])::text[]))),
+    CONSTRAINT content_report_status_check CHECK (((status)::text = ANY ((ARRAY['OPEN'::character varying, 'RESOLVED'::character varying, 'DISMISSED'::character varying])::text[])))
+);
+
+
+--
+-- Name: content_report_content_report_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.content_report_content_report_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: content_report_content_report_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.content_report_content_report_id_seq OWNED BY public.content_report.content_report_id;
+
+
+--
+-- Name: content_vote; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.content_vote (
+    target character varying(300) NOT NULL,
+    user_id integer NOT NULL,
+    value smallint NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT content_vote_value_check CHECK ((value = ANY (ARRAY['-1'::integer, 1])))
+);
+
+
+--
 -- Name: creature; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2171,6 +2276,79 @@ ALTER SEQUENCE public.fighting_style_id_seq OWNED BY public.fighting_style.id;
 
 
 --
+-- Name: homebrew_creature; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.homebrew_creature (
+    homebrew_entry_id integer NOT NULL,
+    eng_name character varying(255),
+    size character varying(64) NOT NULL,
+    type character varying(128) NOT NULL,
+    challenge character varying(32) NOT NULL,
+    stat_block jsonb NOT NULL
+);
+
+
+--
+-- Name: homebrew_entry; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.homebrew_entry (
+    homebrew_entry_id integer NOT NULL,
+    kind character varying(16) NOT NULL,
+    author_user_id integer NOT NULL,
+    ruleset public."Ruleset",
+    name character varying(255) NOT NULL,
+    score integer DEFAULT 0 NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    deleted_at timestamp(3) without time zone,
+    CONSTRAINT homebrew_entry_kind_check CHECK (((kind)::text = ANY ((ARRAY['SPELL'::character varying, 'CREATURE'::character varying])::text[])))
+);
+
+
+--
+-- Name: homebrew_entry_homebrew_entry_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.homebrew_entry_homebrew_entry_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: homebrew_entry_homebrew_entry_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.homebrew_entry_homebrew_entry_id_seq OWNED BY public.homebrew_entry.homebrew_entry_id;
+
+
+--
+-- Name: homebrew_spell; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.homebrew_spell (
+    homebrew_entry_id integer NOT NULL,
+    eng_name character varying(255),
+    level integer NOT NULL,
+    school character varying(255) NOT NULL,
+    casting_time character varying(255) NOT NULL,
+    range character varying(255) NOT NULL,
+    components character varying(500) NOT NULL,
+    duration character varying(255) NOT NULL,
+    is_ritual boolean DEFAULT false NOT NULL,
+    is_concentration boolean DEFAULT false NOT NULL,
+    classes public."Classes"[] DEFAULT '{}'::public."Classes"[] NOT NULL,
+    description text NOT NULL,
+    CONSTRAINT homebrew_spell_level_check CHECK (((level >= 0) AND (level <= 9)))
+);
+
+
+--
 -- Name: infusion; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2339,7 +2517,12 @@ CREATE TABLE public.pers (
     folder_id integer,
     is_pinned boolean DEFAULT false NOT NULL,
     ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
-    has_heroic_inspiration boolean DEFAULT false NOT NULL
+    heroic_inspiration_count integer DEFAULT 0 NOT NULL,
+    can_stack_heroic_inspiration boolean DEFAULT false NOT NULL,
+    portrait_key character varying(255),
+    exhaustion_level smallint DEFAULT 0 NOT NULL,
+    CONSTRAINT pers_exhaustion_level_range CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
+    CONSTRAINT pers_heroic_inspiration_count_non_negative CHECK ((heroic_inspiration_count >= 0))
 );
 
 
@@ -2424,7 +2607,8 @@ CREATE TABLE public.pers_bastion (
     description text DEFAULT ''::text NOT NULL,
     notes text DEFAULT ''::text NOT NULL,
     created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    is_maintaining boolean DEFAULT false NOT NULL
 );
 
 
@@ -2523,13 +2707,49 @@ ALTER SEQUENCE public.pers_bastion_turn_pers_bastion_turn_id_seq OWNED BY public
 
 
 --
+-- Name: pers_effect; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_effect (
+    pers_effect_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    effect_key character varying(40) NOT NULL,
+    spell_id integer,
+    homebrew_entry_id integer,
+    ends_with_concentration boolean DEFAULT false NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+--
+-- Name: pers_effect_pers_effect_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_effect_pers_effect_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_effect_pers_effect_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_effect_pers_effect_id_seq OWNED BY public.pers_effect.pers_effect_id;
+
+
+--
 -- Name: pers_feat; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.pers_feat (
     pers_feat_id integer NOT NULL,
     feat_id integer NOT NULL,
-    pers_id integer NOT NULL
+    pers_id integer NOT NULL,
+    grants jsonb
 );
 
 
@@ -2592,8 +2812,44 @@ CREATE TABLE public.pers_feature (
     pers_feature_id integer NOT NULL,
     pers_id integer NOT NULL,
     feature_id integer NOT NULL,
-    uses_remaining integer
+    uses_remaining integer,
+    is_active boolean DEFAULT false NOT NULL
 );
+
+
+--
+-- Name: pers_feature_description; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_feature_description (
+    pers_feature_description_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    kind character varying(16) NOT NULL,
+    ref_id integer NOT NULL,
+    description text NOT NULL,
+    updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT pers_feature_description_kind_check CHECK (((kind)::text = ANY ((ARRAY['FEATURE'::character varying, 'FEAT'::character varying, 'INFUSION'::character varying])::text[])))
+);
+
+
+--
+-- Name: pers_feature_description_pers_feature_description_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_feature_description_pers_feature_description_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_feature_description_pers_feature_description_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_feature_description_pers_feature_description_id_seq OWNED BY public.pers_feature_description.pers_feature_description_id;
 
 
 --
@@ -2628,7 +2884,8 @@ CREATE TABLE public.pers_folder (
     is_pinned boolean DEFAULT false NOT NULL,
     parent_folder_id integer,
     created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    updated_at timestamp(3) without time zone NOT NULL
+    updated_at timestamp(3) without time zone NOT NULL,
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
 );
 
 
@@ -2719,6 +2976,43 @@ ALTER SEQUENCE public.pers_folder_share_token_pers_folder_share_token_id_seq OWN
 
 
 --
+-- Name: pers_homebrew_spell; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_homebrew_spell (
+    pers_homebrew_spell_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    homebrew_entry_id integer NOT NULL,
+    is_prepared boolean DEFAULT false NOT NULL,
+    badge_text text,
+    badge_color text,
+    exclude_from_prepared_count boolean DEFAULT false NOT NULL,
+    exclude_from_known_count boolean DEFAULT false NOT NULL,
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+--
+-- Name: pers_homebrew_spell_pers_homebrew_spell_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_homebrew_spell_pers_homebrew_spell_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_homebrew_spell_pers_homebrew_spell_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_homebrew_spell_pers_homebrew_spell_id_seq OWNED BY public.pers_homebrew_spell.pers_homebrew_spell_id;
+
+
+--
 -- Name: pers_infusion; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2763,7 +3057,10 @@ CREATE TABLE public.pers_magic_item (
     pers_id integer NOT NULL,
     magic_item_id integer NOT NULL,
     is_attuned boolean DEFAULT false NOT NULL,
-    is_equipped boolean DEFAULT false NOT NULL
+    is_equipped boolean DEFAULT false NOT NULL,
+    charges_max integer,
+    charges_current integer,
+    CONSTRAINT pers_magic_item_charges_within_max CHECK ((((charges_max IS NULL) AND (charges_current IS NULL)) OR ((charges_max > 0) AND ((charges_current >= 0) AND (charges_current <= charges_max)))))
 );
 
 
@@ -3412,8 +3709,16 @@ CREATE TABLE public.race_variant (
     overrides_race_asi jsonb NOT NULL,
     overrides_race_speed integer,
     overrides_flight_speed integer,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    description text
 );
+
+
+--
+-- Name: COLUMN race_variant.description; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.race_variant.description IS 'Коротка проза варіанта раси для каталогу. NULL — опису немає.';
 
 
 --
@@ -3956,6 +4261,20 @@ ALTER TABLE ONLY public.class_starting_equipment_option ALTER COLUMN option_id S
 
 
 --
+-- Name: content_comment content_comment_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_comment ALTER COLUMN content_comment_id SET DEFAULT nextval('public.content_comment_content_comment_id_seq'::regclass);
+
+
+--
+-- Name: content_report content_report_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_report ALTER COLUMN content_report_id SET DEFAULT nextval('public.content_report_content_report_id_seq'::regclass);
+
+
+--
 -- Name: creature creature_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -3995,6 +4314,13 @@ ALTER TABLE ONLY public.feature ALTER COLUMN feature_id SET DEFAULT nextval('pub
 --
 
 ALTER TABLE ONLY public.fighting_style ALTER COLUMN id SET DEFAULT nextval('public.fighting_style_id_seq'::regclass);
+
+
+--
+-- Name: homebrew_entry homebrew_entry_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_entry ALTER COLUMN homebrew_entry_id SET DEFAULT nextval('public.homebrew_entry_homebrew_entry_id_seq'::regclass);
 
 
 --
@@ -4054,6 +4380,13 @@ ALTER TABLE ONLY public.pers_bastion_turn ALTER COLUMN pers_bastion_turn_id SET 
 
 
 --
+-- Name: pers_effect pers_effect_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_effect ALTER COLUMN pers_effect_id SET DEFAULT nextval('public.pers_effect_pers_effect_id_seq'::regclass);
+
+
+--
 -- Name: pers_feat pers_feat_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -4075,6 +4408,13 @@ ALTER TABLE ONLY public.pers_feature ALTER COLUMN pers_feature_id SET DEFAULT ne
 
 
 --
+-- Name: pers_feature_description pers_feature_description_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_feature_description ALTER COLUMN pers_feature_description_id SET DEFAULT nextval('public.pers_feature_description_pers_feature_description_id_seq'::regclass);
+
+
+--
 -- Name: pers_folder folder_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -4093,6 +4433,13 @@ ALTER TABLE ONLY public.pers_folder_member ALTER COLUMN pers_folder_member_id SE
 --
 
 ALTER TABLE ONLY public.pers_folder_share_token ALTER COLUMN pers_folder_share_token_id SET DEFAULT nextval('public.pers_folder_share_token_pers_folder_share_token_id_seq'::regclass);
+
+
+--
+-- Name: pers_homebrew_spell pers_homebrew_spell_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_homebrew_spell ALTER COLUMN pers_homebrew_spell_id SET DEFAULT nextval('public.pers_homebrew_spell_pers_homebrew_spell_id_seq'::regclass);
 
 
 --
@@ -4507,6 +4854,38 @@ ALTER TABLE ONLY public.class_starting_equipment_option
 
 
 --
+-- Name: content_comment content_comment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_comment
+    ADD CONSTRAINT content_comment_pkey PRIMARY KEY (content_comment_id);
+
+
+--
+-- Name: content_comment_vote content_comment_vote_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_comment_vote
+    ADD CONSTRAINT content_comment_vote_pkey PRIMARY KEY (content_comment_id, user_id);
+
+
+--
+-- Name: content_report content_report_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_report
+    ADD CONSTRAINT content_report_pkey PRIMARY KEY (content_report_id);
+
+
+--
+-- Name: content_vote content_vote_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_vote
+    ADD CONSTRAINT content_vote_pkey PRIMARY KEY (target, user_id);
+
+
+--
 -- Name: creature creature_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4560,6 +4939,30 @@ ALTER TABLE ONLY public.feature
 
 ALTER TABLE ONLY public.fighting_style
     ADD CONSTRAINT fighting_style_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: homebrew_creature homebrew_creature_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_creature
+    ADD CONSTRAINT homebrew_creature_pkey PRIMARY KEY (homebrew_entry_id);
+
+
+--
+-- Name: homebrew_entry homebrew_entry_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_entry
+    ADD CONSTRAINT homebrew_entry_pkey PRIMARY KEY (homebrew_entry_id);
+
+
+--
+-- Name: homebrew_spell homebrew_spell_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_spell
+    ADD CONSTRAINT homebrew_spell_pkey PRIMARY KEY (homebrew_entry_id);
 
 
 --
@@ -4619,6 +5022,22 @@ ALTER TABLE ONLY public.pers_bastion_turn
 
 
 --
+-- Name: pers_effect pers_effect_one_per_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_effect
+    ADD CONSTRAINT pers_effect_one_per_key UNIQUE (pers_id, effect_key);
+
+
+--
+-- Name: pers_effect pers_effect_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_effect
+    ADD CONSTRAINT pers_effect_pkey PRIMARY KEY (pers_effect_id);
+
+
+--
 -- Name: pers_feat_choice pers_feat_choice_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4632,6 +5051,22 @@ ALTER TABLE ONLY public.pers_feat_choice
 
 ALTER TABLE ONLY public.pers_feat
     ADD CONSTRAINT pers_feat_pkey PRIMARY KEY (pers_feat_id);
+
+
+--
+-- Name: pers_feature_description pers_feature_description_pers_id_kind_ref_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_feature_description
+    ADD CONSTRAINT pers_feature_description_pers_id_kind_ref_id_key UNIQUE (pers_id, kind, ref_id);
+
+
+--
+-- Name: pers_feature_description pers_feature_description_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_feature_description
+    ADD CONSTRAINT pers_feature_description_pkey PRIMARY KEY (pers_feature_description_id);
 
 
 --
@@ -4664,6 +5099,22 @@ ALTER TABLE ONLY public.pers_folder
 
 ALTER TABLE ONLY public.pers_folder_share_token
     ADD CONSTRAINT pers_folder_share_token_pkey PRIMARY KEY (pers_folder_share_token_id);
+
+
+--
+-- Name: pers_homebrew_spell pers_homebrew_spell_pers_id_homebrew_entry_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_homebrew_spell
+    ADD CONSTRAINT pers_homebrew_spell_pers_id_homebrew_entry_id_key UNIQUE (pers_id, homebrew_entry_id);
+
+
+--
+-- Name: pers_homebrew_spell pers_homebrew_spell_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_homebrew_spell
+    ADD CONSTRAINT pers_homebrew_spell_pkey PRIMARY KEY (pers_homebrew_spell_id);
 
 
 --
@@ -5140,6 +5591,34 @@ CREATE UNIQUE INDEX class_starting_equipment_option_seed_index_key ON public.cla
 
 
 --
+-- Name: content_comment_target_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX content_comment_target_idx ON public.content_comment USING btree (target, created_at);
+
+
+--
+-- Name: content_comment_user_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX content_comment_user_idx ON public.content_comment USING btree (user_id, created_at);
+
+
+--
+-- Name: content_report_one_per_target_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX content_report_one_per_target_idx ON public.content_report USING btree (reporter_user_id, target, COALESCE(content_comment_id, 0));
+
+
+--
+-- Name: content_report_open_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX content_report_open_idx ON public.content_report USING btree (created_at) WHERE ((status)::text = 'OPEN'::text);
+
+
+--
 -- Name: equipment_pack_name_ruleset_key; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -5172,6 +5651,20 @@ CREATE UNIQUE INDEX feature_feature_id_key ON public.feature USING btree (featur
 --
 
 CREATE UNIQUE INDEX fighting_style_eng_name_key ON public.fighting_style USING btree (eng_name);
+
+
+--
+-- Name: homebrew_entry_author_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX homebrew_entry_author_idx ON public.homebrew_entry USING btree (author_user_id);
+
+
+--
+-- Name: homebrew_entry_kind_ruleset_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX homebrew_entry_kind_ruleset_idx ON public.homebrew_entry USING btree (kind, ruleset) WHERE (deleted_at IS NULL);
 
 
 --
@@ -5826,6 +6319,70 @@ ALTER TABLE ONLY public.class_starting_equipment_option
 
 
 --
+-- Name: content_comment content_comment_parent_comment_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_comment
+    ADD CONSTRAINT content_comment_parent_comment_id_fkey FOREIGN KEY (parent_comment_id) REFERENCES public.content_comment(content_comment_id) ON DELETE CASCADE;
+
+
+--
+-- Name: content_comment content_comment_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_comment
+    ADD CONSTRAINT content_comment_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: content_comment_vote content_comment_vote_content_comment_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_comment_vote
+    ADD CONSTRAINT content_comment_vote_content_comment_id_fkey FOREIGN KEY (content_comment_id) REFERENCES public.content_comment(content_comment_id) ON DELETE CASCADE;
+
+
+--
+-- Name: content_comment_vote content_comment_vote_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_comment_vote
+    ADD CONSTRAINT content_comment_vote_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: content_report content_report_content_comment_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_report
+    ADD CONSTRAINT content_report_content_comment_id_fkey FOREIGN KEY (content_comment_id) REFERENCES public.content_comment(content_comment_id) ON DELETE CASCADE;
+
+
+--
+-- Name: content_report content_report_reporter_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_report
+    ADD CONSTRAINT content_report_reporter_user_id_fkey FOREIGN KEY (reporter_user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: content_report content_report_resolved_by_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_report
+    ADD CONSTRAINT content_report_resolved_by_user_id_fkey FOREIGN KEY (resolved_by_user_id) REFERENCES public."user"(user_id) ON DELETE SET NULL;
+
+
+--
+-- Name: content_vote content_vote_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.content_vote
+    ADD CONSTRAINT content_vote_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
 -- Name: feat_choice_option feat_choice_option_choice_option_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5847,6 +6404,30 @@ ALTER TABLE ONLY public.feat_choice_option
 
 ALTER TABLE ONLY public.spell_classes
     ADD CONSTRAINT fk_spell_classes FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id);
+
+
+--
+-- Name: homebrew_creature homebrew_creature_homebrew_entry_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_creature
+    ADD CONSTRAINT homebrew_creature_homebrew_entry_id_fkey FOREIGN KEY (homebrew_entry_id) REFERENCES public.homebrew_entry(homebrew_entry_id) ON DELETE CASCADE;
+
+
+--
+-- Name: homebrew_entry homebrew_entry_author_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_entry
+    ADD CONSTRAINT homebrew_entry_author_user_id_fkey FOREIGN KEY (author_user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: homebrew_spell homebrew_spell_homebrew_entry_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_spell
+    ADD CONSTRAINT homebrew_spell_homebrew_entry_id_fkey FOREIGN KEY (homebrew_entry_id) REFERENCES public.homebrew_entry(homebrew_entry_id) ON DELETE CASCADE;
 
 
 --
@@ -5938,6 +6519,30 @@ ALTER TABLE ONLY public.pers
 
 
 --
+-- Name: pers_effect pers_effect_homebrew_entry_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_effect
+    ADD CONSTRAINT pers_effect_homebrew_entry_id_fkey FOREIGN KEY (homebrew_entry_id) REFERENCES public.homebrew_entry(homebrew_entry_id) ON DELETE SET NULL;
+
+
+--
+-- Name: pers_effect pers_effect_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_effect
+    ADD CONSTRAINT pers_effect_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
+
+
+--
+-- Name: pers_effect pers_effect_spell_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_effect
+    ADD CONSTRAINT pers_effect_spell_id_fkey FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id) ON DELETE SET NULL;
+
+
+--
 -- Name: pers_feat_choice pers_feat_choice_choice_option_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5967,6 +6572,14 @@ ALTER TABLE ONLY public.pers_feat
 
 ALTER TABLE ONLY public.pers_feat
     ADD CONSTRAINT pers_feat_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_feature_description pers_feature_description_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_feature_description
+    ADD CONSTRAINT pers_feature_description_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
 
 
 --
@@ -6031,6 +6644,22 @@ ALTER TABLE ONLY public.pers_folder_share_token
 
 ALTER TABLE ONLY public.pers_folder
     ADD CONSTRAINT pers_folder_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_homebrew_spell pers_homebrew_spell_homebrew_entry_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_homebrew_spell
+    ADD CONSTRAINT pers_homebrew_spell_homebrew_entry_id_fkey FOREIGN KEY (homebrew_entry_id) REFERENCES public.homebrew_entry(homebrew_entry_id) ON DELETE CASCADE;
+
+
+--
+-- Name: pers_homebrew_spell pers_homebrew_spell_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_homebrew_spell
+    ADD CONSTRAINT pers_homebrew_spell_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
 
 
 --

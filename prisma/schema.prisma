@@ -33,6 +33,12 @@ model User {
   emailVerified          DateTime?                @map("email_verified")
   image                  String?
   accounts               Account[]
+  contentComments        ContentComment[]
+  contentCommentVotes    ContentCommentVote[]
+  contentReports         ContentReport[]          @relation("ContentReportReporter")
+  resolvedContentReports ContentReport[]          @relation("ContentReportResolver")
+  contentVotes           ContentVote[]
+  homebrewEntries        HomebrewEntry[]
   perses                 Pers[]
   additionalPerses       PersAdditionalUser[]
   persFolders            PersFolder[]
@@ -663,7 +669,10 @@ model Pers {
   folderId                    Int?                     @map("folder_id")
   isPinned                    Boolean                  @default(false) @map("is_pinned")
   ruleset                     Ruleset                  @default(RULES_2014)
-  hasHeroicInspiration        Boolean                  @default(false) @map("has_heroic_inspiration")
+  heroicInspirationCount      Int                      @default(0) @map("heroic_inspiration_count")
+  canStackHeroicInspiration   Boolean                  @default(false) @map("can_stack_heroic_inspiration")
+  portraitKey                 String?                  @map("portrait_key") @db.VarChar(255)
+  exhaustionLevel             Int                      @default(0) @map("exhaustion_level") @db.SmallInt
   background                  Background               @relation(fields: [backgroundId], references: [backgroundId])
   class                       Class                    @relation(fields: [classId], references: [classId])
   folder                      PersFolder?              @relation(fields: [folderId], references: [folderId])
@@ -674,8 +683,11 @@ model Pers {
   additionalUsers             PersAdditionalUser[]
   armors                      PersArmor[]
   bastion                     PersBastion?
+  effects                     PersEffect[]
   feats                       PersFeat[]
   features                    PersFeature[]
+  featureDescriptions         PersFeatureDescription[]
+  homebrewSpells              PersHomebrewSpell[]
   persInfusions               PersInfusion[]
   magicItems                  PersMagicItem[]
   multiclasses                PersMulticlass[]
@@ -734,6 +746,7 @@ model PersFeat {
   persFeatId Int              @id @default(autoincrement()) @map("pers_feat_id")
   featId     Int              @map("feat_id")
   persId     Int              @map("pers_id")
+  grants     Json?
   feat       Feat             @relation(fields: [featId], references: [featId])
   pers       Pers             @relation(fields: [persId], references: [persId], onDelete: Cascade)
   choices    PersFeatChoice[]
@@ -758,6 +771,7 @@ model PersFeature {
   persId        Int     @map("pers_id")
   featureId     Int     @map("feature_id")
   usesRemaining Int?    @map("uses_remaining")
+  isActive      Boolean @default(false) @map("is_active")
   feature       Feature @relation(fields: [featureId], references: [featureId])
   pers          Pers    @relation(fields: [persId], references: [persId], onDelete: Cascade)
 
@@ -774,6 +788,7 @@ model PersFolder {
   parentFolderId Int?                   @map("parent_folder_id")
   createdAt      DateTime               @default(now()) @map("created_at")
   updatedAt      DateTime               @updatedAt @map("updated_at")
+  ruleset        Ruleset                @default(RULES_2014)
   perses         Pers[]
   parent         PersFolder?            @relation("PersFolderParent", fields: [parentFolderId], references: [folderId])
   children       PersFolder[]           @relation("PersFolderParent")
@@ -836,6 +851,8 @@ model PersMagicItem {
   magicItemId     Int            @map("magic_item_id")
   isAttuned       Boolean        @default(false) @map("is_attuned")
   isEquipped      Boolean        @default(false) @map("is_equipped")
+  chargesMax      Int?           @map("charges_max")
+  chargesCurrent  Int?           @map("charges_current")
   infusions       PersInfusion[]
   magicItem       MagicItem      @relation(fields: [magicItemId], references: [magicItemId])
   pers            Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
@@ -1046,6 +1063,7 @@ model RaceVariant {
   overridesRaceSpeed   Int?               @map("overrides_race_speed")
   overridesFlightSpeed Int?               @map("overrides_flight_speed")
   ruleset              Ruleset            @default(RULES_2014)
+  description          String?
   race                 Race               @relation(fields: [raceId], references: [raceId], onDelete: Cascade)
   traits               RaceVariantTrait[]
   perses               Pers[]             @relation("PersToRaceVariant")
@@ -1126,6 +1144,7 @@ model Spell {
   level                  Int
   engName                String                  @map("eng_name") @db.VarChar(255)
   ruleset                Ruleset                 @default(RULES_2014)
+  persEffects            PersEffect[]
   persSpells             PersSpell[]
   raceChoiceOptionSpells RaceChoiceOptionSpell[]
   spellClasses           SpellClasses[]
@@ -1192,6 +1211,7 @@ model PersBastion {
   notes         String                @default("")
   createdAt     DateTime              @default(now()) @map("created_at")
   updatedAt     DateTime              @default(now()) @map("updated_at")
+  isMaintaining Boolean               @default(false) @map("is_maintaining")
   pers          Pers                  @relation(fields: [persId], references: [persId], onDelete: Cascade)
   facilities    PersBastionFacility[]
   turns         PersBastionTurn[]
@@ -1294,6 +1314,168 @@ model PersBastionTurn {
 
   @@index([persBastionId])
   @@map("pers_bastion_turn")
+}
+
+model PersHomebrewSpell {
+  persHomebrewSpellId      Int           @id @default(autoincrement()) @map("pers_homebrew_spell_id")
+  persId                   Int           @map("pers_id")
+  homebrewEntryId          Int           @map("homebrew_entry_id")
+  isPrepared               Boolean       @default(false) @map("is_prepared")
+  badgeText                String?       @map("badge_text")
+  badgeColor               String?       @map("badge_color")
+  excludeFromPreparedCount Boolean       @default(false) @map("exclude_from_prepared_count")
+  excludeFromKnownCount    Boolean       @default(false) @map("exclude_from_known_count")
+  createdAt                DateTime      @default(now()) @map("created_at")
+  entry                    HomebrewEntry @relation(fields: [homebrewEntryId], references: [homebrewEntryId], onDelete: Cascade, onUpdate: NoAction)
+  pers                     Pers          @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([persId, homebrewEntryId])
+  @@map("pers_homebrew_spell")
+}
+
+model HomebrewCreature {
+  homebrewEntryId Int           @id @map("homebrew_entry_id")
+  engName         String?       @map("eng_name") @db.VarChar(255)
+  size            String        @db.VarChar(64)
+  type            String        @db.VarChar(128)
+  challenge       String        @db.VarChar(32)
+  statBlock       Json          @map("stat_block")
+  entry           HomebrewEntry @relation(fields: [homebrewEntryId], references: [homebrewEntryId], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("homebrew_creature")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model HomebrewEntry {
+  homebrewEntryId Int                 @id @default(autoincrement()) @map("homebrew_entry_id")
+  kind            String              @db.VarChar(16)
+  authorUserId    Int                 @map("author_user_id")
+  ruleset         Ruleset?
+  name            String              @db.VarChar(255)
+  score           Int                 @default(0)
+  createdAt       DateTime            @default(now()) @map("created_at")
+  updatedAt       DateTime            @default(now()) @map("updated_at")
+  deletedAt       DateTime?           @map("deleted_at")
+  creature        HomebrewCreature?
+  author          User                @relation(fields: [authorUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  spell           HomebrewSpell?
+  persEffects     PersEffect[]
+  persSpells      PersHomebrewSpell[]
+
+  @@index([authorUserId], map: "homebrew_entry_author_idx")
+  @@map("homebrew_entry")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model HomebrewSpell {
+  homebrewEntryId Int           @id @map("homebrew_entry_id")
+  engName         String?       @map("eng_name") @db.VarChar(255)
+  level           Int
+  school          String        @db.VarChar(255)
+  castingTime     String        @map("casting_time") @db.VarChar(255)
+  range           String        @db.VarChar(255)
+  components      String        @db.VarChar(500)
+  duration        String        @db.VarChar(255)
+  isRitual        Boolean       @default(false) @map("is_ritual")
+  isConcentration Boolean       @default(false) @map("is_concentration")
+  classes         Classes[]     @default([])
+  description     String
+  entry           HomebrewEntry @relation(fields: [homebrewEntryId], references: [homebrewEntryId], onDelete: Cascade, onUpdate: NoAction)
+
+  @@map("homebrew_spell")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model PersFeatureDescription {
+  persFeatureDescriptionId Int      @id @default(autoincrement()) @map("pers_feature_description_id")
+  persId                   Int      @map("pers_id")
+  kind                     String   @db.VarChar(16)
+  refId                    Int      @map("ref_id")
+  description              String
+  updatedAt                DateTime @default(now()) @map("updated_at")
+  pers                     Pers     @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([persId, kind, refId])
+  @@map("pers_feature_description")
+}
+
+model ContentVote {
+  target    String   @db.VarChar(300)
+  userId    Int      @map("user_id")
+  value     Int      @db.SmallInt
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([target, userId])
+  @@map("content_vote")
+}
+
+model ContentComment {
+  contentCommentId Int                  @id @default(autoincrement()) @map("content_comment_id")
+  target           String               @db.VarChar(300)
+  userId           Int                  @map("user_id")
+  parentCommentId  Int?                 @map("parent_comment_id")
+  body             String
+  score            Int                  @default(0)
+  createdAt        DateTime             @default(now()) @map("created_at")
+  updatedAt        DateTime             @default(now()) @map("updated_at")
+  deletedAt        DateTime?            @map("deleted_at")
+  parent           ContentComment?      @relation("ContentCommentReplies", fields: [parentCommentId], references: [contentCommentId], onDelete: Cascade, onUpdate: NoAction)
+  replies          ContentComment[]     @relation("ContentCommentReplies")
+  user             User                 @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  votes            ContentCommentVote[]
+  reports          ContentReport[]
+
+  @@index([target, createdAt], map: "content_comment_target_idx")
+  @@index([userId, createdAt], map: "content_comment_user_idx")
+  @@map("content_comment")
+}
+
+model ContentCommentVote {
+  contentCommentId Int            @map("content_comment_id")
+  userId           Int            @map("user_id")
+  value            Int            @db.SmallInt
+  createdAt        DateTime       @default(now()) @map("created_at")
+  comment          ContentComment @relation(fields: [contentCommentId], references: [contentCommentId], onDelete: Cascade, onUpdate: NoAction)
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([contentCommentId, userId])
+  @@map("content_comment_vote")
+}
+
+/// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
+model ContentReport {
+  contentReportId  Int             @id @default(autoincrement()) @map("content_report_id")
+  target           String          @db.VarChar(300)
+  contentCommentId Int?            @map("content_comment_id")
+  reporterUserId   Int             @map("reporter_user_id")
+  reason           String          @db.VarChar(16)
+  details          String?
+  status           String          @default("OPEN") @db.VarChar(16)
+  resolvedByUserId Int?            @map("resolved_by_user_id")
+  resolvedAt       DateTime?       @map("resolved_at")
+  createdAt        DateTime        @default(now()) @map("created_at")
+  comment          ContentComment? @relation(fields: [contentCommentId], references: [contentCommentId], onDelete: Cascade, onUpdate: NoAction)
+  reporter         User            @relation("ContentReportReporter", fields: [reporterUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  resolver         User?           @relation("ContentReportResolver", fields: [resolvedByUserId], references: [id], onUpdate: NoAction)
+
+  @@map("content_report")
+}
+
+model PersEffect {
+  persEffectId          Int            @id @default(autoincrement()) @map("pers_effect_id")
+  persId                Int            @map("pers_id")
+  effectKey             String         @map("effect_key") @db.VarChar(40)
+  spellId               Int?           @map("spell_id")
+  homebrewEntryId       Int?           @map("homebrew_entry_id")
+  endsWithConcentration Boolean        @default(false) @map("ends_with_concentration")
+  createdAt             DateTime       @default(now()) @map("created_at")
+  homebrewEntry         HomebrewEntry? @relation(fields: [homebrewEntryId], references: [homebrewEntryId], onUpdate: NoAction)
+  pers                  Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
+  spell                 Spell?         @relation(fields: [spellId], references: [spellId], onUpdate: NoAction)
+
+  @@unique([persId, effectKey], map: "pers_effect_one_per_key")
+  @@map("pers_effect")
 }
 
 enum AOEShapes {
