@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="uk"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Forum&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #05040a; }
+  .card {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(124,92,255,0.28), transparent 60%),
+      radial-gradient(90% 60% at 10% 110%, rgba(56,189,248,0.12), transparent 60%),
+      #05040a;
+    display: flex; flex-direction: column; align-items: center;
+    font-family: "Cormorant Garamond", Georgia, serif; color: #e9e7f5;
+  }
+  .card::after {
+    content: ""; position: absolute; inset: 14px; border: 1px solid rgba(197,182,255,0.18);
+    border-radius: 10px; pointer-events: none;
+  }
+  .eyebrow {
+    font-family: Forum, Georgia, serif; letter-spacing: 0.42em; text-transform: uppercase;
+    color: #b9a7ff; opacity: 0.9;
+  }
+  h1 { font-family: Forum, Georgia, serif; letter-spacing: 0.06em; line-height: 1.05; text-align: center; }
+  .sub { text-align: center; color: #b8b4cc; }
+  .shot { border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 40px 90px -30px rgba(0,0,0,0.95), 0 0 70px -20px rgba(124,92,255,0.45); }
+  .foot { font-family: Forum, Georgia, serif; letter-spacing: 0.3em; text-transform: uppercase; color: #8d86a8; }
+
+  /* Instagram 1080x1350 -> renders at 540x675 @2x */
+  .ig { width: 540px; height: 675px; padding: 40px 34px 30px; }
+  .ig .eyebrow { font-size: 11px; }
+  .ig h1 { font-size: 38px; margin-top: 12px; }
+  .ig .sub { font-size: 16px; margin-top: 10px; line-height: 1.45; }
+  .ig .shot { margin-top: 24px; width: 452px; }
+  .ig .shot.crop {
+    height: 440px; object-fit: cover; object-position: top;
+    border-bottom: none; border-radius: 14px 14px 0 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 99%);
+    mask-image: linear-gradient(to bottom, #000 74%, transparent 99%);
+  }
+  .ig .foot { font-size: 10px; margin-top: auto; }
+
+  /* OG 1200x630 -> renders at 600x315 @2x */
+  .og { width: 600px; height: 315px; flex-direction: row; align-items: center; gap: 24px; padding: 30px 32px; }
+  .og .text { flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+  .og.bleed { padding: 0; align-items: stretch; }
+  .og.bleed .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .og.bleed .scrim { position: absolute; inset: 0;
+    background: linear-gradient(100deg, rgba(5,4,10,0.98) 30%, rgba(5,4,10,0.92) 52%, rgba(5,4,10,0.22) 74%, rgba(5,4,10,0.5) 100%); }
+  .og.bleed .text { position: relative; justify-content: center; padding: 34px 0 34px 36px; max-width: 320px; }
+  .og .eyebrow { font-size: 10px; }
+  .og h1 { font-size: 34px; text-align: left; margin-top: 10px; }
+  .og .sub { font-size: 14px; text-align: left; margin-top: 10px; line-height: 1.45; }
+  .og .foot { font-size: 9px; margin-top: 16px; }
+  .og .shot { width: 282px; }
+</style></head>
+<body>
+  <div class="card ig" id="ig-search">
+    <div class="eyebrow">Великий реліз</div>
+    <h1>Пошук по всьому</h1>
+    <div class="sub">16 каталогів в одному вікні. І він розуміє, як ви пишете насправді.</div>
+    <img class="shot" src="el-search.png">
+    <div class="foot">char.holota.family</div>
+  </div>
+
+  <div class="card ig" id="ig-bestiary">
+    <div class="eyebrow">Великий реліз</div>
+    <h1>1 493 істоти<br>українською</h1>
+    <div class="sub">Обидві редакції, зі статблоками, фільтрами за небезпекою й друком.</div>
+    <img class="shot crop" src="el-pane.png">
+    <div class="foot">char.holota.family</div>
+  </div>
+
+  <div class="card og bleed" id="og-release">
+    <img class="bg" src="home-desktop.png">
+    <div class="scrim"></div>
+    <div class="text">
+      <div class="eyebrow">20 вересня 2026</div>
+      <h1>Великий реліз</h1>
+      <div class="sub">Новий вигляд, правила 2024, бестіарій на 1 493 істоти, хоумбрю спільноти й пошук по всіх каталогах.</div>
+      <div class="foot">char.holota.family</div>
+    </div>
+  </div>
+
+  <div class="card ig" id="ig-release">
+    <div class="eyebrow">20 вересня 2026</div>
+    <h1>Великий реліз</h1>
+    <div class="sub">Сайт має новий вигляд — і це найменше з того, що змінилося.</div>
+    <img class="shot crop" src="home-phone.png">
+    <div class="foot">char.holota.family</div>
+  </div>
+</body></html>
