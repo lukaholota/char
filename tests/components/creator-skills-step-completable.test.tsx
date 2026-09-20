@@ -26,6 +26,18 @@ function findLastGateValue(
   background: BackgroundI,
   extraExistingSkills: string[] = [],
 ) {
+  return auditSkillsStep(race, selectedClass, background, extraExistingSkills).gate;
+}
+
+/// Повертає не лише стан воріт, а й скільки кнопок навичок крок узагалі показав. Без цього
+/// «застряг» не відрізнити від «жодної кнопки не знайшлося»: перше — баг кроку, друге —
+/// розбіжність підпису з `engEnumSkills`, і лагодяться вони в різних місцях.
+function auditSkillsStep(
+  race: RaceI,
+  selectedClass: ClassI,
+  background: BackgroundI,
+  extraExistingSkills: string[] = [],
+) {
   const onNextDisabledChange = vi.fn();
 
   render(
@@ -39,10 +51,16 @@ function findLastGateValue(
     />
   );
 
+  const skillButtons = collectGroupSkillLabels().length;
+  const allButtons = screen.getAllByRole("button").length;
   spendEverySkillChoice();
   cleanup();
 
-  return onNextDisabledChange.mock.calls.at(-1)?.[0];
+  return { gate: onNextDisabledChange.mock.calls.at(-1)?.[0], skillButtons, allButtons };
+}
+
+function describeStuck(name: string, audit: ReturnType<typeof auditSkillsStep>): string {
+  return `${name} (ворота: ${String(audit.gate)}, кнопок навичок: ${audit.skillButtons} з ${audit.allButtons})`;
 }
 
 function collectGroupSkillLabels() {
@@ -77,24 +95,24 @@ describe.each(["RULES_2014", "RULES_2024"] as const)("крок навичок, %
   const plainBackground = backgrounds.find((bg) => Array.isArray(bg.skillProficiencies)) ?? backgrounds[0];
 
   it("кожен клас дає витратити свої вибори навичок", () => {
-    const stuck = classes.filter(
-      (cls) => findLastGateValue(plainRace, cls, plainBackground) !== false
-    );
-    expect(stuck.map((cls) => cls.name)).toEqual([]);
+    const stuck = classes
+      .map((cls) => ({ cls, audit: auditSkillsStep(plainRace, cls, plainBackground) }))
+      .filter(({ audit }) => audit.gate !== false);
+    expect(stuck.map(({ cls, audit }) => describeStuck(cls.name, audit))).toEqual([]);
   });
 
   it("кожна передісторія дає витратити свої вибори навичок", () => {
-    const stuck = backgrounds.filter(
-      (bg) => findLastGateValue(plainRace, plainClass, bg) !== false
-    );
-    expect(stuck.map((bg) => bg.name)).toEqual([]);
+    const stuck = backgrounds
+      .map((bg) => ({ bg, audit: auditSkillsStep(plainRace, plainClass, bg) }))
+      .filter(({ audit }) => audit.gate !== false);
+    expect(stuck.map(({ bg, audit }) => describeStuck(bg.name, audit))).toEqual([]);
   });
 
   it("кожна раса дає витратити свої вибори навичок", () => {
-    const stuck = races.filter(
-      (race) => findLastGateValue(race, plainClass, plainBackground) !== false
-    );
-    expect(stuck.map((race) => race.name)).toEqual([]);
+    const stuck = races
+      .map((race) => ({ race, audit: auditSkillsStep(race, plainClass, plainBackground) }))
+      .filter(({ audit }) => audit.gate !== false);
+    expect(stuck.map(({ race, audit }) => describeStuck(race.name, audit))).toEqual([]);
   });
 });
 
