@@ -1,7 +1,7 @@
 {
   "repository": "5etools-mirror-3/5etools-src",
   "revision": "e5f3e77b303a92df10487207857200245e71957c",
-  "capturedAt": "2026-09-13",
+  "capturedAt": "2026-09-18",
   "files": {
     "actions.json": {
       "bytes": 45496,
@@ -439,6 +439,378 @@
       "bytes": 57897,
       "sha256": "c51f32a9348c829b28042ba67f35e162c7aea2189eab97b866b6e9a59e089692"
     },
+    "bestiary/fluff-bestiary-aatm.json": {
+      "bytes": 5620,
+      "sha256": "d02fc11eb1fca7178364a020d269786e8b06ed9ba0cff3b811e77fa687dd8e13"
+    },
+    "bestiary/fluff-bestiary-abh.json": {
+      "bytes": 7688,
+      "sha256": "671a97fa9430efeb037998cf35da12ca0469a047d7dbc2e2b90630734eea249f"
+    },
+    "bestiary/fluff-bestiary-ai.json": {
+      "bytes": 37348,
+      "sha256": "da2447d6a82fd2c4ea49c5a2d03ec9847eb950c8906df7e0b018c4d69b9ea8ca"
+    },
+    "bestiary/fluff-bestiary-aitfr-dn.json": {
+      "bytes": 6234,
+      "sha256": "63c2dd7bf352c284b42deff47a2aa27c61c8c28af40841872c52ffcbfc61cf32"
+    },
+    "bestiary/fluff-bestiary-aitfr-fcd.json": {
+      "bytes": 4640,
+      "sha256": "506f04999a0af7479d7002a21089585efe8f899abd96d137571ad5eb3087f33a"
+    },
+    "bestiary/fluff-bestiary-aitfr-isf.json": {
+      "bytes": 1241,
+      "sha256": "9872d18389bc9a86f8241a26398896509423547d6d05bdaf851f4b5e68e3c1d5"
+    },
+    "bestiary/fluff-bestiary-aitfr-thp.json": {
+      "bytes": 4117,
+      "sha256": "3fcd98b9177a303f347ad2d0c1495b0d0ab14c702b201dc7af19b4a8fe459262"
+    },
+    "bestiary/fluff-bestiary-awm.json": {
+      "bytes": 7909,
+      "sha256": "a67df123d28d5e5ed97ee9b1f2726e221e6c0fe79b3df81a1937522d967a191b"
+    },
+    "bestiary/fluff-bestiary-bam.json": {
+      "bytes": 86755,
+      "sha256": "fe448e88145f56f351bf0317a2433abe8f7eb7f4de81519eddc403b4ab1fa4e1"
+    },
+    "bestiary/fluff-bestiary-bgdia.json": {
+      "bytes": 44000,
+      "sha256": "59711cd4240f41ea76761d4939daf4e767b4e0c73ca53768be199bfde306f8fb"
+    },
+    "bestiary/fluff-bestiary-bgg.json": {
+      "bytes": 96292,
+      "sha256": "b13b87d671e646890dc4416fad15a28e13e0e408d70d6f77d8e20b538c3a3ed2"
+    },
+    "bestiary/fluff-bestiary-bmt.json": {
+      "bytes": 47513,
+      "sha256": "4943dafef5a0894922e77b4c09f96f1d02624fdb813f1b3eac536b8e73438ed9"
+    },
+    "bestiary/fluff-bestiary-cm.json": {
+      "bytes": 31816,
+      "sha256": "18d6adb0faa99928013925048063b66234e49828f8e6bf345009aabf77818218"
+    },
+    "bestiary/fluff-bestiary-coa.json": {
+      "bytes": 78995,
+      "sha256": "be7a8b159db10c5a05e4c18c8e246b55487db91b32c6b485d5d40971bb92d6ba"
+    },
+    "bestiary/fluff-bestiary-cos.json": {
+      "bytes": 72526,
+      "sha256": "7670c19eadacdfb90c7df1d280ff5560c0404b8e04c930e15b4e5cb21fc276e4"
+    },
+    "bestiary/fluff-bestiary-crcotn.json": {
+      "bytes": 85699,
+      "sha256": "bc9f9cf86e35efb03b2918c9f73709a7344a5d029761c7ecb336d54b363c8a39"
+    },
+    "bestiary/fluff-bestiary-dc.json": {
+      "bytes": 590,
+      "sha256": "9b21ca8cdd683c1050ac342cbee9217ab02e5cb06aeb7eeb315aac359ce05926"
+    },
+    "bestiary/fluff-bestiary-dip.json": {
+      "bytes": 3491,
+      "sha256": "9c8a45cf8a397461fff0ce5e857b4942a67eb49b9a56d9a42be8e57028bf0f54"
+    },
+    "bestiary/fluff-bestiary-ditlcot.json": {
+      "bytes": 1304,
+      "sha256": "244335048c289b61b945c03c616d460c1456bddb414abbb012c04c28e8618df8"
+    },
+    "bestiary/fluff-bestiary-dmg.json": {
+      "bytes": 638,
+      "sha256": "c3133073434258091e58f19f45e42c29392787456f33f9e841adb040fb996484"
+    },
+    "bestiary/fluff-bestiary-dod.json": {
+      "bytes": 1928,
+      "sha256": "3078f905809c99529ec1d26dbd1bbd82f4bf75c605e962d321a2eb8c8f8432ff"
+    },
+    "bestiary/fluff-bestiary-dosi.json": {
+      "bytes": 4206,
+      "sha256": "f01393acca4203acf9810e26293799c4828ecb9ec01e22de82ef776e7bb20034"
+    },
+    "bestiary/fluff-bestiary-dsotdq.json": {
+      "bytes": 42530,
+      "sha256": "3f807e8d53a7d7b32b0ce4b0c0dfc1ad6b5fa5025dd239a0b50d725ddfbfdb1c"
+    },
+    "bestiary/fluff-bestiary-efa.json": {
+      "bytes": 16216,
+      "sha256": "6c6236d4854b4ca6b699365151d1bf13d7715e5ce7ac57b5bbeab14d480e9470"
+    },
+    "bestiary/fluff-bestiary-egw.json": {
+      "bytes": 42874,
+      "sha256": "0b0397fa86b75e32b7933478d56d289cbc3cca7c0ea9a507367ed648d71d2625"
+    },
+    "bestiary/fluff-bestiary-erlw.json": {
+      "bytes": 81061,
+      "sha256": "c56e462d3481f0dc7109be829b1baeb67c945ff858b8fce865663409d33950ea"
+    },
+    "bestiary/fluff-bestiary-fraif.json": {
+      "bytes": 53136,
+      "sha256": "0b6d6ea025c6fe30502738e43a96b3911acaf92fd91d2c8090b404932d2045e4"
+    },
+    "bestiary/fluff-bestiary-ftd.json": {
+      "bytes": 300285,
+      "sha256": "af790f2580bc5bdc0671ccfe925119144cd11e8e797fc88681014556a3fb4e40"
+    },
+    "bestiary/fluff-bestiary-ggr.json": {
+      "bytes": 98026,
+      "sha256": "cc695d68a3637ed3a4402376e773745abe998a0b88981f276bde2a85b9a6085f"
+    },
+    "bestiary/fluff-bestiary-gos.json": {
+      "bytes": 37534,
+      "sha256": "a604044cfe54c328b88fc790cd590df4feb80be752edcb8d3abd052fe6212908"
+    },
+    "bestiary/fluff-bestiary-hat-tg.json": {
+      "bytes": 6610,
+      "sha256": "7f82c7ea44931364a2ec57c122f47329d482a45b996ca9ed49bd901dc02d38fc"
+    },
+    "bestiary/fluff-bestiary-hftt.json": {
+      "bytes": 1716,
+      "sha256": "9100260e686642c188dccac7bbc0ae59288112e9f8a9b084f8ec6faa75ef5ba5"
+    },
+    "bestiary/fluff-bestiary-hotb.json": {
+      "bytes": 7297,
+      "sha256": "db974dd46fc7be187aaa5e1fc13372872b72cce8bc7a07fb06a43b79e77dedda"
+    },
+    "bestiary/fluff-bestiary-hotdq.json": {
+      "bytes": 5330,
+      "sha256": "273ab5dbae367732d7727f8d334f4e1f89545bc7648217115026252a605e9b3f"
+    },
+    "bestiary/fluff-bestiary-idrotf.json": {
+      "bytes": 95420,
+      "sha256": "b788bddc24411ca60991e6abe121b0328e1e863412f7dc0ca9cbf41aefa6e23a"
+    },
+    "bestiary/fluff-bestiary-imr.json": {
+      "bytes": 7362,
+      "sha256": "c29b283b0457c5a14accb330876ea68229754d17c693435d3f76dccabc79eb69"
+    },
+    "bestiary/fluff-bestiary-jttrc.json": {
+      "bytes": 30387,
+      "sha256": "42fb4af394b65c5d7c3e4e8564a06238bf955da5b95ca3de06f27398ff02068a"
+    },
+    "bestiary/fluff-bestiary-kftgv.json": {
+      "bytes": 17287,
+      "sha256": "9651e9b437a9c4f9d41eb70c0b18205d9172e699622c66c91ac9735159109eda"
+    },
+    "bestiary/fluff-bestiary-kkw.json": {
+      "bytes": 502,
+      "sha256": "4390196f3504658fea85ca1f37b273173f797db7b9d30c531a27084a1ef88990"
+    },
+    "bestiary/fluff-bestiary-lfl.json": {
+      "bytes": 9454,
+      "sha256": "68d4606fd190b0742c06b8566264c474ed05a57fe391fc510efd802628ca5503"
+    },
+    "bestiary/fluff-bestiary-llk.json": {
+      "bytes": 1750,
+      "sha256": "0c2e5c8075d3ddcda4c5ff8e6cfb3176d6a178d4b2cb6a063749719bfc656a9e"
+    },
+    "bestiary/fluff-bestiary-lmop.json": {
+      "bytes": 4210,
+      "sha256": "044d3c359a01358069049fadc12dd70b6e8f5c6195402a8050a53b3d365523d3"
+    },
+    "bestiary/fluff-bestiary-lox.json": {
+      "bytes": 4432,
+      "sha256": "68c30c59d8c94b62e3579063b91d8c135d080bbf467e1eae15045ce3db1b2261"
+    },
+    "bestiary/fluff-bestiary-lr.json": {
+      "bytes": 585,
+      "sha256": "6df6d79c0a52bed8e85d6a16bbfc077001dcacf0b38d2ffd8b76f603030a0e07"
+    },
+    "bestiary/fluff-bestiary-lrdt.json": {
+      "bytes": 533,
+      "sha256": "fb29a410f6099c8c1c2f523a3fda7b92e6c0c4ad68cef6c6afaa207cd5bf71b6"
+    },
+    "bestiary/fluff-bestiary-mabjov.json": {
+      "bytes": 160027,
+      "sha256": "48cfb72e168a518b0399c89c589e4bb3c10a014313853a0ccd43600235267fe2"
+    },
+    "bestiary/fluff-bestiary-mcv1sc.json": {
+      "bytes": 17279,
+      "sha256": "eb1466510a220eb4da135e8473a0ea9d698bd984c5393d619ed84a1754c38979"
+    },
+    "bestiary/fluff-bestiary-mcv2dc.json": {
+      "bytes": 14931,
+      "sha256": "17e7076b0c09f29e26350e9a85269c9fc5a6ce50a6d6bfe08851299da73537fd"
+    },
+    "bestiary/fluff-bestiary-mcv3mc.json": {
+      "bytes": 7141,
+      "sha256": "3a8763f363149b48b29522a74e4417c18a0615c4789d952158a9f9b691a51793"
+    },
+    "bestiary/fluff-bestiary-mcv4ec.json": {
+      "bytes": 39818,
+      "sha256": "4323bbfde40ab639cefddebb847d47b5911d877162d962feda4d7102b2d108b4"
+    },
+    "bestiary/fluff-bestiary-mff.json": {
+      "bytes": 52581,
+      "sha256": "a58c1810d7fbd1536dbc0088b18b75639a1bfdbfd3f779f4aa3dac5cb896e06e"
+    },
+    "bestiary/fluff-bestiary-mgelft.json": {
+      "bytes": 4861,
+      "sha256": "16ef897738737501de4913494f15755e36a3c56c9ca811c3d6562ebab48f35f4"
+    },
+    "bestiary/fluff-bestiary-mismv1.json": {
+      "bytes": 6530,
+      "sha256": "f8ac31c7a56d58bbd6eae9b9f5193c5f5392eb9a69263fd5b465817a91ecb4a3"
+    },
+    "bestiary/fluff-bestiary-mm.json": {
+      "bytes": 785705,
+      "sha256": "5a17fe714deae9466762054a9ee5cf96d21ad8fab66ff0e7444108002ecbaf80"
+    },
+    "bestiary/fluff-bestiary-mot.json": {
+      "bytes": 71909,
+      "sha256": "55d7fbb11d53243204eba5f85550ba7db681fb82b889cd433ccb479fafc06681"
+    },
+    "bestiary/fluff-bestiary-mpmm.json": {
+      "bytes": 377659,
+      "sha256": "5fed49d2d93c2f9118dc4ce90bc26d3bbdf32a30197622d74fbc95edd03d854f"
+    },
+    "bestiary/fluff-bestiary-mpp.json": {
+      "bytes": 63877,
+      "sha256": "bf91a4b11012763aed72187e633966abf09b0c62430e4664fcb45d4e659da891"
+    },
+    "bestiary/fluff-bestiary-mtf.json": {
+      "bytes": 244869,
+      "sha256": "553262e4055732040f204308e6adaf58fd0dabe4fa79d57cc13bd1f88191a0f5"
+    },
+    "bestiary/fluff-bestiary-nf.json": {
+      "bytes": 4309,
+      "sha256": "8d39468f6fe7e5fefd88b322e4a9e0066f8bdde69a576fe968249206d2351e75"
+    },
+    "bestiary/fluff-bestiary-oota.json": {
+      "bytes": 25255,
+      "sha256": "b972a1ca464ce2e69d6282aea5d79582b52ee57746117ca985498c39ad23d07a"
+    },
+    "bestiary/fluff-bestiary-oow.json": {
+      "bytes": 3393,
+      "sha256": "cc77fba1d2c6de9408a90216b510e6fa9e5faa4e741f32239e7526f0715c04c1"
+    },
+    "bestiary/fluff-bestiary-pabtso.json": {
+      "bytes": 33463,
+      "sha256": "1b8cb2d81392cbc707edc31b4b4620ed9e29697738fbd86f3cf40a7223713be0"
+    },
+    "bestiary/fluff-bestiary-pota.json": {
+      "bytes": 48441,
+      "sha256": "a094a1f1b71d4b982eb6a20cd64ada81285bb70e989fcc6e038558ee5b1f6bfa"
+    },
+    "bestiary/fluff-bestiary-ps-a.json": {
+      "bytes": 23132,
+      "sha256": "5c33f1f42ed4a310fb2d04d3f8d610ada49a7e02dfcd92cc2a57c8aa1b01e8b5"
+    },
+    "bestiary/fluff-bestiary-ps-d.json": {
+      "bytes": 6576,
+      "sha256": "da93003b12c22df1ede9217c9d89ab70354e436985cbb7107c56bd4170b2a472"
+    },
+    "bestiary/fluff-bestiary-ps-i.json": {
+      "bytes": 30877,
+      "sha256": "a76bf547748ec54f52463a43bc603c22b3e153b0791c8f3757364d6af0d71a37"
+    },
+    "bestiary/fluff-bestiary-ps-k.json": {
+      "bytes": 24793,
+      "sha256": "9234145e2e2b438824c61268a63b69a4a92f8fd1f28b9e5b868a6cb06fcb48eb"
+    },
+    "bestiary/fluff-bestiary-ps-x.json": {
+      "bytes": 31361,
+      "sha256": "4326aba8bd52d5be19c81288da4bcb5ba164df05a583fb7f99154e22a6315975"
+    },
+    "bestiary/fluff-bestiary-ps-z.json": {
+      "bytes": 33698,
+      "sha256": "0e902cfb334fbcc18195875147ef9bb7339100099787bd9c70ae94bb48993dca"
+    },
+    "bestiary/fluff-bestiary-qftis.json": {
+      "bytes": 44112,
+      "sha256": "241c7c92b851bdca3c8c793a9653725f4031c00c91e5e7cb430c68bd3adc29b8"
+    },
+    "bestiary/fluff-bestiary-rhw.json": {
+      "bytes": 82673,
+      "sha256": "4f6e1ef2f5945a5b13eaea27a55c959fc8de354ec63cf418048bdef4001e67f7"
+    },
+    "bestiary/fluff-bestiary-rmbre.json": {
+      "bytes": 5670,
+      "sha256": "2eb6001d96f5927acde2a5488df203dcc702ae00bc34ec609ef9c6ea781d199a"
+    },
+    "bestiary/fluff-bestiary-rot.json": {
+      "bytes": 3662,
+      "sha256": "020c436450aeefe6dcee5078da12599363ee457a5bb1dffd4d332eec73a24cd0"
+    },
+    "bestiary/fluff-bestiary-sads.json": {
+      "bytes": 7651,
+      "sha256": "7fbff7b768a3b417f1cd88ec42f202a78b59264a014ee80e5a0f5556d48c69a7"
+    },
+    "bestiary/fluff-bestiary-scc.json": {
+      "bytes": 55252,
+      "sha256": "4bb53ac0f6b210b5e6831e9c047f189ea65833ea2e6f116749616a5bd13225e9"
+    },
+    "bestiary/fluff-bestiary-sdw.json": {
+      "bytes": 1690,
+      "sha256": "012d9f05a560f6335e6dbba84878d5bc855e19a668f5dd47387feae37c50214c"
+    },
+    "bestiary/fluff-bestiary-skt.json": {
+      "bytes": 128658,
+      "sha256": "798e49597c882e8d35352c51a4f0cf5714fb01e8ea5d3429b1a2d73a01d065d3"
+    },
+    "bestiary/fluff-bestiary-tce.json": {
+      "bytes": 1292,
+      "sha256": "a865ae27b56deb75979e29fe529bd172a7b8acad4fe3bb795daf82c402cd02af"
+    },
+    "bestiary/fluff-bestiary-tftyp.json": {
+      "bytes": 61841,
+      "sha256": "9580d11b08641e47054d5d8149ceb5ba0695d483bc0d547e5f7202ec877cf5a7"
+    },
+    "bestiary/fluff-bestiary-toa.json": {
+      "bytes": 66806,
+      "sha256": "2fae794b751f82a15b749bf39f798459c56e94370ff8b68ec2ea3acfa3cd7f83"
+    },
+    "bestiary/fluff-bestiary-tofw.json": {
+      "bytes": 4523,
+      "sha256": "e21a32fd5a276305e6273afd26d14eeec2e10d17da7c7b6215945a4f7986a48e"
+    },
+    "bestiary/fluff-bestiary-ttp.json": {
+      "bytes": 5477,
+      "sha256": "48d9199440685571d9f24babf8e3088b9d5fbc6602f3a0f57dbf4033aadef4e3"
+    },
+    "bestiary/fluff-bestiary-vd.json": {
+      "bytes": 5288,
+      "sha256": "32ad8033a2bc257b1ec64f66623162fd3bf6c141f887a7d93e39caa22bcd879b"
+    },
+    "bestiary/fluff-bestiary-veor.json": {
+      "bytes": 48141,
+      "sha256": "6db9dd9266be8309268f0863e65f781ea5a5270739e23fbc7e6f5fd92a40bf11"
+    },
+    "bestiary/fluff-bestiary-vgm.json": {
+      "bytes": 315087,
+      "sha256": "d19b343bbe003d19945521856b0eeeab4a9d29194cf958d46a7de4ca20f3d613"
+    },
+    "bestiary/fluff-bestiary-vrgr.json": {
+      "bytes": 82195,
+      "sha256": "0f1c6452b59ce200f9bf142aa967b9ae7c83cbf25a775de6d8722f0b6c269e3b"
+    },
+    "bestiary/fluff-bestiary-wbtw.json": {
+      "bytes": 43470,
+      "sha256": "9185f6c550fcaac99b33ca72c9836f401082ed00baf0b25c511454f0cdbfc46d"
+    },
+    "bestiary/fluff-bestiary-wdh.json": {
+      "bytes": 82328,
+      "sha256": "835f8238ff8e5276fa2b9c9df7b88b7356037d5c0ae16f51ddb42a975923dac8"
+    },
+    "bestiary/fluff-bestiary-wdmm.json": {
+      "bytes": 29982,
+      "sha256": "ba6e60e5b37d4abaf047c9d3c39813ac344c31a6d940400f9dee56e23a68659e"
+    },
+    "bestiary/fluff-bestiary-wtthc.json": {
+      "bytes": 17717,
+      "sha256": "683ae3695b3e63c74393d480cd09067b9a87cfbfa8eaa582f74568515a9bdc60"
+    },
+    "bestiary/fluff-bestiary-xmm.json": {
+      "bytes": 739057,
+      "sha256": "4a57c72feee13741397d9ce3efebfab7c64cb9f55955acb0d0bc6cfc068293bf"
+    },
+    "bestiary/fluff-bestiary-xphb.json": {
+      "bytes": 4115,
+      "sha256": "31d6125d10aaebb56872e6d877d6b4ccac7a7ed6d93897e3d0cc48b4d9aef938"
+    },
+    "bestiary/fluff-index.json": {
+      "bytes": 3411,
+      "sha256": "8bf4aa056cbd5b78f2025737c6bc6b0bb962b0ad1cd87ce0c2badb7bca5a2e22"
+    },
     "bestiary/index.json": {
       "bytes": 3362,
       "sha256": "97f1c071c73b9d208835c4269283c5528ef7d754c5b5da5752ae7b3f432af04c"
@@ -582,6 +954,10 @@
     "objects.json": {
       "bytes": 41858,
       "sha256": "106f5d58c7d1b7a0dfce5815728a885070313d446a089bafe214d676ee2e3f7b"
+    },
+    "optionalfeatures.json": {
+      "bytes": 140884,
+      "sha256": "de4f185be06d8034199887b45a8da9b09d11950386a9fef323166e836f811649"
     },
     "races.json": {
       "bytes": 567063,
