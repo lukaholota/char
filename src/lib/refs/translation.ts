@@ -1105,17 +1105,17 @@ export const bastionFacilityTypeTranslations = {
 } as const;
 
 export const armorTranslations = {
-  PADDED: "Стьобаний",
-  LEATHER: "Шкіряний",
-  STUDDED_LEATHER: "Проклепаний шкіряний",
-  HIDE: "Шкуряний",
+  PADDED: "Стьобаний обладунок",
+  LEATHER: "Шкіряний обладунок",
+  STUDDED_LEATHER: "Проклепаний шкіряний обладунок",
+  HIDE: "Шкуряний обладунок",
   CHAIN_SHIRT: "Кольчужна сорочка",
-  SCALE_MAIL: "Лускатий",
+  SCALE_MAIL: "Лускатий обладунок",
   BREASTPLATE: "Нагрудник",
   HALF_PLATE: "Напівлати",
-  RING_MAIL: "Кільчастий",
+  RING_MAIL: "Кільчастий обладунок",
   CHAIN_MAIL: "Кольчуга",
-  SPLINT: "Шинний",
+  SPLINT: "Шинний обладунок",
   PLATE: "Лати",
   SHIELD: "Щит",
   UNARMORED_DEFENSE_MONK: "Захист без обладунків (монах)",
@@ -1743,7 +1743,7 @@ export const restTranslations = {
   maxHp: "Макс. HP",
   hpRestored: "Відновлено HP",
   featuresRestored: "Відновлені здібності",
-  spellSlotsRestored: "Комірки заклять відновлено",
+  spellSlotsRestored: "Слоти заклинань відновлено",
   selectHitDice: "Виберіть кубики здоровʼя для використання",
   available: "Доступно",
   perDie: "за кубик",
@@ -1753,8 +1753,9 @@ export const restTranslations = {
   longRestComplete: "Тривалий відпочинок завершено",
   heroicInspirationGained: "отримано Героїчне натхнення",
   confirmLongRest: "Підтвердити тривалий відпочинок?",
-  longRestDescription: "Повністю відновить HP, всі кубики здоровʼя, комірки заклять та здібності",
+  longRestDescription: "Повністю відновить ХП, усі кубики здоровʼя, слоти заклинань і здібності",
   noHitDiceAvailable: "Немає доступних кубиків здоровʼя",
+  savedOffline: "Збережено без мережі — надішлю, щойно звʼязок повернеться",
 } as const;
 
 // Bonus modification translations

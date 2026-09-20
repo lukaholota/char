@@ -236,7 +236,12 @@
       "hill giant": "Пагорбовий велетень",
       "mind flayer": "Мізкожер",
       "hag": "Карга",
-      "dryad": "Дріада"
+      "dryad": "Дріада",
+      "djinni": "Джин",
+      "dao": "Дао",
+      "efreeti": "Іфрит",
+      "marid": "Марід",
+      "quori": "Куорі"
     },
     "spellSchools": {
       "abjuration": "Захист",
@@ -264,7 +269,7 @@
       "stabilize": "Стабілізувати",
       "dying": "Помирання",
       "level": "Рівень",
-      "challengeRating": "Показник небезпеки (CR)",
+      "challengeRating": "Показник небезпеки (ПН)",
       "experience": "Досвід",
       "experiencePoints": "Очки досвіду",
       "spellSlot": "слот Заклинань",
@@ -318,6 +323,7 @@
       "conclave": "Орден",
       "college": "Колегія",
       "metamagic": "Метамагія",
+      "sorceryPoints": "Очки чародійства",
       "fontOfMagic": "Джерело магії",
       "sorcerousRestoration": "Відновлення чарівництва",
       "sorcerousVersatility": "Гнучкість чародія",
@@ -331,7 +337,8 @@
       "subtleSpell": "Приховане заклинання",
       "twinnedSpell": "Спарене заклинання",
       "seekingSpell": "Спрямоване заклинання",
-      "transmutedSpell": "Перетворене заклинання"
+      "transmutedSpell": "Перетворене заклинання",
+      "ki": "Кі"
     },
     "additionalRaces": {
       "aasimar": "Аазимар",
@@ -463,7 +470,9 @@
       "planeOfExistence": "план існування",
       "outerPlanes": "Зовнішні Плани",
       "upperPlanes": "Верхні Плани",
-      "lowerPlanes": "Нижні Плани"
+      "lowerPlanes": "Нижні Плани",
+      "astralSea": "Астральне море",
+      "dalQuor": "Дал-Куор"
     },
     "campaignSettings": {
       "greyhawk": "Грейгок",
@@ -477,7 +486,41 @@
       "minethys": "Мінетис",
       "thrym": "Трим",
       "helm": "Гелм",
-      "yolande": "Йоланда"
+      "yolande": "Йоланда",
+      "forgottenRealms": "Забуті Королівства",
+      "faerun": "Фаерун",
+      "krynn": "Крінн",
+      "oreskos": "Орескос",
+      "ravnica": "Равніка",
+      "selesnyaConclave": "Конклав Селезнії",
+      "azoriusSenate": "Сенат Азоріусу",
+      "orzhovSyndicate": "Синдикат Оржову",
+      "simicCombine": "Симічний Комбінат",
+      "izzetLeague": "Ліга Іззет",
+      "houseCannith": "Дім Канніт",
+      "lastWar": "Остання Війна",
+      "dreamingDark": "Сновидійна Темрява",
+      "pathOfLight": "Шлях Світла",
+      "gloamingCourt": "Сутінковий Двір",
+      "summerCourt": "Літній Двір"
+    },
+    "deities": {
+      "maglubiyet": "Маглубієт",
+      "ravenQueen": "Королева Воронів",
+      "ladyOfPain": "Володарка Болю",
+      "queenOfAirAndDarkness": "Королева Повітря й Темряви",
+      "catLord": "Володар Котів",
+      "windDukesOfAaqa": "Вітряні Герцоги Аакі",
+      "reorx": "Реоркс",
+      "sardior": "Сардіор",
+      "thatWhichEndures": "Те-Що-Триває",
+      "princeOfFrost": "Принц Морозу",
+      "titania": "Титанія",
+      "tharizdun": "Таріздун",
+      "theChainedGod": "Скутий Бог",
+      "hadar": "Хадар",
+      "theDarkHunger": "Темний Голод",
+      "greatCthulhu": "Великий Ктулху"
     },
     "gemstones": {
       "pearl": "Перлина",
@@ -544,7 +587,7 @@
     },
     "rules2024": {
       "statblockFields": {
-        "cr": "Показник складності (ПС)",
+        "cr": "Показник небезпеки (ПН)",
         "xp": "Очки досвіду",
         "initiative": "Ініціатива",
         "languages": "Мови",
@@ -3769,17 +3812,17 @@
       "CHA": "Харизма"
     },
     "armorTranslations": {
-      "PADDED": "Стьобаний",
-      "LEATHER": "Шкіряний",
-      "STUDDED_LEATHER": "Проклепаний шкіряний",
-      "HIDE": "Шкуряний",
+      "PADDED": "Стьобаний обладунок",
+      "LEATHER": "Шкіряний обладунок",
+      "STUDDED_LEATHER": "Проклепаний шкіряний обладунок",
+      "HIDE": "Шкуряний обладунок",
       "CHAIN_SHIRT": "Кольчужна сорочка",
-      "SCALE_MAIL": "Лускатий",
+      "SCALE_MAIL": "Лускатий обладунок",
       "BREASTPLATE": "Нагрудник",
       "HALF_PLATE": "Напівлати",
-      "RING_MAIL": "Кільчастий",
+      "RING_MAIL": "Кільчастий обладунок",
       "CHAIN_MAIL": "Кольчуга",
-      "SPLINT": "Шинний",
+      "SPLINT": "Шинний обладунок",
       "PLATE": "Лати",
       "SHIELD": "Щит",
       "UNARMORED_DEFENSE_MONK": "Захист без обладунків (монах)",
@@ -4359,7 +4402,7 @@
       "maxHp": "Макс. HP",
       "hpRestored": "Відновлено HP",
       "featuresRestored": "Відновлені здібності",
-      "spellSlotsRestored": "Комірки заклять відновлено",
+      "spellSlotsRestored": "Слоти заклинань відновлено",
       "selectHitDice": "Виберіть кубики здоровʼя для використання",
       "available": "Доступно",
       "perDie": "за кубик",
@@ -4369,8 +4412,9 @@
       "longRestComplete": "Тривалий відпочинок завершено",
       "heroicInspirationGained": "отримано Героїчне натхнення",
       "confirmLongRest": "Підтвердити тривалий відпочинок?",
-      "longRestDescription": "Повністю відновить HP, всі кубики здоровʼя, комірки заклять та здібності",
-      "noHitDiceAvailable": "Немає доступних кубиків здоровʼя"
+      "longRestDescription": "Повністю відновить ХП, усі кубики здоровʼя, слоти заклинань і здібності",
+      "noHitDiceAvailable": "Немає доступних кубиків здоровʼя",
+      "savedOffline": "Збережено без мережі — надішлю, щойно звʼязок повернеться"
     },
     "SizeTranslations": {
       "TINY": "Крихітний",
