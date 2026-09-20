@@ -1,4 +1,4 @@
-import { CORPUS_RETIRED_FORMS } from "./ratified-term-forms";
+import { CORPUS_RETIRED_FORMS } from "@/lib/refs/ratified-term-forms";
 
 export type ProseEntry = { name: string; prose: string | null | undefined };
 

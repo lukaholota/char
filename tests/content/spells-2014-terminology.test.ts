@@ -6,7 +6,7 @@ import {
   DAMAGE_NOUN,
   SPELL_WORD,
   STAT_BLOCK_RETIRED,
-} from "./ratified-term-forms";
+} from "@/lib/refs/ratified-term-forms";
 import { readSpellSource2014 } from "../../prisma/seed/spellSource2014";
 
 /// KR34.5: до файла-джерела тест застосовував 19 партій корекцій до каталогу в памʼяті й читав лише
@@ -37,7 +37,7 @@ const RETIRED_TERMS: { label: string; pattern: RegExp }[] = [
   { label: "Причарований", pattern: /зачарован/iu },
   { label: "рятівний кидок", pattern: /спаскидок/iu },
   /// КБ, показник небезпеки, накладаєте заклинання, шкода(ушкоджен) і статблок — спільне
-  /// визначення з 2024-гейтом ([`ratified-term-forms.ts`](./ratified-term-forms.ts)). До
+  /// визначення з 2024-гейтом ([`ratified-term-forms.ts`](../../src/lib/refs/ratified-term-forms.ts)). До
   /// KR32.1 цей файл тримав власну вужчу копію показника небезпеки без форми «рівень» —
   /// саме через це латка `prod-drift-repair-2026-09-02.json` не побачила «рівнем небезпеки»,
   /// що лишилося в `Conjure Elemental` і `Conjure Fey` поза перепиcаним реченням.

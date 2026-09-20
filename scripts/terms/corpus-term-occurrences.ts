@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { CORPUS_RETIRED_FORMS } from "../../tests/content/ratified-term-forms";
+import { CORPUS_RETIRED_FORMS } from "@/lib/refs/ratified-term-forms";
 import { findSentence } from "./sentence";
 
 /// KR32.1: носії, яких до цього дня не бачив жоден гейт — вони живлять конструктор

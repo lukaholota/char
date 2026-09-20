@@ -7,7 +7,7 @@ import {
   DAMAGE_NOUN,
   SPELL_WORD,
   STAT_BLOCK_RETIRED,
-} from "./ratified-term-forms";
+} from "@/lib/refs/ratified-term-forms";
 import { NONCANONICAL_APOSTROPHE_IN_WORD } from "../../src/lib/refs/ukrainian-apostrophe";
 
 /// Рішення власника 2026-08-23: у розбіжностях «словник проти корпусу» виграє словник.
