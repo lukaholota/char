@@ -122,6 +122,62 @@ describe("KR25.3 — що загортається, а що йде у звіт",
   });
 });
 
+/// Друга форма маркера. Назва заклинання в прозі несе `{{Eng}}` (Р20), і проставляч її не бачив:
+/// у чародія таблиця «Заклинання чарополумʼя» стояла глосарійними підказками замість посилань.
+/// Посилання маркер **заміняє**: сторінка заклинання показує англійську назву сама, а `<a>`
+/// навколо `<abbr>` дало б два кліки на одному слові.
+describe("маркер оригіналу `Назва{{EngName}}` — посилання заміняє його", () => {
+  const testRegistry = buildTestRegistry();
+
+  it("заміняє маркер посиланням і будує адресу редакції файлу", () => {
+    const { text, report } = linkMentionsInText("Ви накладаєте Вогнекуля{{Fireball}} на ціль.", testRegistry, { edition: "RULES_2024" });
+    expect(text).toBe('Ви накладаєте <a href="/2024/spells/fireball">Вогнекуля</a> на ціль.');
+    expect(report).toMatchObject({ mentions: 1, wrapped: 1, linked: 0, ambiguous: 0, inflected: [] });
+  });
+
+  it("відмінок і чужий переклад лишає текстом і називає у звіті", () => {
+    const { text, report } = linkMentionsInText("накладає Вогнекулю{{Fireball}} щоразу", testRegistry, { edition: "RULES_2024" });
+    expect(text).toBe("накладає Вогнекулю{{Fireball}} щоразу");
+    expect(report.inflected).toEqual([{ engName: "Fireball", before: "накладає Вогнекулю" }]);
+  });
+
+  it("неоднозначну назву без прапорця не чіпає", () => {
+    const source = "Щит{{Shield}} дає +2.";
+    const { text, report } = linkMentionsInText(source, testRegistry, { edition: "RULES_2014" });
+    expect(text).toBe(source);
+    expect(report).toMatchObject({ mentions: 1, ambiguous: 1, wrapped: 0 });
+  });
+
+  it("парну форму `{{Українське|English}}` не чіпає: ліворуч не назва з каталогу", () => {
+    const source = "дає {{Вогняна куля завбільшки з кулак|Fireball}} на вибір.";
+    expect(linkMentionsInText(source, testRegistry, { edition: "RULES_2024" }).text).toBe(source);
+  });
+
+  it("другий прогін нічого не міняє", () => {
+    const once = linkMentionsInText("Вогнекуля{{Fireball}} і Магічна рука{{Mage Hand}}", testRegistry, { edition: "RULES_2024" }).text;
+    expect(once).toBe('<a href="/2024/spells/fireball">Вогнекуля</a> і <a href="/2024/spells/mage-hand">Магічна рука</a>');
+    expect(linkMentionsInText(once, testRegistry, { edition: "RULES_2024" })).toMatchObject({ text: once, report: { mentions: 0 } });
+  });
+
+  it("у таблиці фічі загортає кожну назву окремо", () => {
+    const row = "| 3 | Вогнекуля{{Fireball}}, Магічна рука{{Mage Hand}} |";
+    expect(linkMentionsInText(row, testRegistry, { edition: "RULES_2024" }).text)
+      .toBe('| 3 | <a href="/2024/spells/fireball">Вогнекуля</a>, <a href="/2024/spells/mage-hand">Магічна рука</a> |');
+  });
+
+  it("у сіді екранує лапки під літерал і не чіпає полів назви", () => {
+    const seed = [
+      "const features = [{",
+      '  name: "Вогнекуля{{Fireball}}",',
+      '  description: "Ви знаєте Вогнекуля{{Fireball}}.",',
+      "}];",
+    ].join("\n");
+    const { text } = linkMentionsInTypeScript(seed, testRegistry, "RULES_2014");
+    expect(text).toContain('description: "Ви знаєте <a href=\\"/spells/fireball\\">Вогнекуля</a>.",');
+    expect(text).toContain('name: "Вогнекуля{{Fireball}}",');
+  });
+});
+
 describe("KR25.4 — неоднозначну назву загортає лише свідомий прапорець (П5)", () => {
   const testRegistry = buildTestRegistry();
   const source = "3 рівень: Вогнекуля [Fireball] і Щит [Shield].";
@@ -214,21 +270,24 @@ describe("KR25.3 — неоднозначні назви лежать у реп�
 
 /// Планка — частка звʼязаних згадок і їхня кількість на момент фіксації. Падає й від знятого
 /// посилання, і від нового контенту без посилань — саме для цього гейт існує.
+/// 2026-09-20 знаменник виріс: проставляч навчився бачити маркер `Назва{{Eng}}`, і згадки, що
+/// стояли глосарійними підказками, перестали бути невидимими. Планки перезняті на цьому вимірі —
+/// падіння частки тут не «гейт послабили», а «дірку нарешті видно».
 type Floor = { mentions: number; linked: number };
 const CARRIER_FLOORS: Record<string, Floor> = {
-  "data/2024/normalized · RULES_2024": { mentions: 889, linked: 856 },
+  "data/2024/normalized · RULES_2024": { mentions: 897, linked: 856 },
   "data/2024/rules-uk · RULES_2024": { mentions: 39, linked: 32 },
   "data/2024/bastions-uk · RULES_2024": { mentions: 21, linked: 20 },
-  "data/2024/beyond-srd-uk · RULES_2024": { mentions: 39, linked: 37 },
+  "data/2024/beyond-srd-uk · RULES_2024": { mentions: 40, linked: 38 },
   "data/2024/traps-hazards-uk · RULES_2024": { mentions: 9, linked: 9 },
   "data/2014/rules-uk · RULES_2014": { mentions: 71, linked: 56 },
   "data/2014/beyond-srd-uk · RULES_2014": { mentions: 48, linked: 47 },
   "data/2014/traps-hazards-uk · RULES_2014": { mentions: 8, linked: 8 },
   "data/2014/spells.json · RULES_2014": { mentions: 13, linked: 11 },
-  "prisma/seed · RULES_2014": { mentions: 1468, linked: 1453 },
+  "prisma/seed · RULES_2014": { mentions: 1473, linked: 1457 },
   "prisma/seed · RULES_2024": { mentions: 16, linked: 16 },
   "data/aidedd · RULES_2014": { mentions: 334, linked: 316 },
-  "data/5etools/translations/magic-items-2014 · RULES_2014": { mentions: 270, linked: 262 },
+  "data/5etools/translations/magic-items-2014 · RULES_2014": { mentions: 274, linked: 262 },
   "data/aidedd/translations/monsters-2014 · RULES_2014": { mentions: 1211, linked: 1205 },
   "data/5etools/translations/monsters-2014 · RULES_2014": { mentions: 1027, linked: 1016 },
   "data/aidedd/translations/monsters-2024 · RULES_2024": { mentions: 774, linked: 751 },
@@ -239,19 +298,19 @@ const CARRIER_FLOORS: Record<string, Floor> = {
 const SURFACE_FLOORS: Record<string, Floor> = {
   "src/lib/generated/rules-2024.json": { mentions: 39, linked: 32 },
   "src/lib/generated/bastions.json": { mentions: 21, linked: 20 },
-  "src/lib/generated/creator-content-2024.json": { mentions: 571, linked: 550 },
-  "src/lib/generated/creator-content-2014.json": { mentions: 1208, linked: 1191 },
-  "src/lib/generated/classes.json": { mentions: 1024, linked: 1012 },
-  "src/lib/generated/races.json": { mentions: 233, linked: 217 },
+  "src/lib/generated/creator-content-2024.json": { mentions: 579, linked: 550 },
+  "src/lib/generated/creator-content-2014.json": { mentions: 1244, linked: 1227 },
+  "src/lib/generated/classes.json": { mentions: 1032, linked: 1012 },
+  "src/lib/generated/races.json": { mentions: 235, linked: 219 },
   "src/lib/generated/feats.json": { mentions: 12, linked: 11 },
   "src/lib/generated/infusions.json": { mentions: 18, linked: 16 },
-  "src/lib/generated/magicItems.json": { mentions: 655, linked: 629 },
+  "src/lib/generated/magicItems.json": { mentions: 659, linked: 629 },
   "src/lib/generated/spells.json": { mentions: 13, linked: 11 },
   "src/lib/generated/rules-2014.json": { mentions: 71, linked: 56 },
-  "src/lib/generated/rules-beyond-srd.json": { mentions: 87, linked: 84 },
+  "src/lib/generated/rules-beyond-srd.json": { mentions: 88, linked: 85 },
   "src/lib/generated/traps-hazards.json": { mentions: 17, linked: 17 },
-  "src/lib/generated/creatures.json": { mentions: 2243, linked: 2221 },
-  "src/lib/generated/creatures2024.json": { mentions: 817, linked: 792 },
+  "src/lib/generated/creatures.json": { mentions: 2402, linked: 2221 },
+  "src/lib/generated/creatures2024.json": { mentions: 891, linked: 792 },
 };
 
 function groupKey(path: string, edition: string): string {

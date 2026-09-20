@@ -97,10 +97,16 @@ export type SpellRegistry = {
   ambiguous: Map<string, string[]>;
 };
 
+/// `bracket` — маркер назви `Назва [Eng]`: посилання **обгортає** його разом із назвою.
+/// `glossary` — маркер оригіналу `Назва{{Eng}}` (Р20): посилання його **заміняє**, бо сторінка
+/// заклинання показує англійську назву сама, а `<a>` навколо `<abbr>` дало б два кліки на слові.
+export type MarkerKind = "bracket" | "glossary";
+
 export type Mention = {
   index: number;
   end: number;
   engName: string;
+  marker: MarkerKind;
   linked: boolean;
   ambiguous: boolean;
   markdownLink: boolean;
@@ -121,6 +127,9 @@ export type CarrierReport = LinkReport & { path: string; edition: Edition; forma
 
 const LOOKBACK = 250;
 const MENTION_PATTERN = /\[([^\[\]\n]+)\]/g;
+/// Парну форму `{{Українська|English}}` проставляч не чіпає: у ній ліва частина — не назва
+/// заклинання з каталогу, а довший опис терміна.
+const GLOSSARY_PATTERN = /\{\{([^{}\n|]+)\}\}/g;
 
 function stripBracketedName(name: string): string {
   return name.replace(/\s*\[[^\]]*\]\s*$/, "").trim();
@@ -200,25 +209,29 @@ function findUkrainianStart(text: string, mentionIndex: number, ukrainianNames: 
 /// заклинань; звʼязана — якщо в попередніх 250 символах є `/spell` без закритого `</a>` після нього.
 export function findMentions(text: string, registry: SpellRegistry, unescape = (s: string) => s): Mention[] {
   const mentions: Mention[] = [];
-  for (const match of text.matchAll(MENTION_PATTERN)) {
-    const raw = unescape(match[1]);
-    const spell = registry.byEngName.get(raw.toLowerCase());
-    if (!spell) continue;
-    const index = match.index!;
-    const lookback = text.slice(Math.max(0, index - LOOKBACK), index);
-    const linked = lookback.lastIndexOf("/spell") > lookback.lastIndexOf("</a>");
-    mentions.push({
-      index,
-      end: index + match[0].length,
-      engName: spell.engName,
-      linked,
-      ambiguous: registry.ambiguous.has(spell.engName),
-      markdownLink: text[index + match[0].length] === "(",
-      ukrainianStart: findUkrainianStart(text, index, spell.ukrainianNames),
-      before: text.slice(Math.max(0, index - 40), index),
-    });
+  const markers: [MarkerKind, RegExp][] = [["bracket", MENTION_PATTERN], ["glossary", GLOSSARY_PATTERN]];
+  for (const [marker, pattern] of markers) {
+    for (const match of text.matchAll(pattern)) {
+      const raw = unescape(match[1]);
+      const spell = registry.byEngName.get(raw.toLowerCase());
+      if (!spell) continue;
+      const index = match.index!;
+      const end = index + match[0].length;
+      const lookback = text.slice(Math.max(0, index - LOOKBACK), index);
+      mentions.push({
+        index,
+        end,
+        engName: spell.engName,
+        marker,
+        linked: lookback.lastIndexOf("/spell") > lookback.lastIndexOf("</a>"),
+        ambiguous: registry.ambiguous.has(spell.engName),
+        markdownLink: marker === "bracket" && text[end] === "(",
+        ukrainianStart: findUkrainianStart(text, index, spell.ukrainianNames),
+        before: text.slice(Math.max(0, index - 40), index),
+      });
+    }
   }
-  return mentions;
+  return mentions.sort((a, b) => a.index - b.index);
 }
 
 type Coverage = { mentions: number; linked: number };
@@ -286,7 +299,7 @@ export function linkMentionsInText(text: string, registry: SpellRegistry, option
     if (isAmbiguousLeftAsText(mention, options)) { report.ambiguous += 1; continue; }
     if (mention.ukrainianStart === null) { report.inflected.push({ engName: mention.engName, before: mention.before }); continue; }
 
-    const label = output.slice(mention.ukrainianStart, mention.end);
+    const label = output.slice(mention.ukrainianStart, mention.marker === "glossary" ? mention.index : mention.end);
     const open = escapeForLiteral(`<a href="${buildSpellAnchorHref(mention.engName, options.edition)}">`, options.quote);
     output = output.slice(0, mention.ukrainianStart) + open + label + "</a>" + output.slice(mention.end);
     report.wrapped += 1;
