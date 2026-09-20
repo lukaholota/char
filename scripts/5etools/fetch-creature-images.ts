@@ -8,12 +8,14 @@ import {
   CreatureImage,
   CreatureRuleset,
   FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH,
+  MANUAL_FILE_PREFIX,
   buildPublicImagePath,
   compressToWebp,
   findImageDir,
   measureImage,
   normalizeName,
   readCreatureImageManifestFile,
+  readManualCreatureImageManifest,
 } from "../aidedd/creature-images";
 import { RAW_CACHE_DIR } from "./mirror";
 import { PicturePick, collectPictureCorpus, pickPicture } from "./creature-pictures";
@@ -39,7 +41,7 @@ type CatalogueCreature = { nameEng: string; source: string };
 
 async function importCreatureImagesFrom5etools(): Promise<void> {
   const ruleset = readRuleset();
-  const uncovered = collectCreaturesWithoutAideddPicture(ruleset);
+  const uncovered = collectCreaturesWithoutOwnPicture(ruleset);
   const picks = pickPictures(uncovered, ruleset);
   reportPicks(ruleset, uncovered, picks);
   if (process.argv.includes("--dry-run")) return;
@@ -56,17 +58,22 @@ async function importCreatureImagesFrom5etools(): Promise<void> {
   console.log(`✅ ${ruleset}: ${converted.size} істот із картинкою 5etools у ${findImageDir(ruleset)}, маніфест ${FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH}`);
 }
 
-/// The gap is measured against the aidedd manifest, not against the generated catalogue's
-/// `imageUrl`: after one run the catalogue carries our own stamps, and a second run would
-/// otherwise see nothing to do and write an empty manifest.
-function collectCreaturesWithoutAideddPicture(ruleset: CreatureRuleset): CatalogueCreature[] {
+/// The gap is measured against the aidedd and manual manifests, not against the generated
+/// catalogue's `imageUrl`: after one run the catalogue carries our own stamps, and a second run
+/// would otherwise see nothing to do and write an empty manifest.
+function collectCreaturesWithoutOwnPicture(ruleset: CreatureRuleset): CatalogueCreature[] {
   const cataloguePath = join(process.cwd(), CATALOGUE_FILES[ruleset]);
   if (!existsSync(cataloguePath)) {
     throw new Error(`Немає ${cataloguePath}. Спершу зберіть каталог: npx tsx scripts/build-creatures-${ruleset.slice(-4)}.ts`);
   }
 
   const catalogue = JSON.parse(readFileSync(cataloguePath, "utf-8")) as CatalogueCreature[];
-  const covered = new Set(Object.keys(readCreatureImageManifestFile(CREATURE_IMAGE_MANIFEST_PATH)[ruleset]).map(normalizeName));
+  const covered = new Set(
+    [
+      ...Object.keys(readCreatureImageManifestFile(CREATURE_IMAGE_MANIFEST_PATH)[ruleset]),
+      ...Object.keys(readManualCreatureImageManifest()[ruleset]),
+    ].map(normalizeName),
+  );
   return catalogue.filter((creature) => !covered.has(normalizeName(creature.nameEng)));
 }
 
@@ -284,7 +291,7 @@ function removeSupersededFiles(ruleset: CreatureRuleset, kept: Set<string>, prev
   const dir = findImageDir(ruleset);
   let removed = 0;
   for (const file of readdirSync(dir)) {
-    if (kept.has(file)) continue;
+    if (kept.has(file) || file.startsWith(MANUAL_FILE_PREFIX)) continue;
     if (!previous.has(file) && !/-[0-9a-f]{10}\.webp$/.test(file)) continue;
     rmSync(join(dir, file));
     removed += 1;

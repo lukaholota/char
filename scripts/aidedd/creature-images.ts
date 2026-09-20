@@ -15,8 +15,16 @@ export type CreatureImage = {
 
 export type CreatureImageManifest = Record<CreatureRuleset, Record<string, CreatureImage>>;
 
+/// Ручний запис несе ще й шлях до оригіналу: файл у public/ із нього збирається, а не навпаки.
+export type ManualCreatureImage = CreatureImage & { source: string };
+
+export type ManualCreatureImageManifest = Record<CreatureRuleset, Record<string, ManualCreatureImage>>;
+
 export const CREATURE_IMAGE_MANIFEST_PATH = join(AIDEDD_DIR, "creature-images.json");
 export const FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH = join(process.cwd(), "data/5etools/creature-images.json");
+export const MANUAL_CREATURE_IMAGE_MANIFEST_PATH = join(process.cwd(), "data/manual/creature-images.json");
+export const MANUAL_CREATURE_IMAGE_SOURCE_DIR = join(process.cwd(), "data/manual/creature-images");
+export const MANUAL_FILE_PREFIX = "manual-";
 
 export const MAX_IMAGE_WIDTH = 640;
 const WEBP_QUALITY = 78;
@@ -36,11 +44,27 @@ export function buildPublicImagePath(ruleset: CreatureRuleset, file: string): st
 
 /// aidedd came first and its pictures are the ones the catalogue was tuned on, so where both
 /// sources know a creature the aidedd file wins; 5etools only fills the names aidedd has no art for.
+/// Ручний шар бʼє обидва: обидва маніфести переписуються своїм фетчером цілком, тож правка
+/// в них не живе, а картинка, яку власник дав сам, має лишатися й після перезбору.
 export function readCreatureImageManifest(): CreatureImageManifest {
   return mergeCreatureImageManifests(
-    readCreatureImageManifestFile(CREATURE_IMAGE_MANIFEST_PATH),
-    readCreatureImageManifestFile(FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH)
+    readCreatureImageManifestFile(MANUAL_CREATURE_IMAGE_MANIFEST_PATH),
+    mergeCreatureImageManifests(
+      readCreatureImageManifestFile(CREATURE_IMAGE_MANIFEST_PATH),
+      readCreatureImageManifestFile(FIVETOOLS_CREATURE_IMAGE_MANIFEST_PATH)
+    )
   );
+}
+
+export function readManualCreatureImageManifest(): ManualCreatureImageManifest {
+  if (!existsSync(MANUAL_CREATURE_IMAGE_MANIFEST_PATH)) {
+    return { RULES_2014: {}, RULES_2024: {} };
+  }
+
+  const parsed = JSON.parse(
+    readFileSync(MANUAL_CREATURE_IMAGE_MANIFEST_PATH, "utf-8")
+  ) as Partial<ManualCreatureImageManifest>;
+  return { RULES_2014: parsed.RULES_2014 ?? {}, RULES_2024: parsed.RULES_2024 ?? {} };
 }
 
 export function readCreatureImageManifestFile(path: string): CreatureImageManifest {
