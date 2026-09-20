@@ -4,10 +4,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
-import { Ability, AbilityBonusType, ArmorCategory, Prisma, Ruleset } from "@prisma/client";
-
-// KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
-const ACTIVE_RULESET: Ruleset = "RULES_2014";
+import { Ability, AbilityBonusType, ArmorCategory, DamageType, Prisma, Ruleset } from "@prisma/client";
 
 /**
  * Helper to assert the user owns the pers
@@ -28,6 +25,7 @@ async function assertOwnsPers(persId: number) {
     select: {
       persId: true,
       userId: true,
+      ruleset: true,
       wearsShield: true,
       additionalShieldBonus: true,
     },
@@ -38,6 +36,18 @@ async function assertOwnsPers(persId: number) {
   if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
 
   return { ok: true as const, pers };
+}
+
+const FOREIGN_RULESET_ERROR = "Цей предмет належить іншій редакції правил";
+
+async function isWeaponOfRuleset(weaponId: number, ruleset: Ruleset) {
+  const weapon = await prisma.weapon.findUnique({ where: { weaponId }, select: { ruleset: true } });
+  return weapon?.ruleset === ruleset;
+}
+
+async function isArmorOfRuleset(armorId: number, ruleset: Ruleset) {
+  const armor = await prisma.armor.findUnique({ where: { armorId }, select: { ruleset: true } });
+  return armor?.ruleset === ruleset;
 }
 
 // ============================================================================
@@ -59,6 +69,9 @@ export async function addWeapon(
 ) {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+  if (weaponId && !(await isWeaponOfRuleset(weaponId, owned.pers.ruleset))) {
+    return { success: false, error: FOREIGN_RULESET_ERROR };
+  }
 
   try {
     const newWeapon = await prisma.persWeapon.create({
@@ -95,6 +108,9 @@ export async function updateWeapon(
     customDamageBonus?: number | null;
     customDamageDice?: string | null;
     customDamageAbility?: Ability | null;
+    overrideDamageType?: DamageType | null;
+    overrideNormalRange?: number | null;
+    overrideLongRange?: number | null;
     isMagical?: boolean;
     isProficient?: boolean;
   }
@@ -119,6 +135,9 @@ export async function updateWeapon(
           : updates.customDamageBonus,
       customDamageDice: updates.customDamageDice,
       customDamageAbility: updates.customDamageAbility,
+      overrideDamageType: updates.overrideDamageType,
+      overrideNormalRange: updates.overrideNormalRange,
+      overrideLongRange: updates.overrideLongRange,
       isMagical: updates.isMagical,
       isProficient: updates.isProficient,
     };
@@ -181,13 +200,14 @@ export async function addArmor(
 ) {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+  if (armorId && !(await isArmorOfRuleset(armorId, owned.pers.ruleset))) {
+    return { success: false, error: FOREIGN_RULESET_ERROR };
+  }
 
   try {
     /// `HOMEBREW` шукається саме в 2014, і після KR16.5 це вже не через порожню базу:
     /// 13 категорій 2024 у таблиці є, але `HOMEBREW` серед них немає — у книзі його теж
-    /// немає. Зробити запит залежним від редакції персонажа можна буде разом із перемикачем
-    /// редакції (O6 Крок 5), який зніме `ACTIVE_RULESET` з усього цього файла, а не з
-    /// самого обладунку.
+    /// немає, тож власний обладунок персонажа 2024 теж спирається на рядок 2014.
     const resolvedArmorId = armorId
       ? armorId
       : (
@@ -370,15 +390,15 @@ export async function updateShieldStatus(
 // DATA FETCHING
 // ============================================================================
 
-export async function getBaseEquipment() {
+export async function getBaseEquipment(ruleset: Ruleset) {
   try {
     const [weapons, armors] = await Promise.all([
       prisma.weapon.findMany({
-        where: { ruleset: ACTIVE_RULESET },
+        where: { ruleset },
         orderBy: { sortOrder: 'asc' },
       }),
       prisma.armor.findMany({
-        where: { ruleset: ACTIVE_RULESET },
+        where: { ruleset },
         orderBy: { baseAC: 'asc' }
       })
     ]);

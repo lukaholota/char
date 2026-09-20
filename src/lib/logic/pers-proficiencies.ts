@@ -5,12 +5,15 @@ import { collectDerivedProficiencies, type DerivedProficiencies, type Proficienc
 import { collectOriginLanguages } from "@/rules/languages";
 import { findMulticlassProficiencies } from "@/rules/multiclass-proficiencies";
 
-export type PersProficiencyLines = {
-  proficiencies: string[];
+/// Лист, друк і пул майстерності читають персонажа тим самим запитом; власник рядка тут не потрібен.
+export type ProficiencyPers = Omit<PersWithRelations, "user">;
+
+export type PersProficiencyText = {
+  proficiencies: string;
   languages: string;
 };
 
-export function calculatePersProficiencies(pers: PersWithRelations): DerivedProficiencies {
+export function calculatePersProficiencies(pers: ProficiencyPers): DerivedProficiencies {
   return collectDerivedProficiencies([
     ...collectOriginSources(pers),
     ...collectClassSources(pers),
@@ -19,19 +22,57 @@ export function calculatePersProficiencies(pers: PersWithRelations): DerivedProf
   ]);
 }
 
-export function formatPersProficiencyLines(derived: DerivedProficiencies): PersProficiencyLines {
-  const weaponLine = [...derived.weaponTypes, ...derived.weapons];
+/// Надання з джерел (вид, клас, риси) дописуються в текст персонажа тим, чого там ще немає.
+/// Окремий блок над полем дублював текст і ніколи не був повним: мови «на вибір» живуть лише
+/// в тексті (власник, 2026-09-13).
+export function appendMissingProficiencies(saved: PersProficiencyText, derived: DerivedProficiencies): PersProficiencyText {
   return {
-    proficiencies: [
-      derived.armor.length ? `Обладунки: ${formatArmorProficiencies(derived.armor)}` : "",
-      weaponLine.length ? `Зброя: ${formatList(weaponLine)}` : "",
-      derived.tools.length ? `Інструменти: ${formatList(derived.tools)}` : "",
-    ].filter(Boolean),
-    languages: derived.languages.length ? formatList(derived.languages) : "",
+    proficiencies: appendLines(saved.proficiencies, buildMissingProficiencyLines(saved.proficiencies, derived)),
+    languages: appendLines(saved.languages, findMissingTerms(saved.languages, derived.languages.map(translateTerm))),
   };
 }
 
-function collectOriginSources(pers: PersWithRelations): ProficiencySource[] {
+export function appendToolProficiencies(text: string, toolLabels: readonly string[]): string {
+  const missing = findMissingTerms(text, [...toolLabels]);
+  return appendLines(text, missing.length ? [`Інструменти: ${missing.join(", ")}`] : []);
+}
+
+export function findMentionedTerms(text: string, terms: Record<string, string>): string[] {
+  const haystack = normalizeTerm(text);
+  return Object.values(terms).filter((label) => haystack.includes(normalizeTerm(label)));
+}
+
+export function splitTermTokens(text: string): string[] {
+  return text.split(/[\n,]/g).map((token) => token.trim()).filter(Boolean);
+}
+
+function buildMissingProficiencyLines(text: string, derived: DerivedProficiencies): string[] {
+  const armor = findMissingTerms(text, derived.armor.map((code) => formatArmorProficiencies([code])));
+  const weapons = findMissingTerms(text, [...derived.weaponTypes, ...derived.weapons].map(translateTerm));
+  const tools = findMissingTerms(text, derived.tools.map(translateTerm));
+  return [
+    armor.length ? `Обладунки: ${armor.join(", ")}` : "",
+    weapons.length ? `Зброя: ${weapons.join(", ")}` : "",
+    tools.length ? `Інструменти: ${tools.join(", ")}` : "",
+  ].filter(Boolean);
+}
+
+function findMissingTerms(text: string, terms: string[]): string[] {
+  const haystack = normalizeTerm(text);
+  return Array.from(new Set(terms)).filter((term) => term && !haystack.includes(normalizeTerm(term)));
+}
+
+function appendLines(text: string, lines: string[]): string {
+  if (lines.length === 0) return text;
+  const trimmed = text.replace(/\s+$/, "");
+  return trimmed ? `${trimmed}\n${lines.join("\n")}` : lines.join("\n");
+}
+
+const translateTerm = (code: string): string => formatList([code], "");
+
+const normalizeTerm = (value: string): string => value.toLocaleLowerCase("uk").replace(/['’ʼ]/g, "ʼ").replace(/\s+/g, " ");
+
+function collectOriginSources(pers: ProficiencyPers): ProficiencySource[] {
   const race = pers.race;
   const subrace = pers.subrace;
   return [
@@ -47,7 +88,7 @@ function collectOriginSources(pers: PersWithRelations): ProficiencySource[] {
   ];
 }
 
-function collectClassSources(pers: PersWithRelations): ProficiencySource[] {
+function collectClassSources(pers: ProficiencyPers): ProficiencySource[] {
   const mainClass = pers.class;
   const multiclassPackages = (pers.multiclasses ?? []).map((multiclass) => {
     const entry = findMulticlassProficiencies(multiclass.class.name);
@@ -74,7 +115,7 @@ function collectClassSources(pers: PersWithRelations): ProficiencySource[] {
   ];
 }
 
-function collectFeatSources(pers: PersWithRelations): ProficiencySource[] {
+function collectFeatSources(pers: ProficiencyPers): ProficiencySource[] {
   return (pers.feats ?? []).map(({ feat }) => ({
     armor: feat.grantedArmorProficiencies,
     weapons: feat.grantedWeaponProficiencies,

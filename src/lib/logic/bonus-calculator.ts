@@ -3,7 +3,7 @@
  * All functions handle null/undefined JSON fields gracefully
  */
 
-import { Ability, Skills, SkillProficiencyType, WeaponProperty } from "@prisma/client";
+import { Ability, DamageType, Skills, SkillProficiencyType, WeaponProperty } from "@prisma/client";
 import type { Feature } from "@prisma/client";
 import { PersWithRelations, PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { getAbilityMod, getProficiencyBonus, skillAbilityMap } from "./utils";
@@ -20,6 +20,7 @@ import {
 } from "@/rules/feature-stat-grants";
 import { calculateWalkingSpeed, explainWalkingSpeed, type WalkingSpeedPartKey } from "@/rules/walking-speed";
 import { collectDamageResistances, findDarkvisionRange } from "@/rules/senses-and-resistances";
+import type { StateEffects } from "@/rules/state-effects";
 import {
   canUseDexterousAttacks,
   findMartialArtsDamageDice,
@@ -157,7 +158,7 @@ function getMagicItemRangedDamageBonus(pers: PersWithRelations): number {
 // Feature Helpers
 // ============================================================================
 
-export function collectActiveFeatures(pers: PersWithRelations): Feature[] {
+export function collectActiveFeatures(pers: Omit<PersWithRelations, "user">): Feature[] {
   const byId = new Map<number, Feature>();
   const add = (feature?: Feature | null) => {
     if (!feature) return;
@@ -303,6 +304,11 @@ export function calculateFinalAbilityScores(pers: {
   ) as Record<Ability, number>;
 }
 
+/// Перевірка характеристики — кидок к20, тож штраф виснаження 2024 іде в неї, а не в модифікатор.
+export function calculateAbilityCheckBonus(pers: PersWithRelations, ability: Ability): number {
+  return calculateFinalModifier(pers, ability) + findD20PenaltyPart(pers).value;
+}
+
 /** Calculate final modifier (from modified stat + modifierBonuses) */
 export function calculateFinalModifier(pers: PersWithRelations, ability: Ability): number {
   const finalStat = calculateFinalStat(pers, ability);
@@ -331,6 +337,7 @@ export function explainFinalSave(pers: PersWithRelations, ability: Ability): Num
     { label: "Ручний бонус", value: getSaveBonus(pers, ability) },
     { label: "Інші бонуси", value: miscBonuses[ability] ?? 0 },
     { label: "Магічні предмети", value: getMagicItemSaveBonus(pers, ability) },
+    findD20PenaltyPart(pers),
   ]);
 }
 
@@ -349,8 +356,7 @@ const SKILL_PROFICIENCY_LABELS: Record<SkillProficiencyType | "NONE", string> = 
 };
 
 export function explainFinalSkill(pers: PersWithRelations, skill: Skills): NumberPart[] {
-  const ability = skillAbilityMap[skill]?.toUpperCase() as Ability | undefined;
-  const abilityScore = ability ? getBaseStat(pers, ability) + getStatBonus(pers, ability) : 10;
+  const ability = findSkillAbility(pers, skill);
   const proficiency = findSkillProficiency(pers, skill);
   const proficiencyValue = calculateSkillProficiencyBonus(
     proficiency,
@@ -361,11 +367,34 @@ export function explainFinalSkill(pers: PersWithRelations, skill: Skills): Numbe
   return keepBaseAndNonZero([
     {
       label: ability ? `Модифікатор (${abilityTranslations[ability]})` : "Модифікатор",
-      value: getAbilityMod(abilityScore) + (ability ? getModifierBonus(pers, ability) : 0),
+      value: ability ? findSkillAbilityModifier(pers, ability) : 0,
     },
     { label: SKILL_PROFICIENCY_LABELS[proficiency], value: proficiencyValue },
     { label: "Ручний бонус", value: getSkillBonus(pers, skill) },
+    findD20PenaltyPart(pers),
   ]);
+}
+
+/// Первісне знання 2024 дозволяє («can») кинути навичку як перевірку Сили, поки триває Лють, —
+/// гравець бере кращу з двох характеристик.
+export function findSkillAbility(pers: PersWithRelations, skill: Skills): Ability | undefined {
+  const usual = skillAbilityMap[skill]?.toUpperCase() as Ability | undefined;
+  const offered = readStateEffects(pers)?.skillAbilityOptions[skill] as Ability | undefined;
+  if (!usual || !offered) return usual;
+  return findSkillAbilityModifier(pers, offered) > findSkillAbilityModifier(pers, usual) ? offered : usual;
+}
+
+function findSkillAbilityModifier(pers: PersWithRelations, ability: Ability): number {
+  return getAbilityMod(getBaseStat(pers, ability) + getStatBonus(pers, ability)) + getModifierBonus(pers, ability);
+}
+
+export function readStateEffects(pers: PersWithRelations): StateEffects | null {
+  return (pers as PersWithRelations & { stateEffects?: StateEffects | null }).stateEffects ?? null;
+}
+
+/// Виснаження 2024 зменшує кожен кидок к20 — лист показує це в самому числі, як BG3.
+function findD20PenaltyPart(pers: PersWithRelations): NumberPart {
+  return { label: "Виснаження", value: -(readStateEffects(pers)?.d20Penalty ?? 0) };
 }
 
 function findSkillProficiency(pers: PersWithRelations, skill: Skills): SkillProficiencyType | "NONE" {
@@ -378,17 +407,45 @@ export function calculateFinalProficiency(pers: PersWithRelations): number {
 }
 
 export function calculateFinalAC(pers: PersWithRelations): number {
-  return calculateArmorClass(buildArmorClassInput(pers));
+  return sumNumberParts(explainFinalAC(pers));
 }
 
 export function explainFinalAC(pers: PersWithRelations): NumberPart[] {
-  const baseLabel = findBaseArmorClassLabel(pers);
-  return keepBaseAndNonZero(
-    explainArmorClass(buildArmorClassInput(pers)).map((part) => ({
-      label: part.key === "BASE" ? baseLabel : ARMOR_CLASS_PART_LABELS[part.key],
-      value: part.value,
-    })),
-  );
+  const input = buildArmorClassInput(pers);
+  const baseLabel = findBaseArmorClassLabel(pers, input.baseArmorClassOverride);
+  const parts = explainArmorClass(input).map((part) => ({
+    label: part.key === "BASE" ? baseLabel : ARMOR_CLASS_PART_LABELS[part.key],
+    value: part.value,
+  }));
+  return keepBaseAndNonZero([...parts, findArmorClassFloorPart(pers, calculateArmorClass(input))]);
+}
+
+/// Дубова шкіра не додає, а тримає нижню межу: різниця до межі — окремий рядок розбивки.
+function findArmorClassFloorPart(pers: PersWithRelations, armorClass: number): NumberPart {
+  const floor = readStateEffects(pers)?.armorClassFloor ?? null;
+  return { label: `Дубова шкіра (щонайменше ${floor})`, value: floor !== null && floor > armorClass ? floor - armorClass : 0 };
+}
+
+const ARMOR_CLASS_FORMULA_CATEGORIES = new Set([
+  "UNARMORED_DEFENSE_MONK",
+  "UNARMORED_DEFENSE_BARBARIAN",
+  "NATURAL_ARMOR_TORTLE",
+  "NATURAL_ARMOR_13_DEX",
+  "NATURAL_ARMOR_12_DEX",
+  "NATURAL_ARMOR_12_CON",
+  "DRACONIC_RESILIENCE",
+]);
+
+/// Обладунок мага: «базовий КБ стає 13 + Спритність», якщо персонаж не носить обладунку.
+/// Захист без обладунків чи природна броня — теж рядки `armor`, але не обладунок, тож гравець
+/// бере кращу з формул.
+function findMageArmorBase(pers: PersWithRelations, usualBase: number): number | null {
+  const base = readStateEffects(pers)?.unarmoredArmorClassBase ?? null;
+  if (base === null || Number.isFinite(pers.overrideBaseAC)) return null;
+  const wearsArmor = pers.armors.some((entry) => entry.equipped && !ARMOR_CLASS_FORMULA_CATEGORIES.has(entry.armor.name));
+  if (wearsArmor) return null;
+  const mageArmor = base + calculateFinalModifier(pers, Ability.DEX);
+  return mageArmor > usualBase ? mageArmor : null;
 }
 
 const ARMOR_CLASS_PART_LABELS: Record<Exclude<ArmorClassPartKey, "BASE">, string> = {
@@ -396,11 +453,13 @@ const ARMOR_CLASS_PART_LABELS: Record<Exclude<ArmorClassPartKey, "BASE">, string
   SHIELD: "Щит",
   MANUAL: "Ручний бонус",
   FEATURES: "Риси",
+  STATES: "Стани",
   MAGIC_ITEMS: "Магічні предмети",
 };
 
-function findBaseArmorClassLabel(pers: PersWithRelations): string {
+function findBaseArmorClassLabel(pers: PersWithRelations, baseOverride: number | null | undefined): string {
   if (Number.isFinite(pers.overrideBaseAC)) return "Базовий КЗ (вручну)";
+  if (Number.isFinite(baseOverride)) return "Обладунок мага (13 + Спритність)";
   const equippedArmor = pers.armors.find((entry) => entry.equipped);
   if (!equippedArmor) return "Без обладунку (10 + Спритність)";
   return `Базовий КЗ: ${armorTranslations[equippedArmor.armor.name as keyof typeof armorTranslations] ?? equippedArmor.armor.name}`;
@@ -411,7 +470,7 @@ function buildArmorClassInput(pers: PersWithRelations) {
   const hasArmor = Boolean(equippedArmor);
   const wearsShield = pers.wearsShield;
 
-  return {
+  const input = {
     dexterityModifier: calculateFinalModifier(pers, Ability.DEX),
     abilityModifiers: getAbilityModifiers(pers),
     equippedArmor: equippedArmor ? toRuleArmor(equippedArmor) : null,
@@ -421,8 +480,11 @@ function buildArmorClassInput(pers: PersWithRelations) {
     shieldArmorClassBonus: pers.additionalShieldBonus,
     simpleArmorClassBonus: getSimpleBonus(pers, "ac"),
     featureArmorClassBonus: getFeatureACBonus(pers, hasArmor, wearsShield),
+    stateArmorClassBonus: readStateEffects(pers)?.armorClassBonus ?? 0,
     magicItemArmorClassBonus: getMagicItemACBonus(pers, hasArmor, wearsShield),
   };
+  const usualBase = explainArmorClass(input).find((part) => part.key === "BASE")?.value ?? 0;
+  return { ...input, baseArmorClassOverride: findMageArmorBase(pers, usualBase) ?? input.baseArmorClassOverride };
 }
 
 function getAbilityModifiers(pers: PersWithRelations): Record<AbilityKey, number> {
@@ -462,7 +524,7 @@ function toRuleArmor(equippedArmor: PersWithRelations["armors"][number]) {
 }
 
 export function calculateFinalSpeed(pers: PersWithRelations): number {
-  return calculateWalkingSpeed(buildWalkingSpeedInput(pers));
+  return Math.max(0, sumNumberParts(explainFinalSpeed(pers)));
 }
 
 const WALKING_SPEED_PART_LABELS: Record<WalkingSpeedPartKey, string> = {
@@ -477,9 +539,22 @@ const WALKING_SPEED_PART_LABELS: Record<WalkingSpeedPartKey, string> = {
 };
 
 export function explainFinalSpeed(pers: PersWithRelations): NumberPart[] {
-  return keepBaseAndNonZero(
-    explainWalkingSpeed(buildWalkingSpeedInput(pers)).map((part) => ({ label: WALKING_SPEED_PART_LABELS[part.key], value: part.value })),
-  );
+  const input = buildWalkingSpeedInput(pers);
+  const parts = explainWalkingSpeed(input).map((part) => ({ label: WALKING_SPEED_PART_LABELS[part.key], value: part.value }));
+  return keepBaseAndNonZero([...parts, ...findStateSpeedParts(readStateEffects(pers), calculateWalkingSpeed(input))]);
+}
+
+/// Спершу додаються бонуси й штрафи станів, тоді множник (Прискорення ×2, виснаження 2014 ÷2),
+/// а виснаження 5-го рівня 2014 зводить усе до нуля.
+function findStateSpeedParts(effects: StateEffects | null, speed: number): NumberPart[] {
+  if (!effects) return [];
+  const afterBonus = Math.max(0, speed + effects.speedBonus);
+  const afterMultiplier = Math.floor(afterBonus * effects.speedMultiplier);
+  return [
+    { label: "Стани", value: afterBonus - speed },
+    { label: effects.speedMultiplier > 1 ? "Прискорення" : "Виснаження (половина)", value: afterMultiplier - afterBonus },
+    { label: "Виснаження (нерухомість)", value: effects.isSpeedZero ? -afterMultiplier : 0 },
+  ];
 }
 
 function buildWalkingSpeedInput(pers: PersWithRelations) {
@@ -519,12 +594,16 @@ function findEquippedArmorNames(pers: PersWithRelations): string[] {
   return pers.armors.filter((entry) => entry.equipped).map((entry) => entry.armor.name);
 }
 
+/// Пасивне значення — не кидок к20, тож штраф виснаження 2024 до нього не йде.
 export function calculatePassiveSkill(pers: PersWithRelations, skill: Skills): number {
-  return 10 + calculateFinalSkill(pers, skill).total;
+  return 10 + calculateFinalSkill(pers, skill).total + (readStateEffects(pers)?.d20Penalty ?? 0);
 }
 
 export function calculateDamageResistances(pers: PersWithRelations) {
-  return collectDamageResistances(collectActiveFeatures(pers));
+  return collectDamageResistances([
+    ...collectActiveFeatures(pers),
+    { damageResistances: readStateEffects(pers)?.damageResistances ?? [] },
+  ]);
 }
 
 export function calculateDarkvisionRange(pers: PersWithRelations): number | null {
@@ -551,6 +630,7 @@ export function explainFinalInitiative(pers: PersWithRelations): NumberPart[] {
     { label: "Ручний бонус", value: getSimpleBonus(pers, "initiative") },
     { label: "Майстерність (риса)", value: fromFeatures },
     { label: "Майстер на всі руки", value: fromJackOfAllTrades },
+    findD20PenaltyPart(pers),
   ]);
 }
 
@@ -560,15 +640,17 @@ function appliesJackOfAllTradesToInitiative(pers: PersWithRelations): boolean {
 }
 
 /** Calculate final max HP */
+/// Виснаження 2014, 4-й рівень: максимум хітів удвічі менший.
 export function calculateFinalMaxHP(pers: PersWithRelations): number {
-  return pers.maxHp + getSimpleBonus(pers, "hp") + sumFeatureFlatHitPoints(collectActiveFeatures(pers));
+  const maxHp = pers.maxHp + getSimpleBonus(pers, "hp") + sumFeatureFlatHitPoints(collectActiveFeatures(pers));
+  return readStateEffects(pers)?.isMaxHpHalved ? Math.floor(maxHp / 2) : maxHp;
 }
 
 /** Calculate spell attack bonus */
 export function calculateSpellAttack(pers: PersWithRelations, spellcastingAbility: Ability): number {
   const mod = calculateFinalModifier(pers, spellcastingAbility);
   const pb = calculateFinalProficiency(pers);
-  return mod + pb + getSimpleBonus(pers, "spellAttack");
+  return mod + pb + getSimpleBonus(pers, "spellAttack") + findD20PenaltyPart(pers).value;
 }
 
 /** Calculate spell save DC */
@@ -647,9 +729,29 @@ function toNumber(value: unknown, fallback = 0): number {
   return fallback;
 }
 
+export function findWeaponDamageType(pw: PersWeaponWithWeapon): DamageType | undefined {
+  return pw.overrideDamageType ?? pw.weapon?.damageType;
+}
+
+export function findWeaponRange(pw: PersWeaponWithWeapon): { normal: number; long: number | null } | null {
+  const normal = pw.overrideNormalRange ?? pw.weapon?.normalRange;
+  if (!normal) return null;
+  return { normal, long: pw.overrideLongRange ?? pw.weapon?.longRange ?? null };
+}
+
 export function getWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
   if (pw.customDamageAbility) return pw.customDamageAbility;
+  return chooseStateWeaponAbility(pers, pw, findUsualWeaponAbility(pers, pw));
+}
 
+/// Робота клинком 2024: зброєю, якою володієш, можна атакувати Інтелектом — лист бере кращу.
+function chooseStateWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon, usual: Ability): Ability {
+  const offered = readStateEffects(pers)?.weaponAbilityOption as Ability | null | undefined;
+  if (!offered || !pw.isProficient) return usual;
+  return calculateFinalModifier(pers, offered) > calculateFinalModifier(pers, usual) ? offered : usual;
+}
+
+function findUsualWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
   const weapon = pw.weapon;
   if (weapon?.isRanged) return Ability.DEX;
 
@@ -664,11 +766,26 @@ export function getWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeap
 }
 
 export function calculateWeaponDamageDice(pers: PersWithRelations, pw: PersWeaponWithWeapon): string {
-  const weaponDamage = String(pw.customDamageDice || pw.weapon?.damage || "");
-  if (pw.customDamageDice || !hasDexterousAttacksWith(pers, pw.weapon)) return weaponDamage;
+  const manualDamage = findManualDamageDice(pw);
+  if (manualDamage) return manualDamage;
+
+  const weaponDamage = String(pw.weapon?.damage || "");
+  if (!hasDexterousAttacksWith(pers, pw.weapon)) return weaponDamage;
 
   const martialArtsDie = findMartialArtsDie(pers.ruleset, findMonkLevel(pers));
   return martialArtsDie ? findMartialArtsDamageDice(weaponDamage, martialArtsDie) : weaponDamage;
+}
+
+/// «Додати зброю» роками копіював каталожний кубик у ручне поле — такий кубик ручним не є.
+function findManualDamageDice(pw: PersWeaponWithWeapon): string | null {
+  const manual = pw.customDamageDice?.trim();
+  if (!manual) return null;
+  const catalog = pw.weapon?.damage?.trim();
+  return catalog && normalizeDice(manual) === normalizeDice(catalog) ? null : manual;
+}
+
+function normalizeDice(dice: string): string {
+  return dice.toLowerCase().replace(/к/g, "d").replace(/\s+/g, "");
 }
 
 function hasDexterousAttacksWith(pers: PersWithRelations, weapon: PersWeaponWithWeapon["weapon"]): boolean {
@@ -684,7 +801,7 @@ export function calculateWeaponAttackBonus(pers: PersWithRelations, pw: PersWeap
   const ability = getWeaponAbility(pers, pw);
   const mod = calculateFinalModifier(pers, ability);
   const pb = pw.isProficient ? calculateFinalProficiency(pers) : 0;
-  return mod + pb + toNumber(pw.attackBonus, 0) + getFeatureWeaponAttackBonus(pers, pw.weapon);
+  return mod + pb + toNumber(pw.attackBonus, 0) + getFeatureWeaponAttackBonus(pers, pw.weapon) + findD20PenaltyPart(pers).value;
 }
 
 export function calculateWeaponDamageBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {
@@ -694,6 +811,8 @@ export function calculateWeaponDamageBonus(pers: PersWithRelations, pw: PersWeap
 
   // Add bonuses granted by active features (e.g., Dueling, Thrown Weapon Fighting)
   bonus += getFeatureWeaponDamageBonus(pers, pw);
+
+  if (ability === Ability.STR) bonus += readStateEffects(pers)?.strengthAttackDamageBonus ?? 0;
 
   // Add magic item ranged damage bonus if applicable
   if (pw.weapon && pw.weapon.isRanged) {

@@ -39,7 +39,7 @@ export async function spendSpellSlot(
 ): Promise<{ success: true; currentSpellSlots: number[] } | { success: false; error: string }> {
   const level = Math.trunc(Number(slotLevel));
   if (!Number.isFinite(level) || level < 1 || level > 9) {
-    return { success: false, error: "Некоректний рівень комірки" };
+    return { success: false, error: "Некоректний рівень слота" };
   }
 
   const owned = await assertOwnsPers(persId);
@@ -100,7 +100,7 @@ export async function restoreSpellSlot(
 ): Promise<{ success: true; currentSpellSlots: number[] } | { success: false; error: string }> {
   const level = Math.trunc(Number(slotLevel));
   if (!Number.isFinite(level) || level < 1 || level > 9) {
-    return { success: false, error: "Некоректний рівень комірки" };
+    return { success: false, error: "Некоректний рівень слота" };
   }
 
   const owned = await assertOwnsPers(persId);

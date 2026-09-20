@@ -2,6 +2,11 @@ import { z } from "zod";
 
 const numericSelection = z.union([z.coerce.number(), z.array(z.coerce.number())]);
 const numericSelections = z.record(z.string(), numericSelection).catch({});
+const levelUpSpellSwapSchema = z
+  .object({ dropId: z.coerce.number().nullable().catch(null), addId: z.coerce.number().nullable().catch(null) })
+  .nullable()
+  .optional()
+  .catch(null);
 
 export const levelUpInputSchema = z.object({
   levelUpPath: z.enum(["EXISTING", "MULTICLASS"]).catch("EXISTING"),
@@ -23,6 +28,18 @@ export const levelUpInputSchema = z.object({
   infusionSelections: z.array(z.coerce.number()).catch([]),
   weaponMasteryWeaponIds: z.array(z.coerce.number()).optional(),
   featSpellIds: z.array(z.coerce.number()).catch([]),
+  featGrowthSpellIds: z.array(z.coerce.number()).catch([]),
+  classOptionSpellIds: z.array(z.coerce.number()).catch([]),
+  classSpells: z
+    .object({
+      cantripIds: z.array(z.coerce.number()).catch([]),
+      preparedIds: z.array(z.coerce.number()).catch([]),
+      spellbookIds: z.array(z.coerce.number()).catch([]),
+      cantripSwap: levelUpSpellSwapSchema,
+      preparedSwap: levelUpSpellSwapSchema,
+    })
+    .optional()
+    .catch(undefined),
   levelUpHpIncrease: z.number().optional().catch(undefined),
 }).passthrough();
 

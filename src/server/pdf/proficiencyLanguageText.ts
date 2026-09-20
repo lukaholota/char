@@ -1,8 +1,6 @@
-import type { PersProficiencyLines } from "@/lib/logic/pers-proficiencies";
 import { translatePdfText } from "./translatePdfText";
 
 export type ProficiencyAndLanguageInput = {
-  derived: PersProficiencyLines;
   customProficiencies: string;
   customLanguages: string;
   darkvisionRange: number | null;
@@ -12,14 +10,8 @@ export type ProficiencyAndLanguageInput = {
 export function buildProficiencyAndLanguageText(input: ProficiencyAndLanguageInput): string {
   return [
     ...buildSection("Чуття й опори:", buildSenseLines(input)),
-    ...buildSection("Володіння (броня/зброя/інструменти):", [
-      ...input.derived.proficiencies,
-      ...splitManualLines(input.customProficiencies, { isProficiencies: true }),
-    ]),
-    ...buildSection("Мови:", [
-      ...(input.derived.languages ? [input.derived.languages] : []),
-      ...splitManualLines(input.customLanguages, { isProficiencies: false }),
-    ]),
+    ...buildSection("Володіння (броня/зброя/інструменти):", splitManualLines(input.customProficiencies, { isProficiencies: true })),
+    ...buildSection("Мови:", splitManualLines(input.customLanguages, { isProficiencies: false })),
   ].join("\n");
 }
 

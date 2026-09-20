@@ -6,6 +6,7 @@ import {
   type BastionSpace,
   describeHirelings,
   findAllowedOrderCodes,
+  getAllBastionFacilities,
   getBastionFacilityBySlug,
 } from "@/lib/bastionsData";
 import { prisma } from "@/lib/prisma";
@@ -50,6 +51,7 @@ export type BastionRecord = {
   name: string;
   description: string;
   notes: string;
+  isMaintaining: boolean;
   facilities: BastionFacilityRecord[];
   turns: BastionTurnRecord[];
 };
@@ -68,6 +70,25 @@ export type BastionPicker = {
   profile: BastionCharacterProfile;
   specialCount: number;
   facilityViews: BastionFacilityView[];
+  replacementOptions: BastionReplacementOption[];
+};
+
+export type BastionReplacementOption = { slug: string; name: string; level: number | null };
+
+/// Що бачить майстер і партія за поширеним посиланням: без нотаток і журналу — це записи гравця.
+export type SharedBastionView = {
+  name: string;
+  description: string;
+  isMaintaining: boolean;
+  facilities: {
+    facilityId: number;
+    name: string;
+    space: BastionSpaceCode;
+    isSpecial: boolean;
+    currentOrder: BastionOrderCode | null;
+    defenders: number;
+    hirelings: string;
+  }[];
 };
 
 /// Каталог розвʼязується на сервері: сторінка персонажа не має тягнути 253 КБ
@@ -77,6 +98,8 @@ export type BastionFacilityView = {
   facilityId: number;
   slug: string;
   space: BastionSpaceCode;
+  /// Розміри, які каталог дозволяє приміщенню; більше одного — розмір можна змінити на місці.
+  allowedSpaces: BastionSpaceCode[];
   name: string | null;
   level: number | null;
   prerequisiteText: string;
@@ -222,7 +245,56 @@ export async function findBastionPicker(persId: number): Promise<BastionPicker |
     profile,
     specialCount: countSpecialFacilities(facilities),
     facilityViews: facilities.map((facility) => toFacilityView(facility, profile)),
+    replacementOptions: findReplacementOptions(facilities),
   };
+}
+
+function findReplacementOptions(built: readonly BastionFacilityRecord[]): BastionReplacementOption[] {
+  const builtSlugs = new Set(built.map((facility) => facility.facilitySlug));
+
+  return getAllBastionFacilities()
+    .filter((facility) => facility.facilityType === "special" && !builtSlugs.has(facility.slug))
+    .sort((left, right) => (left.level ?? 0) - (right.level ?? 0) || left.name.localeCompare(right.name, "uk"))
+    .map((facility) => ({ slug: facility.slug, name: facility.name, level: facility.level }));
+}
+
+/// Токен читання живе в `pers.share_token`, токен редагування — у `pers_share_token`; поширений
+/// лист приймає обидва (`getPersByShareToken`). Знімок бастіону не несе.
+export async function findSharedBastionView(token: string): Promise<SharedBastionView | null> {
+  const persId = await findPersIdByShareToken(token);
+  if (persId === null) return null;
+
+  const bastion = await findBastionForPers(persId);
+  if (!bastion) return null;
+
+  return {
+    name: bastion.name,
+    description: bastion.description,
+    isMaintaining: bastion.isMaintaining,
+    facilities: bastion.facilities.map((facility) => {
+      const catalogFacility = getBastionFacilityBySlug(facility.facilitySlug);
+      return {
+        facilityId: facility.facilityId,
+        name: catalogFacility?.name ?? facility.facilitySlug,
+        space: facility.space,
+        isSpecial: catalogFacility?.facilityType === "special",
+        currentOrder: facility.currentOrder,
+        defenders: facility.defenders,
+        hirelings: facility.hirelings,
+      };
+    }),
+  };
+}
+
+async function findPersIdByShareToken(token: string): Promise<number | null> {
+  const editToken = await prisma.persShareToken.findUnique({ where: { token }, select: { persId: true } });
+  const pers = await prisma.pers.findFirst({
+    where: editToken ? { persId: editToken.persId } : { shareToken: token },
+    select: { persId: true, ruleset: true, isSnapshot: true },
+  });
+  if (!pers || pers.ruleset !== "RULES_2024" || pers.isSnapshot) return null;
+
+  return pers.persId;
 }
 
 function toFacilityView(
@@ -235,6 +307,7 @@ function toFacilityView(
     facilityId: facility.facilityId,
     slug: facility.facilitySlug,
     space: facility.space,
+    allowedSpaces: catalogFacility ? catalogFacility.space.map(toBastionSpaceCode) : [facility.space],
     name: catalogFacility?.name ?? null,
     level: catalogFacility?.level ?? null,
     prerequisiteText: catalogFacility?.prerequisiteText ?? "",
@@ -305,6 +378,7 @@ export async function updateBastionDetails(input: {
 /// `updatedAt` проставляється руками — та сама пастка, що в `updateBastionDetails`.
 export async function updateBastionFacilityState(input: {
   facilityId: number;
+  space: BastionSpace;
   currentOrder: BastionOrderCode | null;
   defenders: number;
   hirelings: string;
@@ -313,6 +387,7 @@ export async function updateBastionFacilityState(input: {
   const row = await prisma.persBastionFacility.update({
     where: { persBastionFacilityId: input.facilityId },
     data: {
+      space: toBastionSpaceCode(input.space),
       currentOrder: input.currentOrder,
       defenders: input.defenders,
       hirelings: input.hirelings,
@@ -322,6 +397,13 @@ export async function updateBastionFacilityState(input: {
   });
 
   return toBastionFacilityRecord(row);
+}
+
+export async function updateBastionMaintaining(input: { bastionId: number; isMaintaining: boolean }): Promise<void> {
+  await prisma.persBastion.update({
+    where: { persBastionId: input.bastionId },
+    data: { isMaintaining: input.isMaintaining, updatedAt: new Date() },
+  });
 }
 
 export async function deleteBastion(bastionId: number): Promise<void> {
@@ -338,6 +420,25 @@ export async function addBastionFacility(input: {
       persBastionId: input.bastionId,
       facilitySlug: input.facility.slug,
       space: toBastionSpaceCode(input.space),
+    },
+  });
+
+  return toBastionFacilityRecord(row);
+}
+
+export async function replaceBastionFacility(input: {
+  facilityId: number;
+  facility: BastionFacilityData;
+  space: BastionSpace;
+  currentOrder: BastionOrderCode | null;
+}): Promise<BastionFacilityRecord> {
+  const row = await prisma.persBastionFacility.update({
+    where: { persBastionFacilityId: input.facilityId },
+    data: {
+      facilitySlug: input.facility.slug,
+      space: toBastionSpaceCode(input.space),
+      currentOrder: input.currentOrder,
+      updatedAt: new Date(),
     },
   });
 
@@ -411,6 +512,7 @@ function toBastionRecord(row: PersBastion): Omit<BastionRecord, "facilities" | "
     name: row.name,
     description: row.description,
     notes: row.notes,
+    isMaintaining: row.isMaintaining,
   };
 }
 

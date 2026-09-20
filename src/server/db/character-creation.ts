@@ -16,6 +16,7 @@ import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { isRecord } from "@/rules/abilities";
 import { isRules2024Allowed } from "@/rules/access";
 import { findBackgroundAsiProblem } from "@/rules/background-asi";
+import { countFeatToolChoices } from "@/rules/feat-tool-choices";
 import { findBackgroundStartingItems, type StartingItem } from "@/rules/background-equipment";
 import { addToPurse, emptyPurse, splitStartingItems } from "@/rules/starting-money";
 import { collectOriginLanguages, countOriginLanguageChoices } from "@/rules/languages";
@@ -29,7 +30,13 @@ import { findGrantedSpells } from "@/rules/spell-sources";
 import { characterLevelOnly } from "@/rules/character-level";
 import { buildSpeciesPersSpellRows } from "@/server/db/species-level-grants";
 import { buildClassPersSpellRows, findMissingClassSpells } from "@/server/db/always-prepared-spell-grants";
-import type { ChosenRaceChoiceOption, FeatureWithSpells } from "@/rules/spell-sources";
+import { findClassSpellProblem, saveClassSpellSelection, type ClassSpellOffer } from "@/server/db/class-spell-choices";
+import { buildClassOptionPersSpellRows, findClassOptionSpellProblem } from "@/server/db/class-option-spell-choices";
+import type { ClassSpellSelection } from "@/rules/class-spell-choices-2024";
+import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
+import { buildChosenFeatSpells, findFeatSpellChoiceProblem } from "@/server/db/feat-spell-choices";
+import { buildFeatPersSpellRows } from "@/server/db/feat-spell-grants";
+import type { ChosenRaceChoiceOption, FeatureWithSpells, GrantedSpell } from "@/rules/spell-sources";
 import { sumFeatureHitPointsPerLevel } from "@/rules/hit-points";
 import { findSkillsGrantedByChosenOption } from "@/rules/proficiency";
 import type { CreationFeatAbilityInput } from "@/rules/character-creation";
@@ -39,6 +46,7 @@ import type { Ruleset } from "@prisma/client";
 import { loadCreationContent } from "@/server/db/creation-content";
 import { findCreationWeaponMasteryOffer, replacePersWeaponMastery } from "@/server/db/weapon-mastery";
 import { grantAlternativeArmorClassFormulas } from "@/server/db/armor-class-formulas";
+import { grantStartingUnarmedStrike } from "@/server/db/unarmed-strike";
 import { findUserByEmail } from "@/server/db/users";
 import { parseEnumArray, parseJsonRecord, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
 import { findCreationChoicePoolProblem } from "@/rules/creation-choice-pools";
@@ -67,6 +75,10 @@ type CharacterBuild = {
   featOptionFeatureIds: number[];
 };
 type CharacterBuildResult = CharacterBuild | { error: string };
+type ChosenClassSpells = { offer: ClassSpellOffer; selection: ClassSpellSelection } | null;
+type ChosenClassOptionSpells = { sourceName: string; spellIds: number[] } | null;
+
+type ChosenCreationSpells = { classSpells: ChosenClassSpells; featSpells: GrantedSpell[]; classOptionSpells: ChosenClassOptionSpells };
 
 export async function createCharacter(input: PersFormData): Promise<CreateCharacterResult> {
   const user = await requireUser();
@@ -82,7 +94,10 @@ export async function createCharacter(input: PersFormData): Promise<CreateCharac
   const content = await loadCreationContent(data.value);
   const character = buildCharacter(data.value, content);
   if ("error" in character) return character;
-  return persistCharacter(user.value, character);
+
+  const chosenSpells = await findChosenCreationSpells(data.value, content);
+  if ("error" in chosenSpells) return chosenSpells;
+  return persistCharacter(user.value, character, chosenSpells.value);
 }
 
 async function requireUser(): Promise<RequiredUser> {
@@ -119,16 +134,8 @@ function toCreationFeatInput(
 ): CreationFeatAbilityInput[] {
   if (!feat) return [];
   return [{
-    grantedASI: feat.grantedASI,
-    selectedChoiceOptionIds: Object.values(selections),
-    choiceOptions: feat.featChoiceOptions.flatMap((entry) => entry.choiceOption ? [{
-      choiceOptionId: entry.choiceOptionId,
-      optionNameEng: entry.choiceOption.optionNameEng,
-      effectKind: entry.choiceOption.effectKind,
-      effectAbility: entry.choiceOption.effectAbility,
-      effectAmount: entry.choiceOption.effectAmount,
-    }] : []),
-    resilient: feat.name === Feats.RESILIENT,
+    source: feat,
+    chosenOptionIds: Object.values(selections).flatMap((value) => (Array.isArray(value) ? value : [value])).map(Number),
   }];
 }
 
@@ -228,12 +235,7 @@ function buildCharacter(
     feats: [
       ...toCreationFeatInput(feat, validData.featChoiceSelections),
       ...toCreationFeatInput(backgroundFeat, validData.backgroundFeatChoiceSelections),
-      ...grantedFeats.map((granted) => ({
-        grantedASI: granted.grantedASI,
-        selectedChoiceOptionIds: [],
-        choiceOptions: [],
-        resilient: false,
-      })),
+      ...grantedFeats.map((granted) => ({ source: { ...granted, ruleset, grantedSkills: null, featChoiceOptions: [] }, chosenOptionIds: [] })),
     ],
     className: characterClass.name,
     spellcastingType: characterClass.spellcastingType,
@@ -367,19 +369,117 @@ async function saveGrantedSpells(
   content: LoadedCreationContent,
   ruleset: Ruleset,
 ): Promise<void> {
-  const granted = findGrantedSpells({
-    ruleset: ruleset as RulesetId,
-    levels: characterLevelOnly(1),
-    raceTraits: content.raceTraitFeatures.map((trait) => ({ ...toFeatureWithSpells(trait.feature), level: trait.level })),
-    raceChoiceOptions: content.raceChoiceOptions.map(toChosenRaceChoiceOption),
-  });
-
+  const granted = findSpeciesSpellsAtCreation(content, ruleset);
   if (!granted.length) return;
 
   await tx.persSpell.createMany({
     data: buildSpeciesPersSpellRows(persId, granted, 1),
     skipDuplicates: true,
   });
+}
+
+function findSpeciesSpellsAtCreation(content: LoadedCreationContent, ruleset: Ruleset) {
+  return findGrantedSpells({
+    ruleset: ruleset as RulesetId,
+    levels: characterLevelOnly(1),
+    raceTraits: content.raceTraitFeatures.map((trait) => ({ ...toFeatureWithSpells(trait.feature), level: trait.level })),
+    raceChoiceOptions: content.raceChoiceOptions.map(toChosenRaceChoiceOption),
+  });
+}
+
+/** Заклинач приносить із конструктора заклинання класу, а в 2024 — ще й рис походження; без повного вибору він не створюється. */
+async function findChosenCreationSpells(
+  validData: PersFormData,
+  content: LoadedCreationContent,
+): Promise<{ value: ChosenCreationSpells } | { error: string }> {
+  const ruleset = (validData.ruleset ?? content.characterClass?.ruleset ?? "RULES_2014") as Ruleset;
+  const speciesSpellIds = findSpeciesSpellsAtCreation(content, ruleset).map((spell) => spell.spellId);
+  const classSpells = await findChosenClassSpells(validData, content, speciesSpellIds);
+  if ("error" in classSpells) return classSpells;
+  if (ruleset !== "RULES_2024") return { value: { classSpells: classSpells.value, featSpells: [], classOptionSpells: null } };
+
+  const featSpells = await findChosenFeatSpells(validData, content, [...speciesSpellIds, ...collectClassSpellsTakenFromFeats(classSpells.value)]);
+  if ("error" in featSpells) return featSpells;
+
+  const takenSpellIds = [...speciesSpellIds, ...collectClassSelectionIds(classSpells.value), ...featSpells.value.map((spell) => spell.spellId)];
+  const classOptionSpells = await findChosenClassOptionSpells(validData, content, takenSpellIds);
+  if ("error" in classOptionSpells) return classOptionSpells;
+  return { value: { classSpells: classSpells.value, featSpells: featSpells.value, classOptionSpells: classOptionSpells.value } };
+}
+
+async function findChosenClassSpells(
+  validData: PersFormData,
+  content: LoadedCreationContent,
+  speciesSpellIds: readonly number[],
+): Promise<{ value: ChosenClassSpells } | { error: string }> {
+  const { offer, problem } = await findClassSpellProblem(prisma, {
+    classId: validData.classId,
+    classLevel: 1,
+    subclassId: validData.subclassId ?? null,
+    chosenClassOptionIds: content.selectedChoiceOptionIds,
+    persId: null,
+    selection: validData.classSpells,
+    unavailableSpellIds: speciesSpellIds,
+  });
+  if (problem) return { error: problem };
+  return { value: offer && validData.classSpells ? { offer, selection: validData.classSpells } : null };
+}
+
+function collectClassSelectionIds(chosen: ChosenClassSpells): number[] {
+  if (!chosen) return [];
+  return [...chosen.selection.cantripIds, ...chosen.selection.spellbookIds, ...chosen.selection.preparedIds];
+}
+
+/** Книга тіней Pact of the Tome: «they must be spells you don't already have prepared». */
+async function findChosenClassOptionSpells(
+  validData: PersFormData,
+  content: LoadedCreationContent,
+  takenSpellIds: readonly number[],
+): Promise<{ value: ChosenClassOptionSpells } | { error: string }> {
+  const selectedSpellIds = validData.classOptionSpellIds ?? [];
+  const { problem, sourceName } = await findClassOptionSpellProblem(prisma, {
+    newlyChosenOptionIds: content.selectedChoiceOptionIds,
+    unavailableSpellIds: takenSpellIds,
+    selectedSpellIds,
+  });
+  if (problem) return { error: problem };
+  return { value: sourceName ? { sourceName, spellIds: selectedSpellIds } : null };
+}
+
+/** Р38: заклинання лише в книзі чарівника риса взяти може — підготовленим його робить риса, а не клас. */
+function collectClassSpellsTakenFromFeats(chosen: ChosenClassSpells): number[] {
+  if (!chosen) return [];
+  return [...chosen.selection.cantripIds, ...chosen.selection.preparedIds];
+}
+
+/** «Посвячений у магію» від передісторії чи Людини: два замовляння й заклинання 1-го рівня з обраного списку (KR31.5, Р42). */
+async function findChosenFeatSpells(
+  validData: PersFormData,
+  content: LoadedCreationContent,
+  unavailableSpellIds: readonly number[],
+): Promise<{ value: GrantedSpell[] } | { error: string }> {
+  const chosen: GrantedSpell[] = [];
+
+  for (const pick of collectCreationFeatPicks(validData, content, findFeatsGrantedByCreationChoices(content))) {
+    if (!hasFeatSpellChoice("RULES_2024", pick.feat.name)) continue;
+    const selectedSpellIds = findFeatSpellSelection(validData, pick.source);
+    const problem = await findFeatSpellChoiceProblem(prisma, {
+      ruleset: "RULES_2024",
+      featName: pick.feat.name,
+      chosenOptionIds: collectChoiceOptionIds(pick.selections),
+      selectedSpellIds,
+      unavailableSpellIds: [...unavailableSpellIds, ...chosen.map((spell) => spell.spellId)],
+    });
+    if (problem) return { error: problem };
+    chosen.push(...buildChosenFeatSpells(pick.feat.name, selectedSpellIds));
+  }
+
+  return { value: chosen };
+}
+
+function findFeatSpellSelection(validData: PersFormData, source: FeatChoiceSource): number[] {
+  if (source !== "BACKGROUND_ORIGIN" && source !== "SPECIES_VERSATILITY") return [];
+  return validData.featSpellSelections?.[source] ?? [];
 }
 
 /**
@@ -434,6 +534,7 @@ function findStartingFeatures(content: LoadedCreationContent) {
 async function persistCharacter(
   user: { id: number },
   character: CharacterBuild,
+  chosenSpells: ChosenCreationSpells,
 ): Promise<CreateCharacterResult> {
   const { validData, content, scores, savingThrows, currentSpellSlots, currentPactSlots, maxHp, featOptionFeatureIds } = character;
 
@@ -471,7 +572,7 @@ async function persistCharacter(
 
   // From Schema
   if (validData.skillsSchema) {
-      if (validData.skillsSchema.isTasha) {
+      if (validData.skillsSchema.isTasha && ruleset !== "RULES_2024") {
           validData.skillsSchema.tashaChoices.forEach(s => allSkills.add(s));
       } else {
           validData.skillsSchema.basicChoices.race.forEach(s => allSkills.add(s));
@@ -691,8 +792,8 @@ async function persistCharacter(
           .filter(Boolean)
           .join(", ")
       : "—",
-    formatToolProficiencies(feat ? parseEnumArray(feat.grantedToolProficiencies, ToolCategory) : [], undefined),
-    formatToolProficiencies(backgroundFeat ? parseEnumArray(backgroundFeat.grantedToolProficiencies, ToolCategory) : [], undefined),
+    formatToolProficiencies(feat ? parseEnumArray(feat.grantedToolProficiencies, ToolCategory) : [], countFeatToolChoices(feat?.name)),
+    formatToolProficiencies(backgroundFeat ? parseEnumArray(backgroundFeat.grantedToolProficiencies, ToolCategory) : [], countFeatToolChoices(backgroundFeat?.name)),
   ].filter((x) => x && x !== "—");
   if (toolTextParts.length) profLines.push(toolTextParts.join("\n"));
 
@@ -920,6 +1021,18 @@ async function persistCharacter(
 
       await saveGrantedSpells(tx, createdPers.persId, content, ruleset);
       await saveClassPreparedSpells(tx, createdPers.persId, validData.classId);
+      if (chosenSpells.featSpells.length > 0) {
+        await tx.persSpell.createMany({ data: buildFeatPersSpellRows(createdPers.persId, chosenSpells.featSpells, 1), skipDuplicates: true });
+      }
+      if (chosenSpells.classSpells) {
+        await saveClassSpellSelection(tx, { persId: createdPers.persId, ...chosenSpells.classSpells, learnedAtLevel: 1 });
+      }
+      if (chosenSpells.classOptionSpells) {
+        await tx.persSpell.createMany({
+          data: buildClassOptionPersSpellRows({ persId: createdPers.persId, ...chosenSpells.classOptionSpells, learnedAtLevel: 1 }),
+          skipDuplicates: true,
+        });
+      }
 
       // Save skills AFTER Pers exists (createMany + skipDuplicates)
       const skillRows = Array.from(allSkills)
@@ -983,6 +1096,7 @@ async function persistCharacter(
           skipDuplicates: true,
         });
       }
+      await grantStartingUnarmedStrike(tx, createdPers.persId, { className: cls.name, ruleset });
 
       // Майстерність зброї 2024 — вибір гравця перевіряється проти класу, а не приймається на віру.
       const masteryOffer = await findCreationWeaponMasteryOffer(tx, { classId: validData.classId, ruleset });

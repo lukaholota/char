@@ -13,6 +13,7 @@ import { type Prisma, type PrismaClient, SpellOrigin } from "@prisma/client";
 
 import { subclassTranslations } from "@/lib/refs/translation";
 import { findEarnedAlwaysPreparedSpells, type AlwaysPreparedSpellSource } from "@/rules/always-prepared-spells";
+import { buildSubclassOptionSpellSources, type ChosenSubclassOption } from "@/rules/subclass-option-spells-2024";
 import type { GrantedSpell } from "@/rules/spell-sources";
 import type { AbilityKey } from "@/rules/types";
 
@@ -87,6 +88,60 @@ export async function findMissingClassSpells(
   });
 
   return findEarnedAlwaysPreparedSpells(sources, input.ownedSpellIds);
+}
+
+/**
+ * Третє джерело — обрана опція підкласу, яка сама несе заклинання: Коло землі 2024. Рівень
+ * класу на звʼязку «фіча → заклинання» не стоїть, його виводить правило з рівня заклинання
+ * (KR37.3). Лише 2024: 26 опцій 2014 теж мають заклинання на фічах, але їх дає інший шлях.
+ */
+export async function findMissingSubclassOptionSpells(
+  client: DatabaseClient,
+  input: { choiceOptionIds: readonly number[]; subclasses: readonly SubclassAtClassLevel[]; ownedSpellIds: readonly number[] },
+): Promise<GrantedSpell[]> {
+  if (!input.choiceOptionIds.length || !input.subclasses.length) return [];
+
+  const links = await client.subclassChoiceOption.findMany({
+    where: {
+      ruleset: "RULES_2024",
+      choiceOptionId: { in: [...input.choiceOptionIds] },
+      subclassId: { in: input.subclasses.map((subclass) => subclass.subclassId) },
+      choiceOption: { features: { some: { feature: { givesSpells: { some: {} } } } } },
+    },
+    select: {
+      subclassId: true,
+      levelsGranted: true,
+      subclass: { select: { name: true, class: { select: { name: true } } } },
+      choiceOption: {
+        select: {
+          optionName: true,
+          optionNameEng: true,
+          features: { select: { feature: { select: { givesSpells: { select: { spellId: true, level: true } } } } } },
+        },
+      },
+    },
+    orderBy: [{ choiceOptionId: "asc" }],
+  });
+
+  const options = links.flatMap((link): ChosenSubclassOption[] => {
+    const subclass = input.subclasses.find((candidate) => candidate.subclassId === link.subclassId);
+    if (!subclass) return [];
+
+    return [{
+      optionNameEng: link.choiceOption.optionNameEng,
+      optionName: link.choiceOption.optionName,
+      className: link.subclass.class.name,
+      subclassName: link.subclass.name,
+      pickLevel: Math.min(...link.levelsGranted),
+      classLevel: subclass.classLevel,
+      ability: subclass.ability,
+      spells: link.choiceOption.features.flatMap((entry) =>
+        entry.feature.givesSpells.map((spell) => ({ spellId: spell.spellId, spellLevel: spell.level })),
+      ),
+    }];
+  });
+
+  return findEarnedAlwaysPreparedSpells(buildSubclassOptionSpellSources(options), input.ownedSpellIds);
 }
 
 /**

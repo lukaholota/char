@@ -1,6 +1,7 @@
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
-import { escapePrintHtml, renderPrintableMarkdown } from "./printProjection";
+import { escapePrintHtml, renderPrintableMarkdown, renderPrintableUserText } from "./printProjection";
+import type { PrintableWeaponMastery } from "./weaponMasteryPrint";
 
 import type { CharacterFeaturesGroupedResult, CharacterFeatureItem } from "@/lib/actions/pers";
 import { 
@@ -12,6 +13,7 @@ import {
 export interface FeaturesPdfInput {
   characterName: string;
   features: CharacterFeaturesGroupedResult;
+  weaponMasteries?: PrintableWeaponMastery[];
 }
 
 interface FeatureSection {
@@ -39,6 +41,12 @@ function groupFeaturesByType(features: CharacterFeaturesGroupedResult): FeatureS
 }
 
 function formatUsageInfo(item: CharacterFeatureItem): string {
+  const counter = formatUsesCounter(item);
+  if (!item.isActive) return counter;
+  return counter ? `${counter} активна` : "активна";
+}
+
+function formatUsesCounter(item: CharacterFeatureItem): string {
   if (typeof item.usesPer !== "number") return "";
 
   // If usesRemaining isn't tracked (null/undefined), assume it's full.
@@ -61,12 +69,35 @@ function translateRestType(restType: unknown): string {
   return v;
 }
 
+/** Вибрана майстерність зброї 2024 — окремий блок, бо це не риса, а властивість вибраної зброї. */
+function renderWeaponMasterySection(masteries: PrintableWeaponMastery[]): string {
+  if (masteries.length === 0) return "";
+
+  const itemsHtml = masteries.map(
+    (mastery) => `
+          <article class="feature">
+            <div class="header">
+              <h2 class="name">${escapePrintHtml(mastery.weaponName)}</h2>
+              <span class="usage">${escapePrintHtml(mastery.masteryLabel)}</span>
+            </div>
+            <div class="desc"><p>${escapePrintHtml(mastery.description)}</p></div>
+          </article>`
+  );
+
+  return `
+        <section class="section">
+          <h1 class="section-title">Майстерність зброї</h1>
+          ${itemsHtml.join("\n")}
+        </section>`;
+}
+
 export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: PdfLogContext = {}): Promise<Uint8Array> {
   const { characterName, features } = input;
 
   const sections = groupFeaturesByType(features);
+  const weaponMasteryHtml = renderWeaponMasterySection(input.weaponMasteries ?? []);
 
-  if (sections.length === 0) {
+  if (sections.length === 0 && !weaponMasteryHtml) {
     throw new Error("No features to render");
   }
 
@@ -74,7 +105,7 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
     sections.map(async (section) => {
       const itemsHtml = await Promise.all(
         section.items.map(async (item) => {
-          const descriptionHtml = await renderPrintableMarkdown(item.description || "");
+          const descriptionHtml = await (item.hasCustomDescription ? renderPrintableUserText(item.description) : renderPrintableMarkdown(item.description || ""));
           const usageInfo = formatUsageInfo(item);
           
           const normalizedSource = normalizeFeatureSource(item.source);
@@ -195,7 +226,7 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
     <div class="wrap">
       <h1 class="page-title">Здібності — ${escapePrintHtml(characterName)}</h1>
       <div class="columns">
-        ${sectionsHtml.join("\n")}
+        ${[...sectionsHtml, weaponMasteryHtml].filter(Boolean).join("\n")}
       </div>
     </div>
   </body>

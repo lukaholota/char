@@ -2,6 +2,7 @@ import { Ability, Classes, Subclasses } from "@prisma/client";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
 import type { PersWithRelations } from "@/lib/actions/pers";
+import { SPELL_KNOWLEDGE_2014, THIRD_CASTER_KNOWLEDGE_2014 } from "@/rules/spell-knowledge-2014";
 import { findSpellCounts2024 } from "@/rules/spell-preparation-2024";
 
 export type SpellCountValue =
@@ -88,52 +89,20 @@ function preparedCount({
 	return Math.max(min, raw);
 }
 
-const BARD_CANTRIPS = [
-	2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-] as const;
-const BARD_SPELLS_KNOWN = [
-	4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 15, 16, 18, 19, 19, 20, 22, 22, 22,
-] as const;
-
-const SORCERER_CANTRIPS = [
-	4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-] as const;
-const SORCERER_SPELLS_KNOWN = [
-	2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15,
-] as const;
-
-const WARLOCK_CANTRIPS = [
-	2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-] as const;
-const WARLOCK_SPELLS_KNOWN = [
-	2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15,
-] as const;
-
-const RANGER_CANTRIPS = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] as const;
-const RANGER_SPELLS_KNOWN = [
-	0, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11,
-] as const;
-
-const CLERIC_CANTRIPS = [
-	3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-] as const;
-const DRUID_CANTRIPS = [
-	2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-] as const;
-const WIZARD_CANTRIPS = [
-	3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-] as const;
-
-const ARTIFICER_CANTRIPS = [
-	2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4,
-] as const;
-
-const THIRD_CASTER_CANTRIPS = [
-	0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-] as const;
-const THIRD_CASTER_SPELLS_KNOWN = [
-	0, 0, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13,
-] as const;
+const BARD_CANTRIPS = SPELL_KNOWLEDGE_2014.BARD_2014.cantrips;
+const BARD_SPELLS_KNOWN = SPELL_KNOWLEDGE_2014.BARD_2014.known!;
+const SORCERER_CANTRIPS = SPELL_KNOWLEDGE_2014.SORCERER_2014.cantrips;
+const SORCERER_SPELLS_KNOWN = SPELL_KNOWLEDGE_2014.SORCERER_2014.known!;
+const WARLOCK_CANTRIPS = SPELL_KNOWLEDGE_2014.WARLOCK_2014.cantrips;
+const WARLOCK_SPELLS_KNOWN = SPELL_KNOWLEDGE_2014.WARLOCK_2014.known!;
+const RANGER_CANTRIPS = SPELL_KNOWLEDGE_2014.RANGER_2014.cantrips;
+const RANGER_SPELLS_KNOWN = SPELL_KNOWLEDGE_2014.RANGER_2014.known!;
+const CLERIC_CANTRIPS = SPELL_KNOWLEDGE_2014.CLERIC_2014.cantrips;
+const DRUID_CANTRIPS = SPELL_KNOWLEDGE_2014.DRUID_2014.cantrips;
+const WIZARD_CANTRIPS = SPELL_KNOWLEDGE_2014.WIZARD_2014.cantrips;
+const ARTIFICER_CANTRIPS = SPELL_KNOWLEDGE_2014.ARTIFICER_2014.cantrips;
+const THIRD_CASTER_CANTRIPS = THIRD_CASTER_KNOWLEDGE_2014.cantrips;
+const THIRD_CASTER_SPELLS_KNOWN = THIRD_CASTER_KNOWLEDGE_2014.known!;
 
 export function formatSpellCountValue(
 	v: SpellCountValue,

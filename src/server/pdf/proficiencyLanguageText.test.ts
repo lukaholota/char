@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import { buildProficiencyAndLanguageText } from "./proficiencyLanguageText";
 
 const empty = {
-  derived: { proficiencies: [], languages: "" },
   customProficiencies: "",
   customLanguages: "",
   darkvisionRange: null,
@@ -20,15 +19,14 @@ describe("блок володінь і мов у PDF", () => {
     );
   });
 
-  it("похідні рядки стоять перед ручним текстом, однакові не повторюються", () => {
+  it("володіння й мови — рядками тексту персонажа, однакові не повторюються", () => {
     const text = buildProficiencyAndLanguageText({
       ...empty,
-      derived: { proficiencies: ["Обладунки: Легкі обладунки"], languages: "Загальна, Дварфська" },
-      customProficiencies: "Обладунки: Легкі обладунки\nІнструменти злодія",
-      customLanguages: "Орківська",
+      customProficiencies: "Обладунки: Легкі обладунки\nОбладунки: Легкі обладунки\nІнструменти злодія",
+      customLanguages: "Загальна\nОрківська",
     });
     expect(text).toBe(
-      "Володіння (броня/зброя/інструменти):\n· Обладунки: Легкі обладунки\n· Інструменти злодія\nМови:\n· Загальна, Дварфська\n· Орківська",
+      "Володіння (броня/зброя/інструменти):\n· Обладунки: Легкі обладунки\n· Інструменти злодія\nМови:\n· Загальна\n· Орківська",
     );
   });
 

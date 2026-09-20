@@ -3,6 +3,7 @@ import { Prisma } from "@prisma/client";
 export const PERS_DUPLICATION_INCLUDE = {
   skills: true,
   persSpells: true,
+  homebrewSpells: true,
   features: true,
   feats: {
     include: {
@@ -15,6 +16,10 @@ export const PERS_DUPLICATION_INCLUDE = {
   multiclasses: { include: { class: true, subclass: true } },
   magicItems: { include: { magicItem: true } },
   persInfusions: true,
+  resourcePools: true,
+  wildshapes: true,
+  effects: true,
+  bastion: { include: { facilities: true, turns: true } },
   race: true,
   class: true,
   subclass: true,
@@ -24,26 +29,64 @@ export const PERS_DUPLICATION_INCLUDE = {
   choiceOptions: true,
   classOptionalFeatures: true,
   spells: true,
+  featureDescriptions: true,
 } satisfies Prisma.PersInclude;
 
 export type PersCloneSource = Prisma.PersGetPayload<{
   include: typeof PERS_DUPLICATION_INCLUDE;
 }>;
 
-export async function clonePersWithRelations(
-  tx: Prisma.TransactionClient,
-  pers: PersCloneSource,
-  overrides: Record<string, unknown> = {}
-) {
-  const overrideName = typeof overrides.name === "string" ? overrides.name : undefined;
-  const overrideUserId = typeof overrides.userId === "number" ? overrides.userId : undefined;
-  const overrideFolderId = typeof overrides.folderId === "number" ? overrides.folderId : null;
-  const overridePinned = typeof overrides.isPinned === "boolean" ? overrides.isPinned : undefined;
-  const persExtra = pers as PersCloneSource & { raceStaticAcBonus?: number | null };
+export type PersCloneTarget = {
+  userId: number;
+  name: string;
+  folderId: number | null;
+  isPinned: boolean;
+  snapshotOf: { parentPersId: number; level: number } | null;
+};
 
+type TransactionClient = Prisma.TransactionClient;
+
+type CopiedRowIds = {
+  weapons: Map<number, number>;
+  armors: Map<number, number>;
+  magicItems: Map<number, number>;
+};
+
+export function buildCopyTarget(pers: PersCloneSource, changes: Partial<PersCloneTarget> = {}): PersCloneTarget {
+  return {
+    userId: pers.userId,
+    name: `${pers.name} (Копія)`,
+    folderId: pers.folderId,
+    isPinned: pers.isPinned,
+    snapshotOf: null,
+    ...changes,
+  };
+}
+
+export async function clonePersWithRelations(tx: TransactionClient, pers: PersCloneSource, target: PersCloneTarget) {
+  const newPers = await tx.pers.create({ data: buildPersRow(pers, target) });
+  const persId = newPers.persId;
+
+  await copySkillsSpellsAndFeatures(tx, pers, persId);
+  await copyFeats(tx, pers, persId);
+  const copiedRowIds: CopiedRowIds = {
+    weapons: await copyWeapons(tx, pers, persId),
+    armors: await copyArmors(tx, pers, persId),
+    magicItems: await copyMagicItems(tx, pers, persId),
+  };
+  await copyWeaponMasteriesAndMulticlasses(tx, pers, persId);
+  const copiedInfusionIds = await copyInfusions(tx, pers, persId, copiedRowIds);
+  await copyFeatureDescriptions(tx, pers, persId, copiedInfusionIds);
+  await copyResourcePoolsAndWildshapes(tx, pers, persId);
+  await copyBastion(tx, pers, persId);
+
+  return newPers;
+}
+
+function buildPersRow(pers: PersCloneSource, target: PersCloneTarget) {
   const data = {
-      userId: overrideUserId ?? pers.userId,
-      name: overrideName ?? `${pers.name} (Копія)`,
+      userId: target.userId,
+      name: target.name,
       /// Без цього рядка копія падає на `@default(RULES_2014)`, і персонаж 2024 стає
       /// персонажем 2014 з контентом 2024 — сторож `pers-copy-fields.test.ts`.
       ruleset: pers.ruleset,
@@ -61,7 +104,9 @@ export async function clonePersWithRelations(
       deathSaveSuccesses: pers.deathSaveSuccesses,
       deathSaveFailures: pers.deathSaveFailures,
       isDead: pers.isDead,
-      hasHeroicInspiration: pers.hasHeroicInspiration,
+      heroicInspirationCount: pers.heroicInspirationCount,
+      canStackHeroicInspiration: pers.canStackHeroicInspiration,
+      exhaustionLevel: pers.exhaustionLevel,
       raceCustom: pers.raceCustom,
       classCustom: pers.classCustom,
       alignment: pers.alignment,
@@ -77,6 +122,7 @@ export async function clonePersWithRelations(
       flaws: pers.flaws,
       backstory: pers.backstory,
       notes: pers.notes,
+      portraitKey: pers.portraitKey,
       str: pers.str,
       dex: pers.dex,
       con: pers.con,
@@ -94,7 +140,7 @@ export async function clonePersWithRelations(
       additionalShieldBonus: pers.additionalShieldBonus,
       armorBonus: pers.armorBonus,
       overrideBaseAC: pers.overrideBaseAC ?? undefined,
-      raceStaticAcBonus: persExtra.raceStaticAcBonus ?? undefined,
+      raceStaticAcBonus: pers.raceStaticAcBonus ?? undefined,
       wearsNaturalArmor: pers.wearsNaturalArmor,
       statBonuses: pers.statBonuses || undefined,
       statModifierBonuses: pers.statModifierBonuses || undefined,
@@ -109,10 +155,12 @@ export async function clonePersWithRelations(
       spellDCBonuses: pers.spellDCBonuses || undefined,
       currentHitDice: pers.currentHitDice || undefined,
       usedHitDice: pers.usedHitDice || undefined,
-      folderId: overrideFolderId ?? pers.folderId ?? null,
-      isPinned: overridePinned ?? pers.isPinned ?? false,
-      isActive: true,
-      isSnapshot: false,
+      folderId: target.folderId,
+      isPinned: target.isPinned,
+      isActive: target.snapshotOf === null,
+      isSnapshot: target.snapshotOf !== null,
+      parentPersId: target.snapshotOf?.parentPersId ?? null,
+      snapshotLevel: target.snapshotOf?.level ?? null,
       raceVariants: { connect: pers.raceVariants.map((rv) => ({ raceVariantId: rv.raceVariantId })) },
       raceChoiceOptions: { connect: pers.raceChoiceOptions.map((rco) => ({ optionId: rco.optionId })) },
       choiceOptions: { connect: pers.choiceOptions.map((co) => ({ choiceOptionId: co.choiceOptionId })) },
@@ -120,169 +168,217 @@ export async function clonePersWithRelations(
       spells: { connect: pers.spells.map((s) => ({ spellId: s.spellId })) },
     } satisfies Prisma.PersUncheckedCreateInput;
 
-  const newPers = await tx.pers.create({ data });
+  return data;
+}
 
-  const weaponIdMap = new Map<number, number>();
-  const armorIdMap = new Map<number, number>();
-  const magicItemIdMap = new Map<number, number>();
+function toJsonInput(value: Prisma.JsonValue): Prisma.InputJsonValue | typeof Prisma.DbNull {
+  return value === null ? Prisma.DbNull : (value as Prisma.InputJsonValue);
+}
 
-  if (pers.skills.length > 0) {
-    await tx.persSkill.createMany({
-      data: pers.skills.map((s) => ({
-        persId: newPers.persId,
-        skillId: s.skillId,
-        name: s.name,
-        proficiencyType: s.proficiencyType,
-        customModifier: s.customModifier,
-      })),
-    });
-  }
+async function copySkillsSpellsAndFeatures(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+  await tx.persSkill.createMany({
+    data: pers.skills.map((s) => ({
+      persId,
+      skillId: s.skillId,
+      name: s.name,
+      proficiencyType: s.proficiencyType,
+      customModifier: s.customModifier,
+    })),
+  });
 
-  if (pers.persSpells.length > 0) {
-    await tx.persSpell.createMany({
-      data: pers.persSpells.map((ps) => ({
-        persId: newPers.persId,
-        spellId: ps.spellId,
-        learnedAtLevel: ps.learnedAtLevel,
-        isPrepared: ps.isPrepared,
-        excludeFromPreparedCount: ps.excludeFromPreparedCount,
-        excludeFromKnownCount: ps.excludeFromKnownCount,
-        badgeText: ps.badgeText,
-        badgeColor: ps.badgeColor,
-        origin: ps.origin,
-        sourceId: ps.sourceId,
-        sourceName: ps.sourceName,
-        notes: ps.notes,
-      })),
-    });
-  }
+  await tx.persSpell.createMany({
+    data: pers.persSpells.map((ps) => ({
+      persId,
+      spellId: ps.spellId,
+      learnedAtLevel: ps.learnedAtLevel,
+      isPrepared: ps.isPrepared,
+      excludeFromPreparedCount: ps.excludeFromPreparedCount,
+      excludeFromKnownCount: ps.excludeFromKnownCount,
+      badgeText: ps.badgeText,
+      badgeColor: ps.badgeColor,
+      origin: ps.origin,
+      sourceId: ps.sourceId,
+      sourceName: ps.sourceName,
+      notes: ps.notes,
+    })),
+  });
 
-  if (pers.features.length > 0) {
-    await tx.persFeature.createMany({
-      data: pers.features.map((f) => ({
-        persId: newPers.persId,
-        featureId: f.featureId,
-        usesRemaining: f.usesRemaining,
-      })),
-    });
-  }
+  await tx.persHomebrewSpell.createMany({
+    data: pers.homebrewSpells.map((hs) => ({
+      persId,
+      homebrewEntryId: hs.homebrewEntryId,
+      isPrepared: hs.isPrepared,
+      badgeText: hs.badgeText,
+      badgeColor: hs.badgeColor,
+      excludeFromPreparedCount: hs.excludeFromPreparedCount,
+      excludeFromKnownCount: hs.excludeFromKnownCount,
+    })),
+  });
 
+  await tx.persFeature.createMany({
+    data: pers.features.map((f) => ({ persId, featureId: f.featureId, usesRemaining: f.usesRemaining, isActive: f.isActive })),
+  });
+}
+
+async function copyFeats(tx: TransactionClient, pers: PersCloneSource, persId: number) {
   for (const pf of pers.feats) {
-    const newPersFeat = await tx.persFeat.create({
+    const newPersFeat = await tx.persFeat.create({ data: { persId, featId: pf.featId, grants: toJsonInput(pf.grants) } });
+    await tx.persFeatChoice.createMany({
+      data: pf.choices.map((c) => ({ persFeatId: newPersFeat.persFeatId, choiceOptionId: c.choiceOptionId })),
+    });
+  }
+}
+
+async function copyWeapons(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+  const copiedIds = new Map<number, number>();
+  for (const w of pers.weapons) {
+    const created = await tx.persWeapon.create({
       data: {
-        persId: newPers.persId,
-        featId: pf.featId,
+        persId,
+        weaponId: w.weaponId,
+        overrideDamage: w.overrideDamage,
+        attackBonus: w.attackBonus,
+        overrideName: w.overrideName,
+        overrideNormalRange: w.overrideNormalRange,
+        overrideLongRange: w.overrideLongRange,
+        overrideDamageType: w.overrideDamageType,
+        overrideAttackAbility: w.overrideAttackAbility,
+        isProficient: w.isProficient,
+        customAttackBonus: toJsonInput(w.customAttackBonus),
+        customDamageAbility: w.customDamageAbility,
+        customDamageBonus: toJsonInput(w.customDamageBonus),
+        customDamageCount: w.customDamageCount,
+        customDamageDice: w.customDamageDice,
+        isMagical: w.isMagical,
       },
     });
-    if (pf.choices.length > 0) {
-      await tx.persFeatChoice.createMany({
-        data: pf.choices.map((c) => ({
-          persFeatId: newPersFeat.persFeatId,
-          choiceOptionId: c.choiceOptionId,
-        })),
-      });
-    }
+    copiedIds.set(w.persWeaponId, created.persWeaponId);
   }
+  return copiedIds;
+}
 
-  if (pers.weapons.length > 0) {
-    for (const w of pers.weapons) {
-      const weaponExtra = w as typeof w & {
-        customAttackBonus?: Prisma.InputJsonValue | null;
-        customDamageBonus?: Prisma.InputJsonValue | null;
-      };
-      const created = await tx.persWeapon.create({
-        data: {
-          persId: newPers.persId,
-          weaponId: w.weaponId,
-          overrideDamage: w.overrideDamage,
-          attackBonus: w.attackBonus,
-          overrideName: w.overrideName,
-          overrideNormalRange: w.overrideNormalRange,
-          overrideLongRange: w.overrideLongRange,
-          overrideDamageType: w.overrideDamageType,
-          overrideAttackAbility: w.overrideAttackAbility,
-          isProficient: w.isProficient,
-          customAttackBonus: weaponExtra.customAttackBonus ?? undefined,
-          customDamageAbility: w.customDamageAbility,
-          customDamageBonus: weaponExtra.customDamageBonus ?? undefined,
-          customDamageCount: w.customDamageCount,
-          customDamageDice: w.customDamageDice,
-          isMagical: w.isMagical,
-        },
-      });
-      weaponIdMap.set(w.persWeaponId, created.persWeaponId);
-    }
-  }
-
-  if (pers.pers_weapon_mastery.length > 0) {
-    await tx.pers_weapon_mastery.createMany({
-      data: pers.pers_weapon_mastery.map((mastery) => ({
-        pers_id: newPers.persId,
-        weapon_id: mastery.weapon_id,
-      })),
+async function copyArmors(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+  const copiedIds = new Map<number, number>();
+  for (const a of pers.armors) {
+    const created = await tx.persArmor.create({
+      data: {
+        persId,
+        armorId: a.armorId,
+        overrideBaseAC: a.overrideBaseAC,
+        overrideName: a.overrideName,
+        abilityBonuses: a.abilityBonuses,
+        abilityBonusType: a.abilityBonusType,
+        isProficient: a.isProficient,
+        equipped: a.equipped,
+        miscACBonus: a.miscACBonus,
+      },
     });
+    copiedIds.set(a.persArmorId, created.persArmorId);
   }
+  return copiedIds;
+}
 
-  if (pers.armors.length > 0) {
-    for (const a of pers.armors) {
-      const armorExtra = a as typeof a & {
-        abilityBonuses?: Prisma.InputJsonValue | null;
-        abilityBonusType?: string | null;
-      };
-      const created = await tx.persArmor.create({
-        data: {
-          persId: newPers.persId,
-          armorId: a.armorId,
-          overrideBaseAC: a.overrideBaseAC,
-          overrideName: a.overrideName,
-          abilityBonuses: armorExtra.abilityBonuses ?? undefined,
-          abilityBonusType: armorExtra.abilityBonusType ?? undefined,
-          isProficient: a.isProficient,
-          equipped: a.equipped,
-          miscACBonus: a.miscACBonus,
-        },
-      });
-      armorIdMap.set(a.persArmorId, created.persArmorId);
-    }
-  }
-
-  if (pers.multiclasses.length > 0) {
-    await tx.persMulticlass.createMany({
-      data: pers.multiclasses.map((m) => ({
-        persId: newPers.persId,
-        classId: m.classId,
-        classLevel: m.classLevel,
-        subclassId: m.subclassId,
-      })),
+async function copyMagicItems(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+  const copiedIds = new Map<number, number>();
+  for (const mi of pers.magicItems) {
+    const created = await tx.persMagicItem.create({
+      data: { persId, magicItemId: mi.magicItemId, isEquipped: mi.isEquipped, isAttuned: mi.isAttuned, chargesMax: mi.chargesMax, chargesCurrent: mi.chargesCurrent },
     });
+    copiedIds.set(mi.persMagicItemId, created.persMagicItemId);
   }
+  return copiedIds;
+}
 
-  if (pers.magicItems.length > 0) {
-    for (const mi of pers.magicItems) {
-      const created = await tx.persMagicItem.create({
-        data: {
-          persId: newPers.persId,
-          magicItemId: mi.magicItemId,
-          isEquipped: mi.isEquipped,
-          isAttuned: mi.isAttuned,
-        },
-      });
-      magicItemIdMap.set(mi.persMagicItemId, created.persMagicItemId);
-    }
-  }
+async function copyWeaponMasteriesAndMulticlasses(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+  await tx.pers_weapon_mastery.createMany({
+    data: pers.pers_weapon_mastery.map((mastery) => ({ pers_id: persId, weapon_id: mastery.weapon_id })),
+  });
 
-  if (pers.persInfusions.length > 0) {
-    await tx.persInfusion.createMany({
-      data: pers.persInfusions.map((i) => ({
-        persId: newPers.persId,
+  await tx.persMulticlass.createMany({
+    data: pers.multiclasses.map((m) => ({
+      persId,
+      classId: m.classId,
+      classLevel: m.classLevel,
+      subclassId: m.subclassId,
+    })),
+  });
+}
+
+async function copyInfusions(tx: TransactionClient, pers: PersCloneSource, persId: number, copiedRowIds: CopiedRowIds) {
+  const copiedIds = new Map<number, number>();
+  for (const i of pers.persInfusions) {
+    const created = await tx.persInfusion.create({
+      data: {
+        persId,
         infusionId: i.infusionId,
-        persArmorId: i.persArmorId ? (armorIdMap.get(i.persArmorId) ?? null) : null,
-        persWeaponId: i.persWeaponId ? (weaponIdMap.get(i.persWeaponId) ?? null) : null,
-        persMagicItemId: i.persMagicItemId ? (magicItemIdMap.get(i.persMagicItemId) ?? null) : null,
+        persArmorId: i.persArmorId ? (copiedRowIds.armors.get(i.persArmorId) ?? null) : null,
+        persWeaponId: i.persWeaponId ? (copiedRowIds.weapons.get(i.persWeaponId) ?? null) : null,
+        persMagicItemId: i.persMagicItemId ? (copiedRowIds.magicItems.get(i.persMagicItemId) ?? null) : null,
         expiresAt: i.expiresAt,
-      })),
+      },
     });
+    copiedIds.set(i.persInfusionId, created.persInfusionId);
   }
+  return copiedIds;
+}
 
-  return newPers;
+async function copyFeatureDescriptions(tx: TransactionClient, pers: PersCloneSource, persId: number, copiedInfusionIds: Map<number, number>) {
+  const rows = pers.featureDescriptions.flatMap((entry) => {
+    const refId = entry.kind === "INFUSION" ? copiedInfusionIds.get(entry.refId) : entry.refId;
+    return refId === undefined ? [] : [{ persId, kind: entry.kind, refId, description: entry.description }];
+  });
+  if (rows.length) await tx.persFeatureDescription.createMany({ data: rows });
+}
+
+async function copyResourcePoolsAndWildshapes(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+  await tx.persResourcePool.createMany({
+    data: pers.resourcePools.map((pool) => ({ persId, poolKey: pool.poolKey, usesRemaining: pool.usesRemaining })),
+  });
+
+  await tx.persWildshape.createMany({
+    data: pers.wildshapes.map((form) => ({
+      persId,
+      creatureKey: form.creatureKey,
+      ruleset: form.ruleset,
+      sortOrder: form.sortOrder,
+      notes: form.notes,
+      currentHp: form.currentHp,
+      isActive: form.isActive,
+    })),
+  });
+
+  await tx.persEffect.createMany({
+    data: pers.effects.map((effect) => ({
+      persId,
+      effectKey: effect.effectKey,
+      spellId: effect.spellId,
+      homebrewEntryId: effect.homebrewEntryId,
+      endsWithConcentration: effect.endsWithConcentration,
+    })),
+  });
+}
+
+async function copyBastion(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+  if (!pers.bastion) return;
+
+  await tx.persBastion.create({
+    data: {
+      persId,
+      name: pers.bastion.name,
+      description: pers.bastion.description,
+      notes: pers.bastion.notes,
+      isMaintaining: pers.bastion.isMaintaining,
+      facilities: {
+        create: pers.bastion.facilities.map((facility) => ({
+          facilitySlug: facility.facilitySlug,
+          space: facility.space,
+          currentOrder: facility.currentOrder,
+          defenders: facility.defenders,
+          hirelings: facility.hirelings,
+          notes: facility.notes,
+        })),
+      },
+      turns: { create: pers.bastion.turns.map((turn) => ({ turnNumber: turn.turnNumber, entry: turn.entry })) },
+    },
+  });
 }

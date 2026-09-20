@@ -6,15 +6,20 @@
  */
 
 import type { Prisma, PrismaClient, Ruleset } from "@prisma/client";
+import { calculatePersProficiencies } from "@/lib/logic/pers-proficiencies";
 import { findMainClassLevel } from "@/rules/hit-dice";
 import {
   type MasteryClassOffer,
   type MasteryWeapon,
+  type WeaponProficiencyGrant,
+  NO_WEAPON_PROFICIENCY,
   countFeatMasterySlots,
   findWeaponMasteryCapacity,
-  findWeaponMasteryOptionsForClasses,
+  findWeaponMasteryOptionsForCharacter,
   limitWeaponMasteryChoice,
+  toWeaponProficiencyGrant,
 } from "@/rules/weapon-mastery";
+import { PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
 
 type DatabaseClient = PrismaClient | Prisma.TransactionClient;
 
@@ -47,7 +52,7 @@ export async function findCreationWeaponMasteryOffer(
   if (!characterClass) return emptyOffer();
 
   const weapons = await findMasteryWeapons(client, input.ruleset);
-  return buildOffer([{ row: characterClass, classLevel: 1 }], weapons, []);
+  return buildOffer({ classes: [{ row: characterClass, classLevel: 1 }], weapons, selectedWeaponIds: [] });
 }
 
 /** Пул листа персонажа й підвищення рівня: усі класи персонажа зі своїми рівнями. */
@@ -55,31 +60,37 @@ export async function findPersWeaponMasteryOffer(
   client: DatabaseClient,
   persId: number,
 ): Promise<WeaponMasteryOffer> {
-  const pers = await client.pers.findUnique({
-    where: { persId },
-    select: {
-      level: true,
-      ruleset: true,
-      class: { select: MASTERY_CLASS_SELECT },
-      multiclasses: { select: { classLevel: true, class: { select: MASTERY_CLASS_SELECT } } },
-      feats: { select: { feat: { select: { name: true } } } },
-      pers_weapon_mastery: { select: { weapon_id: true }, orderBy: { pers_weapon_mastery_id: "asc" } },
-    },
-  });
+  const pers = await loadMasteryPers(client, persId);
   if (!pers) return emptyOffer();
 
-  const classes = [
-    { row: pers.class, classLevel: findMainClassLevel(pers.level, pers.multiclasses) },
-    ...pers.multiclasses.map((entry) => ({ row: entry.class, classLevel: entry.classLevel })),
-  ];
   const weapons = await findMasteryWeapons(client, pers.ruleset);
 
-  return buildOffer(
-    classes,
+  return buildOffer({
+    classes: [
+      { row: pers.class, classLevel: findMainClassLevel(pers.level, pers.multiclasses) },
+      ...pers.multiclasses.map((entry) => ({ row: entry.class, classLevel: entry.classLevel })),
+    ],
     weapons,
-    pers.pers_weapon_mastery.map((entry) => entry.weapon_id),
-    countFeatMasterySlots(pers.feats.map((entry) => entry.feat.name)),
-  );
+    selectedWeaponIds: pers.pers_weapon_mastery.map((entry) => entry.weapon_id),
+    featSlots: countFeatMasterySlots(pers.feats.map((entry) => entry.feat.name)),
+    proficiency: toWeaponProficiencyGrant(calculatePersProficiencies(pers)),
+  });
+}
+
+/** Підвищення рівня рахує пул на клієнті, тож володіння зброєю з усіх джерел приходять звідси. */
+export async function findPersWeaponProficiency(client: DatabaseClient, persId: number): Promise<WeaponProficiencyGrant> {
+  const pers = await loadMasteryPers(client, persId);
+  return pers ? toWeaponProficiencyGrant(calculatePersProficiencies(pers)) : NO_WEAPON_PROFICIENCY;
+}
+
+function loadMasteryPers(client: DatabaseClient, persId: number) {
+  return client.pers.findUnique({
+    where: { persId },
+    include: {
+      ...PERS_SHEET_INCLUDE,
+      pers_weapon_mastery: { include: { weapon: true }, orderBy: { pers_weapon_mastery_id: "asc" } },
+    },
+  });
 }
 
 /**
@@ -105,16 +116,20 @@ export async function replacePersWeaponMastery(
   return kept;
 }
 
-function buildOffer(
-  classes: Array<{ row: MasteryClassRow; classLevel: number }>,
-  weapons: OfferedMasteryWeapon[],
-  selectedWeaponIds: number[],
-  featSlots = 0,
-): WeaponMasteryOffer {
-  const capacity = findWeaponMasteryCapacity(toClassOffers(classes), featSlots);
+type OfferInput = {
+  classes: Array<{ row: MasteryClassRow; classLevel: number }>;
+  weapons: OfferedMasteryWeapon[];
+  selectedWeaponIds: number[];
+  featSlots?: number;
+  proficiency?: WeaponProficiencyGrant;
+};
+
+function buildOffer({ classes, weapons, selectedWeaponIds, featSlots = 0, proficiency = NO_WEAPON_PROFICIENCY }: OfferInput): WeaponMasteryOffer {
+  const classOffers = toClassOffers(classes);
+  const capacity = findWeaponMasteryCapacity(classOffers, featSlots);
   if (capacity === 0) return emptyOffer();
 
-  const options = findWeaponMasteryOptionsForClasses(toClassOffers(classes), weapons);
+  const options = findWeaponMasteryOptionsForCharacter({ classes: classOffers, featSlots, proficiency }, weapons);
   return { capacity, options, selectedWeaponIds };
 }
 

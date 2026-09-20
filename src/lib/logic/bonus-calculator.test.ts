@@ -17,6 +17,8 @@ import {
   calculateWeaponAttackBonus,
   calculateWeaponDamageBonus,
   calculateWeaponDamageDice,
+  findWeaponDamageType,
+  findWeaponRange,
 } from "./bonus-calculator";
 
 type PersDraft = {
@@ -391,5 +393,45 @@ describe("KR31.6 — кубик Бойових мистецтв на зброї"
 
   it("ручний кубик гравця перемагає", () => {
     expect(calculateWeaponDamageDice(monk("UNARMORED_DEFENSE_MONK"), { ...quarterstaff, customDamageDice: "2d4" } as never)).toBe("2d4");
+  });
+
+  it("кубик, скопійований з каталогу діалогом «Додати зброю», ручним не вважається", () => {
+    expect(calculateWeaponDamageDice(monk("UNARMORED_DEFENSE_MONK"), { ...quarterstaff, customDamageDice: "1d6" } as never)).toBe("1d8");
+  });
+
+  it("беззбройний удар Монаха 4 2014, доданий діалогом, б'є 1к4", () => {
+    const monk2014 = buildPers({
+      level: 4,
+      ruleset: "RULES_2014",
+      str: 8,
+      dex: 18,
+      wearsShield: false,
+      class: { name: "MONK_2014", features: [{ levelGranted: 1, feature: { featureId: 1, engName: "Martial Arts" } }] },
+      armors: [{ equipped: true, armor: { name: "UNARMORED_DEFENSE_MONK" } }],
+    } as never);
+    const unarmedStrike = { customDamageDice: "1", weapon: { name: "UNARMED_STRIKE", weaponType: "SIMPLE_WEAPON", properties: [], isRanged: false, damage: "1" } };
+    expect(calculateWeaponDamageDice(monk2014, unarmedStrike as never)).toBe("1d4");
+  });
+});
+
+describe("KR31.13 — тип шкоди й дальність зброї з налаштування", () => {
+  const dagger = { weapon: { damageType: "PIERCING", normalRange: 20, longRange: 60 } };
+
+  it("без налаштування беруться книжні тип шкоди й дальність", () => {
+    expect(findWeaponDamageType(dagger as never)).toBe("PIERCING");
+    expect(findWeaponRange(dagger as never)).toEqual({ normal: 20, long: 60 });
+  });
+
+  it("налаштування гравця перемагає книжні значення", () => {
+    const frostDagger = { ...dagger, overrideDamageType: "COLD", overrideNormalRange: 30, overrideLongRange: 90 };
+
+    expect(findWeaponDamageType(frostDagger as never)).toBe("COLD");
+    expect(findWeaponRange(frostDagger as never)).toEqual({ normal: 30, long: 90 });
+  });
+
+  it("зброя ближнього бою без дальності не має дальності", () => {
+    const longsword = { weapon: { damageType: "SLASHING", normalRange: null, longRange: null } };
+
+    expect(findWeaponRange(longsword as never)).toBeNull();
   });
 });

@@ -21,15 +21,18 @@ import {
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { buildHitDicePools, findMainClassLevel } from "@/rules/hit-dice";
-import { Classes, Ability, AbilityBonusType, Skills, SkillProficiencyType } from "@prisma/client";
-import { PDFDocument, PDFName, PDFString, PDFTextField, type PDFFont, type PDFPage, type PDFForm, TextAlignment } from "pdf-lib";
+import { Ability, AbilityBonusType, Skills, SkillProficiencyType } from "@prisma/client";
+import { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName, PDFString, PDFTextField, rgb, type PDFFont, type PDFPage, type PDFForm } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
 
-import { armorTranslations, backgroundTranslations, classTranslations, raceTranslations, weaponTranslations, abilityTranslations, damageTypeTranslations } from "@/lib/refs/translation";
+import { armorTranslations, backgroundTranslations, classTranslations, weaponTranslations, abilityTranslations, damageTypeTranslations } from "@/lib/refs/translation";
+import { weaponMasteryNames } from "@/lib/refs/weapon-mastery";
+import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+import { buildPersSpeciesName } from "@/lib/logic/pers-species-name";
 import { translatePdfText } from "./translatePdfText";
 import { buildProficiencyAndLanguageText } from "./proficiencyLanguageText";
-import { calculatePersProficiencies, formatPersProficiencyLines } from "@/lib/logic/pers-proficiencies";
+import { appendMissingProficiencies, calculatePersProficiencies } from "@/lib/logic/pers-proficiencies";
 
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
@@ -39,11 +42,18 @@ import { createLogger, hashPII } from "@/server/logging/logger";
 import { formatBytes, withStep } from "@/server/logging/perf";
 
 import type { CharacterPdfData, PersSpellWithSpell, PrintConfig, PrintSection } from "./types";
-import { CHARACTER_SHEET_OVERLAY, type OverlayFieldKey, type OverlayText } from "./overlayLayout";
+import { collectSheetPdfSpells } from "./sheet-pdf-spells";
+import {
+  SPELL_SHEET_HEADER_FIELDS,
+  SPELL_SHEET_ROWS,
+  SPELL_SHEET_SLOT_FIELDS,
+  paginateSpellsByLevel,
+} from "./spellSheetLayout";
 import { generateSpellsPdfBytes } from "./spellsPdf";
 import { generateFeaturesPdfBytes } from "./featuresPdf";
 import { generateMagicItemsPdfBytes } from "./magicItemsPdf";
 import { generateCreaturesPdfBytes } from "./creaturesPdf";
+import { collectPrintableWeaponMasteries } from "./weaponMasteryPrint";
 import { findAttachedForms } from "@/server/db/wildshape";
 import { findAttacksPerAction } from "@/rules/attacks-per-action";
 import { findSpellcastingSources } from "@/rules/spell-sources";
@@ -52,6 +62,7 @@ import { collectSpellcastingClasses } from "@/server/db/spell-sources";
 import {
   formatEquipmentText,
   groupPrintableWeaponAttacks,
+  type GroupedPrintableWeaponAttack,
   type PrintableWeaponAttack,
 } from "./equipmentPrint";
 
@@ -68,8 +79,6 @@ type PersExtraFields = {
   deathSaveSuccesses?: number | null;
   deathSaveFailures?: number | null;
   isDead?: boolean | null;
-  backstory?: string | null;
-  notes?: string | null;
   customProficiencies?: string | null;
   customLanguagesKnown?: string | null;
   additionalSaveProficiencies?: Ability[] | null;
@@ -87,7 +96,6 @@ function ensureTextFieldHasDA(form: PDFForm, fieldName: string) {
   // Some fields in the template have no /DA, which makes pdf-lib throw on setFontSize.
   // AcroForm has a valid /DA (e.g. /Helv 0 Tf 0 g), so we copy it to the field.
   try {
-    const anyForm = form as any;
     const anyField = field as any;
     const hasFieldDA = anyField?.acroField?.dict?.lookup?.(PDFName.of("DA"));
 
@@ -146,64 +154,6 @@ function compactDiceSum(value: string): string {
     .trim();
 }
 
-function multilineDiceSum(value: string): string {
-  // Use multiple lines when the field is tall enough.
-  const parts = String(value ?? "")
-    .split("+")
-    .map((p) => p.trim())
-    .filter(Boolean);
-  if (parts.length <= 1) return String(value ?? "").trim();
-  return parts.join("\n+");
-}
-
-function compressDiceExpression(value: string): string {
-  const raw = compactDiceSum(String(value ?? ""));
-  if (!raw) return "";
-
-  // Accept both Latin d and Ukrainian к.
-  const re = /(\d+)\s*(?:к|d|D)\s*(\d+)/g;
-
-  const order: number[] = [];
-  const counts = new Map<number, number>();
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(raw))) {
-    const count = Number(m[1]);
-    const die = Number(m[2]);
-    if (!Number.isFinite(count) || !Number.isFinite(die) || count <= 0 || die <= 0) continue;
-    if (!counts.has(die)) order.push(die);
-    counts.set(die, (counts.get(die) ?? 0) + count);
-  }
-
-  if (order.length === 0) return raw;
-  return order
-    .map((die) => ({ die, count: counts.get(die) ?? 0 }))
-    .filter((x) => x.count > 0)
-    .map((x) => `${x.count}к${x.die}`)
-    .join("+");
-}
-
-function truncateText(value: string, maxLen: number): string {
-  const raw = String(value ?? "").trim();
-  if (raw.length <= maxLen) return raw;
-  return raw.slice(0, Math.max(0, maxLen - 1)).trimEnd() + "…";
-}
-
-function formatHitDicePerClassLines(chunks: Array<{ current: number; max: number; die: number }>): string {
-  const safeChunks = (chunks ?? [])
-    .map((c) => ({
-      current: Number.isFinite(c.current) ? Math.max(0, Math.trunc(c.current)) : 0,
-      max: Number.isFinite(c.max) ? Math.max(0, Math.trunc(c.max)) : 0,
-      die: Number.isFinite(c.die) ? Math.max(0, Math.trunc(c.die)) : 0,
-    }))
-    .filter((c) => c.max > 0 && c.die > 0);
-
-  // Keep it short: one line per class chunk. Example: 1/2к8
-  // Limit to 3 lines to avoid overlapping other PDF content.
-  const lines = safeChunks.slice(0, 3).map((c) => `${c.current}/${c.max}к${c.die}`);
-  if (safeChunks.length > 3) lines.push("…");
-  return lines.join("\n");
-}
-
 function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
   const parts: string[] = [];
 
@@ -226,16 +176,41 @@ function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
   return parts.filter(Boolean).join("\n");
 }
 
-function buildArmorAndShieldText(pers: CharacterPdfData["pers"]): string {
-  const lines: string[] = [];
+function buildAttacksSpellcastingText(
+  pers: CharacterPdfData["pers"],
+  overflowWeapons: GroupedPrintableWeaponAttack[]
+): string {
+  return [
+    ...buildAttacksPerActionLines(pers),
+    ...buildOverflowWeaponLines(overflowWeapons),
+    ...buildWeaponMasteryLines(pers),
+    buildArmorAndShieldText(pers),
+  ].join("\n");
+}
 
+function buildAttacksPerActionLines(pers: CharacterPdfData["pers"]): string[] {
   const attacksPerAction = findAttacksPerAction(
     pers.ruleset,
     (pers.features ?? []).map((entry) => entry.feature.engName),
   );
-  if (attacksPerAction !== null && attacksPerAction > 1) {
-    lines.push(`Атак за дію: ${attacksPerAction}`);
-  }
+  return attacksPerAction !== null && attacksPerAction > 1 ? [`Атак за дію: ${attacksPerAction}`] : [];
+}
+
+function buildOverflowWeaponLines(overflowWeapons: GroupedPrintableWeaponAttack[]): string[] {
+  if (overflowWeapons.length === 0) return [];
+  return ["Ще зброя:", ...overflowWeapons.map((weapon) => `· ${formatWeaponName(weapon)}: ${weapon.attackBonus}, ${weapon.damage}`)];
+}
+
+function buildWeaponMasteryLines(pers: CharacterPdfData["pers"]): string[] {
+  const mastered = (pers.pers_weapon_mastery ?? []).map((entry) => {
+    const name = translateFromMap(weaponTranslations, entry.weapon.name);
+    return entry.weapon.mastery ? `${name} (${weaponMasteryNames[entry.weapon.mastery]})` : name;
+  });
+  return mastered.length > 0 ? [`Майстерність зброї: ${mastered.join(", ")}`] : [];
+}
+
+function buildArmorAndShieldText(pers: CharacterPdfData["pers"]): string {
+  const lines: string[] = [];
 
   const uaAbilityShort: Record<string, string> = {
     STR: "Сил",
@@ -395,23 +370,28 @@ function getWeaponDamageBonus(pers: CharacterPdfData["pers"], weapon: CharacterP
   return calculateWeaponDamageBonus(pers as any, weapon);
 }
 
-function fillWeapons(form: PDFForm, pers: CharacterPdfData["pers"]) {
-  const attacks = (pers.weapons ?? []).map((weapon) => buildPrintableWeaponAttack(pers, weapon));
-  const weapons = groupPrintableWeaponAttacks(attacks);
-  const slots = [
-    { name: "Wpn Name", atk: "Wpn1 AtkBonus", dmg: "Wpn1 Damage" },
-    { name: "Wpn Name 2", atk: "Wpn2 AtkBonus ", dmg: "Wpn2 Damage " },
-    { name: "Wpn Name 3", atk: "Wpn3 AtkBonus  ", dmg: "Wpn3 Damage " },
-  ];
+const WEAPON_SLOTS = [
+  { name: "Wpn Name", atk: "Wpn1 AtkBonus", dmg: "Wpn1 Damage" },
+  { name: "Wpn Name 2", atk: "Wpn2 AtkBonus ", dmg: "Wpn2 Damage " },
+  { name: "Wpn Name 3", atk: "Wpn3 AtkBonus  ", dmg: "Wpn3 Damage " },
+];
 
-  for (let i = 0; i < slots.length; i++) {
-    const weapon = weapons[i];
-    if (!weapon) continue;
-    const displayName = weapon.quantity === 1 ? weapon.name : `${weapon.name} ×${weapon.quantity}`;
-    setTextIfPresent(form, slots[i].name, displayName);
-    setTextIfPresent(form, slots[i].atk, weapon.attackBonus);
-    setTextIfPresent(form, slots[i].dmg, weapon.damage);
-  }
+function collectPrintableWeaponAttacks(pers: CharacterPdfData["pers"]): GroupedPrintableWeaponAttack[] {
+  return groupPrintableWeaponAttacks((pers.weapons ?? []).map((weapon) => buildPrintableWeaponAttack(pers, weapon)));
+}
+
+function fillWeaponSlots(form: PDFForm, weapons: GroupedPrintableWeaponAttack[]) {
+  WEAPON_SLOTS.forEach((slot, index) => {
+    const weapon = weapons[index];
+    if (!weapon) return;
+    setTextIfPresent(form, slot.name, formatWeaponName(weapon));
+    setTextIfPresent(form, slot.atk, weapon.attackBonus);
+    setTextIfPresent(form, slot.dmg, weapon.damage);
+  });
+}
+
+function formatWeaponName(weapon: GroupedPrintableWeaponAttack): string {
+  return weapon.quantity === 1 ? weapon.name : `${weapon.name} ×${weapon.quantity}`;
 }
 
 function buildPrintableWeaponAttack(
@@ -442,14 +422,13 @@ function normalizePrintConfig(config: PrintConfig | null | undefined): PrintConf
   return { sections, flattenCharacterSheet: config?.flattenCharacterSheet ?? true };
 }
 
-function groupPersSpellsByLevel(persSpells: PersSpellWithSpell[]): Record<number, PersSpellWithSpell[]> {
-  const out: Record<number, PersSpellWithSpell[]> = {};
-  for (const ps of persSpells ?? []) {
-    const level = ps.spell?.level ?? 0;
-    if (!out[level]) out[level] = [];
-    out[level].push(ps);
+function groupPersSpellsByLevel(persSpells: PersSpellWithSpell[]): Map<number, PersSpellWithSpell[]> {
+  const spellsByLevel = new Map<number, PersSpellWithSpell[]>();
+  for (const persSpell of persSpells) {
+    const level = persSpell.spell.level;
+    spellsByLevel.set(level, [...(spellsByLevel.get(level) ?? []), persSpell]);
   }
-  return out;
+  return spellsByLevel;
 }
 
 interface TwoLineResult {
@@ -460,10 +439,6 @@ interface TwoLineResult {
 function translateFromMap(map: Record<string, string>, value: Maybe<string>): string {
   if (!value) return "";
   return map[value] ?? value;
-}
-
-function translateRaceName(value: Maybe<string>): string {
-  return translateFromMap(raceTranslations as unknown as Record<string, string>, value);
 }
 
 function translateClassName(value: Maybe<string>): string {
@@ -585,17 +560,9 @@ function setMultilineTextIfPresent(form: PDFForm, name: string, value: string) {
     // ignore
   }
   try {
-    field.setText(value ?? "");
+    field.setText(stripGlossaryMarkers(value ?? ""));
   } catch {
     // ignore
-  }
-}
-
-function tryGetCheckBox(form: PDFForm, name: string) {
-  try {
-    return form.getCheckBox(name);
-  } catch {
-    return null;
   }
 }
 
@@ -610,7 +577,7 @@ function setTextFieldWithOverflow(
   const field = tryGetTextField(form, name);
   if (!field) return;
 
-  const { line1, line2 } = splitTextTwoLines(value, font, fontSize, maxWidth);
+  const { line1, line2 } = splitTextTwoLines(stripGlossaryMarkers(value), font, fontSize, maxWidth);
 
   if (line2) {
     try {
@@ -626,20 +593,9 @@ function setTextFieldWithOverflow(
 
 function setTextIfPresent(form: PDFForm, name: string, value: string) {
   try {
-    form.getTextField(name).setText(value ?? "");
+    form.getTextField(name).setText(stripGlossaryMarkers(value ?? ""));
   } catch {
     return;
-  }
-}
-
-function setTextForFirstPresent(form: PDFForm, names: string[], value: string) {
-  for (const name of names) {
-    try {
-      form.getTextField(name).setText(value ?? "");
-      return;
-    } catch {
-      // continue
-    }
   }
 }
 
@@ -779,89 +735,58 @@ function getSpellSlots(pers: CharacterPdfData["pers"], level: number): { standar
   return { standard, pact };
 }
 
-function formatSpellSlots(standard: number, pact: number): string {
-  if (standard > 0 && pact > 0) return `${standard} + ${pact}`;
-  if (pact > 0) return String(pact);
-  if (standard > 0) return String(standard);
-  return "";
+type SpellSlotTexts = { total: string; remaining: string };
+
+function formatSpellSlotTexts({ standard, pact }: { standard: number; pact: number }): SpellSlotTexts {
+  if (pact === 0) return { total: standard > 0 ? String(standard) : "", remaining: "" };
+  if (standard === 0) return { total: String(pact), remaining: PACT_SLOT_NOTE };
+  return { total: String(standard), remaining: `+${pact} ${PACT_SLOT_NOTE}` };
 }
 
-function fillSpellSheet(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
-  const { pers, spellsByLevel } = data;
+const PACT_SLOT_NOTE = "пакт · кор. відп.";
+const SPELL_NAME_FONT_SIZE = 9;
+const SPELL_SHEET_HEADER_FONT_SIZE = 11;
+const PACT_SLOT_NOTE_FONT_SIZE = 7;
 
-  // Header
-  setTextForFirstPresent(form, ["Spellcasting Class 2", "SpellcastingClass"], buildClassLevelString(pers));
-  trySetFontSize(form, "Spellcasting Class 2", 11);
+function fillSpellSheetPage(form: PDFForm, pers: CharacterPdfData["pers"], spellsOnPage: Map<number, PersSpellWithSpell[]>, isFirstPage: boolean) {
+  fillSpellSheetHeader(form, pers);
+  if (isFirstPage) fillSpellSlots(form, pers);
+  fillSpellRows(form, spellsOnPage);
+}
+
+function fillSpellSheetHeader(form: PDFForm, pers: CharacterPdfData["pers"]) {
+  setSpellSheetHeaderText(form, SPELL_SHEET_HEADER_FIELDS.spellcastingClass, buildClassLevelString(pers));
 
   const ability = getSpellcastingAbility(pers);
-  if (ability) {
-    const abilityName = abilityTranslations[ability] || ability;
-    setTextForFirstPresent(form, ["SpellcastingAbility 2", "Spellcasting Ability 2", "SpellcastingAbility"], abilityName);
-    trySetFontSize(form, "SpellcastingAbility 2", 11);
-    
-    const dc = calculateSpellDC(pers, ability);
-    setTextForFirstPresent(form, ["SpellSaveDC  2", "Spell Save DC  2", "SpellSaveDC"], safeText(dc));
-    trySetFontSize(form, "SpellSaveDC  2", 11);
+  if (!ability) return;
+  setSpellSheetHeaderText(form, SPELL_SHEET_HEADER_FIELDS.spellcastingAbility, abilityTranslations[ability] || ability);
+  setSpellSheetHeaderText(form, SPELL_SHEET_HEADER_FIELDS.spellSaveDc, safeText(calculateSpellDC(pers, ability)));
+  setSpellSheetHeaderText(form, SPELL_SHEET_HEADER_FIELDS.spellAttackBonus, formatModifier(calculateSpellAttack(pers, ability)));
+}
 
-    const bonus = calculateSpellAttack(pers, ability);
-    setTextForFirstPresent(form, ["SpellAtkBonus 2", "Spell Attack Bonus 2", "SpellAttackBonus"], formatModifier(bonus));
-    trySetFontSize(form, "SpellAtkBonus 2", 11);
+function setSpellSheetHeaderText(form: PDFForm, name: string, value: string) {
+  setTextIfPresent(form, name, value);
+  trySetFontSize(form, name, SPELL_SHEET_HEADER_FONT_SIZE);
+}
+
+function fillSpellSlots(form: PDFForm, pers: CharacterPdfData["pers"]) {
+  for (const [level, fields] of Object.entries(SPELL_SHEET_SLOT_FIELDS)) {
+    const texts = formatSpellSlotTexts(getSpellSlots(pers, Number(level)));
+    if (texts.total) setTextIfPresent(form, fields.total, texts.total);
+    if (!texts.remaining) continue;
+    setTextIfPresent(form, fields.remaining, texts.remaining);
+    trySetFontSize(form, fields.remaining, PACT_SLOT_NOTE_FONT_SIZE);
   }
+}
 
-  const spellFontSize = 9;
-
-  // Spells
-  // Рівень 0
-  const cantrips = spellsByLevel[0] || [];
-  const cantripNames = ["Spells 1014", "Spells 1016", "Spells 1017", "Spells 1018", "Spells 1019", "Spells 1020", "Spells 1021", "Spells 1022"];
-  cantrips.forEach((ps, i) => {
-    if (i < cantripNames.length) {
-      const fieldName = cantripNames[i];
-      setTextIfPresent(form, fieldName, ps.spell.name);
-      trySetFontSize(form, fieldName, spellFontSize);
-    }
-  });
-
-  // Рівні 1-9
-  const levelNamesMap: Record<number, string[]> = {
-    1: ["Spells 1015", "Spells 1023", "Spells 1024", "Spells 1025", "Spells 1026", "Spells 1027", "Spells 1028", "Spells 1029", "Spells 1030", "Spells 1031", "Spells 1032", "Spells 1033"],
-    2: ["Spells 1046", "Spells 1034", "Spells 1035", "Spells 1036", "Spells 1037", "Spells 1038", "Spells 1039", "Spells 1040", "Spells 1041", "Spells 1042", "Spells 1043", "Spells 1044", "Spells 1045"],
-    3: ["Spells 1048", "Spells 1047", "Spells 1049", "Spells 1050", "Spells 1051", "Spells 1052", "Spells 1053", "Spells 1054", "Spells 1055", "Spells 1056", "Spells 1057", "Spells 1058", "Spells 1059"],
-    4: ["Spells 1061", "Spells 1060", "Spells 1062", "Spells 1063", "Spells 1064", "Spells 1065", "Spells 1066", "Spells 1067", "Spells 1068", "Spells 1069", "Spells 1070", "Spells 1071", "Spells 1072"],
-    5: ["Spells 1074", "Spells 1073", "Spells 1075", "Spells 1076", "Spells 1077", "Spells 1078", "Spells 1079", "Spells 1080", "Spells 1081"],
-    6: ["Spells 1083", "Spells 1082", "Spells 1084", "Spells 1085", "Spells 1086", "Spells 1087", "Spells 1088", "Spells 1089", "Spells 1090"],
-    7: ["Spells 1092", "Spells 1091", "Spells 1093", "Spells 1094", "Spells 1095", "Spells 1096", "Spells 1097", "Spells 1098", "Spells 1099"],
-    8: ["Spells 10101", "Spells 10100", "Spells 10102", "Spells 10103", "Spells 10104", "Spells 10105", "Spells 10106"],
-    9: ["Spells 10108", "Spells 10107", "Spells 10109", "Spells 101010", "Spells 101011", "Spells 101012", "Spells 101013"],
-  };
-
-  const slotsTotalNamesMap: Record<number, string[]> = {
-    1: ["SlotsTotal 19", "SlotsTotal1"],
-    2: ["SlotsTotal 20", "SlotsTotal2"],
-    3: ["SlotsTotal 21", "SlotsTotal3"],
-    4: ["SlotsTotal 22", "SlotsTotal4"],
-    5: ["SlotsTotal 23", "SlotsTotal5"],
-    6: ["SlotsTotal 24", "SlotsTotal6"],
-    7: ["SlotsTotal 25", "SlotsTotal7"],
-    8: ["SlotsTotal 26", "SlotsTotal8"],
-    9: ["SlotsTotal 27", "SlotsTotal9"],
-  };
-
-  for (let level = 1; level <= 9; level++) {
-    const { standard, pact } = getSpellSlots(pers, level);
-    const slotsText = formatSpellSlots(standard, pact);
-    if (slotsText) {
-      setTextForFirstPresent(form, slotsTotalNamesMap[level], slotsText);
-    }
-
-    const levelSpells = spellsByLevel[level] || [];
-    const names = levelNamesMap[level];
-    levelSpells.forEach((ps, i) => {
-      if (i < names.length) {
-        const fieldName = names[i];
-        setTextIfPresent(form, fieldName, ps.spell.name);
-        trySetFontSize(form, fieldName, spellFontSize);
-      }
+function fillSpellRows(form: PDFForm, spellsOnPage: Map<number, PersSpellWithSpell[]>) {
+  for (const [level, spells] of spellsOnPage) {
+    const rows = SPELL_SHEET_ROWS[level as keyof typeof SPELL_SHEET_ROWS];
+    spells.forEach((persSpell, index) => {
+      const row = rows[index];
+      setTextIfPresent(form, row.nameField, persSpell.spell.name);
+      trySetFontSize(form, row.nameField, SPELL_NAME_FONT_SIZE);
+      if (row.preparedCheckBox) setCheckIfPresent(form, row.preparedCheckBox, persSpell.isPrepared);
     });
   }
 }
@@ -922,8 +847,6 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
     "Equipment",
     "Features and Traits",
     "AttacksSpellcasting",
-    "Backstory",
-    "Notes",
     "Proficiencies",
     "Languages",
     "ProficienciesLang",
@@ -1000,7 +923,7 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
         value = buildClassLevelString(pers);
         break;
       case "Race":
-        value = translateRaceName(pers.race?.name);
+        value = buildPersSpeciesName(pers);
         candidates = ["Race", "Race "];
         break;
       case "PlayerName":
@@ -1063,12 +986,13 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   setMultilineTextIfPresent(form, "Bonds", safeText(pers.bonds));
   setMultilineTextIfPresent(form, "Flaws", safeText(pers.flaws));
 
-  setMultilineTextIfPresent(form, "Backstory", safeText(extras.backstory));
-  setMultilineTextIfPresent(form, "Notes", safeText(extras.notes));
+  const proficiencyText = appendMissingProficiencies(
+    { proficiencies: safeText(extras.customProficiencies), languages: safeText(extras.customLanguagesKnown) },
+    calculatePersProficiencies(pers),
+  );
   const profAndLang = buildProficiencyAndLanguageText({
-    derived: formatPersProficiencyLines(calculatePersProficiencies(pers)),
-    customProficiencies: safeText(extras.customProficiencies),
-    customLanguages: safeText(extras.customLanguagesKnown),
+    customProficiencies: proficiencyText.proficiencies,
+    customLanguages: proficiencyText.languages,
     darkvisionRange: calculateDarkvisionRange(pers),
     damageResistances: calculateDamageResistances(pers).map((type) => damageTypeTranslations[type] ?? type),
   });
@@ -1077,8 +1001,8 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
     setMultilineTextIfPresent(form, name, profAndLang);
   }
 
-  // Weapons (3 rows)
-  fillWeapons(form, pers);
+  const weaponAttacks = collectPrintableWeaponAttacks(pers);
+  fillWeaponSlots(form, weaponAttacks.slice(0, WEAPON_SLOTS.length));
 
   // Coins and equipment (armor + shield)
   const equipmentText = buildEquipmentText(pers);
@@ -1094,9 +1018,8 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   const featuresList = buildFeaturesListText(data);
   setMultilineTextIfPresent(form, "Features and Traits", featuresList);
 
-  // Bottom of attacks section: show armors + shield status
-  const armorAndShield = buildArmorAndShieldText(pers);
-  setMultilineTextIfPresent(form, "AttacksSpellcasting", armorAndShield);
+  const attacksSpellcasting = buildAttacksSpellcastingText(pers, weaponAttacks.slice(WEAPON_SLOTS.length));
+  setMultilineTextIfPresent(form, "AttacksSpellcasting", attacksSpellcasting);
 
   try {
     ensureAllTextFieldsHaveDA(form);
@@ -1104,108 +1027,6 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   } catch {
     // Some PDF viewers may still show values without refreshed appearances.
     // Don't abort generation; the caller may still flatten successfully.
-  }
-}
-
-interface CreatedFieldDef {
-  key: OverlayFieldKey;
-  value: string;
-  needsOverflow?: boolean;
-}
-
-function createTextFieldOnPage(
-  form: PDFForm,
-  page: PDFPage,
-  name: string,
-  rect: OverlayText,
-  value: string,
-  font: PDFFont,
-  needsTwoLines: boolean = false
-) {
-  const lineHeight = rect.height;
-  let adjustedY = rect.y;
-  let adjustedHeight = rect.height;
-
-  if (needsTwoLines) {
-    adjustedHeight = rect.height * 2;
-    adjustedY = rect.y - rect.height;
-  }
-
-  const textField = form.createTextField(name);
-  textField.addToPage(page, {
-    x: rect.x,
-    y: adjustedY,
-    width: rect.width,
-    height: adjustedHeight,
-  });
-
-  if (needsTwoLines) {
-    textField.enableMultiline();
-  }
-
-  textField.setText(value);
-
-  if (rect.align === "center") {
-    textField.setAlignment(TextAlignment.Center);
-  } else if (rect.align === "right") {
-    textField.setAlignment(TextAlignment.Right);
-  } else {
-    textField.setAlignment(TextAlignment.Left);
-  }
-}
-
-function createFieldsFromOverlay(
-  pdfDoc: PDFDocument,
-  form: PDFForm,
-  page: PDFPage,
-  data: CharacterPdfData,
-  font: PDFFont
-) {
-  const { pers } = data;
-  const extras = getPersExtras(pers);
-
-  const fieldDefs: CreatedFieldDef[] = [
-    { key: "characterName", value: safeText(pers.name), needsOverflow: true },
-    { key: "classLevel", value: buildClassLevelString(pers), needsOverflow: true },
-    { key: "background", value: safeText(pers.background?.name) },
-    { key: "playerName", value: safeText(pers.user?.name ?? pers.user?.email), needsOverflow: true },
-    { key: "race", value: safeText(pers.race?.name), needsOverflow: true },
-    { key: "alignment", value: safeText(extras.alignment) },
-    { key: "xp", value: safeText(extras.xp) },
-    { key: "ac", value: safeText(calculateFinalAC(pers)) },
-    { key: "initiative", value: formatModifier(calculateFinalInitiative(pers)) },
-    { key: "speed", value: safeText(calculateFinalSpeed(pers)) },
-    { key: "proficiencyBonus", value: formatModifier(calculateFinalProficiency(pers)) },
-    { key: "hpMax", value: safeText(calculateFinalMaxHP(pers)) },
-    // Don't print current HP and temporary HP
-    // { key: "hpCurrent", value: safeText(pers.currentHp) },
-    // { key: "hpTemp", value: safeText(extras.tempHp ?? 0) },
-  ];
-
-  const abilities: Ability[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
-  for (const ability of abilities) {
-    const score = calculateFinalStat(pers, ability);
-    const mod = calculateFinalModifier(pers, ability);
-    fieldDefs.push({ key: `stat:${ability}:score`, value: safeText(score) });
-    fieldDefs.push({ key: `stat:${ability}:mod`, value: formatModifier(mod) });
-  }
-
-  for (const def of fieldDefs) {
-    const rect = CHARACTER_SHEET_OVERLAY[def.key];
-    if (!rect) continue;
-    if (rect.pageIndex !== 0) continue;
-
-    const fontSize = rect.size ?? 10;
-    const textWidth = font.widthOfTextAtSize(def.value, fontSize);
-    const needsTwoLines = def.needsOverflow && textWidth > rect.width;
-
-    let valueToSet = def.value;
-    if (needsTwoLines) {
-      const { line1, line2 } = splitTextTwoLines(def.value, font, fontSize, rect.width);
-      valueToSet = line2 ? `${line1}\n${line2}` : line1;
-    }
-
-    createTextFieldOnPage(form, page, def.key, rect, valueToSet, font, needsTwoLines);
   }
 }
 
@@ -1266,19 +1087,13 @@ export async function generateCharacterPdf(
     )) ??
     ({ passive: [], actions: [], bonusActions: [], reactions: [] } as unknown as CharacterPdfData["features"]);
 
-  const spellsByLevel = await withStep(
-    "compute.groupSpellsByLevel",
-    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
-    async () => groupPersSpellsByLevel(pers.persSpells ?? [])
-  );
-
   const wildshapeForms = normalized.sections.includes("WILDSHAPES")
     ? (await findAttachedForms(persId)).flatMap((form) => (form.creature ? [form.creature] : []))
     : [];
 
   log.info("data.ready", {
     characterName: pers.name,
-    spellsCount: (pers.persSpells ?? []).length,
+    spellsCount: collectSheetPdfSpells(pers).length,
     featuresCount:
       (features?.passive?.length ?? 0) +
       (features?.actions?.length ?? 0) +
@@ -1288,7 +1103,7 @@ export async function generateCharacterPdf(
     wildshapeFormsCount: wildshapeForms.length,
   });
 
-  const data: CharacterPdfData = { pers, features, spellsByLevel, wildshapeForms };
+  const data: CharacterPdfData = { pers, features, wildshapeForms };
 
   const pdfBytes = await withStep(
     "pdf.generateFromData",
@@ -1306,8 +1121,6 @@ export async function generateCharacterPdfFromData(
   logCtx: CharacterPdfLogContext = {}
 ): Promise<Uint8Array> {
   const normalized = normalizePrintConfig(config);
-
-  const strictSections = process.env.PDF_STRICT_SECTIONS === "1";
 
   const log = createLogger("pdf.character.data").child({
     jobId: logCtx.jobId,
@@ -1356,6 +1169,7 @@ export async function generateCharacterPdfFromData(
       async () => {
         const form = pdfDoc.getForm();
         fillFirstPageUsingExistingFields(form, data, notoSansRegular);
+        if (data.pers.ruleset === "RULES_2024") relabelRaceAsSpecies(pdfDoc.getPage(0), notoSansRegular);
 
         if (normalized.flattenCharacterSheet) {
           try {
@@ -1376,152 +1190,8 @@ export async function generateCharacterPdfFromData(
     }
   }
 
-  // 1.5 Мерджимо DETAILS
-  if (normalized.sections.includes("DETAILS")) {
-    try {
-      const detailsPath = path.resolve(process.cwd(), "public", "CharacterDetails.pdf");
-      const detailsBytes = await fs.readFile(detailsPath);
-      const detailsDoc = await PDFDocument.load(detailsBytes);
-      const pages = await pdfDoc.copyPages(detailsDoc, detailsDoc.getPageIndices());
-      pages.forEach((p) => pdfDoc.addPage(p));
-      log.info("details.added", { pagesCount: pages.length });
-    } catch (err) {
-      log.warn("details.failed", { err });
-      if (strictSections) throw err;
-    }
-  }
-
-  // 2. Мерджимо SPELL_SHEET
-  if (normalized.sections.includes("SPELL_SHEET")) {
-    try {
-      const spellSheetPath = path.resolve(process.cwd(), "public", "CharacterSpells_fixed.pdf");
-      const spellSheetBytes = await fs.readFile(spellSheetPath);
-      const spellSheetDoc = await PDFDocument.load(spellSheetBytes);
-
-      spellSheetDoc.registerFontkit(fontkit);
-      const regularPath = path.resolve(process.cwd(), "public", "fonts", "NotoSans-Regular.ttf");
-      const regularBytes = await fs.readFile(regularPath);
-      const spellSheetFont = await spellSheetDoc.embedFont(regularBytes, { subset: true });
-      
-      const form = spellSheetDoc.getForm();
-      fillSpellSheet(form, data, spellSheetFont);
-
-      try {
-        form.updateFieldAppearances(spellSheetFont);
-      } catch (err) {
-        log.warn("spellSheet.updateAppearances.failed", { err });
-      }
-
-      if (normalized.flattenCharacterSheet) {
-        try {
-          form.flatten();
-        } catch (err) {
-          log.warn("spellSheet.flatten.failed", { err });
-        }
-      }
-
-      const [spellSheetPage] = await pdfDoc.copyPages(spellSheetDoc, [0]);
-      pdfDoc.addPage(spellSheetPage);
-      log.info("spellSheet.added");
-    } catch (err) {
-      log.warn("spellSheet.failed", { err });
-      if (strictSections) throw err;
-    }
-  }
-
-  // 3. Мерджимо FEATURES (як і було)
-  if (normalized.sections.includes("FEATURES")) {
-    const hasAnyFeatureItems =
-      (data.features?.passive?.length ?? 0) +
-        (data.features?.actions?.length ?? 0) +
-        (data.features?.bonusActions?.length ?? 0) +
-        (data.features?.reactions?.length ?? 0) >
-      0;
-
-    if (hasAnyFeatureItems) {
-      try {
-        log.info("features.start", {
-          passive: data.features?.passive?.length ?? 0,
-          actions: data.features?.actions?.length ?? 0,
-          bonusActions: data.features?.bonusActions?.length ?? 0,
-          reactions: data.features?.reactions?.length ?? 0,
-        });
-
-        const featuresPdfBytes = await generateFeaturesPdfBytes(
-          {
-          characterName: data.pers.name ?? "Character",
-          features: data.features,
-          },
-          { jobId: logCtx.jobId, tag: "features" }
-        );
-        log.info("features.generated", { bytes: featuresPdfBytes.byteLength, bytesFmt: formatBytes(featuresPdfBytes.byteLength) });
-        const featuresDoc = await PDFDocument.load(featuresPdfBytes);
-        const pages = await pdfDoc.copyPages(featuresDoc, featuresDoc.getPageIndices());
-        pages.forEach((p) => pdfDoc.addPage(p));
-      } catch (err) {
-        log.warn("features.failed", { err });
-        if (strictSections) throw err;
-      }
-    }
-  }
-
-  // 3. Мерджимо SPELLS (як і було)
-  if (normalized.sections.includes("SPELLS")) {
-    const spellIds = (data.pers.persSpells ?? []).map(ps => ps.spellId).filter((id): id is number => id != null);
-    if (spellIds.length > 0) {
-      try {
-        log.info("spells.start", { spellIdsCount: spellIds.length });
-        const spellsPdfBytes = await generateSpellsPdfBytes(spellIds, { jobId: logCtx.jobId, tag: "spells" });
-        log.info("spells.generated", { bytes: spellsPdfBytes.byteLength, bytesFmt: formatBytes(spellsPdfBytes.byteLength) });
-        const spellsDoc = await PDFDocument.load(spellsPdfBytes);
-        const pages = await pdfDoc.copyPages(spellsDoc, spellsDoc.getPageIndices());
-        pages.forEach((p) => pdfDoc.addPage(p));
-      } catch (err) {
-        log.warn("spells.failed", { err });
-        if (strictSections) throw err;
-      }
-    }
-  }
-
-  // 4. Мерджимо MAGIC ITEMS
-  if (normalized.sections.includes("MAGIC_ITEMS")) {
-    const magicItemIds = (data.pers?.magicItems ?? [])
-      .map((mi) => mi.magicItemId)
-      .filter((id): id is number => id != null);
-
-    if (magicItemIds.length > 0) {
-      try {
-        log.info("magicItems.start", { magicItemIdsCount: magicItemIds.length });
-        const magicItemsPdfBytes = await generateMagicItemsPdfBytes(magicItemIds, { jobId: logCtx.jobId, tag: "magicItems" });
-        log.info("magicItems.generated", { bytes: magicItemsPdfBytes.byteLength, bytesFmt: formatBytes(magicItemsPdfBytes.byteLength) });
-        const magicItemsDoc = await PDFDocument.load(magicItemsPdfBytes);
-        const pages = await pdfDoc.copyPages(magicItemsDoc, magicItemsDoc.getPageIndices());
-        pages.forEach((p) => pdfDoc.addPage(p));
-      } catch (err) {
-        log.warn("magicItems.failed", { err });
-        if (strictSections) throw err;
-      }
-    }
-  }
-
-  if (normalized.sections.includes("WILDSHAPES") && data.wildshapeForms.length > 0) {
-    try {
-      log.info("wildshapes.start", { creatureCount: data.wildshapeForms.length });
-      const wildshapePdfBytes = await generateCreaturesPdfBytes(data.wildshapeForms, {
-        jobId: logCtx.jobId,
-        tag: "wildshapes",
-      });
-      const wildshapeDoc = await PDFDocument.load(wildshapePdfBytes);
-      const pages = await pdfDoc.copyPages(wildshapeDoc, wildshapeDoc.getPageIndices());
-      pages.forEach((page) => pdfDoc.addPage(page));
-      log.info("wildshapes.generated", {
-        bytes: wildshapePdfBytes.byteLength,
-        bytesFmt: formatBytes(wildshapePdfBytes.byteLength),
-      });
-    } catch (err) {
-      log.warn("wildshapes.failed", { err });
-      if (strictSections) throw err;
-    }
+  for (const section of collectRequestedSections(data, normalized, { logCtx, log })) {
+    await appendSection(pdfDoc, section, notoSansRegular, log);
   }
 
   const out = await withStep(
@@ -1532,4 +1202,167 @@ export async function generateCharacterPdfFromData(
 
   log.info("result", { bytes: out.byteLength, bytesFmt: formatBytes(out.byteLength), pages: pdfDoc.getPageCount() });
   return out;
+}
+
+type PdfSectionLogger = ReturnType<typeof createLogger>;
+
+type PdfSection = {
+  title: string;
+  loadDocuments: () => Promise<PDFDocument[]>;
+};
+
+const SECTION_ATTEMPTS = 2;
+
+function collectRequestedSections(
+  data: CharacterPdfData,
+  config: PrintConfig,
+  context: { logCtx: CharacterPdfLogContext; log: PdfSectionLogger }
+): PdfSection[] {
+  const { logCtx, log } = context;
+  const requested = new Set(config.sections);
+  const sections: Array<PdfSection & { isIncluded: boolean }> = [
+    {
+      title: "Бланк подробиць",
+      isIncluded: requested.has("DETAILS"),
+      loadDocuments: async () => [await PDFDocument.load(await readPublicFile("CharacterDetails.pdf"))],
+    },
+    {
+      title: "Лист заклинань",
+      isIncluded: requested.has("SPELL_SHEET"),
+      loadDocuments: () => buildSpellSheetDocuments(data.pers, config.flattenCharacterSheet ?? true, log),
+    },
+    {
+      title: "Здібності",
+      isIncluded:
+        requested.has("FEATURES") && (countFeatureItems(data.features) > 0 || collectPrintableWeaponMasteries(data.pers).length > 0),
+      loadDocuments: () =>
+        loadHtmlSection(() =>
+          generateFeaturesPdfBytes(
+            {
+              characterName: data.pers.name,
+              features: data.features,
+              weaponMasteries: collectPrintableWeaponMasteries(data.pers),
+            },
+            { jobId: logCtx.jobId, tag: "features" }
+          )
+        ),
+    },
+    {
+      title: "Описи заклинань",
+      isIncluded: requested.has("SPELLS") && collectSheetPdfSpells(data.pers).length > 0,
+      loadDocuments: () =>
+        loadHtmlSection(() => generateSpellsPdfBytes(collectSheetPdfSpells(data.pers).map((entry) => entry.spellId), { jobId: logCtx.jobId, tag: "spells" })),
+    },
+    {
+      title: "Магічні предмети",
+      isIncluded: requested.has("MAGIC_ITEMS") && data.pers.magicItems.length > 0,
+      loadDocuments: () =>
+        loadHtmlSection(() =>
+          generateMagicItemsPdfBytes(data.pers.magicItems.map((entry) => entry.magicItemId), { jobId: logCtx.jobId, tag: "magicItems" })
+        ),
+    },
+    {
+      title: "Дикі форми",
+      isIncluded: requested.has("WILDSHAPES") && data.wildshapeForms.length > 0,
+      loadDocuments: () => loadHtmlSection(() => generateCreaturesPdfBytes(data.wildshapeForms, { jobId: logCtx.jobId, tag: "wildshapes" })),
+    },
+  ];
+  return sections.filter((section) => section.isIncluded);
+}
+
+function countFeatureItems(features: CharacterPdfData["features"]): number {
+  return features.passive.length + features.actions.length + features.bonusActions.length + features.reactions.length;
+}
+
+async function loadHtmlSection(generateBytes: () => Promise<Uint8Array>): Promise<PDFDocument[]> {
+  return [await PDFDocument.load(await generateBytes())];
+}
+
+async function appendSection(target: PDFDocument, section: PdfSection, font: PDFFont, log: PdfSectionLogger) {
+  const documents = await loadSectionWithRetry(section, log);
+  if (!documents) {
+    appendSectionFailurePage(target, section.title, font);
+    return;
+  }
+  for (const document of documents) {
+    const pages = await target.copyPages(document, document.getPageIndices());
+    pages.forEach((page) => target.addPage(page));
+  }
+  log.info("section.added", { section: section.title, documents: documents.length });
+}
+
+/** Секцію, яка не зібралася й з другої спроби, замінює видима сторінка, а не мовчазна дірка у файлі. */
+async function loadSectionWithRetry(section: PdfSection, log: PdfSectionLogger): Promise<PDFDocument[] | null> {
+  for (let attempt = 1; attempt <= SECTION_ATTEMPTS; attempt++) {
+    try {
+      return await section.loadDocuments();
+    } catch (err) {
+      log.warn("section.failed", { section: section.title, attempt, err });
+    }
+  }
+  return null;
+}
+
+function appendSectionFailurePage(target: PDFDocument, title: string, font: PDFFont) {
+  const page = target.addPage([612, 792]);
+  page.drawText(`Секцію «${title}» не вдалося сформувати.`, { x: 56, y: 720, size: 16, font, color: rgb(0, 0, 0) });
+  page.drawText("Спробуйте завантажити PDF ще раз.", { x: 56, y: 692, size: 12, font, color: rgb(0.3, 0.3, 0.3) });
+}
+
+async function buildSpellSheetDocuments(pers: CharacterPdfData["pers"], flatten: boolean, log: PdfSectionLogger): Promise<PDFDocument[]> {
+  const [templateBytes, fontBytes] = await Promise.all([
+    readPublicFile("CharacterSpells_fixed.pdf"),
+    readPublicFile("fonts/NotoSans-Regular.ttf"),
+  ]);
+  const pages = paginateSpellsByLevel(groupPersSpellsByLevel(collectSheetPdfSpells(pers)));
+  return Promise.all(
+    pages.map((spellsOnPage, pageIndex) =>
+      buildSpellSheetDocument({ templateBytes, fontBytes, flatten, log }, (form) => fillSpellSheetPage(form, pers, spellsOnPage, pageIndex === 0))
+    )
+  );
+}
+
+async function buildSpellSheetDocument(
+  source: { templateBytes: Uint8Array; fontBytes: Uint8Array; flatten: boolean; log: PdfSectionLogger },
+  fillForm: (form: PDFForm) => void
+): Promise<PDFDocument> {
+  const document = await PDFDocument.load(source.templateBytes);
+  document.registerFontkit(fontkit);
+  const font = await document.embedFont(source.fontBytes, { subset: true });
+  const form = document.getForm();
+  fillForm(form);
+  try {
+    form.updateFieldAppearances(font);
+    if (source.flatten) form.flatten();
+  } catch (err) {
+    source.log.warn("spellSheet.flatten.failed", { err });
+  }
+  return document;
+}
+
+const RACE_LABEL = { text: "Раса", x: 269.156, baselineY: 694.85, size: 8 };
+
+/** Підписи бланка — анотації FreeText поверх сторінки, тож підпис міняється заміною анотації, а не зафарбовуванням. */
+function relabelRaceAsSpecies(page: PDFPage, font: PDFFont) {
+  const annotations = page.node.lookupMaybe(PDFName.of("Annots"), PDFArray);
+  const labelIndex = findFreeTextAnnotationIndex(annotations, RACE_LABEL.text);
+  if (!annotations || labelIndex === null) return;
+  annotations.remove(labelIndex);
+  page.drawText("Вид", { x: RACE_LABEL.x, y: RACE_LABEL.baselineY, size: RACE_LABEL.size, font, color: rgb(0, 0, 0) });
+}
+
+function findFreeTextAnnotationIndex(annotations: PDFArray | undefined, contents: string): number | null {
+  for (let index = 0; index < (annotations?.size() ?? 0); index++) {
+    const annotation = annotations?.lookupMaybe(index, PDFDict);
+    const isFreeText = annotation?.get(PDFName.of("Subtype")) === PDFName.of("FreeText");
+    const text = annotation?.lookupMaybe(PDFName.of("Contents"), PDFString, PDFHexString)?.decodeText();
+    if (isFreeText && text === contents) return index;
+  }
+  return null;
+}
+
+async function readPublicFile(relativePath: string): Promise<Uint8Array> {
+  const fs = await import("fs/promises");
+  const path = await import("path");
+  return fs.readFile(path.resolve(process.cwd(), "public", relativePath));
 }

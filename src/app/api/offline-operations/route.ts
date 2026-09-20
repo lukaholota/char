@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     if (result.ok) {
       applied.push(operation.operationId);
       if (!result.duplicate) touchedPersIds.add(operation.persId);
-    } else {
+    } else if (!result.retry) {
       rejected.push(operation.operationId);
     }
   }

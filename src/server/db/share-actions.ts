@@ -2,10 +2,53 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
 import { randomBytes } from "crypto";
-import { clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
+import { buildCopyTarget, clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
 import { revalidatePath } from "next/cache";
+import { PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
+import { findCurrentUserId } from "@/server/db/current-user";
+
+const TOKEN_ATTEMPTS = 3;
+
+async function saveUniqueToken(save: (token: string) => Promise<void>): Promise<string> {
+  for (let attempt = 1; ; attempt += 1) {
+    const token = randomBytes(16).toString("hex");
+    try {
+      await save(token);
+      return token;
+    } catch (error) {
+      const code = (error as { code?: string })?.code;
+      if (code === "P2002" && attempt < TOKEN_ATTEMPTS) continue;
+      throw error;
+    }
+  }
+}
+
+async function ensureViewToken(persId: number): Promise<string> {
+  const pers = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { shareToken: true } });
+  if (pers.shareToken) return pers.shareToken;
+
+  await saveUniqueToken(async (token) => {
+    await prisma.pers.updateMany({ where: { persId, shareToken: null }, data: { shareToken: token } });
+  });
+
+  const saved = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { shareToken: true } });
+  if (!saved.shareToken) throw new Error(`share token was not saved for pers ${persId}`);
+  return saved.shareToken;
+}
+
+async function ensureEditToken(persId: number): Promise<string> {
+  const existing = await prisma.persShareToken.findFirst({
+    where: { persId, canEdit: true },
+    orderBy: { persShareTokenId: "asc" },
+    select: { token: true }
+  });
+  if (existing) return existing.token;
+
+  return saveUniqueToken(async (token) => {
+    await prisma.persShareToken.create({ data: { persId, token, canEdit: true } });
+  });
+}
 
 async function ensureFolderShareTokens(folderIds: number[]) {
   if (folderIds.length === 0) return;
@@ -15,58 +58,21 @@ async function ensureFolderShareTokens(folderIds: number[]) {
     select: { persId: true }
   });
 
-  if (missing.length === 0) return;
-
   for (const pers of missing) {
-    let attempts = 0;
-    while (attempts < 3) {
-      attempts += 1;
-      const token = randomBytes(16).toString("hex");
-      try {
-        await prisma.pers.update({
-          where: { persId: pers.persId },
-          data: { shareToken: token }
-        });
-        break;
-      } catch (error) {
-        const code = (error as { code?: string })?.code;
-        if (code === "P2002" && attempts < 3) continue;
-        throw error;
-      }
-    }
+    await ensureViewToken(pers.persId);
   }
 }
 
 async function ensureFolderEditTokens(persIds: number[]) {
-  if (persIds.length === 0) return new Map<number, string>();
-
   const existing = await prisma.persShareToken.findMany({
     where: { persId: { in: persIds }, canEdit: true },
     select: { persId: true, token: true }
   });
 
   const tokenMap = new Map(existing.map((row) => [row.persId, row.token]));
-  const missing = persIds.filter((id) => !tokenMap.has(id));
-
-  for (const persId of missing) {
-    let attempts = 0;
-    while (attempts < 3) {
-      attempts += 1;
-      const token = randomBytes(16).toString("hex");
-      try {
-        await prisma.persShareToken.create({
-          data: { persId, token, canEdit: true }
-        });
-        tokenMap.set(persId, token);
-        break;
-      } catch (error) {
-        const code = (error as { code?: string })?.code;
-        if (code === "P2002" && attempts < 3) continue;
-        throw error;
-      }
-    }
+  for (const persId of persIds.filter((id) => !tokenMap.has(id))) {
+    tokenMap.set(persId, await ensureEditToken(persId));
   }
-
   return tokenMap;
 }
 
@@ -93,67 +99,30 @@ async function getFolderTreeIds(rootFolderId: number) {
   return Array.from(collected);
 }
 
-export async function generateShareToken(persId: number) {
-  const session = await auth();
-  if (!session?.user?.email) return { error: "Unauthorized" };
+/// Посилання, яке гравець уже комусь надіслав, мусить жити далі — тому наявні токени лише
+/// читаються, а створюються тільки відсутні.
+export async function ensurePersShareLinks(persId: number) {
+  const refusal = await findShareRefusal(persId);
+  if (refusal) return { success: false as const, error: refusal };
 
   try {
-    const pers = await prisma.pers.findUnique({
-      where: { persId },
-      select: { userId: true }
-    });
-
-    if (!pers) return { error: "Character not found" };
-
-    const user = await prisma.user.findUnique({ where: { email: session.user.email } });
-    if (pers.userId !== user?.id) return { error: "Forbidden" };
-
-    const token = randomBytes(16).toString("hex");
-
-    await prisma.pers.update({
-      where: { persId },
-      data: { shareToken: token }
-    });
-
-    return { success: true, token };
+    const [viewToken, editToken] = await Promise.all([ensureViewToken(persId), ensureEditToken(persId)]);
+    return { success: true as const, viewToken, editToken };
   } catch (error) {
-    console.error("Token generation failed:", error);
-    return { error: "Failed to generate share link" };
+    console.error("Share links failed:", error);
+    return { success: false as const, error: "Не вдалося створити посилання" };
   }
 }
 
-export async function generateEditShareToken(persId: number) {
-  const session = await auth();
-  if (!session?.user?.email) return { error: "Unauthorized" };
+async function findShareRefusal(persId: number): Promise<string | null> {
+  const userId = await findCurrentUserId();
+  if (userId === null) return "Увійдіть, щоб поділитися персонажем";
 
-  try {
-    const pers = await prisma.pers.findUnique({
-      where: { persId },
-      select: { userId: true }
-    });
+  const pers = await prisma.pers.findUnique({ where: { persId }, select: { userId: true } });
+  if (!pers) return "Персонажа не знайдено";
+  if (pers.userId !== userId) return "Поділитися може лише власник персонажа";
 
-    if (!pers) return { error: "Character not found" };
-
-    const user = await prisma.user.findUnique({ where: { email: session.user.email } });
-    if (pers.userId !== user?.id) return { error: "Forbidden" };
-
-    const existing = await prisma.persShareToken.findFirst({
-      where: { persId, canEdit: true },
-      select: { token: true }
-    });
-
-    if (existing?.token) return { success: true, token: existing.token };
-
-    const token = randomBytes(16).toString("hex");
-    await prisma.persShareToken.create({
-      data: { persId, token, canEdit: true }
-    });
-
-    return { success: true, token };
-  } catch (error) {
-    console.error("Edit token generation failed:", error);
-    return { error: "Failed to generate edit share link" };
-  }
+  return null;
 }
 
 export async function getPersByShareToken(token: string) {
@@ -162,224 +131,17 @@ export async function getPersByShareToken(token: string) {
     select: { persId: true, canEdit: true }
   });
 
-  const pers = editToken
-    ? await prisma.pers.findUnique({
-        where: { persId: editToken.persId },
-        include: {
-        race: {
-            include: {
-                traits: {
-                    include: {
-                        feature: true
-                    }
-                }
-            }
-        },
-        subrace: {
-            include: {
-                traits: {
-                    include: {
-                        feature: true
-                    }
-                }
-            }
-        },
-        class: {
-            include: {
-                features: {
-                    include: {
-                        feature: true
-                    }
-                }
-            }
-        },
-        subclass: {
-            include: {
-                features: {
-                    include: {
-                        feature: true
-                    }
-                }
-            }
-        },
-        multiclasses: {
-            include: {
-                class: {
-                    include: {
-                        features: {
-                            include: {
-                                feature: true,
-                            },
-                        },
-                    },
-                },
-                subclass: {
-                    include: {
-                        features: {
-                            include: {
-                                feature: true,
-                            },
-                        },
-                    },
-                },
-            },
-        },
-        background: true,
-        skills: true,
-        feats: { 
-            include: { 
-                feat: true,
-                choices: {
-                    include: {
-                        choiceOption: true,
-                    }
-                }
-            } 
-        },
-        raceVariants: {
-            include: {
-                traits: {
-                    include: {
-                        feature: true,
-                    },
-                },
-            },
-        },
-        magicItems: {
-          include: {
-            magicItem: true,
-          },
-        },
-        features: { include: { feature: true } },
-        choiceOptions: true,
-        raceChoiceOptions: true,
-        spells: true,
-        persSpells: {
-            include: {
-                spell: true,
-            },
-            orderBy: [
-                { spell: { level: "asc" } },
-                { spell: { name: "asc" } },
-            ],
-        },
-        weapons: { include: { weapon: true } },
-        armors: { include: { armor: true } },
-        resourcePools: true,
-    }
-      })
-    : await prisma.pers.findUnique({
-        where: { shareToken: token },
-        include: {
-          race: {
-            include: {
-              traits: {
-                include: {
-                  feature: true
-                }
-              }
-            }
-          },
-          subrace: {
-            include: {
-              traits: {
-                include: {
-                  feature: true
-                }
-              }
-            }
-          },
-          class: {
-            include: {
-              features: {
-                include: {
-                  feature: true
-                }
-              }
-            }
-          },
-          subclass: {
-            include: {
-              features: {
-                include: {
-                  feature: true
-                }
-              }
-            }
-          },
-          multiclasses: {
-            include: {
-              class: {
-                include: {
-                  features: {
-                    include: {
-                      feature: true,
-                    },
-                  },
-                },
-              },
-              subclass: {
-                include: {
-                  features: {
-                    include: {
-                      feature: true,
-                    },
-                  },
-                },
-              },
-            },
-          },
-          background: true,
-          skills: true,
-          feats: { 
-            include: { 
-              feat: true,
-              choices: {
-                include: {
-                  choiceOption: true,
-                }
-              }
-            } 
-          },
-          raceVariants: {
-            include: {
-              traits: {
-                include: {
-                  feature: true,
-                },
-              },
-            },
-          },
-          magicItems: {
-            include: {
-              magicItem: true,
-            },
-          },
-          features: { include: { feature: true } },
-          choiceOptions: true,
-          raceChoiceOptions: true,
-          spells: true,
-          persSpells: {
-            include: {
-              spell: true,
-            },
-            orderBy: [
-              { spell: { level: "asc" } },
-              { spell: { name: "asc" } },
-            ],
-          },
-          weapons: { include: { weapon: true } },
-          armors: { include: { armor: true } },
-          resourcePools: true,
-        }
-      });
+  const pers = await prisma.pers.findUnique({
+    where: editToken ? { persId: editToken.persId } : { shareToken: token },
+    include: PERS_SHEET_INCLUDE,
+  });
 
   return { pers, canEdit: Boolean(editToken?.canEdit) };
 }
 
 export async function acceptPersEditShareToken(token: string) {
   const session = await auth();
-  if (!session?.user?.email) return { error: "Авторизуйтесь, щоб отримати доступ" };
+  if (!session?.user?.email) return { error: "Увійдіть, щоб редагувати персонажа", needsSignIn: true as const };
 
   const user = await prisma.user.findUnique({ where: { email: session.user.email } });
   if (!user) return { error: "Користувача не знайдено" };
@@ -456,6 +218,7 @@ export async function getFolderByShareToken(token: string) {
       name: true,
       color: true,
       isPinned: true,
+      ruleset: true,
     }
   });
 
@@ -484,9 +247,12 @@ export async function getFolderByShareToken(token: string) {
       isPinned: true,
       folderId: true,
       shareToken: true,
+      ruleset: true,
       race: { select: { name: true } },
       class: { select: { name: true } },
+      subclass: { select: { name: true } },
       background: { select: { name: true } },
+      multiclasses: { select: { class: { select: { name: true } }, subclass: { select: { name: true } } } },
     },
     orderBy: { createdAt: "desc" }
   });
@@ -585,7 +351,7 @@ export async function copyFolderByShareToken(token: string) {
     const cloneFolder = async (folderId: number, parentId: number | null, addCopySuffix: boolean) => {
       const folder = await tx.persFolder.findUnique({
         where: { folderId },
-        select: { folderId: true, name: true, color: true, isPinned: true }
+        select: { folderId: true, name: true, color: true, isPinned: true, ruleset: true }
       });
 
       if (!folder) return null;
@@ -597,6 +363,7 @@ export async function copyFolderByShareToken(token: string) {
           color: folder.color,
           isPinned: folder.isPinned,
           parentFolderId: parentId,
+          ruleset: folder.ruleset,
         },
         select: {
           folderId: true,
@@ -613,12 +380,7 @@ export async function copyFolderByShareToken(token: string) {
       });
 
       for (const pers of perses) {
-        await clonePersWithRelations(tx, pers, {
-          userId: user.id,
-          name: `${pers.name} (Копія)`,
-          folderId: createdFolder.folderId,
-          isPinned: pers.isPinned ?? false,
-        });
+        await clonePersWithRelations(tx, pers, buildCopyTarget(pers, { userId: user.id, folderId: createdFolder.folderId }));
       }
 
       const children = await tx.persFolder.findMany({
@@ -658,211 +420,13 @@ export async function copyPersByToken(token: string) {
 
     const sourcePers = await prisma.pers.findUnique({
       where: editToken ? { persId: editToken.persId } : { shareToken: token },
-      include: {
-        skills: true,
-        persSpells: true,
-        features: true,
-        feats: { include: { choices: true } },
-        weapons: true,
-        armors: true,
-        multiclasses: true,
-        magicItems: true,
-        raceVariants: true,
-        raceChoiceOptions: true,
-        choiceOptions: true,
-        classOptionalFeatures: true,
-        spells: true,
-      }
+      include: PERS_DUPLICATION_INCLUDE,
     });
 
     if (!sourcePers) return { error: "Персонажа не знайдено за цим токеном" };
 
-    const newPersId = await prisma.$transaction(async (tx) => {
-      // Use a variable to avoid TS excess-property checks before Prisma Client is regenerated.
-      const data = {
-          userId: user.id,
-          name: `${sourcePers.name} (Копія)`,
-          level: sourcePers.level,
-          currentSpellSlots: sourcePers.currentSpellSlots,
-          currentPactSlots: sourcePers.currentPactSlots,
-          classId: sourcePers.classId,
-          subclassId: sourcePers.subclassId,
-          backgroundId: sourcePers.backgroundId,
-          raceId: sourcePers.raceId,
-          subraceId: sourcePers.subraceId,
-          currentHp: sourcePers.currentHp,
-          maxHp: sourcePers.maxHp,
-          tempHp: sourcePers.tempHp,
-          deathSaveSuccesses: sourcePers.deathSaveSuccesses,
-          deathSaveFailures: sourcePers.deathSaveFailures,
-          isDead: sourcePers.isDead,
-          raceCustom: sourcePers.raceCustom,
-          classCustom: sourcePers.classCustom,
-          alignment: sourcePers.alignment,
-          xp: sourcePers.xp,
-          customBackground: sourcePers.customBackground,
-          customProficiencies: sourcePers.customProficiencies,
-          customFeatures: sourcePers.customFeatures,
-          customLanguagesKnown: sourcePers.customLanguagesKnown,
-          customEquipment: sourcePers.customEquipment,
-          personalityTraits: sourcePers.personalityTraits,
-          ideals: sourcePers.ideals,
-          bonds: sourcePers.bonds,
-          flaws: sourcePers.flaws,
-          backstory: sourcePers.backstory,
-          notes: sourcePers.notes,
-          str: sourcePers.str,
-          dex: sourcePers.dex,
-          con: sourcePers.con,
-          int: sourcePers.int,
-          wis: sourcePers.wis,
-          cha: sourcePers.cha,
-          cp: sourcePers.cp,
-          ep: sourcePers.ep,
-          sp: sourcePers.sp,
-          gp: sourcePers.gp,
-          pp: sourcePers.pp,
-          additionalSaveProficiencies: sourcePers.additionalSaveProficiencies,
-          miscSaveBonuses: sourcePers.miscSaveBonuses || undefined,
-          wearsShield: sourcePers.wearsShield,
-          additionalShieldBonus: sourcePers.additionalShieldBonus,
-          armorBonus: sourcePers.armorBonus,
-          overrideBaseAC: sourcePers.overrideBaseAC ?? undefined,
-          wearsNaturalArmor: sourcePers.wearsNaturalArmor,
-          statBonuses: sourcePers.statBonuses || undefined,
-          statModifierBonuses: sourcePers.statModifierBonuses || undefined,
-          saveBonuses: sourcePers.saveBonuses || undefined,
-          skillBonuses: sourcePers.skillBonuses || undefined,
-          hpBonuses: sourcePers.hpBonuses || undefined,
-          acBonuses: sourcePers.acBonuses || undefined,
-          speedBonuses: sourcePers.speedBonuses || undefined,
-          proficiencyBonuses: sourcePers.proficiencyBonuses || undefined,
-          initiativeBonuses: sourcePers.initiativeBonuses || undefined,
-          spellAttackBonuses: sourcePers.spellAttackBonuses || undefined,
-          spellDCBonuses: sourcePers.spellDCBonuses || undefined,
-          currentHitDice: sourcePers.currentHitDice || undefined,
-          usedHitDice: sourcePers.usedHitDice || undefined,
-          
-          isSnapshot: false,
-          
-          raceVariants: { connect: sourcePers.raceVariants.map(rv => ({ raceVariantId: rv.raceVariantId })) },
-          raceChoiceOptions: { connect: sourcePers.raceChoiceOptions.map(rco => ({ optionId: rco.optionId })) },
-          choiceOptions: { connect: sourcePers.choiceOptions.map(co => ({ choiceOptionId: co.choiceOptionId })) },
-          classOptionalFeatures: { connect: sourcePers.classOptionalFeatures.map(cof => ({ optionalFeatureId: cof.optionalFeatureId })) },
-          spells: { connect: sourcePers.spells.map(s => ({ spellId: s.spellId })) },
-        };
-
-      const newPers = await tx.pers.create({
-        data,
-      });
-
-      if (sourcePers.skills.length > 0) {
-        await tx.persSkill.createMany({
-          data: sourcePers.skills.map(s => ({
-            persId: newPers.persId,
-            skillId: s.skillId,
-            name: s.name,
-            proficiencyType: s.proficiencyType,
-            customModifier: s.customModifier,
-          }))
-        });
-      }
-
-      if (sourcePers.persSpells.length > 0) {
-        await tx.persSpell.createMany({
-          data: sourcePers.persSpells.map(ps => ({
-            persId: newPers.persId,
-            spellId: ps.spellId,
-            learnedAtLevel: ps.learnedAtLevel,
-            isPrepared: ps.isPrepared,
-            excludeFromPreparedCount: ps.excludeFromPreparedCount,
-            excludeFromKnownCount: ps.excludeFromKnownCount,
-            badgeText: ps.badgeText,
-            badgeColor: ps.badgeColor,
-            origin: ps.origin,
-            sourceId: ps.sourceId,
-            sourceName: ps.sourceName,
-            notes: ps.notes,
-          }))
-        });
-      }
-
-      if (sourcePers.features.length > 0) {
-        await tx.persFeature.createMany({
-          data: sourcePers.features.map(f => ({
-            persId: newPers.persId,
-            featureId: f.featureId,
-            usesRemaining: f.usesRemaining,
-          }))
-        });
-      }
-
-      for (const pf of sourcePers.feats) {
-        const newPersFeat = await tx.persFeat.create({
-          data: { persId: newPers.persId, featId: pf.featId }
-        });
-        if (pf.choices.length > 0) {
-          await tx.persFeatChoice.createMany({
-            data: pf.choices.map(c => ({
-              persFeatId: newPersFeat.persFeatId,
-              choiceOptionId: c.choiceOptionId,
-            }))
-          });
-        }
-      }
-
-      if (sourcePers.weapons.length > 0) {
-        await tx.persWeapon.createMany({
-          data: sourcePers.weapons.map(w => ({
-            persId: newPers.persId,
-            weaponId: w.weaponId,
-            overrideName: w.overrideName,
-            customDamageDice: w.customDamageDice,
-            customDamageAbility: w.customDamageAbility,
-            customDamageBonus: w.customDamageBonus === null ? Prisma.JsonNull : w.customDamageBonus,
-            isProficient: w.isProficient,
-          }))
-        });
-      }
-
-      if (sourcePers.armors.length > 0) {
-        await tx.persArmor.createMany({
-          data: sourcePers.armors.map(a => ({
-            persId: newPers.persId,
-            armorId: a.armorId,
-            overrideName: a.overrideName,
-            overrideBaseAC: a.overrideBaseAC,
-            abilityBonuses: a.abilityBonuses ?? [],
-            abilityBonusType: a.abilityBonusType ?? undefined,
-            isProficient: a.isProficient,
-            equipped: a.equipped,
-            miscACBonus: a.miscACBonus,
-          }))
-        });
-      }
-
-      if (sourcePers.multiclasses.length > 0) {
-        await tx.persMulticlass.createMany({
-          data: sourcePers.multiclasses.map(m => ({
-            persId: newPers.persId,
-            classId: m.classId,
-            classLevel: m.classLevel,
-            subclassId: m.subclassId,
-          }))
-        });
-      }
-
-      if (sourcePers.magicItems.length > 0) {
-        await tx.persMagicItem.createMany({
-          data: sourcePers.magicItems.map(mi => ({
-            persId: newPers.persId,
-            magicItemId: mi.magicItemId,
-          }))
-        });
-      }
-
-      return newPers.persId;
-    });
+    const copyTarget = buildCopyTarget(sourcePers, { userId: user.id, folderId: null, isPinned: false });
+    const newPersId = await prisma.$transaction(async (tx) => (await clonePersWithRelations(tx, sourcePers, copyTarget)).persId);
 
     return { success: true, persId: newPersId };
   } catch (error) {

@@ -1,7 +1,12 @@
 import { loadPrintableSpells } from "@/server/db/print-content";
+import type { PrintableSpell } from "@/server/db/print-content";
+import { findCreatureByKey } from "@/lib/bestiaryData";
+import type { CreatureData } from "@/lib/bestiaryData";
+import { findSpellCreatureLinks, replaceSpellCreatureLinks } from "@/lib/logic/spell-creature-links";
+import { buildPrintableCreatureCardHtml, STATBLOCK_CARD_CSS } from "./creaturesPdf";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
-import { escapePrintHtml, renderPrintableMarkdown } from "./printProjection";
+import { escapePrintHtml, renderPrintableMarkdown, renderPrintableUserText } from "./printProjection";
 
 function levelLabel(level: number) {
   return level === 0 ? "Замовляння" : `Рівень ${level}`;
@@ -14,15 +19,7 @@ export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogC
 
   const spells = await loadPrintableSpells(spellIds);
 
-  const sections = await Promise.all(
-    spells.map(async (s) => {
-      const descriptionHtml = await renderPrintableMarkdown(s.description);
-      return {
-        ...s,
-        descriptionHtml,
-      };
-    })
-  );
+  const sections = await Promise.all(spells.map(buildSpellSection));
 
   const fontsCss = getFontsCss();
 
@@ -74,6 +71,9 @@ export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogC
       .desc th, .desc td { border: 1px solid rgba(15,23,42,0.2); padding: 6px; text-align: left; }
       .desc ul, .desc ol { margin: 0 0 8px 18px; }
 
+      .spell .statblock { margin: 10px 0 0; }
+      ${STATBLOCK_CARD_CSS}
+
       .page-title {
         font-family: "Noto Serif", Georgia, "Times New Roman", serif;
         font-size: 22px;
@@ -106,6 +106,7 @@ export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogC
           <div class="cell"><div class="label">Компоненти</div><div class="val">${escapePrintHtml(s.components || "—")}</div></div>
         </div>
         <div class="desc">${s.descriptionHtml}</div>
+        ${s.creatureCardsHtml}
       </section>`
         )
         .join("\n")}
@@ -115,4 +116,30 @@ export async function generateSpellsPdfBytes(spellIds: number[], logCtx: PdfLogC
 </html>`;
 
   return generatePdfFromHtml(html, {}, undefined, { ...logCtx, tag: logCtx.tag ?? "spells" });
+}
+
+async function buildSpellSection(spell: PrintableSpell) {
+  if (spell.isHomebrew) {
+    return { ...spell, descriptionHtml: await renderPrintableUserText(spell.description), creatureCardsHtml: "" };
+  }
+
+  const creatures = findLinkedCreatures(spell.description);
+  const [descriptionHtml, creatureCards] = await Promise.all([
+    renderPrintableMarkdown(markCreaturesPrintedBelow(spell.description)),
+    Promise.all(creatures.map(buildPrintableCreatureCardHtml)),
+  ]);
+  return { ...spell, descriptionHtml, creatureCardsHtml: creatureCards.join("\n") };
+}
+
+function findLinkedCreatures(description: string): CreatureData[] {
+  const creatures = findSpellCreatureLinks(description).flatMap((link) => findCreatureByKey(link.key, link.ruleset) ?? []);
+  return Array.from(new Map(creatures.map((creature) => [creature.creatureId, creature])).values());
+}
+
+const PRINTED_BELOW_NOTE = " (статблок — нижче)";
+
+function markCreaturesPrintedBelow(description: string): string {
+  return replaceSpellCreatureLinks(description, (link) =>
+    findCreatureByKey(link.key, link.ruleset) ? `${link.text}${PRINTED_BELOW_NOTE}` : link.text
+  ).replaceAll(`${PRINTED_BELOW_NOTE}»`, `»${PRINTED_BELOW_NOTE}`);
 }

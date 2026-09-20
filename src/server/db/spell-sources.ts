@@ -6,6 +6,7 @@ import {
   type SpellSource,
   type SpellSourcesInput,
 } from "@/rules/spell-sources";
+import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
 import type { AbilityKey } from "@/rules/types";
 import type { RulesetId } from "@/rules/strategies/types";
 
@@ -76,7 +77,9 @@ async function loadSpellSourcesInput(persId: number): Promise<SpellSourcesInput 
         featName: persFeat.feat.name,
         effectKind: choice.choiceOption?.effectKind ?? null,
         effectAbility: (choice.choiceOption?.effectAbility ?? null) as AbilityKey | null,
-        featGrantsSpells: persFeat.feat.grantsFeature.some((feature) => feature.givesSpells.length > 0),
+        featGrantsSpells:
+          persFeat.feat.grantsFeature.some((feature) => feature.givesSpells.length > 0) ||
+          hasFeatSpellChoice(pers.ruleset as RulesetId, persFeat.feat.name),
       })),
     ),
   };

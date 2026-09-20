@@ -4,6 +4,7 @@ import type { CreatureData } from "@/lib/bestiaryData";
 import { findCreatureByKey } from "@/lib/bestiaryData";
 import { getFontsCss, generatePdfFromHtml } from "./pdfUtils";
 import type { PdfLogContext } from "./pdfUtils";
+import { formatCreatureXp } from "@/lib/logic/creature-xp";
 import {
   escapePrintHtml,
   preparePrintableMarkdown,
@@ -44,6 +45,10 @@ export async function generateCreaturesPdfBytes(
   });
 }
 
+export function buildPrintableCreatureCardHtml(creature: CreatureData): Promise<string> {
+  return buildCreatureCardHtml(toPrintableCreature(creature));
+}
+
 function toPrintableCreature(creature: CreatureData): PrintableCreature {
   const {
     imageUrl: _imageUrl,
@@ -54,11 +59,15 @@ function toPrintableCreature(creature: CreatureData): PrintableCreature {
   return printableCreature;
 }
 
+function buildCreatureTitle(creature: PrintableCreature): string {
+  return creature.nameEng ? `${creature.name} [${creature.nameEng}]` : creature.name;
+}
+
 async function buildCreatureCardHtml(creature: PrintableCreature): Promise<string> {
   const sections = await buildCreatureSectionsHtml(creature);
   return `<article class="statblock">
     <header class="creature-header">
-      <h1>${printText(creature.name)}</h1>
+      <h1>${printText(buildCreatureTitle(creature))}</h1>
       <p>${printText([creature.size, creature.type, creature.alignment].filter(Boolean).join(", "))}</p>
     </header>
     ${buildCoreStatsHtml(creature)}
@@ -114,7 +123,8 @@ function buildMetadataHtml(creature: PrintableCreature): string {
 }
 
 function buildChallengeHtml(creature: PrintableCreature): string {
-  const xp = creature.xp && creature.xp !== "-" ? ` (${printText(creature.xp)} XP)` : "";
+  const formattedXp = formatCreatureXp(creature.xp);
+  const xp = formattedXp ? ` (${printText(formattedXp)})` : "";
   return `<p><strong>Показник небезпеки</strong> ${printText(creature.challenge || "-")}${xp}</p>`;
 }
 
@@ -162,34 +172,37 @@ function buildDocumentHtml(cards: string): string {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Бестіарій — друк</title>
-  <style>${getFontsCss()}${STATBLOCK_CSS}</style>
+  <style>${getFontsCss()}${PAGE_CSS}${STATBLOCK_CARD_CSS}</style>
 </head>
 <body><main class="columns">${cards}</main></body>
 </html>`;
 }
 
-const STATBLOCK_CSS = `
+const PAGE_CSS = `
   @page { size: letter portrait; margin: 12mm 10mm; }
   * { box-sizing: border-box; }
   body { margin: 0; background: #fff; color: #000; font-family: "NotoSansLocal", Arial, sans-serif; }
   .columns { column-count: 2; column-gap: 8mm; column-fill: auto; }
+`;
+
+export const STATBLOCK_CARD_CSS = `
   .statblock { display: block; width: 100%; margin: 0 0 8mm; padding: 4mm; background: #fff; border-top: 2px solid #000; border-bottom: 2px solid #000; break-inside: auto; page-break-inside: auto; }
-  .creature-header { border-bottom: 1.5px solid #000; padding-bottom: 2mm; }
-  .creature-header h1 { margin: 0; color: #000; font-family: "Noto Serif", Georgia, serif; font-size: 18px; line-height: 1.05; font-variant: small-caps; }
-  .creature-header p { margin: 1mm 0 0; font-size: 9px; font-style: italic; }
-  .rule-block { padding: 2mm 0; border-bottom: 1.5px solid #000; }
-  p { margin: 0 0 1mm; font-size: 9px; line-height: 1.35; }
-  .abilities { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1mm; text-align: center; }
-  .abilities div { display: flex; flex-direction: column; font-size: 8.5px; }
-  .abilities strong { color: #000; }
-  .challenge-row { display: flex; justify-content: space-between; gap: 3mm; }
-  .challenge-row p:last-child { text-align: right; }
-  .prose-section { margin-top: 2.5mm; }
-  .prose-section h2 { margin: 0 0 1mm; padding-bottom: .5mm; border-bottom: 1px solid #000; color: #000; font-family: "Noto Serif", Georgia, serif; font-size: 13px; font-weight: 500; }
-  .prose { font-size: 8.7px; line-height: 1.35; }
-  .prose p { margin: 0 0 1.5mm; }
-  .prose strong em, .prose em strong { color: #000; }
-  .prose ul, .prose ol { margin: 1mm 0 1.5mm 4mm; padding: 0; }
-  .prose table { width: 100%; border-collapse: collapse; font-size: 8px; }
-  .prose th, .prose td { border: .5px solid #000; padding: 1mm; text-align: left; }
+  .statblock .creature-header { border-bottom: 1.5px solid #000; padding-bottom: 2mm; }
+  .statblock .creature-header h1 { margin: 0; color: #000; font-family: "Noto Serif", Georgia, serif; font-size: 18px; line-height: 1.05; font-variant: small-caps; }
+  .statblock .creature-header p { margin: 1mm 0 0; font-size: 9px; font-style: italic; }
+  .statblock .rule-block { padding: 2mm 0; border-bottom: 1.5px solid #000; }
+  .statblock p { margin: 0 0 1mm; font-size: 9px; line-height: 1.35; }
+  .statblock .abilities { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1mm; text-align: center; }
+  .statblock .abilities div { display: flex; flex-direction: column; font-size: 8.5px; }
+  .statblock .abilities strong { color: #000; }
+  .statblock .challenge-row { display: flex; justify-content: space-between; gap: 3mm; }
+  .statblock .challenge-row p:last-child { text-align: right; }
+  .statblock .prose-section { margin-top: 2.5mm; }
+  .statblock .prose-section h2 { margin: 0 0 1mm; padding-bottom: .5mm; border-bottom: 1px solid #000; color: #000; font-family: "Noto Serif", Georgia, serif; font-size: 13px; font-weight: 500; }
+  .statblock .prose { font-size: 8.7px; line-height: 1.35; }
+  .statblock .prose p { margin: 0 0 1.5mm; }
+  .statblock .prose strong em, .statblock .prose em strong { color: #000; }
+  .statblock .prose ul, .statblock .prose ol { margin: 1mm 0 1.5mm 4mm; padding: 0; }
+  .statblock .prose table { width: 100%; border-collapse: collapse; font-size: 8px; }
+  .statblock .prose th, .statblock .prose td { border: .5px solid #000; padding: 1mm; text-align: left; }
 `;

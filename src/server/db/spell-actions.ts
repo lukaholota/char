@@ -7,9 +7,8 @@ import { revalidatePath } from 'next/cache';
 import { canEditPers } from "@/lib/actions/pers";
 import { buildSpellSlug, type SpellLink } from "@/lib/spell-link";
 import { classTranslations } from "@/lib/refs/translation";
-
-// KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
-const ACTIVE_RULESET: Ruleset = "RULES_2014";
+import { deleteSheetSpellRow, updateSheetSpellRow } from "@/server/db/sheet-spell-rows";
+import { isAlwaysPreparedSpell } from "@/rules/always-prepared-spells";
 
 const SPELL_BADGE_COLORS = new Set([
   "#38bdf8",
@@ -249,9 +248,7 @@ export async function removeSpellFromPers({
     return { success: false, error: "Немає доступу до персонажа" };
   }
 
-  await prisma.persSpell.deleteMany({
-    where: { persId, spellId },
-  });
+  await deleteSheetSpellRow(persId, spellId);
 
   revalidatePersSpellViews(persId);
   return { success: true };
@@ -293,6 +290,9 @@ export async function setSpellPresenceForPers({
 
   if (present) {
     if (!existing) {
+      if (!(await isSpellOfPersRuleset(persId, spellId))) {
+        return { success: false, error: "Це заклинання належить іншій редакції правил" };
+      }
       try {
         await prisma.persSpell.create({
           data: {
@@ -324,6 +324,19 @@ export async function setSpellPresenceForPers({
  * заклинання 2024 приходить слагом і шукається за `engName + ruleset`, бо номер каталогу 2024 —
  * позиція в масиві, а в базі — автоінкремент.
  */
+async function isPersOfRuleset(persId: number, ruleset: Ruleset): Promise<boolean> {
+  const pers = await prisma.pers.findUnique({ where: { persId }, select: { ruleset: true } });
+  return pers?.ruleset === ruleset;
+}
+
+async function isSpellOfPersRuleset(persId: number, spellId: number): Promise<boolean> {
+  const [pers, spell] = await Promise.all([
+    prisma.pers.findUnique({ where: { persId }, select: { ruleset: true } }),
+    prisma.spell.findUnique({ where: { spellId }, select: { ruleset: true } }),
+  ]);
+  return !spell || spell.ruleset === pers?.ruleset;
+}
+
 async function findSpellIdForLink(link: SpellLink): Promise<number | null> {
   if (link.ruleset === "RULES_2014" && /^\d+$/.test(link.spellKey)) return Number(link.spellKey);
 
@@ -343,6 +356,10 @@ export async function setSpellPresenceForPersByLink({
   link: SpellLink;
   present: boolean;
 }): Promise<{ success: true; present: boolean; spellId: number } | { success: false; error: string }> {
+  if (present && !(await isPersOfRuleset(persId, link.ruleset))) {
+    return { success: false, error: "Це заклинання належить іншій редакції правил" };
+  }
+
   const spellId = await findSpellIdForLink(link);
   if (spellId === null) return { success: false, error: "Заклинання не знайдено" };
 
@@ -373,21 +390,26 @@ export async function setSpellPrepared({
     return { success: false, error: "Немає доступу до персонажа" };
   }
 
-  const updated = await prisma.persSpell.update({
-    where: {
-      persId_spellId: {
-        persId,
-        spellId,
-      },
-    },
-    data: {
-      isPrepared: Boolean(isPrepared),
-    },
-    select: { isPrepared: true },
-  });
+  if (!isPrepared && (await isAlwaysPreparedRow(persId, spellId))) {
+    return { success: false, error: "Це заклинання завжди підготоване" };
+  }
+
+  const updated = await updateSheetSpellRow(persId, spellId, { isPrepared: Boolean(isPrepared) });
 
   revalidatePersSpellViews(persId);
   return { success: true, isPrepared: updated.isPrepared };
+}
+
+/// Замок стоїть і тут, а не лише на кнопці: офлайн-черга й повторний запит приходять повз лист.
+/// Рядки хоумбрю сюди не потрапляють — їх кладе гравець, тож правило їх не «завжди підготовує».
+async function isAlwaysPreparedRow(persId: number, spellId: number): Promise<boolean> {
+  const row = await prisma.persSpell.findUnique({
+    where: { persId_spellId: { persId, spellId } },
+    select: { origin: true, excludeFromPreparedCount: true, spell: { select: { level: true } } },
+  });
+  if (!row) return false;
+
+  return isAlwaysPreparedSpell({ level: row.spell.level, origin: row.origin, excludeFromPreparedCount: row.excludeFromPreparedCount });
 }
 
 export async function setPreparedSpellsForPers({
@@ -504,29 +526,15 @@ export async function updateSpellBadgeForPers({
   const nextText = normalizeSpellBadgeText(badgeText);
   const nextColor = normalizeSpellBadgeColor(badgeColor);
 
-  const updated = await prisma.persSpell.update({
-    where: {
-      persId_spellId: {
-        persId,
-        spellId,
-      },
-    },
-    data: {
-      badgeText: nextText,
-      badgeColor: nextText ? nextColor : null,
-      ...(typeof excludeFromPreparedCount === "boolean"
-        ? { excludeFromPreparedCount: Boolean(excludeFromPreparedCount) }
-        : {}),
-      ...(typeof excludeFromKnownCount === "boolean"
-        ? { excludeFromKnownCount: Boolean(excludeFromKnownCount) }
-        : {}),
-    },
-    select: {
-      badgeText: true,
-      badgeColor: true,
-      excludeFromPreparedCount: true,
-      excludeFromKnownCount: true,
-    },
+  const updated = await updateSheetSpellRow(persId, spellId, {
+    badgeText: nextText,
+    badgeColor: nextText ? nextColor : null,
+    ...(typeof excludeFromPreparedCount === "boolean"
+      ? { excludeFromPreparedCount: Boolean(excludeFromPreparedCount) }
+      : {}),
+    ...(typeof excludeFromKnownCount === "boolean"
+      ? { excludeFromKnownCount: Boolean(excludeFromKnownCount) }
+      : {}),
   });
 
   revalidatePersSpellViews(persId);
@@ -538,22 +546,4 @@ export async function updateSpellBadgeForPers({
     excludeFromPreparedCount: updated.excludeFromPreparedCount,
     excludeFromKnownCount: updated.excludeFromKnownCount,
   };
-}
-
-export async function getSpellsList() {
-  const spells = await prisma.spell.findMany({
-    where: { ruleset: ACTIVE_RULESET },
-    select: {
-      spellId: true,
-      name: true,
-      engName: true,
-      level: true,
-      school: true,
-    },
-    orderBy: [
-      { level: 'asc' },
-      { name: 'asc' },
-    ],
-  });
-  return spells;
 }

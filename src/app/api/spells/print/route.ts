@@ -2,6 +2,9 @@ import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 
 import { generateSpellsPdfBytes } from "@/server/pdf/spellsPdf";
+import { findCatalogSpellIdsForKeys, PrintableSpellNotFoundError } from "@/server/db/print-content";
+import { parseSpellPrintRequest, SpellPrintRequestError } from "@/server/pdf/spellPrintRequest";
+import { toHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import { createLogger } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
 
@@ -13,16 +16,6 @@ function parseSpellIdsFromUnknown(value: unknown): number[] {
   if (!Array.isArray(value) || value.length === 0) return [];
   return value
     .map((v) => Number(v))
-    .filter((n) => Number.isFinite(n))
-    .map((n) => Math.trunc(n));
-}
-
-function parseSpellIdsFromQuery(url: URL): number[] {
-  const raw = url.searchParams.get("ids") ?? url.searchParams.get("spellIds") ?? "";
-  if (!raw.trim()) return [];
-  return raw
-    .split(",")
-    .map((v) => Number(v.trim()))
     .filter((n) => Number.isFinite(n))
     .map((n) => Math.trunc(n));
 }
@@ -56,15 +49,29 @@ export async function GET(req: Request) {
   const log = createLogger("api.print.spells").child({ jobId, method: "GET" });
   const start = takeUsageSnapshot();
 
-  const url = new URL(req.url);
-  const spellIds = parseSpellIdsFromQuery(url);
-  if (spellIds.length === 0) {
+  let spellIds: number[];
+  try {
+    spellIds = await findSpellIdsForQuery(new URL(req.url).searchParams);
+  } catch (error) {
     const end = takeUsageSnapshot();
-    log.warn("bad_request", { ...diffUsage(start, end), reason: "empty_query_ids" });
-    return NextResponse.json({ error: "ids має бути непорожнім списком (через кому)" }, { status: 400 });
+    if (error instanceof SpellPrintRequestError) {
+      log.warn("bad_request", { ...diffUsage(start, end), reason: error.message });
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+    if (error instanceof PrintableSpellNotFoundError) {
+      log.warn("not_found", { ...diffUsage(start, end), reason: error.message });
+      return NextResponse.json({ error: error.message }, { status: 404 });
+    }
+    throw error;
   }
 
   return generatePdfResponse(spellIds, { jobId, start });
+}
+
+async function findSpellIdsForQuery(searchParams: URLSearchParams): Promise<number[]> {
+  const request = parseSpellPrintRequest(searchParams);
+  const catalogIds = await findCatalogSpellIdsForKeys(request.catalogKeys, request.ruleset);
+  return [...catalogIds, ...request.homebrewEntryIds.map(toHomebrewCatalogId)];
 }
 
 async function generatePdfResponse(spellIds: number[], ctx: { jobId: string; start: ReturnType<typeof takeUsageSnapshot> }) {

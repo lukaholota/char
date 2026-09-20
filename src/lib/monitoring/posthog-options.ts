@@ -9,8 +9,13 @@ import type { PostHogConfig } from "posthog-js";
 // autocapture і heatmaps вимкнені навмисно — рішення власника 2026-08-12: власні події
 // дають кращий сигнал для дашбордів, ніж сирі кліки, і не дуже до цього тягнуть менше даних
 // per-visitor. Не про приватність — про сигнал/шум.
+//
+// capture_pageview: "history_change" — без нього $pageview шлеться лише при першому
+// завантаженні, а клієнтські переходи App Router не рахуються. PostHog порівнює тільки pathname,
+// тож replaceState каталогів (?class=, ?spell=) переглядів не множить.
 export const sharedPostHogOptions: Partial<PostHogConfig> = {
   persistence: "memory",
+  capture_pageview: "history_change",
   autocapture: false,
   capture_heatmaps: false,
   disable_session_recording: true,

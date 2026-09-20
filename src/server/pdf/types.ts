@@ -16,11 +16,10 @@ export interface PrintConfig {
   flattenCharacterSheet?: boolean;
 }
 
-export type PersSpellWithSpell = PersWithRelations["persSpells"][number];
+export type PersSpellWithSpell = { spellId: number; isPrepared: boolean; spell: { level: number; name: string } };
 
 export interface CharacterPdfData {
   pers: PersWithRelations;
   features: CharacterFeaturesGroupedResult;
-  spellsByLevel: Record<number, PersSpellWithSpell[]>;
   wildshapeForms: CreatureData[];
 }

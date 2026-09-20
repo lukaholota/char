@@ -4,22 +4,28 @@ import { revalidatePath } from "next/cache";
 import { canEditPers } from "@/lib/actions/pers";
 import { auth } from "@/lib/auth";
 import { type BastionSpace, getBastionFacilityBySlug } from "@/lib/bastionsData";
+import { BASTION_WIDE_ORDER_CODE, findAllowedOrderCodes, toBastionSpace } from "@/lib/bastion-facility";
 import { bastionOrderTranslations } from "@/lib/refs/translation";
-import { FIRST_BASTION_TURN_NUMBER } from "@/rules/bastions";
+import { FIRST_BASTION_TURN_NUMBER, findReplacementState } from "@/rules/bastions";
 import {
+  type BastionFacilityRecord,
   type BastionOrderCode,
   type BastionPicker,
   type BastionStanding,
+  type SharedBastionView,
   addBastionFacility,
   addBastionTurn,
   createBastion,
   deleteBastion,
   findBastionPicker,
   findBastionStanding,
+  findSharedBastionView,
   removeBastionFacility,
+  replaceBastionFacility,
   removeBastionTurn,
   updateBastionDetails,
   updateBastionFacilityState,
+  updateBastionMaintaining,
   updateBastionTurn,
 } from "@/server/db/bastions";
 import { findUserIdByEmail } from "@/server/db/users";
@@ -88,6 +94,23 @@ export async function saveBastionDetails(input: {
   return respondWithFreshStanding(input.persId);
 }
 
+/// DMG 2024: «Утримання» віддається всьому бастіону й забороняє інші накази цього ходу. Накази
+/// приміщень при цьому не стираються — сторінка лише попереджає (Р26).
+export async function saveBastionMaintaining(input: {
+  persId: number;
+  isMaintaining: boolean;
+}): Promise<StandingResult> {
+  const current = await findAccessibleStanding(input.persId);
+  if (!current.ok) return current;
+
+  const bastion = current.standing.bastion;
+  if (!bastion) return { ok: false, error: "У персонажа немає бастіону" };
+
+  await updateBastionMaintaining({ bastionId: bastion.bastionId, isMaintaining: input.isMaintaining });
+
+  return respondWithFreshStanding(input.persId);
+}
+
 /// Пікер отримує профіль персонажа, а не готові вердикти: каталог у нього вже є, а відповідність
 /// рахують чисті правила — та сама функція, що й на сторінці бастіону.
 export async function loadBastionPicker(
@@ -147,11 +170,55 @@ export async function removeFacility(input: {
   return respondWithFreshStanding(input.persId);
 }
 
+/// DMG 2024: «Each time a character gains a level, that character can replace one of their Bastion's
+/// special facilities with another». Застосунок не рахує, скільки замін уже було за рівень, і не
+/// звіряє передумову (Р26) — лише не пускає базове: заміна в книзі стосується спеціальних.
+export async function replaceFacility(input: {
+  persId: number;
+  facilityId: number;
+  slug: string;
+}): Promise<StandingResult> {
+  const current = await findAccessibleStanding(input.persId);
+  if (!current.ok) return current;
+
+  const owned = current.standing.bastion?.facilities.find(
+    (facility) => facility.facilityId === input.facilityId
+  );
+  if (!owned) return { ok: false, error: "Це приміщення не належить бастіону персонажа" };
+
+  const replacement = getBastionFacilityBySlug(input.slug);
+  if (!replacement) return { ok: false, error: "Такого приміщення немає в каталозі" };
+  if (replacement.facilityType !== "special") {
+    return { ok: false, error: "Замінити можна лише на спеціальне приміщення" };
+  }
+
+  const kept = findReplacementState({
+    currentSpace: toBastionSpace(owned.space),
+    currentOrder: owned.currentOrder,
+    allowedSpaces: replacement.space,
+    allowedOrders: findAllowedOrderCodes(replacement),
+  });
+  await replaceBastionFacility({
+    facilityId: owned.facilityId,
+    facility: replacement,
+    space: kept.space,
+    currentOrder: kept.keepsOrder ? owned.currentOrder : null,
+  });
+
+  return respondWithFreshStanding(input.persId);
+}
+
+/// Поширений лист відкривають без входу — доступ дає сам токен, як і до решти листа.
+export async function loadSharedBastion(token: string): Promise<SharedBastionView | null> {
+  return findSharedBastionView(token);
+}
+
 /// Наказ поза переліком каталогу приймається як завжди ([Р26](../../../docs/DECISIONS.md#р26)) —
 /// це попереджає лише UI. Тут перевіряється валідність значення, а не відповідність приміщенню.
 export async function saveFacilityState(input: {
   persId: number;
   facilityId: number;
+  space?: BastionSpace;
   currentOrder: BastionOrderCode | null;
   defenders: number;
   hirelings: string;
@@ -160,10 +227,13 @@ export async function saveFacilityState(input: {
   const current = await findAccessibleStanding(input.persId);
   if (!current.ok) return current;
 
-  const owns = current.standing.bastion?.facilities.some(
+  const owned = current.standing.bastion?.facilities.find(
     (facility) => facility.facilityId === input.facilityId
   );
-  if (!owns) return { ok: false, error: "Це приміщення не належить бастіону персонажа" };
+  if (!owned) return { ok: false, error: "Це приміщення не належить бастіону персонажа" };
+
+  const space = readResizedSpace(owned, input.space);
+  if (!space.ok) return space;
 
   const order = readCurrentOrder(input.currentOrder);
   if (!order.ok) return order;
@@ -173,6 +243,7 @@ export async function saveFacilityState(input: {
 
   await updateBastionFacilityState({
     facilityId: input.facilityId,
+    space: space.value,
     currentOrder: order.value,
     defenders: defenders.value,
     hirelings: input.hirelings.trim(),
@@ -300,6 +371,9 @@ function readCurrentOrder(
 ): { ok: true; value: BastionOrderCode | null } | Failure {
   if (raw === null) return { ok: true, value: null };
   if (!(raw in bastionOrderTranslations)) return { ok: false, error: "Такого наказу не існує" };
+  if (raw === BASTION_WIDE_ORDER_CODE) {
+    return { ok: false, error: "«Утримання» віддається всьому бастіону, а не приміщенню" };
+  }
 
   return { ok: true, value: raw };
 }
@@ -332,6 +406,19 @@ function readTurnInput(input: {
 
 /// Каталог дає більше одного розміру лише в 15 приміщень із 61; для решти вибір проставляється
 /// мовчки, і форма про нього не питає.
+/// Розмір міняється на місці, щоб збільшення за столом не стирало наказ, захисників і нотатки.
+/// Приміщення, якого вже немає в каталозі, лишає свій розмір — звіряти нема з чим.
+function readResizedSpace(
+  facility: BastionFacilityRecord,
+  chosen: BastionSpace | undefined
+): { ok: true; value: BastionSpace } | Failure {
+  const current = toBastionSpace(facility.space);
+  const catalogFacility = getBastionFacilityBySlug(facility.facilitySlug);
+  if (!chosen || chosen === current || !catalogFacility) return { ok: true, value: current };
+
+  return readFacilitySpace(catalogFacility.space, chosen);
+}
+
 function readFacilitySpace(
   allowed: readonly BastionSpace[],
   chosen: BastionSpace | undefined

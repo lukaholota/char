@@ -25,9 +25,15 @@ export type ChoiceOptionLike = {
 /// ключа, який гравцеві не показують (KR18.8).
 const EDITION_SUFFIX = / \(2024\)$/;
 
+/// Ключ фічі 2024 називає ще й власника — «Fighting Style: Blind Fighting», «Class Choice
+/// Feature: Divine Order: Protector». Гравцеві потрібна книжкова назва, а групу вже названо
+/// над картками, тож службові ланки в дужки не йдуть.
+const KEY_OWNER_PREFIX = /^.*:\s*/;
+
 export function findChoiceOptionCardText(option: ChoiceOptionLike, groupOptions: ReadonlyArray<ChoiceOptionLike>) {
   const title = findTitle(option, groupOptions);
-  return { title, preview: findPreview(option, title) };
+  const { preview, previewMarkup } = findPreview(option, title);
+  return { title, preview, previewMarkup };
 }
 
 function findTitle(option: ChoiceOptionLike, groupOptions: ReadonlyArray<ChoiceOptionLike>) {
@@ -42,9 +48,9 @@ function findPreview(option: ChoiceOptionLike, title: string) {
   const candidates = listFeatures(option)
     .flatMap((feature) => [feature.shortDescription, feature.description])
     .concat(option.optionName ?? "")
-    .map((text) => stripToPlainText(text ?? ""))
-    .filter(Boolean);
-  return candidates.find((text) => !alreadyShown.has(text)) ?? "";
+    .map((markup) => ({ preview: stripToPlainText(markup ?? ""), previewMarkup: markup ?? "" }))
+    .filter((candidate) => candidate.preview);
+  return candidates.find((candidate) => !alreadyShown.has(candidate.preview)) ?? { preview: "", previewMarkup: "" };
 }
 
 function listFeatures(option: ChoiceOptionLike): FeatureLike[] {
@@ -68,7 +74,7 @@ function isNameSharedInGroup(name: string, groupOptions: ReadonlyArray<ChoiceOpt
 }
 
 function addEnglishMarker(name: string, engName: string) {
-  const original = engName.replace(EDITION_SUFFIX, "").trim();
+  const original = engName.replace(EDITION_SUFFIX, "").replace(KEY_OWNER_PREFIX, "").trim();
   if (!original || name.includes("[")) return name;
   return `${name} [${original}]`;
 }

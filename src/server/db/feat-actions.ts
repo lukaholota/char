@@ -55,45 +55,13 @@ export async function findPersFeat(persId: number, featId: number) {
   });
 }
 
-export async function addPersFeat(
-  persId: number,
-  featId: number,
-  choiceOptionIds?: number[]
-) {
-  const feat = await prisma.feat.findUnique({
-    where: { featId },
-    select: { featId: true, isRepeatable: true },
-  });
+export async function isFeatOfPersRuleset(persId: number, featId: number): Promise<boolean> {
+  const [pers, feat] = await Promise.all([
+    prisma.pers.findUnique({ where: { persId }, select: { ruleset: true } }),
+    prisma.feat.findUnique({ where: { featId }, select: { ruleset: true } }),
+  ]);
 
-  if (!feat) {
-    throw new Error("Рису не знайдено");
-  }
-
-  // Повторювана риса лягає другим рядком зі своїми виборами (Р37); неповторювана — лише раз.
-  const existing = feat.isRepeatable ? null : await prisma.persFeat.findFirst({ where: { persId, featId } });
-  const persFeat = existing ?? (await prisma.persFeat.create({ data: { persId, featId } }));
-
-  // Save choice options if provided
-  if (choiceOptionIds && choiceOptionIds.length > 0) {
-    await prisma.persFeatChoice.createMany({
-      data: choiceOptionIds.map((choiceOptionId) => ({
-        persFeatId: persFeat.persFeatId,
-        choiceOptionId,
-      })),
-      skipDuplicates: true,
-    });
-  }
-
-  return persFeat;
-}
-
-export async function removePersFeat(persId: number, featId: number) {
-  return prisma.persFeat.deleteMany({
-    where: {
-      persId,
-      featId,
-    },
-  });
+  return pers !== null && pers.ruleset === feat?.ruleset;
 }
 
 export async function removePersFeatById(persFeatId: number, persId: number) {

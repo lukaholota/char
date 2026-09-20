@@ -10,8 +10,10 @@ import type { PrismaClient, Ruleset } from "@prisma/client";
 
 export const RACE_CREATOR_INCLUDE = {
   raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
-  subraces: { include: { traits: { include: { feature: true } } } },
-  raceVariants: { include: { traits: { include: { feature: true } } } },
+  /// Порядок явно: без нього Postgres віддає фізичний, а `UPDATE` підраси (сід прози KR33.6)
+  /// його міняє — наступна регенерація переставила б підраси PHB у кінець кроку вибору.
+  subraces: { include: { traits: { include: { feature: true } } }, orderBy: { subraceId: "asc" } },
+  raceVariants: { include: { traits: { include: { feature: true } } }, orderBy: { raceVariantId: "asc" } },
   traits: { include: { feature: true } },
 } as const;
 

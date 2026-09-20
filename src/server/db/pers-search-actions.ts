@@ -55,7 +55,7 @@ async function findMatchingPerses(userId: number, variants: string[]): Promise<U
 async function findMatchingFolders(userId: number, variants: string[]): Promise<UserSearchHit[]> {
   const folders = await prisma.persFolder.findMany({
     where: { AND: [buildVisibleFolderFilter(userId), buildNameMatchFilter(variants)] },
-    select: { folderId: true, name: true },
+    select: { folderId: true, name: true, ruleset: true },
     orderBy: [{ isPinned: "desc" }, { name: "asc" }],
     take: MAX_FOLDER_HITS,
   });
@@ -65,7 +65,7 @@ async function findMatchingFolders(userId: number, variants: string[]): Promise<
     id: folder.folderId,
     title: folder.name,
     subtitle: "Папка персонажів",
-    href: `/char/home?folder=${folder.folderId}`,
+    href: `${folder.ruleset === "RULES_2024" ? "/2024/char/home" : "/char/home"}?folder=${folder.folderId}`,
   }));
 }
 

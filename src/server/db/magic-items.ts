@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { findAttunementCapacityForPers } from "@/rules/attunement";
+import type { MagicItemCharges } from "@/rules/magic-item-charges";
 
 export type MagicItemUpdates = {
   isEquipped?: boolean;
@@ -57,6 +58,17 @@ export async function findAttunementLimitError(
   return null;
 }
 
+export function findPersMagicItemCharges(persMagicItemId: number): Promise<MagicItemCharges | null> {
+  return prisma.persMagicItem.findUnique({
+    where: { persMagicItemId },
+    select: { chargesMax: true, chargesCurrent: true },
+  });
+}
+
+export function savePersMagicItemCharges(persMagicItemId: number, charges: MagicItemCharges) {
+  return prisma.persMagicItem.update({ where: { persMagicItemId }, data: charges });
+}
+
 export function deletePersMagicItem(persMagicItemId: number) {
   return prisma.persMagicItem.delete({ where: { persMagicItemId } });
 }
@@ -68,6 +80,15 @@ export async function hasMagicItemLink(persId: number, magicItemId: number): Pro
   });
 
   return link !== null;
+}
+
+export async function isMagicItemOfPersRuleset(persId: number, magicItemId: number): Promise<boolean> {
+  const [pers, magicItem] = await Promise.all([
+    prisma.pers.findUnique({ where: { persId }, select: { ruleset: true } }),
+    prisma.magicItem.findUnique({ where: { magicItemId }, select: { ruleset: true } }),
+  ]);
+
+  return pers !== null && pers.ruleset === magicItem?.ruleset;
 }
 
 export function removeMagicItemLinks(persId: number, magicItemId: number) {

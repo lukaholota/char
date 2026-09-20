@@ -7,13 +7,17 @@ import {
   deletePersMagicItem,
   findAttunementLimitError,
   findMagicItemPersId,
+  findPersMagicItemCharges,
   hasMagicItemLink,
+  isMagicItemOfPersRuleset,
   removeMagicItemLinks,
+  savePersMagicItemCharges,
   updatePersMagicItem,
   type MagicItemUpdates,
 } from "@/server/db/magic-items";
 import { findUserIdByEmail } from "@/server/db/users";
 import { revalidatePath } from "next/cache";
+import { applyChargesMax, applyChargesStep, type MagicItemCharges } from "@/rules/magic-item-charges";
 
 async function assertOwnsPers(persId: number) {
   const session = await auth();
@@ -55,6 +59,32 @@ export async function updateMagicItem(
   }
 }
 
+export async function setMagicItemChargesMax(persMagicItemId: number, chargesMax: number | null) {
+  return changeMagicItemCharges(persMagicItemId, (charges) => applyChargesMax(charges, chargesMax));
+}
+
+export async function stepMagicItemCharges(persMagicItemId: number, step: number) {
+  return changeMagicItemCharges(persMagicItemId, (charges) => applyChargesStep(charges, Math.trunc(step)));
+}
+
+async function changeMagicItemCharges(
+  persMagicItemId: number,
+  change: (charges: MagicItemCharges) => MagicItemCharges
+): Promise<{ success: true } | { success: false; error: string }> {
+  const persId = await findMagicItemPersId(persMagicItemId);
+  if (persId === null) return { success: false, error: "Предмет не знайдено" };
+
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const charges = await findPersMagicItemCharges(persMagicItemId);
+  if (!charges) return { success: false, error: "Предмет не знайдено" };
+
+  await savePersMagicItemCharges(persMagicItemId, change(charges));
+  revalidatePath(`/char/${persId}`);
+  return { success: true };
+}
+
 export async function deleteMagicItem(persMagicItemId: number) {
   const persId = await findMagicItemPersId(persMagicItemId);
   if (persId === null) return { success: false, error: "Предмет не знайдено" };
@@ -91,6 +121,10 @@ export async function toggleMagicItemForPers({
 
     revalidatePath(`/char/${persId}`);
     return { success: true, added: false };
+  }
+
+  if (!(await isMagicItemOfPersRuleset(persId, magicItemId))) {
+    return { success: false, error: "Цей предмет належить іншій редакції правил" };
   }
 
   await addMagicItemLink(persId, magicItemId);

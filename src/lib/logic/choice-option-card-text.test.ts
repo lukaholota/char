@@ -18,6 +18,19 @@ describe("підпис картки вибору", () => {
     expect(findChoiceOptionCardText(invocation, [invocation]).title).toBe("Мучливий вибух [Agonizing Blast]");
   });
 
+  it("знімає з оригіналу службовий власник ключа: у дужках лишається книжкова назва", () => {
+    const blindFighting = {
+      optionName: "Бій наосліп",
+      features: [{ feature: { name: "Бій наосліп", engName: "Fighting Style: Blind Fighting (2024)", shortDescription: "Сліповид у радіусі 10 футів" } }],
+    };
+    const protector = {
+      optionName: "Захисник",
+      features: [{ feature: { name: "Захисник", engName: "Class Choice Feature: Divine Order: Protector (2024)", shortDescription: "Володіння важкими обладунками й військовою зброєю" } }],
+    };
+    expect(findChoiceOptionCardText(blindFighting, [blindFighting]).title).toBe("Бій наосліп [Blind Fighting]");
+    expect(findChoiceOptionCardText(protector, [protector]).title).toBe("Захисник [Protector]");
+  });
+
   it("не дублює заголовок в описі: короткий опис збігся — бере наступного кандидата", () => {
     const onlyDescription = {
       optionName: "Обладунок мага [Mage Armor] на себе без витрати чарунок",
@@ -34,7 +47,25 @@ describe("підпис картки вибору", () => {
   });
 
   it("опція без фічі показує свій підпис", () => {
-    expect(findChoiceOptionCardText(skill, [skill])).toEqual({ title: "Атлетика", preview: "" });
+    expect(findChoiceOptionCardText(skill, [skill])).toEqual({ title: "Атлетика", preview: "", previewMarkup: "" });
+  });
+
+  it("віддає розмітку того самого кандидата, щоб картка могла малювати посилання на заклинання", () => {
+    const armorOfShadows = {
+      optionName: "Обладунок мага [Mage Armor] на себе без витрати слотів",
+      features: [
+        {
+          feature: {
+            name: "Обладунок тіней",
+            engName: "Armor of Shadows (2024)",
+            shortDescription: '<a href="/2024/spells/mage-armor">Обладунок мага [Mage Armor]</a> на себе без витрати слотів',
+          },
+        },
+      ],
+    };
+    const { preview, previewMarkup } = findChoiceOptionCardText(armorOfShadows, [armorOfShadows]);
+    expect(preview).toBe("Обладунок мага [Mage Armor] на себе без витрати слотів");
+    expect(previewMarkup).toBe('<a href="/2024/spells/mage-armor">Обладунок мага [Mage Armor]</a> на себе без витрати слотів');
   });
 
   it("в описі знімає розмітку, посилання й маркери оригіналу", () => {

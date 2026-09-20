@@ -51,12 +51,12 @@ export function shouldAutoExcludeFromPreparedCountBadge(badgeText: unknown, matc
 
 	for (const token of AUTO_EXCLUDE_BADGE_STATIC_TOKENS) {
 		const staticToken = normalizePreparedCountBadgeToken(token);
-		if (normalized.includes(staticToken) || staticToken.includes(normalized)) return true;
+		if (normalized.includes(staticToken)) return true;
 	}
 
 	for (const matcher of matchers) {
 		if (!matcher) continue;
-		if (normalized.includes(matcher) || matcher.includes(normalized)) return true;
+		if (normalized.includes(matcher)) return true;
 	}
 
 	return false;

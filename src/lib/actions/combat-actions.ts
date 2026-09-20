@@ -5,6 +5,7 @@ import { canEditPers } from "@/lib/actions/pers";
 import { findCombatState, saveCombatState } from "@/server/db/combat-state";
 import { findUserIdByEmail } from "@/server/db/users";
 import { revalidatePath } from "next/cache";
+import { limitHeroicInspirationCount, type HeroicInspiration } from "@/rules/heroic-inspiration";
 
 type HpMode = "damage" | "heal" | "temp";
 
@@ -150,23 +151,62 @@ export async function setDeathSaves({
   return { success: true, ...updated };
 }
 
-/// Натхнення — стан, а не лічильник: його дає майстер за столом або довгий відпочинок носія
-/// (`src/rules/heroic-inspiration.ts`), а витрачає гравець з листа руками.
-export async function setHeroicInspiration({
+type HeroicInspirationResult =
+  | { success: true; heroicInspirationCount: number; canStackHeroicInspiration: boolean }
+  | { success: false; error: string };
+
+/// Натхнення дає майстер за столом або довгий відпочинок носія (`src/rules/heroic-inspiration.ts`),
+/// а додає й витрачає гравець з листа руками.
+export async function setHeroicInspirationCount({
   persId,
-  hasHeroicInspiration,
+  heroicInspirationCount,
 }: {
   persId: number;
-  hasHeroicInspiration: boolean;
-}): Promise<{ success: true; hasHeroicInspiration: boolean } | { success: false; error: string }> {
+  heroicInspirationCount: number;
+}): Promise<HeroicInspirationResult> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
 
-  const updated = await saveCombatState(persId, { hasHeroicInspiration: hasHeroicInspiration === true });
+  const updated = await saveCombatState(persId, {
+    heroicInspirationCount: limitHeroicInspirationCount({
+      heroicInspirationCount: clampInt(heroicInspirationCount),
+      canStackHeroicInspiration: owned.pers.canStackHeroicInspiration,
+    }),
+  });
 
   revalidatePath(`/char/${persId}`);
   revalidatePath(`/character/${persId}`);
-  return { success: true, hasHeroicInspiration: updated.hasHeroicInspiration };
+  return pickHeroicInspiration(updated);
+}
+
+/// Вимкнення стакання зрізає вже накопичене до одного — інакше лист показував би стан, якого
+/// вимкнене налаштування не дозволяє.
+export async function setCanStackHeroicInspiration({
+  persId,
+  canStackHeroicInspiration,
+}: {
+  persId: number;
+  canStackHeroicInspiration: boolean;
+}): Promise<HeroicInspirationResult> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const canStack = canStackHeroicInspiration === true;
+  const updated = await saveCombatState(persId, {
+    canStackHeroicInspiration: canStack,
+    heroicInspirationCount: limitHeroicInspirationCount({
+      heroicInspirationCount: owned.pers.heroicInspirationCount,
+      canStackHeroicInspiration: canStack,
+    }),
+  });
+
+  revalidatePath(`/char/${persId}`);
+  revalidatePath(`/character/${persId}`);
+  return pickHeroicInspiration(updated);
+}
+
+function pickHeroicInspiration({ heroicInspirationCount, canStackHeroicInspiration }: HeroicInspiration): HeroicInspirationResult {
+  return { success: true, heroicInspirationCount, canStackHeroicInspiration };
 }
 
 export async function reviveCharacter({

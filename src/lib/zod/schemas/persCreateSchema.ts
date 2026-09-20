@@ -250,6 +250,23 @@ export const weaponMasterySchema = z.object({
   weaponMasteryWeaponIds: z.array(z.number().int().positive()).default([]),
 });
 
+const spellIdsSchema = z.array(z.number().int().positive()).default([]);
+
+const spellSwapSchema = z.object({ dropId: z.number().int().positive().nullable(), addId: z.number().int().positive().nullable() });
+
+export const classSpellsSchema = z.object({
+  cantripIds: spellIdsSchema,
+  preparedIds: spellIdsSchema,
+  spellbookIds: spellIdsSchema,
+  cantripSwap: spellSwapSchema.nullable().optional(),
+  preparedSwap: spellSwapSchema.nullable().optional(),
+});
+
+export const featSpellSelectionsSchema = z.object({
+  BACKGROUND_ORIGIN: z.array(z.number().int().positive()).optional(),
+  SPECIES_VERSATILITY: z.array(z.number().int().positive()).optional(),
+});
+
 export const nameSchema = z.object({
   name: z.string()
     .max(100, "ти шо, sql інʼєкцію вирішив закинути?))) оце потужний))")
@@ -296,6 +313,10 @@ export const fullCharacterSchema = z.object({
   /// запасний шлях мертвим і перетворював кожного персонажа 2024 на 2014.
   ruleset: z.enum(["RULES_2014", "RULES_2024"]).optional(),
   backgroundAsiChoice: backgroundAsiChoiceSchema.optional(),
+  classSpells: classSpellsSchema.optional(),
+  featSpellSelections: featSpellSelectionsSchema.optional(),
+  /** Книга тіней Pact of the Tome: заклинання, які дає обрати опція класу. */
+  classOptionSpellIds: z.array(z.number().int().positive()).optional(),
   nameSchema: nameSchema.optional()
   ,
   // -------------------------------------------------------------------------
@@ -308,6 +329,7 @@ export const fullCharacterSchema = z.object({
   levelUpHpManualInput: z.string().optional(),
   levelUpSkillSelections: z.record(z.string(), z.array(skills)).default({}).optional(),
   featSpellIds: z.array(z.number().int().positive()).optional(),
+  featGrowthSpellIds: z.array(z.number().int().positive()).optional(),
 })
 
  .superRefine((data, ctx) => {

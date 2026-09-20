@@ -8,7 +8,8 @@ const combatStateSelect = {
   deathSaveSuccesses: true,
   deathSaveFailures: true,
   isDead: true,
-  hasHeroicInspiration: true,
+  heroicInspirationCount: true,
+  canStackHeroicInspiration: true,
 } satisfies Prisma.PersSelect;
 
 export function findCombatState(persId: number) {

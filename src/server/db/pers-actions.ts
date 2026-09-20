@@ -1,17 +1,22 @@
 'use server';
 
+import { findCustomDescription, type FeatureDescriptionTarget } from "@/lib/logic/feature-descriptions";
+import { buildFeatFeatureDescription } from "@/lib/logic/feat-feature-description";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { FeatureDisplayType, RestType, MagicItem, Prisma, Ruleset } from "@prisma/client";
-import { featTranslations } from "@/lib/refs/translation";
-import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { FeatureSource } from "@/lib/utils/features";
-import { clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
+import { buildCopyTarget, clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
+import { PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
+import { collectPersClassNames, collectPersSubclassNames } from "@/lib/logic/pers-class-names";
 import { buildVisiblePersFilter, buildVisibleFolderFilter } from "@/server/db/pers-access-filters";
 import { findCurrentUserId } from "@/server/db/current-user";
-import { findPoolProvider } from "@/rules/resource-pools";
+import { deleteUnusedPortraits } from "@/server/db/pers-portrait-cleanup";
+import { findPoolProvider, regainsOneUseOnShortRest } from "@/rules/resource-pools";
 import { buildSpellLinkForSpell } from "@/lib/spell-link";
+import { buildHomebrewSpellKey } from "@/lib/logic/homebrew-view";
+import { findRechoosableSubclassOptionGroup } from "@/rules/subclass-option-rechoice";
 
 async function getCurrentUserId() {
     return findCurrentUserId();
@@ -52,6 +57,7 @@ export async function canDeletePers(persId: number, userId: number) {
 }
 
 const FOLDER_COLOR_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+const FOLDER_RULESET_MISMATCH_ERROR = "Папка належить іншій редакції";
 
 function normalizeFolderName(name: string) {
     return String(name || "")
@@ -78,7 +84,7 @@ function normalizeFolderColor(color: string) {
 async function assertFolderOwnership(folderId: number, userId: number) {
     const folder = await prisma.persFolder.findUnique({
         where: { folderId },
-        select: { folderId: true, userId: true, parentFolderId: true, name: true, color: true, isPinned: true },
+        select: { folderId: true, userId: true, parentFolderId: true, name: true, color: true, isPinned: true, ruleset: true },
     });
 
     if (!folder || folder.userId !== userId) {
@@ -130,7 +136,7 @@ export async function getUserPerses() {
 
 export async function getUserPersHomeData(options?: { ruleset?: Ruleset }) {
     const userId = await getCurrentUserId();
-    if (!userId) return { perses: [], folders: [] };
+    if (!userId) return { perses: [], folders: [], currentUserId: null };
 
     const [perses, folders] = await Promise.all([
         prisma.pers.findMany({
@@ -155,7 +161,12 @@ export async function getUserPersHomeData(options?: { ruleset?: Ruleset }) {
             orderBy: { createdAt: "desc" },
         }),
         prisma.persFolder.findMany({
-            where: buildVisibleFolderFilter(userId),
+            where: {
+                AND: [
+                    buildVisibleFolderFilter(userId),
+                    ...(options?.ruleset ? [{ ruleset: options.ruleset }] : []),
+                ],
+            },
             select: {
                 folderId: true,
                 name: true,
@@ -175,7 +186,7 @@ export async function getUserPersHomeData(options?: { ruleset?: Ruleset }) {
         return folder;
     });
 
-    return { perses, folders: normalizedFolders };
+    return { perses, folders: normalizedFolders, currentUserId: userId };
 }
 
 export async function renamePers(persId: number, name: string) {
@@ -206,6 +217,10 @@ export async function deletePers(persId: number) {
 
     const canDelete = await canDeletePers(persId, userId);
     if (canDelete) {
+        const removed = await prisma.pers.findMany({
+            where: { OR: [{ persId }, { parentPersId: persId }] },
+            select: { portraitKey: true },
+        });
         await prisma.$transaction([
             prisma.pers.deleteMany({
                 where: { parentPersId: persId },
@@ -214,6 +229,7 @@ export async function deletePers(persId: number) {
                 where: { persId },
             }),
         ]);
+        void deleteUnusedPortraits(removed.map((pers) => pers.portraitKey));
 
         revalidatePath("/char/home");
         return { success: true as const };
@@ -257,7 +273,7 @@ export async function duplicatePers(persId: number) {
         const canEdit = await canEditPers(persId, userId);
         if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
-        const duplicate = await prisma.$transaction(async (tx) => clonePersWithRelations(tx, pers));
+        const duplicate = await prisma.$transaction(async (tx) => clonePersWithRelations(tx, pers, buildCopyTarget(pers)));
 
         revalidatePath("/char/home");
         
@@ -273,18 +289,9 @@ export async function duplicatePers(persId: number) {
             shareToken: duplicate.shareToken,
             folderId: duplicate.folderId,
             isPinned: duplicate.isPinned,
-            classNames: [
-                pers.class?.name,
-                ...pers.multiclasses
-                    .map((multiclass) => multiclass.class?.name)
-                    .filter((name): name is NonNullable<typeof name> => name !== undefined),
-            ].filter((name): name is NonNullable<typeof name> => name !== undefined),
-            subclassNames: [
-                pers.subclass?.name,
-                ...pers.multiclasses
-                    .map((multiclass) => multiclass.subclass?.name)
-                    .filter((name): name is NonNullable<typeof name> => name !== undefined),
-            ].filter((name): name is NonNullable<typeof name> => name !== undefined),
+            ruleset: duplicate.ruleset,
+            classNames: collectPersClassNames(pers),
+            subclassNames: collectPersSubclassNames(pers),
         };
 
         return { success: true as const, pers: persHomeItem };
@@ -294,7 +301,7 @@ export async function duplicatePers(persId: number) {
     }
 }
 
-export async function createPersFolder(input: { name: string; color?: string; parentFolderId?: number | null }) {
+export async function createPersFolder(input: { name: string; ruleset: Ruleset; color?: string; parentFolderId?: number | null }) {
     const userId = await getCurrentUserId();
     if (!userId) return { success: false as const, error: "Не авторизовано" };
 
@@ -307,6 +314,7 @@ export async function createPersFolder(input: { name: string; color?: string; pa
     if (typeof input.parentFolderId === "number") {
         const parent = await assertFolderOwnership(input.parentFolderId, userId);
         if (!parent) return { success: false as const, error: "Немає доступу до папки" };
+        if (parent.ruleset !== input.ruleset) return { success: false as const, error: FOLDER_RULESET_MISMATCH_ERROR };
         parentFolderId = parent.folderId;
     }
 
@@ -316,6 +324,7 @@ export async function createPersFolder(input: { name: string; color?: string; pa
             name,
             color,
             parentFolderId,
+            ruleset: input.ruleset,
         },
         select: {
             folderId: true,
@@ -425,6 +434,7 @@ export async function duplicatePersFolder(folderId: number) {
                 color: true,
                 isPinned: true,
                 parentFolderId: true,
+                ruleset: true,
             },
         });
 
@@ -438,6 +448,7 @@ export async function duplicatePersFolder(folderId: number) {
                     color: folder.color,
                     isPinned: folder.isPinned,
                     parentFolderId: parentId,
+                    ruleset: folder.ruleset,
                 },
                 select: {
                     folderId: true,
@@ -454,16 +465,12 @@ export async function duplicatePersFolder(folderId: number) {
             });
 
             for (const pers of perses) {
-                await clonePersWithRelations(tx, pers, {
-                    name: `${pers.name} (Копія)`,
-                    folderId: createdFolder.folderId,
-                    isPinned: pers.isPinned ?? false,
-                });
+                await clonePersWithRelations(tx, pers, buildCopyTarget(pers, { folderId: createdFolder.folderId }));
             }
 
             const children = await tx.persFolder.findMany({
                 where: { userId, parentFolderId: folder.folderId },
-                select: { folderId: true, name: true, color: true, isPinned: true, parentFolderId: true },
+                select: { folderId: true, name: true, color: true, isPinned: true, parentFolderId: true, ruleset: true },
             });
 
             for (const child of children) {
@@ -493,6 +500,8 @@ export async function movePersToFolder(persId: number, folderId: number | null) 
     if (typeof folderId === "number") {
         const folder = await assertFolderOwnership(folderId, userId);
         if (!folder) return { success: false as const, error: "Немає доступу до папки" };
+        const pers = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { ruleset: true } });
+        if (pers.ruleset !== folder.ruleset) return { success: false as const, error: FOLDER_RULESET_MISMATCH_ERROR };
         nextFolderId = folder.folderId;
     }
 
@@ -539,6 +548,9 @@ export async function movePersFolder(folderId: number, parentFolderId: number | 
         if (isDescendant) {
             return { success: false as const, error: "Неможливо перемістити папку в її підпапку" };
         }
+        if (parent.ruleset !== folder.ruleset) {
+            return { success: false as const, error: FOLDER_RULESET_MISMATCH_ERROR };
+        }
         nextParentId = parent.folderId;
     }
 
@@ -567,7 +579,7 @@ export async function setPersPinned(persId: number, isPinned: boolean) {
     return { success: true as const };
 }
 
-export async function getUserPersesSpellIndex() {
+export async function getUserPersesSpellIndex(ruleset: Ruleset) {
     const session = await auth();
     if (!session?.user?.email) {
         return [];
@@ -582,6 +594,7 @@ export async function getUserPersesSpellIndex() {
     const perses = await prisma.pers.findMany({
         where: { 
             userId: user.id,
+            ruleset,
             isSnapshot: false,
             isActive: true
         },
@@ -594,6 +607,7 @@ export async function getUserPersesSpellIndex() {
                     spell: { select: { spellId: true, engName: true, ruleset: true } },
                 },
             },
+            homebrewSpells: { select: { homebrewEntryId: true } },
         },
         orderBy: { updatedAt: "desc" },
     });
@@ -602,7 +616,10 @@ export async function getUserPersesSpellIndex() {
         persId: p.persId,
         name: p.name,
         spellIds: p.persSpells.map((s) => s.spellId),
-        spellKeys: p.persSpells.map((s) => buildSpellLinkForSpell(s.spell).spellKey),
+        spellKeys: [
+            ...p.persSpells.map((s) => buildSpellLinkForSpell(s.spell).spellKey),
+            ...p.homebrewSpells.map((s) => buildHomebrewSpellKey(s.homebrewEntryId)),
+        ],
     }));
 }
 
@@ -612,115 +629,7 @@ export async function getPersById(id: number) {
 
     const pers = await prisma.pers.findUnique({
         where: { persId: id },
-        include: {
-            race: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            subrace: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            class: {
-                include: {
-                    features: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            subclass: {
-                include: {
-                    features: {
-                        include: {
-                            feature: true
-                        }
-                    }
-                }
-            },
-            multiclasses: {
-                include: {
-                    class: {
-                        include: {
-                            features: {
-                                include: {
-                                    feature: true,
-                                },
-                            },
-                        },
-                    },
-                    subclass: {
-                        include: {
-                            features: {
-                                include: {
-                                    feature: true,
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-            background: true,
-            skills: true,
-            feats: { 
-                include: { 
-                    feat: {
-                        include: {
-                            grantsFeature: true,
-                        },
-                    },
-                    choices: {
-                        include: {
-                            choiceOption: true,
-                        }
-                    }
-                } 
-            },
-            raceVariants: {
-                include: {
-                    traits: {
-                        include: {
-                            feature: true,
-                        },
-                    },
-                },
-            },
-            magicItems: {
-                include: {
-                    magicItem: true
-                }
-            },
-            features: { include: { feature: true } },
-            classOptionalFeatures: { include: { feature: true } },
-            choiceOptions: { include: { features: { include: { feature: true } } } },
-            raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
-            spells: true,
-            persSpells: {
-                include: {
-                    spell: true,
-                },
-                orderBy: [
-                    { spell: { level: "asc" } },
-                    { spell: { name: "asc" } },
-                ],
-            },
-            weapons: { include: { weapon: true } },
-            pers_weapon_mastery: { include: { weapon: true } },
-            armors: { include: { armor: true } },
-            resourcePools: true,
-            user: true,
-        }
+        include: { ...PERS_SHEET_INCLUDE, user: true }
     });
     
     if (!pers) return null;
@@ -769,8 +678,15 @@ export interface CharacterFeatureItem {
     usesRemaining?: number | null;
     usesPer?: number | null;
     restType?: RestType | null;
+    regainsOneUseOnShortRest?: boolean;
     createdAt?: number | null;
     magicItem?: Partial<MagicItem> | null;
+    descriptionTarget?: FeatureDescriptionTarget;
+    hasCustomDescription?: boolean;
+    /** Група опції підкласу, яку книга дозволяє перевибрати після довгого відпочинку (KR37.4). */
+    rechoosableGroupName?: string;
+    /** Лють чи Велика форма зараз увімкнена (O38). */
+    isActive?: boolean;
 }
 
 export type CharacterFeaturesGroupedResult = Record<CharacterFeatureGroupKey, CharacterFeatureItem[]>;
@@ -809,6 +725,7 @@ function toPrimaryGroupKey(primaryType: FeatureDisplayType): CharacterFeatureGro
 }
 
 const PERS_FEATURES_INCLUDE = {
+    featureDescriptions: { select: { kind: true, refId: true, description: true } },
     features: { include: { feature: true }, orderBy: { persFeatureId: "asc" } },
     race: { include: { traits: { include: { feature: true } } } },
     subrace: { include: { traits: { include: { feature: true } } } },
@@ -890,6 +807,11 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
     // Identify features that come from choices to label them correctly in the main loop
     const choiceFeatureIds = new Map<number, FeatureSource>();
     pers.choiceOptions.forEach(co => co.features.forEach(cof => choiceFeatureIds.set(cof.feature.featureId, "CHOICE")));
+    const rechoosableGroupByFeatureId = new Map<number, string>();
+    pers.choiceOptions.forEach(co => {
+        const group = findRechoosableSubclassOptionGroup(co.groupName, pers.ruleset);
+        if (group) co.features.forEach(cof => rechoosableGroupByFeatureId.set(cof.feature.featureId, group.groupName));
+    });
     pers.raceChoiceOptions.forEach(rco => rco.traits.forEach(t => { if (t.featureId) choiceFeatureIds.set(t.featureId, "RACE_CHOICE"); }));
 
     const poolRemainingByKey = new Map<string, number | null>();
@@ -1023,7 +945,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
         const maxUses = calculateMaxUsesForFeature(provider);
         const remaining = poolRemainingByKey.get(f.usesPoolKey) ?? null;
         const restType = provider?.limitedUsesPer ?? f?.limitedUsesPer ?? null;
-        return { maxUses, remaining, restType };
+        return { maxUses, remaining, restType, regainsOneUse: regainsOneUseOnShortRest(provider?.engName) };
     };
 
     const seenFeatureIds = new Set<number>();
@@ -1040,8 +962,12 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
         const displayTypes = normalizeDisplayTypes(item.displayTypes);
         const primaryType = getPrimaryDisplayType(displayTypes);
         const key = toPrimaryGroupKey(primaryType);
+        const customDescription = item.descriptionTarget ? findCustomDescription(pers.featureDescriptions, item.descriptionTarget) : null;
         buckets[key].push({
             ...item,
+            description: customDescription ?? item.description,
+            shortDescription: customDescription === null ? item.shortDescription : null,
+            hasCustomDescription: customDescription !== null,
             displayTypes,
             primaryType,
         });
@@ -1066,6 +992,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
         push({
             key: `PERS:feature:${f.featureId}`,
             featureId: f.featureId,
+            descriptionTarget: { kind: "FEATURE", refId: f.featureId },
             usesPoolKey: f.usesPoolKey ?? null,
             usePrice: f.usePrice ?? 1,
             name: f.name,
@@ -1074,10 +1001,13 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
             displayTypes: normalizeDisplayTypes(f.displayType),
             source: source as FeatureSource,
             sourceName: f.name,
+            rechoosableGroupName: rechoosableGroupByFeatureId.get(f.featureId),
             usesRemaining: poolInfo?.remaining ?? pf.usesRemaining ?? null,
             usesPer,
             restType: poolInfo?.restType ?? f.limitedUsesPer ?? null,
+            regainsOneUseOnShortRest: poolInfo?.regainsOneUse ?? regainsOneUseOnShortRest(f.engName),
             createdAt: pf.persFeatureId,
+            isActive: pf.isActive,
         });
     }
 
@@ -1089,6 +1019,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
             push({
                 key: `CHOICE:${co.groupName}:option:${co.choiceOptionId}:feature:${f.featureId}`,
                 featureId: f.featureId,
+                descriptionTarget: { kind: "FEATURE", refId: f.featureId },
                 usesPoolKey: f.usesPoolKey ?? null,
                 usePrice: f.usePrice ?? 1,
                 name: f.name,
@@ -1097,9 +1028,10 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
                 displayTypes: normalizeDisplayTypes(f.displayType),
                 source: "CHOICE",
                 sourceName: co.groupName,
+                rechoosableGroupName: rechoosableGroupByFeatureId.get(f.featureId),
                 createdAt: co.choiceOptionId, // fallback
                 usesRemaining: null,
-                usesPer: f.usesCount, // Simplified, Pact usually passive
+                usesPer: calculateMaxUsesForFeature(f),
                 restType: f.limitedUsesPer,
             });
         }
@@ -1112,6 +1044,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
             push({
                 key: `RACE_CHOICE:${rco.choiceGroupName}:option:${rco.optionId}:feature:${f.featureId}`,
                 featureId: f.featureId,
+                descriptionTarget: { kind: "FEATURE", refId: f.featureId },
                 usesPoolKey: f.usesPoolKey ?? null,
                 usePrice: f.usePrice ?? 1,
                 name: f.name,
@@ -1122,73 +1055,27 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
                 sourceName: rco.choiceGroupName,
                 createdAt: rco.optionId, // fallback
                 usesRemaining: null,
-                usesPer: f.usesCount,
+                /// Благословення виду бере максимум із бонусу майстерності, а не з плаского
+                /// числа: без цього персонаж без рядка `pers_feature` бачив би порожній лічильник.
+                usesPer: calculateMaxUsesForFeature(f),
                 restType: f.limitedUsesPer,
             });
         }
     }
 
-    // 3) Feats + their selected feat choice options
+    // 3) Feats, with what was picked inside each feat folded into its own card
     for (const pf of pers.feats ?? []) {
         const featName = pf.feat.name;
-        const displayTypes = [FeatureDisplayType.PASSIVE];
 
-        const normalizeFeatKey = (value: string) =>
-            String(value ?? "")
-                .trim()
-                .replace(/[^A-Za-z0-9]+/g, "_")
-                .replace(/_+/g, "_")
-                .replace(/^_+|_+$/g, "")
-                .toUpperCase();
-
-        const translatedFeatName =
-            featTranslations[featName as keyof typeof featTranslations] ||
-            featTranslations[String(featName).toUpperCase() as keyof typeof featTranslations] ||
-            featTranslations[normalizeFeatKey(featName) as keyof typeof featTranslations] ||
-            featName;
-
-        // Always show the feat itself as a trait item
         push({
             key: `FEAT:${pf.featId}`,
             name: featName,
-            description: pf.feat.description,
-            displayTypes,
+            descriptionTarget: { kind: "FEAT", refId: pf.featId },
+            description: buildFeatFeatureDescription(pf.feat.description, pf.choices),
+            displayTypes: [FeatureDisplayType.PASSIVE],
             source: "FEAT",
             sourceName: featName,
         });
-
-        // Additionally show selected choices (if any)
-        if (!pf.choices || pf.choices.length === 0) {
-            continue;
-        }
-
-        for (const choice of pf.choices) {
-            if (!choice.choiceOption) continue;
-
-            const rawGroupName = String(choice.choiceOption.groupName || "");
-
-            const translateEmbeddedTokens = (text: string) => {
-                if (!text) return text;
-                return text
-                    .replace(/\b[A-Z][A-Z0-9_]{2,}\b/g, (token) => translateValue(token))
-                    .replace(/\b[a-z][a-z0-9_]{2,}\b/g, (token) => translateValue(token.toUpperCase()));
-            };
-
-            const groupNameRawTranslated = translateEmbeddedTokens(rawGroupName);
-            const groupName = groupNameRawTranslated
-                ? groupNameRawTranslated.split(featName).join(translatedFeatName)
-                : groupNameRawTranslated;
-            const optionName = translateValue(choice.choiceOption.optionName);
-
-            push({
-                key: `FEAT:${pf.featId}:choice:${choice.choiceOptionId}`,
-                name: optionName,
-                description: groupName ? `${groupName}: ${optionName}` : optionName,
-                displayTypes,
-                source: "FEAT",
-                sourceName: featName,
-            });
-        }
     }
     
     // 4) Artificer Infusions
@@ -1204,6 +1091,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
 
         push({
             key: `INFUSION:${pi.persInfusionId}`,
+            descriptionTarget: { kind: "INFUSION", refId: pi.persInfusionId },
             name: feature?.name || inf.name,
             description: feature?.description || inf.replicatedMagicItem?.description || inf.name,
             shortDescription: feature?.shortDescription,
@@ -1260,7 +1148,7 @@ export async function getCharacterFeaturesGroupedByShareToken(token: string): Pr
     return buildCharacterFeaturesGrouped(pers);
 }
 
-export async function getUserPersesMagicItemIndex() {
+export async function getUserPersesMagicItemIndex(ruleset: Ruleset) {
     const session = await auth();
     if (!session?.user?.email) {
         return [];
@@ -1275,6 +1163,7 @@ export async function getUserPersesMagicItemIndex() {
     const perses = await prisma.pers.findMany({
         where: { 
             userId: user.id,
+            ruleset,
             isSnapshot: false,
             isActive: true
         },
