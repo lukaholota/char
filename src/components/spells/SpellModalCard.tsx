@@ -35,7 +35,8 @@ export function SpellModalCard({
   is2024 = false,
 }: {
   spell: SpellData;
-  onClose: () => void;
+  /// Без нього хрестика немає: модалка каталогу малює свій.
+  onClose?: () => void;
   is2024?: boolean;
 }) {
   const classList = Array.from(
@@ -79,7 +80,7 @@ export function SpellModalCard({
           <div className="text-xs font-mono text-slate-500 mt-0.5">[{spell.engName}]</div>
         </div>
 
-        <button
+        {onClose && <button
           type="button"
           onClick={onClose}
           className={cn(
@@ -89,7 +90,7 @@ export function SpellModalCard({
           aria-label="Закрити"
         >
           <X className="h-4 w-4" />
-        </button>
+        </button>}
       </div>
 
       {/* Note / mechanical changes */}

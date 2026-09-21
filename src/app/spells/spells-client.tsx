@@ -676,7 +676,6 @@ export function SpellsClient({
           <HomebrewEntryFrame entry={findCommunityEntry(spell)} is2024={is2024}>
             <SpellModalCard
               spell={spell as unknown as SpellData}
-              onClose={() => setSelectedModalSpell(null)}
               is2024={is2024}
             />
           </HomebrewEntryFrame>
