@@ -19,14 +19,15 @@ export function PlatformBackdrop() {
   );
 }
 
+/// Той самий шум, що й SVG `feTurbulence` (baseFrequency 0.85, 3 октави, без кольору), але
+/// відрендерений один раз у плитку. Живий фільтр на весь екран WebKit перераховував на кожній
+/// зміні кадру поверх нього, і будь-яка модалка на iPhone відкривалась і закривалась із фризом
+/// ~250 мс. Плитка — `scripts/render-platform-grain.mjs`.
 function GrainOverlay() {
   return (
-    <svg className="absolute inset-0 h-full w-full opacity-[0.05] mix-blend-overlay">
-      <filter id="rpg-noise">
-        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" />
-        <feColorMatrix type="saturate" values="0" />
-      </filter>
-      <rect width="100%" height="100%" filter="url(#rpg-noise)" />
-    </svg>
+    <div
+      className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
+      style={{ backgroundImage: "url(/assets/platform-grain-v1.webp)", backgroundSize: "128px 128px" }}
+    />
   );
 }
