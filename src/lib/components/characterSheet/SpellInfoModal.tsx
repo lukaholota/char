@@ -1,18 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Check, Loader2, UserPlus } from "lucide-react";
-
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem,
-  DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { useParams } from "next/navigation";
-import { setSpellPresenceForPersByLink } from "@/lib/actions/spell-actions";
-import { getUserPersesSpellIndex } from "@/lib/actions/pers";
-import { findSpellForModal } from "@/lib/spell-catalog-chunk";
+import { AddToPersDropdown, AddToSinglePersButton } from "@/lib/components/characterSheet/AddSpellToPersButtons";
+import { findLoadedSpellForModal, findSpellForModal } from "@/lib/spell-catalog-chunk";
 import type { SpellData } from "@/lib/spellsData";
 import { shortenCastingTime } from "@/lib/spell-casting-time";
 import type { Ruleset } from "@prisma/client";
@@ -26,7 +19,6 @@ import {
   type SpellLink,
 } from "@/lib/spell-link";
 import { sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 
 function findSpellLinkInLocation(): SpellLink | null {
   if (typeof window === "undefined") return null;
@@ -83,163 +75,6 @@ function matchesLoadedSpell(spell: SpellData, link: SpellLink): boolean {
   );
 }
 
-type PersIndexItem = {
-  persId: number;
-  name: string;
-  spellIds: number[];
-  spellKeys: string[];
-};
-
-function hasSpellLink(pers: PersIndexItem, link: SpellLink): boolean {
-  return pers.spellKeys.includes(link.spellKey);
-}
-
-function notifyEmbeddingSheet(persId: number, spellId: number, spellLevel: number | undefined, added: boolean) {
-  if (window.parent === window) return;
-  window.parent.postMessage({ type: "SPELL_TOGGLED", persId, spellId, spellLevel, added }, "*");
-}
-
-function AddToPersDropdown({ link, spellLevel }: { link: SpellLink; spellLevel?: number }) {
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
-
-  useModalBackButton(open, () => setOpen(false));
-
-  const load = async () => {
-    if (persIndex) return;
-    setLoading(true);
-    try {
-      const data = await getUserPersesSpellIndex(link.ruleset);
-      setPersIndex(data);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const toggleForPers = async (pers: PersIndexItem) => {
-    const present = !hasSpellLink(pers, link);
-    const res = await setSpellPresenceForPersByLink({ persId: pers.persId, link, present });
-    if (!res.success) return;
-
-    setPersIndex(
-      (persIndex || []).map((item) =>
-        item.persId !== pers.persId
-          ? item
-          : {
-              ...item,
-              spellKeys: res.present
-                ? Array.from(new Set([...item.spellKeys, link.spellKey]))
-                : item.spellKeys.filter((key) => key !== link.spellKey),
-            }
-      )
-    );
-    notifyEmbeddingSheet(pers.persId, res.spellId, spellLevel, res.present);
-  };
-
-  return (
-    <DropdownMenu
-      open={open}
-      onOpenChange={(next) => {
-        setOpen(next);
-        if (next) void load();
-      }}
-    >
-      <DropdownMenuTrigger asChild>
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 md:h-9 md:w-9"
-          aria-label="Додати до персонажа"
-        >
-          <UserPlus className="h-4 w-4" />
-        </button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-64">
-        <DropdownMenuLabel>Додати до персонажа</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-
-        {loading ? (
-          <div className="px-2 py-2 text-xs text-slate-400 flex items-center gap-2">
-            <Loader2 className="h-4 w-4 animate-spin" /> Завантаження…
-          </div>
-        ) : persIndex && persIndex.length === 0 ? (
-          <div className="px-2 py-2 text-xs text-slate-400">Немає персонажів</div>
-        ) : (
-          persIndex?.map((p) => {
-            const has = hasSpellLink(p, link);
-            const label = p.name || `Персонаж #${p.persId}`;
-            return (
-              <DropdownMenuItem
-                key={p.persId}
-                className="flex items-center justify-between gap-2"
-                onSelect={async (e) => {
-                  e.preventDefault();
-                  await toggleForPers(p);
-                }}
-              >
-                <span className="truncate">{label}</span>
-                {has ? <Check className="h-4 w-4 text-arcane-400" /> : null}
-              </DropdownMenuItem>
-            );
-          })
-        )}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
-
-function AddToSinglePersButton({ link, persId, spellLevel }: { link: SpellLink; persId: number; spellLevel?: number }) {
-  const [loading, setLoading] = useState(false);
-  const [has, setHas] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    async function check() {
-      setLoading(true);
-      try {
-        const data = await getUserPersesSpellIndex(link.ruleset);
-        const p = data.find((item) => item.persId === persId);
-        setHas(p ? hasSpellLink(p, link) : false);
-      } finally {
-        setLoading(false);
-      }
-    }
-    void check();
-  }, [link, persId]);
-
-  const handleToggle = async () => {
-    if (loading) return;
-    const nextHas = !has;
-    setLoading(true);
-    try {
-      const res = await setSpellPresenceForPersByLink({ persId, link, present: nextHas });
-      if (res.success) {
-        setHas(res.present);
-        notifyEmbeddingSheet(persId, res.spellId, spellLevel, res.present);
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <button
-      type="button"
-      onClick={handleToggle}
-      disabled={loading}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 md:h-9 md:w-9 disabled:opacity-50"
-      aria-label="Додати до персонажа"
-    >
-      {loading ? (
-        <Loader2 className="h-4 w-4 animate-spin" />
-      ) : has ? (
-        <Check className="h-4 w-4 text-arcane-400" />
-      ) : (
-        <UserPlus className="h-4 w-4" />
-      )}
-    </button>
-  );
-}
-
 export function SpellInfoModal() {
   const params = useParams();
   const currentPersId = params?.id ? Number(params.id) : null;
@@ -257,8 +92,14 @@ export function SpellInfoModal() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const applySpellLink = (next: SpellLink | null) =>
+  const applySpellLink = (next: SpellLink | null, { lookUpCatalog = true } = {}) => {
     setSpellLink((prev) => (isSameSpellLink(prev, next) ? prev : next));
+    const loaded = next && lookUpCatalog ? findLoadedSpellForModal(next) : null;
+    if (!loaded) return;
+    setSpell(loaded);
+    setLoading(false);
+    setError(null);
+  };
 
   useEffect(() => {
     // Patch history methods once so we can react to router pushes too.
@@ -296,7 +137,7 @@ export function SpellInfoModal() {
       }
 
       if (spellKey && spellKey !== "undefined" && spellKey !== "null") {
-        applySpellLink({ spellKey, ruleset });
+        applySpellLink({ spellKey, ruleset }, { lookUpCatalog: !fromSpellObj });
       }
     };
 

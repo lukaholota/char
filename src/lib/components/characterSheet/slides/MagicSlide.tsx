@@ -24,6 +24,7 @@ import { buildSpellcastingStatRows } from "@/lib/logic/spellcasting-stats";
 import SpellcastingSourceCards from "@/lib/components/characterSheet/shared/SpellcastingSourceCards";
 import type { SpellSource } from "@/rules/spell-sources";
 import { buildSpellLinkForSpell, openLoadedSpell, openSpellLink, type SpellLink } from "@/lib/spell-link";
+import { preloadSpellCatalogWhenIdle } from "@/lib/spell-catalog-chunk";
 import { buildHomebrewSheetSpellRows, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
@@ -210,6 +211,9 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
 
   const [localPersSpells, setLocalPersSpells] = useState(() => collectSheetSpells(localPers));
   const [spellQuery, setSpellQuery] = useState("");
+  const hasSheetSpells = localPersSpells.length > 0;
+
+  useEffect(() => (hasSheetSpells ? preloadSpellCatalogWhenIdle() : undefined), [hasSheetSpells]);
 
   // If data refreshes from server, keep local list in sync.
   useEffect(() => {
