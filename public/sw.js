@@ -43,7 +43,7 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
 
   if (MEDIA_ORIGINS.includes(url.origin)) {
-    event.respondWith(respondFromCacheFirst(request, MEDIA_CACHE, MAX_CACHED_MEDIA_FILES));
+    event.respondWith(respondFromCacheFirst(event, MEDIA_CACHE, MAX_CACHED_MEDIA_FILES));
     return;
   }
 
@@ -51,7 +51,7 @@ self.addEventListener("fetch", (event) => {
   if (url.pathname.startsWith("/api/")) return;
 
   if (request.mode === "navigate") {
-    event.respondWith(respondToNavigation(request));
+    event.respondWith(respondToNavigation(event));
     return;
   }
 
@@ -60,20 +60,23 @@ self.addEventListener("fetch", (event) => {
     url.pathname.startsWith("/fonts/") ||
     url.pathname.startsWith("/assets/")
   ) {
-    event.respondWith(respondFromCacheFirst(request, SHELL_CACHE, MAX_CACHED_SHELL_FILES));
+    event.respondWith(respondFromCacheFirst(event, SHELL_CACHE, MAX_CACHED_SHELL_FILES));
     return;
   }
 
   if (url.pathname.startsWith("/images/") || url.pathname.startsWith("/_next/image")) {
-    event.respondWith(respondFromCacheFirst(request, MEDIA_CACHE, MAX_CACHED_MEDIA_FILES));
+    event.respondWith(respondFromCacheFirst(event, MEDIA_CACHE, MAX_CACHED_MEDIA_FILES));
   }
 });
 
-async function respondToNavigation(request) {
+// Запис у кеш — фоном: cache.put дочитує відповідь до кінця, і поки він чекає, браузер не
+// отримує жодного байта — стрімінг сторінки пропадає.
+async function respondToNavigation(event) {
+  const request = event.request;
   try {
     const response = await fetch(request);
     if (response.ok) {
-      await rememberPage(request, response.clone());
+      event.waitUntil(rememberPage(request, response.clone()));
       return response;
     }
 
@@ -103,17 +106,22 @@ async function rememberPage(request, response) {
 
 // Портрети й ілюстрації з іншого origin приходять непрозорими (status 0) — їх теж кладемо: без
 // картинок збережений лист і каталог виглядають зламаними, а не «офлайн».
-async function respondFromCacheFirst(request, cacheName, limit) {
+async function respondFromCacheFirst(event, cacheName, limit) {
+  const request = event.request;
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
   if (cached) return cached;
 
   const response = await fetch(request);
   if (response.ok || response.type === "opaque") {
-    await cache.put(request, response.clone());
-    await dropOldestEntries(cache, limit);
+    event.waitUntil(rememberResponse(cache, request, response.clone(), limit));
   }
   return response;
+}
+
+async function rememberResponse(cache, request, response, limit) {
+  await cache.put(request, response);
+  await dropOldestEntries(cache, limit);
 }
 
 async function dropOldestEntries(cache, limit) {

@@ -13,6 +13,7 @@ function toCacheKey(request: FakeRequest | string): string {
 
 function createCacheStorage() {
   const stores = new Map<string, Map<string, Response>>();
+  const writes = { hold: null as Promise<void> | null };
 
   const openStore = (name: string) => {
     const existing = stores.get(name);
@@ -25,10 +26,12 @@ function createCacheStorage() {
 
   return {
     stores,
+    writes,
     async open(name: string) {
       const store = openStore(name);
       return {
         async put(request: FakeRequest | string, response: Response) {
+          await writes.hold;
           store.set(toCacheKey(request), response);
         },
         async match(request: FakeRequest | string) {
@@ -83,14 +86,21 @@ async function requestPage(
   worker: ReturnType<typeof startServiceWorker>,
   request: FakeRequest,
 ): Promise<Response | null> {
-  let responded: Promise<Response> | null = null;
+  const { respondedWith, backgroundWork } = sendFetch(worker, request);
+  const response = respondedWith ? await respondedWith : null;
+  await Promise.all(backgroundWork);
+  return response;
+}
+
+function sendFetch(worker: ReturnType<typeof startServiceWorker>, request: FakeRequest) {
+  let respondedWith: Promise<Response> | null = null;
+  const backgroundWork: unknown[] = [];
   worker.listeners.get("fetch")?.({
     request,
-    respondWith: (value: Promise<Response>) => void (responded = value),
-    waitUntil: () => undefined,
+    respondWith: (value: Promise<Response>) => void (respondedWith = value),
+    waitUntil: (value: unknown) => void backgroundWork.push(value),
   } as never);
-
-  return responded ? await responded : null;
+  return { respondedWith: respondedWith as Promise<Response> | null, backgroundWork };
 }
 
 const sheetNavigation: FakeRequest = { url: `${ORIGIN}/char/42`, method: "GET", mode: "navigate" };
@@ -119,6 +129,26 @@ describe("KR22.6 — service worker віддає збережений лист",
 
     await expect(response?.text()).resolves.toBe("свіжий лист");
     expect(worker.caches.stores.get("char-pages-v1")?.has(`${ORIGIN}/char/42`)).toBe(true);
+  });
+
+  it("віддає сторінку, не чекаючи, поки вона запишеться в кеш — інакше телефон не бачить стрімінгу", async () => {
+    const worker = startServiceWorker(async () => new Response("свіжий лист"));
+    worker.caches.writes.hold = new Promise(() => undefined);
+
+    const { respondedWith } = sendFetch(worker, sheetNavigation);
+    const response = await Promise.race([respondedWith, new Promise((resolve) => setTimeout(() => resolve("чекає на кеш"), 50))]);
+
+    expect(response).toBeInstanceOf(Response);
+  });
+
+  it("файл оболонки теж віддається, не чекаючи запису в кеш", async () => {
+    const worker = startServiceWorker(async () => new Response("чанк"));
+    worker.caches.writes.hold = new Promise(() => undefined);
+
+    const { respondedWith } = sendFetch(worker, { url: `${ORIGIN}/_next/static/chunks/app.js`, method: "GET" });
+    const response = await Promise.race([respondedWith, new Promise((resolve) => setTimeout(() => resolve("чекає на кеш"), 50))]);
+
+    expect(response).toBeInstanceOf(Response);
   });
 
   it("без мережі віддає збережений лист", async () => {
