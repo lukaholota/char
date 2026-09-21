@@ -297,7 +297,7 @@ the server clone is invisible here: re-clone (`scripts/local-test-db.sh clone`) 
 
 **Жести й «Назад» на листі — перевіряти в Chromium, jsdom тут сліпий.** Гравці сидять із
 телефонів, і за 2026-09-21 Адам приніс пʼять багів одного класу; кожен тест був зелений, бо jsdom
-не має ні Swiper, ні справжнього дотику, ні асинхронної історії Chromium. Три правила:
+не має ні Swiper, ні справжнього дотику, ні асинхронної історії Chromium. Правила:
 
 1. **Жодного `swiper-no-swiping` і `stopPropagation` на `pointerdown`/`touchstart` у слайді листа.**
    Клас «лікує» кнопку, що не відкривалась, але свайп, що почався з неї, до каруселі вже не
@@ -313,10 +313,19 @@ the server clone is invisible here: re-clone (`scripts/local-test-db.sh clone`) 
    нова модалка закривається сама (так «помер» «Змінити максимум» хітів). jsdom такий перехід
    скасовує, тож тест відкладає `go()` вручну — див. `tests/components/modal-back-button-handoff.test.tsx`.
 
+4. **Жодного живого SVG-фільтра чи `backdrop-filter` на повноекранному фіксованому шарі.** WebKit
+   (на iPhone це і Safari, і Chrome) не кешує `feTurbulence`: зерно фону на 5 % непрозорості
+   перераховувалось на кожній зміні кадру, і будь-яка модалка відкривалась і закривалась із
+   фризом ~250 мс (2026-09-21). Текстуру — картинкою (`scripts/render-platform-grain.mjs`).
+5. **`pushState` поверх сторінки Next — лише зі збереженим `history.state`.** Без `__NA` Next
+   вважає зміну адреси навігацією, тягне сторінку з сервера й перемальовує весь лист
+   (`src/lib/spell-link.ts`).
+
 Перевірка: Playwright з `devices["iPhone 13"]` на копії дерева з підробленою сесією; свайп — CDP
 `Input.dispatchTouchEvent` (кнопку спершу `scrollIntoView`), «Назад» — `history.back()` з ланцюжка
 `/char/home` → лист → модалка. Контрольний прогін на старому коді обовʼязковий: сценарій, що не
-червоніє без фіксу, нічого не доводить.
+червоніє без фіксу, нічого не доводить. Плавність — ще й у Playwright `webkit` (кадри через
+`requestAnimationFrame`): Chromium на Маці ховає те, що рве анімацію на iPhone.
 
 **Code style.** Follow the global style rules (minimal comments, verb-named functions, coordinator
 function on top reading as named steps, details in small helpers below). Applied here that means:
