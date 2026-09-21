@@ -29,6 +29,30 @@ function peekModalToken(): string | null {
   return stack.length ? stack[stack.length - 1] : null;
 }
 
+const HISTORY_BACK_SETTLE_TIMEOUT_MS = 1000;
+
+let pendingHistoryBack: Promise<void> | null = null;
+
+// history.back() is async: a modal opened in the same click would push its entry first,
+// then receive the late popstate and close itself.
+function goBackBeforeNextModalOpens() {
+  pendingHistoryBack = new Promise<void>((resolve) => {
+    const settle = () => {
+      window.removeEventListener("popstate", settle);
+      window.clearTimeout(timeoutId);
+      pendingHistoryBack = null;
+      resolve();
+    };
+    const timeoutId = window.setTimeout(settle, HISTORY_BACK_SETTLE_TIMEOUT_MS);
+    window.addEventListener("popstate", settle);
+  });
+  window.history.back();
+}
+
+function waitForPendingHistoryBack(): Promise<void> {
+  return Promise.resolve().then(() => pendingHistoryBack ?? undefined);
+}
+
 export function useModalBackButton(isOpen: boolean, onClose: () => void) {
   const onCloseRef = useRef(onClose);
   const pushedRef = useRef(false);
@@ -55,13 +79,7 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
     if (typeof window === "undefined") return;
 
     const token = getToken();
-    pushModalToken(token);
-
-    // React StrictMode runs effects twice in dev. Avoid double push.
-    if (!pushedRef.current) {
-      window.history.pushState({ [MODAL_HISTORY_STATE_KEY]: token }, "");
-      pushedRef.current = true;
-    }
+    let isCancelled = false;
 
     const handlePopState = () => {
       if (peekModalToken() !== token) return;
@@ -76,9 +94,21 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
       onCloseRef.current();
     };
 
-    window.addEventListener("popstate", handlePopState);
+    void waitForPendingHistoryBack().then(() => {
+      if (isCancelled) return;
+      pushModalToken(token);
+
+      // React StrictMode runs effects twice in dev. Avoid double push.
+      if (!pushedRef.current) {
+        window.history.pushState({ [MODAL_HISTORY_STATE_KEY]: token }, "");
+        pushedRef.current = true;
+      }
+
+      window.addEventListener("popstate", handlePopState);
+    });
 
     return () => {
+      isCancelled = true;
       window.removeEventListener("popstate", handlePopState);
     };
   }, [isOpen]);
@@ -105,7 +135,7 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
     // Close via UI: pop our injected history entry.
     const currentToken = (window.history.state as Record<string, unknown> | null)?.[MODAL_HISTORY_STATE_KEY];
     if (currentToken === token) {
-      window.history.back();
+      goBackBeforeNextModalOpens();
     }
 
     pushedRef.current = false;
