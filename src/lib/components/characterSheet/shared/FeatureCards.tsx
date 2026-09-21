@@ -235,8 +235,7 @@ export function FeatureCard({
   );
 }
 
-/// Одна кнопка замість перемикача з підписом: «Увімкнути» → «Активна». Клас `swiper-no-swiping` —
-/// інакше Swiper слайда гасить тап.
+/// Одна кнопка замість перемикача з підписом: «Увімкнути» → «Активна».
 function StateToggleButton({ name, toggle }: { name: string; toggle: FeatureStateToggle }) {
   return (
     <button
@@ -246,7 +245,7 @@ function StateToggleButton({ name, toggle }: { name: string; toggle: FeatureStat
       disabled={toggle.disabled}
       onClick={(e) => { e.stopPropagation(); toggle.onChange(!toggle.isActive); }}
       className={clsx(
-        "swiper-no-swiping mt-2 inline-flex h-7 items-center gap-1 rounded-full border px-2.5 text-[11px] font-bold transition active:scale-95 disabled:opacity-40",
+        "mt-2 inline-flex h-7 items-center gap-1 rounded-full border px-2.5 text-[11px] font-bold transition active:scale-95 disabled:opacity-40",
         toggle.isActive ? "border-amber-300/70 bg-amber-500/25 text-amber-50" : "border-amber-400/40 text-amber-200 hover:bg-amber-500/10"
       )}
     >

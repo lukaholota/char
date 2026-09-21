@@ -295,6 +295,29 @@ the server clone is invisible here: re-clone (`scripts/local-test-db.sh clone`) 
 роботи ÷ 4; `isolate: false` дав би ще, але ділить стан модулів між файлами й не вартий
 ризику для матриці правил.
 
+**Жести й «Назад» на листі — перевіряти в Chromium, jsdom тут сліпий.** Гравці сидять із
+телефонів, і за 2026-09-21 Адам приніс пʼять багів одного класу; кожен тест був зелений, бо jsdom
+не має ні Swiper, ні справжнього дотику, ні асинхронної історії Chromium. Три правила:
+
+1. **Жодного `swiper-no-swiping` і `stopPropagation` на `pointerdown`/`touchstart` у слайді листа.**
+   Клас «лікує» кнопку, що не відкривалась, але свайп, що почався з неї, до каруселі вже не
+   доходить. Звичайна кнопка, Dialog- і Popover-тригер тапаються без нього. Radix `DropdownMenu`
+   відкривається на **pointerdown** (зокрема від дотику) і блокує сторінку — такий тригер
+   відкривати кліком, як `CastSpellMenu`.
+2. **Один запис історії на одну відкриту модалку.** `Dialog` сам пушить запис
+   (`useModalBackButton`); модалка, що веде адресу сама (`?spell=` у `SpellInfoModal`), вимикає
+   його через `enableBackButtonClose={false}`, інакше «Назад» треба тиснути двічі, а хрестик лишає
+   хвіст. Не писати `replaceState({})`: воно стирає чужий стан запису.
+3. **Закрити діалог і тим самим кліком відкрити інший — лише через `src/lib/history-back.ts`.**
+   `history.go`/`back` асинхронні: запис, запушений тим самим кліком, Chromium потім знімає, і
+   нова модалка закривається сама (так «помер» «Змінити максимум» хітів). jsdom такий перехід
+   скасовує, тож тест відкладає `go()` вручну — див. `tests/components/modal-back-button-handoff.test.tsx`.
+
+Перевірка: Playwright з `devices["iPhone 13"]` на копії дерева з підробленою сесією; свайп — CDP
+`Input.dispatchTouchEvent` (кнопку спершу `scrollIntoView`), «Назад» — `history.back()` з ланцюжка
+`/char/home` → лист → модалка. Контрольний прогін на старому коді обовʼязковий: сценарій, що не
+червоніє без фіксу, нічого не доводить.
+
 **Code style.** Follow the global style rules (minimal comments, verb-named functions, coordinator
 function on top reading as named steps, details in small helpers below). Applied here that means:
 new server-side work goes into a pure function in `src/rules/` (once it exists) or `src/lib/logic/`,

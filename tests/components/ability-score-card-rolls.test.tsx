@@ -67,8 +67,8 @@ describe("картка характеристики — числа кидают�
     expect(screen.getByRole("button", { name: "Перевірка: Сила +3" }).textContent).not.toContain("к4");
   });
 
-  it("кнопки-кубики не віддають тап каруселі листа", () => {
+  it("свайп, що почався з кнопки-кубика, дістається каруселі листа", () => {
     renderCard();
-    expect(screen.getByRole("button", { name: "Перевірка: Сила +3" }).className).toContain("swiper-no-swiping");
+    expect(screen.getByRole("button", { name: "Перевірка: Сила +3" }).className).not.toContain("swiper-no-swiping");
   });
 });

@@ -35,8 +35,13 @@ beforeEach(() => {
 
 afterEach(cleanup);
 
+/// Відкриття чекає, поки відпрацює «назад» попереднього діалогу (history-back.ts), — мікрозадача.
+function waitForSpellOpen() {
+  return new Promise((resolve) => setTimeout(resolve, 0));
+}
+
 describe("KR25.1 — якір у описі", () => {
-  it("клік по заклинанню 2024 відкриває заклинання 2024, а не 2014", () => {
+  it("клік по заклинанню 2024 відкриває заклинання 2024, а не 2014", async () => {
     const opened = collectSpellOpenDetails();
     render(
       <FormattedDescription
@@ -45,6 +50,7 @@ describe("KR25.1 — якір у описі", () => {
     );
 
     fireEvent.click(screen.getByRole("link", { name: /Вогнекуля/ }));
+    await waitForSpellOpen();
     opened.stop();
 
     expect(opened.details).toEqual([
@@ -54,24 +60,26 @@ describe("KR25.1 — якір у описі", () => {
   });
 
   /// KR25.2: ключ у якорі — слаг, бо номер 2024 — це позиція в масиві й міняється з пересортуванням.
-  it("клік по слагу 2024 відкриває заклинання за слагом, а не за номером", () => {
+  it("клік по слагу 2024 відкриває заклинання за слагом, а не за номером", async () => {
     const opened = collectSpellOpenDetails();
     render(<FormattedDescription content={`<a href="/2024/spells/produce-flame">Створення вогню [Produce Flame]</a>`} />);
 
     fireEvent.click(screen.getByRole("link", { name: /Створення вогню/ }));
+    await waitForSpellOpen();
     opened.stop();
 
     expect(opened.details).toEqual([{ spellId: "produce-flame", ruleset: "RULES_2024" }]);
     expect(window.location.search).toBe("?spell=produce-flame&edition=2024");
   });
 
-  it("давній якір 2014 `/spell/<id>` працює як раніше — і подією, і адресою без редакції", () => {
+  it("давній якір 2014 `/spell/<id>` працює як раніше — і подією, і адресою без редакції", async () => {
     const opened = collectSpellOpenDetails();
     render(
       <FormattedDescription content={`<a href="/spell/${mageHand2014.spellId}">Магічна рука [Mage Hand]</a>`} />
     );
 
     fireEvent.click(screen.getByRole("link", { name: /Магічна рука/ }));
+    await waitForSpellOpen();
     opened.stop();
 
     expect(opened.details).toEqual([

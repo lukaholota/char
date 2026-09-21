@@ -78,7 +78,7 @@ function StatCard({ title, value, isReadOnly, rolls, extraDice, ariaLabel, onCli
     <Card
       role={isClickable ? "button" : undefined}
       aria-label={isClickable ? ariaLabel : undefined}
-      className={cardClassName + (isClickable ? editableClassName : "") + (rolls ? " swiper-no-swiping" : "")}
+      className={cardClassName + (isClickable ? editableClassName : "")}
       onClick={(event) => {
         event.stopPropagation();
         if (isClickable) onClick();

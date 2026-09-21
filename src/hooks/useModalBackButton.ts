@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { goBackInHistory, waitForPendingHistoryBack } from "@/lib/history-back";
 
 const MODAL_HISTORY_STATE_KEY = "__modalBackButtonToken";
 
@@ -27,30 +28,6 @@ function removeModalToken(token: string) {
 function peekModalToken(): string | null {
   const stack = getModalStack();
   return stack.length ? stack[stack.length - 1] : null;
-}
-
-const HISTORY_BACK_SETTLE_TIMEOUT_MS = 1000;
-
-let pendingHistoryBack: Promise<void> | null = null;
-
-// history.back() is async: a modal opened in the same click would push its entry first,
-// then receive the late popstate and close itself.
-function goBackBeforeNextModalOpens() {
-  pendingHistoryBack = new Promise<void>((resolve) => {
-    const settle = () => {
-      window.removeEventListener("popstate", settle);
-      window.clearTimeout(timeoutId);
-      pendingHistoryBack = null;
-      resolve();
-    };
-    const timeoutId = window.setTimeout(settle, HISTORY_BACK_SETTLE_TIMEOUT_MS);
-    window.addEventListener("popstate", settle);
-  });
-  window.history.back();
-}
-
-function waitForPendingHistoryBack(): Promise<void> {
-  return Promise.resolve().then(() => pendingHistoryBack ?? undefined);
 }
 
 export function useModalBackButton(isOpen: boolean, onClose: () => void) {
@@ -135,7 +112,7 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
     // Close via UI: pop our injected history entry.
     const currentToken = (window.history.state as Record<string, unknown> | null)?.[MODAL_HISTORY_STATE_KEY];
     if (currentToken === token) {
-      goBackBeforeNextModalOpens();
+      goBackInHistory();
     }
 
     pushedRef.current = false;

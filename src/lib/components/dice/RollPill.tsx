@@ -45,7 +45,7 @@ export function RollPill({ value, label, onRoll, size = "md", caption, className
         onRoll();
       }}
       className={cn(
-        "swiper-no-swiping group inline-flex min-w-0 shrink-0 items-center justify-center gap-1 rounded-md border border-white/10 bg-white/[0.04] px-1.5 font-bold leading-none text-slate-100 transition hover:border-white/20 hover:bg-white/10 active:scale-95",
+        "group inline-flex min-w-0 shrink-0 items-center justify-center gap-1 rounded-md border border-white/10 bg-white/[0.04] px-1.5 font-bold leading-none text-slate-100 transition hover:border-white/20 hover:bg-white/10 active:scale-95",
         SIZE_CLASS[size],
         className,
       )}

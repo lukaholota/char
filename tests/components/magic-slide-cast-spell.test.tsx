@@ -62,7 +62,8 @@ function findSpellRow(spellName: string): HTMLElement {
 }
 
 function openMenu(trigger: HTMLElement) {
-  fireEvent.pointerDown(trigger, { button: 0, ctrlKey: false, pointerType: "mouse" });
+  fireEvent.pointerDown(trigger, { button: 0, ctrlKey: false, pointerType: "touch" });
+  fireEvent.click(trigger, { detail: 1 });
 }
 
 /// Риса дає заклинання рядком із `origin: FEAT`, а лічильник безкоштовного застосування —
@@ -140,14 +141,24 @@ describe("Р38 — безкоштовне застосування заклин�
   });
 });
 
+describe("свайп листа, що почався з палички «Накласти», не відкриває меню", () => {
+  it("дотик без кліку меню не відкриває, а свайп від палички дістається каруселі", () => {
+    render(<MagicSlide pers={wizardThree} spellcastingSources={[]} onPersUpdate={vi.fn()} />);
+    const trigger = screen.getByRole("button", { name: "Накласти «Magic Missile»" });
+
+    fireEvent.pointerDown(trigger, { button: 0, ctrlKey: false, pointerType: "touch" });
+
+    expect(screen.queryByRole("menu")).toBeNull();
+    expect(trigger.classList.contains("swiper-no-swiping")).toBe(false);
+  });
+});
+
 describe("L19-parity-competitors-14 — «Накласти» з рядка заклинання витрачає обраний слот", () => {
   it("Чарівна стріла накладається слотом 2-го рівня, а замовлянню кнопки немає", async () => {
     render(<MagicSlide pers={wizardThree} spellcastingSources={[]} onPersUpdate={vi.fn()} />);
 
     expect(screen.queryByRole("button", { name: "Накласти «Fire Bolt»" })).toBeNull();
     const trigger = screen.getByRole("button", { name: "Накласти «Magic Missile»" });
-    // Лист — карусель Swiper, яка гасить pointerdown; jsdom її не відтворює, у Chromium без класу меню не відкривалося.
-    expect(trigger.classList.contains("swiper-no-swiping")).toBe(true);
     openMenu(trigger);
 
     const items = await screen.findAllByRole("menuitem");

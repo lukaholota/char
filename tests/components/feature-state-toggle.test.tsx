@@ -23,8 +23,8 @@ function renderRage(toggle: Partial<FeatureStateToggle> = {}) {
 }
 
 describe("O38 — кнопка стану на картці риси", () => {
-  it("Swiper не гасить тап по кнопці", () => {
-    expect(renderRage().button.className).toContain("swiper-no-swiping");
+  it("свайп, що почався з кнопки, дістається каруселі листа", () => {
+    expect(renderRage().button.className).not.toContain("swiper-no-swiping");
   });
 
   it("«Увімкнути» вмикає стан і не відкриває опис риси", () => {

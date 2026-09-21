@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, type MouseEvent } from "react";
 import { Wand2 } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { buildCastingOptionKey, type CastingSlotOption } from "@/rules/spell-casting-slots";
@@ -11,20 +12,30 @@ interface Props {
   onCast: (option: CastingSlotOption) => void;
 }
 
-/** Лист — карусель Swiper: без `swiper-no-swiping` вона гасить pointerdown, і тригер Radix не відкривається. */
+/**
+ * Radix відкриває меню вже на pointerdown, тож свайп листа, що почався з палички, відкривав меню
+ * й блокував прокрутку. Тут меню відкривається кліком: після свайпу Swiper клік не пропускає.
+ */
 export default function CastSpellMenu({ spellName, options, disabled, onCast }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+
   if (options.length === 0) return null;
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <button
           type="button"
           aria-label={`Накласти «${spellName}»`}
           disabled={disabled}
           title="Накласти: обрати слот"
-          className="swiper-no-swiping flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-md border border-indigo-400/30 bg-indigo-500/10 text-indigo-200 hover:bg-indigo-500/20 disabled:opacity-50"
-          onClick={(event) => event.stopPropagation()}
+          className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-md border border-indigo-400/30 bg-indigo-500/10 text-indigo-200 hover:bg-indigo-500/20 disabled:opacity-50"
+          onPointerDown={(event) => event.preventDefault()}
+          onClick={(event) => {
+            event.stopPropagation();
+            if (isKeyboardClick(event)) return;
+            setIsOpen((wasOpen) => !wasOpen);
+          }}
         >
           <Wand2 className="h-3.5 w-3.5" />
         </button>
@@ -45,6 +56,10 @@ export default function CastSpellMenu({ spellName, options, disabled, onCast }: 
       </DropdownMenuContent>
     </DropdownMenu>
   );
+}
+
+function isKeyboardClick(event: MouseEvent<HTMLButtonElement>): boolean {
+  return event.detail === 0;
 }
 
 export function describeSlot(option: CastingSlotOption): string {

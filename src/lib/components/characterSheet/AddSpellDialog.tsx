@@ -396,9 +396,7 @@ export default function AddSpellDialog({pers, isReadOnly, triggerClassName}: Add
             variant="outline"
             size="sm"
             disabled={isReadOnly}
-            onPointerDown={(e) => e.stopPropagation()}
-            onTouchStart={(e) => e.stopPropagation()}
-            className={"swiper-no-swiping h-8 gap-1.5 border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-200 " + (triggerClassName ?? "")}
+            className={"h-8 gap-1.5 border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-200 " + (triggerClassName ?? "")}
           >
             <Plus className="w-3.5 h-3.5"/>
             Додати

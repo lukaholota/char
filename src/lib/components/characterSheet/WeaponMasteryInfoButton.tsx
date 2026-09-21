@@ -14,10 +14,7 @@ type Props = {
   className?: string;
 };
 
-/**
- * Підпис властивості майстерності відкриває її опис на місці. `swiper-no-swiping` обовʼязковий:
- * слайди листа гасять pointerdown, і без нього тригер у картці не відкривається.
- */
+/** Підпис властивості майстерності відкриває її опис на місці. */
 export function WeaponMasteryInfoButton({ mastery, className }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +29,7 @@ export function WeaponMasteryInfoButton({ mastery, className }: Props) {
         onClick={() => setIsOpen(true)}
         aria-label={`Опис властивості «${label}»`}
         className={clsx(
-          "swiper-no-swiping underline decoration-dotted underline-offset-2 transition hover:text-amber-100",
+          "underline decoration-dotted underline-offset-2 transition hover:text-amber-100",
           className,
         )}
       >

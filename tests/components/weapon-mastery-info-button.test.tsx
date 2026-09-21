@@ -15,11 +15,10 @@ describe("Підпис майстерності на листі відкрива
     expect(screen.getByText(weaponMasteryDescriptions.CLEAVE)).toBeTruthy();
   });
 
-  /// Слайди листа гасять pointerdown — без цього класу тригер у картці мертвий у Chromium.
-  it("тригер не перехоплюється свайпом слайда", () => {
+  it("свайп, що почався з підпису, дістається каруселі листа", () => {
     render(<WeaponMasteryInfoButton mastery="SAP" />);
 
-    expect(screen.getByRole("button", { name: /Виснаження \(Sap\)/ }).className).toContain("swiper-no-swiping");
+    expect(screen.getByRole("button", { name: /Виснаження \(Sap\)/ }).className).not.toContain("swiper-no-swiping");
   });
 
   it("без властивості майстерності нічого не малює", () => {

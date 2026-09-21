@@ -3,12 +3,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, renderHook } from "@testing-library/react";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
 
-// jsdom скасовує back(), якщо до його виконання встиг pushState; Chromium — ні: перехід
-// відбувається пізніше й уже від нового запису. Відкладений back() повторює поведінку Chromium.
+// jsdom скасовує перехід назад, якщо до його виконання встиг pushState; Chromium — ні: перехід
+// відбувається пізніше й уже від нового запису. Відкладений go() повторює поведінку Chromium.
 function traverseBackLikeChromium() {
-  const goBack = History.prototype.back;
-  vi.spyOn(window.history, "back").mockImplementation(() => {
-    setTimeout(() => goBack.call(window.history), 0);
+  const go = History.prototype.go;
+  vi.spyOn(window.history, "go").mockImplementation((delta?: number) => {
+    setTimeout(() => go.call(window.history, delta), 0);
   });
 }
 

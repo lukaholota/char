@@ -10,6 +10,7 @@
 
 import type { Ruleset } from "@prisma/client";
 import { toEntitySlug } from "@/lib/slug-utils";
+import { goBackInHistory, waitForPendingHistoryBack } from "@/lib/history-back";
 
 export type SpellLink = { spellKey: string; ruleset: Ruleset };
 
@@ -91,29 +92,57 @@ export function isSameSpellLink(a: SpellLink | null, b: SpellLink | null): boole
   return a.spellKey === b.spellKey && a.ruleset === b.ruleset;
 }
 
+/**
+ * Кожне відкрите заклинання — рівно один запис в історії, позначений глибиною: «Назад» закриває
+ * модалку, а хрестик повертається на стільки записів, скільки заклинань відкрито поверх сторінки.
+ * Прямий захід за посиланням `?spell=` запису не має — там хрестик лише прибирає параметр.
+ */
+const SPELL_HISTORY_DEPTH_KEY = "__spellModalDepth";
+
+function readSpellHistoryDepth(): number {
+  const depth = (window.history.state as Record<string, unknown> | null)?.[SPELL_HISTORY_DEPTH_KEY];
+  return typeof depth === "number" ? depth : 0;
+}
+
+function pushSpellHistoryEntry(url: string): void {
+  window.history.pushState({ [SPELL_HISTORY_DEPTH_KEY]: readSpellHistoryDepth() + 1 }, "", url);
+}
+
 export function openSpellLink(link: SpellLink): void {
   if (typeof window === "undefined") return;
 
-  const url = new URL(window.location.href);
-  writeSpellLinkToSearch(url.searchParams, link);
-  window.history.pushState({}, "", url);
-  window.dispatchEvent(
-    new CustomEvent("spell:open", { detail: { spellId: link.spellKey, ruleset: link.ruleset } })
-  );
-  dispatchLocationChange();
+  void waitForPendingHistoryBack().then(() => {
+    const url = new URL(window.location.href);
+    writeSpellLinkToSearch(url.searchParams, link);
+    pushSpellHistoryEntry(url.href);
+    window.dispatchEvent(
+      new CustomEvent("spell:open", { detail: { spellId: link.spellKey, ruleset: link.ruleset } })
+    );
+    dispatchLocationChange();
+  });
 }
 
 export function openLoadedSpell(spell: { spellId: number; ruleset?: string | null }): void {
   if (typeof window === "undefined") return;
-  window.dispatchEvent(new CustomEvent("spell:open", { detail: { spell, ruleset: spell.ruleset } }));
+
+  void waitForPendingHistoryBack().then(() => {
+    pushSpellHistoryEntry(window.location.href);
+    window.dispatchEvent(new CustomEvent("spell:open", { detail: { spell, ruleset: spell.ruleset } }));
+  });
 }
 
 export function closeSpellLink(): void {
   if (typeof window === "undefined") return;
 
+  const depth = readSpellHistoryDepth();
+  if (depth > 0) {
+    goBackInHistory(depth);
+    return;
+  }
+
   const url = new URL(window.location.href);
   writeSpellLinkToSearch(url.searchParams, null);
-  window.history.replaceState({}, "", url);
+  window.history.replaceState(window.history.state, "", url);
   dispatchLocationChange();
 }
 
