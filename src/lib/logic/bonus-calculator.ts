@@ -18,6 +18,7 @@ import {
   sumFeatureFlatHitPoints,
   sumFeatureSpeedBonus,
 } from "@/rules/feature-stat-grants";
+import { findAlertInitiativeBonus, findObservantPassiveBonus } from "@/rules/feat-flat-bonuses-2014";
 import { calculateWalkingSpeed, explainWalkingSpeed, type WalkingSpeedPartKey } from "@/rules/walking-speed";
 import { collectDamageResistances, findDarkvisionRange } from "@/rules/senses-and-resistances";
 import type { StateEffects } from "@/rules/state-effects";
@@ -594,9 +595,26 @@ function findEquippedArmorNames(pers: PersWithRelations): string[] {
   return pers.armors.filter((entry) => entry.equipped).map((entry) => entry.armor.name);
 }
 
+export function getPassiveBonus(pers: PersWithRelations, skill: Skills): number {
+  const bonuses = pers.passiveBonuses;
+  if (!bonuses || typeof bonuses !== "object" || Array.isArray(bonuses)) return 0;
+  const value = (bonuses as Record<string, unknown>)[skill];
+  return typeof value === "number" && Number.isFinite(value) ? value : 0;
+}
+
 /// Пасивне значення — не кидок к20, тож штраф виснаження 2024 до нього не йде.
 export function calculatePassiveSkill(pers: PersWithRelations, skill: Skills): number {
-  return 10 + calculateFinalSkill(pers, skill).total + (readStateEffects(pers)?.d20Penalty ?? 0);
+  return sumNumberParts(explainPassiveSkill(pers, skill));
+}
+
+export function explainPassiveSkill(pers: PersWithRelations, skill: Skills): NumberPart[] {
+  return keepBaseAndNonZero([
+    { label: "База", value: 10 },
+    { label: "Перевірка навички", value: calculateFinalSkill(pers, skill).total },
+    { label: "Спостережливий (риса)", value: findObservantPassiveBonus(pers.feats ?? [], skill) },
+    { label: "Ручний бонус", value: getPassiveBonus(pers, skill) },
+    { label: "Виснаження пасивного не стосується", value: readStateEffects(pers)?.d20Penalty ?? 0 },
+  ]);
 }
 
 export function calculateDamageResistances(pers: PersWithRelations) {
@@ -630,6 +648,7 @@ export function explainFinalInitiative(pers: PersWithRelations): NumberPart[] {
     { label: "Ручний бонус", value: getSimpleBonus(pers, "initiative") },
     { label: "Майстерність (риса)", value: fromFeatures },
     { label: "Майстер на всі руки", value: fromJackOfAllTrades },
+    { label: "Пильний (риса)", value: findAlertInitiativeBonus(pers.feats ?? []) },
     findD20PenaltyPart(pers),
   ]);
 }

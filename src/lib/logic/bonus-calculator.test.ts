@@ -435,3 +435,44 @@ describe("KR31.13 — тип шкоди й дальність зброї з на
     expect(findWeaponRange(longsword as never)).toBeNull();
   });
 });
+
+describe("плоскі +5 рис PHB 2014", () => {
+  const withFeat = (name: string, ruleset: string, draft: Partial<PersDraft> = {}) =>
+    buildPers({ ...draft, feats: [{ feat: { name, ruleset, grantsFeature: [] } }] } as never);
+
+  it("«Пильний» 2014 додає +5 до ініціативи", () => {
+    expect(calculateFinalInitiative(withFeat("ALERT", "RULES_2014", { dex: 14 }))).toBe(7);
+  });
+
+  it("«Пильний» 2024 плоских +5 не дає — його бонус іде через фічу", () => {
+    expect(calculateFinalInitiative(withFeat("ALERT", "RULES_2024", { dex: 14 }))).toBe(2);
+  });
+
+  it("«Спостережливий» 2014 додає +5 до пасивних Уважності й Розслідування, але не до Аналізу поведінки", () => {
+    const pers = withFeat("OBSERVANT", "RULES_2014");
+
+    expect(calculatePassiveSkill(pers, Skills.PERCEPTION)).toBe(15);
+    expect(calculatePassiveSkill(pers, Skills.INVESTIGATION)).toBe(15);
+    expect(calculatePassiveSkill(pers, Skills.INSIGHT)).toBe(10);
+  });
+
+  it("«Спостережливий» не змінює саму перевірку навички", () => {
+    expect(calculateFinalSkill(withFeat("OBSERVANT", "RULES_2014"), Skills.PERCEPTION).total).toBe(0);
+  });
+});
+
+describe("ручний бонус до пасивних значень", () => {
+  it("додається лише до свого пасивного значення й не змінює перевірку навички", () => {
+    const pers = buildPers({ passiveBonuses: { PERCEPTION: 2 } } as never);
+
+    expect(calculatePassiveSkill(pers, Skills.PERCEPTION)).toBe(12);
+    expect(calculatePassiveSkill(pers, Skills.INVESTIGATION)).toBe(10);
+    expect(calculateFinalSkill(pers, Skills.PERCEPTION).total).toBe(0);
+  });
+
+  it("складається з «Спостережливим» — бонус риси й ручний не підміняють одне одного", () => {
+    const pers = buildPers({ passiveBonuses: { PERCEPTION: 1 }, feats: [{ feat: { name: "OBSERVANT", ruleset: "RULES_2014", grantsFeature: [] } }] } as never);
+
+    expect(calculatePassiveSkill(pers, Skills.PERCEPTION)).toBe(16);
+  });
+});

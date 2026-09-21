@@ -1,6 +1,7 @@
 'use server';
 
 import { auth } from "@/lib/auth";
+import { buildNextPassiveBonuses } from "@/rules/passive-bonuses";
 import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
@@ -41,6 +42,7 @@ async function assertOwnsPers(persId: number) {
       additionalSaveProficiencies: true,
       statBonuses: true,
       statModifierBonuses: true,
+      passiveBonuses: true,
       saveBonuses: true,
       skillBonuses: true,
       hpBonuses: true,
@@ -60,7 +62,7 @@ async function assertOwnsPers(persId: number) {
   return { ok: true as const, pers };
 }
 
-type BonusUpdateType = 'stat' | 'statModifier' | 'save' | 'skill' | SimpleBonusField;
+type BonusUpdateType = 'stat' | 'statModifier' | 'save' | 'skill' | 'passive' | SimpleBonusField;
 
 interface UpdateBonusResult {
   success: true;
@@ -81,6 +83,13 @@ interface UpdateBonusError {
  * @param key - Ability or Skill enum value (null for simple bonuses like HP/AC)
  * @param value - New bonus value (0 removes the bonus)
  */
+const PASSIVE_SKILLS: readonly Skills[] = [Skills.PERCEPTION, Skills.INVESTIGATION, Skills.INSIGHT];
+
+function isPassiveSkill(key: string): key is Skills {
+  return PASSIVE_SKILLS.includes(key as Skills);
+}
+
+
 export async function updateBonus(
   persId: number,
   bonusType: BonusUpdateType,
@@ -166,6 +175,20 @@ export async function updateBonus(
         data: { skillBonuses: updatedValue },
       });
       
+    } else if (bonusType === 'passive') {
+      if (!key || !isPassiveSkill(key)) {
+        return { success: false, error: "Невірне пасивне значення" };
+      }
+
+      updatedField = 'passiveBonuses';
+      const passiveBonuses = buildNextPassiveBonuses(pers.passiveBonuses, key, roundedValue);
+      updatedValue = passiveBonuses;
+
+      await prisma.pers.update({
+        where: { persId },
+        data: { passiveBonuses: passiveBonuses ?? Prisma.DbNull },
+      });
+
     } else {
       // Simple bonus (hp, ac, speed, proficiency, initiative, spellAttack, spellDC)
       const simpleFieldMap: Record<SimpleBonusField, string> = {

@@ -146,6 +146,7 @@ function buildPersRow(pers: PersCloneSource, target: PersCloneTarget) {
       statModifierBonuses: pers.statModifierBonuses || undefined,
       saveBonuses: pers.saveBonuses || undefined,
       skillBonuses: pers.skillBonuses || undefined,
+      passiveBonuses: pers.passiveBonuses || undefined,
       hpBonuses: pers.hpBonuses || undefined,
       acBonuses: pers.acBonuses || undefined,
       speedBonuses: pers.speedBonuses || undefined,

@@ -3,7 +3,7 @@
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
-import { Ability, Skills } from "@prisma/client";
+import { Ability } from "@prisma/client";
 import { attributesUkrShort, damageTypeTranslations } from "@/lib/refs/translation";
 import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -67,6 +67,8 @@ import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { buildAbilityRollContext, buildInitiativeRollContext } from "@/lib/components/dice/roll-contexts";
 import { AbilityScoreCard } from "@/lib/components/characterSheet/AbilityScoreCard";
+import { useLongPress } from "@/hooks/useLongPress";
+import { PASSIVE_SKILLS } from "@/lib/components/characterSheet/passive-skills";
 
 interface MainStatsSlideProps {
   pers: PersWithRelations;
@@ -100,6 +102,9 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     setModifyConfig(config);
     setModifyOpen(true);
   }, []);
+
+  const editInitiative = !isReadOnly && !beastForm ? () => openModify({ type: 'simple', field: 'initiative' }) : undefined;
+  const initiativeLongPress = useLongPress(editInitiative);
 
   // Helper for pers updates
   const handlePersUpdate = useCallback((next: PersWithRelations) => {
@@ -595,16 +600,18 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         <button
           type="button"
           aria-label={`Кинути ініціативу ${formatModifier(calculateFinalInitiative(pers))}`}
-          onClick={() =>
+          {...initiativeLongPress.longPressHandlers}
+          onClick={() => {
+            if (initiativeLongPress.isLongPressClick()) return;
             openRoll(
               buildInitiativeRollContext(
                 calculateFinalInitiative(pers),
-                !isReadOnly && !beastForm ? () => openModify({ type: 'simple', field: 'initiative' }) : undefined,
+                editInitiative,
                 describeRollState(pers, { kind: "check", ability: "DEX" }),
               ),
-            )
-          }
-          className="swiper-no-swiping text-left"
+            );
+          }}
+          className="text-left select-none [-webkit-touch-callout:none]"
         >
           <Card className={`glass-card bg-emerald-500/15 border-emerald-500/40 h-24 hover:bg-emerald-500/25 transition active:scale-[0.98] ${beastForm ? BEAST_VALUE_RING : hasSimpleBonus(pers, 'initiative') ? 'ring-1 ring-emerald-400/50' : ''}`}>
             <CardContent className="p-2 flex flex-col items-center justify-center h-full">
@@ -701,17 +708,22 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       </div>
 
       <div className="grid grid-cols-3 gap-2">
-        {[
-          ["Пасивна уважність", Skills.PERCEPTION],
-          ["Пасивне розслідування", Skills.INVESTIGATION],
-          ["Пасивний аналіз поведінки", Skills.INSIGHT],
-        ].map(([label, skill]) => (
-          <Card key={skill} className="glass-card bg-slate-900/60 border border-white/10 min-h-14">
-            <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-              <div className="text-[8px] font-bold uppercase tracking-wide text-slate-400 text-center">{label}</div>
-              <div className="text-lg font-bold text-slate-50">{calculatePassiveSkill(pers, skill as Skills)}</div>
-            </CardContent>
-          </Card>
+        {PASSIVE_SKILLS.map(({ skill, label }) => (
+          <button
+            key={skill}
+            type="button"
+            aria-label={`${label} ${calculatePassiveSkill(pers, skill)}`}
+            disabled={isReadOnly || Boolean(beastForm)}
+            onClick={() => openModify({ type: 'passive', skill })}
+            className="text-left disabled:cursor-default"
+          >
+            <Card className="glass-card bg-slate-900/60 border border-white/10 min-h-14 h-full transition hover:bg-slate-800/60 active:scale-[0.98]">
+              <CardContent className="p-2 flex flex-col items-center justify-center h-full">
+                <div className="text-[8px] font-bold uppercase tracking-wide text-slate-400 text-center">{label}</div>
+                <div className="text-lg font-bold text-slate-50">{calculatePassiveSkill(pers, skill)}</div>
+              </CardContent>
+            </Card>
+          </button>
         ))}
       </div>
 

@@ -674,6 +674,7 @@ model Pers {
   canStackHeroicInspiration   Boolean                  @default(false) @map("can_stack_heroic_inspiration")
   portraitKey                 String?                  @map("portrait_key") @db.VarChar(255)
   exhaustionLevel             Int                      @default(0) @map("exhaustion_level") @db.SmallInt
+  passiveBonuses              Json?                    @map("passive_bonuses")
   background                  Background               @relation(fields: [backgroundId], references: [backgroundId])
   class                       Class                    @relation(fields: [classId], references: [classId])
   folder                      PersFolder?              @relation(fields: [folderId], references: [folderId])

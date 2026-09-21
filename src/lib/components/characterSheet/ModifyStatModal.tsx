@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useEffect } from "react";
+import { buildNextPassiveBonuses } from "@/rules/passive-bonuses";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,8 +33,12 @@ import {
   explainFinalSkill,
   explainFinalSpeed,
   explainFinalStat,
+  explainPassiveSkill,
+  calculatePassiveSkill,
+  getPassiveBonus,
   type NumberPart,
 } from "@/lib/logic/bonus-calculator";
+import { findPassiveSkillLabel } from "@/lib/components/characterSheet/passive-skills";
 import { NumberBreakdown } from "@/lib/components/characterSheet/NumberBreakdown";
 import { getAbilityMod, getProficiencyBonus } from "@/lib/logic/utils";
 import { Minus, Plus } from "lucide-react";
@@ -46,6 +51,7 @@ import { SimpleBonusField } from "@/lib/types/model-types";
 export type ModifyConfig =
   | { type: "stat"; ability: Ability }
   | { type: "skill"; skill: Skills }
+  | { type: "passive"; skill: Skills }
   | { type: "simple"; field: SimpleBonusField; ability?: Ability };
 
 interface ModifyStatModalProps {
@@ -112,6 +118,8 @@ export default function ModifyStatModal({
       setLocalSkillBonus(getSkillBonus(pers, config.skill));
       const persSkill = pers.skills.find((ps) => ps.name === config.skill);
       setLocalProficiency(persSkill?.proficiencyType ?? "NONE");
+    } else if (config.type === "passive") {
+      setLocalSimpleBonus(getPassiveBonus(pers, config.skill));
     } else if (config.type === "simple") {
       setLocalSimpleBonus(getSimpleBonus(pers, config.field));
 
@@ -144,6 +152,8 @@ export default function ModifyStatModal({
     } else if (config.type === "skill") {
       const skillName = skillTranslations[config.skill] ?? config.skill;
       return `${bonusTranslations.modifyTitle}: ${skillName}`;
+    } else if (config.type === "passive") {
+      return `${bonusTranslations.modifyTitle}: ${findPassiveSkillLabel(config.skill)}`;
     } else {
       const fieldName = bonusTranslations.fieldNames[config.field as keyof typeof bonusTranslations.fieldNames];
       return `${bonusTranslations.modifyTitle}: ${fieldName}`;
@@ -219,6 +229,11 @@ export default function ModifyStatModal({
       
       return {
         skill: { base: baseTotal, bonus: localSkillBonus, final: finalTotal },
+      };
+    } else if (config.type === "passive") {
+      const baseValue = calculatePassiveSkill(pers, config.skill) - getPassiveBonus(pers, config.skill);
+      return {
+        simple: { base: baseValue, bonus: localSimpleBonus, final: baseValue + localSimpleBonus },
       };
     } else {
       // Simple bonus
@@ -375,6 +390,32 @@ export default function ModifyStatModal({
           });
         return;
         
+      } else if (config.type === "passive") {
+        const skill = config.skill;
+        const nextPers = {
+          ...pers,
+          passiveBonuses: buildNextPassiveBonuses(pers.passiveBonuses, skill, localSimpleBonus),
+        } as PersWithRelations;
+
+        onPersUpdate(nextPers);
+        onOpenChange(false);
+
+        void updateBonus(pers.persId, "passive", skill, localSimpleBonus)
+          .then((res) => {
+            if (!res.success) {
+              onPersUpdate(prevPers);
+              toast.error(res.error);
+            }
+            router.refresh();
+          })
+          .catch((err) => {
+            console.error(err);
+            onPersUpdate(prevPers);
+            toast.error("Помилка при збереженні");
+            router.refresh();
+          });
+        return;
+
       } else {
         // Simple bonus
         const fieldMap: Record<SimpleBonusField, string> = {
@@ -684,6 +725,15 @@ export default function ModifyStatModal({
             </div>
           )}
 
+          {config.type === "passive" && previewValues?.simple && (
+            <NumberInput
+              value={localSimpleBonus}
+              onChange={setLocalSimpleBonus}
+              label={findPassiveSkillLabel(config.skill)}
+              preview={previewValues.simple}
+            />
+          )}
+
           {config.type === "simple" && previewValues?.simple && (
             config.field === "hp" ? (
               <div className="bg-slate-800/20 p-3 rounded-lg border border-slate-700/30 space-y-2">
@@ -772,6 +822,7 @@ export default function ModifyStatModal({
   );
 }
 
+
 function findBreakdowns(pers: PersWithRelations, config: ModifyConfig): { title: string; parts: NumberPart[] }[] {
   if (config.type === "stat") {
     return [
@@ -780,6 +831,7 @@ function findBreakdowns(pers: PersWithRelations, config: ModifyConfig): { title:
     ];
   }
   if (config.type === "skill") return [{ title: "Навичка зараз", parts: explainFinalSkill(pers, config.skill) }];
+  if (config.type === "passive") return [{ title: "Пасивне значення зараз", parts: explainPassiveSkill(pers, config.skill) }];
   if (config.field === "ac") return [{ title: "Клас захисту зараз", parts: explainFinalAC(pers) }];
   if (config.field === "speed") return [{ title: "Швидкість зараз", parts: explainFinalSpeed(pers) }];
   if (config.field === "initiative") return [{ title: "Ініціатива зараз", parts: explainFinalInitiative(pers) }];
