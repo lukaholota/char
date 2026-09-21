@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   experimental: {
     webpackMemoryOptimizations: true
   },
+  // Образ збирається паралельно з джобою checks, де той самий `tsc --noEmit` уже йде, і деплой
+  // без неї не стартує; друга перевірка всередині next build коштувала ~47 с.
+  typescript: { ignoreBuildErrors: process.env.SKIP_BUILD_TYPECHECK === "1" },
   images: {
     minimumCacheTTL: IMAGE_OPTIMIZER_CACHE_TTL,
     remotePatterns: [{ protocol: "https", hostname: "media.char.holota.family" }],

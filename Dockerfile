@@ -79,6 +79,9 @@ ENV NEXT_PUBLIC_POSTHOG_HOST=$NEXT_PUBLIC_POSTHOG_HOST
 RUN test -n "$NEXT_PUBLIC_POSTHOG_HOST" \
   || { echo "ВІДМОВА: порожній NEXT_PUBLIC_POSTHOG_HOST — продуктові події нікуди не поїдуть"; exit 1; }
 
+# Типи перевіряє джоба checks (`tsc --noEmit`), і деплой без неї не йде — тут це дубль.
+ENV SKIP_BUILD_TYPECHECK=1
+
 # Саме `next build`, а не `bun run build`: другий тягне prebuild -> generate:content, який
 # пішов би в базу й перезаписав каталоги, що приїхали з git.
 RUN bunx next build

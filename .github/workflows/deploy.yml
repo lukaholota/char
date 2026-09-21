@@ -2,8 +2,9 @@ name: Checks → Image → Deploy
 
 # Один воркфлоу замість двох. Раніше `image.yml` збирав образ окремо, бо старий `deploy.yml`
 # викочував на інший сервер і чіпати його було не можна; після переїзду ця причина зникла.
-# Послідовність замість паралельності свідома: образ, який не пройшов тести, не має потрапляти
-# в GHCR — а поки деплою не було, це нічого не коштувало, бо образ нікуди й не їхав.
+# rules-coverage, checks і image ідуть паралельно, deploy чекає на всі три. Поки вони йшли
+# ланцюжком, пуш їхав на прод ~12 хв, з них ~4,5 хв — очікування чужої джоби. Образ, що не
+# пройшов тести, лежить у GHCR лише під SHA; `:latest` ставиться в deploy, після тестів.
 
 on:
   push:
@@ -48,7 +49,6 @@ jobs:
         run: bun run test:rules:coverage
 
   checks:
-    needs: rules-coverage
     runs-on: ubuntu-latest
     # Групи `concurrency` тут більше немає: вона стерегла спільну базу, а бази в цій джобі
     # немає (Р32). Два прогони одночасно тепер нічого одне одному не псують.
@@ -88,7 +88,6 @@ jobs:
         run: bun run test:no-db
 
   image:
-    needs: checks
     # На PR збирати нема сенсу: образ нікуди не поїде, а збірка найдорожче, що тут є.
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
@@ -138,7 +137,6 @@ jobs:
           network: host
           push: true
           tags: |
-            ghcr.io/lukaholota/char:latest
             ghcr.io/lukaholota/char:${{ github.sha }}
           # Не секрети: обидва значення однаково їдуть у браузер кожного користувача. Але без
           # них збірка вийшла б мовчки зламаною, тому Dockerfile падає на порожньому.
@@ -153,11 +151,11 @@ jobs:
           cache-to: type=gha,mode=max
 
   deploy:
-    needs: image
+    needs: [rules-coverage, checks, image]
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: read
+      packages: write
     # Два деплої одночасно перемикали б upstream один одному під ногами.
     concurrency:
       group: char-deploy
@@ -165,6 +163,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Тег, а не новий образ: маніфест той самий, копіюється лише посилання.
+      - name: Tag tested image as latest
+        run: docker buildx imagetools create --tag ghcr.io/lukaholota/char:latest ghcr.io/lukaholota/char:${{ github.sha }}
 
       # Порожній секрет завалив би смоук уже після перемикання трафіку, і відкат прибрав би
       # цілком робочий реліз через помилку конфігурації. Дешевше впасти тут, ще нічого не чіпавши.
