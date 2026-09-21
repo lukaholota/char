@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { PersWithRelations } from "@/lib/actions/pers";
 import MainStatsSlide from "./slides/MainStatsSlide";
-import SkillsSlide from "./slides/SkillsSlide";
-import CombatSlide from "./slides/CombatSlide";
-import MagicSlide from "./slides/MagicSlide";
-import FeaturesSlide from "./slides/FeaturesSlide";
+import { listSlidesToMount } from "./carousel-slide-window";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
@@ -19,6 +17,13 @@ import type { BeastFormView } from "./BeastFormMarks";
 import { useWildshapeState } from "./useWildshapeState";
 import { applyActiveStates } from "@/lib/logic/active-states";
 import type { SpellSource } from "@/rules/spell-sources";
+
+const SkillsSlide = dynamic(() => import("./slides/SkillsSlide"));
+const CombatSlide = dynamic(() => import("./slides/CombatSlide"));
+const MagicSlide = dynamic(() => import("./slides/MagicSlide"));
+const FeaturesSlide = dynamic(() => import("./slides/FeaturesSlide"));
+
+const FIRST_SLIDE_INDEX = 0;
 
 interface CharacterCarouselProps {
   pers: PersWithRelations;
@@ -92,21 +97,36 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      const isLg = window.matchMedia("(min-width: 1024px)").matches;
-      if (isLg) {
-        swiperRef.current.slideToLoop(4, 0);
-        setCurrentIndex(4);
-      } else {
-        const isMd = window.matchMedia("(min-width: 768px)").matches;
-        if (isMd) {
-          swiperRef.current.slideToLoop(0, 0);
-          setCurrentIndex(0);
-        }
-      }
-    }
+  /// Телефон показує один слайд із пʼяти, а змонтовані всі пʼять важили б на кожному тапі:
+  /// відкриття будь-якої модалки перераховує стилі всього документа. Слайд монтується, коли
+  /// його видно, сусідні — у вільний час, щоб свайп не відкривав порожнечу. Відвіданий
+  /// лишається змонтованим: інакше губився б його стан (пошук, розгорнуті секції).
+  const [mountedSlides, setMountedSlides] = useState<ReadonlySet<number>>(() => new Set([FIRST_SLIDE_INDEX]));
+  const mountSlides = useCallback((indexes: readonly number[]) => {
+    setMountedSlides((mounted) => (indexes.every((index) => mounted.has(index)) ? mounted : new Set([...mounted, ...indexes])));
   }, []);
+
+  const mountSlidesAround = useCallback(
+    (swiper: SwiperType) => {
+      const { visible, neighbours } = listSlidesToMount(swiper.realIndex, findSlidesPerView(swiper), allSlides.length);
+      mountSlides(visible);
+      whenIdle(() => mountSlides(neighbours));
+    },
+    [allSlides.length, mountSlides],
+  );
+
+  useEffect(() => {
+    const swiper = swiperRef.current;
+    if (!swiper) return;
+    if (window.matchMedia("(min-width: 1024px)").matches) {
+      swiper.slideToLoop(4, 0);
+      setCurrentIndex(4);
+    } else if (window.matchMedia("(min-width: 768px)").matches) {
+      swiper.slideToLoop(0, 0);
+      setCurrentIndex(0);
+    }
+    mountSlidesAround(swiper);
+  }, [mountSlidesAround]);
 
   /// Спорядження, магія й риси лишаються персонажевими: обладунок у формі злився з подобою,
   /// заклинальна характеристика ніколи не Сила й не Спритність, а риси форма не міняє. Туди
@@ -143,6 +163,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
               if (currentIndex !== swiper.realIndex) {
                 setCurrentIndex(swiper.realIndex);
               }
+              mountSlidesAround(swiper);
             }}
             loop={true}
             speed={400}
@@ -163,11 +184,14 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
             }}
             className="h-full w-full select-none"
           >
-            {allSlides.map((slide) => (
+            {allSlides.map((slide, index) => (
               <SwiperSlide key={slide.id} className="h-full">
                 <div className="bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl shadow-black/30 h-full min-h-0 overflow-hidden">
                   <div className="h-full min-h-0 overflow-y-auto" style={{ scrollBehavior: "smooth" }}>
-                    {renderSlide(slide.id)}
+                    {/* Своя межа на слайд: підвантаження чанка, що підвісило б карусель, змусило б
+                        React перезапустити її layout-ефекти, а swiper/react — створити Swiper
+                        заново на першому слайді. */}
+                    <Suspense fallback={null}>{mountedSlides.has(index) ? renderSlide(slide.id) : null}</Suspense>
                   </div>
                 </div>
               </SwiperSlide>
@@ -223,4 +247,14 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
       </div>
     </div>
   );
+}
+
+function findSlidesPerView(swiper: SwiperType): number {
+  const perView = swiper.params.slidesPerView;
+  return typeof perView === "number" ? perView : 1;
+}
+
+function whenIdle(run: () => void): void {
+  if (typeof window.requestIdleCallback === "function") window.requestIdleCallback(run, { timeout: 2000 });
+  else setTimeout(run, 300);
 }
