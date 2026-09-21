@@ -60,17 +60,19 @@ class DiceService {
     // Dynamic import to avoid SSR issues
     const { default: DiceBox } = await import("@3d-dice/dice-box");
 
-    // dice-box@1.1.x API: (DOM selector, config)
+    // Кидок удвічі швидший за колишній (gravity 2, сили 6/5, загасання 0.4) при тій самій траєкторії:
+    // фізика крокує реальним часом кадру, тож подвоєння темпу — це гравітація ×4 (рушій додає до неї
+    // mass/3: (2 + 1/3) × 4 − 1/3 = 9), швидкості ×2, а загасання d′ = 1 − (1 − d)².
     const box = new DiceBox(containerSelector, {
       assetPath: "/assets/dice-box/",
-      gravity: 2,
+      gravity: 9,
       mass: 1,
       friction: 0.8,
       restitution: 0.5,
-      angularDamping: 0.4,
-      linearDamping: 0.4,
-      spinForce: 6,
-      throwForce: 5,
+      angularDamping: 0.64,
+      linearDamping: 0.64,
+      spinForce: 12,
+      throwForce: 10,
       startingHeight: 8,
       settleTimeout: 5000,
       offscreen: true,
