@@ -1,11 +1,12 @@
 'use server';
 
+import type { Prisma } from "@prisma/client";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { randomBytes } from "crypto";
 import { buildCopyTarget, clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
 import { revalidatePath } from "next/cache";
-import { PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
+import { PERS_PRINT_INCLUDE, PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
 import { findCurrentUserId } from "@/server/db/current-user";
 
 const TOKEN_ATTEMPTS = 3;
@@ -126,6 +127,15 @@ async function findShareRefusal(persId: number): Promise<string | null> {
 }
 
 export async function getPersByShareToken(token: string) {
+  return findPersByShareToken(token, PERS_SHEET_INCLUDE);
+}
+
+/** Друк за посиланням: PDF виписує описи заклинань, яких лист у браузер не везе. */
+export async function getPrintablePersByShareToken(token: string) {
+  return findPersByShareToken(token, PERS_PRINT_INCLUDE);
+}
+
+async function findPersByShareToken<TInclude extends Prisma.PersInclude>(token: string, include: TInclude) {
   const editToken = await prisma.persShareToken.findUnique({
     where: { token },
     select: { persId: true, canEdit: true }
@@ -133,7 +143,7 @@ export async function getPersByShareToken(token: string) {
 
   const pers = await prisma.pers.findUnique({
     where: editToken ? { persId: editToken.persId } : { shareToken: token },
-    include: PERS_SHEET_INCLUDE,
+    include,
   });
 
   return { pers, canEdit: Boolean(editToken?.canEdit) };

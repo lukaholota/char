@@ -102,9 +102,11 @@ export const PERS_SHEET_INCLUDE = {
   choiceOptions: { include: { features: { include: { feature: true } } } },
   raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
   spells: true,
+  // Опис заклинання лист не читає — модалка бере його з каталогу, — а це до двох третин
+  // ваги персонажа в сторінці (Next кладе пропси і в HTML, і в дані гідрації).
   persSpells: {
     include: {
-      spell: true,
+      spell: { omit: { description: true } },
     },
     orderBy: [
       { spell: { level: "asc" } },
@@ -116,4 +118,10 @@ export const PERS_SHEET_INCLUDE = {
   pers_weapon_mastery: { include: { weapon: true } },
   armors: { include: { armor: true } },
   resourcePools: true,
+} satisfies Prisma.PersInclude;
+
+/** Для друку: PDF виписує описи заклинань. */
+export const PERS_PRINT_INCLUDE = {
+  ...PERS_SHEET_INCLUDE,
+  persSpells: { ...PERS_SHEET_INCLUDE.persSpells, include: { spell: true } },
 } satisfies Prisma.PersInclude;

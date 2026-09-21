@@ -1,7 +1,9 @@
+import { cache } from "react";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
-export async function findCurrentUserId(): Promise<number | null> {
+/** Один запит сторінки питає це з кількох завантажувачів — `cache` робить із них один. */
+export const findCurrentUserId = cache(async function findCurrentUserId(): Promise<number | null> {
   const session = await auth();
   if (!session?.user?.email) return null;
 
@@ -11,4 +13,4 @@ export async function findCurrentUserId(): Promise<number | null> {
   });
 
   return user?.id ?? null;
-}
+});

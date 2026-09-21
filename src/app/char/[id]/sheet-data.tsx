@@ -1,4 +1,4 @@
-import { getCharacterFeaturesGrouped, getPersById } from "@/lib/actions/pers";
+import { getCharacterFeaturesGrouped, getPersForSheet } from "@/server/db/pers-actions";
 import { loadPersSpellcastingSources } from "@/server/db/spell-sources";
 import { loadSpellBuffCatalog } from "@/server/db/spell-buff-catalog";
 import { notFound } from "next/navigation";
@@ -7,16 +7,17 @@ import { PersEditionPin } from "@/components/ui/PersEditionPin";
 import { findCurrentUserId } from "@/server/db/current-user";
 
 export default async function CharacterSheetData({ id }: { id: number }) {
-  const pers = await getPersById(id);
-  if (!pers) notFound();
   // Риси їдуть разом зі сторінкою, а не дотягуються серверною дією після монтування: інакше
   // збережена воркером сторінка без мережі показувала б «Завантаження фіч…» назавжди.
-  const [spellcastingSources, groupedFeatures, currentUserId, spellBuffCatalog] = await Promise.all([
-    loadPersSpellcastingSources(pers.persId),
-    getCharacterFeaturesGrouped(pers.persId),
+  // Усе паралельно: результат для недоступного персонажа просто не піде далі notFound().
+  const [pers, spellcastingSources, groupedFeatures, currentUserId] = await Promise.all([
+    getPersForSheet(id),
+    loadPersSpellcastingSources(id),
+    getCharacterFeaturesGrouped(id),
     findCurrentUserId(),
-    loadSpellBuffCatalog(pers.ruleset),
   ]);
+  if (!pers) notFound();
+  const spellBuffCatalog = await loadSpellBuffCatalog(pers.ruleset);
 
   return (
     <>

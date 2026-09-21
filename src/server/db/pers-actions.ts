@@ -8,7 +8,7 @@ import { revalidatePath } from "next/cache";
 import { FeatureDisplayType, RestType, MagicItem, Prisma, Ruleset } from "@prisma/client";
 import { FeatureSource } from "@/lib/utils/features";
 import { buildCopyTarget, clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
-import { PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
+import { PERS_PRINT_INCLUDE, PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
 import { collectPersClassNames, collectPersSubclassNames } from "@/lib/logic/pers-class-names";
 import { buildVisiblePersFilter, buildVisibleFolderFilter } from "@/server/db/pers-access-filters";
 import { findCurrentUserId } from "@/server/db/current-user";
@@ -623,41 +623,46 @@ export async function getUserPersesSpellIndex(ruleset: Ruleset) {
     }));
 }
 
+/** Для друку й серверних перерахунків: з описами заклинань і власником (імʼя гравця в PDF). */
 export async function getPersById(id: number) {
-    const session = await auth();
-    if (!session?.user?.email) return null;
-
-    const pers = await prisma.pers.findUnique({
-        where: { persId: id },
-        include: { ...PERS_SHEET_INCLUDE, user: true }
-    });
-    
-    if (!pers) return null;
-
-    const user = await prisma.user.findUnique({ where: { email: session.user.email } });
-    if (!user) return null;
-
-    const isOwner = pers.userId === user.id;
-    if (!isOwner) {
-        const additional = await prisma.persAdditionalUser.findUnique({
-            where: { persId_userId: { persId: pers.persId, userId: user.id } },
-            select: { persId: true },
-        });
-
-        const folderMember = pers.folderId
-            ? await prisma.persFolderMember.findUnique({
-                where: { folderId_userId: { folderId: pers.folderId, userId: user.id } },
-                select: { canEdit: true },
-            })
-            : null;
-
-        if (!additional && !folderMember?.canEdit) return null;
-    }
-
-    return pers;
+    return findVisiblePers(id, { ...PERS_PRINT_INCLUDE, user: true });
 }
 
-export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersById>>>;
+/** Лист у браузері: без рядка власника й без описів заклинань, які він не читає. */
+export async function getPersForSheet(id: number) {
+    return findVisiblePers(id, PERS_SHEET_INCLUDE);
+}
+
+async function findVisiblePers<TInclude extends Prisma.PersInclude>(id: number, include: TInclude) {
+    const [userId, pers] = await Promise.all([
+        findCurrentUserId(),
+        prisma.pers.findUnique({ where: { persId: id }, include }),
+    ]);
+    if (!userId || !pers) return null;
+    return (await canViewPers(pers, userId)) ? pers : null;
+}
+
+async function canViewPers(pers: { persId: number; userId: number; folderId: number | null }, userId: number): Promise<boolean> {
+    if (pers.userId === userId) return true;
+
+    const [additional, folderMember] = await Promise.all([
+        prisma.persAdditionalUser.findUnique({
+            where: { persId_userId: { persId: pers.persId, userId } },
+            select: { persId: true },
+        }),
+        pers.folderId
+            ? prisma.persFolderMember.findUnique({
+                where: { folderId_userId: { folderId: pers.folderId, userId } },
+                select: { canEdit: true },
+            })
+            : null,
+    ]);
+
+    return Boolean(additional || folderMember?.canEdit);
+}
+
+export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersForSheet>>>;
+export type PersForPrint = NonNullable<Awaited<ReturnType<typeof getPersById>>>;
 export type PersWeaponWithWeapon = PersWithRelations['weapons'][number];
 export type PersArmorWithArmor = PersWithRelations['armors'][number];
 
@@ -1111,21 +1116,13 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
 }
 
 export async function getCharacterFeaturesGrouped(persId: number): Promise<CharacterFeaturesGroupedResult | null> {
-    const session = await auth();
-    if (!session?.user?.email) return null;
+    const [userId, pers] = await Promise.all([
+        findCurrentUserId(),
+        prisma.pers.findUnique({ where: { persId }, include: PERS_FEATURES_INCLUDE }),
+    ]);
+    if (!userId || !pers) return null;
 
-    const user = await prisma.user.findUnique({
-        where: { email: session.user.email },
-    });
-    if (!user) return null;
-
-    const pers = await prisma.pers.findUnique({
-        where: { persId },
-        include: PERS_FEATURES_INCLUDE,
-    });
-
-    if (!pers) return null;
-    const canEdit = await canEditPers(persId, user.id);
+    const canEdit = await canEditPers(persId, userId);
     if (!canEdit) return null;
     return buildCharacterFeaturesGrouped(pers);
 }

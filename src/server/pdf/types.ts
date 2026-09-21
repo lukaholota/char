@@ -1,4 +1,4 @@
-import type { PersWithRelations } from "@/lib/actions/pers";
+import type { PersForPrint } from "@/lib/actions/pers";
 import type { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import type { CreatureData } from "@/lib/bestiaryData";
 
@@ -19,7 +19,7 @@ export interface PrintConfig {
 export type PersSpellWithSpell = { spellId: number; isPrepared: boolean; spell: { level: number; name: string } };
 
 export interface CharacterPdfData {
-  pers: PersWithRelations;
+  pers: PersForPrint;
   features: CharacterFeaturesGroupedResult;
   wildshapeForms: CreatureData[];
 }
