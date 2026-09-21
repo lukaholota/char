@@ -1,8 +1,10 @@
 "use server";
 
 import { headers } from "next/headers";
+import { after } from "next/server";
 import { findCurrentUserId } from "@/server/db/current-user";
 import { createProblemReport, type ProblemReportRecord } from "@/server/db/problem-reports";
+import { notifyOwnerAboutProblemReport } from "@/server/notify/problem-report-telegram";
 import { storeScreenshotImage } from "@/server/media/image-upload";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import {
@@ -45,8 +47,10 @@ export async function reportProblem(input: ReportProblemInput) {
 
   const [userId, requestHeaders] = await Promise.all([findCurrentUserId(), headers()]);
 
+  const record = buildProblemReportRecord(input, appendAttachmentsToMessage(message, attachmentUrls), userId, requestHeaders);
   try {
-    await createProblemReport(buildProblemReportRecord(input, appendAttachmentsToMessage(message, attachmentUrls), userId, requestHeaders));
+    await createProblemReport(record);
+    after(() => notifyOwnerAboutProblemReport(record));
     return { success: true } as const;
   } catch (error) {
     console.error("Problem report submission failed:", error);
