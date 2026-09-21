@@ -17,7 +17,7 @@ import { FeatAcquisitionDialog } from "@/lib/components/characterSheet/feats/Fea
 import { FeatRemovalDialog } from "@/lib/components/characterSheet/feats/FeatRemovalDialog";
 import type { SheetFeatExistingState } from "@/lib/components/characterSheet/feats/sheet-feat-existing-state";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { AcquiredFeatsTab, CharacterFeatItem } from "@/lib/components/characterSheet/feats/AcquiredFeatsTab";
+import { AcquiredFeatsTab, type AcquiredFeatDetail, type CharacterFeatItem } from "@/lib/components/characterSheet/feats/AcquiredFeatsTab";
 import { FeatCatalogTab } from "@/lib/components/characterSheet/feats/FeatCatalogTab";
 import { cn } from "@/lib/utils";
 
@@ -49,7 +49,7 @@ export function FeatsSheetManagerModal({
 }: Props) {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<"acquired" | "catalog">("acquired");
-  const [selectedDetailFeat, setSelectedDetailFeat] = useState<FeatData | null>(null);
+  const [selectedDetailFeat, setSelectedDetailFeat] = useState<(AcquiredFeatDetail & { prerequisite?: string | null }) | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<number | null>(null);
   const [acquiring, setAcquiring] = useState<{ feat: FeatData; content: SheetFeatAcquisitionContent } | null>(null);
   const [removing, setRemoving] = useState<{ featId: number; name: string } | null>(null);
@@ -181,6 +181,7 @@ export function FeatsSheetManagerModal({
               isReadOnly={isReadOnly}
               isSubmitting={isSubmitting}
               onRemoveFeat={(featId, name) => setRemoving({ featId, name })}
+              onOpenDetail={setSelectedDetailFeat}
               onSwitchToCatalog={() => setActiveTab("catalog")}
             />
           ) : catalog.status === "ready" ? (

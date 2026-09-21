@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { Minus, Plus, Info, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -138,7 +139,10 @@ export function FeatureCard({
   onClick, 
   isPending,
   isReadOnly,
-  stateToggle
+  stateToggle,
+  badgeLabel,
+  actions,
+  footer
 }: { 
   feature: FeatureItemData, 
   onSpend?: () => void, 
@@ -146,7 +150,10 @@ export function FeatureCard({
   onClick?: () => void,
   isPending?: boolean,
   isReadOnly?: boolean,
-  stateToggle?: FeatureStateToggle
+  stateToggle?: FeatureStateToggle,
+  badgeLabel?: string | null,
+  actions?: ReactNode,
+  footer?: ReactNode
 }) {
   const hasTracker = feature.restType && feature.usesCount !== null;
   const cost = Math.max(1, Number(feature.usePrice ?? 1));
@@ -156,7 +163,7 @@ export function FeatureCard({
   const displayName = getFeatureDisplayName(feature.name, feature.source);
 
   // Hide badge if source is PERS (Custom) as per user request
-  const sourceLabel = normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null;
+  const sourceLabel = badgeLabel ?? (normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null);
 
   return (
     <div 
@@ -192,6 +199,12 @@ export function FeatureCard({
           )}
           {stateToggle && <StateToggleButton name={displayName} toggle={stateToggle} />}
         </div>
+
+        {actions && (
+          <div className="shrink-0" onClick={(e) => e.stopPropagation()}>
+            {actions}
+          </div>
+        )}
 
         {hasTracker && (
           <div 
@@ -231,6 +244,7 @@ export function FeatureCard({
           </div>
         )}
       </div>
+      {footer}
     </div>
   );
 }

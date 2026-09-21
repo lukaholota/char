@@ -82,7 +82,7 @@ export function FeatCatalogTab({
       </div>
 
       {/* Catalog Feats List */}
-      <div className="space-y-2 max-h-[50vh] overflow-y-auto pr-1">
+      <div className="space-y-2 h-[50vh] overflow-y-auto pr-1">
         {filteredFeats.map((feat) => {
           const isAcquired = acquiredFeatIds.has(feat.featId);
           const catLabel = feat.category
