@@ -39,6 +39,7 @@ import {
   type NumberPart,
 } from "@/lib/logic/bonus-calculator";
 import { findPassiveSkillLabel } from "@/lib/components/characterSheet/passive-skills";
+import { commitOptimisticSave, sendAll } from "@/lib/components/characterSheet/commit-optimistic-save";
 import { NumberBreakdown } from "@/lib/components/characterSheet/NumberBreakdown";
 import { getAbilityMod, getProficiencyBonus } from "@/lib/logic/utils";
 import { Minus, Plus } from "lucide-react";
@@ -282,8 +283,8 @@ export default function ModifyStatModal({
     
     setIsSubmitting(true);
     
-    // Store previous state for rollback
     const prevPers = pers;
+    const saveContext = { prevPers, onPersUpdate, close: () => onOpenChange(false), refresh: () => router.refresh() };
     
     try {
       if (config.type === "stat") {
@@ -314,36 +315,23 @@ export default function ModifyStatModal({
             : ((pers as any).additionalSaveProficiencies ?? []).filter((a: Ability) => a !== ability),
         } as unknown as PersWithRelations;
         
-        onPersUpdate(nextPers);
-
-        // Close immediately; persist in background.
-        onOpenChange(false);
-
-        void saveAbilityAdjustments({
-          persId: pers.persId,
-          ability,
-          baseScore: effectiveBase,
-          statBonus: localStatBonus,
-          modifierBonus: localModifierBonus,
-          saveBonus: localSaveBonus,
-          isSaveProficient: localSaveProficiency,
-        })
-          .then((res) => {
-            if (!res.success) {
-              onPersUpdate(prevPers);
-              toast.error(res.error);
-              router.refresh();
-              return;
-            }
-            onPersUpdate({ ...nextPers, maxHp: res.maxHp, currentHp: res.currentHp });
-            router.refresh();
-          })
-          .catch((err) => {
-            console.error(err);
-            onPersUpdate(prevPers);
-            toast.error("Помилка при збереженні");
-            router.refresh();
-          });
+        commitOptimisticSave({
+          ...saveContext,
+          nextPers,
+          send: () =>
+            saveAbilityAdjustments({
+              persId: pers.persId,
+              ability,
+              baseScore: effectiveBase,
+              statBonus: localStatBonus,
+              modifierBonus: localModifierBonus,
+              saveBonus: localSaveBonus,
+              isSaveProficient: localSaveProficiency,
+            }),
+          applyResult: (res) => {
+            if (res.success) onPersUpdate({ ...nextPers, maxHp: res.maxHp, currentHp: res.currentHp });
+          },
+        });
         return;
         
       } else if (config.type === "skill") {
@@ -364,30 +352,15 @@ export default function ModifyStatModal({
         } as unknown as PersWithRelations;
         
         // If skill doesn't exist in the list, we'd need to add it, but currently assuming it exists or handled by server
-        
-        onPersUpdate(nextPers);
-
-        onOpenChange(false);
-        void Promise.all([
-          updateBonus(pers.persId, "skill", skill, localSkillBonus),
-          updateSkillProficiency(pers.persId, skill, localProficiency),
-        ])
-          .then((results) => {
-            const failed = results.find((r) => !r.success) as any;
-            if (failed && !failed.success) {
-              onPersUpdate(prevPers);
-              toast.error(failed.error);
-              router.refresh();
-              return;
-            }
-            router.refresh();
-          })
-          .catch((err) => {
-            console.error(err);
-            onPersUpdate(prevPers);
-            toast.error("Помилка при збереженні");
-            router.refresh();
-          });
+        commitOptimisticSave({
+          ...saveContext,
+          nextPers,
+          send: () =>
+            sendAll([
+              updateBonus(pers.persId, "skill", skill, localSkillBonus),
+              updateSkillProficiency(pers.persId, skill, localProficiency),
+            ]),
+        });
         return;
         
       } else if (config.type === "passive") {
@@ -397,23 +370,7 @@ export default function ModifyStatModal({
           passiveBonuses: buildNextPassiveBonuses(pers.passiveBonuses, skill, localSimpleBonus),
         } as PersWithRelations;
 
-        onPersUpdate(nextPers);
-        onOpenChange(false);
-
-        void updateBonus(pers.persId, "passive", skill, localSimpleBonus)
-          .then((res) => {
-            if (!res.success) {
-              onPersUpdate(prevPers);
-              toast.error(res.error);
-            }
-            router.refresh();
-          })
-          .catch((err) => {
-            console.error(err);
-            onPersUpdate(prevPers);
-            toast.error("Помилка при збереженні");
-            router.refresh();
-          });
+        commitOptimisticSave({ ...saveContext, nextPers, send: () => updateBonus(pers.persId, "passive", skill, localSimpleBonus) });
         return;
 
       } else {
@@ -445,25 +402,7 @@ export default function ModifyStatModal({
             currentHp: Math.max(0, Math.min(maxHp, pers.currentHp)),
           } as PersWithRelations;
 
-          onPersUpdate(nextPers);
-          onOpenChange(false);
-
-          void updateMaxHp(pers.persId, maxHp)
-            .then((res) => {
-              if (!res.success) {
-                onPersUpdate(prevPers);
-                toast.error(res.error);
-                router.refresh();
-                return;
-              }
-              router.refresh();
-            })
-            .catch((err) => {
-              console.error(err);
-              onPersUpdate(prevPers);
-              toast.error("Помилка при збереженні");
-              router.refresh();
-            });
+          commitOptimisticSave({ ...saveContext, nextPers, send: () => updateMaxHp(pers.persId, maxHp) });
           return;
         }
 
@@ -484,29 +423,12 @@ export default function ModifyStatModal({
             [field]: localSimpleBonus === 0 ? null : { value: localSimpleBonus },
           } as unknown as PersWithRelations;
 
-          onPersUpdate(nextPers);
-          onOpenChange(false);
-
-          void Promise.all([
-            updateBaseACOverride(pers.persId, nextOverrideInt),
-            updateBonus(pers.persId, config.field, null, localSimpleBonus),
-          ])
-            .then((results) => {
-              const failed = results.find((r) => !r.success) as any;
-              if (failed && !failed.success) {
-                onPersUpdate(prevPers);
-                toast.error(failed.error);
-                router.refresh();
-                return;
-              }
-              router.refresh();
-            })
-            .catch((err) => {
-              console.error(err);
-              onPersUpdate(prevPers);
-              toast.error("Помилка при збереженні");
-              router.refresh();
-            });
+          const acField = config.field;
+          commitOptimisticSave({
+            ...saveContext,
+            nextPers,
+            send: () => sendAll([updateBaseACOverride(pers.persId, nextOverrideInt), updateBonus(pers.persId, acField, null, localSimpleBonus)]),
+          });
           return;
         }
 
@@ -515,25 +437,8 @@ export default function ModifyStatModal({
           [field]: localSimpleBonus === 0 ? null : { value: localSimpleBonus },
         } as PersWithRelations;
 
-        onPersUpdate(nextPers);
-
-        onOpenChange(false);
-        void updateBonus(pers.persId, config.field, null, localSimpleBonus)
-          .then((res) => {
-            if (!res.success) {
-              onPersUpdate(prevPers);
-              toast.error(res.error);
-              router.refresh();
-              return;
-            }
-            router.refresh();
-          })
-          .catch((err) => {
-            console.error(err);
-            onPersUpdate(prevPers);
-            toast.error("Помилка при збереженні");
-            router.refresh();
-          });
+        const simpleField = config.field;
+        commitOptimisticSave({ ...saveContext, nextPers, send: () => updateBonus(pers.persId, simpleField, null, localSimpleBonus) });
         return;
       }
     } finally {
@@ -821,7 +726,6 @@ export default function ModifyStatModal({
     </Dialog>
   );
 }
-
 
 function findBreakdowns(pers: PersWithRelations, config: ModifyConfig): { title: string; parts: NumberPart[] }[] {
   if (config.type === "stat") {
