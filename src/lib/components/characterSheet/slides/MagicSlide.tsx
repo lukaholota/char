@@ -16,6 +16,7 @@ import { spendPactSlot, spendSpellSlot, restorePactSlot, restoreSpellSlot } from
 import type { OfflineOperation } from "@/lib/offline/operations";
 import { createOperationId } from "@/lib/offline/queue";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
+import { useLatestMutation } from "@/hooks/useLatestMutation";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
@@ -151,11 +152,23 @@ function toPreparedSpellRows(spells: any[], excludedSpellIds: Set<number>): Prep
   });
 }
 
+const SPELL_SLOTS_MUTATION = "spell-slots";
+const PACT_SLOTS_MUTATION = "pact-slots";
+
+function toSlotCounts(raw: unknown): number[] {
+  const values = Array.isArray(raw) ? raw : [];
+  return Array.from({ length: 9 }, (_, idx) => {
+    const value = Number(values[idx]);
+    return Number.isFinite(value) ? Math.max(0, Math.trunc(value)) : 0;
+  });
+}
+
 const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersUpdate, isReadOnly, onFeaturesChanged }: MagicSlideProps) {
   const router = useRouter();
   const sheetStates = useSheetStatesContext();
   const [isPending, startTransition] = useTransition();
   const { commitOperation } = useOfflineQueue();
+  const { startMutation, finishMutation, hasPendingMutation } = useLatestMutation();
 
   const buildSlotOperation = (
     body:
@@ -203,13 +216,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     setLocalPersSpells(collectSheetSpells(localPers));
   }, [localPers]);
 
-  const [localCurrentSlots, setLocalCurrentSlots] = useState<number[]>(() => {
-    const raw = (pers.currentSpellSlots ?? []) as number[];
-    return Array.from({ length: 9 }, (_, idx) => {
-      const v = raw[idx];
-      return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
-    });
-  });
+  const [localCurrentSlots, setLocalCurrentSlots] = useState<number[]>(() => toSlotCounts(pers.currentSpellSlots));
 
   const [localPactSlots, setLocalPactSlots] = useState(pers.currentPactSlots ?? 0);
 
@@ -240,16 +247,12 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   }, []);
 
   useEffect(() => {
-    const currentSpellSlots = localPers.currentSpellSlots;
     const currentPactSlots = (localPers as any).currentPactSlots;
-    setLocalCurrentSlots(
-      Array.from({ length: 9 }, (_, idx) => {
-        const v = (currentSpellSlots as number[])?.[idx];
-        return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
-      })
-    );
-    setLocalPactSlots(Number.isFinite(currentPactSlots) ? Math.max(0, Math.trunc(currentPactSlots)) : 0);
-  }, [localPers]);
+    if (!hasPendingMutation(SPELL_SLOTS_MUTATION)) setLocalCurrentSlots(toSlotCounts(localPers.currentSpellSlots));
+    if (!hasPendingMutation(PACT_SLOTS_MUTATION)) {
+      setLocalPactSlots(Number.isFinite(currentPactSlots) ? Math.max(0, Math.trunc(currentPactSlots)) : 0);
+    }
+  }, [localPers, hasPendingMutation]);
 
   const caster = useMemo(() => calculateCasterLevel(localPers as any), [localPers]);
 
@@ -507,31 +510,64 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     });
   };
 
+  /// Слот змінюється одразу, а відповідь сервера береться лише від останнього натискання серії —
+  /// як у ресурсів класу. Кнопки слотів не чекають на відповідь.
+  const commitSlotChange = <TResult,>(
+    mutationKey: string,
+    operation: OfflineOperation,
+    sendToServer: () => Promise<TResult>,
+    applyServerResult: (result: TResult) => void,
+  ) => {
+    const version = startMutation(mutationKey);
+    void commitOperation(operation, sendToServer).then((outcome) => {
+      const isLatest = finishMutation(mutationKey, version);
+      if (outcome.queued || !isLatest) return;
+      applyServerResult(outcome.result);
+    });
+  };
+
+  const applySpellSlotsResult = (res: { success: true; currentSpellSlots: number[] } | { success: false; error: string }) => {
+    if (res.success) setLocalCurrentSlots(toSlotCounts(res.currentSpellSlots));
+    router.refresh();
+  };
+
+  const applyPactSlotsResult = (res: { success: true; currentPactSlots: number } | { success: false; error: string }) => {
+    if (res.success) setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
+    router.refresh();
+  };
+
   const spendSpellSlotOfLevel = (level: number) => {
     const idx = level - 1;
     setLocalCurrentSlots((prev) => prev.map((value, index) => (index === idx ? Math.max(0, value - 1) : value)));
-    startTransition(async () => {
-      const outcome = await commitOperation(
-        buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }),
-        () => spendSpellSlot(localPers.persId, level),
-      );
-      if (outcome.queued) return;
-      const res = outcome.result;
-      if (res.success) setLocalCurrentSlots(Array.from({ length: 9 }, (_, j) => Math.max(0, Math.trunc(Number(res.currentSpellSlots[j]) || 0))));
-      router.refresh();
-    });
+    commitSlotChange(
+      SPELL_SLOTS_MUTATION,
+      buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }),
+      () => spendSpellSlot(localPers.persId, level),
+      applySpellSlotsResult,
+    );
+  };
+
+  const restoreSpellSlotOfLevel = (level: number, max: number) => {
+    const idx = level - 1;
+    setLocalCurrentSlots((prev) => prev.map((value, index) => (index === idx ? Math.min(max, value + 1) : value)));
+    commitSlotChange(
+      SPELL_SLOTS_MUTATION,
+      buildSlotOperation({ kind: "restore-spell-slot", slotLevel: level }),
+      () => restoreSpellSlot(localPers.persId, level),
+      applySpellSlotsResult,
+    );
   };
 
   const spendPactSlotOnce = () => {
     if (!pactInfo || localPactSlots <= 0) return;
     setLocalPactSlots((v) => Math.max(0, v - 1));
-    startTransition(async () => {
-      const outcome = await commitOperation(buildSlotOperation({ kind: "spend-pact-slot" }), () => spendPactSlot(localPers.persId));
-      if (outcome.queued) return;
-      const res = outcome.result;
-      if (res.success) setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
-      router.refresh();
-    });
+    commitSlotChange(PACT_SLOTS_MUTATION, buildSlotOperation({ kind: "spend-pact-slot" }), () => spendPactSlot(localPers.persId), applyPactSlotsResult);
+  };
+
+  const restorePactSlotOnce = () => {
+    if (!pactInfo || localPactSlots >= pactInfo.max) return;
+    setLocalPactSlots((v) => Math.min(pactInfo.max, v + 1));
+    commitSlotChange(PACT_SLOTS_MUTATION, buildSlotOperation({ kind: "restore-pact-slot" }), () => restorePactSlot(localPers.persId), applyPactSlotsResult);
   };
 
   const spendFreeCastUse = (featureId: number, remaining: number) => {
@@ -768,7 +804,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                 <div key={level} className="relative">
                   <button
                     type="button"
-                    disabled={isPending || max <= 0 || isReadOnly}
+                    disabled={max <= 0 || isReadOnly}
                     title={isReadOnly ? "Режим перегляду" : max > 0 ? "Натисніть, щоб керувати слотами" : "Слотів цього рівня немає"}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -800,7 +836,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                         onClick={(e) => e.stopPropagation()}
                       >
                         <button
-                          disabled={!canSpend || isPending}
+                          disabled={!canSpend}
                           className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
                           onClick={() => {
                             setOpenSlotLevel(null);
@@ -810,35 +846,11 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                           Витратити
                         </button>
                         <button
-                          disabled={!canRestore || isPending}
+                          disabled={!canRestore}
                           className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
-                          onClick={async () => {
+                          onClick={() => {
                             setOpenSlotLevel(null);
-                            if (!canRestore) return;
-                            setLocalCurrentSlots((prev) => {
-                              const next = prev.slice();
-                              next[idx] = Math.min(max, (next[idx] ?? 0) + 1);
-                              return next;
-                            });
-                            startTransition(async () => {
-                              const outcome = await commitOperation(
-                                buildSlotOperation({ kind: "restore-spell-slot", slotLevel: level }),
-                                () => restoreSpellSlot(localPers.persId, level),
-                              );
-                              if (outcome.queued) return;
-                              const res = outcome.result;
-                              if (!res.success) {
-                                router.refresh();
-                                return;
-                              }
-                              setLocalCurrentSlots(
-                                Array.from({ length: 9 }, (_, j) => {
-                                  const v = res.currentSpellSlots[j];
-                                  return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
-                                })
-                              );
-                              router.refresh();
-                            });
+                            if (canRestore) restoreSpellSlotOfLevel(level, max);
                           }}
                         >
                           Відновити
@@ -863,7 +875,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                 type="button"
                 size="sm"
                 variant="secondary"
-                disabled={isPending || isReadOnly}
+                disabled={isReadOnly}
                 title={isReadOnly ? "Режим перегляду" : "Натисніть, щоб керувати слотами Магії пакту"}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -885,7 +897,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                     onClick={(e) => e.stopPropagation()}
                   >
                     <button
-                      disabled={localPactSlots <= 0 || isPending}
+                      disabled={localPactSlots <= 0}
                       className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
                       onClick={() => {
                         setOpenPactSlots(false);
@@ -895,26 +907,11 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                       Витратити
                     </button>
                     <button
-                      disabled={localPactSlots >= pactInfo.max || isPending}
+                      disabled={localPactSlots >= pactInfo.max}
                       className="w-full text-left px-3 py-2 text-sm rounded-md transition-colors hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
-                      onClick={async () => {
+                      onClick={() => {
                         setOpenPactSlots(false);
-                        if (!pactInfo || localPactSlots >= pactInfo.max) return;
-                        setLocalPactSlots((v) => Math.min(pactInfo.max, v + 1));
-                        startTransition(async () => {
-                          const outcome = await commitOperation(
-                            buildSlotOperation({ kind: "restore-pact-slot" }),
-                            () => restorePactSlot(localPers.persId),
-                          );
-                          if (outcome.queued) return;
-                          const res = outcome.result;
-                          if (!res.success) {
-                            router.refresh();
-                            return;
-                          }
-                          setLocalPactSlots(Math.max(0, Math.trunc(res.currentPactSlots)));
-                          router.refresh();
-                        });
+                        restorePactSlotOnce();
                       }}
                     >
                       Відновити

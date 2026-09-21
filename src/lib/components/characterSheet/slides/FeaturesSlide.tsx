@@ -1,11 +1,12 @@
 "use client";
 
-import { memo, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType } from "@prisma/client";
 import { ChevronRight, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";
+import { useLatestMutation } from "@/hooks/useLatestMutation";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { createOperationId } from "@/lib/offline/queue";
 import type { FeatureUseDirection } from "@/lib/offline/operations";
@@ -153,7 +154,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
 
   const [usesOverrideByKey, setUsesOverrideByKey] = useState<Record<string, number | null>>({});
   const [usesOverrideByPoolKey, setUsesOverrideByPoolKey] = useState<Record<string, number | null>>({});
-  const mutationVersionRef = useRef<Record<string, number>>({});
+  const { startMutation, finishMutation } = useLatestMutation();
 
   useEffect(() => {
     setUsesOverrideByKey({});
@@ -342,12 +343,8 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
 
   const bumpMutationVersion = (item: CharacterFeatureItem) => {
     const mutationKey = getMutationKey(item);
-    const nextVersion = (mutationVersionRef.current[mutationKey] ?? 0) + 1;
-    mutationVersionRef.current[mutationKey] = nextVersion;
-    return { mutationKey, version: nextVersion };
+    return { mutationKey, version: startMutation(mutationKey) };
   };
-
-  const isLatestMutation = (mutationKey: string, version: number) => mutationVersionRef.current[mutationKey] === version;
 
   const applyOptimisticRemaining = (
     item: CharacterFeatureItem,
@@ -450,10 +447,11 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
       { kind: "feature-use", featureId: item.featureId!, direction, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
       sendToServer,
     );
+    const isLatest = finishMutation(mutationKey, version);
     if (outcome.queued) return;
 
     const res = outcome.result;
-    if (!isLatestMutation(mutationKey, version)) return;
+    if (!isLatest) return;
     if (!res.success) {
       toast.error(res.error);
       router.refresh();
