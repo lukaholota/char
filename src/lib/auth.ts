@@ -2,9 +2,11 @@ import NextAuth, { NextAuthConfig } from "next-auth"
 import { OAuth2Client } from "google-auth-library";
 import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
-import { authAdapter, findOrCreateGoogleUser } from "@/server/db/auth";
+import { authAdapter, findOrCreateGoogleUser, findOrCreateQaCredentialsUser } from "@/server/db/auth";
+import { getQaCredentialsConfig, verifyQaCredentials } from "@/lib/auth/qa-credentials";
 
 const googleClient = new OAuth2Client();
+const qaCredentialsConfig = getQaCredentialsConfig();
 
 export const config = {
   secret: process.env.AUTH_SECRET,
@@ -69,6 +71,34 @@ export const config = {
         }
       },
     }),
+    ...(qaCredentialsConfig
+      ? [
+          Credentials({
+            id: "qa-credentials",
+            name: "QA credentials",
+            credentials: {
+              email: { label: "Email", type: "email" },
+              password: { label: "Password", type: "password" },
+            },
+            async authorize(creds) {
+              const email = typeof creds?.email === "string" ? creds.email : "";
+              const password = typeof creds?.password === "string" ? creds.password : "";
+
+              if (!verifyQaCredentials(qaCredentialsConfig, email, password)) {
+                return null;
+              }
+
+              const user = await findOrCreateQaCredentialsUser(qaCredentialsConfig.email);
+              return {
+                id: String(user.id),
+                email: user.email,
+                name: user.name,
+                image: user.image,
+              };
+            },
+          }),
+        ]
+      : []),
   ],
 
   callbacks: {

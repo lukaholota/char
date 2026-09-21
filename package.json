@@ -133,6 +133,7 @@
     "test:rules:coverage": "DATABASE_URL=postgresql://none:none@127.0.0.1:1/none_test vitest run --config vitest.rules.config.mts --coverage",
     "test:golden:update": "UPDATE_GOLDEN=1 vitest run tests/golden",
     "test:e2e": "playwright test",
+    "qa:password-hash": "tsx scripts/generate-qa-password-hash.ts",
     "db:pull": "prisma db pull && prisma format && prisma generate && bun run db:dump",
     "db:dump": "./scripts/db-dump.sh"
   },

@@ -17,6 +17,8 @@ type GoogleUserDetails = {
   image: string;
 };
 
+type UserDetails = Pick<GoogleUserDetails, "email" | "name" | "image">;
+
 export async function findOrCreateGoogleUser(details: GoogleUserDetails): Promise<AuthenticatedUser> {
   const accountUser = await findUserByGoogleAccountId(details.providerAccountId);
   if (accountUser) {
@@ -26,6 +28,10 @@ export async function findOrCreateGoogleUser(details: GoogleUserDetails): Promis
   const user = await findOrCreateUserByEmail(details);
   await linkGoogleAccount(user.id, details.providerAccountId);
   return user;
+}
+
+export async function findOrCreateQaCredentialsUser(email: string): Promise<AuthenticatedUser> {
+  return findOrCreateUserByEmail({ email, name: "QA browser", image: "" });
 }
 
 async function findUserByGoogleAccountId(providerAccountId: string): Promise<AuthenticatedUser | null> {
@@ -42,7 +48,7 @@ async function findUserByGoogleAccountId(providerAccountId: string): Promise<Aut
     .then((account) => account?.user ?? null);
 }
 
-async function findOrCreateUserByEmail(details: GoogleUserDetails): Promise<AuthenticatedUser> {
+async function findOrCreateUserByEmail(details: UserDetails): Promise<AuthenticatedUser> {
   let user = await prisma.user.findUnique({ where: { email: details.email } });
   if (!user) {
     user = await prisma.user.create({
