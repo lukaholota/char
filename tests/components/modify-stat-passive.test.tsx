@@ -61,4 +61,27 @@ describe("модалка пасивного значення", () => {
     await waitFor(() => expect(updateBonus).toHaveBeenCalledWith(7, "passive", "PERCEPTION", 2));
     expect(onPersUpdate.mock.calls[0][0].passiveBonuses).toEqual({ PERCEPTION: 2 });
   });
+
+  it("у звіриній формі показує число з листа, а пише у власного персонажа", async () => {
+    const own = buildObservantWithManualPassiveBonus();
+    const inBeastForm = { ...own, skillBonuses: { PERCEPTION: 3 } } as unknown as PersWithRelations;
+    const onPersUpdate = vi.fn();
+    render(
+      <ModifyStatModal
+        open
+        onOpenChange={vi.fn()}
+        onPersUpdate={onPersUpdate}
+        pers={own}
+        shownPers={inBeastForm}
+        config={{ type: "passive", skill: "PERCEPTION" as never }}
+      />,
+    );
+
+    const preview = screen.getByText("Базове:").parentElement;
+    expect(preview?.textContent).toBe("Базове: 18→Фінальне: 20");
+
+    fireEvent.click(screen.getByRole("button", { name: "OK" }));
+    await waitFor(() => expect(updateBonus).toHaveBeenCalledWith(7, "passive", "PERCEPTION", 2));
+    expect(onPersUpdate.mock.calls[0][0].skillBonuses).toBeUndefined();
+  });
 });

@@ -210,6 +210,21 @@ describe("головна сторінка листа у звіриній фор�
     expect(ownValues).toContain("30");
   });
 
+  it("пасивні у формі редагуються, а підняту звіром уважність видно разом із власною", () => {
+    const own = { ...buildDruid(), wis: 10 } as PersWithRelations;
+    const view = buildView(own);
+    render(<MainStatsSlide pers={buildBeastFormPers(own, view.layer)} beastForm={view} />);
+
+    // Уважність ведмедя +3 вища за власні +0 друїда з Мудрістю 10.
+    const perception = screen.getByRole("button", { name: /Пасивна уважність/ }) as HTMLButtonElement;
+    expect(perception.disabled).toBe(false);
+    expect(perception.textContent).toBe("Пасивна уважність1310");
+
+    const insight = screen.getByRole("button", { name: /Пасивний аналіз поведінки/ }) as HTMLButtonElement;
+    expect(insight.disabled).toBe(false);
+    expect(insight.textContent).toBe("Пасивний аналіз поведінки10");
+  });
+
   it("поза формою лист лишається таким, як був", () => {
     const { container } = render(<MainStatsSlide pers={buildDruid()} />);
 

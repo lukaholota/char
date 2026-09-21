@@ -59,6 +59,8 @@ interface ModifyStatModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   pers: PersWithRelations;
+  /// Пасивне значення у звіриній формі рахується з листа звіра, а бонус пишеться у `pers`.
+  shownPers?: PersWithRelations;
   onPersUpdate: (next: PersWithRelations) => void;
   config: ModifyConfig | null;
 }
@@ -71,6 +73,7 @@ export default function ModifyStatModal({
   open,
   onOpenChange,
   pers,
+  shownPers = pers,
   onPersUpdate,
   config,
 }: ModifyStatModalProps) {
@@ -232,7 +235,7 @@ export default function ModifyStatModal({
         skill: { base: baseTotal, bonus: localSkillBonus, final: finalTotal },
       };
     } else if (config.type === "passive") {
-      const baseValue = calculatePassiveSkill(pers, config.skill) - getPassiveBonus(pers, config.skill);
+      const baseValue = calculatePassiveSkill(shownPers, config.skill) - getPassiveBonus(shownPers, config.skill);
       return {
         simple: { base: baseValue, bonus: localSimpleBonus, final: baseValue + localSimpleBonus },
       };
@@ -274,7 +277,7 @@ export default function ModifyStatModal({
         simple: { base: baseValue, bonus: localSimpleBonus, final: finalValue },
       };
     }
-  }, [config, pers, localStatBonus, localModifierBonus, localSaveBonus, localSkillBonus, localSimpleBonus, localProficiency, localSaveProficiency, statBase, baseStatInput, baseACInput]);
+  }, [config, pers, shownPers, localStatBonus, localModifierBonus, localSaveBonus, localSkillBonus, localSimpleBonus, localProficiency, localSaveProficiency, statBase, baseStatInput, baseACInput]);
 
 
   // Apply optimistic update and save
@@ -502,7 +505,7 @@ export default function ModifyStatModal({
 
   if (!config) return null;
 
-  const breakdowns = findBreakdowns(pers, config);
+  const breakdowns = findBreakdowns(config.type === "passive" ? shownPers : pers, config);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

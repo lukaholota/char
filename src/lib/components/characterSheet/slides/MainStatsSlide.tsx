@@ -708,23 +708,29 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       </div>
 
       <div className="grid grid-cols-3 gap-2">
-        {PASSIVE_SKILLS.map(({ skill, label }) => (
-          <button
-            key={skill}
-            type="button"
-            aria-label={`${label} ${calculatePassiveSkill(pers, skill)}`}
-            disabled={isReadOnly || Boolean(beastForm)}
-            onClick={() => openModify({ type: 'passive', skill })}
-            className="text-left disabled:cursor-default"
-          >
-            <Card className="glass-card bg-slate-900/60 border border-white/10 min-h-14 h-full transition hover:bg-slate-800/60 active:scale-[0.98]">
-              <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-                <div className="text-[8px] font-bold uppercase tracking-wide text-slate-400 text-center">{label}</div>
-                <div className="text-lg font-bold text-slate-50">{calculatePassiveSkill(pers, skill)}</div>
-              </CardContent>
-            </Card>
-          </button>
-        ))}
+        {PASSIVE_SKILLS.map(({ skill, label }) => {
+          const value = calculatePassiveSkill(pers, skill);
+          const ownValue = beastForm ? calculatePassiveSkill(beastForm.ownPers, skill) : value;
+          const isRaisedByBeast = value !== ownValue;
+          return (
+            <button
+              key={skill}
+              type="button"
+              aria-label={`${label} ${value}`}
+              disabled={isReadOnly}
+              onClick={() => openModify({ type: 'passive', skill })}
+              className="text-left disabled:cursor-default"
+            >
+              <Card className={`glass-card bg-slate-900/60 border border-white/10 min-h-14 h-full transition hover:bg-slate-800/60 active:scale-[0.98] ${isRaisedByBeast ? BEAST_VALUE_RING : ''}`}>
+                <CardContent className="p-2 flex flex-col items-center justify-center h-full">
+                  <div className="text-[8px] font-bold uppercase tracking-wide text-slate-400 text-center">{label}</div>
+                  <div className={`text-lg font-bold ${isRaisedByBeast ? 'text-emerald-200' : 'text-slate-50'}`}>{value}</div>
+                  {isRaisedByBeast && <OwnValue value={ownValue} />}
+                </CardContent>
+              </Card>
+            </button>
+          );
+        })}
       </div>
 
       <SensesAndResistancesCard
@@ -1134,6 +1140,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         open={modifyOpen}
         onOpenChange={setModifyOpen}
         pers={editablePers}
+        shownPers={pers}
         onPersUpdate={handlePersUpdate}
         config={modifyConfig}
       />
