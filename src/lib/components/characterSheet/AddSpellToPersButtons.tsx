@@ -116,22 +116,31 @@ export function AddToPersDropdown({ link, spellLevel }: { link: SpellLink; spell
   );
 }
 
+const OPEN_ANIMATION_SETTLE_MS = 350;
+
 export function AddToSinglePersButton({ link, persId, spellLevel }: { link: SpellLink; persId: number; spellLevel?: number }) {
   const [loading, setLoading] = useState(false);
   const [has, setHas] = useState<boolean | null>(null);
 
   useEffect(() => {
+    let cancelled = false;
     async function check() {
       setLoading(true);
       try {
         const data = await getUserPersesSpellIndex(link.ruleset);
+        if (cancelled) return;
         const p = data.find((item) => item.persId === persId);
         setHas(p ? hasSpellLink(p, link) : false);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     }
-    void check();
+    // Серверна дія й перемальовка від її відповіді — після анімації відкриття, а не посеред неї.
+    const timer = setTimeout(() => void check(), OPEN_ANIMATION_SETTLE_MS);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [link, persId]);
 
   const handleToggle = async () => {

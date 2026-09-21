@@ -104,8 +104,14 @@ function readSpellHistoryDepth(): number {
   return typeof depth === "number" ? depth : 0;
 }
 
+/**
+ * Стан Next (`__NA` і дерево маршруту) переноситься в новий запис. Без нього Next сприймає
+ * `?spell=` як перехід на іншу сторінку: тягне її з сервера й перемальовує весь лист — і саме це
+ * рвало анімацію модалки (WebKit: кадр ~230 мс на кожному відкритті).
+ */
 function pushSpellHistoryEntry(url: string): void {
-  window.history.pushState({ [SPELL_HISTORY_DEPTH_KEY]: readSpellHistoryDepth() + 1 }, "", url);
+  const nextJsState = (window.history.state as Record<string, unknown> | null) ?? {};
+  window.history.pushState({ ...nextJsState, [SPELL_HISTORY_DEPTH_KEY]: readSpellHistoryDepth() + 1 }, "", url);
 }
 
 export function openSpellLink(link: SpellLink): void {

@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { closeSpellLink, openSpellLink } from "@/lib/spell-link";
+import { waitForPendingHistoryBack } from "@/lib/history-back";
 
 const fireBolt = { spellKey: "fire-bolt", ruleset: "RULES_2014" } as const;
 const shield = { spellKey: "shield", ruleset: "RULES_2014" } as const;
@@ -35,6 +36,18 @@ describe("подробиці заклинання на листі — один �
     closeSpellLink();
 
     expect(go).toHaveBeenCalledWith(-2);
+  });
+
+  it("запис заклинання несе стан Next — інакше Next тягне сторінку з сервера й перемальовує лист", async () => {
+    await waitForPendingHistoryBack();
+    const nextJsState = { __NA: true, __PRIVATE_NEXTJS_INTERNALS_TREE: ["", { children: ["char", {}] }] };
+    window.history.replaceState(nextJsState, "", "/char/7");
+
+    openSpellLink(fireBolt);
+    await waitForHistory();
+
+    expect(window.history.state).toEqual({ ...nextJsState, __spellModalDepth: 1 });
+    expect(window.location.search).toBe("?spell=fire-bolt");
   });
 
   it("прямий захід за посиланням ?spell= хрестик лише прибирає параметр", () => {
