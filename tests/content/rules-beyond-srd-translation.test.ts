@@ -45,10 +45,9 @@ describe("KR23.2 — переклад варіантних правил 2014 п�
     expect(seen.size).toBe(EXPECTED_ARTICLES);
   });
 
-  it("тримає редакційну термінологію 2014: СЛ, а не СК", () => {
-    expect(body).toMatch(/зі СЛ \d+/);
-    expect(body, "СК — це термін корпусу 2024").not.toMatch(/зі СК \d+/);
-    expect(body, "СК — це термін корпусу 2024").not.toMatch(/\bСК \d+/);
+  it("пише складність кидка як «СК», а не «СЛ» (Р51)", () => {
+    expect(body).toMatch(/зі СК \d+/);
+    expect(body, "СЛ — застаріла форма; словник: DC = СК (Р51)").not.toMatch(/(?<!\p{L})СЛ(?!\p{L})/u);
   });
 
   it("вживає ті самі назви станів, що й CONDITIONS_DATA", () => {

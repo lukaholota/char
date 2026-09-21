@@ -133,12 +133,12 @@ describe("виснаження", () => {
 });
 
 describe("концентрація", () => {
-  it("СЛ — 10 або половина шкоди вниз, що більше", () => {
+  it("СК — 10 або половина шкоди вниз, що більше", () => {
     expect(findConcentrationSaveDc(7, "RULES_2014")).toBe(10);
     expect(findConcentrationSaveDc(25, "RULES_2014")).toBe(12);
   });
 
-  it("2024 обмежує СЛ тридцяттю, 2014 — ні", () => {
+  it("2024 обмежує СК тридцяттю, 2014 — ні", () => {
     expect(findConcentrationSaveDc(90, "RULES_2024")).toBe(30);
     expect(findConcentrationSaveDc(90, "RULES_2014")).toBe(45);
   });

@@ -13,7 +13,7 @@ export const RULE_OVERLAP_DECISIONS: Record<string, string> = {
   "RULES_2014|components-and-concentration|casting-a-spell":
     "лишається — компоненти, концентрація й області дії зібрані окремо, у SRD вони підрозділи «Накладання заклинання»",
   "RULES_2014|ability-scores-and-checks|using-ability-scores":
-    "лишається — таблиця модифікаторів і таблиця СЛ поруч, SRD розносить їх по пʼяти статтях",
+    "лишається — таблиця модифікаторів і таблиця СК поруч, SRD розносить їх по пʼяти статтях",
   "RULES_2014|conditions-guide|conditions":
     "лишається — шапка сторінки станів над картками; повний текст станів дає стаття SRD «Стани»",
   "RULES_2014|travel-and-rest|the-environment":

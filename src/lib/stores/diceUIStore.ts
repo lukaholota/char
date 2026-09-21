@@ -30,7 +30,7 @@ export interface DiceRollContext {
   /// Дія, яку панель кидає одразу після відкриття — тап по числу на листі і є кидком.
   autoRollKey?: string;
   onEdit?: () => void;
-  /// Кидок проти СЛ (ряткидок концентрації): панель показує вердикт і повідомляє про нього раз.
+  /// Кидок проти СК (ряткидок концентрації): панель показує вердикт і повідомляє про нього раз.
   check?: { dc: number; successText: string; failureText: string; onResult: (isSuccess: boolean) => void };
 }
 

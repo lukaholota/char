@@ -164,7 +164,7 @@ export function useSheetStates(input: {
             },
           },
         });
-      toast(`Ряткидок концентрації · СЛ ${dc}`, { description: `«${name}»`, duration: 15000, action: { label: "Кинути", onClick: rollSave } });
+      toast(`Ряткидок концентрації · СК ${dc}`, { description: `«${name}»`, duration: 15000, action: { label: "Кинути", onClick: rollSave } });
     },
     [openRoll, pers, setConcentrationOn, statesPers],
   );

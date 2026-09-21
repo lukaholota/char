@@ -112,7 +112,7 @@ function CheckVerdict({ total, check }: { total: number; check: NonNullable<Dice
   const isSuccess = total >= check.dc;
   return (
     <div className={cn("rounded-xl px-3 py-2 text-center text-sm font-bold", isSuccess ? "bg-emerald-500/15 text-emerald-200" : "bg-rose-500/15 text-rose-200")}>
-      {isSuccess ? `Успіх: ${total} ≥ СЛ ${check.dc} — ${check.successText}` : `Провал: ${total} < СЛ ${check.dc} — ${check.failureText}`}
+      {isSuccess ? `Успіх: ${total} ≥ СК ${check.dc} — ${check.successText}` : `Провал: ${total} < СК ${check.dc} — ${check.failureText}`}
     </div>
   );
 }

@@ -70,11 +70,11 @@ describe("KR20.2 + KR20.8 — переклад SRD 5.1 українською", 
     }
   });
 
-  it("тримає редакційну термінологію 2014: СЛ, а не СК", () => {
+  it("пише складність кидка як «СК», а не «СЛ» (Р51)", () => {
     const body = imported.flatMap((article) => article.subsections.map((s) => s.content)).join("\n");
 
-    expect(body).toMatch(/зі СЛ \d+/);
-    expect(body, "СК — це термін корпусу 2024").not.toMatch(/зі СК \d+/);
+    expect(body).toMatch(/зі СК \d+/);
+    expect(body, "СЛ — застаріла форма; словник: DC = СК (Р51)").not.toMatch(/(?<!\p{L})СЛ(?!\p{L})/u);
   });
 
   it("не чіпає слаги рукописних статей, які пережили зведення дублів (KR20.4)", () => {
