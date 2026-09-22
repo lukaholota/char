@@ -10,7 +10,11 @@ export async function putMediaObject(key: string, body: Uint8Array, contentType:
   const response = await sendMediaRequest(key, {
     method: "PUT",
     body: new Blob([body.slice()]),
-    headers: { "Content-Type": contentType, "Cache-Control": "public, max-age=31536000, immutable" },
+    headers: {
+      "Content-Type": contentType,
+      "Content-Length": String(body.byteLength),
+      "Cache-Control": "public, max-age=31536000, immutable",
+    },
   });
   if (!response.ok) throw new Error(`R2 PUT ${key}: ${response.status}`);
 }
