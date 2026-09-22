@@ -1360,24 +1360,22 @@ export default function LevelUpWizard({ info }: Props) {
     } else {
       if (isSubmitting || !pers) return;
       setIsSubmitting(true);
+      let levelUpSaved = false;
       try {
         const res = await levelUpCharacter(pers.persId, formData as any);
         if ("error" in res) {
           toast.error(res.error || "Помилка при збереженні");
         } else {
+          levelUpSaved = true;
           toast.success("Рівень підвищено!");
-          router.push(`/char/${pers.persId}`);
-          // Clear level-up selections after navigation starts to avoid UI flash.
-          requestAnimationFrame(() => {
-            resetForm();
-            usePersFormStore.persist.clearStorage();
-          });
+          usePersFormStore.persist.clearStorage();
+          router.replace(`/char/${pers.persId}`);
         }
       } catch (err) {
         console.error(err);
         toast.error("Сталася помилка");
       } finally {
-        setIsSubmitting(false);
+        if (!levelUpSaved) setIsSubmitting(false);
       }
     }
   };

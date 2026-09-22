@@ -29,7 +29,7 @@ export function SpellModalShell({ spell, is2024 = false }: { spell: SpellData | 
   return (
     <Dialog enableBackButtonClose={false} open onOpenChange={(open) => !open && close()}>
       <DialogContent
-        className="max-h-[90vh] w-[92vw] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent"
+        className="grid-cols-[minmax(0,1fr)] min-w-0 max-h-[90vh] w-[calc(100vw-1rem)] max-w-xl overflow-y-auto overflow-x-hidden p-0 border-0 bg-transparent"
         showClose={false}
       >
         <DialogTitle className="sr-only">{spell.name}</DialogTitle>

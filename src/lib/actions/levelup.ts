@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
 import { parseLevelUpInput } from "@/lib/zod/schemas/levelUpSchema";
 import {
   executeLevelUp,
@@ -19,7 +20,13 @@ export async function levelUpCharacter(persId: number, input: unknown) {
   const session = await auth();
   if (!session?.user?.email) return { error: "Unauthorized" };
 
-  return executeLevelUp(persId, parseLevelUpInput(input));
+  const outcome = await executeLevelUp(persId, parseLevelUpInput(input));
+  if (!("error" in outcome)) {
+    revalidatePath(`/char/${persId}`);
+    revalidatePath(`/char/${persId}/levelup`);
+    revalidatePath("/char/home");
+  }
+  return outcome;
 }
 
 export async function getLevelUpSpellOffer(persId: number, classId: number, subclassId: number | null, classChoiceOptionIds: number[]) {

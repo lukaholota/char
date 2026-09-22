@@ -5,7 +5,7 @@ import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useMemo, useRef, useState, RefObject } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
-import { Menu, LogIn, LogOut, Home, Heart, Search, MessageSquareWarning } from "lucide-react";
+import { Menu, LogIn, LogOut, Home, Heart, Search, Sparkles, MessageSquareWarning } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { forgetOfflinePages } from "@/lib/offline/service-worker";
 import { flushOfflineQueue } from "@/lib/offline/queue";
@@ -53,6 +53,7 @@ type CatalogLink = {
   icon: LucideIcon;
   label: string;
   iconClass?: string;
+  mobileOnly?: boolean;
 };
 
 function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
@@ -67,7 +68,12 @@ function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
     return href ? [{ href, icon: entry.menuIcon, label: buildMenuLabel(entry, edition), iconClass: accent }] : [];
   });
 
-  return [...home, ...catalogs];
+  const spellsHref = findCatalogHref("spells", edition);
+  const mobileSpells: CatalogLink[] = spellsHref
+    ? [{ href: spellsHref, icon: Sparkles, label: findCatalogTitle("spells", edition), iconClass: accent, mobileOnly: true }]
+    : [];
+
+  return [...home, ...mobileSpells, ...catalogs];
 }
 
 /// Каталог, що є в обох редакціях під тією самою назвою, у 2024 несе рік — «Класи 2024»;
@@ -105,8 +111,8 @@ function NavMenuItems({
         <kbd className="ml-auto text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
       </button>
 
-      {buildCatalogLinks(is2024, showHome).map(({ href, icon: Icon, label, iconClass }) => (
-        <Link key={href} href={href} onClick={close} className={MENU_ITEM}>
+      {buildCatalogLinks(is2024, showHome).map(({ href, icon: Icon, label, iconClass, mobileOnly }) => (
+        <Link key={href} href={href} onClick={close} className={cn(MENU_ITEM, mobileOnly && "md:hidden")}>
           <Icon className={cn("h-4 w-4", iconClass)} />
           {label}
         </Link>

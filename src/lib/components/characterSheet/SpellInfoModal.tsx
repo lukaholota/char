@@ -157,7 +157,6 @@ export function SpellInfoModal() {
 
     async function run() {
       if (!spellLink) {
-        setSpell(null);
         setError(null);
         setLoading(false);
         return;

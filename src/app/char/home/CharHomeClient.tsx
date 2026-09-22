@@ -216,7 +216,6 @@ function FolderCard({
     if (selectionMode) return;
     if (event.button !== 0) return;
     if (!allowLongPress) return;
-    event.preventDefault();
     longPressTriggered.current = false;
     pointerStart.current = { x: event.clientX, y: event.clientY };
     longPressTimer.current = window.setTimeout(() => {
@@ -293,6 +292,9 @@ function FolderCard({
       onPointerUp={clearLongPress}
       onPointerLeave={clearLongPress}
       onPointerCancel={clearLongPress}
+      onContextMenu={(event) => {
+        if (allowLongPress) event.preventDefault();
+      }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -447,7 +449,6 @@ function PersCard({
     if (selectionMode) return;
     if (event.button !== 0) return;
     if (!allowLongPress) return;
-    event.preventDefault();
     longPressTriggered.current = false;
     pointerStart.current = { x: event.clientX, y: event.clientY };
     longPressTimer.current = window.setTimeout(() => {
@@ -537,6 +538,9 @@ function PersCard({
       onPointerUp={clearLongPress}
       onPointerLeave={clearLongPress}
       onPointerCancel={clearLongPress}
+      onContextMenu={(event) => {
+        if (allowLongPress) event.preventDefault();
+      }}
     >
       <div className="absolute top-3 right-2 z-10">
         <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>

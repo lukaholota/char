@@ -50,7 +50,7 @@ export function SpellModalCard({
   return (
     <div
       className={cn(
-        "glass-card border border-white/10 bg-slate-950/60 p-3 backdrop-blur-xl sm:p-5 max-w-full overflow-x-hidden",
+        "glass-card min-w-0 border border-white/10 bg-slate-950/60 p-3 backdrop-blur-xl sm:p-5 max-w-full overflow-x-hidden",
         findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(45,212,191,0.08)] ring-1 ring-white/10" })
       )}
     >
@@ -59,7 +59,7 @@ export function SpellModalCard({
           <div className="flex items-center gap-2 flex-wrap">
             <h2
               className={cn(
-                "font-sans text-base sm:text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text truncate",
+                "min-w-0 max-w-full break-words font-sans text-base sm:text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text",
                 findAccentVariant(is2024, { prism: "bg-gradient-to-r from-prism-300 to-prism-500", arcane: "bg-gradient-to-r from-arcane-400 to-violet-400" })
               )}
             >

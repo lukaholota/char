@@ -3,9 +3,9 @@
 import { Logo } from "@/lib/components/icons/Logo";
 import { DragonIcon } from "@/lib/components/icons/DragonIcon";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
-import { ModeLink as Link } from "@/components/no-ai/ModeLink";
+import { ModeLink as Link, useLinkStatus } from "@/components/no-ai/ModeLink";
 import { useSearchParams } from "next/navigation";
-import { BookOpen, Eye, Home, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
+import { BookOpen, Eye, Home, Loader2, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -153,6 +153,17 @@ function NavIcon({ icon, className }: { icon: LucideIcon | "dragon"; className?:
 	return <Icon strokeWidth={NAV_ICON_STROKE} className={cn("h-6 w-6", className)} />;
 }
 
+function NavPendingIndicator() {
+	const { pending } = useLinkStatus();
+	if (!pending) return null;
+	return (
+		<span data-nav-pending role="status" className="absolute right-1 top-1 text-slate-200">
+			<Loader2 aria-hidden className="h-3 w-3 animate-spin" />
+			<span className="sr-only">Завантаження сторінки</span>
+		</span>
+	);
+}
+
 function NavItemButton({
 	item,
 	isActive,
@@ -191,6 +202,7 @@ function NavItemButton({
 			className={className}
 		>
 			{body}
+			<NavPendingIndicator />
 		</Link>
 	);
 }

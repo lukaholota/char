@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+export { useLinkStatus } from "next/link";
 import { ComponentProps, forwardRef } from "react";
 
 import { useNoAiHref } from "./NoAiModeProvider";

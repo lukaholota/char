@@ -117,12 +117,16 @@ export default function OptionalFeaturesForm({
   }, [optionalAtLevel, selectedChoiceIds, mode]);
 
   const selectedPact = useMemo(() => {
-    // Pact boon is stored as a ChoiceOption (e.g. Pact of the Blade)
+    const selectedOptionIds = Object.values(formData.classChoiceSelections ?? {}).flat();
+    const fromCurrentLevel = (Array.isArray(selectedClass?.classChoiceOptions) ? selectedClass.classChoiceOptions : []).find(
+      (option) => selectedOptionIds.includes(option.choiceOptionId) && option.choiceOption.optionNameEng?.startsWith("Pact of"),
+    );
+    if (fromCurrentLevel) return fromCurrentLevel.choiceOption.optionNameEng;
     const fromPers = (persChoiceOptions || []).find(
       (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
     );
     return fromPers?.optionNameEng ? String(fromPers.optionNameEng) : undefined;
-  }, [persChoiceOptions]);
+  }, [formData.classChoiceSelections, persChoiceOptions, selectedClass]);
 
   const isFightingStyleGroupName = (name: string) => {
     const normalized = String(name || "").trim().toLowerCase();

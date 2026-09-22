@@ -635,17 +635,13 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         // 2014: Дар пакту — окрема одноразова група вибору; персонаж має щонайбільше один.
         const invSelected = selectedByGroup.get(invocationGroup) ?? [];
         if (invSelected.length) {
-          const persPact = (pers.choiceOptions || []).find(
-            (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
-          )?.optionNameEng as string | undefined;
-
           const invOptions = selectedChoiceContent.choiceOptions.filter((option) =>
             invSelected.includes(option.choiceOptionId),
           );
 
           const unmet = findFirstUnmetInvocationPrerequisite({
             classLevel: classLevelAfter,
-            knownOptionNameEngs: new Set(persPact ? [persPact] : []),
+            knownOptionNameEngs: new Set(effectivePact ? [effectivePact] : []),
             selectedInvocations: invOptions.map((opt) => ({
               optionNameEng: String(opt.optionNameEng ?? ""),
               prerequisite: readPrerequisite(opt.prerequisites),
@@ -654,7 +650,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
 
           if (unmet?.reason === "level") return { error: "Цей виклик недоступний на цьому рівні" } as const;
           if (unmet?.reason === "pact") {
-            return { error: persPact ? "Цей виклик вимагає іншого Пакту" : "Спершу оберіть Пакт" } as const;
+            return { error: effectivePact ? "Цей виклик вимагає іншого Пакту" : "Спершу оберіть Пакт" } as const;
           }
         }
       }
@@ -701,6 +697,14 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       ...flattenSelections(classChoiceSelections),
       ...flattenSelections(subclassChoiceSelections),
     ]);
+    const selectedClassOptionIds = new Set(flattenSelections(classChoiceSelections));
+    const selectedPact = selectedChoiceContent.choiceOptions.find((option) =>
+      selectedClassOptionIds.has(option.choiceOptionId) && option.optionNameEng?.startsWith("Pact of"),
+    )?.optionNameEng;
+    const persPact = (pers.choiceOptions || []).find(
+      (option: { optionNameEng?: string }) => option.optionNameEng?.startsWith("Pact of"),
+    )?.optionNameEng;
+    const effectivePact = selectedPact ?? persPact;
     const languageSelections = (data?.languagesSchema?.languages || []) as string[];
     const languageSelectionExtras = languageSelections.map((l) => translateValue(String(l)));
 
@@ -962,11 +966,8 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
           }
           const pact = prereq?.pact ? String(prereq.pact) : undefined;
           if (pact) {
-            const persPact = (pers.choiceOptions || []).find(
-              (co: any) => typeof co?.optionNameEng === "string" && co.optionNameEng.startsWith("Pact of")
-            )?.optionNameEng;
-            if (!persPact) return { error: "Спершу оберіть Пакт" };
-            if (String(persPact) !== pact) return { error: "Цей виклик вимагає іншого Пакту" };
+            if (!effectivePact) return { error: "Спершу оберіть Пакт" };
+            if (effectivePact !== pact) return { error: "Цей виклик вимагає іншого Пакту" };
           }
         }
 

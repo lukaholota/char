@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { Virtuoso } from "react-virtuoso";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CatalogHeader, type CatalogHeaderProps } from "./CatalogHeader";
@@ -79,6 +79,12 @@ export function ContentListPage<TItem, TRow = TItem>({
   onFilterDialogClose,
   filterDialogContent,
 }: ContentListPageProps<TItem, TRow>) {
+  const [lastModalItem, setLastModalItem] = useState<TItem | null>(selectedModalItem ?? null);
+  useEffect(() => {
+    if (selectedModalItem) setLastModalItem(selectedModalItem);
+  }, [selectedModalItem]);
+  const modalItem = selectedModalItem ?? lastModalItem;
+
   // Mobile back-button support for modal & filter dialog
   useModalBackButton(Boolean(selectedModalItem), () => {
     if (onCloseModal) onCloseModal();
@@ -174,13 +180,13 @@ export function ContentListPage<TItem, TRow = TItem>({
           }}
         >
           <DialogContent
-            className="max-h-[90dvh] max-w-xl overflow-y-auto border-white/10 bg-slate-950/95 px-4 pb-4 pt-12 sm:px-6 sm:pb-6 backdrop-blur-2xl text-slate-100"
+            className="grid-cols-[minmax(0,1fr)] min-w-0 max-h-[90dvh] w-[calc(100vw-1rem)] max-w-xl overflow-x-hidden overflow-y-auto border-white/10 bg-slate-950/95 px-4 pb-4 pt-12 sm:px-6 sm:pb-6 backdrop-blur-2xl text-slate-100"
             aria-describedby={undefined}
           >
             <DialogTitle className="sr-only">
               {modalTitle || "Деталі елемента"}
             </DialogTitle>
-            {selectedModalItem && renderModalContent(selectedModalItem)}
+            {modalItem && renderModalContent(modalItem)}
           </DialogContent>
         </Dialog>
       )}
