@@ -23,8 +23,9 @@ import { toast } from "sonner";
 import { buildSpellcastingStatRows } from "@/lib/logic/spellcasting-stats";
 import SpellcastingSourceCards from "@/lib/components/characterSheet/shared/SpellcastingSourceCards";
 import type { SpellSource } from "@/rules/spell-sources";
-import { buildSpellLinkForSpell, openLoadedSpell, openSpellLink, type SpellLink } from "@/lib/spell-link";
-import { preloadSpellCatalogWhenIdle } from "@/lib/spell-catalog-chunk";
+import { openLoadedSpell, openSpellLink } from "@/lib/spell-link";
+import { buildPersSpellLink, getPersSpellId, listCatalogSpellLinks } from "./sheet-spell-links";
+import { preloadSpellCardsWhenIdle } from "@/lib/spell-cards";
 import { buildHomebrewSheetSpellRows, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
 import { calculateCasterLevel } from "@/lib/logic/spell-logic";
@@ -71,24 +72,6 @@ interface MagicSlideProps {
   onFeaturesChanged?: () => void;
   onPersUpdate: (next: PersWithRelations) => void;
   isReadOnly?: boolean;
-}
-
-function getPersSpellId(persSpell: any): number | null {
-  const spellId = Number(persSpell?.spellId ?? persSpell?.spell?.spellId);
-  return Number.isFinite(spellId) ? spellId : null;
-}
-
-type PersSpellRowLike = { spellId?: unknown; spell?: { engName?: unknown; ruleset?: unknown } | null };
-
-/** Заклинання 2024 на листі відкривається за слагом: номер бази в каталозі 2024 не значить нічого. */
-function buildPersSpellLink(persSpells: PersSpellRowLike[], spellId: number): SpellLink {
-  const spell = persSpells.find((ps) => getPersSpellId(ps) === spellId)?.spell;
-  if (typeof spell?.engName !== "string") return { spellKey: String(spellId), ruleset: "RULES_2014" };
-  return buildSpellLinkForSpell({
-    spellId,
-    engName: spell.engName,
-    ruleset: spell.ruleset === "RULES_2024" ? "RULES_2024" : "RULES_2014",
-  });
 }
 
 function collectSheetSpells(pers: PersWithRelations): any[] {
@@ -211,9 +194,9 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
 
   const [localPersSpells, setLocalPersSpells] = useState(() => collectSheetSpells(localPers));
   const [spellQuery, setSpellQuery] = useState("");
-  const hasSheetSpells = localPersSpells.length > 0;
+  const catalogSpellLinks = useMemo(() => listCatalogSpellLinks(localPersSpells), [localPersSpells]);
 
-  useEffect(() => (hasSheetSpells ? preloadSpellCatalogWhenIdle() : undefined), [hasSheetSpells]);
+  useEffect(() => preloadSpellCardsWhenIdle(catalogSpellLinks), [catalogSpellLinks]);
 
   // If data refreshes from server, keep local list in sync.
   useEffect(() => {

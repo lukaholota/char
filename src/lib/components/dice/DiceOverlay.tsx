@@ -5,31 +5,20 @@ import { diceService } from "./diceService";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { DICE_OVERLAY_Z_INDEX, DICE_TRAY_HEIGHT_VAR } from "./dice-tray-layout";
 
-const INIT_DELAY_MS = 100;
-
 export function DiceOverlay() {
   const initRef = useRef(false);
   const { isOpen, mode } = useDiceUIStore();
 
   useEffect(() => {
-    if (initRef.current) return;
+    if (!isOpen || initRef.current) return;
     initRef.current = true;
-
-    const timer = setTimeout(async () => {
-      try {
-        await diceService.init("#dice-box");
-        window.dispatchEvent(new Event("resize"));
-      } catch (error) {
-        console.error("Failed to initialize dice overlay:", error);
-        initRef.current = false;
-      }
-    }, INIT_DELAY_MS);
-
-    return () => clearTimeout(timer);
-  }, []);
+    void initDiceBox().catch(() => {
+      initRef.current = false;
+    });
+  }, [isOpen]);
 
   // До кінця `init()` resize іде у фізичний воркер, де ще немає Ammo, і падає з
-  // `reading 'setValue'` (Sentry JAVASCRIPT-NEXTJS-8/-A); після init його шле сам ефект вище.
+  // `reading 'setValue'` (Sentry JAVASCRIPT-NEXTJS-8/-A); після init його шле `fitBoxToOpenTray`.
   useEffect(() => {
     if (diceService.getStatus() !== "ready") return;
     diceService.setVisualPreset(mode);
@@ -55,4 +44,18 @@ export function DiceOverlay() {
       )}
     </div>
   );
+}
+
+async function initDiceBox(): Promise<void> {
+  try {
+    await diceService.init("#dice-box", fitBoxToOpenTray);
+  } catch (error) {
+    console.error("Failed to initialize dice overlay:", error);
+    throw error;
+  }
+}
+
+function fitBoxToOpenTray(): void {
+  diceService.setVisualPreset(useDiceUIStore.getState().mode);
+  window.dispatchEvent(new Event("resize"));
 }

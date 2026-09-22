@@ -1,26 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useSession } from "next-auth/react";
-import posthog from "posthog-js";
 
-import { sharedPostHogOptions } from "@/lib/monitoring/posthog-options";
+import { loadPostHog } from "@/lib/monitoring/posthog-client";
+import { runWhenIdle } from "@/lib/run-when-idle";
 
-// Поза продом PostHog вимкнений — той самий запобіжник, що в Sentry
-// (src/lib/monitoring/sentry-options.ts): події з `bun dev` ще не бачив жоден користувач,
-// вони зʼїдали б безкоштовну квоту і змішувалися б у панелі зі справжніми.
-const isEnabled = process.env.NODE_ENV === "production";
-
-function initPostHog() {
-  const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-  const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
-  if (!key || !host) return;
-
-  posthog.init(key, {
-    api_host: host,
-    ...sharedPostHogOptions,
-  });
-}
+const LOAD_TIMEOUT_MS = 5000;
 
 // identify() привʼязує подальші події до вже наявного userId, а не до нового ідентифікатора —
 // саме це замінює тут потребу в постійному анонімному cookie. reset() на виході повертає
@@ -28,22 +14,22 @@ function initPostHog() {
 // компʼютер, той самий браузер) не приписались попередньому акаунту.
 export function PostHogProvider() {
   const { data: session, status } = useSession();
-  const didInit = useRef(false);
+  const userId = session?.user?.id;
+
+  useEffect(() => runWhenIdle(() => void loadPostHog(), LOAD_TIMEOUT_MS), []);
 
   useEffect(() => {
-    if (!isEnabled || didInit.current) return;
-    didInit.current = true;
-    initPostHog();
-  }, []);
-
-  useEffect(() => {
-    if (!isEnabled || !didInit.current) return;
-    if (status === "authenticated" && session?.user?.id) {
-      posthog.identify(session.user.id);
-    } else if (status === "unauthenticated") {
-      posthog.reset();
-    }
-  }, [status, session?.user?.id]);
+    if (status === "authenticated" && userId) return runWhenIdle(() => void identifyPostHogUser(userId), LOAD_TIMEOUT_MS);
+    if (status === "unauthenticated") return runWhenIdle(() => void forgetPostHogUser(), LOAD_TIMEOUT_MS);
+  }, [status, userId]);
 
   return null;
+}
+
+async function identifyPostHogUser(userId: string): Promise<void> {
+  (await loadPostHog())?.identify(userId);
+}
+
+async function forgetPostHogUser(): Promise<void> {
+  (await loadPostHog())?.reset();
 }

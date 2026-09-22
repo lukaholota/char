@@ -16,8 +16,9 @@ vi.mock("@/lib/prisma", () => ({
 
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { NoAiModeProvider } from "@/components/no-ai/NoAiModeProvider";
-import { findSpellForModal } from "@/lib/spell-catalog-chunk";
+import { findLoadedSpellForModal, findSpellForModal } from "@/lib/spell-cards";
 import { getAllSpells } from "@/lib/spellsData";
+import { serveSpellCardsFromRoute } from "../helpers/serve-spell-cards";
 
 const fireball2024 = getAllSpells("RULES_2024").find((spell) => spell.engName === "Fireball")!;
 const mageHand2014 = getAllSpells("RULES_2014").find((spell) => spell.engName === "Mage Hand")!;
@@ -123,6 +124,9 @@ describe("KR25.1 — якір у описі", () => {
 });
 
 describe("KR25.1 — джерело даних модалки", () => {
+  beforeEach(serveSpellCardsFromRoute);
+  afterEach(() => vi.unstubAllGlobals());
+
   it("віддає заклинання 2024 за ключем 2024", async () => {
     const spell = await findSpellForModal({ spellKey: String(fireball2024.spellId), ruleset: "RULES_2024" });
 
@@ -148,5 +152,14 @@ describe("KR25.1 — джерело даних модалки", () => {
   /// «підказка», а частина ключа. Це те, що ламало модалку до KR25.1 у зворотний бік.
   it("не віддає заклинання 2024 за ключем 2014", async () => {
     expect(await findSpellForModal({ spellKey: String(fireball2024.spellId), ruleset: "RULES_2014" })).toBeNull();
+  });
+
+  it("раз завантажена картка далі береться синхронно — модалка відкривається одразу з текстом", async () => {
+    const link = { spellKey: "shield", ruleset: "RULES_2024" } as const;
+    expect(findLoadedSpellForModal(link)).toBeNull();
+
+    await findSpellForModal(link);
+
+    expect(findLoadedSpellForModal(link)?.engName).toBe("Shield");
   });
 });

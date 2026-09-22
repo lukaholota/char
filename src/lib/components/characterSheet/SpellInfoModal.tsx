@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { useParams } from "next/navigation";
 import { AddToPersDropdown, AddToSinglePersButton } from "@/lib/components/characterSheet/AddSpellToPersButtons";
-import { findLoadedSpellForModal, findSpellForModal } from "@/lib/spell-catalog-chunk";
+import { findLoadedSpellForModal, findSpellForModal } from "@/lib/spell-cards";
 import type { SpellData } from "@/lib/spellsData";
 import { shortenCastingTime } from "@/lib/spell-casting-time";
 import type { Ruleset } from "@prisma/client";

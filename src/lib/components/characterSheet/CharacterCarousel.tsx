@@ -17,6 +17,7 @@ import type { BeastFormView } from "./BeastFormMarks";
 import { useWildshapeState } from "./useWildshapeState";
 import { applyActiveStates } from "@/lib/logic/active-states";
 import type { SpellSource } from "@/rules/spell-sources";
+import { runWhenIdle } from "@/lib/run-when-idle";
 
 const SkillsSlide = dynamic(() => import("./slides/SkillsSlide"));
 const CombatSlide = dynamic(() => import("./slides/CombatSlide"));
@@ -110,7 +111,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
     (swiper: SwiperType) => {
       const { visible, neighbours } = listSlidesToMount(swiper.realIndex, findSlidesPerView(swiper), allSlides.length);
       mountSlides(visible);
-      whenIdle(() => mountSlides(neighbours));
+      runWhenIdle(() => mountSlides(neighbours), 2000);
     },
     [allSlides.length, mountSlides],
   );
@@ -252,9 +253,4 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
 function findSlidesPerView(swiper: SwiperType): number {
   const perView = swiper.params.slidesPerView;
   return typeof perView === "number" ? perView : 1;
-}
-
-function whenIdle(run: () => void): void {
-  if (typeof window.requestIdleCallback === "function") window.requestIdleCallback(run, { timeout: 2000 });
-  else setTimeout(run, 300);
 }

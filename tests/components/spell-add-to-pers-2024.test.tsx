@@ -16,12 +16,17 @@ vi.mock("@/lib/actions/spell-actions", () => ({
 import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
 import { setSpellPresenceForPersByLink } from "@/lib/actions/spell-actions";
 import { openSpellLink } from "@/lib/spell-link";
+import { serveSpellCardsFromRoute } from "../helpers/serve-spell-cards";
 
 beforeEach(() => {
   window.history.replaceState({}, "", "/char/7");
+  serveSpellCardsFromRoute();
 });
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.unstubAllGlobals();
+});
 
 describe("KR25.2 — заклинання 2024 додається до персонажа", () => {
   it("кнопка є, і вона шле посилання зі слагом, а не номер каталогу", async () => {

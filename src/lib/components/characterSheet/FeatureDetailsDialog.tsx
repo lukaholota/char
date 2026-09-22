@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { RichTextEditor } from "@/components/ui/rich-text/RichTextEditor";
+import { LazyRichTextEditor } from "@/components/ui/rich-text/LazyRichTextEditor";
 import type { CharacterFeatureItem } from "@/lib/actions/pers";
 import { saveFeatureDescription } from "@/lib/actions/feature-descriptions";
 import { buildEditableDescription } from "@/lib/logic/feature-descriptions";
@@ -133,7 +133,7 @@ function CustomDescriptionBadge() {
 function DescriptionEditor({ draft, onDraftChange }: { draft: string; onDraftChange: (value: string) => void }) {
   return (
     <div className="space-y-1">
-      <RichTextEditor value={draft} onChange={onDraftChange} ariaLabel="Опис фічі" contentClassName="min-h-[45dvh] sm:min-h-72" isToolbarSticky />
+      <LazyRichTextEditor value={draft} onChange={onDraftChange} ariaLabel="Опис фічі" contentClassName="min-h-[45dvh] sm:min-h-72" isToolbarSticky />
       <p className="text-xs text-slate-400">Порожній опис поверне оригінал. Опис бачите лише ви та ті, кому відкрито лист.</p>
     </div>
   );

@@ -31,23 +31,23 @@ class DiceService {
   private fallbackTable: FallbackDie[] = [];
   private fallbackNextRollId = 1;
 
-  async init(containerSelector: string): Promise<void> {
+  async init(containerSelector: string, prepareBox: () => void = () => {}): Promise<void> {
     if (this.initPromise) {
       return this.initPromise;
     }
 
-    this.initPromise = this.initOrFallBack(containerSelector);
+    this.initPromise = this.initOrFallBack(containerSelector, prepareBox);
     return this.initPromise;
   }
 
-  private async initOrFallBack(containerSelector: string): Promise<void> {
+  private async initOrFallBack(containerSelector: string, prepareBox: () => void): Promise<void> {
     let timer: ReturnType<typeof setTimeout> | undefined;
     const timeout = new Promise<"timeout">((resolve) => {
       timer = setTimeout(() => resolve("timeout"), INIT_TIMEOUT_MS);
     });
 
     try {
-      const outcome = await Promise.race([this.createBox(containerSelector).then(() => "ready" as const), timeout]);
+      const outcome = await Promise.race([this.createBox(containerSelector, prepareBox).then(() => "ready" as const), timeout]);
       if (outcome === "timeout") this.enterFallback("dice-box init timed out");
     } catch (error) {
       this.enterFallback(error instanceof Error ? error.message : String(error));
@@ -56,7 +56,7 @@ class DiceService {
     }
   }
 
-  private async createBox(containerSelector: string): Promise<void> {
+  private async createBox(containerSelector: string, prepareBox: () => void): Promise<void> {
     // Dynamic import to avoid SSR issues
     const { default: DiceBox } = await import("@3d-dice/dice-box");
 
@@ -95,6 +95,8 @@ class DiceService {
     // (Sentry JAVASCRIPT-NEXTJS-V).
     this.box = box;
     box.onRollComplete = (results: unknown) => this.emitBoxResults(results);
+    // Автокидок стартує, щойно статус стане «ready», а resize посеред кидка стирає кубики.
+    prepareBox();
     this.setStatus("ready");
     console.log("DiceBox initialized successfully");
   }

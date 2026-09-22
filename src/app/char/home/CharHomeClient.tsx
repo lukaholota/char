@@ -90,6 +90,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { usePrefetchWhenVisible } from "@/app/char/home/use-prefetch-when-visible";
 import type { Ruleset } from "@prisma/client";
 
 export interface PersHomeItem {
@@ -481,11 +482,11 @@ function PersCard({
     onConfirm: () => onDelete(pers.persId),
   });
 
+  const target = linkResolver ? linkResolver(pers) : `/char/${pers.persId}`;
+  const prefetchRef = usePrefetchWhenVisible<HTMLDivElement>(target);
   const handleNavigate = useCallback(() => {
-    const target = linkResolver ? linkResolver(pers) : `/char/${pers.persId}`;
-    if (!target) return;
-    router.push(target);
-  }, [linkResolver, pers, router]);
+    if (target) router.push(target);
+  }, [target, router]);
 
   const handleRename = useCallback(() => {
     const next = renameValue.trim();
@@ -502,6 +503,7 @@ function PersCard({
 
   return (
     <Card
+      ref={prefetchRef}
       className={cn(
         "h-full transition-shadow cursor-pointer relative group glass-card border-white/10 hover:shadow-lg select-none",
         selectionMode && "ring-1 ring-white/20",

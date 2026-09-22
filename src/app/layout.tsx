@@ -5,9 +5,7 @@ import './globals.css'
 import { Navigation } from "@/components/ui/Navigation";
 import { App } from "@/components/ui/App";
 import { Providers } from "@/app/providers";
-import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
-import { TermInfoModal } from "@/components/rules/TermInfoModal";
-import { OmniSearchDialog } from "@/components/search/OmniSearchDialog";
+import { GlobalModals } from "@/components/ui/GlobalModals";
 import { DiceOverlay } from "@/lib/components/dice/DiceOverlay";
 import { DiceTray } from "@/lib/components/dice/DiceTray";
 import { RootGrid } from "@/components/ui/RootGrid";
@@ -94,11 +92,7 @@ export default function RootLayout(
           <Navigation/>
         </RootGrid>
       </Suspense>
-      <Suspense fallback={null}>
-        <SpellInfoModal />
-        <TermInfoModal />
-      </Suspense>
-      <OmniSearchDialog />
+      <GlobalModals />
       <DiceOverlay />
       <DiceTray />
     </Providers>

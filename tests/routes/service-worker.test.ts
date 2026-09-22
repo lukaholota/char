@@ -247,3 +247,37 @@ describe("Офлайн-аудит 2026-09-18 — картинки листа й 
     expect(await requestPage(worker, { url: "https://example.com/x.png", method: "GET" })).toBeNull();
   });
 });
+
+/// Модалка заклинання бере одну картку замість 1,8 МБ каталогу (2026-09-21) — і без мережі
+/// має відкрити заклинання, яке на цьому листі вже бачила.
+describe("картки заклинань", () => {
+  const fireballCard: FakeRequest = { url: `${ORIGIN}/spell-cards/2014/123`, method: "GET" };
+
+  it("з мережею беруться свіжими, навіть коли картка вже в кеші", async () => {
+    let text = "стара картка";
+    const worker = startServiceWorker(async () => new Response(text));
+    await requestPage(worker, fireballCard);
+    text = "нова картка";
+
+    await expect((await requestPage(worker, fireballCard))?.text()).resolves.toBe("нова картка");
+  });
+
+  it("без мережі віддаються з кешу", async () => {
+    let isOnline = true;
+    const worker = startServiceWorker(async () => {
+      if (!isOnline) throw new Error("мережі немає");
+      return new Response("картка вогняної кулі");
+    });
+    await requestPage(worker, fireballCard);
+    isOnline = false;
+
+    await expect((await requestPage(worker, fireballCard))?.text()).resolves.toBe("картка вогняної кулі");
+  });
+
+  it("«не знайдено» в кеш не кладеться", async () => {
+    const worker = startServiceWorker(async () => new Response("null", { status: 404 }));
+    await requestPage(worker, fireballCard);
+
+    expect(worker.caches.stores.get("char-spell-cards-v1")?.size ?? 0).toBe(0);
+  });
+});

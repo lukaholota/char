@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
-import posthog from "posthog-js";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 import { decideWhatsNew } from "@/lib/whats-new/decision";
 import { CURRENT_RELEASE_FLAG, CURRENT_RELEASE_SLIDES } from "@/lib/whats-new/release-notes";
@@ -38,13 +38,13 @@ export function WhatsNewAnnouncement({ onResolved }: { onResolved?: (isOpen: boo
     /// відкривати модалку вдруге.
     markFlagSeen(storage, CURRENT_RELEASE_FLAG);
     setIsOpen(true);
-    posthog.capture("whats_new_shown", { release: CURRENT_RELEASE_FLAG });
+    capturePostHogEvent("whats_new_shown", { release: CURRENT_RELEASE_FLAG });
   }, [pathname, status, onResolved]);
 
   const handleClose = useCallback(() => {
     setIsOpen(false);
     onResolved?.(false);
-    posthog.capture("whats_new_closed", { release: CURRENT_RELEASE_FLAG });
+    capturePostHogEvent("whats_new_closed", { release: CURRENT_RELEASE_FLAG });
   }, [onResolved]);
 
   if (!isOpen) return null;
