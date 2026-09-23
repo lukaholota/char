@@ -36,5 +36,20 @@ test("посилання на клас одразу відкриває його 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/classes?class=fighter");
 
-  await expect(page.getByRole("dialog", { name: "Воїн" })).toBeVisible();
+  const dialog = page.getByRole("dialog", { name: "Воїн" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole("tooltip")).toHaveCount(0);
+  await dialog.getByRole("button", { name: "Закрити" }).click();
+  await expect(dialog).toBeHidden();
+});
+
+test("посилання на істоту відкриває її модалку на телефоні", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/bestiary?creature=goblin");
+
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText("Goblin");
+  await dialog.getByRole("button", { name: "Закрити" }).click();
+  await expect(dialog).toBeHidden();
 });

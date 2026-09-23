@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { Ruleset } from "@prisma/client";
 import { Eye, Printer, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -46,6 +46,7 @@ import {
   type CreatureSortMode,
 } from "@/lib/bestiary-sort";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
+import { useCatalogDeepLinkFocus } from "@/hooks/useCatalogDeepLinkFocus";
 import {
   getParamSet,
   setParamSet,
@@ -97,6 +98,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
 
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [modalCreature, setModalCreature] = useState<CreatureIndexEntry | null>(null);
+  const closingModalRef = useRef(false);
   const [printKeys, setPrintKeys] = useState<string[]>([]);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
@@ -135,6 +137,24 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
     }
     return ordered[0] ?? null;
   }, [ordered, selection.creature, index]);
+
+  const focusCreatureFromUrl = useCallback((source: "initial" | "search" | "popstate") => {
+    if (source === "popstate" && closingModalRef.current) {
+      closingModalRef.current = false;
+      return;
+    }
+    const requested = getSearchParamsFromLocation().get("creature");
+    if (!requested || window.innerWidth >= 1024) return;
+    const target = index.find(
+      (entry) => String(entry.creatureId) === requested ||
+        entry.key === toEntitySlug(requested) ||
+        entry.nameEng.toLowerCase() === requested.toLowerCase() ||
+        entry.name.toLowerCase() === requested.toLowerCase()
+    );
+    if (target) setModalCreature(target);
+  }, [index]);
+
+  useCatalogDeepLinkFocus(focusCreatureFromUrl);
 
   const selectedCommunityEntry = findCommunityEntry(selectedCreature);
   const catalogStatblock = useCreatureStatblock(selectedCommunityEntry ? null : selectedCreature?.key ?? null, ruleset, initialStatblock);
@@ -271,6 +291,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
               onClick={() => {
                 setParams((next) => next.set("creature", isCommunityCreature(creature) ? creature.key : toEntitySlug(creature.nameEng)));
                 if (typeof window !== "undefined" && window.innerWidth < 1024) {
+                  closingModalRef.current = false;
                   setModalCreature(creature);
                 }
               }}
@@ -382,7 +403,10 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
         )
       }
       selectedModalItem={modalCreature}
-      onCloseModal={() => setModalCreature(null)}
+      onCloseModal={() => {
+        closingModalRef.current = true;
+        setModalCreature(null);
+      }}
       modalTitle={modalCreature?.name || "Статблок істоти"}
       renderModalContent={(creature) => (
         <div className="space-y-3">

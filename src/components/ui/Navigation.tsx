@@ -197,6 +197,7 @@ function NavItemButton({
 	return (
 		<Link
 			href={item.href}
+			navigateOnFirstTouch={item.key === "characters"}
 			aria-label={item.label}
 			aria-current={isActive ? "page" : undefined}
 			className={className}

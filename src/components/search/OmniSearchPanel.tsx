@@ -191,7 +191,7 @@ export function OmniSearchPanel({ onClose }: Props) {
         onOpenCatalog={openCatalog}
       />
 
-      <div ref={scrollHostRef} className="px-3 flex-1 overflow-y-auto min-h-[160px]">
+      <div ref={scrollHostRef} className="px-3 flex-1 overflow-y-auto min-h-0 overscroll-contain">
         {query.trim() ? (
           <OmniSearchResults
             rows={rows}

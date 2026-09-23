@@ -49,4 +49,17 @@ describe("Каталог відкриває запис із адреси", () =>
 
     expect(focus).toHaveBeenCalledTimes(1);
   });
+
+  it("оновлення callback не запускає початкове відкриття вдруге", () => {
+    const first = vi.fn();
+    const second = vi.fn();
+    const view = render(<Catalog focus={first} />);
+
+    view.rerender(<Catalog focus={second} />);
+    expect(first).toHaveBeenCalledTimes(1);
+    expect(second).not.toHaveBeenCalled();
+
+    act(() => announceSearchNavigation());
+    expect(second).toHaveBeenCalledTimes(1);
+  });
 });

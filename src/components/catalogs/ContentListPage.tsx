@@ -4,7 +4,6 @@ import { ReactNode, useEffect, useMemo, useState } from "react";
 import { Virtuoso } from "react-virtuoso";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CatalogHeader, type CatalogHeaderProps } from "./CatalogHeader";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { findEditionAccent } from "@/styles/edition-accent";
 
 export type ContentListPageProps<TItem, TRow = TItem> = CatalogHeaderProps & {
@@ -75,8 +74,6 @@ export function ContentListPage<TItem, TRow = TItem>({
   renderModalContent,
 
   // Filter dialog
-  filterDialogOpen = false,
-  onFilterDialogClose,
   filterDialogContent,
 }: ContentListPageProps<TItem, TRow>) {
   const [lastModalItem, setLastModalItem] = useState<TItem | null>(selectedModalItem ?? null);
@@ -84,15 +81,6 @@ export function ContentListPage<TItem, TRow = TItem>({
     if (selectedModalItem) setLastModalItem(selectedModalItem);
   }, [selectedModalItem]);
   const modalItem = selectedModalItem ?? lastModalItem;
-
-  // Mobile back-button support for modal & filter dialog
-  useModalBackButton(Boolean(selectedModalItem), () => {
-    if (onCloseModal) onCloseModal();
-  });
-
-  useModalBackButton(filterDialogOpen, () => {
-    if (onFilterDialogClose) onFilterDialogClose();
-  });
 
   // No tab-bar allowance below: `App` already reserves 4.5rem plus the safe area for it. This
   // shell used to add 7rem of its own on top, and that was the empty strip between the list and

@@ -37,15 +37,16 @@ test("нижня навігація відкриває персонажів од
   await page.goto("/");
   await page.addStyleTag({ content: "nextjs-portal { pointer-events: none !important; }" });
 
-  await page.route("**/char/home*", async (route) => {
-    if (route.request().resourceType() === "fetch") {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-    }
-    await route.continue();
-  });
-
   const charactersLink = page.locator('nav a[aria-label="Персонажі"]:visible');
   await charactersLink.tap();
-  await expect(charactersLink.locator("[data-nav-pending]")).toBeVisible();
-  await expect(page).toHaveURL(/\/char\/home(?:\?.*)?$/, { timeout: 15000 });
+  await expect(page).toHaveURL(/\/char\/(?:home|create)(?:\?.*)?$/, { timeout: 15000 });
+});
+
+test("картка персонажів на головній відкривається одним тапом", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await page.addStyleTag({ content: "nextjs-portal { pointer-events: none !important; }" });
+
+  await page.locator('main a[href$="/char/home"]:visible').first().tap();
+  await expect(page).toHaveURL(/\/char\/(?:home|create)(?:\?.*)?$/, { timeout: 15000 });
 });

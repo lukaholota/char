@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type { Ruleset } from "@prisma/client";
 import { Shield } from "lucide-react";
 
@@ -72,6 +72,7 @@ export function ClassesClient({
   const is2024 = ruleset === "RULES_2024";
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalClass, setSelectedModalClass] = useState<ClassData | null>(null);
+  const closingModalRef = useRef(false);
 
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
     parseSelection,
@@ -112,7 +113,11 @@ export function ClassesClient({
 
   /// Читаємо адресу, а не стан: той самий рядок пошуку можна натиснути вдруге, і тоді ні
   /// `selection`, ні `selectedClass` не зміняться — а модалку все одно треба відкрити.
-  const focusClassFromUrl = useCallback(() => {
+  const focusClassFromUrl = useCallback((source: "initial" | "search" | "popstate") => {
+    if (source === "popstate" && closingModalRef.current) {
+      closingModalRef.current = false;
+      return;
+    }
     const params = getSearchParamsFromLocation();
     const requested = params.get("class");
     if (!requested) return;
@@ -190,6 +195,7 @@ export function ClassesClient({
           onSelect={() => {
             setParams((next) => next.set("class", characterClass.slug));
             if (typeof window !== "undefined" && window.innerWidth < 1024) {
+              closingModalRef.current = false;
               setSelectedModalClass(characterClass);
             }
           }}
@@ -205,7 +211,10 @@ export function ClassesClient({
         )
       }
       selectedModalItem={selectedModalClass}
-      onCloseModal={() => setSelectedModalClass(null)}
+      onCloseModal={() => {
+        closingModalRef.current = true;
+        setSelectedModalClass(null);
+      }}
       modalTitle={selectedModalClass?.name || "Клас"}
       renderModalContent={(characterClass) => (
         <ClassDetailCard characterClass={characterClass} is2024={is2024} />

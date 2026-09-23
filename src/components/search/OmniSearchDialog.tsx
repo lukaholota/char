@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { Search } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -16,6 +16,20 @@ const OmniSearchPanel = dynamic(
 
 export function OmniSearchDialog() {
   const { isOpen, close, toggle } = useOmniSearchStore();
+  const [viewport, setViewport] = useState<{ top: number; height: number } | null>(null);
+
+  useEffect(() => {
+    if (!isOpen || !window.visualViewport) return;
+    const visualViewport = window.visualViewport;
+    const updateViewport = () => setViewport({ top: visualViewport.offsetTop, height: visualViewport.height });
+    updateViewport();
+    visualViewport.addEventListener("resize", updateViewport);
+    visualViewport.addEventListener("scroll", updateViewport);
+    return () => {
+      visualViewport.removeEventListener("resize", updateViewport);
+      visualViewport.removeEventListener("scroll", updateViewport);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleHotkey = (event: KeyboardEvent) => {
@@ -34,6 +48,10 @@ export function OmniSearchDialog() {
       <DialogContent
         showClose={false}
         className="max-w-2xl p-0 gap-0 overflow-hidden bg-slate-950/95 border-white/10 backdrop-blur-2xl shadow-2xl rounded-2xl sm:max-h-[85vh] flex flex-col"
+        style={viewport ? {
+          top: `${viewport.top + viewport.height / 2}px`,
+          maxHeight: `min(85vh, ${Math.max(viewport.height - 16, 0)}px)`,
+        } : undefined}
         onOpenAutoFocus={(event) => event.preventDefault()}
       >
         <DialogTitle className="sr-only">Глобальний пошук по платформі (Omni-Search)</DialogTitle>

@@ -24,6 +24,14 @@ describe("GlossaryTerm", () => {
     expect(screen.queryByRole("tooltip")).toBeNull();
   });
 
+  it("автоматичний фокус модалки не відкриває підказку", () => {
+    const term = renderTerm();
+    fireEvent.focus(term);
+    expect(screen.queryByRole("tooltip")).toBeNull();
+    fireEvent.keyDown(term, { key: "Enter" });
+    expect(screen.getByRole("tooltip").textContent).toBe("Insight");
+  });
+
   it("не вставляє оригінал у текст абзацу — підказка поза потоком", () => {
     const term = renderTerm();
     fireEvent.click(term);

@@ -59,3 +59,25 @@ test("KR36.4: рядок квоти на телефоні вміщується �
   expect(box!.x + box!.width).toBeLessThanOrEqual(390);
   await context.close();
 });
+
+test("результати пошуку прокручуються у зменшеній видимій області телефону", async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  const page = await context.newPage();
+  await page.goto("/");
+  await page.getByRole("button", { name: "Пошук" }).first().click();
+  await page.getByPlaceholder(/Пошук по платформі/).fill("магія");
+  await page.setViewportSize({ width: 390, height: 360 });
+
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await expect.poll(() => dialog.evaluate((element) => element.getBoundingClientRect().bottom))
+    .toBeLessThanOrEqual(360);
+
+  const results = dialog.locator(".overflow-y-auto").first();
+  const scrollTop = await results.evaluate((element) => {
+    element.scrollTop = element.scrollHeight;
+    return element.scrollTop;
+  });
+  expect(scrollTop).toBeGreaterThan(0);
+  await context.close();
+});

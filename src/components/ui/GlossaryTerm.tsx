@@ -57,7 +57,6 @@ export function GlossaryTerm({
           if (lastPointerType.current === "mouse") return;
           setIsOpen((wasOpen) => !wasOpen);
         }}
-        onFocus={() => setIsOpen(true)}
         onBlur={() => setIsOpen(false)}
         onKeyDown={(event) => {
           if (event.key === "Escape") return setIsOpen(false);

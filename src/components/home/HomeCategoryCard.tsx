@@ -63,6 +63,7 @@ export function HomeCategoryCard({ card, priority, className }: HomeCategoryCard
     <motion.div variants={cardMotion} className={className}>
       <Link
         href={category.href}
+        navigateOnFirstTouch={category.slug === "characters"}
         className="group block transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:outline-none"
       >
         <OrnateFrame
