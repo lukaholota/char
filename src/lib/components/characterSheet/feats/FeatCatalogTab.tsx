@@ -32,11 +32,13 @@ export function FeatCatalogTab({
 }: Props) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<FeatCategory | "ALL">("ALL");
+  const categoryChips = CATEGORY_CHIPS.filter((tab) => tab.key === "ALL" || availableFeats.some((feat) => feat.category === tab.key));
+  const activeCategory = categoryChips.some((tab) => tab.key === selectedCategory) ? selectedCategory : "ALL";
 
   const filteredFeats = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     return availableFeats.filter((f) => {
-      if (selectedCategory !== "ALL" && f.category !== selectedCategory) {
+      if (activeCategory !== "ALL" && f.category !== activeCategory) {
         return false;
       }
       if (!q) return true;
@@ -45,7 +47,7 @@ export function FeatCatalogTab({
       const descLower = f.description.toLowerCase();
       return nameLower.includes(q) || engLower.includes(q) || descLower.includes(q);
     });
-  }, [availableFeats, searchQuery, selectedCategory]);
+  }, [availableFeats, searchQuery, activeCategory]);
 
   return (
     <div className="space-y-3">
@@ -62,15 +64,15 @@ export function FeatCatalogTab({
           />
         </div>
 
-        <div className="flex items-center gap-1 overflow-x-auto pb-1 no-scrollbar">
-          {CATEGORY_CHIPS.map((tab) => (
+        {categoryChips.length > 1 && <div className="flex items-center gap-1 overflow-x-auto pb-1 no-scrollbar">
+          {categoryChips.map((tab) => (
             <button
               key={tab.key}
               type="button"
               onClick={() => setSelectedCategory(tab.key)}
               className={cn(
                 "px-2.5 py-1 text-xs font-medium rounded-lg whitespace-nowrap transition-all",
-                selectedCategory === tab.key
+                activeCategory === tab.key
                   ? "bg-amber-500/20 text-amber-300 border border-amber-500/40"
                   : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
               )}
@@ -78,7 +80,7 @@ export function FeatCatalogTab({
               {tab.label}
             </button>
           ))}
-        </div>
+        </div>}
       </div>
 
       {/* Catalog Feats List */}

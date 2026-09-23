@@ -27,6 +27,10 @@ export interface CreationStep {
   component: string;
 }
 
+export function hasRaceFeatChoice(raceName: string | null | undefined, raceVariantName: string | null | undefined): boolean {
+  return raceName === "CUSTOM_LINEAGE_TCE" || raceVariantName === "HUMAN_VARIANT";
+}
+
 const coreSteps: CreationStep[] = [
   { id: "background", name: "Передісторія", component: "background" },
   { id: "asi", name: "Характеристики", component: "asi" },

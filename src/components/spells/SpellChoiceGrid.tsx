@@ -16,11 +16,23 @@ interface Props {
   findGroupLabel: (spell: SpellChoiceOption) => string;
   /** Ще не обране, чого зараз брати не можна (межа шкіл підкласу): картка лишається, але вимкнена. */
   isSelectable?: (spell: SpellChoiceOption) => boolean;
+  highestLevelFirst?: boolean;
 }
 
 /** Р42 — список кандидатів на вибір заклинання: риса, крок заклинань конструктора й майстра. Картка — та сама, що в каталозі. */
-export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGroupLabel, isSelectable }: Props) {
-  const groups = useMemo(() => groupSpells(spells, findGroupLabel), [spells, findGroupLabel]);
+export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGroupLabel, isSelectable, highestLevelFirst = false }: Props) {
+  const groups = useMemo(() => {
+    const grouped = groupSpells(spells, findGroupLabel);
+    if (!highestLevelFirst) return grouped;
+    return grouped.sort((a, b) => {
+      const firstLevel = a[1][0].level;
+      const secondLevel = b[1][0].level;
+      if (firstLevel === secondLevel) return 0;
+      if (firstLevel === 0) return -1;
+      if (secondLevel === 0) return 1;
+      return secondLevel - firstLevel;
+    });
+  }, [spells, findGroupLabel, highestLevelFirst]);
   const isFull = selectedIds.length >= limit;
 
   const toggleSpell = (spellId: number) => {
@@ -38,6 +50,7 @@ export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGrou
 
   return (
     <div className="space-y-4">
+      {isFull && limit > 0 && <p className="text-sm text-slate-300" role="status">Усі заклинання обрано. Щоб змінити вибір, натисніть на позначене заклинання.</p>}
       {groups.map(([label, groupSpells]) => (
         <section key={label} aria-label={groups.length > 1 ? label : undefined}>
           {groups.length > 1 && <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">{label}</h3>}

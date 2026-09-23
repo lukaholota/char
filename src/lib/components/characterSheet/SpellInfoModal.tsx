@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { buildSpellDisplayDescription } from "@/lib/spell-display-description";
 import { useParams } from "next/navigation";
 import { AddToPersDropdown, AddToSinglePersButton } from "@/lib/components/characterSheet/AddSpellToPersButtons";
 import { findLoadedSpellForModal, findSpellForModal } from "@/lib/spell-cards";
@@ -300,7 +301,7 @@ export function SpellInfoModal() {
               </div>
             ) : spell ? (
               <div className="glass-panel rounded-lg border border-slate-700/50 p-3 sm:p-4 bg-slate-900/20">
-                <FormattedDescription content={spell.description} className="text-slate-300 text-[14px] sm:text-base break-words leading-relaxed" />
+                <FormattedDescription content={buildSpellDisplayDescription(spell.description, spell.engName)} className="text-slate-300 text-[14px] sm:text-base break-words leading-relaxed" />
               </div>
             ) : null}
           </div>

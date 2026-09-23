@@ -18,13 +18,14 @@ import type { SpellChoiceOption, SpellSchoolLimit } from "@/rules/spell-choice-f
 interface Props {
   offer: ClassSpellOffer;
   onNextDisabledChange?: (disabled: boolean) => void;
+  highestLevelFirst?: boolean;
 }
 
 /**
  * Замовляння, книга чарівника й підготовлені (у 2014 — відомі), які клас дає обрати: конструктор 2024 (Р43)
  * і майстер підвищення обох редакцій. Обовʼязкова квота — мінімум, доганяння таблиці 2014 — понад нього.
  */
-export function ClassSpellChoiceStep({ offer, onNextDisabledChange }: Props) {
+export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevelFirst = false }: Props) {
   const { formData, updateFormData } = usePersFormStore();
   const limits = findSelectionLimits(offer.quota, offer.catchUp, offer.canSkipPrepared);
   const selection = useMemo(() => keepOfferedSpells(formData.classSpells ?? EMPTY_CLASS_SPELL_SELECTION, offer), [formData.classSpells, offer]);
@@ -55,6 +56,7 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange }: Props) {
             limit={limits.cantrips.max}
             onChange={(cantripIds) => updateSelection({ cantripIds })}
             findGroupLabel={findLevelLabel}
+            highestLevelFirst={highestLevelFirst}
           />
         </SpellChoiceSection>
       )}
@@ -67,6 +69,7 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange }: Props) {
             limit={limits.spellbook.max}
             onChange={(spellbookIds) => updateSelection({ spellbookIds })}
             findGroupLabel={findLevelLabel}
+            highestLevelFirst={highestLevelFirst}
           />
         </SpellChoiceSection>
       )}
@@ -89,6 +92,7 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange }: Props) {
               onChange={(preparedIds) => updateSelection({ preparedIds })}
               findGroupLabel={findLevelLabel}
               isSelectable={canTakeOutsideSchools}
+              highestLevelFirst={highestLevelFirst}
             />
           )}
         </SpellChoiceSection>
@@ -101,6 +105,7 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange }: Props) {
           candidates={offer.cantrips.filter((spell) => !selection.cantripIds.includes(spell.spellId))}
           swap={selection.cantripSwap}
           onChange={(cantripSwap) => updateSelection({ cantripSwap })}
+          highestLevelFirst={highestLevelFirst}
         />
       )}
 
@@ -112,6 +117,7 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange }: Props) {
           swap={selection.preparedSwap}
           onChange={(preparedSwap) => updateSelection({ preparedSwap })}
           isSelectable={canTakeOutsideSchools}
+          highestLevelFirst={highestLevelFirst}
         />
       )}
     </div>
@@ -125,6 +131,7 @@ function SpellSwapSection(props: {
   swap: SpellSwap | null | undefined;
   onChange: (swap: SpellSwap | null) => void;
   isSelectable?: (spell: SpellChoiceOption) => boolean;
+  highestLevelFirst?: boolean;
 }) {
   const dropId = props.swap?.dropId ?? null;
   const addId = props.swap?.addId ?? null;
@@ -143,6 +150,7 @@ function SpellSwapSection(props: {
         limit={1}
         onChange={(ids) => update({ dropId: ids[0] ?? null, addId })}
         findGroupLabel={findLevelLabel}
+        highestLevelFirst={props.highestLevelFirst}
       />
       {dropId !== null && (
         <>
@@ -154,6 +162,7 @@ function SpellSwapSection(props: {
             onChange={(ids) => update({ dropId, addId: ids[0] ?? null })}
             findGroupLabel={findLevelLabel}
             isSelectable={props.isSelectable}
+            highestLevelFirst={props.highestLevelFirst}
           />
         </>
       )}

@@ -8,6 +8,7 @@ import { X, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
+import { buildSpellDisplayDescription } from "@/lib/spell-display-description";
 
 function normalizeFlag(value: string | null | undefined): boolean {
   const v = (value ?? "").trim().toLowerCase();
@@ -139,7 +140,7 @@ export function SpellModalCard({
       </div>
 
       <div className="mt-3 glass-panel rounded-xl border border-white/10 bg-white/[0.03] p-2 sm:p-3 max-h-[35vh] overflow-y-auto max-w-full overflow-x-hidden">
-        <FormattedDescription content={spell.description} className="text-slate-300 text-xs sm:text-[13px] break-words" />
+        <FormattedDescription content={buildSpellDisplayDescription(spell.description, spell.engName)} className="text-slate-300 text-xs sm:text-[13px] break-words" />
       </div>
 
       <div className="mt-3 border-t border-slate-800/70 pt-2 text-[11px] sm:text-xs text-slate-300">

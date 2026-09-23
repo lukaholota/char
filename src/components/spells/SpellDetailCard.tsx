@@ -2,8 +2,9 @@ import { SpellData } from "@/lib/spellsData";
 import { shortenCastingTime } from "@/lib/spell-casting-time";
 import { spellSchoolTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { buildSpellDisplayDescription } from "@/lib/spell-display-description";
 import { cn } from "@/lib/utils";
-import { Sparkles, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import {
   EditionAccentChip,
   EditionAccentFrame,
@@ -120,7 +121,7 @@ export function SpellDetailCard({
       </div>
 
       <div className="mt-3 glass-panel rounded-xl border border-white/10 bg-white/[0.03] p-3 sm:p-4 max-w-full overflow-hidden">
-        <FormattedDescription content={spell.description} className="text-slate-300 text-xs sm:text-base break-words" />
+        <FormattedDescription content={buildSpellDisplayDescription(spell.description, spell.engName)} className="text-slate-300 text-xs sm:text-base break-words" />
       </div>
 
       <div className="mt-3 border-t border-slate-800/70 pt-3 text-[11px] sm:text-sm text-slate-300">

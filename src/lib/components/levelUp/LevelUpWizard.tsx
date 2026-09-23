@@ -1193,7 +1193,7 @@ export default function LevelUpWizard({ info }: Props) {
           />
         ) : null;
       case "class-spells":
-        return classSpellOfferWithoutFeatSpells ? <ClassSpellChoiceStep offer={classSpellOfferWithoutFeatSpells} onNextDisabledChange={onNextDisabledChange} /> : null;
+        return classSpellOfferWithoutFeatSpells ? <ClassSpellChoiceStep offer={classSpellOfferWithoutFeatSpells} onNextDisabledChange={onNextDisabledChange} highestLevelFirst /> : null;
       case "infusions": {
         const known =
           (pers as any)?.persInfusions

@@ -35,7 +35,7 @@ import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
-import { resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
+import { hasRaceFeatChoice, resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 import { buildCreationAbilityScores } from "@/rules/character-creation";
 import WeaponMasteryForm from "@/lib/components/characterCreator/WeaponMasteryForm";
 import { CreationStepRuleLink } from "@/lib/components/characterCreator/CreationStepRuleLink";
@@ -272,9 +272,7 @@ export const MultiStepForm = (
     race?.raceVariants?.find(v => v.raceVariantId === formData.raceVariantId), 
     [race, formData.raceVariantId]
   );
-  const hasFeatChoice = useMemo(() => {
-    return raceVariant?.name === 'HUMAN_VARIANT';
-  }, [raceVariant]);
+  const hasFeatChoice = hasRaceFeatChoice(race?.name, raceVariant?.name);
   // Друга риса Людини 2024 приходить з опції виду: опція дає фічу, фіча висить на рисі.
   const speciesFeat = useMemo(() => {
     const chosenTraitFeatureIds = new Set<number>(
