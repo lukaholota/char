@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { Source } from "@prisma/client";
 import { describe, expect, it } from "vitest";
 
@@ -12,38 +10,6 @@ import spells2024 from "../../data/2024/normalized/spells.json";
 import { readSubclassFeatureSeedInputs } from "../../prisma/seed/subclassFeatureSeed";
 import { readSubclassSeedInputs } from "../../prisma/seed/subclassSeed";
 import { toSubclassEnum } from "../../prisma/seed/subclassSeed2024";
-
-/// Задано руками: вгадування за підрядком при вимірі O43 знайшло «Light» у «Twilight».
-const FIVE_ETOOLS_SHORT_NAME: Record<string, string> = {
-  THE_GENIE: "Genie",
-  HEXBLADE: "Hexblade",
-  FATHOMLESS: "Fathomless",
-  UNDYING: "Undying",
-};
-
-const FIVE_ETOOLS_SOURCE: Record<string, string> = {
-  PHB: "PHB",
-  TCOE: "TCE",
-  XGTE: "XGE",
-  SCAG: "SCAG",
-};
-
-type FiveEtoolsSubclass = { shortName: string; source: string; classSource: string; reprintedAs?: string[] };
-
-function readFiveEtoolsSubclasses(class2014: string): FiveEtoolsSubclass[] {
-  const classSlug = class2014.replace(/_2014$/, "").toLowerCase();
-  const raw = readFileSync(join(process.cwd(), `data/5etools/raw/class/class-${classSlug}.json`), "utf-8");
-  return JSON.parse(raw).subclass;
-}
-
-function findOriginal2014Record(entry: (typeof LEGACY_SUBCLASSES_2024)[number]): FiveEtoolsSubclass | undefined {
-  return readFiveEtoolsSubclasses(entry.class2014).find(
-    (record) =>
-      record.classSource === "PHB" &&
-      record.shortName === FIVE_ETOOLS_SHORT_NAME[entry.subclass] &&
-      record.source === FIVE_ETOOLS_SOURCE[entry.source],
-  );
-}
 
 function collectOccupied2024SubclassKeys(): Set<string> {
   return new Set(subclasses2024.map((subclass) => `${subclass.className.toUpperCase()}_2024|${toSubclassEnum(subclass.engName)}`));
@@ -58,6 +24,8 @@ function collectLegacyWarlockSpellNames(): string[] {
     .flatMap((list) => list.spells.map((spell) => spell.engName));
 }
 
+/// Пункт «не перевиданий» звіряє реєстр із дзеркалом 5etools, якого в git немає, тому живе окремо —
+/// `tests/content/legacy-subclasses-2024-reprints.test.ts` у корпусному наборі.
 describe("O43 — реєстр легасі-підкласів 2024", () => {
   it("кожен підклас реєстру існує як підклас 2014 свого класу", () => {
     const seeded2014 = new Set(readSubclassSeedInputs().map((input) => `${input.classConnect}|${input.name}`));
@@ -71,19 +39,6 @@ describe("O43 — реєстр легасі-підкласів 2024", () => {
     const clashing = LEGACY_SUBCLASSES_2024.filter((entry) => occupied.has(`${entry.class2024}|${entry.subclass}`));
 
     expect(clashing).toEqual([]);
-  });
-
-  it("жоден підклас реєстру не перевиданий у 2024 — за записом 5etools із тієї ж книги", () => {
-    const unmapped = LEGACY_SUBCLASSES_2024.filter((entry) => FIVE_ETOOLS_SHORT_NAME[entry.subclass] === undefined);
-    expect(unmapped).toEqual([]);
-
-    const problems = LEGACY_SUBCLASSES_2024.flatMap((entry) => {
-      const original = findOriginal2014Record(entry);
-      if (!original) return [`${entry.subclass}: немає запису 5etools classSource PHB з книги ${entry.source}`];
-      if (original.reprintedAs) return [`${entry.subclass}: перевиданий як ${original.reprintedAs.join(", ")}`];
-      return [];
-    });
-    expect(problems).toEqual([]);
   });
 
   it("книга кожного підкласу — значення enum Source з перекладом", () => {

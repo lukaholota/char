@@ -14,6 +14,7 @@ export const CORPUS_TEST_FILES = [
   "tests/content/5etools-magic-items.test.ts",
   "tests/content/differs-from-2014.test.ts",
   "tests/content/extended-spell-lists-2014.test.ts",
+  "tests/content/legacy-subclasses-2024-reprints.test.ts",
   "tests/content/new-spells-2014.test.ts",
   "tests/content/section-name-markers.test.ts",
   "tests/content/spell-corrections-2014.test.ts",
