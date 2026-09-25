@@ -8,9 +8,10 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
 
 type SubclassJson2024 = { className: string; engName: string; spellcastingType?: string; primaryCastingStat?: string };
-type GeneratedSubclass = { name: string; spellcastingType: string | null; primaryCastingStat: string | null };
+type GeneratedSubclass = { name: string; spellcastingType: string | null; primaryCastingStat: string | null; legacySource?: string | null };
 type GeneratedClass = { name: string; subclasses: GeneratedSubclass[] };
 
 const THIRD_CASTER_SUBCLASSES = ["Eldritch Knight", "Arcane Trickster"];
@@ -43,12 +44,24 @@ describe("KR27.6 — чаклування підкласів 2024", () => {
     expect(others).toEqual([]);
   });
 
-  it("згенерований каталог левелапу дорівнює джерелу для всіх 48 підкласів", () => {
-    const generated = generatedClasses.flatMap((cls) => cls.subclasses.map((subclass) => [subclass.name, subclass.spellcastingType, subclass.primaryCastingStat]));
+  it("згенерований каталог левелапу дорівнює джерелу для кожного підкласу subclasses.json", () => {
+    const generated = generatedClasses.flatMap((cls) =>
+      cls.subclasses.filter((subclass) => !subclass.legacySource).map((subclass) => [subclass.name, subclass.spellcastingType, subclass.primaryCastingStat]),
+    );
     const expected = sourceSubclasses.map((subclass) => [toSubclassEnumName(subclass.engName), subclass.spellcastingType ?? "NONE", subclass.primaryCastingStat ?? null]);
 
     expect(generated.length).toBe(sourceSubclasses.length);
     expect(generated.sort()).toEqual(expected.sort());
+  });
+
+  it("легасі-підкласи O43 у каталозі — або ще не засіяні, або рівно реєстр, і чаклування дає клас", () => {
+    const legacy = generatedClasses.flatMap((cls) =>
+      cls.subclasses.filter((subclass) => subclass.legacySource).map((subclass) => ({ key: `${cls.name}|${subclass.name}|${subclass.legacySource}`, ...subclass })),
+    );
+    const registryKeys = LEGACY_SUBCLASSES_2024.map((entry) => `${entry.class2024}|${entry.subclass}|${entry.source}`);
+
+    expect(legacy.map((subclass) => subclass.key).sort()).toEqual(legacy.length === 0 ? [] : registryKeys.sort());
+    expect(legacy.filter((subclass) => subclass.spellcastingType !== "NONE" || subclass.primaryCastingStat !== null).map((subclass) => subclass.key)).toEqual([]);
   });
 });
 

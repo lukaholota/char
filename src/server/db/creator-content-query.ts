@@ -6,7 +6,8 @@
  * мовчки зеленітиме.
  */
 
-import type { PrismaClient, Ruleset } from "@prisma/client";
+import type { Prisma, PrismaClient, Ruleset } from "@prisma/client";
+import { findLegacySubclass2024 } from "@/rules/legacy-subclasses-2024";
 
 export const RACE_CREATOR_INCLUDE = {
   raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
@@ -71,12 +72,30 @@ export function findCreatorRaces(prisma: PrismaClient, ruleset: Ruleset) {
   });
 }
 
-export function findCreatorClasses(prisma: PrismaClient, ruleset: Ruleset) {
-  return prisma.class.findMany({
+type CreatorClassRow = Prisma.ClassGetPayload<{ include: typeof CLASS_CREATOR_INCLUDE }>;
+
+/// `legacySource` необовʼязковий, бо закомічені `creator-content-*.json` до першої регенерації після O43 його не мають.
+type CreatorClassWithLegacy = Omit<CreatorClassRow, "subclasses"> & {
+  subclasses: (CreatorClassRow["subclasses"][number] & { legacySource?: string | null })[];
+};
+
+export async function findCreatorClasses(prisma: PrismaClient, ruleset: Ruleset): Promise<CreatorClassWithLegacy[]> {
+  const classes = await prisma.class.findMany({
     where: { ruleset },
     include: CLASS_CREATOR_INCLUDE,
     orderBy: [{ sortOrder: "asc" }, { classId: "asc" }],
   });
+  return markLegacySubclasses(classes);
+}
+
+function markLegacySubclasses(classes: CreatorClassRow[]): CreatorClassWithLegacy[] {
+  return classes.map((characterClass) => ({
+    ...characterClass,
+    subclasses: characterClass.subclasses.map((subclass) => ({
+      ...subclass,
+      legacySource: findLegacySubclass2024(characterClass.name, subclass.name)?.source ?? null,
+    })),
+  }));
 }
 
 export function findCreatorBackgrounds(prisma: PrismaClient, ruleset: Ruleset) {

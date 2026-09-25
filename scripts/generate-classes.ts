@@ -26,6 +26,7 @@ import {
 } from "../src/lib/refs/translation";
 import { failOnShrunkCatalog } from "./lib/fail-on-shrunk-catalog";
 import { normalizeSkillProficiencies } from "../src/rules/proficiency";
+import { findLegacySubclass2024, isLegacySubclass2024 } from "../src/rules/legacy-subclasses-2024";
 import subclasses2024 from "../data/2024/normalized/subclasses.json";
 
 dotenv.config();
@@ -52,6 +53,7 @@ export type GeneratedSubclass = {
   engName: string;
   description: string | null;
   source: string | null;
+  legacy: boolean;
   features: GeneratedClassFeature[];
 };
 
@@ -82,6 +84,8 @@ const SUBCLASS_ENG: Record<string, string> = subclassTranslationsEng;
 
 export function findSubclassSource(classKey: string, subclassKey: string, ruleset: Ruleset): string | null {
   if (ruleset !== "RULES_2024") return null;
+  const legacy = findLegacySubclass2024(classKey, subclassKey);
+  if (legacy) return legacy.source;
   const subclass = subclasses2024.find(entry =>
     `${entry.className.toUpperCase()}_2024` === classKey &&
     entry.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "") === subclassKey,
@@ -175,6 +179,7 @@ async function main() {
         engName: findSubclassName(SUBCLASS_ENG, subclass.name, subclass.ruleset),
         description: subclass.description,
         source: findSubclassSource(characterClass.name, subclass.name, subclass.ruleset),
+        legacy: subclass.ruleset === "RULES_2024" && isLegacySubclass2024(characterClass.name, subclass.name),
         features: collectFeatures(subclass.features),
       }))
       .sort((left, right) => left.name.localeCompare(right.name, "uk")),

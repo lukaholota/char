@@ -26,6 +26,7 @@ export type SubclassData = {
   engName: string;
   description: string | null;
   source?: string | null;
+  legacy?: boolean;
   features: ClassFeature[];
 };
 

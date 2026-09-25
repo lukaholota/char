@@ -10,6 +10,7 @@
 
 import { afterAll, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
+import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
 import normalizedSubclasses from "../../data/2024/normalized/subclasses.json";
 import { disconnectDatabase } from "../user-data";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
@@ -57,7 +58,8 @@ describe("KR6.3 Step 3 — 2024 Content Isolation", () => {
     // KR31.6: 38 книжкових одиниць зброї + рядок правила UNARMED_STRIKE (seedUnarmedStrike2024).
     expect(weapons2024).toBe(39);
     expect(spells2024).toBe(391);
-    expect(subclasses2024).toBe(normalizedSubclasses.length);
+    // O43: легасі-підкласи — теж рядки RULES_2024, але їх немає в subclasses.json.
+    expect(subclasses2024).toBe(normalizedSubclasses.length + LEGACY_SUBCLASSES_2024.length);
   });
 
   it("updated 15 existing *_2024 backgrounds in-place without ID changes", async () => {

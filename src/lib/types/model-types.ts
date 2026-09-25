@@ -706,6 +706,7 @@ export interface MagicItemI
 // ============================================================================
 
 export interface SubclassI extends Subclass {
+  legacySource?: string | null;
   subclassChoiceOptions: (SubclassChoiceOption & {
     choiceOption: ChoiceOption & {
       features: (ChoiceOptionFeature & {

@@ -1,5 +1,6 @@
 import { afterAll, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
+import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
 import subclasses from "../../data/2024/normalized/subclasses.json";
 import { disconnectDatabase } from "../user-data";
 
@@ -18,7 +19,7 @@ it("KR31.2 — усі нормалізовані підкласи 2024 та їх
       },
     },
   });
-  expect(actual).toHaveLength(subclasses.length);
+  expect(actual).toHaveLength(subclasses.length + LEGACY_SUBCLASSES_2024.length);
 
   for (const source of subclasses) {
     const className = `${source.className.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}_2024`;

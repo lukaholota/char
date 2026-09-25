@@ -6,6 +6,7 @@
 import { afterAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
+import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
 import normalizedSubclasses from "../../data/2024/normalized/subclasses.json";
 
 const CYRILLIC = /\p{Script=Cyrillic}/u;
@@ -50,7 +51,7 @@ describe("підкласові фічі 2024 у базі", () => {
       orderBy: { subclassId: "asc" },
     });
 
-    expect(subclasses.length).toBe(normalizedSubclasses.length);
+    expect(subclasses.length).toBe(normalizedSubclasses.length + LEGACY_SUBCLASSES_2024.length);
 
     const withoutFeatures = subclasses.filter((s) => s.features.length === 0).map((s) => s.name);
     expect(withoutFeatures).toEqual([]);

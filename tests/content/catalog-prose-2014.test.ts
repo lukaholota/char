@@ -4,6 +4,7 @@ import classesCatalog from "@/lib/generated/classes.json";
 import racesCatalog from "@/lib/generated/races.json";
 import { readCatalogProse2014 } from "../../prisma/seed/catalogProse2014";
 import { readSubclassSeedInputs } from "../../prisma/seed/subclassSeed";
+import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
 import { countProseWords, findProseProblems } from "./catalog-prose-checks";
 
 /// Мірка власника — ≈ 145 слів (2026-09-09). Межі ловлять і «стиснуто до двох речень», і
@@ -82,11 +83,17 @@ describe("KR33.6 — проза каталогу 2014", () => {
 
   it("не лишає жодного підкласу без опису ні в сіді 2014, ні в каталозі обох редакцій", () => {
     const seedWithoutDescription = readSubclassSeedInputs().filter((input) => !input.description).map((input) => input.name);
-    const catalogSubclasses = classesCatalog.flatMap((entry) => entry.subclasses.map((subclass) => ({ ...subclass, ruleset: entry.ruleset })));
-    const countDescribed = (ruleset: string) => catalogSubclasses.filter((subclass) => subclass.ruleset === ruleset && subclass.description).length;
+    const catalogSubclasses = classesCatalog.flatMap((entry) =>
+      entry.subclasses.map((subclass: { description: string | null; legacy?: boolean }) => ({ ...subclass, ruleset: entry.ruleset })),
+    );
+    const countDescribed = (ruleset: string) =>
+      catalogSubclasses.filter((subclass) => subclass.ruleset === ruleset && !subclass.legacy && subclass.description).length;
+    const legacy = catalogSubclasses.filter((subclass) => subclass.legacy);
 
     expect(seedWithoutDescription).toEqual([]);
     expect([countDescribed("RULES_2014"), countDescribed("RULES_2024")]).toEqual([SUBCLASSES_2014, SUBCLASSES_2024]);
+    expect([0, LEGACY_SUBCLASSES_2024.length]).toContain(legacy.length);
+    expect(legacy.filter((subclass) => !subclass.description)).toEqual([]);
   });
 
   it("тримає храповик покриття рас, підрас, варіантів і звірених підкласів", () => {

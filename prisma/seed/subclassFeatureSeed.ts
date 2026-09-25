@@ -10194,6 +10194,7 @@ export const seedSubclassFeatures = async (prisma: PrismaClient) => {
   const uniqueLinks = [...uniqueLinksMap.values()];
 
   const subclasses = await prisma.subclass.findMany({
+    where: { ruleset: "RULES_2014" },
     select: { subclassId: true, name: true },
   });
   const subclassIdByName = new Map(

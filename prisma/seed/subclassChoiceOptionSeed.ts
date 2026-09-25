@@ -329,7 +329,7 @@ export const seedSubclassChoiceOptions = async (prisma: PrismaClient) => {
 
   // Окремо додаємо привʼязки до підкласів
   for (const link of subclassLinks) {
-    const subclass = await prisma.subclass.findFirst({ where: { name: link.subclass } })
+    const subclass = await prisma.subclass.findFirst({ where: { name: link.subclass, ruleset: "RULES_2014" } })
     const choiceOption = await prisma.choiceOption.findUnique({ where: { optionNameEng: link.optionNameEng } })
     if (!subclass || !choiceOption) {
       console.warn(`Пропуск SubclassChoiceOption для ${link.subclass} -> ${link.optionNameEng}`)

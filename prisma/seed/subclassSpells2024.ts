@@ -23,22 +23,25 @@ type PreparedSpellRow = { subclassEnum: string; subclassEngName: string; spellEn
 export const seedSubclassSpells2024 = async (prisma: PrismaClient) => {
   console.log("📖 Завжди підготовлені заклинання підкласів 2024…");
 
-  const rows = readPreparedSpellRows();
+  const subclasses = readSubclassesFile();
+  const rows = readPreparedSpellRows(subclasses);
   const subclassIdByEnum = await findSubclassIdByEnum(prisma);
   const spellIdByEngName = await findSpellIdByEngName(prisma);
 
   const resolved = resolveRows(rows, subclassIdByEnum, spellIdByEngName);
   await writeRows(prisma, resolved);
-  const pruned = await pruneRowsMissingFromFile(prisma, resolved);
+  const pruned = await pruneRowsMissingFromFile(prisma, resolved, collectFileSubclassIds(subclasses, subclassIdByEnum));
 
-  const subclasses = new Set(resolved.map((row) => row.subclassId)).size;
-  console.log(`  • ${resolved.length} заклинань у ${subclasses} підкласах`);
+  const subclassCount = new Set(resolved.map((row) => row.subclassId)).size;
+  console.log(`  • ${resolved.length} заклинань у ${subclassCount} підкласах`);
   if (pruned) console.log(`  • ${pruned} рядків прибрано — їх більше немає у файлі`);
 };
 
-function readPreparedSpellRows(): PreparedSpellRow[] {
-  const subclasses: SubclassJson[] = JSON.parse(readFileSync(join(process.cwd(), SUBCLASSES_JSON), "utf-8"));
+function readSubclassesFile(): SubclassJson[] {
+  return JSON.parse(readFileSync(join(process.cwd(), SUBCLASSES_JSON), "utf-8"));
+}
 
+function readPreparedSpellRows(subclasses: readonly SubclassJson[]): PreparedSpellRow[] {
   return subclasses.flatMap((subclass) =>
     (subclass.featuresEng ?? []).flatMap((feature) =>
       (feature.preparedSpells ?? []).flatMap((level) =>
@@ -56,6 +59,11 @@ function readPreparedSpellRows(): PreparedSpellRow[] {
 async function findSubclassIdByEnum(prisma: PrismaClient): Promise<Map<string, number>> {
   const rows = await prisma.subclass.findMany({ where: { ruleset: RULESET }, select: { subclassId: true, name: true } });
   return new Map(rows.map((row) => [String(row.name), row.subclassId]));
+}
+
+/// Легасі-підкласи (O43) теж `RULES_2024`, але їх веде свій сід — зачистка цього їх не бачить.
+function collectFileSubclassIds(subclasses: readonly SubclassJson[], subclassIdByEnum: ReadonlyMap<string, number>): number[] {
+  return subclasses.flatMap((subclass) => subclassIdByEnum.get(toSubclassEnum(subclass.engName)) ?? []);
 }
 
 async function findSpellIdByEngName(prisma: PrismaClient): Promise<Map<string, number>> {
@@ -98,10 +106,11 @@ async function writeRows(prisma: PrismaClient, rows: Array<{ subclassId: number;
 async function pruneRowsMissingFromFile(
   prisma: PrismaClient,
   rows: ReadonlyArray<{ subclassId: number; spellId: number }>,
+  fileSubclassIds: readonly number[],
 ): Promise<number> {
   const keep = new Set(rows.map((row) => `${row.subclassId}|${row.spellId}`));
   const existing = await prisma.subclassSpell.findMany({
-    where: { ruleset: RULESET },
+    where: { ruleset: RULESET, subclassId: { in: [...fileSubclassIds] } },
     select: { subclassSpellId: true, subclassId: true, spellId: true },
   });
   const stale = existing.filter((row) => !keep.has(`${row.subclassId}|${row.spellId}`));
