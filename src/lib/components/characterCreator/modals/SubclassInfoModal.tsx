@@ -34,6 +34,7 @@ export const SubclassInfoModal = ({
   const name =
     subclassTranslations[subclass.name as keyof typeof subclassTranslations] ??
     subclass.name;
+  const source = subclass.legacySource ?? subclass.source;
   const rawFeatures = subclass.features || [];
   const featureList = [...rawFeatures].sort((a: any, b: any) => {
     const lvlA = a.levelGranted ?? 0;
@@ -56,11 +57,16 @@ export const SubclassInfoModal = ({
         <InfoPill
           label="Джерело"
           value={
-            sourceTranslations[
-              subclass.source as keyof typeof sourceTranslations
-            ] ?? subclass.source
+            sourceTranslations[source as keyof typeof sourceTranslations] ??
+            source
           }
         />
+        {subclass.legacySource && (
+          <p className="col-span-full text-xs text-slate-400">
+            Підклас зі старої книги. Текст рис — з книги 2014: риси, що там на 1-му чи 2-му рівні, ви
+            отримуєте на 3-му, як показано нижче.
+          </p>
+        )}
         <InfoPill
           label="Основна характеристика"
           value={translateValue(subclass.primaryCastingStat)}

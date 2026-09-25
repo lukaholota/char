@@ -1,14 +1,18 @@
 "use client";
 
 import { useStepForm } from "@/hooks/useStepForm";
-import { ClassI } from "@/lib/types/model-types";
+import { ClassI, SubclassI } from "@/lib/types/model-types";
 import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import clsx from "clsx";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import { subclassTranslations, subclassTranslationsEng } from "@/lib/refs/translation";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+import { hasLegacySubclasses, isLegacyChosen, splitSubclassesForStep } from "@/lib/logic/legacy-subclass-visibility";
 import { z } from "zod";
 
 interface Props {
@@ -45,6 +49,7 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   });
   
   const chosenSubclassId = form.watch("subclassId");
+  const chosenId = typeof chosenSubclassId === "number" ? chosenSubclassId : null;
 
   useEffect(() => {
     if (!chosenSubclassId) {
@@ -54,23 +59,36 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenSubclassId]);
 
-  const sourcePriority = (source: unknown): number => {
-    const key = String(source ?? "").toUpperCase();
-    if (key === "PHB" || key === "PHB_2024") return 0;
-    if (key === "XGTE") return 1;
-    if (key === "TCOE") return 2;
-    return 3;
+  const allSubclasses = useMemo(() => cls.subclasses ?? [], [cls.subclasses]);
+  const offersLegacy = hasLegacySubclasses(allSubclasses);
+  const [showLegacy, setShowLegacy] = useState(() => isLegacyChosen(allSubclasses, chosenId));
+  const { current, legacy } = useMemo(
+    () => splitSubclassesForStep(allSubclasses, showLegacy, (subclass) => subclassTranslations[subclass.name] ?? subclass.name),
+    [allSubclasses, showLegacy],
+  );
+
+  const chooseSubclass = (subclassId: number | undefined) => {
+    form.setValue("subclassId", subclassId, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+    form.setValue("subclassChoiceSelections", {}, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+    updateFormData({ subclassId, subclassChoiceSelections: {} });
   };
 
-  const subclasses = useMemo(() => {
-    return [...(cls.subclasses || [])].sort((a: any, b: any) => {
-      const bySource = sourcePriority(a?.source) - sourcePriority(b?.source);
-      if (bySource !== 0) return bySource;
-      const aName = subclassTranslations[a?.name as keyof typeof subclassTranslations] || a?.name || "";
-      const bName = subclassTranslations[b?.name as keyof typeof subclassTranslations] || b?.name || "";
-      return String(aName).localeCompare(String(bName), "uk", { sensitivity: "base" });
-    });
-  }, [cls.subclasses]);
+  const toggleLegacy = (checked: boolean) => {
+    if (!checked && isLegacyChosen(allSubclasses, chosenId)) chooseSubclass(undefined);
+    setShowLegacy(checked);
+  };
+
+  const renderCards = (subclasses: SubclassI[]) =>
+    subclasses.map((sc) => (
+      <SubclassCardOption
+        key={sc.subclassId}
+        subclass={sc}
+        chosen={sc.subclassId === chosenId}
+        onChoose={() => {
+          if (sc.subclassId !== chosenId) chooseSubclass(sc.subclassId);
+        }}
+      />
+    ));
 
   return (
     <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
@@ -80,37 +98,26 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
         </h2>
         <p className="text-sm text-slate-400">Для класу {translateValue(cls.name)}</p>
       </div>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {subclasses.map((sc) => {
-          const name = subclassTranslations[sc.name] ?? sc.name;
-          const engName = subclassTranslationsEng[sc.name] ?? sc.name;
-          
-          return (
-          <Card
-            key={sc.subclassId}
-            className={clsx(
-              "glass-card cursor-pointer transition-all duration-200",
-              sc.subclassId === chosenSubclassId && "glass-active"
-            )}
-            onClick={(e) => {
-              if ((e.target as HTMLElement | null)?.closest?.('[data-stop-card-click]')) return;
-              if (sc.subclassId === chosenSubclassId) return;
-              form.setValue("subclassId", sc.subclassId, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
-              form.setValue("subclassChoiceSelections", {}, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
-              updateFormData({ subclassId: sc.subclassId, subclassChoiceSelections: {} });
-            }}
-          >
-            <CardContent className="relative flex items-center justify-between p-4">
-              <SubclassInfoModal subclass={sc} />
-              <div>
-                <div className="text-lg font-semibold text-white">{name}</div>
-                <div className="text-xs text-slate-400">{engName}</div>
-              </div>
-              {/* <SourceBadge code={sc.source} active={sc.subclassId === chosenSubclassId} /> */}
-            </CardContent>
-          </Card>
-        )})}
-      </div>
+      {offersLegacy && (
+        <div className="rounded-lg border border-white/10 bg-white/5 p-3">
+          <div className="flex items-center justify-between gap-3">
+            <Label htmlFor="show-legacy-subclasses" className="font-semibold text-slate-200">
+              Підкласи зі старих книг
+            </Label>
+            <Switch id="show-legacy-subclasses" checked={showLegacy} onCheckedChange={toggleLegacy} />
+          </div>
+          <p className="mt-1 text-xs text-slate-400">
+            Правила 2024 дозволяють підклас із книги 2014 без перевидання. Риси нижче 3-го рівня ви отримуєте на 3-му.
+          </p>
+        </div>
+      )}
+      <div className="grid gap-3 sm:grid-cols-2">{renderCards(current)}</div>
+      {legacy.length > 0 && (
+        <section className="space-y-2" aria-label="Зі старих книг">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">Зі старих книг</h3>
+          <div className="grid gap-3 sm:grid-cols-2">{renderCards(legacy)}</div>
+        </section>
+      )}
       <input
         type="hidden"
         {...form.register("subclassId", {
@@ -124,5 +131,29 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
     </form>
   );
 };
+
+function SubclassCardOption({ subclass, chosen, onChoose }: { subclass: SubclassI; chosen: boolean; onChoose: () => void }) {
+  const name = subclassTranslations[subclass.name] ?? subclass.name;
+  const engName = subclassTranslationsEng[subclass.name] ?? subclass.name;
+
+  return (
+    <Card
+      className={clsx("glass-card cursor-pointer transition-all duration-200", chosen && "glass-active")}
+      onClick={(e) => {
+        if ((e.target as HTMLElement | null)?.closest?.("[data-stop-card-click]")) return;
+        onChoose();
+      }}
+    >
+      <CardContent className="relative flex items-center justify-between p-4">
+        <SubclassInfoModal subclass={subclass} />
+        <div>
+          <div className="text-lg font-semibold text-white">{name}</div>
+          <div className="text-xs text-slate-400">{engName}</div>
+        </div>
+        {subclass.legacySource && <SourceBadge code={subclass.legacySource} active={chosen} />}
+      </CardContent>
+    </Card>
+  );
+}
 
 export default SubclassForm;

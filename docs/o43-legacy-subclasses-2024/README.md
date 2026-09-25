@@ -93,7 +93,7 @@ Cleric subclass in an older book, use only the option you choose for this featur
 | [KR43.1](kr43.1-registry.md) | Реєстр легасі-підкласів, правило зсуву рівнів і гейт реєстру | — | ✅ |
 | [KR43.2](kr43.2-seed.md) | Сід рядків під класом 2024 і зачистка сідів, що шукають підклас лише за назвою | KR43.1 | 🟡 |
 | [KR43.3](kr43.3-generators-and-gates.md) | Генератори й гейти знають, що підкласів 2024 більше, ніж у `subclasses.json` | KR43.1 | 🟡 |
-| [KR43.4](kr43.4-levelup-toggle.md) | Перемикач «Підкласи зі старих книг» у майстрі підвищення | KR43.2, KR43.3 | 🔵 |
+| [KR43.4](kr43.4-levelup-toggle.md) | Перемикач «Підкласи зі старих книг» у майстрі підвищення | KR43.2, KR43.3 | ✅ |
 | [KR43.5](kr43.5-patron-spells.md) | Розширений список покровителя, рід джина й Branding → Shining Smite | KR43.2 | 🔵 |
 | [KR43.6](kr43.6-sheet-catalog-search.md) | Лист, модалки класу, каталог `/2024/classes`, пошук | KR43.3 | 🔵 |
 | [KR43.7](kr43.7-acceptance-and-release.md) | Інтеграційні фікстури, Chromium, порядок викатки на прод, відповідь гравцю | KR43.1–43.6 | 🔵 |
