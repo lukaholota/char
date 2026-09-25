@@ -92,7 +92,7 @@ describe("KR33.6 — проза каталогу 2014", () => {
 
     expect(seedWithoutDescription).toEqual([]);
     expect([countDescribed("RULES_2014"), countDescribed("RULES_2024")]).toEqual([SUBCLASSES_2014, SUBCLASSES_2024]);
-    expect([0, LEGACY_SUBCLASSES_2024.length]).toContain(legacy.length);
+    expect(legacy).toHaveLength(LEGACY_SUBCLASSES_2024.length);
     expect(legacy.filter((subclass) => !subclass.description)).toEqual([]);
   });
 

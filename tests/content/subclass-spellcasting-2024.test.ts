@@ -54,13 +54,13 @@ describe("KR27.6 — чаклування підкласів 2024", () => {
     expect(generated.sort()).toEqual(expected.sort());
   });
 
-  it("легасі-підкласи O43 у каталозі — або ще не засіяні, або рівно реєстр, і чаклування дає клас", () => {
+  it("легасі-підкласи O43 у каталозі — рівно реєстр, і чаклування дає клас", () => {
     const legacy = generatedClasses.flatMap((cls) =>
       cls.subclasses.filter((subclass) => subclass.legacySource).map((subclass) => ({ key: `${cls.name}|${subclass.name}|${subclass.legacySource}`, ...subclass })),
     );
     const registryKeys = LEGACY_SUBCLASSES_2024.map((entry) => `${entry.class2024}|${entry.subclass}|${entry.source}`);
 
-    expect(legacy.map((subclass) => subclass.key).sort()).toEqual(legacy.length === 0 ? [] : registryKeys.sort());
+    expect(legacy.map((subclass) => subclass.key).sort()).toEqual(registryKeys.sort());
     expect(legacy.filter((subclass) => subclass.spellcastingType !== "NONE" || subclass.primaryCastingStat !== null).map((subclass) => subclass.key)).toEqual([]);
   });
 });
