@@ -71,8 +71,11 @@ export type Multiclass2024Snapshot = {
   bastionFacilityLimit: number;
 };
 
-export type Built2024MulticlassCharacter = {
-  fixture: Multiclass2024Fixture;
+/** Будівнику досить входу: легасі-фікстури O43 перевіряють своє й `expected` матриці не мають. */
+export type Multiclass2024BuildInput = Pick<Multiclass2024Fixture, "id" | "title" | "input">;
+
+export type Built2024MulticlassCharacter<F extends Multiclass2024BuildInput = Multiclass2024Fixture> = {
+  fixture: F;
   persId: number | null;
   creationError: string | null;
   levelUpErrors: string[];
@@ -93,10 +96,10 @@ type CharacterActions = {
  * не кидаються, а накопичуються: тест приймання має показати, який критерій упав, а не померти
  * на першому персонажі.
  */
-export async function build2024MulticlassCharacter(
-  fixture: Multiclass2024Fixture,
+export async function build2024MulticlassCharacter<F extends Multiclass2024BuildInput>(
+  fixture: F,
   actions: CharacterActions,
-): Promise<Built2024MulticlassCharacter> {
+): Promise<Built2024MulticlassCharacter<F>> {
   const form = await buildCreationForm(fixture);
   const created = await actions.createCharacter(form);
 
@@ -136,7 +139,7 @@ export async function build2024MulticlassCharacter(
   }
 }
 
-async function buildCreationForm(fixture: Multiclass2024Fixture): Promise<PersFormData> {
+async function buildCreationForm(fixture: Multiclass2024BuildInput): Promise<PersFormData> {
   const { input } = fixture;
   const [race, startingClass, background] = await Promise.all([
     findRace2024(input.species),
@@ -174,7 +177,7 @@ async function buildCreationForm(fixture: Multiclass2024Fixture): Promise<PersFo
  * підклас і рису.
  */
 async function raiseThroughEveryClass(
-  fixture: Multiclass2024Fixture,
+  fixture: Multiclass2024BuildInput,
   persId: number,
   actions: CharacterActions,
 ): Promise<{ errors: string[]; offers: LevelUpOffer[] }> {
