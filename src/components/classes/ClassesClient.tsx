@@ -11,6 +11,7 @@ import { ClassDetailCard } from "@/components/classes/ClassDetailCard";
 import { ClassesFilterDialog } from "@/components/classes/ClassesFilterDialog";
 import { scrollToVisibleJumpTarget } from "@/components/catalogs/SectionJumpNav";
 import type { ClassData } from "@/lib/classesData";
+import { splitCatalogSubclasses } from "@/lib/logic/legacy-subclass-visibility";
 import { useCatalogDeepLinkFocus } from "@/hooks/useCatalogDeepLinkFocus";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
@@ -271,7 +272,7 @@ function ClassRow({
             </span>
             <span>{characterClass.savingThrows.join(", ")}</span>
             {characterClass.spellcasting ? <span>{characterClass.spellcasting}</span> : null}
-            <span>{characterClass.subclasses.length} підкласів</span>
+            <span>{splitCatalogSubclasses(characterClass.subclasses).current.length} підкласів</span>
           </>
         }
       />

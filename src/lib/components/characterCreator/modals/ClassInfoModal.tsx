@@ -23,10 +23,10 @@ import { classTranslations, attributesUkrShort } from "@/lib/refs/translation";
 import { sneakAttackDice } from "@/lib/refs/static";
 import { findClassTableSpellSlots } from "@/rules/class-table-spell-slots";
 import { INFUSIONS_KNOWN_BY_ARTIFICER_LEVEL } from "@/rules/artificer-infusions";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Layers3 } from "lucide-react";
-import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
+import { SubclassListDialogBody } from "@/lib/components/characterCreator/modals/SubclassListDialogBody";
+import { splitSubclassesForStep, type SubclassCard } from "@/lib/logic/legacy-subclass-visibility";
 import { getSubclassesByClassId } from "@/lib/actions/class-actions";
 
 import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
@@ -458,20 +458,10 @@ export const ClassInfoModal = ({
     hasSpellSlotsColumn,
   ]);
 
-  const sortedSubclasses = useMemo(() => {
-    const raw = loadedSubclasses ?? [];
-    return [...raw].sort((a: any, b: any) => {
-      const aName =
-        classTranslations[a?.name as keyof typeof classTranslations] ||
-        translateValue(a?.name || "") ||
-        String(a?.name || "");
-      const bName =
-        classTranslations[b?.name as keyof typeof classTranslations] ||
-        translateValue(b?.name || "") ||
-        String(b?.name || "");
-      return aName.localeCompare(bName, "uk");
-    });
-  }, [loadedSubclasses]);
+  const subclassBlocks = useMemo(
+    () => splitSubclassesForStep(loadedSubclasses ?? [], true, (subclass: SubclassCard) => translateValue(subclass.name) || subclass.name),
+    [loadedSubclasses],
+  );
 
   const showSubclassCount = !asyncFetchSubclasses || loadedSubclasses !== null;
 
@@ -564,7 +554,7 @@ export const ClassInfoModal = ({
             </span>
             {showSubclassCount ? (
               <span className="text-xs text-slate-300">
-                {sortedSubclasses.length}
+                {subclassBlocks.current.length + subclassBlocks.legacy.length}
               </span>
             ) : null}
           </Button>
@@ -768,57 +758,7 @@ export const ClassInfoModal = ({
         title={`Підкласи: ${title}`}
         contentClassName="w-[95vw] max-w-[95vw] sm:max-w-2xl overflow-x-hidden"
       >
-        <div className="space-y-3">
-          {isLoadingSubclasses && !sortedSubclasses.length ? (
-            <p className="text-sm text-slate-400">Завантаження підкласів…</p>
-          ) : sortedSubclasses.length ? (
-            <div className="grid grid-cols-1 gap-3">
-              {sortedSubclasses.map((subclass: any) => {
-                const localizedName =
-                  translateValue(subclass?.name) ||
-                  String(subclass?.name || "");
-                return (
-                  <SubclassInfoModal
-                    key={subclass.subclassId}
-                    subclass={subclass}
-                    trigger={
-                      <button
-                        type="button"
-                        className="glass-panel border-gradient-rpg w-full max-w-full overflow-hidden rounded-xl p-3 text-left transition-colors hover:bg-white/10"
-                      >
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="min-w-0">
-                            <p className="truncate text-base font-semibold text-white">
-                              {localizedName}
-                            </p>
-                            {subclass?.description ? (
-                              <p className="mt-1 line-clamp-2 text-sm text-slate-300">
-                                {String(subclass.description)}
-                              </p>
-                            ) : null}
-                          </div>
-                          <Badge
-                            variant="outline"
-                            className="border-white/15 bg-white/5 text-[10px] text-slate-300"
-                          >
-                            Фічі:{" "}
-                            {Array.isArray(subclass?.features)
-                              ? subclass.features.length
-                              : 0}
-                          </Badge>
-                        </div>
-                      </button>
-                    }
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <p className="text-sm text-slate-400">
-              Для цього класу підкласи ще не додані.
-            </p>
-          )}
-        </div>
+        <SubclassListDialogBody current={subclassBlocks.current} legacy={subclassBlocks.legacy} isLoading={isLoadingSubclasses} />
       </ControlledInfoDialog>
     </>
   );

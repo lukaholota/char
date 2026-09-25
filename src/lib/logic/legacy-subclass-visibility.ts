@@ -23,3 +23,11 @@ export function splitSubclassesForStep<T extends SubclassCard>(
     legacy: showLegacy ? sorted.filter(isLegacySubclassCard) : [],
   };
 }
+
+/** Каталог `/2024/classes`: у `classes.json` позначка — `legacy`, а не `legacySource`. */
+export function splitCatalogSubclasses<T extends { legacy?: boolean }>(subclasses: readonly T[]): { current: T[]; legacy: T[] } {
+  return {
+    current: subclasses.filter((subclass) => !subclass.legacy),
+    legacy: subclasses.filter((subclass) => subclass.legacy),
+  };
+}

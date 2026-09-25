@@ -657,9 +657,10 @@ function collectClassItems(ruleset: Ruleset): OmniSearchItem[] {
   }));
 }
 
+/** Р52: легасі-підклас 2024 — той самий «Джин», що вже знаходиться в 2014; другий рядок лише плутає. */
 function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
   return getAllClasses(ruleset).flatMap((characterClass) =>
-    characterClass.subclasses.map((subclass) => ({
+    characterClass.subclasses.filter((subclass) => !subclass.legacy).map((subclass) => ({
       id: `subclass-${characterClass.key}-${subclass.key}`,
       title: subclass.name,
       subtitle: `${subclass.engName} · ${characterClass.name}`,

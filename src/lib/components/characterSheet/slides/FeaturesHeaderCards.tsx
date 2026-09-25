@@ -8,8 +8,10 @@ import { BASTION_STANDARD_LEVEL } from "@/rules/bastions";
 import type { SharedBastionView } from "@/server/db/bastions";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
+import { findLegacySubclass2024 } from "@/rules/legacy-subclasses-2024";
 import {
   classTranslations,
+  sourceTranslations,
   subclassTranslations,
   variantTranslations,
 } from "@/lib/refs/translation";
@@ -141,11 +143,12 @@ export function FeaturesHeaderCards({
           subclassTranslations[entry.subclass?.name as keyof typeof subclassTranslations] ||
           entry.subclass?.name ||
           "Підклас";
+        const legacySource = findLegacySubclass2024(String(entry.cls?.name), String(entry.subclass?.name))?.source ?? null;
 
         return (
           <SubclassInfoModal
             key={entry.key}
-            subclass={entry.subclass}
+            subclass={{ ...entry.subclass, legacySource }}
             trigger={
               <button
                 type="button"
@@ -156,6 +159,11 @@ export function FeaturesHeaderCards({
                 </div>
                 <div className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full">{scName}</div>
                 <div className="text-[9px] text-slate-300/70 leading-none mt-0.5">{clsName}</div>
+                {legacySource ? (
+                  <div className="text-[8px] text-slate-400 leading-none mt-0.5">
+                    {sourceTranslations[legacySource as keyof typeof sourceTranslations] ?? legacySource}
+                  </div>
+                ) : null}
               </button>
             }
           />

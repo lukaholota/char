@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { findLegacySubclass2024 } from "@/rules/legacy-subclasses-2024";
 
 export type ClassSubclassFeature = {
   subclassFeatureId: number;
@@ -20,13 +21,15 @@ export type ClassSubclass = {
   toolToChooseCount: number | null;
   primaryCastingStat: string | null;
   spellcastingType: string;
+  legacySource: string | null;
   features: ClassSubclassFeature[];
 };
 
 export async function loadClassSubclasses(classId: number): Promise<ClassSubclass[]> {
-  return prisma.subclass.findMany({
+  const rows = await prisma.subclass.findMany({
     where: { classId },
     select: {
+      class: { select: { name: true } },
       subclassId: true,
       name: true,
       description: true,
@@ -46,4 +49,8 @@ export async function loadClassSubclasses(classId: number): Promise<ClassSubclas
     },
     orderBy: [{ subclassId: "asc" }],
   });
+  return rows.map(({ class: characterClass, ...subclass }) => ({
+    ...subclass,
+    legacySource: findLegacySubclass2024(characterClass.name, subclass.name)?.source ?? null,
+  }));
 }

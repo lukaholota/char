@@ -4,7 +4,8 @@ import { Skills } from "@prisma/client";
 import { Shield, Sparkles, Wrench } from "lucide-react";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 
-import type { ClassData, ClassFeature } from "@/lib/classesData";
+import type { ClassData, ClassFeature, SubclassData } from "@/lib/classesData";
+import { splitCatalogSubclasses } from "@/lib/logic/legacy-subclass-visibility";
 import { CatalogProse } from "@/components/catalogs/CatalogProse";
 import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/SectionJumpNav";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -53,7 +54,12 @@ export function ClassDetailCard({
   );
 }
 
+const LEGACY_SUBCLASSES_NOTE =
+  "Правила 2024 дозволяють підклас із книги 2014 без перевидання; риси нижче 3-го рівня ви отримуєте на 3-му.";
+
 function FeatureSections({ characterClass }: { characterClass: ClassData }) {
+  const { current, legacy } = splitCatalogSubclasses(characterClass.subclasses);
+
   return (
     <>
       {characterClass.features.length > 0 ? (
@@ -62,39 +68,45 @@ function FeatureSections({ characterClass }: { characterClass: ClassData }) {
         </Section>
       ) : null}
 
-      {characterClass.subclasses.length > 0 ? (
-        <Section
-          title={`Підкласи (${characterClass.subclasses.length}) · з ${characterClass.subclassLevel} рівня`}
-        >
-          <div className="space-y-5">
-            {characterClass.subclasses.map((subclass) => (
-              <div key={subclass.key} {...jumpTargetAttributes.target(subclass.slug)} className="scroll-mt-2">
-                <div className="flex flex-wrap items-baseline gap-2">
-                  <span className="text-sm font-semibold text-slate-100">{subclass.name}</span>
-                  <span className="font-mono text-[11px] text-slate-500">[{subclass.engName}]</span>
-                  {subclass.source ? (
-                    <span className="text-[11px] text-slate-400">
-                      {sourceTranslations[subclass.source] ?? subclass.source}
-                    </span>
-                  ) : null}
-                </div>
-                {subclass.description ? (
-                  <FormattedDescription
-                    content={subclass.description}
-                    className="mt-1 text-sm leading-relaxed text-slate-300"
-                  />
-                ) : null}
-                {subclass.features.length > 0 ? (
-                  <div className="mt-2 pl-3">
-                    <FeatureList features={subclass.features} />
-                  </div>
-                ) : null}
-              </div>
-            ))}
-          </div>
+      {current.length > 0 ? (
+        <Section title={`Підкласи (${current.length}) · з ${characterClass.subclassLevel} рівня`}>
+          <SubclassEntries subclasses={current} />
+        </Section>
+      ) : null}
+
+      {legacy.length > 0 ? (
+        <Section title={`Зі старих книг (${legacy.length})`}>
+          <p className="mb-3 text-xs text-slate-400">{LEGACY_SUBCLASSES_NOTE}</p>
+          <SubclassEntries subclasses={legacy} />
         </Section>
       ) : null}
     </>
+  );
+}
+
+function SubclassEntries({ subclasses }: { subclasses: readonly SubclassData[] }) {
+  return (
+    <div className="space-y-5">
+      {subclasses.map((subclass) => (
+        <div key={subclass.key} {...jumpTargetAttributes.target(subclass.slug)} className="scroll-mt-2">
+          <div className="flex flex-wrap items-baseline gap-2">
+            <span className="text-sm font-semibold text-slate-100">{subclass.name}</span>
+            <span className="font-mono text-[11px] text-slate-500">[{subclass.engName}]</span>
+            {subclass.source ? (
+              <span className="text-[11px] text-slate-400">{sourceTranslations[subclass.source] ?? subclass.source}</span>
+            ) : null}
+          </div>
+          {subclass.description ? (
+            <FormattedDescription content={subclass.description} className="mt-1 text-sm leading-relaxed text-slate-300" />
+          ) : null}
+          {subclass.features.length > 0 ? (
+            <div className="mt-2 pl-3">
+              <FeatureList features={subclass.features} />
+            </div>
+          ) : null}
+        </div>
+      ))}
+    </div>
   );
 }
 
