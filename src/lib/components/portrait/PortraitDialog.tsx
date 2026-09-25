@@ -53,7 +53,7 @@ export function PortraitDialog({ persId, name, portraitKey, canEdit, open, onOpe
       <DialogContent className="max-h-[90dvh] w-[calc(100vw-1.5rem)] max-w-sm overflow-y-auto p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle className="pr-6 text-lg">{name}</DialogTitle>
-          <DialogDescription>{canEdit ? "Квадратний портрет, до 512 пікселів." : "Портрет персонажа"}</DialogDescription>
+          <DialogDescription>{canEdit ? "Виберіть фото — квадрат обріжете тут, розмір зменшимо автоматично." : "Портрет персонажа"}</DialogDescription>
         </DialogHeader>
 
         <div className="mx-auto aspect-square w-full max-w-[320px] overflow-hidden rounded-2xl border border-amber-400/30 bg-slate-800/60">

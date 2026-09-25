@@ -57,6 +57,7 @@ class DiceService {
   }
 
   private async createBox(containerSelector: string, prepareBox: () => void): Promise<void> {
+    if (!hasWebGL()) throw new Error("WebGL unavailable");
     // Dynamic import to avoid SSR issues
     const { default: DiceBox } = await import("@3d-dice/dice-box");
 
@@ -248,6 +249,16 @@ class DiceService {
   subscribeStatus(listener: () => void): () => void {
     this.statusListeners.add(listener);
     return () => this.statusListeners.delete(listener);
+  }
+}
+
+function hasWebGL(): boolean {
+  try {
+    if (!window.WebGLRenderingContext) return false;
+    const canvas = document.createElement("canvas");
+    return Boolean(canvas.getContext("webgl") || canvas.getContext("experimental-webgl"));
+  } catch {
+    return false;
   }
 }
 

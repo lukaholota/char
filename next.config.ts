@@ -5,6 +5,7 @@ import { IMAGE_OPTIMIZER_CACHE_TTL, buildStaticAssetHeaders } from "./src/lib/as
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  deploymentId: process.env.DEPLOYMENT_VERSION,
   experimental: {
     webpackMemoryOptimizations: true
   },

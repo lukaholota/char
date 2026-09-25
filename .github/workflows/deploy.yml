@@ -143,6 +143,7 @@ jobs:
           # `secrets: database_url` тут більше немає: 2026-08-28 виміряно, що next build
           # проходить із мертвою адресою — 4032 сторінки, код виходу 0.
           build-args: |
+            DEPLOYMENT_VERSION=${{ github.sha }}
             NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
             NEXT_PUBLIC_POSTHOG_KEY=${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}

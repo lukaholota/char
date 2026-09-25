@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { Loader2, ZoomIn, ZoomOut } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { buildCenteredCrop, findDisplayScale, findSourceSquare, MAX_CROP_ZOOM, moveCrop, zoomCrop, type CropState } from "./crop-geometry";
@@ -19,6 +20,8 @@ export function ImageCropDialog({ file, title, onCancel, onCropped, onUnreadable
     setSaving(true);
     try {
       onCropped(await cropImageForUpload(bitmap.image, findSourceSquare(cropper.crop)));
+    } catch {
+      toast.error("Не вдалося стиснути картинку. Спробуйте інше фото.");
     } finally {
       setSaving(false);
     }

@@ -82,6 +82,9 @@ RUN test -n "$NEXT_PUBLIC_POSTHOG_HOST" \
 # Типи перевіряє джоба checks (`tsc --noEmit`), і деплой без неї не йде — тут це дубль.
 ENV SKIP_BUILD_TYPECHECK=1
 
+ARG DEPLOYMENT_VERSION
+ENV DEPLOYMENT_VERSION=$DEPLOYMENT_VERSION
+
 # Саме `next build`, а не `bun run build`: другий тягне prebuild -> generate:content, який
 # пішов би в базу й перезаписав каталоги, що приїхали з git.
 RUN bunx next build

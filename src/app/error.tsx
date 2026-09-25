@@ -16,6 +16,7 @@ export default function Error({
   reset: () => void
 }) {
   const isOfflineAction = isOfflineActionError(error)
+  const isStaleAction = error.name === 'UnrecognizedActionError'
 
   useEffect(() => {
     if (isOfflineAction) {
@@ -27,8 +28,25 @@ export default function Error({
   }, [error, isOfflineAction, reset])
 
   if (isOfflineAction) return <OfflineActionNotice reset={reset} />
+  if (isStaleAction) return <StaleActionNotice />
 
   return <WildMagicErrorScreen seed={error.digest} onRetry={reset} />
+}
+
+function StaleActionNotice() {
+  return (
+    <div className="flex min-h-[60vh] items-center justify-center p-4 font-sans" role="alert">
+      <Card className="w-full max-w-md border-amber-500/30 bg-slate-900 shadow-2xl">
+        <CardHeader>
+          <CardTitle className="text-center text-xl font-bold text-amber-300">Сайт оновився</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-center">
+          <p className="text-sm text-slate-300">Ця вкладка відкрита зі старою версією. Оновіть сторінку й повторіть дію.</p>
+          <Button onClick={() => window.location.reload()}>Оновити сторінку</Button>
+        </CardContent>
+      </Card>
+    </div>
+  )
 }
 
 function OfflineActionNotice({ reset }: { reset: () => void }) {

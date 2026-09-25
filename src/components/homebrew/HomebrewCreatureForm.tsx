@@ -139,7 +139,7 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
           </div>
         </div>
         <ImageCropDialog file={croppingFile} title="Кадр картинки істоти" onCancel={() => setCroppingFile(null)} onCropped={acceptCroppedImage} onUnreadable={rejectUnreadableImage} />
-        {imageError ? <p className="text-xs text-rose-300">{imageError}</p> : <p className="text-xs text-slate-500">Квадрат 512 пікселів. Лише власні або вільні для використання зображення.</p>}
+        {imageError ? <p className="text-xs text-rose-300">{imageError}</p> : <p className="text-xs text-slate-500">Кадрування й стиснення автоматичні. Лише власні або вільні для використання зображення.</p>}
       </section>
 
       <Button type="submit" className="h-12 w-full sm:h-10 sm:w-auto" disabled={isSaving}>

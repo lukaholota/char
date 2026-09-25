@@ -1,17 +1,30 @@
-import { CLIENT_RESIZE_EDGE, CLIENT_SCREENSHOT_EDGE, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
+import { CLIENT_PORTRAIT_EDGE, CLIENT_SCREENSHOT_EDGE, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import type { SourceSquare } from "./crop-geometry";
 
 const OUTPUT_TYPE = "image/webp";
-const OUTPUT_QUALITY = 0.9;
+const PORTRAIT_PASSES = [
+  { edge: CLIENT_PORTRAIT_EDGE, quality: 0.8 },
+  { edge: CLIENT_PORTRAIT_EDGE, quality: 0.6 },
+  { edge: 384, quality: 0.5 },
+];
 
 export async function cropImageForUpload(bitmap: ImageBitmap, square: SourceSquare): Promise<Blob> {
-  const edge = Math.min(CLIENT_RESIZE_EDGE, Math.round(square.size));
+  const [firstPass, ...remainingPasses] = PORTRAIT_PASSES;
+  let encoded = await encodeCanvas(drawSquareCrop(bitmap, square, firstPass.edge), firstPass.quality);
+  for (const pass of remainingPasses) {
+    if (encoded.size <= MAX_IMAGE_UPLOAD_BYTES) return encoded;
+    encoded = await encodeCanvas(drawSquareCrop(bitmap, square, pass.edge), pass.quality);
+  }
+  return encoded;
+}
+
+function drawSquareCrop(bitmap: ImageBitmap, square: SourceSquare, maxEdge: number): HTMLCanvasElement {
+  const edge = Math.max(1, Math.min(maxEdge, Math.round(square.size)));
   const canvas = document.createElement("canvas");
   canvas.width = edge;
   canvas.height = edge;
   canvas.getContext("2d")?.drawImage(bitmap, square.x, square.y, square.size, square.size, 0, 0, edge, edge);
-
-  return encodeCanvas(canvas, OUTPUT_QUALITY);
+  return canvas;
 }
 
 /// Скріншот стискається двома заходами: спершу м\u02bcяко, а якщо не влізає в ліміт дії — сильніше.
