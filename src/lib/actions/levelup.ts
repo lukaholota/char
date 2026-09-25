@@ -29,11 +29,18 @@ export async function levelUpCharacter(persId: number, input: unknown) {
   return outcome;
 }
 
-export async function getLevelUpSpellOffer(persId: number, classId: number, subclassId: number | null, classChoiceOptionIds: number[]) {
+export async function getLevelUpSpellOffer(
+  persId: number,
+  classId: number,
+  subclassId: number | null,
+  classChoiceOptionIds: number[],
+  subclassChoiceOptionIds: number[] = [],
+) {
   return loadLevelUpSpellOffer(Number(persId), {
     classId: Number(classId),
     subclassId: subclassId ? Number(subclassId) : null,
     classChoiceOptionIds: toPositiveIds(classChoiceOptionIds),
+    subclassChoiceOptionIds: toPositiveIds(subclassChoiceOptionIds),
   });
 }
 

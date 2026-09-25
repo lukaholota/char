@@ -17,7 +17,10 @@ async function readLegacyRows() {
       spellcastingType: true,
       armorProficiencies: true,
       weaponProficiencies: true,
-      features: { select: { featureId: true, levelGranted: true, ruleset: true }, orderBy: { featureId: "asc" } },
+      features: {
+        select: { featureId: true, levelGranted: true, ruleset: true, feature: { select: { engName: true, ruleset: true, description: true } } },
+        orderBy: { featureId: "asc" },
+      },
       subclassChoiceOptions: { select: { choiceOptionId: true, levelsGranted: true, ruleset: true }, orderBy: { choiceOptionId: "asc" } },
     },
   });
@@ -30,7 +33,7 @@ async function read2014Row(name: Subclasses) {
     select: {
       armorProficiencies: true,
       weaponProficiencies: true,
-      features: { select: { featureId: true, levelGranted: true }, orderBy: { featureId: "asc" } },
+      features: { select: { featureId: true, levelGranted: true, feature: { select: { engName: true } } }, orderBy: { featureId: "asc" } },
       subclassChoiceOptions: { select: { choiceOptionId: true, levelsGranted: true }, orderBy: { choiceOptionId: "asc" } },
     },
   });
@@ -56,12 +59,25 @@ describe("O43 — легасі-підкласи 2024 у базі", () => {
     }
   });
 
-  it("Джин 2024 має ті самі риси, що й 2014, а риси 1-го рівня — на 3-му", () => {
+  it("Джин 2024 має риси 2014, крім списку заклинань 2014, а риси 1-го рівня — на 3-му", () => {
     const genie = legacy.get("THE_GENIE");
+    const kept2014 = genie2014.features.filter((link) => link.feature.engName !== "Genie Expanded Spells").map((link) => link.featureId);
 
-    expect(genie?.features.map((link) => link.featureId)).toEqual(genie2014.features.map((link) => link.featureId));
+    expect(genie?.features.map((link) => link.featureId).filter((id) => kept2014.includes(id))).toEqual(kept2014);
+    expect(genie?.features.map((link) => link.feature.engName)).not.toContain("Genie Expanded Spells");
     expect(genie?.features.map((link) => link.levelGranted).sort((a, b) => a - b)).toEqual([3, 3, 6, 10, 14]);
     expect(genie?.features.every((link) => link.ruleset === "RULES_2024")).toBe(true);
+  });
+
+  it("кожен легасі-підклас має свою рису розширеного списку 2024 на 3-му рівні", () => {
+    for (const entry of LEGACY_SUBCLASSES_2024) {
+      const own = legacy.get(entry.subclass)?.features.filter((link) => link.feature.engName.endsWith("Expanded Spell List (legacy 2024)")) ?? [];
+
+      expect(own, entry.subclass).toHaveLength(1);
+      expect(own[0]).toMatchObject({ levelGranted: 3, feature: { ruleset: "RULES_2024" } });
+      expect(own[0].feature.description).toContain('href="/2024/spells/');
+      expect(own[0].feature.description).not.toContain('href="/spell/');
+    }
   });
 
   it("роди джина — ті самі опції, на 3-му рівні", () => {

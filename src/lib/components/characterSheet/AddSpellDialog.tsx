@@ -15,6 +15,7 @@ import {SPELL_SLOT_PROGRESSION} from "@/lib/refs/static";
 import {useRouter} from "next/navigation";
 import {Button} from "@/components/ui/button";
 import {classTranslations, subclassTranslations} from "@/lib/refs/translation";
+import { listCatalogSubclassNames } from "@/lib/logic/spell-catalog-subclass-filter";
 import {getSpellcastingCountsLines} from "@/lib/logic/spellcasting-progression";
 import {
   getEffectiveExcludeFromKnownCount,
@@ -336,18 +337,11 @@ export default function AddSpellDialog({pers, isReadOnly, triggerClassName}: Add
       if (classNames.length > 0) params.set("cls", classNames.join(","));
 
       // Add subclass filter (spells page expects translated subclass names in `sub`)
-      const subclassNames: string[] = [];
-      if ((pers as any).subclass?.name) {
-        const key = (pers as any).subclass.name as keyof typeof subclassTranslations;
-        subclassNames.push(subclassTranslations[key] || String((pers as any).subclass.name));
-      }
-      pers.multiclasses?.forEach((mc: any) => {
-        if (mc.subclass?.name) {
-          const key = mc.subclass.name as keyof typeof subclassTranslations;
-          subclassNames.push(subclassTranslations[key] || String(mc.subclass.name));
-        }
-      });
-      if (subclassNames.length > 0) params.set("sub", Array.from(new Set(subclassNames)).join(","));
+      const subclassNames = listCatalogSubclassNames([
+        { className: pers.class?.name, subclassName: (pers as any).subclass?.name },
+        ...(pers.multiclasses ?? []).map((mc: any) => ({ className: mc.class?.name, subclassName: mc.subclass?.name })),
+      ]);
+      if (subclassNames.length > 0) params.set("sub", subclassNames.join(","));
     }
 
     return `${is2024 ? "/2024/spells" : "/spells"}?${params.toString()}`;

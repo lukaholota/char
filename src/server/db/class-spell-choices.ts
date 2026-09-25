@@ -14,6 +14,7 @@ import {
   canSwapKnownSpellOnLevel2014,
   collectOwnedClassSpells2014,
   countOwnedClassSpells2014,
+  describePatronSpellListNote,
   describeSpellListNote2014,
   findLevelUpSpellAllowance2014,
   findSchoolLimit2014,
@@ -39,6 +40,7 @@ import {
 } from "@/rules/class-spell-choices-2024";
 import { collectSwappableSpellIds, findLevelUpSpellSwapRule, isSwapStarted } from "@/rules/class-spell-swaps-2024";
 import { collectOtherGenieKindSpellNames } from "@/rules/genie-kind-spells-2014";
+import { findLegacyPatronSpellList } from "@/rules/legacy-patron-spells-2024";
 import type { SpellChoiceOption, SpellSchoolLimit } from "@/rules/spell-choice-filter";
 import { findSpellKnowledge2014 } from "@/rules/spell-knowledge-2014";
 import { findSchoolKey, loadSpellChoiceOptions } from "@/server/db/spell-choice-options";
@@ -136,7 +138,7 @@ async function loadClassSpellChoice(
   ]);
 
   const ownedIds = new Set(owned.map((spell) => spell.spellId));
-  const otherGenieKind = ruleset === "RULES_2014" ? collectOtherGenieKindSpellNames(optionNames) : new Set<string>();
+  const otherGenieKind = collectOtherGenieKindSpellNames(optionNames);
   const isOwnChoice = (spell: SpellChoiceOption) => !grantedByRules.has(spell.spellId) && !ownedIds.has(spell.spellId) && !otherGenieKind.has(spell.engName);
   const bookOnly = usesSpellbook(characterClass.name) ? findAlwaysPreparedOutsideBook(owned, classLabel) : new Set<number>();
   const offeredSpells = spells.filter((spell) => isOwnChoice(spell) || bookOnly.has(spell.spellId));
@@ -173,13 +175,14 @@ function findOfferAllowance2024(input: AllowanceInput): OfferAllowance | null {
     current: countOwnedClassSpells(input.owned, input.classLabel),
   });
   if (!quota) return null;
+  const extraList = findLegacyPatronSpellList(input.className, input.subclassName);
   return {
     quota,
     catchUp: NO_SPELLS,
-    filters: buildClassSpellFilters({ className: input.className, classLevel: input.classLevel, subclassName: input.subclassName, quota }),
+    filters: buildClassSpellFilters({ className: input.className, classLevel: input.classLevel, subclassName: input.subclassName, quota, extraList }),
     swappable: findSwappableSpellIds(input.className, input.persId, input.owned, input.classLabel),
     schoolLimit: null,
-    spellListNote: null,
+    spellListNote: extraList ? describePatronSpellListNote(extraList.name) : null,
   };
 }
 

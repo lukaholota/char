@@ -38,6 +38,9 @@ export type LegacySubclassLinks = {
 
 export type LegacySubclassPlan = LegacySubclassLinks & { class2024: string; row: LegacySubclassRow };
 
+/** Риса 2014 зі списком заклинань 2014 міняється на рису легасі-рядка зі списком 2024 (KR43.5). */
+export type ExpandedSpellsReplacement = { replaces: string; featureId: number; engName: string };
+
 export type StoredLegacySubclassRow = LegacySubclassColumns & {
   name: Subclasses;
   ruleset: string;
@@ -57,11 +60,16 @@ export type LegacySubclassDiff = {
   spells: LinkDiff<LegacySpellLink>;
 };
 
-export function planLegacySubclass(source: LegacySubclassSource, class2024: string, subclassLevel2024: number): LegacySubclassPlan {
+export function planLegacySubclass(
+  source: LegacySubclassSource,
+  class2024: string,
+  subclassLevel2024: number,
+  expandedSpells: ExpandedSpellsReplacement | null = null,
+): LegacySubclassPlan {
   return {
     class2024,
     row: buildLegacyRow(source),
-    features: buildLegacyFeatures(source.features, subclassLevel2024),
+    features: replaceExpandedSpellsFeature(buildLegacyFeatures(source.features, subclassLevel2024), expandedSpells, subclassLevel2024),
     choiceOptions: source.choiceOptions.map((option) => ({
       choiceOptionId: option.choiceOptionId,
       levelsGranted: shiftLegacyLevels(option.levelsGranted, subclassLevel2024),
@@ -110,6 +118,21 @@ function buildLegacyFeatures(features: LegacySubclassSource["features"], subclas
     levelGranted: shiftLegacyLevel(feature.levelGranted, subclassLevel2024),
     grantsSpellSlots: feature.grantsSpellSlots,
   }));
+}
+
+function replaceExpandedSpellsFeature(
+  features: LegacyFeatureLink[],
+  expandedSpells: ExpandedSpellsReplacement | null,
+  subclassLevel2024: number,
+): LegacyFeatureLink[] {
+  if (!expandedSpells) return features;
+  if (!features.some((feature) => feature.engName === expandedSpells.replaces)) {
+    throw new Error(`${expandedSpells.replaces}: такої риси в підкласу 2014 немає — нема чого замінювати`);
+  }
+  return [
+    ...features.filter((feature) => feature.engName !== expandedSpells.replaces),
+    { featureId: expandedSpells.featureId, engName: expandedSpells.engName, levelGranted: subclassLevel2024, grantsSpellSlots: false },
+  ];
 }
 
 function findRowChange(planned: LegacySubclassRow, stored: StoredLegacySubclassRow | null): LegacySubclassDiff["row"] {

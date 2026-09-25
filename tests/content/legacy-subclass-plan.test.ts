@@ -81,6 +81,30 @@ describe("O43 — план легасі-підкласу", () => {
   });
 });
 
+describe("O43 — заміна риси розширеного списку (KR43.5)", () => {
+  it("риса 2014 зі списком 2014 виходить, риса 2024 приходить на рівні підкласу", () => {
+    const plan = planLegacySubclass(genie2014, "WARLOCK_2024", SUBCLASS_LEVEL_2024, {
+      replaces: "Expanded Spell List (The Genie)",
+      featureId: 900,
+      engName: "The Genie: Expanded Spell List (legacy 2024)",
+    });
+
+    expect(plan.features.map((feature) => [feature.featureId, feature.levelGranted])).toEqual([
+      [101, 3],
+      [103, 6],
+      [104, 10],
+      [105, 14],
+      [900, 3],
+    ]);
+  });
+
+  it("риси, яку треба замінити, у підкласу 2014 немає — план падає, а не мовчить", () => {
+    expect(() =>
+      planLegacySubclass(genie2014, "WARLOCK_2024", SUBCLASS_LEVEL_2024, { replaces: "Genie Expanded Spells", featureId: 900, engName: "x" }),
+    ).toThrow("нема чого замінювати");
+  });
+});
+
 describe("O43 — різниця плану з базою", () => {
   const genie = planLegacySubclass(genie2014, "WARLOCK_2024", SUBCLASS_LEVEL_2024);
 

@@ -96,9 +96,13 @@ export function listSpellLists2014(lists: SpellLists2014): string[] {
 
 export function describeSpellListNote2014(caster: SpellCaster2014, lists: SpellLists2014): string {
   if (isThirdCaster2014(caster.className, caster.subclassName)) return `зі списку чарівника (${translateSubclass(caster.subclassName ?? "")})`;
-  if (lists.expanded && caster.className === PATRON_CLASS) return `зі свого списку й розширеного списку покровителя «${lists.expanded}»`;
+  if (lists.expanded && caster.className === PATRON_CLASS) return describePatronSpellListNote(lists.expanded);
   if (lists.expanded) return `зі свого списку й заклинань дунамантії («${lists.expanded}»)`;
   return "зі свого списку";
+}
+
+export function describePatronSpellListNote(patronListName: string): string {
+  return `зі свого списку й розширеного списку покровителя «${patronListName}»`;
 }
 
 export function collectOwnedClassSpells2014<T extends OwnedSpell2014>(owned: readonly T[], classLabel: string, lists: readonly string[]): T[] {

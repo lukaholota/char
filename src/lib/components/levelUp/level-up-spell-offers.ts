@@ -36,6 +36,10 @@ export function withoutSpells(offer: ClassSpellOffer, spellIds: readonly number[
   return { ...offer, cantrips: offer.cantrips.filter(keep), spells: offer.spells.filter(keep), bookSpells: offer.bookSpells.filter(keep) };
 }
 
+function splitOptionKey(optionKey: string): number[] {
+  return optionKey ? optionKey.split(",").map(Number) : [];
+}
+
 function joinOptionIds(selections: Record<string, number | number[]> | undefined): string {
   return Object.values(selections ?? {})
     .flat()
@@ -50,21 +54,23 @@ export function useLevelUpSpellOffer(input: {
   classId: number | undefined;
   subclassId: number | null;
   classChoiceSelections: Record<string, number | number[]> | undefined;
+  subclassChoiceSelections: Record<string, number | number[]> | undefined;
 }): ClassSpellOffer | null {
   const [offer, setOffer] = useState<ClassSpellOffer | null>(null);
   const optionKey = joinOptionIds(input.classChoiceSelections);
+  const subclassOptionKey = joinOptionIds(input.subclassChoiceSelections);
   const { persId, classId, subclassId } = input;
 
   useEffect(() => {
     if (!persId || !classId) return;
     let isCurrent = true;
-    getLevelUpSpellOffer(persId, classId, subclassId, optionKey ? optionKey.split(",").map(Number) : []).then((loaded) => {
+    getLevelUpSpellOffer(persId, classId, subclassId, splitOptionKey(optionKey), splitOptionKey(subclassOptionKey)).then((loaded) => {
       if (isCurrent) setOffer(loaded);
     });
     return () => {
       isCurrent = false;
     };
-  }, [persId, classId, subclassId, optionKey]);
+  }, [persId, classId, subclassId, optionKey, subclassOptionKey]);
 
   return classId ? offer : null;
 }

@@ -14,12 +14,16 @@ export type SpellSchoolKey =
   | "NECROMANCY"
   | "TRANSMUTATION";
 
+/** Список, якого немає в `spell_classes`: розширений список легасі-покровителя 2024 (O43). */
+export type ExtraSpellList = { name: string; spellEngNames: readonly string[] };
+
 export type SpellChoiceFilter = {
   levels: readonly number[];
   schools: readonly SpellSchoolKey[] | null;
   /** Список класу або кілька — «from the Bard, Cleric, Druid, and Wizard spell lists». */
   spellList: string | readonly string[] | null;
   ritualOnly?: boolean;
+  extraList?: ExtraSpellList;
 };
 
 /** Школи, з яких підклас бере заклинання, і скільки поза ними ще можна взяти (Потойбічний лицар, Містичний спритник). */

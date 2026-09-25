@@ -1,6 +1,12 @@
 import registry from "../../data/2024/legacy-subclasses.json";
 
-export type LegacySubclass2024 = { class2014: string; class2024: string; subclass: string; source: string };
+export type LegacySubclass2024 = {
+  class2014: string;
+  class2024: string;
+  subclass: string;
+  source: string;
+  expandedSpellsFeature2014: string;
+};
 
 export const LEGACY_SUBCLASSES_2024: readonly LegacySubclass2024[] = registry.subclasses;
 

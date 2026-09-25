@@ -19,14 +19,13 @@ export async function loadSpellChoiceOptions(
   filter: SpellChoiceFilter,
   onlySpellIds?: readonly number[],
 ): Promise<SpellChoiceOption[]> {
-  const allowedLists = listAllowedSpellLists(filter);
   const rows = await client.spell.findMany({
     where: {
       ruleset,
       ...(onlySpellIds ? { spellId: { in: [...onlySpellIds] } } : {}),
       level: { in: [...filter.levels] },
       ...(filter.schools ? { school: { in: filter.schools.map((school) => spellSchoolTranslations[school]) } } : {}),
-      ...(allowedLists ? { spellClasses: { some: { className: { in: [...allowedLists] }, ruleset } } } : {}),
+      ...buildSpellListCondition(filter, ruleset),
       ...(filter.ritualOnly ? { hasRitual: YES_FLAG } : {}),
     },
     select: {
@@ -44,13 +43,25 @@ export async function loadSpellChoiceOptions(
     orderBy: [{ level: "asc" }, { name: "asc" }],
   });
 
+  const extraListSpells = new Set(filter.extraList?.spellEngNames ?? []);
   return rows.map(({ spellClasses, hasRitual, hasConcentration, ...row }) => ({
     ...row,
     isRitual: hasRitual === YES_FLAG,
     isConcentration: hasConcentration === YES_FLAG,
     school: findSchoolKey(row.school),
-    spellLists: spellClasses.map((spellClass) => spellClass.className),
+    spellLists: [
+      ...spellClasses.map((spellClass) => spellClass.className),
+      ...(filter.extraList && extraListSpells.has(row.engName) ? [filter.extraList.name] : []),
+    ],
   }));
+}
+
+function buildSpellListCondition(filter: SpellChoiceFilter, ruleset: RulesetId): Prisma.SpellWhereInput {
+  const allowedLists = listAllowedSpellLists(filter);
+  if (!allowedLists) return {};
+  const byClassList: Prisma.SpellWhereInput = { spellClasses: { some: { className: { in: [...allowedLists] }, ruleset } } };
+  if (!filter.extraList) return byClassList;
+  return { OR: [byClassList, { engName: { in: [...filter.extraList.spellEngNames] } }] };
 }
 
 export function findSchoolKey(ukrainianSchool: string | null): string | null {

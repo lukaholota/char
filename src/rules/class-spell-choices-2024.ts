@@ -16,6 +16,8 @@ import {
   areAllSpellsOffered,
   hasExactSpellCount,
   isSpellChoiceCandidate,
+  listAllowedSpellLists,
+  type ExtraSpellList,
   type SpellChoiceCandidate,
   type SpellChoiceFilter,
   type SpellChoiceOption,
@@ -149,16 +151,22 @@ export function buildClassSpellFilters(input: {
   classLevel: number;
   subclassName: string | null;
   quota: ClassSpellQuota;
+  extraList?: ExtraSpellList | null;
 }): ClassSpellFilters {
   const listClass = findSpellListClass2024(input.className, input.subclassName);
   const spellList = translateSpellList(listClass);
   const spellLevels = Array.from({ length: input.quota.maxSpellLevel }, (_, index) => index + 1);
   const preparedLists = hasMagicalSecrets(input.className, input.classLevel) ? MAGICAL_SECRETS_SPELL_LISTS.map(translateSpellList) : spellList;
+  const spells: SpellChoiceFilter = { levels: spellLevels, schools: null, spellList: preparedLists };
 
   return {
     cantrips: { levels: [0], schools: null, spellList },
-    spells: { levels: spellLevels, schools: null, spellList: preparedLists },
+    spells: input.extraList ? addExtraList(spells, input.extraList) : spells,
   };
+}
+
+function addExtraList(filter: SpellChoiceFilter, extraList: ExtraSpellList): SpellChoiceFilter {
+  return { ...filter, spellList: [...(listAllowedSpellLists(filter) ?? []), extraList.name], extraList };
 }
 
 function hasMagicalSecrets(className: string, classLevel: number): boolean {

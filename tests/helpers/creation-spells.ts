@@ -66,6 +66,7 @@ export async function withLevelUpSpells(persId: number, form: LevelUpFormData, p
     classId: form.classId,
     subclassId: form.subclassId ?? null,
     classChoiceOptionIds: Object.values(form.classChoiceSelections ?? {}).flat(),
+    subclassChoiceOptionIds: Object.values(form.subclassChoiceSelections ?? {}).flat(),
   });
   const pers = await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { raceId: true, persSpells: { select: { spellId: true } } } });
   const taken = await findRuleGrantedSpellIds(pers.raceId, form.classId);

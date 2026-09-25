@@ -284,7 +284,13 @@ export async function loadLevelUpFeatSpellGrowthOffer(persId: number): Promise<F
   });
 }
 
-export type LevelUpSpellOfferInput = { classId: number; subclassId: number | null; classChoiceOptionIds: readonly number[] };
+export type LevelUpSpellOfferInput = {
+  classId: number;
+  subclassId: number | null;
+  classChoiceOptionIds: readonly number[];
+  /** Рід джина обирається тим самим підвищенням, що й заклинання (O43), — фільтр роду мусить його бачити. */
+  subclassChoiceOptionIds?: readonly number[];
+};
 
 export async function loadPersLevelUpSpellOffer(persId: number, input: LevelUpSpellOfferInput): Promise<ClassSpellOffer | null> {
   const pers = await prisma.pers.findUnique({
@@ -308,7 +314,11 @@ export async function loadPersLevelUpSpellOffer(persId: number, input: LevelUpSp
     classId: input.classId,
     classLevel: classLevelBefore + 1,
     subclassId: input.subclassId ?? existingSubclassId ?? null,
-    chosenClassOptionIds: [...pers.choiceOptions.map((option) => option.choiceOptionId), ...input.classChoiceOptionIds],
+    chosenClassOptionIds: [
+      ...pers.choiceOptions.map((option) => option.choiceOptionId),
+      ...input.classChoiceOptionIds,
+      ...(input.subclassChoiceOptionIds ?? []),
+    ],
     persId,
   });
 }
@@ -1171,6 +1181,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       chosenClassOptionIds: [
         ...(pers.choiceOptions || []).map((option) => Number(option.choiceOptionId)),
         ...flattenSelections(classChoiceSelections),
+        ...flattenSelections(subclassChoiceSelections),
       ],
       persId,
       selection: data.classSpells,

@@ -9,6 +9,7 @@ import registry from "../../data/2024/legacy-subclasses.json";
 import warlockSpellLists from "../../data/2014/warlock-expanded-spell-lists.json";
 import subclasses2024 from "../../data/2024/normalized/subclasses.json";
 import spells2024 from "../../data/2024/normalized/spells.json";
+import { readSubclassFeatureSeedInputs } from "../../prisma/seed/subclassFeatureSeed";
 import { readSubclassSeedInputs } from "../../prisma/seed/subclassSeed";
 import { toSubclassEnum } from "../../prisma/seed/subclassSeed2024";
 
@@ -101,6 +102,12 @@ describe("O43 — реєстр легасі-підкласів 2024", () => {
     const spellNames2024 = new Set(spells2024.map((spell) => spell.engName));
     const without2024Row = collectLegacyWarlockSpellNames().filter((engName) => !spellNames2024.has(findSpellEngName2024(engName)));
     expect([...new Set(without2024Row)]).toEqual([]);
+  });
+
+  it("риса розширеного списку 2014, яку заміняє легасі-рядок, є в сіді рис 2014", () => {
+    const featureEngNames = new Set(readSubclassFeatureSeedInputs().map((input) => input.engName));
+
+    expect(LEGACY_SUBCLASSES_2024.filter((entry) => !featureEngNames.has(entry.expandedSpellsFeature2014)).map((entry) => entry.subclass)).toEqual([]);
   });
 
   it("перейменування реєстру — ті самі, що в spells.json 2024, і лише потрібні спискам", () => {

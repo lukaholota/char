@@ -455,6 +455,7 @@ export default function LevelUpWizard({ info }: Props) {
     classId: selectedClassId,
     subclassId: effectiveSubclassId ?? null,
     classChoiceSelections: formData.classChoiceSelections,
+    subclassChoiceSelections: formData.subclassChoiceSelections,
   });
 
   const classOptionSpellOffer = useLevelUpClassOptionSpellOffer({

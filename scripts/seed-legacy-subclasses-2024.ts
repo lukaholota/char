@@ -53,17 +53,23 @@ function resolveConnectionString(target: TargetName): string {
   return url;
 }
 
-function printOutcome({ entry, diff }: LegacySubclassOutcome): void {
+function printOutcome(outcome: LegacySubclassOutcome): void {
+  const { entry, diff, expandedSpellsFeature } = outcome;
   const title = `${entry.class2024}/${entry.subclass} (${entry.source})`;
-  if (isLegacySubclassDiffEmpty(diff)) {
+  if (!hasChanges(outcome)) {
     console.log(`  = ${title}: без змін`);
     return;
   }
 
   console.log(`  ${diff.row === "create" ? "+" : "~"} ${title}${diff.row ? `: рядок subclass — ${diff.row === "create" ? "створити" : "оновити"}` : ""}`);
+  if (expandedSpellsFeature) console.log(`      ${expandedSpellsFeature === "create" ? "+" : "~"} риса розширеного списку 2024 — ${expandedSpellsFeature === "create" ? "створити" : "оновити текст"}`);
   printLinks("риси", diff.features, (link) => `${link.engName} на ${link.levelGranted}-му`);
   printLinks("вибори", diff.choiceOptions, (link) => `choice_option ${link.choiceOptionId} на [${link.levelsGranted.join(", ")}]`);
   printLinks("заклинання", diff.spells, (link) => `spell ${link.spellId} на ${link.classLevel}-му`);
+}
+
+function hasChanges(outcome: LegacySubclassOutcome): boolean {
+  return !isLegacySubclassDiffEmpty(outcome.diff) || outcome.expandedSpellsFeature !== null;
 }
 
 function printLinks<T>(label: string, links: LinkDiff<T>, describe: (link: T) => string): void {
@@ -85,7 +91,7 @@ async function main() {
   const outcomes = await seedLegacySubclasses2024(prisma, apply);
   outcomes.forEach(printOutcome);
 
-  const changed = outcomes.filter((outcome) => !isLegacySubclassDiffEmpty(outcome.diff)).length;
+  const changed = outcomes.filter(hasChanges).length;
   console.log(`\n${apply ? "Записано" : "Буде записано"}: ${changed} з ${outcomes.length} підкласів мають зміни.`);
   if (!apply && changed) console.log("Це лише показ. Щоб записати, додайте --apply.");
 }
