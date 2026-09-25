@@ -10,10 +10,10 @@ import { useEffect, useMemo, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
-import { subclassTranslations, subclassTranslationsEng } from "@/lib/refs/translation";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { hasLegacySubclasses, isLegacyChosen, splitSubclassesForStep } from "@/lib/logic/legacy-subclass-visibility";
 import { z } from "zod";
+import { translateSubclassName, translateSubclassNameEng } from "@/lib/refs/subclass-name";
 
 interface Props {
   cls: ClassI;
@@ -63,7 +63,7 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   const offersLegacy = hasLegacySubclasses(allSubclasses);
   const [showLegacy, setShowLegacy] = useState(() => isLegacyChosen(allSubclasses, chosenId));
   const { current, legacy } = useMemo(
-    () => splitSubclassesForStep(allSubclasses, showLegacy, (subclass) => subclassTranslations[subclass.name] ?? subclass.name),
+    () => splitSubclassesForStep(allSubclasses, showLegacy, (subclass) => translateSubclassName(subclass.name)),
     [allSubclasses, showLegacy],
   );
 
@@ -133,8 +133,8 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
 };
 
 function SubclassCardOption({ subclass, chosen, onChoose }: { subclass: SubclassI; chosen: boolean; onChoose: () => void }) {
-  const name = subclassTranslations[subclass.name] ?? subclass.name;
-  const engName = subclassTranslationsEng[subclass.name] ?? subclass.name;
+  const name = translateSubclassName(subclass.name);
+  const engName = translateSubclassNameEng(subclass.name);
 
   return (
     <Card

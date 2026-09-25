@@ -34,7 +34,6 @@ import LevelUpInfusionsStep from "@/lib/components/levelUp/LevelUpInfusionsStep"
 import clsx from "clsx";
 import {
   classTranslations,
-  subclassTranslations,
   classTranslationsEng,
   attributesUkrShort,
   LanguageTranslations,
@@ -103,6 +102,7 @@ import {
   baseChoiceGroupName,
   getChoicePoolRule,
 } from "@/lib/logic/choicePoolRules";
+import { translateSubclassName } from "@/lib/refs/subclass-name";
 
 const stripSyntheticSuffix = (groupName: string) =>
   baseChoiceGroupName(groupName);
@@ -1625,9 +1625,7 @@ function SummaryStep({
                         Підклас
                       </p>
                       <p className="text-base font-bold text-white transition-colors group-hover:text-violet-200 sm:text-lg">
-                        {subclassTranslations[
-                          effectiveSubclass.name as keyof typeof subclassTranslations
-                        ] || effectiveSubclass.name}
+                        {translateSubclassName(effectiveSubclass.name)}
                       </p>
                     </div>
                   </button>

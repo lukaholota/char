@@ -61,7 +61,7 @@ describe("O43 — розширений список легасі-покрови�
     expect(names).toEqual(expect.arrayContaining(["Sanctuary", "Spike Growth", "Phantasmal Force", "Detect Evil and Good"]));
     expect(names.filter((name) => ["Thunderwave", "Gust of Wind", "Burning Hands"].includes(name))).toEqual([]);
     expect(offer?.spells.some((spell) => spell.spellLists?.includes(WARLOCK_LIST))).toBe(true);
-    expect(offer?.spellListNote).toBe("зі свого списку й розширеного списку покровителя «Джин»");
+    expect(offer?.spellListNote).toBe("зі свого списку й розширеного списку патрона «Джин»");
   });
 
   it("заклинання чужого роду сервер не приймає, свого — приймає", () => {

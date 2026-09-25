@@ -102,7 +102,7 @@ export function describeSpellListNote2014(caster: SpellCaster2014, lists: SpellL
 }
 
 export function describePatronSpellListNote(patronListName: string): string {
-  return `зі свого списку й розширеного списку покровителя «${patronListName}»`;
+  return `зі свого списку й розширеного списку патрона «${patronListName}»`;
 }
 
 export function collectOwnedClassSpells2014<T extends OwnedSpell2014>(owned: readonly T[], classLabel: string, lists: readonly string[]): T[] {

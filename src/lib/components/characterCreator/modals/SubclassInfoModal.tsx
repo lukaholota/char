@@ -14,11 +14,11 @@ import {
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import {
   sourceTranslations,
-  subclassTranslations,
 } from "@/lib/refs/translation";
 import { Badge } from "@/components/ui/badge";
 
 import { ReactNode } from "react";
+import { translateSubclassName } from "@/lib/refs/subclass-name";
 
 interface Props {
   subclass: any;
@@ -31,9 +31,7 @@ export const SubclassInfoModal = ({
   triggerClassName,
   trigger,
 }: Props) => {
-  const name =
-    subclassTranslations[subclass.name as keyof typeof subclassTranslations] ??
-    subclass.name;
+  const name = translateSubclassName(subclass.name);
   const source = subclass.legacySource ?? subclass.source;
   const rawFeatures = subclass.features || [];
   const featureList = [...rawFeatures].sort((a: any, b: any) => {

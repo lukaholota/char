@@ -81,7 +81,7 @@ describe("заклинання в конструкторі 2014 — уся та�
 
     expect(offer?.quota).toEqual({ cantrips: 2, prepared: 2, spellbook: 0, maxSpellLevel: 1 });
     expect(burningHands).toBeDefined();
-    expect(offer?.spellListNote).toBe("зі свого списку й розширеного списку покровителя «Почвара»");
+    expect(offer?.spellListNote).toBe("зі свого списку й розширеного списку патрона «Почвара»");
 
     const warlockSpell = offer!.spells.find((spell) => spell.spellLists?.includes("Чорнокнижник"))!;
     const created = await createCharacter(form({ cantripIds: ids(offer!.cantrips, 2), preparedIds: [burningHands!.spellId, warlockSpell.spellId], spellbookIds: [] }));

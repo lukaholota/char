@@ -11,11 +11,11 @@
 
 import { type Prisma, type PrismaClient, SpellOrigin } from "@prisma/client";
 
-import { subclassTranslations } from "@/lib/refs/translation";
 import { findEarnedAlwaysPreparedSpells, type AlwaysPreparedSpellSource } from "@/rules/always-prepared-spells";
 import { buildSubclassOptionSpellSources, type ChosenSubclassOption } from "@/rules/subclass-option-spells-2024";
 import type { GrantedSpell } from "@/rules/spell-sources";
 import type { AbilityKey } from "@/rules/types";
+import { translateSubclassName } from "@/lib/refs/subclass-name";
 
 type DatabaseClient = PrismaClient | Prisma.TransactionClient;
 
@@ -45,7 +45,7 @@ export async function findMissingSubclassSpells(
     const key = own[0].subclass.name;
     return [{
       sourceKey: key,
-      sourceName: subclassTranslations[key as keyof typeof subclassTranslations] ?? key,
+      sourceName: translateSubclassName(key),
       classLevel: subclass.classLevel,
       ability: subclass.ability,
       spells: own.map((row) => ({ spellId: row.spellId, classLevel: row.classLevel })),

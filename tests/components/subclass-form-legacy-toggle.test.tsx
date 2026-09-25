@@ -55,6 +55,14 @@ describe("O43 — перемикач «Підкласи зі старих кни
     expect(screen.queryByText("TCOE")).toBeNull();
   });
 
+  it("підкласи PHB 2024 підписані перекладом, а не enum з бази", () => {
+    renderStep(warlock2024);
+
+    expect(screen.getByText("Патрон-Почвара")).toBeTruthy();
+    expect(screen.getByText("Патрон-Архіфея")).toBeTruthy();
+    expect(screen.queryByText("FIEND_PATRON")).toBeNull();
+  });
+
   it("увімкнений перемикач показує легасі окремим блоком з книгою", () => {
     renderStep(warlock2024);
     fireEvent.click(screen.getByRole("switch"));

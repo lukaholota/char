@@ -10,7 +10,6 @@ import {
   weaponTranslations,
   subraceTranslations,
   variantTranslations,
-  subclassTranslations,
   sourceTranslations,
   toolTranslations,
   armorTypeTranslations,
@@ -34,6 +33,7 @@ import {
   WeaponProficienciesSpecial,
 } from "@/lib/types/model-types";
 import { describeSkillChoice, formatAnySkillsLabel, normalizeSkillProficiencies } from "@/rules/proficiency";
+import { findSubclassName } from "@/lib/refs/subclass-name";
 
 const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
 
@@ -69,7 +69,8 @@ export const translateValue = (value?: string | number | null): string => {
   if (classTranslations[key as keyof typeof classTranslations]) return classTranslations[key as keyof typeof classTranslations];
   if (subraceTranslations[key as keyof typeof subraceTranslations]) return subraceTranslations[key as keyof typeof subraceTranslations];
   if (variantTranslations[key as keyof typeof variantTranslations]) return variantTranslations[key as keyof typeof variantTranslations];
-  if (subclassTranslations[key as keyof typeof subclassTranslations]) return subclassTranslations[key as keyof typeof subclassTranslations];
+  const subclassName = findSubclassName(key);
+  if (subclassName) return subclassName;
   if (sourceTranslations[key as keyof typeof sourceTranslations]) return sourceTranslations[key as keyof typeof sourceTranslations];
   if (featTranslations[key]) return featTranslations[key];
   if (toolTranslations[key as keyof typeof toolTranslations]) return toolTranslations[key as keyof typeof toolTranslations];

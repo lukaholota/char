@@ -190,7 +190,7 @@ describe("третинні підкласи 2014 — список чарівни
     const hexblade = await subclassByName(classId, Subclasses.HEXBLADE);
 
     const offer = await getLevelUpSpellOffer(persId, classId, hexblade.subclassId, []);
-    expect(offer?.spellListNote).toBe("зі свого списку й розширеного списку покровителя «Відьмацький клинок»");
+    expect(offer?.spellListNote).toBe("зі свого списку й розширеного списку патрона «Відьмацький клинок»");
     const shield = offer!.spells.find((spell) => spell.engName === "Shield");
     expect(shield?.spellLists).toContain("Відьмацький клинок");
     expect(offer!.spells.some((spell) => spell.engName === "Wrathful Smite")).toBe(true);

@@ -12,9 +12,9 @@ import { findLegacySubclass2024 } from "@/rules/legacy-subclasses-2024";
 import {
   classTranslations,
   sourceTranslations,
-  subclassTranslations,
   variantTranslations,
 } from "@/lib/refs/translation";
+import { translateSubclassName } from "@/lib/refs/subclass-name";
 
 type ClassEntry = {
   key: string;
@@ -140,8 +140,7 @@ export function FeaturesHeaderCards({
           entry.cls?.name ||
           "Клас";
         const scName =
-          subclassTranslations[entry.subclass?.name as keyof typeof subclassTranslations] ||
-          entry.subclass?.name ||
+          (entry.subclass?.name ? translateSubclassName(entry.subclass.name) : null) ||
           "Підклас";
         const legacySource = findLegacySubclass2024(String(entry.cls?.name), String(entry.subclass?.name))?.source ?? null;
 

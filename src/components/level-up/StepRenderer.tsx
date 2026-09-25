@@ -20,7 +20,7 @@ import {
 import { translateValue } from '@/lib/components/characterCreator/infoUtils';
 import { FormattedDescription } from '@/components/ui/FormattedDescription';
 import { InfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { subclassTranslations } from '@/lib/refs/translation';
+import { translateSubclassName } from '@/lib/refs/subclass-name';
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // INDIVIDUAL STEP RENDERERS
@@ -48,7 +48,7 @@ const SubclassSelectionGrid: React.FC<{ step: SelectSubclassStep }> = ({ step })
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {step.options.map((subclass) => {
-          const sName = subclassTranslations[subclass.name as keyof typeof subclassTranslations] || subclass.name;
+          const sName = translateSubclassName(subclass.name);
           return (
             <div key={subclass.id} className="relative group/card">
               <Card 

@@ -131,7 +131,7 @@ describe("списки 2014 — клас, чарівник для третинн
   it("підпис кроку називає, звідки список", () => {
     expect(describeSpellListNote2014(eldritchKnight, findSpellLists2014(eldritchKnight))).toBe("зі списку чарівника (Потойбічний лицар)");
     const hexblade = { className: "WARLOCK_2014", subclassName: "HEXBLADE" };
-    expect(describeSpellListNote2014(hexblade, findSpellLists2014(hexblade))).toBe("зі свого списку й розширеного списку покровителя «Відьмацький клинок»");
+    expect(describeSpellListNote2014(hexblade, findSpellLists2014(hexblade))).toBe("зі свого списку й розширеного списку патрона «Відьмацький клинок»");
     expect(describeSpellListNote2014({ className: "BARD_2014", subclassName: null }, findSpellLists2014({ className: "BARD_2014", subclassName: null }))).toBe("зі свого списку");
   });
 
