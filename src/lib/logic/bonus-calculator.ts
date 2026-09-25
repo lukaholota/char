@@ -30,6 +30,7 @@ import {
 } from "@/rules/martial-arts";
 import { findUnarmoredMovementBonus, MONK_CLASS_NAMES } from "@/rules/unarmored-movement";
 import { buildCharacterLevels, findClassLevel } from "@/rules/character-level";
+import { findMainClassLevel } from "@/rules/hit-dice";
 import type { AbilityKey, ArmorAbilityBonusType } from "@/rules/types";
 import { StatBonuses, SkillBonuses, SimpleBonusValue } from "@/lib/types/model-types";
 import { abilityTranslations, armorTranslations } from "@/lib/refs/translation";
@@ -184,11 +185,12 @@ export function collectActiveFeatures(pers: Omit<PersWithRelations, "user">): Fe
   }
 
   // Base class / subclass features (level-gated)
+  const mainClassLevel = findMainClassLevel(pers.level, pers.multiclasses ?? []);
   for (const cf of pers.class?.features ?? []) {
-    if ((cf as any).levelGranted <= pers.level) add((cf as any).feature);
+    if ((cf as any).levelGranted <= mainClassLevel) add((cf as any).feature);
   }
   for (const sf of pers.subclass?.features ?? []) {
-    if ((sf as any).levelGranted <= pers.level) add((sf as any).feature);
+    if ((sf as any).levelGranted <= mainClassLevel) add((sf as any).feature);
   }
 
   // Multiclass features (level-gated by classLevel)

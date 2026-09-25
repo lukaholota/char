@@ -17,6 +17,7 @@ import {
   calculateWeaponAttackBonus,
   calculateWeaponDamageBonus,
   calculateWeaponDamageDice,
+  collectActiveFeatures,
   findWeaponDamageType,
   findWeaponRange,
 } from "./bonus-calculator";
@@ -296,6 +297,58 @@ describe("KR31.6 — Майстер на всі руки в обох редак�
 
   it("чужа фіча половини майстерності не дає", () => {
     expect(calculateFinalSkill(bardWith("Bard: Expertise (2024)"), Skills.PERFORMANCE).total).toBe(0);
+  });
+});
+
+describe("риси класу в мультикласі", () => {
+  it.each([
+    ["RULES_2014", "Jack of All Trades"],
+    ["RULES_2024", "Bard: Jack of all Trades (2024)"],
+  ])("основний бард 1 / паладин 1 не отримує рису барда 2 (%s)", (ruleset, engName) => {
+    const pers = buildPers({
+      level: 2,
+      ruleset,
+      class: { features: [{ levelGranted: 2, feature: { featureId: 1, engName } }] },
+      subclass: { features: [{ levelGranted: 2, feature: { featureId: 2, engName: "Second-level subclass feature" } }] },
+      multiclasses: [{ classLevel: 1, class: { features: [] } }],
+    } as never);
+
+    expect(collectActiveFeatures(pers)).toEqual([]);
+    expect(calculateFinalSkill(pers, Skills.PERFORMANCE).total).toBe(0);
+    expect(calculateFinalInitiative(pers)).toBe(0);
+  });
+
+  it("риса основного класу й підкласу зʼявляється на рівні саме цього класу", () => {
+    const classFeature = { featureId: 1, engName: "Jack of All Trades" };
+    const subclassFeature = { featureId: 2, engName: "Second-level subclass feature" };
+    const pers = buildPers({
+      level: 3,
+      ruleset: "RULES_2014",
+      class: { features: [{ levelGranted: 2, feature: classFeature }] },
+      subclass: { features: [{ levelGranted: 2, feature: subclassFeature }] },
+      multiclasses: [{ classLevel: 1, class: { features: [] } }],
+    } as never);
+
+    expect(collectActiveFeatures(pers)).toEqual([classFeature, subclassFeature]);
+    expect(calculateFinalSkill(pers, Skills.PERFORMANCE).total).toBe(1);
+    expect(calculateFinalInitiative(pers)).toBe(1);
+  });
+
+  it("риса другого класу чекає на рівень саме другого класу", () => {
+    const feature = { featureId: 1, engName: "Jack of All Trades" };
+    const pers = buildPers({
+      level: 2,
+      ruleset: "RULES_2014",
+      class: { features: [] },
+      multiclasses: [{ classLevel: 1, class: { features: [{ levelGranted: 2, feature }] } }],
+    } as never);
+
+    expect(collectActiveFeatures(pers)).toEqual([]);
+    expect(calculateFinalInitiative(pers)).toBe(0);
+
+    const bardTwo = { ...pers, level: 3, multiclasses: [{ ...pers.multiclasses[0], classLevel: 2 }] };
+    expect(collectActiveFeatures(bardTwo)).toEqual([feature]);
+    expect(calculateFinalInitiative(bardTwo)).toBe(1);
   });
 });
 
