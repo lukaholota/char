@@ -56,6 +56,7 @@ import { SpellModalCard } from "@/components/spells/SpellModalCard";
 import { SpellsFilterDialog } from "@/components/spells/SpellsFilterDialog";
 import { SpellData } from "@/lib/spellsData";
 import { buildSpellLinkForSpell, buildSpellSlug } from "@/lib/spell-link";
+import { isWithinCharacterSpellLevel } from "@/lib/logic/character-spell-level-filter";
 import { Ruleset } from "@prisma/client";
 import { cn } from "@/lib/utils";
 import { EditionAccentChip, EditionAccentTitle } from "@/components/ui/EditionAccent";
@@ -130,13 +131,6 @@ function parseMaxSpellLevelByClass(raw: string | null): Map<string, number> | nu
     return className && Number.isFinite(parsedLevel) ? [[normalizeBaseClassValue(className), parsedLevel]] : [];
   });
   return entries.length > 0 ? new Map(entries) : null;
-}
-
-function isPreparableBySomeClass(spell: SpellListItem, maxSpellLevelByClass: Map<string, number>): boolean {
-  if (spell.level === 0) return true;
-  return spell.spellClasses.some(
-    (entry) => spell.level <= (maxSpellLevelByClass.get(normalizeBaseClassValue(entry.className)) ?? 0)
-  );
 }
 
 function parseEmbedParams(params: URLSearchParams): EmbedParams {
@@ -287,7 +281,7 @@ export function SpellsClient({
         return false;
       }
 
-      if (embedParams.maxSpellLevelByClass && !isPreparableBySomeClass(spell, embedParams.maxSpellLevelByClass)) {
+      if (!isWithinCharacterSpellLevel(spell, embedParams)) {
         return false;
       }
 
@@ -348,7 +342,7 @@ export function SpellsClient({
 
       return true;
     });
-  }, [spells, selection, embedParams.maxSpellLevelByClass, homebrewOnly]);
+  }, [spells, selection, embedParams, homebrewOnly]);
 
   const selectedSpell = useMemo(() => {
     if (selection.spell) {
