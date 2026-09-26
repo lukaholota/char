@@ -11,6 +11,8 @@
 import type { Ruleset } from "@prisma/client";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { goBackInHistory, waitForPendingHistoryBack } from "@/lib/history-back";
+import { rememberSpellCard } from "@/lib/spell-cards";
+import type { SpellData } from "@/lib/spellsData";
 
 export type SpellLink = { spellKey: string; ruleset: Ruleset };
 
@@ -128,13 +130,14 @@ export function openSpellLink(link: SpellLink): void {
   });
 }
 
-export function openLoadedSpell(spell: { spellId: number; ruleset?: string | null }): void {
-  if (typeof window === "undefined") return;
-
-  void waitForPendingHistoryBack().then(() => {
-    pushSpellHistoryEntry(window.location.href);
-    window.dispatchEvent(new CustomEvent("spell:open", { detail: { spell, ruleset: spell.ruleset } }));
-  });
+/**
+ * Хоумбрю немає в каталозі карток, тож модалка бере його з памʼяті, а ключ в адресі — як у
+ * каталожного: без нього `locationchange` після запису закриває модалку раніше за перший кадр.
+ */
+export function openHomebrewSpell(spell: SpellData): void {
+  const link: SpellLink = { spellKey: String(spell.spellId), ruleset: spell.ruleset ?? "RULES_2014" };
+  rememberSpellCard(link, spell);
+  openSpellLink(link);
 }
 
 export function closeSpellLink(): void {
@@ -161,8 +164,8 @@ function findSpellLinkInPathname(pathname: string): SpellLink | null {
   return buildSpellLinkForKey(segments[at + 1], ruleset);
 }
 
-/** Ключ — номер (`1352`, `20180`) або слаг від англійської назви (`produce-flame`), KR25.2. */
-const SPELL_KEY_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/i;
+/** Ключ — номер (`1352`, `20180`; хоумбрю — відʼємний, `-41`) або слаг від англійської назви (`produce-flame`), KR25.2. */
+const SPELL_KEY_PATTERN = /^(?:-\d+|[a-z0-9]+(?:-[a-z0-9]+)*)$/i;
 
 function buildSpellLinkForKey(key: string | null | undefined, ruleset: Ruleset): SpellLink | null {
   const spellKey = (key ?? "").trim();

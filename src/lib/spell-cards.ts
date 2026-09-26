@@ -32,6 +32,10 @@ export function findLoadedSpellForModal(link: SpellLink): SpellData | null {
   return loadedCards.get(buildSpellCardUrl(link)) ?? null;
 }
 
+export function rememberSpellCard(link: SpellLink, spell: SpellData): void {
+  loadedCards.set(buildSpellCardUrl(link), spell);
+}
+
 export function preloadSpellCardsWhenIdle(links: SpellLink[]): () => void {
   if (links.length === 0) return () => undefined;
   return runWhenIdle(() => links.forEach((link) => void findSpellForModal(link).catch(() => null)), 4000);

@@ -48,19 +48,7 @@ function ritualForSpell(spell: SpellData | null): boolean {
 type SpellOpenDetail = {
   spellId?: unknown;
   ruleset?: unknown;
-  spell?: unknown;
 };
-
-function isSpellDataLike(value: unknown): value is SpellData {
-  if (!value || typeof value !== "object") return false;
-  const v = value as Record<string, unknown>;
-  return (
-    typeof v.spellId === "number" && typeof v.name === "string" && typeof v.engName === "string" &&
-    typeof v.level === "number" && typeof v.castingTime === "string" && typeof v.duration === "string" &&
-    typeof v.range === "string" && typeof v.description === "string" && typeof v.source === "string" &&
-    Array.isArray(v.spellClasses) && Array.isArray(v.spellRaces)
-  );
-}
 
 function findRulesetInDetail(detail: { ruleset?: unknown } | null | undefined): Ruleset {
   return detail?.ruleset === "RULES_2024" ? "RULES_2024" : "RULES_2014";
@@ -93,9 +81,9 @@ export function SpellInfoModal() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const applySpellLink = (next: SpellLink | null, { lookUpCatalog = true } = {}) => {
+  const applySpellLink = (next: SpellLink | null) => {
     setSpellLink((prev) => (isSameSpellLink(prev, next) ? prev : next));
-    const loaded = next && lookUpCatalog ? findLoadedSpellForModal(next) : null;
+    const loaded = next ? findLoadedSpellForModal(next) : null;
     if (!loaded) return;
     setSpell(loaded);
     setLoading(false);
@@ -126,19 +114,12 @@ export function SpellInfoModal() {
     const onSpellOpen = (e: Event) => {
       const detail = (e as CustomEvent).detail as SpellOpenDetail | undefined;
 
-      const fromSpellObj = detail?.spell && isSpellDataLike(detail.spell) ? detail.spell : null;
-      const rawId = fromSpellObj ? String(fromSpellObj.spellId) : detail?.spellId;
+      const rawId = detail?.spellId;
       const spellKey = typeof rawId === "string" ? rawId : String(rawId ?? "");
-      const ruleset = findRulesetInDetail(fromSpellObj ?? detail);
-
-      if (fromSpellObj) {
-        setSpell(fromSpellObj);
-        setLoading(false);
-        setError(null);
-      }
+      const ruleset = findRulesetInDetail(detail);
 
       if (spellKey && spellKey !== "undefined" && spellKey !== "null") {
-        applySpellLink({ spellKey, ruleset }, { lookUpCatalog: !fromSpellObj });
+        applySpellLink({ spellKey, ruleset });
       }
     };
 

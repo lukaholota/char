@@ -23,7 +23,7 @@ import { toast } from "sonner";
 import { buildSpellcastingStatRows } from "@/lib/logic/spellcasting-stats";
 import SpellcastingSourceCards from "@/lib/components/characterSheet/shared/SpellcastingSourceCards";
 import type { SpellSource } from "@/rules/spell-sources";
-import { openLoadedSpell, openSpellLink } from "@/lib/spell-link";
+import { openHomebrewSpell, openSpellLink } from "@/lib/spell-link";
 import { buildPersSpellLink, getPersSpellId, listCatalogSpellLinks } from "./sheet-spell-links";
 import { preloadSpellCardsWhenIdle } from "@/lib/spell-cards";
 import { buildHomebrewSheetSpellRows, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
@@ -410,7 +410,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
 
   const openSpell = (spellId: number) => {
     const homebrewSpell = isHomebrewCatalogId(spellId) ? localPersSpells.find((ps: any) => ps.spellId === spellId)?.spell : null;
-    if (homebrewSpell) openLoadedSpell(homebrewSpell);
+    if (homebrewSpell) openHomebrewSpell(homebrewSpell);
     else openSpellLink(buildPersSpellLink(localPersSpells, spellId));
   };
 
