@@ -14,7 +14,7 @@ function buildFor(subclass: string) {
 
 describe("O43 — риса розширеного списку легасі-покровителя зі списком 2024", () => {
   it("кожне посилання веде на заклинання 2024, жодне — у довідник 2014", () => {
-    for (const entry of LEGACY_SUBCLASSES_2024) {
+    for (const entry of LEGACY_SUBCLASSES_2024.filter((candidate) => candidate.expandedSpellsFeature2014)) {
       const { description } = buildLegacyExpandedSpellsFeature(entry, SPELL_NAMES_2024);
       const hrefs = [...description.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
 

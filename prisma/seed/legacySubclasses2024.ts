@@ -1,18 +1,21 @@
 /**
- * O43 / KR43.2 — підкласи зі старих книг як рядки під класом 2024. Риси, вибори й заклинання — ті
- * самі рядки 2014, лише з рівнем після зсуву (`src/rules/legacy-subclasses-2024.ts`). Виняток —
- * риса розширеного списку (KR43.5): у легасі-рядка своя, зі списком заклинань 2024, текст якої сід
- * будує з файлів. Персонажів не чіпає; рядки 2014 лише читає.
+ * O43 / KR43.2 — підкласи зі старих книг як рядки під класом 2024. Риси й вибори — ті самі рядки
+ * 2014, лише з рівнем після зсуву (`src/rules/legacy-subclasses-2024.ts`). Винятки: риса
+ * розширеного списку покровителя (KR43.5) — своя, зі списком заклинань 2024; риси, яких немає в
+ * XPHB-копії 5etools, не привʼязуються; заклинання, які підклас дає без вибору (KR43.8), — той самий
+ * перелік, що в 2014 (`data/2014/subclass-granted-spells.json`, O48), але рядками 2024. Персонажів не чіпає; рядки 2014 лише читає.
  */
 
 import { Classes, Prisma, PrismaClient, Subclasses } from "@prisma/client";
 import { LEGACY_SUBCLASSES_2024, LegacySubclass2024 } from "../../src/rules/legacy-subclasses-2024";
+import { findLegacySubclassSpells } from "../../src/rules/legacy-subclass-spells-2024";
 import { buildLegacyExpandedSpellsFeature, type LegacyExpandedSpellsFeature } from "./helpers/legacyExpandedSpellsFeature";
 import {
   LegacySubclassColumns,
   LegacyFeatureLink,
   LegacySubclassDiff,
   LegacySubclassPlan,
+  LegacySpellLink,
   LegacySubclassRow,
   LegacySubclassSource,
   StoredLegacySubclass,
@@ -31,7 +34,7 @@ type LoadedLegacySubclass = {
   class2024Id: number;
   subclassLevel2024: number;
   source: LegacySubclassSource;
-  expandedSpellsFeature: LegacyExpandedSpellsFeature;
+  expandedSpellsFeature: LegacyExpandedSpellsFeature | null;
   storedFeature: StoredExpandedSpellsFeature | null;
   stored: StoredLegacySubclass | null;
   storedId: number | null;
@@ -43,11 +46,12 @@ const PENDING_FEATURE_ID = 0;
 
 export async function seedLegacySubclasses2024(prisma: PrismaClient, apply: boolean): Promise<LegacySubclassOutcome[]> {
   const spellNames2024 = await loadSpellNames2024(prisma);
+  const spellIds2024 = await loadSpellIds2024(prisma);
   const outcomes: LegacySubclassOutcome[] = [];
 
   for (const entry of LEGACY_SUBCLASSES_2024) {
-    const loaded = await loadLegacySubclass(prisma, entry, spellNames2024);
-    const expandedSpellsFeature = findFeatureChange(loaded.expandedSpellsFeature, loaded.storedFeature);
+    const loaded = await loadLegacySubclass(prisma, entry, spellNames2024, spellIds2024);
+    const expandedSpellsFeature = loaded.expandedSpellsFeature ? findFeatureChange(loaded.expandedSpellsFeature, loaded.storedFeature) : null;
     const diff = apply
       ? await prisma.$transaction((tx) => writeLegacySubclassWithFeature(tx, loaded))
       : diffLegacySubclass(planWithFeature(loaded, loaded.storedFeature?.featureId ?? PENDING_FEATURE_ID), loaded.stored);
@@ -57,11 +61,16 @@ export async function seedLegacySubclasses2024(prisma: PrismaClient, apply: bool
   return outcomes;
 }
 
-async function loadLegacySubclass(prisma: Client, entry: LegacySubclass2024, spellNames2024: ReadonlyMap<string, string>): Promise<LoadedLegacySubclass> {
-  const source = await loadLegacySource(prisma, entry);
+async function loadLegacySubclass(
+  prisma: Client,
+  entry: LegacySubclass2024,
+  spellNames2024: ReadonlyMap<string, string>,
+  spellIds2024: ReadonlyMap<string, number>,
+): Promise<LoadedLegacySubclass> {
+  const source = { ...(await loadLegacySource(prisma, entry)), spells: findLegacySpells(entry, spellIds2024) };
   const class2024 = await loadClass2024(prisma, entry.class2024);
   const stored = await loadStoredLegacySubclass(prisma, class2024.classId, source.subclass);
-  const expandedSpellsFeature = buildLegacyExpandedSpellsFeature(entry, spellNames2024);
+  const expandedSpellsFeature = entry.expandedSpellsFeature2014 ? buildLegacyExpandedSpellsFeature(entry, spellNames2024) : null;
 
   return {
     entry,
@@ -69,22 +78,25 @@ async function loadLegacySubclass(prisma: Client, entry: LegacySubclass2024, spe
     subclassLevel2024: class2024.subclassLevel,
     source,
     expandedSpellsFeature,
-    storedFeature: await loadStoredExpandedSpellsFeature(prisma, expandedSpellsFeature.engName),
+    storedFeature: expandedSpellsFeature ? await loadStoredExpandedSpellsFeature(prisma, expandedSpellsFeature.engName) : null,
     stored: stored?.value ?? null,
     storedId: stored?.subclassId ?? null,
   };
 }
 
 function planWithFeature(loaded: LoadedLegacySubclass, featureId: number): LegacySubclassPlan {
-  return planLegacySubclass(loaded.source, loaded.entry.class2024, loaded.subclassLevel2024, {
-    replaces: loaded.entry.expandedSpellsFeature2014,
-    featureId,
-    engName: loaded.expandedSpellsFeature.engName,
+  const { entry, expandedSpellsFeature } = loaded;
+  return planLegacySubclass(loaded.source, entry.class2024, loaded.subclassLevel2024, {
+    expandedSpells:
+      entry.expandedSpellsFeature2014 && expandedSpellsFeature
+        ? { replaces: entry.expandedSpellsFeature2014, featureId, engName: expandedSpellsFeature.engName }
+        : null,
+    removedFeatures: entry.featuresRemovedIn2024 ?? [],
   });
 }
 
 async function writeLegacySubclassWithFeature(tx: Prisma.TransactionClient, loaded: LoadedLegacySubclass): Promise<LegacySubclassDiff> {
-  const featureId = await upsertExpandedSpellsFeature(tx, loaded.expandedSpellsFeature);
+  const featureId = loaded.expandedSpellsFeature ? await upsertExpandedSpellsFeature(tx, loaded.expandedSpellsFeature) : PENDING_FEATURE_ID;
   const plan = planWithFeature(loaded, featureId);
   const diff = diffLegacySubclass(plan, loaded.stored);
   await writeLegacySubclass(tx, loaded, plan, diff);
@@ -94,6 +106,18 @@ async function writeLegacySubclassWithFeature(tx: Prisma.TransactionClient, load
 async function loadSpellNames2024(prisma: Client): Promise<Map<string, string>> {
   const rows = await prisma.spell.findMany({ where: { ruleset: "RULES_2024" }, select: { engName: true, name: true } });
   return new Map(rows.map((row) => [row.engName, row.name]));
+}
+
+async function loadSpellIds2024(prisma: Client): Promise<Map<string, number>> {
+  const rows = await prisma.spell.findMany({ where: { ruleset: "RULES_2024" }, select: { engName: true, spellId: true } });
+  return new Map(rows.map((row) => [row.engName, row.spellId]));
+}
+
+function findLegacySpells(entry: LegacySubclass2024, spellIds2024: ReadonlyMap<string, number>): LegacySpellLink[] {
+  return findLegacySubclassSpells(entry, spellIds2024.keys()).map((spell) => ({
+    spellId: spellIds2024.get(spell.engName) ?? 0,
+    classLevel: spell.classLevel2014,
+  }));
 }
 
 async function loadStoredExpandedSpellsFeature(prisma: Client, engName: string): Promise<StoredExpandedSpellsFeature | null> {
@@ -150,7 +174,7 @@ async function loadLegacySource(prisma: Client, entry: LegacySubclass2024): Prom
     ...pickLegacyColumns(row),
     features: row.features.map(toFeatureLink),
     choiceOptions: row.subclassChoiceOptions,
-    spells: row.preparedSpells,
+    spells: [],
   };
 }
 

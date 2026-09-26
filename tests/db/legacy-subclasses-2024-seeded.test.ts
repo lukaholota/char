@@ -1,7 +1,7 @@
 import { Subclasses } from "@prisma/client";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
-import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
+import { LEGACY_SUBCLASSES_2024, isLegacySubclass2024 } from "@/rules/legacy-subclasses-2024";
 import { isLegacySubclassDiffEmpty } from "../../prisma/seed/helpers/legacySubclassPlan";
 import { seedLegacySubclasses2024 } from "../../prisma/seed/legacySubclasses2024";
 import { disconnectDatabase } from "../user-data";
@@ -10,9 +10,11 @@ const LEGACY_NAMES: Subclasses[] = Object.values(Subclasses).filter((name) => LE
 
 async function readLegacyRows() {
   const rows = await prisma.subclass.findMany({
-    where: { class: { name: "WARLOCK_2024" }, name: { in: LEGACY_NAMES } },
+    where: { ruleset: "RULES_2024", name: { in: LEGACY_NAMES } },
     select: {
       name: true,
+      class: { select: { name: true } },
+      preparedSpells: { select: { classLevel: true, spell: { select: { engName: true, ruleset: true } } } },
       ruleset: true,
       spellcastingType: true,
       armorProficiencies: true,
@@ -24,7 +26,7 @@ async function readLegacyRows() {
       subclassChoiceOptions: { select: { choiceOptionId: true, levelsGranted: true, ruleset: true }, orderBy: { choiceOptionId: "asc" } },
     },
   });
-  return new Map(rows.map((row) => [String(row.name), row]));
+  return new Map(rows.filter((row) => isLegacySubclass2024(row.class.name, row.name)).map((row) => [String(row.name), row]));
 }
 
 async function read2014Row(name: Subclasses) {
@@ -52,11 +54,27 @@ describe("O43 — легасі-підкласи 2024 у базі", () => {
   });
   afterAll(disconnectDatabase);
 
-  it("кожен підклас реєстру — рядок RULES_2024 під чорнокнижником 2024 без власного чаклування", () => {
-    expect([...legacy.keys()].sort()).toEqual([...LEGACY_NAMES].sort());
+  it("кожен підклас реєстру — рядок RULES_2024 під своїм класом 2024 без власного чаклування", () => {
+    expect([...legacy.values()].map((row) => `${row.class.name}|${row.name}`).sort()).toEqual(
+      LEGACY_SUBCLASSES_2024.map((entry) => `${entry.class2024}|${entry.subclass}`).sort(),
+    );
     for (const row of legacy.values()) {
       expect(row).toMatchObject({ ruleset: "RULES_2024", spellcastingType: "NONE" });
     }
+  });
+
+  it("заклинання легасі-підкласу — лише рядки 2024; домен смерті дає Ray of Sickness на 3-му", () => {
+    const spells = [...legacy.values()].flatMap((row) => row.preparedSpells);
+    const death = legacy.get("DEATH_DOMAIN")?.preparedSpells ?? [];
+
+    expect(spells.filter((link) => link.spell.ruleset !== "RULES_2024")).toEqual([]);
+    expect(death.find((link) => link.spell.engName === "Ray of Sickness")?.classLevel).toBe(3);
+  });
+
+  it("домен жерця не привʼязує рису 8-го рівня, якої немає в XPHB-копії", () => {
+    const eighth = [...legacy.values()].filter((row) => row.class.name === "CLERIC_2024").flatMap((row) => row.features.filter((link) => link.levelGranted === 8));
+
+    expect(eighth).toEqual([]);
   });
 
   it("Джин 2024 має риси 2014, крім списку заклинань 2014, а риси 1-го рівня — на 3-му", () => {
@@ -69,8 +87,8 @@ describe("O43 — легасі-підкласи 2024 у базі", () => {
     expect(genie?.features.every((link) => link.ruleset === "RULES_2024")).toBe(true);
   });
 
-  it("кожен легасі-підклас має свою рису розширеного списку 2024 на 3-му рівні", () => {
-    for (const entry of LEGACY_SUBCLASSES_2024) {
+  it("кожен легасі-покровитель має свою рису розширеного списку 2024 на 3-му рівні", () => {
+    for (const entry of LEGACY_SUBCLASSES_2024.filter((candidate) => candidate.expandedSpellsFeature2014)) {
       const own = legacy.get(entry.subclass)?.features.filter((link) => link.feature.engName.endsWith("Expanded Spell List (legacy 2024)")) ?? [];
 
       expect(own, entry.subclass).toHaveLength(1);

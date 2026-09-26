@@ -6,6 +6,8 @@
  * інша ланка — що сід доніс ті самі пари «заклинання + рівень класу» до `subclass_spell`. Без цієї
  * перевірки зелений контентний гейт означав би тільки «файл гарний», а клірик лишався б без
  * домених заклинань.
+ *
+ * Легасі-підкласи (O43) несуть свої рядки з іншого джерела — `legacy-subclasses-2024-seeded.test.ts`.
  */
 
 import { readFileSync } from "node:fs";
@@ -15,6 +17,7 @@ import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
 import { SUBCLASSES_JSON } from "../../scripts/2024/parse-subclass-feature-uses";
 import { toSubclassEnum } from "../../prisma/seed/subclassSeed2024";
+import { isLegacySubclass2024 } from "@/rules/legacy-subclasses-2024";
 
 /// Назва звіряється в нижньому регістрі: у базі стоїть «Protection From Energy», у книзі —
 /// «Protection from Energy», і це розходження друкарні каталогу, а не цього переліку.
@@ -38,10 +41,12 @@ function listExpectedRows(): string[] {
 async function listSeededRows(): Promise<string[]> {
   const rows = await prisma.subclassSpell.findMany({
     where: { ruleset: "RULES_2024" },
-    select: { classLevel: true, spell: { select: { engName: true } }, subclass: { select: { name: true } } },
+    select: { classLevel: true, spell: { select: { engName: true } }, subclass: { select: { name: true, class: { select: { name: true } } } } },
   });
 
-  return rows.map((row) => `${row.subclass.name}|${row.spell.engName.toLowerCase()}|${row.classLevel}`).sort();
+  return rows
+    .filter((row) => !isLegacySubclass2024(row.subclass.class.name, row.subclass.name))
+    .map((row) => `${row.subclass.name}|${row.spell.engName.toLowerCase()}|${row.classLevel}`).sort();
 }
 
 describe("KR31.5 — підкласові заклинання 2024 у базі", () => {

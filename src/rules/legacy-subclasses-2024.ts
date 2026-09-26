@@ -5,7 +5,9 @@ export type LegacySubclass2024 = {
   class2024: string;
   subclass: string;
   source: string;
-  expandedSpellsFeature2014: string;
+  shortName5etools: string;
+  expandedSpellsFeature2014?: string;
+  featuresRemovedIn2024?: string[];
 };
 
 export const LEGACY_SUBCLASSES_2024: readonly LegacySubclass2024[] = registry.subclasses;

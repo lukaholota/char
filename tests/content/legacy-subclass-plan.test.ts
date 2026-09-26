@@ -84,9 +84,7 @@ describe("O43 — план легасі-підкласу", () => {
 describe("O43 — заміна риси розширеного списку (KR43.5)", () => {
   it("риса 2014 зі списком 2014 виходить, риса 2024 приходить на рівні підкласу", () => {
     const plan = planLegacySubclass(genie2014, "WARLOCK_2024", SUBCLASS_LEVEL_2024, {
-      replaces: "Expanded Spell List (The Genie)",
-      featureId: 900,
-      engName: "The Genie: Expanded Spell List (legacy 2024)",
+      expandedSpells: { replaces: "Expanded Spell List (The Genie)", featureId: 900, engName: "The Genie: Expanded Spell List (legacy 2024)" },
     });
 
     expect(plan.features.map((feature) => [feature.featureId, feature.levelGranted])).toEqual([
@@ -100,8 +98,49 @@ describe("O43 — заміна риси розширеного списку (KR4
 
   it("риси, яку треба замінити, у підкласу 2014 немає — план падає, а не мовчить", () => {
     expect(() =>
-      planLegacySubclass(genie2014, "WARLOCK_2024", SUBCLASS_LEVEL_2024, { replaces: "Genie Expanded Spells", featureId: 900, engName: "x" }),
+      planLegacySubclass(genie2014, "WARLOCK_2024", SUBCLASS_LEVEL_2024, { expandedSpells: { replaces: "Genie Expanded Spells", featureId: 900, engName: "x" } }),
     ).toThrow("нема чого замінювати");
+  });
+});
+
+describe("O43 — домен жерця під класом 2024 (KR43.8)", () => {
+  const death2014: LegacySubclassSource = {
+    ...genie2014,
+    subclass: "DEATH_DOMAIN",
+    features: [
+      { featureId: 401, engName: "Reaper", levelGranted: 1, grantsSpellSlots: false },
+      { featureId: 402, engName: "Channel Divinity: Touch of Death", levelGranted: 2, grantsSpellSlots: false },
+      { featureId: 403, engName: "Divine Strike (Death)", levelGranted: 8, grantsSpellSlots: false },
+      { featureId: 404, engName: "Improved Reaper", levelGranted: 17, grantsSpellSlots: false },
+    ],
+    choiceOptions: [],
+    spells: [
+      { spellId: 501, classLevel: 1 },
+      { spellId: 502, classLevel: 5 },
+    ],
+  };
+
+  it("риса 8-го рівня, якої немає в XPHB-копії, не привʼязується; 1-й і 2-й рівні приходять на 3-му", () => {
+    const plan = planLegacySubclass(death2014, "CLERIC_2024", SUBCLASS_LEVEL_2024, { removedFeatures: ["Divine Strike (Death)"] });
+
+    expect(plan.features.map((feature) => [feature.engName, feature.levelGranted])).toEqual([
+      ["Reaper", 3],
+      ["Channel Divinity: Touch of Death", 3],
+      ["Improved Reaper", 17],
+    ]);
+  });
+
+  it("заклинання домену 1-го рівня класу приходять на 3-му, решта — на своїх", () => {
+    const plan = planLegacySubclass(death2014, "CLERIC_2024", SUBCLASS_LEVEL_2024);
+
+    expect(plan.spells).toEqual([
+      { spellId: 501, classLevel: 3 },
+      { spellId: 502, classLevel: 5 },
+    ]);
+  });
+
+  it("риси, яку треба прибрати, у підкласу 2014 немає — план падає, а не мовчить", () => {
+    expect(() => planLegacySubclass(death2014, "CLERIC_2024", SUBCLASS_LEVEL_2024, { removedFeatures: ["Divine Strike"] })).toThrow("нема чого прибирати");
   });
 });
 

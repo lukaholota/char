@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { sourceTranslations } from "@/lib/refs/translation";
 import { LEGACY_SUBCLASSES_2024, findSpellEngName2024 } from "@/rules/legacy-subclasses-2024";
+import { findLegacySubclassSpells } from "@/rules/legacy-subclass-spells-2024";
 import registry from "../../data/2024/legacy-subclasses.json";
 import warlockSpellLists from "../../data/2014/warlock-expanded-spell-lists.json";
 import subclasses2024 from "../../data/2024/normalized/subclasses.json";
@@ -59,10 +60,26 @@ describe("O43 — реєстр легасі-підкласів 2024", () => {
     expect([...new Set(without2024Row)]).toEqual([]);
   });
 
-  it("риса розширеного списку 2014, яку заміняє легасі-рядок, є в сіді рис 2014", () => {
+  it("риса розширеного списку 2014, яку заміняє легасі-рядок, є в сіді рис 2014 — і лише в покровителів", () => {
     const featureEngNames = new Set(readSubclassFeatureSeedInputs().map((input) => input.engName));
+    const withList = LEGACY_SUBCLASSES_2024.filter((entry) => entry.expandedSpellsFeature2014);
 
-    expect(LEGACY_SUBCLASSES_2024.filter((entry) => !featureEngNames.has(entry.expandedSpellsFeature2014)).map((entry) => entry.subclass)).toEqual([]);
+    expect(withList.filter((entry) => !featureEngNames.has(entry.expandedSpellsFeature2014 ?? "")).map((entry) => entry.subclass)).toEqual([]);
+    expect(withList.filter((entry) => entry.class2014 !== "WARLOCK_2014").map((entry) => entry.subclass)).toEqual([]);
+  });
+
+  it("риса, яку легасі-рядок прибирає, є в сіді рис 2014", () => {
+    const featureEngNames = new Set(readSubclassFeatureSeedInputs().map((input) => input.engName));
+    const missing = LEGACY_SUBCLASSES_2024.flatMap((entry) => (entry.featuresRemovedIn2024 ?? []).filter((engName) => !featureEngNames.has(engName)));
+
+    expect(missing).toEqual([]);
+  });
+
+  it("кожне заклинання, яке легасі-підклас дає без вибору, має рядок 2024", () => {
+    const spellNames2024 = spells2024.map((spell) => spell.engName);
+    const granting = LEGACY_SUBCLASSES_2024.filter((entry) => findLegacySubclassSpells(entry, spellNames2024).length > 0);
+
+    expect(granting.length).toBeGreaterThanOrEqual(18);
   });
 
   it("перейменування реєстру — ті самі, що в spells.json 2024, і лише потрібні спискам", () => {

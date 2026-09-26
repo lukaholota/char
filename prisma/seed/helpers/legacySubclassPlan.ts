@@ -60,16 +60,20 @@ export type LegacySubclassDiff = {
   spells: LinkDiff<LegacySpellLink>;
 };
 
+/** Чим легасі-рядок відрізняється від копії 2014, крім рівнів: своя риса розширеного списку й риси, яких немає в XPHB-копії 5etools. */
+export type LegacyAdjustments = { expandedSpells?: ExpandedSpellsReplacement | null; removedFeatures?: readonly string[] };
+
 export function planLegacySubclass(
   source: LegacySubclassSource,
   class2024: string,
   subclassLevel2024: number,
-  expandedSpells: ExpandedSpellsReplacement | null = null,
+  adjustments: LegacyAdjustments = {},
 ): LegacySubclassPlan {
+  const kept = removeFeatures(source.features, adjustments.removedFeatures ?? []);
   return {
     class2024,
     row: buildLegacyRow(source),
-    features: replaceExpandedSpellsFeature(buildLegacyFeatures(source.features, subclassLevel2024), expandedSpells, subclassLevel2024),
+    features: replaceExpandedSpellsFeature(buildLegacyFeatures(kept, subclassLevel2024), adjustments.expandedSpells ?? null, subclassLevel2024),
     choiceOptions: source.choiceOptions.map((option) => ({
       choiceOptionId: option.choiceOptionId,
       levelsGranted: shiftLegacyLevels(option.levelsGranted, subclassLevel2024),
@@ -118,6 +122,12 @@ function buildLegacyFeatures(features: LegacySubclassSource["features"], subclas
     levelGranted: shiftLegacyLevel(feature.levelGranted, subclassLevel2024),
     grantsSpellSlots: feature.grantsSpellSlots,
   }));
+}
+
+function removeFeatures(features: LegacySubclassSource["features"], removed: readonly string[]): LegacySubclassSource["features"] {
+  const missing = removed.filter((engName) => !features.some((feature) => feature.engName === engName));
+  if (missing.length) throw new Error(`${missing.join(", ")}: такої риси в підкласу 2014 немає — нема чого прибирати`);
+  return features.filter((feature) => !removed.includes(feature.engName));
 }
 
 function replaceExpandedSpellsFeature(

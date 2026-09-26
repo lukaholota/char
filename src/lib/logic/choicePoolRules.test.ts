@@ -56,3 +56,10 @@ describe("KR18.8 — прогресія відомих потойбічних в
     expect(cumulativeInvocationsKnown("WARLOCK_2024", 20)).toBe(10);
   });
 });
+
+it("O43 / KR43.8 — руни Рунного лицаря під воїном 2024 — ті самі 2 на 3-му й по одній на 7, 10, 15", () => {
+  const rule = getChoicePoolRule({ scope: "subclass", groupName: CHOICE_GROUPS.RUNE_KNIGHT_RUNES, className: "FIGHTER_2024", subclassName: "RUNE_KNIGHT" });
+  expect(rule).toBeDefined();
+  expect(Array.from({ length: 20 }, (_, index) => rule!.picksAtLevel(index + 1)))
+    .toEqual([0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]);
+});
