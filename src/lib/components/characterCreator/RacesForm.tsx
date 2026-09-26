@@ -140,7 +140,6 @@ export const RacesForm = (
   );
 
   const hasNoResults = !coreRaces.length && !otherRaces.length;
-  const forceOpenOther = Boolean(normalizedRaceSearch);
 
   const handleRaceSelect = (r: RaceI) => {
     if (r.raceId !== chosenRaceId) {
@@ -225,7 +224,7 @@ export const RacesForm = (
         </div>
 
         {!is2024 && otherRaces.length > 0 && (
-          <details className="glass-panel border-gradient-rpg rounded-xl" open={forceOpenOther || undefined}>
+          <details className="glass-panel border-gradient-rpg rounded-xl" open>
             <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white hover:bg-white/5 [&::-webkit-details-marker]:hidden">
               Інші джерела
             </summary>
