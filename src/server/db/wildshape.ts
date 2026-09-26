@@ -1,7 +1,8 @@
 import { type Prisma, type Ruleset } from "@prisma/client";
-import { type CreatureData, buildCreatureKey, findCreatureByKey } from "@/lib/bestiaryData";
+import type { CreatureData } from "@/lib/bestiaryData";
 import { prisma } from "@/lib/prisma";
 import { findMainClassLevel } from "@/rules/hit-dice";
+import { buildRefId, buildWildshapeCreatureKey, findWildshapeCreature, findWildshapeCreatures } from "@/server/db/wildshape-creatures";
 import {
   type WildshapeContext,
   type WildshapeEligibility,
@@ -42,18 +43,19 @@ export async function findAttachedForms(persId: number): Promise<AttachedForm[]>
     }),
     findWildshapeStanding(persId),
   ]);
+  const creatures = await findWildshapeCreatures(rows.map((row) => ({ key: row.creatureKey, ruleset: row.ruleset })));
 
-  return rows.map((row) => resolveForm(row, standing));
+  return rows.map((row) => resolveForm(row, creatures.get(buildRefId({ key: row.creatureKey, ruleset: row.ruleset })) ?? null, standing));
 }
 
 export async function attachForm(input: {
   persId: number;
-  creature: Pick<CreatureData, "nameEng">;
+  creature: Pick<CreatureData, "creatureId" | "nameEng">;
   ruleset: Ruleset;
   sortOrder?: number;
   notes?: string;
 }): Promise<AttachedForm> {
-  const key = buildCreatureKey(input.creature);
+  const key = buildWildshapeCreatureKey(input.creature);
   const where = { persId_creatureKey_ruleset: { persId: input.persId, creatureKey: key, ruleset: input.ruleset } };
 
   const row = await prisma.persWildshape.upsert({
@@ -68,8 +70,11 @@ export async function attachForm(input: {
     },
   });
 
-  const standing = await findWildshapeStanding(input.persId);
-  return resolveForm(row, standing);
+  const [standing, creature] = await Promise.all([
+    findWildshapeStanding(input.persId),
+    findWildshapeCreature({ key: row.creatureKey, ruleset: row.ruleset }),
+  ]);
+  return resolveForm(row, creature, standing);
 }
 
 export async function detachForm(wildshapeId: number): Promise<void> {
@@ -175,7 +180,7 @@ export async function findActiveForm(persId: number): Promise<ActiveBeastForm | 
   });
   if (!row) return null;
 
-  const creature = findCreatureByKey(row.creatureKey, row.ruleset);
+  const creature = await findWildshapeCreature({ key: row.creatureKey, ruleset: row.ruleset });
   const beastMaxHp = creature ? parseCreatureHitPoints(creature.hp) ?? 0 : 0;
 
   return {
@@ -234,9 +239,7 @@ type WildshapeRow = {
   notes: string;
 };
 
-function resolveForm(row: WildshapeRow, context: WildshapeContext): AttachedForm {
-  const creature = findCreatureByKey(row.creatureKey, row.ruleset);
-
+function resolveForm(row: WildshapeRow, creature: CreatureData | null, context: WildshapeContext): AttachedForm {
   return {
     wildshapeId: row.persWildshapeId,
     key: row.creatureKey,

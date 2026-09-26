@@ -1,5 +1,7 @@
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { PDFDocument } from "pdf-lib";
+import { getAllCreatures } from "@/lib/bestiaryData";
+import { buildHomebrewCreatureKey } from "@/lib/logic/homebrew-catalog";
 import { prisma } from "@/lib/prisma";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { signInAs } from "../helpers/signed-in-users";
@@ -26,6 +28,15 @@ import {
 import { generateCreaturesPdfBytes } from "@/server/pdf/creaturesPdf";
 
 vi.setConfig({ testTimeout: 60_000 });
+
+async function createHomebrewWolf(authorUserId: number, name: string) {
+  const wolf = getAllCreatures("RULES_2014").find((creature) => creature.nameEng === "Wolf")!;
+  const entry = await prisma.homebrewEntry.create({ data: { kind: "CREATURE", authorUserId, ruleset: "RULES_2014", name } });
+  await prisma.homebrewCreature.create({
+    data: { homebrewEntryId: entry.homebrewEntryId, engName: wolf.nameEng, size: wolf.size, type: wolf.type, challenge: wolf.challenge, statBlock: { ...wolf, name } },
+  });
+  return entry;
+}
 
 async function buildOnePagePdf(): Promise<Uint8Array> {
   const document = await PDFDocument.create();
@@ -158,6 +169,21 @@ describe("друк Диких форм", () => {
 
     const printedNames = vi.mocked(generateCreaturesPdfBytes).mock.calls.map(([creatures]) => creatures.map((c) => c.nameEng));
     expect(printedNames).toEqual([["Wolf"], ["Wolf"]]);
+  });
+
+  it("хоумбрю-форма друкується своїм статблоком зі свого листа і за посиланням", async () => {
+    const owner = await signInAs("print-druid-homebrew");
+    const druid = await createPers2014(owner.id, "DRUID_2014", "Друїд");
+    const beast = await createHomebrewWolf(owner.id, "Тіньовий вовк");
+    const creatureKey = buildHomebrewCreatureKey(beast.homebrewEntryId);
+    expect(await attachWildshapeForm({ persId: druid.persId, creatureKey, ruleset: "RULES_2014" })).toMatchObject({ ok: true });
+    const links = requireLinks(await ensurePersShareLinks(druid.persId));
+
+    await generateCharacterPdfAction(druid.persId, { sections: ["WILDSHAPES"] });
+    await generateCharacterPdfByTokenAction(links.viewToken, { sections: ["WILDSHAPES"] });
+
+    const printed = vi.mocked(generateCreaturesPdfBytes).mock.calls.map(([creatures]) => creatures.map((c) => [c.name, c.source]));
+    expect(printed).toEqual([[["Тіньовий вовк", "HOMEBREW"]], [["Тіньовий вовк", "HOMEBREW"]]]);
   });
 
   it("недруїд не може прикріпити форму, тож пункту друку в нього немає", async () => {

@@ -4,7 +4,6 @@ import { revalidatePath } from "next/cache";
 import type { Ruleset } from "@prisma/client";
 import { canEditPers } from "@/lib/actions/pers";
 import { auth } from "@/lib/auth";
-import { findCreatureByKey } from "@/lib/bestiaryData";
 import { prisma } from "@/lib/prisma";
 import {
   applyDamageInBeastForm,
@@ -34,6 +33,7 @@ import {
   setBeastHitPoints,
 } from "@/server/db/wildshape";
 import { type WildshapeUses, findWildshapeUses, spendWildshapeUse } from "@/server/db/wildshape-uses";
+import { findWildshapeCreature } from "@/server/db/wildshape-creatures";
 
 type Failure = { ok: false; error: string };
 
@@ -130,7 +130,7 @@ export async function attachWildshapeForm(input: {
   const access = await assertCanEditPers(input.persId);
   if (!access.ok) return access;
 
-  const creature = findCreatureByKey(input.creatureKey, input.ruleset);
+  const creature = await findWildshapeCreature({ key: input.creatureKey, ruleset: input.ruleset });
   if (!creature) return { ok: false, error: "Такої істоти немає в каталозі" };
 
   const standing = await findWildshapeStanding(input.persId);

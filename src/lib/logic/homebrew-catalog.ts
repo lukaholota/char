@@ -16,6 +16,11 @@ export function buildHomebrewCreatureKey(entryId: number): string {
   return `homebrew-${entryId}`;
 }
 
+export function findHomebrewCreatureEntryId(key: string): number | null {
+  const match = /^homebrew-(\d+)$/.exec(key);
+  return match ? Number(match[1]) : null;
+}
+
 export function buildHomebrewCatalogHref({ kind, is2024, sort = "TOP", entryId }: CatalogAddress): string {
   const params = new URLSearchParams({ kind });
   if (sort === "NEW") params.set("hbsort", "new");
