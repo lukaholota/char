@@ -13,6 +13,7 @@ import { type Prisma, type PrismaClient, SpellOrigin } from "@prisma/client";
 
 import { findEarnedAlwaysPreparedSpells, type AlwaysPreparedSpellSource } from "@/rules/always-prepared-spells";
 import { buildSubclassOptionSpellSources, type ChosenSubclassOption } from "@/rules/subclass-option-spells-2024";
+import { listSubclassOptionSpells2014 } from "@/rules/subclass-option-spells-2014";
 import type { GrantedSpell } from "@/rules/spell-sources";
 import type { AbilityKey } from "@/rules/types";
 import { translateSubclassName } from "@/lib/refs/subclass-name";
@@ -154,32 +155,83 @@ export type SubclassSpellGrants = { created: GrantedSpell[]; adopted: GrantedSpe
  * кроком класу), підклас забирає собі — рядок стає «від підкласу, поза лімітом», і місце в
  * підготовці чи відомих звільняється. Рядок іншого правила (риса, вид) лишається своїм.
  */
+type SubclassGrantInput = { persId: number; subclasses: readonly SubclassAtClassLevel[]; choiceOptionIds?: readonly number[] };
+
 export async function saveSubclassSpellGrants(
   client: DatabaseClient,
-  input: { persId: number; subclasses: readonly SubclassAtClassLevel[]; learnedAtLevel: number },
+  input: SubclassGrantInput & { learnedAtLevel: number },
 ): Promise<SubclassSpellGrants> {
   const grants = await findSubclassSpellGrants(client, input);
   await writeSubclassSpellGrants(client, { persId: input.persId, grants, learnedAtLevel: input.learnedAtLevel });
   return grants;
 }
 
-export async function findSubclassSpellGrants(
-  client: DatabaseClient,
-  input: { persId: number; subclasses: readonly SubclassAtClassLevel[] },
-): Promise<SubclassSpellGrants> {
-  const owned = await client.persSpell.findMany({
-    where: { persId: input.persId },
-    select: { spellId: true, origin: true, excludeFromPreparedCount: true },
-  });
-  const ownChoiceIds = new Set(owned.filter((row) => !isRuleGrantedRow(row)).map((row) => row.spellId));
-
-  const granted = await findMissingSubclassSpells(client, {
+export async function findSubclassSpellGrants(client: DatabaseClient, input: SubclassGrantInput): Promise<SubclassSpellGrants> {
+  const owned = await loadOwnedSpellRows(client, input.persId);
+  const ruleGrantedIds = owned.filter(isRuleGrantedRow).map((row) => row.spellId);
+  const fromSubclass = await findMissingSubclassSpells(client, { subclasses: input.subclasses, ownedSpellIds: ruleGrantedIds });
+  const fromOptions = await findMissingSubclassOptionSpells2014(client, {
+    choiceOptionIds: input.choiceOptionIds ?? [],
     subclasses: input.subclasses,
-    ownedSpellIds: owned.filter(isRuleGrantedRow).map((row) => row.spellId),
+    ownedSpellIds: [...ruleGrantedIds, ...fromSubclass.map((spell) => spell.spellId)],
   });
+  return splitGrantsByOwnership([...fromSubclass, ...fromOptions], owned);
+}
+
+/** Біом Кола землі 2014: опція несе таблицю «рівень друїда → заклинання» з файлу, а не звʼязок у базі. */
+async function findMissingSubclassOptionSpells2014(
+  client: DatabaseClient,
+  input: { choiceOptionIds: readonly number[]; subclasses: readonly SubclassAtClassLevel[]; ownedSpellIds: readonly number[] },
+): Promise<GrantedSpell[]> {
+  const fileOptions = listSubclassOptionSpells2014();
+  if (!input.choiceOptionIds.length || !input.subclasses.length) return [];
+
+  const chosen = await client.choiceOption.findMany({
+    where: { choiceOptionId: { in: [...input.choiceOptionIds] }, optionNameEng: { in: fileOptions.map((option) => option.optionNameEng) } },
+    select: { optionNameEng: true, optionName: true },
+  });
+  if (!chosen.length) return [];
+
+  const [subclassRows, spellRows] = await Promise.all([
+    client.subclass.findMany({ where: { subclassId: { in: input.subclasses.map((subclass) => subclass.subclassId) } }, select: { subclassId: true, name: true } }),
+    client.spell.findMany({ where: { ruleset: "RULES_2014", engName: { in: fileOptions.flatMap((option) => option.spells.map((spell) => spell.engName)) } }, select: { spellId: true, engName: true } }),
+  ]);
+  const subclassNameById = new Map(subclassRows.map((row) => [row.subclassId, String(row.name)]));
+  const spellIdByName = new Map(spellRows.map((row) => [row.engName, row.spellId]));
+
+  const sources = chosen.flatMap((option): AlwaysPreparedSpellSource[] => {
+    const entry = fileOptions.find((candidate) => candidate.optionNameEng === option.optionNameEng);
+    const subclass = input.subclasses.find((candidate) => subclassNameById.get(candidate.subclassId) === entry?.subclass);
+    if (!entry || !subclass) return [];
+
+    return [{
+      sourceKey: option.optionNameEng,
+      sourceName: option.optionName,
+      classLevel: subclass.classLevel,
+      ability: subclass.ability,
+      spells: entry.spells.flatMap((spell) => {
+        const spellId = spellIdByName.get(spell.engName);
+        return spellId ? [{ spellId, classLevel: spell.classLevel }] : [];
+      }),
+    }];
+  });
+  return findEarnedAlwaysPreparedSpells(sources, input.ownedSpellIds);
+}
+
+export type OwnedSpellRow = { spellId: number; origin: SpellOrigin; excludeFromPreparedCount: boolean };
+
+export async function loadOwnedSpellRows(client: DatabaseClient, persId: number): Promise<OwnedSpellRow[]> {
+  return client.persSpell.findMany({ where: { persId }, select: { spellId: true, origin: true, excludeFromPreparedCount: true } });
+}
+
+/** Р53: заклинання, яке вже дало інше правило, лишається його; тримане гравцем — переходить до нового правила. */
+export function splitGrantsByOwnership(granted: readonly GrantedSpell[], owned: readonly OwnedSpellRow[]): SubclassSpellGrants {
+  const ruleGrantedIds = new Set(owned.filter(isRuleGrantedRow).map((row) => row.spellId));
+  const ownChoiceIds = new Set(owned.filter((row) => !isRuleGrantedRow(row)).map((row) => row.spellId));
+  const earned = granted.filter((spell) => !ruleGrantedIds.has(spell.spellId));
   return {
-    created: granted.filter((spell) => !ownChoiceIds.has(spell.spellId)),
-    adopted: granted.filter((spell) => ownChoiceIds.has(spell.spellId)),
+    created: earned.filter((spell) => !ownChoiceIds.has(spell.spellId)),
+    adopted: earned.filter((spell) => ownChoiceIds.has(spell.spellId)),
   };
 }
 
@@ -199,7 +251,7 @@ export async function writeSubclassSpellGrants(
   }
 }
 
-function isRuleGrantedRow(row: { origin: SpellOrigin; excludeFromPreparedCount: boolean }): boolean {
+function isRuleGrantedRow(row: OwnedSpellRow): boolean {
   return row.origin !== SpellOrigin.MANUAL && row.excludeFromPreparedCount;
 }
 

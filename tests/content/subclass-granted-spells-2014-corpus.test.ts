@@ -8,7 +8,7 @@ import { collectSubclassGrantedSpells, readSubclassGrantedSpellsFile } from "../
 
 describe("файл заклинань підкласів 2014 виводиться з корпусу", () => {
   it("закомічений файл дорівнює перебудованому з пінованої ревізії", () => {
-    const { subclasses, uncovered } = readSubclassGrantedSpellsFile();
-    expect({ subclasses, uncovered }).toEqual(collectSubclassGrantedSpells());
+    const { subclasses, options, uncovered } = readSubclassGrantedSpellsFile();
+    expect({ subclasses, options, uncovered }).toEqual(collectSubclassGrantedSpells());
   });
 });

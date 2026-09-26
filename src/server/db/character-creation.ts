@@ -30,6 +30,7 @@ import { findGrantedSpells } from "@/rules/spell-sources";
 import { characterLevelOnly } from "@/rules/character-level";
 import { buildSpeciesPersSpellRows } from "@/server/db/species-level-grants";
 import { buildClassPersSpellRows, findMissingClassSpells, saveSubclassSpellGrants } from "@/server/db/always-prepared-spell-grants";
+import { saveRaceSpellGrants2014 } from "@/server/db/race-spell-grants-2014";
 import { findClassSpellProblem, saveClassSpellSelection, type ClassSpellOffer } from "@/server/db/class-spell-choices";
 import { buildClassOptionPersSpellRows, findClassOptionSpellProblem } from "@/server/db/class-option-spell-choices";
 import type { ClassSpellSelection } from "@/rules/class-spell-choices-2024";
@@ -1037,6 +1038,9 @@ async function persistCharacter(
           data: buildClassOptionPersSpellRows({ persId: createdPers.persId, ...chosenSpells.classOptionSpells, learnedAtLevel: 1 }),
           skipDuplicates: true,
         });
+      }
+      if (ruleset === "RULES_2014") {
+        await saveRaceSpellGrants2014(tx, { persId: createdPers.persId, race: race.name, subrace: subrace?.name ?? null, characterLevel: 1, learnedAtLevel: 1 });
       }
 
       // Save skills AFTER Pers exists (createMany + skipDuplicates)

@@ -137,3 +137,43 @@ describe("O48 — ремонт персонажа, який уже стоїть 
     expect(again).toEqual({ created: [], adopted: [] });
   });
 });
+
+describe("O48 — Коло землі 2014 кладе заклинання обраного біому", () => {
+  async function createLandDruid(level: number) {
+    const { persId, classId } = await createCharacter2014(Classes.DRUID_2014, Subclasses.CIRCLE_OF_THE_LAND);
+    const arctic = await prisma.choiceOption.findUniqueOrThrow({ where: { optionNameEng: "Circle Spells — Arctic" }, select: { choiceOptionId: true, optionName: true } });
+    await prisma.persSpell.deleteMany({ where: { persId } });
+    await prisma.pers.update({ where: { persId }, data: { level, choiceOptions: { connect: { choiceOptionId: arctic.choiceOptionId } } } });
+    const subclassId = (await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { subclassId: true } })).subclassId!;
+    return { persId, classId, subclassId, arctic };
+  }
+
+  it("ремонт друїда 5-го рівня з Арктикою: Hold Person, Spike Growth, Sleet Storm і Slow — під назвою біому", async () => {
+    await signIn("o48-land-repair");
+    const { persId, subclassId, arctic } = await createLandDruid(5);
+
+    const grants = await findSubclassSpellGrants(prisma, { persId, subclasses: [{ subclassId, classLevel: 5, ability: "WIS" }], choiceOptionIds: [arctic.choiceOptionId] });
+    await prisma.$transaction((tx) => writeSubclassSpellGrants(tx, { persId, grants, learnedAtLevel: 5 }));
+
+    const rows = await readGrantedRows(persId, arctic.optionName.slice(0, 24));
+    expect(names(rows)).toEqual(["Hold Person", "Sleet Storm", "Slow", "Spike Growth"]);
+    expect(rows.every((row) => row.excludeFromPreparedCount && row.isPrepared)).toBe(true);
+  });
+
+  it("без обраного біому Коло землі нічого не видає", async () => {
+    await signIn("o48-land-none");
+    const { persId, subclassId } = await createLandDruid(5);
+    expect(await findSubclassSpellGrants(prisma, { persId, subclasses: [{ subclassId, classLevel: 5, ability: "WIS" }], choiceOptionIds: [] })).toEqual({ created: [], adopted: [] });
+  });
+
+  it("підвищення 4 → 5 дає друїду з Арктикою рядок 5-го рівня разом із пропущеним 3-го", async () => {
+    await signIn("o48-land-levelup");
+    const { persId, classId, arctic } = await createLandDruid(4);
+
+    const result = await levelUpCharacter(persId, await withLevelUpSpells(persId, minimalLevelUpForm({ classId })));
+    expect(result).not.toHaveProperty("error");
+
+    const rows = await readGrantedRows(persId, arctic.optionName.slice(0, 24));
+    expect(names(rows)).toEqual(["Hold Person", "Sleet Storm", "Slow", "Spike Growth"]);
+  });
+});

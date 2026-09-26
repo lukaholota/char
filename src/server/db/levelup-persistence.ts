@@ -42,6 +42,7 @@ import {
   type ClassAtLevel,
 } from "@/server/db/always-prepared-spell-grants";
 import { buildFeatPersSpellRows, findMissingFeatSpells } from "@/server/db/feat-spell-grants";
+import { saveRaceSpellGrants2014 } from "@/server/db/race-spell-grants-2014";
 import {
   buildChosenFeatSpells,
   findFeatSpellChoiceProblem,
@@ -1498,6 +1499,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         subclasses: classesAtLevel.flatMap((row) =>
           row.subclassId ? [{ subclassId: row.subclassId, classLevel: row.classLevel, ability: row.ability }] : [],
         ),
+        choiceOptionIds: [...choiceOptionIdsAfter],
         learnedAtLevel: nextLevel,
       });
       const subclassSpells = [...subclassGrants.created, ...subclassGrants.adopted];
@@ -1526,6 +1528,11 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
           data: buildClassOptionPersSpellRows({ persId, sourceName: classOptionSpellSource, spellIds: classOptionSpellIds, learnedAtLevel: nextLevel }),
           skipDuplicates: true,
         });
+      }
+
+      // Раса 2014 (O48) — після вибору класу: збіг із щойно обраним стає рядком раси за Р53, а не губиться.
+      if (pers.ruleset === "RULES_2014") {
+        await saveRaceSpellGrants2014(tx, { persId, race: pers.race.name, subrace: pers.subrace?.name ?? null, characterLevel: nextLevel, learnedAtLevel: nextLevel });
       }
 
       // Риса, що називає заклинання поіменно (Доторк феї → Туманний крок), — після класу й

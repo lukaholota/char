@@ -19,7 +19,24 @@ export type SubclassGrantedSpells = { subclass: string; className: string; subcl
 
 export type UncoveredGrant = { subclass: string; reason: string };
 
-export type SubclassGrantedSpellsFile = { subclasses: SubclassGrantedSpells[]; uncovered: UncoveredGrant[] };
+/// Заклинання, які дає обрана опція підкласу: біом Кола землі. Ключ — `choice_option.option_name_eng`.
+export type SubclassOptionGrantedSpells = { subclass: string; className: string; optionNameEng: string; spells: SubclassGrantedSpell[] };
+
+export type SubclassGrantedSpellsFile = { subclasses: SubclassGrantedSpells[]; options: SubclassOptionGrantedSpells[]; uncovered: UncoveredGrant[] };
+
+/// Варіант корпусу → наша опція підкласу. Варіант без опції в нас (спорідненість Божественної душі) лишається непокритим.
+const OPTION_NAME_BY_VARIANT: Readonly<Record<string, Readonly<Record<string, string>>>> = {
+  CIRCLE_OF_THE_LAND: {
+    Arctic: "Circle Spells — Arctic",
+    Coast: "Circle Spells — Coast",
+    Desert: "Circle Spells — Desert",
+    Forest: "Circle Spells — Forest",
+    Grassland: "Circle Spells — Grassland",
+    Mountain: "Circle Spells — Mountain",
+    Swamp: "Circle Spells — Swamp",
+    Underdark: "Circle Spells — Underdark",
+  },
+};
 
 /// Ключ — «Клас|коротка назва|книга» з корпусу. Підклас поза цим переліком, що має `prepared` чи `known`,
 /// зупиняє генерацію: нова ревізія дзеркала має змусити вирішити, а не мовчки загубитись.
@@ -111,6 +128,7 @@ function buildSubclassGrantedSpells2014(): void {
 
 export function collectSubclassGrantedSpells(catalogNames: Map<string, string> = readCatalogNames()): SubclassGrantedSpellsFile {
   const subclasses: SubclassGrantedSpells[] = [];
+  const options: SubclassOptionGrantedSpells[] = [];
   const uncovered: UncoveredGrant[] = [];
 
   for (const mirrorSubclass of readGrantingSubclasses2014()) {
@@ -119,7 +137,9 @@ export function collectSubclassGrantedSpells(catalogNames: Map<string, string> =
 
     const grants = mirrorSubclass.additionalSpells ?? [];
     if (grants.length > 1) {
-      uncovered.push({ subclass: target.subclass, reason: `вибір варіанта: ${describeVariants(grants)}` });
+      const variants = readVariantGrants(target, grants, catalogNames);
+      options.push(...variants.options);
+      uncovered.push(...variants.uncovered);
       continue;
     }
 
@@ -132,8 +152,28 @@ export function collectSubclassGrantedSpells(catalogNames: Map<string, string> =
 
   return {
     subclasses: subclasses.sort((a, b) => a.subclass.localeCompare(b.subclass)),
+    options: options.sort((a, b) => a.optionNameEng.localeCompare(b.optionNameEng)),
     uncovered: uncovered.sort((a, b) => a.subclass.localeCompare(b.subclass)),
   };
+}
+
+function readVariantGrants(
+  target: { subclass: string; className: string },
+  grants: readonly AdditionalSpells[],
+  catalogNames: Map<string, string>,
+): { options: SubclassOptionGrantedSpells[]; uncovered: UncoveredGrant[] } {
+  const optionNames = OPTION_NAME_BY_VARIANT[target.subclass];
+  if (!optionNames) return { options: [], uncovered: [{ subclass: target.subclass, reason: `вибір варіанта: ${describeVariants(grants)}` }] };
+
+  let hasChoice = false;
+  const options = grants.map((grant) => {
+    const optionNameEng = optionNames[grant.name ?? ""];
+    if (!optionNameEng) throw new Error(`${target.subclass}: варіант «${grant.name}» не зіставлений з опцією`);
+    const read = readGrantSpells(grant, catalogNames, `${target.subclass} ${grant.name}`);
+    hasChoice ||= read.hasChoice;
+    return { ...target, optionNameEng, spells: read.spells };
+  });
+  return { options, uncovered: hasChoice ? [{ subclass: target.subclass, reason: "вибір заклинання гравцем (choose)" }] : [] };
 }
 
 export function readSubclassGrantedSpellsFile(): SubclassGrantedSpellsFile & { revision: string } {

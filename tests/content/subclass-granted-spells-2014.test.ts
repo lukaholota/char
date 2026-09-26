@@ -11,7 +11,7 @@ import { describe, expect, it } from "vitest";
 import { readSubclassGrantedSpellsFile } from "../../scripts/5etools/build-subclass-granted-spells-2014";
 import { subclassTranslations } from "@/lib/refs/translation";
 
-const { subclasses, uncovered } = readSubclassGrantedSpellsFile();
+const { subclasses, options, uncovered } = readSubclassGrantedSpellsFile();
 const catalogNames = new Set((JSON.parse(readFileSync(join(process.cwd(), "data/2014/spells.json"), "utf-8")) as { engName: string }[]).map((row) => row.engName));
 
 function findSpells(subclass: string) {
@@ -78,6 +78,17 @@ describe("O48 — заклинання, які підклас 2014 дає сам
     expect(lunar).toHaveLength(15);
     expect(lunar.filter((spell) => spell.classLevel === 1).map((spell) => spell.engName)).toEqual(["Shield", "Ray of Sickness", "Color Spray"]);
     expect(lunar.every((spell) => spell.mechanic === "known")).toBe(true);
+  });
+
+  it("Коло землі: кожен із восьми біомів дає по два заклинання на 3, 5, 7 і 9-му рівні друїда", () => {
+    expect(options.map((option) => option.optionNameEng)).toHaveLength(8);
+    for (const option of options) {
+      expect(option.spells.map((spell) => spell.classLevel), option.optionNameEng).toEqual([3, 3, 5, 5, 7, 7, 9, 9]);
+    }
+    const arctic = options.find((option) => option.optionNameEng === "Circle Spells — Arctic")!;
+    expect(arctic.spells.map((spell) => spell.engName)).toEqual([
+      "Hold Person", "Spike Growth", "Sleet Storm", "Slow", "Freedom of Movement", "Ice Storm", "Commune with Nature", "Cone of Cold",
+    ]);
   });
 
   it("кожне заклинання є в каталозі 2014, кожен підклас має назву, рівень класу — від 1 до 20", () => {
