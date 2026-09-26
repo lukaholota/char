@@ -80,4 +80,19 @@ describe("O43 — легасі-підкласи в модалці класу", (
 
     expect(screen.queryByRole("region", { name: "Зі старих книг" })).toBeNull();
   });
+
+  it("превʼю опису картки — без сирих маркерів оригіналу й розмітки", () => {
+    render(
+      <SubclassListDialogBody
+        current={[{ subclassId: 1, name: "GREAT_OLD_ONE_PATRON", legacySource: null, description: "з Далекого Царства{{Far Realm}} чи **давнім** богом" }]}
+        legacy={[{ subclassId: 2, name: "THE_FATHOMLESS", legacySource: "TCOE", description: "{{Стихійного плану Води|Elemental Plane of Water}} чи моря" }]}
+        isLoading={false}
+      />,
+    );
+
+    const text = screen.getAllByRole("button").map((button) => button.textContent).join(" ");
+    expect(text).toContain("з Далекого Царства чи давнім богом");
+    expect(text).toContain("Стихійного плану Води чи моря");
+    expect(text).not.toMatch(/\{\{|\}\}|\*\*/);
+  });
 });

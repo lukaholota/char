@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import type { SubclassCard } from "@/lib/logic/legacy-subclass-visibility";
+import { stripToPlainText } from "@/lib/logic/plain-text";
 import { sourceTranslations } from "@/lib/refs/translation";
 
 type ListedSubclass = SubclassCard & { description?: string | null; features?: unknown[] };
@@ -54,7 +55,7 @@ function SubclassButton({ subclass }: { subclass: ListedSubclass }) {
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="truncate text-base font-semibold text-white">{localizedName}</p>
-          {subclass.description ? <p className="mt-1 line-clamp-2 text-sm text-slate-300">{String(subclass.description)}</p> : null}
+          {subclass.description ? <p className="mt-1 line-clamp-2 text-sm text-slate-300">{stripToPlainText(String(subclass.description))}</p> : null}
         </div>
         <div className="flex shrink-0 flex-col items-end gap-1">
           <Badge variant="outline" className="border-white/15 bg-white/5 text-[10px] text-slate-300">
