@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Minus, Plus, Info, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { FeatureDisplayType } from "@prisma/client";
+import { FeatureDisplayType } from "@/lib/prisma-enums";
 import clsx from "clsx";
 import { 
   normalizeFeatureSource, 

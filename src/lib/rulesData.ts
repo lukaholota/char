@@ -1,4 +1,4 @@
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 
 export type RuleCategoryKey =
   | "combat"

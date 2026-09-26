@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Infusion, MagicItem, Feature } from "@prisma/client";
+import type { Infusion, MagicItem, Feature } from "@prisma/client";
 import { ControlledInfoDialog, InfoGrid, InfoPill } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { infusionTargetTranslations } from "@/lib/refs/translation";

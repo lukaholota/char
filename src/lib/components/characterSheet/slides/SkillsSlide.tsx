@@ -3,7 +3,7 @@
 import { useState, useCallback, memo } from "react";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { formatModifier } from "@/lib/logic/utils";
-import { Skills } from "@prisma/client";
+import { Skills } from "@/lib/prisma-enums";
 import { ModifyConfig } from "../ModifyStatModal";
 import ModifyStatModal from "../ModifyStatModal";
 import {

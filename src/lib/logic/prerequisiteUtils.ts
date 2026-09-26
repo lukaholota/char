@@ -1,4 +1,4 @@
-import { Ability, Races, Subraces } from "@prisma/client";
+import { Ability, Races, Subraces } from "@/lib/prisma-enums";
 import { raceTranslations, subraceTranslations } from "@/lib/refs/translation";
 
 const translateRace = (race: Races) => {

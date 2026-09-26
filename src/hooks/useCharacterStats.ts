@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { usePersFormStore } from '@/lib/stores/persFormStore';
-import { Ability, RaceVariant } from '@prisma/client';
+import { Ability } from "@/lib/prisma-enums";
+import type { RaceVariant } from "@prisma/client";
 import { RaceI, FeatPrisma, RaceASI } from '@/lib/types/model-types';
 import { normalizeRaceASI } from '@/lib/components/characterCreator/infoUtils';
 

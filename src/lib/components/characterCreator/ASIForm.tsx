@@ -1,7 +1,7 @@
 "use client";
 
 import { useStepForm } from "@/hooks/useStepForm";
-import { Ability, BackgroundCategory, Classes } from "@prisma/client";
+import { Ability, BackgroundCategory, Classes } from "@/lib/prisma-enums";
 import { asiSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useFieldArray, useWatch } from "react-hook-form";
 import React, { useEffect, useMemo, useRef, useState } from "react";
@@ -16,7 +16,7 @@ import { Minus, Plus, ArrowUp, ArrowDown, Check, AlertCircle } from "lucide-reac
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { RaceVariant } from "@prisma/client";
+import type { RaceVariant } from "@prisma/client";
 import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
 import { BackgroundAsiForm } from "@/lib/components/characterCreator/BackgroundAsiForm";
 import { asiSystemCopy, asiSystems, attributes, attributesUrkShort } from "@/lib/components/characterCreator/asi-fields";

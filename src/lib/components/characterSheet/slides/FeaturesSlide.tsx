@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useMemo, useState } from "react";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
-import { FeatureDisplayType } from "@prisma/client";
+import { FeatureDisplayType } from "@/lib/prisma-enums";
 import { ChevronRight, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";

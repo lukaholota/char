@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import type { BackgroundData } from "@/lib/backgroundsData";
 import { BackgroundDetailCard } from "@/components/backgrounds/BackgroundDetailCard";

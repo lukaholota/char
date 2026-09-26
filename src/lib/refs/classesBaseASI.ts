@@ -1,4 +1,4 @@
-import {Ability, Classes} from "@prisma/client";
+import { Ability, Classes } from "@/lib/prisma-enums";
 
 export const classAbilityScores: Record<Classes, Array<{ability: Ability, value: number}>> = {
   [Classes.ARTIFICER_2014]: [

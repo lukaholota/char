@@ -1,4 +1,4 @@
-import { Ability } from "@prisma/client";
+import { Ability } from "@/lib/prisma-enums";
 
 export const attributes = [
   { eng: Ability.STR, ukr: "Сила" },

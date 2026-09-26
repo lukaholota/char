@@ -20,7 +20,7 @@ import {
   sourceTranslations,
 } from "@/lib/refs/translation";
 import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
-import { RaceVariant } from "@prisma/client";
+import type { RaceVariant } from "@prisma/client";
 import { useCharacterStats } from "@/hooks/useCharacterStats";
 import { useFantasyNameGenerator } from "@/hooks/useFantasyNameGenerator";
 import clsx from "clsx";

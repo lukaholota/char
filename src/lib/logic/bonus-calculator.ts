@@ -3,7 +3,13 @@
  * All functions handle null/undefined JSON fields gracefully
  */
 
-import { Ability, DamageType, Skills, SkillProficiencyType, WeaponProperty } from "@prisma/client";
+import {
+  Ability,
+  DamageType,
+  Skills,
+  SkillProficiencyType,
+  WeaponProperty,
+} from "@/lib/prisma-enums";
 import type { Feature } from "@prisma/client";
 import { PersWithRelations, PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { getAbilityMod, getProficiencyBonus, skillAbilityMap } from "./utils";

@@ -1,4 +1,5 @@
-import { dirname } from "path";
+import { readFileSync, readdirSync } from "fs";
+import { dirname, join, relative } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 
@@ -8,6 +9,15 @@ const __dirname = dirname(__filename);
 const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
+
+function findUseClientFiles(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) return findUseClientFiles(path);
+    if (!/\.tsx?$/.test(entry.name)) return [];
+    return /^\s*["']use client["']/.test(readFileSync(path, "utf8")) ? [relative(__dirname, path)] : [];
+  });
+}
 
 const eslintConfig = [
   {
@@ -28,6 +38,18 @@ const eslintConfig = [
     rules: {
       "no-restricted-imports": ["error", {
         patterns: ["@prisma/client", "@/lib/prisma", "next/*", "@auth/*", "server-only"],
+      }],
+    },
+  },
+  {
+    files: findUseClientFiles(join(__dirname, "src")),
+    rules: {
+      "@typescript-eslint/no-restricted-imports": ["error", {
+        paths: [{
+          name: "@prisma/client",
+          allowTypeImports: true,
+          message: "The browser entry of @prisma/client carries the Prisma runtime (~95 KB). Import enum values from @/lib/prisma-enums; models via `import type` (KR46.2).",
+        }],
       }],
     },
   },

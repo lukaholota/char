@@ -8,7 +8,7 @@
  * кидки статблок скорочує до трьох літер, тож вони й шукаються префіксом назви характеристики.
  */
 
-import { Ability, Skills } from "@prisma/client";
+import { Ability, Skills } from "@/lib/prisma-enums";
 import { abilityTranslations, skillTranslations } from "@/lib/refs/translation";
 
 const SAVE_ABBREVIATION_LENGTH = 3;

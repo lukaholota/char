@@ -24,6 +24,7 @@
     "generate:objects": "tsx scripts/generate-objects.ts",
     "generate:bastions": "tsx scripts/generate-bastions.ts",
     "generate:rule-term-cards": "tsx scripts/generate-rule-term-cards.ts",
+    "generate:prisma-enums": "tsx scripts/generate-prisma-enums.ts",
     "generate:creator-content": "tsx scripts/generate-creator-content.ts --target prod",
     "generate:content": "npm run generate:spells && npm run generate:magic-items && npm run generate:feats && npm run generate:backgrounds && npm run generate:races && npm run generate:classes && npm run generate:wild-magic-surge && npm run generate:armor && npm run generate:weapons && npm run generate:infusions && npm run generate:invocations && npm run generate:metamagic && npm run generate:rules-2024 && npm run generate:rules-2014 && npm run generate:rules-beyond-srd && npm run generate:traps-hazards && npm run generate:objects && npm run generate:bastions && npm run generate:rule-term-cards && npm run generate:creator-content",
     "seed:armor-2024:test": "tsx scripts/seed-armor-2024.ts --target test",
@@ -136,7 +137,7 @@
     "test:golden:update": "UPDATE_GOLDEN=1 vitest run tests/golden",
     "test:e2e": "playwright test",
     "qa:password-hash": "tsx scripts/generate-qa-password-hash.ts",
-    "db:pull": "prisma db pull && prisma format && prisma generate && bun run db:dump",
+    "db:pull": "prisma db pull && prisma format && prisma generate && bun run generate:prisma-enums && bun run db:dump",
     "db:dump": "./scripts/db-dump.sh"
   },
   "prisma": {

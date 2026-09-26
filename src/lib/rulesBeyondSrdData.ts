@@ -1,4 +1,4 @@
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 
 import beyondSrdArticles from "./generated/rules-beyond-srd.json";
 import { RuleArticle } from "./rulesData";

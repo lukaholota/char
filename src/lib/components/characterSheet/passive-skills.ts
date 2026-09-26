@@ -1,4 +1,4 @@
-import { Skills } from "@prisma/client";
+import { Skills } from "@/lib/prisma-enums";
 
 export const PASSIVE_SKILLS: readonly { skill: Skills; label: string }[] = [
   { skill: Skills.PERCEPTION, label: "Пасивна уважність" },

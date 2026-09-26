@@ -1,4 +1,12 @@
-import { Ability, ArmorType, Language, Size, WeaponCategory, WeaponType, Skills } from "@prisma/client";
+import {
+  Ability,
+  ArmorType,
+  Language,
+  Size,
+  WeaponCategory,
+  WeaponType,
+  Skills,
+} from "@/lib/prisma-enums";
 
 import {
   LanguageTranslations,

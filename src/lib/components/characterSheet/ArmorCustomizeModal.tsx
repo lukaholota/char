@@ -9,7 +9,7 @@ import { Switch } from "@/components/ui/switch";
 import { updateArmor, deleteArmor } from "@/lib/actions/equipment-actions";
 import { toast } from "sonner";
 import { PersArmorWithArmor } from "@/lib/actions/pers";
-import { Ability, AbilityBonusType } from "@prisma/client";
+import { Ability, AbilityBonusType } from "@/lib/prisma-enums";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { attributesUkrShort } from "@/lib/refs/translation";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Feat } from "@prisma/client";
+import type { Feat } from "@prisma/client";
 import { InfoDialog, InfoGrid, InfoPill } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { sourceTranslations, featTranslations } from "@/lib/refs/translation";
 import {

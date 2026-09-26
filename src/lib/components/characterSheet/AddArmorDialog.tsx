@@ -10,7 +10,8 @@ import {
   addArmor 
 } from "@/lib/actions/equipment-actions";
 import { armorTranslations, armorTypeTranslations } from "@/lib/refs/translation";
-import { Armor, ArmorType, type Ruleset } from "@prisma/client";
+import { ArmorType, type Ruleset } from "@/lib/prisma-enums";
+import type { Armor } from "@prisma/client";
 import { toast } from "sonner";
 
 interface AddArmorDialogProps {

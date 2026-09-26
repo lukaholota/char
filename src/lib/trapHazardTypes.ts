@@ -1,4 +1,4 @@
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import { RuleProvenance } from "./rulesProvenance";
 
 export type TrapHazardRating = { tier?: number; threat?: string; level?: { min: number; max: number } };

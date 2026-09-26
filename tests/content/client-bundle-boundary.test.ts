@@ -205,3 +205,26 @@ describe("KR20.6 — клієнтські модулі не тягнуть ка�
     expect(oversized, "таблиця виросла до каталогу — прибери з CLIENT_SAFE_TABLES").toEqual([]);
   });
 });
+
+/// `@prisma/client` у браузері — це `index-browser.js` цілим разом із рантаймом Prisma (~95 КБ), і
+/// одного значення enum-а досить, щоб він поїхав у чанк. Так його привозив `refs/translation.ts`
+/// заради `Skills` на кожну сторінку каталогу. Enum-и клієнт бере з `lib/prisma-enums.ts` (KR46.2).
+function hasPrismaValueImport(file: string): boolean {
+  const parsed = readParsed(file);
+  return !parsed.serverAction && parsed.imports.includes("@prisma/client");
+}
+
+describe("KR46.2 — клієнтські модулі не тягнуть рушій Prisma", () => {
+  it("жоден не дістає імпорту значення з @prisma/client", () => {
+    const chains = new Set<string>();
+
+    for (const clientModule of findClientModules(SRC)) {
+      const reachedVia = collectReachableFiles(clientModule);
+      for (const file of reachedVia.keys()) {
+        if (!file.endsWith(".json") && hasPrismaValueImport(file)) chains.add(describeImportChain(reachedVia, file));
+      }
+    }
+
+    expect([...chains].sort()).toEqual([]);
+  });
+});

@@ -1,5 +1,5 @@
 // У seed.ts або окремому файлі
-import { Classes } from "@prisma/client"
+import { Classes } from "@/lib/prisma-enums";
 
 export const SPELL_SLOT_PROGRESSION = {
     // Full casters (Wizard, Sorcerer, Cleric, Druid, Bard)

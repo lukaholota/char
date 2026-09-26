@@ -1,4 +1,4 @@
-import { Classes } from "@prisma/client";
+import { Classes } from "@/lib/prisma-enums";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { classTranslations } from "@/lib/refs/translation";
 import { buildHitDicePools, findMainClassLevel, type HitDicePool, type StoredHitDice } from "@/rules/hit-dice";

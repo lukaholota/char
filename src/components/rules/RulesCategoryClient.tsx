@@ -3,7 +3,7 @@
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useState, useMemo } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import {
   RuleCategory,
   RuleArticle,

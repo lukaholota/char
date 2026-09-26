@@ -4,7 +4,7 @@
  * Reads from generated 2014 JSON file or normalized 2024 JSON.
  */
 
-import { Ruleset, WeaponType, DamageType, WeaponProperty, WeaponMastery } from "@prisma/client";
+import { Ruleset, WeaponType, DamageType, WeaponProperty, WeaponMastery } from "@/lib/prisma-enums";
 import weapons2014Json from "./generated/weapons.json";
 import weapons2024Json from "../../data/2024/normalized/weapons.json";
 import { weaponTranslations } from "./refs/translation";

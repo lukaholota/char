@@ -2,7 +2,7 @@
 
 import { useStepForm } from "@/hooks/useStepForm";
 import { backgroundFeatSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Feat } from "@prisma/client";
+import type { Feat } from "@prisma/client";
 import { useEffect, useMemo, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { FeatPicker } from "@/lib/components/characterCreator/FeatPicker";
@@ -10,7 +10,8 @@ import { featTranslations } from "@/lib/refs/translation";
 
 import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
 import { RaceI, RaceASI, PersPrisma } from "@/lib/types/model-types";
-import { Subrace, RaceVariant, Ability, Races, Subraces } from "@prisma/client";
+import { Ability, Races, Subraces } from "@/lib/prisma-enums";
+import type { Subrace, RaceVariant } from "@prisma/client";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 import { checkFeatPrerequisites } from "@/lib/logic/prerequisiteUtils";
 

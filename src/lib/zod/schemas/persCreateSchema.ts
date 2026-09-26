@@ -1,5 +1,5 @@
 import {z} from "zod";
-import { Ability } from "@prisma/client";
+import { Ability } from "@/lib/prisma-enums";
 import {SkillsEnum} from "@/lib/types/enums";
 
 export const raceSchema = z.object({

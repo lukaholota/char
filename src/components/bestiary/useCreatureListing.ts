@@ -5,7 +5,7 @@ import { buildCreatureIndexEntry, type CreatureIndexEntry } from "@/lib/bestiary
 import { useCatalogHomebrew } from "@/hooks/useCommunityHomebrew";
 import { toHomebrewCatalogId, type HomebrewCatalogEntry, type HomebrewCreatureEntry } from "@/lib/logic/homebrew-view";
 import { buildHomebrewCreatureKey, type HomebrewSort } from "@/lib/logic/homebrew-catalog";
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import { fetchCreatureKeysMatchingText } from "@/lib/catalog-reads";
 import { createCreatureShuffleSeed } from "@/lib/bestiary-sort";
 

@@ -6,7 +6,7 @@
  * this module only reads it defensively, because a malformed row must not take the search down.
  */
 
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import aliasFile from "@/lib/refs/search-aliases.json";
 import { normalizeSearchText } from "@/lib/search/searchQuery";
 

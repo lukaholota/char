@@ -4,7 +4,7 @@
  * Reads from generated 2014 JSON file or normalized 2024 JSON.
  */
 
-import { Ruleset, ArmorType, AbilityBonusType } from "@prisma/client";
+import { Ruleset, ArmorType, AbilityBonusType } from "@/lib/prisma-enums";
 import armor2014Json from "./generated/armor.json";
 import armor2024Json from "../../data/2024/normalized/armor.json";
 import { toEntitySlug } from "./slug-utils";

@@ -2,7 +2,8 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
-import { Ability, type Feature } from "@prisma/client";
+import { Ability } from "@/lib/prisma-enums";
+import type { Feature } from "@prisma/client";
 import type { CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { setFeatureActive } from "@/lib/actions/feature-uses";
 import { setConcentration, setExhaustion, setSpellBuff } from "@/lib/actions/pers-effects";

@@ -4,7 +4,7 @@
  * Reads the generated 2014 JSON (produced from the database) or the normalized 2024 JSON.
  */
 
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import backgrounds2014Json from "@/lib/generated/backgrounds.json";
 import backgrounds2024Json from "../../data/2024/normalized/backgrounds.json";
 import { skillTranslations, toolTranslations } from "@/lib/refs/translation";

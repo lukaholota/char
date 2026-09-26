@@ -39,8 +39,8 @@ import {
   LanguageTranslations,
   featTranslations,
 } from "@/lib/refs/translation";
-import { Ability, FeatureDisplayType, SpellcastingType } from "@prisma/client";
-import { Races } from "@prisma/client";
+import { Ability, FeatureDisplayType, SpellcastingType } from "@/lib/prisma-enums";
+import { Races } from "@/lib/prisma-enums";
 import { ClassI, SubclassI } from "@/lib/types/model-types";
 import {
   ControlledInfoDialog,

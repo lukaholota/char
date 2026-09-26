@@ -12,7 +12,7 @@
  * `13 + МУД`, якщо це більше) і володіння (2014 лишає персонажеві, 2024 бере більше з двох).
  */
 
-import { Ability, Skills } from "@prisma/client";
+import { Ability, Skills } from "@/lib/prisma-enums";
 import type { PersWithRelations } from "@/lib/actions/pers";
 import type { CreatureData } from "@/lib/bestiaryData";
 import {

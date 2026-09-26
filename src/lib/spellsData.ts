@@ -6,7 +6,7 @@
 
 import spellsJson from '@/lib/generated/spells.json';
 import spells2024Json from '../../data/2024/normalized/spells.json';
-import { Ruleset } from '@prisma/client';
+import { Ruleset } from "@/lib/prisma-enums";
 import { buildSpellSlug } from '@/lib/spell-link';
 
 export type SpellData = {

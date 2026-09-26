@@ -1,4 +1,4 @@
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import { RuleProvenance } from "./rulesProvenance";
 
 /// KR23.5 бере обʼєкти лише з дзеркала 5etools — походження завжди `beyond-srd`, той самий

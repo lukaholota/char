@@ -1,4 +1,4 @@
-import { Skills } from "@prisma/client";
+import { Skills } from "@/lib/prisma-enums";
 
 export const raceTranslations = {
   AASIMAR_2024: "Аазимар",

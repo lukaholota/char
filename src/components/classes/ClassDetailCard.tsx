@@ -1,6 +1,6 @@
 "use client";
 
-import { Skills } from "@prisma/client";
+import { Skills } from "@/lib/prisma-enums";
 import { Shield, Sparkles, Wrench } from "lucide-react";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 

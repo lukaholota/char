@@ -14,7 +14,7 @@ import { BackgroundInfoModal, type OriginFeat } from "@/lib/components/character
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BackgroundI, FeatPrisma } from "@/lib/types/model-types";
-import {Source} from "@prisma/client";
+import { Source } from "@/lib/prisma-enums";
 import { CreationCard } from "@/components/characterCreator/CreationCard";
 import { formatSkillProficiencies } from "@/lib/components/characterCreator/infoUtils";
 import { getBackgroundCreationVisual } from "@/components/characterCreator/creation-visuals";

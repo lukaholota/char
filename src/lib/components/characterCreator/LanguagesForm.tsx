@@ -4,7 +4,7 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { languagesSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { useStepForm } from "@/hooks/useStepForm";
 import { ClassI, BackgroundI, RaceI, SubraceI } from "@/lib/types/model-types";
-import { Feat } from "@prisma/client";
+import type { Feat } from "@prisma/client";
 import { useEffect, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Check } from "lucide-react";

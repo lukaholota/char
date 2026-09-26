@@ -1,4 +1,4 @@
-import { Ability, Classes, Subclasses } from "@prisma/client";
+import { Ability, Classes, Subclasses } from "@/lib/prisma-enums";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
 import type { PersWithRelations } from "@/lib/actions/pers";

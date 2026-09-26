@@ -57,7 +57,7 @@ import { SpellsFilterDialog } from "@/components/spells/SpellsFilterDialog";
 import { SpellData } from "@/lib/spellsData";
 import { buildSpellLinkForSpell, buildSpellSlug } from "@/lib/spell-link";
 import { isWithinCharacterSpellLevel } from "@/lib/logic/character-spell-level-filter";
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import { cn } from "@/lib/utils";
 import { EditionAccentChip, EditionAccentTitle } from "@/components/ui/EditionAccent";
 import { findEditionAccent } from "@/styles/edition-accent";

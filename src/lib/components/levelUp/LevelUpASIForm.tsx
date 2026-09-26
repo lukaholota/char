@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { Ability } from "@prisma/client";
+import { Ability } from "@/lib/prisma-enums";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,8 +16,8 @@ import type { FeatPrisma, RaceI } from "@/lib/types/model-types";
 import type { PersPrisma } from "@/lib/types/model-types";
 import { attributesUkrShort } from "@/lib/refs/translation";
 import { findAbilityScoreCeiling, raiseAbilityScore } from "@/rules/ability-score-ceiling";
-import { Subrace, RaceVariant } from "@prisma/client";
-import { Races } from "@prisma/client";
+import type { Subrace, RaceVariant } from "@prisma/client";
+import { Races } from "@/lib/prisma-enums";
 
 interface Props {
   feats: FeatPrisma[];

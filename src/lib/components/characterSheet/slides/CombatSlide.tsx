@@ -25,7 +25,7 @@ import { updateMagicItem, deleteMagicItem } from "@/lib/actions/magic-item-actio
 import { MagicItemChargesControl } from "../MagicItemChargesControl";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
 import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
-import { Ability, AbilityBonusType } from "@prisma/client";
+import { Ability, AbilityBonusType } from "@/lib/prisma-enums";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 import { findAttunementCapacityForPers } from "@/rules/attunement";
 import WeaponMasteryCard from "../WeaponMasteryCard";

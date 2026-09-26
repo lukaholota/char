@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Lock } from "lucide-react";
 import { engEnumSkills } from "@/lib/refs/translation";
-import { Skills } from "@prisma/client";
+import { Skills } from "@/lib/prisma-enums";
 import { SkillExpertises } from "@/lib/types/model-types";
 import { countExpertiseSelections } from "@/rules/expertise-selections";
 

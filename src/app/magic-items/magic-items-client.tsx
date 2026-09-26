@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { itemRarityTranslations, magicItemTypeTranslations } from "@/lib/refs/translation";
 import { useModalBackButton } from "@/hooks/useModalBackButton";
-import { MagicItemType, ItemRarity, Ruleset } from "@prisma/client";
+import { MagicItemType, ItemRarity, Ruleset } from "@/lib/prisma-enums";
 import { MagicItemDetailPane } from "@/lib/components/magicItems/MagicItemDetailPane";
 import { MagicItemsFilterDialog } from "@/lib/components/magicItems/MagicItemsFilterDialog";
 import { ContentListPage } from "@/components/catalogs/ContentListPage";

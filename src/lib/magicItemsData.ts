@@ -1,6 +1,7 @@
 import magicItems from './generated/magicItems.json';
 import magicItems2024Json from '../../data/2024/normalized/magic-items.json';
-import { MagicItem, ItemRarity, MagicItemType, Ruleset, Source } from '@prisma/client';
+import { ItemRarity, MagicItemType, Ruleset, Source } from "@/lib/prisma-enums";
+import type { MagicItem } from "@prisma/client";
 
 export type MagicItemWithSpells = MagicItem & {
   givesSpells: {

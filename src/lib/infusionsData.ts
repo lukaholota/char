@@ -4,7 +4,7 @@
  * Reads from generated 2014 JSON file (TCoE).
  */
 
-import { Ruleset, InfusionTargetType } from "@prisma/client";
+import { Ruleset, InfusionTargetType } from "@/lib/prisma-enums";
 import infusionsJson from "./generated/infusions.json";
 import { toEntitySlug } from "./slug-utils";
 

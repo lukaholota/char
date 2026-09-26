@@ -4,7 +4,7 @@
  * Reads from generated creatures JSON for both 2014 and 2024 editions.
  */
 
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import type { CreatureSpeeds } from "@/rules/creature-speed";
 import creatures2014Json from "@/lib/generated/creatures.json";
 import creatures2024Json from "@/lib/generated/creatures2024.json";

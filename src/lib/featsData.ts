@@ -4,7 +4,7 @@
  * Reads from generated 2014 JSON file or normalized 2024 JSON.
  */
 
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import feats2014Json from "@/lib/generated/feats.json";
 import feats2024Json from "../../data/2024/normalized/feats.json";
 

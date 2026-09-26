@@ -1,4 +1,4 @@
-import { Ability } from "@prisma/client";
+import { Ability } from "@/lib/prisma-enums";
 import type { PersWithRelations } from "@/lib/actions/pers";
 import { collectFeatureStateParts } from "@/rules/feature-states";
 import { collectSpellBuffParts } from "@/rules/spell-buffs";

@@ -3,7 +3,7 @@
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import {
   RuleCategory,
   ConditionData,

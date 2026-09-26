@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
+import { Ability, Skills, SkillProficiencyType } from "@/lib/prisma-enums";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { updateBonus, updateSkillProficiency, saveAbilityAdjustments, updateBaseACOverride, updateMaxHp } from "@/lib/actions/bonus-actions";
 import { bonusTranslations, skillTranslations } from "@/lib/refs/translation";

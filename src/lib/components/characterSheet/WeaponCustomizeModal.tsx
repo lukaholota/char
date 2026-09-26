@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { updateWeapon, deleteWeapon } from "@/lib/actions/equipment-actions";
-import { Ability, DamageType } from "@prisma/client";
+import { Ability, DamageType } from "@/lib/prisma-enums";
 import type { PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { toast } from "sonner";
 import { Trash2 } from "lucide-react";

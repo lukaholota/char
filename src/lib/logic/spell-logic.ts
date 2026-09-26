@@ -1,4 +1,4 @@
-import { Classes, Ruleset, SpellcastingType } from "@prisma/client";
+import { Classes, Ruleset, SpellcastingType } from "@/lib/prisma-enums";
 import { calculateCasterLevel as calculateRulesCasterLevel } from "@/rules/spellcasting";
 import type { SpellcastingCharacter } from "@/rules/types";
 

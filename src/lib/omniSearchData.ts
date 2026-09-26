@@ -6,7 +6,7 @@
  * from the root layout would ship ~7.5 MiB of parsed JSON to every page (docs/DECISIONS.md Р14).
  */
 
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import { getAllSpells } from "@/lib/spellsData";
 import { getAllMagicItems } from "@/lib/magicItemsData";
 import { getAllWeapons } from "@/lib/weaponsData";

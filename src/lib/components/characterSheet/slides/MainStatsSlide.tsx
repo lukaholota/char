@@ -3,7 +3,7 @@
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
-import { Ability } from "@prisma/client";
+import { Ability } from "@/lib/prisma-enums";
 import { attributesUkrShort, damageTypeTranslations } from "@/lib/refs/translation";
 import { Heart, Shield, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";

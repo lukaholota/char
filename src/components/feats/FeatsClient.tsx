@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import { Ruleset } from "@prisma/client";
+import { Ruleset } from "@/lib/prisma-enums";
 import { Award, Repeat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FeatData, FeatCategory } from "@/lib/featsData";

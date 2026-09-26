@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import { FeatInfoModal } from "@/lib/components/characterCreator/modals/FeatInfoModal";
 import { featTranslations } from "@/lib/refs/translation";
-import { Feat } from "@prisma/client";
+import type { Feat } from "@prisma/client";
 import clsx from "clsx";
 import { Search, X } from "lucide-react";
 import { ReactNode } from "react";

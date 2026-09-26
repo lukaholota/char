@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Weapon } from "@prisma/client";
-import { SpellcastingType } from "@prisma/client";
+import { SpellcastingType } from "@/lib/prisma-enums";
 import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
 import {activateCreatorDraftStorage, usePersFormStore} from "@/lib/stores/persFormStore";
