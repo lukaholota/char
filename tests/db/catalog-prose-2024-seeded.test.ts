@@ -2,16 +2,21 @@ import { readFileSync } from "node:fs";
 import { afterAll, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
+import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 afterAll(disconnectDatabase);
 
 const toEnumName = (engName: string) => `${engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}_2024`;
 const byName = (left: { name: string }, right: { name: string }) => left.name.localeCompare(right.name);
 
+/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
 it("KR33.4 — сід переносить прозу 13 класів 2024 з файла", async () => {
   const source: Array<{ engName: string; flavorText: string }> =
     JSON.parse(readFileSync("data/2024/normalized/classes.json", "utf8"));
-  const classes = await prisma.class.findMany({ where: { ruleset: "RULES_2024" }, select: { name: true, description: true } });
+  const classes = await prisma.class.findMany({
+    where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } },
+    select: { name: true, description: true },
+  });
 
   expect(classes.sort(byName)).toEqual(
     source.map((entry) => ({ name: toEnumName(entry.engName), description: entry.flavorText })).sort(byName),

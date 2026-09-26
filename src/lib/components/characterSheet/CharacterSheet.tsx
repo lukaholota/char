@@ -280,6 +280,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
               <PrintCharacterDialog
                 persId={localPers.persId}
                 characterName={localPers.name ?? "character"}
+                ruleset={localPers.ruleset}
                 disabled={isCopyPending}
                 shareToken={isPublicView ? shareToken : undefined}
                 triggerClassName={mobileIconButtonClassName}

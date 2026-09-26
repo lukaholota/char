@@ -6,6 +6,7 @@ const THUMBNAIL_SIZE = 96;
 const WEBP_QUALITY = 80;
 const SCREENSHOT_EDGE = 1600;
 const SCREENSHOT_WEBP_QUALITY = 72;
+const PRINT_JPEG_QUALITY = 88;
 
 export type ProcessedImage = { full: Uint8Array; thumbnail: Uint8Array };
 export type AcceptedImageType = "jpeg" | "png" | "webp";
@@ -33,6 +34,20 @@ export function buildScreenshotWebp(bytes: Uint8Array): Promise<Uint8Array> {
   const job = processingQueue.then(() => encodeScreenshotWebp(bytes));
   processingQueue = job.catch(() => undefined);
   return job;
+}
+
+export function buildPrintJpeg(bytes: Uint8Array): Promise<Uint8Array> {
+  const job = processingQueue.then(() => encodePrintJpeg(bytes));
+  processingQueue = job.catch(() => undefined);
+  return job;
+}
+
+async function encodePrintJpeg(bytes: Uint8Array): Promise<Uint8Array> {
+  const encoded = await sharp(bytes, { limitInputPixels: MAX_INPUT_PIXELS, failOn: "error" })
+    .flatten({ background: "#ffffff" })
+    .jpeg({ quality: PRINT_JPEG_QUALITY })
+    .toBuffer();
+  return new Uint8Array(encoded);
 }
 
 async function encodeScreenshotWebp(bytes: Uint8Array): Promise<Uint8Array> {

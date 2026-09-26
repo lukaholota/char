@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 
 import { ClassDetailCard } from "@/components/classes/ClassDetailCard";
@@ -7,6 +7,9 @@ import { SubclassListDialogBody } from "@/lib/components/characterCreator/modals
 import type { ClassData, SubclassData } from "@/lib/classesData";
 
 afterEach(cleanup);
+
+const SUBCLASSES_VIEW = { section: "subclasses" as const, featureKey: null, focusRequest: 0, missing: null };
+const ACTIONS = { onSectionChange: vi.fn(), onOpenBranch: vi.fn(), onDismissMissing: vi.fn() };
 
 function buildSubclass(key: string, name: string, legacy: boolean, source: string): SubclassData {
   return { subclassId: key.length, key, slug: key.toLowerCase(), name, engName: key, description: null, source, legacy, features: [] };
@@ -41,16 +44,16 @@ const warlock2024: ClassData = {
 
 describe("O43 — легасі-підкласи в каталозі /2024/classes (Р52)", () => {
   it("підкласи PHB 2024 і «Зі старих книг» — окремі секції, лічильник першої без легасі", async () => {
-    render(<ClassDetailCard characterClass={warlock2024} is2024 />);
+    render(<ClassDetailCard characterClass={warlock2024} is2024 view={SUBCLASSES_VIEW} actions={ACTIONS} />);
 
     expect(await screen.findByText("Підкласи (1) · з 3 рівня")).toBeTruthy();
     expect(screen.getByText("Зі старих книг (2)")).toBeTruthy();
-    expect(screen.getByText("Казан Таші з усім")).toBeTruthy();
-    expect(screen.getByText("Довідник Занатара про все")).toBeTruthy();
+    expect(screen.getByText(/Казан Таші з усім/)).toBeTruthy();
+    expect(screen.getByText(/Довідник Занатара про все/)).toBeTruthy();
   });
 
   it("клас без легасі секції «Зі старих книг» не має", async () => {
-    render(<ClassDetailCard characterClass={{ ...warlock2024, subclasses: [warlock2024.subclasses[0]] }} is2024 />);
+    render(<ClassDetailCard characterClass={{ ...warlock2024, subclasses: [warlock2024.subclasses[0]] }} is2024 view={SUBCLASSES_VIEW} actions={ACTIONS} />);
 
     expect(await screen.findByText("Підкласи (1) · з 3 рівня")).toBeTruthy();
     expect(screen.queryByText(/Зі старих книг/)).toBeNull();

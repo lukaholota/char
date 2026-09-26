@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
@@ -8,7 +9,11 @@ import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 import { decideWhatsNew } from "@/lib/whats-new/decision";
 import { CURRENT_RELEASE_FLAG, CURRENT_RELEASE_SLIDES } from "@/lib/whats-new/release-notes";
 import { findFlagStorage, markFlagSeen } from "@/lib/whats-new/seen-flags";
-import { WhatsNewDialog } from "./WhatsNewDialog";
+
+// Модалка зі Swiper показується раз на реліз, а цей компонент живе в providers кожної сторінки.
+const WhatsNewDialog = dynamic(() => import("./WhatsNewDialog").then((module) => module.WhatsNewDialog), {
+  ssr: false,
+});
 
 /// `onResolved` існує не для косметики: підказка Google One Tap і ця модалка інакше виходять
 /// одночасно, а хто з них перший — гонка. Тому підказка чекає, доки тут не вирішиться.

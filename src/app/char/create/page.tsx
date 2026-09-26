@@ -3,7 +3,6 @@ import { NetworkRequiredNotice } from "@/components/ui/NetworkRequiredNotice";
 import { findCharacterCreationOptions } from "@/lib/content/creator-content";
 import { collectCreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
-import { auth } from "@/lib/auth";
 import { isRules2024Allowed } from "@/rules/access";
 import type { Ruleset } from "@prisma/client";
 import { Metadata } from "next";
@@ -18,7 +17,6 @@ export default async function Page({
 }: {
   searchParams?: Promise<{ ruleset?: string }>;
 }) {
-  const session = await auth();
   const canSelect2024 = isRules2024Allowed();
 
   const resolvedParams = searchParams ? await searchParams : undefined;

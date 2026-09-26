@@ -150,6 +150,14 @@ describe("KR36.1 — один реєстр каталогів", () => {
     }
   });
 
+  /// Власник, 2026-09-25: хоумбрю спільноти — одразу після бестіарію, маг. предмети — за ним.
+  it("хоумбрю — перша плитка після бестіарію, маг. предмети — друга, в обох редакціях", () => {
+    for (const edition of EDITIONS) {
+      const { tiles } = collectHomeCardRows(edition);
+      expect(tiles.slice(0, 3).map((tile) => tile.category.slug)).toEqual(["bestiary", "homebrew", "magic-items"]);
+    }
+  });
+
   it("підписи міняються за редакцією там, де 2024 перейменувала річ", () => {
     expect(findCatalogTitle("races", "2014")).toBe("Раси");
     expect(findCatalogTitle("races", "2024")).toBe("Види");

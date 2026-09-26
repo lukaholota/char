@@ -1,5 +1,5 @@
 import {z, ZodObject, ZodRawShape} from "zod";
-import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { findActiveDraftStorageKey, usePersFormStore } from "@/lib/stores/persFormStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {DefaultValues, Path, PathValue, useForm} from "react-hook-form";
 import { useEffect, useMemo, useRef } from "react";
@@ -74,8 +74,12 @@ export function useStepForm<TShape extends ZodRawShape>(
     // Save data when unmounting (navigating away without submitting)
     useEffect(() => {
         const resetNonceAtMount = resetNonceAtMountRef.current;
+        const draftKeyAtMount = findActiveDraftStorageKey();
         return () => {
             if (!isHydrated) return;
+
+            // Сторінка іншої редакції вже відкрила свою чернетку — ці значення туди не належать.
+            if (findActiveDraftStorageKey() !== draftKeyAtMount) return;
 
             // If the user triggered a global reset while this step was mounted,
             // do NOT write the old values back into the store during unmount.

@@ -118,6 +118,7 @@ User-Agent, а не з cookie. Втрачається одне: кросвізи
 | `src/instrumentation-client.ts` | ініціалізація в браузері + `onRouterTransitionStart` |
 | `src/sentry.server.config.ts` · `src/sentry.edge.config.ts` | `Sentry.init` на кожен рантайм |
 | `src/lib/monitoring/sentry-options.ts` | спільні опції — `sendDefaultPii: false` і `enabled` в одному місці на всі три рантайми |
+| `src/lib/monitoring/error-noise.ts` | список шуму з причинами — `denyUrls`/`ignoreErrors` Sentry і `before_send` PostHog (`posthog-options.ts`) читають один файл |
 | `src/lib/monitoring/report-error.ts` | `reportBoundaryError` для `error.tsx` і `global-error.tsx` |
 | `src/lib/monitoring/sentry-check-access.ts` | токен-ворота для перевірочних маршрутів |
 | `src/app/sentry-check/` · `src/app/api/sentry-check/` | навмисні помилки: клієнтська і серверна |

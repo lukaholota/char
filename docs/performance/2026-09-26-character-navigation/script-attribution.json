@@ -1,0 +1,9 @@
+{
+  "filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+  "downloadedAt": "2026-09-26T08:09:42.827Z",
+  "bytes": 421723,
+  "sha256": "4d050cc8ff6182cd290921b269197648bba2dfd6df462d5b44dccfe7b2d89edc",
+  "functionPosition": 205281,
+  "schedulerContext": "k)i(f);else if(t.startTime<=e)i(f),t.sortIndex=t.expirationTime,r(d,t);else break;t=a(f)}}function T(e){if(y=!1,w(e),!v)if(null!==a(d))v=!0,P||(P=!0,l());else{var t=a(f);null!==t&&A(T,t.startTime-e)}}var P=!1,N=-1,R=5,k=-1;function x(){return!!b||!(n.unstable_now()-k<R)}function O(){if(b=!1,P){var e=n.unstable_now();k=e;var t=!0;try{e:{v=!1,y&&(y=!1,E(N),N=-1),g=!0;var r=m;try{t:{for(w(e),h=a(d);null!==h&&!(h.expirationTime>e&&x());){var o=h.callback;if(\"function\"==typeof o){h.callback=null,m=h.priorityLevel;var s=o(h.expirationTime<=e);if(e=n.unstable_now(),\"function\"==typeof s){h.callback=s,w(e),t=!0;break t}h===a(d)&&i(d),w(e)}else i(d);h=a(d)}if(null!==h)t=!0;else{var u=a(f);null!==u&&A(T,u.startTime-e),t=!1}}break e}finally{h=null,m=r,g=!1}}}finally{t?l():P=!1}}}if(\"function\"==typeof S)l=function(){S(O)};else if(\"u\">typeof MessageChannel){var C=new MessageChannel,I=C.port2;C.port1.onmessage=O,l=function(){I.postMessage(null)}}else l=function(){_(O,0)};function A(e,t){N=_(function(){e(n.unstable_now())},t)}n.unstable_IdlePriority=5,n.unstable_ImmediatePriority=1,n.unstable_LowPri",
+  "identification": "React scheduler: unstable_now, priorityLevel, queued callbacks, MessageChannel"
+}

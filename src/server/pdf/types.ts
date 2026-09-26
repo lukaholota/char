@@ -11,9 +11,12 @@ export type PrintSection =
   | "WILDSHAPES"
   | "DETAILS";
 
+export type SheetLayout = "CLASSIC" | "SHEET_2024";
+
 export interface PrintConfig {
   sections: PrintSection[];
   flattenCharacterSheet?: boolean;
+  sheetLayout?: SheetLayout;
 }
 
 export type PersSpellWithSpell = { spellId: number; isPrepared: boolean; spell: { level: number; name: string } };

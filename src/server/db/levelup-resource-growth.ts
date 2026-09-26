@@ -5,6 +5,7 @@ import { applyUsesMaximumDelta, findPoolProvider } from "@/rules/resource-pools"
 /// Поля, з яких `calculateMaxUsesForFeature` рахує максимум — ті самі, що й у `PROVIDER_FIELDS`.
 const MAXIMUM_FIELDS = {
   featureId: true,
+  engName: true,
   usesCount: true,
   usesCountDependsOnProficiencyBonus: true,
   usesCountSpecial: true,

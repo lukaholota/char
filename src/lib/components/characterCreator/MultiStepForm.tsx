@@ -5,7 +5,7 @@ import type { Weapon } from "@prisma/client";
 import { SpellcastingType } from "@/lib/prisma-enums";
 import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
-import {activateCreatorDraftStorage, usePersFormStore} from "@/lib/stores/persFormStore";
+import {useCreatorDraftStorage, usePersFormStore} from "@/lib/stores/persFormStore";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/lib/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/lib/components/characterCreator/ASIForm";
@@ -74,7 +74,7 @@ export const MultiStepForm = (
     ruleExcerpts,
   }: Props
 ) => {
-  activateCreatorDraftStorage(initialRuleset);
+  const isDraftActive = useCreatorDraftStorage(initialRuleset);
 
   const { data: session, status: sessionStatus } = useSession();
   const {
@@ -86,9 +86,10 @@ export const MultiStepForm = (
     setPrevRaceId,
     setCurrentStep,
     setTotalSteps,
-    isHydrated,
+    isHydrated: isStoreHydrated,
     updateFormData,
   } = usePersFormStore();
+  const isHydrated = isStoreHydrated && isDraftActive;
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -1041,7 +1042,7 @@ export const MultiStepForm = (
               ruleset={currentRuleset}
               excerpts={ruleExcerpts}
             />
-            {renderStep()}
+            {isDraftActive ? renderStep() : null}
           </div>
 
           <aside className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">

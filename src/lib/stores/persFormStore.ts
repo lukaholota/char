@@ -1,4 +1,5 @@
 import {PersFormData} from "@/lib/zod/schemas/persCreateSchema";
+import {useLayoutEffect, useSyncExternalStore} from "react";
 import {create} from "zustand";
 import {createJSONStorage, persist} from "zustand/middleware";
 
@@ -121,8 +122,29 @@ function findPersDraftStorageKey(scope: DraftScope): string {
   return DRAFT_STORAGE_KEY_BY_SCOPE[scope];
 }
 
+function findCreatorDraftScope(ruleset: DraftRuleset): DraftScope {
+  return ruleset === "RULES_2024" ? "CREATOR_2024" : "CREATOR_2014";
+}
+
 export function activateCreatorDraftStorage(ruleset: DraftRuleset): void {
-  activateDraftStorage(ruleset === "RULES_2024" ? "CREATOR_2024" : "CREATOR_2014");
+  activateDraftStorage(findCreatorDraftScope(ruleset));
+}
+
+// Перемикати ключ під час рендера не можна: при переході між редакціями стара сторінка
+// ще змонтована, перерендерюється від rehydrate і повертає свій ключ — пінг-понг на секунди.
+export function useCreatorDraftStorage(ruleset: DraftRuleset): boolean {
+  const scope = findCreatorDraftScope(ruleset);
+  const isActive = useSyncExternalStore(
+    usePersFormStore.subscribe,
+    () => isDraftStorageActive(scope),
+    () => isDraftStorageActive(scope),
+  );
+
+  useLayoutEffect(() => {
+    activateDraftStorage(scope);
+  }, [scope]);
+
+  return isActive;
 }
 
 export function activateLevelUpDraftStorage(): void {
@@ -131,6 +153,14 @@ export function activateLevelUpDraftStorage(): void {
 
 export function activateSheetFeatDraftStorage(): void {
   activateDraftStorage("SHEET_FEAT");
+}
+
+export function findActiveDraftStorageKey(): string | undefined {
+  return usePersFormStore.persist?.getOptions().name;
+}
+
+function isDraftStorageActive(scope: DraftScope): boolean {
+  return findActiveDraftStorageKey() === findPersDraftStorageKey(scope);
 }
 
 function activateDraftStorage(scope: DraftScope): void {

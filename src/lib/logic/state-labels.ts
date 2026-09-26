@@ -12,6 +12,7 @@ import {
   type StateEffects,
   type StateMark,
   type StateSize,
+  type UnarmedStrikeEffect,
 } from "@/rules/state-effects";
 import { collectActiveFeatures, readStateEffects } from "./bonus-calculator";
 import { WAR_CASTER_SOURCE_KEY } from "./active-states";
@@ -92,6 +93,8 @@ function describeNumbers(part: Partial<StateEffects>): string[] {
   if (part.d20Penalty) lines.push(`−${part.d20Penalty} до кидків к20`);
   if (part.isMaxHpHalved) lines.push("макс. хіти ÷2");
   if (part.strengthAttackDamageBonus) lines.push(`+${part.strengthAttackDamageBonus} шкоди атак Силою`);
+  if (part.meleeDamageBonus) lines.push(`+${part.meleeDamageBonus} шкоди в ближньому бою`);
+  if (part.unarmedStrike) lines.push(describeUnarmedStrike(part.unarmedStrike));
   if (part.weaponAbilityOption === "INT") lines.push("Інтелект для атак зброєю");
   if (Object.keys(part.skillAbilityOptions ?? {}).length > 0) lines.push("Сила для 5 навичок");
   if (part.concentrationSaveBonus) lines.push(`+${part.concentrationSaveBonus} до ряткидка концентрації`);
@@ -156,7 +159,16 @@ function describeMark(mark: StateMark): string {
       return "після — хід без руху й дій";
     case "EXHAUSTION_DEATH":
       return "6-й рівень — смерть";
+    case "RESILIENT_HIDE_NONMAGICAL":
+      return "опір — лише від немагічних атак не срібною зброєю";
+    case "BLOODLUST":
+      return "Жага крові: менше половини хітів — ряткидок Мудрості СК 8 на початку ходу";
   }
+}
+
+function describeUnarmedStrike(strike: UnarmedStrikeEffect): string {
+  const attack = strike.attackBonus ? `, +${strike.attackBonus} до атаки` : "";
+  return `Хижі удари: к${strike.damageDice.slice(2)}, Спритність${attack}`;
 }
 
 function translateDamageType(type: string): string {

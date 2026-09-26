@@ -208,5 +208,21 @@ export const classAbilityScores: Record<Classes, Array<{ability: Ability, value:
     { ability: Ability.INT, value: 15 },
     { ability: Ability.WIS, value: 12 },
     { ability: Ability.CHA, value: 10 }
+  ],
+  [Classes.BLOOD_HUNTER_2014]: [
+    { ability: Ability.STR, value: 10 },
+    { ability: Ability.DEX, value: 15 },
+    { ability: Ability.CON, value: 13 },
+    { ability: Ability.INT, value: 14 },
+    { ability: Ability.WIS, value: 12 },
+    { ability: Ability.CHA, value: 8 }
+  ],
+  [Classes.BLOOD_HUNTER_2024]: [
+    { ability: Ability.STR, value: 10 },
+    { ability: Ability.DEX, value: 15 },
+    { ability: Ability.CON, value: 13 },
+    { ability: Ability.INT, value: 14 },
+    { ability: Ability.WIS, value: 12 },
+    { ability: Ability.CHA, value: 8 }
   ]
 };

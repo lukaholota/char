@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
 import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
 import normalizedSubclasses from "../../data/2024/normalized/subclasses.json";
+import { BLOOD_HUNTER_SUBCLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 const CYRILLIC = /\p{Script=Cyrillic}/u;
 
@@ -43,7 +44,8 @@ describe("расові риси 2024 у базі", () => {
 describe("підкласові фічі 2024 у базі", () => {
   it("кожен підклас має хоча б одну фічу з непорожнім українським описом", async () => {
     const subclasses = await prisma.subclass.findMany({
-      where: { ruleset: "RULES_2024" },
+      // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+      where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } },
       select: {
         name: true,
         features: { select: { levelGranted: true, feature: { select: { name: true, description: true } } } },

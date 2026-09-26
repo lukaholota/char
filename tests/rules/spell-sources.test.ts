@@ -124,3 +124,26 @@ describe("KR31.5 — джерела для КС і атаки на листі в
     ]);
   });
 });
+
+describe("O45 — мисливець за кровʼю: СК гемокрафту з обраної характеристики", () => {
+  const bloodHunter: SpellcastingClass = { name: "BLOOD_HUNTER_2014", spellcastingType: "NONE", primaryCastingStat: "INT" };
+  const profaneSoul = { name: "ORDER_OF_THE_PROFANE_SOUL", spellcastingType: "PACT", primaryCastingStat: "INT" as const };
+
+  for (const ruleset of ["RULES_2014", "RULES_2024"] as const) {
+    it(`${ruleset}: мисливець без ордену має рядок СК гемокрафту, але не джерело заклинань`, () => {
+      const hunter = { ...bloodHunter, name: ruleset === "RULES_2014" ? "BLOOD_HUNTER_2014" : "BLOOD_HUNTER_2024", hemocraftAbility: "WIS" as const };
+      expect(sheetSources([hunter], ruleset)).toEqual([{ source: hunter.name, name: hunter.name, ability: "WIS" }]);
+      expect(classSources([hunter], ruleset)).toEqual([]);
+    });
+  }
+
+  it("Орден нечестивої душі чаклує характеристикою гемокрафту, а не рядком підкласу", () => {
+    const hunter = { ...bloodHunter, name: "BLOOD_HUNTER_2024", hemocraftAbility: "WIS" as const, subclass: profaneSoul };
+    expect(classSources([hunter])).toEqual([{ source: "BLOOD_HUNTER_2024", ability: "WIS" }]);
+    expect(sheetSources([hunter], "RULES_2024")).toEqual([{ source: "BLOOD_HUNTER_2024", name: "ORDER_OF_THE_PROFANE_SOUL", ability: "WIS" }]);
+  });
+
+  it("без вибору — Інтелект", () => {
+    expect(sheetSources([bloodHunter], "RULES_2014")).toEqual([{ source: "BLOOD_HUNTER_2014", name: "BLOOD_HUNTER_2014", ability: "INT" }]);
+  });
+});

@@ -95,6 +95,9 @@ export async function findMissingClassSpells(
  * класу на звʼязку «фіча → заклинання» не стоїть, його виводить правило з рівня заклинання
  * (KR37.3). Лише 2024: 26 опцій 2014 теж мають заклинання на фічах, але їх дає інший шлях.
  */
+/// Опції підкласу 2014 заклинань не несуть — крім покровителя Ордену нечестивої душі (O45), спільного для обох редакцій.
+const SUBCLASS_OPTION_SPELLS_IN_BOTH_EDITIONS = ["ORDER_OF_THE_PROFANE_SOUL"] as const;
+
 export async function findMissingSubclassOptionSpells(
   client: DatabaseClient,
   input: { choiceOptionIds: readonly number[]; subclasses: readonly SubclassAtClassLevel[]; ownedSpellIds: readonly number[] },
@@ -103,7 +106,7 @@ export async function findMissingSubclassOptionSpells(
 
   const links = await client.subclassChoiceOption.findMany({
     where: {
-      ruleset: "RULES_2024",
+      OR: [{ ruleset: "RULES_2024" }, { subclass: { name: { in: [...SUBCLASS_OPTION_SPELLS_IN_BOTH_EDITIONS] } } }],
       choiceOptionId: { in: [...input.choiceOptionIds] },
       subclassId: { in: input.subclasses.map((subclass) => subclass.subclassId) },
       choiceOption: { features: { some: { feature: { givesSpells: { some: {} } } } } },

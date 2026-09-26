@@ -23,6 +23,9 @@ import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { ExtraDiceMark } from "@/lib/components/dice/ExtraDiceMark";
 import AddWeaponDialog from "./AddWeaponDialog";
+import { CrimsonRiteDialog } from "./CrimsonRiteDialog";
+import { findWeaponCrimsonRite } from "@/lib/logic/crimson-rite-sheet";
+import { readStateEffects } from "@/lib/logic/bonus-calculator";
 
 type Props = {
   pers: PersWithRelations;
@@ -51,11 +54,16 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
 
   const attackState = describeRollState(pers, { kind: "attack" }, "ATTACK");
 
+  const findWeaponName = (pw: PersWeaponWithWeapon) =>
+    pw.overrideName ||
+    (pw.weapon?.name === "UNARMED_STRIKE" && readStateEffects(pers)?.unarmedStrike ? "Хижі удари" : null) ||
+    (weaponTranslations[pw.weapon?.name as keyof typeof weaponTranslations] || pw.weapon?.name) ||
+    "Зброя";
+
   const triggerWeaponRollMode = (pw: PersWeaponWithWeapon) => {
-    const weaponName =
-      pw.overrideName ||
-      (weaponTranslations[pw.weapon?.name as keyof typeof weaponTranslations] || pw.weapon?.name) ||
-      "Зброя";
+    const weaponName = findWeaponName(pw);
+    const rite = findWeaponCrimsonRite(pers, pw);
+    const riteDie = rite ? [{ sides: Number(rite.dice.split("d")[1]), sign: 1 as const, label: rite.rite.name }] : [];
 
     openRoll(
       buildWeaponRollContext({
@@ -64,7 +72,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
         damageBonus: getDamageBonus(pw),
         damageDice: String(calculateWeaponDamageDice(pers, pw) || "1d4"),
         attackState,
-        damageExtraDice: describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice,
+        damageExtraDice: [...describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice, ...riteDie],
       }),
     );
   };
@@ -82,7 +90,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
       const hasCustomBonus = typeof pw.customDamageBonus === "number" ? pw.customDamageBonus !== 0 : !!pw.customDamageBonus;
       const hasAttackBonus = typeof (pw as any).attackBonus === "number" ? (pw as any).attackBonus !== 0 : false;
       const hasOverrides = pw.overrideDamageType !== null || pw.overrideNormalRange !== null || pw.overrideLongRange !== null;
-      return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !hasOverrides && !pw.isMagical;
+      return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !hasOverrides && !pw.isMagical && !pw.crimsonRiteFeatureId;
     };
 
     const byWeaponId = new Map<number, PersWeaponWithWeapon[]>();
@@ -142,7 +150,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
             >
               <div className="flex-1 min-w-0">
                 <div className="font-bold text-slate-50 flex items-center gap-2">
-                  <span className="truncate">{pw.overrideName || (weaponTranslations[pw.weapon?.name as keyof typeof weaponTranslations] || pw.weapon?.name)}</span>
+                  <span className="truncate">{findWeaponName(pw)}</span>
                   {qty > 1 && (
                     <span className="text-[10px] bg-white/5 text-slate-200 px-1.5 py-0.5 rounded border border-white/10 flex-shrink-0">
                       x{qty}
@@ -169,6 +177,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                     </>
                   )}
                 </div>
+                <WeaponRiteLine pers={pers} pw={pw} />
               </div>
 
               <div className="flex items-center gap-3 sm:gap-4 ml-2">
@@ -196,6 +205,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                   </div>
                   <div className="text-[9px] uppercase font-bold text-slate-500 mt-0.5">влучання</div>
                 </div>
+                {!isReadOnly && <CrimsonRiteDialog pers={pers} pw={pw} weaponName={findWeaponName(pw)} />}
                 {!isReadOnly && (
                   <Button 
                     variant="ghost" 
@@ -223,6 +233,18 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
 }
 
 export default WeaponsCard;
+
+/// Активний Багряний обряд: зброя магічна й бʼє ще кубиком гемокрафту обраного типу.
+function WeaponRiteLine({ pers, pw }: { pers: PersWithRelations; pw: PersWeaponWithWeapon }) {
+  const rite = findWeaponCrimsonRite(pers, pw);
+  if (!rite) return null;
+  const damageType = (damageTypeTranslations[rite.damageType] ?? rite.damageType).toLowerCase();
+  return (
+    <div className="text-xs text-rose-300 mt-0.5 truncate">
+      +{formatDiceUkr(rite.dice)} {damageType} · {rite.rite.name}
+    </div>
+  );
+}
 
 function formatWeaponDamageType(pw: PersWeaponWithWeapon): string {
   const damageType = findWeaponDamageType(pw);

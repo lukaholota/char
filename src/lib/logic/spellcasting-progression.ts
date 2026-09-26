@@ -2,7 +2,8 @@ import { Ability, Classes, Subclasses } from "@/lib/prisma-enums";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
 import type { PersWithRelations } from "@/lib/actions/pers";
-import { SPELL_KNOWLEDGE_2014, THIRD_CASTER_KNOWLEDGE_2014 } from "@/rules/spell-knowledge-2014";
+import { findPooledPactCantripShare } from "@/rules/pact-cantrip-pool";
+import { findSpellKnowledge2014, isSubclassCaster2014, SPELL_KNOWLEDGE_2014 } from "@/rules/spell-knowledge-2014";
 import { findSpellCounts2024 } from "@/rules/spell-preparation-2024";
 
 export type SpellCountValue =
@@ -101,8 +102,6 @@ const CLERIC_CANTRIPS = SPELL_KNOWLEDGE_2014.CLERIC_2014.cantrips;
 const DRUID_CANTRIPS = SPELL_KNOWLEDGE_2014.DRUID_2014.cantrips;
 const WIZARD_CANTRIPS = SPELL_KNOWLEDGE_2014.WIZARD_2014.cantrips;
 const ARTIFICER_CANTRIPS = SPELL_KNOWLEDGE_2014.ARTIFICER_2014.cantrips;
-const THIRD_CASTER_CANTRIPS = THIRD_CASTER_KNOWLEDGE_2014.cantrips;
-const THIRD_CASTER_SPELLS_KNOWN = THIRD_CASTER_KNOWLEDGE_2014.known!;
 
 export function formatSpellCountValue(
 	v: SpellCountValue,
@@ -123,7 +122,7 @@ export function formatSpellCountValue(
 /**
  * Returns per-class / per-subclass spell counts that depend on that class level.
  * - Includes multiclasses.
- * - Includes third-caster subclasses (Eldritch Knight, Arcane Trickster) only if present on the character.
+ * - Includes subclass casters (Eldritch Knight, Arcane Trickster, Order of the Profane Soul) only if present on the character.
  */
 export function getSpellcastingCountsLines(pers: PersWithRelations): SpellcastingCountsLine[] {
 	if (!pers) return [];
@@ -301,18 +300,32 @@ export function getSpellcastingCountsLines(pers: PersWithRelations): Spellcastin
 		}
 
 		const sub = entry.subclassName as Subclasses | string | null;
-		if (sub === Subclasses.ELDRITCH_KNIGHT || sub === Subclasses.ARCANE_TRICKSTER) {
+		const subclassKnowledge = cls && sub && isSubclassCaster2014(cls, sub) ? findSpellKnowledge2014(cls, level, sub) : null;
+		if (subclassKnowledge) {
 			const subLabel =
 				(subclassTranslations as Partial<Record<Subclasses, string>>)[sub as Subclasses] ?? String(sub);
 			lines.push({
 				key: `subclass:${sub}:${level}`,
 				name: subLabel,
 				level,
-				cantrips: tableAtLevel(THIRD_CASTER_CANTRIPS, level),
+				cantrips: subclassKnowledge.cantrips,
 				spellsLabel: "Заклинань",
-				spells: fixed(tableAtLevel(THIRD_CASTER_SPELLS_KNOWN, level)),
+				spells: fixed(subclassKnowledge.known ?? 0),
 			});
 			continue;
+		}
+	}
+
+	const pactPoolLevels = entries.map((entry) => ({
+		className: String(entry.className ?? ""),
+		classLevel: clampLevel(entry.level),
+		subclassName: entry.subclassName ?? null,
+	}));
+	const pactSubclassEntry = pactPoolLevels.find((entry) => entry.subclassName === Subclasses.ORDER_OF_THE_PROFANE_SOUL);
+	const pactSubclassShare = pactSubclassEntry ? findPooledPactCantripShare(pactPoolLevels, pactSubclassEntry.className) : null;
+	if (pactSubclassShare !== null) {
+		for (const line of lines) {
+			if (line.key.startsWith(`subclass:${Subclasses.ORDER_OF_THE_PROFANE_SOUL}:`)) line.cantrips = pactSubclassShare;
 		}
 	}
 

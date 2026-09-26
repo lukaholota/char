@@ -84,10 +84,11 @@ const SUBCLASS_ENG: Record<string, string> = subclassTranslationsEng;
 
 export function findSubclassSource(classKey: string, subclassKey: string, ruleset: Ruleset): string | null {
   if (ruleset !== "RULES_2024") return null;
+  if (classKey === "BLOOD_HUNTER_2024") return "BLOOD_HUNTER";
   const legacy = findLegacySubclass2024(classKey, subclassKey);
   if (legacy) return legacy.source;
   const subclass = subclasses2024.find(entry =>
-    `${entry.className.toUpperCase()}_2024` === classKey &&
+    `${entry.className.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}_2024` === classKey &&
     entry.engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "") === subclassKey,
   );
   if (!subclass) throw new Error(`No source for 2024 subclass ${classKey}/${subclassKey}`);

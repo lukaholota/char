@@ -2,7 +2,6 @@ import MultiStepForm from "@/lib/components/characterCreator/MultiStepForm";
 import { findCharacterCreationOptions } from "@/lib/content/creator-content";
 import { collectCreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
-import { auth } from "@/lib/auth";
 import { isRules2024Allowed } from "@/rules/access";
 import { get2014FallbackPath } from "@/rules/route-helpers";
 import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const session = await auth();
   const canSelect2024 = isRules2024Allowed();
 
   if (!canSelect2024) {

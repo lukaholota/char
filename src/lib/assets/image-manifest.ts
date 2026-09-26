@@ -106,6 +106,7 @@ const RACE_IMAGE_MAP: Record<string, string> = {
 const CLASS_IMAGE_MAP: Record<string, string> = {
   ARTIFICER: "/images/classes/artificer.webp",
   BARBARIAN: "/images/classes/barbarian.webp",
+  BLOOD_HUNTER: "/images/classes/blood_hunter.webp",
   BARD: "/images/classes/bard.webp",
   CLERIC: "/images/classes/cleric.webp",
   DRUID: "/images/classes/druid.webp",
@@ -399,6 +400,7 @@ export function getClassImagePath(className: string | null | undefined): string 
     return CLASS_IMAGE_MAP[norm];
   }
 
+  if (norm.includes("BLOOD_HUNTER") || norm.includes("МИСЛИВЕЦЬ ЗА КРОВ")) return CLASS_IMAGE_MAP.BLOOD_HUNTER;
   if (norm.includes("ARTIFICER") || norm.includes("ВИНАХІДНИК")) return CLASS_IMAGE_MAP.ARTIFICER;
   if (norm.includes("BARBARIAN") || norm.includes("ВАРВАР")) return CLASS_IMAGE_MAP.BARBARIAN;
   if (norm.includes("BARD") || norm.includes("БАРД")) return CLASS_IMAGE_MAP.BARD;

@@ -21,6 +21,7 @@ const CLASS_NAMES_UK: Record<string, string> = {
   WARLOCK: 'Чорнокнижник',
   WIZARD: 'Чарівник',
   ARTIFICER: 'Винахідник',
+  BLOOD_HUNTER: 'Мисливець за кровʼю',
 };
 
 const CLASS_HIT_DICE: Record<string, number> = {
@@ -37,6 +38,7 @@ const CLASS_HIT_DICE: Record<string, number> = {
   WARLOCK: 8,
   WIZARD: 6,
   ARTIFICER: 8,
+  BLOOD_HUNTER: 10,
 };
 
 export class ProgressionResolver {

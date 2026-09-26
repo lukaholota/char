@@ -9,11 +9,25 @@ import { CatalogIllustrationCard } from "@/components/catalogs/CatalogIllustrati
 import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { ClassDetailCard } from "@/components/classes/ClassDetailCard";
 import { ClassesFilterDialog } from "@/components/classes/ClassesFilterDialog";
-import { scrollToVisibleJumpTarget } from "@/components/catalogs/SectionJumpNav";
+import { CatalogReadingDialog } from "@/components/catalogs/reading/CatalogReadingDialog";
+import { SubclassReader } from "@/components/classes/SubclassReader";
+import { useReadingNavigation } from "@/components/catalogs/reading/useReadingNavigation";
+import type { ReadingActions, ReadingView } from "@/components/catalogs/reading/reading-view";
+import { CatalogMatchList } from "@/components/catalogs/reading/CatalogMatchList";
+import { findClassMatches } from "@/lib/catalogs/reading-matches";
 import type { ClassData } from "@/lib/classesData";
+import type { ClassTable } from "@/rules/class-table";
+import {
+  findClassReading,
+  parseClassReadingTarget,
+  writeClassReadingTarget,
+  type ClassReadingTarget,
+  type ClassSection,
+} from "@/lib/catalogs/reading-target";
 import { splitCatalogSubclasses } from "@/lib/logic/legacy-subclass-visibility";
 import { useCatalogDeepLinkFocus } from "@/hooks/useCatalogDeepLinkFocus";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import {
   getParamSet,
   getSearchParamsFromLocation,
@@ -43,6 +57,7 @@ type SelectionState = {
   source: SourceSelection;
   q: string;
   class: string;
+  reading: ClassReadingTarget | null;
 };
 
 const parseSelection = (params: URLSearchParams): SelectionState => ({
@@ -51,6 +66,7 @@ const parseSelection = (params: URLSearchParams): SelectionState => ({
   source: parseSourceSelection(params),
   q: params.get("q") || "",
   class: params.get("class") || "",
+  reading: parseClassReadingTarget(params),
 });
 
 /// Subclass names go into the haystack on purpose: the omni-search sends «Шлях берсерка» here,
@@ -66,18 +82,21 @@ function findSearchHaystack(characterClass: ClassData): string {
 export function ClassesClient({
   classes,
   ruleset = "RULES_2014",
+  tables,
 }: {
   classes: ClassData[];
   ruleset?: Ruleset;
+  tables: Record<string, ClassTable>;
 }) {
   const is2024 = ruleset === "RULES_2024";
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalClass, setSelectedModalClass] = useState<ClassData | null>(null);
   const closingModalRef = useRef(false);
 
-  const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
+  const { qInput, setQInput, selection, setSelection } = useCatalogUrlSync<SelectionState>(
     parseSelection,
   );
+  const isWide = useMediaQuery("lg");
 
   const available = useMemo(
     () => ({
@@ -91,7 +110,9 @@ export function ClassesClient({
   const filtered = useMemo(() => {
     const query = selection.q.trim().toLowerCase();
     return classes.filter((characterClass) => {
-      if (query && !findSearchHaystack(characterClass).includes(query)) return false;
+      if (query && !findSearchHaystack(characterClass).includes(query) && findClassMatches(characterClass, query).length === 0) {
+        return false;
+      }
       if (selection.hitDice.size > 0 && !selection.hitDice.has(String(characterClass.hitDie))) return false;
       if (selection.spellcasting.size > 0 && !selection.spellcasting.has(findSpellcastingKey(characterClass))) {
         return false;
@@ -101,16 +122,18 @@ export function ClassesClient({
     });
   }, [classes, selection]);
 
-  const selectedClass = useMemo(() => {
-    if (selection.class) {
-      const byParam = classes.find(
-        (characterClass) =>
-          characterClass.slug === selection.class || String(characterClass.classId) === selection.class,
-      );
-      if (byParam) return byParam;
-    }
-    return filtered[0] ?? null;
-  }, [classes, filtered, selection.class]);
+  const reading = useMemo(
+    () => (selection.reading ? findClassReading(classes, selection.reading) : null),
+    [classes, selection.reading],
+  );
+  const selectedClass = reading?.characterClass ?? filtered[0] ?? null;
+  const openSubclass = reading?.subclass ?? null;
+
+  const syncSelectionFromUrl = useCallback(
+    () => setSelection(parseSelection(getSearchParamsFromLocation())),
+    [setSelection],
+  );
+  const navigation = useReadingNavigation({ isBranchOpen: Boolean(openSubclass), onUrlChanged: syncSelectionFromUrl });
 
   /// Читаємо адресу, а не стан: той самий рядок пошуку можна натиснути вдруге, і тоді ні
   /// `selection`, ні `selectedClass` не зміняться — а модалку все одно треба відкрити.
@@ -119,18 +142,13 @@ export function ClassesClient({
       closingModalRef.current = false;
       return;
     }
-    const params = getSearchParamsFromLocation();
-    const requested = params.get("class");
-    if (!requested) return;
+    const target = parseClassReadingTarget(getSearchParamsFromLocation());
+    const resolved = target ? findClassReading(classes, target) : null;
+    if (!resolved) return;
 
-    const target = classes.find(
-      (characterClass) => characterClass.slug === requested || String(characterClass.classId) === requested,
-    );
-    if (!target) return;
-
-    if (window.innerWidth < 1024) setSelectedModalClass(target);
-    scrollToVisibleJumpTarget(params.get("jump"));
-  }, [classes]);
+    if (window.innerWidth < 1024) setSelectedModalClass(resolved.characterClass);
+    if (source !== "popstate") navigation.requestFocus();
+  }, [classes, navigation]);
 
   useCatalogDeepLinkFocus(focusClassFromUrl);
 
@@ -139,6 +157,43 @@ export function ClassesClient({
     mutate(next);
     replaceUrlSearchParams(next);
   }, []);
+
+  const writeTarget = (target: Omit<ClassReadingTarget, "classKey">) => (params: URLSearchParams) =>
+    writeClassReadingTarget(params, { classKey: selectedClass?.slug ?? "", ...target });
+  const toClassSection = (section: ClassSection) => writeTarget({ section, subclassKey: null, featureKey: null });
+  const backToClass = () => navigation.leaveBranchTo(toClassSection("subclasses"));
+
+  const view: ReadingView<ClassSection> = {
+    section: reading?.section ?? "overview",
+    featureKey: openSubclass ? null : reading?.featureKey ?? null,
+    focusRequest: navigation.focusRequest,
+    missing: reading?.missing === "subclass" ? "branch" : reading?.missing ?? null,
+  };
+  const actions: ReadingActions<ClassSection> = {
+    onSectionChange: (section) => navigation.replaceTarget(toClassSection(section)),
+    onOpenBranch: (key, opener) =>
+      navigation.openBranch(writeTarget({ section: "subclasses", subclassKey: key, featureKey: null }), key, opener),
+    onDismissMissing: () => navigation.replaceTarget(toClassSection("overview")),
+    onOpenFeature: (featureKey) => {
+      navigation.replaceTarget(writeTarget({ section: "features", subclassKey: null, featureKey }));
+      navigation.requestFocus();
+    },
+  };
+
+  const closeModal = () => {
+    closingModalRef.current = true;
+    setSelectedModalClass(null);
+  };
+
+  const openMatch = (target: ClassReadingTarget) => {
+    navigation.replaceTarget((params) => writeClassReadingTarget(params, target));
+    navigation.requestFocus();
+    const characterClass = classes.find((candidate) => candidate.slug === target.classKey);
+    if (characterClass && window.innerWidth < 1024) {
+      closingModalRef.current = false;
+      setSelectedModalClass(characterClass);
+    }
+  };
 
   const toggleIn = (key: string) => (value: string) =>
     setParams((next) => {
@@ -193,8 +248,13 @@ export function ClassesClient({
           characterClass={characterClass}
           is2024={is2024}
           isSelected={selectedClass?.classId === characterClass.classId}
+          matches={
+            <CatalogMatchList matches={findClassMatches(characterClass, selection.q)} onOpen={openMatch} />
+          }
           onSelect={() => {
-            setParams((next) => next.set("class", characterClass.slug));
+            setParams((next) =>
+              writeClassReadingTarget(next, { classKey: characterClass.slug, section: "overview", subclassKey: null, featureKey: null }),
+            );
             if (typeof window !== "undefined" && window.innerWidth < 1024) {
               closingModalRef.current = false;
               setSelectedModalClass(characterClass);
@@ -204,7 +264,26 @@ export function ClassesClient({
       )}
       desktopDetailView={
         selectedClass ? (
-          <ClassDetailCard characterClass={selectedClass} is2024={is2024} />
+          <>
+            <ClassDetailCard characterClass={selectedClass} table={tables[selectedClass.key]} is2024={is2024} view={view} actions={actions} />
+            <CatalogReadingDialog
+              open={isWide && Boolean(openSubclass)}
+              title={openSubclass?.name ?? "Підклас"}
+              onClose={backToClass}
+            >
+              {openSubclass ? (
+                <SubclassReader
+                  characterClass={selectedClass}
+                  subclass={openSubclass}
+                  featureKey={reading?.featureKey ?? null}
+                  focusRequest={navigation.focusRequest}
+                  is2024={is2024}
+                  onBack={backToClass}
+                  onClose={backToClass}
+                />
+              ) : null}
+            </CatalogReadingDialog>
+          </>
         ) : (
           <div className="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
             <p className="text-sm text-slate-400">Оберіть клас для перегляду деталей</p>
@@ -212,14 +291,24 @@ export function ClassesClient({
         )
       }
       selectedModalItem={selectedModalClass}
-      onCloseModal={() => {
-        closingModalRef.current = true;
-        setSelectedModalClass(null);
-      }}
-      modalTitle={selectedModalClass?.name || "Клас"}
-      renderModalContent={(characterClass) => (
-        <ClassDetailCard characterClass={characterClass} is2024={is2024} />
-      )}
+      onCloseModal={() => navigation.closeModalWithBranch(closeModal, toClassSection("overview"))}
+      isModalChromeHidden={Boolean(openSubclass)}
+      modalTitle={openSubclass?.name ?? selectedModalClass?.name ?? "Клас"}
+      renderModalContent={(characterClass) =>
+        openSubclass && characterClass === selectedClass ? (
+          <SubclassReader
+            characterClass={characterClass}
+            subclass={openSubclass}
+            featureKey={reading?.featureKey ?? null}
+            focusRequest={navigation.focusRequest}
+            is2024={is2024}
+            onBack={backToClass}
+            onClose={() => navigation.closeModalWithBranch(closeModal, toClassSection("overview"))}
+          />
+        ) : (
+          <ClassDetailCard characterClass={characterClass} table={tables[characterClass.key]} is2024={is2024} view={view} actions={actions} />
+        )
+      }
       filterDialogOpen={filtersOpen}
       onFilterDialogClose={() => setFiltersOpen(false)}
       filterDialogContent={
@@ -248,11 +337,13 @@ function ClassRow({
   characterClass,
   is2024,
   isSelected,
+  matches,
   onSelect,
 }: {
   characterClass: ClassData;
   is2024: boolean;
   isSelected: boolean;
+  matches: React.ReactNode;
   onSelect: () => void;
 }) {
   return (
@@ -276,6 +367,7 @@ function ClassRow({
           </>
         }
       />
+      {matches}
     </div>
   );
 }

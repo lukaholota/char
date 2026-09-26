@@ -53,7 +53,7 @@ export function replaceUrlSearchParams(next: URLSearchParams) {
   if (typeof window === "undefined") return;
   const search = next.toString();
   const newUrl = `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`;
-  window.history.replaceState(null, "", newUrl);
+  window.history.replaceState(window.history.state, "", newUrl);
 }
 
 

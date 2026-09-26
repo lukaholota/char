@@ -1,14 +1,14 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { femaleFantasyNames, femaleNames, maleFantasyNames, maleNames } from "@/lib/refs/names";
-import { femalePatronymics, malePatronymics } from "@/lib/refs/patronymics";
-import {
-  fantasySurnamesFemale,
-  fantasySurnamesMale,
-  femaleSurnames,
-  maleSurnames,
-} from "@/lib/refs/surnames";
+import { useCallback, useEffect, useState } from "react";
 
 type GenderKey = "male" | "female";
+
+type GenderNamePool = {
+  names: { traditional: readonly string[]; fantasy: readonly string[] };
+  surnames: { traditional: readonly string[]; fantasy: readonly string[] };
+  patronymics: readonly string[];
+};
+
+type NamePools = Record<GenderKey, GenderNamePool>;
 
 type NameGeneratorOptions = {
   gender?: "any" | GenderKey;
@@ -56,35 +56,50 @@ function buildPartsOrder(options: { name: boolean; surname: boolean; patronymic:
   return ["name"] as const;
 }
 
-export function useFantasyNameGenerator(options?: NameGeneratorOptions) {
-  const pools = useMemo(() => {
-    return {
-      male: {
-        names: {
-          traditional: maleNames,
-          fantasy: maleFantasyNames,
-        },
-        surnames: {
-          traditional: maleSurnames,
-          fantasy: fantasySurnamesMale,
-        },
-        patronymics: malePatronymics,
-      },
-      female: {
-        names: {
-          traditional: femaleNames,
-          fantasy: femaleFantasyNames,
-        },
-        surnames: {
-          traditional: femaleSurnames,
-          fantasy: fantasySurnamesFemale,
-        },
-        patronymics: femalePatronymics,
-      },
-    } as const;
+// Сотня КБ списків потрібна лише на кроці «Імʼя», тож вони не йдуть у код конструктора.
+let namePoolsPromise: Promise<NamePools> | null = null;
+
+function loadNamePools(): Promise<NamePools> {
+  namePoolsPromise ??= Promise.all([
+    import("@/lib/refs/names"),
+    import("@/lib/refs/surnames"),
+    import("@/lib/refs/patronymics"),
+  ]).then(([names, surnames, patronymics]) => ({
+    male: {
+      names: { traditional: names.maleNames, fantasy: names.maleFantasyNames },
+      surnames: { traditional: surnames.maleSurnames, fantasy: surnames.fantasySurnamesMale },
+      patronymics: patronymics.malePatronymics,
+    },
+    female: {
+      names: { traditional: names.femaleNames, fantasy: names.femaleFantasyNames },
+      surnames: { traditional: surnames.femaleSurnames, fantasy: surnames.fantasySurnamesFemale },
+      patronymics: patronymics.femalePatronymics,
+    },
+  }));
+  return namePoolsPromise;
+}
+
+function useNamePools(): NamePools | null {
+  const [pools, setPools] = useState<NamePools | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    void loadNamePools().then((loaded) => {
+      if (isMounted) setPools(loaded);
+    });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
+  return pools;
+}
+
+export function useFantasyNameGenerator(options?: NameGeneratorOptions) {
+  const pools = useNamePools();
+
   const generateRandomName = useCallback(() => {
+    if (!pools) return "";
     const gender = pickGender(options?.gender);
     const pool = pools[gender];
 
@@ -128,18 +143,13 @@ export function useFantasyNameGenerator(options?: NameGeneratorOptions) {
     return resolved || name;
   }, [options?.gender, options?.parts?.name, options?.parts?.surname, options?.parts?.patronymic, options?.sources?.fantasy, options?.sources?.traditional, pools]);
 
-  const [currentName, setCurrentName] = useState<string>(() => generateRandomName());
+  const [currentName, setCurrentName] = useState<string>("");
 
   const generateName = useCallback(() => {
     const next = generateRandomName();
     setCurrentName(next);
     return next;
   }, [generateRandomName]);
-
-  useEffect(() => {
-    if (!currentName) generateName();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     setCurrentName(generateRandomName());

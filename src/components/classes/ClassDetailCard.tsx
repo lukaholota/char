@@ -4,14 +4,20 @@ import { Skills } from "@/lib/prisma-enums";
 import { Shield, Sparkles, Wrench } from "lucide-react";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 
-import type { ClassData, ClassFeature, SubclassData } from "@/lib/classesData";
+import type { ClassData, SubclassData } from "@/lib/classesData";
+import { findFeatureKey, type ClassSection } from "@/lib/catalogs/reading-target";
+import { buildFeatureEntries } from "@/lib/catalogs/reading-entries";
 import { splitCatalogSubclasses } from "@/lib/logic/legacy-subclass-visibility";
 import { CatalogProse } from "@/components/catalogs/CatalogProse";
-import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/SectionJumpNav";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { BranchCardGrid, type BranchCard } from "@/components/catalogs/reading/BranchCardGrid";
+import { MissingTargetNotice } from "@/components/catalogs/reading/MissingTargetNotice";
+import { ReadingEntryList } from "@/components/catalogs/reading/ReadingEntryList";
+import { ReadingSectionTabs, type ReadingSection } from "@/components/catalogs/reading/ReadingSectionTabs";
+import type { ReadingActions, ReadingView } from "@/components/catalogs/reading/reading-view";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
+import { ClassTableView } from "@/components/classes/ClassTableView";
+import type { ClassTable } from "@/rules/class-table";
 import { useIsArtHidden } from "@/components/no-ai/ContentImage";
-import { useIsDeferredRenderReady } from "@/hooks/useIsDeferredRenderReady";
 import { cn } from "@/lib/utils";
 import { skillTranslations, sourceTranslations } from "@/lib/refs/translation";
 import { describeSkillChoice, formatAnySkillsLabel, normalizeSkillProficiencies } from "@/rules/proficiency";
@@ -19,95 +25,160 @@ import { findAccentVariant } from "@/styles/edition-accent";
 
 const ALL_SKILLS = Object.values(Skills);
 
+export const LEGACY_SUBCLASSES_NOTE =
+  "Правила 2024 дозволяють підклас із книги 2014 без перевидання; риси нижче 3-го рівня ви отримуєте на 3-му.";
+
+const FEATURE_FORMS = ["здібність", "здібності", "здібностей"] as const;
+
 export function ClassDetailCard({
   characterClass,
+  table,
   is2024 = false,
+  view,
+  actions,
 }: {
   characterClass: ClassData;
+  table?: ClassTable;
   is2024?: boolean;
+  view: ReadingView<ClassSection>;
+  actions: ReadingActions<ClassSection>;
 }) {
-  const isFeatureListReady = useIsDeferredRenderReady(characterClass);
-
   return (
     <div
-      {...jumpTargetAttributes.scope}
       className={cn(
         "glass-card max-w-full overflow-hidden break-words rounded-2xl border border-white/10 bg-slate-950/60 p-4 backdrop-blur-xl sm:p-6",
         findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(141,99,238,0.08)] ring-1 ring-white/10" }),
       )}
     >
       <Header characterClass={characterClass} is2024={is2024} />
-      <CatalogProse content={characterClass.description} className="mt-4" />
-      <SectionJumpNav
-        title="Підкласи"
-        items={characterClass.subclasses.map((subclass) => ({ id: subclass.slug, label: subclass.name }))}
+      {view.missing ? (
+        <MissingTargetNotice
+          message={view.missing === "branch" ? "Такого підкласу в цьому класі немає." : "Такої здібності тут немає."}
+          actionLabel="До класу"
+          onAction={actions.onDismissMissing}
+        />
+      ) : null}
+      <ReadingSectionTabs
+        label={`Розділи класу ${characterClass.name}`}
+        sections={buildSections(characterClass, table, is2024, view, actions)}
+        value={view.section}
+        onValueChange={actions.onSectionChange}
         is2024={is2024}
       />
-      <MetaGrid characterClass={characterClass} />
-
-      {isFeatureListReady ? (
-        <FeatureSections characterClass={characterClass} />
-      ) : (
-        <div aria-hidden className="min-h-[100dvh]" />
-      )}
     </div>
   );
 }
 
-const LEGACY_SUBCLASSES_NOTE =
-  "Правила 2024 дозволяють підклас із книги 2014 без перевидання; риси нижче 3-го рівня ви отримуєте на 3-му.";
+function buildSections(
+  characterClass: ClassData,
+  table: ClassTable | undefined,
+  is2024: boolean,
+  view: ReadingView<ClassSection>,
+  actions: ReadingActions<ClassSection>,
+): ReadingSection<ClassSection>[] {
+  const sections: ReadingSection<ClassSection>[] = [
+    {
+      value: "overview",
+      label: "Огляд",
+      content: (
+        <>
+          <CatalogProse content={characterClass.description} />
+          <MetaGrid characterClass={characterClass} />
+        </>
+      ),
+    },
+  ];
+  if (table) {
+    sections.push({
+      value: "table",
+      label: "Таблиця",
+      content: (
+        <ClassTableView
+          table={table}
+          className="max-h-[70vh]"
+          onOpenFeature={(feature) =>
+            feature.kind === "class" ? actions.onOpenFeature?.(findFeatureKey(feature)) : actions.onSectionChange("subclasses")
+          }
+        />
+      ),
+    });
+  }
+  if (characterClass.features.length > 0) {
+    sections.push({
+      value: "features",
+      label: `Здібності (${characterClass.features.length})`,
+      content: (
+        <ReadingEntryList
+          entries={buildFeatureEntries(characterClass.features)}
+          targetKey={view.featureKey}
+          focusRequest={view.focusRequest}
+          is2024={is2024}
+        />
+      ),
+    });
+  }
+  if (characterClass.subclasses.length > 0) {
+    sections.push({
+      value: "subclasses",
+      label: `Підкласи (${splitCatalogSubclasses(characterClass.subclasses).current.length})`,
+      content: <SubclassSection characterClass={characterClass} is2024={is2024} onOpen={actions.onOpenBranch} />,
+    });
+  }
+  return sections;
+}
 
-function FeatureSections({ characterClass }: { characterClass: ClassData }) {
+function SubclassSection({
+  characterClass,
+  is2024,
+  onOpen,
+}: {
+  characterClass: ClassData;
+  is2024: boolean;
+  onOpen: ReadingActions<ClassSection>["onOpenBranch"];
+}) {
   const { current, legacy } = splitCatalogSubclasses(characterClass.subclasses);
 
   return (
-    <>
-      {characterClass.features.length > 0 ? (
-        <Section title={`Здібності класу (${characterClass.features.length})`}>
-          <FeatureList features={characterClass.features} />
-        </Section>
-      ) : null}
-
+    <div className="space-y-5">
       {current.length > 0 ? (
-        <Section title={`Підкласи (${current.length}) · з ${characterClass.subclassLevel} рівня`}>
-          <SubclassEntries subclasses={current} />
-        </Section>
+        <SubclassGroup title={`Підкласи (${current.length}) · з ${characterClass.subclassLevel} рівня`}>
+          <BranchCardGrid cards={current.map(toSubclassCard)} is2024={is2024} onOpen={onOpen} />
+        </SubclassGroup>
       ) : null}
-
       {legacy.length > 0 ? (
-        <Section title={`Зі старих книг (${legacy.length})`}>
+        <SubclassGroup title={`Зі старих книг (${legacy.length})`}>
           <p className="mb-3 text-xs text-slate-400">{LEGACY_SUBCLASSES_NOTE}</p>
-          <SubclassEntries subclasses={legacy} />
-        </Section>
+          <BranchCardGrid cards={legacy.map(toSubclassCard)} is2024={is2024} onOpen={onOpen} />
+        </SubclassGroup>
       ) : null}
-    </>
+    </div>
   );
 }
 
-function SubclassEntries({ subclasses }: { subclasses: readonly SubclassData[] }) {
+function SubclassGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="space-y-5">
-      {subclasses.map((subclass) => (
-        <div key={subclass.key} {...jumpTargetAttributes.target(subclass.slug)} className="scroll-mt-2">
-          <div className="flex flex-wrap items-baseline gap-2">
-            <span className="text-sm font-semibold text-slate-100">{subclass.name}</span>
-            <span className="font-mono text-[11px] text-slate-500">[{subclass.engName}]</span>
-            {subclass.source ? (
-              <span className="text-[11px] text-slate-400">{sourceTranslations[subclass.source] ?? subclass.source}</span>
-            ) : null}
-          </div>
-          {subclass.description ? (
-            <FormattedDescription content={subclass.description} className="mt-1 text-sm leading-relaxed text-slate-300" />
-          ) : null}
-          {subclass.features.length > 0 ? (
-            <div className="mt-2 pl-3">
-              <FeatureList features={subclass.features} />
-            </div>
-          ) : null}
-        </div>
-      ))}
-    </div>
+    <section aria-label={title}>
+      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{title}</h3>
+      {children}
+    </section>
   );
+}
+
+export function findSubclassSourceLabel(subclass: SubclassData): string | null {
+  return subclass.source ? sourceTranslations[subclass.source] ?? subclass.source : null;
+}
+
+function toSubclassCard(subclass: SubclassData): BranchCard {
+  return {
+    key: subclass.slug,
+    name: subclass.name,
+    engName: subclass.engName,
+    kindLabel: "Підклас",
+    sourceLabel: findSubclassSourceLabel(subclass),
+    entryCount: subclass.features.length,
+    entryCountForms: FEATURE_FORMS,
+    description: subclass.description,
+  };
 }
 
 function Header({ characterClass, is2024 }: { characterClass: ClassData; is2024: boolean }) {
@@ -204,36 +275,6 @@ function MetaCell({
         {label}
       </div>
       <div className="mt-1 text-sm text-slate-200">{value}</div>
-    </div>
-  );
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="glass-panel mt-4 max-w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 sm:p-4">
-      <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{title}</div>
-      {children}
-    </div>
-  );
-}
-
-function FeatureList({ features }: { features: ClassFeature[] }) {
-  return (
-    <div className="space-y-3">
-      {features.map((feature) => (
-        <div key={`${feature.level}-${feature.engName}-${feature.name}`}>
-          <div className="flex flex-wrap items-baseline gap-2">
-            <span className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-[11px] text-slate-400">
-              {feature.level} рів.
-            </span>
-            <span className="text-sm font-semibold text-slate-100">{feature.name}</span>
-          </div>
-          <FormattedDescription
-            content={feature.description}
-            className="mt-1 text-sm leading-relaxed text-slate-300"
-          />
-        </div>
-      ))}
     </div>
   );
 }

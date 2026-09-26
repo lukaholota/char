@@ -28,6 +28,10 @@ export function hasUnarmedStrikeFromStart(className: string): boolean {
   return (MONK_CLASS_NAMES as readonly string[]).includes(className);
 }
 
+export function hasUnarmedStrikeFromSubclass(subclassName: string | null | undefined): boolean {
+  return subclassName === "ORDER_OF_THE_LYCAN";
+}
+
 export function isMonkWeapon(weapon: MonkWeaponCandidate, ruleset: Ruleset): boolean {
   if (weapon.name === "UNARMED_STRIKE") return true;
   if (weapon.isRanged) return false;

@@ -27,7 +27,7 @@ import {
 import { findAlertInitiativeBonus, findObservantPassiveBonus } from "@/rules/feat-flat-bonuses-2014";
 import { calculateWalkingSpeed, explainWalkingSpeed, type WalkingSpeedPartKey } from "@/rules/walking-speed";
 import { collectDamageResistances, findDarkvisionRange } from "@/rules/senses-and-resistances";
-import type { StateEffects } from "@/rules/state-effects";
+import type { StateEffects, UnarmedStrikeEffect } from "@/rules/state-effects";
 import {
   canUseDexterousAttacks,
   findMartialArtsDamageDice,
@@ -717,6 +717,8 @@ function getFeatureWeaponDamageBonus(pers: PersWithRelations, pw: PersWeaponWith
   const props = weapon.properties ?? [];
   const isThrownWeapon = props.includes(WeaponProperty.THROWN);
   const isTwoHanded = props.includes(WeaponProperty.TWO_HANDED);
+  // Дуель — «melee weapon in one hand»; удар без зброї зброєю не є, хоч і лежить рядком у зброї.
+  const isHeldWeapon = weapon.name !== "UNARMED_STRIKE";
 
   const features = collectActiveFeatures(pers);
   let bonus = 0;
@@ -733,7 +735,7 @@ function getFeatureWeaponDamageBonus(pers: PersWithRelations, pw: PersWeaponWith
 
       // Dueling-style style bonus. We can reliably exclude explicitly two-handed weapons.
       // (We can't perfectly detect "empty offhand" or versatile 2H usage from current model.)
-      if (!isTwoHanded && typeof feature.bonusToMeleeOneHandedWeaponDamage === "number" && Number.isFinite(feature.bonusToMeleeOneHandedWeaponDamage)) {
+      if (!isTwoHanded && isHeldWeapon && typeof feature.bonusToMeleeOneHandedWeaponDamage === "number" && Number.isFinite(feature.bonusToMeleeOneHandedWeaponDamage)) {
         bonus += feature.bonusToMeleeOneHandedWeaponDamage;
       }
     }
@@ -768,7 +770,17 @@ export function findWeaponRange(pw: PersWeaponWithWeapon): { normal: number; lon
 
 export function getWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
   if (pw.customDamageAbility) return pw.customDamageAbility;
-  return chooseStateWeaponAbility(pers, pw, findUsualWeaponAbility(pers, pw));
+  const usual = chooseStateWeaponAbility(pers, pw, findUsualWeaponAbility(pers, pw));
+  const strike = findStateUnarmedStrike(pers, pw);
+  if (!strike) return usual;
+  const offered = strike.abilityOption as Ability;
+  return calculateFinalModifier(pers, offered) > calculateFinalModifier(pers, usual) ? offered : usual;
+}
+
+/// Хижі удари гібридної форми лікантропа: стан робить удар кулаком зброєю з кубиком і бонусом атаки.
+function findStateUnarmedStrike(pers: PersWithRelations, pw: PersWeaponWithWeapon): UnarmedStrikeEffect | null {
+  if (pw.weapon?.name !== "UNARMED_STRIKE") return null;
+  return readStateEffects(pers)?.unarmedStrike ?? null;
 }
 
 /// Робота клинком 2024: зброєю, якою володієш, можна атакувати Інтелектом — лист бере кращу.
@@ -796,7 +808,8 @@ export function calculateWeaponDamageDice(pers: PersWithRelations, pw: PersWeapo
   const manualDamage = findManualDamageDice(pw);
   if (manualDamage) return manualDamage;
 
-  const weaponDamage = String(pw.weapon?.damage || "");
+  const strike = findStateUnarmedStrike(pers, pw);
+  const weaponDamage = strike ? strike.damageDice : String(pw.weapon?.damage || "");
   if (!hasDexterousAttacksWith(pers, pw.weapon)) return weaponDamage;
 
   const martialArtsDie = findMartialArtsDie(pers.ruleset, findMonkLevel(pers));
@@ -828,7 +841,8 @@ export function calculateWeaponAttackBonus(pers: PersWithRelations, pw: PersWeap
   const ability = getWeaponAbility(pers, pw);
   const mod = calculateFinalModifier(pers, ability);
   const pb = pw.isProficient ? calculateFinalProficiency(pers) : 0;
-  return mod + pb + toNumber(pw.attackBonus, 0) + getFeatureWeaponAttackBonus(pers, pw.weapon) + findD20PenaltyPart(pers).value;
+  const stateBonus = findStateUnarmedStrike(pers, pw)?.attackBonus ?? 0;
+  return mod + pb + toNumber(pw.attackBonus, 0) + getFeatureWeaponAttackBonus(pers, pw.weapon) + stateBonus + findD20PenaltyPart(pers).value;
 }
 
 export function calculateWeaponDamageBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {
@@ -840,6 +854,7 @@ export function calculateWeaponDamageBonus(pers: PersWithRelations, pw: PersWeap
   bonus += getFeatureWeaponDamageBonus(pers, pw);
 
   if (ability === Ability.STR) bonus += readStateEffects(pers)?.strengthAttackDamageBonus ?? 0;
+  if (pw.weapon && !pw.weapon.isRanged) bonus += readStateEffects(pers)?.meleeDamageBonus ?? 0;
 
   // Add magic item ranged damage bonus if applicable
   if (pw.weapon && pw.weapon.isRanged) {

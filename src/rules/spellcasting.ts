@@ -9,9 +9,10 @@ export function calculateCasterLevel(character: SpellcastingCharacter, ruleset: 
   const mainLevel = clamp(toInteger(character.level, 1) - multiclasses.reduce((sum, multiclass) => sum + toInteger(multiclass.classLevel, 0), 0), 1, 20);
   const classLevels = [{ classLevel: mainLevel, characterClass: character.characterClass, subclass: character.subclass }, ...multiclasses];
 
+  const hasPactClass = classLevels.some((classLevel) => classLevel.characterClass?.spellcastingType === "PACT");
   const usesOwnClassTable = countSlotSpellcastingClasses(classLevels) === 1;
   return classLevels.reduce(
-    (total, classLevel) => addCasterLevel(total, classLevel, ruleset, usesOwnClassTable),
+    (total, classLevel) => addCasterLevel(total, classLevel, ruleset, hasPactClass, usesOwnClassTable),
     { casterLevel: 0, pactLevel: 0 },
   );
 }
@@ -59,14 +60,31 @@ export function applySpellSlotMaximumDelta(
   });
 }
 
-function addCasterLevel(total: CasterLevel, classLevel: SpellcastingClassLevel, ruleset: Ruleset, usesOwnClassTable: boolean): CasterLevel {
+// Орден нечестивої душі (Blood Hunter 2020) — єдиний підклас із магією пакту. Сам по собі він
+// має власну таблицю слотів; рядок нижче — рівень чорнокнижника з тими самими слотами й рівнем
+// слотів. З рівнями чорнокнижника правило інше: до них додається третина рівнів мисливця (вниз),
+// і пул слотів один (BH-005: мисливець 7 / чорнокнижник 3 = пакт 5).
+const PACT_SUBCLASS_PACT_LEVEL = [0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 7, 7] as const;
+
+function addCasterLevel(
+  total: CasterLevel,
+  classLevel: SpellcastingClassLevel,
+  ruleset: Ruleset,
+  hasPactClass: boolean,
+  usesOwnClassTable: boolean,
+): CasterLevel {
   const level = clamp(toInteger(classLevel.classLevel, 1), 1, 20);
   const kind = getEffectiveSpellcastingKind(classLevel);
-  if (kind === "PACT") return { ...total, pactLevel: clamp(total.pactLevel + level, 0, 20) };
+  if (kind === "PACT") return { ...total, pactLevel: clamp(total.pactLevel + findPactContribution(classLevel, level, hasPactClass), 0, 20) };
   const contribution = usesOwnClassTable
     ? findOwnClassTableCasterLevel(level, kind, ruleset, classLevel.characterClass?.name)
     : getCasterLevelContribution(level, kind, ruleset, classLevel.characterClass?.name);
   return { ...total, casterLevel: clamp(total.casterLevel + contribution, 0, 20) };
+}
+
+function findPactContribution(classLevel: SpellcastingClassLevel, level: number, hasPactClass: boolean): number {
+  if (classLevel.characterClass?.spellcastingType === "PACT") return level;
+  return hasPactClass ? Math.floor(level / 3) : PACT_SUBCLASS_PACT_LEVEL[level - 1];
 }
 
 function getEffectiveSpellcastingKind(classLevel: SpellcastingClassLevel): SpellcastingKind {

@@ -6,16 +6,17 @@ import { ArrowUpRight, Command, Search, X } from "lucide-react";
 import { OmniSearchResults } from "@/components/search/OmniSearchResults";
 import { OmniSearchCategoryLinks } from "@/components/search/OmniSearchCategoryLinks";
 import { useDeferredServerSearch } from "@/components/search/useDeferredServerSearch";
-import { findOmniSearchOutcome, type OmniSearchCategory, type OmniSearchItem } from "@/lib/omniSearchData";
-import { buildOmniSearchRows, type OmniSearchRow } from "@/lib/search/omniSearchRows";
+import type { OmniSearchCategory, OmniSearchItem } from "@/lib/omniSearchData";
+import type { OmniSearchRow } from "@/lib/search/omniSearchRows";
+import { buildOmniSearchPanelRows } from "@/lib/search/omniSearchPanelRows";
 import { announceSearchNavigation } from "@/lib/search/search-navigation";
 import {
   collectSearchCatalogs,
   findCatalogHref,
   findCatalogSearchTitle,
 } from "@/lib/catalogs/catalog-registry";
-import { searchUserPersAndFolders, type UserSearchHit } from "@/server/db/pers-search-actions";
-import { searchHomebrewEntries, type HomebrewSearchHit } from "@/server/db/homebrew-search-actions";
+import { searchUserPersAndFolders } from "@/server/db/pers-search-actions";
+import { searchHomebrewEntries } from "@/server/db/homebrew-search-actions";
 import { useActiveEdition } from "@/components/ui/PersEditionPin";
 import { useNoAiHref } from "@/components/no-ai/NoAiModeProvider";
 import type { Edition } from "@/rules/route-helpers";
@@ -54,17 +55,9 @@ export function OmniSearchPanel({ onClose }: Props) {
     useCallback((trimmed: string) => searchHomebrewEntries(trimmed, ruleset), [ruleset]),
   );
 
-  const rows = useMemo(
-    () =>
-      buildRows({
-        query,
-        ruleset,
-        edition,
-        activeCategory,
-        personalResults,
-        homebrewResults,
-      }),
-    [query, ruleset, edition, activeCategory, personalResults, homebrewResults],
+  const { rows, otherEdition } = useMemo(
+    () => buildOmniSearchPanelRows({ query, ruleset, activeCategory, personalResults, homebrewResults }),
+    [query, ruleset, activeCategory, personalResults, homebrewResults],
   );
 
   useEffect(() => {
@@ -199,6 +192,8 @@ export function OmniSearchPanel({ onClose }: Props) {
             onSelect={handleSelect}
             onShowMore={showMoreOf}
             query={query}
+            edition={edition}
+            otherEdition={otherEdition}
             pendingItemId={pendingItemId}
           />
         ) : (
@@ -274,53 +269,7 @@ function OmniSearchFilterTabs({ edition, activeCategory, onSelect, onOpenCatalog
   );
 }
 
-type RowsInput = {
-  query: string;
-  ruleset: "RULES_2014" | "RULES_2024";
-  edition: Edition;
-  activeCategory: CategoryFilter;
-  personalResults: UserSearchHit[];
-  homebrewResults: HomebrewSearchHit[];
-};
-
-function buildRows(input: RowsInput): OmniSearchRow[] {
-  const { items, overflow } = findOmniSearchOutcome(input.query, input.ruleset, input.activeCategory);
-  const showsCategory = (category: OmniSearchCategory) =>
-    input.activeCategory === "ALL" || input.activeCategory === category;
-
-  const serverItems = [
-    ...(showsCategory("characters") ? input.personalResults.map((hit) => toPersonalItem(hit, input.edition)) : []),
-    ...(showsCategory("homebrew") ? input.homebrewResults.map((hit) => toHomebrewItem(hit, input.edition)) : []),
-  ];
-
-  return buildOmniSearchRows([...items, ...serverItems], overflow);
-}
-
 function scrollSelectedIntoView(host: HTMLDivElement | null, selectedIndex: number) {
   const selected = host?.querySelector<HTMLElement>(`[data-omni-index="${selectedIndex}"]`);
   selected?.scrollIntoView?.({ block: "nearest" });
-}
-
-function toPersonalItem(hit: UserSearchHit, edition: Edition): OmniSearchItem {
-  return {
-    id: `${hit.kind}-${hit.id}`,
-    title: hit.title,
-    category: "characters",
-    categoryLabel: findCatalogSearchTitle("characters", edition),
-    href: hit.href,
-    badge: hit.subtitle,
-  };
-}
-
-function toHomebrewItem(hit: HomebrewSearchHit, edition: Edition): OmniSearchItem {
-  return {
-    id: `homebrew-${hit.entryId}`,
-    title: hit.title,
-    subtitle: hit.subtitle,
-    category: "homebrew",
-    categoryLabel: findCatalogSearchTitle("homebrew", edition),
-    href: hit.href,
-    badge: hit.badge,
-    visualKey: hit.kind,
-  };
 }

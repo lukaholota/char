@@ -47,10 +47,16 @@ export function findCharacterCreationOptions(ruleset: Ruleset): CreatorContent {
       classOptionalFeatures: characterClass.classOptionalFeatures.filter((entry) =>
         entry.grantedOnLevels.includes(1),
       ),
+      classChoiceOptions: characterClass.classChoiceOptions.filter(isGrantedOnLevelOne),
       subclasses: characterClass.subclasses.map((subclass) => ({
         ...subclass,
         features: subclass.features.filter((entry) => entry.levelGranted <= 1),
+        subclassChoiceOptions: subclass.subclassChoiceOptions.filter(isGrantedOnLevelOne),
       })),
     })),
   };
+}
+
+function isGrantedOnLevelOne(entry: { levelsGranted: number[] | null }): boolean {
+  return (entry.levelsGranted ?? []).includes(1);
 }

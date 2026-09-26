@@ -45,7 +45,7 @@ describe("KR27.6 — чаклування підкласів 2024", () => {
   });
 
   it("згенерований каталог левелапу дорівнює джерелу для кожного підкласу subclasses.json", () => {
-    const generated = generatedClasses.flatMap((cls) =>
+    const generated = generatedClasses.filter((cls) => !cls.name.startsWith("BLOOD_HUNTER")).flatMap((cls) =>
       cls.subclasses.filter((subclass) => !subclass.legacySource).map((subclass) => [subclass.name, subclass.spellcastingType, subclass.primaryCastingStat]),
     );
     const expected = sourceSubclasses.map((subclass) => [toSubclassEnumName(subclass.engName), subclass.spellcastingType ?? "NONE", subclass.primaryCastingStat ?? null]);

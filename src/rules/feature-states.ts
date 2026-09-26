@@ -5,6 +5,8 @@ export type FeatureStateContext = {
   ownedFeatureEngNames: readonly string[];
   barbarianLevel: number;
   intelligenceModifier: number;
+  bloodHunterLevel: number;
+  wearsHeavyArmor: boolean;
 };
 
 type FeatureState = {
@@ -94,7 +96,37 @@ const BLADESONG_2024: FeatureState = {
   }),
 };
 
-const FEATURE_STATES: readonly FeatureState[] = [RAGE, FRENZY_2014, LARGE_FORM, GIANTS_MIGHT, BLADESONG_2014, BLADESONG_2024];
+const STALKERS_PROWESS = ["Stalker's Prowess (Order of the Lycan)", "Order of the Lycan: Stalker's Prowess (2024)"] as const;
+
+/// Мисливець за кровʼю 2020, Орден лікантропів. Звіряча міць, Стійка шкура, Хижі удари й Жага крові
+/// діють лише у формі; Покращені хижі удари — з Хижого вміння (7-й рівень).
+const HYBRID_TRANSFORMATION: FeatureState = {
+  engNames: ["Hybrid Transformation (Order of the Lycan)", "Order of the Lycan: Hybrid Transformation (2024)"],
+  findEffects: (context, sourceKey) => {
+    const hasImprovedStrikes = STALKERS_PROWESS.some((engName) => context.ownedFeatureEngNames.includes(engName));
+    return {
+      meleeDamageBonus: findLycanScalingBonus(context.bloodHunterLevel),
+      armorClassBonus: context.wearsHeavyArmor ? 0 : 1,
+      damageResistances: ["BLUDGEONING", "PIERCING", "SLASHING"],
+      rollModifiers: [advantage("STR_CHECK", sourceKey), advantage("STR_SAVE", sourceKey)],
+      unarmedStrike: {
+        damageDice: context.bloodHunterLevel >= 11 ? "1d8" : "1d6",
+        abilityOption: "DEX",
+        attackBonus: hasImprovedStrikes ? findLycanScalingBonus(context.bloodHunterLevel) : 0,
+      },
+      marks: [{ kind: "RESILIENT_HIDE_NONMAGICAL" }, { kind: "BLOODLUST" }],
+    };
+  },
+};
+
+/// Звіряча міць і Покращені хижі удари ростуть однаково: +1, з 11-го +2, з 18-го +3.
+function findLycanScalingBonus(bloodHunterLevel: number): number {
+  if (bloodHunterLevel >= 18) return 3;
+  if (bloodHunterLevel >= 11) return 2;
+  return 1;
+}
+
+const FEATURE_STATES: readonly FeatureState[] = [RAGE, FRENZY_2014, LARGE_FORM, GIANTS_MIGHT, BLADESONG_2014, BLADESONG_2024, HYBRID_TRANSFORMATION];
 
 export function isToggleableFeature(engName: string | null | undefined): boolean {
   return Boolean(findState(engName));

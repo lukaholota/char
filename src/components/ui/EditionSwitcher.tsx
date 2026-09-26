@@ -1,6 +1,8 @@
 "use client";
 
+import { useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { isRules2024Allowed } from "@/rules/access";
 import { getEditionFromPathname, getTargetEditionPath } from "@/rules/route-helpers";
@@ -17,6 +19,7 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
   const buildHref = useNoAiHref();
   const router = useRouter();
   const isEditionPinnedByPage = useIsEditionPinnedByPage();
+  const [isSwitching, startSwitch] = useTransition();
 
   const canAccess2024 = isRules2024Allowed();
 
@@ -26,11 +29,12 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
   }
 
   const currentEdition = getEditionFromPathname(pathname);
+  const pendingEdition = currentEdition === "2024" ? "2014" : "2024";
 
   const handleSwitch = (targetEdition: "2014" | "2024") => {
-    if (targetEdition === currentEdition) return;
+    if (targetEdition === currentEdition || isSwitching) return;
     const targetPath = getTargetEditionPath(pathname, targetEdition);
-    router.push(buildHref(targetPath));
+    startSwitch(() => router.push(buildHref(targetPath)));
   };
 
   if (variant === "compact") {
@@ -45,15 +49,20 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
           className
         )}
         data-testid="edition-switcher"
+        aria-busy={isSwitching}
         title={`Поточна редакція: ${currentEdition === "2024" ? "PHB 2024" : "PHB 2014"}`}
       >
-        <span
-          className={cn(
-            "h-1.5 w-1.5 rounded-full animate-pulse",
-            currentEdition === "2024" ? "bg-prism-400" : "bg-arcane-400"
-          )}
-        />
-        <span>{currentEdition === "2024" ? "2024" : "2014"}</span>
+        {isSwitching ? (
+          <Loader2 className="h-3 w-3 animate-spin" aria-hidden />
+        ) : (
+          <span
+            className={cn(
+              "h-1.5 w-1.5 rounded-full animate-pulse",
+              currentEdition === "2024" ? "bg-prism-400" : "bg-arcane-400"
+            )}
+          />
+        )}
+        <span>{isSwitching ? pendingEdition : currentEdition}</span>
       </button>
     );
   }
@@ -65,6 +74,7 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
         className
       )}
       data-testid="edition-switcher"
+      aria-busy={isSwitching}
     >
       <button
         type="button"
@@ -77,7 +87,7 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
         )}
         data-testid="edition-2014-btn"
       >
-        2014
+        <EditionLabel edition="2014" isPending={isSwitching && pendingEdition === "2014"} />
       </button>
       <button
         type="button"
@@ -90,8 +100,18 @@ export function EditionSwitcher({ className, variant = "pill" }: Props) {
         )}
         data-testid="edition-2024-btn"
       >
-        2024
+        <EditionLabel edition="2024" isPending={isSwitching && pendingEdition === "2024"} />
       </button>
     </div>
+  );
+}
+
+function EditionLabel({ edition, isPending }: { edition: "2014" | "2024"; isPending: boolean }) {
+  if (!isPending) return edition;
+  return (
+    <span className="inline-flex items-center gap-1">
+      <Loader2 className="h-3 w-3 animate-spin" aria-hidden />
+      {edition}
+    </span>
   );
 }

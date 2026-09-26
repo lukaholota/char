@@ -1,4 +1,6 @@
-import type { PostHogConfig } from "posthog-js";
+import type { CaptureResult, PostHogConfig } from "posthog-js";
+
+import { isNoiseErrorMessage, isNoiseSourceUrl } from "@/lib/monitoring/error-noise";
 
 // persistence: "memory" — жодного cookie чи localStorage. Анонімний distinct_id не переживає
 // перезавантаження сторінки чи нову вкладку, зате саме через це PostHog не чіпає сховище
@@ -20,4 +22,26 @@ export const sharedPostHogOptions: Partial<PostHogConfig> = {
   capture_heatmaps: false,
   disable_session_recording: true,
   person_profiles: "identified_only",
+  before_send: dropNoiseExceptions,
 };
+
+type CapturedException = {
+  type?: string;
+  value?: string;
+  stacktrace?: { frames?: { filename?: string }[] };
+};
+
+export function dropNoiseExceptions(event: CaptureResult | null): CaptureResult | null {
+  if (event?.event !== "$exception") return event;
+
+  const exceptions: CapturedException[] = event.properties.$exception_list ?? [];
+  return exceptions.some(isNoiseException) ? null : event;
+}
+
+function isNoiseException({ type, value, stacktrace }: CapturedException): boolean {
+  const topFrameUrl = stacktrace?.frames?.at(-1)?.filename;
+  return (
+    (value !== undefined && isNoiseErrorMessage(type, value)) ||
+    (topFrameUrl !== undefined && isNoiseSourceUrl(topFrameUrl))
+  );
+}

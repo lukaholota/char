@@ -44,8 +44,10 @@ export async function changeFeatureState(
   return { success: true, isActive, usesRemaining };
 }
 
+/// Відпочинок закінчує і стани рис, і Багряні обряди на зброї («lasts until you finish a short or long rest»).
 export async function endFeatureStates(persId: number): Promise<void> {
   await prisma.persFeature.updateMany({ where: { persId, isActive: true }, data: { isActive: false } });
+  await prisma.persWeapon.updateMany({ where: { persId, crimsonRiteFeatureId: { not: null } }, data: { crimsonRiteFeatureId: null } });
 }
 
 async function listActiveEngNames(persId: number): Promise<string[]> {

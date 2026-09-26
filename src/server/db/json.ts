@@ -76,5 +76,6 @@ export function parseMulticlassReqs(value: unknown): MulticlassAbilityRequiremen
     required: parseEnumArray(record.required, Ability),
     and: parseEnumArray(record.and, Ability),
     choice: parseEnumArray(record.choice, Ability),
+    allOf: Array.isArray(record.allOf) ? record.allOf.map((group) => parseEnumArray(group, Ability)) : null,
   };
 }

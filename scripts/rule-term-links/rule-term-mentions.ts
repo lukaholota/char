@@ -51,6 +51,8 @@ export const RULE_TERM_CARRIERS: ReadonlyArray<RuleTermCarrier> = [
   { path: "prisma/seed/infusionFeaturesSeed.ts", edition: "RULES_2014", format: "ts" },
   { path: "prisma/seed/backgroundSeed.ts", edition: "RULES_2014", format: "ts" },
   { path: "prisma/seed/raceChoiceOptionSeed.ts", edition: "RULES_2014", format: "ts" },
+  { path: "data/blood-hunter/uk-2014.json", edition: "RULES_2014", format: "json" },
+  { path: "data/blood-hunter/uk-2024.json", edition: "RULES_2024", format: "json" },
   ...listBastionCarriers(),
   ...listStatblockCarriers(),
 ];

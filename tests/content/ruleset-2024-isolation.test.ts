@@ -14,6 +14,7 @@ import { LEGACY_SUBCLASSES_2024 } from "@/rules/legacy-subclasses-2024";
 import normalizedSubclasses from "../../data/2024/normalized/subclasses.json";
 import { disconnectDatabase } from "../user-data";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
+import { BLOOD_HUNTER_CLASS_NAMES, BLOOD_HUNTER_SUBCLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: T) => fn }));
@@ -42,14 +43,14 @@ describe("KR6.3 Step 3 — 2024 Content Isolation", () => {
     const [races2024, classes2024, feats2024, weapons2024, spells2024, subclasses2024] =
       await Promise.all([
         prisma.race.count({ where: { ruleset: "RULES_2024" } }),
-        prisma.class.count({ where: { ruleset: "RULES_2024" } }),
+        prisma.class.count({ where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } } }),
         prisma.feat.count({ where: { ruleset: "RULES_2024" } }),
         prisma.weapon.count({ where: { ruleset: "RULES_2024" } }),
         prisma.spell.count({ where: { ruleset: "RULES_2024" } }),
-        prisma.subclass.count({ where: { ruleset: "RULES_2024" } }),
+        prisma.subclass.count({ where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } } }),
       ]);
 
-    // 2024 counts must match seeded numbers
+    // 2024 counts must match seeded numbers; Мисливця за кровʼю (носій O45) звіряє blood-hunter-carrier.
     expect(races2024).toBe(10);
     expect(classes2024).toBe(13);
     // KR31.4, 2026-09-06: 74, а не 75 — рису «Ability Score Improvement» прибрано з переліку

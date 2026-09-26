@@ -5,6 +5,7 @@ import type { PersWithRelations } from "@/lib/actions/pers";
 import WeaponsCard from "@/lib/components/characterSheet/WeaponsCard";
 
 vi.mock("@/lib/components/characterSheet/AddWeaponDialog", () => ({ default: () => null }));
+vi.mock("@/lib/components/characterSheet/CrimsonRiteDialog", () => ({ CrimsonRiteDialog: () => null }));
 
 afterEach(cleanup);
 

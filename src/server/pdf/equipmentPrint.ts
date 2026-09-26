@@ -2,6 +2,8 @@ export type PrintableWeaponAttack = {
   name: string;
   attackBonus: string;
   damage: string;
+  damageType?: string;
+  notes?: string;
 };
 
 export type GroupedPrintableWeaponAttack = PrintableWeaponAttack & {

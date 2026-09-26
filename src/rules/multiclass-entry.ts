@@ -4,8 +4,10 @@
  * Книга вимагає 13+ у базовій характеристиці класу, **який береш**, і (2024) у базових
  * характеристиках **усіх, які вже маєш** (SRD 2024, Multiclassing → Prerequisites).
  *
- * `multiclassReqs` у даних має три форми: `required` (усі перелічені — так записані класи 2014),
- * `and` (усі перелічені — монах, паладин і слідопит 2024) і `choice` (досить однієї — решта 2024).
+ * `multiclassReqs` у даних має чотири форми: `required` (усі перелічені — так записані класи 2014),
+ * `and` (усі перелічені — монах, паладин і слідопит 2024), `choice` (досить однієї — решта 2024) і
+ * `allOf` (усі групи, у групі досить однієї — Мисливець за кровʼю: Інтелект і Сила чи Спритність;
+ * читається в обох редакціях).
  * У 2014 перевіряється лише новий клас і лише форма `required` (Fighter 2014 записаний формою
  * `choice`, тож для нього перевірка мовчки не спрацьовує — задокументований виняток, не баг).
  *
@@ -25,6 +27,7 @@ export type MulticlassAbilityRequirement = {
   required?: readonly AbilityKey[] | null;
   and?: readonly AbilityKey[] | null;
   choice?: readonly AbilityKey[] | null;
+  allOf?: ReadonlyArray<readonly AbilityKey[]> | null;
 };
 
 export type MulticlassEntryClass = {
@@ -65,24 +68,25 @@ function findUnmetRequirement(
   ruleset: MulticlassRuleset,
   abilityScores: Readonly<Partial<Record<AbilityKey, number>>>,
 ): MulticlassEntryProblem | null {
-  const requirement = readRequirement(characterClass.multiclassReqs, ruleset);
-  if (!requirement) return null;
+  for (const requirement of readRequirements(characterClass.multiclassReqs, ruleset)) {
+    const { abilities, needsAll, score } = requirement;
+    const shortfalls = abilities
+      .map((ability) => ({ ability, actual: abilityScores[ability] ?? 0 }))
+      .filter((entry) => entry.actual < score);
 
-  const { abilities, needsAll, score } = requirement;
-  const shortfalls = abilities
-    .map((ability) => ({ ability, actual: abilityScores[ability] ?? 0 }))
-    .filter((entry) => entry.actual < score);
+    const isMet = needsAll ? shortfalls.length === 0 : shortfalls.length < abilities.length;
+    if (isMet) continue;
 
-  const isMet = needsAll ? shortfalls.length === 0 : shortfalls.length < abilities.length;
-  if (isMet) return null;
+    return {
+      className: characterClass.name,
+      score,
+      needsAll,
+      requiredAbilities: [...abilities],
+      unmetAbilities: shortfalls,
+    };
+  }
 
-  return {
-    className: characterClass.name,
-    score,
-    needsAll,
-    requiredAbilities: [...abilities],
-    unmetAbilities: shortfalls,
-  };
+  return null;
 }
 
 /** «Монах вимагає Спритність 13 і Мудрість 13; у персонажа Мудрість 8.» */
@@ -108,19 +112,27 @@ export function describeMulticlassRequirement(
     .join(problem.needsAll ? " і " : " або ");
 }
 
-function readRequirement(
+type AbilityRequirement = { abilities: AbilityKey[]; needsAll: boolean; score: number };
+
+function readRequirements(
   reqs: MulticlassAbilityRequirement | null | undefined,
   ruleset: MulticlassRuleset,
-): { abilities: AbilityKey[]; needsAll: boolean; score: number } | null {
-  if (!reqs) return null;
+): AbilityRequirement[] {
+  if (!reqs) return [];
   const score = typeof reqs.score === "number" && Number.isFinite(reqs.score) ? reqs.score : DEFAULT_REQUIRED_SCORE;
 
-  const everyOf = reqs.and?.length ? reqs.and : reqs.required;
-  if (everyOf?.length) return { abilities: [...everyOf], needsAll: true, score };
-
-  if (ruleset === "RULES_2024" && reqs.choice?.length) {
-    return { abilities: [...reqs.choice], needsAll: false, score };
+  if (reqs.allOf?.length) {
+    return reqs.allOf
+      .filter((group) => group.length > 0)
+      .map((group) => ({ abilities: [...group], needsAll: group.length === 1, score }));
   }
 
-  return null;
+  const everyOf = reqs.and?.length ? reqs.and : reqs.required;
+  if (everyOf?.length) return [{ abilities: [...everyOf], needsAll: true, score }];
+
+  if (ruleset === "RULES_2024" && reqs.choice?.length) {
+    return [{ abilities: [...reqs.choice], needsAll: false, score }];
+  }
+
+  return [];
 }

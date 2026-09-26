@@ -36,6 +36,8 @@ export type SpellcastingClass = {
   primaryCastingStat: AbilityKey | null;
   /** Третинний заклинач (Лицар-Чаклун, Містичний спритник) чаклує підкласом: клас сам порожній. */
   subclass?: SpellcastingSubclass | null;
+  /** Мисливець за кровʼю: Інтелект чи Мудрість, обрані на 1-му рівні; нею ж чаклує Орден нечестивої душі. */
+  hemocraftAbility?: AbilityKey | null;
 };
 
 export type ChosenRaceChoiceOption = {
@@ -99,9 +101,26 @@ export function findSpellSources(input: SpellSourcesInput): SpellSource[] {
  * `findSpellSources`; 2014 бачить лише класи.
  */
 export function findSpellcastingSources(input: SpellSourcesInput): SpellSource[] {
-  if (input.ruleset === "RULES_2024") return findSpellSources(input);
+  const sources = input.ruleset === "RULES_2024" ? findSpellSources(input) : findClassSources(input.characterClasses);
+  return dedupeByKey([...sources, ...findHemocraftSources(input.characterClasses)]);
+}
 
-  return findClassSources(input.characterClasses);
+/**
+ * СК гемокрафту мисливця за кровʼю — та сама формула, що й СК заклинань, тож лист показує її тим самим
+ * рядком. Джерелом заклинань мисливець без Ордену нечестивої душі не стає: списку класу в нього немає.
+ */
+function findHemocraftSources(characterClasses: readonly SpellcastingClass[]): SpellSource[] {
+  return characterClasses
+    .filter((characterClass) => isBloodHunter(characterClass.name))
+    .map((characterClass) => ({ key: characterClass.name, name: characterClass.name, ability: findHemocraftAbility(characterClass), kind: "CLASS" }));
+}
+
+function isBloodHunter(className: string): boolean {
+  return className.startsWith("BLOOD_HUNTER_");
+}
+
+function findHemocraftAbility(characterClass: SpellcastingClass): AbilityKey {
+  return characterClass.hemocraftAbility ?? characterClass.primaryCastingStat ?? "INT";
 }
 
 /**
@@ -149,7 +168,8 @@ function findClassSources(characterClasses: readonly SpellcastingClass[]): Spell
     const caster = findCastingAbilityOwner(characterClass);
     if (!caster) return [];
 
-    return [{ key: characterClass.name, name: caster.name, ability: caster.primaryCastingStat, kind: "CLASS" }];
+    const ability = isBloodHunter(characterClass.name) ? findHemocraftAbility(characterClass) : caster.primaryCastingStat;
+    return [{ key: characterClass.name, name: caster.name, ability, kind: "CLASS" }];
   });
 
   return dedupeByKey(sources);

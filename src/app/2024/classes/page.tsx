@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { getAllClasses } from "@/lib/classesData";
 import { ClassesClient } from "@/components/classes/ClassesClient";
+import { findClassTables } from "@/lib/catalogs/class-tables";
 
 export const metadata: Metadata = {
   title: "Класи D&D 2024 — ДнД українською",
@@ -17,6 +18,7 @@ export default function Classes2024Page() {
         <ClassesClient
           classes={getAllClasses("RULES_2024")}
           ruleset="RULES_2024"
+          tables={findClassTables("RULES_2024")}
         />
       </Suspense>
     </div>

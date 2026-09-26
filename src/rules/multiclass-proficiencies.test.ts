@@ -83,6 +83,18 @@ describe("скорочені володіння мультикласу", () => {
     expect(findMulticlassProficiencies("ARTIFICER_2024")).toBeNull();
   });
 
+  it("мисливець за кровʼю в обох редакціях дає легкий, середній обладунок, щити, просту й бойову зброю та інструменти алхіміка, без навички", () => {
+    for (const className of ["BLOOD_HUNTER_2014", "BLOOD_HUNTER_2024"]) {
+      expect(findMulticlassProficiencies(className), className).toEqual({
+        armor: ["LIGHT", "MEDIUM", "SHIELD"],
+        weapons: { type: ["SIMPLE_WEAPON", "MARTIAL_WEAPON"] },
+        tools: ["ALCHEMISTS_SUPPLIES"],
+        toolChoiceCount: 0,
+        skillChoiceCount: 0,
+      });
+    }
+  });
+
   it("2024 не зрушив: воїн лишається без простої зброї", () => {
     expect(findMulticlassProficiencies("FIGHTER_2024")).toMatchObject({
       armor: ["LIGHT", "MEDIUM", "SHIELD"],

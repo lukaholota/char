@@ -13,6 +13,7 @@ import { afterAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
 import { SUBCLASSES_JSON } from "../../scripts/2024/parse-subclass-feature-uses";
+import { BLOOD_HUNTER_SUBCLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 type FeatureEng = {
   level: number;
@@ -89,7 +90,8 @@ describe("лічильники підкласових фіч 2024 у базі", 
     const carrying = await prisma.feature.findMany({
       where: {
         ruleset: "RULES_2024",
-        subclassFeatures: { some: {} },
+        // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+        subclassFeatures: { some: { subclass: { name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } } } },
         OR: [{ usesCount: { not: null } }, { limitedUsesPer: { not: null } }, { usesPoolKey: { not: null } }],
       },
       select: { engName: true },

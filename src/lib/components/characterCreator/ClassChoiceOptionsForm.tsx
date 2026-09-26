@@ -224,7 +224,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
   if (!groupedOptions.length) {
     return (
       <Card className="p-4 text-center text-slate-200">
-        На 1 рівні {displayName(selectedClass)} не має окремих виборів. Можна рухатися далі.
+        На {charLevel} рівні {displayName(selectedClass)} не має окремих виборів. Можна рухатися далі.
       </Card>
     );
   }
@@ -232,7 +232,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
   return (
     <form id={formId} onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-1 text-center">
-        <p className="text-sm font-semibold text-slate-300">Рівень 1</p>
+        <p className="text-sm font-semibold text-slate-300">Рівень {charLevel}</p>
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">Опції класу</h2>
         <p className="text-sm text-slate-400">
           {displayName(selectedClass)} пропонує вибір. Оберіть те, що підходить вашому персонажу.

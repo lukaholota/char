@@ -17,7 +17,7 @@ function isNullOrText(description: unknown): boolean {
 
 describe("KR33.3 — носій прози в каталогах", () => {
   it("кожен клас несе description: null або непорожній текст", () => {
-    expect(classesJson).toHaveLength(26);
+    expect(classesJson).toHaveLength(28);
     expect(findBadDescriptions(classesJson as Described[])).toEqual([]);
   });
 

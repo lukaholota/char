@@ -46,3 +46,12 @@ describe("опціональні фічі підвищення рівня", () =
     expect(visible.selectable.map((option) => option.optionalFeatureId)).not.toContain(5);
   });
 });
+
+describe("O45 — заміна за назвою групи", () => {
+  it("«Замінити криваве прокляття?» — крок «Заміни», а не порожні «Опціональні фічі»", () => {
+    const replaceCurse = { optionalFeatureId: 9, grantedOnLevels: [6], replacesChoiceGroup: "Криваві прокляття", appearsOnlyIfChoicesTaken: [{ choiceOptionId: 5 }] };
+    expect(
+      findVisibleOptionalFeatures({ persChoiceOptionIds: [5], selections: [], classOptionalFeatures: [replaceCurse], classLevelAfter: 6 }),
+    ).toEqual({ selectable: [], replacements: [replaceCurse] });
+  });
+});

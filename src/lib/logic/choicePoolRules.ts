@@ -15,6 +15,11 @@ export const CHOICE_GROUPS = {
   HUNTERS_PREY: "Здобич мисливця",
   DEFENSIVE_TACTICS: "Захисна тактика",
   ELEMENTAL_AFFINITY: "Стихійна спорідненість",
+  HEMOCRAFT_ABILITY: "Характеристика гемокрафту",
+  BLOOD_CURSES: "Криваві прокляття",
+  CRIMSON_RITES: "Багряні обряди",
+  MUTAGENS: "Мутагени",
+  PROFANE_SOUL_PATRON: "Потойбічний покровитель",
 } as const;
 
 export type ChoicePoolScope = "class" | "subclass";
@@ -79,6 +84,13 @@ export const CHOICE_POOL_RULES: ChoicePoolRule[] = [
     ["FIGHTER_2024", CHOICE_GROUPS.FIGHTING_STYLE, { 1: 1 }],
     ["PALADIN_2024", CHOICE_GROUPS.FIGHTING_STYLE, { 2: 1 }],
     ["RANGER_2024", CHOICE_GROUPS.FIGHTING_STYLE, { 2: 1 }],
+    // O45: числа — з data/blood-hunter/blood-hunter.json, звіряє tests/content/blood-hunter-carrier.test.ts.
+    ...["BLOOD_HUNTER_2014", "BLOOD_HUNTER_2024"].flatMap((className) => [
+      [className, CHOICE_GROUPS.HEMOCRAFT_ABILITY, { 1: 1 }],
+      [className, CHOICE_GROUPS.BLOOD_CURSES, { 1: 1, 6: 1, 10: 1, 14: 1, 18: 1 }],
+      [className, CHOICE_GROUPS.CRIMSON_RITES, { 2: 1, 7: 1, 14: 1 }],
+      [className, CHOICE_GROUPS.FIGHTING_STYLE, { 2: 1 }],
+    ]),
   ].map(([className, groupName, picks]) => ({
     scope: "class" as const,
     className: className as string,
@@ -145,6 +157,8 @@ export const CHOICE_POOL_RULES: ChoicePoolRule[] = [
     ["HUNTER", CHOICE_GROUPS.HUNTERS_PREY, { 3: 1 }],
     ["HUNTER", CHOICE_GROUPS.DEFENSIVE_TACTICS, { 7: 1 }],
     ["DRACONIC_SORCERY", CHOICE_GROUPS.ELEMENTAL_AFFINITY, { 6: 1 }],
+    ["ORDER_OF_THE_MUTANT", CHOICE_GROUPS.MUTAGENS, { 3: 4, 7: 1, 11: 1, 15: 1, 18: 1 }],
+    ["ORDER_OF_THE_PROFANE_SOUL", CHOICE_GROUPS.PROFANE_SOUL_PATRON, { 3: 1 }],
   ].map(([subclassName, groupName, picks]) => ({
     scope: "subclass" as const,
     subclassName: subclassName as string,

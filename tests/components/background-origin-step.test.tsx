@@ -12,7 +12,7 @@ vi.mock("posthog-js", () => ({ default: { capture: vi.fn() } }));
 vi.mock("@/lib/components/characterCreator/RacesForm", () => ({ default: () => null }));
 vi.mock("@/lib/stores/persFormStore", async (importOriginal) => ({
   ...await importOriginal<typeof import("@/lib/stores/persFormStore")>(),
-  activateCreatorDraftStorage: vi.fn(),
+  useCreatorDraftStorage: () => true,
 }));
 
 type Props = ComponentProps<typeof MultiStepForm>;

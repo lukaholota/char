@@ -157,3 +157,43 @@ describe("опис попередження про мультиклас (KR31.9 
     expect(describeMulticlassRequirement(problem, identity)).toBe("DEX 13 і WIS 13");
   });
 });
+
+describe("форма `allOf` — усі групи, у групі досить однієї (O45, Мисливець за кровʼю)", () => {
+  const BLOOD_HUNTER_2014: MulticlassEntryClass = { name: "BLOOD_HUNTER_2014", multiclassReqs: { score: 13, allOf: [["INT"], ["STR", "DEX"]] } };
+  const BLOOD_HUNTER_2024: MulticlassEntryClass = { name: "BLOOD_HUNTER_2024", multiclassReqs: { score: 13, allOf: [["INT"], ["STR", "DEX"]] } };
+  const identity = (key: string) => key;
+
+  it("Інтелект 13 і Спритність 13 — вимогу виконано", () => {
+    const problem = findMulticlassEntryProblem({
+      ruleset: "RULES_2014",
+      abilityScores: scores({ INT: 13, DEX: 13 }),
+      currentClasses: [ROGUE_2014],
+      newClass: BLOOD_HUNTER_2014,
+    });
+
+    expect(problem).toBeNull();
+  });
+
+  it("бракує Інтелекту — попередження називає саме Інтелект", () => {
+    const problem = findMulticlassEntryProblem({
+      ruleset: "RULES_2014",
+      abilityScores: scores({ INT: 10, STR: 16 }),
+      currentClasses: [ROGUE_2014],
+      newClass: BLOOD_HUNTER_2014,
+    })!;
+
+    expect(describeMulticlassEntryProblem(problem, identity)).toBe("BLOOD_HUNTER_2014 вимагає INT 13; у персонажа INT 10.");
+  });
+
+  it("бракує і Сили, і Спритності — попередження каже «STR 13 або DEX 13»", () => {
+    const problem = findMulticlassEntryProblem({
+      ruleset: "RULES_2024",
+      abilityScores: scores({ INT: 16, STR: 8, DEX: 12, WIS: 14 }),
+      currentClasses: [BLOOD_HUNTER_2024],
+      newClass: DRUID_2024,
+    })!;
+
+    expect(problem.className).toBe("BLOOD_HUNTER_2024");
+    expect(describeMulticlassRequirement(problem, identity)).toBe("STR 13 або DEX 13");
+  });
+});

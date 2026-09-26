@@ -8,6 +8,8 @@
  *   — решта — власне вибір, який показуємо кроком «Опціональні фічі».
  */
 
+import { findReplacedChoiceGroup } from "@/rules/choice-replacement";
+
 export type OptionalFeatureRow = {
   optionalFeatureId?: number | null;
   featureId?: number | null;
@@ -16,6 +18,7 @@ export type OptionalFeatureRow = {
   replacesInvocation?: boolean | null;
   replacesFightingStyle?: boolean | null;
   replacesManeuver?: boolean | null;
+  replacesChoiceGroup?: string | null;
   replacesFeatures?: unknown[] | null;
 };
 
@@ -68,12 +71,7 @@ function passesChoiceGate(option: OptionalFeatureRow, taken: Set<number>): boole
 }
 
 function isReplacement(option: OptionalFeatureRow): boolean {
-  return Boolean(
-    option.replacesInvocation ||
-      option.replacesFightingStyle ||
-      option.replacesManeuver ||
-      (option.replacesFeatures?.length ?? 0) > 0,
-  );
+  return Boolean(findReplacedChoiceGroup(option) || (option.replacesFeatures?.length ?? 0) > 0);
 }
 
 function isGrantedByAnotherChoice(option: OptionalFeatureRow): boolean {

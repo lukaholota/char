@@ -26,7 +26,7 @@ export type MulticlassWeapons = {
   /** Названа зброя поза категорією: монах 2014 бере короткі мечі окремим рядком книги. */
   specific?: Array<"SHORTSWORD">;
 };
-export type MulticlassTool = "THIEVES_TOOLS";
+export type MulticlassTool = "THIEVES_TOOLS" | "ALCHEMISTS_SUPPLIES";
 
 export type MulticlassProficiencyPackage = {
   armor: MulticlassArmor[];
@@ -127,11 +127,22 @@ const MULTICLASS_PROFICIENCIES_2014: Record<string, MulticlassProficiencyPackage
   WIZARD_2014: EMPTY_PACKAGE,
 };
 
+/// Мисливець за кровʼю (O45): набір — зі сторінки класу на D&D Beyond («As a multiclass character»),
+/// вікі його не показує. Адаптація 2024 бере той самий набір, а не загальний 2024-го іншого класу.
+const BLOOD_HUNTER_MULTICLASS: MulticlassProficiencyPackage = {
+  ...EMPTY_PACKAGE,
+  armor: LIGHT_MEDIUM_SHIELD,
+  weapons: SIMPLE_AND_MARTIAL_WEAPONS,
+  tools: ["ALCHEMISTS_SUPPLIES"],
+};
+
 /// Ключі двох таблиць не перетинаються — редакція вшита в назву класу (`FIGHTER_2014`,
 /// `FIGHTER_2024`), тож окремого аргументу редакції тут не треба.
 const MULTICLASS_PROFICIENCIES: Record<string, MulticlassProficiencyPackage> = {
   ...MULTICLASS_PROFICIENCIES_2014,
   ...MULTICLASS_PROFICIENCIES_2024,
+  BLOOD_HUNTER_2014: BLOOD_HUNTER_MULTICLASS,
+  BLOOD_HUNTER_2024: BLOOD_HUNTER_MULTICLASS,
 };
 
 /**

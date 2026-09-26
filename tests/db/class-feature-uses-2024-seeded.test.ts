@@ -13,6 +13,7 @@ import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
 import { buildFeatureEngNames } from "../../prisma/seed/classSeed2024";
 import { CLASSES_JSON } from "../../scripts/2024/parse-class-feature-uses";
+import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 type FeatureEng = {
   level: number;
@@ -91,7 +92,8 @@ describe("лічильники класових фіч 2024 у базі", () => 
     const counted = await prisma.feature.findMany({
       where: {
         ruleset: "RULES_2024",
-        classFeatures: { some: {} },
+        // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+        classFeatures: { some: { class: { name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } } } },
         OR: [{ usesCount: { not: null } }, { limitedUsesPer: { not: null } }, { usesPoolKey: { not: null } }],
       },
       select: { engName: true },

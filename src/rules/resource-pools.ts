@@ -10,6 +10,7 @@
 
 export type PoolProviderCandidate = {
   featureId: number;
+  engName?: string | null;
   usesCountDependsOnProficiencyBonus?: boolean | null;
   usesCountSpecial?: unknown;
   classFeatures?: unknown[] | null;
@@ -25,6 +26,10 @@ export type PoolProviderCandidate = {
  * 2. **Максимум за рівнем або бонусом майстерності перед пласким числом.** Клірик 6 має два
  *    Божественні канали за таблицею рівнів, а не одне пласке з фічі, спільної з паладином.
  * 3. **Менший `featureId`** — щоб відповідь не залежала від фізичного порядку рядків.
+ *
+ * Над усім — риса, що прямо підвищує чужий пул: «Знавець проклять» мисливця на привидів дає «одне
+ * додаткове використання Кривавого наврочення», тож несе всю таблицю наврочення плюс один і
+ * перемагає класову рису.
  */
 export function findPoolProvider<T extends PoolProviderCandidate>(candidates: T[]): T | null {
   const ranked = [...candidates].sort(comparePoolProviders);
@@ -33,10 +38,17 @@ export function findPoolProvider<T extends PoolProviderCandidate>(candidates: T[
 
 function comparePoolProviders(left: PoolProviderCandidate, right: PoolProviderCandidate): number {
   return (
+    Number(raisesPoolMaximum(right)) - Number(raisesPoolMaximum(left)) ||
     Number(isClassFeature(right)) - Number(isClassFeature(left)) ||
     Number(hasScaledMaximum(right)) - Number(hasScaledMaximum(left)) ||
     left.featureId - right.featureId
   );
+}
+
+const POOL_MAXIMUM_RAISERS = new Set(["Curse Specialist (Order of the Ghostslayer)", "Order of the Ghostslayer: Curse Specialist (2024)"]);
+
+function raisesPoolMaximum(candidate: PoolProviderCandidate): boolean {
+  return candidate.engName != null && POOL_MAXIMUM_RAISERS.has(candidate.engName);
 }
 
 function isClassFeature(candidate: PoolProviderCandidate): boolean {

@@ -57,3 +57,14 @@ describe("buildSubclassOptionSpellSources", () => {
     expect(buildSubclassOptionSpellSources([{ ...polar, spells: [] }])).toEqual([]);
   });
 });
+
+describe("O45 — Явлена й Незапечатана таємниця Ордену нечестивої душі", () => {
+  const profaneSoul = (spellLevel: number, className = "BLOOD_HUNTER_2014") =>
+    findSubclassOptionSpellClassLevel({ className, subclassName: "ORDER_OF_THE_PROFANE_SOUL", pickLevel: 3, spellLevel });
+
+  it("заклинання 2 рівня (Явлена таємниця) — з 7-го рівня мисливця, 3 рівня (Незапечатана) — з 15-го, не з 13-го", () => {
+    expect(profaneSoul(2)).toBe(7);
+    expect(profaneSoul(3)).toBe(15);
+    expect(profaneSoul(3, "BLOOD_HUNTER_2024")).toBe(15);
+  });
+});

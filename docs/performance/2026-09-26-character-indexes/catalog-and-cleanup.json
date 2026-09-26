@@ -1,0 +1,368 @@
+{
+  "capturedAt": "2026-09-26T07:42:00.761Z",
+  "catalog": [
+    {
+      "ruleset": "RULES_2014",
+      "sql": "SELECT spell_id,name,eng_name FROM public.spell WHERE eng_name = ANY($1::text[]) AND ruleset = $2::\"Ruleset\"",
+      "params": [
+        [
+          "Mage Armor",
+          "Shield of Faith",
+          "Haste",
+          "Longstrider",
+          "Enlarge/Reduce",
+          "Barkskin",
+          "Bless"
+        ],
+        "RULES_2014"
+      ],
+      "executionP50Ms": 0.063,
+      "executionP95Ms": 0.089,
+      "rawPlan": {
+        "Plan": {
+          "Node Type": "Bitmap Heap Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Relation Name": "spell",
+          "Alias": "spell",
+          "Startup Cost": 12.89,
+          "Total Cost": 37.28,
+          "Plan Rows": 7,
+          "Plan Width": 62,
+          "Actual Startup Time": 0.04,
+          "Actual Total Time": 0.047,
+          "Actual Rows": 7,
+          "Actual Loops": 1,
+          "Recheck Cond": "(((eng_name)::text = ANY ('{\"Mage Armor\",\"Shield of Faith\",Haste,Longstrider,Enlarge/Reduce,Barkskin,Bless}'::text[])) AND (ruleset = 'RULES_2014'::\"Ruleset\"))",
+          "Rows Removed by Index Recheck": 0,
+          "Exact Heap Blocks": 6,
+          "Lossy Heap Blocks": 0,
+          "Shared Hit Blocks": 14,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Bitmap Index Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Index Name": "spell_eng_name_ruleset_key",
+              "Startup Cost": 0,
+              "Total Cost": 12.88,
+              "Plan Rows": 7,
+              "Plan Width": 0,
+              "Actual Startup Time": 0.033,
+              "Actual Total Time": 0.033,
+              "Actual Rows": 7,
+              "Actual Loops": 1,
+              "Index Cond": "(((eng_name)::text = ANY ('{\"Mage Armor\",\"Shield of Faith\",Haste,Longstrider,Enlarge/Reduce,Barkskin,Bless}'::text[])) AND (ruleset = 'RULES_2014'::\"Ruleset\"))",
+              "Shared Hit Blocks": 8,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0
+            }
+          ]
+        },
+        "Settings": {},
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.085,
+        "Triggers": [],
+        "Execution Time": 0.057
+      },
+      "samples": [
+        {
+          "executionMs": 0.057,
+          "planningMs": 0.085,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.058,
+          "planningMs": 0.081,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.066,
+          "planningMs": 0.103,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.056,
+          "planningMs": 0.08,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.089,
+          "planningMs": 0.1,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.063,
+          "planningMs": 0.089,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.075,
+          "planningMs": 0.143,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.062,
+          "planningMs": 0.089,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.057,
+          "planningMs": 0.086,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.058,
+          "planningMs": 0.084,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.067,
+          "planningMs": 0.095,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.063,
+          "planningMs": 0.092,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.067,
+          "planningMs": 0.096,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.062,
+          "planningMs": 0.095,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.069,
+          "planningMs": 0.12,
+          "nodeType": "Bitmap Heap Scan"
+        }
+      ]
+    },
+    {
+      "ruleset": "RULES_2024",
+      "sql": "SELECT spell_id,name,eng_name FROM public.spell WHERE eng_name = ANY($1::text[]) AND ruleset = $2::\"Ruleset\"",
+      "params": [
+        [
+          "Mage Armor",
+          "Shield of Faith",
+          "Haste",
+          "Longstrider",
+          "Enlarge/Reduce",
+          "Barkskin",
+          "Bless"
+        ],
+        "RULES_2024"
+      ],
+      "executionP50Ms": 0.075,
+      "executionP95Ms": 0.08,
+      "rawPlan": {
+        "Plan": {
+          "Node Type": "Bitmap Heap Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Relation Name": "spell",
+          "Alias": "spell",
+          "Startup Cost": 12.89,
+          "Total Cost": 30.73,
+          "Plan Rows": 5,
+          "Plan Width": 62,
+          "Actual Startup Time": 0.047,
+          "Actual Total Time": 0.058,
+          "Actual Rows": 7,
+          "Actual Loops": 1,
+          "Recheck Cond": "(((eng_name)::text = ANY ('{\"Mage Armor\",\"Shield of Faith\",Haste,Longstrider,Enlarge/Reduce,Barkskin,Bless}'::text[])) AND (ruleset = 'RULES_2024'::\"Ruleset\"))",
+          "Rows Removed by Index Recheck": 0,
+          "Exact Heap Blocks": 7,
+          "Lossy Heap Blocks": 0,
+          "Shared Hit Blocks": 15,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Bitmap Index Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Index Name": "spell_eng_name_ruleset_key",
+              "Startup Cost": 0,
+              "Total Cost": 12.88,
+              "Plan Rows": 5,
+              "Plan Width": 0,
+              "Actual Startup Time": 0.039,
+              "Actual Total Time": 0.039,
+              "Actual Rows": 7,
+              "Actual Loops": 1,
+              "Index Cond": "(((eng_name)::text = ANY ('{\"Mage Armor\",\"Shield of Faith\",Haste,Longstrider,Enlarge/Reduce,Barkskin,Bless}'::text[])) AND (ruleset = 'RULES_2024'::\"Ruleset\"))",
+              "Shared Hit Blocks": 8,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0
+            }
+          ]
+        },
+        "Settings": {},
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.099,
+        "Triggers": [],
+        "Execution Time": 0.072
+      },
+      "samples": [
+        {
+          "executionMs": 0.072,
+          "planningMs": 0.099,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.073,
+          "planningMs": 0.41,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.072,
+          "planningMs": 0.099,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.076,
+          "planningMs": 0.102,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.079,
+          "planningMs": 0.101,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.077,
+          "planningMs": 0.11,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.066,
+          "planningMs": 0.092,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.075,
+          "planningMs": 0.102,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.076,
+          "planningMs": 0.102,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.071,
+          "planningMs": 0.097,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.075,
+          "planningMs": 0.105,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.08,
+          "planningMs": 0.105,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.074,
+          "planningMs": 0.1,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.078,
+          "planningMs": 0.12,
+          "nodeType": "Bitmap Heap Scan"
+        },
+        {
+          "executionMs": 0.072,
+          "planningMs": 0.101,
+          "nodeType": "Bitmap Heap Scan"
+        }
+      ]
+    }
+  ],
+  "indexesAfter": [
+    {
+      "tablename": "pers_armor",
+      "indexname": "pers_armor_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_armor_pkey ON public.pers_armor USING btree (pers_armor_id)"
+    },
+    {
+      "tablename": "pers_infusion",
+      "indexname": "pers_infusion_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_infusion_pkey ON public.pers_infusion USING btree (pers_infusion_id)"
+    },
+    {
+      "tablename": "pers_magic_item",
+      "indexname": "pers_magic_item_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_magic_item_pkey ON public.pers_magic_item USING btree (pers_magic_item_id)"
+    },
+    {
+      "tablename": "pers_weapon",
+      "indexname": "pers_weapon_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_weapon_pkey ON public.pers_weapon USING btree (pers_weapon_id)"
+    }
+  ],
+  "temporaryTables": []
+}

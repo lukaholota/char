@@ -119,6 +119,7 @@ export type MulticlassReqs = {
   required?: Ability[]; // потрібні всі перелічені — форма класів 2014
   and?: Ability[]; // потрібні всі перелічені — форма монаха, паладина й слідопита 2024
   choice?: Ability[]; // досить однієї з перелічених — форма решти класів 2024
+  allOf?: Ability[][]; // усі групи, у групі досить однієї — Мисливець за кровʼю
 };
 
 // 2.5. AC модифікації (Feature.modifiesAC / prerequisites / Race.ac)

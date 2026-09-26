@@ -12,8 +12,12 @@ import { Ruleset } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
 import { parseClassEquipment2024 } from "../../scripts/parse-2024-class-equipment";
+import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 const ROWS_2014 = 113;
+
+/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+const WITHOUT_BLOOD_HUNTER = { class: { name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } } };
 
 type SeededRow = {
   option: string;
@@ -30,7 +34,7 @@ let rows2024: SeededRow[] = [];
 
 beforeAll(async () => {
   rows2024 = await prisma.classStartingEquipmentOption.findMany({
-    where: { ruleset: "RULES_2024" },
+    where: { ruleset: "RULES_2024", ...WITHOUT_BLOOD_HUNTER },
     select: {
       option: true, quantity: true, item: true, ruleset: true,
       class: { select: { name: true } },
@@ -141,6 +145,6 @@ describe("класове спорядження 2024 в базі", () => {
   });
 
   it("113 рядків 2014 не зрушили", async () => {
-    expect(await prisma.classStartingEquipmentOption.count({ where: { ruleset: "RULES_2014" } })).toBe(ROWS_2014);
+    expect(await prisma.classStartingEquipmentOption.count({ where: { ruleset: "RULES_2014", ...WITHOUT_BLOOD_HUNTER } })).toBe(ROWS_2014);
   });
 });

@@ -11,6 +11,7 @@
 import { classTranslations } from "@/lib/refs/translation";
 
 import { findSpellSwapProblem, isSwapStarted, type SpellSwap } from "./class-spell-swaps-2024";
+import type { PactCantripPool } from "./pact-cantrip-pool";
 import { findSpellCounts2024, findSpellListClass2024 } from "./spell-preparation-2024";
 import {
   areAllSpellsOffered,
@@ -98,6 +99,7 @@ export function findClassSpellQuota(input: {
   subclassName: string | null;
   chosenClassOptionNames: readonly string[];
   current: ClassSpellCounts;
+  cantripPool?: PactCantripPool | null;
 }): ClassSpellQuota | null {
   const counts = findSpellCounts2024(input.className, input.classLevel, input.subclassName);
   if (!counts || counts.prepared === 0) return null;
@@ -105,11 +107,15 @@ export function findClassSpellQuota(input: {
   const extraCantrips = input.chosenClassOptionNames.filter((name) => EXTRA_CANTRIP_CLASS_OPTIONS.has(name)).length;
   const spellbook = usesSpellbook(input.className) ? findWizardSpellbookSize(input.classLevel) : 0;
   return {
-    cantrips: Math.max(0, counts.cantrips + extraCantrips - input.current.cantrips),
+    cantrips: Math.max(0, findOwnCantripNorm(counts.cantrips, input.cantripPool) + extraCantrips - input.current.cantrips),
     prepared: Math.max(0, counts.prepared - input.current.prepared),
     spellbook: Math.max(0, spellbook - input.current.spellbook),
     maxSpellLevel: counts.maxSpellLevel,
   };
+}
+
+function findOwnCantripNorm(tableCantrips: number, pool: PactCantripPool | null | undefined): number {
+  return pool ? Math.max(0, pool.total - pool.ownedByPartner) : tableCantrips;
 }
 
 export type OwnedClassSpell = {

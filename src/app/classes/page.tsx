@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { getAllClasses } from "@/lib/classesData";
 import { ClassesClient } from "@/components/classes/ClassesClient";
+import { findClassTables } from "@/lib/catalogs/class-tables";
 
 export const metadata: Metadata = {
   title: "Класи — ДнД українською",
@@ -17,6 +18,7 @@ export default function ClassesPage() {
         <ClassesClient
           classes={getAllClasses("RULES_2014")}
           ruleset="RULES_2014"
+          tables={findClassTables("RULES_2014")}
         />
       </Suspense>
     </div>

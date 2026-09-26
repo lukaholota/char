@@ -14,6 +14,12 @@ import type { AbilityKey } from "./types";
 
 const MAX_CLASS_LEVEL = 20;
 
+/// Орден нечестивої душі (Blood Hunter 2020) сам називає рівні: Явлена таємниця (заклинання 2 рівня) — на 7-му,
+/// Незапечатана (3 рівня) — на 15-му, хоча слот 3 рівня орден має вже з 13-го.
+const FIXED_OPTION_SPELL_CLASS_LEVELS: Readonly<Record<string, Readonly<Record<number, number>>>> = {
+  ORDER_OF_THE_PROFANE_SOUL: { 2: 7, 3: 15 },
+};
+
 export type SubclassOptionSpell = { spellId: number; spellLevel: number };
 
 export type ChosenSubclassOption = {
@@ -35,6 +41,8 @@ export function findSubclassOptionSpellClassLevel(input: {
   spellLevel: number;
 }): number | null {
   if (input.spellLevel <= 0) return input.pickLevel;
+  const fixed = FIXED_OPTION_SPELL_CLASS_LEVELS[input.subclassName]?.[input.spellLevel];
+  if (fixed !== undefined) return fixed;
 
   for (let classLevel = input.pickLevel; classLevel <= MAX_CLASS_LEVEL; classLevel += 1) {
     const counts = findSpellCounts2024(input.className, classLevel, input.subclassName);

@@ -28,6 +28,9 @@ import {
 import { buildCharacterLevels, findClassLevel } from "@/rules/character-level";
 import { findFirstUnmetInvocationPrerequisite, type InvocationPrerequisite } from "@/rules/warlock-invocations";
 import { findMulticlassProficiencies } from "@/rules/multiclass-proficiencies";
+import { isChoiceOptionLevelMet } from "@/rules/choice-option-level";
+import { findReplacedChoiceGroup, isReplacedGroupMatch } from "@/rules/choice-replacement";
+import { grantSubclassUnarmedStrike } from "@/server/db/unarmed-strike";
 import { findInfusionPicksAtLevel } from "@/rules/artificer-infusions";
 import { buildSpeciesPersSpellRows, findMissingSpeciesGrants } from "@/server/db/species-level-grants";
 import {
@@ -628,6 +631,12 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         }
       }
 
+      const allSelectedIds = new Set([...selectedByGroup.values()].flat());
+      const belowRequiredLevel = selectedChoiceContent.choiceOptions.some(
+        (option) => allSelectedIds.has(option.choiceOptionId) && !isChoiceOptionLevelMet(option.prerequisites, classLevelAfter),
+      );
+      if (belowRequiredLevel) return { error: "Цей варіант доступний лише з вищого рівня класу" } as const;
+
       // Warlock invocation prerequisites (server-side).
       const invocationGroup = CHOICE_GROUPS.WARLOCK_INVOCATIONS;
       const isWarlock2014 = args.scope === "class" && args.className === "WARLOCK_2014";
@@ -851,10 +860,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       if (!opt?.optionalFeatureId) continue;
 
       const isReplacement = Boolean(
-        opt?.replacesInvocation ||
-          opt?.replacesFightingStyle ||
-          opt?.replacesManeuver ||
-          (Array.isArray(opt?.replacesFeatures) && opt.replacesFeatures.length > 0)
+        findReplacedChoiceGroup(opt) || (Array.isArray(opt?.replacesFeatures) && opt.replacesFeatures.length > 0)
       );
       if (isReplacement) continue;
 
@@ -888,19 +894,14 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
     if (acceptedOptionalIdsFinal.length) {
       const optionalRecords = await loadLevelUpOptionalFeatures(acceptedOptionalIdsFinal);
 
-      const isFightingStyleGroupName = (name: string) => {
-        const normalized = String(name || "").trim().toLowerCase();
-        return normalized === "бойовий стиль" || normalized.includes("бойовий стиль") || normalized.includes("fighting style");
-      };
-
       for (const opt of optionalRecords) {
         if (opt.featureId) optionalGrantedFeatureIds.add(opt.featureId);
         for (const rep of opt.replacesFeatures) {
           optionalReplacedFeatureIds.add(rep.replacedFeatureId);
         }
 
-        const needsSwap = Boolean(opt.replacesInvocation || opt.replacesFightingStyle || opt.replacesManeuver);
-        if (!needsSwap) continue;
+        const groupName = findReplacedChoiceGroup(opt);
+        if (!groupName) continue;
 
         const sel = optionalReplacementSelections[String(opt.optionalFeatureId)] || {};
         const removeChoiceOptionId = Number(sel.removeChoiceOptionId);
@@ -920,25 +921,8 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
           return { error: "Обрана опція для заміни не належить персонажу" };
         }
 
-        // Validate groups
-        const groupName = opt.replacesInvocation
-          ? "Потойбічні виклики"
-          : opt.replacesFightingStyle
-            ? "Бойовий стиль"
-            : opt.replacesManeuver
-              ? "Маневри майстра бою"
-              : undefined;
-
-        if (!groupName) {
-          return { error: "Невідомий тип заміни" };
-        }
-
         const ownedGroup = (pers.choiceOptions || []).find((co: any) => Number(co?.choiceOptionId) === removeChoiceOptionId)?.groupName;
-        if (groupName === "Бойовий стиль") {
-          if (!isFightingStyleGroupName(String(ownedGroup || ""))) {
-            return { error: "Обрана опція для заміни не з тієї групи" };
-          }
-        } else if (String(ownedGroup || "") !== groupName) {
+        if (!isReplacedGroupMatch(groupName, ownedGroup)) {
           return { error: "Обрана опція для заміни не з тієї групи" };
         }
 
@@ -952,12 +936,11 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         if (!addChoiceOption) {
           return { error: "Нова опція не знайдена" };
         }
-        if (groupName === "Бойовий стиль") {
-          if (!isFightingStyleGroupName(String(addChoiceOption.groupName || ""))) {
-            return { error: "Нова опція не з тієї групи" };
-          }
-        } else if (String(addChoiceOption.groupName || "") !== groupName) {
+        if (!isReplacedGroupMatch(groupName, addChoiceOption.groupName)) {
           return { error: "Нова опція не з тієї групи" };
+        }
+        if (!isChoiceOptionLevelMet(addChoiceOption.prerequisites, classLevelAfter)) {
+          return { error: "Цей варіант доступний лише з вищого рівня класу" };
         }
 
         // Prevent duplicates (except the one being replaced)
@@ -1225,6 +1208,10 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
             ...(chosenSubclassIdRaw ? { subclassId: chosenSubclassIdRaw } : {}),
           },
         });
+      }
+
+      if (chosenSubclassIdRaw) {
+        await grantSubclassUnarmedStrike(tx, persId, { subclassName: selectedSubclass?.name, ruleset: pers.ruleset });
       }
 
       // Повтор уже перевірено гейтом; повторювана риса — другий рядок зі своїми виборами (Р37).

@@ -1,13 +1,22 @@
 // @vitest-environment jsdom
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 
 import { ClassDetailCard } from "@/components/classes/ClassDetailCard";
 import { RaceDetailCard } from "@/components/races/RaceDetailCard";
 import type { ClassData } from "@/lib/classesData";
 import type { RaceData } from "@/lib/racesData";
+import type { ReadingActions, ReadingView } from "@/components/catalogs/reading/reading-view";
 
 afterEach(cleanup);
+
+function buildView<T extends string>(section: T): ReadingView<T> {
+  return { section, featureKey: null, focusRequest: 0, missing: null };
+}
+
+function buildActions<T extends string>(): ReadingActions<T> {
+  return { onSectionChange: vi.fn(), onOpenBranch: vi.fn(), onDismissMissing: vi.fn() };
+}
 
 const CLASS_PROSE = "Барди творять магію музикою, танцем і віршем.";
 const RACE_PROSE = "Ельфи — чарівний народ неземної грації.";
@@ -63,12 +72,12 @@ function buildRace(description: string | null, subraceDescription: string | null
 
 describe("KR33.3 — проза в картках каталогу", () => {
   it("картка класу малює опис, коли він є", () => {
-    render(<ClassDetailCard characterClass={buildClass(CLASS_PROSE)} />);
+    render(<ClassDetailCard characterClass={buildClass(CLASS_PROSE)} view={buildView("overview")} actions={buildActions()} />);
 
     expect(screen.getByText(CLASS_PROSE)).toBeTruthy();
   });
 
-  it("картка класу домальовує риси й підкласи після першого екрана", async () => {
+  it("огляд класу не несе описів здібностей і підкласів — вони у своїх розділах (O44)", () => {
     const characterClass: ClassData = {
       ...buildClass(CLASS_PROSE),
       features: [{ level: 1, name: "Натхнення барда", engName: "Bardic Inspiration", description: "Опис натхнення." }],
@@ -85,28 +94,35 @@ describe("KR33.3 — проза в картках каталогу", () => {
       ],
     };
 
-    render(<ClassDetailCard characterClass={characterClass} />);
+    const overview = render(<ClassDetailCard characterClass={characterClass} view={buildView("overview")} actions={buildActions()} />);
+    expect(screen.getByText(CLASS_PROSE)).toBeTruthy();
+    expect(screen.queryByText("Опис натхнення.")).toBeNull();
+    expect(screen.queryByText("Опис колегії.")).toBeNull();
+    overview.unmount();
 
-    expect(await screen.findByText("Опис натхнення.")).toBeTruthy();
+    render(<ClassDetailCard characterClass={characterClass} view={buildView("subclasses")} actions={buildActions()} />);
     expect(screen.getByText("Опис колегії.")).toBeTruthy();
-    expect(screen.getByText("Опис слів.")).toBeTruthy();
+    expect(screen.queryByText("Опис слів.")).toBeNull();
   });
 
   it("картка класу без опису не малює порожнього блоку", () => {
-    const { container } = render(<ClassDetailCard characterClass={buildClass(null)} />);
+    const { container } = render(<ClassDetailCard characterClass={buildClass(null)} view={buildView("overview")} actions={buildActions()} />);
 
     expect(container.querySelector("[data-catalog-prose]")).toBeNull();
   });
 
-  it("картка раси малює опис раси й підраси, коли вони є", () => {
-    render(<RaceDetailCard race={buildRace(RACE_PROSE, SUBRACE_PROSE)} />);
-
+  it("картка раси малює опис раси в огляді, а підраси — у своєму розділі", () => {
+    const race = buildRace(RACE_PROSE, SUBRACE_PROSE);
+    const overview = render(<RaceDetailCard race={race} view={buildView("overview")} actions={buildActions()} />);
     expect(screen.getByText(RACE_PROSE)).toBeTruthy();
+    overview.unmount();
+
+    render(<RaceDetailCard race={race} view={buildView("branches")} actions={buildActions()} />);
     expect(screen.getByText(SUBRACE_PROSE)).toBeTruthy();
   });
 
   it("картка раси без описів не малює порожніх блоків", () => {
-    const { container } = render(<RaceDetailCard race={buildRace(null, null)} />);
+    const { container } = render(<RaceDetailCard race={buildRace(null, null)} view={buildView("overview")} actions={buildActions()} />);
 
     expect(container.querySelector("[data-catalog-prose]")).toBeNull();
   });

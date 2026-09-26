@@ -144,4 +144,10 @@ export const subclassParentClass: Record<string, string> = {
   [subclassTranslations.ORDER_OF_SCRIBES]: classTranslations.WIZARD_2014,
   [subclassTranslations.SCHOOL_OF_TRANSMUTATION]: classTranslations.WIZARD_2014,
   [subclassTranslations.SCHOOL_OF_WAR_MAGIC]: classTranslations.WIZARD_2014,
+
+  // Blood Hunter
+  [subclassTranslations.ORDER_OF_THE_GHOSTSLAYER]: classTranslations.BLOOD_HUNTER_2014,
+  [subclassTranslations.ORDER_OF_THE_LYCAN]: classTranslations.BLOOD_HUNTER_2014,
+  [subclassTranslations.ORDER_OF_THE_MUTANT]: classTranslations.BLOOD_HUNTER_2014,
+  [subclassTranslations.ORDER_OF_THE_PROFANE_SOUL]: classTranslations.BLOOD_HUNTER_2014,
 };

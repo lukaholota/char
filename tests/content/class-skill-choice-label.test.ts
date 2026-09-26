@@ -14,10 +14,10 @@ describe("KR33.1 — class catalog skill label", () => {
     }
   });
 
-  it("keeps the narrowed list for the other twelve classes of each edition", () => {
+  it("keeps the narrowed list for the other thirteen classes of each edition", () => {
     const others = classes.filter((entry) => !entry.key.startsWith("BARD_"));
-    expect(others.filter((entry) => entry.ruleset === "RULES_2014")).toHaveLength(12);
-    expect(others.filter((entry) => entry.ruleset === "RULES_2024")).toHaveLength(12);
+    expect(others.filter((entry) => entry.ruleset === "RULES_2014")).toHaveLength(13);
+    expect(others.filter((entry) => entry.ruleset === "RULES_2024")).toHaveLength(13);
     for (const entry of others) {
       const label = formatClassSkillChoices(entry.skillChoices);
       expect(label).toMatch(new RegExp(`^${entry.skillChoices.count} з: `));

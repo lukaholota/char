@@ -1,6 +1,7 @@
 "use client";
 
 import { memo, useEffect, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType } from "@/lib/prisma-enums";
 import { ChevronRight, Search } from "lucide-react";
@@ -17,7 +18,6 @@ import { useSheetStatesContext } from "@/lib/components/characterSheet/states/Sh
 import { Input } from "@/components/ui/input";
 import { filterFeaturesByQuery } from "@/lib/utils/features";
 import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
-import { FeatsSheetManagerModal } from "@/lib/components/characterSheet/FeatsSheetManagerModal";
 import { FeatureDetailsDialog } from "@/lib/components/characterSheet/FeatureDetailsDialog";
 import { collectFeatureSpells } from "@/lib/logic/free-feat-spell-casts";
 import { findSheetFeatExistingState } from "@/lib/components/characterSheet/feats/sheet-feat-existing-state";
@@ -53,6 +53,11 @@ import {
   subraceTranslations,
   variantTranslations,
 } from "@/lib/refs/translation";
+
+// Тягне форму рис конструктора разом із zod — сотні КБ, яких лист до першого відкриття не потребує.
+const FeatsSheetManagerModal = dynamic(() =>
+  import("@/lib/components/characterSheet/FeatsSheetManagerModal").then((module) => module.FeatsSheetManagerModal)
+);
 
 function translateFeatName(value: string): string {
   const raw = String(value ?? "").trim();
@@ -148,6 +153,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
   const [entityVariantIndex, setEntityVariantIndex] = useState(0);
   const [magicItemToShow, setMagicItemToShow] = useState<any>(null);
   const [featsManagerOpen, setFeatsManagerOpen] = useState(false);
+  const [isFeatsManagerMounted, setIsFeatsManagerMounted] = useState(false);
   const [featureQuery, setFeatureQuery] = useState("");
 
   const bastionEntry = useBastionEntry({ persId: pers.persId, ruleset: pers.ruleset, isReadOnly: Boolean(isReadOnly), isSnapshot: pers.isSnapshot });
@@ -741,7 +747,10 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
           featsCount={pers.feats?.length || 0}
           bastionEntry={bastionEntry}
           openEntity={openEntity}
-          onOpenFeatsManager={() => setFeatsManagerOpen(true)}
+          onOpenFeatsManager={() => {
+            setIsFeatsManagerMounted(true);
+            setFeatsManagerOpen(true);
+          }}
         />
 
 
@@ -849,15 +858,17 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
           onOpenChange={(open) => !open && setMagicItemToShow(null)} 
         />
 
-        <FeatsSheetManagerModal
-          persId={pers.persId}
-          existing={featExistingState}
-          ruleset={pers.ruleset}
-          persFeats={(pers as any).feats ?? []}
-          open={featsManagerOpen}
-          onOpenChange={setFeatsManagerOpen}
-          isReadOnly={isReadOnly}
-        />
+        {isFeatsManagerMounted && (
+          <FeatsSheetManagerModal
+            persId={pers.persId}
+            existing={featExistingState}
+            ruleset={pers.ruleset}
+            persFeats={(pers as any).feats ?? []}
+            open={featsManagerOpen}
+            onOpenChange={setFeatsManagerOpen}
+            isReadOnly={isReadOnly}
+          />
+        )}
       </div>
     </div>
   );

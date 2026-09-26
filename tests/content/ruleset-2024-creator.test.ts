@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
+import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
+
+/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+const isBloodHunter = (className: string) => BLOOD_HUNTER_CLASS_NAMES.some((name) => name === className);
 
 describe("Character Creator Content Loading by Ruleset", () => {
   it("loads 2024 content when ruleset is RULES_2024", async () => {
@@ -8,7 +12,7 @@ describe("Character Creator Content Loading by Ruleset", () => {
     expect(races.length).toBeGreaterThan(0);
     expect(races.every((r) => r.ruleset === "RULES_2024")).toBe(true);
 
-    expect(classes.length).toBe(13);
+    expect(classes.filter((c) => !isBloodHunter(c.name)).length).toBe(13);
     expect(classes.every((c) => c.ruleset === "RULES_2024")).toBe(true);
 
     expect(backgrounds.length).toBe(16);

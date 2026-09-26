@@ -1,0 +1,386 @@
+{
+  "status": 200,
+  "capturedAt": "2026-09-26T08:06:52.746Z",
+  "query": {
+    "dataset": "spans",
+    "statsPeriod": "24h",
+    "per_page": "100",
+    "query": "span.op:ui.long-animation-frame transaction:\"/char/:id\"",
+    "field": "p95(span.duration)",
+    "sort": "-sum(span.duration)"
+  },
+  "body": {
+    "data": [
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "MessagePort.onmessage",
+        "count()": 370,
+        "sum(span.duration)": 42387.99092,
+        "p95(span.duration)": 325.73996
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+        "browser.script.invoker": "MessagePort.onmessage",
+        "count()": 90,
+        "sum(span.duration)": 12004.01546,
+        "p95(span.duration)": 289.00003
+      },
+      {
+        "code.filepath": "https://accounts.google.com/gsi/client",
+        "browser.script.invoker": "https://accounts.google.com/gsi/client",
+        "count()": 10,
+        "sum(span.duration)": 3701.00021,
+        "p95(span.duration)": 370.1
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "TimerHandler:setTimeout",
+        "count()": 40,
+        "sum(span.duration)": 3314.00156,
+        "p95(span.duration)": 117.50007
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/994d1967d63090a4.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "ReadableStreamDefaultReader.read.then",
+        "count()": 20,
+        "sum(span.duration)": 3133.99792,
+        "p95(span.duration)": 226.79997
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "count()": 30,
+        "sum(span.duration)": 2905.9982299999997,
+        "p95(span.duration)": 149.4999
+      },
+      {
+        "code.filepath": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+        "browser.script.invoker": "PerformanceObserverCallback",
+        "count()": 10,
+        "sum(span.duration)": 2890.98978,
+        "p95(span.duration)": 289.09897
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/53208af2967a9b44.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "https://char.holota.family/_next/static/chunks/53208af2967a9b44.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "count()": 10,
+        "sum(span.duration)": 2864.99977,
+        "p95(span.duration)": 286.49997
+      },
+      {
+        "code.filepath": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+        "browser.script.invoker": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+        "count()": 20,
+        "sum(span.duration)": 2239.0008,
+        "p95(span.duration)": 129.19998
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+        "browser.script.invoker": "TimerHandler:setTimeout",
+        "count()": 20,
+        "sum(span.duration)": 2112.99896,
+        "p95(span.duration)": 121.99998
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/e6e09d699b9e8294.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "https://char.holota.family/_next/static/chunks/e6e09d699b9e8294.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "count()": 20,
+        "sum(span.duration)": 2093.99939,
+        "p95(span.duration)": 138.40009
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/6b926b4c81dd6a23.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "ReadableStreamDefaultReader.read.then",
+        "count()": 30,
+        "sum(span.duration)": 1732.00131,
+        "p95(span.duration)": 63.199997
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "#document.onclick",
+        "count()": 20,
+        "sum(span.duration)": 1617.99669,
+        "p95(span.duration)": 105.39985
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/c68a9b24de21fcaf.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+        "browser.script.invoker": "ReadableStreamDefaultReader.read.then",
+        "count()": 20,
+        "sum(span.duration)": 1411.00168,
+        "p95(span.duration)": 90.80005
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/76a8f394441e2dd1.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "https://char.holota.family/_next/static/chunks/76a8f394441e2dd1.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "count()": 10,
+        "sum(span.duration)": 1136.99913,
+        "p95(span.duration)": 113.69991
+      },
+      {
+        "code.filepath": "https://char.holota.family/char/15881",
+        "browser.script.invoker": "https://char.holota.family/char/15881",
+        "count()": 10,
+        "sum(span.duration)": 976.99881,
+        "p95(span.duration)": 97.69988
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+        "browser.script.invoker": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+        "count()": 10,
+        "sum(span.duration)": 641.00027,
+        "p95(span.duration)": 64.10003
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "BODY.onclick",
+        "count()": 10,
+        "sum(span.duration)": 598.00148,
+        "p95(span.duration)": 59.800148
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/cc94f9b19386710d.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+        "browser.script.invoker": "DOMWindow.onscroll",
+        "count()": 10,
+        "sum(span.duration)": 545.00103,
+        "p95(span.duration)": 54.500103
+      },
+      {
+        "code.filepath": "https://char.holota.family/_next/static/chunks/9d3afcdbdbe598c9.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "browser.script.invoker": "https://char.holota.family/_next/static/chunks/9d3afcdbdbe598c9.js?dpl=f504a3e0716e587c00ea83f42480b2753e2acb30",
+        "count()": 10,
+        "sum(span.duration)": 542.00172,
+        "p95(span.duration)": 54.200172
+      }
+    ],
+    "meta": {
+      "fields": {
+        "code.filepath": "string",
+        "browser.script.invoker": "string",
+        "count()": "integer",
+        "sum(span.duration)": "duration",
+        "p95(span.duration)": "duration"
+      },
+      "units": {
+        "code.filepath": null,
+        "browser.script.invoker": null,
+        "count()": null,
+        "sum(span.duration)": "millisecond",
+        "p95(span.duration)": "millisecond"
+      },
+      "isMetricsData": false,
+      "isMetricsExtractedData": false,
+      "tips": {},
+      "datasetReason": "unchanged",
+      "dataset": "spans",
+      "dataScanned": "full",
+      "bytesScanned": 98974131,
+      "routingHint": "eyJ2IjogMSwgInRpZXIiOiAxLCAidHMiOiAxNzkwNDEwMDEyfQ==",
+      "accuracy": {
+        "confidence": [
+          {
+            "count()": "high",
+            "sum(span.duration)": "high",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          },
+          {
+            "count()": "low",
+            "sum(span.duration)": "low",
+            "p95(span.duration)": "low"
+          }
+        ]
+      }
+    },
+    "confidence": [
+      {
+        "count()": "high",
+        "sum(span.duration)": "high",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      },
+      {
+        "count()": "low",
+        "sum(span.duration)": "low",
+        "p95(span.duration)": "low"
+      }
+    ]
+  }
+}

@@ -8,6 +8,7 @@ import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
+import { BLOOD_HUNTER_SUBCLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 type OptionJson = { engName: string; preparedSpells?: Array<{ classLevel: number; spellsEng: string[] }> };
 const groups: Array<{ options: OptionJson[] }> = JSON.parse(
@@ -24,7 +25,8 @@ function listExpected(): string[] {
 
 async function listSeeded(): Promise<string[]> {
   const links = await prisma.subclassChoiceOption.findMany({
-    where: { ruleset: "RULES_2024", choiceOption: { features: { some: { feature: { givesSpells: { some: {} } } } } } },
+    // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+    where: { ruleset: "RULES_2024", subclass: { name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } }, choiceOption: { features: { some: { feature: { givesSpells: { some: {} } } } } } },
     select: {
       choiceOption: {
         select: { optionNameEng: true, features: { select: { feature: { select: { givesSpells: { select: { engName: true } } } } } } },

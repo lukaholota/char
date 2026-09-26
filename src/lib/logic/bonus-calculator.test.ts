@@ -529,3 +529,41 @@ describe("ручний бонус до пасивних значень", () => {
     expect(calculatePassiveSkill(pers, Skills.PERCEPTION)).toBe(16);
   });
 });
+
+describe("O45 — Хижі удари лікантропа (BH-004)", () => {
+  const unarmedStrike = { isProficient: true, weapon: { name: "UNARMED_STRIKE", weaponType: "SIMPLE_WEAPON", properties: [], isRanged: false, damage: "1" } };
+  const longsword = { isProficient: true, weapon: { name: "LONGSWORD", weaponType: "MARTIAL_WEAPON", properties: ["VERSATILE"], isRanged: false, damage: "1d8" } };
+  const lycan = (stateEffects: unknown) => buildPers({ level: 7, str: 10, dex: 18, ruleset: "RULES_2014", armors: [], wearsShield: false, stateEffects } as never);
+  const hybrid = { meleeDamageBonus: 1, unarmedStrike: { damageDice: "1d6", abilityOption: "DEX", attackBonus: 1 } };
+
+  it("у гібридній формі: Спритність, +8 до атаки, 1к6 + 5", () => {
+    const pers = lycan(hybrid);
+    expect(calculateWeaponAttackBonus(pers, unarmedStrike as never)).toBe(8);
+    expect(calculateWeaponDamageDice(pers, unarmedStrike as never)).toBe("1d6");
+    expect(calculateWeaponDamageBonus(pers, unarmedStrike as never)).toBe(5);
+  });
+
+  it("Звіряча міць додається й до звичайної зброї ближнього бою, а Хижі удари — ні", () => {
+    const pers = lycan(hybrid);
+    expect(calculateWeaponDamageDice(pers, longsword as never)).toBe("1d8");
+    expect(calculateWeaponDamageBonus(pers, longsword as never)).toBe(0 + 1);
+  });
+
+  it("поза формою удар кулаком лишається звичайним", () => {
+    const pers = lycan(null);
+    expect(calculateWeaponAttackBonus(pers, unarmedStrike as never)).toBe(3);
+    expect(calculateWeaponDamageDice(pers, unarmedStrike as never)).toBe("1");
+  });
+});
+
+describe("O45 — Дуель не додається до удару без зброї", () => {
+  const dueling = { featureId: 50, engName: "Fighting Style: Dueling", bonusToMeleeOneHandedWeaponDamage: 2 };
+  const withDueling = buildPers({ level: 7, dex: 16, ruleset: "RULES_2024", armors: [], wearsShield: false, features: [{ feature: dueling }] } as never);
+  const unarmedStrike = { isProficient: true, weapon: { name: "UNARMED_STRIKE", weaponType: "SIMPLE_WEAPON", properties: [], isRanged: false, damage: "1" } };
+  const longsword = { isProficient: true, weapon: { name: "LONGSWORD", weaponType: "MARTIAL_WEAPON", properties: ["VERSATILE"], isRanged: false, damage: "1d8" } };
+
+  it("довгий меч отримує +2, удар без зброї — ні", () => {
+    expect(calculateWeaponDamageBonus(withDueling, longsword as never)).toBe(0 + 2);
+    expect(calculateWeaponDamageBonus(withDueling, unarmedStrike as never)).toBe(0);
+  });
+});

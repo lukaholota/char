@@ -11,6 +11,7 @@
  * обирає замовляння й два заклинання до книги («each time you gain a wizard level, you can add two
  * wizard spells»), а готує з книги на відпочинку.
  *
+ * Орден нечестивої душі мисливця за кровʼю бере зі списку чорнокнижника за власною таблицею ордену.
  * Потойбічний лицар і Містичний спритник беруть зі списку чарівника за третинною таблицею: заклинання
  * лише двох шкіл підкласу, а будь-якої школи — по одному на 3, 8, 14 і 20-му рівнях класу. Покровитель
  * чорнокнижника додає до списку класу свій розширений перелік («added to the warlock spell list for you»).
@@ -22,8 +23,9 @@ import { classTranslations, spellSchoolTranslations, subclassTranslations } from
 
 import { NO_SPELLS, type ClassSpellCounts, type ClassSpellFilters, type ClassSpellQuota, type ClassSpellSelection } from "./class-spell-choices-2024";
 import { isSwapStarted } from "./class-spell-swaps-2024";
+import type { PactCantripPool } from "./pact-cantrip-pool";
 import type { SpellChoiceCandidate, SpellSchoolKey, SpellSchoolLimit } from "./spell-choice-filter";
-import { findSpellKnowledge2014, isThirdCaster2014, type SpellKnowledge2014 } from "./spell-knowledge-2014";
+import { findSpellKnowledge2014, findSubclassSpellListClass2014, isSubclassCaster2014, isThirdCaster2014, type SpellKnowledge2014 } from "./spell-knowledge-2014";
 
 export type SpellCaster2014 = { className: string; subclassName: string | null };
 
@@ -57,6 +59,11 @@ const THIRD_CASTER_SCHOOLS: Readonly<Record<string, readonly SpellSchoolKey[]>> 
 
 const ANY_SCHOOL_LEVELS = [3, 8, 14, 20] as const;
 
+const SPELL_LIST_OWNER_GENITIVE: Readonly<Record<string, string>> = {
+  WIZARD_2014: "чарівника",
+  WARLOCK_2014: "чорнокнижника",
+};
+
 export function findCreationSpellAllowance2014(caster: SpellCaster2014): LevelUpSpellAllowance2014 | null {
   return findLevelUpSpellAllowance2014({ ...caster, classLevel: 1, owned: NO_SPELLS });
 }
@@ -65,11 +72,15 @@ export function hasCreationSpellChoice2014(className: string): boolean {
   return findCreationSpellAllowance2014({ className, subclassName: null }) !== null;
 }
 
-export function findLevelUpSpellAllowance2014(input: SpellCaster2014 & { classLevel: number; owned: ClassSpellCounts }): LevelUpSpellAllowance2014 | null {
-  const now = findSpellKnowledge2014(input.className, input.classLevel, input.subclassName);
-  if (!now) return null;
+export function findLevelUpSpellAllowance2014(
+  input: SpellCaster2014 & { classLevel: number; owned: ClassSpellCounts; cantripPool?: PactCantripPool | null },
+): LevelUpSpellAllowance2014 | null {
+  const ownNow = findSpellKnowledge2014(input.className, input.classLevel, input.subclassName);
+  if (!ownNow) return null;
 
-  const before = input.classLevel > 1 ? findSpellKnowledge2014(input.className, input.classLevel - 1, input.subclassName) : null;
+  const ownBefore = input.classLevel > 1 ? findSpellKnowledge2014(input.className, input.classLevel - 1, input.subclassName) : null;
+  const now = applyCantripPool(ownNow, input.cantripPool, "total");
+  const before = input.cantripPool ? applyCantripPool(ownBefore ?? { ...ownNow, known: 0 }, input.cantripPool, "totalBefore") : ownBefore;
   const norm = findNormCounts(input.className, input.classLevel, now);
   const gained = findGainedCounts(input.className, input.classLevel, now, before);
   const required = mapCounts((key) => Math.min(gained[key], Math.max(0, norm[key] - input.owned[key])));
@@ -80,7 +91,7 @@ export function findLevelUpSpellAllowance2014(input: SpellCaster2014 & { classLe
 }
 
 export function findSpellLists2014(caster: SpellCaster2014): SpellLists2014 {
-  const base = isThirdCaster2014(caster.className, caster.subclassName) ? classTranslations.WIZARD_2014 : translateClass(caster.className);
+  const base = translateClass(findSubclassSpellListClass2014(caster.className, caster.subclassName) ?? caster.className);
   const expanded = hasSubclassSpellList2014(caster) ? translateSubclass(caster.subclassName ?? "") : null;
   return { base, expanded };
 }
@@ -95,7 +106,8 @@ export function listSpellLists2014(lists: SpellLists2014): string[] {
 }
 
 export function describeSpellListNote2014(caster: SpellCaster2014, lists: SpellLists2014): string {
-  if (isThirdCaster2014(caster.className, caster.subclassName)) return `зі списку чарівника (${translateSubclass(caster.subclassName ?? "")})`;
+  const subclassList = findSubclassSpellListClass2014(caster.className, caster.subclassName);
+  if (subclassList) return `зі списку ${SPELL_LIST_OWNER_GENITIVE[subclassList] ?? translateClass(subclassList)} (${translateSubclass(caster.subclassName ?? "")})`;
   if (lists.expanded && caster.className === PATRON_CLASS) return describePatronSpellListNote(lists.expanded);
   if (lists.expanded) return `зі свого списку й заклинань дунамантії («${lists.expanded}»)`;
   return "зі свого списку";
@@ -122,7 +134,7 @@ export function isOwnedClassSpell2014(spell: OwnedSpell2014, classLabel: string,
 }
 
 export function canSwapKnownSpellOnLevel2014(className: string, subclassName: string | null = null): boolean {
-  return SWAPS_KNOWN_SPELL_ON_LEVEL.has(className) || isThirdCaster2014(className, subclassName);
+  return SWAPS_KNOWN_SPELL_ON_LEVEL.has(className) || isSubclassCaster2014(className, subclassName);
 }
 
 export function usesSpellbook2014(className: string): boolean {
@@ -198,6 +210,11 @@ function translateClass(className: string): string {
 
 function translateSubclass(subclassName: string): string {
   return (subclassTranslations as Partial<Record<string, string>>)[subclassName] ?? subclassName;
+}
+
+/** Чорнокнижник і Орден нечестивої душі тримають спільний пул: класу лишається те, чого не взяв інший. */
+function applyCantripPool(knowledge: SpellKnowledge2014, pool: PactCantripPool | null | undefined, key: "total" | "totalBefore"): SpellKnowledge2014 {
+  return pool ? { ...knowledge, cantrips: Math.max(0, pool[key] - pool.ownedByPartner) } : knowledge;
 }
 
 function findNormCounts(className: string, classLevel: number, now: SpellKnowledge2014): ClassSpellCounts {

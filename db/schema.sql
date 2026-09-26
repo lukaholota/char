@@ -264,7 +264,9 @@ CREATE TYPE public."Classes" AS ENUM (
     'SORCERER_2024',
     'WARLOCK_2024',
     'WIZARD_2024',
-    'ARTIFICER_2024'
+    'ARTIFICER_2024',
+    'BLOOD_HUNTER_2014',
+    'BLOOD_HUNTER_2024'
 );
 
 
@@ -1011,7 +1013,11 @@ CREATE TYPE public."Subclasses" AS ENUM (
     'UNDEAD_PATRON',
     'VESTIGE_PATRON',
     'WARRIOR_OF_THE_MYSTIC_ARTS',
-    'WINTER_WALKER'
+    'WINTER_WALKER',
+    'ORDER_OF_THE_GHOSTSLAYER',
+    'ORDER_OF_THE_LYCAN',
+    'ORDER_OF_THE_MUTANT',
+    'ORDER_OF_THE_PROFANE_SOUL'
 );
 
 
@@ -1731,7 +1737,8 @@ CREATE TABLE public.class_optional_feature (
     title character varying(100),
     prerequisites jsonb,
     seed_index integer DEFAULT 0 NOT NULL,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    replaces_choice_group character varying(100)
 );
 
 
@@ -3314,7 +3321,8 @@ CREATE TABLE public.pers_weapon (
     customdamagebonus jsonb,
     customdamagecount integer,
     customdamagedice text,
-    ismagical boolean DEFAULT false NOT NULL
+    ismagical boolean DEFAULT false NOT NULL,
+    crimson_rite_feature_id integer
 );
 
 
@@ -5698,6 +5706,13 @@ CREATE INDEX pers_additional_users_user_id_idx ON public.pers_additional_users U
 
 
 --
+-- Name: pers_armor_pers_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_armor_pers_id_idx ON public.pers_armor USING btree (pers_id);
+
+
+--
 -- Name: pers_bastion_facility_pers_bastion_id_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -5884,6 +5899,13 @@ CREATE INDEX pers_user_id_idx ON public.pers USING btree (user_id);
 --
 
 CREATE INDEX pers_weapon_mastery_weapon_id_idx ON public.pers_weapon_mastery USING btree (weapon_id);
+
+
+--
+-- Name: pers_weapon_pers_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_weapon_pers_id_idx ON public.pers_weapon USING btree (pers_id);
 
 
 --
@@ -6830,6 +6852,14 @@ ALTER TABLE ONLY public.pers
 
 ALTER TABLE ONLY public.pers
     ADD CONSTRAINT pers_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_weapon pers_weapon_crimson_rite_feature_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_weapon
+    ADD CONSTRAINT pers_weapon_crimson_rite_feature_id_fkey FOREIGN KEY (crimson_rite_feature_id) REFERENCES public.feature(feature_id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
 --

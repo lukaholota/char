@@ -1,0 +1,6089 @@
+{
+  "capturedAt": "2026-09-26T07:40:27.352Z",
+  "repeats": 15,
+  "tables": [
+    {
+      "table": "pers_weapon",
+      "stats": {
+        "rows": 38680,
+        "characters": 10699,
+        "heap_bytes": "2195456",
+        "avg_row_bytes": "45.53"
+      },
+      "samples": [
+        {
+          "kind": "typical",
+          "pers_id": 16005,
+          "rows": 3,
+          "public": {
+            "sql": "SELECT * FROM public.pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16005,
+              0
+            ],
+            "executionP50Ms": 1.764,
+            "executionP95Ms": 6.122,
+            "planningP50Ms": 0.051,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 3,
+              "removedRows": 38677,
+              "sharedHit": 268,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_weapon",
+                "Alias": "pers_weapon",
+                "Startup Cost": 0,
+                "Total Cost": 754.65,
+                "Plan Rows": 4,
+                "Plan Width": 122,
+                "Actual Startup Time": 1.575,
+                "Actual Total Time": 1.578,
+                "Actual Rows": 3,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16005)",
+                "Rows Removed by Filter": 38677,
+                "Shared Hit Blocks": 268,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.055,
+              "Triggers": [],
+              "Execution Time": 1.59
+            },
+            "samples": [
+              {
+                "executionMs": 1.59,
+                "planningMs": 0.055,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.592,
+                "planningMs": 0.054,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 6.122,
+                "planningMs": 0.059,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.839,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.775,
+                "planningMs": 0.076,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 5.654,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.643,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.581,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.592,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 5.627,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.764,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 2.97,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.683,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.9,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.647,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16005,
+              0
+            ],
+            "executionP50Ms": 1.713,
+            "executionP95Ms": 5.699,
+            "planningP50Ms": 0.046,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 3,
+              "removedRows": 38677,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 320,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_weapon",
+                "Alias": "char_index_audit_pers_weapon",
+                "Startup Cost": 0,
+                "Total Cost": 803.5,
+                "Plan Rows": 4,
+                "Plan Width": 122,
+                "Actual Startup Time": 1.679,
+                "Actual Total Time": 1.693,
+                "Actual Rows": 3,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16005)",
+                "Rows Removed by Filter": 38677,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 320,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.052,
+              "Triggers": [],
+              "Execution Time": 1.707
+            },
+            "samples": [
+              {
+                "executionMs": 1.707,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.77,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.737,
+                "planningMs": 0.06,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.709,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 5.699,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.852,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.785,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.711,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.69,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 3.154,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.662,
+                "planningMs": 0.034,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.761,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.706,
+                "planningMs": 0.054,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.648,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.713,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16005,
+              0
+            ],
+            "executionP50Ms": 0.029,
+            "executionP95Ms": 0.037,
+            "planningP50Ms": 0.063,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_weapon_pers_id_idx",
+              "rows": 3,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 3,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_weapon_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_weapon",
+                "Alias": "char_index_audit_pers_weapon",
+                "Startup Cost": 0.29,
+                "Total Cost": 9.53,
+                "Plan Rows": 4,
+                "Plan Width": 122,
+                "Actual Startup Time": 0.014,
+                "Actual Total Time": 0.016,
+                "Actual Rows": 3,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 16005)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 3,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.064,
+              "Triggers": [],
+              "Execution Time": 0.03
+            },
+            "samples": [
+              {
+                "executionMs": 0.03,
+                "planningMs": 0.064,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.057,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.023,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.071,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.075,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.064,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.072,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.037,
+                "planningMs": 0.093,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.034,
+                "planningMs": 0.063,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.073,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.046,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.058,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "largest",
+          "pers_id": 13964,
+          "rows": 14,
+          "public": {
+            "sql": "SELECT * FROM public.pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              13964,
+              0
+            ],
+            "executionP50Ms": 1.624,
+            "executionP95Ms": 6.582,
+            "planningP50Ms": 0.054,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 14,
+              "removedRows": 38666,
+              "sharedHit": 268,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_weapon",
+                "Alias": "pers_weapon",
+                "Startup Cost": 0,
+                "Total Cost": 754.65,
+                "Plan Rows": 16,
+                "Plan Width": 122,
+                "Actual Startup Time": 2.134,
+                "Actual Total Time": 6.565,
+                "Actual Rows": 14,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 13964)",
+                "Rows Removed by Filter": 38666,
+                "Shared Hit Blocks": 268,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.066,
+              "Triggers": [],
+              "Execution Time": 6.582
+            },
+            "samples": [
+              {
+                "executionMs": 6.582,
+                "planningMs": 0.066,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.617,
+                "planningMs": 0.056,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.594,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 5.945,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.633,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.641,
+                "planningMs": 0.054,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.672,
+                "planningMs": 0.055,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.59,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.645,
+                "planningMs": 0.055,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.58,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.611,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.624,
+                "planningMs": 0.057,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.65,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.588,
+                "planningMs": 0.058,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.57,
+                "planningMs": 0.401,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              13964,
+              0
+            ],
+            "executionP50Ms": 1.746,
+            "executionP95Ms": 4.127,
+            "planningP50Ms": 0.048,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 14,
+              "removedRows": 38666,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 320,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_weapon",
+                "Alias": "char_index_audit_pers_weapon",
+                "Startup Cost": 0,
+                "Total Cost": 803.5,
+                "Plan Rows": 17,
+                "Plan Width": 122,
+                "Actual Startup Time": 1.71,
+                "Actual Total Time": 1.921,
+                "Actual Rows": 14,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 13964)",
+                "Rows Removed by Filter": 38666,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 320,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.037,
+              "Triggers": [],
+              "Execution Time": 1.931
+            },
+            "samples": [
+              {
+                "executionMs": 1.931,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 3.571,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.652,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.757,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.694,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 2.535,
+                "planningMs": 0.061,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.714,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.707,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 4.127,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.786,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.7,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.742,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.708,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.746,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.763,
+                "planningMs": 0.057,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              13964,
+              0
+            ],
+            "executionP50Ms": 0.027,
+            "executionP95Ms": 0.034,
+            "planningP50Ms": 0.057,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_weapon_pers_id_idx",
+              "rows": 14,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 3,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_weapon_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_weapon",
+                "Alias": "char_index_audit_pers_weapon",
+                "Startup Cost": 0.29,
+                "Total Cost": 9.53,
+                "Plan Rows": 4,
+                "Plan Width": 122,
+                "Actual Startup Time": 0.01,
+                "Actual Total Time": 0.012,
+                "Actual Rows": 14,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 13964)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 3,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.052,
+              "Triggers": [],
+              "Execution Time": 0.024
+            },
+            "samples": [
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.052,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.034,
+                "planningMs": 0.066,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.061,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.023,
+                "planningMs": 0.048,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.057,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.061,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.076,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.062,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.057,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.074,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.026,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.023,
+                "planningMs": 0.052,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "empty",
+          "pers_id": 16018,
+          "rows": 0,
+          "public": {
+            "sql": "SELECT * FROM public.pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16018,
+              0
+            ],
+            "executionP50Ms": 1.645,
+            "executionP95Ms": 6.168,
+            "planningP50Ms": 0.049,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 38680,
+              "sharedHit": 268,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_weapon",
+                "Alias": "pers_weapon",
+                "Startup Cost": 0,
+                "Total Cost": 754.65,
+                "Plan Rows": 4,
+                "Plan Width": 122,
+                "Actual Startup Time": 1.573,
+                "Actual Total Time": 1.573,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16018)",
+                "Rows Removed by Filter": 38680,
+                "Shared Hit Blocks": 268,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.04,
+              "Triggers": [],
+              "Execution Time": 1.582
+            },
+            "samples": [
+              {
+                "executionMs": 1.582,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.585,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.591,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.594,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.645,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.651,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.721,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.669,
+                "planningMs": 0.055,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.762,
+                "planningMs": 0.057,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 2.359,
+                "planningMs": 0.069,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.607,
+                "planningMs": 0.055,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.606,
+                "planningMs": 0.054,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.57,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 2.787,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 6.168,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16018,
+              0
+            ],
+            "executionP50Ms": 1.692,
+            "executionP95Ms": 6.358,
+            "planningP50Ms": 0.038,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 38680,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 320,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_weapon",
+                "Alias": "char_index_audit_pers_weapon",
+                "Startup Cost": 0,
+                "Total Cost": 803.5,
+                "Plan Rows": 4,
+                "Plan Width": 122,
+                "Actual Startup Time": 1.66,
+                "Actual Total Time": 1.66,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16018)",
+                "Rows Removed by Filter": 38680,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 320,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.04,
+              "Triggers": [],
+              "Execution Time": 1.67
+            },
+            "samples": [
+              {
+                "executionMs": 1.67,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.651,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.7,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.684,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.692,
+                "planningMs": 0.034,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.682,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 6.179,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.91,
+                "planningMs": 0.062,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.675,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.664,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.647,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.812,
+                "planningMs": 0.054,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.749,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.924,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 6.358,
+                "planningMs": 0.06,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_weapon WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16018,
+              0
+            ],
+            "executionP50Ms": 0.023,
+            "executionP95Ms": 0.04,
+            "planningP50Ms": 0.061,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_weapon_pers_id_idx",
+              "rows": 0,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 2,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_weapon_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_weapon",
+                "Alias": "char_index_audit_pers_weapon",
+                "Startup Cost": 0.29,
+                "Total Cost": 9.53,
+                "Plan Rows": 4,
+                "Plan Width": 122,
+                "Actual Startup Time": 0.009,
+                "Actual Total Time": 0.009,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 16018)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 2,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.05,
+              "Triggers": [],
+              "Execution Time": 0.019
+            },
+            "samples": [
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.068,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.055,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.023,
+                "planningMs": 0.062,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.064,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.039,
+                "planningMs": 0.082,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.06,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.04,
+                "planningMs": 0.061,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.03,
+                "planningMs": 0.066,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.064,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.06,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.062,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.045,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.043,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.051,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "table": "pers_armor",
+      "stats": {
+        "rows": 11080,
+        "characters": 8976,
+        "heap_bytes": "942080",
+        "avg_row_bytes": "70.70"
+      },
+      "samples": [
+        {
+          "kind": "typical",
+          "pers_id": 16017,
+          "rows": 1,
+          "public": {
+            "sql": "SELECT * FROM public.pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16017,
+              0
+            ],
+            "executionP50Ms": 0.586,
+            "executionP95Ms": 0.731,
+            "planningP50Ms": 0.043,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 1,
+              "removedRows": 11079,
+              "sharedHit": 115,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_armor",
+                "Alias": "pers_armor",
+                "Startup Cost": 0,
+                "Total Cost": 253.06,
+                "Plan Rows": 1,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.444,
+                "Actual Total Time": 0.575,
+                "Actual Rows": 1,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16017)",
+                "Rows Removed by Filter": 11079,
+                "Shared Hit Blocks": 115,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.041,
+              "Triggers": [],
+              "Execution Time": 0.598
+            },
+            "samples": [
+              {
+                "executionMs": 0.598,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.648,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.681,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.731,
+                "planningMs": 0.057,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.664,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.63,
+                "planningMs": 0.072,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.598,
+                "planningMs": 0.08,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.585,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.577,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.581,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.549,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.544,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.545,
+                "planningMs": 0.276,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.56,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.586,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16017,
+              0
+            ],
+            "executionP50Ms": 0.564,
+            "executionP95Ms": 1.052,
+            "planningP50Ms": 0.036,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 1,
+              "removedRows": 11079,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 128,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_armor",
+                "Alias": "char_index_audit_pers_armor",
+                "Startup Cost": 0,
+                "Total Cost": 266.5,
+                "Plan Rows": 1,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.413,
+                "Actual Total Time": 0.527,
+                "Actual Rows": 1,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16017)",
+                "Rows Removed by Filter": 11079,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 128,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.03,
+              "Triggers": [],
+              "Execution Time": 0.536
+            },
+            "samples": [
+              {
+                "executionMs": 0.536,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.031,
+                "planningMs": 0.028,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.534,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.561,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.584,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.569,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.532,
+                "planningMs": 0.027,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.605,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.052,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.549,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.55,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.564,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.553,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.605,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.565,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16017,
+              0
+            ],
+            "executionP50Ms": 0.021,
+            "executionP95Ms": 0.028,
+            "planningP50Ms": 0.05,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_armor_pers_id_idx",
+              "rows": 1,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 3,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_armor_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_armor",
+                "Alias": "char_index_audit_pers_armor",
+                "Startup Cost": 0.29,
+                "Total Cost": 8.3,
+                "Plan Rows": 1,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.008,
+                "Actual Total Time": 0.01,
+                "Actual Rows": 1,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 16017)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 3,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.043,
+              "Triggers": [],
+              "Execution Time": 0.019
+            },
+            "samples": [
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.043,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.04,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.043,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.048,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.04,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.026,
+                "planningMs": 0.057,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.028,
+                "planningMs": 0.058,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.026,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.045,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.026,
+                "planningMs": 0.059,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "largest",
+          "pers_id": 11103,
+          "rows": 4,
+          "public": {
+            "sql": "SELECT * FROM public.pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              11103,
+              0
+            ],
+            "executionP50Ms": 0.578,
+            "executionP95Ms": 1.128,
+            "planningP50Ms": 0.047,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 4,
+              "removedRows": 11076,
+              "sharedHit": 115,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_armor",
+                "Alias": "pers_armor",
+                "Startup Cost": 0,
+                "Total Cost": 253.06,
+                "Plan Rows": 4,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.374,
+                "Actual Total Time": 0.592,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 11103)",
+                "Rows Removed by Filter": 11076,
+                "Shared Hit Blocks": 115,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.058,
+              "Triggers": [],
+              "Execution Time": 0.606
+            },
+            "samples": [
+              {
+                "executionMs": 0.606,
+                "planningMs": 0.058,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.609,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.554,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.564,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.597,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.719,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.609,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.55,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.128,
+                "planningMs": 0.057,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.568,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.575,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.657,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.575,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.576,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.578,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              11103,
+              0
+            ],
+            "executionP50Ms": 0.561,
+            "executionP95Ms": 1.426,
+            "planningP50Ms": 0.044,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 4,
+              "removedRows": 11076,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 128,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_armor",
+                "Alias": "char_index_audit_pers_armor",
+                "Startup Cost": 0,
+                "Total Cost": 266.5,
+                "Plan Rows": 4,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.344,
+                "Actual Total Time": 0.561,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 11103)",
+                "Rows Removed by Filter": 11076,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 128,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.05,
+              "Triggers": [],
+              "Execution Time": 0.575
+            },
+            "samples": [
+              {
+                "executionMs": 0.575,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.555,
+                "planningMs": 0.058,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.547,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.548,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.561,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.558,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.565,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.573,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.528,
+                "planningMs": 0.027,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.647,
+                "planningMs": 0.067,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.567,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.551,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.543,
+                "planningMs": 0.034,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.583,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.426,
+                "planningMs": 0.057,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              11103,
+              0
+            ],
+            "executionP50Ms": 0.022,
+            "executionP95Ms": 0.029,
+            "planningP50Ms": 0.044,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_armor_pers_id_idx",
+              "rows": 4,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 3,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_armor_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_armor",
+                "Alias": "char_index_audit_pers_armor",
+                "Startup Cost": 0.29,
+                "Total Cost": 10.11,
+                "Plan Rows": 4,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.008,
+                "Actual Total Time": 0.01,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 11103)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 3,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.038,
+              "Triggers": [],
+              "Execution Time": 0.018
+            },
+            "samples": [
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.038,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.039,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.043,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.059,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.055,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.056,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.056,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.042,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.023,
+                "planningMs": 0.045,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.044,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.036,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.044,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.028,
+                "planningMs": 0.072,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "empty",
+          "pers_id": 16018,
+          "rows": 0,
+          "public": {
+            "sql": "SELECT * FROM public.pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16018,
+              0
+            ],
+            "executionP50Ms": 0.554,
+            "executionP95Ms": 0.785,
+            "planningP50Ms": 0.039,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 11080,
+              "sharedHit": 115,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_armor",
+                "Alias": "pers_armor",
+                "Startup Cost": 0,
+                "Total Cost": 253.06,
+                "Plan Rows": 1,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.55,
+                "Actual Total Time": 0.55,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16018)",
+                "Rows Removed by Filter": 11080,
+                "Shared Hit Blocks": 115,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.053,
+              "Triggers": [],
+              "Execution Time": 0.56
+            },
+            "samples": [
+              {
+                "executionMs": 0.56,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.732,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.785,
+                "planningMs": 0.065,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.775,
+                "planningMs": 0.066,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.563,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.549,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.544,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.544,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.547,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.548,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.613,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.554,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.564,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.541,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.538,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16018,
+              0
+            ],
+            "executionP50Ms": 0.57,
+            "executionP95Ms": 1.226,
+            "planningP50Ms": 0.046,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 11080,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 128,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_armor",
+                "Alias": "char_index_audit_pers_armor",
+                "Startup Cost": 0,
+                "Total Cost": 266.5,
+                "Plan Rows": 1,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.533,
+                "Actual Total Time": 0.533,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 16018)",
+                "Rows Removed by Filter": 11080,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 128,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.057,
+              "Triggers": [],
+              "Execution Time": 0.546
+            },
+            "samples": [
+              {
+                "executionMs": 0.546,
+                "planningMs": 0.057,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.561,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.559,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.555,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.581,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.57,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.558,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.567,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 1.226,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.58,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.556,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.89,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.892,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.946,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.582,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_armor WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              16018,
+              0
+            ],
+            "executionP50Ms": 0.019,
+            "executionP95Ms": 0.025,
+            "planningP50Ms": 0.046,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_armor_pers_id_idx",
+              "rows": 0,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 2,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_armor_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_armor",
+                "Alias": "char_index_audit_pers_armor",
+                "Startup Cost": 0.29,
+                "Total Cost": 8.3,
+                "Plan Rows": 1,
+                "Plan Width": 86,
+                "Actual Startup Time": 0.008,
+                "Actual Total Time": 0.008,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 16018)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 2,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.046,
+              "Triggers": [],
+              "Execution Time": 0.019
+            },
+            "samples": [
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.046,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.045,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.043,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.053,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.058,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.039,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.046,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.059,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.055,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.058,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.064,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.043,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.055,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "table": "pers_magic_item",
+      "stats": {
+        "rows": 1196,
+        "characters": 579,
+        "heap_bytes": "57344",
+        "avg_row_bytes": "35.01"
+      },
+      "samples": [
+        {
+          "kind": "typical",
+          "pers_id": 15524,
+          "rows": 2,
+          "public": {
+            "sql": "SELECT * FROM public.pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15524,
+              0
+            ],
+            "executionP50Ms": 0.071,
+            "executionP95Ms": 0.09,
+            "planningP50Ms": 0.045,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 2,
+              "removedRows": 1194,
+              "sharedHit": 7,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_magic_item",
+                "Alias": "pers_magic_item",
+                "Startup Cost": 0,
+                "Total Cost": 21.83,
+                "Plan Rows": 2,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.063,
+                "Actual Total Time": 0.064,
+                "Actual Rows": 2,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15524)",
+                "Rows Removed by Filter": 1194,
+                "Shared Hit Blocks": 7,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.059,
+              "Triggers": [],
+              "Execution Time": 0.074
+            },
+            "samples": [
+              {
+                "executionMs": 0.074,
+                "planningMs": 0.059,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.067,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.073,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.072,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.09,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.071,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.067,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.073,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.068,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.067,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.064,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.066,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.071,
+                "planningMs": 0.089,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15524,
+              0
+            ],
+            "executionP50Ms": 0.064,
+            "executionP95Ms": 0.096,
+            "planningP50Ms": 0.035,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 2,
+              "removedRows": 1194,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 8,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_magic_item",
+                "Alias": "char_index_audit_pers_magic_item",
+                "Startup Cost": 0,
+                "Total Cost": 22.95,
+                "Plan Rows": 2,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.055,
+                "Actual Total Time": 0.057,
+                "Actual Rows": 2,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15524)",
+                "Rows Removed by Filter": 1194,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 8,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.037,
+              "Triggers": [],
+              "Execution Time": 0.064
+            },
+            "samples": [
+              {
+                "executionMs": 0.064,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.094,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.064,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.082,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.068,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.071,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.034,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.065,
+                "planningMs": 0.026,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.062,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.064,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.07,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.096,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.064,
+                "planningMs": 0.034,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15524,
+              0
+            ],
+            "executionP50Ms": 0.02,
+            "executionP95Ms": 0.022,
+            "planningP50Ms": 0.042,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_magic_item_pers_id_idx",
+              "rows": 2,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 3,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_magic_item_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_magic_item",
+                "Alias": "char_index_audit_pers_magic_item",
+                "Startup Cost": 0.28,
+                "Total Cost": 8.58,
+                "Plan Rows": 2,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.009,
+                "Actual Total Time": 0.011,
+                "Actual Rows": 2,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 15524)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 3,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.047,
+              "Triggers": [],
+              "Execution Time": 0.02
+            },
+            "samples": [
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.044,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.045,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.039,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.036,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.044,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.043,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.042,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.045,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.038,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.04,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.04,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.044,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "largest",
+          "pers_id": 5226,
+          "rows": 13,
+          "public": {
+            "sql": "SELECT * FROM public.pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              5226,
+              0
+            ],
+            "executionP50Ms": 0.076,
+            "executionP95Ms": 0.155,
+            "planningP50Ms": 0.051,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 13,
+              "removedRows": 1183,
+              "sharedHit": 7,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_magic_item",
+                "Alias": "pers_magic_item",
+                "Startup Cost": 0,
+                "Total Cost": 21.83,
+                "Plan Rows": 13,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.048,
+                "Actual Total Time": 0.137,
+                "Actual Rows": 13,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 5226)",
+                "Rows Removed by Filter": 1183,
+                "Shared Hit Blocks": 7,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.08,
+              "Triggers": [],
+              "Execution Time": 0.155
+            },
+            "samples": [
+              {
+                "executionMs": 0.155,
+                "planningMs": 0.08,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.076,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.077,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.085,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.076,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.076,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.078,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.073,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.076,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.096,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.071,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.076,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.082,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              5226,
+              0
+            ],
+            "executionP50Ms": 0.069,
+            "executionP95Ms": 0.086,
+            "planningP50Ms": 0.035,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 13,
+              "removedRows": 1183,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 8,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_magic_item",
+                "Alias": "char_index_audit_pers_magic_item",
+                "Startup Cost": 0,
+                "Total Cost": 22.95,
+                "Plan Rows": 13,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.022,
+                "Actual Total Time": 0.059,
+                "Actual Rows": 13,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 5226)",
+                "Rows Removed by Filter": 1183,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 8,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.043,
+              "Triggers": [],
+              "Execution Time": 0.069
+            },
+            "samples": [
+              {
+                "executionMs": 0.069,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.073,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.069,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.068,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.074,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.071,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.072,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.062,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.062,
+                "planningMs": 0.025,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.061,
+                "planningMs": 0.026,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.086,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              5226,
+              0
+            ],
+            "executionP50Ms": 0.02,
+            "executionP95Ms": 0.039,
+            "planningP50Ms": 0.041,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_magic_item_pers_id_idx",
+              "rows": 13,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 3,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_magic_item_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_magic_item",
+                "Alias": "char_index_audit_pers_magic_item",
+                "Startup Cost": 0.28,
+                "Total Cost": 10.38,
+                "Plan Rows": 13,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.014,
+                "Actual Total Time": 0.017,
+                "Actual Rows": 13,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 5226)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 3,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.067,
+              "Triggers": [],
+              "Execution Time": 0.031
+            },
+            "samples": [
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.067,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.028,
+                "planningMs": 0.068,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.042,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.038,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.046,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.036,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.035,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.032,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.034,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.04,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.039,
+                "planningMs": 0.079,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.038,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.023,
+                "planningMs": 0.042,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "empty",
+          "pers_id": 15751,
+          "rows": 0,
+          "public": {
+            "sql": "SELECT * FROM public.pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15751,
+              0
+            ],
+            "executionP50Ms": 0.075,
+            "executionP95Ms": 0.098,
+            "planningP50Ms": 0.051,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 1196,
+              "sharedHit": 7,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_magic_item",
+                "Alias": "pers_magic_item",
+                "Startup Cost": 0,
+                "Total Cost": 21.83,
+                "Plan Rows": 2,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.063,
+                "Actual Total Time": 0.064,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15751)",
+                "Rows Removed by Filter": 1196,
+                "Shared Hit Blocks": 7,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.052,
+              "Triggers": [],
+              "Execution Time": 0.074
+            },
+            "samples": [
+              {
+                "executionMs": 0.074,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.091,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.09,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.05,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.051,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.089,
+                "planningMs": 0.064,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.087,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.098,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.067,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.075,
+                "planningMs": 0.061,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.074,
+                "planningMs": 0.049,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.072,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.068,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.065,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15751,
+              0
+            ],
+            "executionP50Ms": 0.063,
+            "executionP95Ms": 0.067,
+            "planningP50Ms": 0.033,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 1196,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 8,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_magic_item",
+                "Alias": "char_index_audit_pers_magic_item",
+                "Startup Cost": 0,
+                "Total Cost": 22.95,
+                "Plan Rows": 2,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.055,
+                "Actual Total Time": 0.055,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15751)",
+                "Rows Removed by Filter": 1196,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 8,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.03,
+              "Triggers": [],
+              "Execution Time": 0.062
+            },
+            "samples": [
+              {
+                "executionMs": 0.062,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.028,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.062,
+                "planningMs": 0.026,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.067,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.066,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.061,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.065,
+                "planningMs": 0.034,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.063,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.064,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.067,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.06,
+                "planningMs": 0.026,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.058,
+                "planningMs": 0.026,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.066,
+                "planningMs": 0.41,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.066,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_magic_item WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15751,
+              0
+            ],
+            "executionP50Ms": 0.024,
+            "executionP95Ms": 0.027,
+            "planningP50Ms": 0.056,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_magic_item_pers_id_idx",
+              "rows": 0,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 2,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_magic_item_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_magic_item",
+                "Alias": "char_index_audit_pers_magic_item",
+                "Startup Cost": 0.28,
+                "Total Cost": 8.58,
+                "Plan Rows": 2,
+                "Plan Width": 22,
+                "Actual Startup Time": 0.011,
+                "Actual Total Time": 0.011,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 15751)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 2,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.055,
+              "Triggers": [],
+              "Execution Time": 0.022
+            },
+            "samples": [
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.055,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.062,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.059,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.06,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.055,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.056,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.021,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.07,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.056,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.057,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.051,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.056,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.049,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "table": "pers_infusion",
+      "stats": {
+        "rows": 388,
+        "characters": 97,
+        "heap_bytes": "24576",
+        "avg_row_bytes": "45.00"
+      },
+      "samples": [
+        {
+          "kind": "typical",
+          "pers_id": 15936,
+          "rows": 4,
+          "public": {
+            "sql": "SELECT * FROM public.pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15936,
+              0
+            ],
+            "executionP50Ms": 0.033,
+            "executionP95Ms": 0.046,
+            "planningP50Ms": 0.037,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 4,
+              "removedRows": 384,
+              "sharedHit": 3,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_infusion",
+                "Alias": "pers_infusion",
+                "Startup Cost": 0,
+                "Total Cost": 7.75,
+                "Plan Rows": 1,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.028,
+                "Actual Total Time": 0.028,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15936)",
+                "Rows Removed by Filter": 384,
+                "Shared Hit Blocks": 3,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.048,
+              "Triggers": [],
+              "Execution Time": 0.039
+            },
+            "samples": [
+              {
+                "executionMs": 0.039,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.034,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.046,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.03,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.036,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.036,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15936,
+              0
+            ],
+            "executionP50Ms": 0.037,
+            "executionP95Ms": 0.653,
+            "planningP50Ms": 0.036,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 4,
+              "removedRows": 384,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 4,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_infusion",
+                "Alias": "char_index_audit_pers_infusion",
+                "Startup Cost": 0,
+                "Total Cost": 8.85,
+                "Plan Rows": 4,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.022,
+                "Actual Total Time": 0.023,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15936)",
+                "Rows Removed by Filter": 384,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 4,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.036,
+              "Triggers": [],
+              "Execution Time": 0.032
+            },
+            "samples": [
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.653,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.04,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.042,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.034,
+                "planningMs": 0.045,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.043,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.037,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.037,
+                "planningMs": 0.552,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.042,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.038,
+                "planningMs": 0.044,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.041,
+                "planningMs": 0.048,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15936,
+              0
+            ],
+            "executionP50Ms": 0.016,
+            "executionP95Ms": 0.028,
+            "planningP50Ms": 0.04,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_infusion_pers_id_idx",
+              "rows": 4,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 2,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_infusion_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_infusion",
+                "Alias": "char_index_audit_pers_infusion",
+                "Startup Cost": 0.15,
+                "Total Cost": 8.33,
+                "Plan Rows": 4,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.01,
+                "Actual Total Time": 0.011,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 15936)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 2,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.05,
+              "Triggers": [],
+              "Execution Time": 0.022
+            },
+            "samples": [
+              {
+                "executionMs": 0.022,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.023,
+                "planningMs": 0.052,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.061,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.028,
+                "planningMs": 0.059,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.04,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.041,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.015,
+                "planningMs": 0.034,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.036,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.014,
+                "planningMs": 0.045,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.02,
+                "planningMs": 0.05,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.014,
+                "planningMs": 0.037,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.013,
+                "planningMs": 0.035,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.015,
+                "planningMs": 0.033,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.015,
+                "planningMs": 0.033,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.015,
+                "planningMs": 0.033,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "largest",
+          "pers_id": 15936,
+          "rows": 4,
+          "public": {
+            "sql": "SELECT * FROM public.pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15936,
+              0
+            ],
+            "executionP50Ms": 0.035,
+            "executionP95Ms": 0.481,
+            "planningP50Ms": 0.037,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 4,
+              "removedRows": 384,
+              "sharedHit": 3,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_infusion",
+                "Alias": "pers_infusion",
+                "Startup Cost": 0,
+                "Total Cost": 7.75,
+                "Plan Rows": 1,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.023,
+                "Actual Total Time": 0.024,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15936)",
+                "Rows Removed by Filter": 384,
+                "Shared Hit Blocks": 3,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.033,
+              "Triggers": [],
+              "Execution Time": 0.031
+            },
+            "samples": [
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.036,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.045,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.034,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.036,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.044,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.038,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.481,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15936,
+              0
+            ],
+            "executionP50Ms": 0.034,
+            "executionP95Ms": 0.064,
+            "planningP50Ms": 0.038,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 4,
+              "removedRows": 384,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 4,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_infusion",
+                "Alias": "char_index_audit_pers_infusion",
+                "Startup Cost": 0,
+                "Total Cost": 8.85,
+                "Plan Rows": 4,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.034,
+                "Actual Total Time": 0.035,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15936)",
+                "Rows Removed by Filter": 384,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 4,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.028,
+              "Triggers": [],
+              "Execution Time": 0.043
+            },
+            "samples": [
+              {
+                "executionMs": 0.043,
+                "planningMs": 0.028,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.03,
+                "planningMs": 0.027,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.029,
+                "planningMs": 0.041,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.046,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.056,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.034,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.064,
+                "planningMs": 0.055,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.037,
+                "planningMs": 0.046,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.046,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.04,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.033,
+                "planningMs": 0.035,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.033,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15936,
+              0
+            ],
+            "executionP50Ms": 0.016,
+            "executionP95Ms": 0.032,
+            "planningP50Ms": 0.037,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_infusion_pers_id_idx",
+              "rows": 4,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 2,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_infusion_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_infusion",
+                "Alias": "char_index_audit_pers_infusion",
+                "Startup Cost": 0.15,
+                "Total Cost": 8.33,
+                "Plan Rows": 4,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.007,
+                "Actual Total Time": 0.008,
+                "Actual Rows": 4,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 15936)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 2,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.034,
+              "Triggers": [],
+              "Execution Time": 0.015
+            },
+            "samples": [
+              {
+                "executionMs": 0.015,
+                "planningMs": 0.034,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.015,
+                "planningMs": 0.038,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.084,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.047,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.018,
+                "planningMs": 0.037,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.037,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.013,
+                "planningMs": 0.031,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.032,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.013,
+                "planningMs": 0.032,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.034,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.012,
+                "planningMs": 0.034,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.012,
+                "planningMs": 0.031,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.042,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.025,
+                "planningMs": 0.055,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "empty",
+          "pers_id": 15937,
+          "rows": 0,
+          "public": {
+            "sql": "SELECT * FROM public.pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15937,
+              0
+            ],
+            "executionP50Ms": 0.037,
+            "executionP95Ms": 0.047,
+            "planningP50Ms": 0.036,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 388,
+              "sharedHit": 3,
+              "sharedRead": 0,
+              "localHit": 0,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "pers_infusion",
+                "Alias": "pers_infusion",
+                "Startup Cost": 0,
+                "Total Cost": 7.75,
+                "Plan Rows": 1,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.025,
+                "Actual Total Time": 0.025,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15937)",
+                "Rows Removed by Filter": 388,
+                "Shared Hit Blocks": 3,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.03,
+              "Triggers": [],
+              "Execution Time": 0.042
+            },
+            "samples": [
+              {
+                "executionMs": 0.042,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.034,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.041,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.043,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.037,
+                "planningMs": 0.042,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.046,
+                "planningMs": 0.036,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.041,
+                "planningMs": 0.052,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.039,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.043,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.028,
+                "planningMs": 0.027,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.028,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.047,
+                "planningMs": 0.047,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempBefore": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15937,
+              0
+            ],
+            "executionP50Ms": 0.032,
+            "executionP95Ms": 3.374,
+            "planningP50Ms": 0.031,
+            "plan": {
+              "nodeType": "Seq Scan",
+              "rows": 0,
+              "removedRows": 388,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 4,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Seq Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "char_index_audit_pers_infusion",
+                "Alias": "char_index_audit_pers_infusion",
+                "Startup Cost": 0,
+                "Total Cost": 8.85,
+                "Plan Rows": 1,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.021,
+                "Actual Total Time": 0.022,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Filter": "(pers_id = 15937)",
+                "Rows Removed by Filter": 388,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 4,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.03,
+              "Triggers": [],
+              "Execution Time": 0.028
+            },
+            "samples": [
+              {
+                "executionMs": 0.028,
+                "planningMs": 0.03,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.04,
+                "planningMs": 0.028,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.027,
+                "planningMs": 0.027,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.038,
+                "planningMs": 0.028,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.042,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 3.374,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.035,
+                "planningMs": 0.038,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.029,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.037,
+                "planningMs": 0.032,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.032,
+                "planningMs": 0.037,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.043,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.041,
+                "planningMs": 0.067,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.031,
+                "planningMs": 0.031,
+                "nodeType": "Seq Scan"
+              },
+              {
+                "executionMs": 0.03,
+                "planningMs": 0.053,
+                "nodeType": "Seq Scan"
+              }
+            ]
+          },
+          "tempAfter": {
+            "sql": "SELECT * FROM pg_temp.char_index_audit_pers_infusion WHERE pers_id IN ($1) OFFSET $2",
+            "params": [
+              15937,
+              0
+            ],
+            "executionP50Ms": 0.015,
+            "executionP95Ms": 0.024,
+            "planningP50Ms": 0.032,
+            "plan": {
+              "nodeType": "Index Scan",
+              "indexName": "char_index_audit_pers_infusion_pers_id_idx",
+              "rows": 0,
+              "removedRows": 0,
+              "sharedHit": 0,
+              "sharedRead": 0,
+              "localHit": 1,
+              "localRead": 0,
+              "children": []
+            },
+            "rawPlan": {
+              "Plan": {
+                "Node Type": "Index Scan",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "char_index_audit_pers_infusion_pers_id_idx",
+                "Relation Name": "char_index_audit_pers_infusion",
+                "Alias": "char_index_audit_pers_infusion",
+                "Startup Cost": 0.15,
+                "Total Cost": 8.17,
+                "Plan Rows": 1,
+                "Plan Width": 40,
+                "Actual Startup Time": 0.007,
+                "Actual Total Time": 0.007,
+                "Actual Rows": 0,
+                "Actual Loops": 1,
+                "Index Cond": "(pers_id = 15937)",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 1,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Settings": {},
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.032,
+              "Triggers": [],
+              "Execution Time": 0.016
+            },
+            "samples": [
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.032,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.01,
+                "planningMs": 0.031,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.049,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.017,
+                "planningMs": 0.054,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.019,
+                "planningMs": 0.046,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.04,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.024,
+                "planningMs": 0.08,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.013,
+                "planningMs": 0.032,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.01,
+                "planningMs": 0.03,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.012,
+                "planningMs": 0.031,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.013,
+                "planningMs": 0.032,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.011,
+                "planningMs": 0.031,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.015,
+                "planningMs": 0.042,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.012,
+                "planningMs": 0.031,
+                "nodeType": "Index Scan"
+              },
+              {
+                "executionMs": 0.016,
+                "planningMs": 0.032,
+                "nodeType": "Index Scan"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "methodology": "Public baseline; unindexed and indexed session-local copies; two warmups then 15 EXPLAIN runs per sample; no permanent changes; original planner settings",
+  "server": {
+    "database": "spells",
+    "version": "17.11 (Debian 17.11-0+deb13u1)",
+    "shared_buffers": "128MB",
+    "random_page_cost": "4",
+    "effective_cache_size": "4GB"
+  },
+  "indexesBefore": [
+    {
+      "tablename": "pers_armor",
+      "indexname": "pers_armor_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_armor_pkey ON public.pers_armor USING btree (pers_armor_id)"
+    },
+    {
+      "tablename": "pers_infusion",
+      "indexname": "pers_infusion_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_infusion_pkey ON public.pers_infusion USING btree (pers_infusion_id)"
+    },
+    {
+      "tablename": "pers_magic_item",
+      "indexname": "pers_magic_item_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_magic_item_pkey ON public.pers_magic_item USING btree (pers_magic_item_id)"
+    },
+    {
+      "tablename": "pers_weapon",
+      "indexname": "pers_weapon_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_weapon_pkey ON public.pers_weapon USING btree (pers_weapon_id)"
+    }
+  ],
+  "controlIndexes": [
+    {
+      "tablename": "pers_feature",
+      "indexname": "pers_feature_pers_id_feature_id_key",
+      "indexdef": "CREATE UNIQUE INDEX pers_feature_pers_id_feature_id_key ON public.pers_feature USING btree (pers_id, feature_id)"
+    },
+    {
+      "tablename": "pers_feature",
+      "indexname": "pers_feature_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_feature_pkey ON public.pers_feature USING btree (pers_feature_id)"
+    },
+    {
+      "tablename": "pers_multiclass",
+      "indexname": "pers_multiclass_pers_id_class_id_key",
+      "indexdef": "CREATE UNIQUE INDEX pers_multiclass_pers_id_class_id_key ON public.pers_multiclass USING btree (pers_id, class_id)"
+    },
+    {
+      "tablename": "pers_multiclass",
+      "indexname": "pers_multiclass_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_multiclass_pkey ON public.pers_multiclass USING btree (pers_multiclass_id)"
+    },
+    {
+      "tablename": "pers_resource_pool",
+      "indexname": "pers_resource_pool_pers_id_pool_key_key",
+      "indexdef": "CREATE UNIQUE INDEX pers_resource_pool_pers_id_pool_key_key ON public.pers_resource_pool USING btree (pers_id, pool_key)"
+    },
+    {
+      "tablename": "pers_resource_pool",
+      "indexname": "pers_resource_pool_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_resource_pool_pkey ON public.pers_resource_pool USING btree (pers_resource_pool_id)"
+    },
+    {
+      "tablename": "pers_skill",
+      "indexname": "pers_skill_pers_id_name_key",
+      "indexdef": "CREATE UNIQUE INDEX pers_skill_pers_id_name_key ON public.pers_skill USING btree (pers_id, name)"
+    },
+    {
+      "tablename": "pers_skill",
+      "indexname": "pers_skill_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_skill_pkey ON public.pers_skill USING btree (pers_skill_id)"
+    },
+    {
+      "tablename": "pers_spell",
+      "indexname": "pers_spell_origin_idx",
+      "indexdef": "CREATE INDEX pers_spell_origin_idx ON public.pers_spell USING btree (origin)"
+    },
+    {
+      "tablename": "pers_spell",
+      "indexname": "pers_spell_pers_id_idx",
+      "indexdef": "CREATE INDEX pers_spell_pers_id_idx ON public.pers_spell USING btree (pers_id)"
+    },
+    {
+      "tablename": "pers_spell",
+      "indexname": "pers_spell_pers_id_spell_id_key",
+      "indexdef": "CREATE UNIQUE INDEX pers_spell_pers_id_spell_id_key ON public.pers_spell USING btree (pers_id, spell_id)"
+    },
+    {
+      "tablename": "pers_spell",
+      "indexname": "pers_spell_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pers_spell_pkey ON public.pers_spell USING btree (pers_spell_id)"
+    },
+    {
+      "tablename": "spell",
+      "indexname": "spell_eng_name_ruleset_key",
+      "indexdef": "CREATE UNIQUE INDEX spell_eng_name_ruleset_key ON public.spell USING btree (eng_name, ruleset)"
+    },
+    {
+      "tablename": "spell",
+      "indexname": "spell_name_ruleset_key",
+      "indexdef": "CREATE UNIQUE INDEX spell_name_ruleset_key ON public.spell USING btree (name, ruleset)"
+    },
+    {
+      "tablename": "spell",
+      "indexname": "spell_pkey",
+      "indexdef": "CREATE UNIQUE INDEX spell_pkey ON public.spell USING btree (spell_id)"
+    }
+  ],
+  "controlPlans": {
+    "pers_spell": {
+      "sql": "SELECT * FROM public.pers_spell WHERE pers_id IN ($1) OFFSET $2",
+      "params": [
+        4503,
+        0
+      ],
+      "executionP50Ms": 0.022,
+      "executionP95Ms": 0.036,
+      "planningP50Ms": 0.042,
+      "plan": {
+        "nodeType": "Index Scan",
+        "indexName": "pers_spell_pers_id_idx",
+        "rows": 11,
+        "removedRows": 0,
+        "sharedHit": 13,
+        "sharedRead": 0,
+        "localHit": 0,
+        "localRead": 0,
+        "children": []
+      },
+      "rawPlan": {
+        "Plan": {
+          "Node Type": "Index Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Scan Direction": "Forward",
+          "Index Name": "pers_spell_pers_id_idx",
+          "Relation Name": "pers_spell",
+          "Alias": "pers_spell",
+          "Startup Cost": 0.29,
+          "Total Cost": 20.53,
+          "Plan Rows": 10,
+          "Plan Width": 116,
+          "Actual Startup Time": 0.008,
+          "Actual Total Time": 0.014,
+          "Actual Rows": 11,
+          "Actual Loops": 1,
+          "Index Cond": "(pers_id = 4503)",
+          "Rows Removed by Index Recheck": 0,
+          "Shared Hit Blocks": 13,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Settings": {},
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.042,
+        "Triggers": [],
+        "Execution Time": 0.022
+      },
+      "samples": [
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.042,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.019,
+          "planningMs": 0.04,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.024,
+          "planningMs": 0.043,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.019,
+          "planningMs": 0.04,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.021,
+          "planningMs": 0.042,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.02,
+          "planningMs": 0.04,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.02,
+          "planningMs": 0.041,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.028,
+          "planningMs": 0.057,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.026,
+          "planningMs": 0.043,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.029,
+          "planningMs": 0.047,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.02,
+          "planningMs": 0.039,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.044,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.036,
+          "planningMs": 0.04,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.041,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.027,
+          "planningMs": 0.048,
+          "nodeType": "Index Scan"
+        }
+      ]
+    },
+    "pers_skill": {
+      "sql": "SELECT * FROM public.pers_skill WHERE pers_id IN ($1) OFFSET $2",
+      "params": [
+        10,
+        0
+      ],
+      "executionP50Ms": 0.018,
+      "executionP95Ms": 0.024,
+      "planningP50Ms": 0.038,
+      "plan": {
+        "nodeType": "Index Scan",
+        "indexName": "pers_skill_pers_id_name_key",
+        "rows": 6,
+        "removedRows": 0,
+        "sharedHit": 3,
+        "sharedRead": 0,
+        "localHit": 0,
+        "localRead": 0,
+        "children": []
+      },
+      "rawPlan": {
+        "Plan": {
+          "Node Type": "Index Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Scan Direction": "Forward",
+          "Index Name": "pers_skill_pers_id_name_key",
+          "Relation Name": "pers_skill",
+          "Alias": "pers_skill",
+          "Startup Cost": 0.29,
+          "Total Cost": 16.36,
+          "Plan Rows": 5,
+          "Plan Width": 24,
+          "Actual Startup Time": 0.007,
+          "Actual Total Time": 0.009,
+          "Actual Rows": 6,
+          "Actual Loops": 1,
+          "Index Cond": "(pers_id = 10)",
+          "Rows Removed by Index Recheck": 0,
+          "Shared Hit Blocks": 3,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Settings": {},
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.036,
+        "Triggers": [],
+        "Execution Time": 0.016
+      },
+      "samples": [
+        {
+          "executionMs": 0.016,
+          "planningMs": 0.036,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.017,
+          "planningMs": 0.032,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.013,
+          "planningMs": 0.035,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.035,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.014,
+          "planningMs": 0.032,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.047,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.024,
+          "planningMs": 0.057,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.023,
+          "planningMs": 0.039,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.02,
+          "planningMs": 0.045,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.038,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.019,
+          "planningMs": 0.038,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.037,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.038,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.043,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.023,
+          "planningMs": 0.044,
+          "nodeType": "Index Scan"
+        }
+      ]
+    },
+    "pers_feature": {
+      "sql": "SELECT * FROM public.pers_feature WHERE pers_id IN ($1) OFFSET $2",
+      "params": [
+        10,
+        0
+      ],
+      "executionP50Ms": 0.025,
+      "executionP95Ms": 0.055,
+      "planningP50Ms": 0.044,
+      "plan": {
+        "nodeType": "Index Scan",
+        "indexName": "pers_feature_pers_id_feature_id_key",
+        "rows": 6,
+        "removedRows": 0,
+        "sharedHit": 5,
+        "sharedRead": 0,
+        "localHit": 0,
+        "localRead": 0,
+        "children": []
+      },
+      "rawPlan": {
+        "Plan": {
+          "Node Type": "Index Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Scan Direction": "Forward",
+          "Index Name": "pers_feature_pers_id_feature_id_key",
+          "Relation Name": "pers_feature",
+          "Alias": "pers_feature",
+          "Startup Cost": 0.42,
+          "Total Cost": 35.09,
+          "Plan Rows": 13,
+          "Plan Width": 17,
+          "Actual Startup Time": 0.014,
+          "Actual Total Time": 0.016,
+          "Actual Rows": 6,
+          "Actual Loops": 1,
+          "Index Cond": "(pers_id = 10)",
+          "Rows Removed by Index Recheck": 0,
+          "Shared Hit Blocks": 5,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Settings": {},
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.043,
+        "Triggers": [],
+        "Execution Time": 0.025
+      },
+      "samples": [
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.043,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.028,
+          "planningMs": 0.053,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.041,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.038,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.024,
+          "planningMs": 0.037,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.036,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.024,
+          "planningMs": 0.036,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.047,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.044,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.026,
+          "planningMs": 0.043,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.032,
+          "planningMs": 0.053,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.039,
+          "planningMs": 0.065,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.039,
+          "planningMs": 0.065,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.055,
+          "planningMs": 0.075,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.037,
+          "planningMs": 0.073,
+          "nodeType": "Index Scan"
+        }
+      ]
+    },
+    "pers_multiclass": {
+      "sql": "SELECT * FROM public.pers_multiclass WHERE pers_id IN ($1) OFFSET $2",
+      "params": [
+        2426,
+        0
+      ],
+      "executionP50Ms": 0.018,
+      "executionP95Ms": 0.036,
+      "planningP50Ms": 0.038,
+      "plan": {
+        "nodeType": "Index Scan",
+        "indexName": "pers_multiclass_pers_id_class_id_key",
+        "rows": 1,
+        "removedRows": 0,
+        "sharedHit": 3,
+        "sharedRead": 0,
+        "localHit": 0,
+        "localRead": 0,
+        "children": []
+      },
+      "rawPlan": {
+        "Plan": {
+          "Node Type": "Index Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Scan Direction": "Forward",
+          "Index Name": "pers_multiclass_pers_id_class_id_key",
+          "Relation Name": "pers_multiclass",
+          "Alias": "pers_multiclass",
+          "Startup Cost": 0.28,
+          "Total Cost": 8.29,
+          "Plan Rows": 1,
+          "Plan Width": 20,
+          "Actual Startup Time": 0.011,
+          "Actual Total Time": 0.012,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Index Cond": "(pers_id = 2426)",
+          "Rows Removed by Index Recheck": 0,
+          "Shared Hit Blocks": 3,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Settings": {},
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.039,
+        "Triggers": [],
+        "Execution Time": 0.018
+      },
+      "samples": [
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.039,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.014,
+          "planningMs": 0.037,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.017,
+          "planningMs": 0.038,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.014,
+          "planningMs": 0.035,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.016,
+          "planningMs": 0.033,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.014,
+          "planningMs": 0.033,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.013,
+          "planningMs": 0.035,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.035,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.017,
+          "planningMs": 0.038,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.036,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.036,
+          "planningMs": 0.051,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.018,
+          "planningMs": 0.038,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.044,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.046,
+          "nodeType": "Index Scan"
+        },
+        {
+          "executionMs": 0.026,
+          "planningMs": 0.069,
+          "nodeType": "Index Scan"
+        }
+      ]
+    },
+    "pers_resource_pool": {
+      "sql": "SELECT * FROM public.pers_resource_pool WHERE pers_id IN ($1) OFFSET $2",
+      "params": [
+        1598,
+        0
+      ],
+      "executionP50Ms": 0.025,
+      "executionP95Ms": 0.035,
+      "planningP50Ms": 0.041,
+      "plan": {
+        "nodeType": "Seq Scan",
+        "rows": 1,
+        "removedRows": 159,
+        "sharedHit": 2,
+        "sharedRead": 0,
+        "localHit": 0,
+        "localRead": 0,
+        "children": []
+      },
+      "rawPlan": {
+        "Plan": {
+          "Node Type": "Seq Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Relation Name": "pers_resource_pool",
+          "Alias": "pers_resource_pool",
+          "Startup Cost": 0,
+          "Total Cost": 3.95,
+          "Plan Rows": 1,
+          "Plan Width": 26,
+          "Actual Startup Time": 0.011,
+          "Actual Total Time": 0.019,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Filter": "(pers_id = 1598)",
+          "Rows Removed by Filter": 159,
+          "Shared Hit Blocks": 2,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Settings": {},
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.051,
+        "Triggers": [],
+        "Execution Time": 0.029
+      },
+      "samples": [
+        {
+          "executionMs": 0.029,
+          "planningMs": 0.051,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.029,
+          "planningMs": 0.052,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.028,
+          "planningMs": 0.048,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.042,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.024,
+          "planningMs": 0.039,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.022,
+          "planningMs": 0.033,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.023,
+          "planningMs": 0.034,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.021,
+          "planningMs": 0.034,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.024,
+          "planningMs": 0.032,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.038,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.03,
+          "planningMs": 0.051,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.029,
+          "planningMs": 0.047,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.035,
+          "planningMs": 0.043,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.025,
+          "planningMs": 0.04,
+          "nodeType": "Seq Scan"
+        },
+        {
+          "executionMs": 0.027,
+          "planningMs": 0.041,
+          "nodeType": "Seq Scan"
+        }
+      ]
+    }
+  }
+}

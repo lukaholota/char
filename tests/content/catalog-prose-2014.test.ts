@@ -32,8 +32,9 @@ const MIN_SUBCLASS_WORDS = 20;
 const MAX_SUBCLASS_WORDS = 60;
 /// Храповик партій KR33.7 за класом: варвар — 9, бард — 8, клірик — 14, друїд — 7, воїн — 10, монах — 10, паладин — 9, слідопит — 8, пройдисвіт — 9, чародій — 8, чаклун — 9, чарівник — 13, винахідник — 4.
 const EXPECTED_SUBCLASSES_RECONCILED = 118;
-const SUBCLASSES_2014 = 118;
-const SUBCLASSES_2024 = 76;
+// +4 ордени Мисливця за кровʼю (O45) у кожній редакції; їхній опис несе data/blood-hunter.
+const SUBCLASSES_2014 = 122;
+const SUBCLASSES_2024 = 80;
 
 const classes = readCatalogProse2014("classes");
 const races = readCatalogProse2014("races");
@@ -49,13 +50,21 @@ function findWordCountOutliers(entries: { key: string; description: string }[], 
     .filter(({ words }) => words < min || words > max);
 }
 
+/// Опис Мисливця за кровʼю (O45) несе власний носій data/blood-hunter — його звіряє blood-hunter-carrier.test.ts.
+function isBloodHunterKey(key: string): boolean {
+  return key.startsWith("BLOOD_HUNTER");
+}
+
 function findDuplicateKeys(entries: { key: string }[]): string[] {
   return entries.map((entry) => entry.key).filter((key, index, keys) => keys.indexOf(key) !== index);
 }
 
 describe("KR33.6 — проза каталогу 2014", () => {
   it("покриває кожен клас 2014 каталогу рівно одним записом", () => {
-    const catalogKeys = classesCatalog.filter((entry) => entry.ruleset === "RULES_2014").map((entry) => entry.key).sort();
+    const catalogKeys = classesCatalog
+      .filter((entry) => entry.ruleset === "RULES_2014" && !isBloodHunterKey(entry.key))
+      .map((entry) => entry.key)
+      .sort();
 
     expect(classes.map((entry) => entry.key).sort()).toEqual(catalogKeys);
     expect(classes).toHaveLength(13);

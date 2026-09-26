@@ -12,6 +12,7 @@ import { classTranslations, classTranslationsEng } from "@/lib/refs/translation"
 import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { ClassI, SubclassI } from "@/lib/types/model-types";
 import ChoiceReplacementForm from "@/lib/components/levelUp/ChoiceReplacementForm";
+import { findReplacedChoiceGroup, isReplacedGroupMatch } from "@/rules/choice-replacement";
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -83,12 +84,7 @@ export default function OptionalFeaturesForm({
   }, [selectedClass, classLevel]);
 
   const isReplacement = (item: any) => {
-    return Boolean(
-      item?.replacesInvocation ||
-        item?.replacesFightingStyle ||
-        item?.replacesManeuver ||
-        (Array.isArray(item?.replacesFeatures) && item.replacesFeatures.length > 0)
-    );
+    return Boolean(findReplacedChoiceGroup(item) || (Array.isArray(item?.replacesFeatures) && item.replacesFeatures.length > 0));
   };
 
   const visibleOptional = useMemo(() => {
@@ -128,11 +124,6 @@ export default function OptionalFeaturesForm({
     return fromPers?.optionNameEng ? String(fromPers.optionNameEng) : undefined;
   }, [formData.classChoiceSelections, persChoiceOptions, selectedClass]);
 
-  const isFightingStyleGroupName = (name: string) => {
-    const normalized = String(name || "").trim().toLowerCase();
-    return normalized === "бойовий стиль" || normalized.includes("бойовий стиль") || normalized.includes("fighting style");
-  };
-
   useEffect(() => {
     if (!selectedClass) {
       onNextDisabledChange?.(true);
@@ -151,8 +142,7 @@ export default function OptionalFeaturesForm({
       if (decision === undefined) return true;
       if (decision !== true) return false;
 
-      const needsSwap = Boolean(item.replacesInvocation || item.replacesFightingStyle || item.replacesManeuver);
-      if (!needsSwap) return false;
+      if (!findReplacedChoiceGroup(item)) return false;
 
       const sel = replacementSelections?.[String(id)];
       const removeId = Number(sel?.removeChoiceOptionId);
@@ -220,21 +210,10 @@ export default function OptionalFeaturesForm({
               .filter(Boolean)
               .join(", ") || "";
 
-          const needsSwap = Boolean(item.replacesInvocation || item.replacesFightingStyle || item.replacesManeuver);
-          const groupName = item.replacesInvocation
-            ? "Потойбічні виклики"
-            : item.replacesFightingStyle
-              ? "Бойовий стиль"
-              : item.replacesManeuver
-                ? "Маневри майстра бою"
-                : undefined;
+          const groupName = findReplacedChoiceGroup(item);
+          const needsSwap = Boolean(groupName);
 
-          const currentChoices = (persChoiceOptions || []).filter((co: any) => {
-            const name = String(co?.groupName || "");
-            if (!groupName) return false;
-            if (groupName === "Бойовий стиль") return isFightingStyleGroupName(name);
-            return name === groupName;
-          });
+          const currentChoices = (persChoiceOptions || []).filter((co: any) => Boolean(groupName) && isReplacedGroupMatch(groupName!, co?.groupName));
           const availableClassOptions = Object.values((selectedClass as any)?.classChoiceOptions || {});
           const availableSubclassOptions = Object.values((effectiveSubclass as any)?.subclassChoiceOptions || {});
           const availableOptions = [...availableClassOptions, ...availableSubclassOptions];

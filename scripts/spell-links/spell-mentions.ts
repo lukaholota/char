@@ -44,6 +44,8 @@ export const SOURCE_FILES: ReadonlyArray<Carrier> = [
   { path: "data/aidedd/magic-items-2014.json", edition: "RULES_2014", format: "json" },
   { path: "prisma/seed/magic-items/baseline.json", edition: "RULES_2014", format: "json" },
   { path: "data/2014/spells.json", edition: "RULES_2014", format: "json" },
+  { path: "data/blood-hunter/uk-2014.json", edition: "RULES_2014", format: "json" },
+  { path: "data/blood-hunter/uk-2024.json", edition: "RULES_2024", format: "json" },
 ];
 
 /// Поверхні — генеровані каталоги, які бачить читач. Їх не правлять; вимірювач лише доводить,

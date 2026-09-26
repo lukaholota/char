@@ -193,6 +193,7 @@ model ClassOptionalFeature {
   prerequisites             Json?
   seedIndex                 Int                                   @unique @default(0) @map("seed_index")
   ruleset                   Ruleset                               @default(RULES_2014)
+  replacesChoiceGroup       String?                               @map("replaces_choice_group") @db.VarChar(100)
   class                     Class                                 @relation(fields: [classId], references: [classId], onDelete: Cascade)
   feature                   Feature?                              @relation("GrantedFeature", fields: [featureId], references: [featureId], onDelete: Cascade)
   replacesFeatures          ClassOptionalFeatureReplacesFeature[]
@@ -475,6 +476,7 @@ model Feature {
   replacedByOptionalFeatures         ClassOptionalFeatureReplacesFeature[] @relation("ReplacedByOptionalFeatures")
   infusions                          Infusion[]
   persFeatures                       PersFeature[]
+  persWeaponCrimsonRites             PersWeapon[]
   raceChoiceOptionsOwned             RaceChoiceOption[]
   raceChoiceOptionTraits             RaceChoiceOptionTrait[]
   raceTraits                         RaceTrait[]
@@ -741,6 +743,7 @@ model PersArmor {
   pers             Pers             @relation(fields: [persId], references: [persId], onDelete: Cascade)
   infusions        PersInfusion[]
 
+  @@index([persId])
   @@map("pers_armor")
 }
 
@@ -955,10 +958,13 @@ model PersWeapon {
   customDamageCount     Int?           @map("customdamagecount")
   customDamageDice      String?        @map("customdamagedice")
   isMagical             Boolean        @default(false) @map("ismagical")
+  crimsonRiteFeatureId  Int?           @map("crimson_rite_feature_id")
   infusions             PersInfusion[]
+  crimsonRiteFeature    Feature?       @relation(fields: [crimsonRiteFeatureId], references: [featureId])
   pers                  Pers           @relation(fields: [persId], references: [persId], onDelete: Cascade)
   weapon                Weapon         @relation(fields: [weaponId], references: [weaponId])
 
+  @@index([persId])
   @@map("pers_weapon")
 }
 
@@ -1662,6 +1668,8 @@ enum Classes {
   WARLOCK_2024
   WIZARD_2024
   ARTIFICER_2024
+  BLOOD_HUNTER_2014
+  BLOOD_HUNTER_2024
 }
 
 enum DamageType {
@@ -2294,6 +2302,10 @@ enum Subclasses {
   VESTIGE_PATRON
   WARRIOR_OF_THE_MYSTIC_ARTS
   WINTER_WALKER
+  ORDER_OF_THE_GHOSTSLAYER
+  ORDER_OF_THE_LYCAN
+  ORDER_OF_THE_MUTANT
+  ORDER_OF_THE_PROFANE_SOUL
 }
 
 enum Subraces {

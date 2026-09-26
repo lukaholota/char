@@ -228,3 +228,26 @@ describe("KR46.2 — клієнтські модулі не тягнуть ру�
     expect([...chains].sort()).toEqual([]);
   });
 });
+
+/// Схеми конструктора тягнуть `zod` з усіма мовними локалями — ~375 КБ JS, які телефон розбирав
+/// на кожному відкритті листа заради діалогу рис, що відкривається тапом. Діалоги, яким схеми
+/// потрібні, лист вантажить через `next/dynamic`, а динамічний `import()` цей граф не проходить.
+const SHEET_ENTRIES = [
+  "lib/components/characterSheet/CharacterSheet.tsx",
+  "lib/components/characterSheet/slides/MainStatsSlide.tsx",
+  "lib/components/characterSheet/slides/SkillsSlide.tsx",
+  "lib/components/characterSheet/slides/CombatSlide.tsx",
+  "lib/components/characterSheet/slides/MagicSlide.tsx",
+  "lib/components/characterSheet/slides/FeaturesSlide.tsx",
+];
+
+describe("лист персонажа не тягне схем конструктора", () => {
+  it.each(SHEET_ENTRIES)("%s не досягає lib/zod/", (entry) => {
+    const reachedVia = collectReachableFiles(join(SRC, entry));
+    const schemaChains = [...reachedVia.keys()]
+      .filter((file) => relative(SRC, file).startsWith("lib/zod/"))
+      .map((file) => describeImportChain(reachedVia, file));
+
+    expect(schemaChains).toEqual([]);
+  });
+});

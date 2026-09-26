@@ -23,7 +23,7 @@ function addLegacyGenie(characterClass: ClassData): ClassData {
     description: null,
     source: "TCOE",
     legacy: true,
-    features: [],
+    features: [{ level: 1, name: "Гнів джина", engName: "Genie's Wrath", description: "" }],
   };
   return { ...characterClass, subclasses: [...characterClass.subclasses, genie] };
 }
@@ -34,6 +34,12 @@ const findGenieItems = (ruleset: ClassData["ruleset"]) =>
 describe("O43 — легасі-підкласи в глобальному пошуку (Р52)", () => {
   it("у 2024 легасі-«Джина» немає, хоч у каталозі класу 2024 він є", () => {
     expect(findGenieItems("RULES_2024")).toEqual([]);
+  });
+
+  it("у 2024 здібностей легасі-«Джина» теж немає (O44)", () => {
+    const genieFeatures = buildOmniSearchIndex("RULES_2024").filter((item) => item.id.includes("-THE_GENIE-"));
+
+    expect(genieFeatures).toEqual([]);
   });
 
   it("у 2014 «Джин» знаходиться, як і раніше", () => {

@@ -2,6 +2,7 @@ import { afterAll, describe, expect, it } from "vitest";
 import { Classes } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
+import { BLOOD_HUNTER_SUBCLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 const SUBCLASS_LEVELS = [
   // PHB 2014, с. 48, 52, 56, 64, 70, 76, 82, 88, 94, 100, 106, 112.
@@ -70,7 +71,8 @@ describe("KR27.3 — рівні ASI 13 класів 2024 у базі", () => {
 describe("KR27.6 — третинні підкласи 2024 у базі", () => {
   it("лише Лицар-Чаклун і Таємний Пройдисвіт 2024 мають чаклування підкласу — THIRD з INT", async () => {
     const casters = await prisma.subclass.findMany({
-      where: { ruleset: "RULES_2024", spellcastingType: { not: "NONE" } },
+      // Орден нечестивої душі Мисливця за кровʼю (носій O45) — PACT; його звіряє profane-soul-pact.
+      where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] }, spellcastingType: { not: "NONE" } },
       select: { name: true, spellcastingType: true, primaryCastingStat: true },
     });
     // `orderBy: { name }` сортує за порядком енама, не за абеткою.

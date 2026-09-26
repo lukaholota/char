@@ -8,9 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { Printer } from "lucide-react";
 
-import type { PrintConfig, PrintSection } from "@/server/pdf/types";
+import type { PrintConfig, PrintSection, SheetLayout } from "@/server/pdf/types";
+import { readRememberedSheetLayout, rememberSheetLayout } from "./printSheetLayoutPreference";
 import {
   findPrintableWildshapeCountAction,
   generateCharacterPdfAction,
@@ -42,6 +44,7 @@ export interface PrintCharacterDialogProps {
   triggerLabel?: string;
   triggerLabelClassName?: string;
   triggerVariant?: ComponentProps<typeof Button>["variant"];
+  ruleset?: string | null;
 }
 
 export default function PrintCharacterDialog({ 
@@ -57,6 +60,7 @@ export default function PrintCharacterDialog({
   triggerLabel,
   triggerLabelClassName,
   triggerVariant = "secondary",
+  ruleset,
 }: PrintCharacterDialogProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const open = openOverride !== undefined ? openOverride : internalOpen;
@@ -73,6 +77,18 @@ export default function PrintCharacterDialog({
   const [wildshapeCount, setWildshapeCount] = useState(0);
   const [includeWildshapes, setIncludeWildshapes] = useState(false);
   const [flatten, setFlatten] = useState(true);
+  const canUseSheet2024 = ruleset === "RULES_2024";
+  const [sheetLayout, setSheetLayout] = useState<SheetLayout>("CLASSIC");
+  const isSheet2024 = canUseSheet2024 && sheetLayout === "SHEET_2024";
+
+  useEffect(() => {
+    if (open && canUseSheet2024) setSheetLayout(readRememberedSheetLayout());
+  }, [open, canUseSheet2024]);
+
+  const chooseSheetLayout = (layout: SheetLayout) => {
+    setSheetLayout(layout);
+    rememberSheetLayout(layout);
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -116,13 +132,13 @@ export default function PrintCharacterDialog({
     const sections: PrintSection[] = [];
     if (includeCharacter) sections.push("CHARACTER");
     if (includeFeatures) sections.push("FEATURES");
-    if (includeSpellSheet) sections.push("SPELL_SHEET");
+    if (includeSpellSheet && !isSheet2024) sections.push("SPELL_SHEET");
     if (includeDetails) sections.push("DETAILS");
     if (includeSpells) sections.push("SPELLS");
     if (includeMagicItems) sections.push("MAGIC_ITEMS");
     if (includeWildshapes && wildshapeCount > 0) sections.push("WILDSHAPES");
-    return { sections, flattenCharacterSheet: flatten };
-  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeDetails, includeMagicItems, includeWildshapes, wildshapeCount, flatten]);
+    return { sections, flattenCharacterSheet: flatten, sheetLayout: isSheet2024 ? "SHEET_2024" : "CLASSIC" };
+  }, [includeCharacter, includeFeatures, includeSpells, includeSpellSheet, includeDetails, includeMagicItems, includeWildshapes, wildshapeCount, flatten, isSheet2024]);
 
   const handleDownload = () => {
     startTransition(async () => {
@@ -175,6 +191,22 @@ export default function PrintCharacterDialog({
           </DialogHeader>
 
           <div className="space-y-3">
+            {canUseSheet2024 && (
+              <div className="rounded-md border p-2">
+                <div className="flex items-center justify-between gap-3">
+                  <Label htmlFor="print-sheet-2024">Лист 2024</Label>
+                  <Switch
+                    id="print-sheet-2024"
+                    checked={isSheet2024}
+                    onCheckedChange={(checked) => chooseSheetLayout(checked ? "SHEET_2024" : "CLASSIC")}
+                  />
+                </div>
+                <p className="mt-1 text-[10px] text-muted-foreground">
+                  Бланк за зразком Книги гравця 2024: заклинання — на другій сторінці листа, портрет, цілі й нотатки — у «Бланку подробиць».
+                </p>
+              </div>
+            )}
+
             <div className="flex items-center gap-2">
               <Checkbox checked={includeCharacter} onCheckedChange={(v) => setIncludeCharacter(Boolean(v))} id="print-character" />
               <Label htmlFor="print-character">Лист персонажа</Label>
@@ -185,10 +217,12 @@ export default function PrintCharacterDialog({
               <Label htmlFor="print-details">Бланк подробиць</Label>
             </div>
 
-            <div className="flex items-center gap-2">
-              <Checkbox checked={includeSpellSheet} onCheckedChange={(v) => setIncludeSpellSheet(Boolean(v))} id="print-spell-sheet" />
-              <Label htmlFor="print-spell-sheet">Лист заклинань (таблиця)</Label>
-            </div>
+            {!isSheet2024 && (
+              <div className="flex items-center gap-2">
+                <Checkbox checked={includeSpellSheet} onCheckedChange={(v) => setIncludeSpellSheet(Boolean(v))} id="print-spell-sheet" />
+                <Label htmlFor="print-spell-sheet">Лист заклинань (таблиця)</Label>
+              </div>
+            )}
 
             <div className="flex items-center gap-2">
               <Checkbox checked={includeFeatures} onCheckedChange={(v) => setIncludeFeatures(Boolean(v))} id="print-features" />

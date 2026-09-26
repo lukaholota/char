@@ -1,0 +1,403 @@
+{
+  "status": 200,
+  "body": {
+    "data": [
+      {
+        "id": "b5f88ef0528f9575",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": null,
+        "span.op": "navigation",
+        "span.description": "/char/:id",
+        "span.duration": 1202.499866,
+        "timestamp": "2026-09-26T07:30:45+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "a210ee92747af659",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/char/16013",
+        "span.duration": 346.600056,
+        "timestamp": "2026-09-26T07:30:45+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "ac439c3caf7088d6",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/char/16013",
+        "span.duration": 311.300039,
+        "timestamp": "2026-09-26T07:30:45+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "b97a4a37edea6cdd",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "ac439c3caf7088d6",
+        "span.op": "http.server",
+        "span.description": "GET /char/[id]",
+        "span.duration": 232.004881,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "8afef1f4c8795f16",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "a210ee92747af659",
+        "span.op": "http.server",
+        "span.description": "GET /char/[id]",
+        "span.duration": 199.885845,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "951b6aead0a9a557",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "ui.long-animation-frame",
+        "span.description": "Main UI thread blocked",
+        "span.duration": 121.999979,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "bd5161ed817995ea",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "resource.link",
+        "span.description": "/manifest.json",
+        "span.duration": 105.999947,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "94fccbbbae30981d",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/char/home",
+        "span.duration": 97.700119,
+        "timestamp": "2026-09-26T07:30:45+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "b7bd8d2a13136e99",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "POST /char/16013",
+        "span.duration": 92.099905,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "8c8e668996cd36e0",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/",
+        "span.duration": 78.89986,
+        "timestamp": "2026-09-26T07:30:45+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "93c1b10cda3c1c3e",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "resource.beacon",
+        "span.description": "/cdn-cgi/rum?",
+        "span.duration": 78.299999,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "8c779f3112f1cf51",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/",
+        "span.duration": 75.900078,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "af429efc193219d0",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/",
+        "span.duration": 74.399948,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "b0307127cc143911",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/",
+        "span.duration": 74.100018,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "b05eb2343a46dbb4",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/char/home",
+        "span.duration": 68.199873,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "8d36ac92f762cb4e",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/",
+        "span.duration": 67.600965,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "94dbeb9c1b0d3717",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "GET https://char.holota.family/char/home",
+        "span.duration": 55.899858,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "a35a5d48cd977fad",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b7bd8d2a13136e99",
+        "span.op": "http.server",
+        "span.description": "POST /char/[id]",
+        "span.duration": 48.646927,
+        "timestamp": "2026-09-26T07:30:47+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "b35c6a1acbcbe678",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b5f88ef0528f9575",
+        "span.op": "http.client",
+        "span.description": "POST /cdn-cgi/rum",
+        "span.duration": 41.200161,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "b4b29269be3c68e0",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "94fccbbbae30981d",
+        "span.op": "http.server",
+        "span.description": "GET /char/home",
+        "span.duration": 19.407034,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "8d7b7407a2653950",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "8c8e668996cd36e0",
+        "span.op": "http.server",
+        "span.description": "GET /",
+        "span.duration": 18.66889,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "a5380f888862a2d9",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b05eb2343a46dbb4",
+        "span.op": "http.server",
+        "span.description": "GET /char/home",
+        "span.duration": 14.224052,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "a81ca37ef9091ea9",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "8d36ac92f762cb4e",
+        "span.op": "http.server",
+        "span.description": "GET /",
+        "span.duration": 13.0229,
+        "timestamp": "2026-09-26T07:30:47+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "81b86abb75272858",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b0307127cc143911",
+        "span.op": "http.server",
+        "span.description": "GET /",
+        "span.duration": 12.820005,
+        "timestamp": "2026-09-26T07:30:47+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "83ba610f0009ca98",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "af429efc193219d0",
+        "span.op": "http.server",
+        "span.description": "GET /",
+        "span.duration": 10.560989,
+        "timestamp": "2026-09-26T07:30:47+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "ba94c1668cdca5cc",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "94dbeb9c1b0d3717",
+        "span.op": "http.server",
+        "span.description": "GET /char/home",
+        "span.duration": 8.789062,
+        "timestamp": "2026-09-26T07:30:47+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "bae0b59488a0515e",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "8c779f3112f1cf51",
+        "span.op": "http.server",
+        "span.description": "GET /",
+        "span.duration": 6.97279,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "84e0f6db060f5ddf",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "a8882eacace9a9cf",
+        "span.op": "function.nextjs",
+        "span.description": "resolve page server component \"/char/[id]\"",
+        "span.duration": 0.060081,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "a2932c68fe9f0d2a",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b3e97ab6df3590cd",
+        "span.op": "function.nextjs",
+        "span.description": "resolve root layout server component",
+        "span.duration": 0.048876,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      },
+      {
+        "id": "8397f159211d6115",
+        "trace": "2f40d2eb8fbf4a9da50725445bc38f52",
+        "parent_span": "b3e97ab6df3590cd",
+        "span.op": "function.nextjs",
+        "span.description": "resolve page server component \"/char/[id]\"",
+        "span.duration": 0.038147,
+        "timestamp": "2026-09-26T07:30:46+00:00",
+        "project.name": "javascript-nextjs"
+      }
+    ],
+    "meta": {
+      "fields": {
+        "id": "string",
+        "trace": "string",
+        "parent_span": "string",
+        "span.op": "string",
+        "span.description": "string",
+        "span.duration": "duration",
+        "timestamp": "string",
+        "project.name": "string"
+      },
+      "units": {
+        "id": null,
+        "trace": null,
+        "parent_span": null,
+        "span.op": null,
+        "span.description": null,
+        "span.duration": "millisecond",
+        "timestamp": null,
+        "project.name": null
+      },
+      "isMetricsData": false,
+      "isMetricsExtractedData": false,
+      "tips": {},
+      "datasetReason": "unchanged",
+      "dataset": "spans",
+      "dataScanned": "full",
+      "bytesScanned": 1969170,
+      "routingHint": "eyJ2IjogMSwgInRpZXIiOiAxLCAidHMiOiAxNzkwNDA5NjMzfQ==",
+      "accuracy": {
+        "confidence": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
+      }
+    },
+    "confidence": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ]
+  }
+}

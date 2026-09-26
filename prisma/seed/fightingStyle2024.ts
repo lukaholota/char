@@ -26,6 +26,7 @@ const FIGHTING_STYLE_LEVEL_BY_CLASS: Record<string, number> = {
   FIGHTER_2024: 1,
   PALADIN_2024: 2,
   RANGER_2024: 2,
+  BLOOD_HUNTER_2024: 2,
 };
 
 type FightingStyleMechanics = {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type { Ruleset } from "@prisma/client";
 import { Users } from "lucide-react";
 
@@ -11,6 +11,22 @@ import { CatalogFilterDialog } from "@/components/catalogs/CatalogFilterDialog";
 import { FilterChip, FilterGroup } from "@/components/catalogs/FilterChip";
 import { SourceFilterSection } from "@/components/catalogs/SourceFilterSection";
 import { RaceDetailCard } from "@/components/races/RaceDetailCard";
+import { RaceBranchReader } from "@/components/races/RaceBranchReader";
+import { CatalogReadingDialog } from "@/components/catalogs/reading/CatalogReadingDialog";
+import { useReadingNavigation } from "@/components/catalogs/reading/useReadingNavigation";
+import type { ReadingActions, ReadingView } from "@/components/catalogs/reading/reading-view";
+import { CatalogMatchList } from "@/components/catalogs/reading/CatalogMatchList";
+import { findRaceMatches } from "@/lib/catalogs/reading-matches";
+import {
+  findRaceReading,
+  parseRaceReadingTarget,
+  writeRaceReadingTarget,
+  type RaceBranchKind,
+  type RaceReadingTarget,
+  type RaceSection,
+} from "@/lib/catalogs/reading-target";
+import { useCatalogDeepLinkFocus } from "@/hooks/useCatalogDeepLinkFocus";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import {
   clearSourceParams,
   collectCatalogSources,
@@ -22,6 +38,7 @@ import {
   type SourceSelection,
 } from "@/lib/catalog-source-filter";
 import type { RaceData } from "@/lib/racesData";
+import { RACE_TRAIT_KEYS, RACE_TRAIT_LABELS, findSearchHaystack, hasRaceTrait } from "@/components/races/race-catalog-filters";
 import { RACE_CATALOG_TITLE, RACE_SINGULAR } from "@/lib/refs/race-labels";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
@@ -43,6 +60,7 @@ type SelectionState = {
   traits: Set<string>;
   q: string;
   race: string;
+  reading: RaceReadingTarget | null;
 };
 
 const parseSelection = (params: URLSearchParams): SelectionState => ({
@@ -52,46 +70,8 @@ const parseSelection = (params: URLSearchParams): SelectionState => ({
   traits: getParamSet(params, "trait"),
   q: params.get("q") || "",
   race: params.get("race") || "",
+  reading: parseRaceReadingTarget(params),
 });
-
-/// Ознаки, яких у каталозі немає окремим полем, але за якими расу шукають найчастіше.
-const RACE_TRAIT_LABELS = {
-  DARKVISION: "Темнозір",
-  FLIGHT: "Політ",
-  SWIM: "Плавання",
-  BRANCHES: "З підрасами чи варіантами",
-} as const;
-
-type RaceTraitKey = keyof typeof RACE_TRAIT_LABELS;
-
-const RACE_TRAIT_KEYS = Object.keys(RACE_TRAIT_LABELS) as RaceTraitKey[];
-
-function collectTraitNames(race: RaceData): string[] {
-  const branches = [...race.subraces, ...race.variants].flatMap((branch) => branch.traits);
-  return [...race.traits, ...branches].map((trait) => trait.engName.toLowerCase());
-}
-
-function hasExtraSpeed(race: RaceData, label: string): boolean {
-  return race.extraSpeeds.some((speed) => speed.label.toLowerCase().includes(label));
-}
-
-function hasRaceTrait(race: RaceData, trait: string): boolean {
-  const names = collectTraitNames(race);
-  const hasTraitNamed = (...needles: string[]) =>
-    names.some((name) => needles.some((needle) => name.includes(needle)));
-
-  if (trait === "DARKVISION") return hasTraitNamed("darkvision");
-  if (trait === "FLIGHT") return hasExtraSpeed(race, "політ") || hasTraitNamed("flight", "flying");
-  if (trait === "SWIM") return hasExtraSpeed(race, "плав") || hasTraitNamed("swim");
-  if (trait === "BRANCHES") return race.subraces.length + race.variants.length > 0;
-  return false;
-}
-
-function findSearchHaystack(race: RaceData): string {
-  const traits = race.traits.map((trait) => `${trait.name} ${trait.description}`).join(" ");
-  const branches = [...race.subraces, ...race.variants].map((branch) => branch.name).join(" ");
-  return `${race.name} ${race.engName} ${race.source} ${traits} ${branches}`.toLowerCase();
-}
 
 export function RacesClient({
   races,
@@ -103,10 +83,12 @@ export function RacesClient({
   const is2024 = ruleset === "RULES_2024";
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedModalRace, setSelectedModalRace] = useState<RaceData | null>(null);
+  const closingModalRef = useRef(false);
 
-  const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
+  const { qInput, setQInput, selection, setSelection } = useCatalogUrlSync<SelectionState>(
     parseSelection,
   );
+  const isWide = useMediaQuery("lg");
 
   const available = useMemo(
     () => ({
@@ -121,7 +103,7 @@ export function RacesClient({
   const filtered = useMemo(() => {
     const query = selection.q.trim().toLowerCase();
     return races.filter((race) => {
-      if (query && !findSearchHaystack(race).includes(query)) return false;
+      if (query && !findSearchHaystack(race).includes(query) && findRaceMatches(race, query).length === 0) return false;
       if (!matchesSourceSelection(race.source, selection.source)) return false;
       if (selection.sizes.size > 0 && !race.sizes.some((size) => selection.sizes.has(size))) return false;
       if (selection.speeds.size > 0 && !selection.speeds.has(String(race.speed))) return false;
@@ -132,21 +114,88 @@ export function RacesClient({
     });
   }, [races, selection]);
 
-  const selectedRace = useMemo(() => {
-    if (selection.race) {
-      const byParam = races.find(
-        (race) => race.slug === selection.race || String(race.raceId) === selection.race,
-      );
-      if (byParam) return byParam;
+  const reading = useMemo(
+    () => (selection.reading ? findRaceReading(races, selection.reading) : null),
+    [races, selection.reading],
+  );
+  const selectedRace = reading?.race ?? filtered[0] ?? null;
+  const openBranch = reading?.branch ?? null;
+
+  const syncSelectionFromUrl = useCallback(
+    () => setSelection(parseSelection(getSearchParamsFromLocation())),
+    [setSelection],
+  );
+  const navigation = useReadingNavigation({ isBranchOpen: Boolean(openBranch), onUrlChanged: syncSelectionFromUrl });
+
+  const focusRaceFromUrl = useCallback((source: "initial" | "search" | "popstate") => {
+    if (source === "popstate" && closingModalRef.current) {
+      closingModalRef.current = false;
+      return;
     }
-    return filtered[0] ?? null;
-  }, [filtered, races, selection.race]);
+    const target = parseRaceReadingTarget(getSearchParamsFromLocation());
+    const resolved = target ? findRaceReading(races, target) : null;
+    if (!resolved) return;
+
+    if (window.innerWidth < 1024) setSelectedModalRace(resolved.race);
+    if (source !== "popstate") navigation.requestFocus();
+  }, [races, navigation]);
+
+  useCatalogDeepLinkFocus(focusRaceFromUrl);
 
   const setParams = useCallback((mutate: (next: URLSearchParams) => void) => {
     const next = getSearchParamsFromLocation();
     mutate(next);
     replaceUrlSearchParams(next);
   }, []);
+
+  const writeTarget = (target: Omit<RaceReadingTarget, "raceKey">) => (params: URLSearchParams) =>
+    writeRaceReadingTarget(params, { raceKey: selectedRace?.slug ?? "", ...target });
+  const toRaceSection = (section: RaceSection) => writeTarget({ section, branch: null, featureKey: null });
+  const backToRace = () => navigation.leaveBranchTo(toRaceSection("branches"));
+  const closeModal = () => {
+    closingModalRef.current = true;
+    setSelectedModalRace(null);
+  };
+  const closeModalWithBranch = () => navigation.closeModalWithBranch(closeModal, toRaceSection("overview"));
+
+  const openMatch = (target: RaceReadingTarget) => {
+    navigation.replaceTarget((params) => writeRaceReadingTarget(params, target));
+    navigation.requestFocus();
+    const race = races.find((candidate) => candidate.slug === target.raceKey);
+    if (race && window.innerWidth < 1024) {
+      closingModalRef.current = false;
+      setSelectedModalRace(race);
+    }
+  };
+
+  const view: ReadingView<RaceSection> = {
+    section: reading?.section ?? "overview",
+    featureKey: openBranch ? null : reading?.featureKey ?? null,
+    focusRequest: navigation.focusRequest,
+    missing: reading?.missing ?? null,
+  };
+  const actions: ReadingActions<RaceSection> = {
+    onSectionChange: (section) => navigation.replaceTarget(toRaceSection(section)),
+    onOpenBranch: (cardKey, opener) => {
+      const [kind, key] = cardKey.split(":") as [RaceBranchKind, string];
+      navigation.openBranch(writeTarget({ section: "branches", branch: { kind, key }, featureKey: null }), cardKey, opener);
+    },
+    onDismissMissing: () => navigation.replaceTarget(toRaceSection("overview")),
+  };
+
+  const renderBranchReader = (race: RaceData, onClose: () => void) =>
+    openBranch ? (
+      <RaceBranchReader
+        race={race}
+        kind={openBranch.kind}
+        branch={openBranch.entry}
+        featureKey={reading?.featureKey ?? null}
+        focusRequest={navigation.focusRequest}
+        is2024={is2024}
+        onBack={backToRace}
+        onClose={onClose}
+      />
+    ) : null;
 
   const toggleIn = (key: string) => (value: string) =>
     setParams((next) => {
@@ -202,9 +251,13 @@ export function RacesClient({
           race={race}
           is2024={is2024}
           isSelected={selectedRace?.raceId === race.raceId}
+          matches={<CatalogMatchList matches={findRaceMatches(race, selection.q)} onOpen={openMatch} />}
           onSelect={() => {
-            setParams((next) => next.set("race", race.slug));
+            setParams((next) =>
+              writeRaceReadingTarget(next, { raceKey: race.slug, section: "overview", branch: null, featureKey: null }),
+            );
             if (typeof window !== "undefined" && window.innerWidth < 1024) {
+              closingModalRef.current = false;
               setSelectedModalRace(race);
             }
           }}
@@ -212,7 +265,16 @@ export function RacesClient({
       )}
       desktopDetailView={
         selectedRace ? (
-          <RaceDetailCard race={selectedRace} is2024={is2024} />
+          <>
+            <RaceDetailCard race={selectedRace} is2024={is2024} view={view} actions={actions} />
+            <CatalogReadingDialog
+              open={isWide && Boolean(openBranch)}
+              title={openBranch?.entry.name ?? RACE_SINGULAR[ruleset]}
+              onClose={backToRace}
+            >
+              {renderBranchReader(selectedRace, backToRace)}
+            </CatalogReadingDialog>
+          </>
         ) : (
           <div className="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
             <p className="text-sm text-slate-400">
@@ -222,9 +284,16 @@ export function RacesClient({
         )
       }
       selectedModalItem={selectedModalRace}
-      onCloseModal={() => setSelectedModalRace(null)}
-      modalTitle={selectedModalRace?.name || RACE_SINGULAR[ruleset]}
-      renderModalContent={(race) => <RaceDetailCard race={race} is2024={is2024} />}
+      onCloseModal={closeModalWithBranch}
+      isModalChromeHidden={Boolean(openBranch)}
+      modalTitle={openBranch?.entry.name ?? selectedModalRace?.name ?? RACE_SINGULAR[ruleset]}
+      renderModalContent={(race) =>
+        openBranch && race === selectedRace ? (
+          renderBranchReader(race, closeModalWithBranch)
+        ) : (
+          <RaceDetailCard race={race} is2024={is2024} view={view} actions={actions} />
+        )
+      }
       filterDialogOpen={filtersOpen}
       onFilterDialogClose={() => setFiltersOpen(false)}
       filterDialogContent={
@@ -288,11 +357,13 @@ function RaceRow({
   race,
   is2024,
   isSelected,
+  matches,
   onSelect,
 }: {
   race: RaceData;
   is2024: boolean;
   isSelected: boolean;
+  matches: React.ReactNode;
   onSelect: () => void;
 }) {
   const branches = race.subraces.length + race.variants.length;
@@ -318,6 +389,7 @@ function RaceRow({
           </>
         }
       />
+      {matches}
     </div>
   );
 }

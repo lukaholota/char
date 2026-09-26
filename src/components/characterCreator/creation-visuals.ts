@@ -217,6 +217,16 @@ export function getClassVisual(className: string | null | undefined): CreationVi
   const key = String(className ?? "").toUpperCase();
   const imageSrc = getClassImagePath(className);
 
+  if (isBloodHunterKey(key)) {
+    return {
+      icon: Droplet,
+      bgGradient: "from-red-950/90 via-stone-950/60 to-slate-950",
+      glowColor: "rgba(220, 38, 38, 0.22)",
+      badgeClass: "border-red-800/60 bg-red-950/50 text-red-300",
+      accentBorder: "group-hover:border-red-600/60",
+      imageSrc,
+    };
+  }
   if (key.includes("BARBARIAN") || key.includes("ВАРВАР")) {
     return {
       icon: Flame,
@@ -370,9 +380,14 @@ export function getBackgroundCreationVisual(backgroundName: string | null | unde
   };
 }
 
+function isBloodHunterKey(key: string): boolean {
+  return key.includes("BLOOD_HUNTER") || key.includes("BLOOD HUNTER") || key.includes("МИСЛИВЕЦЬ ЗА КРОВ");
+}
+
 // 3. Class Hit Die & Primary Stat Helpers
 export function getClassHitDie(className: string | null | undefined): string {
   const key = String(className ?? "").toUpperCase();
+  if (isBloodHunterKey(key)) return "к10";
   if (key.includes("BARBARIAN") || key.includes("ВАРВАР")) return "к12";
   if (
     key.includes("FIGHTER") ||
@@ -397,6 +412,7 @@ export function getClassHitDie(className: string | null | undefined): string {
 
 export function getClassPrimaryStats(className: string | null | undefined): string {
   const key = String(className ?? "").toUpperCase();
+  if (isBloodHunterKey(key)) return "СПР / СИЛ • ІНТ";
   if (key.includes("BARBARIAN") || key.includes("ВАРВАР")) return "СИЛ • СТА";
   if (key.includes("BARD") || key.includes("БАРД")) return "ХАР • СПР";
   if (key.includes("CLERIC") || key.includes("ЖРЕЦЬ")) return "МУД • СТА";

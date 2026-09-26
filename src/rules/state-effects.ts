@@ -11,7 +11,9 @@ export type StateMark =
   | { kind: "BLADESONG_ARMOR_LIMIT"; allowsLightArmor: boolean }
   | { kind: "HASTE_EXTRA_ACTION" }
   | { kind: "HASTE_LETHARGY" }
-  | { kind: "EXHAUSTION_DEATH" };
+  | { kind: "EXHAUSTION_DEATH" }
+  | { kind: "RESILIENT_HIDE_NONMAGICAL" }
+  | { kind: "BLOODLUST" };
 
 export type RollScope =
   | "ABILITY_CHECK"
@@ -32,10 +34,15 @@ export type BonusDie = { scope: BonusDieScope; sides: number; sign: 1 | -1; sour
 
 export type StateSize = "LARGE" | "LARGE_OR_HUGE" | "ONE_LARGER" | "ONE_SMALLER";
 
+/// Удар без зброї, яким стан робить його справжньою зброєю: Хижі удари гібридної форми лікантропа.
+export type UnarmedStrikeEffect = { damageDice: string; abilityOption: AbilityKey; attackBonus: number };
+
 export type StateEffects = {
   skillAbilityOptions: Partial<Record<string, AbilityKey>>;
   weaponAbilityOption: AbilityKey | null;
   strengthAttackDamageBonus: number;
+  meleeDamageBonus: number;
+  unarmedStrike: UnarmedStrikeEffect | null;
   armorClassBonus: number;
   unarmoredArmorClassBase: number | null;
   armorClassFloor: number | null;
@@ -69,6 +76,8 @@ export function mergeStateEffects(parts: Partial<StateEffects>[]): StateEffects 
     skillAbilityOptions: Object.assign({}, ...parts.map((part) => part.skillAbilityOptions ?? {})),
     weaponAbilityOption: parts.find((part) => part.weaponAbilityOption)?.weaponAbilityOption ?? null,
     strengthAttackDamageBonus: sumParts(parts, (part) => part.strengthAttackDamageBonus),
+    meleeDamageBonus: sumParts(parts, (part) => part.meleeDamageBonus),
+    unarmedStrike: parts.find((part) => part.unarmedStrike)?.unarmedStrike ?? null,
     armorClassBonus: sumParts(parts, (part) => part.armorClassBonus),
     unarmoredArmorClassBase: findHighest(parts.map((part) => part.unarmoredArmorClassBase)),
     armorClassFloor: findHighest(parts.map((part) => part.armorClassFloor)),

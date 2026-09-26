@@ -1,5 +1,6 @@
 "use client";
 
+import { isChoiceOptionLevelMet } from "@/rules/choice-option-level";
 import {
   useEffect,
   useLayoutEffect,
@@ -192,7 +193,7 @@ function applyChoicePoolRulesToGroupedOptions(args: {
       const id = Number(opt.choiceOptionId);
       if (!Number.isFinite(id)) return false;
       if (existingChoiceOptionIds.has(id)) return false;
-      return true;
+      return isChoiceOptionLevelMet(opt.choiceOption?.prerequisites, args.levelAfter);
     });
 
     // Warlock invocations: apply pact/level prerequisites at the pool level.

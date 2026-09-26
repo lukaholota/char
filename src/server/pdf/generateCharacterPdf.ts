@@ -11,38 +11,49 @@ import {
   calculatePassiveSkill,
   calculateFinalStat,
   calculateFinalMaxHP,
-  calculateWeaponAttackBonus,
-  calculateWeaponDamageBonus,
-  calculateWeaponDamageDice,
-  calculateDamageResistances,
-  calculateDarkvisionRange,
   calculateSpellAttack,
   calculateSpellDC,
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
-import { buildHitDicePools, findMainClassLevel } from "@/rules/hit-dice";
-import { Ability, AbilityBonusType, Skills, SkillProficiencyType } from "@prisma/client";
+import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
 import { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName, PDFString, PDFTextField, rgb, type PDFFont, type PDFPage, type PDFForm } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
 
-import { armorTranslations, backgroundTranslations, classTranslations, weaponTranslations, abilityTranslations, damageTypeTranslations } from "@/lib/refs/translation";
-import { weaponMasteryNames } from "@/lib/refs/weapon-mastery";
+import { abilityTranslations } from "@/lib/refs/translation";
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 import { buildPersSpeciesName } from "@/lib/logic/pers-species-name";
-import { translatePdfText } from "./translatePdfText";
-import { buildProficiencyAndLanguageText } from "./proficiencyLanguageText";
-import { appendMissingProficiencies, calculatePersProficiencies } from "@/lib/logic/pers-proficiencies";
 
-import { calculateCasterLevel } from "@/lib/logic/spell-logic";
-import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { SKILL_ORDER_UA_SHEET } from "@/lib/logic/skillOrder";
 
 import { createLogger, hashPII } from "@/server/logging/logger";
 import { formatBytes, withStep } from "@/server/logging/perf";
 
 import type { CharacterPdfData, PersSpellWithSpell, PrintConfig, PrintSection } from "./types";
+import {
+  buildAttacksSpellcastingText,
+  buildClassLevelString,
+  buildEquipmentText,
+  buildFeaturesListText,
+  buildHitDiceInfoFromPers,
+  buildProficiencyAndLanguageBlock,
+  COIN_KEYS,
+  collectPrintableWeaponAttacks,
+  compactDiceSum,
+  formatCoinAmount,
+  formatDiceUkr,
+  formatSpellSlotTexts,
+  formatWeaponName,
+  getPersExtras,
+  getSpellcastingAbility,
+  getSpellSlots,
+  groupPersSpellsByLevel,
+  safeText,
+  translateBackgroundName,
+} from "./characterSheetText";
 import { collectSheetPdfSpells } from "./sheet-pdf-spells";
+import { drawPortrait, loadPortraitJpeg } from "./portraitPrint";
+import { buildSheet2024Document, isSheet2024Requested } from "./sheet2024/buildSheet2024";
 import {
   SPELL_SHEET_HEADER_FIELDS,
   SPELL_SHEET_ROWS,
@@ -55,39 +66,11 @@ import { generateMagicItemsPdfBytes } from "./magicItemsPdf";
 import { generateCreaturesPdfBytes } from "./creaturesPdf";
 import { collectPrintableWeaponMasteries } from "./weaponMasteryPrint";
 import { findAttachedForms } from "@/server/db/wildshape";
-import { findAttacksPerAction } from "@/rules/attacks-per-action";
-import { findSpellcastingSources } from "@/rules/spell-sources";
-import type { RulesetId } from "@/rules/strategies/types";
-import { collectSpellcastingClasses } from "@/server/db/spell-sources";
-import {
-  formatEquipmentText,
-  groupPrintableWeaponAttacks,
-  type GroupedPrintableWeaponAttack,
-  type PrintableWeaponAttack,
-} from "./equipmentPrint";
+import type { GroupedPrintableWeaponAttack } from "./equipmentPrint";
 
 export type CharacterPdfLogContext = {
   jobId?: string;
 };
-
-type Maybe<T> = T | null | undefined;
-
-type PersExtraFields = {
-  alignment?: string | null;
-  xp?: number | null;
-  tempHp?: number | null;
-  deathSaveSuccesses?: number | null;
-  deathSaveFailures?: number | null;
-  isDead?: boolean | null;
-  customProficiencies?: string | null;
-  customLanguagesKnown?: string | null;
-  additionalSaveProficiencies?: Ability[] | null;
-  currentHitDice?: Record<string, number> | null;
-};
-
-function getPersExtras(pers: CharacterPdfData["pers"]): PersExtraFields {
-  return pers as unknown as PersExtraFields;
-}
 
 function ensureTextFieldHasDA(form: PDFForm, fieldName: string) {
   const field = tryGetTextField(form, fieldName);
@@ -141,244 +124,11 @@ function ensureAllTextFieldsHaveDA(form: PDFForm) {
   }
 }
 
-function formatDiceUkr(value: string): string {
-  return (value ?? "").replaceAll("d", "к").replaceAll("D", "к");
-}
-
-function compactDiceSum(value: string): string {
-  // Keep hit dice sums inside narrow fields by removing extra spaces.
-  return String(value ?? "")
-    .replaceAll(" + ", "+")
-    .replaceAll(" +", "+")
-    .replaceAll("+ ", "+")
-    .trim();
-}
-
-function buildEquipmentText(pers: CharacterPdfData["pers"]): string {
-  const parts: string[] = [];
-
-  const customEquipment = formatEquipmentText(String((pers as any).customEquipment ?? ""));
-  if (customEquipment) parts.push(customEquipment);
-
-  const magicItems = (pers.magicItems ?? []) as any[];
-  if (magicItems.length > 0) {
-    parts.push("Магічні предмети:");
-    for (const pmi of magicItems) {
-      if (!pmi.magicItem) continue;
-      const name = pmi.magicItem.name;
-      const attunementMark = pmi.isAttuned ? " (A)" : "";
-      const equippedMark = pmi.isEquipped ? "[x]" : "[ ]";
-      
-      parts.push(`· ${equippedMark} ${name} ${attunementMark}`);
-    }
-  }
-
-  return parts.filter(Boolean).join("\n");
-}
-
-function buildAttacksSpellcastingText(
-  pers: CharacterPdfData["pers"],
-  overflowWeapons: GroupedPrintableWeaponAttack[]
-): string {
-  return [
-    ...buildAttacksPerActionLines(pers),
-    ...buildOverflowWeaponLines(overflowWeapons),
-    ...buildWeaponMasteryLines(pers),
-    buildArmorAndShieldText(pers),
-  ].join("\n");
-}
-
-function buildAttacksPerActionLines(pers: CharacterPdfData["pers"]): string[] {
-  const attacksPerAction = findAttacksPerAction(
-    pers.ruleset,
-    (pers.features ?? []).map((entry) => entry.feature.engName),
-  );
-  return attacksPerAction !== null && attacksPerAction > 1 ? [`Атак за дію: ${attacksPerAction}`] : [];
-}
-
-function buildOverflowWeaponLines(overflowWeapons: GroupedPrintableWeaponAttack[]): string[] {
-  if (overflowWeapons.length === 0) return [];
-  return ["Ще зброя:", ...overflowWeapons.map((weapon) => `· ${formatWeaponName(weapon)}: ${weapon.attackBonus}, ${weapon.damage}`)];
-}
-
-function buildWeaponMasteryLines(pers: CharacterPdfData["pers"]): string[] {
-  const mastered = (pers.pers_weapon_mastery ?? []).map((entry) => {
-    const name = translateFromMap(weaponTranslations, entry.weapon.name);
-    return entry.weapon.mastery ? `${name} (${weaponMasteryNames[entry.weapon.mastery]})` : name;
-  });
-  return mastered.length > 0 ? [`Майстерність зброї: ${mastered.join(", ")}`] : [];
-}
-
-function buildArmorAndShieldText(pers: CharacterPdfData["pers"]): string {
-  const lines: string[] = [];
-
-  const uaAbilityShort: Record<string, string> = {
-    STR: "Сил",
-    DEX: "Спр",
-    CON: "Ст",
-    INT: "Інт",
-    WIS: "Муд",
-    CHA: "Хар",
-  };
-
-  const armors = (pers.armors ?? []) as any[];
-  if (armors.length > 0) {
-    lines.push("Обладунки:");
-    for (const pa of armors) {
-      const rawName = String(pa?.armor?.name ?? "").trim();
-      const name =
-        (armorTranslations as unknown as Record<string, string>)[rawName] ??
-        rawName ??
-        "";
-      if (!name) continue;
-      const equipped = Boolean(pa?.equipped);
-
-      const base = Number.isFinite(pa?.overrideBaseAC) ? Number(pa.overrideBaseAC) : Number(pa?.armor?.baseAC ?? 0);
-      const misc = Number.isFinite(pa?.miscACBonus) ? Number(pa.miscACBonus) : 0;
-
-      const persAbilities: Ability[] = Array.isArray((pa as any).abilityBonuses) ? (((pa as any).abilityBonuses as Ability[]) ?? []) : [];
-      const armorAbilities: Ability[] = Array.isArray((pa?.armor as any)?.abilityBonuses)
-        ? ((((pa.armor as any).abilityBonuses as Ability[]) ?? []) as Ability[])
-        : [];
-
-      const persType = (pa as any).abilityBonusType as AbilityBonusType | undefined;
-      const armorType = (pa?.armor as any)?.abilityBonusType as AbilityBonusType | undefined;
-      let type: AbilityBonusType = persType ?? armorType ?? AbilityBonusType.FULL;
-      if (armorType && persType === AbilityBonusType.FULL && persAbilities.length === 0) {
-        type = armorType;
-      }
-
-      const abilities = type === AbilityBonusType.NONE ? persAbilities : (persAbilities.length > 0 ? persAbilities : armorAbilities);
-      const unique = Array.from(new Set(abilities));
-
-      let bonus = 0;
-      for (const ab of unique) {
-        let mod = calculateFinalModifier(pers as any, ab);
-        if (type === AbilityBonusType.MAX2 && ab === Ability.DEX) {
-          mod = Math.min(mod, 2);
-        }
-        bonus += mod;
-      }
-
-      const totalAC = base + misc + bonus;
-
-      const parts: string[] = [`КБ: ${base}`];
-      if (misc) parts.push(`+${misc}`);
-      if (unique.length > 0 && type !== AbilityBonusType.NONE) {
-        const labels = unique.map((ab) => uaAbilityShort[String(ab)] ?? String(ab));
-        parts.push(`+ ${labels.join(" + ")}`);
-        if (type === AbilityBonusType.MAX2 && unique.includes(Ability.DEX)) {
-          parts.push("(Спр max +2)");
-        }
-      }
-
-      const formula = parts.join(" ");
-      const stealthNote = pa?.armor?.stealthDisadvantage ? " перешкода на Непомітність" : "";
-      lines.push(`· ${equipped ? "[x]" : "[ ]"} ${name} — ${totalAC} (${formula})${stealthNote}`);
-    }
-  }
-
-  if ((pers as any).wearsShield) {
-    lines.push(`Щит: так (+2 КБ)`);
-  } else {
-    lines.push("Щит: ні");
-  }
-
-  return lines.join("\n").trim();
-}
-
-function buildFeaturesListText(data: CharacterPdfData): string {
-  const pers = data.pers;
-
-  const classMeta = new Map<number, { levelGranted: number; displayOrder: number }>();
-  for (const cf of (pers.class as any)?.features ?? []) {
-    const id = Number(cf?.featureId ?? cf?.feature?.featureId);
-    if (!Number.isFinite(id)) continue;
-    classMeta.set(id, { levelGranted: Number(cf.levelGranted ?? 1), displayOrder: Number(cf.displayOrder ?? 0) });
-  }
-  for (const sf of (pers.subclass as any)?.features ?? []) {
-    const id = Number(sf?.featureId ?? sf?.feature?.featureId);
-    if (!Number.isFinite(id)) continue;
-    classMeta.set(id, { levelGranted: Number(sf.levelGranted ?? 1), displayOrder: 0 });
-  }
-
-  for (const mc of pers.multiclasses ?? []) {
-    for (const cf of (mc.class as any)?.features ?? []) {
-      const id = Number(cf?.featureId ?? cf?.feature?.featureId);
-      if (!Number.isFinite(id)) continue;
-      if (!classMeta.has(id)) classMeta.set(id, { levelGranted: Number(cf.levelGranted ?? 1), displayOrder: Number(cf.displayOrder ?? 0) });
-    }
-    for (const sf of (mc.subclass as any)?.features ?? []) {
-      const id = Number(sf?.featureId ?? sf?.feature?.featureId);
-      if (!Number.isFinite(id)) continue;
-      if (!classMeta.has(id)) classMeta.set(id, { levelGranted: Number(sf.levelGranted ?? 1), displayOrder: 0 });
-    }
-  }
-
-  const sourceBaseOrder: Record<string, number> = {
-    RACE: 0,
-    SUBRACE: 0,
-    BACKGROUND: 0,
-    CLASS: 1,
-    SUBCLASS: 2,
-    FEAT: 3,
-    PERS: 4,
-    RACE_CHOICE: 5,
-    CHOICE: 6,
-  };
-
-  const seen = new Set<string>();
-  const items: Array<{ name: string; source: string; featureId?: number; sortKey: string }> = [];
-
-  for (const group of Object.values(data.features ?? {})) {
-    for (const item of group ?? []) {
-      const name = String((item as any).name ?? "").trim();
-      if (!name) continue;
-
-      const displayName = translatePdfText(name).trim();
-      if (!displayName) continue;
-
-      const dedupKey = String((item as any).key ?? name).toLowerCase();
-      if (seen.has(dedupKey)) continue;
-      seen.add(dedupKey);
-
-      const source = String((item as any).source ?? "").toUpperCase();
-      const featureId = typeof (item as any).featureId === "number" ? (item as any).featureId : undefined;
-      const meta = featureId != null ? classMeta.get(featureId) : undefined;
-
-      const baseOrder = sourceBaseOrder[source] ?? 9;
-      const lvl = meta?.levelGranted ?? (baseOrder === 0 ? 1 : 99);
-      const ord = meta?.displayOrder ?? 0;
-
-      // sortKey keeps ordering stable
-      const sortKey = `${String(baseOrder).padStart(2, "0")}:${String(lvl).padStart(2, "0")}:${String(ord).padStart(3, "0")}:${displayName.toLowerCase()}`;
-      items.push({ name: displayName, source, featureId, sortKey });
-    }
-  }
-
-  items.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
-  return items.map((it) => `· ${it.name}`).join("\n");
-}
-
-type CharacterPdfWeapon = CharacterPdfData["pers"]["weapons"][number];
-
-function getWeaponAttackBonus(pers: CharacterPdfData["pers"], weapon: CharacterPdfWeapon): number {
-  return calculateWeaponAttackBonus(pers as any, weapon);
-}
-
-function getWeaponDamageBonus(pers: CharacterPdfData["pers"], weapon: CharacterPdfWeapon): number {
-  return calculateWeaponDamageBonus(pers as any, weapon);
-}
-
 const WEAPON_SLOTS = [
   { name: "Wpn Name", atk: "Wpn1 AtkBonus", dmg: "Wpn1 Damage" },
   { name: "Wpn Name 2", atk: "Wpn2 AtkBonus ", dmg: "Wpn2 Damage " },
   { name: "Wpn Name 3", atk: "Wpn3 AtkBonus  ", dmg: "Wpn3 Damage " },
 ];
-
-function collectPrintableWeaponAttacks(pers: CharacterPdfData["pers"]): GroupedPrintableWeaponAttack[] {
-  return groupPrintableWeaponAttacks((pers.weapons ?? []).map((weapon) => buildPrintableWeaponAttack(pers, weapon)));
-}
 
 function fillWeaponSlots(form: PDFForm, weapons: GroupedPrintableWeaponAttack[]) {
   WEAPON_SLOTS.forEach((slot, index) => {
@@ -390,63 +140,16 @@ function fillWeaponSlots(form: PDFForm, weapons: GroupedPrintableWeaponAttack[])
   });
 }
 
-function formatWeaponName(weapon: GroupedPrintableWeaponAttack): string {
-  return weapon.quantity === 1 ? weapon.name : `${weapon.name} ×${weapon.quantity}`;
-}
-
-function buildPrintableWeaponAttack(
-  pers: CharacterPdfData["pers"],
-  persWeapon: CharacterPdfWeapon
-): PrintableWeaponAttack {
-  const rawName = String(persWeapon.weapon?.name ?? "").trim();
-  const localizedName = (weaponTranslations as unknown as Record<string, string>)[rawName] ?? rawName;
-  const name = String(persWeapon.overrideName || localizedName).trim();
-  const dice = calculateWeaponDamageDice(pers, persWeapon).trim();
-  const damageBonus = formatModifier(getWeaponDamageBonus(pers, persWeapon));
-  return {
-    name,
-    attackBonus: formatModifier(getWeaponAttackBonus(pers, persWeapon)),
-    damage: dice ? `${formatDiceUkr(dice)}${damageBonus}` : "",
-  };
-}
-
 const DEFAULT_SECTIONS: PrintSection[] = ["CHARACTER", "FEATURES", "SPELLS", "MAGIC_ITEMS", "WILDSHAPES"];
-
-function safeText(value: Maybe<string | number>): string {
-  if (value === null || value === undefined) return "";
-  return String(value);
-}
 
 function normalizePrintConfig(config: PrintConfig | null | undefined): PrintConfig {
   const sections = (config?.sections?.length ? config.sections : DEFAULT_SECTIONS).filter(Boolean);
-  return { sections, flattenCharacterSheet: config?.flattenCharacterSheet ?? true };
-}
-
-function groupPersSpellsByLevel(persSpells: PersSpellWithSpell[]): Map<number, PersSpellWithSpell[]> {
-  const spellsByLevel = new Map<number, PersSpellWithSpell[]>();
-  for (const persSpell of persSpells) {
-    const level = persSpell.spell.level;
-    spellsByLevel.set(level, [...(spellsByLevel.get(level) ?? []), persSpell]);
-  }
-  return spellsByLevel;
+  return { sections, flattenCharacterSheet: config?.flattenCharacterSheet ?? true, sheetLayout: config?.sheetLayout ?? "CLASSIC" };
 }
 
 interface TwoLineResult {
   line1: string;
   line2?: string;
-}
-
-function translateFromMap(map: Record<string, string>, value: Maybe<string>): string {
-  if (!value) return "";
-  return map[value] ?? value;
-}
-
-function translateClassName(value: Maybe<string>): string {
-  return translateFromMap(classTranslations as unknown as Record<string, string>, value);
-}
-
-function translateBackgroundName(value: Maybe<string>): string {
-  return translateFromMap(backgroundTranslations as unknown as Record<string, string>, value);
 }
 
 function splitTextTwoLines(text: string, font: PDFFont, fontSize: number, maxWidth: number): TwoLineResult {
@@ -487,50 +190,6 @@ function splitTextTwoLines(text: string, font: PDFFont, fontSize: number, maxWid
   }
 
   return line2 ? { line1, line2 } : { line1 };
-}
-
-function buildClassLevelString(pers: CharacterPdfData["pers"]): string {
-  const multiclassLevelSum = pers.multiclasses?.reduce((acc, mc) => acc + mc.classLevel, 0) ?? 0;
-  const mainClassLevel = pers.level - multiclassLevelSum;
-
-  const parts: string[] = [];
-  parts.push(`${translateClassName(pers.class.name)} ${mainClassLevel}`);
-
-  for (const mc of pers.multiclasses ?? []) {
-    parts.push(`${translateClassName(mc.class.name)} ${mc.classLevel}`);
-  }
-
-  return parts.join(" / ");
-}
-
-function buildHitDiceInfoFromPers(pers: CharacterPdfData["pers"]): {
-  totalString: string;
-  currentString: string;
-  chunks: Array<{ current: number; max: number; die: number }>;
-} {
-  const multiclasses = pers.multiclasses ?? [];
-  const classes = [
-    {
-      classId: pers.class.classId,
-      hitDie: pers.class.hitDie,
-      classLevel: findMainClassLevel(pers.level, multiclasses),
-    },
-    ...multiclasses.map((multiclass) => ({
-      classId: multiclass.classId,
-      hitDie: multiclass.class.hitDie,
-      classLevel: multiclass.classLevel,
-    })),
-  ];
-
-  const chunks = buildHitDicePools(classes, getPersExtras(pers).currentHitDice).map((pool) => ({
-    current: pool.current,
-    max: pool.max,
-    die: pool.hitDie,
-  }));
-
-  const totalString = chunks.map((chunk) => `${chunk.max}d${chunk.die}`).join(" + ");
-  const currentString = chunks.map((chunk) => `${chunk.current}d${chunk.die}`).join(" + ");
-  return { totalString, currentString, chunks };
 }
 
 function tryGetTextField(form: PDFForm, name: string) {
@@ -708,42 +367,6 @@ function fillDeathSaves(form: PDFForm, pers: CharacterPdfData["pers"]) {
   }
 }
 
-/** Бланк має одне поле, тож у друк іде перше джерело — початковий клас або його підклас. */
-function getSpellcastingAbility(pers: CharacterPdfData["pers"]): Ability | null {
-  const [first] = findSpellcastingSources({
-    ruleset: pers.ruleset as RulesetId,
-    characterClasses: collectSpellcastingClasses(pers),
-    raceTraits: [],
-    raceChoiceOptions: [],
-    featOptions: [],
-  });
-
-  return (first?.ability as Ability | undefined) ?? null;
-}
-
-function getSpellSlots(pers: CharacterPdfData["pers"], level: number): { standard: number; pact: number } {
-  const caster = calculateCasterLevel(pers as any);
-  
-  if (level < 1 || level > 9) return { standard: 0, pact: 0 };
-  
-  const standardSlotsArray = (SPELL_SLOT_PROGRESSION as any).FULL?.[caster.casterLevel] as number[] | undefined;
-  const standard = standardSlotsArray ? (standardSlotsArray[level - 1] ?? 0) : 0;
-
-  const pactRow = (SPELL_SLOT_PROGRESSION as any).PACT?.[caster.pactLevel] as { slots: number; level: number } | undefined;
-  const pact = (pactRow && pactRow.level === level) ? pactRow.slots : 0;
-
-  return { standard, pact };
-}
-
-type SpellSlotTexts = { total: string; remaining: string };
-
-function formatSpellSlotTexts({ standard, pact }: { standard: number; pact: number }): SpellSlotTexts {
-  if (pact === 0) return { total: standard > 0 ? String(standard) : "", remaining: "" };
-  if (standard === 0) return { total: String(pact), remaining: PACT_SLOT_NOTE };
-  return { total: String(standard), remaining: `+${pact} ${PACT_SLOT_NOTE}` };
-}
-
-const PACT_SLOT_NOTE = "пакт · кор. відп.";
 const SPELL_NAME_FONT_SIZE = 9;
 const SPELL_SHEET_HEADER_FONT_SIZE = 11;
 const PACT_SLOT_NOTE_FONT_SIZE = 7;
@@ -986,16 +609,7 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   setMultilineTextIfPresent(form, "Bonds", safeText(pers.bonds));
   setMultilineTextIfPresent(form, "Flaws", safeText(pers.flaws));
 
-  const proficiencyText = appendMissingProficiencies(
-    { proficiencies: safeText(extras.customProficiencies), languages: safeText(extras.customLanguagesKnown) },
-    calculatePersProficiencies(pers),
-  );
-  const profAndLang = buildProficiencyAndLanguageText({
-    customProficiencies: proficiencyText.proficiencies,
-    customLanguages: proficiencyText.languages,
-    darkvisionRange: calculateDarkvisionRange(pers),
-    damageResistances: calculateDamageResistances(pers).map((type) => damageTypeTranslations[type] ?? type),
-  });
+  const profAndLang = buildProficiencyAndLanguageBlock(pers);
 
   for (const name of ["Proficiencies", "Languages", "ProficienciesLang"]) {
     setMultilineTextIfPresent(form, name, profAndLang);
@@ -1007,12 +621,7 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   // Coins and equipment (armor + shield)
   const equipmentText = buildEquipmentText(pers);
   setMultilineTextIfPresent(form, "Equipment", equipmentText);
-  // Don't print coins
-  // setTextForFirstPresent(form, ["CP"], safeText((pers as any).cp));
-  // setTextForFirstPresent(form, ["SP"], safeText((pers as any).sp));
-  // setTextForFirstPresent(form, ["EP"], safeText((pers as any).ep));
-  // setTextForFirstPresent(form, ["GP"], safeText((pers as any).gp));
-  // setTextForFirstPresent(form, ["PP"], safeText((pers as any).pp));
+  for (const coin of COIN_KEYS) setTextIfPresent(form, coin.toUpperCase(), formatCoinAmount(pers, coin));
 
   // "Уміння та Особливості" -> Features and Traits
   const featuresList = buildFeaturesListText(data);
@@ -1129,6 +738,40 @@ export async function generateCharacterPdfFromData(
     sections: normalized.sections,
   });
 
+  const { pdfDoc, font: notoSansRegular, appendedSections } = isSheet2024Requested(data.pers, normalized)
+    ? await withStep(
+        "pdf.buildSheet2024",
+        (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
+        async () => ({ ...(await buildSheet2024Document(data, normalized, log)), appendedSections: withoutSheet2024Sections(normalized) })
+      )
+    : { ...(await buildClassicSheetDocument(data, normalized, log)), appendedSections: normalized };
+
+  for (const section of collectRequestedSections(data, appendedSections, { logCtx, log })) {
+    await appendSection(pdfDoc, section, notoSansRegular, log);
+  }
+
+  const out = await withStep(
+    "pdf.save",
+    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", { ...fields, pages: pdfDoc.getPageCount() })),
+    async () => pdfDoc.save()
+  );
+
+  log.info("result", { bytes: out.byteLength, bytesFmt: formatBytes(out.byteLength), pages: pdfDoc.getPageCount() });
+  return out;
+}
+
+type PdfSectionLogger = ReturnType<typeof createLogger>;
+
+/// Лист 2024 сам несе сторінку заклинань і сторінки подробиць.
+function withoutSheet2024Sections(config: PrintConfig): PrintConfig {
+  return { ...config, sections: config.sections.filter((section) => section !== "DETAILS" && section !== "SPELL_SHEET") };
+}
+
+async function buildClassicSheetDocument(
+  data: CharacterPdfData,
+  normalized: PrintConfig,
+  log: PdfSectionLogger
+): Promise<{ pdfDoc: PDFDocument; font: PDFFont }> {
   const fs = await import("fs/promises");
   const path = await import("path");
 
@@ -1190,21 +833,8 @@ export async function generateCharacterPdfFromData(
     }
   }
 
-  for (const section of collectRequestedSections(data, normalized, { logCtx, log })) {
-    await appendSection(pdfDoc, section, notoSansRegular, log);
-  }
-
-  const out = await withStep(
-    "pdf.save",
-    (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", { ...fields, pages: pdfDoc.getPageCount() })),
-    async () => pdfDoc.save()
-  );
-
-  log.info("result", { bytes: out.byteLength, bytesFmt: formatBytes(out.byteLength), pages: pdfDoc.getPageCount() });
-  return out;
+  return { pdfDoc, font: notoSansRegular };
 }
-
-type PdfSectionLogger = ReturnType<typeof createLogger>;
 
 type PdfSection = {
   title: string;
@@ -1224,7 +854,7 @@ function collectRequestedSections(
     {
       title: "Бланк подробиць",
       isIncluded: requested.has("DETAILS"),
-      loadDocuments: async () => [await PDFDocument.load(await readPublicFile("CharacterDetails.pdf"))],
+      loadDocuments: async () => [await buildClassicDetailsDocument(data.pers, log)],
     },
     {
       title: "Лист заклинань",
@@ -1307,6 +937,16 @@ function appendSectionFailurePage(target: PDFDocument, title: string, font: PDFF
   const page = target.addPage([612, 792]);
   page.drawText(`Секцію «${title}» не вдалося сформувати.`, { x: 56, y: 720, size: 16, font, color: rgb(0, 0, 0) });
   page.drawText("Спробуйте завантажити PDF ще раз.", { x: 56, y: 692, size: 12, font, color: rgb(0.3, 0.3, 0.3) });
+}
+
+/// Внутрішня частина рамки «Зовнішність персонажа» бланка CharacterDetails.pdf, над підписом.
+const CLASSIC_APPEARANCE_AREA = { x: 33, y: 447, width: 168, height: 213 };
+
+async function buildClassicDetailsDocument(pers: CharacterPdfData["pers"], log: PdfSectionLogger): Promise<PDFDocument> {
+  const [templateBytes, portraitJpeg] = await Promise.all([readPublicFile("CharacterDetails.pdf"), loadPortraitJpeg(pers.portraitKey, log)]);
+  const document = await PDFDocument.load(templateBytes);
+  if (portraitJpeg) await drawPortrait(document.getPage(0), portraitJpeg, CLASSIC_APPEARANCE_AREA);
+  return document;
 }
 
 async function buildSpellSheetDocuments(pers: CharacterPdfData["pers"], flatten: boolean, log: PdfSectionLogger): Promise<PDFDocument[]> {

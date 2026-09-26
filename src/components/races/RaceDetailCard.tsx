@@ -1,56 +1,125 @@
 "use client";
 
-import { Footprints, Languages, Ruler, ScrollText, TrendingUp } from "lucide-react";
+import { Footprints, Languages, Ruler, TrendingUp } from "lucide-react";
 
-import type { RaceBranch, RaceData, RaceTrait } from "@/lib/racesData";
+import type { RaceBranch, RaceData } from "@/lib/racesData";
 import { RACE_SINGULAR } from "@/lib/refs/race-labels";
+import { findBranchKey, type RaceBranchKind, type RaceSection } from "@/lib/catalogs/reading-target";
+import { buildTraitEntries } from "@/lib/catalogs/reading-entries";
 import { CatalogProse } from "@/components/catalogs/CatalogProse";
-import { SectionJumpNav, jumpTargetAttributes } from "@/components/catalogs/SectionJumpNav";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { BranchCardGrid, type BranchCard } from "@/components/catalogs/reading/BranchCardGrid";
+import { MissingTargetNotice } from "@/components/catalogs/reading/MissingTargetNotice";
+import { ReadingEntryList } from "@/components/catalogs/reading/ReadingEntryList";
+import { ReadingSectionTabs, type ReadingSection } from "@/components/catalogs/reading/ReadingSectionTabs";
+import type { ReadingActions, ReadingView } from "@/components/catalogs/reading/reading-view";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
 
-export function RaceDetailCard({ race, is2024 = false }: { race: RaceData; is2024?: boolean }) {
+export const BRANCH_KIND_LABELS: Record<RaceBranchKind, string> = { subrace: "Підраса", variant: "Варіант" };
+
+const TRAIT_FORMS = ["риса", "риси", "рис"] as const;
+
+export function RaceDetailCard({
+  race,
+  is2024 = false,
+  view,
+  actions,
+}: {
+  race: RaceData;
+  is2024?: boolean;
+  view: ReadingView<RaceSection>;
+  actions: ReadingActions<RaceSection>;
+}) {
   return (
     <div
-      {...jumpTargetAttributes.scope}
       className={cn(
         "glass-card max-w-full overflow-hidden break-words rounded-2xl border border-white/10 bg-slate-950/60 p-4 backdrop-blur-xl sm:p-6",
         findAccentVariant(is2024, { prism: "shadow-[0_0_30px_rgba(192,74,224,0.08)] ring-1 ring-prism-500/20", arcane: "shadow-[0_0_30px_rgba(141,99,238,0.08)] ring-1 ring-white/10" }),
       )}
     >
       <Header race={race} is2024={is2024} />
-      <CatalogProse content={race.description} className="mt-4" />
-      <SectionJumpNav title={findBranchNavTitle(race)} items={buildBranchJumpItems(race)} is2024={is2024} />
-      <MetaGrid race={race} />
-
-      {race.traits.length > 0 ? (
-        <Section title={`Риси ${is2024 ? "виду" : "раси"}`}>
-          <TraitList traits={race.traits} />
-        </Section>
+      {view.missing ? (
+        <MissingTargetNotice
+          message={view.missing === "branch" ? "Такої підраси чи варіанта тут немає." : "Такої риси тут немає."}
+          actionLabel={is2024 ? "До виду" : "До раси"}
+          onAction={actions.onDismissMissing}
+        />
       ) : null}
-
-      <BranchSection title="Підраси" kind="subrace" branches={race.subraces} />
-      <BranchSection title="Варіанти" kind="variant" branches={race.variants} />
+      <ReadingSectionTabs
+        label={`Розділи: ${race.name}`}
+        sections={buildSections(race, is2024, view, actions)}
+        value={view.section}
+        onValueChange={actions.onSectionChange}
+        is2024={is2024}
+      />
     </div>
   );
 }
 
-type BranchKind = "subrace" | "variant";
-
-function buildBranchJumpId(kind: BranchKind, branch: RaceBranch) {
-  return `${kind}:${branch.key}`;
-}
-
-function buildBranchJumpItems(race: RaceData) {
-  return [
-    ...race.subraces.map((branch) => ({ id: buildBranchJumpId("subrace", branch), label: branch.name })),
-    ...race.variants.map((branch) => ({ id: buildBranchJumpId("variant", branch), label: branch.name })),
+function buildSections(
+  race: RaceData,
+  is2024: boolean,
+  view: ReadingView<RaceSection>,
+  actions: ReadingActions<RaceSection>,
+): ReadingSection<RaceSection>[] {
+  const sections: ReadingSection<RaceSection>[] = [
+    {
+      value: "overview",
+      label: "Огляд",
+      content: (
+        <>
+          <CatalogProse content={race.description} />
+          <MetaGrid race={race} />
+        </>
+      ),
+    },
   ];
+  if (race.traits.length > 0) {
+    sections.push({
+      value: "traits",
+      label: `Риси (${race.traits.length})`,
+      content: (
+        <ReadingEntryList
+          entries={buildTraitEntries(race.traits)}
+          targetKey={view.featureKey}
+          focusRequest={view.focusRequest}
+          is2024={is2024}
+          isExpandedByDefault
+        />
+      ),
+    });
+  }
+  const branchCount = race.subraces.length + race.variants.length;
+  if (branchCount > 0) {
+    sections.push({
+      value: "branches",
+      label: `${findBranchSectionTitle(race)} (${branchCount})`,
+      content: <BranchCardGrid cards={buildBranchCards(race)} is2024={is2024} onOpen={actions.onOpenBranch} />,
+    });
+  }
+  return sections;
 }
 
-function findBranchNavTitle(race: RaceData) {
+export function buildBranchCardKey(kind: RaceBranchKind, branch: RaceBranch): string {
+  return `${kind}:${findBranchKey(branch)}`;
+}
+
+function buildBranchCards(race: RaceData): BranchCard[] {
+  const toCard = (kind: RaceBranchKind) => (branch: RaceBranch): BranchCard => ({
+    key: buildBranchCardKey(kind, branch),
+    name: branch.name,
+    engName: branch.engName,
+    kindLabel: BRANCH_KIND_LABELS[kind],
+    sourceLabel: null,
+    entryCount: branch.traits.length,
+    entryCountForms: TRAIT_FORMS,
+    description: branch.description,
+  });
+  return [...race.subraces.map(toCard("subrace")), ...race.variants.map(toCard("variant"))];
+}
+
+function findBranchSectionTitle(race: RaceData) {
   if (race.subraces.length > 0 && race.variants.length > 0) return "Підраси й варіанти";
   return race.subraces.length > 0 ? "Підраси" : "Варіанти";
 }
@@ -128,65 +197,6 @@ function MetaCell({
         {label}
       </div>
       <div className="mt-1 text-sm text-slate-200">{value}</div>
-    </div>
-  );
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="glass-panel mt-4 max-w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3.5 sm:p-4">
-      <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{title}</div>
-      {children}
-    </div>
-  );
-}
-
-function BranchSection({
-  title,
-  kind,
-  branches,
-}: {
-  title: string;
-  kind: BranchKind;
-  branches: RaceBranch[];
-}) {
-  if (branches.length === 0) return null;
-
-  return (
-    <Section title={`${title} (${branches.length})`}>
-      <div className="space-y-4">
-        {branches.map((branch) => (
-          <div key={branch.key} {...jumpTargetAttributes.target(buildBranchJumpId(kind, branch))} className="scroll-mt-2">
-            <div className="flex items-baseline gap-2">
-              <ScrollText className="h-3.5 w-3.5 shrink-0 text-slate-500" />
-              <span className="text-sm font-semibold text-slate-100">{branch.name}</span>
-              <span className="font-mono text-[11px] text-slate-500">[{branch.engName}]</span>
-            </div>
-            <CatalogProse content={branch.description} className="mt-1 pl-5" />
-            {branch.traits.length > 0 ? (
-              <div className="mt-2 pl-5">
-                <TraitList traits={branch.traits} />
-              </div>
-            ) : null}
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function TraitList({ traits }: { traits: RaceTrait[] }) {
-  return (
-    <div className="space-y-3">
-      {traits.map((trait) => (
-        <div key={`${trait.engName}-${trait.name}`}>
-          <div className="text-sm font-semibold text-slate-100">{trait.name}</div>
-          <FormattedDescription
-            content={trait.description}
-            className="mt-1 text-sm leading-relaxed text-slate-300"
-          />
-        </div>
-      ))}
     </div>
   );
 }

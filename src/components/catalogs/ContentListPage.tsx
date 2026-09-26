@@ -5,6 +5,7 @@ import { Virtuoso } from "react-virtuoso";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CatalogHeader, type CatalogHeaderProps } from "./CatalogHeader";
 import { findEditionAccent } from "@/styles/edition-accent";
+import { cn } from "@/lib/utils";
 
 export type ContentListPageProps<TItem, TRow = TItem> = CatalogHeaderProps & {
   tabs?: ReactNode;
@@ -28,6 +29,8 @@ export type ContentListPageProps<TItem, TRow = TItem> = CatalogHeaderProps & {
   onCloseModal?: () => void;
   modalTitle?: string;
   renderModalContent?: (item: TItem) => ReactNode;
+  /// Вміст малює власну шапку з закриттям (читач гілки O44) — свій хрестик модалки зайвий.
+  isModalChromeHidden?: boolean;
 
   // Filter Dialog
   filterDialogOpen?: boolean;
@@ -72,6 +75,7 @@ export function ContentListPage<TItem, TRow = TItem>({
   onCloseModal,
   modalTitle,
   renderModalContent,
+  isModalChromeHidden = false,
 
   // Filter dialog
   filterDialogContent,
@@ -168,7 +172,11 @@ export function ContentListPage<TItem, TRow = TItem>({
           }}
         >
           <DialogContent
-            className="grid-cols-[minmax(0,1fr)] min-w-0 max-h-[90dvh] w-[calc(100vw-1rem)] max-w-xl overflow-x-hidden overflow-y-auto border-white/10 bg-slate-950/95 px-4 pb-4 pt-12 sm:px-6 sm:pb-6 backdrop-blur-2xl text-slate-100"
+            showClose={!isModalChromeHidden}
+            className={cn(
+              "grid-cols-[minmax(0,1fr)] min-w-0 max-h-[90dvh] w-[calc(100vw-1rem)] max-w-xl overflow-x-hidden overflow-y-auto border-white/10 bg-slate-950/95 px-4 pb-4 sm:px-6 sm:pb-6 backdrop-blur-2xl text-slate-100",
+              isModalChromeHidden ? "pt-3" : "pt-12",
+            )}
             aria-describedby={undefined}
           >
             <DialogTitle className="sr-only">

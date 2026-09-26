@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   applyUsesMaximumDelta,
+  findPoolProvider,
   findUsesAfterShortRest,
   listFeaturesRegainingOneUseOnShortRest,
   regainsOneUseOnShortRest,
@@ -69,5 +70,19 @@ describe("applyUsesMaximumDelta", () => {
   it("мовчить, коли міняти нічого", () => {
     expect(applyUsesMaximumDelta({ usesRemaining: 2, beforeMaximum: 3, afterMaximum: 3 })).toBeNull();
     expect(applyUsesMaximumDelta({ usesRemaining: null, beforeMaximum: 2, afterMaximum: 3 })).toBeNull();
+  });
+});
+
+describe("O45 — Знавець проклять підвищує пул Кривавого наврочення", () => {
+  const maledict = { featureId: 10, engName: "Blood Maledict (Blood Hunter)", usesCountSpecial: [{ lvl: 1, uses: 1 }], classFeatures: [{}], subclassFeatures: [] };
+  const specialist = { featureId: 20, engName: "Curse Specialist (Order of the Ghostslayer)", usesCountSpecial: [{ lvl: 3, uses: 2 }], classFeatures: [], subclassFeatures: [{}] };
+
+  it("максимум дає риса ордену, а не класова, хоч класова зазвичай перемагає", () => {
+    expect(findPoolProvider([maledict, specialist])?.featureId).toBe(20);
+    expect(findPoolProvider([maledict, { ...specialist, engName: "Order of the Ghostslayer: Curse Specialist (2024)" }])?.featureId).toBe(20);
+  });
+
+  it("без ордену лишається Криваве наврочення", () => {
+    expect(findPoolProvider([maledict])?.featureId).toBe(10);
   });
 });

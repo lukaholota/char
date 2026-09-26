@@ -61,3 +61,31 @@ describe("Дикі форми в модалці друку", () => {
     );
   });
 });
+
+describe("перемикач «Лист 2024»", () => {
+  it("є лише в персонажа 2024", async () => {
+    vi.mocked(findPrintableWildshapeCountAction).mockResolvedValue(0);
+    render(<PrintCharacterDialog persId={10} characterName="Старий" ruleset="RULES_2014" />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Друк" }));
+    await waitFor(() => expect(findPrintableWildshapeCountAction).toHaveBeenCalledWith(10));
+
+    expect(screen.queryByRole("switch", { name: "Лист 2024" })).toBeNull();
+  });
+
+  it("просить бланк 2024 і прибирає класичну таблицю заклинань", async () => {
+    vi.mocked(findPrintableWildshapeCountAction).mockResolvedValue(0);
+    vi.mocked(generateCharacterPdfAction).mockRejectedValue(new Error("renderer stopped"));
+    render(<PrintCharacterDialog persId={11} characterName="Новий" ruleset="RULES_2024" />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Друк" }));
+    fireEvent.click(await screen.findByRole("switch", { name: "Лист 2024" }));
+    fireEvent.click(screen.getByRole("button", { name: "Завантажити PDF" }));
+
+    await waitFor(() => expect(generateCharacterPdfAction).toHaveBeenCalledOnce());
+    const config = vi.mocked(generateCharacterPdfAction).mock.calls[0][1];
+    expect(config.sheetLayout).toBe("SHEET_2024");
+    expect(config.sections).not.toContain("SPELL_SHEET");
+    expect(screen.queryByText("Лист заклинань (таблиця)")).toBeNull();
+  });
+});

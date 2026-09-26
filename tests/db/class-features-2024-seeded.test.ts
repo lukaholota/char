@@ -9,8 +9,12 @@ import { join } from "node:path";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase } from "../user-data";
 import metamagic from "../../data/2024/normalized/metamagic.json";
+import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 const CYRILLIC = /\p{Script=Cyrillic}/u;
+
+/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+const CLASS_NOT_BLOOD_HUNTER = { notIn: [...BLOOD_HUNTER_CLASS_NAMES] };
 
 type ClassJson2024 = {
   engName: string;
@@ -41,7 +45,7 @@ afterAll(disconnectDatabase);
 describe("класові фічі 2024 у базі", () => {
   it("кожен клас має хоча б одну фічу з непорожнім українським описом", async () => {
     const classes = await prisma.class.findMany({
-      where: { ruleset: "RULES_2024" },
+      where: { ruleset: "RULES_2024", name: CLASS_NOT_BLOOD_HUNTER },
       select: {
         name: true,
         features: { select: { feature: { select: { name: true, description: true } } } },
@@ -62,13 +66,13 @@ describe("класові фічі 2024 у базі", () => {
   });
 
   it("кількість фіч на клас збігається з нормалізованими даними", async () => {
-    const total = await prisma.classFeature.count({ where: { ruleset: "RULES_2024" } });
+    const total = await prisma.classFeature.count({ where: { ruleset: "RULES_2024", class: { name: CLASS_NOT_BLOOD_HUNTER } } });
     expect(total).toBe(expectedFeatureCount);
   });
 
   it("набір рівнів отримання береться з даних, а не з дефолту", async () => {
     const classes = await prisma.class.findMany({
-      where: { ruleset: "RULES_2024" },
+      where: { ruleset: "RULES_2024", name: CLASS_NOT_BLOOD_HUNTER },
       select: { name: true, features: { select: { levelGranted: true } } },
     });
 

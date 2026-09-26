@@ -15,13 +15,19 @@ const LARGE_FORM = "Goliath: Large Form (2024)";
 const FRENZY_2024 = "Path of the Berserker: Frenzy (2024)";
 const BLADESONG_2024 = "Bladesinger: Bladesong (2024)";
 
-const effectsOf = (active: string[], owned: string[], overrides: { barbarianLevel?: number; intelligenceModifier?: number } = {}) =>
+const effectsOf = (
+  active: string[],
+  owned: string[],
+  overrides: { barbarianLevel?: number; intelligenceModifier?: number; bloodHunterLevel?: number; wearsHeavyArmor?: boolean } = {},
+) =>
   mergeStateEffects(
     collectFeatureStateParts({
       activeFeatureEngNames: active,
       ownedFeatureEngNames: owned,
       barbarianLevel: overrides.barbarianLevel ?? 0,
       intelligenceModifier: overrides.intelligenceModifier ?? 0,
+      bloodHunterLevel: overrides.bloodHunterLevel ?? 0,
+      wearsHeavyArmor: overrides.wearsHeavyArmor ?? false,
     }).map(({ part }) => part),
   );
 
@@ -50,7 +56,7 @@ describe("collectFeatureStateParts", () => {
   });
 
   it("частина несе своє джерело — шторка станів показує підсумок кожної", () => {
-    const parts = collectFeatureStateParts({ activeFeatureEngNames: ["Rage"], ownedFeatureEngNames: ["Rage"], barbarianLevel: 3, intelligenceModifier: 0 });
+    const parts = collectFeatureStateParts({ activeFeatureEngNames: ["Rage"], ownedFeatureEngNames: ["Rage"], barbarianLevel: 3, intelligenceModifier: 0, bloodHunterLevel: 0, wearsHeavyArmor: false });
     expect(parts.map(({ sourceKey }) => sourceKey)).toEqual(["Rage"]);
   });
 
@@ -164,5 +170,38 @@ describe("Лють зриває концентрацію", () => {
 describe("findRageDamageBonus", () => {
   it("іде за колонкою Rage Damage: +2, +3 з 9-го, +4 з 16-го", () => {
     expect([1, 8, 9, 15, 16, 20].map(findRageDamageBonus)).toEqual([2, 2, 3, 3, 4, 4]);
+  });
+});
+
+describe("O45 — Гібридна трансформація лікантропа", () => {
+  const HYBRID_2014 = "Hybrid Transformation (Order of the Lycan)";
+  const HYBRID_2024 = "Order of the Lycan: Hybrid Transformation (2024)";
+  const PROWESS_2014 = "Stalker's Prowess (Order of the Lycan)";
+
+  it("має перемикач в обох редакціях", () => {
+    expect(isToggleableFeature(HYBRID_2014)).toBe(true);
+    expect(isToggleableFeature(HYBRID_2024)).toBe(true);
+  });
+
+  it("BH-004, мисливець 7: КБ +1, Звіряча міць +1 до шкоди в ближньому бою, Хижі удари к6 Спритністю з +1 до атаки", () => {
+    const effects = effectsOf([HYBRID_2014], [HYBRID_2014, PROWESS_2014], { bloodHunterLevel: 7 });
+    expect(effects).toMatchObject({
+      armorClassBonus: 1,
+      meleeDamageBonus: 1,
+      unarmedStrike: { damageDice: "1d6", abilityOption: "DEX", attackBonus: 1 },
+      damageResistances: ["BLUDGEONING", "PIERCING", "SLASHING"],
+    });
+    expect(effects?.rollModifiers.map((modifier) => modifier.scope)).toEqual(["STR_CHECK", "STR_SAVE"]);
+    expect(effects?.marks.map((mark) => mark.kind)).toEqual(["RESILIENT_HIDE_NONMAGICAL", "BLOODLUST"]);
+  });
+
+  it("до Хижого вміння (7) бонусу до атаки немає; з 11 — к8 і +2, з 18 — +3", () => {
+    expect(effectsOf([HYBRID_2024], [HYBRID_2024], { bloodHunterLevel: 3 })?.unarmedStrike).toEqual({ damageDice: "1d6", abilityOption: "DEX", attackBonus: 0 });
+    expect(effectsOf([HYBRID_2014], [HYBRID_2014, PROWESS_2014], { bloodHunterLevel: 11 })).toMatchObject({ meleeDamageBonus: 2, unarmedStrike: { damageDice: "1d8", attackBonus: 2 } });
+    expect(effectsOf([HYBRID_2014], [HYBRID_2014, PROWESS_2014], { bloodHunterLevel: 18 })).toMatchObject({ meleeDamageBonus: 3, unarmedStrike: { attackBonus: 3 } });
+  });
+
+  it("у важкому обладунку Стійка шкура КБ не додає", () => {
+    expect(effectsOf([HYBRID_2014], [HYBRID_2014], { bloodHunterLevel: 3, wearsHeavyArmor: true })?.armorClassBonus).toBe(0);
   });
 });

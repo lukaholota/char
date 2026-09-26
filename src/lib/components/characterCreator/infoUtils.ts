@@ -193,6 +193,11 @@ export const formatAbilityList = (abilities?: Ability[] | null) => formatList(ab
 export const formatMulticlassReqs = (reqs?: MulticlassReqs | null) => {
   if (!reqs) return "—";
 
+  if (reqs.allOf?.length) {
+    const groups = reqs.allOf.map((group) => group.map((ability) => translateValue(ability)).join(" або "));
+    return `Характеристика ${reqs.score}+: ${groups.join(" і ")}`;
+  }
+
   // `and` — форма монаха, паладина й слідопита 2024; читається так само, як `required` у 2014.
   const everyOf = reqs.and?.length ? reqs.and : reqs.required;
   if (everyOf?.length) {

@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
+import { isCrimsonRiteFeature } from "@/rules/crimson-rite";
 import { Ability, AbilityBonusType, ArmorCategory, DamageType, Prisma, Ruleset } from "@prisma/client";
 
 /**
@@ -154,6 +155,38 @@ export async function updateWeapon(
     console.error("Error updating weapon:", error);
     return { success: false, error: "Помилка при оновленні зброї" };
   }
+}
+
+/**
+ * O45: Багряний обряд мисливця за кровʼю на одній зброї — «a weapon can hold only one active rite at a time».
+ * Хижі удари лікантропа — рядок «Кулак», тож обряд на них ставиться так само, одним рядком.
+ * `null` знімає обряд (відпочинок або гравець вимкнув).
+ */
+export async function setWeaponCrimsonRite(persWeaponId: number, riteFeatureId: number | null) {
+  const weapon = await prisma.persWeapon.findUnique({ where: { persWeaponId }, select: { persId: true } });
+  if (!weapon) return { success: false, error: "Зброю не знайдено" };
+
+  const owned = await assertOwnsPers(weapon.persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  if (riteFeatureId !== null && !(await isKnownCrimsonRite(weapon.persId, riteFeatureId))) {
+    return { success: false, error: "Цього обряду персонаж не знає" };
+  }
+
+  const updated = await prisma.persWeapon.update({ where: { persWeaponId }, data: { crimsonRiteFeatureId: riteFeatureId } });
+  revalidatePath(`/char/${weapon.persId}`);
+  return { success: true, weapon: updated };
+}
+
+async function isKnownCrimsonRite(persId: number, featureId: number): Promise<boolean> {
+  const feature = await prisma.feature.findUnique({ where: { featureId }, select: { engName: true } });
+  if (!isCrimsonRiteFeature(feature?.engName)) return false;
+
+  const [asFeature, asChoice] = await Promise.all([
+    prisma.persFeature.count({ where: { persId, featureId } }),
+    prisma.pers.count({ where: { persId, choiceOptions: { some: { features: { some: { featureId } } } } } }),
+  ]);
+  return asFeature + asChoice > 0;
 }
 
 export async function deleteWeapon(persWeaponId: number) {

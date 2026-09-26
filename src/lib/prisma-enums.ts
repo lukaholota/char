@@ -189,6 +189,8 @@ export const Classes = {
   WARLOCK_2024: "WARLOCK_2024",
   WIZARD_2024: "WIZARD_2024",
   ARTIFICER_2024: "ARTIFICER_2024",
+  BLOOD_HUNTER_2014: "BLOOD_HUNTER_2014",
+  BLOOD_HUNTER_2024: "BLOOD_HUNTER_2024",
 } as const;
 export type Classes = (typeof Classes)[keyof typeof Classes];
 
@@ -842,6 +844,10 @@ export const Subclasses = {
   VESTIGE_PATRON: "VESTIGE_PATRON",
   WARRIOR_OF_THE_MYSTIC_ARTS: "WARRIOR_OF_THE_MYSTIC_ARTS",
   WINTER_WALKER: "WINTER_WALKER",
+  ORDER_OF_THE_GHOSTSLAYER: "ORDER_OF_THE_GHOSTSLAYER",
+  ORDER_OF_THE_LYCAN: "ORDER_OF_THE_LYCAN",
+  ORDER_OF_THE_MUTANT: "ORDER_OF_THE_MUTANT",
+  ORDER_OF_THE_PROFANE_SOUL: "ORDER_OF_THE_PROFANE_SOUL",
 } as const;
 export type Subclasses = (typeof Subclasses)[keyof typeof Subclasses];
 

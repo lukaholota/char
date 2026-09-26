@@ -22,6 +22,7 @@ import { listActiveBuffKeys } from "./pers-effect-rows";
 export type PersWithStates = PersWithRelations & { stateEffects?: StateEffects | null };
 
 const BARBARIAN_CLASS_NAMES = ["BARBARIAN_2014", "BARBARIAN_2024"] as const;
+export const BLOOD_HUNTER_CLASS_NAMES = ["BLOOD_HUNTER_2014", "BLOOD_HUNTER_2024"] as const;
 
 /// Поле перезаписується завжди, навіть порожнім: лист віддає `pers` назад у стан через
 /// `onPersUpdate({...pers})`, і ефекти вимкненого стану не мають там пережити наступний рендер.
@@ -40,8 +41,10 @@ export function listActiveStateParts(pers: PersWithRelations): StatePart[] {
     ...collectFeatureStateParts({
       activeFeatureEngNames: listActiveFeatureEngNames(pers),
       ownedFeatureEngNames: collectActiveFeatures(pers).map((feature) => feature.engName),
-      barbarianLevel: findBarbarianLevel(pers),
+      barbarianLevel: sumClassLevels(pers, BARBARIAN_CLASS_NAMES),
       intelligenceModifier: calculateFinalModifier(pers, Ability.INT),
+      bloodHunterLevel: sumClassLevels(pers, BLOOD_HUNTER_CLASS_NAMES),
+      wearsHeavyArmor: (pers.armors ?? []).some((entry) => entry.equipped && entry.armor?.armorType === "HEAVY"),
     }),
     ...collectSpellBuffParts(listActiveBuffKeys(pers), pers.ruleset),
     ...(exhaustion ? [{ sourceKey: EXHAUSTION_SOURCE_KEY, part: exhaustion }] : []),
@@ -65,11 +68,11 @@ function hasWarCaster(pers: PersWithRelations): boolean {
   return (pers.feats ?? []).some((row) => row.feat?.name === WAR_CASTER_SOURCE_KEY);
 }
 
-function findBarbarianLevel(pers: PersWithRelations): number {
+export function sumClassLevels(pers: PersWithRelations, classNames: readonly string[]): number {
   const levels = buildCharacterLevels({
     characterLevel: pers.level,
     mainClassName: pers.class?.name ?? "",
     multiclasses: (pers.multiclasses ?? []).map((entry) => ({ className: entry.class.name, classLevel: entry.classLevel })),
   });
-  return BARBARIAN_CLASS_NAMES.reduce((total, className) => total + findClassLevel(levels, className), 0);
+  return classNames.reduce((total, className) => total + findClassLevel(levels, className), 0);
 }

@@ -1,0 +1,597 @@
+{
+  "trace": "06240aeb53db4c63930d34bd7a31c1d3",
+  "source": "Sentry trace endpoint; technical timeline only",
+  "omitted": "db/default spans, user data, zero measurements, repeated metadata",
+  "nodes": [
+    {
+      "event_id": "9e846a082c655d3f",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": null,
+      "op": "navigation",
+      "description": "/char/:id",
+      "start_timestamp": 1790407805.9021,
+      "end_timestamp": 1790407808.4869,
+      "duration": 2584.800005
+    },
+    {
+      "event_id": "9b222355c03b0d5e",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/char/16013",
+      "start_timestamp": 1790407805.9133,
+      "end_timestamp": 1790407806.2492,
+      "duration": 335.900068
+    },
+    {
+      "event_id": "bd385448c8be25a1",
+      "transaction_id": "b74241dbb86a4e97890ea8e8a06ce955",
+      "parent_span_id": "9b222355c03b0d5e",
+      "op": "http.server",
+      "description": "GET /char/[id]",
+      "start_timestamp": 1790407806.712698,
+      "end_timestamp": 1790407806.950898,
+      "duration": 238.199949
+    },
+    {
+      "event_id": "bf8c6ef5ff9bcb8c",
+      "transaction_id": "b74241dbb86a4e97890ea8e8a06ce955",
+      "parent_span_id": "afc1ecce53bb80fe",
+      "op": "function.nextjs",
+      "description": "resolve page server component \"/char/[id]\"",
+      "start_timestamp": 1790407806.714597,
+      "end_timestamp": 1790407806.714648,
+      "duration": 0.051022
+    },
+    {
+      "event_id": "94a635d54ccf27a5",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Felf.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.149,
+      "end_timestamp": 1790407806.1803,
+      "duration": 31.300068
+    },
+    {
+      "event_id": "96400c1c3cfd0ed0",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Fhalfling.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.1491,
+      "end_timestamp": 1790407806.180799,
+      "duration": 31.698942
+    },
+    {
+      "event_id": "9195e3dc6971555a",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Fdragonborn.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.1492,
+      "end_timestamp": 1790407806.181,
+      "duration": 31.800032
+    },
+    {
+      "event_id": "98a860d3a001a9c0",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Fgnome.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.1493,
+      "end_timestamp": 1790407806.1812,
+      "duration": 31.899929
+    },
+    {
+      "event_id": "91c944118bfc6e3b",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Fhalf_elf.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.1494,
+      "end_timestamp": 1790407806.1812,
+      "duration": 31.800032
+    },
+    {
+      "event_id": "9d4d21a2c6845832",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Fhalf_orc.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.1494,
+      "end_timestamp": 1790407806.1813,
+      "duration": 31.899929
+    },
+    {
+      "event_id": "b44702c8b0d9e939",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Ftiefling.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.1495,
+      "end_timestamp": 1790407806.1815,
+      "duration": 32.000065
+    },
+    {
+      "event_id": "a69f148259db51d5",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407806.211,
+      "end_timestamp": 1790407806.3018,
+      "duration": 90.800047
+    },
+    {
+      "event_id": "92fbd696fdc6f8a3",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/char/home",
+      "start_timestamp": 1790407806.2183,
+      "end_timestamp": 1790407806.3196,
+      "duration": 101.300001
+    },
+    {
+      "event_id": "8124bcf541f57548",
+      "transaction_id": "1c73412f7342471cb8a078c05e81f9f9",
+      "parent_span_id": "92fbd696fdc6f8a3",
+      "op": "http.server",
+      "description": "GET /char/home",
+      "start_timestamp": 1790407807.013165,
+      "end_timestamp": 1790407807.01799,
+      "duration": 4.825115
+    },
+    {
+      "event_id": "8a339def0eab233a",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/",
+      "start_timestamp": 1790407806.2199,
+      "end_timestamp": 1790407806.3171,
+      "duration": 97.200155
+    },
+    {
+      "event_id": "84c6fea92f4d3a9a",
+      "transaction_id": "a29c38ad25484b32b3f722c7528d42c1",
+      "parent_span_id": "8a339def0eab233a",
+      "op": "http.server",
+      "description": "GET /",
+      "start_timestamp": 1790407807.010359,
+      "end_timestamp": 1790407807.015796,
+      "duration": 5.436897
+    },
+    {
+      "event_id": "8eddae6ed36b031c",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/adabdeccddaf2da8.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.2549,
+      "end_timestamp": 1790407806.2903,
+      "duration": 35.399914
+    },
+    {
+      "event_id": "9d1f7ed499d26061",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/215e7f979926fa4d.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.2577,
+      "end_timestamp": 1790407806.2912,
+      "duration": 33.499956
+    },
+    {
+      "event_id": "891b34291468b530",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/0f591d7dac8738c4.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.2599,
+      "end_timestamp": 1790407806.2931,
+      "duration": 33.200026
+    },
+    {
+      "event_id": "814fbb645dccfaa9",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/c0d1dc260ecf4ce4.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.2623,
+      "end_timestamp": 1790407806.2943,
+      "duration": 32.000065
+    },
+    {
+      "event_id": "86ed772eeaea9739",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/char/16013",
+      "start_timestamp": 1790407806.2726,
+      "end_timestamp": 1790407806.6118,
+      "duration": 339.20002
+    },
+    {
+      "event_id": "837be4d1e032118e",
+      "transaction_id": "1fe4d78de0b849158b8cfd3e2f6ef393",
+      "parent_span_id": "86ed772eeaea9739",
+      "op": "http.server",
+      "description": "GET /char/[id]",
+      "start_timestamp": 1790407807.076952,
+      "end_timestamp": 1790407807.283733,
+      "duration": 206.78091
+    },
+    {
+      "event_id": "99147951063ccd6a",
+      "transaction_id": "1fe4d78de0b849158b8cfd3e2f6ef393",
+      "parent_span_id": "a199c7f69bfaab7f",
+      "op": "function.nextjs",
+      "description": "resolve root layout server component",
+      "start_timestamp": 1790407807.084635,
+      "end_timestamp": 1790407807.084699,
+      "duration": 0.063896
+    },
+    {
+      "event_id": "bd004becd01be384",
+      "transaction_id": "1fe4d78de0b849158b8cfd3e2f6ef393",
+      "parent_span_id": "a199c7f69bfaab7f",
+      "op": "function.nextjs",
+      "description": "resolve page server component \"/char/[id]\"",
+      "start_timestamp": 1790407807.084866,
+      "end_timestamp": 1790407807.084926,
+      "duration": 0.059843
+    },
+    {
+      "event_id": "8a8d24c64815530b",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407806.3104,
+      "end_timestamp": 1790407806.3649,
+      "duration": 54.500103
+    },
+    {
+      "event_id": "bdb0f368c50cda88",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Fdwarf.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.3744,
+      "end_timestamp": 1790407806.3941,
+      "duration": 19.70005
+    },
+    {
+      "event_id": "b0516a2adfbf7d1d",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407806.374799,
+      "end_timestamp": 1790407806.4446,
+      "duration": 69.801092
+    },
+    {
+      "event_id": "b2b9ad6a33ba08be",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fraces%2Fhuman.webp&w=1200&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.4536,
+      "end_timestamp": 1790407806.4794,
+      "duration": 25.79999
+    },
+    {
+      "event_id": "bf157c2ef5d2887d",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407806.4864,
+      "end_timestamp": 1790407806.5681,
+      "duration": 81.700087
+    },
+    {
+      "event_id": "8d38f23ddbe70c23",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407806.5722,
+      "end_timestamp": 1790407806.8138,
+      "duration": 241.600037
+    },
+    {
+      "event_id": "91ba5388df34324f",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/char/home",
+      "start_timestamp": 1790407806.5737,
+      "end_timestamp": 1790407806.7028,
+      "duration": 129.100084
+    },
+    {
+      "event_id": "a030869c75a30f35",
+      "transaction_id": "4c4936d6204d40988905c002c240f475",
+      "parent_span_id": "91ba5388df34324f",
+      "op": "http.server",
+      "description": "GET /char/home",
+      "start_timestamp": 1790407807.3647,
+      "end_timestamp": 1790407807.375044,
+      "duration": 10.344028
+    },
+    {
+      "event_id": "9626b3d45dcfa74e",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/",
+      "start_timestamp": 1790407806.5756,
+      "end_timestamp": 1790407806.7055,
+      "duration": 129.899979
+    },
+    {
+      "event_id": "921357104e5b485b",
+      "transaction_id": "525b6b6c2c7448f0990b624d14aaa078",
+      "parent_span_id": "9626b3d45dcfa74e",
+      "op": "http.server",
+      "description": "GET /",
+      "start_timestamp": 1790407807.379622,
+      "end_timestamp": 1790407807.382004,
+      "duration": 2.38204
+    },
+    {
+      "event_id": "bd69dbc8508fc48a",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/char/home",
+      "start_timestamp": 1790407806.7164,
+      "end_timestamp": 1790407806.7734,
+      "duration": 57.00016
+    },
+    {
+      "event_id": "ad6d8c58d83266b2",
+      "transaction_id": "b10620d3e35542328824b68941e8d5e1",
+      "parent_span_id": "bd69dbc8508fc48a",
+      "op": "http.server",
+      "description": "GET /char/home",
+      "start_timestamp": 1790407807.494413,
+      "end_timestamp": 1790407807.504381,
+      "duration": 9.968042
+    },
+    {
+      "event_id": "9cd347f345b22ee4",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/",
+      "start_timestamp": 1790407806.7226,
+      "end_timestamp": 1790407806.7966,
+      "duration": 74.00012
+    },
+    {
+      "event_id": "ab0949c7cc89f94f",
+      "transaction_id": "1f32697144fd406284fc1d27f06750a5",
+      "parent_span_id": "9cd347f345b22ee4",
+      "op": "http.server",
+      "description": "GET /",
+      "start_timestamp": 1790407807.514105,
+      "end_timestamp": 1790407807.521449,
+      "duration": 7.344007
+    },
+    {
+      "event_id": "849818973868ec1c",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/",
+      "start_timestamp": 1790407806.7279,
+      "end_timestamp": 1790407806.7838,
+      "duration": 55.899858
+    },
+    {
+      "event_id": "81359486c12fd42e",
+      "transaction_id": "54d5f63ec1154f7094f9c8a65f83680a",
+      "parent_span_id": "849818973868ec1c",
+      "op": "http.server",
+      "description": "GET /",
+      "start_timestamp": 1790407807.508249,
+      "end_timestamp": 1790407807.51073,
+      "duration": 2.480984
+    },
+    {
+      "event_id": "97f3880e2d71776e",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "GET https://char.holota.family/",
+      "start_timestamp": 1790407806.7369,
+      "end_timestamp": 1790407806.806,
+      "duration": 69.099903
+    },
+    {
+      "event_id": "bca953a67063b14a",
+      "transaction_id": "584cab4e71ae496c843ee7e388629344",
+      "parent_span_id": "97f3880e2d71776e",
+      "op": "http.server",
+      "description": "GET /",
+      "start_timestamp": 1790407807.525194,
+      "end_timestamp": 1790407807.531829,
+      "duration": 6.635189
+    },
+    {
+      "event_id": "b373dc3cde922051",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407806.8155,
+      "end_timestamp": 1790407807.1045,
+      "duration": 289.000034
+    },
+    {
+      "event_id": "a47df31b23f4702e",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/397904dc8bcca1f4.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407806.895,
+      "end_timestamp": 1790407806.9196,
+      "duration": 24.600029
+    },
+    {
+      "event_id": "930fd99aa0b5c475",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "POST /char/16013",
+      "start_timestamp": 1790407807.0944,
+      "end_timestamp": 1790407807.2005,
+      "duration": 106.100082
+    },
+    {
+      "event_id": "89a23930e4e39ec4",
+      "transaction_id": "9701c5fac55340fd97e784a22b7f69a8",
+      "parent_span_id": "930fd99aa0b5c475",
+      "op": "http.server",
+      "description": "POST /char/[id]",
+      "start_timestamp": 1790407807.870291,
+      "end_timestamp": 1790407807.903354,
+      "duration": 33.062935
+    },
+    {
+      "event_id": "bd34d3ed94069271",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fcategories%2Fraces.webp&w=1080&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407807.1155,
+      "end_timestamp": 1790407807.1786,
+      "duration": 63.1001
+    },
+    {
+      "event_id": "89d2a77096eb2aa1",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fcategories%2Fclasses.webp&w=1080&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407807.1161,
+      "end_timestamp": 1790407807.2051,
+      "duration": 88.999987
+    },
+    {
+      "event_id": "99d5afd5ac16b84c",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.img",
+      "description": "/_next/image?url=%2Fimages%2Fcategories%2Fbestiary.webp&w=1080&q=75&dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407807.1164,
+      "end_timestamp": 1790407807.2061,
+      "duration": 89.699984
+    },
+    {
+      "event_id": "8aef1681b2705565",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407807.1166,
+      "end_timestamp": 1790407807.405699,
+      "duration": 289.098978
+    },
+    {
+      "event_id": "9f27476982bba82c",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.beacon",
+      "description": "/cdn-cgi/rum?",
+      "start_timestamp": 1790407807.1206,
+      "end_timestamp": 1790407807.1924,
+      "duration": 71.799994
+    },
+    {
+      "event_id": "9d9d881e1cd66baa",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "POST /cdn-cgi/rum",
+      "start_timestamp": 1790407807.1235,
+      "end_timestamp": 1790407807.197,
+      "duration": 73.499918
+    },
+    {
+      "event_id": "89ed3c020fa37e08",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.link",
+      "description": "/manifest.json",
+      "start_timestamp": 1790407807.138,
+      "end_timestamp": 1790407807.2058,
+      "duration": 67.800045
+    },
+    {
+      "event_id": "9b8fb2618b23efe8",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/c6a599ac0ac3989c.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407807.48,
+      "end_timestamp": 1790407807.5187,
+      "duration": 38.699865
+    },
+    {
+      "event_id": "9b1067e8bf4f832f",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/ef6abe9e88a7cb4a.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407807.4841,
+      "end_timestamp": 1790407807.5318,
+      "duration": 47.699928
+    },
+    {
+      "event_id": "89ec1b24a5c944f5",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/41109d2eb3e320f4.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407807.4857,
+      "end_timestamp": 1790407807.553,
+      "duration": 67.300081
+    },
+    {
+      "event_id": "bffee6b2a9b29446",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "resource.script",
+      "description": "/_next/static/chunks/4da1f2345664b459.js?dpl=6b8f92caa972bef00a951db971eee11ea5dc4630",
+      "start_timestamp": 1790407807.4877,
+      "end_timestamp": 1790407807.5528,
+      "duration": 65.099955
+    },
+    {
+      "event_id": "9bb8161d209c4a5a",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "ui.long-animation-frame",
+      "description": "Main UI thread blocked",
+      "start_timestamp": 1790407807.5039,
+      "end_timestamp": 1790407807.7223,
+      "duration": 218.400002
+    },
+    {
+      "event_id": "8f2e6b6845e61d40",
+      "transaction_id": "0954362e9507442d8807139e7c8c7464",
+      "parent_span_id": "9e846a082c655d3f",
+      "op": "http.client",
+      "description": "POST https://eu.i.posthog.com/i/v0/e/",
+      "start_timestamp": 1790407808.3844,
+      "end_timestamp": 1790407808.4869,
+      "duration": 102.5002
+    }
+  ]
+}

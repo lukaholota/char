@@ -4,6 +4,7 @@ import classChoices from "../../data/2024/normalized/class-choices.json";
 import subclassChoices from "../../data/2024/normalized/subclass-choices.json";
 import invocations from "../../data/2024/normalized/invocations.json";
 import { disconnectDatabase } from "../user-data";
+import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 afterAll(disconnectDatabase);
 
@@ -25,7 +26,8 @@ describe("KR31.2 — class/subclass choices 2024 у базі", () => {
       WIZARD_2024: {},
     };
     const classes = await prisma.class.findMany({
-      where: { ruleset: "RULES_2024" },
+      // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+      where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } },
       select: {
         name: true,
         classChoiceOptions: {

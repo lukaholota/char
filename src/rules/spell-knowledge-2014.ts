@@ -69,19 +69,45 @@ export const THIRD_CASTER_KNOWLEDGE_2014: SpellKnowledgeTable2014 = {
   maxSpellLevel: [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4],
 };
 
-const THIRD_CASTER_SUBCLASS_BY_CLASS: Readonly<Record<string, string>> = {
-  FIGHTER_2014: "ELDRITCH_KNIGHT",
-  ROGUE_2014: "ARCANE_TRICKSTER",
+// Мисливець за кровʼю 2020, Орден нечестивої душі: таблиця «Profane Soul Spellcasting». Найвищий рівень
+// заклинання, яке можна вивчити, — стовпець рівня слотів («no higher than … the table's Slot Level column»).
+export const PROFANE_SOUL_KNOWLEDGE: SpellKnowledgeTable2014 = {
+  cantrips: [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+  known: [0, 0, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11],
+  maxSpellLevel: [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4],
+};
+
+type SubclassCaster2014 = { className: string; table: SpellKnowledgeTable2014; spellListClass: string };
+
+const SUBCLASS_CASTERS_2014: Readonly<Record<string, SubclassCaster2014>> = {
+  ELDRITCH_KNIGHT: { className: "FIGHTER_2014", table: THIRD_CASTER_KNOWLEDGE_2014, spellListClass: "WIZARD_2014" },
+  ARCANE_TRICKSTER: { className: "ROGUE_2014", table: THIRD_CASTER_KNOWLEDGE_2014, spellListClass: "WIZARD_2014" },
+  ORDER_OF_THE_PROFANE_SOUL: { className: "BLOOD_HUNTER_2014", table: PROFANE_SOUL_KNOWLEDGE, spellListClass: "WARLOCK_2014" },
 };
 
 export type SpellKnowledge2014 = { cantrips: number; known: number | null; maxSpellLevel: number };
 
+function findSubclassCaster2014(className: string, subclassName: string | null): SubclassCaster2014 | null {
+  const caster = subclassName ? SUBCLASS_CASTERS_2014[subclassName] : undefined;
+  return caster && caster.className === className ? caster : null;
+}
+
+/** Клас без власного чаклунства, якому заклинання дає підклас: Лицар-чаклун, Містичний спритник, Орден нечестивої душі. */
+export function isSubclassCaster2014(className: string, subclassName: string | null): boolean {
+  return findSubclassCaster2014(className, subclassName) !== null;
+}
+
 export function isThirdCaster2014(className: string, subclassName: string | null): boolean {
-  return subclassName !== null && THIRD_CASTER_SUBCLASS_BY_CLASS[className] === subclassName;
+  return findSubclassCaster2014(className, subclassName)?.table === THIRD_CASTER_KNOWLEDGE_2014;
+}
+
+/** Список, з якого бере підклас-заклинач: чарівника для третинних, чорнокнижника для Нечестивої душі. */
+export function findSubclassSpellListClass2014(className: string, subclassName: string | null): string | null {
+  return findSubclassCaster2014(className, subclassName)?.spellListClass ?? null;
 }
 
 export function findSpellKnowledge2014(className: string, classLevel: number, subclassName: string | null = null): SpellKnowledge2014 | null {
-  const table = SPELL_KNOWLEDGE_2014[className] ?? (isThirdCaster2014(className, subclassName) ? THIRD_CASTER_KNOWLEDGE_2014 : null);
+  const table = SPELL_KNOWLEDGE_2014[className] ?? findSubclassCaster2014(className, subclassName)?.table ?? null;
   return table ? readTableAtLevel(table, classLevel) : null;
 }
 

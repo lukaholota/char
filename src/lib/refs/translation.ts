@@ -262,6 +262,8 @@ export const classTranslations = {
   SORCERER_2024: "Чародій",
   WARLOCK_2024: "Чорнокнижник",
   WIZARD_2024: "Чарівник",
+  BLOOD_HUNTER_2014: "Мисливець за кровʼю",
+  BLOOD_HUNTER_2024: "Мисливець за кровʼю",
 } as const;
 
 export const classTranslationsEng = {
@@ -291,6 +293,8 @@ export const classTranslationsEng = {
   SORCERER_2024: "Sorcerer",
   WARLOCK_2024: "Warlock",
   WIZARD_2024: "Wizard",
+  BLOOD_HUNTER_2014: "Blood Hunter",
+  BLOOD_HUNTER_2024: "Blood Hunter",
 } as const;
 
 export const subclassTranslations = {
@@ -465,6 +469,10 @@ export const subclassTranslations = {
   SCHOOL_OF_ILLUSION: "Школа ілюзії",
   SCHOOL_OF_NECROMANCY: "Школа некромантії",
   ORDER_OF_SCRIBES: "Орден писарів",
+  ORDER_OF_THE_GHOSTSLAYER: "Орден мисливців на привидів",
+  ORDER_OF_THE_LYCAN: "Орден лікантропів",
+  ORDER_OF_THE_MUTANT: "Орден мутантів",
+  ORDER_OF_THE_PROFANE_SOUL: "Орден нечестивої душі",
   SCHOOL_OF_TRANSMUTATION: "Школа перетворення",
   SCHOOL_OF_WAR_MAGIC: "Школа бойової магії",
 
@@ -691,6 +699,10 @@ export const subclassTranslationsEng = {
   SCHOOL_OF_ILLUSION: "School of Illusion",
   SCHOOL_OF_NECROMANCY: "School of Necromancy",
   ORDER_OF_SCRIBES: "Order of Scribes",
+  ORDER_OF_THE_GHOSTSLAYER: "Order of the Ghostslayer",
+  ORDER_OF_THE_LYCAN: "Order of the Lycan",
+  ORDER_OF_THE_MUTANT: "Order of the Mutant",
+  ORDER_OF_THE_PROFANE_SOUL: "Order of the Profane Soul",
   SCHOOL_OF_TRANSMUTATION: "School of Transmutation",
   SCHOOL_OF_WAR_MAGIC: "School of War Magic",
 
@@ -1034,6 +1046,7 @@ export const sourceTranslations = {
   FRHoF: "Забуті Королівства: Герої Фаеруну",
   EFA: "Еберрон: Горнило Винахідника",
   RHW: "Равенлофт: Жахіття Всередині",
+  BLOOD_HUNTER: "Мисливець за кровʼю (Метт Мерсер, 2020)",
   HOMEBREW: "Хоумбрю"
 } as const;
 
@@ -1078,6 +1091,7 @@ export const sourceTranslationsEng = {
   FRHoF: "Forgotten Realms: Heroes of Faerûn",
   EFA: "Eberron: Forge of the Artificer",
   RHW: "Ravenloft: The Horrors Within",
+  BLOOD_HUNTER: "Blood Hunter (Matthew Mercer, 2020)",
   HOMEBREW: "Homebrew"
 } as const;
 

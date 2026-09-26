@@ -36,6 +36,7 @@ async function loadSpellSourcesInput(persId: number): Promise<SpellSourcesInput 
       class: { select: CASTING_CLASS_SELECT },
       subclass: { select: CASTING_CLASS_SELECT },
       multiclasses: { select: { class: { select: CASTING_CLASS_SELECT }, subclass: { select: CASTING_CLASS_SELECT } } },
+      choiceOptions: { select: { optionNameEng: true, effectAbility: true } },
       race: {
         select: {
           traits: { select: { feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } } } },
@@ -91,7 +92,10 @@ export type PersClassRows = {
   class: ClassRow | null;
   subclass: ClassRow | null;
   multiclasses: ReadonlyArray<{ class: ClassRow | null; subclass: ClassRow | null }>;
+  choiceOptions?: ReadonlyArray<{ optionNameEng: string; effectAbility: string | null }>;
 };
+
+const HEMOCRAFT_ABILITY_OPTION = /^Hemocraft Ability: /;
 
 /** Початковий клас і кожен побічний, кожен зі своїм підкласом — у порядку взяття класів. */
 export function collectSpellcastingClasses(pers: PersClassRows): SpellcastingClass[] {
@@ -100,7 +104,13 @@ export function collectSpellcastingClasses(pers: PersClassRows): SpellcastingCla
     ...pers.multiclasses.map((entry) => ({ class: entry.class, subclass: entry.subclass })),
   ];
 
-  return pairs.flatMap((pair) => (pair.class ? [toSpellcastingClass(pair.class, pair.subclass)] : []));
+  const hemocraftAbility = findChosenHemocraftAbility(pers.choiceOptions ?? []);
+  return pairs.flatMap((pair) => (pair.class ? [{ ...toSpellcastingClass(pair.class, pair.subclass), hemocraftAbility }] : []));
+}
+
+function findChosenHemocraftAbility(choiceOptions: NonNullable<PersClassRows["choiceOptions"]>): AbilityKey | null {
+  const chosen = choiceOptions.find((option) => HEMOCRAFT_ABILITY_OPTION.test(option.optionNameEng));
+  return (chosen?.effectAbility ?? null) as AbilityKey | null;
 }
 
 function toSpellcastingClass(characterClass: ClassRow, subclass: ClassRow | null): SpellcastingClass {

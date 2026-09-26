@@ -63,7 +63,20 @@ export const THIRD_CASTER_PREPARATION_2024: SpellPreparationTable = {
   maxSpellLevel: [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4],
 };
 
-const THIRD_CASTER_SUBCLASSES = new Set(["ELDRITCH_KNIGHT", "ARCANE_TRICKSTER"]);
+// O45, контракт адаптації 2024: Орден нечестивої душі лишається заклиначем «відомих» заклинань за таблицею
+// Blood Hunter 2020. У 2024 це те саме, що колонка «підготовлених» чорнокнижника: число фіксоване, а
+// міняється одне заклинання лише на підвищенні рівня класу.
+export const PROFANE_SOUL_PREPARATION_2024: SpellPreparationTable = {
+  cantrips: [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+  prepared: [0, 0, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11],
+  maxSpellLevel: [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4],
+};
+
+const SUBCLASS_PREPARATION_TABLES: Readonly<Record<string, SpellPreparationTable>> = {
+  ELDRITCH_KNIGHT: THIRD_CASTER_PREPARATION_2024,
+  ARCANE_TRICKSTER: THIRD_CASTER_PREPARATION_2024,
+  ORDER_OF_THE_PROFANE_SOUL: PROFANE_SOUL_PREPARATION_2024,
+};
 
 export type SpellCounts = { cantrips: number; prepared: number; maxSpellLevel: number };
 
@@ -88,11 +101,13 @@ export function findMaxPreparableSpellLevelByClass(
   );
 }
 
-// Третинний підклас готує зі списку ЧАРІВНИКА (PHB 2024: Лицар-Чаклун і Містичний спритник), тому
-// для каталогу стеля ключується списком, а не класом: воїн 7 (Лицар-Чаклун) / чарівник 1 — «Чарівник: 2».
+// Третинний підклас готує зі списку ЧАРІВНИКА (PHB 2024: Лицар-Чаклун і Містичний спритник), Орден
+// нечестивої душі — зі списку ЧОРНОКНИЖНИКА, тому для каталогу стеля ключується списком, а не класом:
+// воїн 7 (Лицар-Чаклун) / чарівник 1 — «Чарівник: 2».
 const SPELL_LIST_CLASS_BY_THIRD_CASTER: Readonly<Record<string, string>> = {
   ELDRITCH_KNIGHT: "WIZARD_2024",
   ARCANE_TRICKSTER: "WIZARD_2024",
+  ORDER_OF_THE_PROFANE_SOUL: "WARLOCK_2024",
 };
 
 export function findPreparableSpellLevelBySpellList(
@@ -113,6 +128,5 @@ export function findSpellListClass2024(className: string, subclassName: string |
 
 function findPreparationTable(className: string, subclassName: string | null): SpellPreparationTable | null {
   if (SPELL_PREPARATION_2024[className]) return SPELL_PREPARATION_2024[className];
-  if (subclassName && THIRD_CASTER_SUBCLASSES.has(subclassName)) return THIRD_CASTER_PREPARATION_2024;
-  return null;
+  return (subclassName && SUBCLASS_PREPARATION_TABLES[subclassName]) || null;
 }

@@ -1,13 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { ContentImage } from "@/components/no-ai/ContentImage";
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { ReportProblemDialog } from "@/lib/components/problemReport/ReportProblemDialog";
 
-import { WildMagicSurgeTableDialog } from "./WildMagicSurgeTableDialog";
 import { useWildMagicErrorCopy } from "./useWildMagicErrorCopy";
+
+// Межа помилок вантажиться з кожною сторінкою, а діалог тягне markdown-рендерер — сотні КБ.
+const WildMagicSurgeTableDialog = dynamic(
+  () => import("./WildMagicSurgeTableDialog").then((module) => module.WildMagicSurgeTableDialog),
+  { ssr: false },
+);
 
 const ILLUSTRATION_SRC = "/images/errors/wild-magic-surge.webp";
 const OWNER_TELEGRAM_URL = "https://t.me/LukaHolota";

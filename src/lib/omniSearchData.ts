@@ -19,8 +19,17 @@ import { describeMetamagicCost } from "@/lib/metamagic-cost";
 import { getAllInfusions } from "@/lib/infusionsData";
 import { getAllBastionFacilities } from "@/lib/bastionsData";
 import { getAllBackgrounds } from "@/lib/backgroundsData";
-import { getAllClasses, type SubclassData } from "@/lib/classesData";
-import { getAllRaces, RACE_SINGULAR } from "@/lib/racesData";
+import { getAllClasses, type ClassData, type ClassFeature } from "@/lib/classesData";
+import { getAllRaces, RACE_SINGULAR, type RaceBranch, type RaceData } from "@/lib/racesData";
+import {
+  buildClassReadingHref,
+  buildRaceReadingHref,
+  findBranchKey,
+  findFeatureKey,
+  findPlainEnglishName,
+  findTraitKey,
+  type RaceBranchKind,
+} from "@/lib/catalogs/reading-target";
 import { getAllConditions, getRuleCategory, RuleArticle } from "@/lib/rulesData";
 import { getAllRuleArticles2014 } from "@/lib/rules2014Data";
 import { getAllRuleArticles2024, getConditions2024 } from "@/lib/rules2024Data";
@@ -46,6 +55,7 @@ import {
   toEdition,
   type CatalogSlug,
 } from "@/lib/catalogs/catalog-registry";
+import type { Edition } from "@/rules/route-helpers";
 import { findAliasVariants } from "@/lib/search/searchAliases";
 import {
   buildQueryMatcher,
@@ -102,6 +112,11 @@ export type OmniSearchOutcome = {
   overflow: OmniSearchOverflow[];
 };
 
+export type OtherEditionMatches = {
+  edition: Edition;
+  items: OmniSearchItem[];
+};
+
 /// KR36.4: у режимі «Всі» стеля стоїть на кожен каталог окремо (рішення власника 2026-09-18 —
 /// плоский список, 8 рядків). Одна глобальна стеля після сортування віддавала всю видачу
 /// категорії з найбільшою кількістю збігів: «магія» не показувала жодного рядка Бестіарію й
@@ -109,6 +124,7 @@ export type OmniSearchOutcome = {
 export const PER_CATEGORY_RESULT_QUOTA = 8;
 const MAX_SEARCH_RESULTS = 50;
 const SHORT_ALIAS_LENGTH = 4;
+const OTHER_EDITION_ITEM_LIMIT = 3;
 
 /// Б10: за однакового рангу класи й раси мають перемагати однойменних істот бестіарію
 /// («друїд» — спершу клас, потім NPC-статблок). Нижче число — вищий пріоритет; усе, чого
@@ -152,7 +168,9 @@ export function buildOmniSearchIndex(ruleset: Ruleset = "RULES_2014"): OmniSearc
     ...collectBackgroundItems(ruleset),
     ...collectClassItems(ruleset),
     ...collectSubclassItems(ruleset),
+    ...collectClassFeatureItems(ruleset),
     ...collectRaceItems(ruleset),
+    ...collectRaceBranchItems(ruleset),
     ...collectRuleItems(ruleset),
     ...collectConditionItems(ruleset),
     ...collectCatalogShortcuts(ruleset),
@@ -175,17 +193,40 @@ export function searchOmniIndex(
   return findOmniSearchOutcome(query, ruleset, categoryFilter).items;
 }
 
+/// `serverItems` — персонажі й хоумбрю, які вже відібрав сервер (Р14). Вони ранжуються тим самим
+/// findMatchRank, що й каталог: точна назва хоумбрю мусить стати першою, а не йти в хвіст.
 export function findOmniSearchOutcome(
   query: string,
   ruleset: Ruleset = "RULES_2014",
-  categoryFilter?: OmniSearchCategory | "ALL"
+  categoryFilter?: OmniSearchCategory | "ALL",
+  serverItems: OmniSearchItem[] = []
 ): OmniSearchOutcome {
   const matcher = buildQueryMatcher(query);
   if (!matcher) return { items: [], overflow: [] };
 
-  const ranked = collectRankedMatches(matcher, ruleset, categoryFilter);
+  const ranked = [
+    ...collectRankedMatches(matcher, ruleset, categoryFilter),
+    ...rankServerItems(matcher, serverItems, categoryFilter),
+  ].sort(compareRankedMatches);
   const isSingleCategory = Boolean(categoryFilter) && categoryFilter !== "ALL";
   return isSingleCategory ? capWholeList(ranked) : capEachCategory(ranked);
+}
+
+/// Підказка «є в іншій редакції»: лише статичний каталог, лише перші кілька — це запасний вихід
+/// для порожньої видачі, а не друга видача поруч із першою.
+export function findOtherEditionMatches(
+  query: string,
+  ruleset: Ruleset,
+  categoryFilter?: OmniSearchCategory | "ALL"
+): OtherEditionMatches {
+  const otherRuleset: Ruleset = ruleset === "RULES_2024" ? "RULES_2014" : "RULES_2024";
+  const edition = toEdition(otherRuleset);
+
+  const items = findOmniSearchOutcome(query, otherRuleset, categoryFilter)
+    .items.filter((item) => !isCatalogShortcut(item))
+    .slice(0, OTHER_EDITION_ITEM_LIMIT)
+    .map((item) => ({ ...item, id: `edition-${edition}-${item.id}`, edition }));
+  return { edition, items };
 }
 
 function collectRankedMatches(
@@ -195,7 +236,7 @@ function collectRankedMatches(
 ): RankedMatch[] {
   const ranked: RankedMatch[] = [];
   for (const entry of collectSearchEntries(ruleset)) {
-    if (categoryFilter && categoryFilter !== "ALL" && entry.item.category !== categoryFilter) continue;
+    if (!isInCategory(entry.item, categoryFilter)) continue;
     if (!matchesQuery(matcher, entry.text) && !matchesExactAlias(matcher, entry.exactAliases)) continue;
     ranked.push({
       item: entry.item,
@@ -203,7 +244,21 @@ function collectRankedMatches(
     });
   }
 
-  return ranked.sort(compareRankedMatches);
+  return ranked;
+}
+
+function rankServerItems(
+  matcher: QueryMatcher,
+  serverItems: OmniSearchItem[],
+  categoryFilter?: OmniSearchCategory | "ALL"
+): RankedMatch[] {
+  return serverItems
+    .filter((item) => isInCategory(item, categoryFilter))
+    .map((item) => ({ item, rank: findMatchRank(matcher, item.title) }));
+}
+
+function isInCategory(item: OmniSearchItem, categoryFilter?: OmniSearchCategory | "ALL"): boolean {
+  return !categoryFilter || categoryFilter === "ALL" || item.category === categoryFilter;
 }
 
 function compareRankedMatches(a: RankedMatch, b: RankedMatch): number {
@@ -299,21 +354,13 @@ function findLabel(category: OmniSearchCategory, ruleset: Ruleset): string {
 
 /// Classes, subclasses and races used to send the reader into the character creator, because
 /// that was the only screen listing them. KR15.6 gave them catalogs, so a hit now opens the
-/// catalog with that entry already selected.
+/// catalog with that entry already selected; O44 opens the subclass, feature or branch itself.
 function findRaceHref(ruleset: Ruleset, engName: string): string {
-  return `${findRoutePrefix(ruleset)}/races?race=${toEntitySlug(engName)}`;
+  return buildRaceReadingHref(findRoutePrefix(ruleset), { raceKey: toEntitySlug(engName), branch: null, featureKey: null });
 }
 
 function findClassHref(ruleset: Ruleset, engName: string): string {
-  return `${findRoutePrefix(ruleset)}/classes?class=${toEntitySlug(engName)}`;
-}
-
-/// A subclass has no page of its own — it opens its class and gets found by the catalog's own
-/// search box, which reads subclass names into its haystack. `jump` is the section inside the
-/// class card the catalog scrolls to, so the reader lands on the subclass, not on the class top.
-function findSubclassHref(ruleset: Ruleset, className: string, subclass: SubclassData): string {
-  const params = `class=${toEntitySlug(className)}&q=${encodeURIComponent(subclass.name)}&jump=${subclass.slug}`;
-  return `${findRoutePrefix(ruleset)}/classes?${params}`;
+  return buildClassReadingHref(findRoutePrefix(ruleset), { classKey: toEntitySlug(engName), subclassKey: null, featureKey: null });
 }
 
 function stripBracketedSuffix(name: string): string {
@@ -666,7 +713,11 @@ function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
       subtitle: `${subclass.engName} · ${characterClass.name}`,
       category: "classes" as const,
       categoryLabel: findLabel("classes", ruleset),
-      href: findSubclassHref(ruleset, characterClass.engName, subclass),
+      href: buildClassReadingHref(findRoutePrefix(ruleset), {
+        classKey: characterClass.slug,
+        subclassKey: subclass.slug,
+        featureKey: null,
+      }),
       badge: "Підклас",
       keywords: ["підклас", "персонаж", "створення", subclass.engName, characterClass.name],
       aliases: findAliasVariants(
@@ -676,6 +727,77 @@ function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
       ),
     })),
   );
+}
+
+/// O44: здібність — окремий рядок із власною ціллю. Однойменні здібності різних класів і
+/// рівнів не зливаються: підзаголовок каже, чия це здібність. Р52 — як і для підкласів.
+function collectClassFeatureItems(ruleset: Ruleset): OmniSearchItem[] {
+  const prefix = findRoutePrefix(ruleset);
+  const categoryLabel = findLabel("classes", ruleset);
+
+  return getAllClasses(ruleset).flatMap((characterClass) => {
+    const toItem = (feature: ClassFeature, subclass: ClassData["subclasses"][number] | null): OmniSearchItem => ({
+      id: `class-feature-${characterClass.key}-${subclass?.key ?? "base"}-${findFeatureKey(feature)}`,
+      title: feature.name,
+      subtitle: `${[characterClass.name, subclass?.name].filter(Boolean).join(" → ")} · ${feature.level} рівень`,
+      category: "classes",
+      categoryLabel,
+      href: buildClassReadingHref(prefix, {
+        classKey: characterClass.slug,
+        subclassKey: subclass?.slug ?? null,
+        featureKey: findFeatureKey(feature),
+      }),
+      badge: "Здібність",
+      keywords: ["здібність", characterClass.name, subclass?.name ?? ""],
+      aliases: [findPlainEnglishName(feature.engName)],
+    });
+
+    return [
+      ...characterClass.features.map((feature) => toItem(feature, null)),
+      ...characterClass.subclasses
+        .filter((subclass) => !subclass.legacy)
+        .flatMap((subclass) => subclass.features.map((feature) => toItem(feature, subclass))),
+    ];
+  });
+}
+
+const RACE_BRANCH_BADGES: Record<RaceBranchKind, string> = { subrace: "Підраса", variant: "Варіант" };
+
+function collectRaceBranchItems(ruleset: Ruleset): OmniSearchItem[] {
+  return getAllRaces(ruleset).flatMap((race) => [
+    ...race.subraces.flatMap((branch) => collectBranchItems(ruleset, race, "subrace", branch)),
+    ...race.variants.flatMap((branch) => collectBranchItems(ruleset, race, "variant", branch)),
+  ]);
+}
+
+function collectBranchItems(ruleset: Ruleset, race: RaceData, kind: RaceBranchKind, branch: RaceBranch): OmniSearchItem[] {
+  const prefix = findRoutePrefix(ruleset);
+  const categoryLabel = findLabel("races", ruleset);
+  const target = { raceKey: race.slug, branch: { kind, key: findBranchKey(branch) } };
+
+  const branchItem: OmniSearchItem = {
+    id: `race-branch-${race.key}-${branch.key}`,
+    title: branch.name,
+    subtitle: `${branch.engName} · ${race.name}`,
+    category: "races",
+    categoryLabel,
+    href: buildRaceReadingHref(prefix, { ...target, featureKey: null }),
+    badge: RACE_BRANCH_BADGES[kind],
+    keywords: [RACE_BRANCH_BADGES[kind].toLowerCase(), race.name, race.engName],
+    aliases: [branch.engName],
+  };
+  const traitItems = branch.traits.map((trait) => ({
+    id: `race-branch-trait-${race.key}-${branch.key}-${findTraitKey(trait)}`,
+    title: trait.name,
+    subtitle: `${race.name} → ${branch.name}`,
+    category: "races" as const,
+    categoryLabel,
+    href: buildRaceReadingHref(prefix, { ...target, featureKey: findTraitKey(trait) }),
+    badge: "Риса",
+    keywords: ["риса", race.name, branch.name],
+    aliases: [findPlainEnglishName(trait.engName)],
+  }));
+  return [branchItem, ...traitItems];
 }
 
 function collectRaceItems(ruleset: Ruleset): OmniSearchItem[] {
