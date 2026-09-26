@@ -29,7 +29,7 @@ import { CHOICE_GROUPS } from "@/lib/logic/choicePoolRules";
 import { findGrantedSpells } from "@/rules/spell-sources";
 import { characterLevelOnly } from "@/rules/character-level";
 import { buildSpeciesPersSpellRows } from "@/server/db/species-level-grants";
-import { buildClassPersSpellRows, findMissingClassSpells } from "@/server/db/always-prepared-spell-grants";
+import { buildClassPersSpellRows, findMissingClassSpells, saveSubclassSpellGrants } from "@/server/db/always-prepared-spell-grants";
 import { findClassSpellProblem, saveClassSpellSelection, type ClassSpellOffer } from "@/server/db/class-spell-choices";
 import { buildClassOptionPersSpellRows, findClassOptionSpellProblem } from "@/server/db/class-option-spell-choices";
 import type { ClassSpellSelection } from "@/rules/class-spell-choices-2024";
@@ -483,24 +483,29 @@ function findFeatSpellSelection(validData: PersFormData, source: FeatChoiceSourc
 }
 
 /**
- * «Ви завжди маєте це заклинання підготовленим» від самого класу: Улюблений ворог слідопита дає
- * Hunter's Mark, Друїдична — Speak with Animals, і обидва — вже на 1-му рівні (KR31.5).
+ * «Ви завжди маєте це заклинання підготовленим» на 1-му рівні: від самого класу (Улюблений ворог
+ * слідопита дає Hunter's Mark, KR31.5) і від підкласу, який 2014 обирає одразу (Домен життя —
+ * Bless і Cure Wounds, Абераційний розум — Mind Sliver і ще два, O48).
  */
-async function saveClassPreparedSpells(
+async function saveRuleGrantedClassSpells(
   tx: CreationTransaction,
-  persId: number,
-  classId: number,
+  input: { persId: number; classId: number; subclassId: number | null | undefined },
 ): Promise<void> {
-  const characterClass = await tx.class.findUnique({ where: { classId }, select: { primaryCastingStat: true } });
-  const owned = await tx.persSpell.findMany({ where: { persId }, select: { spellId: true } });
+  const characterClass = await tx.class.findUnique({ where: { classId: input.classId }, select: { primaryCastingStat: true } });
+  const ability = characterClass?.primaryCastingStat ?? null;
+  const owned = await tx.persSpell.findMany({ where: { persId: input.persId }, select: { spellId: true } });
 
   const granted = await findMissingClassSpells(tx, {
-    classes: [{ classId, classLevel: 1, ability: characterClass?.primaryCastingStat ?? null }],
+    classes: [{ classId: input.classId, classLevel: 1, ability }],
     ownedSpellIds: owned.map((row) => row.spellId),
   });
-  if (!granted.length) return;
+  if (granted.length) {
+    await tx.persSpell.createMany({ data: buildClassPersSpellRows(input.persId, granted, 1), skipDuplicates: true });
+  }
 
-  await tx.persSpell.createMany({ data: buildClassPersSpellRows(persId, granted, 1), skipDuplicates: true });
+  if (input.subclassId) {
+    await saveSubclassSpellGrants(tx, { persId: input.persId, subclasses: [{ subclassId: input.subclassId, classLevel: 1, ability }], learnedAtLevel: 1 });
+  }
 }
 
 type LoadedRaceChoiceOption = LoadedCreationContent["raceChoiceOptions"][number];
@@ -1020,7 +1025,7 @@ async function persistCharacter(
       }
 
       await saveGrantedSpells(tx, createdPers.persId, content, ruleset);
-      await saveClassPreparedSpells(tx, createdPers.persId, validData.classId);
+      await saveRuleGrantedClassSpells(tx, { persId: createdPers.persId, classId: validData.classId, subclassId: validData.subclassId });
       if (chosenSpells.featSpells.length > 0) {
         await tx.persSpell.createMany({ data: buildFeatPersSpellRows(createdPers.persId, chosenSpells.featSpells, 1), skipDuplicates: true });
       }

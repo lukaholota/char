@@ -56,8 +56,10 @@ describe("заклинання в конструкторі 2014 — уся та�
     const created = await createCharacter(form({ cantripIds: ids(offer!.cantrips, 3), preparedIds: [], spellbookIds: [] }));
     if (!("persId" in created) || !created.persId) throw new Error(`не створився: ${JSON.stringify(created)}`);
     const spells = await readPersSpells(created.persId);
-    expect(spells).toHaveLength(3);
-    expect(spells.every((spell) => spell.origin === SpellOrigin.CLASS && spell.badgeText === "Клірик" && spell.isPrepared && spell.learnedAtLevel === 1)).toBe(true);
+    const classSpells = spells.filter((spell) => spell.badgeText === "Клірик");
+    expect(classSpells).toHaveLength(3);
+    expect(classSpells.every((spell) => spell.origin === SpellOrigin.CLASS && spell.isPrepared && spell.learnedAtLevel === 1)).toBe(true);
+    expect(spells.filter((spell) => spell.badgeText === "Домен життя").map((spell) => spell.engName).sort()).toEqual(["Bless", "Cure Wounds"]);
   });
 
   it("чарівник: три замовляння й шість заклинань до книги, книга — не підготовлена", async () => {

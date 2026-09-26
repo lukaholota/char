@@ -20,6 +20,7 @@ export const CORPUS_TEST_FILES = [
   "tests/content/spell-corrections-2014.test.ts",
   "tests/content/spells-prose-2024.test.ts",
   "tests/content/spells-source-prose-2024.test.ts",
+  "tests/content/subclass-granted-spells-2014-corpus.test.ts",
   "tests/content/warlock-expanded-spell-lists-2014.test.ts",
   "tests/content/xdmg-chapters-import.test.ts",
 ];

@@ -147,23 +147,76 @@ export async function findMissingSubclassOptionSpells(
   return findEarnedAlwaysPreparedSpells(buildSubclassOptionSpellSources(options), input.ownedSpellIds);
 }
 
+export type SubclassSpellGrants = { created: GrantedSpell[]; adopted: GrantedSpell[] };
+
+/**
+ * O48, рішення власника 2026-09-26: заклинання, яке гравець уже тримав своїм вибором (руками чи
+ * кроком класу), підклас забирає собі — рядок стає «від підкласу, поза лімітом», і місце в
+ * підготовці чи відомих звільняється. Рядок іншого правила (риса, вид) лишається своїм.
+ */
+export async function saveSubclassSpellGrants(
+  client: DatabaseClient,
+  input: { persId: number; subclasses: readonly SubclassAtClassLevel[]; learnedAtLevel: number },
+): Promise<SubclassSpellGrants> {
+  const grants = await findSubclassSpellGrants(client, input);
+  await writeSubclassSpellGrants(client, { persId: input.persId, grants, learnedAtLevel: input.learnedAtLevel });
+  return grants;
+}
+
+export async function findSubclassSpellGrants(
+  client: DatabaseClient,
+  input: { persId: number; subclasses: readonly SubclassAtClassLevel[] },
+): Promise<SubclassSpellGrants> {
+  const owned = await client.persSpell.findMany({
+    where: { persId: input.persId },
+    select: { spellId: true, origin: true, excludeFromPreparedCount: true },
+  });
+  const ownChoiceIds = new Set(owned.filter((row) => !isRuleGrantedRow(row)).map((row) => row.spellId));
+
+  const granted = await findMissingSubclassSpells(client, {
+    subclasses: input.subclasses,
+    ownedSpellIds: owned.filter(isRuleGrantedRow).map((row) => row.spellId),
+  });
+  return {
+    created: granted.filter((spell) => !ownChoiceIds.has(spell.spellId)),
+    adopted: granted.filter((spell) => ownChoiceIds.has(spell.spellId)),
+  };
+}
+
+export async function writeSubclassSpellGrants(
+  client: DatabaseClient,
+  input: { persId: number; grants: SubclassSpellGrants; learnedAtLevel: number },
+): Promise<void> {
+  const { persId, grants } = input;
+  if (grants.created.length) {
+    await client.persSpell.createMany({ data: buildSubclassPersSpellRows(persId, grants.created, input.learnedAtLevel), skipDuplicates: true });
+  }
+  for (const spell of grants.adopted) {
+    await client.persSpell.update({
+      where: { persId_spellId: { persId, spellId: spell.spellId } },
+      data: toGrantFields(spell, SUBCLASS_SPELL_BADGE_COLOR),
+    });
+  }
+}
+
+function isRuleGrantedRow(row: { origin: SpellOrigin; excludeFromPreparedCount: boolean }): boolean {
+  return row.origin !== SpellOrigin.MANUAL && row.excludeFromPreparedCount;
+}
+
 /**
  * Заклинання від правила лягають окремими рядками зі своїм джерелом і не зʼїдають ліміт
  * підготовки: книга каже «ви завжди маєте їх підготовленими», тобто понад норму класу.
  */
 export function buildSubclassPersSpellRows(persId: number, spells: readonly GrantedSpell[], learnedAtLevel: number) {
-  return spells.map((spell) => toPersSpellRow(persId, spell, learnedAtLevel, SUBCLASS_SPELL_BADGE_COLOR));
+  return spells.map((spell) => ({ persId, spellId: spell.spellId, learnedAtLevel, ...toGrantFields(spell, SUBCLASS_SPELL_BADGE_COLOR) }));
 }
 
 export function buildClassPersSpellRows(persId: number, spells: readonly GrantedSpell[], learnedAtLevel: number) {
-  return spells.map((spell) => toPersSpellRow(persId, spell, learnedAtLevel, CLASS_SPELL_BADGE_COLOR));
+  return spells.map((spell) => ({ persId, spellId: spell.spellId, learnedAtLevel, ...toGrantFields(spell, CLASS_SPELL_BADGE_COLOR) }));
 }
 
-function toPersSpellRow(persId: number, spell: GrantedSpell, learnedAtLevel: number, badgeColor: string) {
+function toGrantFields(spell: GrantedSpell, badgeColor: string) {
   return {
-    persId,
-    spellId: spell.spellId,
-    learnedAtLevel,
     origin: SpellOrigin.CLASS,
     sourceName: spell.sourceKey,
     isPrepared: true,

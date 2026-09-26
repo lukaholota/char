@@ -38,7 +38,7 @@ import {
   buildSubclassPersSpellRows,
   findMissingClassSpells,
   findMissingSubclassOptionSpells,
-  findMissingSubclassSpells,
+  saveSubclassSpellGrants,
   type ClassAtLevel,
 } from "@/server/db/always-prepared-spell-grants";
 import { buildFeatPersSpellRows, findMissingFeatSpells } from "@/server/db/feat-spell-grants";
@@ -1493,18 +1493,14 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
         });
       }
 
-      const subclassSpells = await findMissingSubclassSpells(tx, {
+      const subclassGrants = await saveSubclassSpellGrants(tx, {
+        persId,
         subclasses: classesAtLevel.flatMap((row) =>
           row.subclassId ? [{ subclassId: row.subclassId, classLevel: row.classLevel, ability: row.ability }] : [],
         ),
-        ownedSpellIds: [...ownedSpellIds, ...classSpells.map((spell) => spell.spellId)],
+        learnedAtLevel: nextLevel,
       });
-      if (subclassSpells.length > 0) {
-        await tx.persSpell.createMany({
-          data: buildSubclassPersSpellRows(persId, subclassSpells, nextLevel),
-          skipDuplicates: true,
-        });
-      }
+      const subclassSpells = [...subclassGrants.created, ...subclassGrants.adopted];
 
       // Опція підкласу, що сама несе заклинання (Коло землі 2024): усі обрані опції, не лише
       // цього рівня — Завірюха Полярної землі приходить на 5-му, а землю обрали на 3-му (KR37.3).
