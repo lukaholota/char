@@ -9,8 +9,9 @@ export function calculateCasterLevel(character: SpellcastingCharacter, ruleset: 
   const mainLevel = clamp(toInteger(character.level, 1) - multiclasses.reduce((sum, multiclass) => sum + toInteger(multiclass.classLevel, 0), 0), 1, 20);
   const classLevels = [{ classLevel: mainLevel, characterClass: character.characterClass, subclass: character.subclass }, ...multiclasses];
 
+  const usesOwnClassTable = countSlotSpellcastingClasses(classLevels) === 1;
   return classLevels.reduce(
-    (total, classLevel) => addCasterLevel(total, classLevel, ruleset),
+    (total, classLevel) => addCasterLevel(total, classLevel, ruleset, usesOwnClassTable),
     { casterLevel: 0, pactLevel: 0 },
   );
 }
@@ -58,11 +59,13 @@ export function applySpellSlotMaximumDelta(
   });
 }
 
-function addCasterLevel(total: CasterLevel, classLevel: SpellcastingClassLevel, ruleset: Ruleset): CasterLevel {
+function addCasterLevel(total: CasterLevel, classLevel: SpellcastingClassLevel, ruleset: Ruleset, usesOwnClassTable: boolean): CasterLevel {
   const level = clamp(toInteger(classLevel.classLevel, 1), 1, 20);
   const kind = getEffectiveSpellcastingKind(classLevel);
   if (kind === "PACT") return { ...total, pactLevel: clamp(total.pactLevel + level, 0, 20) };
-  const contribution = getCasterLevelContribution(level, kind, ruleset, classLevel.characterClass?.name);
+  const contribution = usesOwnClassTable
+    ? findOwnClassTableCasterLevel(level, kind, ruleset, classLevel.characterClass?.name)
+    : getCasterLevelContribution(level, kind, ruleset, classLevel.characterClass?.name);
   return { ...total, casterLevel: clamp(total.casterLevel + contribution, 0, 20) };
 }
 
@@ -86,6 +89,21 @@ function getCasterLevelContribution(level: number, kind: SpellcastingKind, rules
   // levels (round down)»; підтверджено власником 2026-09-01. Пройдисвіт 4 (Таємний) / Бард 4
   // має рівень заклинача 5, не 6.
   if (kind === "THIRD") return Math.floor(level / 3);
+  return 0;
+}
+
+function countSlotSpellcastingClasses(classLevels: SpellcastingClassLevel[]): number {
+  return classLevels.filter((classLevel) => ["FULL", "HALF", "THIRD"].includes(getEffectiveSpellcastingKind(classLevel))).length;
+}
+
+// Формула мультикласу — лише для кількох класів зі Spellcasting (PHB 2014, с. 164). Один такий
+// клас читає власну таблицю, і вона збігається з рядком повного заклинача на рівні, округленому
+// ВГОРУ: паладин 5 → 3 → 4/2, Лицар-чародій 4 → 2 → 3. Паладин і слідопит 2014 на 1 рівні
+// слотів не мають, Лицар-чародій і Таємний пройдисвіт — до 3 рівня.
+function findOwnClassTableCasterLevel(level: number, kind: SpellcastingKind, ruleset: Ruleset, className: string | null | undefined): number {
+  if (kind === "FULL") return level;
+  if (kind === "HALF") return level === 1 && !roundsHalfCasterUp(ruleset, className) ? 0 : Math.ceil(level / 2);
+  if (kind === "THIRD") return level < 3 ? 0 : Math.ceil(level / 3);
   return 0;
 }
 

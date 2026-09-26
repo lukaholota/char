@@ -155,3 +155,52 @@ describe("KR27.6 — рівень заклинача мультикласу 2024
     expect(calculateCasterLevel(paladin, "RULES_2014").casterLevel).toBe(0);
   });
 });
+
+// PHB 2014, с. 164: таблицю мультикласу беруть, лише коли Spellcasting дає більш ніж один клас.
+// Інакше — таблиця свого класу (с. 84, 89, 73, 97); формула мультикласу там дає менше слотів.
+describe("слоти одного класу із Spellcasting — за таблицею класу", () => {
+  const levels = Array.from({ length: 20 }, (_, index) => index + 1);
+  const slotsOf = (character: Parameters<typeof getMaximumStandardSpellSlots>[0], ruleset: "RULES_2014" | "RULES_2024") =>
+    getMaximumStandardSpellSlots(character, SPELL_SLOT_PROGRESSION.FULL, ruleset);
+
+  it.each(["PALADIN_2014", "RANGER_2014"])("%s 1–20 збігається з таблицею половинного заклинача", (className) => {
+    for (const level of levels) {
+      const character = { level, characterClass: { name: className, spellcastingType: "HALF" as const } };
+      expect([level, slotsOf(character, "RULES_2014")]).toEqual([level, SPELL_SLOT_PROGRESSION.HALF[level as keyof typeof SPELL_SLOT_PROGRESSION.HALF]]);
+    }
+  });
+
+  it.each(["RULES_2014", "RULES_2024"] as const)("Лицар-чародій %s 3–20 збігається з таблицею третинного заклинача", (ruleset) => {
+    for (const level of levels.filter((value) => value >= 3)) {
+      const character = { level, characterClass: { name: "FIGHTER", spellcastingType: "NONE" as const }, subclass: { spellcastingType: "THIRD" as const } };
+      expect([level, slotsOf(character, ruleset)]).toEqual([level, SPELL_SLOT_PROGRESSION.THIRD[level as keyof typeof SPELL_SLOT_PROGRESSION.THIRD]]);
+    }
+  });
+
+  it("паладин 5 / воїн 3 без Spellcasting — слоти паладина 5", () => {
+    const character = {
+      level: 8,
+      characterClass: { name: "PALADIN_2014", spellcastingType: "HALF" as const },
+      multiclasses: [{ classLevel: 3, characterClass: { name: "FIGHTER_2014", spellcastingType: "NONE" as const } }],
+    };
+    expect(slotsOf(character, "RULES_2014")).toEqual([4, 2, 0, 0, 0, 0, 0, 0, 0]);
+  });
+
+  it("паладин 5 / чорнокнижник 3 — магія пакту не робить паладина мультикласовим заклиначем", () => {
+    const character = {
+      level: 8,
+      characterClass: { name: "PALADIN_2014", spellcastingType: "HALF" as const },
+      multiclasses: [{ classLevel: 3, characterClass: { name: "WARLOCK_2014", spellcastingType: "PACT" as const } }],
+    };
+    expect(calculateCasterLevel(character, "RULES_2014")).toEqual({ casterLevel: 3, pactLevel: 3 });
+  });
+
+  it("паладин 5 / чарівник 3 — два класи зі Spellcasting, формула мультикласу", () => {
+    const character = {
+      level: 8,
+      characterClass: { name: "PALADIN_2014", spellcastingType: "HALF" as const },
+      multiclasses: [{ classLevel: 3, characterClass: { name: "WIZARD_2014", spellcastingType: "FULL" as const } }],
+    };
+    expect(calculateCasterLevel(character, "RULES_2014").casterLevel).toBe(5);
+  });
+});
