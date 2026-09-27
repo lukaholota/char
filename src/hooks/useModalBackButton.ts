@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { goBackInHistory, waitForPendingHistoryBack } from "@/lib/history-back";
+import { goBackInHistory, replaceUrlKeepingHistoryState, waitForPendingHistoryBack } from "@/lib/history-back";
 
 const MODAL_HISTORY_STATE_KEY = "__modalBackButtonToken";
 
@@ -25,13 +25,30 @@ function removeModalToken(token: string) {
   if (index >= 0) stack.splice(index, 1);
 }
 
+function readHistoryToken(): unknown {
+  return (window.history.state as Record<string, unknown> | null)?.[MODAL_HISTORY_STATE_KEY];
+}
+
 function peekModalToken(): string | null {
   const stack = getModalStack();
   return stack.length ? stack[stack.length - 1] : null;
 }
 
-export function useModalBackButton(isOpen: boolean, onClose: () => void) {
+function carryUrlToEntryBelow(modalEntryUrl: string | null) {
+  if (!modalEntryUrl || modalEntryUrl === window.location.href) return;
+  if (new URL(modalEntryUrl).pathname !== window.location.pathname) return;
+  replaceUrlKeepingHistoryState(modalEntryUrl);
+}
+
+type ModalBackButtonOptions = {
+  /** Адреса, дописана поки модалка відкрита (фільтри каталогу), лишається після її закриття. */
+  keepUrlOnClose?: boolean;
+};
+
+export function useModalBackButton(isOpen: boolean, onClose: () => void, { keepUrlOnClose = false }: ModalBackButtonOptions = {}) {
   const onCloseRef = useRef(onClose);
+  const keepUrlOnCloseRef = useRef(keepUrlOnClose);
+  const modalEntryUrlRef = useRef<string | null>(null);
   const pushedRef = useRef(false);
   const closedByPopRef = useRef(false);
   const tokenRef = useRef<string | null>(null);
@@ -49,7 +66,8 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
 
   useEffect(() => {
     onCloseRef.current = onClose;
-  }, [onClose]);
+    keepUrlOnCloseRef.current = keepUrlOnClose;
+  }, [onClose, keepUrlOnClose]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -63,12 +81,17 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
 
       // Close ONLY if we navigated away from this modal's injected entry.
       // This makes nested modals safe: only the top one closes on back.
-      const currentToken = (window.history.state as Record<string, unknown> | null)?.[MODAL_HISTORY_STATE_KEY];
+      const currentToken = readHistoryToken();
       if (currentToken === token) return;
 
       closedByPopRef.current = true;
       removeModalToken(token);
       onCloseRef.current();
+      if (keepUrlOnCloseRef.current) carryUrlToEntryBelow(modalEntryUrlRef.current);
+    };
+
+    const rememberModalEntryUrl = () => {
+      if (readHistoryToken() === token) modalEntryUrlRef.current = window.location.href;
     };
 
     void waitForPendingHistoryBack().then(() => {
@@ -81,12 +104,15 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
         pushedRef.current = true;
       }
 
+      rememberModalEntryUrl();
       window.addEventListener("popstate", handlePopState);
+      window.addEventListener("locationchange", rememberModalEntryUrl);
     });
 
     return () => {
       isCancelled = true;
       window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener("locationchange", rememberModalEntryUrl);
     };
   }, [isOpen]);
 
@@ -110,12 +136,15 @@ export function useModalBackButton(isOpen: boolean, onClose: () => void) {
     }
 
     // Close via UI: pop our injected history entry.
-    const currentToken = (window.history.state as Record<string, unknown> | null)?.[MODAL_HISTORY_STATE_KEY];
+    const currentToken = readHistoryToken();
     if (currentToken === token) {
+      const modalEntryUrl = window.location.href;
       goBackInHistory();
+      if (keepUrlOnCloseRef.current) void waitForPendingHistoryBack().then(() => carryUrlToEntryBelow(modalEntryUrl));
     }
 
     pushedRef.current = false;
     closedByPopRef.current = false;
+    modalEntryUrlRef.current = null;
   }, [isOpen]);
 }

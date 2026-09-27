@@ -18,6 +18,8 @@ import { attributesUkrShort } from "@/lib/refs/translation";
 import { findAbilityScoreCeiling, raiseAbilityScore } from "@/rules/ability-score-ceiling";
 import type { Subrace, RaceVariant } from "@prisma/client";
 import { Races } from "@/lib/prisma-enums";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildSpendPointsHint } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   feats: FeatPrisma[];
@@ -144,19 +146,15 @@ export default function LevelUpASIForm({
     }
   }, [choiceType, storedChoiceType, updateFormData, allowAbilityScoreIncrease]);
 
+  const featValid = !featFormDisabled && (renderFeatChoicesInline ? !featOptionsDisabled : true);
+  const disabled = choiceType === "ASI" ? totalAsi !== 2 : choiceType === "FEAT" && !featValid;
+  useNextStepHint(choiceType === "ASI" ? buildSpendPointsHint(totalAsi, 2) : choiceType === "FEAT" && featFormDisabled ? "Оберіть рису." : null);
   useEffect(() => {
-    const asiValid = choiceType === "ASI" ? totalAsi === 2 : true;
-    const featValid = choiceType === "FEAT"
-      ? (!featFormDisabled && (renderFeatChoicesInline ? !featOptionsDisabled : true))
-      : true;
-
-    const disabled = !(asiValid && featValid);
-
     if (prevDisabledRef.current !== disabled) {
       prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
     }
-  }, [choiceType, totalAsi, featFormDisabled, featOptionsDisabled, renderFeatChoicesInline, onNextDisabledChange]);
+  }, [disabled, onNextDisabledChange]);
 
   const selectedFeatId = useMemo(() => {
     const raw = (formData as { featId?: unknown }).featId;

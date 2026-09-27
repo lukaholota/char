@@ -12,6 +12,8 @@ import { LanguageTranslations } from "@/lib/refs/translation";
 import { collectOriginLanguages, countOriginLanguageChoices, listChoosableLanguages } from "@/rules/languages";
 import type { RulesetId } from "@/rules/strategies/types";
 import clsx from "clsx";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, LANGUAGE_FORMS } from "@/lib/components/wizard/pick-hint";
 
 const EMPTY_LANGUAGES: string[] = [];
 
@@ -96,6 +98,8 @@ export const LanguagesForm = ({
   }, [race, selectedClass, subclass, selectedSubrace, background, feat, backgroundFeat, activeFeatures, formData.raceChoiceSelections, forcedLanguagesToChooseCount, originRuleset]);
 
   const selectedLanguages = form.watch("languages") ?? EMPTY_LANGUAGES;
+
+  useNextStepHint(isOptional ? null : buildPickHint(selectedLanguages.length, languagesToChooseCount, LANGUAGE_FORMS));
 
   useEffect(() => {
     if (isOptional) {

@@ -2,6 +2,8 @@
  * Common URL search parameters helpers for catalog pages (Spells, Items, Feats, Bestiary).
  */
 
+import { replaceUrlKeepingHistoryState } from "@/lib/history-back";
+
 export function getParamSet(params: URLSearchParams, key: string): Set<string> {
   const raw = params.get(key);
   if (!raw) return new Set();
@@ -53,7 +55,7 @@ export function replaceUrlSearchParams(next: URLSearchParams) {
   if (typeof window === "undefined") return;
   const search = next.toString();
   const newUrl = `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`;
-  window.history.replaceState(window.history.state, "", newUrl);
+  replaceUrlKeepingHistoryState(newUrl);
 }
 
 

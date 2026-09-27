@@ -18,6 +18,7 @@ import { Source } from "@/lib/prisma-enums";
 import { CreationCard } from "@/components/characterCreator/CreationCard";
 import { formatSkillProficiencies } from "@/lib/components/characterCreator/infoUtils";
 import { getBackgroundCreationVisual } from "@/components/characterCreator/creation-visuals";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -56,6 +57,8 @@ export const BackgroundsForm = (
   const chosenBackgroundId = form.watch('backgroundId') || 0
   const backgroundSearch = form.watch('backgroundSearch') || ''
   const normalizedBackgroundSearch = useMemo(() => normalizeText(backgroundSearch), [backgroundSearch])
+
+  useNextStepHint(chosenBackgroundId ? null : "Оберіть передісторію.");
 
   useEffect(() => {
     if (!chosenBackgroundId) {

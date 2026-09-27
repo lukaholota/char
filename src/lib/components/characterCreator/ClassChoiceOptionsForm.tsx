@@ -24,6 +24,8 @@ interface Props {
 
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildGroupPickHint, countGroupSelection, findFirstHint } from "@/lib/components/wizard/pick-hint";
 
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
@@ -84,6 +86,10 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
   const charLevel = useMemo(() => {
      return initialLevel ?? (formData.classId === selectedClass?.classId ? (formData as any).level || 1 : 1);
   }, [initialLevel, formData, selectedClass]);
+
+  useNextStepHint(findFirstHint(groupedOptions.map(({ groupName }) =>
+    buildGroupPickHint(groupName, countGroupSelection(selections[groupName]), Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1))
+  )));
 
   useEffect(() => {
     let disabled: boolean;

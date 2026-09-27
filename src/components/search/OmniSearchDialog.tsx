@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { Search } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 /// Панель тягне за собою весь статичний індекс — усі згенеровані каталоги, ~1,26 МіБ gzip.
 /// Тому вона приїжджає окремим чанком на першу спробу пошуку, а не в бандлі кореневого
@@ -17,6 +18,7 @@ const OmniSearchPanel = dynamic(
 export function OmniSearchDialog() {
   const { isOpen, close, toggle } = useOmniSearchStore();
   const [viewport, setViewport] = useState<{ top: number; height: number } | null>(null);
+  useEffect(() => { if (isOpen) capturePostHogEvent("search_opened"); }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen || !window.visualViewport) return;

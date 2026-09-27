@@ -315,8 +315,10 @@ export const fullCharacterSchema = z.object({
   backgroundAsiChoice: backgroundAsiChoiceSchema.optional(),
   classSpells: classSpellsSchema.optional(),
   featSpellSelections: featSpellSelectionsSchema.optional(),
-  /** Книга тіней Pact of the Tome: заклинання, які дає обрати опція класу. */
+  /** Книга тіней Pact of the Tome або риса підкласу 1-го рівня 2014: заклинання, які дає обрати клас. */
   classOptionSpellIds: z.array(z.number().int().positive()).optional(),
+  /** Замовляння, яке раса 2014 дає обрати: Високий ельф, Кобольд, Астральний ельф. */
+  raceSpellIds: z.array(z.number().int().positive()).optional(),
   nameSchema: nameSchema.optional()
   ,
   // -------------------------------------------------------------------------
@@ -330,6 +332,8 @@ export const fullCharacterSchema = z.object({
   levelUpSkillSelections: z.record(z.string(), z.array(skills)).default({}).optional(),
   featSpellIds: z.array(z.number().int().positive()).optional(),
   featGrowthSpellIds: z.array(z.number().int().positive()).optional(),
+  /** KR48.7: вибір, пропущений персонажем 2014 до KR48.6, — за ключем джерела. */
+  catchUpSpellSelections: z.record(z.string(), z.array(z.number().int().positive())).optional(),
 })
 
  .superRefine((data, ctx) => {

@@ -30,6 +30,7 @@ export const levelUpInputSchema = z.object({
   featSpellIds: z.array(z.coerce.number()).catch([]),
   featGrowthSpellIds: z.array(z.coerce.number()).catch([]),
   classOptionSpellIds: z.array(z.coerce.number()).catch([]),
+  catchUpSpellSelections: z.record(z.string(), z.array(z.coerce.number())).catch({}),
   classSpells: z
     .object({
       cantripIds: z.array(z.coerce.number()).catch([]),

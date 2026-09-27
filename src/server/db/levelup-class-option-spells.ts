@@ -11,18 +11,21 @@ import {
   type SubclassAtLevel,
 } from "@/server/db/class-option-spell-choices";
 import { findUserIdByEmail } from "@/server/db/users";
+import { loadCatchUpSpellOffers, type CatchUpSpellOffer } from "@/server/db/catch-up-spell-choices-2014";
 
 export type LevelUpClassTarget = { classId: number; subclassId: number | null };
+
+/** KR48.7: вибір, який персонаж 2014 пропустив до KR48.6. */
+export async function loadLevelUpCatchUpSpellOffers(persId: number): Promise<CatchUpSpellOffer[]> {
+  return (await canCurrentUserEdit(persId)) ? loadCatchUpSpellOffers(prisma, persId) : [];
+}
 
 export async function loadLevelUpClassOptionSpellOffer(
   persId: number,
   newlyChosenOptionIds: readonly number[],
   target: LevelUpClassTarget | null,
 ): Promise<ClassOptionSpellOffer | null> {
-  const session = await auth();
-  if (!session?.user?.email) return null;
-  const userId = await findUserIdByEmail(session.user.email);
-  if (userId === null || !(await canEditPers(persId, userId))) return null;
+  if (!(await canCurrentUserEdit(persId))) return null;
 
   return loadClassOptionSpellOffer(prisma, {
     newlyChosenOptionIds,
@@ -44,6 +47,13 @@ export async function findLevelUpClassOptionSpellProblem(input: {
     unavailableSpellIds: [...(await findOwnedSpellIds(input.persId)), ...input.alsoChosenSpellIds],
     selectedSpellIds: input.selectedSpellIds,
   });
+}
+
+async function canCurrentUserEdit(persId: number): Promise<boolean> {
+  const session = await auth();
+  if (!session?.user?.email) return false;
+  const userId = await findUserIdByEmail(session.user.email);
+  return userId !== null && (await canEditPers(persId, userId));
 }
 
 async function findOwnedSpellIds(persId: number): Promise<number[]> {

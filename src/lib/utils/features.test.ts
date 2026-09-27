@@ -33,7 +33,7 @@ describe("підпис під назвою фічі на листі", () => {
 describe("пошук по фічах листа", () => {
   const features = [
     { name: "Темнозір", shortDescription: "Темнозір", description: "Ви бачите в темряві на 60 футів.", source: "RACE", sourceName: "Ельф" },
-    { name: "Магія пакту", shortDescription: "Магія пакту", description: "Ваш покровитель дарує слоти заклинань.", source: "CLASS", sourceName: "Чорнокнижник" },
+    { name: "Магія пакту", engName: "Pact Magic", shortDescription: "Магія пакту", description: "Ваш покровитель дарує слоти заклинань.", source: "CLASS", sourceName: "Чорнокнижник" },
     { name: "ALERT", shortDescription: null, description: "Бонус до ініціативи.", source: "FEAT", sourceName: "Риса походження" },
   ];
 
@@ -47,6 +47,10 @@ describe("пошук по фічах листа", () => {
 
   it("шукає в тексті опису", () => {
     expect(filterFeaturesByQuery(features, "слоти").map((f) => f.name)).toEqual(["Магія пакту"]);
+  });
+
+  it("шукає за англійською назвою", () => {
+    expect(filterFeaturesByQuery(features, "pact mag").map((f) => f.name)).toEqual(["Магія пакту"]);
   });
 
   it("знаходить рису за перекладеною назвою, хоча в даних лежить ключ", () => {

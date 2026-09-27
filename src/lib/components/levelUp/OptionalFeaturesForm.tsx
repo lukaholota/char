@@ -13,6 +13,8 @@ import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDi
 import { ClassI, SubclassI } from "@/lib/types/model-types";
 import ChoiceReplacementForm from "@/lib/components/levelUp/ChoiceReplacementForm";
 import { findReplacedChoiceGroup, isReplacedGroupMatch } from "@/rules/choice-replacement";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { findOptionalFeatureHint } from "@/lib/components/wizard/optional-feature-hint";
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -124,6 +126,10 @@ export default function OptionalFeaturesForm({
     return fromPers?.optionNameEng ? String(fromPers.optionNameEng) : undefined;
   }, [formData.classChoiceSelections, persChoiceOptions, selectedClass]);
 
+  useNextStepHint(findOptionalFeatureHint(visibleOptional, decisions, mode, (item) =>
+    findReplacedChoiceGroup(item) ? replacementSelections?.[String(item.optionalFeatureId)] : null
+  ));
+
   useEffect(() => {
     if (!selectedClass) {
       onNextDisabledChange?.(true);
@@ -203,7 +209,7 @@ export default function OptionalFeaturesForm({
           const key = item.optionalFeatureId.toString();
           const accepted = decisions[key];
           const title = item.title || item.feature?.name || "Додаткова опція";
-          const description = item.feature?.description || "Деталі відсутні.";
+          const description = item.feature?.description?.trim();
           const replaces =
             item.replacesFeatures
               ?.map((rep) => rep.replacedFeature?.name)
@@ -240,12 +246,14 @@ export default function OptionalFeaturesForm({
                   </Badge>
                 </div>
 
-                <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
-                  <InfoSectionTitle>Опис</InfoSectionTitle>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                    {description}
-                  </p>
-                </div>
+                {description ? (
+                  <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
+                    <InfoSectionTitle>Опис</InfoSectionTitle>
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
+                      {description}
+                    </p>
+                  </div>
+                ) : null}
 
                 <div className="flex flex-wrap gap-2">
                   <Button

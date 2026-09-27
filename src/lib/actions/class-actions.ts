@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { loadClassSubclasses } from "@/server/db/class-content";
 import { loadCreationSpellOffer, type ClassSpellOffer } from "@/server/db/class-spell-choices";
 import { loadClassOptionSpellOffer, type ClassOptionSpellOffer } from "@/server/db/class-option-spell-choices";
+import { loadRaceAtCreation2014, loadRaceSpellOffer2014, type RaceSpellOffer2014 } from "@/server/db/race-spell-choices-2014";
 
 export async function getSubclassesByClassId(classId: number) {
   const normalizedClassId = Number(classId);
@@ -24,9 +25,36 @@ export async function getCreationSpellOffer(classId: number, classChoiceOptionId
   return loadCreationSpellOffer(prisma, { classId: normalizedClassId, subclassId: normalizedSubclassId, classChoiceOptionIds: optionIds });
 }
 
-/** Книга тіней у конструкторі: заклинання, уже обрані класом і рисою, до книги не пропонуються. */
-export async function getCreationClassOptionSpellOffer(classChoiceOptionIds: number[], takenSpellIds: number[]): Promise<ClassOptionSpellOffer | null> {
-  return loadClassOptionSpellOffer(prisma, { newlyChosenOptionIds: toPositiveIds(classChoiceOptionIds), unavailableSpellIds: toPositiveIds(takenSpellIds) });
+/** Книга тіней і риса підкласу 1-го рівня в конструкторі: заклинання, уже обрані класом і рисою, не пропонуються. */
+export async function getCreationClassOptionSpellOffer(
+  classChoiceOptionIds: number[],
+  takenSpellIds: number[],
+  subclassId: number | null = null,
+): Promise<ClassOptionSpellOffer | null> {
+  const [normalizedSubclassId] = toPositiveIds([subclassId]);
+  return loadClassOptionSpellOffer(prisma, {
+    newlyChosenOptionIds: toPositiveIds(classChoiceOptionIds),
+    subclassAtLevel: normalizedSubclassId ? { subclassId: normalizedSubclassId, classLevel: 1 } : null,
+    unavailableSpellIds: toPositiveIds(takenSpellIds),
+  });
+}
+
+/** Замовляння раси 2014 у конструкторі: заклинання, уже обрані класом і підкласом, не пропонуються. */
+export async function getCreationRaceSpellOffer(
+  raceId: number,
+  subraceId: number | null,
+  raceChoiceOptionIds: number[],
+  takenSpellIds: number[],
+): Promise<RaceSpellOffer2014 | null> {
+  const [normalizedRaceId] = toPositiveIds([raceId]);
+  if (!normalizedRaceId) return null;
+  const [normalizedSubraceId] = toPositiveIds([subraceId]);
+  const race = await loadRaceAtCreation2014(prisma, {
+    raceId: normalizedRaceId,
+    subraceId: normalizedSubraceId ?? null,
+    raceChoiceOptionIds: toPositiveIds(raceChoiceOptionIds),
+  });
+  return race ? loadRaceSpellOffer2014(prisma, { ...race, unavailableSpellIds: toPositiveIds(takenSpellIds) }) : null;
 }
 
 function toPositiveIds(ids: unknown): number[] {

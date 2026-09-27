@@ -251,7 +251,7 @@ export async function writeSubclassSpellGrants(
   }
 }
 
-function isRuleGrantedRow(row: OwnedSpellRow): boolean {
+export function isRuleGrantedRow(row: OwnedSpellRow): boolean {
   return row.origin !== SpellOrigin.MANUAL && row.excludeFromPreparedCount;
 }
 

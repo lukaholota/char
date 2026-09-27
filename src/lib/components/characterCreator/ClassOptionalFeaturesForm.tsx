@@ -12,6 +12,8 @@ import { InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDi
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import clsx from "clsx";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { findOptionalFeatureHint } from "@/lib/components/wizard/optional-feature-hint";
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -54,6 +56,8 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
         .filter((item) => Boolean(item.optionalFeatureId)),
     [levelOneOptional, selectedChoiceIds]
   );
+
+  useNextStepHint(findOptionalFeatureHint(visibleOptional, decisions, "OPTIONAL"));
 
   useEffect(() => {
     if (!selectedClass) {
@@ -108,7 +112,7 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
           const key = item.optionalFeatureId?.toString() || "";
           const accepted = decisions[key];
           const title = item.title || item.feature?.name || "Додаткова риса";
-          const description = item.feature?.description || "Деталі відсутні.";
+          const description = item.feature?.description?.trim();
           const replaces =
             item.replacesFeatures?.map((rep) => rep.replacedFeature?.name).filter(Boolean).join(", ") || "";
 
@@ -133,13 +137,15 @@ const ClassOptionalFeaturesForm = ({ selectedClass, formId, onNextDisabledChange
                   </Badge>
                 </div>
 
-                <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
-                  <InfoSectionTitle>Опис</InfoSectionTitle>
-                  <FormattedDescription
-                    content={description}
-                    className="text-sm leading-relaxed text-slate-200/90"
-                  />
-                </div>
+                {description ? (
+                  <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
+                    <InfoSectionTitle>Опис</InfoSectionTitle>
+                    <FormattedDescription
+                      content={description}
+                      className="text-sm leading-relaxed text-slate-200/90"
+                    />
+                  </div>
+                ) : null}
 
                 <div className="flex flex-wrap gap-2">
                   <Button

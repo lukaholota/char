@@ -52,6 +52,6 @@ export async function writeRaceSpellGrants2014(
   }
 }
 
-function translateRaceSource(key: string): string {
+export function translateRaceSource(key: string): string {
   return (subraceTranslations as Record<string, string>)[key] ?? (raceTranslations as Record<string, string>)[key] ?? key;
 }

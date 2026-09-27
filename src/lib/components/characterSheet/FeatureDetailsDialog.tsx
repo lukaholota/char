@@ -13,6 +13,7 @@ import { buildEditableDescription } from "@/lib/logic/feature-descriptions";
 import { SubclassOptionRechoiceDialog } from "@/lib/components/characterSheet/SubclassOptionRechoiceDialog";
 import { buildSpellLinkForSpell, openSpellLink } from "@/lib/spell-link";
 import type { FeatureSpellRow } from "@/lib/logic/free-feat-spell-casts";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 type Props = {
   persId: number;
@@ -48,6 +49,7 @@ export function FeatureDetailsDialog({ persId, feature, spells, title, isReadOnl
         return;
       }
       toast.success(result.description === null ? "Повернуто оригінальний опис" : "Опис збережено");
+      capturePostHogEvent("feature_description_saved", { kind: target.kind, action: result.description === null ? "reset" : "save" });
       setIsEditing(false);
       onDescriptionSaved();
     });
@@ -97,7 +99,7 @@ export function FeatureDetailsDialog({ persId, feature, spells, title, isReadOnl
                     Повернути оригінал
                   </Button>
                 ) : null}
-                <Button type="button" className="h-11 gap-2 sm:h-9" onClick={() => setIsEditing(true)}>
+                <Button type="button" className="h-11 gap-2 sm:h-9" onClick={() => { capturePostHogEvent("feature_description_edit_started", { kind: feature?.descriptionTarget?.kind }); setIsEditing(true); }}>
                   <Pencil className="h-4 w-4" />
                   Редагувати опис
                 </Button>

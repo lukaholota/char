@@ -128,16 +128,27 @@ function drawLabelCorrection(page: PDFPage, spec: SheetPageSpec, correction: Lab
   const sizeByCapHeight = (correction.capHeight * SHEET_2024_PIXEL_SIZE) / NOTO_SANS_CAP_HEIGHT;
   const sizeByWidth = (correction.width * SHEET_2024_PIXEL_SIZE) / font.widthOfTextAtSize(correction.text, 1);
   const size = Math.min(sizeByCapHeight, sizeByWidth);
-  page.drawText(correction.text, {
-    x: toPdfX(correction.left),
-    y: toPdfY(correction.baseline, spec.imageTop),
-    size,
-    font,
-    color: INK,
-  });
+  const textWidth = font.widthOfTextAtSize(correction.text, size);
+  const x = findLabelX(correction, textWidth);
+  const color = correction.caption ? CAPTION_INK : INK;
+  page.drawText(correction.text, { x, y: toPdfY(correction.baseline, spec.imageTop), size, font, color });
+  if (correction.caption) {
+    const underlineTop = toPdfY(correction.baseline + CAPTION_UNDERLINE_GAP, spec.imageTop);
+    const thickness = CAPTION_UNDERLINE_THICKNESS * SHEET_2024_PIXEL_SIZE;
+    page.drawRectangle({ x, y: underlineTop - thickness, width: textWidth, height: thickness, color });
+  }
+}
+
+function findLabelX(correction: LabelCorrection, textWidth: number): number {
+  const boxLeft = toPdfX(correction.left);
+  if (correction.align !== "center") return boxLeft;
+  return boxLeft + (correction.width * SHEET_2024_PIXEL_SIZE - textWidth) / 2;
 }
 
 const NOTO_SANS_CAP_HEIGHT = 0.714;
+const CAPTION_INK = rgb(0.45, 0.45, 0.45);
+const CAPTION_UNDERLINE_GAP = 1;
+const CAPTION_UNDERLINE_THICKNESS = 1.5;
 
 function addPageFields(form: PDFForm, placed: PlacedPage, options: FieldOptions) {
   for (const spec of placed.spec.fields) {

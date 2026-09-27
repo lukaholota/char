@@ -11,6 +11,8 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { FeatPrisma } from "@/lib/types/model-types";
 import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
 import type { Ruleset } from "@/rules/types";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { findHpStepHint } from "@/lib/components/levelUp/level-up-next-hints";
 
 interface Props {
   hitDie: number; // e.g. 10 for d10
@@ -75,6 +77,8 @@ export default function LevelUpHPStep({
     if (typeof raw === "number" && Number.isFinite(raw)) return raw;
     return undefined;
   }, [formData.levelUpHpIncrease]);
+
+  useNextStepHint(findHpStepHint(mode, hpIncrease));
 
   useEffect(() => {
     const disabled = typeof hpIncrease !== "number" || !Number.isFinite(hpIncrease) || hpIncrease < 0;

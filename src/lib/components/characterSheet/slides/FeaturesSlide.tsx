@@ -22,6 +22,9 @@ import { FeatureDetailsDialog } from "@/lib/components/characterSheet/FeatureDet
 import { collectFeatureSpells } from "@/lib/logic/free-feat-spell-casts";
 import { findSheetFeatExistingState } from "@/lib/components/characterSheet/feats/sheet-feat-existing-state";
 import { FeaturesHeaderCards } from "@/lib/components/characterSheet/slides/FeaturesHeaderCards";
+import { CategoryHint } from "@/lib/components/characterSheet/slides/CategoryHint";
+import { isUsedDuringAttack } from "@/rules/attack-riders";
+import { ATTACK_CATEGORY_HINT, categoryVariant, type Category } from "@/lib/components/characterSheet/slides/features-slide-categories";
 import { useBastionEntry } from "@/lib/components/characterSheet/slides/useBastionEntry";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
@@ -80,63 +83,7 @@ interface FeaturesSlideProps {
   onFeaturesChanged?: () => void;
 }
 
-type CategoryKind = "passive" | "action" | "bonus" | "reaction" | "resource";
-type Category = { title: string; items: CharacterFeatureItem[]; kind: CategoryKind };
-
 type EntityDialogKind = "race" | "raceVariant" | "subrace" | "background";
-
-// safeText removed - no longer used
-
-function categoryVariant(kind: CategoryKind) {
-  switch (kind) {
-    case "resource":
-      return {
-        container: "border-l-cyan-500/50 from-cyan-950/20",
-        chevron: "text-cyan-300",
-        title: "text-cyan-50",
-        count: "text-cyan-200/70",
-        cardBorder: "border-cyan-600/30 hover:border-cyan-500/60",
-        cardBg: "bg-cyan-900/25 hover:bg-cyan-900/45",
-      };
-    case "action":
-      return {
-        container: "border-l-red-500/50 from-red-950/20",
-        chevron: "text-red-300",
-        title: "text-red-50",
-        count: "text-red-200/70",
-        cardBorder: "border-red-600/30 hover:border-red-500/60",
-        cardBg: "bg-red-900/25 hover:bg-red-900/45",
-      };
-    case "bonus":
-      return {
-        container: "border-l-blue-500/50 from-blue-950/20",
-        chevron: "text-blue-300",
-        title: "text-blue-50",
-        count: "text-blue-200/70",
-        cardBorder: "border-blue-600/30 hover:border-blue-500/60",
-        cardBg: "bg-blue-900/25 hover:bg-blue-900/45",
-      };
-    case "reaction":
-      return {
-        container: "border-l-purple-500/50 from-purple-950/20",
-        chevron: "text-purple-300",
-        title: "text-purple-50",
-        count: "text-purple-200/70",
-        cardBorder: "border-purple-600/30 hover:border-purple-500/60",
-        cardBg: "bg-purple-900/25 hover:bg-purple-900/45",
-      };
-    case "passive":
-    default:
-      return {
-        container: "border-l-amber-600/50 from-amber-950/20",
-        chevron: "text-amber-300",
-        title: "text-amber-50",
-        count: "text-amber-200/70",
-        cardBorder: "border-amber-700/30 hover:border-amber-600/60",
-        cardBg: "bg-amber-900/20 hover:bg-amber-900/40",
-      };
-  }
-}
 
 // getKindFromPrimaryType removed - no longer used
 
@@ -273,9 +220,11 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     // Filter out items that are already in resourceItems to prevent duplication
     // Also filter out CHOICE sources as they are redundant with the features they grant
     const resourceKeys = new Set(resourceItems.map(r => r.key));
-    const filterItems = (items: CharacterFeatureItem[]) => 
+    const filterItems = (items: CharacterFeatureItem[]) =>
       items
-        .filter(it => !resourceKeys.has(it.key));
+        .filter(it => !resourceKeys.has(it.key))
+        .filter(it => !isUsedDuringAttack(it.engName));
+    const attackItems = allItems.filter((it) => !resourceKeys.has(it.key) && isUsedDuringAttack(it.engName));
 
     const sortItems = (items: CharacterFeatureItem[]) => {
       const sourcePriority: Record<string, number> = {
@@ -315,13 +264,14 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
 
     list.push(
       { title: "Основна дія", items: sortItems(filterItems(groupedFeatures.actions)), kind: "action" },
+      { title: "Під час атаки", items: sortItems(attackItems), kind: "attack", hint: ATTACK_CATEGORY_HINT },
       { title: "Бонусна дія", items: sortItems(filterItems(groupedFeatures.bonusActions)), kind: "bonus" },
       { title: "Реакція", items: sortItems(filterItems(groupedFeatures.reactions)), kind: "reaction" },
       { title: "Пасивні здібності", items: sortItems(filterItems(groupedFeatures.passive)), kind: "passive" },
     );
 
     return list;
-  }, [groupedFeatures, resourceItems]);
+  }, [groupedFeatures, resourceItems, allItems]);
 
   const isSearching = featureQuery.trim().length > 0;
   const shownCategories = useMemo(() => {
@@ -788,11 +738,14 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
                   variant.container
                 }
               >
-                <CollapsibleTrigger className="flex items-center gap-3 w-full">
-                  <ChevronRight className={"w-5 h-5 transition-transform group-data-[state=open]:rotate-90 " + variant.chevron} />
-                  <span className={"font-rpg-display font-bold uppercase tracking-wider text-xs sm:text-sm " + variant.title}>{category.title}</span>
-                  <span className={"ml-auto text-[10px] sm:text-xs " + variant.count}>[{total}]</span>
-                </CollapsibleTrigger>
+                <div className="flex items-center gap-2">
+                  <CollapsibleTrigger className="flex items-center gap-3 w-full">
+                    <ChevronRight className={"w-5 h-5 transition-transform group-data-[state=open]:rotate-90 " + variant.chevron} />
+                    <span className={"font-rpg-display font-bold uppercase tracking-wider text-xs sm:text-sm " + variant.title}>{category.title}</span>
+                    <span className={"ml-auto text-[10px] sm:text-xs " + variant.count}>[{total}]</span>
+                  </CollapsibleTrigger>
+                  {category.hint ? <CategoryHint text={category.hint} /> : null}
+                </div>
 
                 <CollapsibleContent className="mt-3 sm:mt-4 pl-1">
                   {total === 0 ? (

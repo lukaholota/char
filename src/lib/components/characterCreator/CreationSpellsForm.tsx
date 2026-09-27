@@ -15,21 +15,26 @@ interface Props {
   onNextDisabledChange?: (disabled: boolean) => void;
 }
 
-/** Заклинач обирає замовляння, заклинання й книгу чарівника на 1-му рівні (2024 — Р43, 2014 — Р44); Pact of the Tome — ще й Книгу тіней. */
+/** Заклинач обирає замовляння, заклинання й книгу чарівника на 1-му рівні (2024 — Р43, 2014 — Р44); Pact of the Tome — ще й Книгу тіней, домен природи, смерті чи магії й Божественна душа 2014 — заклинання своєї риси. */
 export const CreationSpellsForm = ({ selectedClass, formId, onNextDisabledChange }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
   const classChoiceOptionIds = useMemo(() => collectOptionIds(formData.classChoiceSelections), [formData.classChoiceSelections]);
   const subclassChoiceOptionIds = useMemo(() => collectOptionIds(formData.subclassChoiceSelections), [formData.subclassChoiceSelections]);
   const offer = useCreationSpellOffer(selectedClass?.classId, formData.subclassId ?? null, [...classChoiceOptionIds, ...subclassChoiceOptionIds]);
   const classSpellIds = useMemo(() => collectClassSpellIds(formData.classSpells), [formData.classSpells]);
-  const tomeOffer = useCreationClassOptionSpellOffer(classChoiceOptionIds);
+  const optionSpellOffer = useCreationClassOptionSpellOffer(classChoiceOptionIds, formData.subclassId ?? null);
   const [isClassComplete, setIsClassComplete] = useState(false);
-  const [isTomeComplete, setIsTomeComplete] = useState(false);
-  const isComplete = isClassComplete && (!tomeOffer || isTomeComplete);
+  const [isOptionSpellsComplete, setIsOptionSpellsComplete] = useState(false);
+  const isComplete = isClassComplete && optionSpellOffer !== undefined && (!optionSpellOffer || isOptionSpellsComplete);
+  const hasStaleOptionSpells = optionSpellOffer === null && (formData.classOptionSpellIds?.length ?? 0) > 0;
 
   useEffect(() => {
     onNextDisabledChange?.(!isComplete);
   }, [isComplete, onNextDisabledChange]);
+
+  useEffect(() => {
+    if (hasStaleOptionSpells) updateFormData({ classOptionSpellIds: [] });
+  }, [hasStaleOptionSpells, updateFormData]);
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
@@ -44,16 +49,16 @@ export const CreationSpellsForm = ({ selectedClass, formId, onNextDisabledChange
       ) : (
         <p className="text-center text-sm text-slate-400">Завантажуємо список заклинань…</p>
       )}
-      {tomeOffer && (
-        <section aria-label={tomeOffer.label} className="glass-card space-y-3 rounded-2xl border border-white/10 p-4">
-          <h3 className="text-lg font-semibold text-slate-100">{tomeOffer.label}</h3>
+      {optionSpellOffer && (
+        <section aria-label={optionSpellOffer.label} className="glass-card space-y-3 rounded-2xl border border-white/10 p-4">
+          <h3 className="text-lg font-semibold text-slate-100">{optionSpellOffer.label}</h3>
           <FeatSpellChoiceStep
-            featLabel={tomeOffer.label}
-            offer={tomeOffer.offer}
+            featLabel={optionSpellOffer.label}
+            offer={optionSpellOffer.offer}
             selectedIds={formData.classOptionSpellIds ?? []}
             excludedSpellIds={classSpellIds}
             onChange={(classOptionSpellIds) => updateFormData({ classOptionSpellIds })}
-            onCompleteChange={setIsTomeComplete}
+            onCompleteChange={setIsOptionSpellsComplete}
           />
         </section>
       )}
@@ -80,19 +85,20 @@ function useCreationSpellOffer(classId: number | undefined, subclassId: number |
   return offer;
 }
 
-function useCreationClassOptionSpellOffer(classChoiceOptionIds: number[]): ClassOptionSpellOffer | null {
-  const [offer, setOffer] = useState<ClassOptionSpellOffer | null>(null);
+/** `undefined` — ще вантажиться, `null` — обирати нічого. */
+function useCreationClassOptionSpellOffer(classChoiceOptionIds: number[], subclassId: number | null): ClassOptionSpellOffer | null | undefined {
+  const [offer, setOffer] = useState<ClassOptionSpellOffer | null | undefined>(undefined);
   const optionKey = classChoiceOptionIds.join(",");
 
   useEffect(() => {
     let isCurrent = true;
-    getCreationClassOptionSpellOffer(optionKey ? optionKey.split(",").map(Number) : [], []).then((loaded) => {
+    getCreationClassOptionSpellOffer(optionKey ? optionKey.split(",").map(Number) : [], [], subclassId).then((loaded) => {
       if (isCurrent) setOffer(loaded);
     });
     return () => {
       isCurrent = false;
     };
-  }, [optionKey]);
+  }, [optionKey, subclassId]);
 
   return offer;
 }

@@ -30,6 +30,7 @@ import { findGrantedSpells } from "@/rules/spell-sources";
 import { characterLevelOnly } from "@/rules/character-level";
 import { buildSpeciesPersSpellRows } from "@/server/db/species-level-grants";
 import { buildClassPersSpellRows, findMissingClassSpells, saveSubclassSpellGrants } from "@/server/db/always-prepared-spell-grants";
+import { findRaceSpellChoiceProblem2014 } from "@/server/db/race-spell-choices-2014";
 import { saveRaceSpellGrants2014 } from "@/server/db/race-spell-grants-2014";
 import { findClassSpellProblem, saveClassSpellSelection, type ClassSpellOffer } from "@/server/db/class-spell-choices";
 import { buildClassOptionPersSpellRows, findClassOptionSpellProblem } from "@/server/db/class-option-spell-choices";
@@ -52,6 +53,7 @@ import { findUserByEmail } from "@/server/db/users";
 import { parseEnumArray, parseJsonRecord, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
 import { findCreationChoicePoolProblem } from "@/rules/creation-choice-pools";
 import { findExpertiseSelectionProblem, readExpertiseGrant } from "@/rules/expertise-selections";
+import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 
 export type CreateCharacterResult =
   | { error: string; details?: unknown; success?: undefined; persId?: undefined }
@@ -79,7 +81,7 @@ type CharacterBuildResult = CharacterBuild | { error: string };
 type ChosenClassSpells = { offer: ClassSpellOffer; selection: ClassSpellSelection } | null;
 type ChosenClassOptionSpells = { sourceName: string; spellIds: number[] } | null;
 
-type ChosenCreationSpells = { classSpells: ChosenClassSpells; featSpells: GrantedSpell[]; classOptionSpells: ChosenClassOptionSpells };
+type ChosenCreationSpells = { classSpells: ChosenClassSpells; featSpells: GrantedSpell[]; classOptionSpells: ChosenClassOptionSpells; raceSpells: GrantedSpell[] };
 
 export async function createCharacter(input: PersFormData): Promise<CreateCharacterResult> {
   const user = await requireUser();
@@ -397,7 +399,7 @@ async function findChosenCreationSpells(
   const speciesSpellIds = findSpeciesSpellsAtCreation(content, ruleset).map((spell) => spell.spellId);
   const classSpells = await findChosenClassSpells(validData, content, speciesSpellIds);
   if ("error" in classSpells) return classSpells;
-  if (ruleset !== "RULES_2024") return { value: { classSpells: classSpells.value, featSpells: [], classOptionSpells: null } };
+  if (ruleset !== "RULES_2024") return findChosenCreationSpells2014(validData, content, classSpells.value, speciesSpellIds);
 
   const featSpells = await findChosenFeatSpells(validData, content, [...speciesSpellIds, ...collectClassSpellsTakenFromFeats(classSpells.value)]);
   if ("error" in featSpells) return featSpells;
@@ -405,7 +407,39 @@ async function findChosenCreationSpells(
   const takenSpellIds = [...speciesSpellIds, ...collectClassSelectionIds(classSpells.value), ...featSpells.value.map((spell) => spell.spellId)];
   const classOptionSpells = await findChosenClassOptionSpells(validData, content, takenSpellIds);
   if ("error" in classOptionSpells) return classOptionSpells;
-  return { value: { classSpells: classSpells.value, featSpells: featSpells.value, classOptionSpells: classOptionSpells.value } };
+  return { value: { classSpells: classSpells.value, featSpells: featSpells.value, classOptionSpells: classOptionSpells.value, raceSpells: [] } };
+}
+
+/** 2014: риса підкласу 1-го рівня (домени, Божественна душа) і замовляння раси — вибір гравця, не видача. */
+async function findChosenCreationSpells2014(
+  validData: PersFormData,
+  content: LoadedCreationContent,
+  classSpells: ChosenClassSpells,
+  speciesSpellIds: readonly number[],
+): Promise<{ value: ChosenCreationSpells } | { error: string }> {
+  const classSelectionIds = collectClassSelectionIds(classSpells);
+  const subclassSpells = await findChosenClassOptionSpells(validData, content, [...speciesSpellIds, ...classSelectionIds]);
+  if ("error" in subclassSpells) return subclassSpells;
+
+  const raceSpells = await findChosenRaceSpells2014(validData, content, [...speciesSpellIds, ...classSelectionIds, ...(subclassSpells.value?.spellIds ?? [])]);
+  if ("error" in raceSpells) return raceSpells;
+  return { value: { classSpells, featSpells: [], classOptionSpells: subclassSpells.value, raceSpells: raceSpells.value } };
+}
+
+async function findChosenRaceSpells2014(
+  validData: PersFormData,
+  content: LoadedCreationContent,
+  takenSpellIds: readonly number[],
+): Promise<{ value: GrantedSpell[] } | { error: string }> {
+  if (!content.race) return { value: [] };
+  const { problem, spells } = await findRaceSpellChoiceProblem2014(prisma, {
+    race: content.race.name,
+    subrace: content.subrace?.name ?? null,
+    chosenRaceOptionNames: content.raceChoiceOptions.map((option) => option.optionName),
+    selectedSpellIds: validData.raceSpellIds ?? [],
+    unavailableSpellIds: takenSpellIds,
+  });
+  return problem ? { error: problem } : { value: spells };
 }
 
 async function findChosenClassSpells(
@@ -431,7 +465,7 @@ function collectClassSelectionIds(chosen: ChosenClassSpells): number[] {
   return [...chosen.selection.cantripIds, ...chosen.selection.spellbookIds, ...chosen.selection.preparedIds];
 }
 
-/** Книга тіней Pact of the Tome: «they must be spells you don't already have prepared». */
+/** Книга тіней Pact of the Tome: «they must be spells you don't already have prepared»; у 2014 — ще й риса підкласу 1-го рівня (домени, Божественна душа). */
 async function findChosenClassOptionSpells(
   validData: PersFormData,
   content: LoadedCreationContent,
@@ -440,6 +474,7 @@ async function findChosenClassOptionSpells(
   const selectedSpellIds = validData.classOptionSpellIds ?? [];
   const { problem, sourceName } = await findClassOptionSpellProblem(prisma, {
     newlyChosenOptionIds: content.selectedChoiceOptionIds,
+    subclassAtLevel: validData.subclassId ? { subclassId: validData.subclassId, classLevel: 1 } : null,
     unavailableSpellIds: takenSpellIds,
     selectedSpellIds,
   });
@@ -538,7 +573,7 @@ function findStartingFeatures(content: LoadedCreationContent) {
 }
 
 async function persistCharacter(
-  user: { id: number },
+  user: { id: number; email: string | null },
   character: CharacterBuild,
   chosenSpells: ChosenCreationSpells,
 ): Promise<CreateCharacterResult> {
@@ -1041,6 +1076,9 @@ async function persistCharacter(
       }
       if (ruleset === "RULES_2014") {
         await saveRaceSpellGrants2014(tx, { persId: createdPers.persId, race: race.name, subrace: subrace?.name ?? null, characterLevel: 1, learnedAtLevel: 1 });
+        if (chosenSpells.raceSpells.length > 0) {
+          await tx.persSpell.createMany({ data: buildSpeciesPersSpellRows(createdPers.persId, chosenSpells.raceSpells, 1), skipDuplicates: true });
+        }
       }
 
       // Save skills AFTER Pers exists (createMany + skipDuplicates)
@@ -1263,6 +1301,11 @@ async function persistCharacter(
     });
 
     revalidatePath("/char/create");
+    captureServerPostHogEvent("character_created", {
+      pers_id: newPers.persId, edition: newPers.ruleset === "RULES_2024" ? "2024" : "2014",
+      creation_type: "new", classId: validData.classId, subclassId: validData.subclassId,
+      raceId: validData.raceId, subraceId: validData.subraceId, raceVariantId: validData.raceVariantId, backgroundId: validData.backgroundId,
+    }, user);
     return { success: true, persId: newPers.persId };
   } catch (error) {
     console.error("Error creating character:", error);

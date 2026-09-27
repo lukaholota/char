@@ -1,6 +1,7 @@
 /**
- * Заклинання, які дає обрати клас: Книга тіней Pact of the Tome 2024 і Магічні відкриття Колегії
- * знань — кандидати, перевірка й рядки заклинань. Правило —
+ * Заклинання, які дає обрати клас: Книга тіней Pact of the Tome 2024, Магічні відкриття Колегії
+ * знань і риси підкласів 2014 (замовляння доменів, Додаткові магічні таємниці…) — кандидати,
+ * перевірка й рядки заклинань. Правило —
  * [`class-option-spell-choices-2024.ts`](../../rules/class-option-spell-choices-2024.ts).
  * «They must be spells you don't already have prepared» — тому недоступні все, що персонаж уже має.
  */
@@ -20,6 +21,8 @@ import type { RulesetId } from "@/rules/strategies/types";
 
 type DatabaseClient = PrismaClient | Prisma.TransactionClient;
 
+type RulesetChoice = { choice: ClassOptionSpellChoice; ruleset: RulesetId };
+
 export type ClassOptionSpellOffer = { sourceName: string; label: string; offer: FeatSpellChoiceOffer };
 
 export type SubclassAtLevel = { subclassId: number; classLevel: number };
@@ -35,8 +38,9 @@ export type ClassOptionSpellInput = {
 const CLASS_OPTION_SPELL_BADGE_COLOR = "#c084fc";
 
 export async function loadClassOptionSpellOffer(client: DatabaseClient, input: ClassOptionSpellInput): Promise<ClassOptionSpellOffer | null> {
-  const choice = await findChoice(client, input);
-  if (!choice) return null;
+  const found = await findChoice(client, input);
+  if (!found) return null;
+  const { choice, ruleset } = found;
 
   const unavailable = new Set(input.unavailableSpellIds);
   const picks = await Promise.all(
@@ -44,7 +48,7 @@ export async function loadClassOptionSpellOffer(client: DatabaseClient, input: C
       count: pick.count,
       spellLevel: pick.spellLevel,
       ...(pick.maxSpellLevel !== undefined ? { maxSpellLevel: pick.maxSpellLevel } : {}),
-      spells: (await loadSpellChoiceOptions(client, "RULES_2024", buildFeatSpellFilter(pick))).filter((spell) => !unavailable.has(spell.spellId)),
+      spells: (await loadSpellChoiceOptions(client, ruleset, buildFeatSpellFilter(pick))).filter((spell) => !unavailable.has(spell.spellId)),
     })),
   );
   return { sourceName: choice.sourceName, label: choice.label, offer: { picks } };
@@ -54,10 +58,11 @@ export async function findClassOptionSpellProblem(
   client: DatabaseClient,
   input: ClassOptionSpellInput & { selectedSpellIds: readonly number[] },
 ): Promise<{ problem: string | null; sourceName: string | null }> {
-  const choice = await findChoice(client, input);
-  if (!choice) return { problem: input.selectedSpellIds.length > 0 ? "Жодна обрана опція класу не дає обрати заклинання" : null, sourceName: null };
+  const found = await findChoice(client, input);
+  if (!found) return { problem: input.selectedSpellIds.length > 0 ? "Жодна обрана опція класу не дає обрати заклинання" : null, sourceName: null };
+  const { choice, ruleset } = found;
 
-  const candidates = await loadCandidateSpells(client, "RULES_2024", choice.rule);
+  const candidates = await loadCandidateSpells(client, ruleset, choice.rule);
   const problem = findFeatSpellSelectionProblem(choice.rule, input.selectedSpellIds, candidates, choice.label);
   if (problem) return { problem, sourceName: choice.sourceName };
 
@@ -101,19 +106,22 @@ export async function findSubclassAtNextLevel(
   return subclassId ? { subclassId, classLevel: classLevelBefore + 1 } : null;
 }
 
-async function findChoice(client: DatabaseClient, input: ClassOptionSpellInput): Promise<ClassOptionSpellChoice | null> {
+async function findChoice(client: DatabaseClient, input: ClassOptionSpellInput): Promise<RulesetChoice | null> {
   return (await findChoiceForOptions(client, input.newlyChosenOptionIds)) ?? (await findChoiceForSubclass(client, input.subclassAtLevel ?? null));
 }
 
-async function findChoiceForOptions(client: DatabaseClient, optionIds: readonly number[]) {
+async function findChoiceForOptions(client: DatabaseClient, optionIds: readonly number[]): Promise<RulesetChoice | null> {
   if (!optionIds.length) return null;
   const options = await client.choiceOption.findMany({ where: { choiceOptionId: { in: [...optionIds] } }, select: { optionNameEng: true } });
-  return findClassOptionSpellChoice(options.map((option) => option.optionNameEng));
+  const choice = findClassOptionSpellChoice(options.map((option) => option.optionNameEng));
+  return choice ? { choice, ruleset: "RULES_2024" } : null;
 }
 
-async function findChoiceForSubclass(client: DatabaseClient, subclassAtLevel: SubclassAtLevel | null) {
+async function findChoiceForSubclass(client: DatabaseClient, subclassAtLevel: SubclassAtLevel | null): Promise<RulesetChoice | null> {
   if (!subclassAtLevel) return null;
   const subclass = await client.subclass.findUnique({ where: { subclassId: subclassAtLevel.subclassId }, select: { name: true, ruleset: true } });
   if (!subclass) return null;
-  return findSubclassFeatureSpellChoice({ ruleset: subclass.ruleset as RulesetId, subclassName: subclass.name, classLevel: subclassAtLevel.classLevel });
+  const ruleset = subclass.ruleset as RulesetId;
+  const choice = findSubclassFeatureSpellChoice({ ruleset, subclassName: subclass.name, classLevel: subclassAtLevel.classLevel });
+  return choice ? { choice, ruleset } : null;
 }

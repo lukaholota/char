@@ -30,10 +30,13 @@ const target = readSeedTargetName(process.argv, "bun tsx scripts/repair-2014-gra
 const isApplying = process.argv.includes("--apply");
 const isVerbose = process.argv.includes("--verbose");
 const connectionString = resolveSeedConnectionString(target);
-const pool = new Pool({ connectionString });
+const pool = new Pool({ connectionString, max: 12 });
 const prisma = new PrismaClient({ adapter: new PrismaPg(pool) });
 
 type RepairTotals = { characters: number; repaired: number; created: number; adopted: number; bySource: Map<string, { created: number; adopted: number }> };
+
+const PARALLEL_CHARACTERS = 8;
+const PROGRESS_EVERY = 500;
 
 async function main() {
   const mode = isApplying ? "ЗАПИС" : "сухий прогін";
@@ -42,27 +45,42 @@ async function main() {
   const characters = await loadCharacters2014();
   const totals: RepairTotals = { characters: characters.length, repaired: 0, created: 0, adopted: 0, bySource: new Map() };
 
-  for (const pers of characters) {
-    const subclassGrants = await findSubclassSpellGrants(prisma, {
-      persId: pers.persId,
-      subclasses: collectSubclassesAtLevel(pers),
-      choiceOptionIds: pers.choiceOptions.map((option) => option.choiceOptionId),
-    });
-    const raceGrants = await findRaceGrants(pers, subclassGrants);
-    const grants = { created: [...subclassGrants.created, ...raceGrants.created], adopted: [...subclassGrants.adopted, ...raceGrants.adopted] };
-    if (!grants.created.length && !grants.adopted.length) continue;
-
-    countGrants(totals, grants);
-    if (isVerbose) console.log(`  #${pers.persId} «${pers.name}» рів. ${pers.level}: +${grants.created.length}, перемічено ${grants.adopted.length}`);
-    if (isApplying) {
-      await prisma.$transaction(async (tx) => {
-        await writeSubclassSpellGrants(tx, { persId: pers.persId, grants: subclassGrants, learnedAtLevel: pers.level });
-        await writeRaceSpellGrants2014(tx, { persId: pers.persId, grants: raceGrants, learnedAtLevel: pers.level });
-      });
-    }
-  }
+  let done = 0;
+  await runInParallel(characters, PARALLEL_CHARACTERS, async (pers) => {
+    await repairPers(pers, totals);
+    done += 1;
+    if (done % PROGRESS_EVERY === 0) console.log(`  … ${done} / ${characters.length}`);
+  });
 
   printTotals(totals);
+}
+
+async function repairPers(pers: RepairPers, totals: RepairTotals): Promise<void> {
+  const subclassGrants = await findSubclassSpellGrants(prisma, {
+    persId: pers.persId,
+    subclasses: collectSubclassesAtLevel(pers),
+    choiceOptionIds: pers.choiceOptions.map((option) => option.choiceOptionId),
+  });
+  const raceGrants = await findRaceGrants(pers, subclassGrants);
+  const grants = { created: [...subclassGrants.created, ...raceGrants.created], adopted: [...subclassGrants.adopted, ...raceGrants.adopted] };
+  if (!grants.created.length && !grants.adopted.length) return;
+
+  countGrants(totals, grants);
+  if (isVerbose) console.log(`  #${pers.persId} «${pers.name}» рів. ${pers.level}: +${grants.created.length}, перемічено ${grants.adopted.length}`);
+  if (isApplying) {
+    await prisma.$transaction(async (tx) => {
+      await writeSubclassSpellGrants(tx, { persId: pers.persId, grants: subclassGrants, learnedAtLevel: pers.level });
+      await writeRaceSpellGrants2014(tx, { persId: pers.persId, grants: raceGrants, learnedAtLevel: pers.level });
+    });
+  }
+}
+
+async function runInParallel<T>(items: readonly T[], limit: number, handle: (item: T) => Promise<void>): Promise<void> {
+  let next = 0;
+  const takeNext = async (): Promise<void> => {
+    while (next < items.length) await handle(items[next++]);
+  };
+  await Promise.all(Array.from({ length: limit }, takeNext));
 }
 
 async function loadCharacters2014() {

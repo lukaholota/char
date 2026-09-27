@@ -20,6 +20,8 @@ export const CLASS_FEATURE_TEXT_NAMES_2014 = [
   "Twinned Spell",
   "Seeking Spell",
   "Transmuted Spell",
+  /// «Pact of the Blade» в описі — українською, з оригіналом у маркері.
+  "Improved Pact Weapon",
 ] as const;
 
 const SYNCED_FIELDS = ["description", "shortDescription", "usesPoolKey", "usePrice"] as const;

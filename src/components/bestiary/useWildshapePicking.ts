@@ -1,4 +1,5 @@
 "use client";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import type { Ruleset } from "@prisma/client";
@@ -110,6 +111,7 @@ export function useWildshapePicking(ruleset: Ruleset): WildshapePicking {
 
       startAdding(async () => {
         const result = await attachWildshapeForm({ persId, creatureKey: entry.key, ruleset });
+        if (result.ok) capturePostHogEvent("wildshape_form_added", { edition: ruleset === "RULES_2024" ? "2024" : "2014" });
         if (!result.ok) {
           toast.error(result.error);
           return;

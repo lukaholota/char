@@ -1,11 +1,13 @@
-import { FeatureDisplayType, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import source from "../../data/2024/normalized/subclass-choices.json";
 import subclasses from "../../data/2024/source/subclasses-extracted.json";
 import { linkChoiceOptionFeature, linkSubclassChoiceOption, upsertChoiceOption2024 } from "./helpers/choiceOptions2024";
+import { findDisplayTypeInRulesText } from "./helpers/featureDisplayType";
 
 type PreparedSpellsAtLevel = { classLevel: number; spellsEng: string[] };
 type SourceOption = (typeof source.groups)[number]["options"][number] & {
   description?: string;
+  shortDescription?: string;
   /// Коло землі: таблиця «рівень друїда → заклинання» за типом землі. У базу їде лише звʼязок
   /// «фіча → заклинання»; рівень виводить `src/rules/subclass-option-spells-2024.ts`.
   preparedSpells?: PreparedSpellsAtLevel[];
@@ -24,11 +26,11 @@ export async function seedSubclassChoices2024(prisma: PrismaClient) {
 
     for (const option of group.options as SourceOption[]) {
       const key = `${option.engName} (2024)`;
-      const description = option.description ?? maneuverDescriptions.get(option.engName) ?? option.name;
+      const payload = featurePayload(option, maneuverDescriptions.get(option.engName));
       const feature = await prisma.feature.upsert({
         where: { engName: `Subclass Choice Feature: ${key}` },
-        update: featurePayload(option.name, description),
-        create: { engName: `Subclass Choice Feature: ${key}`, ...featurePayload(option.name, description) },
+        update: payload,
+        create: { engName: `Subclass Choice Feature: ${key}`, ...payload },
       });
       const choice = await upsertChoiceOption2024(prisma, {
         groupName: group.groupName,
@@ -63,12 +65,13 @@ async function connectOptionSpells(prisma: PrismaClient, featureId: number, opti
   });
 }
 
-function featurePayload(name: string, description: string) {
+function featurePayload(option: SourceOption, maneuverDescriptionEng: string | undefined) {
+  const description = option.description ?? maneuverDescriptionEng ?? option.name;
   return {
-    name,
+    name: option.name,
     description,
-    shortDescription: description,
-    displayType: [FeatureDisplayType.PASSIVE],
+    shortDescription: option.shortDescription ?? description,
+    displayType: [findDisplayTypeInRulesText(maneuverDescriptionEng ?? description)],
     ruleset: "RULES_2024" as const,
   };
 }

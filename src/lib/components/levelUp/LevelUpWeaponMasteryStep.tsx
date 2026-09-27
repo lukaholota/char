@@ -4,6 +4,8 @@ import { useEffect, useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { WeaponMasteryPicker, type PickableMasteryWeapon } from "@/components/weapons/WeaponMasteryPicker";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, WEAPON_KIND_FORMS } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   capacity: number;
@@ -23,6 +25,8 @@ export function LevelUpWeaponMasteryStep({ capacity, options, currentWeaponIds, 
     const stored = formData.weaponMasteryWeaponIds;
     return Array.isArray(stored) ? stored : currentWeaponIds;
   }, [formData.weaponMasteryWeaponIds, currentWeaponIds]);
+
+  useNextStepHint(buildPickHint(selected.length, capacity, WEAPON_KIND_FORMS, "для майстерності"));
 
   useEffect(() => {
     onNextDisabledChange?.(selected.length !== capacity);

@@ -14,6 +14,7 @@ import { Ability, Races, Subraces } from "@/lib/prisma-enums";
 import type { Subrace, RaceVariant } from "@prisma/client";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 import { checkFeatPrerequisites } from "@/lib/logic/prerequisiteUtils";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 
 interface Props {
   feats: Feat[];
@@ -47,6 +48,8 @@ export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race,
   
   const chosenFeatId = form.watch("backgroundFeatId");
   const search = form.watch("backgroundFeatSearch");
+
+  useNextStepHint(chosenFeatId ? null : "Оберіть рису за походженням.");
 
   useEffect(() => {
     if (!chosenFeatId) {

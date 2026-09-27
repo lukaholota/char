@@ -21,6 +21,7 @@ import { useActiveEdition } from "@/components/ui/PersEditionPin";
 import { useNoAiHref } from "@/components/no-ai/NoAiModeProvider";
 import type { Edition } from "@/rules/route-helpers";
 import { cn } from "@/lib/utils";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 type CategoryFilter = OmniSearchCategory | "ALL";
 
@@ -61,6 +62,15 @@ export function OmniSearchPanel({ onClose }: Props) {
   );
 
   useEffect(() => {
+    if (!query.trim()) return;
+    const timer = window.setTimeout(() => capturePostHogEvent("search_performed", {
+      edition, category: activeCategory, query_length: query.trim().length,
+      result_count: rows.filter((row) => row.kind === "item").length,
+    }), 700);
+    return () => window.clearTimeout(timer);
+  }, [query, activeCategory, edition, rows]);
+
+  useEffect(() => {
     setSelectedIndex(0);
   }, [query, activeCategory]);
 
@@ -95,15 +105,17 @@ export function OmniSearchPanel({ onClose }: Props) {
 
   const handleSelect = useCallback(
     (item: OmniSearchItem) => {
+      capturePostHogEvent("search_result_selected", { category: item.category, edition: item.edition ?? edition });
       setPendingItemId(item.id);
       navigateTo(item.href);
     },
-    [navigateTo]
+    [navigateTo, edition]
   );
 
   const openCatalog = useCallback(
     (category: OmniSearchCategory) => {
       const href = findCatalogHref(category, edition);
+      capturePostHogEvent("search_catalog_opened", { category, edition });
       if (href) navigateTo(href);
     },
     [navigateTo, edition]

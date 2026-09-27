@@ -14,6 +14,7 @@ import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { hasLegacySubclasses, isLegacyChosen, splitSubclassesForStep } from "@/lib/logic/legacy-subclass-visibility";
 import { z } from "zod";
 import { translateSubclassName, translateSubclassNameEng } from "@/lib/refs/subclass-name";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 
 interface Props {
   cls: ClassI;
@@ -50,6 +51,8 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   
   const chosenSubclassId = form.watch("subclassId");
   const chosenId = typeof chosenSubclassId === "number" ? chosenSubclassId : null;
+
+  useNextStepHint(chosenSubclassId ? null : "Оберіть підклас.");
 
   useEffect(() => {
     if (!chosenSubclassId) {

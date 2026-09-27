@@ -9,6 +9,7 @@ import { useModalBackButton } from "@/hooks/useModalBackButton"
 
 type DialogProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root> & {
   enableBackButtonClose?: boolean;
+  keepUrlOnClose?: boolean;
 }
 
 function Dialog({
@@ -16,6 +17,7 @@ function Dialog({
   defaultOpen,
   onOpenChange,
   enableBackButtonClose = true,
+  keepUrlOnClose = false,
   ...props
 }: DialogProps) {
   const isControlled = typeof openProp === "boolean"
@@ -30,7 +32,7 @@ function Dialog({
     [isControlled, onOpenChange]
   )
 
-  useModalBackButton(Boolean(enableBackButtonClose && open), () => handleOpenChange(false))
+  useModalBackButton(Boolean(enableBackButtonClose && open), () => handleOpenChange(false), { keepUrlOnClose })
 
   return <DialogPrimitive.Root open={open} onOpenChange={handleOpenChange} {...props} />
 }
@@ -57,11 +59,13 @@ const DialogOverlay = React.forwardRef<
       // Radix closes on pointerdown/outside; the subsequent click event may land on the element
       // that was behind the overlay if the dialog unmounts between pointerdown and click.
       const handler = (event: MouseEvent) => {
+        document.removeEventListener("click", handler, true);
+        // On touch Radix dismisses on this very click, listening on document — let it through.
+        if (isFromAnyDialogLayer(event.target)) return;
         event.preventDefault();
         event.stopPropagation();
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ;(event as any).stopImmediatePropagation?.();
-        document.removeEventListener("click", handler, true);
       };
 
       document.addEventListener("click", handler, true);

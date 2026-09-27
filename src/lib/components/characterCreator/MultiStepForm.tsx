@@ -14,8 +14,7 @@ import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types"
 import EquipmentForm from "@/lib/components/characterCreator/EquipmentForm";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Check, ChevronLeft, Circle } from "lucide-react";
+import { Check, Circle } from "lucide-react";
 import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
 import clsx from "clsx";
 import NameForm from "@/lib/components/characterCreator/NameForm";
@@ -23,6 +22,8 @@ import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoic
 import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
 import CreationSpellsForm from "@/lib/components/characterCreator/CreationSpellsForm";
 import CreationFeatSpellsForm, { type CreationSpellFeat } from "@/lib/components/characterCreator/CreationFeatSpellsForm";
+import CreationRaceSpellsForm from "@/lib/components/characterCreator/CreationRaceSpellsForm";
+import { useCreationRaceSpellStep } from "@/lib/components/characterCreator/use-creation-race-spell-step";
 import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
 import { findCreationSpellQuota } from "@/rules/class-spell-choices-2024";
 import { hasCreationSpellChoice2014 } from "@/rules/class-spell-choices-2014";
@@ -48,6 +49,8 @@ import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { getRulesStrategy } from "@/rules/strategies";
 import { countOriginLanguageChoices } from "@/rules/languages";
 import { isCreationStepCompleted } from "./creation-step-completion";
+import { CreationFooter } from "./CreationFooter";
+import { NextStepHintProvider, useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
@@ -90,8 +93,10 @@ export const MultiStepForm = (
     updateFormData,
   } = usePersFormStore();
   const isHydrated = isStoreHydrated && isDraftActive;
+  useEffect(() => { capturePostHogEvent("character_creation_started", { edition: initialRuleset === "RULES_2024" ? "2024" : "2014" }); }, [initialRuleset]);
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
+  const [nextStepHint, setNextStepHint] = useNextStepHintState(currentStep);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [initialDataForStep, setInitialDataForStep] = useState<string>("");
   const [highestStepCompleted, setHighestStepCompleted] = useState<number>(0);
@@ -177,15 +182,6 @@ export const MultiStepForm = (
         }
       } else if (result.success) {
         toast.success("Персонажа створено!");
-        // ID-и, не назви — жодного вільного тексту з форми (currentData.name лишається поза подією).
-        capturePostHogEvent("character_created", {
-          classId: currentData.classId,
-          subclassId: currentData.subclassId,
-          raceId: currentData.raceId,
-          subraceId: currentData.subraceId,
-          raceVariantId: currentData.raceVariantId,
-          backgroundId: currentData.backgroundId,
-        });
         router.push(`/char/${result.persId}`);
         // Clear draft after navigation starts to avoid a visible "form reset" flash.
         requestAnimationFrame(() => {
@@ -628,6 +624,7 @@ export const MultiStepForm = (
     ];
   }, [backgroundFeat, speciesFeat, currentRuleset, formData.backgroundFeatChoiceSelections, formData.speciesFeatChoiceSelections]);
   const hasFeatSpellStep = spellChoiceFeats.length > 0;
+  const hasRaceSpellChoice = useCreationRaceSpellStep(race, subrace);
 
   const steps = useMemo(() => {
     return resolveCreationSteps({
@@ -646,6 +643,7 @@ export const MultiStepForm = (
       hasBackgroundFeatChoice,
       hasBackgroundFeatChoices,
       hasFeatSpellChoice: hasFeatSpellStep,
+      hasRaceSpellChoice,
       hasExpertiseChoice,
       hasLanguageChoice,
     });
@@ -665,6 +663,7 @@ export const MultiStepForm = (
     hasBackgroundFeatChoice,
     hasBackgroundFeatChoices,
     hasFeatSpellStep,
+    hasRaceSpellChoice,
     hasExpertiseChoice,
     hasLanguageChoice, currentRuleset
   ]);
@@ -826,13 +825,9 @@ export const MultiStepForm = (
           />
         );
       case "featSpells":
-        return (
-          <CreationFeatSpellsForm
-            feats={spellChoiceFeats}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
+        return <CreationFeatSpellsForm feats={spellChoiceFeats} formId={activeFormId} onNextDisabledChange={handleNextDisabledChange} />;
+      case "raceSpells":
+        return <CreationRaceSpellsForm formId={activeFormId} onNextDisabledChange={handleNextDisabledChange} />;
       case "class":
         return (
           <ClassesForm
@@ -883,13 +878,7 @@ export const MultiStepForm = (
           />
         );
       case "spells":
-        return (
-          <CreationSpellsForm
-            selectedClass={cls}
-            formId={activeFormId}
-            onNextDisabledChange={handleNextDisabledChange}
-          />
-        );
+        return <CreationSpellsForm selectedClass={cls} formId={activeFormId} onNextDisabledChange={handleNextDisabledChange} />;
       case "background":
         return (
           <BackgroundsForm
@@ -1042,7 +1031,9 @@ export const MultiStepForm = (
               ruleset={currentRuleset}
               excerpts={ruleExcerpts}
             />
-            {isDraftActive ? renderStep() : null}
+            <NextStepHintProvider onHintChange={setNextStepHint}>
+              {isDraftActive ? renderStep() : null}
+            </NextStepHintProvider>
           </div>
 
           <aside className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
@@ -1116,38 +1107,16 @@ export const MultiStepForm = (
         </CardContent>
       </Card>
 
-      <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
-        <div className="glass-panel border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl px-2.5 py-2.5 backdrop-blur-2xl backdrop-saturate-150 shadow-xl shadow-black/40 sm:rounded-2xl sm:px-3 sm:py-3">
-          <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
-            <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
-              Крок {currentStep} / {steps.length}
-            </Badge>
-          </div>
-          <div className="flex items-center gap-2">
-            {currentStep > 1 && (
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                className="h-11 border border-white/10 bg-white/5 px-4 text-sm text-slate-200 hover:bg-white/7 sm:text-base md:h-9 md:px-3"
-                onClick={prevStep}
-              >
-                <ChevronLeft className="mr-2 h-4 w-4" />
-                Назад
-              </Button>
-            )}
-            <Button
-              type="submit"
-              form={activeFormId}
-              disabled={nextDisabled || isSubmitting}
-              size="sm"
-              className="h-11 bg-arcane-600/90 px-5 text-sm text-white shadow-lg shadow-arcane-900/40 hover:bg-arcane-500 sm:text-base md:h-9 md:px-3"
-            >
-              {currentStep === steps.length ? (isSubmitting ? "Створення..." : "Створити") : "Далі →"}
-            </Button>
-          </div>
-        </div>
-      </div>
+      <CreationFooter
+        stepNumber={currentStep}
+        stepCount={steps.length}
+        stepTitle={steps[currentStep - 1]?.name}
+        activeFormId={activeFormId}
+        isNextBlocked={nextDisabled}
+        nextStepHint={nextStepHint}
+        isSubmitting={isSubmitting}
+        onPrev={prevStep}
+      />
 
       <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
     </div>

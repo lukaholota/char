@@ -1594,7 +1594,7 @@ export const toolTranslations: Record<string, string> = {
   GLASSBLOWERS_TOOLS: "Інструменти склодува",
   LEATHERWORKERS_TOOLS: "Інструменти чинбаря",
   MASONS_TOOLS: "Інструменти каменяра",
-  PAINTERS_TOOLS: "Приладдя маляра",
+  PAINTERS_SUPPLIES: "Приладдя маляра",
   POTTERS_TOOLS: "Інструменти гончаря",
   TINKERS_TOOLS: "Інструменти лудильника",
   WEAVERS_TOOLS: "Інструменти ткача",

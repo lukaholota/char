@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:owner": "AUTH_URL=http://localhost:3000 NEXT_DEV_DIST_DIR=.next-owner next dev --turbopack --port 3000",
     "dev:classic": "next dev",
     "generate:spells": "tsx scripts/generate-spells.ts",
     "generate:magic-items": "tsx scripts/generate-magic-items.ts",

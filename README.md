@@ -1,64 +1,57 @@
-site: https://char.holota.family/
+# char.holota.family
 
-## Getting Started
+Український конструктор і лист персонажа, каталоги та довідник D&D 5e **2014 і 2024**.
+Сайт: https://char.holota.family/.
 
-bun i
-bunx prisma generate
+Документація й навігація по задачах: [docs/README.md](docs/README.md).
+Інструкції для роботи в репозиторії: [CLAUDE.md](CLAUDE.md), [AGENTS.md](AGENTS.md).
+
+## Локальний запуск
+
+Налаштуй змінні за [.env.example](.env.example). Dev-сервер звертається до бази, заданої в env;
+для тестових змін використовуй локальний клон, описаний у
+[WORKFLOWS](docs/WORKFLOWS.md#schema-and-databases).
 
 ```bash
+bun install --frozen-lockfile
+bunx prisma generate
 bun dev
 ```
 
-## PDF / Print (Chromium) configuration
-
-PDF generation uses `puppeteer-core` and runs **inside the Next.js server process**. That means these settings must be present in the **runtime environment** of the server (e.g. the systemd service that runs `next start` / standalone server), not only during `next build`
-
-Recommended env vars (see [.env.example](.env.example)):
-
-- `PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium`
-	- Most stable option on a VPS: install Chromium/Chrome on the OS and point Puppeteer to it.
-- `PUPPETEER_USE_SPARTICUZ=1`
-	- Uses bundled Chromium from `@sparticuz/chromium` (no OS install), but can increase cold-start.
-- `PUPPETEER_DISABLE_DEV_SHM_USAGE=0`
-	- If `/dev/shm` is large enough, allowing it is usually faster than disk (especially on HDD).
-- `PDF_SET_CONTENT_TIMEOUT_MS=60000`, `PDF_RENDER_TIMEOUT_MS=60000`
-	- Increase timeouts when debugging slow renders.
-
-### Where to put these in production
-
-This repo deploys to VPS via GitHub Actions and restarts a systemd service (`char`) in [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Add the env vars to that service:
-
-- systemd drop-in (recommended): `sudo systemctl edit char` and add:
-
-```ini
-[Service]
-Environment=PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
-Environment=PUPPETEER_DISABLE_DEV_SHM_USAGE=0
-Environment=PDF_SET_CONTENT_TIMEOUT_MS=60000
-Environment=PDF_RENDER_TIMEOUT_MS=60000
-```
-
-Then run:
+## Перевірки й збірка
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl restart char
+bun run test:no-db
+bunx tsc --noEmit
+bun run lint
 ```
 
-Verify which environment variables systemd actually passes to the process:
+Інтеграційні тести працюють окремо на локальному Postgres 17 і копіях бази на воркер:
 
 ```bash
-sudo systemctl cat char
-systemctl show char -p Environment
+./scripts/local-test-db.sh status
+bun run test:integration
 ```
 
-Note on precedence: `EnvironmentFile=` and `Environment=` are applied in order. If your unit has `EnvironmentFile=/home/luka/char/.env` and `.env.local` AFTER your `Environment=...` lines, the files can override values. Either:
+`bunx next build` збирає наявні каталоги. **`bun run build` спершу запускає `prebuild` →
+`generate:content`: читає налаштовану базу та перезаписує генеровані каталоги.** Вибирай команду
+залежно від того, чи потрібна регенерація. Повний перелік команд — у [package.json](package.json).
 
-- Put the `EnvironmentFile=` lines first, then the explicit `Environment=...` lines after, OR
-- Keep only `EnvironmentFile=` in the unit and move all `PUPPETEER_*` / `PDF_*` variables into the env file.
+## Продакшен і PDF
 
-If you prefer not to install a browser on the OS, omit `PUPPETEER_EXECUTABLE_PATH` and use:
+Пуш у `main` запускає [GitHub Actions](.github/workflows/deploy.yml): перевірки, Docker-образ,
+викатку з перевіркою доступності й відкатом у разі невдалого смоуку. Пуш потребує явного
+доручення власника. Workflow пропускає пуші, які змінюють лише Markdown/`docs/**`.
 
-```ini
-Environment=PUPPETEER_USE_SPARTICUZ=1
-```
+PDF генерує `puppeteer-core` у серверному процесі. [Dockerfile](Dockerfile) встановлює Chromium
+і задає `PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium`; systemd-сервіс `char` для цього деплою
+не використовується. Runtime env-файл контейнера визначає
+[scripts/deploy-container.sh](scripts/deploy-container.sh) (`CHAR_ENV_FILE`, типовий шлях
+`/home/luka/char.env`). `NEXT_PUBLIC_*` задаються під час збірки.
+
+Параметри PDF є в [.env.example](.env.example): `PUPPETEER_EXECUTABLE_PATH`,
+`PUPPETEER_USE_SPARTICUZ`, `PUPPETEER_DISABLE_DEV_SHM_USAGE`, `PDF_SET_CONTENT_TIMEOUT_MS`,
+`PDF_RENDER_TIMEOUT_MS`. У контейнері з установленим Chromium використовуй його; для іншого
+оточення обери системний браузер або Sparticuz відповідно до конфігурації.
+
+Серверні знімки й обслуговування: [SERVER.md](docs/SERVER.md).

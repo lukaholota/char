@@ -31,6 +31,7 @@ import {
 } from "@/lib/components/characterCreator/infoUtils";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { z } from "zod";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 
 interface Props {
   race: RaceI;
@@ -100,6 +101,8 @@ export const RaceSubraceVariantForm = ({ race, formId, onNextDisabledChange }: P
 
   const isRequired = hasSubraces;
   const selectionMade = Boolean(chosenSubraceId != null || chosenVariantId != null);
+
+  useNextStepHint(isRequired && !selectionMade ? "Оберіть підрасу." : null);
 
   useEffect(() => {
     if (!isRequired) {

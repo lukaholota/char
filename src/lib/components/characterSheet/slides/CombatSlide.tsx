@@ -58,32 +58,34 @@ function MagicItemRow({
     const isConsumable = pmi.magicItem?.itemType === "POTION" || pmi.magicItem?.itemType === "SCROLL";
 
     return (
-        <div className={`w-full overflow-hidden transition-all duration-300 ${isRemoving ? "opacity-0 translate-x-2 max-h-0 py-0" : "opacity-100 translate-x-0 max-h-32 mb-2"}`}>
+        <div className={`w-full overflow-hidden transition-all duration-300 ${isRemoving ? "opacity-0 translate-x-2 max-h-0 py-0" : "opacity-100 translate-x-0 max-h-60 mb-2"}`}>
             <div 
-                className="flex items-center justify-between p-3 rounded-lg border border-white/5 bg-slate-800/40 hover:bg-slate-800/60 transition group cursor-pointer"
+                className="flex flex-col gap-2 p-3 rounded-lg border border-white/5 bg-slate-800/40 hover:bg-slate-800/60 transition group cursor-pointer"
                 onClick={onSelect}
             >
-                <div className="flex-1 min-w-0">
-                    <div className="font-bold text-slate-50 flex items-center gap-2">
-                        <span className="truncate text-violet-200">{pmi.magicItem?.name}</span>
+                <div className="min-w-0">
+                    <div className="font-bold text-slate-50 flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span className="text-violet-200 break-words">{pmi.magicItem?.name}</span>
                         {pmi.isEquipped && <span className="text-[10px] bg-violet-500/20 text-violet-300 px-1.5 py-0.5 rounded border border-violet-500/30">ЕКІП</span>}
                         {pmi.isAttuned && <span className="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">НАЛАШТ</span>}
                     </div>
-                     <div className="text-xs text-slate-400 mt-0.5 truncate">
+                     <div className="text-xs text-slate-400 mt-0.5">
                         {typeLabel} • {rarityLabel}
                      </div>
                 </div>
 
-                <div className="flex items-center gap-2 ml-2" onClick={e => e.stopPropagation()}>
-                    <MagicItemChargesControl
-                        persId={pmi.persId}
-                        persMagicItemId={pmi.persMagicItemId}
-                        charges={{ chargesMax: pmi.chargesMax, chargesCurrent: pmi.chargesCurrent }}
-                        isReadOnly={isReadOnly}
-                        onChanged={onChargesChanged}
-                    />
+                <div className="flex items-center justify-between gap-2">
+                    <div onClick={e => e.stopPropagation()}>
+                        <MagicItemChargesControl
+                            persId={pmi.persId}
+                            persMagicItemId={pmi.persMagicItemId}
+                            charges={{ chargesMax: pmi.chargesMax, chargesCurrent: pmi.chargesCurrent }}
+                            isReadOnly={isReadOnly}
+                            onChanged={onChargesChanged}
+                        />
+                    </div>
                     {!isReadOnly && (
-                        <>
+                        <div className="flex items-center gap-2 ml-auto" onClick={e => e.stopPropagation()}>
                             {/* Toggle Attunement if required */}
                             {pmi.magicItem?.requiresAttunement && (
                                  <Button
@@ -126,7 +128,7 @@ function MagicItemRow({
                             >
                                 <Trash2 className="w-4 h-4" />
                             </Button>
-                        </>
+                        </div>
                     )}
                 </div>
             </div>

@@ -10,7 +10,7 @@ import {
   loadLevelUpFeatSpellOffer,
   loadLevelUpSpellOffer,
 } from "@/server/db/levelup-persistence";
-import { loadLevelUpClassOptionSpellOffer } from "@/server/db/levelup-class-option-spells";
+import { loadLevelUpCatchUpSpellOffers, loadLevelUpClassOptionSpellOffer } from "@/server/db/levelup-class-option-spells";
 
 export async function getLevelUpInfo(persId: number) {
   return getPersistedLevelUpInfo(persId);
@@ -54,6 +54,11 @@ export async function getLevelUpFeatSpellOffer(persId: number, featId: number, f
 
 function toPositiveIds(ids: unknown): number[] {
   return (Array.isArray(ids) ? ids : []).map(Number).filter((id) => Number.isInteger(id) && id > 0);
+}
+
+/** KR48.7: Високий ельф, клірик природи, бард знань… 2014, що вибору ще не робили, обирають його на підвищенні. */
+export async function getLevelUpCatchUpSpellOffers(persId: number) {
+  return loadLevelUpCatchUpSpellOffers(Number(persId));
 }
 
 /** Pact of the Tome, узятий на цьому підвищенні, просить Книгу тіней; Колегія знань на 6-му — Магічні відкриття. */

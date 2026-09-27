@@ -4,6 +4,7 @@ import { Award, Plus, Trash2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { featCategoryTranslations } from "@/lib/refs/translation";
 import { getFeatureDisplayName } from "@/lib/utils/features";
+import { translateEnumLikeLabel } from "@/lib/components/characterCreator/infoUtils";
 import { FeatureCard } from "@/lib/components/characterSheet/shared/FeatureCards";
 
 export type CharacterFeatItem = {
@@ -100,7 +101,7 @@ function RemoveFeatButton({ name, isRemoving, onRemove }: { name: string; isRemo
 }
 
 function ChosenOptions({ choices }: { choices: CharacterFeatItem["choices"] }) {
-  const optionNames = (choices ?? []).map((c) => c.choiceOption?.optionName).filter(Boolean);
+  const optionNames = (choices ?? []).map((c) => c.choiceOption?.optionName).filter((name): name is string => Boolean(name));
   if (optionNames.length === 0) return null;
 
   return (
@@ -108,7 +109,7 @@ function ChosenOptions({ choices }: { choices: CharacterFeatItem["choices"] }) {
       <span className="text-slate-400">Обрано:</span>
       {optionNames.map((optionName, i) => (
         <span key={i} className="px-1.5 py-0.5 rounded bg-white/5 text-amber-300 border border-white/10 font-medium">
-          {optionName}
+          {translateEnumLikeLabel(optionName)}
         </span>
       ))}
     </div>

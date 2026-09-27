@@ -14,13 +14,17 @@ const SCHOOL_OPTIONS = SPELL_SCHOOLS.map((school) => ({ value: school, label: sc
 
 export function HomebrewSpellForm({ entryId, initialValues }: { entryId?: number; initialValues: HomebrewSpellFormValues }) {
   const [values, setValues] = useState(initialValues);
-  const { errors, isSaving, submit } = useHomebrewSubmit();
-  const set = <K extends keyof HomebrewSpellFormValues>(key: K) => (value: HomebrewSpellFormValues[K]) => setValues((current) => ({ ...current, [key]: value }));
+  const { errors, isSaving, submit, markEdited } = useHomebrewSubmit({ kind: "SPELL", ruleset: values.ruleset, entryId });
+  const set = <K extends keyof HomebrewSpellFormValues>(key: K) => (value: HomebrewSpellFormValues[K]) => {
+    markEdited();
+    setValues((current) => ({ ...current, [key]: value }));
+  };
   const toggleClass = (value: string) => set("classes")(values.classes.includes(value) ? values.classes.filter((entry) => entry !== value) : [...values.classes, value]);
 
   return (
     <form
       className="space-y-4"
+      onChangeCapture={markEdited}
       onSubmit={(event) => {
         event.preventDefault();
         submit(() => saveHomebrewSpell({ entryId, values }));

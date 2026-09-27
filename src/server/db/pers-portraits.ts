@@ -6,6 +6,7 @@ import { canEditPers } from "@/lib/actions/pers";
 import { findCurrentUserId } from "@/server/db/current-user";
 import { deleteUnusedPortraits } from "@/server/db/pers-portrait-cleanup";
 import { storeSquareImage } from "@/server/media/image-upload";
+import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 
 type PortraitResult = { success: true; portraitKey: string | null } | { success: false; error: string };
 
@@ -34,10 +35,11 @@ async function findPortraitAccessError(persId: number): Promise<string | null> {
 }
 
 async function replacePortraitKey(persId: number, portraitKey: string | null): Promise<PortraitResult> {
-  const previous = await prisma.pers.findUnique({ where: { persId }, select: { portraitKey: true } });
+  const previous = await prisma.pers.findUnique({ where: { persId }, select: { portraitKey: true, ruleset: true } });
   await prisma.pers.update({ where: { persId }, data: { portraitKey } });
   await deleteUnusedPortraits([previous?.portraitKey ?? null]);
   revalidatePath(`/char/${persId}`);
   revalidatePath("/char/home");
+  if (portraitKey) captureServerPostHogEvent("custom_avatar_uploaded", { pers_id: persId, edition: previous?.ruleset === "RULES_2024" ? "2024" : "2014", action: previous?.portraitKey ? "replace" : "first" });
   return { success: true, portraitKey };
 }

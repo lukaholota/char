@@ -8,6 +8,8 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { ClassI } from "@/lib/types/model-types";
 import { WeaponMasteryPicker } from "@/components/weapons/WeaponMasteryPicker";
 import { findWeaponMasteryCapacity, findWeaponMasteryOptionsForClasses } from "@/rules/weapon-mastery";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, WEAPON_KIND_FORMS } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -33,6 +35,8 @@ export const WeaponMasteryForm = ({ selectedClass, weapons, formId, onNextDisabl
   const watched = form.watch("weaponMasteryWeaponIds");
   const selected = useMemo(() => watched ?? [], [watched]);
   const isComplete = selected.length === capacity;
+
+  useNextStepHint(buildPickHint(selected.length, capacity, WEAPON_KIND_FORMS, "для майстерності"));
 
   useEffect(() => {
     onNextDisabledChange?.(!isComplete);

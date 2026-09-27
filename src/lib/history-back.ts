@@ -21,3 +21,17 @@ export function goBackInHistory(steps = 1): void {
 export function waitForPendingHistoryBack(): Promise<void> {
   return Promise.resolve().then(() => pendingHistoryBack ?? undefined);
 }
+
+const NEXT_ROUTER_STATE_KEYS = ["__NA", "__PRIVATE_NEXTJS_INTERNALS_TREE"];
+
+// Next copies its own keys back and updates its URL only when they are absent; with `__NA`
+// it treats the call as its own, keeps the old URL and writes it back on its next render.
+export function readHistoryStateWithoutNextRouter(): Record<string, unknown> {
+  const state = { ...((window.history.state as Record<string, unknown> | null) ?? {}) };
+  for (const key of NEXT_ROUTER_STATE_KEYS) delete state[key];
+  return state;
+}
+
+export function replaceUrlKeepingHistoryState(url: string): void {
+  window.history.replaceState(readHistoryStateWithoutNextRouter(), "", url);
+}

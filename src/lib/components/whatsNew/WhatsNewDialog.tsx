@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
@@ -12,6 +12,8 @@ import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { useIsArtHidden } from "@/components/no-ai/ContentImage";
 import type { ReleaseSlide } from "@/lib/whats-new/release-notes";
 import { cn } from "@/lib/utils";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
+import { CURRENT_RELEASE_FLAG } from "@/lib/whats-new/release-notes";
 
 type WhatsNewDialogProps = {
   slides: readonly ReleaseSlide[];
@@ -22,6 +24,13 @@ type WhatsNewDialogProps = {
 export function WhatsNewDialog({ slides, isOpen, onClose }: WhatsNewDialogProps) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const viewedSlides = useRef(new Set<string>());
+  useEffect(() => {
+    const slide = slides[activeIndex];
+    if (!isOpen || !slide || viewedSlides.current.has(slide.key)) return;
+    viewedSlides.current.add(slide.key);
+    capturePostHogEvent("whats_new_slide_viewed", { release: CURRENT_RELEASE_FLAG, slide: slide.key, slide_number: activeIndex + 1, total_slides: slides.length });
+  }, [activeIndex, isOpen, slides]);
 
   const isLast = activeIndex === slides.length - 1;
 

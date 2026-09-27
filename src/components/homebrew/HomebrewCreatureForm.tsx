@@ -44,12 +44,16 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
   const [image, setImage] = useState<{ blob: Blob | null; previewUrl: string | null; isRemoved: boolean }>({ blob: null, previewUrl: initialImageUrl, isRemoved: false });
   const [imageError, setImageError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { errors, isSaving, submit } = useHomebrewSubmit();
-  const set = (key: keyof HomebrewCreatureFormValues) => (value: string) => setValues((current) => ({ ...current, [key]: value }));
+  const { errors, isSaving, submit, markEdited } = useHomebrewSubmit({ kind: "CREATURE", ruleset: values.ruleset, entryId });
+  const set = (key: keyof HomebrewCreatureFormValues) => (value: string) => {
+    markEdited();
+    setValues((current) => ({ ...current, [key]: value }));
+  };
 
   const [croppingFile, setCroppingFile] = useState<File | null>(null);
 
   const acceptCroppedImage = (blob: Blob) => {
+    markEdited();
     setCroppingFile(null);
     if (blob.size > MAX_IMAGE_UPLOAD_BYTES) return setImageError("Картинка завелика навіть після стискання");
     setImageError(null);
@@ -73,6 +77,7 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
   return (
     <form
       className="space-y-5"
+      onChangeCapture={markEdited}
       onSubmit={(event) => {
         event.preventDefault();
         submit(save);

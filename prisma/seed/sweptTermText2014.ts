@@ -56,6 +56,20 @@ const SWEPT_FEATURES_2014 = [
   "Hound of Ill Omen",
   "Wild Magic Surge",
   "Bend Luck",
+  /// Англійські назви навичок та інструментів у коротких описах драконячих міток перекладено за словником.
+  "Artisan's Intuition",
+  "Cunning Intuition",
+  "Deductive Intuition",
+  "Ever-Hospitable",
+  "Gifted Scribe",
+  "Hunter's Intuition",
+  "Intuition of the Voyager",
+  "Medical Intuition",
+  "Sentinel's Intuition",
+  "Warder's Intuition",
+  "Wild Intuition",
+  "Windwright's Intuition",
+  "Fancy Footwork",
 ] as const;
 
 /// Фанатика тут більше немає: його опис звірено з джерелом і везе `seed:catalog-prose-2014` (KR33.7).

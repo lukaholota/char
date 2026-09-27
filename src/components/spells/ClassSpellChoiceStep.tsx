@@ -14,6 +14,9 @@ import {
 import { countOutsideSchools, describeSchoolLimit2014, findSchoolLimitProblem, isOutsideSchools } from "@/rules/class-spell-choices-2014";
 import { isSwapStarted, type SpellSwap } from "@/rules/class-spell-swaps-2024";
 import type { SpellChoiceOption, SpellSchoolLimit } from "@/rules/spell-choice-filter";
+import type { UkrainianWordForms } from "@/lib/ukrainian-plural";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, CANTRIP_FORMS, findFirstHint, SPELL_FORMS } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   offer: ClassSpellOffer;
@@ -29,7 +32,9 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
   const { formData, updateFormData } = usePersFormStore();
   const limits = findSelectionLimits(offer.quota, offer.catchUp, offer.canSkipPrepared);
   const selection = useMemo(() => keepOfferedSpells(formData.classSpells ?? EMPTY_CLASS_SPELL_SELECTION, offer), [formData.classSpells, offer]);
-  const isComplete = isSelectionComplete(selection, offer);
+  const selectionHint = findSelectionHint(selection, offer);
+  const isComplete = selectionHint === null;
+  useNextStepHint(selectionHint);
   const preparable = findPreparableSpells(offer, selection);
   const usesBook = offer.quota.spellbook > 0 || offer.bookSpells.length > 0;
   const is2014 = offer.ruleset === "RULES_2014";
@@ -217,16 +222,26 @@ function keepOfferedSwap(swap: SpellSwap | null | undefined, droppable: SpellCho
   return dropId === null ? null : { dropId, addId };
 }
 
-function isSelectionComplete(selection: ClassSpellSelection, offer: ClassSpellOffer): boolean {
+function findSelectionHint(selection: ClassSpellSelection, offer: ClassSpellOffer): string | null {
   const limits = findSelectionLimits(offer.quota, offer.catchUp, offer.canSkipPrepared);
-  return (
-    isSpellCountWithinLimit(selection.cantripIds, limits.cantrips) &&
-    isSpellCountWithinLimit(selection.spellbookIds, limits.spellbook) &&
-    isSpellCountWithinLimit(selection.preparedIds, limits.prepared) &&
-    isSwapFinished(selection.cantripSwap) &&
-    isSwapFinished(selection.preparedSwap) &&
-    findSchoolLimitProblem({ limit: offer.schoolLimit, selection, candidates: offer.spells, droppable: offer.swap?.droppableSpells ?? [] }) === null
-  );
+  const preparedSuffix = offer.ruleset === "RULES_2014" ? "" : "для підготовки";
+  return findFirstHint([
+    buildSpellCountHint(selection.cantripIds, limits.cantrips, CANTRIP_FORMS, ""),
+    buildSpellCountHint(selection.spellbookIds, limits.spellbook, SPELL_FORMS, "для книги заклинань"),
+    buildSpellCountHint(selection.preparedIds, limits.prepared, SPELL_FORMS, preparedSuffix),
+    isSwapFinished(selection.cantripSwap) && isSwapFinished(selection.preparedSwap) ? null : "Завершіть заміну: оберіть, що стане на місце прибраного заклинання.",
+    withFullStop(findSchoolLimitProblem({ limit: offer.schoolLimit, selection, candidates: offer.spells, droppable: offer.swap?.droppableSpells ?? [] })),
+  ]);
+}
+
+function buildSpellCountHint(spellIds: readonly number[], limit: SpellCountLimit, forms: UkrainianWordForms, suffix: string): string | null {
+  if (isSpellCountWithinLimit(spellIds, limit)) return null;
+  if (new Set(spellIds).size !== spellIds.length) return "Одне заклинання обрано двічі — приберіть повтор.";
+  return buildPickHint(spellIds.length, spellIds.length < limit.min ? limit.min : limit.max, forms, suffix);
+}
+
+function withFullStop(problem: string | null): string | null {
+  return problem ? `${problem}.` : null;
 }
 
 /** Заклинання поза школами підкласу можна брати, доки їх у виборі менше, ніж дозволено; свої школи — завжди. */

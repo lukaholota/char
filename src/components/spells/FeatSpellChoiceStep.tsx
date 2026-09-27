@@ -5,6 +5,8 @@ import { SpellChoiceGrid } from "@/components/spells/SpellChoiceGrid";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { listPickSpellLevels, type FeatSpellChoiceOffer, type FeatSpellChoicePick } from "@/rules/feat-spell-choices";
 import type { SpellChoiceOption } from "@/rules/spell-choice-filter";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, CANTRIP_FORMS, findFirstHint, SPELL_FORMS } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   featLabel: string;
@@ -20,6 +22,7 @@ export function FeatSpellChoiceStep({ featLabel, offer, selectedIds, onChange, e
   const picks = useMemo(() => withoutExcludedSpells(offer.picks, excludedSpellIds ?? []), [offer.picks, excludedSpellIds]);
   const chosenByPick = picks.map((pick) => keepPickSpells(pick, selectedIds));
   const isComplete = picks.every((pick, index) => chosenByPick[index].length === pick.count);
+  useNextStepHint(findFirstHint(picks.map((pick, index) => buildPickHint(chosenByPick[index].length, pick.count, isCantripPick(pick) ? CANTRIP_FORMS : SPELL_FORMS, `для «${featLabel}»`))));
 
   useEffect(() => {
     onCompleteChange?.(isComplete);
@@ -80,6 +83,10 @@ function describePickLevels(pick: FeatSpellChoicePick): string {
 function findPickTitle(pick: FeatSpellChoicePick): string {
   if (spansSpellLevels(pick)) return `Заклинання до ${pick.maxSpellLevel}-го рівня`;
   return pick.spellLevel === 0 ? "Замовляння" : `Заклинання ${pick.spellLevel}-го рівня`;
+}
+
+function isCantripPick(pick: FeatSpellChoicePick): boolean {
+  return pick.spellLevel === 0 && !spansSpellLevels(pick);
 }
 
 function spansSpellLevels(pick: FeatSpellChoicePick): boolean {

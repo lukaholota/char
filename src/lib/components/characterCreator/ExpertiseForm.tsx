@@ -13,6 +13,8 @@ import { engEnumSkills } from "@/lib/refs/translation";
 import { Skills } from "@/lib/prisma-enums";
 import { SkillExpertises } from "@/lib/types/model-types";
 import { countExpertiseSelections } from "@/rules/expertise-selections";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, SKILL_FORMS } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   selectedClass: ClassI;
@@ -126,6 +128,8 @@ export const ExpertiseForm = ({ activeFeatures, formId, onNextDisabledChange, ex
       updateFormData({ expertiseSchema: { expertises: validExpertises } });
     }
   }, [availableSkillsForExpertise, selectedExpertises, form, updateFormData]);
+
+  useNextStepHint(buildPickHint(selectedExpertises.length, expertiseCount, SKILL_FORMS, "для експертизи"));
 
   useEffect(() => {
     onNextDisabledChange?.(selectedExpertises.length !== expertiseCount);

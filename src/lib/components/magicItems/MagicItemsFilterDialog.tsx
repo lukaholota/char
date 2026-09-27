@@ -63,7 +63,7 @@ export function MagicItemsFilterDialog({
   const activeBadgeClass = findAccentVariant(is2024, { prism: "bg-prism-500/15 text-prism-300 border-prism-500/30", arcane: "bg-arcane-500/15 text-arcane-300 border-arcane-500/30" });
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={onOpenChange} keepUrlOnClose>
       <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
         <div className="p-4 sm:p-6">
           <div className="flex items-start justify-between gap-3">

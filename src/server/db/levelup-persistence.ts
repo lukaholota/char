@@ -76,9 +76,11 @@ import { grantAlternativeArmorClassFormulas } from "@/server/db/armor-class-form
 import { findUserIdByEmail } from "@/server/db/users";
 import { buildClassOptionPersSpellRows } from "@/server/db/class-option-spell-choices";
 import { findLevelUpClassOptionSpellProblem } from "@/server/db/levelup-class-option-spells";
+import { findCatchUpSpellProblem, saveCatchUpSpells, type CatchUpSpellSelections } from "@/server/db/catch-up-spell-choices-2014";
 import { canEditPers } from "@/lib/actions/pers";
 import { findCustomAsiPackageProblem } from "@/rules/abilities";
 import { findExpertiseSelectionProblem, readExpertiseGrant } from "@/rules/expertise-selections";
+import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 
 const ALL_SKILLS = Object.values(Skills) as Skills[];
 
@@ -1186,6 +1188,18 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
     });
     if (classOptionSpellProblem) return { error: classOptionSpellProblem };
 
+    const catchUpSpellSelections = (data?.catchUpSpellSelections ?? {}) as CatchUpSpellSelections;
+    const { problem: catchUpSpellProblem, pending: catchUpSpellChoices } = await findCatchUpSpellProblem(prisma, {
+      persId,
+      selections: catchUpSpellSelections,
+      alsoChosenSpellIds: [
+        ...[...speciesGrants.spells, ...chosenFeatSpells, ...grownFeatSpells].map((spell) => spell.spellId),
+        ...Object.values(data.classSpells ?? {}).flat().filter((id): id is number => typeof id === "number"),
+        ...classOptionSpellIds,
+      ],
+    });
+    if (catchUpSpellProblem) return { error: catchUpSpellProblem };
+
     await prisma.$transaction(async (tx) => {
       // Create snapshot before changes
       await createCharacterSnapshot(persId);
@@ -1529,6 +1543,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
           skipDuplicates: true,
         });
       }
+      await saveCatchUpSpells(tx, { persId, pending: catchUpSpellChoices, selections: catchUpSpellSelections, learnedAtLevel: nextLevel });
 
       // Раса 2014 (O48) — після вибору класу: збіг із щойно обраним стає рядком раси за Р53, а не губиться.
       if (pers.ruleset === "RULES_2014") {
@@ -1547,6 +1562,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
       }
     });
 
+    captureServerPostHogEvent("character_leveled_up", { pers_id: persId, edition: pers.ruleset === "RULES_2024" ? "2024" : "2014", level: nextLevel });
     return { success: true };
     } catch (e) {
         console.error(e);

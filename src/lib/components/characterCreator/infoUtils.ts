@@ -97,6 +97,8 @@ export const translateValue = (value?: string | number | null): string => {
   return prettifyEnum(value);
 };
 
+export const translateEnumLikeLabel = (label: string): string => (/^[A-Z0-9_]+$/.test(label) ? translateValue(label) : label);
+
 export const formatList = (values?: Array<string | number> | null, fallback = "—") => {
   if (!values || values.length === 0) return fallback;
   return values.map((item) => translateValue(item)).join(", ");

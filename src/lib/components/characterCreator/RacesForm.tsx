@@ -22,6 +22,7 @@ import { toast } from "sonner";
 import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
 import { CreationCard } from "@/components/characterCreator/CreationCard";
 import { getRaceVisual } from "@/components/characterCreator/creation-visuals";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 
 const normalizeText = (value?: string) =>
   (value || "")
@@ -119,6 +120,7 @@ export const RacesForm = (
   }, [normalizedRaceSearch]);
 
   const is2024 = useMemo(() => races.some((r) => r.ruleset === "RULES_2024" || r.name.endsWith("2024")), [races]);
+  useNextStepHint(chosenRaceId ? null : is2024 ? "Оберіть вид персонажа." : "Оберіть расу персонажа.");
 
   const coreRaces = useMemo(
     () => races

@@ -4,6 +4,7 @@ import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
 import { authAdapter, findOrCreateGoogleUser, findOrCreateQaCredentialsUser } from "@/server/db/auth";
 import { getQaCredentialsConfig, verifyQaCredentials } from "@/lib/auth/qa-credentials";
+import { isInternalAnalyticsEmail } from "@/lib/monitoring/posthog-context";
 
 const googleClient = new OAuth2Client();
 const qaCredentialsConfig = getQaCredentialsConfig();
@@ -108,7 +109,7 @@ export const config = {
     },
     async session({ session, token }) {
       if (token?.userId) session.user.id = token.userId as string;
-      return session;
+      return { ...session, user: { ...session.user, analyticsInternal: isInternalAnalyticsEmail(session.user.email, process.env.QA_CREDENTIALS_EMAIL) } };
     }
   },
 

@@ -52,11 +52,13 @@ describe("Magical Discoveries 2024 — Магічні відкриття Кол�
     });
   });
 
-  it("на інших рівнях, в інших підкласах і в редакції 2014 вибору немає", () => {
+  it("на інших рівнях і в інших підкласах вибору немає, а в 2014 на тому ж рівні — інша риса", () => {
     expect(findSubclassFeatureSpellChoice({ ruleset: "RULES_2024", subclassName: "COLLEGE_OF_LORE", classLevel: 5 })).toBeNull();
     expect(findSubclassFeatureSpellChoice({ ruleset: "RULES_2024", subclassName: "COLLEGE_OF_LORE", classLevel: 7 })).toBeNull();
     expect(findSubclassFeatureSpellChoice({ ruleset: "RULES_2024", subclassName: "COLLEGE_OF_VALOR", classLevel: 6 })).toBeNull();
-    expect(findSubclassFeatureSpellChoice({ ruleset: "RULES_2014", subclassName: "COLLEGE_OF_LORE", classLevel: 6 })).toBeNull();
+    expect(findSubclassFeatureSpellChoice({ ruleset: "RULES_2014", subclassName: "COLLEGE_OF_LORE", classLevel: 6 })?.sourceName).toBe(
+      "College of Lore: Additional Magical Secrets (2014)",
+    );
   });
 
   it("замовляння й заклинання 3-го рівня проходять, заклинання 4-го рівня й суто бардівське — ні", () => {

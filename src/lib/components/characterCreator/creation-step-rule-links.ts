@@ -23,6 +23,7 @@ const RULES_2014_ANCHORS: Record<string, RuleAnchor> = {
   race: { anchor: "1-choose-a-race", articleTitle: "1. Оберіть расу" },
   raceDetails: { anchor: "racial-traits--subraces", articleTitle: "Расові особливості" },
   raceChoices: { anchor: "racial-traits", articleTitle: "Расові особливості" },
+  raceSpells: { anchor: "racial-traits", articleTitle: "Расові особливості" },
   class: { anchor: "2-choose-a-class", articleTitle: "2. Оберіть клас" },
   subclass: { anchor: "2-choose-a-class", articleTitle: "2. Оберіть клас" },
   subclassChoices: { anchor: "2-choose-a-class", articleTitle: "2. Оберіть клас" },
@@ -70,7 +71,7 @@ const RULES_2024_ANCHORS: Record<string, RuleAnchor> = {
 /// для 2014: правила там її не знають, і кроку в майстрі 2014 теж немає.
 export const STEPS_WITHOUT_RULE_ARTICLE: Record<Ruleset, readonly string[]> = {
   RULES_2014: ["weaponMastery", "spells", "backgroundFeat", "backgroundFeatChoices", "featSpells"],
-  RULES_2024: ["feat", "featChoices", "classOptional"],
+  RULES_2024: ["feat", "featChoices", "classOptional", "raceSpells"],
 };
 
 const ANCHORS_BY_RULESET: Record<Ruleset, Record<string, RuleAnchor>> = {

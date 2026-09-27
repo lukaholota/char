@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { LinkedPreview } from "@/components/ui/LinkedPreview";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildGroupPickHint, countGroupSelection, findFirstHint } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   selectedSubclass?: SubclassI | null;
@@ -72,6 +74,10 @@ const SubclassChoiceOptionsForm = ({ selectedSubclass, availableOptions, formId,
     });
     return Object.entries(groups).map(([groupName, options]) => ({ groupName, options }));
   }, [optionsToUse]);
+
+  useNextStepHint(findFirstHint(groupedOptions.map(({ groupName }) =>
+    buildGroupPickHint(groupName, countGroupSelection(selections[groupName]), getRequiredCount(groupName))
+  )));
 
   useEffect(() => {
     let disabled: boolean;

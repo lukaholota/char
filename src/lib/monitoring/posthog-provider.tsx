@@ -1,35 +1,41 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
+import { useActiveEdition, useIsEditionPinnedByPage } from "@/components/ui/PersEditionPin";
+import { buildPostHogPageProperties, isInternalAnalyticsEmail } from "@/lib/monitoring/posthog-context";
+import { capturePostHogEvent, configurePostHogIdentity, flushPostHogOnExit } from "@/lib/monitoring/posthog-client";
+import { stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
 
-import { loadPostHog } from "@/lib/monitoring/posthog-client";
-import { runWhenIdle } from "@/lib/run-when-idle";
-
-const LOAD_TIMEOUT_MS = 5000;
-
-// identify() привʼязує подальші події до вже наявного userId, а не до нового ідентифікатора —
-// саме це замінює тут потребу в постійному анонімному cookie. reset() на виході повертає
-// PostHog до анонімного стану, щоб події наступного відвідувача на тому ж пристрої (спільний
-// компʼютер, той самий браузер) не приписались попередньому акаунту.
 export function PostHogProvider() {
   const { data: session, status } = useSession();
-  const userId = session?.user?.id;
-
-  useEffect(() => runWhenIdle(() => void loadPostHog(), LOAD_TIMEOUT_MS), []);
+  const pathname = usePathname() ?? "/";
+  const edition = useActiveEdition();
+  const isEditionPinned = useIsEditionPinnedByPage();
+  const userId = session?.user?.id ?? null;
+  const isInternal = isInternalAnalyticsEmail(session?.user?.email) || Boolean(session?.user && "analyticsInternal" in session.user && session.user.analyticsInternal);
+  const lastPageview = useRef<string | null>(null);
 
   useEffect(() => {
-    if (status === "authenticated" && userId) return runWhenIdle(() => void identifyPostHogUser(userId), LOAD_TIMEOUT_MS);
-    if (status === "unauthenticated") return runWhenIdle(() => void forgetPostHogUser(), LOAD_TIMEOUT_MS);
-  }, [status, userId]);
+    if (status === "loading") return;
+    configurePostHogIdentity({ userId, isInternal });
+  }, [status, userId, isInternal]);
+
+  useEffect(() => {
+    window.addEventListener("pagehide", flushPostHogOnExit);
+    return () => window.removeEventListener("pagehide", flushPostHogOnExit);
+  }, []);
+
+  useEffect(() => {
+    if (status === "loading") return;
+    const route = stripNoAiPrefix(pathname);
+    if (/^\/(?:char\/\d+|pers\/)/.test(route) && !isEditionPinned) return;
+    const key = `${pathname}:${edition}:${userId}`;
+    if (lastPageview.current === key) return;
+    lastPageview.current = key;
+    capturePostHogEvent("$pageview", buildPostHogPageProperties(pathname, edition));
+  }, [pathname, edition, isEditionPinned, status, userId]);
 
   return null;
-}
-
-async function identifyPostHogUser(userId: string): Promise<void> {
-  (await loadPostHog())?.identify(userId);
-}
-
-async function forgetPostHogUser(): Promise<void> {
-  (await loadPostHog())?.reset();
 }

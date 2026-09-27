@@ -42,3 +42,11 @@ export function normalizeFeatureCreateInput(input: SeedFeatureCreateInput): Pris
         shortDescription,
     };
 }
+
+/// «You can take a Reaction» — лише ваша реакція: у Командирському ударі й Маневрувальній атаці
+/// реакцією ходить союзник, і фіча лишається атакою власника.
+export function findDisplayTypeInRulesText(descriptionEng: string): FeatureDisplayType {
+    if (/^As a Bonus Action\b/.test(descriptionEng)) return FeatureDisplayType.BONUSACTION;
+    if (/\byou can take a Reaction\b/.test(descriptionEng)) return FeatureDisplayType.REACTION;
+    return FeatureDisplayType.PASSIVE;
+}

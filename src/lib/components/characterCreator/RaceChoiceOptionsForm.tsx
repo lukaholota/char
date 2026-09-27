@@ -10,6 +10,8 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { RaceI } from "@/lib/types/model-types";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { buildSelectableCardProps } from "@/lib/components/characterCreator/selectable-card-props";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildGroupPickHint, findFirstHint } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   race?: RaceI | null;
@@ -66,6 +68,10 @@ const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }
       options: options.sort((a, b) => a.optionId - b.optionId),
     }));
   }, [optionsToUse]);
+
+  useNextStepHint(findFirstHint(groupedOptions.map(({ groupName }) =>
+    buildGroupPickHint(groupName, selections[groupName] === undefined ? 0 : 1, 1)
+  )));
 
   useEffect(() => {
     let disabled: boolean;

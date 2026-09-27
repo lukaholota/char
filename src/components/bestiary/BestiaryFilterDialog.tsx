@@ -60,7 +60,7 @@ export function BestiaryFilterDialog({
   extraSection,
 }: Props) {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={onOpenChange} keepUrlOnClose>
       <DialogContent
         className="max-w-lg border-white/10 bg-slate-950/95 p-6 backdrop-blur-2xl text-slate-100 max-h-[85vh] overflow-y-auto"
         aria-describedby={undefined}

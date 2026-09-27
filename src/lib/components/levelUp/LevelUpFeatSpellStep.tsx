@@ -34,7 +34,7 @@ export function LevelUpFeatSpellStep({ featLabel, offer, field = "featSpellIds",
           featLabel={featLabel}
           offer={offer}
           selectedIds={formData[field] ?? []}
-          excludedSpellIds={OTHER_FIELDS[field].flatMap((other) => formData[other] ?? [])}
+          excludedSpellIds={[...OTHER_FIELDS[field].flatMap((other) => formData[other] ?? []), ...Object.values(formData.catchUpSpellSelections ?? {}).flat()]}
           onChange={(spellIds) => updateFormData({ [field]: spellIds })}
           onCompleteChange={reportComplete}
         />

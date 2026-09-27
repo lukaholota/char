@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("sonner", () => ({ toast: { error: vi.fn() } }));
+vi.mock("sonner", () => ({ toast: { error: vi.fn(), warning: vi.fn() } }));
 
 import { toast } from "sonner";
 
@@ -67,5 +67,32 @@ describe("Офлайн-аудит 2026-09-18 — серверна дія без 
     setOnline(true);
 
     await expect(window.fetch("/char/42", actionInit())).rejects.toSatisfy(guard.isOfflineActionError);
+  });
+});
+
+describe("Sentry JAVASCRIPT-NEXTJS-C — дія з вкладки, відкритої до деплою", () => {
+  beforeEach(() => {
+    vi.mocked(toast.warning).mockClear();
+    setOnline(true);
+  });
+
+  it("сервер не впізнав дію — людина бачить, що треба оновити сторінку", async () => {
+    window.fetch = vi.fn(
+      async () => new Response("", { status: 404, headers: { "x-nextjs-action-not-found": "1" } }),
+    ) as unknown as typeof fetch;
+    const guard = await loadGuard();
+    guard.installOfflineActionGuard();
+
+    await window.fetch("/char/42", actionInit());
+    expect(toast.warning).toHaveBeenCalledTimes(1);
+  });
+
+  it("звичайна відповідь на дію тосту не показує", async () => {
+    window.fetch = vi.fn(async () => new Response("ok")) as unknown as typeof fetch;
+    const guard = await loadGuard();
+    guard.installOfflineActionGuard();
+
+    await window.fetch("/char/42", actionInit());
+    expect(toast.warning).not.toHaveBeenCalled();
   });
 });

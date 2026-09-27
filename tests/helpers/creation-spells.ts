@@ -5,6 +5,8 @@ import { loadCreationSpellOffer } from "@/server/db/class-spell-choices";
 import { loadCreationFeatSpellOffer, loadFeatSpellChoiceOffer, loadFeatSpellGrowthOffer } from "@/server/db/feat-spell-choices";
 import { loadPersLevelUpSpellOffer } from "@/server/db/levelup-persistence";
 import { findSubclassAtNextLevel, loadClassOptionSpellOffer, type SubclassAtLevel } from "@/server/db/class-option-spell-choices";
+import { loadRaceAtCreation2014, loadRaceSpellOffer2014 } from "@/server/db/race-spell-choices-2014";
+import { loadCatchUpSpellOffers } from "@/server/db/catch-up-spell-choices-2014";
 import type { FeatSpellChoiceOffer } from "@/rules/feat-spell-choices";
 import type { RulesetId } from "@/rules/strategies/types";
 import type { ClassSpellOffer, ClassSpellSelection } from "@/rules/class-spell-choices-2024";
@@ -36,11 +38,29 @@ export async function withCreationSpells(form: PersFormData, picks?: CreationSpe
   const withClassSpells = classSpells ? { ...form, classSpells } : form;
   const featSpellSelections = await buildCreationFeatSpells(withClassSpells);
   const withFeatSpells = featSpellSelections ? { ...withClassSpells, featSpellSelections } : withClassSpells;
-  const classOptionSpellIds = await buildClassOptionSpells(withFeatSpells.classOptionSpellIds, withFeatSpells.classChoiceSelections, [
-    ...Object.values(withFeatSpells.classSpells ?? {}).flat(),
-    ...Object.values(withFeatSpells.featSpellSelections ?? {}).flat(),
-  ]);
-  return classOptionSpellIds ? { ...withFeatSpells, classOptionSpellIds } : withFeatSpells;
+  const classOptionSpellIds = await buildClassOptionSpells(
+    withFeatSpells.classOptionSpellIds,
+    withFeatSpells.classChoiceSelections,
+    [...Object.values(withFeatSpells.classSpells ?? {}).flat(), ...Object.values(withFeatSpells.featSpellSelections ?? {}).flat()],
+    withFeatSpells.subclassId ? { subclassId: withFeatSpells.subclassId, classLevel: 1 } : null,
+  );
+  const withClassOptionSpells = classOptionSpellIds ? { ...withFeatSpells, classOptionSpellIds } : withFeatSpells;
+  const raceSpellIds = await buildRaceSpells(withClassOptionSpells);
+  return raceSpellIds ? { ...withClassOptionSpells, raceSpellIds } : withClassOptionSpells;
+}
+
+/** Замовляння раси 2014 (Високий ельф, Кобольд, Астральний ельф): перше за абеткою, якого ще не взяли клас і підклас. */
+async function buildRaceSpells(form: PersFormData): Promise<number[] | undefined> {
+  if (form.raceSpellIds) return form.raceSpellIds;
+  const race = await loadRaceAtCreation2014(prisma, {
+    raceId: form.raceId,
+    subraceId: form.subraceId ?? null,
+    raceChoiceOptionIds: Object.values(form.raceChoiceSelections ?? {}).map(Number),
+  });
+  if (!race) return undefined;
+  const taken = [...Object.values(form.classSpells ?? {}).flat(), ...(form.classOptionSpellIds ?? [])].filter((id): id is number => typeof id === "number");
+  const offer = await loadRaceSpellOffer2014(prisma, { ...race, unavailableSpellIds: taken });
+  return offer ? pickFeatSpells(offer.offer, new Set()) : undefined;
 }
 
 /** Книга тіней і Магічні відкриття: чого фікстура не назвала, те добирає перше за абеткою серед ще не взятого. */
@@ -79,7 +99,24 @@ export async function withLevelUpSpells(persId: number, form: LevelUpFormData, p
     [...pers.persSpells.map((spell) => spell.spellId), ...taken, ...Object.values(withClassSpells.classSpells ?? {}).flat()],
     await findSubclassAtNextLevel(prisma, { persId, classId: form.classId, subclassId: form.subclassId ?? null }),
   );
-  return classOptionSpellIds ? { ...withClassSpells, classOptionSpellIds } : withClassSpells;
+  const withClassOptionSpells = classOptionSpellIds ? { ...withClassSpells, classOptionSpellIds } : withClassSpells;
+  return withCatchUpSpells(persId, withClassOptionSpells);
+}
+
+/** KR48.7: пропущений вибір — те, що сервер позначив наперед, інакше перше за абеткою серед ще не взятого. */
+async function withCatchUpSpells(persId: number, form: LevelUpFormData): Promise<LevelUpFormData> {
+  if (form.catchUpSpellSelections) return form;
+  const offers = await loadCatchUpSpellOffers(prisma, persId);
+  if (!offers.length) return form;
+
+  const taken = new Set([...Object.values(form.classSpells ?? {}).flat(), ...(form.classOptionSpellIds ?? []), ...(form.featSpellIds ?? [])].filter((id): id is number => typeof id === "number"));
+  const catchUpSpellSelections = Object.fromEntries(
+    offers.map((offer) => {
+      const total = offer.offer.picks.reduce((sum, pick) => sum + pick.count, 0);
+      return [offer.sourceName, offer.preselectedSpellIds.length === total ? offer.preselectedSpellIds : pickFeatSpells(offer.offer, taken)];
+    }),
+  );
+  return { ...form, catchUpSpellSelections };
 }
 
 type CreationFeatSpellSlot = { source: "BACKGROUND_ORIGIN" | "SPECIES_VERSATILITY"; featId: number | null | undefined; selections: PersFormData["backgroundFeatChoiceSelections"] };

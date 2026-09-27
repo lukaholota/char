@@ -1,6 +1,6 @@
 "use client";
 
-import posthog from "posthog-js";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 import { Button } from "@/components/ui/button";
 
@@ -24,7 +24,7 @@ export function PostHogCheckControls() {
       <Button
         variant="outline"
         onClick={() => {
-          posthog.capture("posthog_check", { source: "posthog-check-page" });
+          capturePostHogEvent("posthog_check", { source: "posthog-check-page" });
         }}
       >
         Надіслати перевірочну подію posthog_check

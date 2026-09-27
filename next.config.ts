@@ -4,6 +4,7 @@ import { withSentryConfig } from "@sentry/nextjs";
 import { IMAGE_OPTIMIZER_CACHE_TTL, buildStaticAssetHeaders } from "./src/lib/assets/cache-policy";
 
 const nextConfig: NextConfig = {
+  distDir: process.env.NEXT_DEV_DIST_DIR || ".next",
   output: "standalone",
   deploymentId: process.env.DEPLOYMENT_VERSION,
   experimental: {

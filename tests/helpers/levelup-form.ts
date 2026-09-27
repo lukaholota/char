@@ -30,6 +30,8 @@ export interface LevelUpFormData {
   featGrowthSpellIds?: number[];
   /** Книга тіней Pact of the Tome, узятого на цьому рівні. */
   classOptionSpellIds?: number[];
+  /** KR48.7: пропущений вибір персонажа 2014 за ключем джерела. */
+  catchUpSpellSelections?: Record<string, number[]>;
   levelUpHpIncrease?: number;
 }
 

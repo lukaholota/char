@@ -1,6 +1,7 @@
 import type { CaptureResult, PostHogConfig } from "posthog-js";
 
 import { isNoiseErrorMessage, isNoiseSourceUrl } from "@/lib/monitoring/error-noise";
+import { buildPostHogPageProperties, buildScreenProperties } from "@/lib/monitoring/posthog-context";
 
 // persistence: "memory" — жодного cookie чи localStorage. Анонімний distinct_id не переживає
 // перезавантаження сторінки чи нову вкладку, зате саме через це PostHog не чіпає сховище
@@ -12,18 +13,29 @@ import { isNoiseErrorMessage, isNoiseSourceUrl } from "@/lib/monitoring/error-no
 // дають кращий сигнал для дашбордів, ніж сирі кліки, і не дуже до цього тягнуть менше даних
 // per-visitor. Не про приватність — про сигнал/шум.
 //
-// capture_pageview: "history_change" — без нього $pageview шлеться лише при першому
-// завантаженні, а клієнтські переходи App Router не рахуються. PostHog порівнює тільки pathname,
-// тож replaceState каталогів (?class=, ?spell=) переглядів не множить.
+// Pageviews wait for authentication and the character's pinned edition in PostHogProvider.
 export const sharedPostHogOptions: Partial<PostHogConfig> = {
   persistence: "memory",
-  capture_pageview: "history_change",
+  api_transport: "fetch",
+  disable_compression: true,
+  capture_pageview: false,
+  capture_pageleave: false,
   autocapture: false,
   capture_heatmaps: false,
+  capture_dead_clicks: false,
+  capture_performance: false,
   disable_session_recording: true,
   person_profiles: "identified_only",
-  before_send: dropNoiseExceptions,
+  before_send: preparePostHogEvent,
 };
+
+function preparePostHogEvent(event: CaptureResult | null): CaptureResult | null {
+  if (!event || event.properties.is_internal === true) return null;
+  const page = buildPostHogPageProperties(event.properties.$pathname ?? "/", event.properties.edition);
+  const screen = buildScreenProperties(event.properties.$screen_width ?? 0, event.properties.$screen_height ?? 0);
+  event.properties = { ...page, ...screen, ...event.properties };
+  return dropNoiseExceptions(event);
+}
 
 type CapturedException = {
   type?: string;

@@ -111,7 +111,7 @@ export function SpellsFilterDialog({
   const classLabel = (cls: string) => classTranslations[cls as keyof typeof classTranslations] || cls;
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={onOpenChange} keepUrlOnClose>
       <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-y-auto p-0" showClose={false}>
         <div className="p-4 sm:p-6">
           <div className="flex items-start justify-between gap-3">

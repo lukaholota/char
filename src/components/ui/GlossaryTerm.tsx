@@ -100,9 +100,9 @@ export function GlossaryTerm({
 
 /// Дотик поза терміном закриває підказку — інакше на телефоні вона лишалася б відкритою до
 /// перезавантаження сторінки, бо `onPointerLeave` там не настає ніколи.
-function useCloseOnOutsidePress(
+export function useCloseOnOutsidePress(
   isOpen: boolean,
-  wrapper: React.RefObject<HTMLSpanElement | null>,
+  wrapper: React.RefObject<HTMLElement | null>,
   close: () => void
 ): void {
   React.useEffect(() => {
@@ -120,9 +120,9 @@ function useCloseOnOutsidePress(
 /// Термін біля краю екрана виносив би підказку за межу вікна: вона центрована на слові, а
 /// слово може стояти першим у рядку. Зсуваємо рівно на стільки, скільки бракує, і лише коли
 /// бракує, — на вузькому екрані це різниця між читабельним оригіналом і обрізаним.
-function useKeepInsideViewport(
+export function useKeepInsideViewport(
   isOpen: boolean,
-  bubble: React.RefObject<HTMLSpanElement | null>,
+  bubble: React.RefObject<HTMLElement | null>,
   setNudge: (value: number) => void
 ): void {
   React.useEffect(() => {

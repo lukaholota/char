@@ -101,6 +101,7 @@ export function stripMarkdownPreview(value: string): string {
 
 type FeatureText = {
   name: string;
+  engName?: string | null;
   shortDescription?: string | null;
   description?: string | null;
   source?: string | null;
@@ -126,6 +127,7 @@ export function filterFeaturesByQuery<T extends FeatureText>(features: T[], quer
 const collectSearchableText = (feature: FeatureText): string =>
   [
     feature.name,
+    feature.engName,
     getFeatureDisplayName(feature.name, feature.source),
     feature.sourceName,
     toPlainPreview(feature.shortDescription),

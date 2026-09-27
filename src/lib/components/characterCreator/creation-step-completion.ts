@@ -24,6 +24,7 @@ export function isCreationStepCompleted(stepId: string, data: Partial<PersFormDa
     case "backgroundFeat": return !!data.backgroundFeatId;
     case "backgroundFeatChoices": return Object.keys(data.backgroundFeatChoiceSelections || {}).length > 0;
     case "featSpells": return Object.values(data.featSpellSelections || {}).some((spellIds) => (spellIds ?? []).length > 0);
+    case "raceSpells": return (data.raceSpellIds || []).length > 0;
     case "equipment": return !!data.equipmentSchema?.choiceGroupToId;
     case "name": return !!data.name;
     default: return false;

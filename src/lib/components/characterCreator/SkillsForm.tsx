@@ -14,6 +14,8 @@ import { Label } from "@/components/ui/label";
 import { Check, Lock } from "lucide-react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import clsx from "clsx";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { findSkillsStepHint, type SkillPickGroup } from "./skills-step-hint";
 
 interface Props {
   race: RaceI
@@ -446,28 +448,20 @@ export const SkillsForm = ({
       (skill) => !checkIfSelectedByOthers(groupName, skill)
     ).length;
 
-  const isGroupUnspent = (groupName: GroupName, declaredCount: number) => {
-    const chosen = (basicChoices[groupName] ?? []).length;
-    return chosen !== Math.min(declaredCount, countPickable(groupName));
-  };
-
-  const isRaceOptionUnspent = Object.entries(raceOptionCounts).some(([optId, max]) => {
-    const chosen = (choiceOptions[optId] ?? []).length;
-    const pickable = (raceOptionSkills[optId] ?? []).filter(
-      (skill) => !checkIfSelectedByOthers(optId, skill)
-    ).length;
-    return chosen !== Math.min(max || 0, pickable);
-  });
-
-  const isChoiceUnspent = isTasha
-    ? tashaChoices.length !== Math.min(
-        tashaChoiceCountTotal,
-        engEnumSkills.filter((skill) => !existingSkillsSet.has(skill.eng as Skill)).length,
-      )
-    : isGroupUnspent('selectedClass', classCount) ||
-      isGroupUnspent('race', raceCount) ||
-      isGroupUnspent('background', backgroundCount) ||
-      isRaceOptionUnspent;
+  const basicGroups: Array<[GroupName, number, string]> = [['selectedClass', classCount, 'класу'], ['race', raceCount, 'раси'], ['background', backgroundCount, 'передісторії']];
+  const pickGroups: SkillPickGroup[] = isTasha
+    ? [{ chosen: tashaChoices.length, required: Math.min(tashaChoiceCountTotal, engEnumSkills.filter((skill) => !existingSkillsSet.has(skill.eng as Skill)).length), source: '' }]
+    : [
+        ...basicGroups.map(([groupName, declared, source]) => ({ chosen: (basicChoices[groupName] ?? []).length, required: Math.min(declared, countPickable(groupName)), source })),
+        ...Object.entries(raceOptionCounts).map(([optId, max]) => ({
+          chosen: (choiceOptions[optId] ?? []).length,
+          required: Math.min(max || 0, (raceOptionSkills[optId] ?? []).filter((skill) => !checkIfSelectedByOthers(optId, skill)).length),
+          source: 'раси',
+        })),
+      ];
+  const skillsHint = findSkillsStepHint(pickGroups);
+  const isChoiceUnspent = skillsHint !== null;
+  useNextStepHint(skillsHint);
 
   useEffect(() => {
     onNextDisabledChange?.(isChoiceUnspent);

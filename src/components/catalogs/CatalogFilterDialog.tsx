@@ -24,7 +24,7 @@ export function CatalogFilterDialog({
   children: ReactNode;
 }) {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={onOpenChange} keepUrlOnClose>
       <DialogContent
         className="max-h-[85dvh] max-w-lg overflow-y-auto border-white/10 bg-slate-950/95 p-6 text-slate-100 backdrop-blur-2xl"
         aria-describedby={undefined}

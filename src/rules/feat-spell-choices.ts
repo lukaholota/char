@@ -16,6 +16,7 @@ import {
   isSpellChoiceCandidate,
   type SpellChoiceCandidate,
   type SpellChoiceFilter,
+  type ExtraSpellList,
   type SpellChoiceOption,
   type SpellSchoolKey,
 } from "./spell-choice-filter";
@@ -31,6 +32,8 @@ export type FeatSpellPickRule = {
   schools: readonly SpellSchoolKey[] | null;
   spellList: string | readonly string[] | null;
   ritualOnly?: boolean;
+  /** Закритий перелік поза списками класів: «either the prestidigitation or the druidcraft cantrip». */
+  extraList?: ExtraSpellList;
 };
 
 export type FeatSpellChoiceContext = { characterLevel: number; ownedFeatSpellCount: number };
@@ -88,7 +91,13 @@ export function hasFeatSpellGrowth(ruleset: RulesetId, featName: string | null |
 }
 
 export function buildFeatSpellFilter(pick: FeatSpellPickRule): SpellChoiceFilter {
-  return { levels: listPickSpellLevels(pick), schools: pick.schools, spellList: pick.spellList, ritualOnly: pick.ritualOnly };
+  return {
+    levels: listPickSpellLevels(pick),
+    schools: pick.schools,
+    spellList: pick.spellList,
+    ritualOnly: pick.ritualOnly,
+    ...(pick.extraList ? { extraList: pick.extraList } : {}),
+  };
 }
 
 export function listPickSpellLevels(pick: Pick<FeatSpellPickRule, "spellLevel" | "maxSpellLevel">): number[] {

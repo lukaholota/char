@@ -1,6 +1,6 @@
 'use server';
 
-import type { Prisma } from "@prisma/client";
+import type { Prisma, Ruleset } from "@prisma/client";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { randomBytes } from "crypto";
@@ -8,6 +8,7 @@ import { buildCopyTarget, clonePersWithRelations, PERS_DUPLICATION_INCLUDE } fro
 import { revalidatePath } from "next/cache";
 import { PERS_PRINT_INCLUDE, PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
 import { findCurrentUserId } from "@/server/db/current-user";
+import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 
 const TOKEN_ATTEMPTS = 3;
 
@@ -357,6 +358,7 @@ export async function copyFolderByShareToken(token: string) {
 
   if (!source) return { error: "Папку не знайдено" };
 
+  const copiedPers: Array<{ persId: number; ruleset: Ruleset }> = [];
   const created = await prisma.$transaction(async (tx) => {
     const cloneFolder = async (folderId: number, parentId: number | null, addCopySuffix: boolean) => {
       const folder = await tx.persFolder.findUnique({
@@ -390,7 +392,8 @@ export async function copyFolderByShareToken(token: string) {
       });
 
       for (const pers of perses) {
-        await clonePersWithRelations(tx, pers, buildCopyTarget(pers, { userId: user.id, folderId: createdFolder.folderId }));
+        const copy = await clonePersWithRelations(tx, pers, buildCopyTarget(pers, { userId: user.id, folderId: createdFolder.folderId }));
+        copiedPers.push(copy);
       }
 
       const children = await tx.persFolder.findMany({
@@ -410,6 +413,7 @@ export async function copyFolderByShareToken(token: string) {
 
   if (!created) return { error: "Не вдалося скопіювати папку" };
 
+  for (const pers of copiedPers) captureServerPostHogEvent("character_copied", { pers_id: pers.persId, edition: pers.ruleset === "RULES_2024" ? "2024" : "2014", creation_type: "copy", copy_source: "shared_folder" }, user);
   revalidatePath("/char/home");
 
   return { success: true, folder: created };
@@ -438,6 +442,7 @@ export async function copyPersByToken(token: string) {
     const copyTarget = buildCopyTarget(sourcePers, { userId: user.id, folderId: null, isPinned: false });
     const newPersId = await prisma.$transaction(async (tx) => (await clonePersWithRelations(tx, sourcePers, copyTarget)).persId);
 
+    captureServerPostHogEvent("character_copied", { pers_id: newPersId, edition: sourcePers.ruleset === "RULES_2024" ? "2024" : "2014", creation_type: "copy", copy_source: "share_link" }, user);
     return { success: true, persId: newPersId };
   } catch (error) {
     console.error("Copy char failed:", error);

@@ -40,13 +40,9 @@ export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGrou
       onChange(selectedIds.filter((id) => id !== spellId));
       return;
     }
-    if (limit === 1) {
-      onChange([spellId]);
-      return;
-    }
     if (!isFull) onChange([...selectedIds, spellId]);
   };
-  const isBlocked = (spell: SpellChoiceOption, isSelected: boolean) => !isSelected && ((limit > 1 && isFull) || (isSelectable !== undefined && !isSelectable(spell)));
+  const isBlocked = (spell: SpellChoiceOption, isSelected: boolean) => !isSelected && (isFull || (isSelectable !== undefined && !isSelectable(spell)));
 
   return (
     <div className="space-y-4">

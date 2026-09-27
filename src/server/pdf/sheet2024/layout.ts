@@ -25,7 +25,19 @@ export type CheckFieldSpec = { kind: "check"; name: string; rect: PixelRect; sha
 
 export type SheetFieldSpec = TextFieldSpec | CheckFieldSpec;
 
-export type LabelCorrection = { erase: PixelRect; text: string; left: number; baseline: number; capHeight: number; width: number; bold: boolean };
+/// Замальовує напис бланка й пише наш термін. `left`..`left + width` — межа тексту; з `align: "center"`
+/// текст стає посередині цієї межі. `caption` — сірий підкреслений підпис стовпця.
+export type LabelCorrection = {
+  erase: PixelRect;
+  text: string;
+  left: number;
+  baseline: number;
+  capHeight: number;
+  width: number;
+  bold: boolean;
+  align?: "center";
+  caption?: boolean;
+};
 
 export type SheetPageSpec = {
   templatePageIndex: number;
@@ -172,6 +184,21 @@ export const MAIN_PAGE: SheetPageSpec = {
   labelCorrections: [
     { erase: rect(67, 78, 168, 90), text: "ІМʼЯ ПЕРСОНАЖА", left: 69, baseline: 88, capHeight: 8, width: 96, bold: false },
     { erase: rect(930, 50, 999, 65), text: "РЯТКИДКИ", left: 931, baseline: 61, capHeight: 9, width: 65, bold: true },
+    { erase: rect(576, 64, 638, 77), text: "БРОНІ", left: 572, baseline: 75, capHeight: 9, width: 70, bold: true, align: "center" },
+    { erase: rect(723, 50, 779, 63), text: "ХІТ", left: 721, baseline: 61, capHeight: 9, width: 60, bold: true, align: "center" },
+    { erase: rect(717, 64, 785, 79), text: "ПОЇНТИ", left: 721, baseline: 75, capHeight: 9, width: 60, bold: true, align: "center" },
+    { erase: rect(846, 50, 915, 63), text: "КУБИКИ", left: 840, baseline: 61, capHeight: 9, width: 80, bold: true, align: "center" },
+    { erase: rect(842, 64, 922, 78), text: "ЗДОРОВʼЯ", left: 840, baseline: 75, capHeight: 9, width: 80, bold: true, align: "center" },
+    { erase: rect(844, 162, 884, 174), text: "КУБИК", left: 846, baseline: 172, capHeight: 8, width: 45, bold: false },
+    { erase: rect(88, 234, 193, 250), text: "БОНУС МАЙСТЕРНОСТІ", left: 64, baseline: 246, capHeight: 9, width: 153, bold: true, align: "center" },
+    { erase: rect(711, 234, 807, 249), text: "ПАС. УВАЖНІСТЬ", left: 709, baseline: 246, capHeight: 8, width: 100, bold: true, align: "center" },
+    { erase: rect(692, 345, 750, 358), text: "Шкода / Тип", left: 694, baseline: 354, capHeight: 7, width: 130, bold: false, caption: true },
+    { erase: rect(650, 521, 803, 537), text: "ЗДІБНОСТІ ТА РИСИ ВИДУ", left: 446, baseline: 533, capHeight: 9, width: 561, bold: true, align: "center" },
+    { erase: rect(503, 1014, 645, 1028), text: "АТАКИ ТА ЧАРОТВОРЕННЯ", left: 445, baseline: 1025, capHeight: 9, width: 259, bold: true, align: "center" },
+    { erase: rect(104, 1084, 364, 1100), text: "ТРЕНУВАННЯ ЗІ СПОРЯДЖЕННЯМ І ВОЛОДІННЯ", left: 64, baseline: 1096, capHeight: 9, width: 340, bold: true, align: "center" },
+    { erase: rect(61, 1109, 132, 1122), text: "ОБЛАДУНКИ", left: 63, baseline: 1119, capHeight: 8, width: 80, bold: false },
+    { erase: rect(193, 1127, 258, 1140), text: "Бойова", left: 195, baseline: 1138, capHeight: 8, width: 60, bold: false },
+    ...buildSkillLabelCorrections(),
   ],
 };
 
@@ -184,8 +211,23 @@ export const MAGIC_PAGE: SheetPageSpec = {
     ...buildCharacterDetailFields(),
   ],
   labelCorrections: [
-    { erase: rect(61, 62, 193, 76), text: "ЧАРОТВОРЧА ЗДІБНІСТЬ", left: 63, baseline: 72, capHeight: 8, width: 128, bold: false },
+    { erase: rect(61, 62, 193, 76), text: "ХАРАКТЕРИСТИКА ЗАКЛИНАНЬ", left: 63, baseline: 72, capHeight: 8, width: 170, bold: false },
     { erase: rect(918, 1384, 939, 1396), text: "ЕМ", left: 921, baseline: 1394, capHeight: 8, width: 16, bold: false },
+    { erase: rect(115, 93, 232, 108), text: "МОДИФІКАТОР", left: 117, baseline: 106, capHeight: 9, width: 115, bold: true },
+    { erase: rect(115, 110, 232, 122), text: "ЗАКЛИНАНЬ", left: 117, baseline: 119, capHeight: 9, width: 115, bold: true },
+    { erase: rect(115, 140, 225, 152), text: "СКЛАДНІСТЬ", left: 117, baseline: 150, capHeight: 9, width: 108, bold: true },
+    { erase: rect(426, 110, 530, 123), text: "СЛОТИ ЗАКЛИНАНЬ", left: 270, baseline: 121, capHeight: 9, width: 418, bold: true, align: "center" },
+    ...[296, 438, 581].map((left): LabelCorrection => ({
+      erase: rect(left - 2, 138, left + 44, 151),
+      text: "Слоти",
+      left,
+      baseline: 147,
+      capHeight: 7,
+      width: 44,
+      bold: false,
+      caption: true,
+    })),
+    { erase: rect(269, 272, 346, 286), text: "Час накладання", left: 271, baseline: 282, capHeight: 7, width: 72, bold: false, caption: true },
   ],
 };
 
@@ -198,7 +240,9 @@ export const DETAILS_PAGE: SheetPageSpec = {
     block("additionalFeatures", rect(438, 543, 1016, 964)),
     block("treasure", rect(438, 1018, 1016, 1440)),
   ],
-  labelCorrections: [],
+  labelCorrections: [
+    { erase: rect(612, 519, 840, 535), text: "ДОДАТКОВІ ЗДІБНОСТІ ТА РИСИ ВИДУ", left: 446, baseline: 531, capHeight: 9, width: 561, bold: true, align: "center" },
+  ],
 };
 
 export const NOTES_PAGE: SheetPageSpec = {
@@ -214,6 +258,27 @@ export const NOTES_PAGE: SheetPageSpec = {
   ],
   labelCorrections: [],
 };
+
+function buildSkillLabelCorrections(): LabelCorrection[] {
+  const skillLabel = (text: string, baseline: number): LabelCorrection => ({
+    erase: rect(296, baseline - 10, 408, baseline + 3),
+    text,
+    left: 298,
+    baseline,
+    capHeight: 9,
+    width: 110,
+    bold: false,
+  });
+  return [
+    skillLabel("Магія", 413),
+    skillLabel("Поводження з", 724),
+    skillLabel("тваринами", 737),
+    skillLabel("Аналіз поведінки", 755),
+    skillLabel("Уважність", 781),
+    skillLabel("Виступ", 969),
+    skillLabel("Переконання", 1045),
+  ];
+}
 
 function buildIdentityFields(): SheetFieldSpec[] {
   return [

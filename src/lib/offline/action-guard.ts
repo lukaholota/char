@@ -2,6 +2,8 @@ import { toast } from "sonner";
 
 const NEXT_ACTION_HEADER = "next-action";
 const TOAST_ID = "offline-action";
+const ACTION_NOT_FOUND_HEADER = "x-nextjs-action-not-found";
+const STALE_ACTION_TOAST_ID = "stale-action";
 
 export const OFFLINE_ACTION_MESSAGE =
   "Немає мережі — ця дія потребує звʼязку з сервером. Хіти, комірки, ресурси рис, заряди, підготовка, відпочинок і нотатки працюють офлайн і поїдуть самі.";
@@ -36,7 +38,9 @@ export function installOfflineActionGuard(): void {
     if (!navigator.onLine) throw refuseOfflineAction();
 
     try {
-      return await originalFetch(input, init);
+      const response = await originalFetch(input, init);
+      if (response.headers.get(ACTION_NOT_FOUND_HEADER) === "1") showStaleActionNotice();
+      return response;
     } catch (error) {
       if (navigator.onLine && !(error instanceof TypeError)) throw error;
       throw refuseOfflineAction("Звʼязок обірвався — дія не виконана. Спробуйте ще раз, коли мережа повернеться.");
@@ -45,6 +49,17 @@ export function installOfflineActionGuard(): void {
 
   window.addEventListener("unhandledrejection", (event) => {
     if (isOfflineActionError(event.reason)) event.preventDefault();
+  });
+}
+
+/// Після деплою вкладка, відкрита раніше, викликає дії за старими ID, і Next кидає
+/// `UnrecognizedActionError` з обробника кліку — повз error boundary, тож кнопка просто мертва
+/// (Sentry JAVASCRIPT-NEXTJS-C: 123 зі 143 подій — у перші 30 хв після деплою).
+function showStaleActionNotice(): void {
+  toast.warning("Сайт оновився — ця вкладка відкрита зі старою версією. Оновіть сторінку й повторіть дію.", {
+    id: STALE_ACTION_TOAST_ID,
+    duration: Infinity,
+    action: { label: "Оновити", onClick: () => window.location.reload() },
   });
 }
 

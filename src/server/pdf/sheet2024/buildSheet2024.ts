@@ -19,7 +19,7 @@ export async function buildSheet2024Document(data: CharacterPdfData, config: Pri
   const [templateBytes, regularFontBytes, boldFontBytes, portraitJpeg] = await Promise.all([
     readPublicFile(SHEET_2024_TEMPLATE_FILE),
     readPublicFile("fonts/NotoSans-Regular.ttf"),
-    readPublicFile("fonts/NotoSans-Bold.ttf"),
+    readPublicFile("fonts/NotoSans-SemiBold.ttf"),
     includeDetails ? loadPortraitJpeg(data.pers.portraitKey, log) : null,
   ]);
   return renderSheet2024(buildSheet2024Content(data), {

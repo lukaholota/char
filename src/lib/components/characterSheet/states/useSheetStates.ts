@@ -29,6 +29,7 @@ import { buildD20Action } from "@/lib/components/dice/roll-contexts";
 import { findConcentrationSaveDc } from "@/rules/concentration";
 import { doesFeatureStateEndConcentration } from "@/rules/feature-states";
 import type { SpellBuffKey } from "@/rules/spell-buffs";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 export type FeatureUses = { remaining: number; max: number } | null;
 
@@ -87,7 +88,10 @@ export function useSheetStates(input: {
       onPersUpdate(next);
       const operation = { ...body, operationId: createOperationId(), persId: before.persId, createdAt: new Date().toISOString() } as OfflineOperation;
       const outcome = await commitOperation(operation, send);
-      if (outcome.queued || outcome.result.success) return;
+      if (outcome.queued || outcome.result.success) {
+        recordStateChange(before, body, outcome.queued);
+        return;
+      }
       toast.error(outcome.result.error);
       persRef.current = before;
       onPersUpdate(before);
@@ -201,6 +205,17 @@ function findConcentrationSaveBonus(statesPers: PersWithRelations): number {
 function endsConcentration(pers: PersWithRelations, featureId: number): boolean {
   const feature = collectActiveFeatures(pers).find((candidate) => candidate.featureId === featureId);
   return feature ? doesFeatureStateEndConcentration(feature.engName) : false;
+}
+
+function recordStateChange(pers: PersWithRelations, body: OperationBody, queued: boolean): void {
+  const properties = { edition: pers.ruleset === "RULES_2024" ? "2024" : "2014", queued };
+  if (body.kind === "feature-state") {
+    const feature = collectActiveFeatures(pers).find((entry) => entry.featureId === body.featureId);
+    capturePostHogEvent("character_feature_toggled", { ...properties, feature: feature?.engName, is_active: body.isActive });
+  }
+  if (body.kind === "exhaustion") capturePostHogEvent("character_exhaustion_changed", { ...properties, level: body.level });
+  if (body.kind === "spell-buff") capturePostHogEvent("character_buff_toggled", { ...properties, buff: body.effectKey, is_active: body.isActive });
+  if (body.kind === "concentration") capturePostHogEvent("character_concentration_changed", { ...properties, is_active: body.spellId !== null });
 }
 
 function findCatalogSpell(catalog: readonly SpellBuffCatalogEntry[], key: SpellBuffKey): EffectSpell | null {

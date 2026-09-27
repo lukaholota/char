@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Minus, Plus, ArrowUp, ArrowDown, Check, AlertCircle } from "lucide-react";
+import { ArrowUp, ArrowDown, Check, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -21,6 +21,9 @@ import { normalizeRaceASI } from "@/lib/components/characterCreator/infoUtils";
 import { BackgroundAsiForm } from "@/lib/components/characterCreator/BackgroundAsiForm";
 import { asiSystemCopy, asiSystems, attributes, attributesUrkShort } from "@/lib/components/characterCreator/asi-fields";
 import { useBackgroundAsi } from "@/lib/components/characterCreator/useBackgroundAsi";
+import { PointBuyAbilityCard } from "@/lib/components/characterCreator/PointBuyAbilityCard";
+import { findAsiStepHint } from "@/lib/components/characterCreator/asi-step-hint";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import type { RulesetId } from "@/rules/strategies/types";
 import { buildScoresBeforeBackgroundAsi } from "@/rules/character-creation";
 import { toast } from "sonner";
@@ -194,10 +197,11 @@ export const ASIForm = (
     });
   }, [ruleset, asiSystem, watchedPointBuyAsi, watchedSimpleAsi, watchedCustomAsi, isDefaultASI, race, raceVariant, subrace, subraceReplacesAsi, raceChoiceSelections])
 
+  const asiStepHint = findAsiStepHint(asiSystem === asiSystems.POINT_BUY ? points : 0, Boolean(backgroundAsi.step && !backgroundAsi.complete));
+  useNextStepHint(asiStepHint);
   useEffect(() => {
-    const overspentPoints = asiSystem === asiSystems.POINT_BUY && points < 0;
-    onNextDisabledChange?.(overspentPoints || Boolean(backgroundAsi.step && !backgroundAsi.complete));
-  }, [asiSystem, points, onNextDisabledChange, backgroundAsi])
+    onNextDisabledChange?.(asiStepHint !== null);
+  }, [asiStepHint, onNextDisabledChange])
 
   const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
 
@@ -540,52 +544,15 @@ export const ASIForm = (
 
             <TabsContent value={asiSystems.POINT_BUY} className="space-y-4">
               <div className="grid gap-3 md:grid-cols-2">
-                {asiFields.map((field, index) => {
-                  const attr = attributes.find((a) => a.eng === field.ability);
-                  const currentValue = form.watch(`asi.${index}.value`) || field.value;
-                  const bonus = Math.floor((currentValue - 10) / 2)
-
-                  return (
-                    <Card
-                      key={field.id}
-                      className="shadow-sm transition hover:-translate-y-0.5 hover:ring-1 hover:ring-white/10"
-                    >
-                      <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <div>
-                          <p className="text-xs uppercase tracking-wide text-slate-400">{attr?.ukr || field.ability}</p>
-                        </div>
-                        <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
-                          {bonus > 0 ? `+${bonus}` : bonus}
-                        </Badge>
-                      </CardHeader>
-                      <CardContent className="flex items-center justify-between pt-0">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          onClick={() => decrementValue(index)}
-                          disabled={(currentValue as number) <= 8}
-                          className="border-indigo-500/60 bg-indigo-500/10 text-indigo-50 hover:bg-indigo-500/20"
-                        >
-                          <Minus className="h-4 w-4" />
-                        </Button>
-                        <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-lg font-semibold text-white">
-                          {currentValue as number}
-                        </div>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="icon"
-                          onClick={() => incrementValue(index)}
-                          disabled={(currentValue as number) > 14}
-                          className="border-emerald-400/60 bg-emerald-500/10 text-emerald-50 hover:bg-emerald-500/20"
-                        >
-                          <Plus className="h-4 w-4" />
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+                {asiFields.map((field, index) => (
+                  <PointBuyAbilityCard
+                    key={field.id}
+                    label={attributes.find((a) => a.eng === field.ability)?.ukr || field.ability}
+                    value={(form.watch(`asi.${index}.value`) || field.value) as number}
+                    onDecrement={() => decrementValue(index)}
+                    onIncrement={() => incrementValue(index)}
+                  />
+                ))}
               </div>
               <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm">
                 <span className="text-slate-300">Залишок очок</span>

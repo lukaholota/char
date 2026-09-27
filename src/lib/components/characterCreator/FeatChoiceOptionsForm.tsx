@@ -26,6 +26,8 @@ import {
 } from "@/rules/ability-score-ceiling";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
 import { backgroundFeatChoiceOptionsSchema, featChoiceOptionsSchema, speciesFeatChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildGroupPickHint, findFirstHint } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   selectedFeat?: FeatPrisma | null;
@@ -703,6 +705,8 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
   }, [groupedChoices, getSelectedIdsForGroup]);
 
   
+  useNextStepHint(findFirstHint(groupedChoices.map((group) => buildGroupPickHint(group.groupName, getSelectedIdsForGroup(group.groupName).length, group.pickCount))));
+
   useEffect(() => {
     let disabled: boolean;
     if (!selectedFeat) {

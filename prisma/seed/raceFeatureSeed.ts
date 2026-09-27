@@ -2345,8 +2345,8 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Дедуктивна інтуїція",
       engName: "Deductive Intuition",
       description:
-        "Коли ви робите перевірку Інтелекту (Розслідування [Investigation]) або Мудрості (Проникливість [Insight]), ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Investigation та Insight",
+        "Коли ви робите перевірку Інтелекту (Розслідування [Investigation]) або Мудрості (Аналіз поведінки [Insight]), ви можете кинути к4 і додати результат до перевірки.",
+      shortDescription: "к4 до перевірок Розслідування та Аналізу поведінки",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2374,7 +2374,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       engName: "Windwright's Intuition",
       description:
         "Коли ви робите перевірку Спритності (Акробатика [Acrobatics]) або будь-яку перевірку, повʼязану з навігацією або транспортними засобами, ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Acrobatics та navigation",
+      shortDescription: "к4 до перевірок Акробатики, навігації та транспорту",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2488,7 +2488,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       engName: "Warder's Intuition",
       description:
         "Коли ви робите перевірку Інтелекту (Розслідування [Investigation]) для виявлення пасток або перевірку, яка використовує інструменти злодія, ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Investigation (пастки) та інструментів злодія",
+      shortDescription: "к4 до Розслідування (пастки) та перевірок з інструментами злодія",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2517,8 +2517,8 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Медична інтуїція",
       engName: "Medical Intuition",
       description:
-        "Коли ви робите перевірку Мудрості (Медицина [Medicine]) або перевірку характеристики з використанням набору травозная [herbalism kit], ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Medicine та herbalism kit",
+        "Коли ви робите перевірку Мудрості (Медицина [Medicine]) або перевірку характеристики з використанням набору травника [herbalism kit], ви можете кинути к4 і додати результат до перевірки.",
+      shortDescription: "к4 до перевірок Медицини та з набором травника",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2547,7 +2547,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       description:
         "Коли ви робите перевірку Харизми (Переконання [Persuasion]) або перевірку характеристики з використанням приладдя пивовара [brewer's supplies] або кухарського начиння [cook's utensils], ви можете кинути к4 і додати результат до перевірки.",
       shortDescription:
-        "к4 до Persuasion, brewer's supplies та cook's utensils",
+        "к4 до Переконання та перевірок із приладдям пивовара чи кухарським начинням",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2577,8 +2577,8 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Обдарований каліграф",
       engName: "Gifted Scribe",
       description:
-        "Коли ви робите перевірку Інтелекту (Історія [History]) або перевірку характеристики з використанням приладдя каліграфа [calligrapher's supplies], ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до History та calligrapher's supplies",
+        "Коли ви робите перевірку Інтелекту (Історія [History]) або перевірку характеристики з використанням каліграфічного набору [calligrapher's supplies], ви можете кинути к4 і додати результат до перевірки.",
+      shortDescription: "к4 до перевірок Історії та з каліграфічним набором",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2608,7 +2608,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       engName: "Hunter's Intuition",
       description:
         "Коли ви робите перевірку Мудрості (Уважність [Perception]) або Мудрості (Виживання [Survival]), ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Perception та Survival",
+      shortDescription: "к4 до перевірок Уважності та Виживання",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2636,7 +2636,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       engName: "Wild Intuition",
       description:
         "Коли ви робите перевірку Мудрості (Поводження з тваринами [Animal Handling]) або Інтелекту (Природа [Nature]), ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Animal Handling та Nature",
+      shortDescription: "к4 до перевірок Поводження з тваринами та Природи",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2672,8 +2672,8 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Інтуїція ремісника",
       engName: "Artisan's Intuition",
       description:
-        "Коли ви робите перевірку Інтелекту (Магія [Arcana]) або перевірку характеристики з використанням ремісничих інструментів [artisan's tools], ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Arcana та artisan's tools",
+        "Коли ви робите перевірку Інтелекту (Магія [Arcana]) або перевірку характеристики з використанням інструментів ремісника [artisan's tools], ви можете кинути к4 і додати результат до перевірки.",
+      shortDescription: "к4 до перевірок Магії та з інструментами ремісника",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2708,8 +2708,8 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Інтуїція мандрівника",
       engName: "Intuition of the Voyager",
       description:
-        "Коли ви робите перевірку Спритності (Акробатика [Acrobatics]) або перевірку характеристики з використанням сухопутних транспортних засобів [land vehicles], ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Acrobatics та land vehicles",
+        "Коли ви робите перевірку Спритності (Акробатика [Acrobatics]) або перевірку характеристики з використанням наземного транспорту [land vehicles], ви можете кинути к4 і додати результат до перевірки.",
+      shortDescription: "к4 до перевірок Акробатики та з наземним транспортом",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2736,8 +2736,8 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Інтуїція вартового",
       engName: "Sentinel's Intuition",
       description:
-        "Коли ви робите перевірку Мудрості (Аналіз Поведінки [Insight]) або Мудрості (Уважність [Perception]), ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Insight та Perception",
+        "Коли ви робите перевірку Мудрості (Аналіз поведінки [Insight]) або Мудрості (Уважність [Perception]), ви можете кинути к4 і додати результат до перевірки.",
+      shortDescription: "к4 до перевірок Аналізу поведінки та Уважності",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
@@ -2776,8 +2776,8 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Хитра інтуїція",
       engName: "Cunning Intuition",
       description:
-        "Коли ви робите перевірку Харизми (Виступ [Performance]) або Спритності (Скритність [Stealth]), ви можете кинути к4 і додати результат до перевірки.",
-      shortDescription: "к4 до Performance та Stealth",
+        "Коли ви робите перевірку Харизми (Виступ [Performance]) або Спритності (Непомітність [Stealth]), ви можете кинути к4 і додати результат до перевірки.",
+      shortDescription: "к4 до перевірок Виступу та Непомітності",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {

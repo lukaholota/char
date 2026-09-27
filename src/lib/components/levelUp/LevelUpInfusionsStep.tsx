@@ -10,6 +10,8 @@ import { Info } from "lucide-react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { infusionTargetTranslations } from "@/lib/refs/translation";
 import { InfusionInfoModal } from "./InfusionInfoModal";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, INFUSION_FORMS } from "@/lib/components/wizard/pick-hint";
 
 type InfusionListItem = {
   infusionId: number;
@@ -79,6 +81,8 @@ export default function LevelUpInfusionsStep({
       })
       .sort((a, b) => String(a.name).localeCompare(String(b.name), "uk", { sensitivity: "base" }));
   }, [infusions, artificerLevelAfter, knownSet, query]);
+
+  useNextStepHint(buildPickHint(selectedIds.length, requiredCount, INFUSION_FORMS));
 
   useEffect(() => {
     const disabled = selectedIds.length !== requiredCount;

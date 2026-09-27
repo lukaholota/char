@@ -17,6 +17,8 @@ export interface CreationStepConditions {
   hasBackgroundFeatChoices: boolean;
   /** «Посвячений у магію» 2024 від передісторії чи виду просить обрати заклинання. */
   hasFeatSpellChoice?: boolean;
+  /** Раса 2014 дає обрати замовляння: Високий ельф, Кобольд, Астральний ельф. */
+  hasRaceSpellChoice?: boolean;
   hasExpertiseChoice: boolean;
   hasLanguageChoice: boolean;
 }
@@ -84,6 +86,7 @@ function resolveChoiceSteps(conditions: CreationStepConditions): CreationStep[] 
   if (conditions.hasBackgroundFeatChoice) steps.push({ id: "backgroundFeat", name: "Риса походження", component: "backgroundFeat" });
   if (conditions.hasBackgroundFeatChoices) steps.push({ id: "backgroundFeatChoices", name: "Опції риси походження", component: "backgroundFeatChoices" });
   if (conditions.hasFeatSpellChoice) steps.push({ id: "featSpells", name: "Заклинання риси", component: "featSpells" });
+  if (conditions.hasRaceSpellChoice) steps.push({ id: "raceSpells", name: "Заклинання раси", component: "raceSpells" });
   if (conditions.hasExpertiseChoice) steps.push({ id: "expertise", name: "Експертиза", component: "expertise" });
   if (conditions.hasLanguageChoice) steps.push({ id: "languages", name: "Мови", component: "languages" });
   return steps;

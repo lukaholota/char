@@ -34,6 +34,7 @@ const everyStepId = resolveCreationSteps({
   hasWeaponMastery: true,
   hasSpellChoice: true,
   hasFeatSpellChoice: true,
+  hasRaceSpellChoice: true,
   hasFeatChoice: true,
   hasFeatChoices: true,
   hasBackgroundFeatChoice: true,

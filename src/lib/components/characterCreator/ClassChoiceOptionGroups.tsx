@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { LinkedPreview } from "@/components/ui/LinkedPreview";
-import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+import { translateEnumLikeLabel } from "@/lib/components/characterCreator/infoUtils";
 import { findChoiceOptionCardText } from "@/lib/logic/choice-option-card-text";
 import { checkPrerequisite, PrerequisiteResult } from "@/lib/logic/prerequisiteUtils";
 import { ClassI } from "@/lib/types/model-types";
@@ -197,8 +197,7 @@ function getSelectedCount(groupName: string, selections: Selections) {
 }
 
 function translateOptionNameEng(option: ChoiceOption) {
-  const englishLabel = option.choiceOption.optionNameEng;
-  return isEnumLike(englishLabel) ? translateValue(englishLabel) : englishLabel;
+  return translateEnumLikeLabel(option.choiceOption.optionNameEng);
 }
 
 function isOptionSelected(groupName: string, optionId: number, selectionState: Props["selectionState"]) {
@@ -223,6 +222,3 @@ function getCardClassName(groupName: string, optionId: number, selectionState: P
   );
 }
 
-function isEnumLike(value?: string | null) {
-  return !!value && /^[A-Z0-9_]+$/.test(value);
-}

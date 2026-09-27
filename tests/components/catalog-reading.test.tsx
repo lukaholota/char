@@ -238,7 +238,8 @@ describe("KR44.3 — гілка має один власний запис іст
     act(() => result.current.openBranch((params) => params.set("subclass", "college-of-lore"), "college-of-lore", opener));
   }
 
-  it("відкриття гілки додає запис зі станом Next і адресою гілки", () => {
+  it("відкриття гілки додає запис з адресою гілки й токеном модалки, а ключі Next лишає Next", () => {
+    window.history.replaceState({ __NA: true, __modalBackButtonToken: "class-modal" }, "", "/classes?class=bard&view=subclasses");
     const { result, onUrlChanged } = renderNavigation();
     const lengthBefore = window.history.length;
 
@@ -246,7 +247,7 @@ describe("KR44.3 — гілка має один власний запис іст
 
     expect(window.history.length).toBe(lengthBefore + 1);
     expect(window.location.search).toBe("?class=bard&view=subclasses&subclass=college-of-lore");
-    expect((window.history.state as Record<string, unknown>).__NA).toBe(true);
+    expect(window.history.state).toEqual({ __modalBackButtonToken: "class-modal", __catalogBranchEntry: true });
     expect(onUrlChanged).toHaveBeenCalledTimes(1);
   });
 
@@ -262,7 +263,7 @@ describe("KR44.3 — гілка має один власний запис іст
   });
 
   it("гілка з адреси, без свого запису, закривається заміною адреси", () => {
-    window.history.replaceState({ __NA: true }, "", "/classes?class=bard&subclass=college-of-lore");
+    window.history.replaceState({ __NA: true, __modalBackButtonToken: "class-modal" }, "", "/classes?class=bard&subclass=college-of-lore");
     const { result, onUrlChanged } = renderNavigation();
     const lengthBefore = window.history.length;
 
@@ -270,7 +271,8 @@ describe("KR44.3 — гілка має один власний запис іст
 
     expect(window.history.length).toBe(lengthBefore);
     expect(window.location.search).toBe("?class=bard");
-    expect((window.history.state as Record<string, unknown>).__NA).toBe(true);
+    // Next повертає свої ключі сам і лише тоді бачить нову адресу; токен модалки класу лишається.
+    expect(window.history.state).toEqual({ __modalBackButtonToken: "class-modal" });
     expect(onUrlChanged).toHaveBeenCalledTimes(1);
   });
 

@@ -1,13 +1,12 @@
-import { goBackInHistory } from "@/lib/history-back";
+import { goBackInHistory, readHistoryStateWithoutNextRouter, replaceUrlKeepingHistoryState } from "@/lib/history-back";
 
 /// Відкрита гілка (підклас, підраса) — окремий запис історії, щоб «Назад» повертав до батька.
-/// Стан Next і токен модалки класу копіюються в запис: без першого Next перемальовує сторінку,
-/// без другого модалка класу вирішила б, що «Назад» закрив її саму.
+/// Токен модалки класу копіюється в запис, інакше вона вирішила б, що «Назад» закрив її саму.
+/// Ключі Next — ні: їх Next дописує сам і лише тоді бачить нову адресу.
 const BRANCH_ENTRY_KEY = "__catalogBranchEntry";
 
 export function pushBranchEntry(params: URLSearchParams): void {
-  const state = (window.history.state as Record<string, unknown> | null) ?? {};
-  window.history.pushState({ ...state, [BRANCH_ENTRY_KEY]: true }, "", buildUrl(params));
+  window.history.pushState({ ...readHistoryStateWithoutNextRouter(), [BRANCH_ENTRY_KEY]: true }, "", buildUrl(params));
 }
 
 export function isOnBranchEntry(): boolean {
@@ -21,7 +20,7 @@ export function leaveBranch(paramsWithoutBranch: URLSearchParams): "history" | "
     goBackInHistory();
     return "history";
   }
-  window.history.replaceState(window.history.state, "", buildUrl(paramsWithoutBranch));
+  replaceUrlKeepingHistoryState(buildUrl(paramsWithoutBranch));
   return "replaced";
 }
 

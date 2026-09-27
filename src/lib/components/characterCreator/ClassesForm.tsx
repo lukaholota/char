@@ -10,6 +10,7 @@ import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassIn
 import { CreationCard } from "@/components/characterCreator/CreationCard";
 import { getClassVisual } from "@/components/characterCreator/creation-visuals";
 import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/PrerequisiteConfirmationDialog";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 
 export type ClassRulesLock = { note: string; reason: string };
 
@@ -57,6 +58,8 @@ export const ClassesForm = (
     () => [...classes].sort((a, b) => (a.sortOrder - b.sortOrder) || (a.classId - b.classId)),
     [classes]
   );
+
+  useNextStepHint(chosenClassId ? null : "Оберіть клас персонажа.");
 
   useEffect(() => {
     if (!chosenClassId) {

@@ -9,6 +9,8 @@ import { GlobalModals } from "@/components/ui/GlobalModals";
 import { DiceOverlay } from "@/lib/components/dice/DiceOverlay";
 import { DiceTray } from "@/lib/components/dice/DiceTray";
 import { RootGrid } from "@/components/ui/RootGrid";
+import { RouterPopStateFilter } from "@/components/ui/RouterPopStateFilter";
+import { RESERVE_FIRST_POPSTATE_LISTENER_SCRIPT } from "@/lib/router-popstate-filter";
 import { PlatformBackdrop } from "@/components/ui/PlatformBackdrop";
 import { OfflineServiceWorker } from "@/components/ui/OfflineServiceWorker";
 
@@ -81,6 +83,9 @@ export default function RootLayout(
 ) {
   return (
     <html lang={ 'uk' } className="h-full w-full dark" suppressHydrationWarning>
+    <head>
+      <script dangerouslySetInnerHTML={{ __html: RESERVE_FIRST_POPSTATE_LISTENER_SCRIPT }} />
+    </head>
     <body
       className={ `${ jetBrainsMono.variable } ${ inter.variable } ${ cinzel.variable } ${ rpgDisplay.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden antialiased` }>
     <PlatformBackdrop />
@@ -91,6 +96,7 @@ export default function RootLayout(
           <App>{ children }</App>
           <Navigation/>
         </RootGrid>
+        <RouterPopStateFilter />
       </Suspense>
       <GlobalModals />
       <DiceOverlay />

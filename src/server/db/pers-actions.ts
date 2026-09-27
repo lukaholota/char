@@ -8,6 +8,7 @@ import { revalidatePath } from "next/cache";
 import { FeatureDisplayType, RestType, MagicItem, Prisma, Ruleset } from "@prisma/client";
 import { FeatureSource } from "@/lib/utils/features";
 import { buildCopyTarget, clonePersWithRelations, PERS_DUPLICATION_INCLUDE } from "@/lib/logic/pers-duplication";
+import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 import { PERS_PRINT_INCLUDE, PERS_SHEET_INCLUDE } from "@/server/db/pers-sheet-include";
 import { collectPersClassNames, collectPersSubclassNames } from "@/lib/logic/pers-class-names";
 import { buildVisiblePersFilter, buildVisibleFolderFilter } from "@/server/db/pers-access-filters";
@@ -294,6 +295,7 @@ export async function duplicatePers(persId: number) {
             subclassNames: collectPersSubclassNames(pers),
         };
 
+        captureServerPostHogEvent("character_copied", { pers_id: duplicate.persId, edition: duplicate.ruleset === "RULES_2024" ? "2024" : "2014", creation_type: "copy", copy_source: "character" });
         return { success: true as const, pers: persHomeItem };
     } catch (error) {
         console.error("Duplication failed:", error);
@@ -425,6 +427,7 @@ export async function duplicatePersFolder(folderId: number) {
     const source = await assertFolderOwnership(folderId, userId);
     if (!source) return { success: false as const, error: "Немає доступу до папки" };
 
+    const copiedPers: Array<{ persId: number; ruleset: Ruleset }> = [];
     const created = await prisma.$transaction(async (tx) => {
         const root = await tx.persFolder.findUnique({
             where: { folderId },
@@ -465,7 +468,8 @@ export async function duplicatePersFolder(folderId: number) {
             });
 
             for (const pers of perses) {
-                await clonePersWithRelations(tx, pers, buildCopyTarget(pers, { folderId: createdFolder.folderId }));
+                const copy = await clonePersWithRelations(tx, pers, buildCopyTarget(pers, { folderId: createdFolder.folderId }));
+                copiedPers.push(copy);
             }
 
             const children = await tx.persFolder.findMany({
@@ -485,6 +489,7 @@ export async function duplicatePersFolder(folderId: number) {
 
     if (!created) return { success: false as const, error: "Не вдалося скопіювати папку" };
 
+    for (const pers of copiedPers) captureServerPostHogEvent("character_copied", { pers_id: pers.persId, edition: pers.ruleset === "RULES_2024" ? "2024" : "2014", creation_type: "copy", copy_source: "folder" });
     revalidatePath("/char/home");
     return { success: true as const, folder: created };
 }
@@ -674,6 +679,7 @@ export interface CharacterFeatureItem {
     usesPoolKey?: string | null;
     usePrice?: number | null;
     name: string;
+    engName?: string | null;
     shortDescription?: string | null;
     description: string;
     displayTypes: FeatureDisplayType[];
@@ -1001,6 +1007,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
             usesPoolKey: f.usesPoolKey ?? null,
             usePrice: f.usePrice ?? 1,
             name: f.name,
+            engName: f.engName,
             shortDescription: f.shortDescription ?? null,
             description: f.description,
             displayTypes: normalizeDisplayTypes(f.displayType),
@@ -1028,6 +1035,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
                 usesPoolKey: f.usesPoolKey ?? null,
                 usePrice: f.usePrice ?? 1,
                 name: f.name,
+                engName: f.engName,
                 shortDescription: f.shortDescription ?? null,
                 description: f.description,
                 displayTypes: normalizeDisplayTypes(f.displayType),
@@ -1053,6 +1061,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
                 usesPoolKey: f.usesPoolKey ?? null,
                 usePrice: f.usePrice ?? 1,
                 name: f.name,
+                engName: f.engName,
                 shortDescription: f.shortDescription ?? null,
                 description: f.description,
                 displayTypes: normalizeDisplayTypes(f.displayType),
@@ -1075,6 +1084,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
         push({
             key: `FEAT:${pf.featId}`,
             name: featName,
+            engName: pf.feat.engName,
             descriptionTarget: { kind: "FEAT", refId: pf.featId },
             description: buildFeatFeatureDescription(pf.feat.description, pf.choices),
             displayTypes: [FeatureDisplayType.PASSIVE],
@@ -1098,6 +1108,7 @@ function buildCharacterFeaturesGrouped(pers: any): CharacterFeaturesGroupedResul
             key: `INFUSION:${pi.persInfusionId}`,
             descriptionTarget: { kind: "INFUSION", refId: pi.persInfusionId },
             name: feature?.name || inf.name,
+            engName: feature?.engName || inf.engName,
             description: feature?.description || inf.replicatedMagicItem?.description || inf.name,
             shortDescription: feature?.shortDescription,
             displayTypes: feature?.displayType as FeatureDisplayType[] || [FeatureDisplayType.PASSIVE],

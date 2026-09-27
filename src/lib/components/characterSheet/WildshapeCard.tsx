@@ -11,6 +11,7 @@ import { describeKnownFormsOverflow } from "@/rules/wildshape";
 import type { AttachedForm, WildshapeStanding } from "@/server/db/wildshape";
 import type { WildshapeUses } from "@/server/db/wildshape-uses";
 import { detachWildshapeForm, enterWildshapeForm } from "@/server/db/wildshape-actions";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 import { restoreFeatureUse, spendFeatureUse } from "@/lib/actions/feature-uses";
 import { AddWildshapeFormDialog } from "./AddWildshapeFormDialog";
 import { ActiveForm } from "./WildshapeActiveForm";
@@ -282,6 +283,7 @@ function FormRow({
   // він приїжджає з сервера, а не зі стану Дикої форми.
   async function transform() {
     const result = await enterWildshapeForm({ persId, wildshapeId: form.wildshapeId });
+    if (result.ok) capturePostHogEvent("wildshape_entered");
     if (!result.ok) {
       toast.error(result.error);
       return;

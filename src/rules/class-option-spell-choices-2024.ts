@@ -12,6 +12,7 @@ import { classTranslations } from "@/lib/refs/translation";
 import type { FeatSpellChoiceRule } from "./feat-spell-choices";
 import { findSpellCounts2024 } from "./spell-preparation-2024";
 import type { RulesetId } from "./strategies/types";
+import { findSubclassFeatureSpellChoice2014, findSubclassFeatureSpellLabel2014 } from "./subclass-feature-spell-choices-2014";
 
 export type ClassOptionSpellChoice = {
   /** Ключ джерела в базі — `optionNameEng` опції або `engName` риси; лягає в `pers_spell.sourceName`. */
@@ -69,7 +70,7 @@ export function findClassOptionSpellChoice(chosenOptionNamesEng: readonly string
 
 /** Риса підкласу, яка саме на цьому рівні класу дає обрати заклинання. */
 export function findSubclassFeatureSpellChoice(input: { ruleset: RulesetId; subclassName: string; classLevel: number }): ClassOptionSpellChoice | null {
-  if (input.ruleset !== "RULES_2024") return null;
+  if (input.ruleset === "RULES_2014") return findSubclassFeatureSpellChoiceIn2014(input.subclassName, input.classLevel);
 
   const feature = SUBCLASS_FEATURE_SPELL_CHOICES.find((choice) => choice.subclassName === input.subclassName && choice.classLevel === input.classLevel);
   return feature ? { sourceName: feature.sourceName, label: feature.label, rule: feature.buildRule(input.classLevel) } : null;
@@ -77,5 +78,10 @@ export function findSubclassFeatureSpellChoice(input: { ruleset: RulesetId; subc
 
 export function findClassOptionSpellLabel(sourceName: string): string | null {
   const choice = [...CLASS_OPTION_SPELL_CHOICES, ...SUBCLASS_FEATURE_SPELL_CHOICES].find((candidate) => candidate.sourceName === sourceName);
-  return choice?.label ?? null;
+  return choice?.label ?? findSubclassFeatureSpellLabel2014(sourceName);
+}
+
+function findSubclassFeatureSpellChoiceIn2014(subclassName: string, classLevel: number): ClassOptionSpellChoice | null {
+  const feature = findSubclassFeatureSpellChoice2014(subclassName, classLevel);
+  return feature ? { sourceName: feature.sourceName, label: feature.label, rule: { picks: feature.picks } } : null;
 }

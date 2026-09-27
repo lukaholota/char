@@ -10,6 +10,8 @@ import { engEnumSkills } from "@/lib/refs/translation";
 import { SkillsEnum } from "@/lib/types/enums";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { buildPickHint, joinHints, SKILL_FORMS } from "@/lib/components/wizard/pick-hint";
 
 interface Props {
   activeFeatures: any[];
@@ -141,6 +143,10 @@ export const LevelUpSkillProficienciesForm = ({
     const chosenHere = ((selections[feature.featureId] || []) as Skill[]).length;
     return chosenHere !== Math.min(feature.choiceCount, countPickable(feature));
   });
+
+  useNextStepHint(
+    joinHints(choiceFeatures.map((feature) => buildPickHint(((selections[feature.featureId] || []) as Skill[]).length, Math.min(feature.choiceCount, countPickable(feature)), SKILL_FORMS, `для «${feature.name}»`)))
+  );
 
   useEffect(() => {
     onNextDisabledChange?.(isSelectionUnspent);

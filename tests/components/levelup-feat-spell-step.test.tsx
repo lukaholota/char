@@ -90,12 +90,17 @@ describe("KR31.5 — крок вибору заклинання риси", () =>
     expect(usePersFormStore.getState().formData.featSpellIds).toEqual([12]);
   });
 
-  it("при виборі одного заклинання інше натискання замінює, а не додає друге", () => {
+  it("коли одне заклинання обрано, решта групи сіра й не натискається; зняте — знову відкриває вибір", () => {
     renderStep();
 
     fireEvent.click(screen.getByRole("button", { name: /^Зачарування особи/ }));
-    fireEvent.click(screen.getByRole("button", { name: /^Благословення/ }));
+    const other = screen.getByRole("button", { name: /^Благословення/ });
+    expect(other.hasAttribute("disabled")).toBe(true);
+    fireEvent.click(other);
+    expect(usePersFormStore.getState().formData.featSpellIds).toEqual([12]);
 
+    fireEvent.click(screen.getByRole("button", { name: /^Зачарування особи/ }));
+    fireEvent.click(screen.getByRole("button", { name: /^Благословення/ }));
     expect(usePersFormStore.getState().formData.featSpellIds).toEqual([13]);
   });
 

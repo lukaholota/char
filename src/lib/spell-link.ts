@@ -89,6 +89,10 @@ function writeSpellLinkToSearch(params: URLSearchParams, link: SpellLink | null)
   else params.delete(SPELL_EDITION_PARAM);
 }
 
+export function removeSpellLinkFromSearch(params: URLSearchParams): void {
+  if (params.has(SPELL_PARAM)) writeSpellLinkToSearch(params, null);
+}
+
 export function isSameSpellLink(a: SpellLink | null, b: SpellLink | null): boolean {
   if (!a || !b) return a === b;
   return a.spellKey === b.spellKey && a.ruleset === b.ruleset;

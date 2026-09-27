@@ -21,7 +21,7 @@ import { Badge } from "@/components/ui/badge";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { toast } from "sonner";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
-import { ChevronLeft, ChevronRight, Check, Loader2 } from "lucide-react";
+import { ChevronRight, Check } from "lucide-react";
 import SubclassForm from "@/lib/components/characterCreator/SubclassForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
 import SubclassChoiceOptionsForm from "@/lib/components/characterCreator/SubclassChoiceOptionsForm";
@@ -86,6 +86,7 @@ import { findLevelUpWeaponMastery } from "@/lib/components/levelUp/levelup-weapo
 import { NO_WEAPON_PROFICIENCY } from "@/rules/weapon-mastery";
 import { LevelUpFeatSpellStep } from "@/lib/components/levelUp/LevelUpFeatSpellStep";
 import { useLevelUpClassOptionSpellOffer } from "@/lib/components/levelUp/level-up-class-option-spell-offer";
+import { collectCatchUpSpellIds, LevelUpCatchUpSpellStep, useLevelUpCatchUpSpellOffers } from "@/lib/components/levelUp/LevelUpCatchUpSpellStep";
 import { ClassSpellChoiceStep } from "@/components/spells/ClassSpellChoiceStep";
 import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
 import {
@@ -97,6 +98,8 @@ import {
 import type { RulesetId } from "@/rules/strategies/types";
 import { findVisibleOptionalFeatures } from "@/lib/components/levelUp/levelup-optional-features";
 import { BastionLevelUpNote } from "@/components/bastions/BastionLevelUpNote";
+import { LevelUpFooter } from "@/lib/components/levelUp/LevelUpFooter";
+import { NextStepHintProvider, useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 
 import {
   CHOICE_GROUPS,
@@ -104,6 +107,8 @@ import {
   getChoicePoolRule,
 } from "@/lib/logic/choicePoolRules";
 import { translateSubclassName } from "@/lib/refs/subclass-name";
+import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { findPathStepHint } from "@/lib/components/levelUp/level-up-next-hints";
 
 const stripSyntheticSuffix = (groupName: string) =>
   baseChoiceGroupName(groupName);
@@ -255,6 +260,7 @@ export default function LevelUpWizard({ info }: Props) {
   const { resetForm, formData } = usePersFormStore();
   const router = useModeRouter();
   const [currentStep, setCurrentStep] = useState(0);
+  const [nextStepHint, setNextStepHint] = useNextStepHintState(currentStep);
   const [nextDisabled, setNextDisabled] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const lastStepIdRef = useRef<string | undefined>(undefined);
@@ -466,12 +472,13 @@ export default function LevelUpWizard({ info }: Props) {
     classChoiceSelections: formData.classChoiceSelections,
   });
 
+  const catchUpSpellOffers = useLevelUpCatchUpSpellOffers(pers?.persId);
   const classSpellOfferWithoutFeatSpells = useMemo(
     () =>
       classSpellOffer
-        ? withoutSpells(classSpellOffer, [...(formData.featSpellIds ?? []), ...(formData.featGrowthSpellIds ?? []), ...(formData.classOptionSpellIds ?? [])])
+        ? withoutSpells(classSpellOffer, [...(formData.featSpellIds ?? []), ...(formData.featGrowthSpellIds ?? []), ...(formData.classOptionSpellIds ?? []), ...collectCatchUpSpellIds(formData)])
         : null,
-    [classSpellOffer, formData.featSpellIds, formData.featGrowthSpellIds, formData.classOptionSpellIds],
+    [classSpellOffer, formData],
   );
 
   const currentLevelFeatures = useMemo(() => {
@@ -944,6 +951,7 @@ export default function LevelUpWizard({ info }: Props) {
 
     if (featSpellGrowth) result.push({ id: "feat-growth-spells", title: "Заклинання риси", initialDisabled: true });
 
+    if (catchUpSpellOffers.length > 0) result.push({ id: "catch-up-spells", title: "Обрати пропущене", initialDisabled: true });
     if (classOptionSpellOffer) result.push({ id: "class-option-spells", title: classOptionSpellOffer.label, initialDisabled: true });
 
     if (classSpellOffer) {
@@ -1052,6 +1060,7 @@ export default function LevelUpWizard({ info }: Props) {
     selectedFeatId,
     selectedFeatSpellOffer,
     featSpellGrowth,
+    catchUpSpellOffers,
     classOptionSpellOffer,
     classSpellOffer,
     pers,
@@ -1184,15 +1193,11 @@ export default function LevelUpWizard({ info }: Props) {
             onNextDisabledChange={onNextDisabledChange}
           />
         ) : null;
+      case "catch-up-spells":
+        return <LevelUpCatchUpSpellStep offers={catchUpSpellOffers} onNextDisabledChange={onNextDisabledChange} />;
       case "class-option-spells":
         return classOptionSpellOffer ? (
-          <LevelUpFeatSpellStep
-            featLabel={classOptionSpellOffer.label}
-            title={classOptionSpellOffer.label}
-            offer={classOptionSpellOffer.offer}
-            field="classOptionSpellIds"
-            onNextDisabledChange={onNextDisabledChange}
-          />
+          <LevelUpFeatSpellStep featLabel={classOptionSpellOffer.label} title={classOptionSpellOffer.label} offer={classOptionSpellOffer.offer} field="classOptionSpellIds" onNextDisabledChange={onNextDisabledChange} />
         ) : null;
       case "class-spells":
         return classSpellOfferWithoutFeatSpells ? <ClassSpellChoiceStep offer={classSpellOfferWithoutFeatSpells} onNextDisabledChange={onNextDisabledChange} highestLevelFirst /> : null;
@@ -1410,7 +1415,7 @@ export default function LevelUpWizard({ info }: Props) {
         <Card className="border-0 bg-transparent shadow-none md:border md:border-white/10 md:bg-slate-950/30 md:shadow-2xl">
           <CardContent className="grid gap-2 p-0 sm:gap-3 md:grid-cols-[1fr,300px] md:gap-6 md:p-6">
             <div className="space-y-2 p-0 sm:space-y-3 md:glass-panel md:border-gradient-rpg md:space-y-4 md:rounded-xl md:p-5">
-              {CurrentComponent}
+              <NextStepHintProvider onHintChange={setNextStepHint}>{CurrentComponent}</NextStepHintProvider>
             </div>
 
             <aside className="hidden md:block md:glass-panel md:border-gradient-rpg md:rounded-xl md:p-4">
@@ -1459,51 +1464,16 @@ export default function LevelUpWizard({ info }: Props) {
           </CardContent>
         </Card>
 
-        <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
-          <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl border-t border-white/10 bg-slate-900/95 px-2.5 py-2.5 backdrop-blur-xl shadow-xl shadow-black/30 sm:rounded-2xl sm:px-3 sm:py-3">
-            <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
-              <Badge
-                variant="secondary"
-                className="bg-white/5 text-white text-[11px] sm:text-xs"
-              >
-                Крок {safeCurrentStep + 1} / {steps.length}
-              </Badge>
-              <span className="hidden sm:inline">
-                {steps[safeCurrentStep]?.title}
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                onClick={handlePrev}
-                disabled={currentStep === 0 || isSubmitting}
-                className="border-white/15 bg-white/5 text-slate-300"
-              >
-                <ChevronLeft className="mr-2 h-4 w-4" />
-                Назад
-              </Button>
-
-              <Button
-                onClick={handleNext}
-                disabled={nextDisabled || isSubmitting}
-              >
-                {currentStep === steps.length - 1 ? (
-                  <>
-                    {isSubmitting && (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    )}
-                    {isSubmitting ? "Збереження..." : "Підвищити рівень"}
-                  </>
-                ) : (
-                  <>
-                    Далі <ChevronRight className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-            </div>
-          </div>
-        </div>
+        <LevelUpFooter
+          stepIndex={safeCurrentStep}
+          stepCount={steps.length}
+          stepTitle={steps[safeCurrentStep]?.title}
+          isNextBlocked={nextDisabled}
+          nextStepHint={nextStepHint}
+          isSubmitting={isSubmitting}
+          onPrev={handlePrev}
+          onNext={handleNext}
+        />
     </div>
   );
 }
@@ -1920,6 +1890,8 @@ function PathStep({
       classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name
     );
   };
+
+  useNextStepHint(findPathStepHint(levelUpPath, chosenClassId));
 
   useEffect(() => {
     const disabled = !levelUpPath || !chosenClassId;
