@@ -1,4 +1,4 @@
-// Багряний обряд мисливця за кровʼю (Blood Hunter 2020): бонусною дією на одну зброю, до відпочинку.
+// Багряний обряд кривавого мисливця (Blood Hunter 2020): бонусною дією на одну зброю, до відпочинку.
 // «Attacks you make with this weapon are magical, and deal extra damage equal to your hemocraft die of the
 // type determined by the chosen rite. A weapon can hold only one active rite at a time.»
 // Обряд — це риса: вивчений варіант групи «Багряні обряди» або Обряд світанку мисливця на привидів.

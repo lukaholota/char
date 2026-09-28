@@ -20,7 +20,7 @@ export type SwappableOwnedSpell = {
 };
 
 const CANTRIP_SWAP_ON_LEVEL = new Set(["BARD_2024", "CLERIC_2024", "DRUID_2024", "SORCERER_2024", "WARLOCK_2024"]);
-// Мисливець за кровʼю — Орден нечестивої душі (O45): «when you gain a level in this class, you can … replace
+// Кривавий мисливець — Орден нечестивої душі (O45): «when you gain a level in this class, you can … replace
 // [a warlock spell you know]»; замовляння ордену не міняються.
 const PREPARED_SWAP_ON_LEVEL = new Set(["BARD_2024", "SORCERER_2024", "WARLOCK_2024", "BLOOD_HUNTER_2024"]);
 

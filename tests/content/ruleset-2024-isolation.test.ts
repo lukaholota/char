@@ -50,7 +50,7 @@ describe("KR6.3 Step 3 — 2024 Content Isolation", () => {
         prisma.subclass.count({ where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } } }),
       ]);
 
-    // 2024 counts must match seeded numbers; Мисливця за кровʼю (носій O45) звіряє blood-hunter-carrier.
+    // 2024 counts must match seeded numbers; Кривавого мисливця (носій O45) звіряє blood-hunter-carrier.
     expect(races2024).toBe(10);
     expect(classes2024).toBe(13);
     // KR31.4, 2026-09-06: 74, а не 75 — рису «Ability Score Improvement» прибрано з переліку

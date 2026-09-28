@@ -16,7 +16,7 @@ import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 const ROWS_2014 = 113;
 
-/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+/// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 const WITHOUT_BLOOD_HUNTER = { class: { name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } } };
 
 type SeededRow = {

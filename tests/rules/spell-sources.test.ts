@@ -125,7 +125,7 @@ describe("KR31.5 — джерела для КС і атаки на листі в
   });
 });
 
-describe("O45 — мисливець за кровʼю: СК гемокрафту з обраної характеристики", () => {
+describe("O45 — кривавий мисливець: СК гемокрафту з обраної характеристики", () => {
   const bloodHunter: SpellcastingClass = { name: "BLOOD_HUNTER_2014", spellcastingType: "NONE", primaryCastingStat: "INT" };
   const profaneSoul = { name: "ORDER_OF_THE_PROFANE_SOUL", spellcastingType: "PACT", primaryCastingStat: "INT" as const };
 

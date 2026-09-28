@@ -13,7 +13,7 @@ import {
   type BloodHunterTranslation,
 } from "../../prisma/seed/bloodHunter";
 
-/// O45 — носій Мисливця за кровʼю: джерело англійською, два переклади, і все, що мусить сходитися
+/// O45 — носій Кривавого мисливця: джерело англійською, два переклади, і все, що мусить сходитися
 /// числами між таблицею класу, пулами виборів, лічильниками й каталогом.
 const source = readBloodHunterSource();
 const translations = Object.fromEntries(BLOOD_HUNTER_RULESETS.map((ruleset) => [ruleset, readBloodHunterTranslation(ruleset)])) as Record<

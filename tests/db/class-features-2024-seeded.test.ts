@@ -13,7 +13,7 @@ import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 const CYRILLIC = /\p{Script=Cyrillic}/u;
 
-/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+/// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 const CLASS_NOT_BLOOD_HUNTER = { notIn: [...BLOOD_HUNTER_CLASS_NAMES] };
 
 type ClassJson2024 = {

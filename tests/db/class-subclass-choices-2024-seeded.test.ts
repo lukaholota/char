@@ -26,7 +26,7 @@ describe("KR31.2 — class/subclass choices 2024 у базі", () => {
       WIZARD_2024: {},
     };
     const classes = await prisma.class.findMany({
-      // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+      // Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
       where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } },
       select: {
         name: true,

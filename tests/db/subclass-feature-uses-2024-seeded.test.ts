@@ -90,7 +90,7 @@ describe("лічильники підкласових фіч 2024 у базі", 
     const carrying = await prisma.feature.findMany({
       where: {
         ruleset: "RULES_2024",
-        // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+        // Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
         subclassFeatures: { some: { subclass: { name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } } } },
         OR: [{ usesCount: { not: null } }, { limitedUsesPer: { not: null } }, { usesPoolKey: { not: null } }],
       },

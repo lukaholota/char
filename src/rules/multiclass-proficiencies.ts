@@ -127,7 +127,7 @@ const MULTICLASS_PROFICIENCIES_2014: Record<string, MulticlassProficiencyPackage
   WIZARD_2014: EMPTY_PACKAGE,
 };
 
-/// Мисливець за кровʼю (O45): набір — зі сторінки класу на D&D Beyond («As a multiclass character»),
+/// Кривавий мисливець (O45): набір — зі сторінки класу на D&D Beyond («As a multiclass character»),
 /// вікі його не показує. Адаптація 2024 бере той самий набір, а не загальний 2024-го іншого класу.
 const BLOOD_HUNTER_MULTICLASS: MulticlassProficiencyPackage = {
   ...EMPTY_PACKAGE,

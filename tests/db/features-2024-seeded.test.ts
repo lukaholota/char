@@ -44,7 +44,7 @@ describe("расові риси 2024 у базі", () => {
 describe("підкласові фічі 2024 у базі", () => {
   it("кожен підклас має хоча б одну фічу з непорожнім українським описом", async () => {
     const subclasses = await prisma.subclass.findMany({
-      // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+      // Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
       where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } },
       select: {
         name: true,

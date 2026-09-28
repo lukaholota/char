@@ -381,7 +381,7 @@ export function getBackgroundCreationVisual(backgroundName: string | null | unde
 }
 
 function isBloodHunterKey(key: string): boolean {
-  return key.includes("BLOOD_HUNTER") || key.includes("BLOOD HUNTER") || key.includes("МИСЛИВЕЦЬ ЗА КРОВ");
+  return key.includes("BLOOD_HUNTER") || key.includes("BLOOD HUNTER") || key.includes("КРИВАВИЙ МИСЛИВЕЦЬ");
 }
 
 // 3. Class Hit Die & Primary Stat Helpers

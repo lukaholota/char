@@ -69,7 +69,7 @@ export const THIRD_CASTER_KNOWLEDGE_2014: SpellKnowledgeTable2014 = {
   maxSpellLevel: [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4],
 };
 
-// Мисливець за кровʼю 2020, Орден нечестивої душі: таблиця «Profane Soul Spellcasting». Найвищий рівень
+// Кривавий мисливець 2020, Орден нечестивої душі: таблиця «Profane Soul Spellcasting». Найвищий рівень
 // заклинання, яке можна вивчити, — стовпець рівня слотів («no higher than … the table's Slot Level column»).
 export const PROFANE_SOUL_KNOWLEDGE: SpellKnowledgeTable2014 = {
   cantrips: [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],

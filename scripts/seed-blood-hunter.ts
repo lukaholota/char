@@ -1,5 +1,5 @@
 /**
- * O45 — Мисливець за кровʼю в обох редакціях. Без `--apply` лише показує план.
+ * O45 — Кривавий мисливець в обох редакціях. Без `--apply` лише показує план.
  *
  *   bun run seed:blood-hunter:test [-- --apply]   → .env.test, клон spells_test
  *   bun run seed:blood-hunter:prod [-- --apply]   → .env, робоча база spells
@@ -66,7 +66,7 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   const dbName = new URL(connectionString).pathname.replace(/^\//, "");
-  console.log(`🩸 O45 — Мисливець за кровʼю для бази "${dbName}" (--target ${target}${apply ? ", --apply" : ", лише показ"})…\n`);
+  console.log(`🩸 O45 — Кривавий мисливець для бази "${dbName}" (--target ${target}${apply ? ", --apply" : ", лише показ"})…\n`);
 
   const reports = await seedBloodHunter(prisma, apply);
   reports.forEach(printReport);

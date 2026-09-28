@@ -21,7 +21,7 @@ const CLASS_NAMES_UK: Record<string, string> = {
   WARLOCK: 'Чорнокнижник',
   WIZARD: 'Чарівник',
   ARTIFICER: 'Винахідник',
-  BLOOD_HUNTER: 'Мисливець за кровʼю',
+  BLOOD_HUNTER: 'Кривавий мисливець',
 };
 
 const CLASS_HIT_DICE: Record<string, number> = {

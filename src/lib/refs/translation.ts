@@ -262,8 +262,8 @@ export const classTranslations = {
   SORCERER_2024: "Чародій",
   WARLOCK_2024: "Чорнокнижник",
   WIZARD_2024: "Чарівник",
-  BLOOD_HUNTER_2014: "Мисливець за кровʼю",
-  BLOOD_HUNTER_2024: "Мисливець за кровʼю",
+  BLOOD_HUNTER_2014: "Кривавий мисливець",
+  BLOOD_HUNTER_2024: "Кривавий мисливець",
 } as const;
 
 export const classTranslationsEng = {
@@ -1046,7 +1046,7 @@ export const sourceTranslations = {
   FRHoF: "Забуті Королівства: Герої Фаеруну",
   EFA: "Еберрон: Горнило Винахідника",
   RHW: "Равенлофт: Жахіття Всередині",
-  BLOOD_HUNTER: "Мисливець за кровʼю (Метт Мерсер, 2020)",
+  BLOOD_HUNTER: "Кривавий мисливець (Метт Мерсер, 2020)",
   HOMEBREW: "Хоумбрю"
 } as const;
 

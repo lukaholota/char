@@ -1,5 +1,5 @@
 /**
- * O45, KR45.7 — приймання адаптації Мисливця за кровʼю 2024 за контрактом
+ * O45, KR45.7 — приймання адаптації Кривавого мисливця 2024 за контрактом
  * (docs/o45-blood-hunter/README.md): механіка класу й орденів — з Blood Hunter 2020, шасі — 2024
  * (Майстерність зброї на 1-му, риса Бойового стилю на 2-му, риса ASI на 4-му).
  */
@@ -81,7 +81,7 @@ describe("BH-005-2024 — Нечестива душа 7 / чорнокнижни
     });
     const own = spells.filter((spell) => !spell.excludeFromKnownCount);
     expect(own.filter((spell) => spell.spell.level === 0)).toHaveLength(3);
-    expect(own.filter((spell) => spell.spell.level > 0 && spell.badgeText === "Мисливець за кровʼю")).toHaveLength(4);
+    expect(own.filter((spell) => spell.spell.level > 0 && spell.badgeText === "Кривавий мисливець")).toHaveLength(4);
     expect(own.filter((spell) => spell.spell.level > 0 && spell.badgeText === "Чорнокнижник")).toHaveLength(4);
     expect(spells.find((spell) => spell.spell.engName === "Scorching Ray")).toMatchObject({ excludeFromKnownCount: true });
   });
@@ -109,7 +109,7 @@ async function build(id: string, order: string, extraLevelUps: MulticlassLevelUp
     id,
     title: id,
     reference: "O45 KR45.7",
-    why: "приймання адаптації Мисливця за кровʼю 2024",
+    why: "приймання адаптації Кривавого мисливця 2024",
     input: {
       species: "HUMAN_2024",
       startingClass: BH,

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
-/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+/// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 const isBloodHunter = (className: string) => BLOOD_HUNTER_CLASS_NAMES.some((name) => name === className);
 
 describe("Character Creator Content Loading by Ruleset", () => {

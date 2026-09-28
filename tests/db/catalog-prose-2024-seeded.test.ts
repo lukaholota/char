@@ -9,7 +9,7 @@ afterAll(disconnectDatabase);
 const toEnumName = (engName: string) => `${engName.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}_2024`;
 const byName = (left: { name: string }, right: { name: string }) => left.name.localeCompare(right.name);
 
-/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+/// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 it("KR33.4 — сід переносить прозу 13 класів 2024 з файла", async () => {
   const source: Array<{ engName: string; flavorText: string }> =
     JSON.parse(readFileSync("data/2024/normalized/classes.json", "utf8"));

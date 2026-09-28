@@ -9,7 +9,7 @@ afterAll(disconnectDatabase);
 
 const byName = (left: { name: string }, right: { name: string }) => left.name.localeCompare(right.name);
 
-/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+/// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 async function findDescribedRows(kind: Exclude<CatalogProseKind, "subclasses">) {
   const query = { where: { ruleset: "RULES_2014" as const, description: { not: null } }, select: { name: true, description: true } };
   if (kind === "classes") return prisma.class.findMany({ ...query, where: { ...query.where, name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } } });

@@ -83,7 +83,7 @@ describe("скорочені володіння мультикласу", () => {
     expect(findMulticlassProficiencies("ARTIFICER_2024")).toBeNull();
   });
 
-  it("мисливець за кровʼю в обох редакціях дає легкий, середній обладунок, щити, просту й бойову зброю та інструменти алхіміка, без навички", () => {
+  it("кривавий мисливець в обох редакціях дає легкий, середній обладунок, щити, просту й бойову зброю та інструменти алхіміка, без навички", () => {
     for (const className of ["BLOOD_HUNTER_2014", "BLOOD_HUNTER_2024"]) {
       expect(findMulticlassProficiencies(className), className).toEqual({
         armor: ["LIGHT", "MEDIUM", "SHIELD"],

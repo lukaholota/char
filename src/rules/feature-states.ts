@@ -98,7 +98,7 @@ const BLADESONG_2024: FeatureState = {
 
 const STALKERS_PROWESS = ["Stalker's Prowess (Order of the Lycan)", "Order of the Lycan: Stalker's Prowess (2024)"] as const;
 
-/// Мисливець за кровʼю 2020, Орден лікантропів. Звіряча міць, Стійка шкура, Хижі удари й Жага крові
+/// Кривавий мисливець 2020, Орден лікантропів. Звіряча міць, Стійка шкура, Хижі удари й Жага крові
 /// діють лише у формі; Покращені хижі удари — з Хижого вміння (7-й рівень).
 const HYBRID_TRANSFORMATION: FeatureState = {
   engNames: ["Hybrid Transformation (Order of the Lycan)", "Order of the Lycan: Hybrid Transformation (2024)"],

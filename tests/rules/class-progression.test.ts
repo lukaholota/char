@@ -71,7 +71,7 @@ describe("KR27.3 — рівні ASI 13 класів 2024 у базі", () => {
 describe("KR27.6 — третинні підкласи 2024 у базі", () => {
   it("лише Лицар-Чаклун і Таємний Пройдисвіт 2024 мають чаклування підкласу — THIRD з INT", async () => {
     const casters = await prisma.subclass.findMany({
-      // Орден нечестивої душі Мисливця за кровʼю (носій O45) — PACT; його звіряє profane-soul-pact.
+      // Орден нечестивої душі Кривавого мисливця (носій O45) — PACT; його звіряє profane-soul-pact.
       where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] }, spellcastingType: { not: "NONE" } },
       select: { name: true, spellcastingType: true, primaryCastingStat: true },
     });

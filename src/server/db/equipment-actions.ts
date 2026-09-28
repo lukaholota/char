@@ -158,7 +158,7 @@ export async function updateWeapon(
 }
 
 /**
- * O45: Багряний обряд мисливця за кровʼю на одній зброї — «a weapon can hold only one active rite at a time».
+ * O45: Багряний обряд кривавого мисливця на одній зброї — «a weapon can hold only one active rite at a time».
  * Хижі удари лікантропа — рядок «Кулак», тож обряд на них ставиться так само, одним рядком.
  * `null` знімає обряд (відпочинок або гравець вимкнув).
  */

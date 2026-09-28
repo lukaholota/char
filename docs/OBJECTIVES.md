@@ -50,7 +50,7 @@
 | O42 | [Термін, про який довідник щось знає, відкривається з тексту](o42-term-link-coverage/README.md) |
 | O43 | [Підкласи зі старих книг для персонажа 2024](o43-legacy-subclasses-2024/README.md) |
 | O44 | [Каталоги класів і рас: структуроване читання й точний перехід із пошуку](o44-catalog-reading/README.md) |
-| O45 | [Мисливець за кровʼю (Blood Hunter) в обох редакціях](o45-blood-hunter/README.md) |
+| O45 | [Кривавий мисливець (Blood Hunter) в обох редакціях](o45-blood-hunter/README.md) |
 | O46 | [Сторінка тягне лише той JS, який показує](o46-js-weight/README.md) |
 | O47 | [Дика форма з хоумбрю-істоти](o47-homebrew-wildshape/README.md) |
 | O48 | [Заклинання від підкласу й раси 2014 лягають у список самі](o48-granted-spells-2014/README.md) |

@@ -57,7 +57,7 @@ type RawSubclass = Omit<SubclassData, "slug">;
 type RawClass = Omit<ClassData, "slug" | "imageSrc" | "subclasses" | "source"> & { subclasses: RawSubclass[] };
 
 /// Таблиця `class` не має стовпця з джерелом: усі класи — з Книги Гравця своєї редакції, крім
-/// Винахідника (Казан Таші 2014; Горнило Винахідника 2024) і Мисливця за кровʼю (Метт Мерсер, 2020).
+/// Винахідника (Казан Таші 2014; Горнило Винахідника 2024) і Кривавого мисливця (Метт Мерсер, 2020).
 function findClassSource(key: string, ruleset: Ruleset): string {
   if (key.startsWith("BLOOD_HUNTER")) return "BLOOD_HUNTER";
   const isArtificer = key.startsWith("ARTIFICER");

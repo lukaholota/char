@@ -6,7 +6,7 @@ import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
 afterAll(disconnectDatabase);
 
-/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+/// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 it("KR31.2 — сід переносить усі класові навички 2024 з файла", async () => {
   const source: Array<{ engName: string; skillProficiencies: unknown }> =
     JSON.parse(readFileSync("data/2024/normalized/classes.json", "utf8"));

@@ -9,7 +9,7 @@ afterAll(disconnectDatabase);
 
 const toEnum = (name: string) => name.toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 
-/// Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+/// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 it("KR31.2 — усі нормалізовані підкласи 2024 та їхні фічі засіяні", async () => {
   const actual = await prisma.subclass.findMany({
     where: { ruleset: "RULES_2024", name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } },

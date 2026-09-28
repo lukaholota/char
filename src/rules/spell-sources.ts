@@ -36,7 +36,7 @@ export type SpellcastingClass = {
   primaryCastingStat: AbilityKey | null;
   /** Третинний заклинач (Лицар-Чаклун, Містичний спритник) чаклує підкласом: клас сам порожній. */
   subclass?: SpellcastingSubclass | null;
-  /** Мисливець за кровʼю: Інтелект чи Мудрість, обрані на 1-му рівні; нею ж чаклує Орден нечестивої душі. */
+  /** Кривавий мисливець: Інтелект чи Мудрість, обрані на 1-му рівні; нею ж чаклує Орден нечестивої душі. */
   hemocraftAbility?: AbilityKey | null;
 };
 
@@ -106,7 +106,7 @@ export function findSpellcastingSources(input: SpellSourcesInput): SpellSource[]
 }
 
 /**
- * СК гемокрафту мисливця за кровʼю — та сама формула, що й СК заклинань, тож лист показує її тим самим
+ * СК гемокрафту кривавого мисливця — та сама формула, що й СК заклинань, тож лист показує її тим самим
  * рядком. Джерелом заклинань мисливець без Ордену нечестивої душі не стає: списку класу в нього немає.
  */
 function findHemocraftSources(characterClasses: readonly SpellcastingClass[]): SpellSource[] {

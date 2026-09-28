@@ -25,7 +25,7 @@ function listExpected(): string[] {
 
 async function listSeeded(): Promise<string[]> {
   const links = await prisma.subclassChoiceOption.findMany({
-    // Мисливець за кровʼю — власний носій O45, його звіряє blood-hunter-carrier.
+    // Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
     where: { ruleset: "RULES_2024", subclass: { name: { notIn: [...BLOOD_HUNTER_SUBCLASS_NAMES] } }, choiceOption: { features: { some: { feature: { givesSpells: { some: {} } } } } } },
     select: {
       choiceOption: {

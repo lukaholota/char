@@ -158,7 +158,7 @@ describe("опис попередження про мультиклас (KR31.9 
   });
 });
 
-describe("форма `allOf` — усі групи, у групі досить однієї (O45, Мисливець за кровʼю)", () => {
+describe("форма `allOf` — усі групи, у групі досить однієї (O45, Кривавий мисливець)", () => {
   const BLOOD_HUNTER_2014: MulticlassEntryClass = { name: "BLOOD_HUNTER_2014", multiclassReqs: { score: 13, allOf: [["INT"], ["STR", "DEX"]] } };
   const BLOOD_HUNTER_2024: MulticlassEntryClass = { name: "BLOOD_HUNTER_2024", multiclassReqs: { score: 13, allOf: [["INT"], ["STR", "DEX"]] } };
   const identity = (key: string) => key;

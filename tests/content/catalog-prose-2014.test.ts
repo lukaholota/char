@@ -32,7 +32,7 @@ const MIN_SUBCLASS_WORDS = 20;
 const MAX_SUBCLASS_WORDS = 60;
 /// Храповик партій KR33.7 за класом: варвар — 9, бард — 8, клірик — 14, друїд — 7, воїн — 10, монах — 10, паладин — 9, слідопит — 8, пройдисвіт — 9, чародій — 8, чаклун — 9, чарівник — 13, винахідник — 4.
 const EXPECTED_SUBCLASSES_RECONCILED = 118;
-// +4 ордени Мисливця за кровʼю (O45) у кожній редакції; їхній опис несе data/blood-hunter.
+// +4 ордени Кривавого мисливця (O45) у кожній редакції; їхній опис несе data/blood-hunter.
 const SUBCLASSES_2014 = 122;
 const SUBCLASSES_2024 = 80;
 
@@ -50,7 +50,7 @@ function findWordCountOutliers(entries: { key: string; description: string }[], 
     .filter(({ words }) => words < min || words > max);
 }
 
-/// Опис Мисливця за кровʼю (O45) несе власний носій data/blood-hunter — його звіряє blood-hunter-carrier.test.ts.
+/// Опис Кривавого мисливця (O45) несе власний носій data/blood-hunter — його звіряє blood-hunter-carrier.test.ts.
 function isBloodHunterKey(key: string): boolean {
   return key.startsWith("BLOOD_HUNTER");
 }

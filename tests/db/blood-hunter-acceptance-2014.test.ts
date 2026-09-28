@@ -1,5 +1,5 @@
 /**
- * O45, KR45.7 — приймання Мисливця за кровʼю 2014 за кейсами BH-001…BH-005 зі сховища власника
+ * O45, KR45.7 — приймання Кривавого мисливця 2014 за кейсами BH-001…BH-005 зі сховища власника
  * (`char.holota.family/human only/2024 prep/chars/blood hunter.md`). Персонажі будуються справжніми
  * `createCharacter` / `levelUpCharacter`, числа читаються тими самими функціями, що й лист.
  */
@@ -169,7 +169,7 @@ describe("BH-005 — Нечестива душа 7 / чорнокнижник 3"
     });
     const own = spells.filter((spell) => !spell.excludeFromKnownCount);
     expect(own.filter((spell) => spell.spell.level === 0)).toHaveLength(3);
-    expect(own.filter((spell) => spell.spell.level > 0 && spell.badgeText === "Мисливець за кровʼю")).toHaveLength(4);
+    expect(own.filter((spell) => spell.spell.level > 0 && spell.badgeText === "Кривавий мисливець")).toHaveLength(4);
     expect(own.filter((spell) => spell.spell.level > 0 && spell.badgeText === "Чорнокнижник")).toHaveLength(4);
     expect(spells.find((spell) => spell.spell.engName === "Scorching Ray")).toMatchObject({ excludeFromKnownCount: true });
   });
