@@ -89,6 +89,11 @@ function writeSpellLinkToSearch(params: URLSearchParams, link: SpellLink | null)
   else params.delete(SPELL_EDITION_PARAM);
 }
 
+/** Каталог заклинань і хоумбрю-каталог (той самий `SpellsClient`) відкривають `?spell=` своєю модалкою. */
+export function isCatalogOwningSpellParam(pathname: string): boolean {
+  return pathname.endsWith("/spells") || pathname.endsWith("/homebrew");
+}
+
 export function removeSpellLinkFromSearch(params: URLSearchParams): void {
   if (params.has(SPELL_PARAM)) writeSpellLinkToSearch(params, null);
 }

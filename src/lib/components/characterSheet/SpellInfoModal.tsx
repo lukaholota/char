@@ -16,6 +16,7 @@ import {
   closeSpellLink,
   dispatchLocationChange,
   findSpellLinkInSearch,
+  isCatalogOwningSpellParam,
   isSameSpellLink,
   type SpellLink,
 } from "@/lib/spell-link";
@@ -70,11 +71,7 @@ export function SpellInfoModal() {
   const isIdValid = currentPersId !== null && !isNaN(currentPersId);
 
   const [spellLink, setSpellLink] = useState<SpellLink | null>(() => findSpellLinkInLocation());
-  const isSpellCatalogPage = typeof window !== "undefined" && (
-    window.location.pathname === "/spells" ||
-    window.location.pathname === "/2024/spells" ||
-    window.location.pathname.endsWith("/spells")
-  );
+  const isSpellCatalogPage = typeof window !== "undefined" && isCatalogOwningSpellParam(window.location.pathname);
   const open = Boolean(spellLink) && !isSpellCatalogPage;
 
   const [spell, setSpell] = useState<SpellData | null>(null);
@@ -138,7 +135,7 @@ export function SpellInfoModal() {
     let cancelled = false;
 
     async function run() {
-      if (!spellLink) {
+      if (!spellLink || !open) {
         setError(null);
         setLoading(false);
         return;
@@ -181,7 +178,7 @@ export function SpellInfoModal() {
     return () => {
       cancelled = true;
     };
-  }, [spellLink, spell]);
+  }, [spellLink, spell, open]);
 
   const onClose = () => {
     closeSpellLink();
