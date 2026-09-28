@@ -42,8 +42,8 @@ const RULES_2014_ANCHORS: Record<string, RuleAnchor> = {
 
 const RULES_2024_ANCHORS: Record<string, RuleAnchor> = {
   race: { anchor: "step-2-character-origin--choose-a-species", articleTitle: "Крок 2: Походження персонажа" },
-  raceDetails: { anchor: "parts-of-a-species", articleTitle: "Складові виду" },
-  raceChoices: { anchor: "parts-of-a-species", articleTitle: "Складові виду" },
+  raceDetails: { anchor: "parts-of-a-species", articleTitle: "Складові раси" },
+  raceChoices: { anchor: "parts-of-a-species", articleTitle: "Складові раси" },
   class: { anchor: "step-1-choose-class", articleTitle: "Крок 1: Оберіть клас" },
   subclass: { anchor: "step-1-choose-class", articleTitle: "Крок 1: Оберіть клас" },
   subclassChoices: { anchor: "step-1-choose-class", articleTitle: "Крок 1: Оберіть клас" },

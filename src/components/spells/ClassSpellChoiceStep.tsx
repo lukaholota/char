@@ -273,7 +273,7 @@ function describeQuota(offer: ClassSpellOffer): string {
   const hasCatchUp = offer.catchUp.cantrips + offer.catchUp.prepared + offer.catchUp.spellbook > 0;
   if (parts.length === 0 && hasCatchUp) return `${offer.classLabel}: обовʼязкових нових заклинань на цьому рівні немає, але до таблиці класу можна додати.`;
   if (parts.length === 0) return `${offer.classLabel}: нових заклинань на цьому рівні немає, але одне можна замінити.`;
-  return `${offer.classLabel} обирає ${offer.spellListNote ?? "зі свого списку"} — ${parts.join(", ")}. Заклинання від виду й класових рис додаються самі.`;
+  return `${offer.classLabel} обирає ${offer.spellListNote ?? "зі свого списку"} — ${parts.join(", ")}. Заклинання від раси й класових рис додаються самі.`;
 }
 
 function findLevelLabel(spell: SpellChoiceOption): string {

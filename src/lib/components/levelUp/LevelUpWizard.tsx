@@ -1609,7 +1609,7 @@ function SummaryStep({
         {[
           { title: "Нові класові вміння:", tone: "text-cyan-400", source: "class", items: newClassFeatures },
           { title: "Нові вміння підкласу:", tone: "text-violet-400", source: "subclass", items: newSubclassFeatures },
-          { title: "Нові риси виду:", tone: "text-sky-400", source: "race", items: newSpeciesTraits },
+          { title: "Нові расові риси:", tone: "text-sky-400", source: "race", items: newSpeciesTraits },
         ].map((group) =>
           group.items.length === 0 ? null : (
             <div key={group.source} className="space-y-3 sm:space-y-4">

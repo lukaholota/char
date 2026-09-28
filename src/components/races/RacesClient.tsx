@@ -39,7 +39,6 @@ import {
 } from "@/lib/catalog-source-filter";
 import type { RaceData } from "@/lib/racesData";
 import { RACE_TRAIT_KEYS, RACE_TRAIT_LABELS, findSearchHaystack, hasRaceTrait } from "@/components/races/race-catalog-filters";
-import { RACE_CATALOG_TITLE, RACE_SINGULAR } from "@/lib/refs/race-labels";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -219,7 +218,7 @@ export function RacesClient({
 
   return (
     <ContentListPage<RaceData>
-      title={RACE_CATALOG_TITLE[ruleset]}
+      title="Раси"
       listContainerClassName={ILLUSTRATION_LIST_CLASSNAME}
       detailContainerClassName={ILLUSTRATION_DETAIL_CLASSNAME}
       is2024={is2024}
@@ -227,7 +226,7 @@ export function RacesClient({
       filteredCount={filtered.length}
       searchQuery={qInput}
       onSearchChange={setQInput}
-      searchPlaceholder={`Пошук ${is2024 ? "видів" : "рас"}...`}
+      searchPlaceholder="Пошук рас..."
       hasActiveFilters={hasActiveFilters}
       activeFiltersCount={activeFiltersCount}
       onOpenFilters={() => setFiltersOpen(true)}
@@ -269,7 +268,7 @@ export function RacesClient({
             <RaceDetailCard race={selectedRace} is2024={is2024} view={view} actions={actions} />
             <CatalogReadingDialog
               open={isWide && Boolean(openBranch)}
-              title={openBranch?.entry.name ?? RACE_SINGULAR[ruleset]}
+              title={openBranch?.entry.name ?? "Раса"}
               onClose={backToRace}
             >
               {renderBranchReader(selectedRace, backToRace)}
@@ -278,7 +277,7 @@ export function RacesClient({
         ) : (
           <div className="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
             <p className="text-sm text-slate-400">
-              Оберіть {is2024 ? "вид" : "расу"} для перегляду деталей
+              Оберіть расу для перегляду деталей
             </p>
           </div>
         )
@@ -286,7 +285,7 @@ export function RacesClient({
       selectedModalItem={selectedModalRace}
       onCloseModal={closeModalWithBranch}
       isModalChromeHidden={Boolean(openBranch)}
-      modalTitle={openBranch?.entry.name ?? selectedModalRace?.name ?? RACE_SINGULAR[ruleset]}
+      modalTitle={openBranch?.entry.name ?? selectedModalRace?.name ?? "Раса"}
       renderModalContent={(race) =>
         openBranch && race === selectedRace ? (
           renderBranchReader(race, closeModalWithBranch)
@@ -300,7 +299,7 @@ export function RacesClient({
         <CatalogFilterDialog
           open={filtersOpen}
           onOpenChange={setFiltersOpen}
-          title={`Фільтри ${is2024 ? "видів" : "рас"}`}
+          title="Фільтри рас"
           is2024={is2024}
           onClear={clearFilters}
         >

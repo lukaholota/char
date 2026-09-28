@@ -246,7 +246,7 @@ function OmniSearchFilterTabs({ edition, activeCategory, onSelect, onOpenCatalog
     { key: "ALL", label: "Всі" },
     ...collectSearchCatalogs(edition).map((entry) => ({
       key: entry.slug,
-      label: findCatalogSearchTitle(entry.slug, edition),
+      label: findCatalogSearchTitle(entry.slug),
     })),
   ];
 

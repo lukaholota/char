@@ -682,7 +682,6 @@ function PersCard({
         <PrintCharacterDialog
           persId={pers.persId}
           characterName={pers.name}
-          ruleset={pers.ruleset}
           open={printOpen}
           onOpenChange={setPrintOpen}
           noButtonTrigger={true}

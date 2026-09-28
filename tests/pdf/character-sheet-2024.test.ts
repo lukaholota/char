@@ -1,5 +1,5 @@
 /**
- * Лист 2024 — окремий бланк для персонажів редакції 2024, що вмикається перемикачем у модалці друку.
+ * Лист 2024 — окремий бланк, що вмикається перемикачем у модалці друку для персонажа будь-якої редакції.
  * Поля створюються поверх растрового бланка, тож тест читає їх так само, як переглядач.
  */
 
@@ -18,7 +18,7 @@ import { auth } from "@/lib/auth";
 import { getCharacterFeaturesGrouped, getPersById } from "@/server/db/pers-actions";
 import { generateCharacterPdfFromData } from "@/server/pdf/generateCharacterPdf";
 import { weaponMasteryNames } from "@/lib/refs/weapon-mastery";
-import type { CharacterPdfData, PrintConfig } from "@/server/pdf/types";
+import type { CharacterPdfData, PrintConfig, SheetLayout } from "@/server/pdf/types";
 
 vi.setConfig({ testTimeout: 60_000, hookTimeout: 120_000 });
 
@@ -121,12 +121,12 @@ async function createFighter2014(userId: number): Promise<number> {
   return pers.persId;
 }
 
-async function generatePdf(persId: number, config: Omit<PrintConfig, "sheetLayout">): Promise<Uint8Array> {
+async function generatePdf(persId: number, config: Omit<PrintConfig, "sheetLayout">, sheetLayout: SheetLayout = "SHEET_2024"): Promise<Uint8Array> {
   const pers = await getPersById(persId);
   const features = await getCharacterFeaturesGrouped(persId);
   if (!pers || !features) throw new Error("персонажа не завантажено");
   const data: CharacterPdfData = { pers, features, wildshapeForms: [] };
-  return generateCharacterPdfFromData(data, { ...config, sheetLayout: "SHEET_2024" });
+  return generateCharacterPdfFromData(data, { ...config, sheetLayout });
 }
 
 const mainPage = () => editablePages[0];
@@ -161,21 +161,23 @@ describe("сторінки листа 2024", () => {
     expect(pages.some((fields) => "Spells 1015" in fields)).toBe(false);
   });
 
-  it("персонаж 2014 друкується класичним листом, навіть якщо попросили 2024", async () => {
-    const pages = await readPdfPageFields(await generatePdf(pers2014Id, { sections: ["CHARACTER"], flattenCharacterSheet: false }));
+  it("персонаж 2014 теж друкується листом 2024", async () => {
+    const pages = await readPdfPageFields(await generatePdf(pers2014Id, { sections: ["CHARACTER", "DETAILS"], flattenCharacterSheet: false }));
 
-    expect(pages[0]).toHaveProperty("CharacterName", "Старий Воїн");
+    expect(pages).toHaveLength(4);
+    expect(pages[0]).toMatchObject({ characterName: "Старий Воїн", species: "Людина" });
+    expect(pages[1]).toMatchObject({ coin_gp: "25" });
   });
 
   it("класичний лист теж друкує монети, а нульові лишає порожніми", async () => {
-    const pages = await readPdfPageFields(await generatePdf(pers2014Id, { sections: ["CHARACTER"], flattenCharacterSheet: false }));
+    const pages = await readPdfPageFields(await generatePdf(pers2014Id, { sections: ["CHARACTER"], flattenCharacterSheet: false }, "CLASSIC"));
 
     expect(pages[0]).toMatchObject({ GP: "25", CP: "", SP: "" });
   });
 });
 
 describe("перша сторінка", () => {
-  it("шапка несе імʼя, класи з рівнями, вид із родоводом і рівень", () => {
+  it("шапка несе імʼя, класи з рівнями, расу з родоводом і рівень", () => {
     expect(mainPage()).toMatchObject({
       characterName: "Двадцять Четвертий",
       level: "8",
@@ -289,7 +291,7 @@ describe("портрет на бланку подробиць", () => {
   });
 
   it("класичний бланк ставить портрет у рамку «Зовнішність персонажа»", async () => {
-    const document = await PDFDocument.load(await generatePdf(pers2014Id, { sections: ["DETAILS"], flattenCharacterSheet: true }));
+    const document = await PDFDocument.load(await generatePdf(pers2014Id, { sections: ["DETAILS"], flattenCharacterSheet: true }, "CLASSIC"));
 
     expect(countPageImages(document.getPage(0))).toBe(1);
   });
@@ -302,7 +304,7 @@ describe("портрет на бланку подробиць", () => {
 
   it("без портрета рамка лишається порожньою", async () => {
     await prisma.pers.update({ where: { persId: pers2014Id }, data: { portraitKey: null } });
-    const document = await PDFDocument.load(await generatePdf(pers2014Id, { sections: ["DETAILS"], flattenCharacterSheet: true }));
+    const document = await PDFDocument.load(await generatePdf(pers2014Id, { sections: ["DETAILS"], flattenCharacterSheet: true }, "CLASSIC"));
 
     expect(countPageImages(document.getPage(0))).toBe(0);
   });

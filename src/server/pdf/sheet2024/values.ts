@@ -1,4 +1,4 @@
-import { Ability, ArmorType, Size, SkillProficiencyType, Skills, WeaponType } from "@prisma/client";
+import { Ability, ArmorType, type Ruleset, Size, SkillProficiencyType, Skills, WeaponType } from "@prisma/client";
 
 import {
   calculateFinalAC,
@@ -58,6 +58,7 @@ export type SheetValues = Record<string, SheetValue>;
 export type TextFlow = { lines: string[]; fieldNames: string[] };
 
 export type Sheet2024Content = {
+  ruleset: Ruleset;
   main: SheetValues;
   magicPages: SheetValues[];
   details: SheetValues;
@@ -74,6 +75,7 @@ export function buildSheet2024Content(data: CharacterPdfData): Sheet2024Content 
   const weaponAttacks = collectPrintableWeaponAttacks(pers);
 
   return {
+    ruleset: pers.ruleset,
     main: {
       ...buildIdentityValues(pers),
       ...buildVitalsValues(pers),

@@ -1,4 +1,4 @@
-import { Ability, Skills } from "@prisma/client";
+import { Ability, type Ruleset, Skills } from "@prisma/client";
 
 import { COIN_KEYS, type CoinKey } from "../characterSheetText";
 
@@ -44,6 +44,7 @@ export type SheetPageSpec = {
   imageTop: number;
   fields: SheetFieldSpec[];
   labelCorrections: LabelCorrection[];
+  editionLabelCorrections: Record<Ruleset, LabelCorrection[]>;
 };
 
 export const SPELL_ROWS_PER_PAGE = 38;
@@ -192,14 +193,21 @@ export const MAIN_PAGE: SheetPageSpec = {
     { erase: rect(844, 162, 884, 174), text: "КУБИК", left: 846, baseline: 172, capHeight: 8, width: 45, bold: false },
     { erase: rect(88, 234, 193, 250), text: "БОНУС МАЙСТЕРНОСТІ", left: 64, baseline: 246, capHeight: 9, width: 153, bold: true, align: "center" },
     { erase: rect(711, 234, 807, 249), text: "ПАС. УВАЖНІСТЬ", left: 709, baseline: 246, capHeight: 8, width: 100, bold: true, align: "center" },
+    { erase: rect(67, 162, 93, 175), text: "РАСА", left: 69, baseline: 171, capHeight: 8, width: 40, bold: false },
     { erase: rect(692, 345, 750, 358), text: "Шкода / Тип", left: 694, baseline: 354, capHeight: 7, width: 130, bold: false, caption: true },
-    { erase: rect(650, 521, 803, 537), text: "ЗДІБНОСТІ ТА РИСИ ВИДУ", left: 446, baseline: 533, capHeight: 9, width: 561, bold: true, align: "center" },
+    { erase: rect(650, 521, 803, 537), text: "ЗДІБНОСТІ ТА РИСИ РАСИ", left: 446, baseline: 533, capHeight: 9, width: 561, bold: true, align: "center" },
     { erase: rect(503, 1014, 645, 1028), text: "АТАКИ ТА ЧАРОТВОРЕННЯ", left: 445, baseline: 1025, capHeight: 9, width: 259, bold: true, align: "center" },
     { erase: rect(104, 1084, 364, 1100), text: "ТРЕНУВАННЯ ЗІ СПОРЯДЖЕННЯМ І ВОЛОДІННЯ", left: 64, baseline: 1096, capHeight: 9, width: 340, bold: true, align: "center" },
     { erase: rect(61, 1109, 132, 1122), text: "ОБЛАДУНКИ", left: 63, baseline: 1119, capHeight: 8, width: 80, bold: false },
     { erase: rect(193, 1127, 258, 1140), text: "Бойова", left: 195, baseline: 1138, capHeight: 8, width: 60, bold: false },
     ...buildSkillLabelCorrections(),
   ],
+  editionLabelCorrections: {
+    RULES_2014: [
+      { erase: rect(100, 986, 186, 1015), text: "НАТХНЕННЯ", left: 66, baseline: 1005, capHeight: 9, width: 153, bold: true, align: "center" },
+    ],
+    RULES_2024: [],
+  },
 };
 
 export const MAGIC_PAGE: SheetPageSpec = {
@@ -229,6 +237,7 @@ export const MAGIC_PAGE: SheetPageSpec = {
     })),
     { erase: rect(269, 272, 346, 286), text: "Час накладання", left: 271, baseline: 282, capHeight: 7, width: 72, bold: false, caption: true },
   ],
+  editionLabelCorrections: { RULES_2014: [], RULES_2024: [] },
 };
 
 export const DETAILS_PAGE: SheetPageSpec = {
@@ -241,8 +250,9 @@ export const DETAILS_PAGE: SheetPageSpec = {
     block("treasure", rect(438, 1018, 1016, 1440)),
   ],
   labelCorrections: [
-    { erase: rect(612, 519, 840, 535), text: "ДОДАТКОВІ ЗДІБНОСТІ ТА РИСИ ВИДУ", left: 446, baseline: 531, capHeight: 9, width: 561, bold: true, align: "center" },
+    { erase: rect(612, 519, 840, 535), text: "ДОДАТКОВІ ЗДІБНОСТІ ТА РИСИ РАСИ", left: 446, baseline: 531, capHeight: 9, width: 561, bold: true, align: "center" },
   ],
+  editionLabelCorrections: { RULES_2014: [], RULES_2024: [] },
 };
 
 export const NOTES_PAGE: SheetPageSpec = {
@@ -257,6 +267,7 @@ export const NOTES_PAGE: SheetPageSpec = {
     block(fieldNames.notes(6), rect(673, 1006, 1016, 1428)),
   ],
   labelCorrections: [],
+  editionLabelCorrections: { RULES_2014: [], RULES_2024: [] },
 };
 
 function buildSkillLabelCorrections(): LabelCorrection[] {

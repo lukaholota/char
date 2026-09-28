@@ -25,6 +25,8 @@ import {
   type PDFPage,
 } from "pdf-lib";
 
+import type { Ruleset } from "@prisma/client";
+
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 
 import { drawPortrait } from "../portraitPrint";
@@ -79,7 +81,7 @@ export async function renderSheet2024(content: Sheet2024Content, options: Sheet2
   const form = document.getForm();
 
   for (const page of placed) {
-    applyLabelCorrections(page, fonts);
+    applyLabelCorrections(page, content.ruleset, fonts);
     addPageFields(form, page, { font: fonts.regular, flowedTexts, skipEmpty: options.flatten });
   }
   await drawDetailsPortrait(placed, options.portraitJpeg);
@@ -117,8 +119,8 @@ async function embedFonts(document: PDFDocument, options: Sheet2024RenderOptions
   return { regular, bold };
 }
 
-function applyLabelCorrections({ page, spec }: PlacedPage, fonts: Fonts) {
-  for (const correction of spec.labelCorrections) drawLabelCorrection(page, spec, correction, fonts);
+function applyLabelCorrections({ page, spec }: PlacedPage, ruleset: Ruleset, fonts: Fonts) {
+  for (const correction of [...spec.labelCorrections, ...spec.editionLabelCorrections[ruleset]]) drawLabelCorrection(page, spec, correction, fonts);
 }
 
 function drawLabelCorrection(page: PDFPage, spec: SheetPageSpec, correction: LabelCorrection, fonts: Fonts) {

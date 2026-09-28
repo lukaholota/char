@@ -16,7 +16,7 @@ import {
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
-import { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName, PDFString, PDFTextField, rgb, type PDFFont, type PDFPage, type PDFForm } from "pdf-lib";
+import { PDFDocument, PDFName, PDFString, PDFTextField, rgb, type PDFFont, type PDFForm } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
 
@@ -738,7 +738,7 @@ export async function generateCharacterPdfFromData(
     sections: normalized.sections,
   });
 
-  const { pdfDoc, font: notoSansRegular, appendedSections } = isSheet2024Requested(data.pers, normalized)
+  const { pdfDoc, font: notoSansRegular, appendedSections } = isSheet2024Requested(normalized)
     ? await withStep(
         "pdf.buildSheet2024",
         (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
@@ -812,7 +812,6 @@ async function buildClassicSheetDocument(
       async () => {
         const form = pdfDoc.getForm();
         fillFirstPageUsingExistingFields(form, data, notoSansRegular);
-        if (data.pers.ruleset === "RULES_2024") relabelRaceAsSpecies(pdfDoc.getPage(0), notoSansRegular);
 
         if (normalized.flattenCharacterSheet) {
           try {
@@ -978,27 +977,6 @@ async function buildSpellSheetDocument(
     source.log.warn("spellSheet.flatten.failed", { err });
   }
   return document;
-}
-
-const RACE_LABEL = { text: "Раса", x: 269.156, baselineY: 694.85, size: 8 };
-
-/** Підписи бланка — анотації FreeText поверх сторінки, тож підпис міняється заміною анотації, а не зафарбовуванням. */
-function relabelRaceAsSpecies(page: PDFPage, font: PDFFont) {
-  const annotations = page.node.lookupMaybe(PDFName.of("Annots"), PDFArray);
-  const labelIndex = findFreeTextAnnotationIndex(annotations, RACE_LABEL.text);
-  if (!annotations || labelIndex === null) return;
-  annotations.remove(labelIndex);
-  page.drawText("Вид", { x: RACE_LABEL.x, y: RACE_LABEL.baselineY, size: RACE_LABEL.size, font, color: rgb(0, 0, 0) });
-}
-
-function findFreeTextAnnotationIndex(annotations: PDFArray | undefined, contents: string): number | null {
-  for (let index = 0; index < (annotations?.size() ?? 0); index++) {
-    const annotation = annotations?.lookupMaybe(index, PDFDict);
-    const isFreeText = annotation?.get(PDFName.of("Subtype")) === PDFName.of("FreeText");
-    const text = annotation?.lookupMaybe(PDFName.of("Contents"), PDFString, PDFHexString)?.decodeText();
-    if (isFreeText && text === contents) return index;
-  }
-  return null;
 }
 
 async function readPublicFile(relativePath: string): Promise<Uint8Array> {

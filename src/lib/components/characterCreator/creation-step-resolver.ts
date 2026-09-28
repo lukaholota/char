@@ -1,5 +1,4 @@
 export interface CreationStepConditions {
-  is2024?: boolean;
   hasSubraces: boolean;
   hasRaceVariants: boolean;
   hasRaceChoiceOptions: boolean;
@@ -41,7 +40,7 @@ const coreSteps: CreationStep[] = [
 
 export function resolveCreationSteps(conditions: CreationStepConditions): CreationStep[] {
   return [
-    { id: "race", name: conditions.is2024 ? "Вид" : "Раса", component: "races" },
+    { id: "race", name: "Раса", component: "races" },
     ...resolveRaceSteps(conditions),
     { id: "class", name: "Клас", component: "class" },
     ...resolveClassSteps(conditions),
@@ -56,8 +55,8 @@ function resolveRaceSteps(conditions: CreationStepConditions): CreationStep[] {
   const steps: CreationStep[] = [];
   const raceDetailsName = resolveRaceDetailsName(conditions);
   if (raceDetailsName) steps.push({ id: "raceDetails", name: raceDetailsName, component: "raceDetails" });
-  if (conditions.hasRaceChoiceOptions) steps.push({ id: "raceChoices", name: conditions.is2024 ? "Опції виду" : "Опції раси", component: "raceChoices" });
-  if (conditions.hasSpeciesFeatChoices) steps.push({ id: "speciesFeatChoices", name: "Опції риси виду", component: "speciesFeatChoices" });
+  if (conditions.hasRaceChoiceOptions) steps.push({ id: "raceChoices", name: "Опції раси", component: "raceChoices" });
+  if (conditions.hasSpeciesFeatChoices) steps.push({ id: "speciesFeatChoices", name: "Опції расової риси", component: "speciesFeatChoices" });
   return steps;
 }
 

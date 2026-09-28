@@ -120,7 +120,7 @@ export const RacesForm = (
   }, [normalizedRaceSearch]);
 
   const is2024 = useMemo(() => races.some((r) => r.ruleset === "RULES_2024" || r.name.endsWith("2024")), [races]);
-  useNextStepHint(chosenRaceId ? null : is2024 ? "Оберіть вид персонажа." : "Оберіть расу персонажа.");
+  useNextStepHint(chosenRaceId ? null : "Оберіть расу персонажа.");
 
   const coreRaces = useMemo(
     () => races
@@ -162,7 +162,7 @@ export const RacesForm = (
       <form id={formId} onSubmit={onSubmit} className="w-full space-y-4">
       <div className="space-y-2 text-center">
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
-          {is2024 ? "Оберіть вид" : "Оберіть расу"}
+          Оберіть расу
         </h2>
       </div>
 

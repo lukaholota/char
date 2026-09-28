@@ -58,7 +58,7 @@ describe("KR31.5 — крок «Заклинання риси» конструк
 
     await waitFor(() => expect(screen.getAllByRole("region", { name: "Замовляння" })).toHaveLength(2));
     const background = findFeatCard("від передісторії");
-    const species = findFeatCard("від виду");
+    const species = findFeatCard("від раси");
     expect(within(background).queryByRole("button", { name: /^Магічна рука/ })).toBeNull();
 
     click(background, "Замовляння", "Світло");

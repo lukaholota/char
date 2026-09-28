@@ -63,7 +63,7 @@ export function collectHomeCardRows(edition: Edition): HomeCardRows {
 function buildHomeCategory(entry: CatalogEntry, edition: Edition): HomeCategory {
   return {
     slug: entry.slug,
-    title: findCatalogHomeTitle(entry.slug, edition),
+    title: findCatalogHomeTitle(entry.slug),
     placement: entry.home.placement,
     accent: entry.home.accent,
     href: findCatalogHrefOrThrow(entry, edition),

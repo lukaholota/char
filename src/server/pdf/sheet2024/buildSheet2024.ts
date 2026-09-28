@@ -10,8 +10,8 @@ import { buildSheet2024Content } from "./values";
 
 type Logger = ReturnType<typeof createLogger>;
 
-export function isSheet2024Requested(pers: Pick<CharacterPdfData["pers"], "ruleset">, config: PrintConfig): boolean {
-  return config.sheetLayout === "SHEET_2024" && pers.ruleset === "RULES_2024";
+export function isSheet2024Requested(config: PrintConfig): boolean {
+  return config.sheetLayout === "SHEET_2024";
 }
 
 export async function buildSheet2024Document(data: CharacterPdfData, config: PrintConfig, log: Logger): Promise<{ pdfDoc: PDFDocument; font: PDFFont }> {

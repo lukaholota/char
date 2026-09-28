@@ -44,7 +44,6 @@ export interface PrintCharacterDialogProps {
   triggerLabel?: string;
   triggerLabelClassName?: string;
   triggerVariant?: ComponentProps<typeof Button>["variant"];
-  ruleset?: string | null;
 }
 
 export default function PrintCharacterDialog({ 
@@ -60,7 +59,6 @@ export default function PrintCharacterDialog({
   triggerLabel,
   triggerLabelClassName,
   triggerVariant = "secondary",
-  ruleset,
 }: PrintCharacterDialogProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const open = openOverride !== undefined ? openOverride : internalOpen;
@@ -77,13 +75,12 @@ export default function PrintCharacterDialog({
   const [wildshapeCount, setWildshapeCount] = useState(0);
   const [includeWildshapes, setIncludeWildshapes] = useState(false);
   const [flatten, setFlatten] = useState(true);
-  const canUseSheet2024 = ruleset === "RULES_2024";
   const [sheetLayout, setSheetLayout] = useState<SheetLayout>("CLASSIC");
-  const isSheet2024 = canUseSheet2024 && sheetLayout === "SHEET_2024";
+  const isSheet2024 = sheetLayout === "SHEET_2024";
 
   useEffect(() => {
-    if (open && canUseSheet2024) setSheetLayout(readRememberedSheetLayout());
-  }, [open, canUseSheet2024]);
+    if (open) setSheetLayout(readRememberedSheetLayout());
+  }, [open]);
 
   const chooseSheetLayout = (layout: SheetLayout) => {
     setSheetLayout(layout);
@@ -191,21 +188,19 @@ export default function PrintCharacterDialog({
           </DialogHeader>
 
           <div className="space-y-3">
-            {canUseSheet2024 && (
-              <div className="rounded-md border p-2">
-                <div className="flex items-center justify-between gap-3">
-                  <Label htmlFor="print-sheet-2024">Лист 2024</Label>
-                  <Switch
-                    id="print-sheet-2024"
-                    checked={isSheet2024}
-                    onCheckedChange={(checked) => chooseSheetLayout(checked ? "SHEET_2024" : "CLASSIC")}
-                  />
-                </div>
-                <p className="mt-1 text-[10px] text-muted-foreground">
-                  Бланк за зразком Книги гравця 2024: заклинання — на другій сторінці листа, портрет, цілі й нотатки — у «Бланку подробиць».
-                </p>
+            <div className="rounded-md border p-2">
+              <div className="flex items-center justify-between gap-3">
+                <Label htmlFor="print-sheet-2024">Лист 2024</Label>
+                <Switch
+                  id="print-sheet-2024"
+                  checked={isSheet2024}
+                  onCheckedChange={(checked) => chooseSheetLayout(checked ? "SHEET_2024" : "CLASSIC")}
+                />
               </div>
-            )}
+              <p className="mt-1 text-[10px] text-muted-foreground">
+                Бланк за зразком Книги гравця 2024: заклинання — на другій сторінці листа, портрет, цілі й нотатки — у «Бланку подробиць».
+              </p>
+            </div>
 
             <div className="flex items-center gap-2">
               <Checkbox checked={includeCharacter} onCheckedChange={(v) => setIncludeCharacter(Boolean(v))} id="print-character" />

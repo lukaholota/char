@@ -24,7 +24,7 @@ interface Props {
 
 const SOURCE_LABELS: Record<CreationFeatSpellSource, string> = {
   BACKGROUND_ORIGIN: "від передісторії",
-  SPECIES_VERSATILITY: "від виду",
+  SPECIES_VERSATILITY: "від раси",
 };
 
 /** KR31.5 — «Посвячений у магію» від передісторії чи Людини 2024 просить два замовляння й заклинання 1-го рівня. */

@@ -1,3 +1,4 @@
+import type { Ruleset } from "@prisma/client";
 import { describe, expect, it } from "vitest";
 
 import { DETAILS_PAGE, MAGIC_PAGE, MAIN_PAGE, NOTES_PAGE, type PixelRect, type SheetPageSpec } from "@/server/pdf/sheet2024/layout";
@@ -29,6 +30,16 @@ describe("макет листа 2024", () => {
     );
 
     expect(outside.map((field) => field.name)).toEqual([]);
+  });
+
+  it("обидві редакції кажуть «раса»; «героїчне натхнення» 2014 стає просто «натхненням»", () => {
+    const sharedLabels = Object.values(PAGES).flatMap((page) => page.labelCorrections.map((correction) => correction.text));
+    const collectEditionLabels = (ruleset: Ruleset) => Object.values(PAGES).flatMap((page) => page.editionLabelCorrections[ruleset].map((correction) => correction.text));
+
+    expect(sharedLabels).toEqual(expect.arrayContaining(["РАСА", "ЗДІБНОСТІ ТА РИСИ РАСИ", "ДОДАТКОВІ ЗДІБНОСТІ ТА РИСИ РАСИ"]));
+    expect(sharedLabels.filter((text) => /ВИД/.test(text))).toEqual([]);
+    expect(collectEditionLabels("RULES_2014")).toEqual(["НАТХНЕННЯ"]);
+    expect(collectEditionLabels("RULES_2024")).toEqual([]);
   });
 
   it.each(Object.entries(PAGES))("%s — поля не налазять одне на одне", (_, page) => {

@@ -628,7 +628,7 @@ export const MultiStepForm = (
 
   const steps = useMemo(() => {
     return resolveCreationSteps({
-      is2024: currentRuleset === "RULES_2024", hasSubraces,
+      hasSubraces,
       hasRaceVariants,
       hasRaceChoiceOptions,
       hasSpeciesFeatChoices,
@@ -665,7 +665,7 @@ export const MultiStepForm = (
     hasFeatSpellStep,
     hasRaceSpellChoice,
     hasExpertiseChoice,
-    hasLanguageChoice, currentRuleset
+    hasLanguageChoice,
   ]);
 
   useEffect(() => {

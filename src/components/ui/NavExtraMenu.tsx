@@ -70,18 +70,18 @@ function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
 
   const spellsHref = findCatalogHref("spells", edition);
   const mobileSpells: CatalogLink[] = spellsHref
-    ? [{ href: spellsHref, icon: Sparkles, label: findCatalogTitle("spells", edition), iconClass: accent, mobileOnly: true }]
+    ? [{ href: spellsHref, icon: Sparkles, label: findCatalogTitle("spells"), iconClass: accent, mobileOnly: true }]
     : [];
 
   return [...home, ...mobileSpells, ...catalogs];
 }
 
-/// Каталог, що є в обох редакціях під тією самою назвою, у 2024 несе рік — «Класи 2024»;
-/// перейменований («Види») чи однієї редакції («Вливання Винахідника») — ні.
+/// Каталог, що є в обох редакціях, у 2024 несе рік — «Класи 2024»; каталог однієї редакції
+/// («Вливання Винахідника») — ні.
 function buildMenuLabel(entry: CatalogEntry, edition: Edition): string {
-  const title = findCatalogTitle(entry.slug, edition);
-  const sharesTitleAcrossEditions = entry.editions.length === 2 && !entry.title2024;
-  return edition === "2024" && sharesTitleAcrossEditions ? `${title} 2024` : title;
+  const title = findCatalogTitle(entry.slug);
+  const isInBothEditions = entry.editions.length === 2;
+  return edition === "2024" && isInBothEditions ? `${title} 2024` : title;
 }
 
 function NavMenuItems({

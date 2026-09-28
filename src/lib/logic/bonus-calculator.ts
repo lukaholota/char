@@ -458,7 +458,7 @@ function findMageArmorBase(pers: PersWithRelations, usualBase: number): number |
 }
 
 const ARMOR_CLASS_PART_LABELS: Record<Exclude<ArmorClassPartKey, "BASE">, string> = {
-  SPECIES: "Вид",
+  SPECIES: "Раса",
   SHIELD: "Щит",
   MANUAL: "Ручний бонус",
   FEATURES: "Риси",
@@ -538,10 +538,10 @@ export function calculateFinalSpeed(pers: PersWithRelations): number {
 
 const WALKING_SPEED_PART_LABELS: Record<WalkingSpeedPartKey, string> = {
   REPLACEMENT: "Швидкість звіриної форми",
-  SPECIES: "Вид",
-  VARIANT: "Варіант виду",
-  SUBRACE: "Підвид",
-  SPECIES_CHOICES: "Вибір виду",
+  SPECIES: "Раса",
+  VARIANT: "Варіант раси",
+  SUBRACE: "Підраса",
+  SPECIES_CHOICES: "Вибір раси",
   FEATURES: "Риси",
   UNARMORED_MOVEMENT: "Рух без обладунків",
   MANUAL: "Ручний бонус",

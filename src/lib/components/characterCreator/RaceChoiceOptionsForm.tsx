@@ -119,7 +119,7 @@ const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }
     <form id={formId} onSubmit={onSubmit} className="space-y-4">
       <div className="space-y-1 text-center">
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
-          {race.ruleset === "RULES_2024" ? "Опції виду" : "Опції раси"}
+          Опції раси
         </h2>
         <p className="text-sm text-slate-400">
           Оберіть 1 варіант у кожній групі.

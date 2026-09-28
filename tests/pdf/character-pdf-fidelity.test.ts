@@ -162,14 +162,14 @@ describe("перша сторінка", () => {
     }
   });
 
-  it("L15-print-07 — вид друкується разом із родоводом, а не голою назвою", () => {
+  it("L15-print-07 — раса друкується разом із родоводом, а не голою назвою", () => {
     expect(String(pages[0]["Race "]).replace(/\s+/g, " ")).toBe("Ельф (Дроу)");
   });
 
-  it("L15-print-07 — підпис поля на аркуші 2024 каже «Вид», а не «Раса»", async () => {
+  it("підпис поля раси на класичному аркуші персонажа 2024 лишається «Раса»", async () => {
     const [firstPageLabels] = await readPdfFreeTextLabels(ownPdfBytes);
 
-    expect(firstPageLabels).not.toContain("Раса");
+    expect(firstPageLabels).toContain("Раса");
     expect(firstPageLabels).toContain("Світогляд");
   });
 

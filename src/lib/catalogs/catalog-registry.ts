@@ -40,8 +40,6 @@ export type CatalogSearchMode = "index" | "server";
 export type CatalogEntry = {
   slug: CatalogSlug;
   title: string;
-  /// Лише там, де редакція 2024 перейменувала саму річ — «раса» стала «видом».
-  title2024?: string;
   /// Коротший підпис плитки головної, коли повний не влазить у три рядки.
   homeTitle?: string;
   /// Підпис у вікні пошуку, коли він відрізняється від назви каталогу («Мої персонажі»).
@@ -117,7 +115,6 @@ export const CATALOG_REGISTRY: readonly CatalogEntry[] = [
   {
     slug: "races",
     title: "Раси",
-    title2024: "Види",
     path: "/races",
     editions: BOTH_EDITIONS,
     home: { placement: "tile", accent: "runicCyan" },
@@ -287,19 +284,17 @@ export function findCatalogHref(slug: CatalogSlug, edition: Edition): string | n
   return getTargetEditionPath(entry.path, edition);
 }
 
-export function findCatalogTitle(slug: CatalogSlug, edition: Edition): string {
-  const entry = findCatalogEntry(slug);
-  return edition === "2024" ? (entry.title2024 ?? entry.title) : entry.title;
+export function findCatalogTitle(slug: CatalogSlug): string {
+  return findCatalogEntry(slug).title;
 }
 
-export function findCatalogHomeTitle(slug: CatalogSlug, edition: Edition): string {
+export function findCatalogHomeTitle(slug: CatalogSlug): string {
   const entry = findCatalogEntry(slug);
-  if (edition === "2024" && entry.title2024) return entry.title2024;
   return entry.homeTitle ?? entry.title;
 }
 
-export function findCatalogSearchTitle(slug: CatalogSlug, edition: Edition): string {
-  return findCatalogEntry(slug).searchTitle ?? findCatalogTitle(slug, edition);
+export function findCatalogSearchTitle(slug: CatalogSlug): string {
+  return findCatalogEntry(slug).searchTitle ?? findCatalogTitle(slug);
 }
 
 export function toEdition(ruleset: Ruleset): Edition {

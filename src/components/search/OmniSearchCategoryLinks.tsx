@@ -33,7 +33,7 @@ export function OmniSearchCategoryLinks({ edition, onOpenCatalog }: Props) {
             title={findCatalogHref(entry.slug, edition) ?? undefined}
             className="flex items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-left text-xs font-medium text-slate-300 hover:border-amber-500/40 hover:bg-amber-500/10 hover:text-amber-200 transition-all"
           >
-            <span className="truncate">{findCatalogSearchTitle(entry.slug, edition)}</span>
+            <span className="truncate">{findCatalogSearchTitle(entry.slug)}</span>
             <ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-60" />
           </button>
         ))}

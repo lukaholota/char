@@ -5,9 +5,9 @@ import { getAllRaces } from "@/lib/racesData";
 import { RacesClient } from "@/components/races/RacesClient";
 
 export const metadata: Metadata = {
-  title: "Види D&D 2024 — ДнД українською",
+  title: "Раси D&D 2024 — ДнД українською",
   description:
-    "Каталог видів D&D 5e (PHB 2024) українською: розмір, швидкість, мови та риси виду.",
+    "Каталог рас D&D 5e (PHB 2024) українською: розмір, швидкість, мови та расові риси.",
 };
 
 export default function Races2024Page() {

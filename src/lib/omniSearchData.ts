@@ -20,7 +20,7 @@ import { getAllInfusions } from "@/lib/infusionsData";
 import { getAllBastionFacilities } from "@/lib/bastionsData";
 import { getAllBackgrounds } from "@/lib/backgroundsData";
 import { getAllClasses, type ClassData, type ClassFeature } from "@/lib/classesData";
-import { getAllRaces, RACE_SINGULAR, type RaceBranch, type RaceData } from "@/lib/racesData";
+import { getAllRaces, type RaceBranch, type RaceData } from "@/lib/racesData";
 import {
   buildClassReadingHref,
   buildRaceReadingHref,
@@ -348,10 +348,6 @@ function collectSearchEntries(ruleset: Ruleset): SearchEntry[] {
   return entries;
 }
 
-function findLabel(category: OmniSearchCategory, ruleset: Ruleset): string {
-  return findCatalogSearchTitle(category, toEdition(ruleset));
-}
-
 /// Classes, subclasses and races used to send the reader into the character creator, because
 /// that was the only screen listing them. KR15.6 gave them catalogs, so a hit now opens the
 /// catalog with that entry already selected; O44 opens the subclass, feature or branch itself.
@@ -379,7 +375,7 @@ function collectSpellItems(ruleset: Ruleset): OmniSearchItem[] {
       title: cleanTitle,
       subtitle: spell.engName,
       category: "spells" as const,
-      categoryLabel: findLabel("spells", ruleset),
+      categoryLabel: findCatalogSearchTitle("spells"),
       href: `${prefix}/spells?q=${encodeURIComponent(cleanTitle)}`,
       badge: levelLabel,
       keywords: [
@@ -410,7 +406,7 @@ function collectMagicItemItems(ruleset: Ruleset): OmniSearchItem[] {
       title: cleanTitle,
       subtitle: magicItem.engName,
       category: "magic-items" as const,
-      categoryLabel: findLabel("magic-items", ruleset),
+      categoryLabel: findCatalogSearchTitle("magic-items"),
       href: `${prefix}/magic-items?q=${encodeURIComponent(cleanTitle)}`,
       badge: rarityLabel,
       keywords: [
@@ -440,7 +436,7 @@ function collectWeaponItems(ruleset: Ruleset): OmniSearchItem[] {
       title: nameUa,
       subtitle: weapon.engName,
       category: "weapons" as const,
-      categoryLabel: findLabel("weapons", ruleset),
+      categoryLabel: findCatalogSearchTitle("weapons"),
       href: `${prefix}/weapons?q=${encodeURIComponent(nameUa)}`,
       badge: `${weapon.damage} ${findTranslation(damageTypeTranslations, String(weapon.damageType)).toLowerCase() || weapon.damageType}`,
       keywords: [
@@ -475,7 +471,7 @@ function collectArmorItems(ruleset: Ruleset): OmniSearchItem[] {
       title,
       subtitle: armor.engName,
       category: "armor" as const,
-      categoryLabel: findLabel("armor", ruleset),
+      categoryLabel: findCatalogSearchTitle("armor"),
       href: `${prefix}/armor?q=${encodeURIComponent(title)}`,
       badge: `КБ ${armor.baseAC}`,
       keywords: [
@@ -500,7 +496,7 @@ function collectCreatureItems(ruleset: Ruleset): OmniSearchItem[] {
       title: creature.name,
       subtitle: creature.nameEng,
       category: "bestiary" as const,
-      categoryLabel: findLabel("bestiary", ruleset),
+      categoryLabel: findCatalogSearchTitle("bestiary"),
       href: `${prefix}/bestiary/${toEntitySlug(creature.nameEng)}`,
       badge: crLabel,
       edition: editionLabel,
@@ -529,7 +525,7 @@ function collectFeatItems(ruleset: Ruleset): OmniSearchItem[] {
     title: feat.name,
     subtitle: feat.engName,
     category: "feats" as const,
-    categoryLabel: findLabel("feats", ruleset),
+    categoryLabel: findCatalogSearchTitle("feats"),
     href: `${prefix}/feats?q=${encodeURIComponent(feat.name)}`,
     badge: feat.category ? findTranslation(featCategoryTranslations, feat.category) || feat.category : undefined,
     keywords: [
@@ -555,7 +551,7 @@ function collectInvocationItems(ruleset: Ruleset): OmniSearchItem[] {
       title,
       subtitle: invocation.engName,
       category: "invocations" as const,
-      categoryLabel: findLabel("invocations", ruleset),
+      categoryLabel: findCatalogSearchTitle("invocations"),
       href: `${prefix}/invocations?q=${encodeURIComponent(title)}`,
       badge: invocation.minLevel ? `Рівень ${invocation.minLevel}` : undefined,
       keywords: [
@@ -577,7 +573,7 @@ function collectMetamagicItems(ruleset: Ruleset): OmniSearchItem[] {
     title: metamagic.nameUa,
     subtitle: metamagic.engName,
     category: "metamagic" as const,
-    categoryLabel: findLabel("metamagic", ruleset),
+    categoryLabel: findCatalogSearchTitle("metamagic"),
     href: `${prefix}/metamagic/${toEntitySlug(metamagic.engName)}`,
     badge: describeMetamagicCost(metamagic),
     keywords: [metamagic.source, "метамагія", "metamagic"],
@@ -600,7 +596,7 @@ function collectInfusionItems(ruleset: Ruleset): OmniSearchItem[] {
       title: infusion.nameUa,
       subtitle: infusion.engName,
       category: "infusions" as const,
-      categoryLabel: findLabel("infusions", ruleset),
+      categoryLabel: findCatalogSearchTitle("infusions"),
       href: `/infusions/${toEntitySlug(infusion.engName)}`,
       badge: `Рівень ${infusion.minArtificerLevel}`,
       keywords: [
@@ -628,7 +624,7 @@ function collectBastionItems(ruleset: Ruleset): OmniSearchItem[] {
     title: facility.name,
     subtitle: facility.engName,
     category: "bastions" as const,
-    categoryLabel: findLabel("bastions", ruleset),
+    categoryLabel: findCatalogSearchTitle("bastions"),
     href: `/2024/bastions/${facility.slug}`,
     badge: facility.level === null ? "Базове" : `Рівень ${facility.level}`,
     keywords: [facility.source, facility.prerequisiteText, facility.shortDescription],
@@ -650,7 +646,7 @@ function collectBackgroundItems(ruleset: Ruleset): OmniSearchItem[] {
     title: background.name,
     subtitle: background.engName,
     category: "backgrounds" as const,
-    categoryLabel: findLabel("backgrounds", ruleset),
+    categoryLabel: findCatalogSearchTitle("backgrounds"),
     href: `${prefix}/backgrounds/${background.slug}`,
     badge: background.originFeat ? background.originFeat.nameUa : background.specialAbilityName ?? undefined,
     keywords: [
@@ -675,9 +671,9 @@ function collectCatalogShortcuts(ruleset: Ruleset): OmniSearchItem[] {
     return [
       {
         id: `category-${entry.slug}`,
-        title: findLabel(entry.slug, ruleset),
+        title: findCatalogSearchTitle(entry.slug),
         category: entry.slug,
-        categoryLabel: findLabel(entry.slug, ruleset),
+        categoryLabel: findCatalogSearchTitle(entry.slug),
         href,
         badge: "Каталог",
         aliases: findAliasVariants(ruleset, ["catalog"], [entry.slug]),
@@ -692,7 +688,7 @@ function collectClassItems(ruleset: Ruleset): OmniSearchItem[] {
     title: characterClass.name,
     subtitle: characterClass.engName,
     category: "classes" as const,
-    categoryLabel: findLabel("classes", ruleset),
+    categoryLabel: findCatalogSearchTitle("classes"),
     href: findClassHref(ruleset, characterClass.engName),
     badge: "Клас",
     keywords: ["персонаж", "створення", characterClass.engName],
@@ -712,7 +708,7 @@ function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
       title: subclass.name,
       subtitle: `${subclass.engName} · ${characterClass.name}`,
       category: "classes" as const,
-      categoryLabel: findLabel("classes", ruleset),
+      categoryLabel: findCatalogSearchTitle("classes"),
       href: buildClassReadingHref(findRoutePrefix(ruleset), {
         classKey: characterClass.slug,
         subclassKey: subclass.slug,
@@ -733,7 +729,7 @@ function collectSubclassItems(ruleset: Ruleset): OmniSearchItem[] {
 /// рівнів не зливаються: підзаголовок каже, чия це здібність. Р52 — як і для підкласів.
 function collectClassFeatureItems(ruleset: Ruleset): OmniSearchItem[] {
   const prefix = findRoutePrefix(ruleset);
-  const categoryLabel = findLabel("classes", ruleset);
+  const categoryLabel = findCatalogSearchTitle("classes");
 
   return getAllClasses(ruleset).flatMap((characterClass) => {
     const toItem = (feature: ClassFeature, subclass: ClassData["subclasses"][number] | null): OmniSearchItem => ({
@@ -772,7 +768,7 @@ function collectRaceBranchItems(ruleset: Ruleset): OmniSearchItem[] {
 
 function collectBranchItems(ruleset: Ruleset, race: RaceData, kind: RaceBranchKind, branch: RaceBranch): OmniSearchItem[] {
   const prefix = findRoutePrefix(ruleset);
-  const categoryLabel = findLabel("races", ruleset);
+  const categoryLabel = findCatalogSearchTitle("races");
   const target = { raceKey: race.slug, branch: { kind, key: findBranchKey(branch) } };
 
   const branchItem: OmniSearchItem = {
@@ -806,9 +802,9 @@ function collectRaceItems(ruleset: Ruleset): OmniSearchItem[] {
     title: race.name,
     subtitle: race.engName,
     category: "races" as const,
-    categoryLabel: findLabel("races", ruleset),
+    categoryLabel: findCatalogSearchTitle("races"),
     href: findRaceHref(ruleset, race.engName),
-    badge: RACE_SINGULAR[ruleset],
+    badge: "Раса",
     keywords: ["персонаж", "створення", race.engName],
     aliases: findAliasVariants(
       ruleset,
@@ -824,7 +820,7 @@ function collectRuleArticles(ruleset: Ruleset): RuleArticle[] {
 
 function collectRuleItems(ruleset: Ruleset): OmniSearchItem[] {
   const prefix = findRoutePrefix(ruleset);
-  const categoryLabel = findLabel("rules", ruleset);
+  const categoryLabel = findCatalogSearchTitle("rules");
   const items: OmniSearchItem[] = [];
 
   for (const article of collectRuleArticles(ruleset)) {
@@ -887,7 +883,7 @@ function collectConditionItems(ruleset: Ruleset): OmniSearchItem[] {
     title: condition.name,
     subtitle: condition.engName,
     category: "rules" as const,
-    categoryLabel: findLabel("rules", ruleset),
+    categoryLabel: findCatalogSearchTitle("rules"),
     href: `${prefix}/rules/conditions#${condition.id}`,
     badge: "Стан",
     keywords: [

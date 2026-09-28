@@ -3,7 +3,6 @@
 import { Footprints, Languages, Ruler, TrendingUp } from "lucide-react";
 
 import type { RaceBranch, RaceData } from "@/lib/racesData";
-import { RACE_SINGULAR } from "@/lib/refs/race-labels";
 import { findBranchKey, type RaceBranchKind, type RaceSection } from "@/lib/catalogs/reading-target";
 import { buildTraitEntries } from "@/lib/catalogs/reading-entries";
 import { CatalogProse } from "@/components/catalogs/CatalogProse";
@@ -42,7 +41,7 @@ export function RaceDetailCard({
       {view.missing ? (
         <MissingTargetNotice
           message={view.missing === "branch" ? "Такої підраси чи варіанта тут немає." : "Такої риси тут немає."}
-          actionLabel={is2024 ? "До виду" : "До раси"}
+          actionLabel="До раси"
           onAction={actions.onDismissMissing}
         />
       ) : null}
@@ -151,7 +150,7 @@ function Header({ race, is2024 }: { race: RaceData; is2024: boolean }) {
         </h1>
         <p className="mt-0.5 font-mono text-xs text-slate-500">[{race.engName}]</p>
         <p className="mt-2 text-xs text-slate-400">
-          {RACE_SINGULAR[race.ruleset]} · {race.source}
+          Раса · {race.source}
         </p>
       </div>
     </div>

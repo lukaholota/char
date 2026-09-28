@@ -11,7 +11,6 @@ import racesJson from "@/lib/generated/races.json";
 import { getRaceImagePath } from "@/lib/assets/image-manifest";
 import { toEntitySlug } from "@/lib/slug-utils";
 
-export { RACE_CATALOG_TITLE, RACE_SINGULAR } from "@/lib/refs/race-labels";
 
 export type RaceTrait = {
   name: string;

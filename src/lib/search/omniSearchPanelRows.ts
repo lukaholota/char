@@ -6,7 +6,7 @@ import {
   type OmniSearchItem,
 } from "@/lib/omniSearchData";
 import { buildOmniSearchRows, type OmniSearchRow } from "@/lib/search/omniSearchRows";
-import { findCatalogSearchTitle, toEdition } from "@/lib/catalogs/catalog-registry";
+import { findCatalogSearchTitle } from "@/lib/catalogs/catalog-registry";
 import type { UserSearchHit } from "@/server/db/pers-search-actions";
 import type { HomebrewSearchHit } from "@/server/db/homebrew-search-actions";
 import type { Edition } from "@/rules/route-helpers";
@@ -27,10 +27,9 @@ export type OmniSearchPanelRows = {
 };
 
 export function buildOmniSearchPanelRows(input: OmniSearchPanelRowsInput): OmniSearchPanelRows {
-  const edition = toEdition(input.ruleset);
   const serverItems = [
-    ...input.personalResults.map((hit) => toPersonalItem(hit, edition)),
-    ...input.homebrewResults.map((hit) => toHomebrewItem(hit, edition)),
+    ...input.personalResults.map((hit) => toPersonalItem(hit)),
+    ...input.homebrewResults.map((hit) => toHomebrewItem(hit)),
   ];
   const { items, overflow } = findOmniSearchOutcome(input.query, input.ruleset, input.activeCategory, serverItems);
   if (items.length > 0) return { rows: buildOmniSearchRows(items, overflow), otherEdition: null };
@@ -45,24 +44,24 @@ function buildOtherEditionRows(input: OmniSearchPanelRowsInput): OmniSearchPanel
   return { rows: buildOmniSearchRows(items, []), otherEdition: edition };
 }
 
-function toPersonalItem(hit: UserSearchHit, edition: Edition): OmniSearchItem {
+function toPersonalItem(hit: UserSearchHit): OmniSearchItem {
   return {
     id: `${hit.kind}-${hit.id}`,
     title: hit.title,
     category: "characters",
-    categoryLabel: findCatalogSearchTitle("characters", edition),
+    categoryLabel: findCatalogSearchTitle("characters"),
     href: hit.href,
     badge: hit.subtitle,
   };
 }
 
-function toHomebrewItem(hit: HomebrewSearchHit, edition: Edition): OmniSearchItem {
+function toHomebrewItem(hit: HomebrewSearchHit): OmniSearchItem {
   return {
     id: `homebrew-${hit.entryId}`,
     title: hit.title,
     subtitle: hit.subtitle,
     category: "homebrew",
-    categoryLabel: findCatalogSearchTitle("homebrew", edition),
+    categoryLabel: findCatalogSearchTitle("homebrew"),
     href: hit.href,
     badge: hit.badge,
     visualKey: hit.kind,

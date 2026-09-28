@@ -158,10 +158,9 @@ describe("KR36.1 — один реєстр каталогів", () => {
     }
   });
 
-  it("підписи міняються за редакцією там, де 2024 перейменувала річ", () => {
-    expect(findCatalogTitle("races", "2014")).toBe("Раси");
-    expect(findCatalogTitle("races", "2024")).toBe("Види");
-    expect(findCatalogSearchTitle("characters", "2014")).toBe("Мої персонажі");
+  it("каталог рас зветься «Раси» в обох редакціях", () => {
+    expect(findCatalogTitle("races")).toBe("Раси");
+    expect(findCatalogSearchTitle("characters")).toBe("Мої персонажі");
   });
 
   it("sitemap несе корінь кожного публічного каталогу в його редакціях і нічого поза ними", () => {

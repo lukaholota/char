@@ -46,12 +46,10 @@ describe("KR4.2 — creation step resolver", () => {
     expect(resolveCreationSteps({ ...noOptionalSteps, hasSubraces: true, hasRaceVariants: true })[1]).toMatchObject({ id: "raceDetails", name: "Підраса чи Варіант", component: "raceDetails" });
   });
 
-  it("KR31.14 — конструктор 2024 називає кроки виду «Вид», а 2014 лишає «Раса»", () => {
-    const names = (is2024: boolean) =>
-      resolveCreationSteps({ ...noOptionalSteps, hasRaceChoiceOptions: true, is2024 }).slice(0, 2).map((step) => step.name);
+  it("конструктор обох редакцій називає кроки раси «Раса» й «Опції раси»", () => {
+    const names = resolveCreationSteps({ ...noOptionalSteps, hasRaceChoiceOptions: true }).slice(0, 2).map((step) => step.name);
 
-    expect(names(true)).toEqual(["Вид", "Опції виду"]);
-    expect(names(false)).toEqual(["Раса", "Опції раси"]);
+    expect(names).toEqual(["Раса", "Опції раси"]);
   });
 
   it("adds Weapon Mastery only when class data grants capacity", () => {

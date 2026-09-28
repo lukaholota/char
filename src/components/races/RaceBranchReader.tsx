@@ -32,7 +32,7 @@ export function RaceBranchReader({
       engName={branch.engName}
       sourceLabel={null}
       description={branch.description}
-      labels={{ parentName: race.name, backLabel: is2024 ? "До виду" : "До раси", kindLabel: BRANCH_KIND_LABELS[kind] }}
+      labels={{ parentName: race.name, backLabel: "До раси", kindLabel: BRANCH_KIND_LABELS[kind] }}
       is2024={is2024}
       focusOnOpen={!featureKey}
       onBack={onBack}
