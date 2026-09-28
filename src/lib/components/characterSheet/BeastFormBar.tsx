@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { BookOpen, PawPrint } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
+import { CreatureStatblockDialog } from "./CreatureStatblockDialog";
 import type { CreatureData } from "@/lib/bestiaryData";
 
 /**
@@ -56,14 +55,12 @@ export function BeastFormBar({
         {describeLayerHint(showBeastLayer, is2024)}
       </p>
 
-      <Dialog open={statblockOpen} onOpenChange={setStatblockOpen}>
-        <DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-lg">{creature.name}</DialogTitle>
-          </DialogHeader>
-          <CreatureStatblockCard creature={creature} is2024={is2024} />
-        </DialogContent>
-      </Dialog>
+      <CreatureStatblockDialog
+        creature={creature}
+        is2024={is2024}
+        open={statblockOpen}
+        onOpenChange={setStatblockOpen}
+      />
     </div>
   );
 }

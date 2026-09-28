@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Minus, PawPrint, Plus, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -14,6 +15,7 @@ import { detachWildshapeForm, enterWildshapeForm } from "@/server/db/wildshape-a
 import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 import { restoreFeatureUse, spendFeatureUse } from "@/lib/actions/feature-uses";
 import { AddWildshapeFormDialog } from "./AddWildshapeFormDialog";
+import { CreatureStatblockDialog } from "./CreatureStatblockDialog";
 import { ActiveForm } from "./WildshapeActiveForm";
 import type { WildshapeState } from "./useWildshapeState";
 
@@ -278,6 +280,7 @@ function FormRow({
   onChanged: () => void;
 }) {
   const router = useRouter();
+  const [statblockOpen, setStatblockOpen] = useState(false);
 
   // Перевтілення й витрата — одна дія, тож лист мусить оновити ще й лічильник на слайді Рис:
   // він приїжджає з сервера, а не зі стану Дикої форми.
@@ -308,9 +311,17 @@ function FormRow({
   return (
     <div className="flex items-center justify-between gap-2 p-3 rounded-lg border border-white/5 bg-slate-800/40">
       <div className="min-w-0">
-        <div className="font-bold text-slate-50 truncate">
-          {form.creature?.name ?? form.key}
-        </div>
+        {form.creature ? (
+          <button
+            type="button"
+            onClick={() => setStatblockOpen(true)}
+            className="block max-w-full truncate text-left font-bold text-slate-50 underline decoration-slate-500/60 decoration-dotted underline-offset-4 hover:decoration-slate-300"
+          >
+            {form.creature.name}
+          </button>
+        ) : (
+          <div className="font-bold text-slate-50 truncate">{form.key}</div>
+        )}
         <div className="text-xs text-slate-400 truncate">
           {form.creature
             ? `ПН ${form.creature.challenge} · ${form.creature.hp} хітів · ${form.creature.speed}`
@@ -335,6 +346,15 @@ function FormRow({
           </>
         )}
       </div>
+
+      {form.creature && (
+        <CreatureStatblockDialog
+          creature={form.creature}
+          is2024={form.ruleset === "RULES_2024"}
+          open={statblockOpen}
+          onOpenChange={setStatblockOpen}
+        />
+      )}
     </div>
   );
 }
