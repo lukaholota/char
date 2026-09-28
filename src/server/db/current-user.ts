@@ -1,6 +1,7 @@
 import { cache } from "react";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { isSiteOwnerEmail } from "@/lib/logic/site-owner";
 
 /** Один запит сторінки питає це з кількох завантажувачів — `cache` робить із них один. */
 export const findCurrentUserId = cache(async function findCurrentUserId(): Promise<number | null> {
@@ -14,3 +15,8 @@ export const findCurrentUserId = cache(async function findCurrentUserId(): Promi
 
   return user?.id ?? null;
 });
+
+export async function isCurrentUserSiteOwner(): Promise<boolean> {
+  const session = await auth();
+  return isSiteOwnerEmail(session?.user?.email);
+}

@@ -2,7 +2,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("sonner", () => ({ toast: { error: vi.fn(), warning: vi.fn() } }));
+vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
 
+import * as Sentry from "@sentry/nextjs";
 import { toast } from "sonner";
 
 async function loadGuard() {
@@ -67,6 +69,48 @@ describe("Офлайн-аудит 2026-09-18 — серверна дія без 
     setOnline(true);
 
     await expect(window.fetch("/char/42", actionInit())).rejects.toSatisfy(guard.isOfflineActionError);
+  });
+});
+
+describe("Sentry JAVASCRIPT-NEXTJS-1A — «Звʼязок обірвався» з увімкненою мережею", () => {
+  beforeEach(() => {
+    vi.mocked(Sentry.captureException).mockClear();
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-09-28T12:01:41Z"));
+    setOnline(true);
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("подія в Sentry каже, скільки сайт мовчав до дії і чим обірвався запит", async () => {
+    window.fetch = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+      if (init?.method === "POST") throw new TypeError("Failed to fetch");
+      return new Response("ok");
+    }) as unknown as typeof fetch;
+    const guard = await loadGuard();
+    guard.installOfflineActionGuard();
+
+    await window.fetch("/char/42?_rsc=1");
+    vi.advanceTimersByTime(10_000);
+    await window.fetch("https://eu.i.posthog.com/flags/");
+    vi.advanceTimersByTime(19_000);
+    await expect(window.fetch("/char/42", actionInit())).rejects.toSatisfy(guard.isOfflineActionError);
+
+    expect(Sentry.captureException).toHaveBeenCalledTimes(1);
+    const [error, hint] = vi.mocked(Sentry.captureException).mock.calls[0];
+    expect(guard.isOfflineActionError(error)).toBe(true);
+    expect(hint).toMatchObject({
+      contexts: {
+        action_failure: {
+          cause: "TypeError: Failed to fetch",
+          msSinceActionStart: 0,
+          msSinceLastOriginResponse: 29_000,
+          onLine: true,
+        },
+      },
+    });
   });
 });
 

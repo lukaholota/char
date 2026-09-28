@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { noteOriginResponse, reportActionFailure, startWatchingOriginActivity } from "@/lib/monitoring/action-failure-report";
 
 const NEXT_ACTION_HEADER = "next-action";
 const TOAST_ID = "offline-action";
@@ -31,19 +32,27 @@ let installed = false;
 export function installOfflineActionGuard(): void {
   if (installed || typeof window === "undefined") return;
   installed = true;
+  startWatchingOriginActivity();
 
   const originalFetch = window.fetch.bind(window);
   window.fetch = async (input, init) => {
-    if (!isServerActionRequest(input, init)) return originalFetch(input, init);
-    if (!navigator.onLine) throw refuseOfflineAction();
+    if (!isServerActionRequest(input, init)) {
+      const response = await originalFetch(input, init);
+      noteOriginResponse(input);
+      return response;
+    }
+
+    const startedAt = Date.now();
+    if (!navigator.onLine) throw refuseOfflineAction(startedAt, null);
 
     try {
       const response = await originalFetch(input, init);
+      noteOriginResponse(input);
       if (response.headers.get(ACTION_NOT_FOUND_HEADER) === "1") showStaleActionNotice();
       return response;
     } catch (error) {
       if (navigator.onLine && !(error instanceof TypeError)) throw error;
-      throw refuseOfflineAction("Звʼязок обірвався — дія не виконана. Спробуйте ще раз, коли мережа повернеться.");
+      throw refuseOfflineAction(startedAt, error, "Звʼязок обірвався — дія не виконана. Спробуйте ще раз, коли мережа повернеться.");
     }
   };
 
@@ -63,9 +72,10 @@ function showStaleActionNotice(): void {
   });
 }
 
-function refuseOfflineAction(message?: string): OfflineActionError {
+function refuseOfflineAction(startedAt: number, cause: unknown, message?: string): OfflineActionError {
   const error = new OfflineActionError(message);
   toast.error(error.message, { id: TOAST_ID });
+  reportActionFailure(error, startedAt, cause);
   return error;
 }
 
