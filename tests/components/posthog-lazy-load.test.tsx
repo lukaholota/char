@@ -76,7 +76,7 @@ describe("PostHog", () => {
     expect(posthog.capture).not.toHaveBeenCalled();
     configurePostHogIdentity({ userId: "7", isInternal: false });
     await runIdle();
-    await waitFor(() => expect(posthog.capture).toHaveBeenCalledWith("character_created", expect.objectContaining({ classId: 3 }), { transport: "sendBeacon", send_instantly: true }));
+    await waitFor(() => expect(posthog.capture).toHaveBeenCalledWith("character_created", expect.objectContaining({ classId: 3 }), { send_instantly: true }));
     expect(posthog.init).toHaveBeenCalledTimes(1);
   });
 
@@ -91,7 +91,7 @@ describe("PostHog", () => {
 
     expect(flushPostHogOnExit).not.toThrow();
     expect(warning).toHaveBeenCalledWith("PostHog capture failed", "Error");
-    expect(posthog.capture).toHaveBeenCalledWith("search_performed", expect.objectContaining({ query_length: 4 }), expect.objectContaining({ transport: "sendBeacon" }));
+    expect(posthog.capture).toHaveBeenCalledWith("search_performed", expect.objectContaining({ query_length: 4 }), { send_instantly: true });
     warning.mockRestore();
   });
 
@@ -137,6 +137,6 @@ describe("PostHog", () => {
     route.pinned = true;
     view.rerender(<PostHogProvider />);
     await runIdle();
-    await waitFor(() => expect(posthog.capture).toHaveBeenCalledWith("$pageview", expect.objectContaining({ edition: "2024", page_group: "char" }), expect.objectContaining({ transport: "sendBeacon" })));
+    await waitFor(() => expect(posthog.capture).toHaveBeenCalledWith("$pageview", expect.objectContaining({ edition: "2024", page_group: "char" }), { send_instantly: true }));
   });
 });

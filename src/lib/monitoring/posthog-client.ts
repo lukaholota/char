@@ -65,7 +65,7 @@ function flushPostHogEvents(posthog: PostHog | null): void {
   syncPostHogIdentity(posthog);
   for (const { event, properties } of pendingEvents.splice(0)) {
     try {
-      posthog.capture(event, properties, { transport: "sendBeacon", send_instantly: true });
+      posthog.capture(event, properties, { send_instantly: true });
     } catch (error) {
       console.warn("PostHog capture failed", error instanceof Error ? error.name : "unknown");
     }

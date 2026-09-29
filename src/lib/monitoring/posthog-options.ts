@@ -17,6 +17,8 @@ import { buildPostHogPageProperties, buildScreenProperties } from "@/lib/monitor
 export const sharedPostHogOptions: Partial<PostHogConfig> = {
   persistence: "memory",
   api_transport: "fetch",
+  // /i/v0/e/ відповідає 400 на beacon-тіло `data=<base64>`; fetch з keepalive теж переживає закриття вкладки.
+  disable_beacon: true,
   disable_compression: true,
   capture_pageview: false,
   capture_pageleave: false,
