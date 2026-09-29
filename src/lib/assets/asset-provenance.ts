@@ -37,6 +37,105 @@ const PROVENANCE_BY_PREFIX: ReadonlyArray<readonly [string, ImageProvenance]> = 
   ["/images/whats-new/spell-icons.webp", "drawn"],
 ];
 
+/// Власник, 2026-09-29: у режимі без ШІ класи й раси показують арт із книг WotC замість згенерованого.
+/// Назва тут — це ім'я файлу і в `/images/<тека>/`, і в `/images/manual/<тека>/`.
+export const MANUAL_ART_NAMES_BY_FOLDER: Record<string, readonly string[]> = {
+  classes: [
+    "artificer",
+    "barbarian",
+    "bard",
+    "blood_hunter",
+    "cleric",
+    "druid",
+    "fighter",
+    "monk",
+    "paladin",
+    "ranger",
+    "rogue",
+    "sorcerer",
+    "warlock",
+    "wizard",
+  ],
+  races: [
+    "aarakocra",
+    "aasimar",
+    "air_genasi",
+    "astral_elf",
+    "autognome",
+    "bugbear",
+    "centaur",
+    "changeling",
+    "custom_lineage",
+    "deep_gnome",
+    "dhampir",
+    "dragonborn",
+    "dragonborn_chromatic",
+    "dragonborn_gem",
+    "dragonborn_metallic",
+    "duergar",
+    "dwarf",
+    "earth_genasi",
+    "eladrin",
+    "elf",
+    "fairy",
+    "firbolg",
+    "fire_genasi",
+    "giff",
+    "githyanki",
+    "githzerai",
+    "gnome",
+    "goblin",
+    "goliath",
+    "grung",
+    "hadozee",
+    "half_elf",
+    "half_orc",
+    "halfling",
+    "harengon",
+    "hexblood",
+    "hobgoblin",
+    "human",
+    "kalashtar",
+    "kender",
+    "kenku",
+    "kobold",
+    "leonin",
+    "lizardfolk",
+    "locathah",
+    "loxodon",
+    "minotaur",
+    "orc",
+    "owlin",
+    "plasmoid",
+    "reborn",
+    "satyr",
+    "sea_elf",
+    "shadar_kai",
+    "shifter",
+    "simic_hybrid",
+    "tabaxi",
+    "thri_kreen",
+    "tiefling",
+    "tortle",
+    "triton",
+    "vedalken",
+    "verdan",
+    "warforged",
+    "water_genasi",
+    "yuan_ti",
+  ],
+};
+
+const MANUAL_ART_BY_GENERATED_SRC = new Map<string, string>(
+  Object.entries(MANUAL_ART_NAMES_BY_FOLDER).flatMap(([folder, names]) =>
+    names.map((name) => [`/images/${folder}/${name}.webp`, `/images/manual/${folder}/${name}.webp`] as const),
+  ),
+);
+
+export function findManualArtSrc(src: string | null | undefined): string | null {
+  return MANUAL_ART_BY_GENERATED_SRC.get(String(src ?? "")) ?? null;
+}
+
 export function findImageProvenance(src: string | null | undefined): ImageProvenance {
   const path = String(src ?? "");
   const match = PROVENANCE_BY_PREFIX.find(([prefix]) => path.startsWith(prefix));
@@ -61,6 +160,7 @@ export function findVisibleImageSrc({
   provenance?: ImageProvenance;
 }): string | null {
   if (!isNoAiMode) return src ?? null;
-  if (noAiSrc) return noAiSrc;
+  const manualSrc = noAiSrc ?? findManualArtSrc(src);
+  if (manualSrc) return manualSrc;
   return (provenance ?? findImageProvenance(src)) === "ai" ? null : (src ?? null);
 }

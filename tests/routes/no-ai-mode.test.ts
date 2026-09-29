@@ -8,7 +8,13 @@ import {
   hasNoAiPrefix,
   stripNoAiPrefix,
 } from "@/lib/no-ai/no-ai-route";
-import { findImageProvenance, findVisibleImageSrc, isAiGeneratedImage } from "@/lib/assets/asset-provenance";
+import {
+  MANUAL_ART_NAMES_BY_FOLDER,
+  findImageProvenance,
+  findManualArtSrc,
+  findVisibleImageSrc,
+  isAiGeneratedImage,
+} from "@/lib/assets/asset-provenance";
 import { collectHomeCardRows, collectHomeCategories } from "@/components/home/homeCategories";
 
 const srcDir = path.resolve(process.cwd(), "src");
@@ -113,6 +119,45 @@ describe("Режим без ШІ — заміна на ілюстрацію з �
 
   it("явне походження перебиває здогад за шляхом", () => {
     expect(findVisibleImageSrc({ src: "/images/home/spells.webp", isNoAiMode: true, provenance: "ai" })).toBeNull();
+  });
+});
+
+/// Власник, 2026-09-29: класи й раси в режимі без ШІ малюються артом із книг WotC.
+describe("Режим без ШІ — арт класів і рас із книг", () => {
+  const publicDir = path.join(process.cwd(), "public");
+
+  it("підставляє арт із книги замість згенерованого", () => {
+    expect(findVisibleImageSrc({ src: "/images/classes/wizard.webp", isNoAiMode: true })).toBe(
+      "/images/manual/classes/wizard.webp",
+    );
+    expect(findVisibleImageSrc({ src: "/images/races/elf.webp", isNoAiMode: true })).toBe(
+      "/images/manual/races/elf.webp",
+    );
+    expect(findVisibleImageSrc({ src: "/images/classes/wizard.webp", isNoAiMode: false })).toBe(
+      "/images/classes/wizard.webp",
+    );
+  });
+
+  it("згенероване без арту з книги ховається, як і раніше", () => {
+    expect(findVisibleImageSrc({ src: "/images/backgrounds/acolyte.webp", isNoAiMode: true })).toBeNull();
+  });
+
+  it("кожна назва в списку має і згенеровану картинку, і арт із книги", () => {
+    for (const [folder, names] of Object.entries(MANUAL_ART_NAMES_BY_FOLDER)) {
+      for (const name of names) {
+        expect(fs.existsSync(path.join(publicDir, "images", folder, `${name}.webp`)), `${folder}/${name}`).toBe(true);
+        expect(fs.existsSync(path.join(publicDir, "images/manual", folder, `${name}.webp`)), `manual/${folder}/${name}`).toBe(true);
+      }
+    }
+  });
+
+  it("кожен файл арту з книги занесено до списку", () => {
+    for (const folder of ["classes", "races"]) {
+      const files = fs.readdirSync(path.join(publicDir, "images/manual", folder));
+      for (const file of files) {
+        expect(findManualArtSrc(`/images/${folder}/${file}`), `manual/${folder}/${file}`).toBe(`/images/manual/${folder}/${file}`);
+      }
+    }
   });
 });
 

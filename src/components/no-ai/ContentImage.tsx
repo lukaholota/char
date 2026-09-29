@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ComponentProps } from "react";
 
-import { ImageProvenance, findImageProvenance, findVisibleImageSrc } from "@/lib/assets/asset-provenance";
+import { ImageProvenance, findImageProvenance, findManualArtSrc, findVisibleImageSrc } from "@/lib/assets/asset-provenance";
 import { useNoAiMode } from "./NoAiModeProvider";
 
 type Props = Omit<ComponentProps<typeof Image>, "src" | "alt"> & {
@@ -39,5 +39,5 @@ export function useVisibleImageSrc(
 
 export function useIsArtHidden(src?: string | null, provenance?: ImageProvenance): boolean {
   const { enabled } = useNoAiMode();
-  return enabled && (provenance ?? findImageProvenance(src)) === "ai";
+  return enabled && (provenance ?? findImageProvenance(src)) === "ai" && !findManualArtSrc(src);
 }
