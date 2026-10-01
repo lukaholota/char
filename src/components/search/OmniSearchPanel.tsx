@@ -50,11 +50,14 @@ export function OmniSearchPanel({ onClose }: Props) {
     inputRef.current?.focus();
   }, []);
 
-  const personalResults = useDeferredServerSearch(query, searchUserPersAndFolders);
-  const homebrewResults = useDeferredServerSearch(
+  const personalSearch = useDeferredServerSearch(query, searchUserPersAndFolders);
+  const homebrewSearch = useDeferredServerSearch(
     query,
     useCallback((trimmed: string) => searchHomebrewEntries(trimmed, ruleset), [ruleset]),
   );
+  const personalResults = personalSearch.hits;
+  const homebrewResults = homebrewSearch.hits;
+  const isServerSearchPending = personalSearch.isPending || homebrewSearch.isPending;
 
   const { rows, otherEdition } = useMemo(
     () => buildOmniSearchPanelRows({ query, ruleset, activeCategory, personalResults, homebrewResults }),
@@ -62,13 +65,14 @@ export function OmniSearchPanel({ onClose }: Props) {
   );
 
   useEffect(() => {
-    if (!query.trim()) return;
+    const trimmed = query.trim();
+    if (!trimmed || isServerSearchPending) return;
+    const resultCount = rows.filter((row) => row.kind === "item").length;
     const timer = window.setTimeout(() => capturePostHogEvent("search_performed", {
-      edition, category: activeCategory, query_length: query.trim().length,
-      result_count: rows.filter((row) => row.kind === "item").length,
+      edition, category: activeCategory, query_length: trimmed.length, result_count: resultCount,
     }), 700);
     return () => window.clearTimeout(timer);
-  }, [query, activeCategory, edition, rows]);
+  }, [query, activeCategory, edition, rows, isServerSearchPending]);
 
   useEffect(() => {
     setSelectedIndex(0);

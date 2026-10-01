@@ -111,8 +111,9 @@ function buildHomebrewDashboard(build: BuildTrend, exclusion: string): Analytics
 function buildFeaturesDashboard(build: BuildTrend, exclusion: string): AnalyticsDashboard {
   const activations = build("Активовані риси: Лють, Пісня клинка та інші", ["character_feature_toggled"], "ActionsBarValue", { breakdown: "properties.feature" });
   addSourceFilter(activations, { type: "event", key: "is_active", operator: "exact", value: true });
+  const zeroResults = { type: "event", key: "result_count", operator: "exact", value: 0 };
   const emptySearch = build("Пошуки без результатів", ["search_performed"], "BoldNumber");
-  addSourceFilter(emptySearch, { type: "event", key: "result_count", operator: "exact", value: 0 });
+  addSourceFilter(emptySearch, zeroResults);
   return { name: "Char · Пошук і функції листа", description: "Пошук без збору текстів запитів, використання Дикої форми, активних рис, бафів, концентрації, виснаження та редагування описів. Звичайні стани на кшталт отруєння ще не мають кнопки накладання в листі; читання правил не рахується як накладання стану.", insights: [
     build("Використання пошуку", ["search_opened", "search_performed", "search_result_selected"], "ActionsLineGraph"),
     build("Найчастіше вибирають у пошуку", ["search_result_selected"], "ActionsBarValue", { breakdown: "properties.category" }), emptySearch,

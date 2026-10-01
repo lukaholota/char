@@ -1,8 +1,10 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { OmniSearchPanel } from "@/components/search/OmniSearchPanel";
 import { PER_CATEGORY_RESULT_QUOTA } from "@/lib/omniSearchData";
+import { searchUserPersAndFolders, type UserSearchHit } from "@/server/db/pers-search-actions";
+import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 const state = vi.hoisted(() => ({ edition: "2014" as "2014" | "2024", push: vi.fn() }));
 
@@ -16,9 +18,14 @@ vi.mock("@/components/no-ai/NoAiModeProvider", () => ({
 }));
 vi.mock("@/server/db/pers-search-actions", () => ({ searchUserPersAndFolders: vi.fn(async () => []) }));
 vi.mock("@/server/db/homebrew-search-actions", () => ({ searchHomebrewEntries: vi.fn(async () => []) }));
+vi.mock("@/lib/monitoring/posthog-client", () => ({ capturePostHogEvent: vi.fn() }));
 
 afterEach(() => {
   cleanup();
+  vi.useRealTimers();
+  vi.mocked(capturePostHogEvent).mockReset();
+  vi.mocked(searchUserPersAndFolders).mockReset();
+  vi.mocked(searchUserPersAndFolders).mockImplementation(async () => []);
   state.edition = "2014";
   state.push.mockReset();
 });
@@ -111,5 +118,56 @@ describe("порожня видача в поточній редакції по�
 
     expect(screen.getByText("Нічого не знайдено")).toBeTruthy();
     expect(screen.getByText(/в редакції 2014/)).toBeTruthy();
+  });
+});
+
+describe("подія search_performed", () => {
+  const SEARCH_IDLE_MS = 700;
+  const SERVER_SEARCH_DELAY_MS = 200;
+
+  function findSearchEvents() {
+    return vi.mocked(capturePostHogEvent).mock.calls.filter(([event]) => event === "search_performed");
+  }
+
+  async function typeAndWaitForEvent(input: HTMLElement, value: string) {
+    fireEvent.change(input, { target: { value } });
+    await act(() => vi.advanceTimersByTimeAsync(SERVER_SEARCH_DELAY_MS));
+    await act(() => vi.advanceTimersByTimeAsync(SEARCH_IDLE_MS));
+  }
+
+  it("порожня видача не передає текст запиту", async () => {
+    vi.useFakeTimers();
+    const input = renderPanel();
+    await typeAndWaitForEvent(input, "  щзфхъжэ ");
+
+    expect(findSearchEvents()).toEqual([["search_performed", expect.objectContaining({ result_count: 0 })]]);
+    expect(findSearchEvents()[0]?.[1]).not.toHaveProperty("query");
+  });
+
+  it("видача з результатами не передає текст запиту", async () => {
+    vi.useFakeTimers();
+    const input = renderPanel();
+    await typeAndWaitForEvent(input, "Вогнекуля");
+
+    const [[, properties]] = findSearchEvents();
+    expect(properties).toMatchObject({ result_count: expect.any(Number) });
+    expect((properties as { result_count: number }).result_count).toBeGreaterThan(0);
+    expect(properties).not.toHaveProperty("query");
+  });
+
+  it("повільна відповідь сервера не дає хибної порожньої видачі", async () => {
+    vi.useFakeTimers();
+    let resolveHits: (hits: UserSearchHit[]) => void = () => undefined;
+    vi.mocked(searchUserPersAndFolders).mockImplementation(() => new Promise((resolve) => { resolveHits = resolve; }));
+    const input = renderPanel();
+    fireEvent.change(input, { target: { value: "Мирослава" } });
+    await act(() => vi.advanceTimersByTimeAsync(SEARCH_IDLE_MS * 2));
+
+    expect(findSearchEvents()).toEqual([]);
+
+    await act(async () => resolveHits([{ kind: "pers", id: 1, title: "Мирослава", subtitle: "Бард 3", href: "/pers/1" }]));
+    await act(() => vi.advanceTimersByTimeAsync(SEARCH_IDLE_MS));
+
+    expect(findSearchEvents()).toEqual([["search_performed", expect.objectContaining({ result_count: 1 })]]);
   });
 });

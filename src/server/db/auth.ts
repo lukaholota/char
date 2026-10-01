@@ -30,8 +30,11 @@ export async function findOrCreateGoogleUser(details: GoogleUserDetails): Promis
   return user;
 }
 
-export async function findOrCreateQaCredentialsUser(email: string): Promise<AuthenticatedUser> {
-  return findOrCreateUserByEmail({ email, name: "QA browser", image: "" });
+export async function findQaAccountUser(email: string): Promise<AuthenticatedUser | null> {
+  return prisma.user.findFirst({
+    where: { email, name: "QA browser", accounts: { none: {} } },
+    select: { id: true, email: true, name: true, image: true },
+  });
 }
 
 async function findUserByGoogleAccountId(providerAccountId: string): Promise<AuthenticatedUser | null> {

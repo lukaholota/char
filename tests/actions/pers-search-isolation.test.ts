@@ -3,6 +3,7 @@ import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { createCharacter } from "@/lib/actions/character";
 import { searchUserPersAndFolders } from "@/server/db/pers-search-actions";
+import { canEditPers, deletePers, getPersForSheet } from "@/server/db/pers-actions";
 import { minimalForm } from "../helpers/build-form";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { disconnectDatabase, resetUserData } from "../user-data";
@@ -33,6 +34,18 @@ async function createPersAs(email: string, name: string) {
 }
 
 describe("searchUserPersAndFolders — ізоляція (KR13.4, пункт 7)", () => {
+  it("QA бачить лише власного персонажа й не читає, редагує або видаляє чужого", async () => {
+    const owner = await createPersAs("qa-isolation-owner@example.test", "Чужий герой");
+    const qa = await createPersAs("qa-browser@char.holota.family", "QA герой");
+
+    vi.mocked(auth).mockResolvedValue({ user: { id: String(qa.user.id), email: qa.user.email } } as never);
+
+    expect((await searchUserPersAndFolders("герой")).map((hit) => hit.title)).toEqual(["QA герой"]);
+    await expect(getPersForSheet(owner.persId)).resolves.toBeNull();
+    await expect(canEditPers(owner.persId, qa.user.id)).resolves.toBe(false);
+    await expect(deletePers(owner.persId)).resolves.toEqual({ success: false, error: "Немає доступу до персонажа" });
+  });
+
   it("власник і той, кому дали доступ, бачать персонажа; чужий і знімок — ні", async () => {
     const owner = await createPersAs("iskandar-owner@golden.test", "Іскандер Основний");
     const stranger = await createPersAs("iskandar-stranger@golden.test", "Іскандер Чужинець");

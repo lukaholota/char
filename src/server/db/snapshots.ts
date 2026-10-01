@@ -23,7 +23,7 @@ export async function createPersSnapshot(persId: number): Promise<number | null>
   });
   const snapshot = await prisma.$transaction((tx) => clonePersWithRelations(tx, pers, snapshotTarget));
 
-  captureServerPostHogEvent("character_snapshot_created", { pers_id: snapshot.persId, edition: pers.ruleset === "RULES_2024" ? "2024" : "2014", creation_type: "snapshot", level: pers.level });
+  captureServerPostHogEvent("character_snapshot_created", { pers_id: snapshot.persId, source_pers_id: persId, edition: pers.ruleset === "RULES_2024" ? "2024" : "2014", creation_type: "snapshot", level: pers.level });
   return snapshot.persId;
 }
 

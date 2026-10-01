@@ -2,12 +2,13 @@ import NextAuth, { NextAuthConfig } from "next-auth"
 import { OAuth2Client } from "google-auth-library";
 import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
-import { authAdapter, findOrCreateGoogleUser, findOrCreateQaCredentialsUser } from "@/server/db/auth";
-import { getQaCredentialsConfig, verifyQaCredentials } from "@/lib/auth/qa-credentials";
+import { authAdapter, findOrCreateGoogleUser, findQaAccountUser } from "@/server/db/auth";
+import { getQaAccountEmail } from "@/lib/auth/qa-account";
 import { isInternalAnalyticsEmail } from "@/lib/monitoring/posthog-context";
+import { isSiteOwnerEmail } from "@/lib/logic/site-owner";
 
 const googleClient = new OAuth2Client();
-const qaCredentialsConfig = getQaCredentialsConfig();
+const qaAccountEmail = getQaAccountEmail();
 
 export const config = {
   secret: process.env.AUTH_SECRET,
@@ -72,24 +73,19 @@ export const config = {
         }
       },
     }),
-    ...(qaCredentialsConfig
+    ...(qaAccountEmail
       ? [
           Credentials({
-            id: "qa-credentials",
-            name: "QA credentials",
-            credentials: {
-              email: { label: "Email", type: "email" },
-              password: { label: "Password", type: "password" },
-            },
-            async authorize(creds) {
-              const email = typeof creds?.email === "string" ? creds.email : "";
-              const password = typeof creds?.password === "string" ? creds.password : "";
+            id: "qa-bootstrap",
+            name: "QA browser",
+            credentials: {},
+            async authorize() {
+              const moderators = String(process.env.HOMEBREW_MODERATOR_EMAILS ?? "")
+                .split(",").some((email) => email.trim().toLowerCase() === qaAccountEmail);
+              if (moderators || isSiteOwnerEmail(qaAccountEmail)) return null;
 
-              if (!verifyQaCredentials(qaCredentialsConfig, email, password)) {
-                return null;
-              }
-
-              const user = await findOrCreateQaCredentialsUser(qaCredentialsConfig.email);
+              const user = await findQaAccountUser(qaAccountEmail);
+              if (!user) return null;
               return {
                 id: String(user.id),
                 email: user.email,
