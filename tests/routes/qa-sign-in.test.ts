@@ -5,7 +5,7 @@ vi.mock("@/lib/auth", () => ({ auth: vi.fn(), signIn: vi.fn() }));
 import { auth, signIn } from "@/lib/auth";
 import { GET } from "@/app/qa-sign-in/route";
 
-const request = () => new Request("https://char.holota.family/qa-sign-in");
+const request = () => new Request("https://0.0.0.0:3000/qa-sign-in", { headers: { host: "char.holota.family" } });
 
 describe("GET /qa-sign-in", () => {
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe("GET /qa-sign-in", () => {
 
     expect(signIn).toHaveBeenCalledWith("qa-bootstrap", { redirectTo: "/char", redirect: false });
     expect(response.status).toBe(307);
-    expect(response.headers.get("location")).toBe("https://char.holota.family/char");
+    expect(response.headers.get("location")).toBe("/char");
     expect(response.headers.get("x-robots-tag")).toBe("noindex, nofollow");
   });
 
@@ -31,7 +31,7 @@ describe("GET /qa-sign-in", () => {
 
     const response = await GET(request());
 
-    expect(response.headers.get("location")).toBe("https://char.holota.family/char");
+    expect(response.headers.get("location")).toBe("/char");
     expect(signIn).not.toHaveBeenCalled();
   });
 
@@ -49,7 +49,7 @@ describe("GET /qa-sign-in", () => {
 
     const response = await GET(request());
 
-    expect(response.headers.get("location")).toBe("https://char.holota.family/char");
+    expect(response.headers.get("location")).toBe("/char");
     expect(signIn).not.toHaveBeenCalled();
   });
 

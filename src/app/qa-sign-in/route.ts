@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { auth, signIn } from "@/lib/auth";
 import { getQaAccountEmail } from "@/lib/auth/qa-account";
 
@@ -6,9 +5,7 @@ export const runtime = "nodejs";
 
 export async function GET(request: Request) {
   const redirectToChar = () => {
-    const redirect = NextResponse.redirect(new URL("/char", request.url));
-    redirect.headers.set("x-robots-tag", "noindex, nofollow");
-    return redirect;
+    return new Response(null, { status: 307, headers: { location: "/char", "x-robots-tag": "noindex, nofollow" } });
   };
 
   const session = await auth();
