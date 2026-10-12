@@ -724,7 +724,7 @@ export const ASIForm = (
                         ))
                       );
 
-                    const isDisabled = lockOrigin || (!isSelected && isMaxReached) || uniqueDisabled;
+                    const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
 
                     return (
                       <Button

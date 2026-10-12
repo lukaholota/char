@@ -68,6 +68,20 @@ describe("ready preset validation", () => {
     expect(isSavedPresetValid({ ...draft, expertiseSchema: { expertises: ["STEALTH", "ARCANA"] } }, draft, options)).toBe(false);
     expect(isSavedPresetValid({ ...draft, expertiseSchema: { expertises: ["STEALTH", "PERSUASION"] } }, draft, options)).toBe(true);
   });
+  it("lets the player move flexible racial bonuses but keeps the race's groups and counts", () => {
+    const { draft, options } = readPreset("rogue-inquisitive-2014");
+    const [group, ...rest] = draft.racialBonusChoiceSchema!.tashaChoices;
+    const moved = { ...group, selectedAbilities: (["STR", "DEX", "CON", "INT", "WIS", "CHA"] as const).filter((ability) => !group.selectedAbilities.includes(ability)).slice(0, group.choiceCount) };
+    const withMoved = { ...draft, racialBonusChoiceSchema: { ...draft.racialBonusChoiceSchema!, tashaChoices: [moved, ...rest] } };
+    expect(isSavedPresetValid(withMoved, draft, options)).toBe(true);
+    expect(isSavedPresetCompatible(withMoved, draft)).toBe(true);
+    const repeated = { ...moved, selectedAbilities: Array(group.choiceCount).fill(moved.selectedAbilities[0]) };
+    const withRepeat = { ...draft, racialBonusChoiceSchema: { ...draft.racialBonusChoiceSchema!, tashaChoices: [repeated, ...rest] } };
+    expect(isSavedPresetValid(withRepeat, draft, options)).toBe(group.choiceCount === 1);
+    const withoutGroup = { ...draft, racialBonusChoiceSchema: { ...draft.racialBonusChoiceSchema!, tashaChoices: rest } };
+    expect(isSavedPresetCompatible(withoutGroup, draft)).toBe(false);
+  });
+
   it("rejects class, edition, subrace, fighting style and language drift", () => {
     const { draft, options } = readPreset("fighter-champion-shield-2014");
     for (const changed of [{ ...draft, classId: 3 }, { ...draft, ruleset: "RULES_2024" as const }, { ...draft, subraceId: 66 }, { ...draft, classChoiceSelections: {} }, { ...draft, languagesSchema: { languages: ["ELVISH"] } }]) {

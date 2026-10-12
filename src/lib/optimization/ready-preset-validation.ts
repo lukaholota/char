@@ -18,7 +18,7 @@ export function isSavedPresetValid(draft: Partial<PersFormData>, expected: PersF
     && countRemainingBuildPoints(current.asi) >= 0
     && isSameChoiceMap(current.featChoiceSelections, expected.featChoiceSelections)
     && areChoiceGroupsValid(current, expected, options)
-    && JSON.stringify(current.racialBonusChoiceSchema) === JSON.stringify(expected.racialBonusChoiceSchema)
+    && hasSameRacialChoiceGroups(current.racialBonusChoiceSchema, expected.racialBonusChoiceSchema)
     && JSON.stringify(current.backgroundCustomization?.tools ?? null) === JSON.stringify(expected.backgroundCustomization?.tools ?? null)
     && arePresetSkillsValid(current, expected, options)
     && hasDistinctChoices(current.languagesSchema?.languages ?? [], options.languageCount, options.languages)
@@ -39,8 +39,18 @@ export function isSavedPresetCompatible(draft: Partial<PersFormData>, expected: 
   return fixedFields.every((key) => (draft[key] ?? undefined) === (expected[key] ?? undefined))
     && sections.every((key) => !expected[key] || !!draft[key])
     && isSameChoiceMap(parsed.data.featChoiceSelections, expected.featChoiceSelections)
-    && JSON.stringify(draft.racialBonusChoiceSchema) === JSON.stringify(expected.racialBonusChoiceSchema)
+    && hasSameRacialChoiceGroups(draft.racialBonusChoiceSchema, expected.racialBonusChoiceSchema)
     && JSON.stringify(draft.backgroundCustomization?.tools ?? null) === JSON.stringify(expected.backgroundCustomization?.tools ?? null);
+}
+
+type RacialChoices = PersFormData["racialBonusChoiceSchema"];
+
+function hasSameRacialChoiceGroups(actual: RacialChoices, expected: RacialChoices): boolean {
+  const listGroups = (choices: RacialChoices) => [...(choices?.basicChoices ?? []), ...(choices?.tashaChoices ?? [])];
+  const describeShape = (choices: RacialChoices) => JSON.stringify([choices?.basicChoices ?? [], choices?.tashaChoices ?? []]
+    .map((groups) => groups.map((group) => [group.groupIndex, group.choiceCount])));
+  return describeShape(actual) === describeShape(expected)
+    && listGroups(actual).every((group) => new Set(group.selectedAbilities).size === group.selectedAbilities.length);
 }
 
 function areChoiceGroupsValid(current: PersFormData, expected: PersFormData, options: ReadyPresetOptions): boolean {
