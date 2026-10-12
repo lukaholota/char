@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Scale } from "lucide-react";
 import { useScrollToUrlHash } from "@/hooks/useScrollToUrlHash";
 import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
 import { useRpgbotArticleReading } from "@/lib/monitoring/use-rpgbot-article-reading";
@@ -85,10 +84,7 @@ function ArticleHeaderCard({ article, revision, sourceRevision, sourceUrl, is202
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl backdrop-blur-xl md:p-8">
       <div className="space-y-5">
         <div className="flex items-start gap-4 sm:items-center">
-          <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border shadow-lg sm:hidden", accent.border, accent.fill, accent.text)}>
-            <Scale className="h-6 w-6" />
-          </div>
-          <AnalystAvatar className="hidden sm:block" />
+          <AnalystAvatar className="h-16 w-16 sm:h-24 sm:w-24" />
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2.5">
               <h1 className="font-rpg-display text-3xl tracking-wide text-white sm:text-4xl">{article.titleUk}</h1>
