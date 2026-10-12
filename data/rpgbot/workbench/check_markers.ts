@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { splitGlossaryMarkers, type GlossarySegment } from "/Users/luka/Documents/code/spells.holota.family/src/lib/refs/glossary-marker";
+import { splitGlossaryMarkers, type GlossarySegment } from "@/lib/refs/glossary-marker";
 
 const fragments: Record<string, string> = JSON.parse(readFileSync(process.argv[2], "utf-8"));
 const wordCount = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
