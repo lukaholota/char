@@ -824,6 +824,7 @@ function prepareCharacterWrite(
   // 2. Prepare Equipment
   const weaponsToCreate: { weaponId: number }[] = [];
   const armorsToCreate: { armorId: number }[] = [];
+  let wearsShield = false;
   const customEquipmentLines: string[] = [];
 
   let startingMoney = emptyPurse();
@@ -852,7 +853,8 @@ function prepareCharacterWrite(
                     const qty = Number.isFinite(opt.quantity) ? Math.max(1, Math.trunc(opt.quantity)) : 1;
                     for (let i = 0; i < qty; i++) weaponsToCreate.push({ weaponId: opt.weaponId });
                   }
-                  if (opt.armorId) armorsToCreate.push({ armorId: opt.armorId });
+                  if (opt.armor?.armorType === "SHIELD") wearsShield = true;
+                  else if (opt.armorId) armorsToCreate.push({ armorId: opt.armorId });
                   if (typeof opt.item === "string" && opt.item.trim()) {
                     const qty = Number.isFinite(opt.quantity) ? opt.quantity : 1;
                     takeStartingItems([{ name: opt.item, quantity: qty }]);
@@ -1075,6 +1077,7 @@ function prepareCharacterWrite(
         currentPactSlots,
 
         raceStaticAcBonus: initialRaceStaticAcBonus,
+        wearsShield,
 
         customLanguagesKnown,
         customProficiencies,

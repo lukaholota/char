@@ -88,7 +88,7 @@ export async function loadCreationContent(data: PersFormData) {
   const equipmentOptions = selectedEquipmentOptionIds.length
     ? await prisma.classStartingEquipmentOption.findMany({
         where: { optionId: { in: selectedEquipmentOptionIds } },
-        include: { equipmentPack: true },
+        include: { equipmentPack: true, armor: { select: { armorType: true } } },
       })
     : [];
 
